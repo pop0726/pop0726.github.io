@@ -1,0 +1,23 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="bg">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9">　　全局描述符表用于存放系统程序的段描述符、门描述符和局部描述符表的段描述符以及段选择符。每个系统只有一个全局描述符表。局部描述符表是独立于全局描述符表的，存放某个任务拥有的段描述符或多个任务的描述符。系统可以拥有一个或几个局部描述符表，可以为每个任务定义一个描述符表，也可以多个任务共享一个描述符表。每个局部描述符表的段选择符和段描述符必须存放在全局描述符中。全局描述符表和局部描述符表的基地址由处理器的全局描述符表寄存器和局部描述符表寄存器给出。在后面的“段描述符表”中将对有关内容做更详细讨论。<br>
+      　　在2.2.2节中讲过，32位处理器有6个段寄存器：代码段CS、数据段DS、堆栈段SS和3个附加数据段ES、FS和GS。一个程序可以拥有多个段，在运行程序之前，必须先给它分配地址，加载相应的段寄存器。图5-20 
+      是段寄存器所表示的含义。<br>
+      <img src="../../../images/chap5/p5_3_2_1.gif"><br>
+      　　　　　　图5-20 段寄存器<br>
+      　　 如图5-20所示，在80386以上处理器中，段寄存器的高13位是段描述符索引，即段描述符在描述符表中的偏移量。D2位是表指示器TI，用于区分段描述符索引是指向全局描述符表还是局部描述符表，0为全局描述符表，1为局部描述符表。D1、D0是请求特权级别RPL。RPL从最高级别0到最低级别3。<br> 
+    </td>
+  </tr>
+</table>
+</body>
+</html>

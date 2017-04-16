@@ -1,0 +1,89 @@
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+<STYLE TYPE="text/css">
+<!--
+BODY {background-image: URL(../../../../image/index/bg.gif);
+background-position: right;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr> 
+    <td class="text"> 　　（1）VRML的特点<br>
+      　　(a)是造型语言, 可描述3D场景。<br>
+      　　(b)用户可进入VRML建立的世界，去探索它。<br>
+      　　(c)VRML建立的世界是交互的，受用户控制。<br>
+      　　(d)把2D，3D物体、动画、多媒体效果混合于一体。<br>
+      　　(e)平台无关，可在PC或SGI上浏览。<br>
+      　　(f)基于Web，可建立三维可视化服务器。<br>
+      　　(g)着色不如OpenGL快。<br>
+      　　(h)没有底层控制。<br>
+      　　(j)有限的界面。<br>
+      　　（2）VRML的概念与实例<br>
+      　　VR世界中的坐标系：X轴指向屏幕右侧，Y轴指向屏幕上方，Z轴指向观察者。<br>
+      　　VRML程序是解释执行，实时建模着色的文本程序。它的两个要点是：<br>
+      　　①节点(node):构成虚拟世界的基本要素， <br>
+      　　②路由(route)：节点间传送信息的途径。<br>
+      　　VRML文件都是扩展名WRL的文本文件，或扩展名WRZ（压缩格式）的二进制文件。它一般包括如下四部分： <br>
+      　　①文件头：位于首行，提供版本信息。如：# VRML V2.0 utf8。<br>
+      　　②注释：以#开始的一段文字。<br>
+      　　③节点：场景信息的单位。可以描述造型，灯光，声音等。如：Cylinder{…}描述一个圆柱体。<br>
+      　　④域值：域用于描述及改变节点的属性，值反映域的大小。如：Cylinder{ height 2.0 radius 1.5 } 中，height（高度）和radius（半径）是域，2.0和1.5是值。<br>
+      <span class="text">　　（3）VRML的语言结构<br>
+      　　VRML的基础，是一个利用HTIP协议传输数据的全球网，以及一个SGI设计的Open Inventor文件格式。VRML是标准语言，与平台无关，易扩展，基于低带宽的网络连接。用户可在虚拟场景中漫游，还可用超链接（hyperlink）到达新的三维世界。<br>
+      　　(a)节点（node）是描述三维场景的图形对象。<br>
+      　　一个场景由具有层次结构的多个节点组成。共有50多个节点，定义三维场景。<br>
+      　　一个节点有多个域(field)。域名、类型及缺省值都有规定。如圆柱体节点。</span><span class="text"><br>
+      　Cylinder {<br>
+      　　field SFBool bottom TRUE<br>
+      　　field SFFLoat height 2<br>
+      　　field SFFLoat radius 1<br>
+      　　field SFBool side TRUE<br>
+      　　field SFBool top TRUE<br>
+      　　}<br>
+      　　定义的圆柱体，高度为2，半径为1，具有下底面，有圆柱侧面，有上顶面。<br>
+      <br>
+      　　(b)节点有各种类型。</span><span class="text"><br>
+      　　形状（shape）节点：定义物体形状。<br>
+      　　基本形状(Primitive)节点：是标准积木块，如球。<br>
+      　　外表（Appearance）节点：定义外观，如色彩、纹理。<br>
+      　　变换(Transformation)节点。<br>
+      　　照相机节点。<br>
+      　　　光学节点。<br>
+      　　超链接节点：包括WWWInline和WWW Anchor。<br>
+      　　WWW Inline节点：支持集成不同文件或URL的虚拟世界。<br>
+      　　WWW Anchor节点：指定到新的URL的连接。<br>
+      <br>
+      　　(c)传感器(Sensor)节点是一类特殊的节点。</span><span class="text"><br>
+      　　包括七种节点： Cylinder Sensor, Plane Sensor, Time Sensor, Touch Sensor, Visibility 
+      Sensor, Proximity Sensor。<br>
+      　　Proximity Sensor{<br>
+      　　　exposed Field SFVec3f center 0，0，0<br>
+      　　　exposed Field SFVee3f size 0，0，0<br>
+      　　　exposed Field SFBool enabled TRUE<br>
+      　　　eventout SFBool isActive<br>
+      　　　eventou SFVec3f position-changed <br>
+      　　　eventout SFRotation orientation-changed<br>
+      　　　eventout SFTime enter Time<br>
+      　　　eventout SFTime exit Time<br>
+      　　　}<br>
+      　　这时接近传感器节点。当用户接近、退出空间，或在空间移动时，会产生事件。Center和Size定义长方体，分别用三个数字定义长方体的中心点三维坐标和三维尺寸。Enabled域的值为TRUE表示允许工作。进入退出长方体空间时发生isActive, 
+      enter Time和exit Time事件。这些事件应该为对于接近的响应行为，进入时间和推出时间。也可以利用position-changed和orientation-changed，改变位置和方向。<br>
+      <br>
+      　　(d)描述符（Script）节点，内插器(Interpolator) 节点：<br>
+      Script是Java描述符语言的子集，同时由Java 的内置对象支持VRML数据类型。 Script分析输入，由输出改变世界。Interpolator是内置的动作机制，对数据内插，产生动画。<br>
+      <br>
+      　　(e)声音（Sound）节点描述声音定位和空间效果。 </span><span class="text"><br>
+      　　声音定位在一点，以球或椭圆形发射。域Intensity调节音量。域 Priority是占用声道的优先权。</span> </td>
+  </tr>
+</table>
+</body>
+</html>

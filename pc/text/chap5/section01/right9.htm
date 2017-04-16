@@ -1,0 +1,32 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="bg">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9"> 　　直接映射把主存的每一块分别映射到某一个固定可用的Cache行中。而且是主存中的每一块只能被装入固定的某一个Cache行中。它们之间有如下的映射关系：<br>
+      Cache行号 = 主存块号 mod Cache行数 <br>
+      　　mod在这里是取余数的意思。主存的块号除以Cache的总行数，得到的余数就是这一块主存在Cache中对应的块号。也就是说如果要把这块主存中的内容读入到Cache中，只能复制到这块Cache行，而不能复制到其他行。通过这个映射公式，主存块和Cache行之间的映射关系就可以建立了。<br>
+      　　图5-4表示了直接映射Cache的组织结构。为了实现映射关系，将主存储器的s（24）位地址分为3个域，字域w、行域r和标记域s-r。<br>
+      　　字域w由2位表示，用来选择数据块（或Cache行）中的字节，数据块与Cache行大小相同，都是4个字节，通过字域的情况可以得知该地址位于数据块中第几个字节；<br>
+      　　行域r等于Cache行的数目，由14位表示，用于选择Cache行的行号，采用主存地址的一部分作为Cache行行号的办法可以形成主存的每一块到Cache行的唯一映射；<br>
+      　　剩余的8位地址位为标记域s-r，标记域正好和Cache中每行的标记位相对应，当数据块从主存中读出被装入与行域的指示相一致的Cache行时，必须给该数据块做标记，用来区别从其他主存地址取出也能够装入该Cache行的数据块的数据。主存分为B0、B1…Bj 
+      …B2s-1，一共4M个块，Cache包含L0、L1…Li…L2r-1，共16K个行。不难看出，根据这种映射关系，每256个主存块对应一个Cache行。主存块B0、B2r…B2s-2r只可能被装入Cache的L0行，B1、B2r+1…B2s-2r+1块只可能被装入L1行…，而B2r-1、B2*2r-1…B2s-1只可能被装入L2r-1行。不难看出这256个主存块的标记域是不同的，因此不会混淆。 
+      <br>
+      <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0" width="390" height="480">
+        <param name="movie" value="../../../flash/p5_1_2_2.swf">
+        <param name="quality" value="high">
+        <embed src="../../../flash/p5_1_2_2.swf"  quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="390" height="480">
+        </embed>
+      </object> <br>
+      　　　　　图5-4直接映射Cache组织 </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" class="bg">
+<table width="100%" border="0" cellspacing="2" cellpadding="2">
+  <tr>
+    <td class="pt9" height="53"> 　 <br>
+      　　◆BIST（Built-In Self-Test）： 该寄存器由主设备和目标设备实现。如果设备提供内置自检(BIST)功能，必须按照图6-33 
+      所示实现BIST寄存器，表6-15 描述了BIST每一位的功能。如果设备不支持BIST，寄存器在读操作时返回0。<br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9">
+        <tr>
+          <td height="26"> 
+            <div align="center"><b>图 6-33</b> BIST寄存器位的分配<br>
+              <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0" width="320" height="180">
+                <param name="movie" value="../../../flash/p6_3_6_16.swf">
+                <param name="quality" value="high">
+				
+                <embed src="../../../flash/p6_3_6_16.swf"  quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="320" height="180"></embed></object>
+            </div>
+          </td>
+        </tr>
+      </table>
+      　
+      <div align="center"><b>表 6-15 </b>BIST寄存器位分配 <br>
+      </div>
+      <table width="90%" border="1" cellspacing="0" cellpadding="0" class="pt9" align="center">
+        <tr> 
+          <td width="15%"> 
+            <div align="center">位</div>
+          </td>
+          <td width="85%">
+            <div align="center">功 能</div>
+          </td>
+        </tr>
+        <tr> 
+          <td width="15%"> 
+            <div align="center">3∶0 </div>
+          </td>
+          <td width="85%">完成代码，0值表示成功完成，非0值表示设备指定的错误。</td>
+        </tr>
+        <tr> 
+          <td width="15%"> 
+            <div align="center">5∶4 </div>
+          </td>
+          <td width="85%">保留。</td>
+        </tr>
+        <tr> 
+          <td width="15%"> 
+            <div align="center">6 </div>
+          </td>
+          <td width="85%">起动BIST。向这个位写入1起动设备的BIST。在完成时设备自动复位这一位。如果BIST不能在两秒内完成，软件应该使设备测试失败。</td>
+        </tr>
+        <tr> 
+          <td width="15%"> 
+            <div align="center">7</div>
+          </td>
+          <td width="85%">BIST能力。如果设备提供了BIST功能，返回1；否则，就返回0。</td>
+        </tr>
+      </table>
+      <br>
+     
+    </td>
+  </tr>
+</table>
+</body>
+</html>

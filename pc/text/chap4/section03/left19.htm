@@ -1,0 +1,21 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9">　　和外设连接的信号，包括串行数据发送、串行数据接收信号以及两对和外设的联络信号。 为了叙述方便，通常把CPU一方称作数据终端，把调制/解调或其它外设称作数据设备。<br>
+      ・ TXD：输出，串行数据发送引脚。<br>
+      ・ RXD：输入，串行数据接收引脚。<br>
+      ・ RTS#: 输出，数据终端请求发送。RTS#为低，表示CPU准备好发送数据。是8251A送往外设的信号，低电平时有效，CPU可以通过编程命令寄存器的RTS位，使RTS#引脚输出低电平，表示CPU请求发送数据。<br>
+      ・ CTS#: 输入，数据设备清除请求发送（允许发送）信号，该信号来于外设，和RTS#组成一对联络信号，是对RTS#的响应，表示外设准备好，允许CPU发送数据。当CTS有效时，8251A才能向外设发送数据。<br>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

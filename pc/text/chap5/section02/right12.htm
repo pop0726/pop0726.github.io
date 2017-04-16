@@ -1,0 +1,20 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="bg">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9">　　在使用多级缓存的系统中，有可能一个数据有多个副本，一个被修改后，其他与之相关联的数据都变为无效。我们来分析这样的情况，假设一行新的数据刚从存储器读出，这行数据的备份也在L2 
+      Cache和存储器中存在。因此在L1 Cache的目录项中，将这行数据标记为有效数据。假设，紧接着执行单元向同一个目标地址进行写操作，L1 Cache在它的目录中查找发现目标行存在于L1中，L1 
+      Cache就修改这行数据并且更新相关的目录项用来反映这一Cache行被修改的状态。之后，如果另一个总线主设备想从存储器的同一行读取数据，L2 Cache监听这个地址，但L2并不知道L1 
+      Cache已经修改了这一行。L2查找它的目录，产生一个未修改行的命中，认为该数据有效。于是L2不做其他动作，因为L2以为那个总线主将会从存储器接收到有效的数据。实际上那个总线主却从存储器读取了过时的数据。这就是由于总线的设备之间没有合理的沟通导致各层存储器数据不一致情况。</td>
+  </tr>
+</table>
+</body>
+</html>

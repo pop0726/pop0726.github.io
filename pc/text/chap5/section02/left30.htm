@@ -1,0 +1,18 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9"> 　　Cache访问端口将存储器地址分为三部分：存储器页面地址、行地址和指示双字的地址。从内部数据Cache控制器的角度把流水线U和V的地址解释为如图5-12 
+      的结构。对于U流水线， 括弧中的2A1指示数据所在存储器页面地址，2表示存储器页面中的行号，5表示行中的双字序。对于V流水线，同样，2A1指示数据所在存储器页面地址，4表示存储器页面中的行号，3表示行中的双字序。<br> 　　查找时首先根据U和V流水线要访问的存储器行地址02和04寻找第2和第4个目录项，它们的状态位显示0路和1路中的4行数据都是有效的，第0路第2个目录项记录的页面地址002A1和流水线U要访问的页面地址相同，第0路第4个目录项记录的页面地址002A1和流水线V要访问的页面地址也相同，说明内部Cache 
+      命中。之后，U、V流水线分别按照端口的双字域DW所指示的地址05和03读取Cache行中的字。完成读操作以后，LRU位的状态也要随之更新。原来，第1路的第2行为最近最少使用行，目前仍然保持不变，由于这次对第0路的第4行进行了读操作，第4行的LRU位应该更新为1。</td>
+  </tr>
+</table>
+</body>
+</html>

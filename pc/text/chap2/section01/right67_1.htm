@@ -1,0 +1,21 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="bg">
+<table width="100%" border="0" cellspacing="2" cellpadding="1">
+  <tr> 
+    <td class="pt9">　　在进入中断处理程序后，如果又遇到NMI管脚上又非屏蔽中断请求，则CPU仍然能立即响应。事实上，如果在中断处理程序内部将中断允许标志IF设置为1，那么在中断处理程序的执行过程中，CPU还能响应INTR上的可屏蔽中断请求。中断处理程序的功能是各种各样的，但是一般都必须包括以下一些基本内容：<br>
+      　　开始，需要进一步保护现场，即将CPU某些寄存器的内容推入堆栈。与前面的保存标志寄存器和保存断点不一样，只有那些中断处理程序将要用到的寄存器需要保存。<br>
+      　　设置IF标志，取决于是否允许中断嵌套。<br>
+      　　在中断处理程序主体模块之后，用一系列弹出堆栈指令，恢复中断进入时压入堆栈的寄存器内容。<br>
+      　　最后是中断返回指令。</td>
+  </tr>
+</table>
+</body>
+</html>

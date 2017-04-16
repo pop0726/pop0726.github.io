@@ -1,0 +1,31 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="bg">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td height="64" class="pt9">　　SFNM（D4）为1，选择8259A工作在特殊的全嵌套方式。当主8259A正在处理来自从8259A的一个中断时，允许响应来自同一个从8259A的另一个更高优先权中断请求。<br>
+      　　BUF（D3）和M／S#（D2）一起使用，BUF为1表示选择缓冲操作模式，为0表示非缓冲模式。在缓冲模式下，SP#/EN#引脚为数据驱动器使能信号，因此需要由M／S#位定义8259A是主片还是从片，M／S#位为1表示主片，为0表示从片。<br>
+      AEOI（D1）为1，选择采用自动结束中断方式（在第2个中断应答周期，自动置ISRi位为1）。<br>
+      　　在基于8086~Pentium系列微处理器的系统当中，需要编程8259A的ICW4。ICW4的D0位必须为1，表示系统的CPU为8086以上的微处理器（在8085微处理器的系统中不须编程ICW4）。<br>
+      　　D7~D5：虽然ICW1的D0（IC4）位指出了初始化命令中是否存在ICW4，但是ICW4还是用D7~D5位的三个0作为它的标识位。<br>
+      　　D4：SFNM（D4）为1，选择8259A工作在特殊的全嵌套方式。当主8259A正在处理来自从8259A的一个中断时，允许响应来自同一个从8259A的另一个更高优先权中断请求。<br>
+      　　D3、D2：BUF（D3）和M／S#（D2）一起使用，BUF为1表示选择缓冲操作模式，为0表示非缓冲模式。在缓冲模式下，SP#/EN#引脚为数据驱动器使能信号，因此需要由M／S#位定义8259A是主片还是从片，M／S#位为1表示主片，为0表示从片。<br>
+      　　D1：AEOI（D1）为1，选择采用自动结束中断方式（在第2个中断应答周期，自动置ISRi位为1）。<br>
+      　　例如，要对一个80486系统的8259A进行初始化，假定系统中只有一个8259A，希望中断请求为电平有效方式、优先级控制为全嵌套方式并选择自动结束中断方式。典型的初始化命令为：<br>
+      　　MOV AL，13H ； <br>
+      　　OUT x0，AL ；ICW1<br>
+      　　MOV AL，21H ；<br>
+      　　OUT x2，AL ；ICW2<br>
+      　　MOV AL，07H ；<br>
+      　　OUT x2，AL ；ICW4</td>
+  </tr>
+</table>
+</body>
+</html>

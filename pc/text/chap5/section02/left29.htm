@@ -1,0 +1,22 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9"> <b>5.2.3 Pentium 的数据 Cache 访问</b><br>
+      　　在基于Pentium微计算机系统中，除了处理器内部的L1级Cache，又增加了L2级Cache。内部Cache、L2 cache和DRAM组成了Pentium机的主存储器系统。本节将通过对存储器访问中的不同情况，分析Cache的状态，Cache控制器的操作以及有关时序。<br>
+      <b>1、内部Cache 命中</b><br>
+      　　我们先来分析处理器在U流水线执行MOV AX，[1056H]；在V流水线执行MOV BX，[108CH]指令的情况。<br>
+      　　假设数据段的起始地址为002A0000H。也就是说CPU要将存在存储器002A1056H的字读入AX，将在002A108CH的字读入BX。又假设执行指令之前L1 
+      Cache的目录状态如表5-4 所示。译码以后，CPU首先通过L1 Cache的目录在L1 Cache中查找要寻址存储单元的副本。L1 Cache结构如图5-13 
+      。三个访问端口分别用做U流水线、V流水线的查找以及对其他处理器的监听。 </td>
+  </tr>
+</table>
+</body>
+</html>

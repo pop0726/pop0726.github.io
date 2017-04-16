@@ -1,0 +1,19 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td height="52" class="pt9"><strong>　OCW2</strong><br>
+      　　OCW2用于设置循环优先方式以及特殊循环优先方式的中断优先级。还用来选择并实现一般中断结束方式和特殊中断结束方式。D4和D3是OCW2的标识位，D4为0，表示该命令字为操作命令字；D3为0，是OCW2的标志，用来区别OCW3。D7位R为1，表示循环优先方式有效。D6位SL（set 
+      level）是级别设定使能位。R和SL位均为1时，选择特殊循环优先方式。SL和D2~D0位的L2、L1、L0结合起来使用，SL为1时L2、L1、L0的编码指定了8个中断请求之一。在特殊循环优先方式下，被指定序号的中断优先级最低。D5位EOI只用在当ICW4未选择AEOI方式的情况下，如果选择了AEOI，则中断自动复位正在服务位和中断请求位，并且不修改优先权，否则，可以通过EOI设置一般结束中断方式或与SL结合起来选择特殊中断结束方式。在EOI和SL均为1时，同样需要L2~L1的配合，为特殊中断结束方式指定操作对象，即指定将要对哪一序号中断的正在服务和请求触发器清零。下面用表格（表3-4 
+      ）对OCW2的使用做一个总结。</td>
+  </tr>
+</table>
+</body>
+</html>

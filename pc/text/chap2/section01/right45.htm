@@ -1,0 +1,27 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" class="bg">
+<table width="100%" border="0" cellspacing="2" cellpadding="2">
+  <tr> 
+    <td class="pt9"><img src="../../../images/chap2/p2_1_3_3.gif" width="372" height="419"><br>
+      　　　　　　　　（a）产生不同个数等待状态电路 <br>
+      　　　
+      <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0" width="360" height="255">
+        <param name="movie" value="../../../flash/2_11.swf">
+        <param name="quality" value="high">
+		
+        <embed src="../../../flash/2_11.swf"  quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="360" height="255"></embed></object>
+      <br>
+      　　等待状态产生电路包含了一个8位串行移位寄存器（74LS164）和一些门电路。移位寄存器将逻辑0移位一个或多个时钟周期，并从移位寄存器任选的一个Qi输出送到8284A的RDY1输入。通过选择跳线，电路可以输出不同数目的等待状态。移位寄存器是如何被清零回到它起始状态的呢？当RD<sup>#</sup>、WR<sup>#</sup>、和INTA<sup>#</sup>引脚均为逻辑1时，寄存器输出被强制置为低电平。这3个信号保持高电平一直到T2状态。在T2中RD<sup>#</sup>变低，CLR变为高，清零信号被撤除。CLK在T2的上升沿将移位寄存器QA置1，QA由低变高。由QA连接或门输出，将不产生等待信号。在T3的上升进沿行第一次移位。如果需要一个等待，则将输出QB接到或门；如果需要两个等待，则将输出QC接到或门。依此类推。<br>
+      　　图2-19的电路并不总是产生等待状态的，只有那些需要插入等待状态的存储器件被访问时才使能等待状态。如果产生一个需要插入等待状态的存储器件片选择信号，则该器件被选中，它的片选CS#同时使移位寄存器产生的等待状态有效。</td>
+  </tr>
+</table>
+</body>
+</html>

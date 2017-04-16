@@ -1,0 +1,42 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" class="bg">
+<table width="100%" border="0" cellspacing="2" cellpadding="2">
+  <tr>
+    <td class="pt9" height="177"> 　 <br>
+      　 ◆ IO基地址寄存器：图6-36 是IO基地址寄存器，第位0返回1，表示该寄存器连接一个IO译码器，位1保留并返回0，位［31∶2］是基地址单元用于：确定所需要的IO空间容量以及设置IO的起始地址。PC兼容机中，Intel 
+      x86处理器不能生成64KB以上IO地址，可将IO基地址寄存器的高16位通过硬连线置为0。然而设备始终执行全32位IO地址译码。<br>
+      <br>
+      　　◆ 扩展ROM基地址寄存器：如果设备具有设备内置ROM，或叫做扩展ROM，就要求配置这个寄存器。扩展ROM起始存储器地址和长度由配置首部区配置双字12d的扩展ROM基地址寄存器确定。系统加电时自动配置这一寄存器，首先配置软件检测这个设备的扩展ROM要求多少存储器空间，然后对ROM地址译码器编程，在不与其它冲猝的地址范围分配ROM地址。使每个设备IO和存储器译码器定位在互相排斥的地址范围。图6-37 
+      表示了扩展ROM基地址寄存器各位的定义。位0为设备ROM地址译码器使能位1有效。 (命令寄存器的存储器空间位也应置为1)。位〔10∶1〕保留。位〔31∶11〕用于指定ROM起始地址(起始于被ROM块长度整除的地址)。<br>
+      <br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9">
+        <tr> 
+          <td> 
+            <div align="center"><b>图6-37 </b>扩展ROM基地址寄存器<br>
+              <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0" width="330" height="130">
+                <param name="movie" value="../../../flash/p6_3_6_21.swf">
+                <param name="quality" value="high">
+				
+                <embed src="../../../flash/p6_3_6_21.swf"   quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="330" height="130"></embed></object>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td height="2"> 
+            <div align="center"></div>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

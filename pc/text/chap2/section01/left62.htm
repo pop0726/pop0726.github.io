@@ -1,0 +1,21 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4" >
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td height="229" valign="top" class="pt9"><strong>
+      3、内部中断</strong>
+      <br>
+      　　8086的INT n指令提供了直接调用中断处理子程序的软件手段。这种通过中断指令来使CPU执行中断处理子程序的方法就是软件中断。软件中断属于内部中断。<br>
+      　　我们在前面已经提到，在5个专用中断中，除了非屏蔽中断，其余的4个中断都是内部中断。<br>　　<strong>&#8226; 除法错中断INT 0</strong>，是当除数为0或者有符号数运算所得到的商超出规定的范围时产生的。这类中断既不是由外部硬件产生，也不是由软件指令产生，而是CPU自身产生的。<br>
+      　　<strong>&#8226; 单步中断INT 1</strong>，如果想以单步的方式调试程序，可以由调试程序来设置单步调试命令，将标志寄存器TF置为1，并用一个计数单元记录需要执行的单步中断的次数。当CPU测试到TF=1时，就进入单步中断。CPU每执行一条指令，响应一次中断，进入一次单步处理中断服务程序，在单步处理中断服务程序显示所有寄存器内容。单步执行程序直至计数单元减为0，调试程序将TF标志置为0为止。<br></td>
+  </tr>
+</table>
+</body>
+</html>

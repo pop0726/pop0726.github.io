@@ -1,0 +1,19 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9" height="13"> <b>2) 插入等待周期</b><br>
+      　　和CPU类似，当DMA连接的存储器或I/O接口速度较慢，不能满足8237A的时序要求的时候，可以通过READY引脚输入负脉冲，来插入等待周期。加在READY端的负脉冲前沿必须在S3结束（下降沿）之前TRS（us）变为有效，如果仅仅需要插入一个等待周期，那么应该在新插入的SW开始（下降沿）之后TRH（us）内使负脉冲变为无效。否则DMA将插入2个或2个以上等待周期。<b>图3-18</b> 
+      表示了8237A插入等待周期的时序。<br>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

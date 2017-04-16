@@ -1,0 +1,18 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9" height="2"> <br>
+      　　<b>图3-22</b> 是存储器到存储器传送的时序图，第一个DMA周期从S11到S14，是存储器读周期。第二个周期从S21到S24，是存储器写周期。与存储器和I/O之间的传送相同，当传送第一个字节时，S11和S21为地址周期，分时复用数据总线送出高8位地址。S12~S14、S22~S24分别为数据读和数据写周期。因此，第一个字节的存储器到存储器的传送需要8个时钟周期。而从传送第二个字节开始，在地址锁存器当中的高8位地址状态不需要变化的情况下，就不需要产生地址周期而直接进入数据传送周期，这样，每传送一个字节需要6个S状态。<br>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

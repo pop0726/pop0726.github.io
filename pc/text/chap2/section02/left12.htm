@@ -1,0 +1,21 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4" >
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9"><strong>
+      　4）指令预取器</strong><br>
+      　　指令预取器将所需要的指令从代码Cache读到指令预取器，如果所需要的指令行不在代码Cache中，它启动一个总线的猝发周期，CPU从外部存储器取指进行Cache行填充操作。
+      <br>
+      　<strong>5）预取缓冲器</strong><br>
+      　　Pentium微处理器包含4个指令预取缓冲器，每两个组成一对，两对之间相互独立，指令预取器从指令Cache中取出指令，将它们顺序存放在一组预取缓冲器中，另一组缓冲器则处于空闲状态。当分支指令被预测会发生转移时，预取器将从转移目标地址开始取出指令，放入第二组空闲的预取缓冲器中。之后，预取器一直使用第二组缓冲器直到另一条分支指令被预测，再切换回第一组缓冲器。在线性地进行取指和执行指令时，预取缓冲器将一对指令送到指令译码器，两条流水线U和V中分别有一个译码器，预取器将一对指令中的第一条送U流水线，第二条送V流水线，在第一级译码器中进行指令配对的分析。</td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4" >
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="pt9"><br>
+      <strong>1）BIU<br>
+      </strong>　　BIU为EU完成全部的总线操作，根据EU的命令控制数据在CPU和存储器或I/O接口之间传送。以存储器访问为例，BIU的操作过程是这样的，BIU首先将要访问存储器的逻辑地址转换成物理地址，再从（往）物理地址对应的存储器单元读取（写入）数据；如果是读取指令，BIU从物理地址取到指令后将指令送入指令队列。上述过程是由下面的五种功能单元来实现的。<br>
+      <br>
+      <strong>&#8226; </strong>段寄存器（均为16位）<br>
+      　CS：代码段寄存器，存放程序段地址；<br>
+      　DS：数据段寄存器，存放数据段地址；<br>
+      　ES：扩展段寄存器，存放辅助数据段地址；<br>
+      　SS：堆栈段寄存器，存放堆栈段地址。<br>
+      <strong>&#8226; </strong>指令指针寄存器（16位）<br>
+      　IP寄存器用于存放程序段的偏移量。<br>
+      <strong>&#8226; </strong>地址加法器（20位）<br>
+      　地址加法器用于根据逻辑地址计算20位物理地址。<br>
+      <strong>&#8226; </strong>6字节的指令队列<br>
+      　指令队列可存放多条指令，用于指令预取。<br>
+      <strong>&#8226; </strong>总线控制电路<br>
+      　总线控制电路实现总线的控制逻辑，产生相应的控制信号。</td>
+  </tr>
+</table>
+</body>
+</html>

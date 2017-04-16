@@ -1,0 +1,24 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="10" cellpadding="2">
+  <tr>
+    <td class="pt9" height="2"> 　<b>● </b>启动者、目标和代理<br>
+      　　每个PCI猝发传送都有两个参与者：起动方和目标。起动方或总线主设备是起动传送的设备。<br>
+      <br>
+      　<b>● </b> PCI 总线时钟<br>
+      　　PCI总线上的所有活动都是和PCI时钟CLK同步的。<br>
+      <br>
+      　<b>●</b> 地址段<br>
+      　　PCI交易都是以PCI CLK1周期内的地址段开始的。在地址段，主设备通过驱动地址总线鉴别目标设备，通过驱动PCI命令/字节使能总线确定交易类型(也称为命令类型)。在地址段，主设备使FRAME#信号有效，表示总线的起始地址和命令类型有效。每个PCI目标设备必须在时钟的下一个上升沿锁存地址和命令，以便顺序译码。<br>
+      　　通过对锁存的地址和命令/字节使能信号的译码，目标设备能够确定是否被寻址以及进行的交易类型。 </td>
+  </tr>
+</table>
+</body>
+</html>

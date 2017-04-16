@@ -1,0 +1,27 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="bg">
+<table width="100%" border="0" cellspacing="2" cellpadding="2">
+  <tr> 
+    <td class="pt9">
+      　　软件中断是CPU执行INT指令或者指令执行出现错误而产生的中断，软件中断的产生过程完全和硬件无关。其中除法错中断、溢出中断是由于指令执行出现错误而产生的。INT 
+      n中断也称为指令中断。所谓非屏蔽中断，指的是中断请求不受中断允许触发器的控制，是不能被屏蔽的。而和可屏蔽中断则是中断请求受到中断允许触发器的控制，是可以被屏蔽的。<br>
+      　　前面说过，8086共有256个向量中断，可由INT n来表示，法错中断（类型0）、单步中断（类型1）、非屏蔽中断（类型2）、断点中断（类型3）、溢出中断（类型4）为5个专业中断，占据了0~4 
+      五个类型号，可屏蔽中断INTR的类型码由外设，一般由中断控制器提供。类型号的安排由操纵系统决定。既然INT n指令中断是CPU执行指令产生的中断，INT 
+      0~4是专用中断，它们之间的关系如何呢？虽然专用中断占据了0~4 五个类型号，INTR占据的中断类型号，取决于引入INTR管脚的中断源的个数。比如早期的IMB 
+      PC/XT系统中采用一片8259做中断控制器，8259一共有8个中断请求管脚可以连接8个中断源。此时INTR占据的中断类型号是08H～0FH。但是CPU还可以执行INT 
+      0~4等指令，按照指令中断的处理过程进入中断处理程序。当然，相同类型码的指令中断和专业中断被响应后，进入的是同一个中断处理程序。因此INT n 
+      指令可以用来模拟专用中断包括外部中断的中断处理过程，调试中断服务程序。<br>
+      <br>
+      </p></td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" class="bg">
+<table width="100%" border="0" cellspacing="10" cellpadding="2">
+  <tr> 
+    <td class="pt9" height="2" > 　　PCI数据的猝发传送，第一个阶段为地址段，后面跟着两个或两个以上的数据段。总线主设备在地址段发送传送的起始地址和传送类型，主设备同时令FRAME#信号有效表示地址段发送的地址和传送类型有效。在地址段，所有的目标设备都将起始地址和传送类型锁存并进行译码，译码以后确定传送的目标设备。之后进入数据段，每次传送包含几个数据段是由交易控制信号来控制和交互的。在数据段，地址段驱动的FRAME#信号继续保持有效，一直保持到本次传送的最后一个数据段开始。主设备IRDY#信号有效，表示主设备准备好，是进行数据传送的条件之一，一次猝发传送的若干个数据段中，IRDY#必须一直有效。目标设备的TRDY#信号有效，表示目标备准备好，是进行数据传送的另一个必要条件，猝发传送的所有数据段，TRDY#必须一直有效。不难看出，FRAME#和IRDY#信号同时有效，说明主设备准备好了传送除外最后数据项的数据。而FRAME#变为无效IRDY#信号仍然有效，说明主设备准备好了传送最后数据项的数据。无论是否最后数据项的数据传送，都需要TRDY#有效才能完成。<br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      　　如果主设备进行猝发传送的最后一个数据段时，FRAME#无效IRDY#有效。完成了最后一项数据的传送后，便使IRDY#无效，PCI总线返回空闲态。TRDY#自然也是无效状态。 
+    </td>
+  </tr>
+</table>
+</body>
+</html>

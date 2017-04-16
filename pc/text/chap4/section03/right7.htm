@@ -1,0 +1,25 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="bg">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9">
+      <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0" width="390" height="320">
+        <param name="movie" value="../../../flash/p4_3_1_4.swf">
+        <param name="quality" value="high">
+		
+        <embed src="../../../flash/p4_3_1_4.swf"  quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="390" height="320"></embed></object> 
+      <br>
+      　　　　　　图4-21 异步通信时数据位的检测<br>　　让我们通过一个例子来看异步通信时数据为地检测过程。图4-21 中，设定波特率因子等于16。在进行通信时，接收端以频率为1/Tc的时钟为基准，不断采样传输线状态，在检测到电平由高到低变化以后，连续采样传输信号，当采样到8个低电平以后，继续对输入信号再次采样，如仍为低电平，便确认前面那由高到低的跳变就是起始位的开始，而不是干扰信号。因为波特率因子是16，所以此后，接收端每隔16个时钟脉冲对输入线采样一次，确定信息位的状态，从而确认各个数据位以及停止位。当接收端采样到规定数目的停止位以后，就知道当前传输的帧已经结束了。传输结束后，传输线会保持在“1”状。由于异步通信是利用检测起始位和停止位来鉴别一帧字符的，因此，发送端可以在字符之间插入不等长的时间间隔。而不用担心由于间隔导致采样到错误数据。于是接收端继续监视传输线上下一次出现由1到0的跳变，重新开始采样新一帧数据。<br>
+      　　从上面的过程我们可以看出接收端在检测每个字符的开始时都要重新定位一次起始，这样，保证了每次采样对应一个数位。但是这样也并不是说就万无一失了。在接收时钟和发送时钟的频率相差太大时，会出现采样造成的接收错误，引起信息帧格式错。比如在上面的例子中，隔了16个Tc对输入线进行一次采样，如果两个时钟相差得太多，还没有等到一个字符的各个位传输完毕，两地的时钟个数就已经相差的过大，就会造成接收方漏掉某个数位或者对某个数位进行了重复采样。串行接口一般都具有检测3种错误――奇/偶校验错、覆盖错和信息帧格式错的能力。</td>
+  </tr>
+</table>
+</body>
+</html>

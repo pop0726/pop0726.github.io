@@ -1,0 +1,130 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="bg">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9">　　 在读出中断类型号之后，微处理器的动作是这样的：把读到的中断类型号做为索引，通过查找中断向量表来寻找中断服务程序的入口。这里提到一个新名词：中断向量表（interrupt 
+      vector table），实际就是一块内存区域，预先设置好，位于存储器的前1024个字节当中，地址为000000H~0003FFH。这1024个字节直观的来看被分为256份，每份4字节，叫做一个中断向量，这个4字节的中断向量包含了中断服务程序的段地址和偏移量。<br>
+      　　中断向量表中的中断向量也不尽相同。前5个中断向量在8086 ~ Pentium4的所有Intel系列微处理器中都是相同的，其他专用中断向量仅仅用在80286及向上兼容的80386、80486和Pentium 
+      ~Pentium中，与8086或8088不兼容。Intel保留了前32个中断向量作为微处理器系列专用向量，后面的224个向量由用户定义。关于前32个专用中断向量的功能，可以参见下表。<br> 
+      <br>
+      <center>
+        表3-1 Intel微处理器专用的中断类型和功能<br>
+        <table border=0 cellpadding=1 cellspacing=1 bgcolor="#000000" class="pt9">
+          <tr bgcolor="#FFFFFF"> 
+            <td width=79 align=center valign=top >中断类型</td>
+            <td width=384 align=center valign=top >功&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              能</td>
+            <td width=96 align=center valign=top >备&nbsp; 注</td>
+          </tr>
+          <tr bgcolor="#FFFFFF"> 
+            <td width=79 align=center valign=top >类型0</td>
+            <td width=384 valign=top > 除法错中断，发生在除法结果溢出或除数为零时。</td>
+            <td width=96 valign=top >&nbsp; </td>
+          </tr>
+          <tr bgcolor="#FFFFFF"> 
+            <td width=79 align=center valign=top >类型1</td>
+            <td width=384 valign=top > 单步或陷阱中断，如果陷阱标志位(TF)置位，则在每条指令执行后发生中断。</td>
+            <td width=96 valign=top >&nbsp; </td>
+          </tr>
+          <tr bgcolor="#FFFFFF"> 
+            <td width=79 align=center valign=top >类型2</td>
+            <td width=384 valign=top > 非屏蔽硬件中断，是微处理器的NMI引脚置为逻辑1引起的中断，该中断是非屏蔽的，不能被禁止。</td>
+            <td width=96 valign=top >&nbsp; </td>
+          </tr>
+          <tr bgcolor="#FFFFFF"> 
+            <td width=79 align=center valign=top >类型3</td>
+            <td width=384 valign=top > 一字节中断或断点中断，是一个特殊的单字节指令（INT3）。使用该向量访问断点中断服务程序。INT3指令常用于调试程序，设置断点。</td>
+            <td width=96 valign=top >&nbsp; </td>
+          </tr>
+          <tr bgcolor="#FFFFFF"> 
+            <td width=79 align=center valign=top >类型4</td>
+            <td width=384 valign=top > 溢出中断，INTO指令专用的向量，如果由溢出标（overflow flag, 
+              OF）出现，则INTO指令中断正在执行程序使之转向溢出处理。</td>
+            <td width=96 valign=top > 执行INTO指令的条件中断</td>
+          </tr>
+          <tr bgcolor="#FFFFFF"> 
+            <td width=79 align=center valign=top >类型5</td>
+            <td width=384 valign=top > 边界中断，将寄存器与存储器中的边界值相比较的指令。如果寄存器的内容大于或等于存储器中的第一个字，小于或等于存储器中第二个字，则不发生中断，因为寄存器的内容在边界之内。如果寄存器的内容超出边界，则发生类型5中断。</td>
+            <td width=96 valign=top > 执行BOUND指令的条件中断 </td>
+          </tr>
+          <tr bgcolor="#FFFFFF"> 
+            <td width=79 align=center valign=top >类型6</td>
+            <td width=384 valign=top > 无效操作码中断，在程序中遇到未定义的操作码时发生中断。</td>
+            <td width=96 valign=top >&nbsp; </td>
+          </tr>
+          <tr bgcolor="#FFFFFF"> 
+            <td width=79 align=center valign=top >类型7</td>
+            <td width=384 valign=top > 协处理器不存在中断，当在一个系统中未找到协处理器时发生此中断，机器状态字（machine 
+              status word, MSW）的协处理器控制位同时指示该状态。如果执行了ESC或WAIT指令且未找到协处理器，则发生类型7号异常或中断。</td>
+            <td width=96 valign=top >&nbsp; </td>
+          </tr>
+          <tr bgcolor="#FFFFFF"> 
+            <td width=79 align=center valign=top >类型8</td>
+            <td width=384 valign=top > 双错误中断，在同一指令期间发生2个独立的中断时激活此类中断。</td>
+            <td width=96 valign=top >&nbsp; </td>
+          </tr>
+          <tr bgcolor="#FFFFFF"> 
+            <td width=79 align=center valign=top >类型9</td>
+            <td width=384 valign=top > 协处理器段超限中断，如果ESC指令（协处理器操作码）的存储器操作数扩展超出偏移地址FFFFH，则发生该中断。</td>
+            <td width=96 valign=top >&nbsp; </td>
+          </tr>
+          <tr bgcolor="#FFFFFF"> 
+            <td width=79 align=center valign=top >类型10</td>
+            <td width=384 valign=top > 无效任务状态段中断，因TSS无效而发生中断，大多数情况下是由于TSS未被初始化而引起的。</td>
+            <td width=96 valign=top >&nbsp; </td>
+          </tr>
+          <tr bgcolor="#FFFFFF"> 
+            <td width=79 align=center valign=top >类型11</td>
+            <td width=384 valign=top > 段不存在中断，当描述符中的P位（P＝0）指示段不存在或无效时发生该中断。</td>
+            <td width=96 valign=top >&nbsp; </td>
+          </tr>
+          <tr bgcolor="#FFFFFF"> 
+            <td width=79 align=center valign=top >类型12</td>
+            <td width=384 valign=top > 堆栈超限中断， 堆栈段不存在或堆栈段超限。</td>
+            <td width=96 valign=top >&nbsp; </td>
+          </tr>
+          <tr bgcolor="#FFFFFF"> 
+            <td width=79 align=center valign=top >类型13</td>
+            <td width=384 valign=top > 一般性保护中断，在80286~PentiumⅡ 的保护模式系统中，如果违反了大多数保护模式，则发生此中断（这些错误在Windows中表现为一般性保护错）。</td>
+            <td width=96 valign=top >&nbsp; </td>
+          </tr>
+          <tr bgcolor="#FFFFFF"> 
+            <td width=79 align=center valign=top >类型14</td>
+            <td width=384 valign=top > 页面错误中断，在80386、80486和Pentium~PentiumⅡ微处理中，访问页面错误的存储器或代码时发生此中断</td>
+            <td width=96 valign=top >&nbsp; </td>
+          </tr>
+          <tr bgcolor="#FFFFFF"> 
+            <td width=79 align=center valign=top >类型15</td>
+            <td width=384 valign=top > 未分配</td>
+            <td width=96 valign=top >&nbsp; </td>
+          </tr>
+          <tr bgcolor="#FFFFFF"> 
+            <td width=79 align=center valign=top >类型16</td>
+            <td width=384 valign=top > 协处理器错误中断，对于80386、80486和Pentium ~PentiumⅡ微处理器的ESC或WAIT指令，发生协处理器错误（ERROR＝0＃）时发生中断。</td>
+            <td width=96 valign=top >&nbsp; </td>
+          </tr>
+          <tr bgcolor="#FFFFFF"> 
+            <td width=79 align=center valign=top >类型17</td>
+            <td width=384 valign=top > 对齐检查中断，指示字和双数据存储在奇地址存储单元（或一个双字存储在不正确的存储单元）。该中断只在80486和Pentium 
+              ~PentiumⅡ微处理器中有效。</td>
+            <td width=96 valign=top >&nbsp; </td>
+          </tr>
+          <tr bgcolor="#FFFFFF"> 
+            <td width=79 align=center valign=top>类型18</td>
+            <td width=384 valign=top > 机器检查中断，在Pentium ~PentiumⅡ微处理器中激活一个系统存储器管理模式中断。</td>
+            <td width=96 valign=top >&nbsp; </td>
+          </tr>
+        </table>
+      </center></td>
+  </tr>
+</table>
+</body>
+</html>

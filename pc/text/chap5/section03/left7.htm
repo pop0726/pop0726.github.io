@@ -1,0 +1,18 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9">　　如果第11位为1，表示该段为代码段，那么，D10~D8位又有了另外的含义，它们分别表示是否相容（C）、仅能执行或执行且可读（R）和是否已被访问（A）。所谓相容是定义一种保护机制，如果某一具有较高特权级的段被定义为相容时，当运行在较低特权级的程序执行转移，转移到较高特权级的相容段时，可以允许程序继续以当前的特权级执行。如果程序执行转移，到一个较高特权级的不相容段时，便会导致保护异常，除非该程序使用了调用门或任务门。那些需要受到保护的软件工具应该放在非相容代码段中，以免受到低特权程序和过程的破坏。第10位为1，表示相容。第9位为1表示此段为执行且可读段，那些包含常量或其他静态数据代码段需要将第9位置1。该段为代码段时第8位的意义与数据段相同，这里不再重复。<br>
+      　　如果第12位（S）为0，表示该段描述符为系统描述符。系统描述符共份为6种：局部描述符表（LDT）的段描述符、任务状态段（TSS）描述符、调用门描述符、中断门描述符、陷阱门描述符和任务门描述符（见表5-10 
+      ）。 </td>
+  </tr>
+</table>
+</body>
+</html>

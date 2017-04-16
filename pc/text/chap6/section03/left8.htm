@@ -1,0 +1,34 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="10" cellpadding="2">
+  <tr>
+    <td class="pt9" height="23"> ● 中断请求信号 <br>
+      　- INTA# o/d<br>
+      　- INTB# o/d<br>
+      　- INTC# o/d<br>
+      　- INTD# o/d <br>
+      　　INTA#、INTB#、INTC#和INTD#是PCI的4个中断请求线，需要请求中断服务的PCI代理可以利用PCI中断请求线INTA#、INTB#、INTC#或INTD#请求CPU中断。此外，设备还可以使用消息信号中断(MSI)来中断处理器正在执行的程序。<br>
+      ● 错误报告信号<br>
+      　- PERR# s/t/s<br>
+      　　校验错信号，PERR#在目标设备上为输出，在主设备上为输入和输出信号。<br>
+      　　前面我们介绍了所有PCI设备都是强制产生作用在AD[31：0]、C/BE[3：0]总线上地址和数据信号的奇偶校验信息的。接收设备将检查奇偶校验的合理性，如果PCI设备发现奇偶校验错误，则置PERR#信号有效。并且或者对错误作标记，或者致使机器运行失败。<br>
+      　　通常，一个交易的主设备在写数据段过程中监视PERR#信号，以确定目标设备是否检测到数据奇偶校验错误。当检测到奇偶校验错误时，目标设备驱动PERR#为有效。之后，主设备采取什么操作取决于系统的设计，它可以设计成对目标重试本次交易，终止本次交易或请求指定设备的中断。如果选择主设备请求中断，则必须将PCI配置状态寄存器中Master 
+      Data Parity Error（主设备数据奇偶校验错误）位置为有效。 <br>
+      　- SERR# o/d<br>
+      　　系统错信号，输出，漏极开路，该信号在同一时间内可由多个PCI代理驱动。在产生地址奇偶校验错、专用周期数据奇偶校验错及其他严重错误时，PCI设备可以驱动系统错误信号SERR#有效，SERR#被看作向系统报告严重错误的最后求助途径。通常在SERR#置为有效时，引起NMI中断。<br>
+      <br>
+      <br>
+      <br>
+        　　　　<br>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

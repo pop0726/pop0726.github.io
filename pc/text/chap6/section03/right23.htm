@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" class="bg">
+<table width="100%" border="0" cellspacing="10" cellpadding="2">
+  <tr>
+    <td class="pt9" height="262" > 
+      <table width="100%" border="0">
+        <tr> 
+          <td> 
+            <div align="center"> <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="260" height="410">
+                <param name=movie value="../../../flash/p6_3_4_4.swf">
+                <param name=quality value=high>
+                <embed src="../../../flash/p6_3_4_4.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="260" height="410">
+                </embed> 
+              </object></div>
+          </td>
+        </tr>
+        <tr> 
+          <td height="2"> 
+            <div align="center" class="tit">图6-21 PCI单数据读时序</div>
+          </td>
+        </tr>
+      </table>
+      <br>
+      　　图6-21 是PCI单数据读时序。当主设备检测到FRAME#和IRDY#同时无效，便在CLK1的上升沿启动交易。主设备将交易地址送到地址总线A[31：0] 
+      并将交易命令送到总线C/BE#。使能FRAME#信号，指示地址和命令有效，表示交易开始。<br>
+      　　在CLK2的上升沿，总线上的所有目标设备采样地址、命令和FRAME#信号，进行地址译码，确定交易目标。主设备驱动IRDY#有效，表示准备好读取第一个数据项，同时使FRAME#无效，表示数据线上传送的数据将是最后一个数据段。在CLK2，主设备停止驱动C/BE#上的命令，开始驱动字节使能信号，指示从双字的哪一个位置读取数据。目标设备置DEVSEL#无效。<br>
+      主设备在CLK3的前沿采样DEVSEL#信号， DEVSEL#无效，便插入一个等待状态。在等待状态，主设备继续驱动字节使能和IRDY#有效，直至数据段完成传送。目标完成了命令译码，驱动DEVSEL#有效承认交易，采样到IRDY#有效以后，将数据到数据总线。此外，目标还驱动TRDY#信号有效，通知主设备，目标已将数据准备好。<br>
+      　　在CLK4的上升沿，主设备采样DEVSEL#有效，知道目标已确认交易。采样TRDY#有效，表示在数据总线上的数据准备好，主设备便读取数据。同时IRDY#有效且FRAME#无效，说明主设备读取的是最后的数据段，读交易已完成。因此，它停止驱动字节使能并使IRDY#无效，以便使总线返回空闲状态。跟着，目标令TDRY#和DEVSEL#无效并停止驱动数据。<br>
+      在CLK5的上升沿，总线回到空闲状态。<br>
+      <br>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

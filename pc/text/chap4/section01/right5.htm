@@ -1,0 +1,20 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="bg">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9">　　图4-1所示的输入接口原理性结构图，表示了一个以程序查询方式控制传送的并行输入接口，因为外设送给接口的数据与CPU接收的数据一致，因此接口电路没有信号转换部分，接口的核心部分是用于与CPU、外设数据交互的数据缓冲器和表示输入缓冲器空或满的状态寄存器。让我们来分别分析输入接口与微型计算机（微处理器）的连接结构和与外设的连接结构。输入接口具有和CPU方面连接的数据线、地址线（片选）、和IOR# 
+      信号线，为CPU提供从端口读取数据的功能，接口还具有反映输入缓冲器状态的输入缓冲器满信号IBF，IBF具有三态输出功能，可以为CPU提供程序查询的状态。输入接口具有接收外设数据的数据线，和一对与外设联络�&quot;握手&quot;信号STB和ACK#（在接口一方即为IBF）。STB为外设的输出信号，作为输入接口的数据选通，外设向接口发送数据时同时送出STB信号，将数据打入接口的数据缓冲（锁存）器，接口电路锁存了数据以后，通过IBF连接外设的ACK#，指示输入缓冲器满。<br>
+      　　外设的选通信号STB将数据送入I/O接口以后，是通过将接口的状态寄存器置1指示输入缓冲器满（IBF有效）的。输入缓冲器满信号阻止外设在接口数据被CPU读取之前再次发送数据给输入端口。在程序查询模式下，CPU方面不断查询接口的状态寄的状态，读取地址CS2#端口中的内容，一旦CPU检测到IBF（D7）为1，便执行对端口CS1#的读操作，把输入缓冲器的数据读入CPU。对CS1#的I/O操作同时使状态寄存器复位。令IBF为0，该信号通过外设的ACK#告诉外设，CPU已经读取接口中的数据，外设可以送新的数据给接口了，于是就开始了又一轮的外设向CPU的数据传送。<br>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

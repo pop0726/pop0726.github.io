@@ -1,0 +1,19 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4" >
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9"><strong>2) 存储器访问时间的计算</strong><br>
+      　　当系统中使用的存储器或外设接口工作速度较慢，不能在基本总线周期完成读操作时，系统中就需要采用一个READY<sup>#</sup>信号产生电路来产生READY<sup>#</sup>。通常CPU在T<sub>3</sub>状态的前沿（即下降沿）处对READY信号进行采样。如果CPU没有采样到READY信号的有效电平（高电平），那么，就会在T<sub>3</sub>和T<sub>4</sub>状态之间插入等待状态T<sub>W</sub>。如何判断是否需要插入T<sub>W</sub>呢？首先通过计算CPU的存储器访问时间，再和系统采用的存储器本身的存储器访问时间参数相比较，最后决定是否需要插入T<sub>W</sub>。<br>　　从地址出现在存储器地址总线到数据在数据线上稳定的时间叫做存储器的访问时间。<br>
+      <em>　　存储器访问时间CPU = T<sub>TCLCL</sub> * 3-（T<sub>CLAV</sub>+T<sub>DVCL</sub>)</em><br>
+      　　T<sub>TCLCL</sub>是时钟周期， T<sub>CLAV</sub>是地址从T<sub>1</sub>前沿开始到地址在地址线上有效的时间延时，T<sub>DVCL</sub>是数据从存储器读出后，在数据总线上的建立时间。通常，CPU在T<sub>3</sub>的后沿（下降沿）对存储器数据进行采样。从CPU发出地址到CPU采样，经历3个T状态。因此，3个T状态的时间减去地址在地址线上有效的延时时间和存储器数据在数据总线上的建立时间，便是CPU对存储器访问所需要的时间。选择与CPU配合的存储器，它的存储器访问时间参数必须小于CPU本身的存储器访问时间。<br>      　　最小方式下的总线写操作参阅参考教材，这里不再赘述。</td>
+  </tr>
+</table>
+</body>
+</html>

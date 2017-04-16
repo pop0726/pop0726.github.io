@@ -1,0 +1,21 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4" >
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td height="229" valign="top" class="pt9">
+      　　对于8086中断响应周期的时序，需要做如下几点说明：<br>（1）从INTA＃引脚上发中断响应脉冲是针对8086工作在最小模式下而言的，如果8086工作在最大模式，则CPU通过S2<sup>#</sup>、S1<sup>#</sup>、S0<sup>#</sup>引脚发出低电平信号（状态000）指示本次总线操作为中断响应操作，经过总线控制器译码，产生中断响应信号INTA<sup>#</sup> 
+        脉冲送给外设接口。<br>
+        （2）8086不允许在两个INTA<sup>#</sup>周期之间响应总线保持请求。因此，在CPU执行两个相邻的中断响应的总线周期时，如果其它总线主设备通过HOLD线或者RQ<sup>#</sup>/GT<sup>#</sup>线向CPU发出总线保持请求，那么CPU要在完成中断响应之后才能响应总线请求。但是，如果同时出现中断请求和总线保持请求，则CPU先响应总线保持请求，而不是进入中断响应周期。<br>
+        （3）软件中断和非屏蔽中断例外。<br>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

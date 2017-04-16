@@ -1,0 +1,19 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="2" cellpadding="2">
+  <tr>
+    <td class="pt9" height="172"> <b>6.2.2 ISA总线时序</b><br>
+      　　ISA的总线操作分为8位总线访问和16位总线访问，标准的8位ISA访问需要6个总线时钟周期，而标准的16位ISA访问3个总线时钟周期就能完成。本节分析了两种标准的16位数据传送时序图。<br>
+      　　<b>图6-13</b>是对16位ISA从设备存储器访问的时序。ISA总线16位标准存储器访问由3个总线时钟周期组成。BCLK是总线时钟，第1时钟周期BCLK1为地址周期，在BCLK1的上升沿，扩展地址信号在地址线LA[23：17]上有效。到BCLK1的下降沿，总线地址锁存使能信号BALE变为有效，用来锁存扩展地址。之后，与数据线分离的地址线A[15：0]上发出地址信号，同时，数据线高位字节使能信号变为有效状态。从第2个时钟周期BCLK2开始是数据周期，存储器读/写或者扩展的存储器读/写信号之一进入有效状态。如果是存储器写操作，紧跟着，写入存储器的数据出现在数据线SD[15：0]上。如果是存储器读操作，数据最早在BCLK3的下降沿之后在数据线上稳定。在BCLK2的开始（上升沿），ISA总线控制器检测16位存储器传送信号M16#，如果该信号为0，意味着本次总线访问是16位存储器访问，将在3个BCLK之内完成。于是，在BCLK3的末了Host采样数据总线，或由写信号将数据写入存储器，当前总线周期结束。在16位的存储器访问过程中，主板的ISA控制电路总是在BCLK2的下降沿采样零等待周期信号NOWS#。如果NOWS#为高，表示本周期仍为标准16位存储器访问周期，系统主板自动插入一个等待周期，即3个周期完成存储器访问。如果采样到NOWS#为高，意味着所访问的存储器为高速存储器，主板可以撤除将要插入的等待周期，这样便形成了在2个总线时钟周期内完成的对存储器的快速访问。ISA除了要在BCLK2的下降沿采样零等待周期信号以外，还将在BCLK3的上升沿（BCLK3的开始）采样I/O通道准备好信号IOCHRDY，该信号是为慢速的存储器或I/O芯片准备的。如果被访问的存储器不能在3个时钟周期内完成和主设备的数据交互，那么可以在扩展卡上设计产生请求插入等待周期的信号，即在总线采样IOCHRDY（BCLK3前沿）之前，令IOCHRDY为0，并根据需要插入等待周期的数目，决定IOCHRDY为低电平的持续时间。需要注意的是，NOWS#和IOCHRDY不能同时为低，否则ISA卡将会产生矛盾的时序请求，使系统失效。<br>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

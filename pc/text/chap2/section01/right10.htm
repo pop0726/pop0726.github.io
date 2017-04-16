@@ -1,0 +1,26 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" class="bg">
+<table width="100%" border="0" cellspacing="2" cellpadding="2">
+  <tr> 
+    <td class="pt9"> <strong>
+      <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0" width="500" height="420">
+        <param name="movie" value="../../../flash/2_5.swf">
+        <param name="quality" value="high">
+		
+        <embed src="../../../flash/2_5.swf" quality="high"  pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="500" height="420"></embed></object>
+      <br>
+      </strong>　　以上图为例，我们首先看看传统8位机的工作过程。第1拍，CPU执行第一条指令，需要进行一个写结果的操作，在第2拍，占用总线执行一个写周期。第3拍取第二条指令，执行一个总线读周期。第4拍后，CPU执行第二条指令。接着，取第三条指令。第三条指令需要操作数，因此在第5、6、7拍，分别为第三条指令的取指、读操作数和执行周期。CPU在每一时刻只能做一件事情，要么取指、取操作数，访问总线；要么执行指令。访问总线和执行指令串行进行。当CPU执行指令时，总线空闲，访问总线时CPU等待，从资源利用的角度，这是很大的浪费。<br>
+      　　我们再看一下8086在执行同样的上述三条指令时的工作过程。因为在8086 CPU中，执行单元和总线接口单元是单独的，它们可以并行工作。当执行单元执行指令时，总线接口单元进行指令的预取。从图中可以看出，当EU在执行第一条指令时，BIU进行总线操作预取下面的指令；EU执行完第一条指令后，BIU已经将第二、第三条指令都取到指令队列里了，EU不需要等待就可以继续执行第二条指令。BIU在EU执行第二条指令的同时执行总线写周期来保存第一条指令的运算结果，并接着预取下一条指令，即第四条指令。由于第三条指令需要操作数，所以EU在执行第三条指令之前等待BIU读取操作数，然后执行。同样，在EU执行第三条指令的同时，BIU又开始预取下面的指令了。也就是在第6拍，预取了第五条指令。<br>
+      　　通过上面的比较，可以清楚地看出，由于8086实现了指令级的流水，使得系统的利用率大大提高。比起传统的串行执行方式，8086执行指令的速度大大加快。</td>
+  </tr>
+</table>
+</body>
+</html>

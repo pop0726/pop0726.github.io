@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" class="bg">
+<table width="100%" border="0" cellspacing="10" cellpadding="2">
+  <tr>
+    <td class="pt9" height="503" > <br>
+      　　到本章为止，大家已经学会怎么读时序图。ISA总线源于PC总线，其信号定义和8086CPU的信号十分接近。我们着重分析ISA总线信号的一些特点。<br>
+      　　ISA的16位数据传送是通过采样M16#或IO16#来确认的，在BCLK2的开始（上升沿），ISA总线控制器检测16位存储器传送信号M16#，如果该信号为0，意味着本次总线访问是16位存储器访问，将在3个BCLK之内完成。如果M16#为1，表示本次总线访问是8位存储器访问，需要6个BCLK周期。<br>
+      　　在16位ISA中， LA17~23是非锁存信号。仅仅在第1个时钟周期有效，同样，要使扩展地址信号在整个ISA访问周期中保持，ISA扩展卡必须利用BALE信号锁存LA17~23上的地址。注意，　LA17~23上的地址信号有效时间是先于A0~15的。<br>
+      　　LA17~23有效之后，与数据线分离的地址线A[15：0]上才发出地址信号，同时，数据线高位字节使能信号变为有效状态。即SBHE#变成低电平，这样就可以通过SD8~15传送高8位数据，实现16位操作。<br>
+      　　如果NOWS#为高，表示本周期仍为标准16位存储器访问周期，系统主板自动插入一个等待周期，即3个周期完成存储器访问。如果采样到NOWS#为低，意味着所访问的存储器为高速存储器，主板可以撤除将要插入的等待周期，这样便形成了在2个总线时钟周期内完成的对存储器的快速访问。<br>
+      　　ISA除了要在BCLK2的下降沿采样零等待周期信号以外，还将在BCLK3的上升沿（BCLK3的开始）采样I/O通道准备好信号IOCHRDY。IOCHRDY信号是为慢速的存储器或I/O芯片准备的。如果被访问的存储器不能在3个时钟周期内完成和主设备的数据交互，那么可以在扩展卡上设计产生请求插入等待周期的信号，即在总线采样IOCHRDY（BCLK3前沿）之前，令IOCHRDY为0，并根据需要插入等待周期的数目，决定IOCHRDY为低电平的持续时间。<br>
+      　　需要注意的是，ISA总线规范规定，如产生NOWS#信号就不允许出现IOCHRDY无效的情况，否则就会出现不可预知的情况。因此在设计ISA卡时，NOWS#和IOCHRDY不能同时为低，否则ISA卡将会产生矛盾的时序请求，使系统失效。<br>
+      <br>
+      <table width="100%" border="0">
+        <tr> 
+          <td> 
+            <div align="center"><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="420" height="600">
+                <param name=movie value="../../../flash/p6_2_2_1.swf">
+                <param name=quality value=high>
+                <embed src="../../../flash/p6_2_2_1.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="420" height="600">
+                </embed> 
+              </object></div>
+          </td>
+        </tr>
+        <tr> 
+          <td height="19"> 
+            <div align="center" class="tit">图6-13 对16位ISA从设备的存储器访问</div>
+          </td>
+        </tr>
+      </table>
+      <br>
+      
+    </td>
+  </tr>
+</table>
+</body>
+</html>

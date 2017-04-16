@@ -1,0 +1,175 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" class="bg">
+<table width="100%" border="0" cellspacing="2" cellpadding="2">
+  <tr>
+    <td class="pt9" height="220"> 　 <br>
+      　　◆ 状态寄存器：状态寄存器把功能的状态记录在PCI设备中。图6-32 为状态寄存器各位的定义。表6-14 对状态寄存器位的意义做了进一步说明。 
+      <br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9">
+        <tr>
+          <td height="124"> 
+            <div align="center"><b>图6-32</b> PCI状态寄存器<br>
+              <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0" width="390" height="350">
+                <param name="movie" value="../../../flash/p6_3_6_14.swf">
+                <param name="quality" value="high">
+				
+                <embed src="../../../flash/p6_3_6_14.swf"  quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="390" height="350"></embed></object>
+            </div>
+          </td>
+        </tr>
+      </table>
+      　<br>
+      <table width="90%" border="1" cellspacing="0" cellpadding="0" align="center" class="pt9">
+        <tr> 
+          <td width="7%"> 
+            <div align="center"><b>位</b></div>
+          </td>
+          <td width="7%"> 
+            <div align="center"><b>读/写</b></div>
+          </td>
+          <td width="86%">
+            <div align="center">功 能</div>
+          </td>
+        </tr>
+        <tr> 
+          <td width="7%"> 
+            <div align="center">3:0</div>
+          </td>
+          <td width="7%"> 
+            <div align="center">读</div>
+          </td>
+          <td width="86%">保留。由硬连线置为0。</td>
+        </tr>
+        <tr> 
+          <td width="7%"> 
+            <div align="center">4</div>
+          </td>
+          <td width="7%"> 
+            <div align="center">读</div>
+          </td>
+          <td width="86%">能力列表。该位在早期版本规范中被保留，在2.2版规范中被新定义为能力列表位。它是硬连线只读位。如果设置为1，它表示设备配置空间的双字13为新能力列表指针配置寄存器。在这种情况下，配置程序设计者通过读取这个指针寄存器，来确定设备配置空间低48双字中新能力列表的起始位。然后，可以通过分析列表，确定设备(AGP，VPD等)支持的附加能力，同时可以利用它们相应的配置寄存器对它们进行配置。该位为0表示这个设备没有提供新能力列表指针配置寄存器。<br>
+            要求：无。</td>
+        </tr>
+        <tr> 
+          <td width="7%"> 
+            <div align="center">5</div>
+          </td>
+          <td width="7%"> 
+            <div align="center">读</div>
+          </td>
+          <td width="86%">66MHz能力。<br>
+            1=设备能够运行在66MHz <br>
+            0=设备能够运行在33MHz由硬连线设定。 <br>
+            要求:对于具有66MHz能力的设备，包括连接66MHz第二总线的桥。</td>
+        </tr>
+        <tr> 
+          <td width="7%"> 
+            <div align="center">6</div>
+          </td>
+          <td width="7%"> 
+            <div align="center">读</div>
+          </td>
+          <td width="86%">保留。</td>
+        </tr>
+        <tr> 
+          <td width="7%"> 
+            <div align="center">7</div>
+          </td>
+          <td width="7%"> 
+            <div align="center">读</div>
+          </td>
+          <td width="86%">快速背靠背能力。只读，表示目标设备是否支持与不同目标进行快速背靠背交易，如果设备不支持这个特征，该位必须硬连线到0；如果支持，该位硬连线到1。</td>
+        </tr>
+        <tr> 
+          <td width="7%"> 
+            <div align="center">8</div>
+          </td>
+          <td width="7%"> 
+            <div align="center">读/写</div>
+          </td>
+          <td width="86%">主设备数据奇偶校验错。这一位仅由总线主设备提供，<br>
+            仅在符合下列条件时设置；<br>
+            　　◆ 报告总线主设备是交易的起动方。<br>
+            　　◆ 主设备自身设置PERR#(读时)有效，或目标检测它有效(写时)。<br>
+            　　◆ 主设备命令配置寄存器的奇偶校验错误响应位被设置为1。<br>
+            要求：主设备。</td>
+        </tr>
+        <tr> 
+          <td width="7%"> 
+            <div align="center">9:10</div>
+          </td>
+          <td width="7%"> 
+            <div align="center">读</div>
+          </td>
+          <td width="86%">设备选择(DEVSEL#)定时。只读，为目标设备(配置访问除外)定义了最慢的DEVSEL#定时。<br>
+            　　00b=快速<br>
+            　　01b=中速<br>
+            　　10b=慢速<br>
+            　　11b=保留<br>
+            要求：目标。由于所有功能具有支持能够访问它们的配置寄存器的指标。说明全部功能都要求这一位。</td>
+        </tr>
+        <tr> 
+          <td width="7%"> 
+            <div align="center">11</div>
+          </td>
+          <td width="7%"> 
+            <div align="center">读/写</div>
+          </td>
+          <td width="86%">发信号的目标失败。由目标设备设置，只要目标设备以目标失败信号终止交易时将该位置1；不能发出目标失败信号的设备不需要提供这一位。<br>
+            要求：能够以目标失败信号终止交易的目标。</td>
+        </tr>
+        <tr> 
+          <td width="7%"> 
+            <div align="center">12</div>
+          </td>
+          <td width="7%"> 
+            <div align="center">读/写</div>
+          </td>
+          <td width="86%">收到目标失效。由总线主设备设置，当交易被当前寻址目标以目标失败终止时，置该位为1，所有总线主设备必须提供这一位。<br>
+            要求：主设备。</td>
+        </tr>
+        <tr> 
+          <td width="7%"> 
+            <div align="center">13</div>
+          </td>
+          <td width="7%"> 
+            <div align="center">读/写</div>
+          </td>
+          <td width="86%">收到主设备失败。当交易由于主设备失败而终止时(专用周期除外)，该位被设置，所有主设备必须提供这一位。<br>
+            要求：主设备。</td>
+        </tr>
+        <tr> 
+          <td width="7%"> 
+            <div align="center">14</div>
+          </td>
+          <td width="7%"> 
+            <div align="center">读/写</div>
+          </td>
+          <td width="86%">信号系统错误(SERR#)。当设备在SERR#线上产生一个系统错误信号时，该位被置位。不能产生SERR#的设备不需要这个位。<br>
+            要求：对于全部功能。</td>
+        </tr>
+        <tr> 
+          <td width="7%"> 
+            <div align="center">15</div>
+          </td>
+          <td width="7%"> 
+            <div align="center">读/写</div>
+          </td>
+          <td width="86%">检测奇偶校验错。当设备检测到一个奇偶校验错时(即使命令寄存器的奇偶校验错误响应位禁止奇偶校验错误报告)，这一位被置位。</td>
+        </tr>
+      </table>
+      <br>
+     
+    </td>
+  </tr>
+</table>
+</body>
+</html>

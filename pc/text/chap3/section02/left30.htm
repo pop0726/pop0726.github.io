@@ -1,0 +1,18 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td height="52" class="pt9"><strong>　　OCW3 </strong><br>
+      　　OCW3的作用是设置和使能设置特殊屏蔽方式、选择查询方式以及要读的寄存器。D4、D3位的01是OCW3的标识位。<br>
+      　　如果选择中断查询方式，必须把D2位P置为1。给8259发送P=1的OCW3以后，下一次对8259的读操作将读出查询字，查询字的最左边一位指示了是否有有效中断发生，最右边3位则指示了具有最高优先权的有效中断请求序号。如果P位为0，且RR（D1）位为1，表示的是读8259A内部寄存器命令，紧跟着的RIS（D0）位指出要读的是哪一个寄存器，RIS=0，指示随后跟着的读指令读出的是中断请求寄存器IRR的内容；RIS=1，读的是正在服务寄存器ISR。</td>
+  </tr>
+</table>
+</body>
+</html>

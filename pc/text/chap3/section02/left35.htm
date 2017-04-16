@@ -1,0 +1,25 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td height="52" class="pt9"><p><strong>2、中断响应条件</strong><br>
+        　　这里主要总结可屏蔽中断响应的条件，假设系统中使用PIC8259A：</p>
+      <ul>
+        <li>中断源的中断请求信号满足8259A的中断触发条件；</li>
+        <li>8259A的中断屏蔽触发器对应位IMi = 0；</li>
+        <li>中断请求源的本级或高级中断不处在服务状态 ISRj = 0（j的优先级高于等于i）；</li>
+        <li>CPU的中断允许标志IF = 1 。</li>
+      </ul>
+      <p>　　以上条件缺一不可，任何一个条件不满足，中断请求都将被挂起。<br>
+      </p></td>
+  </tr>
+</table>
+</body>
+</html>

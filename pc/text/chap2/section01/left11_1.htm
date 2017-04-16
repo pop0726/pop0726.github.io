@@ -1,0 +1,24 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4" >
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="pt9">　　T<sub>2</sub>为缓冲周期。例如，在总线读周期，CPU在T<sub>2</sub>撤销低16位地址信号，使该组信号线浮空，准备接收存储器或I/O的数据。<br>
+      　　T<sub>3</sub>为数据周期。数据出现在复用总线的低16位上。<br>
+      　　T<sub>4</sub> 总线周期结束。<br>
+      　　当系统中的存储器或I/O接口速度足够快，能够与CPU的速度相匹配时，CPU通常在一个典型的总线周期内完成对存储器或外设的访问。在CPU和慢速的存储器或者I/O交互数据时，如果存储器或I/O来不及准备好接受/发送数据，在总线周期的T3状态启动之前，存储器或I/O的等待信号产生电路必须通过“READY”信号线向CPU 
+      发一个“数据未准备好”信号――READY“非”，CPU采样到该信号以后，会在T3之后插入一个或者多个附加的时钟周期Tw，也叫等待状态。在等待状态，总线上的信号状态和T3状态保持一致。当指定的存储器或I/O完成数据传送时，便在“READY”线上发出“准备好”信号，CPU接收到这一信号以后，会自动脱离等待状态而进入总线周期结束状态，即进入T<sub>４</sub>状态。
+<strong><br>
+      空闲周期：<br>
+      </strong>　　系统总线处在空闲状态，此时，执行空闲周期T<sub>1</sub>。<br>
+</td>
+  </tr>
+</table>
+</body>
+</html>

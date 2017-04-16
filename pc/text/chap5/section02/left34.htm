@@ -1,0 +1,20 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9"> <b>2、V流水线L2 cache读不命中(目标地址0000008CH~0000008FH）</b><br>
+      　　为U流水线的猝发读操作完成以后，Pentium处理器自动插入一个空闲周期，然后开始为V流水线的猝发读。由于流水线V的目标地址不在L2 Cache中，L2 
+      cache控制器将CPU的地址、总线周期类型定义信号和ADS#传到存储器系统总线上，NCA（Non-Cacheable Address）逻辑和存储器子系统分别送回KEN#、BRDY#和WB/WT#。与对L2 
+      Cache的猝发读不同的是，主存储器DRAM的访问时间比SRAM长，DRAM的猝发读需要2个T状态（图5-16）。在第一个数据周期（T2），BRDY#为无效状态，到第二个数据周期，BRDY#、KEN#信号以及来自存储器的数据才被驱动为有效状态。所以对主存储器的猝发读通常需要8个T状态。<br>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

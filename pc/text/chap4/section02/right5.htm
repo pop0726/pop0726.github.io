@@ -1,0 +1,22 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="bg">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9">　　图4-6（b）表示了82C55的内部结构和引脚功能，虚线的右部为A、B、C三个端口以及它们的输入输出引脚。82C55A的A端口由8位的输入锁存与缓冲器，输出锁存与缓冲器组成。B端口由8位的输入缓冲器和输出锁存与缓冲器组成, 
+      同样C端口也包含一个8位的输入缓冲器以及输出锁存与缓冲器。使用端口A作为输入或者输出时，数据都可以锁存，而端口B和端口C都只在输出时对数据进行锁存，输入时没有。三个端口在输入和输出时都通过缓冲器和总线相连。A和B端口既可以工作在同步方式，又可以工作在异步方式。C端口除了作为工作在同步方式下的输入输出接口以外，还用做A口和B口的工作在异步方式下的联络信号，具体的工作方式将在后面提到。图中的PA7~PA0、PB7~PB0分别为A端口与B端口的输入输出线，PC7~PC4、PC3~PC0为C端口的输入输出线。<br>
+      　　两条虚线之间表示了A、B两组控制电路。从结构图上我们可以看出A、B、C三个端口被分为 2 组，由2组控制电路进行控制。A口和C口的高4位为A组，B口和C口的低4位为B组，分别由A、B两组控制电路进行控制，控制它们的工作方式和读/写操作。<br>
+      　　虚线的左边是读写控制逻辑和82C55与CPU接口的数据总线缓冲器以及与CPU连接的信号线。读写控制逻辑负责控制数据传输过程，发送控制命令给A、B组控制电路，来完成对数据、状态信息和控制信息的传输。<br>
+      　　CS#为片选择信号，输入，低有效。A1、A0为地址信号，用来区分82C55A内部A、B、C三个数据端口和一个控制端口的地址。RD#、WR#分别为读、写信号，输入，低有效，接收CPU的读写命令。RESET，复位信号，输入，高有效，复位信号有效时将控制寄存器清零，并将A、B、C端口全部置为输入状态。<br>
+      　　数据总线缓冲器负责连接82C55A和系统数据总线。图中的D7~D0为数据线，可以双向传输，具有三态传输功能，CPU通过D7~D0对82C55A编程，传输对82C55A的控制信息，并且通过D7~D0与82C55A交换数据。</td>
+  </tr>
+</table>
+</body>
+</html>

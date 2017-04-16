@@ -1,0 +1,22 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="10" cellpadding="2">
+  <tr> 
+    <td class="pt9" height="2"> 　<b>●</b> 声明一次交易<br>
+      　　当PCI目标确定自己是交易的目标以后，通过有效DEVSEL#(设备选择)声明本次交易有效，如果主设备在一个预定的时间段没有采样到有效的DEVSEL#，就使交易失败。<br>
+      <br>
+      　<b>●</b> 数据段<br>
+      　　数据段是主设备和目标之间传送数据项的阶段。通常在一次交易的第二个PCI CLK开始，数据段传送的数据字节数由命令/字节使能信号决定，这些信号是在数据段中是由主设备驱动的。<br>
+      　　每个数据段至少持续一个PCI时钟周期，主设备和目标两者都必须表明它们准备好进行数据段传送，否则数据段便通过插入一个持续的PCI CLK等待周期进行扩展。PCI总线定义了准备好信号线，主设备使用IRDY#而目标使用TRDY#。 
+    </td>
+  </tr>
+</table>
+</body>
+</html>

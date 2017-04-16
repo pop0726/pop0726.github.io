@@ -1,0 +1,25 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4" >
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td valign="top" class="pt9"><strong>7.1.2 存储器子系统</strong><br>
+      　　Pentium Pro处理器所用的存储器子系统由系统主存储器、第一级Cache(L1)和第二级Cache(L2)构成。总线接口单元通过外部系统总线访问系统存储器。64位总线是面向数据交换的总线，面向交换的意思是把每一次总线访问作为独立的请求和响应处理。总线接口单元在等待响应总线请求期间，能够发布另外的请求。<br>
+      　　总线接口单元通过64位Cache总线访问片内的L2 Cache。该总线也是面向数据交换的，能够同时支持四个Cache访问，并且能够在处理器全速时钟速率下操作。<br>
+　　通过内部总线对L1 Cache的访问也是全速时钟速率进行的。8K字节L1指令Cache是4路组相联的；双端口的8 
+      K字节L1数据Cache是两路组相联的，每个周期可以进行一次取出和一次存入操作。<br>
+      　　Pentium Pro使用MESI(修改、独占、共享和无效)协议来维护Cache和系统存储器间数据的一致性。该协议维护单处理器系统和多处理器系统Cache的一致性，也能检测由于自修改代码产生的一致性问题。<br>
+      　　从处理器单元来的存储器请求通过存储器接口单元和存储器排序缓冲器。储器接口单元和存储器排序缓冲器可以起到对分层结构的Cache和系统存储器的访问请求流的平滑作用，以防止存储访问阻塞。L1数据Cache自动将一次不命中的Cache访问传递到L2 
+      Cache，必要时总线接口单元将不命中的L2 Cache访问传递给系统存储器。<br>
+      　　对L2 Cache或系统存储器的访问请求通过存储器排序缓冲器进行，存储器排序缓冲器的功能为调度和分发。该单元保持跟踪全部存储器请求，并且能对某些请求进行重排序以防止阻塞并改善数据的吞吐能力。
+</td>
+  </tr>
+</table>
+</body>
+</html>

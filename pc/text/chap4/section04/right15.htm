@@ -1,0 +1,21 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="bg">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9">
+      　　A／D转换电路需要外加启动转换信号，方能开始工作，这一信号通常由CPU给出。程序员在软件中需要启动A/D转换电路时，可以通过CPU给出启动转换信号。不同A/D转换电路芯片对启动转换信号要求不同，常用的有两种启动转换信号：第一种是脉冲启动转换，第二种是电平控制转换。<br>
+      　　脉冲启动转换的A／D芯片，只要在启动转换输入管脚上加一个符合电路要求的脉冲信号，即可开始转换。通常在CPU执行输出指令时，利用发出的写信号IOW#，地址译码器的输出信号CS#（也就是片选信号）等共同参与A／D的启动转换控制。如ADC0804、AD574、ADC1210等就是脉冲启动转换类型的芯片<br>
+      　　在电平控制转换的A／D转换电路中，当转换控制端被加上满足启动转换要求的电平时，A／D转换就开始了。对于电平控制转换的系统，在整个转换过程中，必须保持这一电平，如果在没有转换完毕的时候就将转换信号撤消了，将终止转换，从而得到错误的转换结果。因此CPU对启动转换信号的控制需要经过寄存器保持一段时间，一般采用D触发器对信号进行锁存，或利用并行接口等等，直接实现电平控制。比如AD570，AD571，AD572都是电平控制转换的电路。
+</td>
+  </tr>
+</table>
+</body>
+</html>

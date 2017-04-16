@@ -1,0 +1,29 @@
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+<STYLE TYPE="text/css">
+<!--
+BODY {background-image: URL(../../../../image/index/bg.gif);
+background-position: right;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr> 
+    <td class="text"> 　　（1）弧长参数化<br>
+      　　关键帧插值中，给定物体运动的轨迹，求出物体在每一帧画面中的位置。物体运动轨迹一般由参数样条表示。如果对参数空间进行等间隔采样，可能造成运动的不均匀性。为了使物体沿着样条匀速运动，必须建立弧长与样条参数的一一对应关系。Guenter提出用Gauss形数值积分方法计算弧长，用Newton-Raphason迭代来确定给定弧长点在曲线上的位置，并采用查表法纪录参数点弧长值的方法来加速计算。<br>
+      　　（2）插值过程的运动学控制<br>
+      　　关键帧插值与纯数学插值不同。关键帧插值应该产生逼真的运动效果，并给用户提供方便的控制手段。用户必须能够通过调整插值函数来改变运动的速度和加速度。Steketee提出用双插值的方法控制运动参数。其中之一是位置样条，它是位置对关键帧的函数。另一个为运动样条，它是关键帧对时间的函数。<br>
+      　　（3）物体姿态的插值<br>
+      　　物体的姿态一般由欧拉角表示。因此，姿态的插值问题就是三个欧拉角的插值。但是欧拉角表示有局限性。它的旋转矩阵是不可交换的，基于欧拉角的旋转要按特定的次序进行。此外，等量的欧拉角变化不一定引起等量的旋转，从而导致旋转的不均匀。欧拉角还可能造成自由度的丧失。Shoemake把四元数引入到动画中，并提出用单位四元数空间上的Bezier样条来插值四元数。</td>
+  </tr>
+</table>
+</body>
+</html>

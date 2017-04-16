@@ -1,0 +1,41 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="bg">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9" height="2">　　如果系统中同时具有微处理器和DMA控制器，DMA就是另外一个总线主。然而，在微处理器控制总线的期间内，DMA处在从属状态或空闲状态，DMA在编程周期为从属设备。在DMA需要控制传送的时候便向CPU请求使用总线，DMA一旦获得总线的控制权，就成了总线的主设备，而CPU则进入空闲状态。每个周期之内，系统中只能有一个总线主设备。<br>
+      <table width="100%" border="0">
+        <tr> 
+          <td> 
+            <div align="center">
+              <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0" width="390" height="300">
+                <param name="movie" value="../../../flash/3_13.swf">
+                <param name="quality" value="high">
+                <embed src="../../../flash/3_13.swf" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="390" height="300"></embed></object>
+            </div>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <div align="center" class="tit">图3-13 DMA的请求与响应</div>
+          </td>
+        </tr>
+      </table>
+      <br>
+      　　图3-13所示的DMA传送工作过程：<br>
+      　　<img src="../../../images/chap3/a.gif" width="12" height="13">：I/O设备向DMA控制器发出DMA请求。通过后面进一步的学习可以知道，一个DMA控制器可以连接多个I/O设备，如果设备申请DMA的通道没有被屏蔽，DMA控制器就会处理该请求，进入<img src="../../../images/chap3/b.gif" width="12" height="13">。<br>
+      　　<img src="../../../images/chap3/b.gif" width="12" height="13">：DMA控制器检测到来自外设的请求信号后，便向CPU发出总线请求，要求获得总线的控制权。<br>
+      　　<img src="../../../images/chap3/c.gif" width="12" height="11">：CPU响应DMA控制器的请求。在向DMA控制器发出应答信号的同时，CPU交出总线的控制权给DMA控制器。此时，DMA成为系统的总线主设备。<br>
+      　　<img src="../../../images/chap3/d.gif" width="12" height="12">：DMA通知I/O外设，开始DMA数据传输。<br>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

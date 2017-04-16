@@ -1,0 +1,22 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9"> <strong>2、单片8259A的中断过程</strong><br>
+      　　如果系统中只有一片8259，当产生中断请求时，在一个或多个IR端上会出现高电平。假设第i号上出现中断请求，IR<em>i</em>=1；且第<em>j</em>号中断正在服务，ISR<em>j</em>=1。如果第<em>i</em>号中断的屏蔽位IMR<em>i</em>为0，则IR<em>i</em>上的请求信号被送往优先级裁决器PR裁决，裁决器将<em>i</em>与<em>j</em>的中断优先级相比较，若中断i的优先级高于中断<em>j</em>，则i被准许申请，8259A的控制逻辑置INT有效，CPU的INTR随之有效。反之，如果IMRi为1或i号中断本身正在服务（ISR<em>i</em>=1），或i的优先级低于<em>j</em>，则IRi被禁止。<br>
+      　　8259A的INT信号有效以后，如果CPU的中断允许触发器IF=1，CPU执行完当前指令以后进入中断应答周期。第一个中断应答周期，CPU发出的INTA#信号将8259 
+      <em>i</em>号中断的正在服务寄存器相应位ISR<em>i</em>置为1，同时清除中断请求寄存器相应位IRR<em>i</em>，第一个中断应答周期不驱动数据总线。接着，CPU进入第二个中断应答周期，再次使INTA#信号有效，INTA#信号相当于读信号，通知8259A将1字节的中断类型码送到数据总线。CPU读入类型码，再根据类型码从中断向量表中读取中断入口地址，转去执行<em>i</em>的中断服务程序。 
+      <br>
+      　　一旦ISR<em>i</em>位置为1，将屏蔽i和优先级低于<em>i</em>的中断请求，因此在i的中断服务程序结束之前，必须向8259A发送结束中断操作的EOI命令，EOI命令将会使ISR<em>i</em>清零。8259A有两种结束中断操作的方式：自动结束中断AEOI模式和非AEOI模式。如果程序设定8259A工作在AEOI模式，在第二个INTA#周期结束时自动使ISR<em>i</em>清零。如果设定在非AEOI模式，必须由中断子程序在结束之前发送EOI命令，清零ISRi。 
+    </td>
+  </tr>
+</table>
+</body>
+</html>

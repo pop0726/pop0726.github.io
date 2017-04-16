@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="bg">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td height="64" class="pt9"><p><strong>3、中断系统编程要求</strong><br>
+        　<strong>主程序：<br>
+        </strong>　　设置中断向量表<br>
+        　　初始化堆栈指针<br>
+        　　初始化8259A<br>
+        　　置中断允许STI<br>
+        <strong> 　中断服务程序</strong><br>
+        　　将中断服务程序要用到的工作寄存器内容压入堆栈（PUSH AX等）<br>
+        　　中断服务程序主体<br>
+        　　弹出压入堆栈的工作寄存器内容（POP AX 等）<br>
+        　　给8259A送EOI命令（必要时可提前）<br>
+        　　设置中断允许STI（必要时可提前）<br>
+        　　中断返回IRET<br>
+        <strong>4、CPU中断应答过程（对用户透明）</strong><br>
+        　　满足中断响应条件以后，CPU进入中断应答周期，发出2个连续的INTA#信号（8086）。<br>
+        <strong> 　在第一个INTA#周期</strong><br>
+        　　8259A置ISRi=1，IRRi=0<br>
+        <strong> 　在第二个INTA#周期</strong><br>
+        　　PUSH Flag<br>
+        　　LET TEMP = TF ；CLR IF，TF<br>
+        　　PUSH CS，IP <br>
+        <strong> 　读类型码</strong><br>
+        　　（IP）=（TYPE*4+1）：（TYPE*4+0）<br>
+        　　（CS）=（TYPE*4+3）：（TYPE*4+2）<br>
+        <strong>5、优先级及中断嵌套</strong></p>
+      <ul>
+        <li>多个中断同时发生时优先级高的中断首先被响应</li>
+        <li>INTR中断、单步中断是否能中断其他正在服务的中断处理程序，得到响应，取决于IF和TF状态</li>
+        <li>8259A中断嵌套的方式由编程决定</li>
+        <li>中断响应过程（INTA#周期）不会发生中断嵌套</li>
+      </ul></td>
+  </tr>
+</table>
+</body>
+</html>

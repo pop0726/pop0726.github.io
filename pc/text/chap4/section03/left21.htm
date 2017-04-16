@@ -1,0 +1,19 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9"><strong>2、8251A的工作过程</strong><br>
+      <strong>1) 异步方式</strong><br>
+      　　如果8251A编程为异步方式，在需要发送字符时，必须首先设置T<sub>X</sub>EN(Transmitter Enable允许发送信号，命令寄存器中的一位)和CTS#(Clear 
+      To Send 由外设发来的对CPU请求发送信号的响应信号)为有效状态。在发送时，每当CPU送往发送缓冲器一个字符，发送器为这个字符加上1个起始位，并且按照编程要求加上奇/偶校验位以及1个、1.5个或者2个停止位。串行数据以起始位开始，接着是最低有效数据位（LSB），奇/偶校验位紧跟着最高有效位，然后是停止位。按位发送的数据是以发送时钟T<sub>X</sub>C的下降沿同步的，数据传输的波特率取决于编程时指定的波特率因子，为发送器时钟频率的1、1/16或者1/64。CPU通过数据总线将数据送到8251A的数据输出缓冲寄存器以后，再传输到发送缓冲器，经移位寄存器移位，将并行数据变为串行数据，从TxD端送往外部设备。</td>
+  </tr>
+</table>
+</body>
+</html>

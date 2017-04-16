@@ -1,0 +1,20 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="10" cellpadding="2">
+  <tr>
+    <td class="pt9" height="2"> <br>
+      2、典型PCI操作<br>
+      　　<b>图6-19</b>是一个典型的PCI时序图。当一个PCI设备驱动PCI信号有效或无效时，所使用的输出驱动器是典型的弱CMOS驱动器。因此驱动器将信号线通过逻辑门限值转为逻辑高或低时是不能一次到位的。在信号线上引起的电压变化一直传送下去，直到线路的物理末端。当沿着路径寻址，追到了每个PCI设备的根部时，波前端传送仍没有达到新的逻辑门限值，因此任何设备都不能检测到该信号。当沿着线路反馈时，在总线上产生双倍电压改变，使它越过逻辑门限值。当双倍的波前端传送给线路时，它通过的每个设备会检测信号的新状态。信号穿过总线的整长并返回所花费的时间称作Tprop或传送延迟。这个延迟参见时序图。<br>
+      　　例如，一个主设备在时钟1的上升沿采样到FRAME＃和IRDY＃无效(总线空闲)，并它的GNT＃有效，表明它获取总线。主设备在时钟单位1使FRAME＃信号有效，以表明交易的开始来起动交易。在时序图中，FRAME＃直到时钟1上升沿之后和时钟2上升沿之前的一段时间才显示出由高到低的转换表示传送延迟。在FRAME＃有效的同时，在时钟单元1期间主设备开始驱动地址到AD总线，但是地址的变化直到时钟1上升沿之后和时钟2上升沿之前的一段时间才有效。<br>
+      　　地址段在时钟2上升沿结束，并且主设备开始关闭它的AD总线驱动器。驱动器确实停止驱动AD总线所花费的时间在时序图上可见(直到时钟单元2的一段时间，主设备才成功地与AD总线断开)。</td>
+  </tr>
+</table>
+</body>
+</html>

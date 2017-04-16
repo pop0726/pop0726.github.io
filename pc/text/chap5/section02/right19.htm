@@ -1,0 +1,34 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="bg">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9"><br>
+      <br>
+      L2 Cache控制器发出的信号，当系统中另一个总线主设备读写存储器的时候，Pentium处理器必须监听系统的地址总线，来维护处理器内部Cache、L2 
+      Cache和主存储器DRAM之间数据的一致性。由于L2 Cache控制器（look-through cache）位于处理器和系统总线之间，所以由L2 
+      Cache控制器控制监听操作。当L2控制器通知处理器监听另一个总线主设备发出的存储器地址并打算将它们转到处理器的局部总线时，首先向处理器发出AHOLD信号，使处理器的地址总线变为浮空状态，让处理器接收L2转来的监听地址。紧接着，L2控制器将系统总线上当前总线主发出的存储器地址传到Pentium处理器的局部总线上，由Pentium处理器对内部Cache的目录进行查找，看那个总线主访问的存储器目标在它的内部Cache中是否有备份。<br>
+      <br>
+      L2控制器通过该信号告诉处理器一组有效地址已经转到处理器的本地地址总线上，并通知它使用监听地址访问内部Cache目录。<br>
+      <br>
+      由L2 Cache 控制器发出，用来通知处理器在一次监听命中的情况下是将这个Cache 行为有效状态还是无效状态。一般，当监听结果是另一个总线主从主存储器读数据时，INV信号无效，结果监听命中的Cache行数据被置为有效；当监听结果是从主存写数据时，INV信号有效，Cache行数据被置为无效状态。 
+      <br>
+      <br>
+      监听过程中，当处理器发现L1中存在目标存储器的副本，处理器输出HIT#信号，通知L2控制器监听命中，通过L2控制器告诉其他拥有局部Cache的处理器他们从存储器读出的信息正在被系统中的另一组Cache共享。<br>
+      <br>
+      该信号有效表示监听操作命中了Cache中一个修改过的行，HITM# 通知外部逻辑处理器需要执行写回操作。<br>
+      在下一节分析Pentium数据Cache 访问的过程中还要用到一个总线周期流水线控制信号NA#（Next Address），在此一并加以解释。<br>
+      <br>
+      该信号由处理器外部的存储器控制设备提供。支持总线流水线的存储器控制设备将处理器发出的地址信号译码，并将地址和周期类型锁存起来。然后驱动NA#信号有效，在当前周期结束之前就请求开始下一个总线周期。<br>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

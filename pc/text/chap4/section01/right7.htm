@@ -1,0 +1,25 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="bg">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9">　　输出接口的核心部分是数据输出缓冲器（锁存器）和状态寄存器。数据输出缓冲器在CPU向外部设备输出数据过程中起缓冲作用，状态寄存器反映数据传输过程输出缓冲器空或满的状态。输出接口必须具备与CPU连接地址、数据和控制线CS#、D7~D0、IOW#，采用中断方式控制传送的接口应该具有中断请求线INTR以及中断屏蔽置位复位控制CS2#*IOW#。输出接口还必须具备和输出设备联络的一对握手信号OBF和ACK#。OBF是输出接口送往外设的信号，指示输出缓冲器满，ACK#是外设接到数据后，给外设的回答信号。<br>
+      　　在中断控制方式下，CPU对外设的数据传送是在中断服务程序里进行的，CPU执行访问输出端口的OUT CS1，A指令时，CS1#和IOW#有效，把数据写入输出接口，同时将状态寄存器置为输出缓冲器满状态，OBF=1。当数据在端口的输出数据线上有效以后，OBF作为外设的数据选通信号将数据送往外设。作为回应，外设输出ACK#信号给输出端口，复位状态寄存器，使OBF为0。表示输出缓冲器空。无效状态的OBF信号作为中断请求，通知CPU端口数据已被外设使用。如果此时的中断没有被屏蔽即屏蔽触发器是0状态，CPU便可以接收到接口的中断请求，在CPU满足中断响应条件的情况下响应中断，再次进行对外设的数据传送。 
+      <br>
+      <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0" width="390" height="500">
+        <param name="movie" value="../../../flash/p4_1_2_1.swf">
+        <param name="quality" value="high">
+        <embed src="../../../flash/p4_1_2_1.swf" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="390" height="500">
+        </embed>
+      </object> </td>
+  </tr>
+</table>
+</body>
+</html>

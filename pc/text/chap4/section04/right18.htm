@@ -1,0 +1,20 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="bg">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9">　　我们在介绍AD570的特点时提到过，虽然AD570的数据寄存器具有三态输出功能，但是由于受B/C#的端统一控制，难于和CPU的读时序严格配合，应该是使得除读周期外，数据线均为高阻态才有利于正确传输，而现在的情况是，只要转换结束，原有的三态门就自动选通了。因此必须在570数据输出端设计三态缓冲器与CPU连接。图4-43是AD570和CPU的连接图。这里，用一个D触发器（地址CS0#）保存控制转换的低电平状态，它的Q端直接连接AD570的B/C#端。这样第一次的启动信号就被D触发器锁存起来，能够保持足够长的时间。570的数据准备好信号DR#通过三态门（地址CS#1）连接数据线D0，通过程序查询方式告诉CPU 
+      A/D转换是否完毕。启动转换以后，CPU如果采用查询方式来联络的话，便不断测试DR#状态，只要DR#变为0，CPU通过缓冲器（地址CS2#）就可以读取转换结果。
+<br><img src="../../../images/chap4/p4_4_3_3.gif" width="331" height="250"> <br>
+      　　　　　图4-43 AD570与CPU的连接 </td>
+  </tr>
+</table>
+</body>
+</html>

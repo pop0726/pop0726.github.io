@@ -1,0 +1,17 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="bg">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9">　　可屏蔽中断的中断向量是由用户给出的，就是说用户负责向中断向量中写入中断服务程序的入口地址。图3-2 表示了一个类型号为FFH的中断向量产生电路原理图。这是一个最简单的电路，它只能产生唯一一个中断向量FFH。我们可以看出该电路并不是利用INTA#信号来获取中断类型的，而是将数据总线D<sub>7</sub>~D<sub>0</sub>通过上拉电阻连接高电平，CPU在中断应答周期INTA#脉冲的上升沿时刻会去采样数据线的状态，数据线此时都为高电平，因此便读入了中断类型号FFH，进而转入相应的中断入口地址。只要上拉电阻阻值足够大（实验结果为不少于27K欧姆），这一连接就不会影响数据线传送数据的有效性。注意，只有类型FFH，才能采用这种方式。而且这种方式只能产生这一个中断类型号。</td>
+  </tr>
+</table>
+</body>
+</html>

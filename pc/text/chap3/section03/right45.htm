@@ -1,0 +1,33 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="bg">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9" height="2" > 
+      <table width="100%" border="0">
+        <tr> 
+          <td> 
+            <div align="center"><a href="../../../images/chap3/p3_3_2_17.gif" target="blank" ><img src="../../../images/chap3/p3_3_2_17.gif" width="400" height="1040" border="0"></a><br>
+              <span class="tit">点击图放大 </span><br>
+              　　　　 </div>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <div align="center" class="tit">图3-31 8088最小模式DMA系统</div>
+          </td>
+        </tr>
+      </table>
+      　　注意与8237A的AEN信号连接的紫色连线，以及从AEN输出通过反向器连接的绿色信号线，在DMA周期AEN为有效的逻辑&quot;1&quot;状态，反向后为逻辑&quot;0&quot;，它作为DMA的地址使能信号使DMA地址锁存器B和D有效（由绿色线连接）。同时，AEN封锁了CPU的地址锁存器A和C，以及多路复用器E（紫色线连接），使CPU经过缓冲的地址与控制信号线变为高阻态。反之，在CPU周期，AEN为无效的逻辑0状态，该信号选通CPU的地址锁存器和多路复用器，使A16~A19、A0~A7输出有效地址，MEMW#、MEMR#、IOW#和IOR#输出有效的控制信号。并封锁DMA的地址锁存器使之输出变为高阻。这样就使得多主系统的地址和控制总线经过缓冲以后仍然具有三态功能，保证了系统的正确性。<br>
+      <br>
+  </tr>
+</table>
+</body>
+</html>

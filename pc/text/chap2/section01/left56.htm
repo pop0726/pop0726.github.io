@@ -1,0 +1,20 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4" >
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td height="229" valign="top" class="pt9">
+      <strong>　2、8086的I/O组织</strong><br>
+      　　8086系统和外部设备之间的数据交互都是通过I/O接口来进行的。每个I/O接口往往包含一个或多个端口，这些端口对应一个或多个寄存器。和存储器一样，微型机系统要为每个端口分配一个地址。8086有相互独立的访问存储器I/O端口的指令，在执行存储器和I/O指令时，CPU管脚上呈现不同的信号特征。CPU在执行访问I/O端口的输入输出指令时，读写信号RD<sup>#</sup>、WR<sup>#</sup>有效，同时M/IO<sup>#</sup>信号输出低电平。在执行访问存储器指令时，除了读写信号RD<sup>#</sup>、WR<sup>#</sup>有效外，M/IO<sup>#</sup>信号输出高电平。这样就区分了I/O读写和存储器读写。可以通过外部逻辑电路产生对I/O端口的读/写信号，因此，8086的I/O系统是可以单独编址的。<br>
+　　8086寻址范围是0～64K，可以编址65535个8位I/O端口。两个相邻编号的8位端口也可以组合成一个16位端口。指令系统中既有访问8位端口的输入/输出指令，也有访问16位端口的输入/输出指令。
+</td>
+  </tr>
+</table>
+</body>
+</html>

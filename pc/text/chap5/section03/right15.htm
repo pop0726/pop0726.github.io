@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="bg">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9"><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0" width="390" height="340">
+        <param name="movie" value="../../../flash/p5_3_3_4.swf">
+        <param name="quality" value="high">
+		
+        <embed src="../../../flash/p5_3_3_4.swf"  quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="390" height="340"></embed></object>
+      <br>
+      　　表5-12 对图5-26 和图5-27 中各标志位和字段的功能的说明<br>
+      <table border=0 cellpadding=1 cellspacing=1 bgcolor="#000000">
+        <tr align="center" bgcolor="#FFFFFF" class="pt9"> 
+          <td width=98 valign=top > <strong>标志</strong></td>
+          <td width=470 valign=top > <strong>功能</strong></td>
+        </tr>
+        <tr bgcolor="#FFFFFF" class="pt9"> 
+          <td width=98 valign=top > 页表基地址第31~12位， 页面基地址31~12位， 或页面基地址31~22位，</td>
+          <td width=470 valign=top > 对于4KB页表的页目录项，该字段指示页表第一个字节的物理地址，字段中的值作为物理地址的高20位，这样可以将页表强制调整成与4KB的边界对齐。 
+            对于4KB页面的页表项，该字段指示4KB页面第一个字节的物理地址。字段中的位作为物理地址的高20位，这样可以将页面强制调整成与4KB的边界对齐。 
+            对于4MB页面的页目录项，该字段指定4MB页面第一个字节的物理地址。字段中的值作为物理地址的高10位，这样可以将页面强制调整为与4MB的边界对齐</td>
+        </tr>
+        <tr bgcolor="#FFFFFF" class="pt9"> 
+          <td width=98 valign=top > 存在（P）标志，第0位</td>
+          <td width=470 valign=top > 表示由“项”所指的页面或页表当前是否加载到了物理存储器中，该标志置位时，页面在物理存储器中存在，表示可以进行地址转换。该标志清0时，说明页面不在物理存储器，如果处理器对该页面进行访问，会产生缺页异常（＃PF）。 
+            如果产生缺页异常，操作系统将进行把该页页面从磁盘存储器复制到物理存储器以及维护页目录项或页表项操作，并继续执行被中断的程序。</td>
+        </tr>
+        <tr bgcolor="#FFFFFF" class="pt9"> 
+          <td width=98 valign=top > 读/写（R/W）标志，第1位</td>
+          <td width=470 valign=top > 为页面或页面组（对页目录项而言）指定读写特权。将该标志清0时，页面为只读，将该标志置位时，页面可以读和写。该标志与U/S标志和CR0寄存器中的WP标志一起使用。</td>
+        </tr>
+        <tr bgcolor="#FFFFFF" class="pt9"> 
+          <td width=98 valign=top > 用户/系统（U/S）标志，第2位</td>
+          <td width=470 valign=top > 为页面或页面组（对页目录项而言）指定用户系统特权，U/S标志清0时，该页分配的是系统特权级；将该标志置位时，该页分配的是用户特权级。</td>
+        </tr>
+        <tr bgcolor="#FFFFFF" class="pt9"> 
+          <td width=98 valign=top > 页面级写直达（PWT）标志，第3位</td>
+          <td width=470 valign=top > 控制页面或页表的写直达或写回的高速缓存写策略。该标志置位时，相应的页面或页表允许写直达到高速缓存。该标志清零时，相应的页面或页表允许回写高速缓存。如果CR0中的CD（缓存禁止）标志置1，PWT标志无意义。</td>
+        </tr>
+        <tr bgcolor="#FFFFFF" class="pt9"> 
+          <td width=98 valign=top > 访问（A）标志，第5位</td>
+          <td width=470 valign=top > A置位时，表示页面或页表已被访问过。当页面或页表在一开使加载到物理存储器时，一般由存储器管理软件清除A标志。然后在页面或页表第一次被访问时，处理器将A标志置位，该标志是一种“粘贴”标志，就是说，一旦被置位，处理器就不会将它清除，只有软件才能清除该标志，访问标志和下面的页面重写标志用于存储器管理软件的页面调度。</td>
+        </tr>
+        <tr bgcolor="#FFFFFF" class="pt9"> 
+          <td width=98 valign=top > 页面重写（D）标志，第6位</td>
+          <td width=470 valign=top > D标志有时形象地称它为脏位，置1时，表示页面已经被写过。在页面一开始加载到物理存储器时，一般由存储器管理软件将该标志清0。然后在页面第一次被写入时，处理器将该标志置1。该标志也是一种“粘贴”标志。</td>
+        </tr>
+        <tr bgcolor="#FFFFFF" class="pt9"> 
+          <td width=98 valign=top > 页面规模（PS）标志，第7位</td>
+          <td width=470 valign=top > 确定页面规模，该标志只在页目录项中使用，PS标志清零时,页面规模为4KB，而且页目录项指向页表。PS标志置1时，对于常规32位寻址，页面规模为4MB（如果允许扩展物理寻址，则页面规模为2MB）而且页目录项指向一个页面。如果页目录指向页表，则与该表相关的所有页面都是4KB的页面。</td>
+        </tr>
+        <tr bgcolor="#FFFFFF" class="pt9"> 
+          <td width=98 valign=top > 全局（G）标志，第8位</td>
+          <td width=470 valign=top > G标志在P6系列处理器中定义。置位时，表示为全局页面，在页面标址为全局页面且CR4中的页面全局允许（PGE）标志置位时，加载寄存器CR3或产生任务切换，该页面的页表项或页目录项在TLB中不会失效。定义G标志目的是防止频繁使用的页面（像包含内核或操作系统其他代码的页面）在TLB中被清洗。只有软件才能置位或清除该标志。</td>
+        </tr>
+        <tr bgcolor="#FFFFFF" class="pt9"> 
+          <td width=98 valign=top > 保留位和软件可用位</td>
+          <td width=470 valign=top > 在页表项中，第7位保留，而且要置0；在指向页表的页目录项中，第6位保留，而且要置0。对于一个4MB页面的页目录项来说，第21~12位保留，而且要将它们全部置为0。因为对于页表项和页目录项来说，第11、10和9位是由软件来使用的，当控制寄存器CR4中的PSE或PAE标志置位时，如果保留位没有置0，处理器会产生页面错误。</td>
+        </tr>
+      </table> </td>
+  </tr>
+</table>
+</body>
+</html>

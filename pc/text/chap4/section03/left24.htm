@@ -1,0 +1,21 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9"><strong>3、8251的编程</strong><br>
+      　　可以通过编程对功能很强的8251A进行工作方式选择并可以通过编程控制命令来产生需求的操作和状态。支持8251A编程的寄存器有：方式寄存器，命令寄存器、状态寄存器以及同步字符寄存器。<br>
+<strong>1) 方式寄存器</strong><br>
+      　　方式寄存器用来选择8251A的工作方式，确定8251A工作在同步方式还是异步方式，如果是同步方式，进而确定是内同步还是外同步；还可以选择波特率以及传送字符的格式。图4-27 
+      表示了8251A方式选择命令字各数据位的定义。D1和D0位组合起来，指示同步传送还是异步传送方式以及异步方式下的波特率系数，00表示同步方式，01、10和11分别波特率为1、16和64的异步方式。D3、D2位的4种编码，分别指定了8~5四种字符长度。D5和D4位则定义了奇偶校验状态，D4为0，表示无校验，为1表示有校验；在有校验的情况下，D5为0是奇校验，D5为1是偶校验。D7、D6在同步和异步方式下意义不同，在同步方式下，指示选择内、外同步的状态以及内同步时同步字符的个数， 
+      D6的0或1表示内同步或外同步，D7位的0或1则表示2个同步符或1个同步符。在异步方式下，D7、D6为01、10或11时，分别表示选择1个、1.5个或2个停止位。<br></td>
+  </tr>
+</table>
+</body>
+</html>

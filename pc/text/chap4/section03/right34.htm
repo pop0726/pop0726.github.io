@@ -1,0 +1,28 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="bg">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9">说明：<br>
+      　　a) 初始化参数格式<br>
+      　　　 初始化参数是一个1字节数据，分别定义波特率、奇偶校验、停止位个数和数据位长度4种参数，如下图：<br>
+      <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0" width="390" height="290">
+        <param name="movie" value="../../../flash/p4_3_3_1.swf">
+        <param name="quality" value="high">
+		
+        <embed src="../../../flash/p4_3_3_1.swf"  quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="390" height="290"></embed></object> 
+      <br>
+      　　　　图4-32 INT 14H 0号子功能的初始化参数格式 <br>
+      　　b) 注意事项<br>
+      　　调用INT 14H 0 初始化以后，8250的内部中断被禁止，只能采用查询方式控制数据传送。但是，只要在0号功能初始化后，对8250的中断允许触发器和调制解调控制寄存器写入相应的命令字，仍然可以让8250工作在中断方式。</td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" class="bg">
+<table width="100%" border="0" cellspacing="10" cellpadding="2">
+  <tr>
+    <td class="pt9" height="262" > 
+      <table width="100%" border="0">
+        <tr> 
+          <td> 
+            <div align="center"> <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="390" height="420">
+                <param name=movie value="../../../flash/p6_3_4_5.swf">
+                <param name=quality value=high>
+                <embed src="../../../flash/p6_3_4_5.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="390" height="420">
+                </embed> 
+              </object></div>
+          </td>
+        </tr>
+        <tr> 
+          <td height="2"> 
+            <div align="center" class="tit">图6-22 PCI读</div>
+          </td>
+        </tr>
+      </table>
+      <br>
+      　　我们首先从原理上分析PCI猝发读交易的过程。见图6-22。注意两个问题，一是猝发读和普通读交易控制信号状态的差异，二是主设备或目标如何申请插入等待周期。和普通读的时序比较，猝发读的地址段中的信号同普通读基本相同。首先，主设备送出寻址目标地址以及猝法读交易的类型，置FRAME#为低，指示AD和C/BE#总线上的信息有效。在CLK2中，猝发读和普通读不同的是，FRAME#信号继续为低电平，保持有效状态，表示本次交易要传送两个或以上数据段，有效状态将一直保持到最后一个数据开始传送之前。从数据段开始，同样，主设备将C/BE#上的命令信号切换为字节选择信号，并置IRDY#信号为有效状态。由于读传送AD总线上的信息从主设备发送地址到目标发送数据，有一个信号交替过程，需要一定时间，数据信号不能在CLK2周期准备好，于是，目标将DEVSEL#和TRDY#置为高，即无效状态。在CLK3的前沿，当采样到DEVSEL#和TRDY#无效，便在第一个数据段插入了一个等待状态。在等待态CLK3中，DEVSEL#、IRDY#和TRDY#同时有效，表示主设备和目标全都准备好，在CLK4的前沿数据被主设备读入，完成第一个数据段的传送。从CLK4开始，主设备准备第二数据段的读取，主设备驱动字节选择信号送到C/BE#总线，令IRDY#继续保持有效。如果此时目标尚未准备好数据，目标驱动TRDY#为高（无效状态）。在CLK5的前沿又一个等待周期被插入。当目标准备好驱动第二项数据，便将TRDY#置为低，主设备在CLK6的前沿检测到IRDY#、TRDY#同时有效，就读取数据，完成第二项数据读取。在CLK6和CLK7中的第三项数据读，也是通过插入等待状态完成的。这个等待态的插入是由主设备没有准备好引起的，主设备在CLK6令IDRY#为高，请求扩展第三个数据段，于是在CLK7又插入了一个等待周期。第三个数据项是本次猝发读的最后一个数据项，在CLK7中，主设备驱动FRAME#为高，目标检测到FRAME#为高、IRDY#为低，知道主设备已准备好接收数据且这是最后的一项数据。主设备在CLK8的前沿读取数据并无效IRDY#，目标无效TRDY#及DEVSEL#，结束本次猝发读交易。将总线释放为空闲状态。<br>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

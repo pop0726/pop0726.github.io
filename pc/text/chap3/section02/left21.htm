@@ -1,0 +1,23 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9"><strong>3) 中断源的屏蔽</strong><br>
+      　　在有多个中断源的系统当中，有些时候不希望某些中断发生，这就需要对中断源进行屏蔽。8259A对中断源的屏蔽是通过中断屏蔽寄存器进行的，有普通屏蔽和特殊屏蔽两种方式。<br>
+      <strong>　　普通屏蔽方式</strong><br>
+      　　8259A有一个8位的中断屏蔽寄存器IMR。它的各位和8个中断请求相对应。如果在有些时间段内不希望某一个或某几个中断发生，可以通过设置屏蔽寄存器将该中断对应的IMRi置为1。每当发生中断请求，如果这级中断的屏蔽寄存器位为1，该级请求就不会被送到优先权裁决器裁决。从而使这个中断向CPU的请求不能发生。在希望解除屏蔽的时候，可以将屏蔽位请零。 
+      <br>
+      <strong>　　</strong><strong>特殊屏蔽方式</strong><br>
+      　　如果屏蔽了某些中断，优先级比它们低的中断就可以得到响应。但是如果优先级高的中断正在服务，即它们的ISR=1，低级中断仍然不能得到响应。为此，8259A设计了特殊屏蔽方式，用来动态地改变中断的优先级。特殊屏蔽进行如下操作，如果对某一中断的屏蔽寄存器位置1，则对应的正在服务寄存器同时位被置0。假设较高级别的中断i正在被服务，通过设置特殊屏蔽，令IMRi=1，同时ISRi=0。结果，优先级比i低的i+1、i+2…级中断也可以中止i级中断而被响应，发生中断嵌套。不难看出，特殊屏蔽用在中断服务程序当中，用来动态调整中断优先级。 
+    </td>
+  </tr>
+</table>
+</body>
+</html>

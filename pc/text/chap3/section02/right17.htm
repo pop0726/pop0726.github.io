@@ -1,0 +1,21 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="bg">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td height="64" class="pt9">　　前面我们介绍的是单片8259A处理中断请求的过程。下面我们来看一个更为复杂的例子：级联方式下8259A是如何工作的。<br>
+      　　我们前面提到过中断扩展时候，采用级联方式如何连接主片和从片。在级联方式下，假设某从片8259A的INT连接到主片8259A的IRj，定义为IRj（m），m在这里表示master，即主片的意思。当某个从片的第i号中断输入IRi（定义为IRi（s），s在这里表示slave,即从片的意思）有效时，主片的IRj（m）同时有效。在第一个中断应答周期，优先级裁决器对申请中断的中断优先级进行裁决，如果主8259A的IRj（m）为所有参加申请的中断信号中的最高优先级，主片8259A的CAS2~CAS0变为有效电平，主片通过这三位的输出选择并应答第j个从片8259A。和单片的情况类似，从CPU发出的INTA#信号令从片8259A的ISRi（s）=1，IRRi（s）=0，就是表示正在处理第j个从片的第i号中断请求，刚才从片锁存起来的这个中断请求标志就被清除了；同时主8259A的ISRj（m）=1，IRRj（m）=0。就是表示正在处理第j个从片的中断请求，也就是主片的第j号中断请求，刚才主片锁存起来的这个中断请求标志就被清除了。 
+      <br>
+      　　在第二个中断应答周期，INTA#和CAS2~CAS0信号仍然有效，通知第j个从片8259A送出类型码。 <br>
+      　　这些和单片的8259A都是基本类似的。另外还有两个地方要注意。第一，主片和从片8259芯片必须分别初始化，不能初始化一次就完毕了。第二，中断结束时，CPU必须分别送EOI命令给主片和从片。一个是清除ISRj(m)，一个是清除ISRi(s)。</td>
+  </tr>
+</table>
+</body>
+</html>

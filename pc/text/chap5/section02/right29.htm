@@ -1,0 +1,60 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="bg">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9"> 　　在基于Pentium微计算机系统中，除了处理器内部的L1级Cache，又增加了L2级Cache。内部Cache、L2 
+      cache和DRAM组成了Pentium机的主存储器系统。这样的三级存储系统有利于实现容量大、速度快、价格低的目标，但同时也要求有更为复杂的访问策略来保证系统正常运行。本节将分析一些实际的例子，针对存储器访问中的不同情况，分析Cache的状态，Cache控制器的操作以及有关时序。<br>
+      　　引入流水线结构以后，Pentium处理器的并行功能十分强大，指令的不同部分在无冲突的条件下可以并行执行，这里的两条流水线访问Cache，也可以在没有组冲突的情况下并发进行。如果有冲突，流水线U的优先级要高于流水线V。 
+      <br>
+      　　表5-4 读指令执行前Cache 目录状态<br>
+      <table border=0 cellpadding=1 cellspacing=1 bgcolor="#000000">
+        <tr bgcolor="#FFFFFF" class="pt9"> 
+          <td align=center valign=top >目录状态</td>
+          <td align=center valign=top >目录项2</td>
+          <td align=center valign=top >目录项4</td>
+          <td align=center valign=top >目录项7C</td>
+        </tr>
+        <tr bgcolor="#FFFFFF" class="pt9"> 
+          <td align=center valign=top >LRU位</td>
+          <td align=center valign=top >1</td>
+          <td align=center valign=top >0</td>
+          <td align=center valign=top >0</td>
+        </tr>
+        <tr bgcolor="#FFFFFF" class="pt9"> 
+          <td align=center valign=top >目录0状态位</td>
+          <td align=center valign=top >S</td>
+          <td align=center valign=top >S</td>
+          <td align=center valign=top >M</td>
+        </tr>
+        <tr bgcolor="#FFFFFF" class="pt9"> 
+          <td align=center valign=top >目录1状态位</td>
+          <td align=center valign=top >S</td>
+          <td align=center valign=top >E</td>
+          <td align=center valign=top >S</td>
+        </tr>
+        <tr bgcolor="#FFFFFF" class="pt9"> 
+          <td align=center valign=top >目录0标记域</td>
+          <td align=center valign=top >002A1</td>
+          <td align=center valign=top >002A1</td>
+          <td align=center valign=top >000F5</td>
+        </tr>
+        <tr bgcolor="#FFFFFF" class="pt9"> 
+          <td align=center valign=top >目录1标记域</td>
+          <td align=center valign=top >00FB6</td>
+          <td align=center valign=top >0385C</td>
+          <td align=center valign=top >00F49</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

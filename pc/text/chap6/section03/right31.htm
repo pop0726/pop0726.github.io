@@ -1,0 +1,23 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" class="bg">
+<table width="100%" border="0" cellspacing="10" cellpadding="2">
+  <tr>
+    <td class="pt9" height="81" ><div align="center"><img src="../../../images/chap6/ch26.gif"><br>图6-26  配置地址口0CF8h</div><br>
+      　　PCI配置访问是由CPU请求，Host/PCI桥启动的对目标配置寄存器的访问。在Host/PCI桥上有两个占用I/O空间0CF8h和0CFCh 
+      的32位的寄存器，配置访问是CPU通过对Host/PCI桥的配置端口0CF8h和0CFCh的读写，桥将配置数据映射到要访问设备（功能）的配置空间中完成的。32位的配置地址端口是这样分配的：最低两位[1：0]为配置地址标志位，恒为00，只读，接下来的6位[7：2]表示了配置空间中64个双字的编码；[10：8] 
+      3位表示目标设备中8个功能的编码；[15：11] 位用来识别32个PCI目标设备中的一个；而8位代码[23：16]则用来区分系统中最多可以配置的256个目标PCI总线的编码；[30：24] 
+      7位未用；位31是配置空间映射允许位。向配置地址端口写的32位信息，表示了本次配置访问的目标总线编号、目标设备编号、功能编号、要访问的配置空间双字的序号以及配置允许标志（位31必须置为1）等。当处理器执行一次全32位的写操作到端口时，配置地址端口锁存信息，形成对要访问的配置寄存器地址的映射。在处理器访问数据端口时，Host/PCI桥根据地址端口锁存的地址&quot;索引&quot;，启动PCI配置访问，形成对要访问设备配置寄存器数据的读或写。复位信号有效时将端口所有位清0。<br>
+      　　Host/PCI桥提供一个总线数目寄存器（在仅仅支持一个Host/PCI桥的芯片组中，总线数目寄存器由硬连线强制为0）和一个下级总线数目寄存器，用来存放两类PCI总线的个数。配置地址端口被写入以后，若配置空间映射允许位为1，桥就将目标总线编号和桥后面实际存在的总线数相比较，如果配置地址端口指定的目标总线编号和总线数目寄存器的值相等，说明处理器请求在总线0上进行配置交易。紧接着从/向桥的配置数据口地址0CFCh的I/O读/写便使桥产生类型0的配置读或写交易。如果目标总线编号超出桥的总线数目寄存器的值，但等于或小于桥的下一级总线数目寄存器的值，桥就将后继的处理器对配置数据端口的I/O访问转换为PCI总线上类型1的配置交易。当驻留在PCI总线0上的设备(除外PCI-PCI桥)检测到正在在进行的类型1配置访问时，便忽略该交易。<br>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

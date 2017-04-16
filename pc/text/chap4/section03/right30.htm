@@ -1,0 +1,20 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="bg">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9">　　串行接口芯片仍然选用8251A，由于8251A和Intel系列微处理器以及ISA总线信号兼容，所以硬件连接十分简单。图4-31 
+      是两台PC机的串行接口相互连接的逻辑图。PC机分配给串行口的地址为03F8h~03FBh，命令端口为03FAh，数据端口为03F8h。串行接口和CPU的数据交互方式定义为状态查询方式，也就是说CPU是采用查询方式来和串行接口通信的，通过不断对串行接口的状态采样来确定串行接口的状态，从而决定应该采取什么样的动作。两台PC机的串行接口之间采用无联络信号的全双工连接，我们在前面也讲到过，只需要将它们的串行数据发送和串行数据接收端互相连接，并把地线连在一起，便可以实现通信。在这里值得注意的是：为了使8251A能够满足调制解调器在电平方面要求的RS-232-C标准，要将8251A的TXD的TTL电平转换成RS232电平进行传送，然后再将它变回TTL电平由另一台PC的8251A接收。要注意的是尽管使用的无联络信号的传输方式，但两边8251的CTS#端必须接地。两台PC机可以同时作为数据发送方和数据接收方，他们运行同样的驱动程序。<br>
+      <img src="../../../images/chap4/p4_3_2_6.gif"><br>
+      　　　　　　图4-31 两台PC机间的串行通信 </td>
+  </tr>
+</table>
+</body>
+</html>

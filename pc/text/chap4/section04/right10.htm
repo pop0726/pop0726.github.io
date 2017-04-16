@@ -1,0 +1,26 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="bg">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9">　　我们提到过，DAC0832是和CPU兼容的D/A转换电路，它具有数据输入寄存器，因此和CPU连接非常方便。图4-39 
+      是两路输出同步的、双极性输出的D/A转换电路和CPU连接的原理性示意图。左下方的译码器(图中的DECODER)的3个输出端分别选择第1、第2片DAC0832以及两片0832的XFER，就象刚刚我们讲过的多片D/A转换器系统的例子一样，这里的两片DAC0832的XFER#是连接在一起的，它们将被同时置为有效电平，然后就可以在两个D/A的输出端同时得到所需要的电压。我们假设译码器的3个地址为01、02、03，CPU执行下述指令，就能同时在两个D/A通道的运算放大器的输出端上分别建立+4.96V和-5V的电压。在前面的表中我们也讲到过，当VREF为+5V时，输入FFh将得到+4.96V电压，输入00h将得到-5V电压，那么下面的程序就非常容易理解了。<br>
+      MOV AL，FFh；<br>
+      OUT 01h，AL；<br>
+      MOV AL，0；<br>
+      OUT 02h，AL；<br>
+      OUT 03h，AL；<br>
+      <br>
+      <img src="../../../images/chap4/p4_4_2_7.gif"><br>
+      　　图4-40 多路DAC0832同步输出</td>
+  </tr>
+</table>
+</body>
+</html>

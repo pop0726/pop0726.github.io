@@ -1,0 +1,27 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="bg">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9">　　图4-46 是AD574和CPU原理性连接图。图中，来自CPU的IOR#和IOW#分别连接一个双端与非门的输入端，形成对AD574 
+      ‘片使能’ CE信号的控制，双端与非门的逻辑使得当且仅当IOR#或IOW#有效时CE信号才有效(为了使CE有效，也就是高电平，应该使两个输入端相与的结果为0，也就是两个输入信号至少有一个为低电平，所以当且仅当IOR#或IOW#有效，也就是为低电平的时候，CE有效)。我们知道AD574是由脉冲来控制启动转换的。所以我们把IOW#连接AD574的R/C#，利用IOW#信号在执行I/O写指令时发出负脉冲而在其它时刻均为高电平的特性，控制AD574的启动转换和数据读出。地址译码器将地址信号译码，它的Y1产生对AD574的片选择信号CS#。通过看AD574的时序图，我们发现只有在CE、IOW#、CS#同时有效时，才能启动A/D转换；CE、IOR#、CS#同时有效时，才能读出A/D转换结果。这样，利用IOW#的非写即读特性，在执行OUT 
+      (AD574地址)，A 指令时就能使CE、IOW#、CS#同时有效，启动A/D转换。执行IN A， (AD574地址) 指令时就能使CE、IOR#、CS#同时有效，读出A/D转换结果。AD574的转换状态信号STS经过三态门连接数据总线的D0端，利用译码器的Y2控制三态门的输出。通过不断测试STS的状态，判断A/D转换是否结束，当读出STS状态为0时，表示转换结束，便可读取转换结果数据。驱动AD574转换的程序如下：<br>
+      　　　　OUT Y1，AL ；通过向转换芯片的端口执行OUT指令启动AD574，<br>
+      　　　　　　　　　 ；AL的值此刻无意义<br>
+      STS1：　IN AL，Y2 ；读取STS的状态<br>
+      　　　　TEST AL，01 ；转换结束？<br>
+      　　　　JNZ STS1 ；没有结束就继续查询<br>
+      　　　　MOV DX，Y1 ；获得转换芯片数据端口的地址<br>
+      　　　　IN AX，DX ；读取结果<br>
+      　　　　... </td>
+  </tr>
+</table>
+</body>
+</html>

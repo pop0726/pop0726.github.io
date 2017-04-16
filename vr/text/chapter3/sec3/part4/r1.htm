@@ -1,0 +1,45 @@
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+<STYLE TYPE="text/css">
+<!--
+BODY {background-image: URL(../../../../image/index/bg.gif);
+background-position: right;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr> 
+    <td class="text"> 　　SIMNET (simulator networking) 是为DARPA开发的分布式军用虚拟环境，开发者有Bolt, 
+      Beranek and Newman (BBN), Perceptronics, and Delta Graphics。 SIMNET 从1983年开始，在1990年提交美国军队。SIMNET 
+      的目标是开发一个低成本的网络化的虚拟环境，用于训练小的战斗单元和队伍。SIMNET 的关键技术是：①怎样制造高质量低成本的仿真器，②怎样把仿真器联网，形成一致的虚拟战场，③进行有关技术的研究。SIMNET 
+      建立了11个地点的测试床，每个地点有50到100个仿真器。 SIMNET 可以从网络上任何地方进入，用一个仿真器作为虚拟环境的入口。一旦进入这个虚拟环境，这个参与者就可以与在虚拟战场上的其他参与者交互。人的参与不是根据预先的安排，而是参与者当时的决定。 
+      <br>
+      　　下图表示SIMNET的结构图。<br>
+      　　　<span class="explan"><b>局域网 LAN</b></span><br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td align="center"><span class="explan"><br>
+            <img src="../../../../image/ch3/sec3/pic8.gif" width="310" height="152"></span></td>
+        </tr>
+      </table>
+      <br>
+      　　SIMNET 网络的软件结构有三个基本成分：①对象事件结构，②自主仿真节点的概念，③预测建模算法的嵌入式集合，称为&quot;dead reckoning&quot; 
+      （死计算）。<br>
+      　　①SIMNET的对象事件结构，把世界建模为对象的集，而对象彼此的交互则是事件的集。对象是可以通过网络交互的车辆和武器系统。事件是给网络的消息，他指出世界或对象状态的变化。<br>
+      　　②SIMNET中的自主仿真节点的概念表示，在网络上各个参与者（车辆和武器系统）负责把消息或包放在网络上，以便准确表达他们当前的状态。包接受器负责接受这种状态变化信息，并适当地改变他们的局部世界模型。因为不采用集中式服务器，所以在系统中一个点的故障不会使整个仿真停顿。此外， 
+      允许参与者随时加入和离开仿真。把状态变化放在网络上意味着，每当一个节点的对象发生的变化大到足以需要其他参与者了解这种变化，这个节点就必须把包放在网络上。把当前的状态放在网络上也意味着，节点必须提供正规的&quot;心跳&quot;消息（通常每5秒钟1次），这是为了让其他参与者知道一个具体对象还活着，而且还在系统中（因而应该被显示）。<br>
+      　　③Dead-Reckoning。为减少在SIMNET 中的包传输，创造了对象和幻影的格式。这种格式的概念是，每当对象的家节点确定了，网上其他节点不再能以一定的阈值预测其状态，该对象才把包放在网上。这种格式是假设，系统中其他节点把该对象的&quot;幻影&quot;复制保留在存储中，而且最后纪录的方向，速度和位置足以在一定的阈值内预测对象当前状态。<br>
+      　　SIMNET 的网络软件结构是可扩充的，1990年3月在5个点有850个对象，大部分对象是半自主的力量。在测试中，平均每秒1个包，对每秒1.06 
+      Mbits 的峰值要求每个包是156 bytes，仅在T-1速度之下。</td>
+  </tr>
+</table>
+</body>
+</html>

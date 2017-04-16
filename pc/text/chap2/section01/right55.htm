@@ -1,0 +1,22 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" class="bg">
+<table width="100%" border="0" cellspacing="2" cellpadding="2">
+  <tr> 
+    <td class="pt9">　　8086 1M字节的存储器是怎样组织的呢？图2-23表示了8086的逻辑地址空间和地址空间物理实现。8086系统将1M字节的内存空间分为2部分，每个部分包含512个字节，分别对应16位数据总线的高8位字节和低8位字节。连接低8位数据线的为偶地址存储体，连接高8位数据线的为奇地址存储体。它们分别由A0（为0）和BHE<sup>#</sup>来选择。因此，A0通常不参加存储器片内地址译码，而是和BHE<sup>#</sup>一起直接用做存储体的选择信号。这种组织存储器的思想同样体现在具有32位数据总线的80386、80486系统和具有64位数据总线的Pentium 
+      系统当中。80386系统将内存储器分为4个存储体，分别由BH0<sup>#</sup>、BH1<sup>#</sup>、BH2<sup>#</sup>、BH3<sup>#</sup>来选择，Pentium处理机将内存储器分为8个存储体，分别由BH0<sup>#</sup> 
+      ~ BH7<sup>#</sup>来选择。<br>
+      　　图2-24 描述了8086对存储器奇、偶地址的字节访问，对奇、偶地址字访问时存储体选通信号的状态、数据传送占用的通道和传送过程。图2-24（1）（a）表示从偶地址读一个字节，此时BHE<sup>#</sup>=1，A0=0，偶存储体被选中，数据从低位数据线送出；图2-24（1）（b）表示从奇地址读一个字节，此时BHE<sup>#</sup>=0，A0=1，奇存储体被选中，数据从高位数据线送出；图2-24（2）表示了从偶地址读一个字，此时BHE<sup>#</sup>=0，A0=0，奇偶存储体同时被选中，数据从16位数据线一起送出；这里特别说明一下对奇地址开始的字访问的数据传送过程。对奇地址开始的字访问分两个总线周期进行（图2-24（3）），第一个总线周期BHE<sup>#</sup>=0，选中奇存储体，将存放在奇地址的字的低位字节（X+1）从高位数据总线上送出（图2-24（3）（a）），第二个总线周期A0=0，选中偶存储体，将存放在偶地址的字的高位字节（Y）从低位数据总线上送出（图2-24（3）（b））。<br>
+      <br>
+      </p></td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" class="bg">
+<table width="100%" border="0" cellspacing="10" cellpadding="2">
+  <tr>
+    <td class="pt9" height="29" >
+      <table width="100%" border="0">
+        <tr> 
+          <td> 
+            <div align="center"><img src="../../../images/chap6/6_28.gif"></div>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <div align="center" class="tit">图6-28 通过电阻偶合的IDSEL的连接</div>
+          </td>
+        </tr>
+      </table>
+      　<br>
+      　　启动PCI配置交易以后，总线上所有PCI设备在地址段结束时锁存了如下信息：其中包含目标功能的编号（AD10~AD8）、配置双字的编号（AD7~AD2）、类型0交易的标识位（AD1~AD0）、FRAME#信号的状态等。但是，此次配置交易的目标设备是哪一个呢？确定配置目标设备以后，通过什么信号选择目标呢？在桥的配置地址端口第15~11位，保存着本次配置交易目标设备的编码。桥对目标设备码译码，便知道本次交易的目标。在配置交易的地址段，地址线AD31~AD11未被使用，因此多数芯片组根据PCI规范将AD31~AD16用做IDSEL目标设备选择信号，例如定义AD16为设备0的IDSEL、AD17为设备1的IDSEL、AD18为设备2的IDSEL…。桥的内部逻辑根据对目标设备码的译码结果，驱动该目标设备的IDSEL信号有效，便实现了对配置目标设备的选择。</td>
+  </tr>
+</table>
+</body>
+</html>

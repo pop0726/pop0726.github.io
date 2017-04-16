@@ -1,0 +1,29 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="bg">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9"><img src="../../../images/chap5/p5_2_1_1a.gif"><br>
+      <img src="../../../images/chap5/p5_2_1_1b.gif"><br>
+      　　　　图5-7 Cache 系统结构 <br>
+      <br>
+      　　微计算机的内存储器系统一般分为三个层次：第一层次是处理器内部的第一级Cache即L1 Cache；第二层次是置于处理器内部或外部的第二级Cache，或称为L2 
+      Cache，第三层次就是主存储器DRAM。这三个层次又是怎样组织的呢？常用的Cache结构通常有两种，第一种是Look-through结构，第二种是Look-aside结构（图5-7）。下面我们就分别看看这两种结构的具体意义。<br>
+      　　Look-through结构设计了处理器局部总线和系统总线以及存储器总线之间的隔离措施，将Cache控制器置于处理器局部总线和系统总线以及存储器总线之间。在Look-through的结构中，当处理器需要访问存储器时，首先进行Cache目录查找，看Cache中是否存在所需存储器信息的副本。如果Cache命中，处理器将以零等待状态访问内部Cache，就是说不需要插入任何等待状态，就可以访问。而且处理器发出的存储器请求信息不会被传送到主存储器和系统总线上，只反映在处理器局部总线上面。正是由于有这样的结构存在，减少了系统总线和存储器总线的使用时间，使得这些总线可以相对独立的工作。<br>
+      　　允许并发操作的发生，使得两个总线主设备在同一个系统中可以同时运行，这是Look-through Cache结构的主要优点。处理器能够以零等待态访问它的本地Cache（Look-through），而另一个总线主，比如DMA或其它智能控制器，可以利用系统总线或存储器总线访问存储器，两种操作相互不会发生干扰，可以同时进行。Look-through结构还可以支持多处理器系统。因此Look-through 
+      Cache结构的性能优于Look-aside结构。这种结构的不足是，在Cache不命中的情况下，Cache目录查找之后，要访问的存储器地址才被送到系统总线和存储器总线，延迟了请求存储器访问的时间。另外由于结构复杂，设计制造的难度使得价格高于Look-aside 
+      Cache结构。<br>
+      　　而Look-aside结构则没有隔离处理器局部总线和系统以及存储器总线的措施。处理器直接与系统总线和DRAM相连，Cache控制器则被安置在总线的一旁。在采用Look-aside 
+      Cache结构的系统里，一旦处理器启动一个总线周期，系统中的所有设备都要检测这个总线地址，就象系统中没有Cache那样。不过在Cache不命中的情况下，马上就可以进行存储器访问，这个操作不像在Look-through结构中被延迟。这种结构虽然简单廉价，但系统总线占用率高，多个总线主设备无法并发工作。<br>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

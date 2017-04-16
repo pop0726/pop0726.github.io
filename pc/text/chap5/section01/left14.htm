@@ -1,0 +1,23 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9">3、写策略<br>
+      　　Cache结构是一种存储器分层的技术。每一个Cache行中装入的是相应主存块的副本。如果处理器执行了Cache写操作，则主存中对应字或字节是无效的。当系统中存在DMA控制器，DMA修改了主存储器，则Cache中的字或字节也是无效的。当系统具有两个以上处理器，每个处理器都具有自己本地的Cache时，情况更加复杂。如果一个局部Cache的字内容被修改，那么主存和其他Cache中相关的字都将是无效的。为了保持Cache和存储器中数据一致，采用了写通过和回写技术。<br>
+      <ul>
+        <li>写直达（write through），写操作对Cache和主存储器同时进行，从而保证主存储器数据的有效性。其缺点是产生大量的写存储器操作，使效率降低。</li>
+        <li>写回（write back），写操作只对Cache进行，对写入行设置修改标志。当某一个数据块要被替换时，只有他的修改标志被置位时，才将他回写到主存储器。它的缺点是，使得部分存储器是无效的。因此，I/O模块的访问只允许通过Cache进行，使得电路复杂化。</li>
+      </ul>
+      <p>　　实际系统中，通常同时使用这两种写策略，使它们在不同的情况下互相补充，在修改数据时保持存储器数据的一致性。</p>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

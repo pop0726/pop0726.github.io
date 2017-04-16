@@ -1,0 +1,46 @@
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+<STYLE TYPE="text/css">
+<!--
+BODY {background-image: URL(../../../../image/index/bg.gif);
+background-position: right;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr> 
+    <td><span class="text">　　下图表示图形卡的工作原理。 <br>
+      <br>
+      </span><span class="explan">　　　<b>图 3-1-03</b></span><span class="text"><br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td class="explan" align="center"> <br>
+            <img src="../../../../image/ch3/sec1/3_1_03.gif" width="379" height="380"> 
+          </td>
+        </tr>
+      </table>
+      <br>
+      　　图形流水线包括把三维物体由其自身坐标系变换到用于显示的二维屏幕空间所需要的计算器。这个过程涉及到很多步骤。第一步是把物体由其自身坐标系变换到描述整个场景的世界坐标系。第二步是剔除在场景中不必显示的物体，减少计算量，这是计算过程优化。第三步是在模型中引入颜色和明暗等性质。第四步， 
+      场景再作另一个变换到屏幕空间。最后光栅化为象素，并且显示。<br>
+      　　在这个过程中， 计算是在多个区域内进行。很多计算在CPU进行，但是多数矩阵运算是在图形加速器中进行。<br>
+      　　应该注意到，数据离开CPU后，应该马上经过四步。①由总线进入Video Chipset（视频芯片），并进行处理（数字数据）。这主要取决于总线类型，速度和CPU。②由Video 
+      Chipset进入Video Memory（视频存储器），保存屏幕图形的镜象（数字数据）。这一步和下一步都要求更大更快的总线。VC和RAM DC应该存取 
+      VRAM。③由Video Memory进入Digital Analog Converter（=RAM DAC，数模转换器），读出屏幕镜象（数字数据），进行数模转换。④由Digital 
+      Analog Converter到监视器（模拟数据）。<br>
+      　　由此可见， 除了第四步外，每一步对图形子系统的性能都是某种瓶颈和关键。最慢的一步会确定全局速度。<br>
+      　　图形卡的AGP和PCI是总线。数据总线会影响到图形卡的性能。PCI是标准的计算机内部总线。总线把计算机的插入卡（网络卡，图形卡等）连接到CPU。PCI总线的传输速度限制在130 
+      Mb/s。这说明，插入的卡越多，每个卡得到的传输速度越小，图形卡与CPU只能以较小的带宽通讯。AGP是专用总线，它只能连接一个卡（图形卡）。它的通过量为530 
+      Mb/s，全部用于图形卡。他还允许直接把纹理传送到图形卡，不必通过系统存储器。可以想象，这将大大增加系统性能。Intel 已经开发了AGP 2x 
+      和4x，比正规的AGP速度更快。</span></td>
+  </tr>
+</table>
+</body>
+</html>

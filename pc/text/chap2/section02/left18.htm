@@ -1,0 +1,27 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4" >
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9"><p><strong>　2）系统级寄存器 <br>
+        存储管理寄存器</strong><br>
+        　　处理器工作在保护模式下可以寻址64T（16K×4G）字节存储空间，存储管理寄存器支持分段和分页的功能，每个任务可以分配16K个段，每段最大4G，一段又可以分为多个页，一般情况下以4K 
+        字节为一页，目的是为了和磁盘扇区大小相对应。存储管理寄存器包括支持分段的段选择符和段描述符寄存器，即：<br>
+        　◇ GDTR全局描述符表寄存器<br>
+        　◇ IDTR中断描述符表寄存器<br>
+        　◇ LDTR局部描述符表寄存器<br>
+        　◇ TR任务寄存器<br>
+        　　GDTR（48bits）和IDTR（48bits）分别存放全局描述符表和中断描述符表的线性基地址（32位）和表的限长（16位）。<br>　　LDTR局部描述符表寄存器存放局部描述符的选择子。<br>
+      　　TR任务寄存器存放某一任务描述符的选择子。
+      </p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

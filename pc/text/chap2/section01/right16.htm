@@ -1,0 +1,19 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body leftmargin="0" topmargin="2" marginwidth="2" marginheight="2" class="bg">
+<table width="100%" border="0" cellspacing="2" cellpadding="2">
+  <tr> 
+    <td class="pt9">
+      　　作为分时复用管脚，因为既做地址信号，又做数据信号，因此是双向信号。在总线周期的T<sub>1</sub>状态AD<sub>15</sub>～AD<sub>0</sub>输出CPU所要访问的存储器或者I/O端口的地址；而在总线周期的T<sub>3</sub>状态，AD<sub>15</sub>～AD<sub>0</sub>上出现的是CPU和存储器或I/O端口交换的数据。T<sub>2</sub>状态对于读周期和写周期来说AD<sub>15</sub>～AD<sub>0</sub>上的状态是不同的：在是读周期，AD<sub>15</sub>～AD<sub>0</sub>要从CPU驱动（地址周期）切换为存储器或I/O端口驱动（数据周期），AD<sub>15</sub>～AD<sub>0</sub>管脚需要在一个状态周期内维持高阻状态，以便不同总线驱动源的切换。如果是写周期，地址和数据信号都是由CPU 
+      驱动，所以CPU从T<sub>2</sub>开始便输出数据。T<sub>2</sub>～T<sub>3</sub>都是数据周期。</td>
+  </tr>
+</table>
+</body>
+</html>

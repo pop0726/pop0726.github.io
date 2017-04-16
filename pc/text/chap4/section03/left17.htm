@@ -1,0 +1,24 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9">　　我们再对8251的引脚定义做一个介绍。同样，将其中和CPU连接的信号以及和外设连接的信号分别加以讨论。<br>
+      <strong>和CPU或系统连接的信号</strong><br>
+      ・D7~D0: 双向，8位数据线，可以与计算机系统数据总线直接相连，用于CPU和8251A之间命令、状态和数据的传送。<br>
+      ・RESET：输入，复位信号，高电平有效，其有效时将模式与状态寄存器复位，使同步检测信号SYNDET变为低电平，使8251处于空闲状态。<br>
+      ・CS#：片选择信号。<br>
+      ・C/D#: 输入，命令/数据寄存器选择，为“1”时选择模式和控制寄存器，为“0”时选择数据寄存器。该信号说明8251A需要占用2个连续地址，奇地址为命令端口，偶地址为数据端口。<br>
+      ・RD#、WR#: 输入，读、写信号，从8251读状态字和外设发来的数据，向8251写命令、控制字并向8251A写数据。<br>
+      ・T<sub>X</sub>RDY: 输出，发送器准备好信号，高电平有效，表示8251A已经准备好发送一个字符，其有效条件是：数据缓冲器空∧（CTS#=0）∧（T<sub>X</sub>EN=1）。该信号可以用于CPU向8251的数据传送的中断请求或状态查询信号，CPU响应请求向8251A发送数据以后，T<sub>X</sub>RDY变为无效的低电平状态。 
+    </td>
+  </tr>
+</table>
+</body>
+</html>

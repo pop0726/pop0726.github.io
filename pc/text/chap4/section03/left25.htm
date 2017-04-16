@@ -1,0 +1,18 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9"><strong>2) 命令寄存器</strong><br>
+　　命令寄存器用来控制8251A的操作和状态，命令寄存器各数据位的功能如图4-28 所示。可以通过程序设置命令寄存器的不同数位分别控制8251A开始搜索同步字符、进行内部复位、错误标志复位、发送中止字符、置发送请求信号有效、置数据终端准备好信号有效等操作并可以设置接收允许和发送允许状态。其中D0、D2两位分别是输出允许信号和输入允许信号，设置为1才能允许8251A发送或者接收数据。D5位发送请求位RTS置1，发送请求引脚RTS#输出有效的低电平。D1位DTR置1，数据终端准备好引脚DTR#输出有效的低电平。在同步方式下，将D7位置1，8251A的接收控制器开始搜索同步字符。D3位SBRK置1，数据发送引脚TXD输出低电平，发送中止字符。在8251A发送和接收数据之前，必须设置发送允许和接收允许为有效的逻辑1状态。D6和D4位分别是内部复位命令位和错误标志命令位，D6位置1，程序复位8251。D4置1，格式错、覆盖错、奇偶错三种错误标志同时被复位。<br>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

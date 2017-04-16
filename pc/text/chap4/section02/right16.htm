@@ -1,0 +1,27 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="bg">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9"> 　　了解了各个端口的地址设置之后，我们来看看控制字的各位的具体含义。图4-15 表示了82C55A方式控制字的定义。我们从高位到低位逐一解释一下。设置为输入方式的端口是从外设接收数据送往CPU。而设置为输出方式的端口是从CPU接收数据送往外设。<br>
+      首先D7为设置方式字的允许标志，1为允许，就是允许通过程序来设置方式字，因此设置方式字时该位必须为1。<br>
+      　　D6、D5位为A组端口的A端口和C口高位的方式选择位。因为有3种工作方式，所以需要用两位来指定工作方式。这两位为00时选择方式0，为01时选择方式1，为1X时选择方式2。D2是对B组控制的B端口和C口低位进行方式设置，为1时为方式1，为0时为方式0。需要注意的是，当A端口和B端口设定为方式1时，或A端口设为方式2时，C端口的某些位被指定为A端口和B端口的联络信号，只有剩余位才随着对C端口输入和输出方式的设定工作在0方式。<br>
+      　　D4、D3位是对A组控制的端口A和端口C的高位进行输入输出设置，D4为1时将A口设为输入方式，为0时设为输出方式；D3为1时将C口高位设为输入方式，为0时设为输出方式。D1、D0是对B组控制的端口B和端口C的低位进行输入输出控制，D1为0时B端口为输出方式，为1时为输入方式；D0为0时C端口的低位为输出方式，为1时为输入方式。<br>
+      <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0" width="390" height="530">
+        <param name="movie" value="../../../flash/p4_2_2_15.swf">
+        <param name="quality" value="high">
+		
+        <embed src="../../../flash/p4_2_2_15.swf"  quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="390" height="530"></embed></object> 
+      <br>
+      　　　　图4-15 82C55A方式选择控制字 </td>
+  </tr>
+</table>
+</body>
+</html>

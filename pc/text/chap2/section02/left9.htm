@@ -1,0 +1,29 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4" >
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9"><p><strong>1）总线单元</strong><br>
+        　　总线单元是Pentium微处理器和系统其余部分的物理接口，图2-30 表示了总线单元的组成。总线单元包含如下功能模块。</p>
+     
+        <li><strong>地址发送接收器：</strong>驱动Pentium的双向地址总线。</li>
+        <li><strong>写缓冲器：</strong>在写内存操作时，总线单元正忙时的数椐缓冲。</li>
+        <li><strong>地址驱动器和接收器：</strong>驱动Pentium的双向地址总线。在一个总线周期中，地址驱动器将地址信号送到处理器的本地地址总线（A31:A3和BE7:BE0）上。在Cache的监听周期，地址总线又将其他总线主发出的地址传回给Pentium地址接收器。</li>
+        <li><strong>写缓冲器：</strong>Pentium处理器有两个写缓冲器，每个内部执行流水线都有一个写缓冲器，每个写缓冲区都是64位的（即四字），它可以容纳一次写操作的操作数。在写操作时，如果总线单元正忙于执行总线周期，写内存的操作数就可以写到这个缓冲器里，这样，执行单元就可以继续执行指令而不受影响。</li>
+ <li><strong>数据总线收发器：</strong>驱动Pentium的双向数据总线。</li>
+        <li><strong>总线控制逻辑：</strong>总线控制逻辑控制运行标准总线周期还是突发总线周期。</li>
+        <li><strong>总线主控制：</strong>控制系统中各个总线主模块之间对总线权请求和响应。</li>
+        <li><strong>第二级Cache控制：</strong>对外部（第二级）Cache控制，管理对Cache的操纵请求，保证Cache数据的一致性。</li>
+        <li><strong>内部Cache控制：</strong>对CPU内部Cache的控制，保证Cache数据的一致性。</li>
+        <li><strong>奇偶校验码生成和控制：</strong>分别在读、写、监听周期进行校验验证并在写周期生成奇偶校验码。</li>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

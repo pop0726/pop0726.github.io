@@ -1,0 +1,32 @@
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+<STYLE TYPE="text/css">
+<!--
+BODY {background-image: URL(../../../../image/index/bg.gif);
+background-position: right;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr> 
+    <td><span class="text"> 　　固体不能彼此穿过，这是我们日常见到的物理世界的一个方面。在放一个杯子在桌上时，杯子稳定地放在桌上，不会浮起也不会穿进去。在到达和抓取时，我们依靠固体的手与物体接触（机械手利用力控制和柔顺运动）。在站立和行走时也依靠与地面的接触。 
+      </span><span class="text"><br>
+      　　防止穿透问题有三个主要部分。首先，必须检测碰撞。其次，为响应碰撞应调节物体速度。最后，如果碰撞，响应不引起物体立刻分开，必须计算和施加接触力，直到分开。<br>
+      　　碰撞检测的处理通常是通过检测每次修改位置时的物体重叠。如果发现重叠，就发出碰撞信号，系统状态就返回碰撞的时刻，碰撞响应就计算并施加。确定任意一对物体是否重叠的几何问题有大量研究。这个问题在机器人学，机械CAD，计算机图形学方面都引起关注。凸多面体的强重叠检测是直接的，这是检查每个物体的每个顶点与另一个物体的每个面。<br>
+      　　更有效的方案使用约束体积和空间划分，避免尽可能多的检查。对于屈面物体还没有一般的方法。<br>
+      　　事实上，每次修改检查物体重叠还不足以确保无穿透，因为在以前的布局和新的布局之间物体可能相碰和彼此穿透。这并不奇怪，一个快速运动物体（如子弹）可能整个穿透一个薄的物体（如墙），而没有检测出碰撞。Lin描述了可靠的方法，用于有恒定线性和角速度的凸多面体。<br>
+      　　碰撞响应涉及到施加冲击，产生速度的瞬间变化以防止穿透。经典力学容易处理碰撞响应，不存在任何困难。问题在于对具体材料怎样开发精确的碰撞模型，但许多VR应用不要求这种程度的真实。<br>
+      　　为处理连续的多物体接触，必须计算在接触点交换的约束力，并识别停止接触的瞬间。确定哪个接触停止是个困难问题，它要求组合搜索。 <br>
+      　　许多虚拟世界系统呈现刚性的物体运动，有碰撞检测和响应。Baraff的系统也处理多物体连续接触和曲面上的摩擦力。</span></td>
+  </tr>
+</table>
+</body>
+</html>

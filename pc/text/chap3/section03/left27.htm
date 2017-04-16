@@ -1,0 +1,19 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9" height="2"> <br>
+      ● 校验传送：不进行实际的数据传送，仅仅对DMA控制器的功能进行校验。在校验传送中，DMA只产生存储器地址，但对存储器和I/O的控制信号均无效。<br>
+      ● 存储器到存储器的传送：由于传送数据的源和目的都是存储器，传送过程中，源和目标存储体都需要使用地址寄存器，都需要地址增量或减量，因此需要两个DMA通道才能完成传送。通道0和1支持存储器到存储器的传送。在这种工作方式下，DMA控制器既要发送源存储器的地址信号、MEMR#信号，又要发送目的存储器地址和MEMW#信号。所以，不能象读传送和写传送那样，在一个DMA周期内同时完成对源地址的读和对目标地址的写操作，而只能分两个DMA周期进行，第一个DMA周期，进行存储器读操作，把数据读入暂存器，在第二个DMA周期中，再将暂存器当中的数据写入目的存储器。<br>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="bg">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td height="64" class="pt9">　　OCW3的作用是设置和使能设置特殊屏蔽方式、选择查询方式以及要读的寄存器。它也要被写入偶地址端口（即A0=0）。D4、D3位的01是OCW3的标识位。8259A就是通过这些标志位来区分写入偶地址的是OCW2还是OCW3的。（前面提到的ICWn都必须在初始化时写入，因此不会混淆）。<br>
+      　　如果D2位P置为1，说明选择中断查询方式，这种方式适用的场合往往是64级中断级联系统。给8259A发送P=1的OCW3以后，CPU不断发出查询命令，读取查询字。查询命令就是通过使OCW3的P位为1来实现的。发送OCW3之后，执行一条输入指令，送去一个RD#信号执行对8259的读操作，类似于前面提过的8259A收到INTA#脉冲，此时8259A将查询字送到总线上，查询字的最左边一位指示了是否有有效中断发生，最右边3位则指示了具有最高优先权的有效中断请求序号。<br>
+      　　如果D2位P为0，且RR（D1）位为1，表示的是读8259A内部寄存器命令，紧跟着的RIS（D0）位指出要读的是哪一个寄存器，RIS=0，构成对IRR寄存器的读指令，指示随后跟着的读指令（输入指令）读出的是中断请求寄存器IRR的内容；RIS=1，构成对RIS寄存器的读指令，读的是正在服务寄存器ISR。<br>
+      　　设置特殊屏蔽则由OCW3的D5位SMM来指定，SMM=1，设置8259A工作在特殊屏蔽模式；SMM为0，复位特殊屏模式。不过，要能够对SMM位进行操作，使能特殊屏蔽模式位ESMM（D6）必须为1，否则对SMM的设定将是无效的。<br>
+      　　D6：特殊屏蔽模式位ESMM（D6），如果想选择或者禁止特殊屏蔽方式，特殊屏蔽模式位ESMM（D6）必须为1，才能让设定有效。<br>
+      　　D5：当ESMM位是1的时候，设置特殊屏蔽则由OCW3的D5位SMM来指定，SMM=1，设置8259A工作在特殊屏蔽模式；SMM为0，复位特殊屏模式。<br>
+      　　D7位在OCW3中没有意义。 <br>
+      　　8259A共有3个可读的状态寄存器。编程OCW3可以指定对8259A的两个状态寄存器IRR和ISR的读取，中断屏蔽寄存器IMR通过OCW1读出。<br>
+      　　8259A共有3个可读的状态寄存器。编程OCW3可以指定对8259A的两个状态寄存器IRR和ISR的读取，中断屏蔽寄存器IMR可以随时通过输入指令从奇地址端口读取。</td>
+  </tr>
+</table>
+</body>
+</html>

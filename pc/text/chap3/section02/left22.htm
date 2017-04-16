@@ -1,0 +1,26 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9"><strong>4) 结束中断处理的方式</strong><br>
+      　　通过上面的分析，说明正在服务寄存器在中断优先级的裁决和决定能否发生中断嵌套方面的作用。在中断结束时或者在中断服务程序的适当位置，必须发送结束中断处理的命令，置ISRi为0。所谓结束中断处理，就是清零正在服务寄存器。共有三种方式：<br>
+      <strong>　　自动结束方式</strong><br>
+      　　自动结束中断（AEOI）方式，由8259A自动清除被响应中断的ISR位。在中断应答周期，第2个INTA#脉冲将ISR位清零，之后的中断服务程序过程，如果有与该级中断同级的或比之低级的中断请求，就都会被允许，发生中断嵌套。因此，这种方式仅用于单片8259且不可能产生中断嵌套的情况。<br>
+      <strong>　　</strong><strong>一般结束方式</strong><br>
+      　　一般结束中断方式，是靠CPU在中断服务程序中向8259A发送EOI命令来清除ISR位的。该指令可以安排在中断服务程序的适当位置。一般结束中断方式用于全嵌套。在全嵌套方式中，如果在ISR中有两个以上的位被置1，EOI命令将清除 
+      ISR中优先级别最高的有效（置1）位。该位必定对应当前正在服务的那级中断，清除级别最高的正在服务位便结束了当前正在服务的中断。 <br>
+      <strong>　　</strong><strong>特殊结束方式</strong><br>
+      　　在非全嵌套方式下，如果正在服务寄存器中有两位以上被置位，控制器便无法根据ISR判断哪一级中断是当前正在处理的中断，因此，就要采用特殊的中断结束方式。特殊结束方式就是通过CPU发送特殊的EOI命令，命令指出了要清除的是正在服务的哪一个ISR位。特殊结束主要用于非全嵌套方式。 
+      <br>
+      　　在多片8259级联的情况下，需要为主片和从片的8259分别发送EOI命令。 </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+<STYLE TYPE="text/css">
+<!--
+BODY {background-image: URL(../../../../image/index/bg.gif);
+background-position: right;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr> 
+    <td><span class="text"> 　　（1）高层体系结构HLA<br>
+      　　HLA把仿真系统称为联邦（Federation），联邦包括：联邦对象模型，若干联邦成员（它是真实实体仿真系统，构造或虚拟仿真系统，以及辅助性的仿真应用，如联邦运行管理控制器和数据收集器等）和运行时间支撑系统RTI（Run-Time 
+      Infrastructure）。联邦是层次概念，它可以是更复杂系统的联邦成员。成员之间的交互通过RTI的服务实现。<br>
+      　　HLA是通用的仿真技术框架，定义了构成分布交互仿真各部分的功能和相互关系，包括三部分：<br>
+      　　</span><b><span class="explan">规则</span></b><span class="text"> 定义了10条规则，描述仿真和联邦成员的职责，确定联邦内仿真的正确交互。前五条规则是联邦的条件，后五条规则是联邦成员的条件。 
+      <br>
+      　　</span><b><span class="explan">对象模型模板OMT（Object Model Template）</span></b><span class="text"> 
+      OMT描述对象模型，包含一组描述对象的类、属性和它们之间交互关系的信息。它对应两部分：FOM和SOM，分别描述联邦执行过程中共享的信息，以及仿真成员参与联邦运行时提供的能力。<br>
+      　　</span><b class="explan">接口规范说明IFSpec（Interface Specification）</b><span class="text"> 
+      IFSpec是对运行时间支撑系统RTI的接口规范的描述，定义RTI的服务，确定在仿真中联邦成员提供的回调功能。<br>
+      　　（2）基于HLA的建模/仿真一体化环境<br>
+      　　基于HLA的建模/仿真一体化环境分为建模、运行、事后处理及显示三个子环境。<br>
+      　　①建模子环境<br>
+      　　基于HLA的对象模型分三个层次：底层是对象模型，中层是联邦成员，上层是联邦。在一个联邦内，对象实体间的信息通过联邦成员交互。<br>
+      　　对象模型包括实体模型和HLA交互模型。用户用一般建模工具建立实体模型，并提取和其他成员交互的对象特性。按OMT规定，用对象模型开发工具OMDT（Object 
+      Model Development Tool）建立交互模型，并形成联邦执行数据FED（Federation Execution Data）文件。建模过程还包括对象模型数据库的存取。建立的对象模型，通过自动生成工具ABT（Auto 
+      Build Tool）包装成符合HLA运行模式的联邦成员C++原码，供用户进一步开发，并可用联邦成员测试工具FTT（Federate Test 
+      Tool）进行数据交换的测试。<br>
+      　　②运行子环境<br>
+      　　运行子环境包括：运行时间支撑系统RTI和联邦运行管理控制器FRMC（Federation Runtime Management Controler）。RTI是核心，它提供仿真互连的服务，是分层管理控制、实现分布仿真可扩充性的基础。FRMC实现联邦仿真应用的管理和实时监控。<br>
+      　　③RTI软件结构及设计<br>
+      　　RTI的软件结构：<br>
+      　　HLA的体系结构采用客户/服务器（C/S）模式。联邦成员通过调用RTI服务实现成员间的交互，RTI与仿真成员在逻辑上构成C/S结构。HLA把多个仿真成员集成到一个系统，支持多协议数据传输；不同成员间的服务信息及在FED文件中要求可靠传输的数据，采用TCP方式传送，保证可靠性；大量仿真数据通过UDP组播通信交互，提高传输速率。<br>
+      　　④HLA联邦运行管理控制器<br>
+      　　FRMC以联邦成员的形式加入联邦执行，它是一种辅助联邦成员。它没有在联邦执行中增加仿真模型，但可以根据管理对象模型MOM（Management 
+      Object Model）通过RTI于其他成员通讯。联邦运行时间监视部件，对联邦执行的整体情况和选定对象进行实时监视；管理部件对联邦执行进行动态管理和控制；数据收集部件对联邦仿真中选定的对象进行数据记载，纪录仿真操作过程，以便事后分析。<br>
+      　　⑤事后处理与显示子环境<br>
+      　　事后处理与显示子环境包括仿真的事后处理，二维态势和三维场景的显示。</span></td>
+  </tr>
+</table>
+</body>
+</html>

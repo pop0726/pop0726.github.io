@@ -1,0 +1,26 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="bg">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9" > 　　<br>
+      　　IOR#是I/O读信号，双向，当DMA工作在从属状态，即CPU从DMA读状态寄存器时，它是输入引脚，接收来自CPU的读信号；当DMA为总线主的时候，在DMA的写周期，该信号与MEMW#配合，将数据从I/O端口读出写入存储器，IOR#为DMA输出给I/O端口的信号。<br>
+      <br><br><br><br>
+      　　IOW#为I/O写信号，双向，当编程DMA时，它是输入信号，接收从CPU发来的写信号，在DMA读周期，它是输出信号，它和MEMR#配合，控制数据从存储器读出并写入I/O端口。<br>
+      <br><br><br><br>
+      　　EOP＃信号，将使DMA控制器内部的寄存器复位。<br>
+      <br><br><br><br><br><br><br>
+      　　当外设I/O接口需要DMA传输时，就会产生DREQ信号。如果与该I/O接口相对应的通道屏蔽位为0，则DMA控制器便向CPU发出总线请求，即产生HRQ信号的有效电平。如果相应的屏蔽位为1，则表示该通道被屏蔽，DMA控制器则不向CPU发送总线请求。<br>
+　　＂A<sub>0</sub>--A<sub>7</sub>地址线是低8位地址线，其中A<sub>0</sub>--A<sub>3</sub>为双向信号，DMA控制器工作在总线主状态，从 A<sub>0</sub>--A<sub>3</sub>输出地址。DMA控制器工作在从属状态，从A<sub>0</sub>--A<sub>3</sub>接收发自CPU的地址，该地址用于对DMA各寄存器的编程。A<sub>4</sub>--A<sub>7</sub>仅为地址输出信号DMA工作在总线主状态时，向存储器提供地址信号。＂ 
+    </td>
+  </tr>
+</table>
+</body>
+</html>

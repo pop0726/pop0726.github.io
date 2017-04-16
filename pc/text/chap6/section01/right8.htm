@@ -1,0 +1,46 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" class="bg">
+<table width="100%" border="0" cellspacing="10" cellpadding="2">
+  <tr>
+    <td class="pt9" height="2"> 
+      <table width="100%" border="0">
+        <tr> 
+          <td> 
+            <div align="center"><img src="../../../images/chap6/6_3.gif" width="389" height="162"></div>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <div align="center" class="tit">图6-3 集中式总线仲裁</div>
+          </td>
+        </tr>
+      </table>
+     <br>
+      　　在图6-3所示的集中式仲裁系统中，每个总线主模块都有一对总线请求和响应信号与中央总线控制器相连。总线主设备发出总线请求，置REQ#有效。中央总线控制（仲裁）器根据优先级算法裁决哪一个总线主模块优先级最高，然后向优先级最高的总线主设备发出总线允许信号，置响应的GNT#信号有效。之后，该设备便获得总线权。<br>
+      <br>
+      <table width="100%" border="0">
+        <tr> 
+          <td> 
+            <div align="center"><img src="../../../images/chap6/ch04.gif" width="301" height="140"></div>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <div align="center" class="tit">图6-4 分布式总线仲裁</div>
+            <span class="pt9"> 　　图6-4表示了一个分布式总线仲裁系统，系统中没有中央总线控制器，每个主模块包含了各自访问总线的控制逻辑，它们通过公共总线相互连接。请求总线的每个总线主设备向公用总线发送各自的优先级编码，并接收、比较来自其它请求总线主设备的优先级编码，分别进行总线裁决。仲裁结束时，优先级最高的编码保留在总线上，具有该编码的主设备获得了总线权。<br>
+            </span> </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="bg">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9">　　前面所说的情况都是系统只连接一个中断源的情况。如果系统需要连接多个中断源，就要对处理器的中断系统进行扩展。我们看看如何得到允许7个中断源输入的中断扩展电路（图3-4）。从现有的图入手，在图3-3的电路上增加一个8输入端的与非门（如图3-4的左下方所示），将与非门的输出连接到CPU的中断请求输入INTR上。与非门的每一个输入端IR<sub>0</sub>#~IR<sub>6</sub>#都可以连接一个中断源，作为中断源的中断申请信号，我们规定IR<sub>0</sub>#~IR<sub>6</sub>#都是低电平为有效的输入电平。当一个或一个以上中断源输出有效的低电平时，CPU便从INTR端采样到有效的中断请求信号。与非门的输入信号又通过三态门74LS244连接到数据总线D7~D0上。三态门的选通端G#由INTA#控制，7个中断请求信号的状态形成了中断类型号。表3-2列出了每次只有一个中断请求信号时所形成的中断向量。在图中将那个和数据线D7对应的与非门输入端接为高电平，目的是让扩充的中断源产生80H以上的中断类型号。便于用户统一管理和使用。<br>
+      <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0" width="360" height="420">
+        <param name="movie" value="../../../flash/3_4.swf">
+        <param name="quality" value="high">
+        <embed src="../../../flash/3_4.swf" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="360" height="420"></embed></object> 
+      <br>
+      　　　　　　　　　　　　　　　　　图3-4 七个中断源输入的中断扩展电路<br>
+      　　　　　　　　　　　　　　　　　表3-2 单个中断请求时对应的中断向量<br>
+      <table border=0 align="center" cellpadding=0 cellspacing=0 class="pt9">
+        <tr> 
+          <td height="2" colspan="8" align=center valign=top bgcolor="#000000" ><img src="../../../images/chap3/shime.gif" width="1" height="2"></td>
+        </tr>
+        <tr> 
+          <td width=50 valign=top align=center ><b><i>IR6#</i></b></td>
+          <td width=50 valign=top align=center ><b><i>IR5#</i></b></td>
+          <td width=50 valign=top align=center ><b><i>IR4#</i></b></td>
+          <td width=50 valign=top align=center ><b><i>IR3#</i></b></td>
+          <td width=50 valign=top align=center ><b><i>IR2#</i></b></td>
+          <td width=50 valign=top align=center ><b><i>IR1#</i></b></td>
+          <td width=50 valign=top align=center ><b><i>IR0#</i></b></td>
+          <td width=58 valign=top align=center ><b><i>Vector</i></b></td>
+        </tr>
+        <tr bgcolor="#000000"> 
+          <td height="1" colspan="8" align=center valign=top ><img src="../../../images/chap3/shime.gif" width="1" height="1"></td>
+        </tr>
+        <tr> 
+          <td width=50 valign=top align=center >1</td>
+          <td width=50 valign=top align=center >1</td>
+          <td width=50 valign=top align=center >1</td>
+          <td width=50 valign=top align=center >1</td>
+          <td width=50 valign=top align=center >1</td>
+          <td width=50 valign=top align=center >1</td>
+          <td width=50 valign=top align=center >0</td>
+          <td width=58 valign=top align=center ><i>FEH</i></td>
+        </tr>
+        <tr> 
+          <td width=50 valign=top align=center >1</td>
+          <td width=50 valign=top align=center >1</td>
+          <td width=50 valign=top align=center >1</td>
+          <td width=50 valign=top align=center >1</td>
+          <td width=50 valign=top align=center >1</td>
+          <td width=50 valign=top align=center >0</td>
+          <td width=50 valign=top align=center >1</td>
+          <td width=58 valign=top align=center ><i>FDH</i></td>
+        </tr>
+        <tr> 
+          <td width=50 valign=top align=center >1</td>
+          <td width=50 valign=top align=center >1</td>
+          <td width=50 valign=top align=center >1</td>
+          <td width=50 valign=top align=center >1</td>
+          <td width=50 valign=top align=center >0</td>
+          <td width=50 valign=top align=center >1</td>
+          <td width=50 valign=top align=center >1</td>
+          <td width=58 valign=top align=center ><i>FBH</i></td>
+        </tr>
+        <tr> 
+          <td width=50 valign=top align=center >1</td>
+          <td width=50 valign=top align=center >1</td>
+          <td width=50 valign=top align=center >1</td>
+          <td width=50 valign=top align=center >0</td>
+          <td width=50 valign=top align=center >1</td>
+          <td width=50 valign=top align=center >1</td>
+          <td width=50 valign=top align=center >1</td>
+          <td width=58 valign=top align=center ><i>F7H</i></td>
+        </tr>
+        <tr> 
+          <td width=50 valign=top align=center >1</td>
+          <td width=50 valign=top align=center >1</td>
+          <td width=50 valign=top align=center >0</td>
+          <td width=50 valign=top align=center >1</td>
+          <td width=50 valign=top align=center >1</td>
+          <td width=50 valign=top align=center >1</td>
+          <td width=50 valign=top align=center >1</td>
+          <td width=58 valign=top align=center ><i>EFH</i></td>
+        </tr>
+        <tr> 
+          <td width=50 valign=top align=center >1</td>
+          <td width=50 valign=top align=center >0</td>
+          <td width=50 valign=top align=center >1</td>
+          <td width=50 valign=top align=center >1</td>
+          <td width=50 valign=top align=center >1</td>
+          <td width=50 valign=top align=center >1</td>
+          <td width=50 valign=top align=center >1</td>
+          <td width=58 valign=top align=center ><i>DFH</i></td>
+        </tr>
+        <tr> 
+          <td valign=top align=center >0</td>
+          <td valign=top align=center >1</td>
+          <td valign=top align=center >1</td>
+          <td valign=top align=center >1</td>
+          <td valign=top align=center >1</td>
+          <td valign=top align=center >1</td>
+          <td valign=top align=center >1</td>
+          <td valign=top align=center ><i>BFH</i></td>
+        </tr>
+        <tr bgcolor="#000000"> 
+          <td height="2" colspan="8" align=center valign=top ><img src="../../../images/chap3/shime.gif" width="1" height="2"></td>
+        </tr>
+      </table></td>
+  </tr>
+</table>
+</body>
+</html>

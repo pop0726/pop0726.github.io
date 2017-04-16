@@ -1,0 +1,277 @@
+<html>
+<head>
+<title>Java期末考试题</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="css/text.css" type="text/css">
+<script language="JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+</head>
+<script language="JavaScript">
+function getresultcheck(form)
+{var mykeys=new Array();
+//  mykeys[0]="B";
+//czp-select-answer
+var answer=new Array();
+for(var I=0;I<mykeys.length;I++) answer[I]="";
+
+var every=form.elements;
+
+<!--czp-select-count-->
+for(var I=0;I<every.length;I++)
+{
+	if(every[I].type=="radio")
+	{
+		
+		if(every[I].checked)
+		{	
+	
+			var item=parseInt(every[I].name.substr(0));
+		
+			answer[item-1]+=every[I].value;
+		}
+	}				
+}
+
+var newcount="<html><head><title>谢谢您!</title></head><body><center><h2><font color=red>您的测试结果</font></h2></center>";
+var totalscore=0;
+for(var I=0;I<answer.length;I++)
+{
+	if(answer[I]==mykeys[I])
+	{
+		var rstr="<font size=2>第"+(I+1)+"题答案正确!</font><br>";
+		newcount+=rstr;
+		totalscore+=1/(answer.length)*100;//每题分数
+	}else
+	{
+		var rstr="<font size=2>第"+(I+1)+"题答案错误!正确答案为"+mykeys[I]+"</font><br>";
+		newcount+=rstr;
+	}
+
+}
+
+newcount+="<br>您的总成绩为:";
+newcount+=Math.ceil(totalscore);
+newcount+="分";
+newwin=window.open("","","height=200,width=300,scrollbars=yes,resizable=no");
+newwin.document.write(newcount);}
+
+function check(){
+var mykeys=new Array();
+mykeys[0]="已经可以得到大量的商业建模系统。也可以使用自制建模工具。";mykeys[1]="尽管有丰富的工具，还是把建模看成繁重的任务。有关的因素是建模缓慢，用户接口不便，不灵活，以及模型规定在低层次。";mykeys[2]="坐标测量机（CMM）。机械测量臂。激光或超声波测距器。基于计算机视觉原理。工业CT。自动断层扫描仪。";mykeys[3]="（1）观察者运动的精确测量；（2）获取和维持场模型。";mykeys[4]="真实图像的获取，是通过真实摄像机的推、拉、摇、移来拍摄的。虚拟摄像机应该与真实摄像机保持同步运动，二者保持相同的焦距、位置和角度。同步跟踪技术应该具有这种功能。";mykeys[5]="物理属性往往用微分方程来描述，它构成动力学系统。";mykeys[6]="除了传统技术（如拉格朗日动态法），还开发了流线递归方程。";mykeys[7]="另一个途径建立在经典的拉格朗日乘子法之上，每个时间步解一个线性方程，得到一组约束力。";mykeys[7]="用有限元法仿真连续动态。";mykeys[8]="固体的建模。约束和联接的物体的建模。非刚体的建模。";mykeys[9]="（1）VO的位置（在VE中的位置），（2） Zvo的方向，（3） d的值 。";mykeys[10]="首先要剪切不可见的物体，其次是剪切部分可见的物体上的不可见部分。";mykeys[11]="它把视场中的表面按深度排序。然后由远到近依次显示各表面。近的取代远的。";mykeys[12]="它从图像顶部到底部依次显示各扫描线。对每条扫描线，用深度数据检查相交的各物体。";mykeys[13]="对一个象素，z-缓冲器中总是保存最近的表面。如果新的表面深度比缓冲器保存的表面的深度更接近视点，则新的代替保存的，否则不代替。";mykeys[14]="它以有限的计算量，大大改善显示逼真性。实质上，它用二维的平面图像代替三维模型的局部。";mykeys[15]="由于计算机图形的象素特性，所以显示的图形是点的矩阵。若象素达到500K，则人眼不会感到不连续性。但有些图形中会出现假象，特别是对于接近水平或垂直的高对比的边。它会显示成锯齿状。";mykeys[16]="形状内插。";mykeys[17]="自由变形(Free-Form Deformation, FFD)。";mykeys[18]="在三维计算机动画中，动画师设计卡通片中的关键画面，即关键帧，计算机利用插值方法设计中间帧。";mykeys[19]="粒子系统体现了不规则物体的动态性和随机性，可以产生运动进化的画面，模拟火、云、水等自然现象。";mykeys[20]="他用三条优先级递减的原则控制群体的行为：（1）碰撞避免原则，避免与相邻的群体成员相碰；（2）速度匹配原则，尽量匹配相邻群体成员的速度；（3）群体合群原则，群体成员尽量靠近。";//czp-tiankong-answer
+//mykeys[0]="B";
+var answer=new Array();
+for(var I=0;I<mykeys.length;I++) answer[I]="";
+
+var every=zfl.elements;
+for(var I=0;I<every.length;I++)
+{
+if(every[I].type=="text")
+{
+ if(every[I].value!==null)
+ {
+ //var item=parseInt(every[I].name.substr(1))
+//  answer[item-1]+=every[I].value;
+  answer[I]+=every[I].value;
+  }
+ }
+}
+
+
+var newcount="<html><head><title>谢谢您!</title></head><body><center><h2><font face=\"隶书\" size=\"5\" color=\"#000099\">您的测试结果</font></h2></center>";
+var totalscore=0;
+for(var i=0;i<answer.length;i++)
+{
+	if(answer[i]==mykeys[i])
+	{
+		var rstr="<font face=\"宋体\" size=2>第"+(i+1)+"个空答案正确!</font><br>";
+		newcount+=rstr;
+		totalscore+=1/(answer.length)*100;
+	}else
+	{
+		var rstr="<font face=\"宋体\" size=2>第"+(i+1)+"个空答案错误!正确答案为"+mykeys[i]+"</font><br>";
+		newcount+=rstr;
+	}
+
+}
+
+newcount+="<br><font face=\"宋体\" size=3><b>您的总成绩为:</b></font><font face=\"宋体\" size=3 color=red>";
+newcount+=Math.ceil(totalscore);
+newcount+="分</font><br>";
+newwin=window.open("","","height=400,width=400,scrollbars=yes,resizable=no");
+newwin.document.write(newcount);
+}
+
+</script><STYLE TYPE="text/css">
+<!--
+BODY {background-image: URL(../../../../image/index/bg.gif);
+background-position: right;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+<body bgcolor="#FFFFFF" text="#000000" topmargin=0>
+
+<center>
+  <table width="95%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+      <td class=text>
+        <form name="zfl">
+          <p>一<b>、 填空题</b><br>
+            <br>
+            1、
+            人工几何建模的两种途径是<input type=text size=10 style="border-color: black black #000000; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 1px; border-left-width: 0px">。<br><br>
+            2、
+            人工几何建模的主要困难是<input type=text size=10 style="border-color: black black #000000; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 1px; border-left-width: 0px">。<br><br>
+            3、
+            获取三维信息的六项技术是<input type=text size=10 style="border-color: black black #000000; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 1px; border-left-width: 0px">。<br><br>
+            4、
+            增强现实技术的两个主要问题是<input type=text size=10 style="border-color: black black #000000; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 1px; border-left-width: 0px">。<br><br>
+            5、
+            虚拟演播室中，同步跟踪技术的功能是<input type=text size=10 style="border-color: black black #000000; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 1px; border-left-width: 0px">。<br><br>
+            6、
+            描述物理属性的往往是<input type=text size=10 style="border-color: black black #000000; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 1px; border-left-width: 0px">。<br><br>
+            7、
+            仿真约束系统的传统技术是<input type=text size=10 style="border-color: black black #000000; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 1px; border-left-width: 0px">。另一个途径利用<input type=text size=10 style="border-color: black black #000000; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 1px; border-left-width: 0px">。<br><br>
+            8、
+            非刚体动态仿真的基本方法是<input type=text size=10 style="border-color: black black #000000; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 1px; border-left-width: 0px">。<br><br>
+            9、
+            物理建模应该考虑的三类对象是<input type=text size=10 style="border-color: black black #000000; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 1px; border-left-width: 0px">。<br><br>
+            10、
+            影响透视投影的三个因素是<input type=text size=10 style="border-color: black black #000000; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 1px; border-left-width: 0px">。<br><br>
+            11、
+            三维剪切应该去掉的两类对象是<input type=text size=10 style="border-color: black black #000000; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 1px; border-left-width: 0px">。<br><br>
+            12、
+            消除隐藏面的画家算法的原理是<input type=text size=10 style="border-color: black black #000000; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 1px; border-left-width: 0px">。<br><br>
+            13、
+            消除隐藏面的扫描线算法的原理是<input type=text size=10 style="border-color: black black #000000; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 1px; border-left-width: 0px">。<br><br>
+            14、
+            消除隐藏面的z-缓冲器算法的原理是<input type=text size=10 style="border-color: black black #000000; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 1px; border-left-width: 0px">。<br><br>
+            15、
+            纹理映射的优点是<input type=text size=10 style="border-color: black black #000000; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 1px; border-left-width: 0px">。<br><br>
+            16、
+            产生走样的原因是<input type=text size=10 style="border-color: black black #000000; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 1px; border-left-width: 0px">。<br><br>
+            17、
+            已知初始曲线和最终曲线，得到过程中的曲线，这是<input type=text size=10 style="border-color: black black #000000; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 1px; border-left-width: 0px">。<br><br>
+            18、
+            已知初始曲线和初始控制点，由新控制点得到新曲线，这是<input type=text size=10 style="border-color: black black #000000; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 1px; border-left-width: 0px">。<br><br>
+            19、
+            关键帧动画的基本思想是<input type=text size=10 style="border-color: black black #000000; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 1px; border-left-width: 0px">。<br><br>
+            20、
+            粒子系统的性能和用途是<input type=text size=10 style="border-color: black black #000000; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 1px; border-left-width: 0px">。<br><br>
+            21、
+            群体动画的三个控制原则是<input type=text size=10 style="border-color: black black #000000; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 1px; border-left-width: 0px">。<br><!--czp-input-timu-->
+            <br>
+            <input type=button name=Button value="答案" onClick=MM_openBrWindow('text/examination/exam01_pop0.htm','','width=471,height=384') class=pbox>
+            <input type="reset" name="Reset" value="重置" class=pbox>
+          </p>
+          </form>
+          <form>
+          <p><b>二、 问答题</b><br>
+            <br>
+            <br>
+            1、
+            环境模型的两种不同表示方法是什么。<br>
+            <textarea name=jianda cols=50 rows=5></textarea>
+            <br>
+            <br>
+            <br>
+            2、
+            三维扫描仪的三个特点。<br>
+            <textarea name=jianda cols=50 rows=5></textarea>
+            <br>
+            <br>
+            3、
+            三维扫描关键技术的四个方面是什么。<br>
+            <textarea name=jianda cols=50 rows=5></textarea>
+            <br>
+            <br>
+            4、
+            虚拟演播室中，色键合成技术的工作原理是什么。<br>
+            <textarea name=jianda cols=50 rows=5></textarea>
+            <br>
+            <br>
+            5、
+            人类视觉深度感的四个来源是什么。<br>
+            <textarea name=jianda cols=50 rows=5></textarea>
+            <br>
+            <br>
+            <br>
+            6、
+            若Se=65，d=50，求（x,y,z）=（50,50,200）的左眼和右眼投影。<br>
+            <textarea name=jianda cols=50 rows=5></textarea>
+            <br>
+            <br>
+            <br>
+            7、
+            平面明暗模型，Gouraud明暗模型，Phong明暗模型三种方法原理的对比，计算量对比，显示效果对比。<br>
+            <textarea name=jianda cols=50 rows=5></textarea>
+            <br>
+            <br>
+            <br>
+            8、
+            怎样使用不同细节程度的模型。<br>
+            <textarea name=jianda cols=50 rows=5></textarea>
+            <br>
+            <br>
+            <br>
+            9
+            已知t=0时V(0)=10, t=1时V(1)=20, 用线性插值求V(0.2)。<br>
+            <textarea name=jianda cols=50 rows=5></textarea>
+            <br>
+            <br>
+            <br>
+            10、
+            已知t=0时V(0)=10, t=1时V(1)=20, 用非线性插值求V(0.2)。<br>
+            <textarea name=jianda cols=50 rows=5></textarea>
+            <br>
+            <br>
+            <br>
+            11、
+            已知t=0时V(0)=10, t=1时V(1)=20, 用平方插值Vc=12求V(0.2)。<br>
+            <textarea name=jianda cols=50 rows=5></textarea>
+            <br>
+            <br>
+            <br>
+            12、
+            已知t=0时V(0)=10, t=1时V(1)=20, 用平方插值Vc=18求V(0.2)。<br>
+            <textarea name=jianda cols=50 rows=5></textarea>
+            <br>
+            <br>
+            <br>
+            13、
+            已知t=0时V(0)=10, t=1时V(1)=20, 用立方插值Vc=12, Vd=16求V(0.2)。<br>
+            <textarea name=jianda cols=50 rows=5></textarea>
+            <br>
+            <br>
+            <br>
+            14、
+            已知t=0时V(0)=10, t=1时V(1)=20, 用立方插值Vc=15, Vd=18求V(0.2)。<br>
+            <textarea name=jianda cols=50 rows=5></textarea>
+            <br>
+            <br>
+            <br>
+            15、
+            给出传递函数和初始条件，列出其状态方程。<br>
+            <textarea name=jianda cols=50 rows=5></textarea>
+            <br>
+            <br>
+            <br>
+            <!--czp-wenda-timu-->
+            <br>
+            <input type=button name=Button value=答案 案 onClick="MM_openBrWindow('text/examination/exam01_pop2.htm','','width=471,height=384')" class=pbox>
+            <input type='reset' name='Submit3' value='重置' class=pbox>
+            <br>
+          </p>
+          </form>
+      </td>
+  </tr>
+</table></center>
+
+</body>
+</html>

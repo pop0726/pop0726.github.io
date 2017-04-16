@@ -1,0 +1,19 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4" >
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9"><strong>3、指令配对和操作数地址计算</strong><br>
+      　　Pentium的超标量结构具有两条并行执行的流水线U和流水线V。两条流水线各有一组译码单元和ALU。译码单元分为两级，译码级1具有两种功能，除进行分支指令预测之外，还要进行指令配对的检查。当有效的指令队列将两条指令分别送U和V流水线的Decode1时，配对检测逻辑对它们进行配对检查。如果这两条指令能够配对执行，译码级1将它们送到译码级2。如果它们不能配对，则将V流水线中的指令被转移到U流水线中，这样两条指令在U流水线中被串行地执行。<br>
+      　　经过配对性检查合格的指令分别被送到两条流水线的译码级2，在译码级2中计算它们的操作数地址。不管操作数的寻址方式是立即寻址、间址寻址还是变址寻址，译码级2都能够在一个CLK中完成操作数地址的计算。图2-34 
+      表示了具有双Decode 2的流水线。</td>
+  </tr>
+</table>
+</body>
+</html>

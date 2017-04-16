@@ -1,0 +1,90 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" class="bg">
+<table width="100%" border="0" cellpadding="2" cellspacing="10" class="bg">
+  <tr>
+    <td class="pt9" > <br>
+      　　
+     
+      <br>
+      
+      <table width="100%" border="0" class="pt9">
+        <tr> 
+          <td> 
+            <div align="center"><img src="../../../images/chap6/ch09.gif" width="156" height="133"></div>
+            <div align="center"></div>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <div align="center" class="tit">图6-9 线间阻容偶合产生串扰</div>　　为消除串扰，设计总线及其扩展板卡，要考虑对容性噪声和感性噪声的抑制问题。经常采用的方法有：
+<br>
+      　　●　无源保护技术<br>
+      　　　在信号线之间安排接地线，或者在布置信号线的印制板两个层面之间铺设接地层（<b>图6-10</b>），用来抑制或屏蔽容性和感性噪声。CompactPCI总线连接器采用的就是信号线与地线交替排列的物理结构。<br>
+      　　●　梯形收发器 - 控制输出波形边沿斜率<br>
+      　　　在总线传输线的两端，设计梯形收发器（<b>图6-11</b>）。这样就可以在传输线上传递信号边沿斜率较小的波形，来抑制噪声的振幅。通过输入积分法，在积分接收器的输出端，再得到边沿斜率&quot;陡峭&quot;的波形送到集成电路的输入端，以减小信号的传播延时。<br>
+      　　●　定义与信号线不同电气规范的信号选通线<br>
+      　　　另一种常用的技术是定义与信号线不同电气规范的信号选通线。屏蔽频率较高信号线的噪声对数据信号的影响。<br>
+          </td>
+        </tr>
+      </table>
+      <br>
+      <table width="100%" border="0">
+        <tr> 
+          <td> 
+            <div align="center"><img src="../../../images/chap6/ch10.gif" width="276" height="93"></div>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <div align="center" class="tit">图6-10 无源保护技术</div>
+          </td>
+        </tr>
+      </table>
+      <br>
+      <br>
+      <table width="100%" border="0">
+        <tr> 
+          <td> 
+            <div align="center"><img src="../../../images/chap6/ch11.gif" width="161" height="146"></div>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <div align="center" class="tit">图6-11梯形收发器</div>
+          </td>
+        </tr>
+      </table>
+      <br>
+      <table width="100%" border="0">
+        <tr> 
+          <td> 
+            <div align="center"><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="400" height="190">
+                <param name=movie value="../../../flash/p6_1_3_9.swf">
+                <param name=quality value=high>
+                <embed src="../../../flash/p6_1_3_9.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="400" height="190">
+                </embed> 
+              </object></div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="pt9"> 
+            <div align="center" class="tit">图6-12定义与信号线电气规范不同的信号选通线</div><br>
+
+      　　图6-12中，STB有效时将数据锁存在寄存器，屏蔽了由于组合电路时延在地址线上的噪声。这也是微型计算机系统中，将对存储器或I/O的访问，设计成要求片选信号（地址）与读写信号同时有效的原因。
+          </td>
+        </tr>
+      </table>
+      <br>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

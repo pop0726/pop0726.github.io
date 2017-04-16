@@ -1,0 +1,22 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9"><strong>5、8259A的编程</strong><br>
+      <br>
+      　　8259A是通过编程初始化命令字和操作命令字来选择定义各种工作方式的。初始化命令字(initialization command word 
+      ICM)在8259A 工作之前定义，它规定了8259A 的基本操作。操作命令字(operation command word ,OCM)在正常操作过程中定义，它控制8259A的操作。8259A有4个初始化命令字ICW1~ICW4和3个操作命令字OCW1~OCW3。8259A仅有一个地址线引脚（A0），却有8个需要访问的寄存器，为此8259A规定在A0为0时，第一个被写入芯片的是初始化命令字，其他初始化命令字和操作命令字则根据标识位及先后顺序来判断。<br>
+      <strong>1) 初始化命令字ICW1~ICW4</strong><br>
+      　　系统上电以后，8259A必须写入ICW1、ICW2和ICW4，如果ICW1将8259A编程为级联方式，那么还必须编程ICW3。图3-9 表示了ICW1~ICW4各位的定义。除了ICW1的地址选择位A0为0以外，ICW2~ICW4各命令字的地址选择位A0均为1。 
+    </td>
+  </tr>
+</table>
+</body>
+</html>

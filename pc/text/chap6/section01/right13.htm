@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" class="bg">
+<table width="100%" border="0" cellspacing="10" cellpadding="2">
+  <tr>
+    <td height="4" valign="top" class="pt9">
+      <table width="100%" border="0">
+        <tr> 
+          <td valign="top"> 
+            <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="500" height="300">
+              <param name=movie value="../../../flash/p6_1_3_5.swf">
+              <param name=quality value=high>
+              <embed src="../../../flash/p6_1_3_5.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="500" height="300"> 
+              </embed> </object> 
+            <div align="center"></div>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <div align="center" class="tit">图6-8 信号波反射与叠加</div>
+          </td>
+        </tr>
+      </table>
+      <br>
+      　　为了和驱动器的输出阻抗匹配，终端等效电阻的阻抗较低，这就带来了一系列的问题，引起驱动器的较大输出电流、发热、浪涌电流引起噪声等。因此，人们考虑利用传输线上波反射的现象，精心设计驱动器，使信号波传送到传输线终端反射回来进行叠加，形成与驱动信号相位相同，幅值增大达到规范要求的信号。PCI就是采用反射波转换技术的总线，这也是PCI计算机被成为绿色机器的重要原因之一。反射波转换不仅节能、还能抗噪。但是必须注意，PCI设计难度大，PCI规范对总线驱动器有较高的要求。<br>
+
+      　　PCI总线不采用端接电阻法，而是利用了信号波前端的反射。PCI设计规范要求使用通过精心选择的、驱动能力相对较弱的输出驱动器，这种驱动器并不是将变化信号的逻辑电平一次驱动到位，而是将信号线的逻辑状态驱动到希望值的一部分 
+      (<b>如图6-8（a）A点</b>所示)。PCI规范规定在时钟的下一个上升沿之前，信号线上的输入设备不去采样信号。 <br>
+      　　当变化信号的波前端传递到总线的未端时，它沿着总线反射回来而且产生幅度的叠加(<b>图6-8（a）B点</b>)。波前端在沿着信号线的回程中再次通过每个设备的输入端，输入设备在PCI时钟的下一个上升沿采样这个有效的逻辑电平（<b>图6-8（a）C点</b>）。最后，波前端的信号被驱动器较低的输入阻抗所吸收。这种方法使得驱动器集成电路的尺寸缩小二分之一，驱动器产生的浪涌电流减少一半。下面介绍三个与PCI信号时序有关的定时参数：<br>
+      　　　<b>・ Tval</b> ：PCI输出设备在PCI时钟的上升沿开始驱动信号，Tval表示输出驱动器将信号向期望的逻辑状态驱动一步所需要的时间（驱动器输出电压必须达到某个规定电平，从而保证信号叠加以后，在时钟的下一个上升沿接收器检测到有效逻辑电平）。 
+      <br>
+      　　　<b>・ Tprop(传递延迟)</b>：信号波的前端沿着信号线传递到线的另一端，反射并传递回来与原信号进行电压幅值叠加所需的时间。<br>
+      　　　<b>・Tsu(建立时间)</b>：在所有接收设备采样输入信号的时钟上升沿之前，信号达到最终状态并在总线上稳定所需要的时间（REQ#和GNT#信号的建立时间与图示不同，REQ#的建立时间为12ns，GNT#的建立时间是10ns，其他信号的建立时间是7ns）。<br>
+      　　　<b>・ Th(保持时间)</b>：信号在采样时刻之后(即时钟上升沿)必须保持当前逻辑状态的时间。PCI信号的保持时间为0ns。<br>
+      前面三个参数是设计PCI板卡的依据。PCI采用反射波转换技术，具有节能、抗噪等优点。但是PCI设计难度大，PCI规范对总线驱动器有较高的要求。
+    </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4" >
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="pt9">
+        　　我们分析一下BIU功能部件的作用。8086有20位地址线，具有1M空间的寻址能力。但是8086是16位微处理器，其内部寄存器均为16位，那么如何用16位寄存器提供的信息来实现1M空间的存储器寻址呢？为了解决这个问题，8086采用了将存储器分段的技术。段地址由段寄存器给出，段寄存器内容左移4位得到20位的地址，就是该存储器段的起始地址。存储器每段的最大长度为64K，（因为16位寄存器表示的最大量为64K）因此段内的存储地址相对于该段起始地址的最大偏移为64K。8086 
+        CPU是由指令指针寄存器IP、基地址指针寄存器BP和堆栈指针寄存器SP（均为16位）等存放存储器地址的偏移量的。20位段起始地址加上16位偏移量，便得到存储器的20位物理地址。见图2-4。物理地址的计算是由地址加法器完成。得到物理地址以后，由总线控制逻辑产生访问存储器的总线信号。<br>
+      　　如果是读取指令的操作，BIU读取指令后，将它们送进指令队列，等待EU执行。</td>
+  </tr>
+</table>
+</body>
+</html>

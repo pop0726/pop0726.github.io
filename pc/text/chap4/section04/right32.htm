@@ -1,0 +1,26 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="bg">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9">
+      　　A/D、D/A转换电路的转换时间有较大的差别，它们和CPU分别工作在异步和同步方式。 <br>
+      　　对于A/D转换电路和CPU的连接，要解决三个问题：<br>
+      　　<strong>启动信号<br>
+      　　转换结束读取数据的控制方式――中断和查询<br>
+      　　数据线的三态</strong><br>
+      　　A/D转换电路的启动信号大致分为两类：电平启动和脉冲启动。脉冲启动类型的A/D转换电路一般利用CPU在执行I/O写操作时产生的脉冲信号作为启动脉冲。为了鉴别要启动的A/D芯片往往将IOW#信号与给A/D芯片分配的地址相‘与’，当IOW#信号和该A/D芯片的地址信号同时有效时启动A/D转换。当然，这样做的前题是IOW#信号的宽度满足A/D芯片对启动脉冲的宽度要求。<br>
+      　　异步工作方式的A/D转换电路，处理控制CPU读取转换结果数据的方式与其他异步I/O相同。A/D转换结束以后，可以通过程序查询和中断方式控制对A/D转换结果数据的读取。芯片的转换结束信号既可以作为程序查询得状态位又可以作为中断请求信号线。<br>
+      　　由於A/D转换电路的数据寄存器是数据输出寄存器，因此，输出数据线需要具有三态功能。否则，需要在A/D和CPU的数据线之间增加具有三态功能的数据缓冲器。同样，A/D转换器的转换结束信号在用于程序查询时也需要经过三态门的缓冲才能连接到数据总线上。<br>
+      　　对于D/A转换电路：由於它工作在与CPU的同步方式，与CPU或总线的连接就变得十分简单，D/A转换电路与CPU或总线的连接问题就变成D/A转换电路的数据输入寄存器和CPU或总线的连接问题。只是在要求多片D/A同步输出时，要增加一级同步寄存器解决数据输出的同步问题。</td>
+  </tr>
+</table>
+</body>
+</html>

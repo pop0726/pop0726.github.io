@@ -1,0 +1,19 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9"><strong>3) 状态寄存器</strong><br>
+　　状态寄存器在8251A的工作过程中提供一系列的状态信息。见图4-29 。D7位反映联络信号DSR#端的状态，当数据设备（调制解调器）准备好，将有效的低电平信号送入8251的DSR#端时，8251的状态寄存器DSR位置1。D6体现了检测同步符的情况，当检测到同步字符时，SYNDET置1。D5~D3三位是错误状态位，当数据传送过程中发生格式错、覆盖错、奇偶错时分别置FE、OE、PE位为1。D2位T<sub>x</sub>E是发送器空状态位，为1时指示输出移位寄存器已空，等待输出缓冲器送来新数据。D1位R<sub>x</sub>RDY和D0位T<sub>x</sub>RDY分别表示接收器准备好和发送器准备好状态，R<sub>x</sub>RDY为1表示接收器已经接收到一个字符，等待CPU读取。T<sub>x</sub>RDY为1指示发送缓冲器空以及命令寄存器的发送允许位T<sub>x</sub>EN有效。在这些状态位中，SYNDET、R<sub>x</sub>RDY和T<sub>x</sub>E 
+      三位状态有效的条件和相同名称的引脚有效的条件一致，其状态值和引脚电平的逻辑一致。而状态位T<sub>x</sub>RDY和T<sub>x</sub>RDY引脚有效的条件却不同，T<sub>x</sub>RDY引脚置1的条件除了发送缓冲器空、发送允许位T<sub>x</sub>EN为1以外，还需要CTS#引脚输入为0。<br>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

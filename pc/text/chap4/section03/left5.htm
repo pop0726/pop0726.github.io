@@ -1,0 +1,18 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9"><strong>2) 串行同步通信格式 </strong><br>
+      　　在同步传输过程中，一个字符也可以是5～8位。对同一个传输过程，所有字符对应同样的数位。在整个系统中，同步传送接收、发送方使用的是同一个时钟控制采样的，那么双方如何约定鉴别一个字符的开始呢？与异步方式不同，串行同步传送的双方是用同步字符完成同步的。<br>
+      　　同步传输时，一个信息帧中包含许多字符，每个信息帧用同步字符作为开始，接收端不断检测信息的数据位，当检测到有一串数位和同步字符相匹配时，就认为一个信息帧的开始，于是，把此后的数位作为实际传输处理。为了避免干扰，多数系统中采用双同步字符或同步字符串的结构。之后的信息字符必须一个接一个地传输，不允许有间隙。在没有信息要传输时，要填上空白符，一般，同步字符和空字符使用同一个代码。</td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9">　　当描述符的S位（D12）为1，表示该段描述符描述的段为非系统段，而是非系统程序的代码或数据段。那么，类型字段D11~D8表示的含义如表5-9 
+      。位11的0或1指示该段为数据或代码段。如果第11位为0，表示该段为数据段，那么，D10~D8位分别表示扩展方向（E）、是否可读写（W）和是否被访问过（A）。第10位表示段的扩展方向，在数据段用于堆栈时需要使用此位。该位为1，表示地址向下扩展。第9位的0或1表示该段数据为只读还是可读写。第8位则表示此段是否已被访问过，为1指示已访问。例如，堆栈段必须是可读写的数据段，且向下扩展，因此堆栈段描述符的D12~D8应该为1011x。</td>
+  </tr>
+</table>
+</body>
+</html>

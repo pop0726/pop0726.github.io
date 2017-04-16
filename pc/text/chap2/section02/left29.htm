@@ -1,0 +1,21 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4" >
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9">
+        <li><strong>如果正确地预测了转移发生。</strong>BTB记录的历史位上升，除此以外不需要做其它动作。此时，分支指令之后的正确目标地址的指令已经存在于流水线中了。</li>
+        <li><strong>如果错误地预测转移发生。</strong>BTB记录的历史位下降，此时，在流水线中分支指令以后的指令是不正确的，必须刷新。分支预测逻辑指示预取器切换到另一条指令队列，仍然顺序取指。</li>
+        <li><strong>如果正确地预测了转移不发生并且BTB中存在该分支指令相应的目录，则目录的历史位降级。</strong>如果正确地预测了转移不发生，在第一译码级发生了一次BTB不命中，说明BTB中不存在相应的目录项，也不必在BTB中建立目录。</li>
+        <li><strong>如果错误地预测转移不发生且BTB中存在该指令相应的目录，那么将目录的历史位升级。</strong>如果错误地预测转移不发生且BTB中不存在该指令相应的目录，则建立一个目录并将它的历史位置为强烈发生（11）。</li>
+     </td>
+  </tr>
+</table>
+</body>
+</html>

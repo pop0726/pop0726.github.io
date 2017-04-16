@@ -1,0 +1,46 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" class="bg">
+<table width="100%" border="0" cellspacing="10" cellpadding="2">
+  <tr>
+    <td class="pt9" height="209" > 
+      <table width="100%" border="0">
+        <tr> 
+          <td> 
+            <div align="center"> <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="420" height="370">
+                <param name=movie value="../../../flash/p6_3_5_1.swf">
+                <param name=quality value=high>
+                <embed src="../../../flash/p6_3_5_1.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="420" height="370">
+                </embed> 
+              </object></div>
+          </td>
+        </tr>
+        <tr> 
+          <td height="2"> 
+            <div align="center" class="tit">图6-24 两个主设备之间的总线仲裁</div>
+          </td>
+        </tr>
+      </table>
+      <br>
+      　　假设在CLK1以前，总线主设备A就已经请求总线，REQ#-A有效。仲裁器在CLK1的上升沿采样到唯一的总线请求信号REQ#-A，因此仲裁器将总线权授予设备A，令连接A的GNT#有效。在CLK1周期中，但是在CLK1的前沿之后，总线主设备B也希望执行总线交易，B驱动REQ#-B有效。<br>
+      　　在CLK2的上升沿总线主设备A采样到GNT#-A有效，说明A获得总线权，但是，能否使用总线，还要看总线是否空闲。因此A检测IRDY#和FRAME#信号，此时IRDY#和FRAME#为无效状态，说明总线当前处于空闲状态。于是，总线主设备A启动它的第一次交易。设备A令FRAME#为低，将地址送到地址总线AD[31：0]，并将猝发写命令送到命令/字节使能总线。如果主设备A在这次交易之后不需要执行另外一次交易，它便会在CLK2时使REQ#-A无效。但在此例中A还要进行一次总线交易，于是它继续保持REQ#-A有效。总线仲裁器在CLK2的上升沿采样到主设备A和B同时请求总线，但是设备B的优先级高于设备A，A不能继续使用总线。仲裁结果，收回给A的总线权，驱动GNT#-A为高。<br>
+      　　主设备A占有了总线。在CLK3的上升沿，它将第一个数据项送到数据总线上并有效字节使能总线。同时有效IRDY#，表明主设备A已将数据准备好。根据CLK2时的仲裁结果，在CLK3，仲裁器令连接主设备B的GNT#有效。<br>
+      　　CLK4的上升沿，主设备B采样到GNT#-B有效，知道它可能成为下一个总线主。由于此时A正在进行猝发写传送，设备B不能立刻占用总线，因此B必须在每个后续时钟的上升沿不断采样GNT#，直至总线空闲B获取总线权为止。因为在总线空闲以前，如果系统中有优先权更高的总线主请求总线，仲裁器可能取回对B授权。在CLK4的上升沿，采样到有效的IRDY#和TRDY#，开始第一个数据传送。<br>
+      　　在时钟5的上升沿，IRDY#和TRDY#有效，开始第二个数据传送。在CLK5，主设备A保持IRDY#有效并令FRAME#无效，表明最后数据段将要进行传送。在时钟6的上升沿，采样到IRDY#和TRDY#均为低，第三个且是最后的数据传送完成。<br>
+      　　于是总线主设备A无效IRDY#，将总线返回空闲状态。<br>
+      　　在时钟7的上升沿，主设备B采样到FRAME#和IRDY#都是低电平，确定总线现在在空闲状态。同时采样到GNT#仍然有效，表示它可以获取总线。主设备B启动交易并撤消REQ#对总线的请求（因为它仅要求总线执行这一个交易）。B在时钟7有效FRAME#，驱动地址到AD总线上，并驱动命令到命令/字节使能总线上，开始写交易。<br>
+      　　到了CLK8的上升沿，仲裁器采样到主设备B的REQ# 为无效状态。而主设备A为了完成另一次写交易，一直保持REQ#为有效状态。于是仲裁器令GNT#-B无效，令GNT#-A有效。主设备A具有了总线权，于是A在每个时钟的上升沿采样IRDY#和FRAME#，直到总线空闲，获得总线开始下一个交易。在CLK8周期中，主设备B无效FRAME#，指出B将要进行传送的是第一个也是唯一一个数据段；B同时将数据写到AD总线，将字节选择信号送C/BE#总线，驱动IRDY#为低，通知目标数据准备好。<br>
+      在CLK9前沿，IRDY#、TRDY#同时为低，数据写入目标。之后，主设备B令IRDY#为无效状态，释放总线为空闲态。<br>
+      　　主设备A在CLK10的前沿采样到总线空闲且GNT#-A有效，便启动第二次总线写交易。<br>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" class="bg">
+<table width="100%" border="0" cellspacing="2" cellpadding="2">
+  <tr> 
+    <td class="pt9"><br>
+      　　Intel结构的实地址方式下可运行为Intel 8086、8088、80186和80188处理器编写的程序，也可运行为Intel 286、386、486、Pentum、P6等处理器编写的实地址方式程序。<br>
+      　　实地址方式执行环境的主要特点是： <br>　　（1）处理器支持额定的1M字节物理地址空间。该地址空间分成段，各段的长度可达64KB。段基地址用16位的段选择符来指定，将段基地址左移4位与16位段内偏移相加即可得到20位物理地址。<br>
+      　　（2）操作数的缺省长度为8位或16位，但允许访问32位的操作数，32位访问时使用操作数规模超越前缀。<br>
+      　　（3）提供8个16位的通用寄存器AX、BX、CX、DX、SP、BP、SI和DI，但允许访问32位寄存器（EAX、EBX、ECX、EDX、ESP、EBP、ESI和EDI），同样，32位寄存器访问时应加上操作数规模超越前缀。<br>
+      　　（4）提供4个段寄存器：CS、DS、SS和ES。CS寄存器包含代码段的段选择符；DS和ES寄存器包含数据段的段选择符；SS寄存器包含堆栈段的段选择符。这里所说的段选择符，等同于段基址。另外，显式访问程序可以访问2个新增加的段寄存器FS和GS。<br>
+      　　（5）8086的16位指令指针IP映射到32位EIP寄存器的低16位。<br>
+      　　（6）16位的FLAGS寄存器包含状态标志和控制标志，该寄存器映射到32位EFLAGS寄存器的低16位。<br>
+      　　（7）支持Intel 8086的所有指令。<br>
+      　　（8）为处理过程调用、中断处理或异常处理程序提供了16位的堆栈。<br>
+      　　（9）在实地址方式中，由中断向量表取代中断描述符表，而中断和异常向量号作为在中断向量表中寻找入口地址的索引。<br>
+      　　（10）浮点单元FPU可以使用，并能在实地址方式下执行FPU指令。编写在Intel 8087和Inte1287数值协处理器上运行的程序不用修改就能在实地址方式下运行。</td>
+  </tr>
+</table>
+</body>
+</html>

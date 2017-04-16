@@ -1,0 +1,24 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="bg">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9"> 　　图4-5表示了具有缓冲功能的32位输入接口，它由4个具有三态功能的单向数据缓冲器74LS244组成，16L8作为译码电路，将缓冲器编址为70H~73H。与前面的输出接口不同的是，端口只有在执行I/O读指令的条件下被选通，从图中我们可以看出，IORC#就是这个控制信号，低电平有效。CPU对读指令解码后使这个控制信号变低，通过对地址的译码，该端口就被选通。另一个不同点是由于4个数据缓冲器的使能端是连接在一起的，所以无论访问地址70H~73H中哪一个，32位缓冲器将同时被选中。所以这个端口只能作为32位端口，而不能像前面的端口那样既可以做两个16位端口，又可以做四个8位端口。如果想改成这种具有很大灵活性的端口，就需要把他们的使能端分别接到GAL的其他输出引脚，由GAL内部编程译码来分别选通某一个或者几个端口。仔细观察还会发现，每个端口的使能端有两个，只有当他们都有效时，端口才会被选通。<br>
+      <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0" width="390" height="850">
+        <param name="movie" value="../../../flash/p4_1_2_3.swf">
+        <param name="quality" value="high">
+		
+        <embed src="../../../flash/p4_1_2_3.swf" quality="high"  pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="390" height="850"></embed></object> 
+      <br>
+      　　图4-5 32位输入缓冲器 </td>
+  </tr>
+</table>
+</body>
+</html>

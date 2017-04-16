@@ -1,0 +1,23 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="bg">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9"> 　　当总线主打算向一个主存行写数据，而这个主存行却包含过时数据时，这个总线主一定会受到阻止。和前面的过程相同，L2监听总线主发出的目标地址发现命中了一个修改了的行，L2便阻止总线主的存储器访问，通知处理器监听要访问的地址，查询内部Cache，看其中是否存在目标行的备份，如果存在，还要通过读取该行的状态来确定是否在L2行更新以后L1行数据进行过更新。L2控制器驱动AHOLD、EADS#和INV有效，L1开始监听目标行地址。INV信号有效表示L2检测到另一总线主在写存储器。在INV有效的情况下L1监听命中，处理器进而驱动HIT#及HITM#有效，通知L2 
+      Cache检测到监听命中了一个修改的行，而且L1行中包含比L2行更新的数据。处理器将执行Cache行写回周期去更新系统存储器和L2。到此为止，和上一种情况完全一样。但是后面的标记状态就有了很大差别。等到处理器完成写回以后，L1行的状态由M转为I，L2行的状态也变为I，而不像上一种情况变为E或者S了。这是在指示一旦其他总线主改写主存行，L1、L2相应行的数据将是无效的。之后，L2撤消对总线主的阻止，那个总线主完成对主存储器的写操作。<br>
+      　　上面的分析针对系统中只有一个处理器的情况。举例说明了在发生不同条件的存储器访问时，处理器、L2控制器的控制信号交互和MESI状态变化过程，上面的例子基本涵盖了存储器操作的各种可能。对于多处理器系统，情况将更加复杂，本书将不再加以论述。表5-3 
+      对上述情况做了总结。<br>
+      　　　　表5-3 数据一致性控制<br>
+      <img src="../../../images/chap5/pic2.gif" width="400" height="563"><br>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+<STYLE TYPE="text/css">
+<!--
+BODY {background-image: URL(../../../../image/index/bg.gif);
+background-position: right;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr> 
+    <td class="text">　　到程序存储器的64-bit总线确保极快的数据传送。8到18Mbyte的程序存储器可以用于数据存储（显示表），用于软件驱动器和Z-缓冲器（对3-D对象）。卡的Video存储器的组织，允许不同的输出分辨率，由VGA到1280×1024象素。 
+      <br>
+      　　RGB输出可以转换成NTSC，这是通过SPEA TVX转换器，或用Harmonic Research Inc.的CV-121转换器。它有8MHz的亮度带宽，330线的视频分辨率或450线的S-视频输出。<br>
+      　　Doucet和Rothman［1993］把两个Fire板集成在Intel 486 50MHz上。正如上面的例子，虚拟现实机器包括，有Polhemus 
+      Fastrack的Flight Helmet HMD，Beachtron 3-D声音产生器，跟踪球，以及MicroIntro语音识别系统。这个系统中好的策略是，首先确保每个部件与PC平台正常工作。然后检查整个系统的一致性，因为不同厂家制造的部件有不同的（有时冲突的）要求。<br>
+      　　Fire板的集成就是用跨接线设定板的存储地址。每个板必须有不同的地址，而且选择的地址必须在VGA板选用的最高存储地址以上。于是，Fire GDCINST布局软件被用于设定板的口地址，和双板工作方式。板的输出视频分辨率是用Fire 
+      860MODE软件设置的。两个板的输出用上述的Harmonic Research转换器转换为NTSC。<br>
+      　　使用的跟踪球是Spaceball Technologies Inc.的&quot;Spaceball 2003&quot;。它连接到PC串行口COM2。Sense8 
+      WorldToolKit通讯驱动器支持这个跟踪球，它只需要用串行口COM1和COM2。集成Fastrack跟踪器，是通过设置接收器的号码和串行口波特率。用接口单元前面的开关，设置接收器的号码为1。串行口波特率被设置为9600波特，这是用接口单元后面的开关。然后把它连到串行口COM4。与HMD并行工作，用于使仿真可视化的监视器，在Fastrack&quot;初始化&quot;时应该断开，以便减少磁干扰。<br>
+      　　MicroIntro（MIV）语音识别系统连到COM3口，再对每个用户&quot;训练&quot;。然后断开它的麦克风，使用集成到Flight 
+      Helmet的一个。这就降低了语音识别的比率（可能因为头盔的麦克风远离用户嘴）。于是，MIV麦克风最后再次使用，并在外部安装在Flight Helmet。单词&quot;识别&quot;的进一步的问题仍然存在，这个问题是超出示教的词典，可以参见Doucet和Rothman［1993］的报告。<br>
+      　　Beachtron的集成是设置板顶上的DIP开关，选择正确的口地址。在把板插在PC母板后，&quot;Multisound&quot;软件必须在Windows下装入。这也是选择正确的IRQ，口和存储地址，以便在WorldToolKit中工作。作者进一步指出：&quot;Beachtron声音板的集成是系统集成中最困难的部分。这是由于几个因素。首先，用于与Beachtron接口的软件库还没有资料，并正在开发。其次，现有的Beachtron库要求赋给Beachtron特定的中断、口地址和存储地址。最后，Beachtron软件最初的版本与Spaceball冲突，这就妨碍了二者同时使用。这个问题在系统开发中被消除了。在系统集成中真正的难点是让所有设备有相容的IRQ向量。所采用的I/O板只允许COM3和COM4使用中断3，4，5或9。MIV语音识别设备只能用直至5的中断，而Fastrack不能用高于7的中断。&quot;</td>
+  </tr>
+</table>
+</body>
+</html>

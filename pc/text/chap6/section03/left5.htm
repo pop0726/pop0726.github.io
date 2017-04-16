@@ -1,0 +1,26 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="10" cellpadding="2">
+  <tr>
+    <td class="pt9" height="28"> ● 地址、数据和命令信号 <br>
+      　- AD [31：0] t/s*<br>
+      　　AD[31：0]为地址和数据分时复用信号，在一个交易的地址段中进行如下操作：当进行存储器访问或配置交易时，AD[31：0]发出4字节的地址信号，进行I/O读写交易时发出特定的一字节地址。<br>
+      　　在交易的数据段，AD[31：0]上是数据信号，AD[31：0]由主设备(在写交易中)或由当前寻址的目标(在读交易中)驱动。<br>
+      　- C / BE# [3：0] t/s<br>
+      　　C/BE#[3:0]为命令或字节使能信号，由主设备驱动。这组信号定义了总线交易类型，或者作为字节使能信号指出当前寻址的双字中传送的字节和用于传送数据的数据通道。<br>
+      　- PAR t/s<br>
+      　　奇偶校验信号，分别被主设备和目标设备驱动。在地址段完成后的一个时钟周期，或者在写交易的每个数据段中IRDY# 有效之后的一个时钟周期，主设备驱动奇偶检验信号PAR有效；在读交易的每个数据段中TRDY#有效后的一个时钟周期，当前寻址目标设备也驱动奇偶校验信号PAR有效。<br>
+      <br>
+        　　　　<br>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

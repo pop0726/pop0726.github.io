@@ -1,0 +1,27 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="bg">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9">
+　　Pentium系统采取了写直达（Write-through）和写回（Write-back）的策略。&quot;写直达&quot;就是将处理器启动的写操作一直写到主存储器。如果要写的数据在Cache中没有副本，处理器修改主存内容后并且更新Cache中对应的行，即使内部Cache写命中，Cache控制器写完Cache行还要将数据写入存储器相应的行。相当于所有写操作都对Cache和主存储器一样操作。这样，自然保证了Cache和存储器数据的一致。不过我们也可以看出，这样似乎体现不了Cache的优越性，大量的时间都浪费在写主存上面。我们可以想象给一个大小为32的数组赋初值的时候，每次要修改一个主存字节，每次都要替换对应的Cache行。这样，实际上只修改了一个Cache行的内容，但却写了32次主存，却作了32次Cache替换，系统总线一直在忙碌的状态。因此这种做法虽然确实有效，但容易降低处理器的效率。&quot;写回&quot;策略则规定在向目标地址写数据时，除了更新命中的Cache行以外，仅仅在必要的时候才将数据写到存储器对应的行，这样使得系统总线有足够的空闲时间用于其它处理器和总线主的信息传送。存储器仅在如下情况需要更新：<br>
+                <ul>
+        <li> 另一个总线主启动一次对包含陈旧数据存储器行的读取；<br>
+        <li> 另一个总线主启动一次对包含陈旧数据存储器行的写入；<br>
+        <li> 为了存储一行来源于存储器的新数据需要覆盖一个包含了修改过信息的Cache行。<br>
+                  </li>
+      </ul>
+      　　不难看出这种做法效率会高些。缺点就是有些时刻数据是不一致的，而且实现起来比较复杂。实际应用中经常是两种方法结合起来使用会达到比较好的效果。<br>
+
+    </td>
+  </tr>
+</table>
+</body>
+</html>

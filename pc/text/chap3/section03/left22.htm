@@ -1,0 +1,23 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9" height="34"> <b>3、8237的工作方式</b><br>
+      　　8237A有多种工作方式，按照8237在控制数据传送的过程中请求总线的不同方式来划分，可以分为单字节传送、块传送、请求传送三种方式。使用两级8237扩展DMA通道，称之为级联传送方式。按照直接存储器存取的数据传送流向，又可以将8237控制的传送类型分为读传送、写传送和存储器到存储器的数据传送。此外，8237A还可以编程为压缩时序方式，基地址和计数长度自动重装入年等工作方式。下面对它们分别加以讨论。 
+      <br>
+      　<b>1) 传送方式<br>
+      　● 单字节传送 </b><br>
+      　　当外部设备发出DMA请求，8237A向CPU请求总线。8237A获得总线控制权以后，开始字节的传送，每次传送完一个字节，DMA控制器自动进行存储器地址增量和计数器减量，并释放总线至少一个总线周期。然后，继续测试外部设备的DMA请求，如果外设发出的DREQ有效，8237A循环上述过程，控制下一个字节的传送，直至传送字节计数器减为零。<b>图3-19 
+      </b>是单字节传送的流程图。虽然，单字节传送降低了DMA的效率，但是CPU至少可以得到一个周期的总线权，保证了对中断请求的及时响应。<br>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="bg">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9"><br><br> 　　80486实现了5级流水，分为取指、译码级1、译码级2、执行和写回。80486的流水线每个时钟周期可以执行一条指令。所谓超标量流水线即流水线可以并行执行取指、译码、执行、写回等各阶段的任务。Pentium在80486 
+      五级流水的基础上，采用了超标量结构，设计了两条可以并行执行的流水线U和V。Pentium的超标量流水每个时钟周期基本上可以执行两条指令，速度大约是80486的两倍。<br>
+      　　在CPU内部设计指令预取队列，缓解了速度较快的指令执行和速度较慢的指令读取之间的矛盾。指令预取器从Cache或存储器顺序取指、存入指令队列、提供给指令流水线。可是指令预取器本身无法辨别分支指令，当它取到分支指令以后，仍然继续预取分支指令顺序地址之后的指令。当分支指令到达执行级被执行以后，一旦产生了地址转移，预取指令队列中分支指令后的顺序地址指令就不再有用，指令队列就要被刷新，预取器将从分支指令转移的目标地址从新开始取指。因此，仅仅靠增加指令队列长度无法弥补分支指令发生转移时需要刷新指令队列所带来的时间损失问题。Pentium采用了分支预测技术对分支指令发生的可能性进行预测，对于那些预测正确的转移指令，则可不必花费由刷新队列造成的时间开销。</td>
+  </tr>
+</table>
+</body>
+</html>

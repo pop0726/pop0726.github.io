@@ -1,0 +1,17 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9"><strong>5、转换后援缓冲器</strong><br>
+      　　分页机制是通过页目录项和页表项进行地址转换的。如果仅采用分段手段，由于段描述符表全部存放在主存储器中，处理器只需要访问主存储器就能完成地址转换。与分段不同，如果启用了分页，页目录项和页表项有些存放在主存储器，有些却存放在磁盘当中，地址转换有时还要进行对磁盘的访问，这样就延缓了整个存储器访问的时间。为了加快地址转换的过程，CPU内部设计了一个叫做转换后援缓冲器（TLB）的高速缓存部件，用来存储最近使用的页目录项和页表项，有了TLB，可以使得大多数读取当前页目录项和页表项的操作不用启动总线访问就能完成。启动总线的访问仅发生在TLB不包含所需的页目录项和页表项的情况，而这种情况常常是在那个页面很长时间没有被访问时才会出现。</td>
+  </tr>
+</table>
+</body>
+</html>

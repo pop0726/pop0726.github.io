@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="bg">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td height="64" class="pt9">      　　例如，如果编程确定IR<sub>6</sub>为最低优先级，那么最高优先级为IR<sub>7</sub>，其次是IR<sub>0</sub>、IR<sub>1</sub>…IR<sub>6</sub>。 <br> 　　在多片8259级联的情况下，在某级从片进行中断服务的过程中，不仅允许响应来自更高优先级的从片的中断申请，还允许主片去响应同一级从片来的由另一级中断发出的申请，这时候发生的嵌套为特殊全嵌套。这样，同一从片来的不同级别的中断请求，对于主片来说是同一级的，但对于从片来说，新的中断请求必须比正在服务的中断优先级高，否则，从片就不会发出INT信号，主片也不会再次产生对CPU的中断请求信号。在一般全嵌套方式中，在ISR对应位没有被复位之前，只有当更高级的中断请求来到时，才会进行嵌套，当同级中断请求来到时，不会给予响应。而在这里，对于主片来说，来自同级的中断请求到来，也允许嵌套了，因此叫做特殊的全嵌套方式。<br>
+      　　从编程的角度来看，在这种情况下，主片肯定是应该编程为特殊全嵌套方式，从片可以编程为一般全嵌套方式或其他优先级方式。 <br><br><br><br><br><br><br><br><br>
+      ��前面讲到的方式都是预先规定好哪个中断请求的优先级更高的。下面要讲的优先级自动循环方式则不同了。它一般适用于希望多个中断源被服务的机会均等的场合，采用多个中断优先级轮流优先的方式。每当一个中断请求设备被服务以后，它的优先级自动降为最低。在自动循环优先方式中，初始的优先级队列为、IR0、IR1… 
+      IR7。假设目前中断请求触发器IRR2和IRR4的状态为1，表示2号和4号中断有请求，2号中断的优先级高于4号，首先被服务，ISR2=1。2号中断被服务以后，它的优先级降为最低，同时，由于采用的是循环移位的机制，排在他前面的IR0、IR1的优先级也跟着降低了。此时中断优先级的队列为IR3、IR4、IR5、IR6、IR7、IR0、IR1、IR2。表3-3 
+      说明了产生2号和4号中断请求以后，发生中断服务以及优先级变化的情况。<br>
+      　　　　　　　　　　　　　　　表3-3 优先级自动循环方式下优先级的状态<br>
+      <table border=0 align="center" cellpadding=1 cellspacing=1 bgcolor="#000000" class="pt9">
+        <tr bgcolor="#FFFFFF"> 
+          <td width=110 valign=top >&nbsp; </td>
+          <td width=82 align=center valign=top >当前状态</td>
+          <td width=194 align=center valign=top >完成当前中断服务以后状态</td>
+        </tr>
+        <tr bgcolor="#FFFFFF"> 
+          <td width=110 align=center valign=top >中断请求序号</td>
+          <td width=82 align=center valign=top >76543210</td>
+          <td width=194 align=center valign=top >76543210</td>
+        </tr>
+        <tr bgcolor="#FFFFFF"> 
+          <td width=110 align=center valign=top >IRR状态</td>
+          <td width=82 align=center valign=top >00010100</td>
+          <td width=194 align=center valign=top >00010000</td>
+        </tr>
+        <tr bgcolor="#FFFFFF"> 
+          <td width=110 align=center valign=top >ISR状态</td>
+          <td width=82 align=center valign=top >00000100</td>
+          <td width=194 align=center valign=top >00010000</td>
+        </tr>
+        <tr bgcolor="#FFFFFF"> 
+          <td width=110 align=center valign=top >中断优先级</td>
+          <td width=82 align=center valign=top >76543210</td>
+          <td width=194 align=center valign=top >21076543</td>
+        </tr>
+      </table>
+      <br>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

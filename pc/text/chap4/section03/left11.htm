@@ -1,0 +1,26 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9"><strong>控制信号的定义</strong><br>
+      　　计算机的串行接口使用9芯和25芯连接器。对于25芯连接器当中的22芯做了功能定义。表4-2 列出了计算机中常用的RS-232-C信号的名称、功能，以及它们在9芯连接器和25芯连接器上引脚的对应关系。<br>
+      ・TXD：输出，串行数据发送引脚，将串行数据从数据终端（CPU方面）发出，传送到数据装置（调制解调或外设）。<br>
+      ・RXD：输入，串行数据接收引脚，数据终端接收从数据装置传来的串行数据。<br>
+      ・RTS#: 输出，数据终端请求发送。低电平时有效，RTS#为低，表示数据终端准备好发送数据，是计算机一方送往外设或调制解调的信号，表示计算机请求发送数据。<br>
+      ・CTS#: 输入，数据设备清除请求发送（允许发送）信号，低有效，该信号来源于数据装置，它和RTS#组成一对联络信号，是对RTS#的响应，表示外设或调制解调准备好，允许计算机发送数据。当CTS有效时，计算机才能向外设发送数据。<br>
+      ・DSR#: 输入，数据设备准备好，是外设送往CPU方面的信号，低电平有效，表示当前外部设备已经准备好。它和DTR#组成一对联络信号。<br>
+      ・GND：地信号，是数据终端和数据装置的公共地。<br>
+      ・DCD#：输入，载波检测信号，来源于调制解调器，低电平有效，它指示调制解调器已经建立了有效的连接。只有在DCD#的有效状态下，CPU才能开始传送数据。<br>
+      ・DTR#: 输出，数据终端准备好，低有效，是由计算机送往外设的信号，通知外部设备CPU当前已经准备就绪。<br>
+      ・RI：输入，振铃指示信号，高有效，当调制解调器在线路上检测到一个响铃信号，便使RI信号有效。该信号用来通知CPU有一个输入的呼叫。</td>
+  </tr>
+</table>
+</body>
+</html>

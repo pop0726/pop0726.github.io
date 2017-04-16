@@ -1,0 +1,21 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="bg">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9"> 　　从Cache控制器的角度，也可以清楚地看出目录项和访问端口各部分的作用。<br>
+      　　首先我们看看目录项的作用以及目录项各位的内容。以两路Cache中的一路为例讲解，在另一路中的情况是相同的。在零路Cache中，128个目录项和128个Cache行是一一对应的。每个Cache行都有一个目录项来记录Cache行当前的状态。目录项由23位组成。如图5-10。最高位是校验域，这个校验位在每次更新目录项时产生并写入。用来判断是否出现错误。接下来的20位是标记域，标记域记录了装入Cache行的数据来源于哪个主存页，即主存页的地址（A31~A12）。这是记录Cache数据与主存储器关系的唯一标志。最后2位是状态域。两位状态位指出Cache中的行所包含的信息的M、E、S、I状态。<br>
+      　　访问目录的端口包括三个部分，首先20位的标记域记录了目标存储器高位地址A31~A12，指出目标地址属于主存的哪一页；7位的行域记录了目标存储器次7位地址A11~A5，指出了目标地址是页中的哪一行，也就是数据可能存在于Cache路中的哪一行；最低2位是双字域，指示了目标存储器A4~A2三位地址，指出所要访问的双字在行中的哪一排（bank），也就是Cache行中的位置。每个Cache行包括32个字节，也就是8个双字。用三位地址可以区分开。上述三部分共同作用，就可以正确寻址了。<br>
+      <img src="../../../images/chap5/p5_2_1_4.gif"><br>
+      　　　图5-10 数据Cache的目录项结构 </td>
+  </tr>
+</table>
+</body>
+</html>

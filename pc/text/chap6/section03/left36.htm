@@ -1,0 +1,37 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="2" cellpadding="2">
+  <tr>
+    <td class="pt9" height="2"> 5、配置寄存器<br>
+      　● 配置寄存器--首部空间<br>
+      　　上一小节讨论了配置交换的机制。对一个设备或功能进行配置，系统需要读取哪些参数并做哪些设定呢？PCI规范对配置寄存器的首部空间作了规定。设备或功能的配置空间是256字节，或64个双字。前16个双字是首部空间（图6-29 
+      ）。首部寄存器用于识别设备、控制PCI功能、并一般的方式检查PCI状态。配置空间其他48个双字的作用是由设备指定的。PCI规范专门为PCI/PCI桥和CardBus桥定义了首部寄存器格式，称为首部类型1和首部类型2。除PCI/PCI桥和CardBus桥之外的所有设备的首部寄存器格式相同，称为首部类型0。<br>
+      　　首部类型0包括：<br>
+      <strong>　　&#8226;</strong> 供应商ID<strong><br>
+      　　&#8226;</strong> 设备ID<br>
+      <strong>　　&#8226;</strong> 版本<br>
+      <strong>　　&#8226;</strong> 类代码<br>
+      <strong>　　&#8226;</strong> 子系统供应商ID<br>
+      <strong>　　&#8226;</strong> 子系统版本ID<br>
+      <strong>　　&#8226;</strong> 命令寄存器<br>
+      <strong>　　&#8226;</strong> 状态寄存器<br>
+      <strong>　　&#8226;</strong> BIST（Built-In Self-Test）<br>
+      <strong>　　&#8226;</strong> 配置头类型<br>
+      <strong>　　&#8226;</strong> 延迟时间<br>
+      <strong>　　&#8226;</strong> Cache行大小<br>
+      <strong>　　&#8226;</strong> Max-Lat 优先级请求<strong><br>
+      　　&#8226;</strong> Min-Gnt 时间片请求<br>
+      <strong>　　&#8226;</strong> Interrupt PIN<br>
+      <strong>　　&#8226;</strong> Interrupt Line<br>
+      <strong>　　&#8226;</strong> 基地址寄存器</td>
+  </tr>
+</table>
+</body>
+</html>

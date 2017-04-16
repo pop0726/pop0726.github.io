@@ -1,0 +1,22 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4" >
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td height="229" valign="top" class="pt9"><br>
+      <strong>e) </strong>根据前面得到的中断类型码，查找中断向量表，找到相应的中断处理程序入口，按中断处理程序入口地址更新CS、IP内容；<br>
+      　　a步 ~ e步是CPU硬件完成的中断响应过程，对用户是透明的。这一过程是不允许被中断的，因此在进入中断响应周期以后，由CPU硬件将IF、TF等标志寄存器的内容压入堆栈以后，将IF、TF清零。为了能使单步功能在中断服务程序里实现，CPU内部设计了TEMP寄存器，在Flag压入堆栈、TF清零之前，在TEMP中保存TF的副本。<br>
+      <br>
+      <strong>f) </strong>再次检测是否有NMI中断请求，如果有请求，进入NM1响应周期，否则，执行中断处理程序；检测TEMP的状态，如果TEMP为1，表示本次进入中断响应周期之前，TF状态为1，因此执行本次中断服务程序之前，进入单步中断响应周期，否则，执行中断处理程序；<br>
+      <br>
+      <strong> g)</strong> 执行中断处理程序；<br></td>
+  </tr>
+</table>
+</body>
+</html>

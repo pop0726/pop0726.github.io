@@ -1,0 +1,75 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="bg">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9" height="2" > 　　8237A内部的地址寄存器和计数寄存器都是16位的寄存器，而其数据线只有8位。因此每次对8237A寄存器的读写需要分两步进行。先／后位字节触发器就是用来控制读/写的是16位寄存器的高8位还是低8位。一般说来，对寄存器的操作都是16位的。也就是说，每次对寄存器的操作必然为两步，如果第一步是对高字节，那么第二步就会对低字节；如果第一步是对低字节，那么第二步就会对高字节。因此，F／L触发器的自动翻转是合理的。<br>
+      <br>
+      　　主清除命令与硬件的RESET信号有相同的功能，它使屏蔽寄存器全置为1，禁止所有的DMA通道。同时使命令寄存器、状态寄存器、请求寄存器等寄存器以及先／后位字节触发器全部清零。8237A进入空闲周期，以便进行编程。<br>
+      <br>
+      <table border=0 align="center" cellpadding=1 cellspacing=1 bgcolor="#000000" class="pt9">
+        <tr bgcolor="#FFFFFF"> 
+          <td width=151 align=center valign=top ><b>地址偏移量</b></td>
+          <td width=240 align=center valign=top ><b>寄存器</b></td>
+        </tr>
+        <tr bgcolor="#FFFFFF"> 
+          <td width=151 valign=top > 00H、02H、04H、06H</td>
+          <td width=240 valign=top > 基地址和当前地址</td>
+        </tr>
+        <tr bgcolor="#FFFFFF"> 
+          <td width=151 valign=top > 01H、03H、05H、07H</td>
+          <td width=240 valign=top > 基字节和当前字节</td>
+        </tr>
+        <tr bgcolor="#FFFFFF"> 
+          <td width=151 align=center valign=top >08H</td>
+          <td width=240 valign=top > 命令寄存器/状态寄存器</td>
+        </tr>
+        <tr bgcolor="#FFFFFF"> 
+          <td width=151 align=center valign=top >09H</td>
+          <td width=240 valign=top > 请求寄存器</td>
+        </tr>
+        <tr bgcolor="#FFFFFF"> 
+          <td width=151 align=center valign=top >0AH</td>
+          <td width=240 valign=top > 通道屏蔽置位／复位寄存器</td>
+        </tr>
+        <tr bgcolor="#FFFFFF"> 
+          <td width=151 align=center valign=top >0BH</td>
+          <td width=240 valign=top > 模式寄存器</td>
+        </tr>
+        <tr bgcolor="#FFFFFF"> 
+          <td width=151 align=center valign=top >0CH</td>
+          <td width=240 valign=top > 软命令：清除先/后触发器</td>
+        </tr>
+        <tr bgcolor="#FFFFFF"> 
+          <td width=151 align=center valign=top >0DH</td>
+          <td width=240 valign=top > 暂存寄存器 / 软命令：复位命令</td>
+        </tr>
+        <tr bgcolor="#FFFFFF"> 
+          <td width=151 align=center valign=top >0EH</td>
+          <td width=240 valign=top > 软命令：清屏蔽寄存器</td>
+        </tr>
+        <tr bgcolor="#FFFFFF"> 
+          <td width=151 align=center valign=top >0FH</td>
+          <td width=240 valign=top > 屏蔽寄存器（多通道）
+      <br>
+    </td></table>
+      <br>
+      <table width="100%" border="0">
+        <tr>
+          <td>
+            <div align="center" class="tit">表3-5 8237A各寄存器的地址分配 </div>
+          </td>
+        </tr>
+      </table>
+    
+  </tr>
+</table>
+</body>
+</html>

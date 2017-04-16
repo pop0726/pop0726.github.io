@@ -1,0 +1,20 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4" >
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td valign="top" class="pt9"><strong>7.1.5 分发/执行单元</strong><br>
+      　　分发（派遣）/执行单元是一个超顺序执行部件，它按照数据相关性、资源可用性和暂时存储的推测执行结果储存来调度和执行存储在重排序缓冲器中的微操作码。<br>
+      　　调度执行部件中的驻留站负责对重排序缓冲器中的微操作进行调度和派遣。它连续扫描重排序缓冲器中准备执行的所有微操作，将它们分发派遣到合适的执行单元。微操作执行后的结果又被送回重排序缓冲器和相应的微操作码一起存储，直到从重排序缓冲器中退出。这种调度和派遣过程支持基本的超顺序执行，被派遣到执行单元的微操作严格按照数据流的约束关系和执行资源的有效性来执行，而不考虑指令的原始顺序。当两个以上的同类型微操作（例如整数运算）同时有效时，它们在再排序缓冲器中以一种虚拟FIFO的次序执行。<br>　　微操作的执行由两个整数单元、两个浮点单元和一个存储器接口单元实现，最多允许在一个时钟周期内调度五个微操作。<br>
+      两个整数单元并行处理两个整数微操作。整数单元之一可以处理分支转移微操作。该单元具有检测分支错误预测的能力以及检测分支目标缓冲器发出重启动流水线信号的能力。存储器接口单元负责装入或者存储微操作。存储器接口单元可以在一个时钟周期内并行执行装载和存储。Pentium 
+      Pro的浮点执行单元类似于Pentium处理器的浮点单元，Pentium Pro处理器增加几条新的浮点指令，可以进行流水线执行条件分支和传送。</td>
+  </tr>
+</table>
+</body>
+</html>

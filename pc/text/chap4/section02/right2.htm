@@ -1,0 +1,19 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="bg">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9">　　工作在与CPU同步方式下的并行接口，结构十分简单，图4-4表示了具有锁存和缓冲功能的16位并行输出接口，它由2个具有三态输出功能的8D触发器74LS374组成。74LS374的CLK端为数据锁存使能，与GAL电路的O1端相连。当CLK为高电平时，数据就被锁存起来。OC为输出控制，当OC为低电平时，输出数据才有效，否则输出数据线为高阻态（无效数据）。图中将OC接地，表示不使用三态控制功能。GAL电路16L8被编程为译码器，BHE#、IOWC#、A0~A7参加译码。其中BHE#是GAL的使能端，低电平有效。GAL通过译码将锁存缓冲器的高、低8位分别编址为41H和40H，就是当A0~A7表示的地址为40H或41H的时候，输出的O1或者O2才可能为有效电平，从而才有可能选通这两个端口。端口既可作为16位端口使用，又可以作为2个8位端口被分别选通，可以通过程序来决定使用方式。同时IOWC#信号限定只有在执行I/O写指令时才能选通该端口。否则GAL的输出O1和O2将为无效电平，端口不被选通。总的来讲，端口的选通是由GAL的使能端BHE#、地址A0~A7、I/O写指令IOWC#共同决定的，缺一不可。<br>
+      <img src="../../../images/chap4/p4_2_1_2.gif"><br>
+      　　　　　　图4-4 简单的16位输出接口 </td>
+  </tr>
+</table>
+</body>
+</html>

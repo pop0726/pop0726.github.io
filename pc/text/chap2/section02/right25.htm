@@ -1,0 +1,38 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" class="bg">
+<table width="100%" border="0" cellspacing="2" cellpadding="2">
+  <tr> 
+    <td class="pt9"><br>　　U流水线的执行级包含一个桶状移位器，它比V流水线的执行级具有更强的功能，因此有些复杂指令可以在U中执行，但不能在V中执行。一般情况下，两条流水线同步工作。图2-32表示了Pentium的双指令流水线指令执行的流水过程。流水线包括取指、译码1、译码2、执行、写回五个阶段，指令分5个流水步执行。每一个时钟周期执行两条指令。有效的指令队列将指令两两送给流水线U和V，在译码级1进行配对检查。如果这两条指令符合配对规则，它们就被送到下一个流水步继续流水。<br>
+      　　解释一下指令的配对规则。多数简单的算术逻辑指令可以在单时钟内执行，它们由Pentium的硬连线完成。这些由硬件连线完成的指令都是可配对的。下面一些整型指令是简单指令，是可配对的：<br>　　mov reg，reg/mem/imm<br>
+      　　mov mem，reg/imm<br>
+      　　alu reg，reg/mem/imm<br>
+      　　inc reg，mem<br>
+      　　dec reg/mem<br>
+      　　push reg/mem<br>
+      　　pop reg等等。<br>
+      　　对于多字节指令，只有在两条指令字节数相等时才能配对。需配对的非一字节指令在指令预取器中识别指令长度，长度相等的指令能够配对。多字节指令在第一次执行时，流水线将它的长度信息反馈给代码Cache，在相应的目录项记录这条指令的长度，以便在预取指令时进行识别。<br>
+      　　规则第三条是两条指令不存在寄存器争用，即没有写后读（read-after-write）或写后写（write-after-write）的相关性。也就是说第一条指令的目标既不是第二条指令的源，也不是第二条指令的目标。下面具两个例子。<br>
+      　　read-after-write相关：<br>
+      　　mov AX, imm;<br>
+      　　mov [BP], AX;<br>
+      　　其中第一条指令向寄存器AX写立即数，而第二条指令则同时读AX，发生寄存器争用问题，不能配对。<br>
+      　　write-after-write相关：<br>
+      例1： mov AX, imm; <br>
+      　　　mov AX, [BP];<br>
+      例2： mov AL, imm;<br>
+      　　　mov AH, imm.<br>
+      　　两条指令同时访问一个寄存器（例1）或访问一个寄存器的不同字节（例2），全都会发生寄存器的争用。遇到字节访问，Pentium将所有的寄存器参数当成一次全32 
+      bit的寄存器访问。这样也就等于访问了同一寄存器。在两条指令同时隐含了寄存器参数时，例如同时含有偏移量参数，也会发生争用问题，不能配对。<br>
+      　　Ｕ流水线结构复杂，具有桶状移位器等Ｖ中没有的功能部件。因此，Ｕ比Ｖ有更多的“特权”，有些指令只能在Ｕ中执行而不能在Ｖ只执行，这些指令只有排在第一条位置时才能配对。例如两条指令之一有前缀，带有前缀的指令只能在Ｕ中执行。也就是说，在对两条流水线分配指令过程中，只有当带有前缀的指令排在第一条时才会分配给Ｕ，才能和第二条指令配对。对于那些不能配对的指令，全部顺序在Ｕ中执行。对于配对成功的两条指令，执行时间上也会有差异，原则上U发生延迟V必须等待U而V延迟U可以继续做某些诸如写回结果等操作，也体现了Ｕ的特殊地位。如果不符合配对规则，这两条指令便都在U中执行。</td>
+  </tr>
+</table>
+</body>
+</html>

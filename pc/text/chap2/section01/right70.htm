@@ -1,0 +1,25 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="bg">
+<table width="100%" border="0" cellspacing="2" cellpadding="1">
+  <tr> 
+    <td class="pt9">　　我们把中断响应总线周期中CPU动作与前面讲到的中断响应过程结合起来看，当一个可屏蔽中断被响应时，CPU执行如下总线时序：
+
+      <blockquote>
+        <p><strong>a) </strong>执行两个中断响应总线周期，被响应的外设接口在第二个中断响应总线周期中通过低8位数据线送回一个单字节的中断类型码。( 
+          如果是非屏蔽中断或者软件中断，则跳过这一步。)CPU接收到该类型码后，将它左移两位（相当于乘4），成为中断向量的起始地址，存入暂存器。<br>
+          <strong>b)</strong> 执行一个总线读周期，根据存入暂存器的起始地址，从中断向量表中读得中断向量的前两个字节，即中断处理程序入口地址的偏移量，送入IP寄存器。<br>
+          <strong>c) </strong>执行一个总线读周期，从中断向量表中读得中断向量的后两个字节，即中断处理程序入口地址的段值，送入CS寄存器。<br>
+        </p>
+      </blockquote></td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="bg">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9">　　在中断期间返回地址（在CS和IP中）被压入堆栈。这是为了在中断服务程序结束后可以正常继续执行原有程序。有时候，返回地址指向程序中发生中断的下一指令（比如顺序执行一个程序的过程中发生了中断），有时候却指向程序中发生中断本身的那条指令。比如类型号为0、5、7、8、10、11、12和13的中断，这些都是在发生了某种错误的时候产生的中断。此时压入堆栈的返回地址（就是存放在CS和IP中的段地址和偏移地址）指向的就是发生错误的那条指令，而不是指向程序中的下一条指令，这就有可能使得中断服务程序在某些错误情况下重新执行这条指令。<br>
+      　　在中断服务程序的未尾，当遇到中断返回指令IRET时，Flag从堆栈中弹出，所有标志位（包括中断标志IF和陷阱标志TF）回到中断前的状态。因此，如果在中断服务程序之前中断标志是允许状态，那么通过服务程序的IRET指令可以自动再次允许中断。如果中断之前是允许单步功能的，那么通过服务程序的IRET指令可以自动再次允许单步功能。</td>
+  </tr>
+</table>
+</body>
+</html>

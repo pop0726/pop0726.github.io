@@ -1,0 +1,18 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td height="51" class="pt9"><strong>5、 高速数据采集系统</strong><br>
+      　　图4-52 表示了一个DMA控制数据传送的高速数据采集系统的实例。它可以实现对8个通道的模拟电压信号的实时采集与处理。<br>　　系统中包含了4K*8的SRAM（6116）和2K*8的EPROM（2716），EPROM2716存储了该系统的监控程序。数据采集部分由模拟多路器CD4501、采样保持器AD580、A/D转换器AD570实现。多路器CD4501由一个8进制的计数器自动控制和切换。AD570为电平控制转换方式，当COVN端为高电平时，启动AD570转换，转换结束时，END#端输出低电平。AD580的采样保持状态是由HOLD端来控制的，当HOLD为低，AD580为采样状态，HOLD为高，AD580为保持状态。DMA工作在字节传送方式，采集系统每采集转换一个数据，由END#信号请求一次DMA传送。DMA从AD570读出数据，写入SRAM6116。然后，DMA释放总线给CPU，等待下一次数据采集后的传送请求。<br>
+      　　</td>
+  </tr>
+</table>
+</body>
+</html>

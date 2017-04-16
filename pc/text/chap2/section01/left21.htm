@@ -1,0 +1,24 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4" >
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="pt9"><p> <strong>　&#8226; NMI(Non-Maskable Interrupt)：</strong>非屏蔽中断请求（标号17），输入，上升沿有效。<br>
+        　　NMI不受中断允许标志的影响。当CPU检测到NMI有一个正沿触发的信号以后，CPU执行完当前指令便响应中断类型号为2的非屏蔽中断请求。<strong><br>
+        <br>
+        　&#8226; INTR(Interrupt Request)：</strong>可屏蔽中断请求（标号18），输入，高电平有效。如果INTR信号有效，当CPU的中断允许标志IF=1时，CPU结束当前指令后，响应INTR中断。<strong><br>
+        <br>
+        <br>
+        　&#8226; HOLD(Hold Request)：</strong>总线保持请求（标号31），输入，高电平有效。当系统当中除CPU之外的另一个总线主模块（如DMA）要求使用总线时，该总线主模块通过HOLD信号向CPU发出总线请求。如果CPU允许让出总线，就在完成当前总线周期后，在T4状态通过HLDA管脚发出应答信号，响应总线的请求。<strong><br>
+        </strong> </p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

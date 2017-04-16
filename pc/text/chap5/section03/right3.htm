@@ -1,0 +1,19 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="bg">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9">　　在8086系统中，有20根地址线，可以实现1M空间的寻址。但是由于8086的内部寄存器都是16位，因此为了实现对1M内存空间的寻址，把存储器分成若干个段，每段最大长度为64K字节。存储单元的地址由两部分构成，一部分是段的基地址，另一部分是段内偏移量。段的基地址是段的起始地址，段内偏移量是存储器单元相对段起始位置的地址。在8086 
+      CPU中，段寄存器存放的实际上是段起始地址20位中的高16位。因此，在计算存储单元的物理地址时，需要将段寄存器中的值左移4位，然后再与段内偏移量相加得到。<br>
+      　　到了80386以上处理器，可寻址的物理地址范围扩大到了232，每段的最大长度也增加到了1M字节。和8086不同，这时段的基地址和段的长度由一个叫做段描述符的数据结构来提供，而段寄存器用来存放该段的段描述符在描述符表中的索引。描述符表存放了段描述符集。</td>
+  </tr>
+</table>
+</body>
+</html>

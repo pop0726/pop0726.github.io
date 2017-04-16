@@ -1,0 +1,50 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="bg">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9" height="2" >；通过图3-29 的打印机接口打印数据<br>
+      ；<br>
+      ；调用参数：<br>
+      ； BX = 打印数据的偏移地址<br>
+      ； CX = 要打印数据的字节数<br>
+      ；<br>
+      CLEAR_F EQU 7CH ；F/L触发器<br>
+      CH3_A EQU 76H 　；3通道地址寄存器<br>
+      CH3_C EQU 77H 　；3通道字节计数寄存器<br>
+      MODE EQU 7BH 　 ；模式寄存器<br>
+      CMMD EQU 78H 　 ；命令寄存器<br>
+      MASKS EQU 7FH 　；屏蔽字寄存器<br>
+      REQ EQU 79H 　　；请求寄存器 
+      <p> PRINT PROC FAR USES AX BX CX <br>
+        <br>
+        MOV AL，0 <br>
+        OUT CLEAR_F，AL ；清零F/L触发器<br>
+        <br>
+        MOV AX，BX 　　 ；编程源地址<br>
+        OUT CH3_A, AL<br>
+        MOV AL，AH<br>
+        OUT CH3_A, AL 　；向通道地址寄存器中写入数据的偏移地址。地址寄存器是16位的寄存器，需要分两步写。由于F/L触发器已被清零，所以第一步写低字节，第二步写高字节。从程序看，只写了一次寄存器，但实际上已经同时向基地址和当前地址两个寄存器都写入了相同的内容。8237A规定，当CPU访问地址寄存器时，基本地址寄存器和当前地址寄存器合用一个端口地址。也就是说，当CPU往基本地址寄存器进行写操作时，当前地址寄存器也会被写入相同的内容。对基本字计数寄存器和当前字计数寄存器的操作也类似。</p>
+      <p>MOV AX, CX 　　 ；编程字节计数寄存器<br>
+        DEC AX<br>
+        OUT CH3_C, AL<br>
+        MOV AL, AH <br>
+        OUT CH3_C, AL</p>
+      <p>MOV AL, 0BH 　　；编程方式字<br>
+        OUT MODE, AL 　 ；0BH的二进制为0000 1011，对应到前面讲过的模式寄存器各个位的定义，往模式寄存器中写入0BH的结果为：D7D6=00，传输模式为请求传输模式；D5=0，当前地址寄存器的内容在每完成一个字节的传输后加1；D4＝0，禁止自动预置功能；D3D2=10，读传输；D1D0=11，选择通道3。</p>
+      <p>MOV AL, 0 　　　；编程命令字<br>
+        OUT CMND, AL　　；00H的二进制数为0000 0000，根据前面学习过的命令字的含义，该命令的解释为：D7=0，DACK低电平有效　　　　　　；D6＝0，DREQ高电平有效；D5＝0，写脉冲扩展；D4＝0，固定通道优先级；D3=0，正常传送时序，非压缩时序　　　　；D2＝0，启动DMA控制器；D1D0＝00，非从存储器到存储器的传输。</p>
+      <p>MOV AL, 7　　　 ；解除通道3屏蔽<br>
+        OUT MASKS,AL　　；07H的二进制数为0000 0111，D3=0，通道3屏蔽解除，D2D1D0=000，通道0、通道1和通道2屏蔽。</p>
+      <p> PRINT ENDP<br>
+      </p></tr>
+</table>
+</body>
+</html>

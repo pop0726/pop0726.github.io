@@ -1,0 +1,55 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="bg">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9"><p>8251初始化<br>
+        MOV DX，03FAh 　　　；set the command port address(设定命令端口地址（奇地址）)<br>
+        MOV AL，71h 　　　　；to define the operation mode(设置方式选择字)<br>
+        OUT DX，AL 　　　　 ；output to command port(写入命令端口，存到方式寄存器中。)<br>
+        MOV AL，15h 　　　　；to define the command mode(设置命令字)<br>
+        OUT DX，AL 　　　　 ；output to command port(写入命令端口，存到命令寄存器中。)<br>
+        以查询方式控制数据发送<br>
+        MOV AX，TXD-ADDR 　 　　　 ；initialize DS(初始化DS)<br>
+        MOV DS，AX 　　　　 　　　 ；<br>
+        MOV SI， OFFSET TXDBUF 　　；to set the transmission _buffer offset(初始化变址寄存器)<br>
+        MOV CX，COUNT 　　　　　　 ；initialize the transmission data number(初始化总共要传输的字符个数)<br>
+        TXD： IN AL，DX 　　　　　 ；read the state port(从命令端口读状态字)<br>
+        TEST AL，01 　　　　　　　 ；transmission buffer empty?(查询输入缓冲器是否为空)<br>
+        JZ TXD 　　　　　　　　　　；jump to TXD(不空则继续查询，直到为空，可以传送数据)<br>
+        MOV AL，[SI] 　　　　　　　；get a transmission data(读取字符)<br>
+        MOV DX，03F8h 　　　　　　 ；set the data port address(设定数据端口地址)<br>
+        OUT DX，AL 　　　　　　　　；output the data(向数据端口输入字符)<br>
+        INC SI 　　　　　　　　　　；address increase(地址加1)<br>
+        DEC CX 　　　　　　　　　　；counter decrease(计数器减1)<br>
+        JNZ TXD 　　　　　　　　　 ；continue to transmit data until the counter equal 0(继续传输直到计数器为0)<br>
+        ┇<br>
+        以查询方式控制数据接收<br>
+        MOV AX，RXD-ADDR 　　　　 ；initialize DS(初始化DS)<br>
+        MOV DS，AX 　　　　　　　 ；<br>
+        MOV SI，OFFSET RXDBUF 　　；to set the receiver _buffer offset(初始化变址寄存器)<br>
+        MOV CX，COUNT 　　　　　　；initialize the received data number(初始化总共要接受的字符的个数)<br>
+        RXD： IN AL，DX 　　　　　；read the state port(读状态字)<br>
+        TEST AL，02 　　　　　　　；receiver buffer non-empty?(接受缓冲区是否为空)<br>
+        JZ RXD 　　　　　　　　　 ；jump to RXD(空则继续查询，直到不空，)<br>
+        TEST AL，38h 　　　　　　 ；error message?(是否有出错信息)<br>
+        JNZ ERR 　　　　　　　　　；jump ERR process(转出错处理)<br>
+        IN AL，DX　　　　　　　　 ；input data(从数据端口读数，接收数据)<br>
+        MOV [SI]，AL 　　　　　　 ；put the data to the memory(放到内存中)<br>
+        INC SI 　　　　　　　　　 ；address increase(地址加1)<br>
+        DEC CX 　　　　　　　　　 ；counter decrease(计数器减1)<br>
+        JNZ RXD 　　　　　　　　　；continue to receive data until the counter equal 0(继续接收直到计数器为0)<br>
+        ┇<br>
+        ERR： … 　　　　　　　　 ；error process(错误处理程序)</p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

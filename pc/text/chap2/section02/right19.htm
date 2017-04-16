@@ -1,0 +1,27 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" class="bg">
+<table width="100%" border="0" cellspacing="2" cellpadding="2">
+  <tr> 
+    <td class="pt9"><br><br>　　CR0包含了系统控制标志，这些标志通常用于控制处理器的工作模式或指出处理器的工作状态。标志位有：保护（保护工作模式）允许；监控协处理器；仿真（浮点指令）；任务切换（指出处理器具有切换任务）；扩展类型（在Pentium不使用）；写保护；对齐屏蔽；非写直达；Cache禁止；分页等。<br>
+      　　当允许分页时，CR2和CR3有效。CR2保存产生缺页中断之前最后访问页面的32位线性地址。CR3的高20位保存页目录基地址的高20位。低位中D4、D3位用于驱动控制外部Cache操作的引脚。D4为页级Cache禁止位（PCD），D3为页级写直达控制位（PWT）。<br>
+      　　CR4中定义了另外6个控制位，有虚拟8086模式扩展；保护模式虚拟中断；时间标记禁止；调试扩展（允许I/O断点）；页大小扩展（允许4M页）；机器检查允许（允许机器检查中断）等。 
+      <br><br><br><br><br>　　调试寄存器DR0-DR7(32bits)用于系统的调试，其中DR0-DR3存放程序断点的线性地址。程序执行时，遇到断点地址产生断点异常中断。DR6是调试状态寄存器，存放上次异常中断时异常的状态。DR7为调试控制寄存器，可以控制断点的操作，包括断点允许和禁止位，设置断点的条件等。 
+      <br>
+      <br>
+      　　TR3-TR5(32bits) 存放CPU片内Cache的测试数据。<br>
+      　　TR6(32bits) 是测试控制寄存器。<br>
+      　　TR7(32bits) 是测试状态寄存器。 <br><br>
+      　　EFLAG为32位标志寄存器，包括系统标志和IOPL(IO的特权级)字段。<br>
+      　　EFLAG中的各状态位分别控制IO操作、可屏蔽中断、系统调试、任务切换并管理虚拟8086方式，只有特权级代码才能对系统标志和IOPL字段进行修改。</td>
+  </tr>
+</table>
+</body>
+</html>

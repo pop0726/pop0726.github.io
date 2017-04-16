@@ -1,0 +1,132 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="bg">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9">　　表5-10 系统段与门描述符<br>
+      <table width="328" border=0 cellpadding=1 cellspacing=1 bgcolor="#000000">
+        <tr align="center" bgcolor="#FFFFFF" class="pt9"> 
+          <td width=162 colspan=5 valign=top > 类型字段</td>
+          <td width=100 valign=top > 说明</td>
+        </tr>
+        <tr bgcolor="#FFFFFF" class="pt9"> 
+          <td width=49 align="center" valign=top > 十进制</td>
+          <td width=28 align="center" valign=top > 11</td>
+          <td width=28 align="center" valign=top > 10</td>
+          <td width=29 align="center" valign=top > 9</td>
+          <td width=28 align="center" valign=top > 8</td>
+          <td width=100 valign=top >&nbsp; </td>
+        </tr>
+        <tr bgcolor="#FFFFFF" class="pt9"> 
+          <td width=49 align="center" valign=top> 0<br>
+            1<br>
+            2<br>
+            3<br>
+            4<br>
+            5<br>
+            6<br>
+            7<br>
+            8<br>
+            9<br>
+            10<br>
+            11<br>
+            12<br>
+            13<br>
+            14<br>
+            15</td>
+          <td width=28 align="center" valign=top> 0<br>
+            0<br>
+            0<br>
+            0<br>
+            0<br>
+            0<br>
+            0<br>
+            0<br>
+            1<br>
+            1<br>
+            1<br>
+            1<br>
+            1<br>
+            1<br>
+            1<br>
+            1</td>
+          <td width=28 align="center" valign=top> 0<br>
+            0<br>
+            0<br>
+            0<br>
+            1<br>
+            1<br>
+            1<br>
+            1<br>
+            0<br>
+            0<br>
+            0<br>
+            0<br>
+            1<br>
+            1<br>
+            1<br>
+            1</td>
+          <td width=29 align="center" valign=top> 0<br>
+            0<br>
+            1<br>
+            1<br>
+            0<br>
+            0<br>
+            1<br>
+            1<br>
+            0<br>
+            0<br>
+            1<br>
+            1<br>
+            0<br>
+            0<br>
+            1<br>
+            1</td>
+          <td width=28 align="center" valign=top> 0<br>
+            1<br>
+            0<br>
+            1<br>
+            0<br>
+            1<br>
+            0<br>
+            1<br>
+            0<br>
+            1<br>
+            0<br>
+            1<br>
+            0<br>
+            1<br>
+            0<br>
+            1</td>
+          <td width=100 valign=top > 保留<br>
+            16位TSS（可用）<br>
+            LDT<br>
+            16位TSS（忙）<br>
+            16位调用门<br>
+            任务门<br>
+            16位中断门<br>
+            16位陷阱门<br>
+            保留<br>
+            32位TSS可用<br>
+            保留<br>
+            32位TTS（忙）<br>
+            32位调用门<br>
+            保留<br>
+            32位中断门<br>
+            32位陷阱门</td>
+        </tr>
+      </table> 
+      <br>
+      　　这些描述符又分为两类；系统段描述符和门描述符。系统描述符包括局部描述符表段描述符、任务状态段描述符。门描述符可以简称为“门”，用于程序转移过程中增加一级控制。通过门可以转去执行一般不能直接访问的程序。门描述符包括调用门、中断门、陷阱门和任务门的描述符。门描述符包含有指向代码段（调用门、中断门和陷阱门）中的子程序入口地址。或者包含有关于TSS的段选择符。 
+    </td>
+  </tr>
+</table>
+</body>
+</html>

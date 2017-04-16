@@ -1,0 +1,27 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="bg">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9"><br><br><br><br><br><strong>3.2.1 微计算机的中断系统</strong> <br>
+      ��1、基于Intel CPU的微计算机的中断分类，硬件中断和软件中断的特点。<br>
+      ��2、在实模式和保护模式下中断操作的共同点和差别。<br>
+      ��3、可屏蔽中断的中断向量的产生方法，中断输入的扩展方法以及如何对它们管理。<br>
+      ��4、PIC8259的结构、工作模式和编程方法。<strong>
+      </strong><br>
+      　　如前所述，中断是控制输入/输出的一项关键技术，可以应用于许多场合。在讨论中断系统与可编程中断控制器之前，我们先对各代微处理器的中断做一个简单的回顾。从80x86到Pentium系列，各代Intel微处理器的中断功能是向下兼容的。也就是说80x86系列的中断功能被后面的系列包括Pentium系列支持。Intel系列微处理器具有256类中断，包括由软件触发的中断和由硬件触发的中断。到PentiumⅡ为止，前18类中断已定义为专用中断，也就是不能由用户自己定义的中断。<br>
+      <br>
+      　　微处理器的管脚中有2个管脚专门用于硬件中断输入端：分别用来申请非屏蔽中断NMI和可屏蔽中断INTR。其中，非屏蔽中断是上升沿触发的，一旦NMI的输入被激活，也就是出现一个从低电平跳变到高电平，就发生类型2中断，NMI是由内部译码电路提供中断类型的。CPU一接到非屏蔽中断就马上响应，进入中断处理子程序。在实际应用中，NMI多由硬件检测电路提供，比如提示系统电压过低等等，这时CPU就必须马上采取保护现场的操作。<br>
+      <br>
+      　　与NMI不同的是，可屏蔽中断INTR是电平触发的，由于这种特性，它必须保持高电平直到中断申请被微处理器识别为止。之所以叫做可屏蔽中断是因为INTR这种中断受中断允许标志IF的控制，只有IF为1时可屏蔽中断请求才可能被响应。也就是说可以通过设置IF位为0来屏蔽INTR类型的中断。值得注意的是：INTR需要外部设备提供中断类型，微处理器在接受INTR申请后就需要外设提供中断类型号。比如Intel保留了00H~1FH的类型号用作内部专用和扩展，在应用中INTR通常使用20H~FFH的中断类型号。INTR中断被响应以后，微处理器通过INTA＃引脚输出应答信号，将外设提供的中断类型号读出，通过数据总线D<sub>7</sub>~D<sub>0</sub>送入微处理器。于是就使微处理器有能力根据中断类型采取不同处理方式来满足各种需要。</td>
+  </tr>
+</table>
+</body>
+</html>

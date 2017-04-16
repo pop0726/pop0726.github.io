@@ -1,0 +1,23 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="10" cellpadding="2">
+  <tr>
+    <td class="pt9" height="5" > <br>
+    
+      　　类型0 的配置是对驻留在与Host/PCI桥连接的PCI总线上目标（除外PCI/PCI桥）的配置。CPU执行配置程序以后，Host/PCI桥锁存处理器写入配置地址端口的32位信息，启动PCI配置交易，将如下内容送到地址线AD31~AD0上。同时，桥的内部逻辑对配置地址端口D15~D11位译码，确定要配置的PCI设备，使能对应的IDSEL信号，建立了以这个总线设备为目标的交易。在PCI配置交易过程中，总线上所有PCI设备在地址段结束时锁存如下信息：<br>
+      　　◇ AD总线的内容。在一般交易中AD总线上为目标地址；在配置交易中，是由桥将配置地址端口的内容转换之后传送到PCI总线上的配置目标地址。它包含目标功能的编号、配置双字的编号和最低位的类型0配置标识位00（如果它是类型1配置交易，它包含目标总线编号、设备编号、功能编号、双字编号和最低位的类型1配置标识位01）。见图6-27。<br>
+      　　◇ FRAME＃信号的状态(低有效，表示总线锁存了有效的地址和命令)。<br>
+      　　◇ IDSEL信号的状态(仅对类型0配置交易有意义)。采样到IDSEL有效的PCI设备是目标PCI设备。<br>
+      　　◇ C/BE＃［３：０］的内容。配置交易中，表示配置读或写交易。命令类型取决于处理器对Host/PCI桥配置数据端口的访问类型。I/O读转换为配置读，并且I/O写转换为配置写。<br>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="bg">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9"> 
+      <p>　　由于L2检测到监听命中了一个修改行，这个数据未必见得就是最新版本，如果它又被修改过，处理器的L1 Cache有可能包含了更新的信息。同样，L2将监听地址转给处理器，处理器发现L1中也有目标行的备份。L1 
+        Cache行的状态为E，表示自从对L2的写操作以后，对于数据Cache来说没有进行过另外的写操作。说明L2 Cache中的这一行包含的就是最后的数据。Pentium处理器通过使HIT#信号有效来响应监听命中，HIT#线上输出一个低电平，告诉L2监听命中在一个未经修改的行上。在处理器的监听周期，L2也输出INV刷新信号，指示L1数据Cache将相应行的状态置为无效'I'。这一步是非常必要的，因为其他总线主向某一存储器行写数据以后，这个主存行原来数据在L1中的备份就过时了，其中要被其他总线主修改的那一部分变为无效数据。这样在后续的操作中就不会出现因为使用过时数据而导致的错误。<br>
+        　　当L2接到HIT#的低电平输入，知道它的Cache行中包含最新的数据，就执行对系统存储器的回写操作，使他们之间数据一致。同时，撤消阻止其他总线主写操作的信号，使另一个总线主结束等候，可以开始执行写操作。并且把L2 
+        Cache行的状态置为无效态&quot;I&quot;，因为一旦其他总线主完成了对存储器行的写操作，L2相应行的数据也就变成无效的过时数据了。否则如果还是&quot;M&quot;状态，就会出现错误。 
+      </p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

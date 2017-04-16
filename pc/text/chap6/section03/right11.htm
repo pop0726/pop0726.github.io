@@ -1,0 +1,29 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" class="bg">
+<table width="100%" border="0" cellspacing="10" cellpadding="2">
+  <tr>
+    <td class="pt9" height="186" > 　　<br>
+      　　计算机系统中，当主设备要访问一个目标设备时，通常由主设备发出地址，目标设备进行译码，被选中的目标设备便响应主设备的访问。在PCI系统中，总线控制器Host/PCI桥和PCI/ISA桥分别将主处理器、PCI总线以及PCI、ISA总线连接在一起。PCI/ISA控制器作为PCI总线上的一个设备，主处理器可以直接访问PCI/ISA控制器中的器件，例如，实时时钟，PCI/ISA控制器能够很快地译码地址并声明交易。但是，如果一个主设备企图寻址一个驻留在ISA总线上的设备时，ISA板卡没有配制功能，PCI/ISA控制器不知道是否有设备安装在ISA扩展槽上，即使知道，它也没有办法知道它们的I/O以及/或存储器地址。在这种情况下，桥执行负向译码。<br>
+      　　所谓负向译码，即在一个特定的PCI主设备启动的时间周期内，如果没有其他PCI设备声明交易，PCI/ISA扩展总线桥可以有效DEVSEL＃并且将交易转送到扩展总线上。它可以通过监视其他PCI设备产生的DEVSEL＃信号状态，来确定没有其他PCI设备声明交易。如果在一个交易的地址段开始后的4个时钟周期都没有采样到有效的DEVSEL＃，那么说明没有其他PCI设备声明交易，扩展总线桥可以通过交易的第五个和第六个时钟周期有效DEVSEL＃来声明交易。这就称作负向译码。 
+      <br>
+      　　ISA总线环境主要依靠负向译码来声明交易。因为大多数ISA总线设备不是即插即用的，配置软件不能自动地检测到它们的存在，给它们的地址译码器分配地址范围。ISA桥使用负向译码来开始符合以下规范的交易。<br>
+      　■ 没有其他PCI设备已声明交易。<br>
+      　　根据定义，所有PCI设备地址译码器分为：<br>
+      　　　-快速(在紧跟地址段后的时钟单元内译码地址并有效DEVSEL＃)；<br>
+      　　　-中速(在地址段后的第二个时钟内有效DEVSEL＃)；<br>
+      　　　-慢速(在地址段后的第三个时钟内有效DEVSEL＃)。<br>
+      　　　如果ISA桥没有检测到任何其他PCI设备的有效DEVSEL＃，那么在地址段完成后的第四个时钟内，桥有效DEVSEL＃，交易在ISA总线上起动。<br>
+      　■目标地址段是整个ISA存储器或I/O地址范围中的一个。PCI设备未声明的低于16MB的任何存储器地址都被声明并传递到ISA总线。PCI设备未声明的低于64KB的任何I/O地址被声明并传递到ISA总线上。<br>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

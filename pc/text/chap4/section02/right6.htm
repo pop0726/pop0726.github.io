@@ -1,0 +1,25 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="bg">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9">　　A、B、C三个端口都可以工作在方式0也就是同步数据传送方式。工作在方式0下的82C55A可以利用各端口的输入缓冲器和输出锁存器成为一个具有缓冲的输入设备，或者成为一个具有锁存功能的输出设备。在该方式下82C55提供了最基本的输入/输出工作方式。我们在前面讲到过同步传输的含义，CPU和外设之间不需要应答信号，彼此通过一个统一的时序进行管理，只要对端口进行最简单的读和写就能完成数据的输入和输出操作。在该方式下，82C55A可以定义为两个8位端口（A、B），两个4位端口（C）；任意端口均可定义为输入或输出。这些端口都是独立平等的，每个端口之间没有规定必然的关系。这些端口的输入输出组合共有16种，可以满足多种使用需要。<br>
+      　　图4-7 表示了82C55A工作在方式0下数据输入的时序图和时序参数说明。图中表示了CPU在执行I/O读时82C55A的信号线RD#、CS#、A1、A0、D7~D0以及82C55A各端口输入数据之间的时序关系和要求。82C55A要求CPU读脉冲的宽度大于等于150ns（tRR），端口输入数据有效领先读脉冲开始或滞后读脉冲结束的时间均为0ns（tI、tH），这意味着端口输入数据有效时间只要不晚于读脉冲开始或早于读脉冲结束即可满足要求。同样对于地址信号A1、A0片选信号CS#，也只要求它们的有效时间先于读信号的有效时间而无效时间晚于读信号的无效时间（tAR、tRA）。CPU执行读操作，从读信号有效到端口数据在CPU数据线上稳定的最大时间为120ns（tRD）。该参数tRD是设计82C55A与CPU连接时考虑时序配合，决定CPU对82C55A的读写是否需要插入等待周期的依据。<br>
+      <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0" width="390" height="430">
+        <param name="movie" value="../../../flash/p4_2_2_2.swf">
+        <param name="quality" value="high">
+		
+        <embed src="../../../flash/p4_2_2_2.swf"  quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="390" height="430"></embed></object> 
+      <br>
+      <img src="../../../images/chap4/p4_2_2_3.gif"><br>　　　　　　　　　　</td>
+  </tr>
+</table>
+</body>
+</html>

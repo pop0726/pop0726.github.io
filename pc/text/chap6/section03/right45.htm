@@ -1,0 +1,29 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" class="bg">
+<table width="100%" border="0" cellspacing="2" cellpadding="2">
+  <tr>
+    <td class="pt9" height="2"> 　 <br>
+      　 ◆ Max-Lat 优先级请求：只读，该寄存器对于总线主设备是可选则的，并且不用于非主设备。规范规定，这个寄存器表示设备需要 &quot;多快&quot;得到PCI总线权(即受到从仲裁器发出的GNT 
+      #信号) 它是以1/4微秒，250ns为单位计数，零值表示设备对此项没有严格要求。Max-Lat寄存器值表示主设备多快访问总线。配置软件通过这个由硬连线决定的寄存器值来确定总线仲裁器分配给主设备(假设仲裁器可编程)的优先级(以及仲裁器使用的可能的仲裁方案)。以上考虑通常是假设设备没有在数据段插入等待状态为前提的。 
+      <p> 　　◆ Min-Gnt 时间片请求：只读，对于总线主设备是可选的，并且不用于非主设备。这个寄存器由总线主设备提供，而目标设备不需提供。硬连线设定的寄存器值表示主设备起动一个交易，为达到良好性能需要保持PCI总线权的时间。这个值表示设备执行猝发周期的时间（以1/4微秒，250ns为单位），0值表示设备没有严格要求。 
+        由配置软件确定的Max-Lax寄存器和Min-Gnt 时间片请求寄存器表示了总线主设备要求多快访问到PCI总线，以及取得总线权后，一次典型传送持续的时间。<br>
+      </p>
+      <p>　　◆ Interrupt PIN：中断引脚寄存器，只读。如果PCI的设备或功能具有产生中断请求的能力，PCI 规范2.2版允许功能或者使用中断INTx#引脚，或者使用MSI产生中断。中脚引脚寄存器定义一个PCI功能连接了四个PCI中断请求引脚INTA 
+        #~INTD #中的哪一个。值01h到04h对应于PCI中断请求引脚INTA #至INTD #。返回值0表示设备没有使用中断请求线。</p>
+      <p>　　◆ Interrupt Line：中断线路寄存器，可读/写。如果PCI设备能够通过INTx #引脚产生中断请求。中断线路寄存器用于识别功能的PCI中断请求引脚(由中断引脚寄存器指定)连接到中断控制器的哪个输入。例如，在PC环境中，这个寄存器值00h到0Fh对应于中断控制器的IRQ0到IRQ15输入，值255d（FFh）表示&quot;无连接&quot;，值10h到FEh保留。RST 
+        #有效时初始化中断寄存器为值FFh。<br>
+        <br>
+      </p>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

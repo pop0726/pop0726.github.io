@@ -1,0 +1,68 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="bg">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9"><img src="../../../images/chap5/p5_3_2_2.gif"><br>
+      　　　　　图5-21 段描述符的结构 <br>
+      　　我们用列表来说明段描述符各个字段的意义。见表5-8。<br>
+      　　　　表5-8 段描述符各项说明<br>
+      <table border=0 cellpadding=1 cellspacing=1 bgcolor="#000000">
+        <tr bgcolor="#FFFFFF" class="pt9"> 
+          <td width=98 align=center valign=top ><b>字段标志</b></td>
+          <td width=470 align=center valign=top ><b>说&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            </b><b>明</b></td>
+        </tr>
+        <tr bgcolor="#FFFFFF" class="pt9"> 
+          <td width=98 valign=top > 段限字段</td>
+          <td width=470 valign=top > 指定段的大小。共分两个域，分别表示段限的高4位和低位，合在一起形成一个20位值。处理器根据G（粒度）标志，分两种情况解释段限。 
+            （1）如果粒度标志为0，段的大小为IB~IMB，按字节递增。 （2）如果粒度标志为1，段的大小为4KB~4GB，按4KB递增。</td>
+        </tr>
+        <tr bgcolor="#FFFFFF" class="pt9"> 
+          <td width=98 valign=top > 基址字段</td>
+          <td width=470 valign=top > 定义段的开始地址即基地址。在描述符中由3个基地址域组成，描述符高32位中的D31~D24表示基地址的最高8位，D7~D0表示基地址的次高8位，描述符低32位中的D31~D16表示基地址的低15位，组合起来形成32位段的基地址值，段基址以字节对界，这样能提高程序的性能。</td>
+        </tr>
+        <tr bgcolor="#FFFFFF" class="pt9"> 
+          <td width=98 valign=top > 类型字段</td>
+          <td width=470 valign=top > 指示段的类型，并指定访问方式和扩展方向。该字段的解释依赖于描述符类型定义为应用程序描述符还是系统描述符。代码段描述符、数据段描述符以及系统描述符的类型字段编码各不相同。</td>
+        </tr>
+        <tr bgcolor="#FFFFFF" class="pt9"> 
+          <td width=98 valign=top > S（描述符类型）标志</td>
+          <td width=470 valign=top > 指定段描述符是用于系统段（清除S标志）还是用于代码段或数据段（设置S标志）</td>
+        </tr>
+        <tr bgcolor="#FFFFFF" class="pt9"> 
+          <td width=98 valign=top > DPL（描述符特权级）字段</td>
+          <td width=470 valign=top > 指定段的特权级。特权级范围为0~3，0特权级最高。DPL用来控制对段的访问。</td>
+        </tr>
+        <tr bgcolor="#FFFFFF" class="pt9"> 
+          <td width=98 valign=top > P（段存在）标志</td>
+          <td width=470 valign=top > 表示该段在存储器中是存在（P置位）还是不存在（P清除）。如果清除了该标志，则当指向段描述符的段选择符加载到段寄存器时，处理器就产生一个段不存在异常（＃NP）。</td>
+        </tr>
+        <tr bgcolor="#FFFFFF" class="pt9"> 
+          <td width=98 valign=top > D／B（缺省操作规模）标志</td>
+          <td width=470 valign=top > 段的类型不同，该标志的功能也不同，对于32位代码段和数据段，该标志置为1；对于16位代码段和数据段，该标志置为0。分几种情况： 
+            （1）对于可执行代码段，该标志称为D标志，指示着地址的缺省长度和段内指令所访问的操作数的缺省长度，如果该标志置1，地址为32位，操作数为32位或8位，如果该标志清0，则地址为16位，操作数设为16位或8位。 
+            （2）对于堆栈段（由SS寄存器指向的数据段）。该标志称为B（大）标志，它用来指定用于隐含堆栈操作（像压栈、出栈和调用）的堆栈指针的规模。如果该标志置1，使用32位堆栈指针，它保存在32位的ESP寄存器中；如果该标志清0，则使用16位堆栈指针，它保存在16位的SP寄存器中。 
+            （3）向下扩展数据段。该标志称为B标志，它指定段的上界。如果该标志置1，上界为FFFFFFFFH（4GB）；如果该标志清0，上界为FFFFH（64KB）</td>
+        </tr>
+        <tr bgcolor="#FFFFFF" class="pt9"> 
+          <td width=98 valign=top > G（粒度）标志</td>
+          <td width=470 valign=top > 确定段限字段的单位，当该标志清0时，是以字节为单位解释段限，当该标志置1时，以4KB为单位解释段限。（该标志不影响基地址的单位，基址始终是以字节为单位的）。</td>
+        </tr>
+        <tr bgcolor="#FFFFFF" class="pt9"> 
+          <td width=98 valign=top > 可用位与保留位</td>
+          <td width=470 valign=top > 段描述符第二个双字的第20位置1表示该段由系统软件使用；第21位保留，并始终置为0</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

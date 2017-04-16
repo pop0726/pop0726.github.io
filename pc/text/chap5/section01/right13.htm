@@ -1,0 +1,24 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="bg">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9">
+      <p>　　在前面讲述Cache的映射方式时候，顺便提到了CPU如何访问数据，其中也提到了Cache的替换算法这个概念。当Cache访问不命中，需要对主存访问并将数据块装入Cache时，Cache行中原来的数据将被替换。直接映射的时候无需考虑，因为每个主存块只能存放在某个固定的Cache行中。而对于组相联映射和相联映射，主存中特定块可以对应多组或任意Cache行。如果可以装入这个新块的几个Cache行中有空行，则可直接装入，如果都已被装满，就需要一种替换算法决定替换哪一Cache行。常用的算法有4种：</p>
+      <ul>
+        <li>最近最少使用，缩写为LRU，替换在Cache中驻留时间最长且未被引用的块。</li>
+        <li>先进先出，缩写为FIFO，替换在Cache中驻留时间最长的块。</li>
+        <li>最不经常使用，缩写为LFU，替换在Cache中引用最少的块。</li>
+        <li>随机替换，随机替换候选块中的一个，与以前使用情况无关。</li>
+      </ul></td>
+  </tr>
+</table>
+</body>
+</html>

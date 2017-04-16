@@ -1,0 +1,20 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" class="bg">
+<table width="100%" border="0" cellspacing="2" cellpadding="2">
+  <tr> 
+    <td class="pt9"><br><br><strong>4）指令预取器</strong><br>
+      　　指令预取器负责将指令从代码Cache读出，并将它们顺序存放在预取指令缓冲器中。如果所需要取的指令不在代码Cache中，发生Cache不命中，则由指令预取器启动一个总线的猝发周期，CPU将从外部Cache或存储器取指令，进行内部Cache的行填充操作。<br><br><br>
+      <strong> 5）预取缓冲器</strong><br>
+      　　预取缓冲器即预取指令队列。Pentium微处理器包含2个预取指令队列。每个队列由2个缓冲器组成。2个预取指令队列不是同时工作，在同一时刻只有一个预取指令队列处在有效状态。指令预取器从指令Cache中取出指令以后，将它们顺序存放在那个有效的预取指令队列中，当预测分支指令将会发生转移时，预取器将跳转到分支指令的转移目标地址顺序取指，并将当时空闲的第二条指令队列激活，把取出的指令顺序存放在第二条指令队列中。在CPU的整个工作过程中，都是由当时有效的一条指令队列给两条流水线输送指令的。指令的分支预测是由一个叫做分支预测逻辑和分支目标缓冲器（BTB）的功能部件完成的。</td>
+  </tr>
+</table>
+</body>
+</html>

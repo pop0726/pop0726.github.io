@@ -1,0 +1,19 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9" height="7"> <b>3、DMA的请求与响应</b><br>
+      　　在基于微处理器的系统中，有两个控制信号用来直接存储器存取的请求和响应。HOLD为输入信号，用于请求DMA的操作；HLDA为输出信号，用于响应DMA的操作，HOLA或称作DMA允许信号。DMA控制器也有一对相应的信号，HRQ和HLDA，他们和CPU的HOLD与HLDA互相作用。正如时序图3-14所示，来自DMA的HOLD（HRQ）信号可以在任何时钟周期中被采样，一旦微处理器识别出HOLD信号，在总线周期的最后一拍或总线的空闲周期，微处理器驱动HLDA信号有效，并停止执行程序，进入总线保持周期，它的地址、数据和控制信号全部变为高阻状态。<br>
+      　　直接存储器存取控制I／O设备与存储器之间的数据传送，DMA期间没有微处理器的参与。DMA读操作将数据从存储器传送给I／O设备，DMA写操作将数据从I／O设备传送到存储器，在这两种操作中，存储器和I／O设备同时被控制，也就是说DMA系统中两组独立的存储器读和I/O写信号、或者I/O读和存储器写信号同时被驱动为有效状态，完成存储器和I/O设备之间的数据传送。<br>
+      　　DMA控制的数据传输形式一般有：一种是存储器到I/O的传送，叫做DMA读，即从存储器读出数据写入I/O端口；一种是I/O到存储器的传送，叫做DMA写，就是从I/O端口读出数据，写入存储器；另一种是存储器到存储器的传送，控制数据从存储器的某一区域读出，写入存储器的另外一个区域。</td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" class="bg">
+<table width="100%" border="0" cellspacing="2" cellpadding="2">
+  <tr>
+    <td class="pt9" height="394"> 　 <br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9">
+        <tr>
+          <td height="15"> 
+            <div align="center"><b>表 6-13</b> 命令寄存器位分配<br>
+              <table width="90%" border="1" cellspacing="0" cellpadding="0" class="pt9">
+                <tr> 
+                  <td width="9%"> 
+                    <div align="center"><b>位</b></div>
+                  </td>
+                  <td width="91%">
+                    <div align="center"><b>功 能</b></div>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="9%"> 
+                    <div align="center">0</div>
+                  </td>
+                  <td width="91%">表示IO空间。当这一位设置为1时，设备的IO地址译码器响应PCI 的IO访问；0禁止访问。<br>
+                    要求：功能提供任何IO译码器。<br>
+                    缺省设置: 0</td>
+                </tr>
+                <tr> 
+                  <td width="9%"> 
+                    <div align="center">1</div>
+                  </td>
+                  <td width="91%">存储器空间。当这一位设置为1时，设备响应PCI的存储器访问(如果提纲存储器地址译码器)；0禁止。<br>
+                    要求：功能提供存储器译码器。<br>
+                    缺省设置：0</td>
+                </tr>
+                <tr> 
+                  <td width="9%"> 
+                    <div align="center">2</div>
+                  </td>
+                  <td width="91%">总线主设备。当设置为1时，使能该设备为总线主设备(如果它有主设备能力)， 0则禁止。配置软件通过该位确定设备是否有总线主设备的能力。<br>
+                    要求：仅用于总线主设备。<br>
+                    缺省设置：0</td>
+                </tr>
+                <tr> 
+                  <td width="9%"> 
+                    <div align="center">3</div>
+                  </td>
+                  <td width="91%">专用周期。当设置为1时，设备被使能监视PCI专用周期(如果它被设计为监视专用周期)。0使设备忽略专用周期。<br>
+                    要求：只用于识别那些通过专用周期交易传送消息的设备。<br>
+                    缺省设置：0</td>
+                </tr>
+                <tr> 
+                  <td width="9%"> 
+                    <div align="center">4</div>
+                  </td>
+                  <td width="91%">存储器写与使失效使能。当设置为1时，设备可以产生存储器写与使失效命令。当设置为0时，设备使用存储器写命令。只有用系统Cache行容量大小初始化设备的Cache行容量配置寄存器以后，软件才使能这一位。总线主设备使，配置软件使用这一位连同位2主设备使能位一起检测主设备能否使用存储器写与使失效命令。如果能，Cache行大小将被写入主设备的Cache行容量配置寄存器。<br>
+                    要求：用于总线主设备执行存储器写与使失效交易。<br>
+                    缺省设置：0</td>
+                </tr>
+                <tr> 
+                  <td width="9%"> 
+                    <div align="center">5</div>
+                  </td>
+                  <td width="91%">VGA画板侦测。该位置1将指令VGA兼容设备，执行对VGA颜色画板寄存器IO写的侦测。<br>
+                    要求：仅用于显示设备。<br>
+                    缺省设置：在非VGA图形设备上，Reset置这一位为1，使能画板侦测；在VGA兼容控制器上Reset清除这一位。</td>
+                </tr>
+                <tr> 
+                  <td width="9%"> 
+                    <div align="center">6</div>
+                  </td>
+                  <td width="91%">奇偶校验错响应位。当设置为1时，设备能够报告奇偶校验错(通过有效FERR#信号)；当清为0时，即使发生奇偶校验错，设备也不能有效PERR#。设置该位时，仍须设置状态寄存器的的奇偶校验错状态检测位。<br>
+                    要求：对于所有设备（无PERR#要求设备除外）。<br>
+                    缺省设置：0</td>
+                </tr>
+                <tr> 
+                  <td width="9%"> 
+                    <div align="center">7</div>
+                  </td>
+                  <td width="91%">分段控制。控制设备是否被允许执行地址/数据分段。不使用分段的设备必须由硬连线将这一位置为0，总是使用分段的设备由硬连线将它置为1；能够工作在这两种状态的设备应将该位设计为可读/写，复位后将其初始化为1。<br>
+                    要求：仅用于执行地址或数据分段的设备。<br>
+                    缺省设置：如上所述。</td>
+                </tr>
+                <tr> 
+                  <td width="9%"> 
+                    <div align="center">8</div>
+                  </td>
+                  <td width="91%">SERR#使能。置1时设备能够驱动SERR#信号；0禁止设备的SERR#输出驱动器。这一位和奇偶检验错误响应位(6)必须设置为&quot;报告地址段奇偶校验错&quot;。<br>
+                    要求：对于所有设备（无SERR#要求设备除外）。<br>
+                    缺省设置：0</td>
+                </tr>
+                <tr> 
+                  <td width="9%"> 
+                    <div align="center">9</div>
+                  </td>
+                  <td width="91%">快速背靠背使能。在一个总线主设备具有与不同目标在第一和第二次交易中执行快速背靠背交易的能力情况下，该位用于使能或禁止快速背靠背功能。如果在主设备驻留的PCI总线上的所有目标都具有快速背靠背能力，配置软件即可设置该位有效，使能主设备执行快速背靠背的功能，并且不必担心在第一和第二次交易时是否寻址的是同一个目标。<br>
+                    要求：仅用于具有执行快速背靠背交易能力的总线主设备。<br>
+                    缺省设置：0</td>
+                </tr>
+                <tr> 
+                  <td width="9%"> 
+                    <div align="center">15:10</div>
+                  </td>
+                  <td width="91%">保留</td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+      </table>
+      　<br>
+      <br>
+     
+    </td>
+  </tr>
+</table>
+</body>
+</html>

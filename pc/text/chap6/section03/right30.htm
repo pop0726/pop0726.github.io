@@ -1,0 +1,26 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" class="bg">
+<table width="100%" border="0" cellspacing="10" cellpadding="2">
+  <tr>
+    <td class="pt9" height="2" > 　　<br>
+      　　PCI总线的典型系统结构，通常具有多条PCI总线。我们将Host/PCI桥连接的PCI总线称为PCI总线0，对总线0的配置操作称为类型0配置。而将总线0上驻留的PCI/PCI桥的外侧连接的　　 
+      PCI总线称为第二总线，PCI/PCI桥把对第二总线的配置操作转换为类型1配置。当执行配置读或写时，编程者需要提供以下信息：<br>
+      　　■目标PCI总线编号<br>
+      　　■总线上的目标PCI设备编号<br>
+      　　■设备内的目标PCI功能编号<br>
+      　　■功能配置空间内的目标双字编号<br>
+      　　■双字内的目标字节编号<br>
+      　　CPU将这些参数提供给Host/PCI桥以后，首先由桥识别是否存在目标PCI总线以及总线类型，确定目标PCI总线是在Host/PCI桥另一侧的第一条总线(总线0)，还是在总线结构中较远的总线。如果目标PCI总线存在，桥将起动在PCI总线上的一次PCI配置读或写，作为对处理器请求的响应。如果目标不存在，桥将不对处理器的请求作出反应，不执行PCI配置交易)。<br>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

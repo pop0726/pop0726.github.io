@@ -1,0 +1,18 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" class="bg">
+<table width="100%" border="0" cellspacing="2" cellpadding="2">
+  <tr> 
+    <td class="pt9">　　　　 <img src="../../../images/chap2/t1.gif" width="375" height="370"><br>
+      　　从8286的逻辑图可以看出，8286的数据驱动器（除外控制电路）、数据引线Ai/Bi是对称的，由于在收发器中数据是双向传输的，所以数据线Ai和、Bi仅仅表示了数据的流向，在数据传送方向控制端T的作用下，T=1，表示数据从A流向B，T=0，表示数据从B流向A。OE<sup>#</sup>是输出允许信号，或称三态控制信号，低电平有效。了解了8286的结构以后，我们就容易理解8286如何与8086连接了。在图2-13中，A到B表示数据从CPU传送到系统其他设备，是数据写的数据流向，B到A是数据从系统的其他设备传送到CPU，是数据读的数据流向。而CPU的数据发送/接收控制DT/R<sup>#</sup>=1时，正好是数据发送（写）状态，DT/R<sup>#</sup>=0时，是数据接收（读）状态，所以可以将DT/R<sup>#</sup>直接和8286的T相连。8286的输出使能OE<sup>#</sup>端则必须由CPU的DEN<sup>#</sup>控制。在前面我们已经提到，在CPU的存储器访问周期、I/O访问周期以及中断响应周期DEN<sup>#</sup>输出低电平，即输出有效信号。使能8286允许数据通过，完成数据的传输。8286不能象8282那样，将OE<sup>#</sup>直接接地。作为问题请大家思考，为什么8286的OE<sup>#</sup>不能直接接地？</td>
+  </tr>
+</table>
+</body>
+</html>

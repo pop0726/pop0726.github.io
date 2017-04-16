@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="bg">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9">　　刚才我们说过，V<sub>REF</sub>直接影响到输出电压的极性。如果希望输出的模拟电压极性为正，就需要选择负极性的参考电压。同样如果希望输出的模拟电压极性为负，就需要选择正极性的参考电压。在实际应用中，我会有时候会希望输出的模拟信号为双极性，而参考电压是相对固定的，那么此时又该如何设计D/A通道呢？图4-37 
+      为双极性电压输出的D／A转换连接图，它是在单极性电压输出的运算放大器后面加一级比例求和电路，通过电平移动，使单极性的电压输出变为双极性的电压输出。VO2的极性可以由输入来控制。这将马上在下面的例子中看到。<br>
+      <img src="../../../images/chap4/p4_4_2_3.gif"> <br>
+      　　图4-37 D/A转换的输出极性<br>
+      　　在单极性方式下，如果参考电压为-5V，D/A转换的输出如表4-3。<br>
+      　　　表4-3 单极性方式下的D/A转换关系<br>
+      <table width="300" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td><table width="170" border="0" align="center" cellpadding="1" cellspacing="1" bgcolor="#000000">
+              <tr align="center" bgcolor="#FFFFFF"> 
+                <td width="74" class="pt9">输出数字量</td>
+                <td width="69" class="pt9">对应模拟量</td>
+              </tr>
+              <tr align="center" bgcolor="#FFFFFF"> 
+                <td class="pt9">00H</td>
+                <td class="pt9">0V</td>
+              </tr>
+              <tr align="center" bgcolor="#FFFFFF"> 
+                <td class="pt9">80H</td>
+                <td class="pt9">+2.5V </td>
+              </tr>
+              <tr align="center" bgcolor="#FFFFFF"> 
+                <td class="pt9">FFH</td>
+                <td class="pt9">+4.98V</td>
+              </tr>
+            </table></td>
+        </tr>
+      </table> 
+      <br>
+      　　这些量都可以利用电路原理知识按照前面的公式求解得到，在此不做更多描述。<br>
+      　　在双极性方式下，如果参考电压为+5V，D/A转换的输出如表4-4。<br>
+      　　　　表4-4 双极性方式下的D/A转换关系<br>
+      <table width="300" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td><table width="170" border="0" align="center" cellpadding="1" cellspacing="1" bgcolor="#000000">
+              <tr align="center" bgcolor="#FFFFFF"> 
+                <td width="74" class="pt9">输出数字量</td>
+                <td width="69" class="pt9">对应模拟量</td>
+              </tr>
+              <tr align="center" bgcolor="#FFFFFF"> 
+                <td class="pt9">00H</td>
+                <td class="pt9">-5V</td>
+              </tr>
+              <tr align="center" bgcolor="#FFFFFF"> 
+                <td class="pt9">80H</td>
+                <td class="pt9">0V </td>
+              </tr>
+              <tr align="center" bgcolor="#FFFFFF"> 
+                <td class="pt9">FFH</td>
+                <td class="pt9">+4.96V</td>
+              </tr>
+            </table></td>
+        </tr>
+      </table> 
+      <br>
+      　　从这张表我们就可以看出，对于不同的输入量，双极性方式可以得到不同极性的电压，80H对应刚才那个双极性电路的零点。 </td>
+  </tr>
+</table>
+</body>
+</html>

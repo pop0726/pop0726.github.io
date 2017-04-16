@@ -1,0 +1,21 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body leftmargin="0" topmargin="2" marginwidth="2" marginheight="2" class="bg">
+<table width="100%" border="0" cellspacing="2" cellpadding="2">
+  <tr> 
+    <td class="pt9"> 　　在总线读周期，T<sub>2</sub>为缓冲周期。 CPU在撤销地址信号之后到从存储器或I/O接收数据之前，有一段信号线浮空的时间，称为缓冲周期。在总线写周期，CPU在T2便输出有效数据。因此，总线写周期的数据线在T<sub>2</sub>、T<sub>3</sub>周期一直处于有效状态。T<sub>4</sub> 
+      为总线结束周期。<br>
+      　　当存储器或者I/O接口的访问速度低于CPU的读写速度时，需要在T<sub>3</sub>之后插入一个或者多个附加时钟周期Tw，在Tw周期，总线上的信号状态和T3状态保持一致，这样就延长了该总线周期的访问时间，使得CPU能够和速度较慢的存储器或I/O接口相匹配。申请插入Tw的信号是由READY#产生电路发出的，当CPU访问速度较慢的存储器或I/O接口时，触发READY#产生电路，READY#产生电路在T3状态启动之前向CPU的READY端输出负脉冲。CPU在采样到READY为低时，在T<sub>3</sub>之后插入Tw，READY变为高电平以后。表示存储器或I/O准备好。CPU接收到这一高电平信号便自动脱离等待状态，进入总线周期结束状态T<sub>4</sub>。<br><strong><br>
+      空闲周期：</strong>系统总线处在空闲状态，此时，执行空闲周期T<sub>1</sub>
+	  。<br>
+      　　只有在CPU与存储器或I/O接口之间进行数据交互时，才执行总线周期。除此以外，总线处于空闲周期。空闲周期表示为T<sub>1</sub> 。</td>
+  </tr>
+</table>
+</body>
+</html>

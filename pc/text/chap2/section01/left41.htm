@@ -1,0 +1,36 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4" >
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9"><strong>2.1.3 8086的总线操作</strong><br>
+      <strong>知识点</strong><br>
+      1.总线周期的概念，包括总线周期，状态周期，等待周期的定义<br>
+      2.典型总线周期的组成<br>
+      3.时序分析和存储器访问时间的计算<br>
+      4.最大最小系统的总线时序<br>
+      <strong>课程主体</strong><br>
+      
+      　　1、系统的复位和启动操作
+是通过在RESET信号上施加有效电平使8086进行复位的。复位信号要求4个时钟周期的高电平。撤除复位信号，也就是使RESET由高变低，系统开始启动。<br>
+　　在复位状态，CPU的内部寄存器被置为如下初值：<br>
+　　标志寄存器	清零<br>
+　　CS寄存器	FFFFH<br>
+　　DS寄存器	0000H<br>
+　　SS寄存器	0000H<br>
+　　ES寄存器	0000H<br>
+　　指令指针（IP）	0000H<br>
+　　指令队列	空<br>
+　　其他寄存器	0000H<br>
+　　CPU启动以后，从FFFF0H地址开始取指令并执行指令。
+</td>
+  </tr>
+</table>
+</body>
+</html>

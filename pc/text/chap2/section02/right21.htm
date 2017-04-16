@@ -1,0 +1,19 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" class="bg">
+<table width="100%" border="0" cellspacing="2" cellpadding="2">
+  <tr> 
+    <td class="pt9">　　前面已经讲到，Pentium微处理器具有一个8K字节的二路组相连代码Cache，为指令预取器提供指令。微处理器退出Reast状态时，代码和数据Cache均处于无效状态。CPU内控制寄存器中的CD（Cache 
+      Disable）位和NWT（Not Write Through）位控制内部Cache的操作。在微处理器取指令和执行指令时，如果这两位为1将使得Cache无效。此时，驻留程序在预取器取指令之前，清除NWT位，使Cache成为有效状态。<br>
+      　　复位后，当Cache第一次被访问时Cache内部没有有效的信息。这次进行的指令预取操作发生Cache不命中。此时，代码Cache便向总线单元提出Cache行填充请求。总线单元开始向外部存储器请求数据。如果被读取的CACHE地址是有效的，则32字节的指令在一个猝发周期内被一起读入CPU，在填充Cache行缓冲器的同时送入指令预取器。</td>
+  </tr>
+</table>
+</body>
+</html>

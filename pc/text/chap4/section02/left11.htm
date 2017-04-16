@@ -1,0 +1,18 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9"> 　　如果A、B端口工作在方式1的输出模式，同样由C端口提供6位联络信号。和方式1输入模式不同的是（图4-11 ），C口的PC7、PC6和PC3分别作为A口方式1下的输出缓冲器满OBF<sub>A</sub>#、输出应答ACK<sub>A</sub>#以及中断请求INTR<sub>A</sub>信号，通过PC6可以将A端口的中断允许触发器INTR<sub>A</sub>置位或复位。C口的PC1、PC2和PC0分别作为B口方式1下的输出缓冲器满OBF<sub>B</sub>#、输出应答ACK<sub>B</sub>#以及中断请求INTR<sub>B</sub>信号。PC2 
+      为B端口提供了对中断允许触发器INTEB的设置位。C口剩余的两位PC4和PC5工作在方式0。OBF#和ACK#负责对外设的联络，INTR向CPU请求中断。OBF#为输出信号，低有效，一旦CPU将数据送到相应的输出端口，端口置OBF#有效，用来通知外设端口已准备好送给外设的数据。ACK#是来自外部输出设备的一个响应信号，ACK#为低表明外部设备已接收到82C55相应端口的输出数据，ACK#使OBF#复位。INTR为中断请求信号，输出高电平时请求CPU中断，表示输出缓冲器空，即端口数据已被输出设备使用，请求CPU执行对端口的再一次数据传送。<br>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="bg">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9" height="104" > 
+      <table width="100%" border="0">
+        <tr> 
+          <td height="90"> 
+            <div align="center"><img src="../../../images/chap3/p3_3_2_2.gif" width="319" height="317"></div>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <div align="center" class="tit">图3-16 8237的编程寄存器和引脚</div>
+          </td>
+        </tr>
+      </table>
+      　　8237A的每个DMA通道都包含一个当前地址寄存器、一个基本地址寄存器、一个当前字计数寄存器和一个基本字计数寄存器。基本地址寄存器存放DMA传输的初始地址，当前地址寄存器存放当前读/写的主存地址，因此当前地址寄存器中的内容是随着传输的过程而变化的。在初始化时，CPU将DMA传输的初始地址同时写入基本地址寄存器和当前地址寄存器。在传输过程中，DMA每传送一个字节的数据，当前地址寄存器的内容就根据程序的设定加1或者减1。类似的，基本字计数寄存器存放DMA要传送的字节长度，而当前字计数寄存器则存放DMA还需要传送的字节长度。初始化时，这两个计数寄存器的内容是一样的，都是由CPU写入的DMA要传送的字节长度。在传输过程中，DMA每传送一个字节，当前字计数寄存器就减1，当该计数器的值由0变为负值，即FFFF时，传送完成，DMA控制器产生结束信号。<br>
+      　　每个DMA通道还包含一个模式寄存器，可以通过该寄存器可以选择DMA通道的工作模式。<br>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

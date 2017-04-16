@@ -1,0 +1,114 @@
+<html>
+<head>
+<title>编译原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../css/text.css" type="text/css">
+<link href="../../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" class="pop">
+<center><table width="95%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+      <td class=text> 
+        <p><b>二、 问答题答案</b></p>
+        <p>问答第1题<br>
+          NMI：非屏蔽中断，不受中断允许标志的影响。当CPU检测到NMI有一个正沿触发的信号以后，CPU执行完当前指令便响应中断类型号为2的非屏蔽中断请求。 
+          INTR：可屏蔽中断请求。如果INTR信号有效，当CPU的中断允许标志IF=1时，CPU结束当前指令后，响应INTR中断。 INT：中断指令。通过中断指令来使CPU执行中断处理子程序的方法就是软件中断。 
+          单步中断；单步用于调试程序。将标志寄存器TF置为1，CPU每执行一条指令，响应一次中断，进入一次单步处理中断服务程序。 所谓中断优先级是指当几个中断同时请求时，CPU首先响应优先级高的中断。以上几个中断的优先级从高到低依次为：软中断，NMI，INTR，单步。 
+          优先级低的中断可以打断优先级高的中断服务程序，发生中断嵌套。<br>
+          <br>
+          问答第2题<br>
+          <br>
+          从存储器到存储器的传送需要用到8237A的0通道和1通道。下面是相关程序片断：<br>
+          PAGELK EQU 10H ；页地址锁存器<br>
+          CLEAR_F EQU 7CH ；F/L触发器<br>
+          CH0_A EQU 70H ；0通道地址寄存器<br>
+          CH1_A EQU 72H ；1通道地址寄存器<br>
+          CH1_C EQU 73H ；1通道字节计数寄存器<br>
+          MODE EQU 7BH ；模式寄存器<br>
+          CMMD EQU 78H ；命令寄存器<br>
+          MASKS EQU 7FH ；屏蔽字寄存器<br>
+          REQ EQU 79H ；请求寄存器<br>
+          STATUS EQU 78H ；状态寄存器</p>
+        <p> MEMTRANS PROC FAR USES AX</p>
+        <p> MOV AL， 02H<br>
+          OUT PAGELK，AL ；设置页地址寄存器<br>
+          MOV AL，0 <br>
+          OUT CLEAR_F，AL ；清零F/L触发器 <br>
+          MOV AX， 0H ；编程源存储器地址 <br>
+          OUT CH0_A, AL<br>
+          MOV AL，AH<br>
+          OUT CH0_A, AL ； <br>
+          MOV AX, 1000H ；编程目标存储器地址<br>
+          OUT CH1_A, AL<br>
+          MOV AL, AH<br>
+          OUT CH1_A, AL<br>
+          MOV AX, 0FFH ；编程字节计数寄存器<br>
+          DEC AX<br>
+          OUT CH1_C, AL<br>
+          MOV AL, AH<br>
+          OUT CH1_C, AL<br>
+          MOV AL, 88H ；编程方式字<br>
+          OUT MODE, AL ；<br>
+          MOV AL, 85H<br>
+          OUT MODE, AL ； <br>
+          MOV AL, 1 ；编程命令字<br>
+          OUT CMND, AL ； <br>
+          MOV AL, 0EH ；解除通道0屏蔽<br>
+          OUT MASKS, AL ； <br>
+          MOV AL, 4 ；启动DMA传送<br>
+          OUT REQ, AL ；<br>
+          MEMTRANS ENDP<br>
+          <br>
+          问答第3题<br>
+          <img src="../../../../images/exam/ps_2_1.gif" width="394" height="292"><br>
+          问答第4题<br>
+        </p>
+        <table border=0 cellpadding=1 cellspacing=1 bgcolor="#000000">
+          <tr align="center" bgcolor="#FFFFFF" class="pt9"> 
+            <td width=53 height="25" valign=top > M/IO#</td>
+            <td width=48 height="25" valign=top > RD#</td>
+            <td width=60 height="25" valign=top > WR#</td>
+            <td width=60 height="25" valign=top > BHE#</td>
+            <td width=48 height="25" valign=top > A0</td>
+            <td width=168 height="25" valign=top > 总线操作（8086）</td>
+            <td width=114 height="25" valign=top > 数据总线有效的位</td>
+          </tr>
+          <tr align="center" bgcolor="#FFFFFF" class="pt9"> 
+            <td width=53 height="25" valign=top > 1/0</td>
+            <td width=48 height="25" valign=top > 0</td>
+            <td width=60 height="25" valign=top > 1</td>
+            <td width=60 height="25" valign=top > 0</td>
+            <td width=48 height="25" valign=top > 1</td>
+            <td width=168 height="25" valign=top > 从奇地址开始读字节</td>
+            <td width=114 height="25" valign=top > D15~D8</td>
+          </tr>
+          <tr align="center" bgcolor="#FFFFFF" class="pt9"> 
+            <td width=53 height="25" valign=top > 1/0</td>
+            <td width=48 height="25" valign=top > 0</td>
+            <td width=60 height="25" valign=top > 1</td>
+            <td width=60 height="25" valign=top > 1</td>
+            <td width=48 height="25" valign=top > 0</td>
+            <td width=168 height="25" valign=top > 从偶地址开始读字节</td>
+            <td width=114 height="25" valign=top > D7~D0</td>
+          </tr>
+          <tr align="center" bgcolor="#FFFFFF" class="pt9"> 
+            <td width=53 height="25" valign=top > 1/0</td>
+            <td width=48 height="25" valign=top > 0</td>
+            <td width=60 height="25" valign=top > 1</td>
+            <td width=60 height="25" valign=top > 0</td>
+            <td width=48 height="25" valign=top > 0</td>
+            <td width=168 height="25" valign=top > 从偶地址开始读字</td>
+            <td width=114 height="25" valign=top > D15~D0</td>
+          </tr>
+        </table>
+        <p><br>
+          <!--czp-wenda-daan-->
+        </p>
+        </td>
+  </tr>
+</table>
+  </center>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="10" cellpadding="2">
+  <tr>
+    <td class="pt9" height="35" > <br>
+      <b>4、配置交换机制</b><br>
+      　　●配置操作的I/O端口地址与I/O访问<br>
+      　　PCI具有存储器、I/O、配置三类地址空间，PCI如何进行配置空间的地址访问呢？PCI配置机制使用两个位于Host/PCI桥的32位的I/O端口地址，0CF8h和0CFCh。通过对这两个32位的I/O端口地址的访问，形成对配置空间的映射，实现对配置空间的访问。这两个I/O端口为：<br>
+      　　0CF8h ~ 0CFBh： 配置地址端口（32bit），<br>
+      　　0CFCh~ 0CFFh： 配置数据端口（32bit）。<br>
+      　　32位配置地址端口的各数据位定义如图6-26 所示。<br>
+      　　bit［１：０］ 只读，恒为0，由硬连线实现，配置读时返回00。<br>
+      　　bit［７：２］ 标识目标功能配置空间内的目标双字。<br>
+      　　bit［１０：８］ 标识目标PCI设备的目标功能编号(1/8)<br>
+      　　bit［１５：１１］ 标识目标PCI设备编号(1/32)。<br>
+      　　bit［２３：１６］ 标识目标PCI总线编号(1/256)。<br>
+      　　bit［３０：２４］ 保留，必须为0。<br>
+      　　bit 31配置空间映射使能位，1有效，为1时允许将处理器对配置数据端口的I/O访问映射为PCI总线上的配置访问。如果31位为0，处理器起动一次从配置数据端口的I/O读或到配置数据端口的I/O写，所进行的操作是通过PCI总线的PCI 
+      I/O操作。<br>
+      　　访问一个PCI功能的配置寄存器分两步进行，首先，将目标总线号、设备号、功能号以及表示配置空间中目标双字的编号连同配置映射使能写入配置地址口，然后，将配置数据从或向配置数据端口读或写。<br>
+      　　写配置地址端口以后，Host/PCI桥立即将指定的目标总线和桥另一边现有的总线数目范围相比较，如果目标总线存在，便启动一次PCI配置读或写。配置数据的读/写可以是单个字节、双字节或者是四字节。<br>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

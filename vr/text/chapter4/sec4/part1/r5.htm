@@ -1,0 +1,48 @@
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+<STYLE TYPE="text/css">
+<!--
+BODY {background-image: URL(../../../../image/index/bg.gif);
+background-position: right;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr> 
+    <td><span class="text"> 　　（1）1D坐标变形<br>
+      　　下图表示1D坐标变形的一个简单实例。 <br>
+      <br>
+      　　　</span><b class="explan">图 4-4-08</b><span class="text"><br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td align="center" class="explan"><img src="../../../../image/ch4/4_4_08.gif" width="336" height="111"> 
+          </td>
+        </tr>
+      </table>
+      <br>
+      　　考虑改变四个坐标点P<sub>1</sub>,P<sub>2</sub>,P<sub>3</sub>,P<sub>4</sub>的分布。FFD方法用控制点的1D点阵，改变四个坐标点的分布。<br>
+      　　由三个控制点C<sub>0</sub>,C<sub>1</sub>,C<sub>2</sub>，和四个坐标点的初值P<sub>1</sub>,P<sub>2</sub>,P<sub>3</sub>,P<sub>4</sub>求出四个坐标点新值P'<sub>1</sub>,P'<sub>2</sub>,P'<sub>3</sub>,P'<sub>4</sub>的算法。<br>
+      　　　　P'=(-u)<sup>2</sup>C<sub>0</sub>+2u(1-u)C<sub>1</sub>+u2<sup>2</sup>C<sub>2</sub>，对 
+      0≤u≤1<br>
+      　　其中 u=(P-P<sub>1</sub>)/(P<sub>4</sub>-P<sub>1</sub>)<br>
+      　　令P分别取值P<sub>1</sub>,P<sub>2</sub>,P<sub>3</sub>,P<sub>4</sub>，则计算的P'分别为P'<sub>1</sub>,P'<sub>2</sub>,P'<sub>3</sub>,P'<sub>4</sub>。<br>
+      　　情况一，P<sub>1</sub>=1,P<sub>2</sub>=2,P<sub>3</sub>=3,P<sub>4</sub>=4，C<sub>0</sub>=1,C<sub>1</sub>=2.5,C<sub>2</sub>=4，<br>
+      　　　则 P'<sub>1</sub>=1,P'<sub>2</sub>=2,P'<sub>3</sub>=3,P'<sub>4</sub>=4，无变化<br>
+      　　情况二，P<sub>1</sub>=1,P<sub>2</sub>=2,P<sub>3</sub>=3,P<sub>4</sub>=4，C<sub>0</sub>=1,C<sub>1</sub>=3.5,C<sub>2</sub>=4，<br>
+      　　　则 P'<sub>1</sub>=1,P'<sub>2</sub>=2.44,P'<sub>3</sub>=3.44,P'<sub>4</sub>=4，<br>
+      　　　C<sub>1</sub>加大，使得P'<sub>2</sub>,P'<sub>3</sub>加大。<br>
+      　　情况三，P<sub>1</sub>=1,P<sub>2</sub>=2,P<sub>3</sub>=3,P<sub>4</sub>=4，C<sub>0</sub>=2,C<sub>1</sub>=2.5,C<sub>2</sub>=4，<br>
+      　　　则 P'<sub>1</sub>=2,P'<sub>2</sub>=2.44,P'<sub>3</sub>=3.11,P'<sub>4</sub>=4，<br>
+      　　　C<sub>0</sub>加大，使得P'<sub>1</sub>,P'<sub>2</sub>,P'<sub>3</sub>都会加大。</span></td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4" >
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9">
+      　 <strong>T<sub>1</sub>状态</strong><br>
+     
+      　　从T<sub>1</sub>状态开始，M/IO<sup>#</sup>信号有效，它指出CPU要进行的是存储器访问还是I/O访问。<br>
+ 　　T<sub>1</sub>状态为地址状态，处理器发出所要访问的内存或I/O端口的地址。CPU通过地址/状态线A19/S6～A16/S3送出高4位地址，通过地址/数据线AD15～AD0 
+      送出低16位地址。由于8086的20位地址线是和状态与数据线分时复用的，因此，地址信号在T<sub>1</sub>状态内必须被锁存起来。在T<sub>1</sub>状态，CPU的地址锁存使能ALE信号有效，ALE为一个正向脉冲，它用来作用于地址锁存器8282，ALE的下降沿将地址信号锁存在8282当中。高位数据总线使能信号BHE<sup>#</sup>也是一个分时复用信号，在T<sub>1</sub>状态通过BHE<sup>#</sup>/S7管脚送出， 
+      BHE<sup>#</sup>信号用作奇地址存储体的选择。通常BHE<sup>#</sup>和20位地址信号一起，用地址锁存器进行锁存，使它们的状态在整个总线周期有效。<br>
+      　　此外，数据总线收发器的数据传输方向控制信号DT/R<sup>#</sup>也将在T<sub>1</sub>状态有效，由于本总线周期为读周期，DT/R<sup>#</sup>端输出低电平，控制数据总线收发器接收数据。
+</td>
+  </tr>
+</table>
+</body>
+</html>

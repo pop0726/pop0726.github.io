@@ -1,0 +1,26 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4" >
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9">
+      　 <strong>T<sub>2</sub>状态</strong><br>
+      　　 在T<sub>2</sub>状态，地址信号结束，AD<sub>15</sub>～AD<sub>0</sub>进入高阻状态，为读入数据作准备；而A<sub>19</sub>/S<sub>7</sub>～A<sub>16</sub>/S<sub>3</sub>及BHE<sup>#</sup>/S<sub>7</sub>上输出状态信息S<sub>7</sub>～S<sub>3</sub>。<br>
+      　　CPU输出读信号RD<sup>#</sup>，RD<sup>#</sup> 信号送到系统中所有的存储器和I/O接口芯片上，和地址线一起，打开选中地址的存储单元或I/O端口的三态门，将数据从存储单元或I/O端口中读出，送到系统的数据总线上。<br>
+      同时，数据使能信号DEN<sup>#</sup>变为低电平，控制总线收发器进入有效状态。<br>
+      <br>
+      　 <strong>T<sub>3</sub>状态</strong><br>
+      　　基本总线周期就是不须插入等待状态的总线周期，由4个T状态组成。在基本总线周期，CPU通常在T<sub>3</sub>的下降沿锁存出现在数据线上的数据。<br>
+      　 <strong>T<sub>4</sub>状态</strong> <br>
+　T<sub>4</sub>状态为总线周期结束状态，除CPU读写数据以外，M/IO<sup>#</sup>、地址和数据等均变为高阻状态，结束当前总线周期。
+    </td>
+  </tr>
+</table>
+</body>
+</html>

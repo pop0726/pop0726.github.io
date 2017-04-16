@@ -1,0 +1,23 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4" >
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9"><br>
+      　　指令队列将顺序存放的第一条指令送U流水线，第二条指令送V流水线。两条指令配对成功，它们被并行执行。在执行级，如果V流水线执行时拖延了时间，U流水线可以继续做如同回写目标寄存器或标志寄存器的工作。反之则不行。若U流水线拖延，V只能等待U。<br>
+      　　 下面是指令的配对规则：<br>
+      <strong>两条指令是简单指令；<br>
+      非一字节指令长度相等；<br>
+      两条指令不存在寄存器争用的问题，所谓争用是指两条指令并行执行时试图访问同一个寄存器；<br>
+      两条指令中只有第一条指令能带指令前缀。<br>
+      </strong>　　不能配对的指令，顺序在U流水线中执行。有些指令在指令序列中当它是第一条指令时才能配对，因为它们只能在U流水线中执行。那些既能在U流水线又能在V流水线执行的指令，配对时既可排在第一条又可排在第二条。</td>
+  </tr>
+</table>
+</body>
+</html>

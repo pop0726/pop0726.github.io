@@ -1,0 +1,26 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9"><b>3、数据一致性控制过程</b><br>
+      　　结合不同时期对存储器访问，进一步分析维护数据一致性的控制过程。<br>
+      　　●从系统存储器的初始读<br>
+      　　计算机系统一上电，处理器就开始了对存储器的访问，随着对存储器一次次的读写操作，Cache或主存储器的内容跟着发生变化。L2 Cache控制器、NCA&quot;不能高速缓存访问&quot;逻辑以及Pentium处理器之中的Cache控制部件共同管理Cache控制信号和Cache行目录中的MESI状态，保持各级存储器之间数据的一致性。下面着重分析在单处理器系统中，不同阶段、不同条件的存储器访问过程，以及为维护数据一致性发生的Cache控制信号和MESI状态的变化。<br>
+      　　系统复位以后，Pentium内部的L1 Cache 和 L2 Cache的数据均为无效状态，标志为I。初始化期间当CPU访问L1 Cache 
+      和 L2 Cache时就会发生不命中，转向系统存储器。处理器从主存读取一行数据，将它们同时放在L1 Cache 和 L2 Cache当中。由于系统中不会存在其它处理器和L2 
+      Cache 也包含同一主存行的副本，对于L2和与它相关联的处理器来说，这一行数据是独占的，因此L2 Cache的状态位被置为E。当一行数据第一次装入内部Cache时，它的MESI状态取决于L2 
+      Cache的结构，在图5-10中，L2 Cache为Look-through结构，必定将数据存在一个标记为S的共享状态行中。由于当前L2中相应行的状态为E，L2 
+      Cache控制器驱动WB/WT#为低电平，指示L1将数据写在状态为S的行中。<br>
+      <br>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

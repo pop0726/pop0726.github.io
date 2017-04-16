@@ -1,0 +1,17 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4" >
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9"><strong>2 、指令预取</strong><br>
+      　　Pentium流水线执行的指令是由指令预取器从代码Cache中取出的，取出后将它们成对存放在两组预取缓冲器中一组有效的缓冲器之中。预取缓冲器也叫预取指令队列，每个时刻两条指令队列中只有一个有效，被预取的指令顺序存放在指令队列中提供给两条指令流水线，直至遇到一条分支指令时可能会发生变化。分支指令是否会发生地址转移，是在它到达执行级的第一级译码单元时由分支目标缓冲器中的分支预测逻辑进行检查判断的。如果分支预测逻辑预测该分支指令将要发生地址转移，则通知指令预取器切换指令存放的队列，并从分支目标地址处开始取指。如果预测不发生转移，预取器仍然顺序取指并将指令存放在现行工作的指令队列中。<br>　　指令队列切换以后，由当前有效的指令队列给两条流水线输送（程序发生）分支目标地址及以后的指令。图2-33 表示了分支目标缓冲器与指令预取单元的关系。</td>
+  </tr>
+</table>
+</body>
+</html>

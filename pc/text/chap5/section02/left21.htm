@@ -1,0 +1,20 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9">　　● 对内部Cache行第一次写<br>
+      　　初始化之后，当第一次写操作在L1 Cache命中时，如果此时该行的状态为S，在处理器内部的写操作将数据更新，并且把数据一直写到L2当中。L2对应行原来的状态为E，表示数据可以被更新，更新后，原本和主存一致的数据发生变化，这一行的状态被改为M。同时L2 
+      Cache控制器将WB/WT#信号置为高电平，指示处理器把L1中对应行的状态由S修改成E，使得在这之后的Cache行数据写，采取写回控制策略。<br>
+      　　在这种情况下，如果存储器第二次写L1 Cache这个状态为E的行，将不会发生到L2的写直达操作。这时，这个L1 Cache行的状态被修改为M，指示这一行包含了被修改的数据。之后每一次对这行数据的更新都不会采取写直达策略，而这一行的状态也继续保持M状态。<br>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9"><strong>　 特殊全嵌套</strong><br>
+      　　在多片8259级联的情况下，允许主片在某级从片进行中断服务的期间响应同一级从片来的由另一级中断发出的申请，发生的嵌套为特殊全嵌套。而在一般全嵌套方式中，在ISR对应位没有被复位之前，只有当更高级的中断请求来到时，才会进行嵌套，当同级中断请求来到时，不会给予响应。<br>
+      　　在这种情况下，主片应该编程为特殊全嵌套方式，从片可以编程为一般全嵌套方式或其他优先级方式。当来自某一从片的中断请求正在被服务时，和普通全嵌套方式一样，8259A主片对来自优先级较高的从片引脚上的中断请求是允许的；除此之外，主片对来自同一从片的优先级较高的中断请求也会允许。这样，同一从片来的不同级别的中断请求，对于主片来说是同一级的，但对于从片来说，新的中断请求必须比正在服务的中断优先级高，否则，从片就不会发出INT信号，主片也不会再次产生对CPU的中断请求信号。 
+      <br>
+      <strong>　　</strong><strong>自动循环优先</strong><br>
+      　　优先级自动循环方式一般用在希望多个中断源被服务的机会均等的场合，多个中断优先级轮流优先，一个中断请求设备被服务以后，它的优先级自动降为最低。在自动循环优先方式中，初始的优先级队列为、IR0、IR1… 
+      IR7。假设目前中断请求触发器IRR2和IRR4的状态为1，表示2号和4号中断有请求，2号中断的优先级高于4号，首先被服务，ISR2=1。2号中断被服务以后，它的优先级降为最低，中断优先级的队列为IR3、IR4、IR5、IR6、IR7、IR0、IR1、IR2。表3-3 
+      说明了产生2号和4号中断请求以后，发生中断服务以及优先级变化的情况。 <br>
+      　　<strong>特殊循环优先</strong>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

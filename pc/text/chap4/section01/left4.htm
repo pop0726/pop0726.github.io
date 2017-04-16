@@ -1,0 +1,21 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9"><b>4.1.1 输入接口电路</b><br>
+      　　首先我们分析一个8位输入接口电路的原理性结构图（图4-1）。这是一个采用程序查询方式控制的并行接口电路，它只有与CPU的连接控制部分、与外设的连接部分，不需要信号转换逻辑。红线框内表示输入接口逻辑，包括一个8位输入数据锁存器和控制三态输出功能的缓冲器1、一个表示输入缓冲器状态的状态寄存器和控制三态功能的缓冲器2，两个双端或门提供对数据缓冲器1和状态缓冲器2的三态控制。<br>
+      　　输入数据缓冲器的输出端D7~0连接CPU的数据总线，状态缓冲器的输出连接到数据线D7上，由CPU通过执行程序查询输入缓冲器的状态。两个双输入端或门分别由片选信号CS1#、CS2#与上IOR#信号进行控制。控制数据缓冲器的读出控制同时控制了对状态寄存器的复位。<br>
+      　　输入设备的数据线直接与接口的数据锁存器相连。一般和输入设备有两个联络信号，一个是来自外设的数据选通信号STB，通常外设向端口输送数据时，STB信号同时有效；另一个是端口给外设的状态信号ACK#，它表示输入缓冲器的数据是否已经被CPU读取。 
+      <p></p>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

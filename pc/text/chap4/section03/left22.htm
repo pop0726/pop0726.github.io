@@ -1,0 +1,17 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9">　　在8251A接收字符时，命令寄存器的接收允许位R<sub>x</sub>E（Receiver Enable）必须为1。8251A通过检测R<sub>x</sub>D引脚上的低电平来准备接收字符，在没有字符传送时R<sub>x</sub>D端为高电平。8251A从R<sub>x</sub>D端上检测到低电平以后，便认为是串行数据起始位的开始，并且启动接收控制电路中的一个计数器，计数器的频率等于接收器时钟频率。计数器的作用是作为接收器的采样定时，当计数到相当于半个数位的传输时间时再次对R<sub>x</sub>D端进行采样，如果仍为低电平，则确认该数位是一个有效的起始位。之后，8251A每隔一个数位的传输时间对R<sub>x</sub>D端采样一次，依次确定串行数据位的值。串行数据位顺序进入接收移位寄存器，通过校验并除去停止位，变成并行数据以后送入接收缓冲器，此时R<sub>x</sub>RDY信号变为有效状态，通知CPU 
+      8251A已经收到一个有效的数据。</td>
+  </tr>
+</table>
+</body>
+</html>

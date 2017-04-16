@@ -1,0 +1,20 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9"><strong>　ICW1</strong><br>
+      　　ICW1定义了8259A的基本操作。其中D4位是ICW1的标识位，有效状态为1（和OCW区别，OCW2、OCW3的D4位均为0）。对于编程8086及以上的微处理器，位7、6和5为无关项，它们仅仅在8259A与8位8085微处理器一起使用时才需要定义（本书不加讨论）。D0位指示了初始化过程中是否有ICW4命令，如果需要编程ICW4，则IC4置1。D1是单片/多片级联方式选择位，1表示系统中只有1片8259A。如果选择了级联方式，则必须编程ICW3和ICW4的有关位。D1（LTIM）位用来确定中断请求输入是上升沿触发还是高电平有效。<br>
+      <strong>　</strong><strong>ICW2</strong><br>
+      　　ICW2用来编程8259A中断请求的类型号。其中高5位T7~T3确定8个连续向量中断的起始类型号。例如，如果选择8259A的中断向量为70H~77H，则将70H装入命令字ICW2。低3位L2、L1、L0则无须由用户指定，L2、L1、L0编码的8种状态，对应了8个中断请求源。 
+    </td>
+  </tr>
+</table>
+</body>
+</html>

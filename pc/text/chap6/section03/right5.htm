@@ -1,0 +1,46 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" class="bg">
+<table width="100%" border="0" cellspacing="10" cellpadding="2">
+  <tr>
+    <td class="pt9" height="2"> 　 　当C/BE#[3:0]表示PCI命令类型时，它的16种状态中的12种分别表示了12种总线交易：中断应答、存储器读/写、I/O读或写、配置读写以及存储器读写类型。当C/BE#[3:0]表示字节使能时，它指出当前操作使用的数据通道。表6-2为PCI命令一览表，表6-3列出字节使能信号在数据通道和当前寻址双字中位置的映射关系。<br>
+      <table width="100%" border="0"><tr> 
+          <td> 
+            <div align="center" class="tit">表6-2 PCI命令</div>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <div align="center"><img src="../../../images/chap6/biao1.gif" width="349" height="371"></div>
+          </td>
+        </tr>
+         <tr> 
+          <td> 
+            <div align="center" class="tit">表6-3 字节使能在数据通道和当前寻址的双字空间的映射</div>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <div align="center"><img src="../../../images/chap6/biao2.gif" width="454" height="112"></div>
+          </td>
+        </tr>
+       
+      </table>
+      　　在完成地址段之后的一个时钟内，PCI启动设备驱动PAR信号为高电平或低电平，以保正地址总线AD[31：0]和4个命令/字节使能总线C/BE#[3：0] 
+      通过奇偶校验。<br>
+      　　每个数据段中在IRDY#有效(在写交易中)或TRDY#有效(在读交易中)之后的一个时钟之内，由主设备(在写交易中)或当前寻址的目标(在读交易中)驱动PAR为有效状态，来确保AD[31：0]和C/BE#[3：0] 
+      通过奇偶校验。<br>
+      <br>
+        　　
+    </td>
+  </tr>
+</table>
+</body>
+</html>

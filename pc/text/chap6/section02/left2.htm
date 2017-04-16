@@ -1,0 +1,33 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="2" cellpadding="2">
+  <tr>
+    <td class="pt9" height="23"> <b>2、ISA的信号组</b><br>
+      　　ISA共有98根信号线。ISA总线主要用于基于Intel微处理器80x86（或兼容产品）的PC机，它的信号组与Intel系列处理器和控制器的信号组非常近似。下面对ISA信号做一个简单的说明。<br>
+      　　　- SA0~19（O），地址信号线。<br>
+      　　　- LA17~23（O），扩展地址信号线，基于386以上CPU的系统输出高位地址A17~A23。<br>
+      　　　- SD0~7、SD8~15（I / O），数据信号线。<br>
+      　　　- SBHE（O），高位字节选择信号。<br>
+      　　　- ALE（O），地址锁存信号。<br>
+      　　　- AEN（O），DMA地址使能信号，系统在DMA控制下该信号输出为1，系统在CPU控制下该信号为0。<br>
+      　　　- SMEMR#，SMEMW#，IOR#，IOW#，MEMR#，MEMW#（O），存储器读写、IO读写信号，其中SMEMR#，SMEMW#为访问1M以内存储器空间的读写信号，MEMR#，MEMW#，为访问1M以上存储器空间的读写信号。<br>
+      　　　- IOCHRDY（I），IO通道准备好，为0表示需要插入等待周期。 <br>
+      　　　- OWS#（I），零等待信号，一般主板设计成在总线操作过程中自动插入一个等待周期，如果某个ISA扩展卡不需要插入这个等待周期，可使该板的OWS#信号输出低电平。<br>
+      　　　- IOCHCHK#（I），IO通道校验错信号。<br>
+      　　　- CLK（O），系统时钟信号。<br>
+      　　　- DRQ0~3、DRQ5~7（I），DACK0~3、DACK5~7（O），DMA请求与应答信号。<br>
+      　　　- TC（O），DMA计数结束。<br>
+      　　　- IRQ3~IRQ7、IRQ9、IRQ10~IRQ15（I），中断请求信号。<br>
+      　　　- MEMCS16#、IOCS16#（I），16位存储器传送请求、16位I/O传送请求。<br>
+      　　　- MASTER#（I），总线主设备确认。</td>
+  </tr>
+</table>
+</body>
+</html>

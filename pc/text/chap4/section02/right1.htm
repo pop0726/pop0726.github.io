@@ -1,0 +1,20 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="bg">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9">      　　并行接口是最常用的处理器数据接口，本节通过一个实际电路讨论并行接口在同步、异步方式下的工作原理、时序和编程方法。<br><img src="../../../images/chap4/p4_2_1_1.gif"><br>
+      　　　　　　图4-3 并行接口的一般结构 <br>
+      　　4.1节讨论了输入输出接口的原理性结构，以及CPU 是如何通过I/O接口与外设来进行数据交互的。因为CPU和外设无法直接相连，那么CPU要向外设输出数据（比如CPU将一份文档输出到打印机进行打印）或者外设向CPU输入数据（比如程序员通过键盘编写程序文件），就必须要通过输入输出接口来进行。在输入输出接口当中，用得最广泛的是并行接口，大家可以看看自己用的计算机机箱后面，主板上最宽的那个接口就是一个并行接口，通常用于和打印机连接。并行接口承担CPU和外设间并行数据的传送，它的结构相对简单，不包括数据格式或信号形式之间的转换电路。“并行”在这里的含义就是指把一个字符的各二进制数位用几条线同时进行传输，和后面讲到的“串行”可以区别开。图4-3表示了并行接口的一般结构。它由输入输出寄存缓冲器和状态寄存器以及控制寄存器组成，状态寄存器记忆了异步工作方式中数据缓冲器的状态，是“缓冲器满”还是“缓冲器空”，输入缓冲器满表示不能继续接收数据，空则表示可以继续接收。输出缓冲器满则表示有数据等待取走，空则表示数据已被取走。这些可以用作和CPU与外设进行联络的依据。控制寄存器则用于可编程接口中的工作方式控制。在后面将详细描述接口的各种工作方式以及控制寄存器内部各控制字的含义。 
+    </td>
+  </tr>
+</table>
+</body>
+</html>

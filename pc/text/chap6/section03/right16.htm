@@ -1,0 +1,23 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" class="bg">
+<table width="100%" border="0" cellspacing="10" cellpadding="2">
+  <tr>
+    <td class="pt9" height="2" > 　　<br>
+      　　主设备送出地址信号，目标设备便对地址进行译码。被选中的目标设备确定自己是交易的目标以后，驱动DEVSEL#有效，通知主设备此次交易有效。在预定的周期内，主设备采样到DEVSEL#有效，便继续交易；如果没有采样到有效的DEVSEL#，便终止交易，本次交易失败。<br>
+      <br>
+      <br>
+      <br>
+      　　一般在交易的第2个时钟周期前沿为数据段开始。每个数据段至少持续一个时钟周期，和Intel80X86不同，PCI的数据传送，是在主设备的IRDY#和目标设备的TRDY#两个准备好信号都有效的情况下进行的。如果准备好信号之一没有变为有效状态，就需要插入一个等待周期将数据段扩展。数据段中数据传送的字节数（可以是一到四个字节），由命令/字节使能信号决定。 
+    </td>
+  </tr>
+</table>
+</body>
+</html>

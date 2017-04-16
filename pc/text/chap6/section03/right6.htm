@@ -1,0 +1,145 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" class="bg">
+<table width="100%" border="0" cellspacing="2" cellpadding="2">
+  <tr>
+    <td class="pt9"> <br>
+      <br>
+      我们用下列表格，归纳接口控制各个信号的意义、状态和信息传输方向。<br>
+　　　　　　　　　<b>表 6-4 信号的意义、状态和信息传输方向</b>
+      <table width="100%" border="1" cellspacing="0" cellpadding="0" class="pt9">
+        <tr> 
+          <td width="6%"> 
+            <div align="center">信 号</div>
+          </td>
+          <td width="6%"> 
+            <div align="center">状态</div>
+          </td>
+          <td width="7%"> 
+            <div align="center">主设备</div>
+          </td>
+          <td width="5%">目 标</td>
+          <td width="76%"> 
+            <div align="center">描 述</div>
+          </td>
+        </tr>
+        <tr> 
+          <td width="6%"> 
+            <div align="center">FRAME#</div>
+          </td>
+          <td width="6%">s/t/s* </td>
+          <td width="7%"> 
+            <div align="center">In/Out</div>
+          </td>
+          <td width="5%"> 
+            <div align="center">In</div>
+          </td>
+          <td width="76%">Cycle Frame，周期帧信号, 主设备在PCI CLK信号的同一上升沿采样到FRAME#和IRDY#都无效且GNT#有效时，表示取得总线权。随后，当前主设备驱动Cycle 
+            Frame有效，指出交易的开始(当它第一次有效)和交易持续的时间(它有效的持续时间)。在当前主设备和当前寻址的目标之间，一个交易可包含一个或多个数据传送，当主设备准备完成最后数据交互时，FRAME#变为无效。</td>
+        </tr>
+        <tr> 
+          <td width="6%"> 
+            <div align="center">TRDY#</div>
+          </td>
+          <td width="6%"> 
+            <div align="center">s/t/s</div>
+          </td>
+          <td width="7%"> 
+            <div align="center">In</div>
+          </td>
+          <td width="5%"> 
+            <div align="center">Out</div>
+          </td>
+          <td width="76%">Target Ready，目标设备准备好信号，由当前寻址的目标驱动，当目标设备准备好去完成当前数据段(数据传送)时，此信号有效。在CLK信号的上升沿，当目标设备TRDY#有效，主设备IRDY#同时有效时，表示完成一组数据传送。在读交易中，TRDY#有效表明目标正在将有效数据驱动到数据总线上；在写交易中， 
+            TRDY#有效表明目标准备好接收来自主设备的数据。一般情况下，需要在当前的数据段中插入等待状态，除非采样到TRDY#和IRDY#同时有效。</td>
+        </tr>
+        <tr> 
+          <td width="6%"> 
+            <div align="center">IRDY#</div>
+          </td>
+          <td width="6%"> 
+            <div align="center">s/t/s</div>
+          </td>
+          <td width="7%"> 
+            <div align="center">In/Out</div>
+          </td>
+          <td width="5%"> 
+            <div align="center">In</div>
+          </td>
+          <td width="76%">Initator Ready，起动方准备好信号，由当前总线主设备驱动(交易的起动方)。在写交易中，IRDY#有效表明主设备正在驱动有效数据到数据总线上。在读交易中，IRDY#有效指出主设备已准备好接收来自当前寻址目标的数据。</td>
+        </tr>
+        <tr> 
+          <td width="6%"> 
+            <div align="center">STOP#</div>
+          </td>
+          <td width="6%"> 
+            <div align="center">s/t/s</div>
+          </td>
+          <td width="7%"> 
+            <div align="center">In</div>
+          </td>
+          <td width="5%"> 
+            <div align="center">In</div>
+          </td>
+          <td width="76%">目标设备使STOP#有效，表明它希望主设备停止正在进行的交易。</td>
+        </tr>
+        <tr> 
+          <td width="6%"> 
+            <div align="center">IDSEL</div>
+          </td>
+          <td width="6%"> 
+            <div align="center">s/t/s</div>
+          </td>
+          <td width="7%"> 
+            <div align="center">N/A</div>
+          </td>
+          <td width="5%"> 
+            <div align="center">In</div>
+          </td>
+          <td width="76%">Initialization Device Select，初始化设备选择信号是PCI设备的一个输入信号，用作访问设备配置寄存器时的芯片选择信号。</td>
+        </tr>
+        <tr> 
+          <td width="6%"> 
+            <div align="center">LOCK#</div>
+          </td>
+          <td width="6%"> 
+            <div align="center"></div>
+          </td>
+          <td width="7%"> 
+            <div align="center">In/Out</div>
+          </td>
+          <td width="5%"> 
+            <div align="center">In</div>
+          </td>
+          <td width="76%">在原子交易系列中(例如：在一个信号机读/修改/写操作中)主设备用此信号锁定当前寻址的目标。</td>
+        </tr>
+        <tr> 
+          <td width="6%"> 
+            <div align="center">DEVSEL#</div>
+          </td>
+          <td width="6%"> 
+            <div align="center"></div>
+          </td>
+          <td width="7%"> 
+            <div align="center">In</div>
+          </td>
+          <td width="5%"> 
+            <div align="center">Out</div>
+          </td>
+          <td width="76%">Device Select，设备选择信号，当某目标设备进行地址译码且地址被选中时，使设备选择信号有效。它可作为当前主设备和扩展总线桥中负向译码器的输入信号。如果当一个主设备起动一次交易，并在6个CLK周期内没有检测到DEVSEL#信号有效，它必须假设目标不能响应或者地址不存在。导致主设备交易终止。</td>
+        </tr>
+      </table>
+      *：t/s: tri-state; s/t/s: sustained tri-state.（准许三态）<br>
+      <br>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

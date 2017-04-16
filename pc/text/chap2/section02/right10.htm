@@ -1,0 +1,24 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" class="bg">
+<table width="100%" border="0" cellspacing="2" cellpadding="2">
+  <tr> 
+    <td class="pt9"><ul>
+        <li><strong>数据总线收发器：</strong>在写总线周期，收发器将数据送到Pentium处理器的局部数据总线上；在读总线周期，收发器就把局部总线上的数据取给处理器。</li>
+        <li><strong>总线控制逻辑：</strong>总线控制逻辑用于控制是运行标准总线周期还是运行突发总线周期，如果是标准总线周期，则既可以访问I/O端口和非高速缓冲内存，也可以写高速缓冲内存。在这种情况下，按照指令的不同，传输的数据可以是8位、16位和32位。如果是突发总线周期，则是用于Cache填充或者从数据Cache“写回”存储器。在这种情况下，每次传送4个64位的数据。</li>
+        <li><strong>总线主控制：</strong>总线主模块信号允许控制器向仲裁机构申请总线的使用权。并且，总线的使用权可以被系统中的其他总线主模块抢占。</li>
+        <li><strong>第二级Cache控制：</strong>Pentium处理器有对第二级Cache的控制能力，包括是否让第二级外部Cache处理特定的请求，以及是否让“写回”策略替代“写通过”策略。</li>
+        <li><strong>内部Cache控制：</strong>在Cache填充期间，外部的控制逻辑能够控制Cache的状态，以保证Cache的一致性。内部的控制逻辑可以监听外部控制逻辑的输入信号，以决定何时侦听地址总线，保证Cache数据的一致性；并向外发出相关信号以通知外部控制逻辑侦听操作的结果。</li>
+        <li><strong>奇偶校验生成与控制：</strong>在写总线周期，为每个8位数据生成偶校验位；在读总线周期进行校验的验证。在写总线周期也为地址生成一位的校验位，并在外部Cache侦听操作时进行地址的奇偶校验。</li>
+      </ul></td>
+  </tr>
+</table>
+</body>
+</html>

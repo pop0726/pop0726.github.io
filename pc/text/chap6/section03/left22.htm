@@ -1,0 +1,23 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="10" cellpadding="2">
+  <tr>
+    <td class="pt9" > <br>
+      <b>4、几种PCI交易</b> <br>
+      　　下面我们分析几个PCI交易的时序来体会PCI交易的过程和特点。<br>
+      　● PCI中断响应<br>
+      　　在Intel x86的系统中，要求服务的子系统是通过系统的中断请求信号IRQ0~IRQ15发出中断请求的。在PCI/ISA桥（南桥）中的中断控制器检测到中断请求信号IRQ，驱动INTR信号有效，向处理器请求中断。此时，如果处理器允许中断，就进入中断响应总线周期。P5以前的处理器是通过启动两个总线周期完成中断应答的。首先产生一个中断确认总线周期，然后，产生一个中断响应周期读取中断向量。P6系列处理器仅仅产生一个中断应答周期响应INTR的请求，当Host/PCI桥检测到（CPU一方）一个中断应答周期的开始，桥就要求占有PCI总线并开始一次中断应答交易。<br>
+      　　PCI目标PCI/ISA桥检测到中断应答交易，驱动DEVSEL#有效响应交易。PCI/ISA桥内部产生2个连续的中断应答负脉冲给桥内的8259A中断控制器。作为响应，8259在低位数据通道上驱动中断向量，并使TRDY#有效通知启动设备-Host/PCI桥目标准备好。当Host/PCI桥采样到TRDY#和IRDY#同时有效，就从低位数据通道上读取数据并终止中断交易。<b>图6-20</b> 
+      为PCI中断响应交易时序图。<br>
+      　　前面说过，PCI的所有传送都可以是猝发传送，PCI也支持单个数据段的传送。PCI的读交易可以分为PCI单数据读、PCI读和优化的PCI读。</td>
+  </tr>
+</table>
+</body>
+</html>

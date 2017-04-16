@@ -1,0 +1,19 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="bg">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9">　　为了保证数据一致性，另外一种策略是在主存中划出不可高速缓存存储的区域。这个区域可以作为所有部件的共享区，这个区域的内容永远不能取到Cache。因此CPU对这个区域的访问必须也是直接的，而不通过Cache进行。从而避免某个区域映射到多个Cache的情况。也就避免了因为数据过时而出现的错误。针对这种情况，我们引入了KEN#信号。<br>
+      　　KEN#（cache ability），Cache能力，注意此处不是使能信号，二者是不一样的，输入引脚，在每次存储器读总线周期中，如果内部Cache不命中，处理器希望进行Cache行填充，也就是替换Cache行，就要采样KEN#信号，确定所读的目标地址是否是在能够进行Cache操作的地址空间。如果KEN#信号为低电平，表示该目标地址能够进行高速缓存操作。如果目标地址不能高速缓存，NCA逻辑将KEN#信号驱动为高电平，告诉处理器不能进行Cache行填充，处理器从目标地址读出数据后不再将它装入Cache中。<br>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

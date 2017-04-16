@@ -1,0 +1,42 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" class="bg">
+<table width="100%" border="0" cellspacing="2" cellpadding="2">
+  <tr>
+    <td class="pt9" height="281"> 　 <br>
+      　　◆ 配置头类型：图6- 表示了配置头类型寄存器的格式。第6~第0位定义了设备配置寄存器首部双字4至15位的格式(见图6-34)。第7位定义了设备是单功能(位7=0)还是多功能(位7=1)设备，在配置过程中，编程者通过测试位7的状态，确定在这个设备中是否具有其他功能要求配置。<br>
+      <br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9">
+        <tr>
+          <td height="26"> 
+            <div align="center"><b>图6-34 </b>配置头类型寄存器的格式<br>
+              <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0" width="290" height="160">
+                <param name="movie" value="../../../flash/p6_3_6_18.swf">
+                <param name="quality" value="high">
+                <embed src="../../../flash/p6_3_6_18.swf" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="290" height="160"></embed></object>
+            </div>
+          </td>
+        </tr>
+      </table>
+      　 <br>
+      　　◆ 延迟时间：延迟定时器也叫时间片寄存器，对于执行猝发交易的主设备它是可读/写的寄存器。延迟定时器定义了以PCI时钟周期为单位的最小时间量，在这个时间片中，总线主设备只要起动一次新交易，就能保持总线所有权。起动交易后，总线主设备在每个时钟上升沿将延迟定时器减1。 
+      也就是说该寄存器定义了总线主进行一次交易，需要保持总线权的最小时间。主设备启动交易，保持总线权直到下述情况之一：<br>
+      　　◇ 完成了整个猝发传送(如果它没有失去授权)；<br>
+      　　◇ 目标令有效STOP #，提前终止交易；<br>
+      　　◇ 用完了时间片(LT值)时间，总线权交给了另一个PCI主设备。<br>
+      在配置软件给总线主设备分配时间片时，首先读功能的Min-Gnt(最小授权)寄存器以确定总线主设备要求的时间片。 
+      <p>　　◆ Cache行大小：对于那些使用存储器写与使失效命令的主设备，必须设置Cache行容量寄存器。这个读/写配置寄存器指示系统Cache行的容量，它是以双字为单位的。例如，一个P6系统Cache行容量寄存器的值为08h，表示Cache行容量为8个双字即32字节。这个寄存器是由提供存储器写与使失效命令的总线主设备来实现的。为了保证总线主设备在Cache行边界开始一次交易，并确保将整行写入存储器，总线主必须知道Cache行容量。当这个寄存器为0时，总线主设备可以不使用存储器写与使失效命令。在这种情况下，主设备只使用通常的存储器写来更新存储器。设备可以限制支持的Cache行容量的数量，如果配置软件将一个设备不支持的数据值写入寄存器，设备按0值操作。<br>
+      </p>
+      <br>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

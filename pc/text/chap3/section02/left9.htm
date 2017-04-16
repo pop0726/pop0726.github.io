@@ -1,0 +1,16 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9"> 　　如果系统需要连接多个中断源，就要对处理器的中断系统进行扩展。在图3-3的电路上增加一个8输入端的与非门，将与非门的输出连接CPU的中断请求输入INTR上，就得到了允许7个中断源输入的中断扩展电路（图3-4）。与非门IR0~IR6的每一个输入端可以连接一个中断源，电路规定低电平为有效的输入电平。当一个或一个以上中断源输出有效的低电平时，CPU便从INTR端采样到有效的中断请求信号。与非门的输入信号又通过三态门74LS244连接到数据总线D7~D0上。三态门的选通端G#由INTA#控制，7个中断请求信号的状态形成了中断类型号。表3-2列出了每次只有一个中断请求信号时所形成的中断向量。将那个和数据线D7对应的与非门输入端接为高电平，目的是让扩充的中断源产生80H以上的中断类型号。</td>
+  </tr>
+</table>
+</body>
+</html>

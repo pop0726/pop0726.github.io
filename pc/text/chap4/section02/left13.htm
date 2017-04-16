@@ -1,0 +1,19 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9"><strong>方式2</strong><br>
+      　　82C55A的另一种工作方式为异步双向数据传输方式，称为方式2。异步双向方式意味着该端口在某一时刻工作在输入方式，在另一时刻又要工作在输出方式，这样需要有两组联络信号，分别与输入和输出设备进行联络。在82C55A中只有A组控制的A端口能够工作在双向方式，C端口的5位被同时用作双向端口的联络信号。见图4-13 
+      。其中4位PC7、PC6和PC4、PC5分别用于与输出设备的联络信号OBF<sub>A</sub>#、ACK<sub>A</sub>#以及与输入设备的联络STB<sub>A</sub>#、IBF<sub>A</sub>。不管工作在输入或输出状态，对处理器的中断请求信号由PC3提供的INTR<sub>A</sub>来完成。但是，在输入、输出状态下控制中断请求的“中断允许”却是分别由两位来完成的。PC6控制了与输出设备交互时的中断允许位INTE1，PC4控制与输入设备交互时的中断允许位INTE2，当对PC6或PC4置1，相应的INTE1或INTE2置位，表示允许中断。由于工作在方式2的A	
+      端口占用了C口的5位做联络，C口只剩下3位PC2~PC0未被使用。如果B口设定为方式1，PC2~PC0便被用做B口的联络信号，如果B口设定为方式0，PC2~PC0也工作在0方式。</td>
+  </tr>
+</table>
+</body>
+</html>

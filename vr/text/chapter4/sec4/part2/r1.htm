@@ -1,0 +1,59 @@
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+<STYLE TYPE="text/css">a:hover{text-decoration:none;position:relative;top:1px;left:1px;}
+<!--
+BODY {background-image: URL(../../../../image/index/bg.gif);
+background-position: right;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+<script language="JavaScript">
+<!--
+function MachakFull(Ie,other){
+//Copyright ?1999 m.milicevic machakjoe@netscape.net jjooee@tip.nl
+x=screen.availWidth;
+y=screen.availHeight;
+target = parseFloat(navigator.appVersion.substring(navigator.appVersion.indexOf('.')-1,navigator.appVersion.length));
+if((navigator.appVersion.indexOf("Mac")!=-1) &&(navigator.userAgent.indexOf("MSIE")!=-1) &&(parseInt(navigator.appVersion)==4))
+window.open(other,"sub",'scrollbars=yes');
+if (target >= 4){
+	if (navigator.appName=="Netscape"){
+    var MachakFull=window.open(other,"MachakFull",'scrollbars=yes','width='+x+',height='+y+',top=0,left=0');
+	MachakFull.moveTo(0,0);
+	MachakFull.resizeTo(x,y);}
+if (navigator.appName=="Microsoft Internet Explorer")
+	window.open(Ie,"MachakFull","fullscreen=yes");
+	}
+	else window.open(other,"sub",'scrollbars=yes');
+	}
+//-->
+</script>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr> 
+    <td><span class="text"> 　　（1）粒子系统 <br>
+      <br>
+      　　　</span><b class="explan">D 4-4-2-1</b><span class="text"><br>
+      <br>
+      　　　<a href="javascript:;" onClick="MachakFull('../../../../swf/D4_4_2_1.avi','')"><img src="../../../../image/index/dh.gif" width="25" height="24" border="0" align="absmiddle"></a> 
+      <font color="#FF0000"><b>点击观看“水面和下雨的仿真都是过程动画的例子”演示</b></font> <br>
+      <br>
+      　　粒子建模用于建模水流、雨雪、火焰等自然现象。它用大量离散的粒子建模模糊的对象。为产生逼真的图形，它要求有效的反走样，并花费大量绘制时间。<br>
+      　　Reeves提出了模拟不规则模糊物体的景物生成系统。一个物体由一系列粒子来表示。每个粒子都要经历&quot;出生&quot;、&quot;运动和生长&quot;、&quot;死亡&quot;三个阶段。动画剧本可以控制粒子的位置和速度，还控制粒子外形参数，如颜色、大小和透明度等。粒子系统体现了不规则物体的动态性和随机性，可以产生运动进化的画面，模拟火、云、水等自然现象。<br>
+      　　例如虚拟风洞的实时可视化。软件要计算气体的流线。粒子会沿着流线运动。每帧显示中，粒子移动的距离正比于速度和时间间隔。当粒子跨越到另一流线，就会沿着另一流线运动。<br>
+      　　粒子不必建模为多面体，只要建模为一个有色的点。每个粒子只要保存位置、颜色、出生时间、寿命。例如在火焰中的粒子，不断产生、上升、消失。<br>
+      　　（2）群体运动<br>
+      　　许多动物（如鸟和鱼）以群体的方式运动。这种运动有随机性，又有一定的规律性。Reynolds提出的群体动画解决了这个问题。群体行为包含两个对立的因素，既要相互靠近，又要避免碰撞。他用三条优先级递减的原则控制群体的行为：（1）碰撞避免原则，避免与相邻的群体成员相碰；（2）速度匹配原则，尽量匹配相邻群体成员的速度；（3）群体合群原则，群体成员尽量靠近。<br>
+      　　（3）水波的模拟<br>
+      　　水波模拟的简单方法是用正弦波，通过设置振幅和相位等参数可以控制效果。可以用三维空间的正弦波状曲面来造型水波。</span></td>
+  </tr>
+</table>
+</body>
+</html>

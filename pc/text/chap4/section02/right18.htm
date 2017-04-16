@@ -1,0 +1,19 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="bg">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9">　　与方式0访问C数据端口的操作不同，对C端口的位操作访问的是控制端口而不是C数据端口。就是说对C端口按位置0置1要通过向控制端口写入控制字来实现，而不能通过向C端口写数据来实现。因为写入C端口的数据被存在C端口自带的输入缓存器中了。那么该怎么区别方式选择控制字和C端口位操作控制字呢？图4-16 
+      表示了C端口按位置0置1选择字的格式。C端口按位置0置1选择字的D7位表示允许按位置0置1标志，0有效，表示允许。前面提到过，若对控制端口送的是方式选择控制字，则它的D7位标志为1。所以，当D7位标志为0，表示对控制端口送的是C端口按位置0置1选择控制字。控制字的D3、D2和D1三位是位选择标志，它们可以组合成8种状态，分别选择C口的位0 
+      ~ 位7。D0位是1或0则表示对选择位置1还是置0。由此我们可以看出，对控制端口送一次按位置0置1选择控制字，只能对C端口的某一位置位。</td>
+  </tr>
+</table>
+</body>
+</html>

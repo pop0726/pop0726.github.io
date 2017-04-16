@@ -1,0 +1,206 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="bg">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="pt9"> <strong>&#8226; </strong>供应商ID：16位寄存器存储了设备制造商代码。值FFFFh被保留，当读取一个不存在的设备配置寄存器时，导致主设备读操作失败，桥的供应商ID为FFFFh作为反应返回这个值。主设备失败不被看作是错误，但规范规定桥必须在配置状态寄存器中设置收到的主设备失败位。<strong><br>
+      &#8226; </strong>设备ID：16位，由设备制造商分配，表示设备类型。设备ID用于定位设备指定的驱动程序(可能与版本有关)。<br>
+      <strong>&#8226; </strong>版本：8位，由设备制造商分配，表示设备的版本号。使得OS能够装载正确的驱动程序。<br>
+      <strong>&#8226; </strong>类代码：24位只读寄存器，包含：基类型、子类型和可编程接口。它代表设备的基本功能(例如大容量存储控制器)、设备子类型(如IDE大容量存储控制器)，以及在一些情况下寄存器指定的编程接口(例如IDE寄存器组的指定格式)。图6-30 
+      为类代码寄存器，高字节定义功能的基类型， 中间字节定义基类型内的子类型，低字节定义编程接口。表6-列出了现行定义的基类型的代码值，表6-8到表6-分别列出了类型1大容量存储控制器、类型2网络控制器、类型4多媒体设备的子类型和类型1大容量存储控制器中子类型1 
+      IDE控制器的编程接口。对于有些类型目录，编程接口字节由硬连线定为0，它没有意义；对另于一些类型，如IDE控制器，编程接口字节是有意义的。类代码寄存器的作用是什么呢？目前计算机系统中每一种设备都有许多兼容产品，当操作系统试图定位一个设备，可以根据类型码选择驱动程序。如果两个设备类型码和子类型码相同，表示设备兼容。驱动程序便可以通用。与选择指定供应商的指定设备的驱动程序相比，选择类型驱动程序更加方便灵活。对于有些设备，需要由设备类型码、子类型码和编程接口字节一起定义设备的兼容性。<br>
+      <br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9">
+        <tr>
+          <td>
+            <div align="center"><b>图6-30</b> 类代码寄存器<br>
+              <img src="../../../images/chap6/ch30.gif" width="274" height="77"> 
+            </div>
+          </td>
+        </tr>
+      </table>
+      <div align="center"><b>表6-8</b> 设备的类代码<br>
+      </div>
+      <table width="60%" border="1" cellspacing="0" cellpadding="0" class="pt9" align="center">
+        <tr> 
+          <td width="38%"> 
+            <div align="center"><b>类型</b></div>
+          </td>
+          <td width="62%"> 
+            <div align="center"><b>概 述</b></div>
+          </td>
+        </tr>
+        <tr> 
+          <td width="38%"> 
+            <div align="center">00h</div>
+          </td>
+          <td width="62%"> 
+            <div align="left">有类代码定义前 (在PCI规范2.0版前) 设计的设备</div>
+          </td>
+        </tr>
+        <tr> 
+          <td width="38%"> 
+            <div align="center">01h</div>
+          </td>
+          <td width="62%"> 
+            <div align="left">大容量存储控制器</div>
+          </td>
+        </tr>
+        <tr> 
+          <td width="38%"> 
+            <div align="center">02h</div>
+          </td>
+          <td width="62%"> 
+            <div align="left">网络控制器</div>
+          </td>
+        </tr>
+        <tr> 
+          <td width="38%"> 
+            <div align="center">03h</div>
+          </td>
+          <td width="62%"> 
+            <div align="left">显示控制器</div>
+          </td>
+        </tr>
+        <tr> 
+          <td width="38%"> 
+            <div align="center">04h</div>
+          </td>
+          <td width="62%"> 
+            <div align="left">多媒体设备</div>
+          </td>
+        </tr>
+        <tr> 
+          <td width="38%"> 
+            <div align="center">05h</div>
+          </td>
+          <td width="62%"> 
+            <div align="left">存储器控制</div>
+          </td>
+        </tr>
+        <tr> 
+          <td width="38%"> 
+            <div align="center">06h</div>
+          </td>
+          <td width="62%"> 
+            <div align="left">桥设备</div>
+          </td>
+        </tr>
+        <tr> 
+          <td width="38%"> 
+            <div align="center">07h</div>
+          </td>
+          <td width="62%"> 
+            <div align="left">简单通信控制器</div>
+          </td>
+        </tr>
+        <tr> 
+          <td width="38%"> 
+            <div align="center">08h</div>
+          </td>
+          <td width="62%"> 
+            <div align="left">基系统周边</div>
+          </td>
+        </tr>
+        <tr> 
+          <td width="38%"> 
+            <div align="center">09h</div>
+          </td>
+          <td width="62%"> 
+            <div align="left">输入设备</div>
+          </td>
+        </tr>
+        <tr> 
+          <td width="38%"> 
+            <div align="center">0Ah</div>
+          </td>
+          <td width="62%"> 
+            <div align="left">安装台</div>
+          </td>
+        </tr>
+        <tr> 
+          <td width="38%"> 
+            <div align="center">0Bh</div>
+          </td>
+          <td width="62%"> 
+            <div align="left">处理器</div>
+          </td>
+        </tr>
+        <tr> 
+          <td width="38%"> 
+            <div align="center">0Ch</div>
+          </td>
+          <td width="62%"> 
+            <div align="left">串行总线控制器</div>
+          </td>
+        </tr>
+        <tr> 
+          <td width="38%"> 
+            <div align="center">0Dh</div>
+          </td>
+          <td width="62%"> 
+            <div align="left">无线控制器</div>
+          </td>
+        </tr>
+        <tr> 
+          <td width="38%"> 
+            <div align="center">0Eh</div>
+          </td>
+          <td width="62%"> 
+            <div align="left">智能IO控制器</div>
+          </td>
+        </tr>
+        <tr> 
+          <td width="38%"> 
+            <div align="center">0Fh</div>
+          </td>
+          <td width="62%"> 
+            <div align="left">卫星通信控制器</div>
+          </td>
+        </tr>
+        <tr> 
+          <td width="38%"> 
+            <div align="center">10h</div>
+          </td>
+          <td width="62%"> 
+            <div align="left">加密/解密控制器</div>
+          </td>
+        </tr>
+        <tr> 
+          <td width="38%"> 
+            <div align="center">11h</div>
+          </td>
+          <td width="62%"> 
+            <div align="left">数据采集与信号控制器</div>
+          </td>
+        </tr>
+        <tr> 
+          <td width="38%"> 
+            <div align="center">12h ~ FFh</div>
+          </td>
+          <td width="62%"> 
+            <div align="left">保留</div>
+          </td>
+        </tr>
+        <tr> 
+          <td width="38%"> 
+            <div align="center">FFh</div>
+          </td>
+          <td width="62%"> 
+            <div align="left">设备不符合任何定义的类代码</div>
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+</body>
+</html>

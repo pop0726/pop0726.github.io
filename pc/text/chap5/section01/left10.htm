@@ -1,0 +1,17 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9">　　每当CPU需要访问某个存储器单元时，首先在Cache中查找是否存在该存储单元的副本。CPU通过存储器地址行域的内容找到Cache的行号，取出该Cache行中的标记，将它和要访问存储器地址标记域中的值相比较，如果相同，表示命中，说明Cache中存在副本。然后根据字域所指示的偏移量访问Cache行中要寻址的那个字节。如果存储器地址域的值和Cache行中的标记不相等，表示Cache未命中，在这种情况下，存储管理部件就会根据给出的存储器地址访问存储器，将指定字节送入CPU，并按照标记域与行域指示的数据块地址将整个数据块（4字节）装入行域指定的Cache行中，还要用存储器地址最高8位标记域的值更新这个Cache行的标记。<br>
+      　　直接映射的优点是结构简单，构造成本低。缺点是对于主存的块规定了固定的Cache行位置，致使当程序反复使用映射到同一个Cache行而来源于不同存储器块的数据时，这一个Cache行的内容会不断更新，降低了Cache命中率和存储器系统的效率。</td>
+  </tr>
+</table>
+</body>
+</html>

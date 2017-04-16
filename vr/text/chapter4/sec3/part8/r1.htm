@@ -1,0 +1,32 @@
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+<STYLE TYPE="text/css">
+<!--
+BODY {background-image: URL(../../../../image/index/bg.gif);
+background-position: right;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr> 
+    <td class="text"> <br>
+      <br>
+      　　1．画家算法<br>
+      　　它把视场中的表面按深度排序。然后由远到近依次显示各表面。近的取代远的。它不能显示互相穿透的表面，也不能实现反走样。对两个有重叠的物体，A的一部分在B前，B的另一部分在A前，就不能用此算法。<br>
+      　　2．扫描线算法<br>
+      　　它从图像顶部到底部依次显示各扫描线。对每条扫描线，用深度数据检查相交的各物体。它可实现透明效果，显示互相穿透的物体，以及反走样。可由各处理机并行处理。<br>
+      　　3．z-缓冲器算法（z-buffer）<br>
+      　　对一个象素，z-缓冲器中总是保存最近的表面。如果新的表面深度比缓冲器保存的表面的深度更接近视点，则新的代替保存的，否则不代替。它可以用任何次序显示各表面。但不支持透明效果，反走样也受限制。有些工作站已把z-缓冲器算法硬件化。<br>
+      　　消隐算法是把线框图变成实体图必要的算法。</td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9"><strong>2、一种具有双缓冲结构的D/A转换芯片DAC0832 </strong><br>
+      <strong>1） 结构与时序</strong><br>
+      　　某些D/A转换芯片，具有双数据缓冲器，DAC0832便是一例。这种双数据缓冲结构用于多片D/A转换器需要输出同步的场合。图4-38 、4-39 
+      分别是DAC0832的结构和时序图。DAC0832的第一级数据输入寄存器用来锁存CPU送来的数据，第二级DAC寄存器用作同步寄存器。CS1#、WR1#和ILE控制数据输入寄存器的数据选通和锁存，当CS1#、WR1#和ILE同时有效时，输入寄存器的内容随着输入信号变化，当CS1#、WR1#和ILE之一变为无效时，输入信号此刻的状态被锁定在输入寄存器中。WR2#和XFER#控制DAC寄存器的选通和锁存，作用原理同CS1#、WR1#和ILE。<br>
+　　从DAC0832的时序图（图4-39）可以看出，在多片DAC0832的系统中，如果希望多片D/A转换器同步输出，只要首先将数据分别写入各个D/A转换芯片的输入寄存器，然后使各片的WR2#和XFER同时有效，这样，期望的数据值便从各个芯片的输入寄存器被同时送入它们的DAC寄存器，在各个D/A转换通道的运算放大器上同时产生相应的电压变化。<br></td>
+  </tr>
+</table>
+</body>
+</html>

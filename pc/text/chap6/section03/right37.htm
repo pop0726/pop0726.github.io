@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" class="bg">
+<table width="100%" border="0" cellspacing="2" cellpadding="2">
+  <tr>
+    <td class="pt9" height="2"> 
+      <br>
+      ¨ 供应商ID<br>
+      ¨ 设备ID<br>
+      ¨ 版本<br>
+      ¨ 类代码<br>
+      ¨ 子系统供应商ID<br>
+      ¨ 子系统版本ID<br>
+      ¨ 命令寄存器<br>
+      ¨ 状态寄存器<br>
+      ¨ BIST（Built-In Self-Test）<br>
+      ¨ 配置头类型<br>
+      ¨ 延迟时间<br>
+      ¨ Cache行大小<br>
+      ¨ Max-Lat 优先级请求<br>
+      ¨ Min-Gnt 时间片请求<br>
+      ¨ Interrupt PIN<br>
+      ¨ Interrupt Line<br>
+      ¨ 基地址寄存器等。<br>
+      　　其中供应商ID、设备ID、版本、类代码、子系统供应商ID、子系统版本ID，这6个强制规定的寄存器用于识别设备类型，操作系统根据这一寄存器组的内容，确定为设备装载哪个驱动程序。命令寄存器提供了对设备响应和执行PCI访问能力的基本控制。状态寄存器把功能的状态记录在PCI设备中。配置头类型定义了配置头寄存器的格式以及这个设备是单功能还是多功能设备。头空间中其它寄存器既可以是可选择的，也可以是强制性的，它取决与设备的类型。BIST（Built-In 
+      Self-Test）寄存器，可以由主设备和/或目标设备提供，设置后，设备可以实现内置自检(BIST)。延迟定时器也叫时间片寄存器，它对于执行猝发交易的主设备是强制性(可读/可写)。延迟定时器定义了以PCI时钟周期为单位的最小时间量，在这个时间片中，总线主设备只要起动一次新交易，就能保持总线所有权。起动交易后，总线主设备在每个时钟上升沿将延迟定时器减1。Cache行容量寄存器用于存储器写和使失效命令，为读/写寄存器，指出系统以双字为单位的Cache行大小(例如，一个P6系统该寄存器的值为08h，表示Cache行容量为8个双字即32字节)，这个寄存器的操作必定是由提供存储器写与使失效命令的总线主设备来完成的。Max-Lat 
+      优先级请求寄存器，只读，对于总线主设备是可选则的，不用于非主设备，它的值表示主设备访问总线的频度（多少时间访问总线一次，从仲裁器收到GNT #计算，250ns递增），这个寄存器的硬连线值由配置软件确定，用来决定总线仲裁器分配给主设备(假设仲裁器可编程)的优先级(以及仲裁器使用的仲裁方案)。Min-Gnt（Timeslice 
+      Request） 时间片请求寄存器，只读，该寄存器对于总线主设备是可选则的，但不用于非主设备，由总线主设备提供，由硬连线设定该寄存器的值，表示主设备要达到好的性能，须保持PCI总线所有权的时间，指出设备进行一个猝发周期需要多长时间（以250ns为单位）。Interrupt 
+      PIN寄存器，只读，中脚引脚寄存指出功能连接了四个PCI中断请求引脚INTA #~INTD #中的哪一个。Interrupt Line寄存器，可读/写，用于识别功能的PCI中断请求引脚(由中断引脚寄存器指定)连接到中断控制器的哪个输入端，在PC环境中，寄存器的值00h到0Fh对应于中断控制器的IRQ0到IRQ15。占据6个双字空间的基地址寄存器是为设备的存储器和/或IO译码器提供基地址的寄存器。<br>
+      　　PCI设备必须按照PCI规范设置配置头区域有关字段。系统启动时，系统软件的配置程序读取配置头中的设备信息并根据设备的要求按照PCI规范配置设备。<br>
+      <br>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

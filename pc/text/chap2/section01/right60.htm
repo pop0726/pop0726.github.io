@@ -1,0 +1,20 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" class="bg">
+<table width="100%" border="0" cellspacing="2" cellpadding="2">
+  <tr> 
+    <td class="pt9">　　对于外部中断，CPU在执行每条指令的最后一拍检测中断信号管脚INTR和NMI的中断请求信号，对于如果中断请求信号满足要求，即INTR为高电平，NMI为上升沿并保持2个CLK的高电平，CPU认为当前有中断请求。对于可屏蔽中断INTR，CPU能否响应中断，则要取决于中断允许触发器的状态，中断允许触发器与标志寄存器的标志位IF对应，当IF为1时，表示中断允许。当CPU执行完当前指令，便响应INTR中断，进入中断响应周期。当IF为0，即使有中断请求，CPU也不会响应。在实际中，通常有多个中断源，这些中断源，往往希望是可以对它们屏蔽的。一般选用和CPU配套的中断控制器来实现对多中断源的管理。在第3章我们将会对中断控制器做具体讨论。对于NMI，CPU执行完当前指令，便立即响应中断，进入中断响应周期。所谓系统掉电就是指电源电压持续下降，这时，电源监测电路就会产生中断请求信号，通过NMI管脚向CPU发出非屏蔽中断请求。CPU检测这个非屏蔽中断请求后，执行完当前指令，立即停止正在执行的程序，并转向非屏蔽中断处理子程序。在非屏蔽中断处理程序中，系统将当前现场保留到不挥发存储器当中，或者切换到UPS电源，保持系统正常工作。<br>
+      　　让我们总结一下可屏蔽中断和非屏蔽中断的响应条件。<br>
+      　　非屏蔽中断：只要非屏蔽中断请求信号有效，产生上跳边沿，并且在上升沿之后维持两个时钟周期的高电平，CPU执行完当前指令后，无条件响应。<br>
+      　　可屏蔽中断：可屏蔽中断请求信号有效，为高电平，并且保持到CPU响应时一直为有效电平，此外，标志寄存器IF=1，CPU执行完当前指令后便响应可屏蔽中断请求。中断向量由中断控制器提供。</td>
+  </tr>
+</table>
+</body>
+</html>

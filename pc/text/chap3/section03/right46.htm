@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="bg">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9" > ；在图3-31的系统上进行DMA控制的存储器到存储器的数据块传送。<br>
+      ；<br>
+      ；调用参数：<br>
+      ； SI = 源存储器地址<br>
+      ； DI = 目的存储器地址<br>
+      ； CX = 计数值<br>
+      ； ES = 源和目的的段值<br>
+      ；<br>
+      LATCH_B EQU 10H ；锁存器B<br>
+      CLEAR_F EQU 7CH ；F/L触发器<br>
+      CH0_A EQU 70H 　；0通道地址寄存器<br>
+      CH1_A EQU 72H　 ；1通道地址寄存器<br>
+      CH1_C EQU 73H　 ；1通道字节计数寄存器<br>
+      MODE EQU 7BH　　；模式寄存器<br>
+      CMMD EQU 78H　　；命令寄存器<br>
+      MASKS EQU 7FH 　；屏蔽字寄存器<br>
+      REQ EQU 79H 　　；请求寄存器<br>
+      STATUS EQU 78H　；状态寄存器 
+      <p> TRANS PROC FAR USES AX</p>
+      <p> MOV AX，ES　　；编程锁存器B<br>
+        MOV AL，AH <br>
+        SHR AL，4<br>
+        OUT LATCHB，AL<br>
+        OUT CLEAR_F，AL ；清零F/L触发器<br>
+        <br>
+        MOV AX，ES 　 ；编程源存储器地址<br>
+        SHL AX，4<br>
+        ADD AX，SI 　 ；段内偏移地址SI是相对段起始地址的，而DMA传输过程中所用到的存储器地址应该是物理地址，因此需要通过段地址和段内偏移两部分计算得到。<br>
+        OUT CH0_A, AL<br>
+        MOV AL，AH<br>
+        OUT CH0_A, AL ；分两步向通道0的基本地址寄存器写入源数据的起始地址。与此同时，起始地址也写入了当前地址寄存器。</p>
+      <p>MOV AX, ES 　 ；编程目标存储器地址<br>
+        SHL AX, 4<br>
+        ADD AX, DI 　 ；形成目标存储器地址偏移量<br>
+        OUT CH1_A, AL<br>
+        MOV AL, AH<br>
+        OUT CH1_A, AL</p>
+      <p>MOV AX, CX 　 ；编程字节计数寄存器<br>
+        DEC AX<br>
+        OUT CH1_C, AL<br>
+        MOV AL, AH<br>
+        OUT CH1_C, AL</p>
+      <p>MOV AL, 88H 　；编程方式字<br>
+        OUT MODE, AL　；88H即1000 1000，D7D6=10，传输模式为块传输模式；D5=0，当前地址寄存器内容为增量方式；D4=0，禁止自动预置功能；D3D2=10，读传输，D1D0=00，选择通道0，即通过通道0读源地址数据。<br>
+        MOV AL, 85H<br>
+        OUT MODE, AL　；85H即1000 0101，D7D6=10，传输模式为块传输模式；D5=0，当前地址寄存器内容为增量方式；D4=0，禁止自动预置功能；D3D2=01，写传输，D1D0=01，选择通道1。即通过通道1向目标地址写数据。</p>
+      <p>MOV AL, 1 　　；编程命令字<br>
+        OUT CMND, AL　；向命令寄存器写入0000 0001的意义为：D7＝0，DACK低电平有效；D6=0，DREQ高电平有效；D5=0，不扩展写信号；D4=0，固定通道优先级；D3=0，正常传输时序；D2=0，使能8237A；D1D0=01，进行存储器到存储器的传输，并且是从存储器区域到存储器区域的传输。 
+      </p>
+      <p>MOV AL, 0EH 　；解除通道0屏蔽<br>
+        OUT MASKS, AL ；0EH的二进制为0000 1110，写入屏蔽字寄存器就表示解除通道0的屏蔽，同时设置通道1、通道2和通道3的屏蔽。</p>
+      <p>MOV AL, 4 　　；启动DMA传送<br>
+        OUT REQ, AL 　；向请求寄存器写入二进制字0000 0100。D1D0=00，选择通道0；D2＝1，有DMA请求。即通过软件向DMA控制器发送DMA传送请求，等待DMA控制器处理。</p>
+      <p>REPEAT 　　　 ；等待，直至DMA完成传送<br>
+        IN AL, STATUS<br>
+        .UNTIL AL &amp;1</p>
+      <p>RET</p>
+      <p>TRANS ENDP<br>
+      </p></tr>
+</table>
+</body>
+</html>

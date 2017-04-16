@@ -1,0 +1,18 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9"><strong>2) 同步方式</strong><br>
+      　　在同步方式发送字符之前，也必须设置8251A的T<sub>x</sub>EN和CTS#有效。如果编程为内同步方式，发送器会根据要求发送一个或者两个同步字符，然后连续地发送数据字符。在发送数据字符时，发送器会按照编程规定对每个数据添加奇/偶校验位。在字符发送的过程中，如果CPU向8251的数据传送出现间隙，8251的发送器会自动插入同步（中止）字符。<br>
+      　　当编程为同步接收而且为内同步时，命令寄存器的RXE也必须为1。8251A首先搜索同步字符，不断检测串行接收线R<sub>x</sub>D的状态，将R<sub>x</sub>D线上一个个数据位送入移位寄存器，再将寄存器的内容与设定的同步字符进行比较，如果两者不相等，则接收下一位数据，并且重复上述比较过程。当寄存器的内容与同步符相等时，表示已经实现同步，此时8251A的同步检测信号SYNDET端出现高电平。同步字符可由程序设定为一个或两个。当编程为外同步方式时，同步是通过控制同步输入信号SYNDET来实现的。只要SYNDET端上出现有效电平，即信号由低变高并持续一个时钟周期，便确认实现同步。之后，接收器以接收器时钟为基准，连续采样串行数据接收线R<sub>x</sub>D上传来的串行字符数据位，逐一将它们送入移位器，组成字符后送到输入缓冲器，再通过有效RxRDY通知CPU读取。<br></td>
+  </tr>
+</table>
+</body>
+</html>

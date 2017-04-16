@@ -1,0 +1,18 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9"><strong>3) 串行(异步)通信数据位的检测</strong><br>
+      　　串行同步通信，发送和接收的双方使用的是一个时钟，就可以以时钟或时钟的整倍数为基准，对数据位进行采样。串行异步通信发送和接收方的时钟频率可以在不超过一定的允许范围内近似相等，那么，如何保证不会由于发送接收双方时钟误差的积累，引起数据位检测的错误呢？串行异步通信数据位检测的机理是这样的：假设时钟周期为Tc，发送和接收端是利用时钟来确定每1信息位的时间长度的。又假设数据位之间的间隔为Td，数据位的传输率为1/Td。时钟频率是位传输率的K倍，<strong>Tc 
+      = Td / K</strong>。这就意味着接收端时钟将对每一个信息位采样K次，K叫做波特率因子，一般定为16，32和64。时钟频率 = 波特率因子×波特率。而位的传输率称为波特率。</td>
+  </tr>
+</table>
+</body>
+</html>

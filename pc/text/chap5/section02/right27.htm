@@ -1,0 +1,19 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="bg">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9"><br><br><br><br><br><br><br>　　当总线主在读周期寻址存储器的时候，L2对总线主发出的地址进行监听。假如，监听命中了L2 Cache的一个状态为M的行。L2控制器便阻止那个总线主读取存储器中的过时数据，并向处理器发出地址保持请求AHOLD，把监听地址传送给处理器。接着，L2发出EADS#，使得处理器可以监听这个地址。L1 
+      Cache发现一行中有目标的备份，状态为M，Pentium处理器就发出HIT#和HITM#信号，这两个信号有效，通知L2 Cache监听命中了一个被修改的行并且它将运行一个写回周期把最近的信息存入存储器。写回周期把L2 
+      Cache和主存里面的数据一起更新。完成写回以后，L1 Cache、L2 Cache和存储器的行中便包含了同样的信息。L2撤消使无效信号INV，通知L1将那行的状态从M改为S。这样，任何对L1行的更新又被规定为到L2的写直达。和第一次写的情况是一样的。随着处理器对存储器行的写回，L2相应行也同时被更新。如果系统中存在其他处理器和Cache，L2的状态由M修改成E，否则，由M变为S。完成写回后，便允许这个总线主从主存读数据。</td>
+  </tr>
+</table>
+</body>
+</html>

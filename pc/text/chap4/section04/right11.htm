@@ -1,0 +1,20 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="bg">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9"><img src="../../../images/chap4/p4_4_3_1.gif"><br>
+      　　图4-41 逐次逼近型A／D转换电路的结构<br>
+　　这种型式的A／D转换器是以D / A转换电路为基础，加上比较器、逐次逼近寄存器、置数选择逻辑电路、时钟、数据输出缓冲器等组成。它在进行A/D转换时，用D/A转换器的输出电压来驱动比较器的反相端，在转换时，要用一个逐次逼近寄存器存放转换好的数字量，转换结束时，将数字量送到缓冲器中。其转换过程如下：首先置数选择逻辑给逐次逼近寄存器置数，把它的最高位置位为1，这实际上是一种试探的过程，逐次逼近寄存器中的数字量经D／A转换器换成模拟量以后和输入的模拟信号进行比较，电压比较器给出比较结果，当输入模拟电压大于D／A转换器的输出电压，比较器置“1”，刚才我们给逐次逼近寄存器置的1就被认为有效，保留起来；如果输入模拟电压小于或等于D／A转换电压，比较器置“0”，那么我们刚才置的1就使无效的，于是被清除。接着，对以后的各位逐位进行试探，置数选择逻辑则根据比较器的结果逐位修改逐次逼近寄存器的数值，使所置数据转换后得到的模拟电压渐渐逼近输入电压，经过若干次试探修改的数据便是A／D转换的最终结果。转换结束之后，结构图中所示的控制电路送出一个低电平作为结束信号，这个信号的下降沿将逐次逼近寄存器中的数字量送入缓冲寄存器，从而得到数字量输出。
+</td>
+  </tr>
+</table>
+</body>
+</html>

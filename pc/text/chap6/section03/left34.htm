@@ -1,0 +1,24 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="10" cellpadding="2">
+  <tr>
+    <td class="pt9" height="6" > <br>
+      ● IDSEL的实现<br>
+      　　在芯片组Host/PCI桥中，IDSEL的实现通常采用两种方法，这里介绍大多数Host/PCI桥和系统板设计时采用的方法。<br>
+      　　在类型0配置访问的地址段，有21根地址线AD［３１：１１］未曾使用，因此可以利用这些地址线将它们作为连接不同物理PCI设备的IDSEL信号。桥的内部逻辑根据对配置地址端口位［１５：１１］目标设备码的译码结果，选择一条AD线置为1，便形成了该目标设备的IDSEL信号。A31~A11的各条地址线分别连接到了单个PCI设备的IDSEL输入(见图6-28)。按照PCI规范，Host/PCI桥设计如下的映射。当桥的配置地址端口设备编码字段被译码以后，内部逻辑选择一个相应的IDSEL信号有效，将IDSEL信号通过AD［３１：１６］输出，例如：<br>
+      　　与设备0相关的IDSEL连接AD16<br>
+      　　与设备1相关的IDSEL连接AD17<br>
+      　　与设备2相关的IDSEL连接AD18<br>
+      等等。<br>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

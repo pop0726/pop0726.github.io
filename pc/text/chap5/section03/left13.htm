@@ -1,0 +1,21 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9"> <strong>2) 4MB页面线性地址转换</strong><br>
+      　　图5-25 表示了通过页目录将线性地址映射为4MB页面的过程。页目录项直接指向了物理存储器中的一个4MB页面。这种分页方法可以将1024个页面映射到4GB的线性地址空间。<br>
+      　　通过将控制寄存器CR4中的PSE标志和页目录项的页面规模PS标志置位，可以选择4MB规模页面。在这种情况下，线性地址可以分成两个部分：<br>
+      　　（1）第31~22位，页目录索引，提供了页目录项的偏移量。所选的页目录项包含4MB页面的基地址。<br>
+      　　（2）第21~0位，页面偏移量，提供页面中目标单元的偏移量与4KB页面的转换机制一样，当前面页目录的物理地址存放在CR3中，CR3也叫页目录基地址寄存器PDBR。如果使用了分页，必须在处理器初始化过程期间允许分页之前加载PDBR。 
+    </td>
+  </tr>
+</table>
+</body>
+</html>

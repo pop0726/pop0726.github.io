@@ -1,0 +1,21 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9">　　作为回答，L2撤消INV（Invalidate）信号，告诉L1在这个监听事件中所命中行的数据仍然有效。同时，将这一行的状态由独占E变为共享S，因为这行数据不再被L1所独占，另一个总线主设备读取了这行数据，将它们装入了自己的本地Cache。<br>
+      　　L2采样到无效的HITM#信号，知道L2的相应行中仍旧存储了最近的数据。于是L2控制器执行一次写回操作，把更新过的数据写回存储器。然后，L2还要修改这一行的状态位，如果系统中不存在其他Cache，该状态位从M改为E，如果存在其他Cache，该状态位由M改为S。<br>
+      　　● 其他总线主向L2 Cache一个状态为M的行中写数据<br>
+      　　现在讨论其他总线主向存储器的某一行写数据，而L1 Cache也存在该行副本的情况。<br>
+      　　其他总线主发出存储器地址以后，L2控制器对这个地址进行监听。结果L2的目录中存在该行地址，目录项的状态为M，表示监听命中在L2的一个被修改的行。因此，L2必须首先将修改行的内容写回到存储器，然后才能允许那个总线主执行对存储器写操作。<br>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

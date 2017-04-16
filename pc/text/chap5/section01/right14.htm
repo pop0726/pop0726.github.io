@@ -1,0 +1,25 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="bg">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9">
+      <p>　　在前面讲述Cache映射方式时候，我们假设了CPU只进行读操作。这在实际系统中显然是不可能的。那么如果CPU要执行写操作，系统应该采用什么样的策略呢？<br>
+        　　Cache结构是一种存储器分层的技术。每一个Cache行中装入的是相应主存块的副本。这样就出现了数据一致性的问题。如果处理器执行了Cache写操作，则主存中对应字或字节是无效的。当系统中存在DMA控制器，DMA修改了主存储器，则Cache中的字或字节也是无效的。当系统具有两个以上处理器，每个处理器都具有自己本地的Cache时，情况更加复杂。如果一个局部Cache的字内容被修改，那么主存和其他Cache中相关的字都将是无效的。为了保持Cache和存储器中数据一致，采用了写通过和回写技术这两种写策略。</p>
+      <ul>
+        <li> 写直达（write through）法又名写通过法，顾名思义，就是写操作对Cache和主存储器同时进行，从而保证主存储器数据和Cache数据的同时有效性，而且在Cache块表中不需要设立修改标志来表示数据是否被修改过。其缺点是产生大量的写存储器操作，使效率降低（为了配合时序，插入等待周期，于是效率降低）。</li>
+        <li>写回（write back）法又名抵触修改法，与写直达不同，这里的写操作只对Cache进行，一个Cache行被执行了写操作之后，它对应的修改标志就被置位。当某一个数据块要被替换时，只有当它的修改标志表示已被修改过时，才将他回写到主存储器。否则直接被替换掉即可。它的缺点是，使得部分存储器中的数据暂时是无效的。因此，I/O模块的访问只允许通过Cache进行，使得电路复杂化。否则如果直接从主存将得到错误的无效数据。</li>
+      </ul>
+      　　总的来看，写直达法是把写主存的开销花在每次写Cache时再增加一个比写Cache要长得多的写主存操作上。而写回法是把写主存的开销集中在发生Cache块失效时，可能要一次性的写一个块到主存。实验统计，写回法与主存的通信量是写直达法的十几分之一。<br>
+      　　实际系统中，通常同时使用这两种写策略，使它们在不同的情况下互相补充，在修改数据时保持存储器数据的一致性。</td>
+  </tr>
+</table>
+</body>
+</html>

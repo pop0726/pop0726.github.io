@@ -1,0 +1,22 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9"><strong>2) 中断优先级</strong><br>
+      　　控制多个中断源的中断优先级一般有固定优先和循环优先两种方式。8259A可以灵活地实现这两种方式，即全嵌套方式和循环优先方式。在多片8259A级联的情况下，用于单片8259A全嵌套方式的规则被扩充为特殊的全嵌套方式。循环优先方式也派生出更加方便的特殊循环优先方式。<br>
+      <strong>　　</strong><strong>全嵌套（Fully Nested）</strong><br>
+      　　全嵌套方式是8259A默认的工作方式，如果对8259A进行初始化以后没有设置其他优先级方式，那么，8259A就工作在全嵌套方式。<br>
+      　　在全嵌套方式中，中断请求信号的优先级按IR0到IR7由高到低排列，0号中断的优先级最高。当一个中断请求IRi被响应时，正在服务寄存器ISR中的对应位ISRi被置1，然后，CPU进入中断服务程序。一般情况下（除了中断自动结束方式外），在CPU发出中断结束命令EOI前，ISRi一直保持“1”状态。当新的中断请求IRj发生以后，中断优先级裁决器根据目前正在服务寄存器ISR各位的状态决定新的中断j能否被允许，产生中断嵌套。中断优先级裁决器将最新发生的中断请求IRj和正在服务寄存器中有效的ISRi位进行比较，如果j的优先级高于i，则发生中断嵌套；否则（j的优先级低于等于i），新的中断请求被挂起。 
+      如果希望低级别中断j能够打断正在服务的高级别中断i，可以在中断服务程序中的适当位置发送EOI命令，清零正在服务中断的ISRi。或采用特殊屏蔽方式屏蔽i号中断（同时清零ISRi）。这两种方法的结果都是把ISRi复位为0。这样j号中断就可以打断正在服务的i号中断，得到服务。<br>
+      　　任意级别的中断可以互相嵌套，这种嵌套方式叫做全嵌套方式。 </td>
+  </tr>
+</table>
+</body>
+</html>

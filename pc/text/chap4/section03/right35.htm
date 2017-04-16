@@ -1,0 +1,20 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="bg">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9">说明：<br>
+      　　INT 14H 1号子功能的执行流程见图4- 。在执行1号子功能的过程中，BIOS使8250的引脚RTS#和DTR#为有效的0状态，表示发送和接收器准备好。然后，检测CTS#和DSR#的状态。当CTS#和DSR#都有效且发送缓冲器空时才控制发送数据。在规定的时间里，如果上述条件之一不满足，BIOS认为通信线路不畅或8250出现故障，便令AH的第7位为1，返回出错信息。<br>
+      <img src="../../../images/chap4/p4_3_3_2.gif"><br>
+      　　　　图4-33 INT 14H 1号子功能的执行流程</td>
+  </tr>
+</table>
+</body>
+</html>

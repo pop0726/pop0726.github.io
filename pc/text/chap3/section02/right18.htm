@@ -1,0 +1,21 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="bg">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td height="64" class="pt9"><p><br><br><br><br><br><br><br><br><br><br><br><br><br><br><strong>1) 中断触发方式</strong><br>
+        中断触发方式指的就是系统采用什么形式来表示提出了中断申请。这是对中断请求信号的约束条件，通常有边沿触发和电平触发这两种方式。8259A可以通过程序分别选择这两种触发方式。边沿触发方式就是说当所要采样的信号出现一个上升沿，也就是从低电平跳变到高电平的时候，信号有效，表示发出了中断请求。电平触发方式是说当所要采样的信号为高电平时，信号有效，表示发出了中断请求。<br>
+        　　无论采用哪种触发方式，当外设向8259A发出的中断请求信号满足编程定义的中断触发条件时，8259A的中断请求寄存器中的与发出请求的外设相对应的IRRi就被置位为1。经过优先级裁决器准许后，8259A通过把INT信号置位有效，向CPU发出中断请求，此时如果CPU的IF为1，中断便可以得到响应。如果IF为0，中断便被禁止。<br>
+        　　最后还有一种方式，8259A设计了一种硬件中断和软件查询相结合的中断查询方式，在发生中断请求以后，8259并不是通过硬连线向CPU请求中断的，就是说8259A的INT并不连接到CPU的INTR，而是靠CPU对8259发送查询命令，读取查询字来判断是否有中断发生以及应该为哪一级中断服务。由此看来对外设来讲是采用中断方式申请服务，对CPU来讲是采用查询方式来判断何时提供服务。这种中断查询方式在高档微机系统中较少使用。</p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

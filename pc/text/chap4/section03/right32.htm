@@ -1,0 +1,22 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="bg">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9">　　PC机常用的芯片除了8251A以外，还有可编程串行异步通信接口8250、PC16550等。和8251A相比，8250、PC16550不具备同步方式的传送功能。但是，对异步通信的控制功能强于8251A。8250和PC16550都具有波特率发生器，从而可以对波特率进行编程。和8251A相比，它们还具有全部控制调制解调器的信号，包括载波信号检测DCD#和振铃指示RI，因此就可以直接和调制解调器连接。而且它们和Intel 
+      CPU也完全兼容。让我们分别简要的介绍一下这两种串行接口芯片。<br>
+
+      　　8250内部包含了中断控制逻辑，它由三部分组成，他们分别是：中断允许触发器、中断识别寄存器和中断控制逻辑。中断控制逻辑对中断优先权、中断请求等进行管理。当片内中断允许触发器为有效状态时变为有效的高电平时，8250的中断请求引脚INTRPT会在以下情况产生中断请求：(1)出现接收数据错误，(2)接收数据就绪，(3)发送保持寄存器空，(4)调制解调器状态发生改变。由此我们可以看出，8250在和CPU进行数据交互的控制方面，提供了比8251有更为完善、便捷的手段。<br>
+
+      　　16550的波特率范围为0~1.5M。它的发送器和接收器内各有一个16字节深度的FIFO(First in First out，先进先出的一个队列)，这样，16550在连续接收16字节的串行数据以后才需要请求CPU读取，并且维持原有的发送顺序。同样，它可以每次保存16字节数据连续向调制解调器或外设发送。FIFO使得16550成为与高速系统接口的理想器件，它只需要占用较少的CPU服务时间，因为CPU执行一次中断程序可以一次性读取16字节，减少了申请中断清除中断请求的次数，减少联络时间。</td>
+  </tr>
+</table>
+</body>
+</html>

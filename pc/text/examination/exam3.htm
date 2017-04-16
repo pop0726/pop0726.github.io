@@ -1,0 +1,195 @@
+<html>
+<head>
+<title>Java期末考试题</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<script language="JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+<link href="../../css/text.css" rel="stylesheet" type="text/css">
+<link href="../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+<script language="JavaScript">
+function getresultcheck(form)
+{var mykeys=new Array();
+//  mykeys[0]="B";
+//czp-select-answer
+var answer=new Array();
+for(var I=0;I<mykeys.length;I++) answer[I]="";
+
+var every=form.elements;
+
+<!--czp-select-count-->
+for(var I=0;I<every.length;I++)
+{
+	if(every[I].type=="radio")
+	{
+		
+		if(every[I].checked)
+		{	
+	
+			var item=parseInt(every[I].name.substr(0));
+		
+			answer[item-1]+=every[I].value;
+		}
+	}				
+}
+
+var newcount="<html><head><title>谢谢您!</title></head><body><center><h2><font color=red>您的测试结果</font></h2></center>";
+var totalscore=0;
+for(var I=0;I<answer.length;I++)
+{
+	if(answer[I]==mykeys[I])
+	{
+		var rstr="<font size=2>第"+(I+1)+"题答案正确!</font><br>";
+		newcount+=rstr;
+		totalscore+=1/(answer.length)*100;//每题分数
+	}else
+	{
+		var rstr="<font size=2>第"+(I+1)+"题答案错误!正确答案为"+mykeys[I]+"</font><br>";
+		newcount+=rstr;
+	}
+
+}
+
+newcount+="<br>您的总成绩为:";
+newcount+=Math.ceil(totalscore);
+newcount+="分";
+newwin=window.open("","","height=200,width=300,scrollbars=yes,resizable=no");
+newwin.document.write(newcount);}
+
+
+
+function getresultcheck1(form)
+{var mykeys=new Array();
+//  mykeys[0]="B";
+//czp-mulselect-answer
+var answer=new Array();
+for(var I=0;I<mykeys.length;I++) answer[I]="";
+
+var every=form.elements;
+
+<!--czp-mulselect-count-->
+for(var I=0;I<every.length;I++)
+{
+	if(every[I].type=="checkbox")
+	{
+		
+		if(every[I].checked)
+		{	
+	
+			var item=parseInt(every[I].name.substr(0));
+		
+			answer[item-1]+=every[I].value;
+		}
+	}				
+}
+
+var newcount="<html><head><title>谢谢您!</title></head><body><center><h2><font color=red>您的测试结果</font></h2></center>";
+var totalscore=0;
+for(var I=0;I<answer.length;I++)
+{
+	if(answer[I]==mykeys[I])
+	{
+		var rstr="<font size=2>第"+(I+1)+"题答案正确!</font><br>";
+		newcount+=rstr;
+		totalscore+=1/(answer.length)*100;//每题分数
+	}else
+	{
+		var rstr="<font size=2>第"+(I+1)+"题答案错误!正确答案为"+mykeys[I]+"</font><br>";
+		newcount+=rstr;
+	}
+
+}
+
+newcount+="<br>您的总成绩为:";
+newcount+=Math.ceil(totalscore);
+newcount+="分";
+newwin=window.open("","","height=200,width=300,scrollbars=yes,resizable=no");
+newwin.document.write(newcount);}
+
+
+
+
+
+
+
+
+
+
+
+
+function check(){
+var mykeys=new Array();
+//czp-tiankong-answer
+//mykeys[0]="B";
+var answer=new Array();
+for(var I=0;I<mykeys.length;I++) answer[I]="";
+
+var every=zfl.elements;
+for(var I=0;I<every.length;I++)
+{
+if(every[I].type=="text")
+{
+ if(every[I].value!==null)
+ {
+ //var item=parseInt(every[I].name.substr(1))
+//  answer[item-1]+=every[I].value;
+  answer[I]+=every[I].value;
+  }
+ }
+}
+
+
+var newcount="<html><head><title>谢谢您!</title></head><body><center><h2><font face=\"隶书\" size=\"5\" color=\"#000099\">您的测试结果</font></h2></center>";
+var totalscore=0;
+for(var i=0;i<answer.length;i++)
+{
+	if(answer[i]==mykeys[i])
+	{
+		var rstr="<font face=\"宋体\" size=2>第"+(i+1)+"个空答案正确!</font><br>";
+		newcount+=rstr;
+		totalscore+=1/(answer.length)*100;
+	}else
+	{
+		var rstr="<font face=\"宋体\" size=2>第"+(i+1)+"个空答案错误!正确答案为"+mykeys[i]+"</font><br>";
+		newcount+=rstr;
+	}
+
+}
+
+newcount+="<br><font face=\"宋体\" size=3><b>您的总成绩为:</b></font><font face=\"宋体\" size=3 color=red>";
+newcount+=Math.ceil(totalscore);
+newcount+="分</font><br>";
+newwin=window.open("","","height=400,width=400,scrollbars=yes,resizable=no");
+newwin.document.write(newcount);
+}
+
+</script>
+<body bgcolor="#FFFFFF" text="#000000" topmargin=0 class="bg">
+<center>
+  <table width="95%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+      <td class=text> 
+        <form>
+          <p>&nbsp;</p>
+          <p><b> 问答题</b><br>
+            <br>
+            <br>
+            <br>
+            问答第1题<br>微机系统中，控制数据传输的方式有哪些，各有什么优缺点？<br><textarea name=jianda cols=50 rows=5></textarea><br><br><br>问答第2题<br>解释名词：中断，中断向量。<br><textarea name=jianda cols=50 rows=5></textarea><br><br><br>问答第3题<br>中断为什么能够节约微处理器的时间？<br><textarea name=jianda cols=50 rows=5></textarea><br><br><br>问答第4题<br>列出微处理器的5条专用的中断指令。<br><textarea name=jianda cols=50 rows=5></textarea><br><br><br>问答第5题<br>中断标志（IF）和陷阱标志（TF）的作用是什么？<br><textarea name=jianda cols=50 rows=5></textarea><br><br><br>问答第6题<br>中断标志（IF）和陷阱标志（TF）是怎样设置和清除的？<br><textarea name=jianda cols=50 rows=5></textarea><br><br><br>问答第7题<br>实模式和保护模式的中断操作有什么不同？<br><textarea name=jianda cols=50 rows=5></textarea><br><br><br>问答第8题<br>保护模式下怎样寻址中断入口地址？<br><textarea name=jianda cols=50 rows=5></textarea><br><br><br>问答第9题<br>保护模式下，每个中断描述符包含有什么信息？<br><textarea name=jianda cols=50 rows=5></textarea><br><br><br>问答第10题<br>中断应答周期，CPU完成哪些操作？<br><textarea name=jianda cols=50 rows=5></textarea><br><br><br>问答第11题<br>INTA的作用是什么？<br><textarea name=jianda cols=50 rows=5></textarea><br><br><br>问答第12题<br>执行IRET指令，处理器完成哪些操作？<br><textarea name=jianda cols=50 rows=5></textarea><br><br><br>问答第13题<br>Intel微处理器的各类中断，优先级是怎么排列的？中断优先级的含义是什么？<br><textarea name=jianda cols=50 rows=5></textarea><br><br><br>问答第14题<br>什么是菊花链式中断排队电路，他的作用是什么？<br><textarea name=jianda cols=50 rows=5></textarea><br><br><br>问答第15题<br>使用可屏蔽中断INTR时，如果不采用8259，如何产生中断矢量？<br><textarea name=jianda cols=50 rows=5></textarea><br><br><br>问答第16题<br>简述ICW和OCW的重要，怎样对8259A进行初始化？<br><textarea name=jianda cols=50 rows=5></textarea><br><br><br>问答第17题<br>什么是普通EOI，什么是特殊EOI，它们的作用是什么？<br><textarea name=jianda cols=50 rows=5></textarea><br><br><br>问答第18题<br>设计一个8086的中断系统，系统中扩充多于8个可屏蔽中断的中断源。<br><textarea name=jianda cols=50 rows=5></textarea><br><br><br>问答第19题<br>为什么要采用DMA技术？什么情况下适于采用DMA技术？<br><textarea name=jianda cols=50 rows=5></textarea><br><br><br>问答第20题<br>简述从外设请求DMA到DMA控制传送的过程，并说明DMA、CPU的哪些信号将发生作用。<br><textarea name=jianda cols=50 rows=5></textarea><br><br><br>问答第21题<br>什么是DMA的读传送、写传送和存储器到存储器的传送？<br><textarea name=jianda cols=50 rows=5></textarea><br><br><br>问答第22题<br>DMA控制器用什么信号选择控制参加数据传送的源或目的存储器？用什么信号选择控制参加数据传送的I/O设备？<br><textarea name=jianda cols=50 rows=5></textarea><br><br><br>问答第23题<br>8237有哪几种数据传送方式？各种方式的特点是什么？<br><textarea name=jianda cols=50 rows=5></textarea><br><br><br>问答第24题<br>如果8237的I/O端口地址是2000H~200FH，其中哪些地址被用于编程通道1？它们都是什么寄存器？<br><textarea name=jianda cols=50 rows=5></textarea><br><br><br>问答第25题<br>假如要将20000H~20FFFH存储单元的数据传送到外设，使用8237通道3，写出相关的初始化程序。<br><textarea name=jianda cols=50 rows=5></textarea><br><br><br>问答第26题<br>假如要将21000H~210FFH存储单元的数据传送到存储单元20000~200FFH中，写出相关程序。<br><textarea name=jianda cols=50 rows=5></textarea><br><br><br><!--czp-wenda-timu-->
+            <br>
+            <input type=button name=Button value=答案 案 onClick="MM_openBrWindow('exam03_pop2.htm','','width=471,height=384')" class=pbox>
+            <input type='reset' name='Submit3' value='重置' class=pbox>
+            <br>
+          </p>
+        </form>
+      </td>
+  </tr>
+</table></center>
+
+</body>
+</html>

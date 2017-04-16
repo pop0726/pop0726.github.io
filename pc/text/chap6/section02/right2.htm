@@ -1,0 +1,42 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" class="bg">
+<table width="100%" border="0" cellspacing="10" cellpadding="2">
+  <tr>
+    <td class="pt9" height="2" > <br>
+      　　SA0~19地址线可以访问8位ISA的1MB空间。而扩展地址信号线用于确定16MB地址空间的高位。SA0~19是经过锁存的地址信号，在整个ISA总线访问周期内一直保持有效。LA17~23为非锁存信号，但它比SA0~19提前有效，可以使地址译码电路提前开始译码。<br>
+      <br>
+      　　SD8~15是高八位数据总线，是16位ISA扩充槽的信号。SBHE＃为高位数据选择信号，SBHE＃有效时高8位数据通过SD8~15传送，这样可以同时进行16位的操作。<br>
+      　　<br>
+      　　ALE为地址锁存信号。其作用同8086的ALE。<br>
+      <br>
+      　　AEN信号用来控制DMA和CPU对总线保持的切换。当AEN为高电平时，DMA控制器控制总线，实现DMA传送，即由DMA提供读写、地址等总线信号；当AEN为低电平时，CPU控制总线。<br>
+      <br>
+      　　SMEMR#，SMEMW#信号用于对1MB以内的存储器访问，对1MB以外的存储器访问时，MEMR#，MEMW#有效，不产生SMEMR#，SMEMW#信号。<br>
+      <br>
+      　　当ISA上扩展的设备速度太慢，达不到ISA的正常工作速度时，就可以请求插入等待周期，使IOCHRDY输入为0，直到设备准备好。如果ISA设备足够快而不必插入等待周期，就可以发出令OWS为低电平，除去自动插入的等待周期。<br>
+      <br>
+      　　IOCHCHK#用于IO通道设备的逻辑校验。要注意，该信号在PC机内部连接了非屏蔽中断，使用时要谨慎。<br>
+      　　<br>
+      　　早期的ISA总线为了保持与CPU同步，其时钟CLK频率通常在4.77M~8.33M之间变化。但目前由于ISA作为慢速的扩充总线，已经没有必要保持与CPU一致的时钟频率，因而大多都是固定在8MHz。<br>
+      <br>
+      　　DRQ0~3、DRQ5~7，DACK0~3、DACK5~7，与8237相同是DMA请求与应答信号。TC是DMA计数结束。<br>
+      <br>
+      　　总线上的外部设备利用IRQ3~IRQ7、IRQ9、IRQ10~IRQ15向CPU提出中断请求。该信号上升沿有效，并要求其保持高电平一直到CPU响应为止。<br>
+      <br>
+      　　当ISA扩展设备希望进行16位数据传送时，可以令MEMCS16#或IOCS16#有效，请求16位数据传送。<br>
+      <br>
+      　　ISA设备一般都工作在从模块方式，接受CPU的访问。即使DMA取得了总线控制权，ISA扩展卡仍然以从模块方式响应。只有在MASTER#信号与DMA控制器配合使用时，ISA设备才真正体现主模块功能。<br>
+      <br>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

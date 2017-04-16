@@ -1,0 +1,31 @@
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+<STYLE TYPE="text/css">
+<!--
+BODY {background-image: URL(../../../../image/index/bg.gif);
+background-position: right;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr> 
+    <td><span class="text"> 　　2．房间声学建模<br>
+      　　更复杂的真实的声场模型是为建筑应用开发的，但它不能由当前的空间定位系统实时仿真。随着实时系统计算能力的增加，利用这些详细模型将适于仿真真实的环境。<br>
+      　　建模声场的一般途径是产生第二声源的空间图。在回声空间中一个声源的声场建模为在无回声环境中一个初始声源和一组离散的第二声源(表示回声)。第二声源可以由三个主要特性描述：(1)距离(延迟)，(2)相对第一声源的频谱修改(空气吸收，表面反射，声源方向，传播衰减)，以及(3)入射方向(方位和高低)。<br>
+      　　通常用两种方法找到第二声源：镜面图像法和射线跟踪法。Lehnert比较了两种方法的计算效率，这是相对于可达到的帧频率，以及对有24个反射面的中等复杂性房间的实时性能。对一个特定的发射接收布局，计算了8个一阶和19个二阶反射。对这个测试场景，镜面图像法比射线跟踪法更有效。<br>
+      　　此外，镜面图像法确保找到所有几何正确的声路径。射线跟踪法，难以预测为发现所有反射所要求的射线数目。射线跟踪方法的优点是，即使只有很少的处理时间，它也能产生合理的结果。<br>
+      　　通过调节可用射线的数目，它很容易以给定的帧频工作。镜面图像方法由于算法是递归的，不容易改变比例。射线跟踪在更复杂的环境得到更好的结果，因为处理时间与表面数目的关系是线性的，不是指数的。虽然对给定的测试情况，镜面图像法更有效，但在某些情况射线跟踪法性能更好。<br>
+      　　由于声场模型的计算是声音处理流水线中最消耗时间的部分，所以这种计算的优化是值得的。计算资源可以按照达到仿真精度的要求来分配。例如，若初始声源已给定，则不要求反射滤波器，而且可以分配给HRTF更多的资源（更多的滤波器系数），得到更精确的空间图像。对二阶反射，必须进行频谱滤波，但是由于延迟反射的方向性在心理声学上不显著，则对HRTF滤波不要求精确性。声学单元的结构应允许分配资源的任务。Crystal 
+      River Engineering和NASA正在研究实时合成复杂声场的有效算法和信号处理技术。</span></td>
+  </tr>
+</table>
+</body>
+</html>

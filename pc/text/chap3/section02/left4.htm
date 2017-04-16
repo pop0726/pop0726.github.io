@@ -1,0 +1,25 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9"><strong>2、实模式和保护模式的中断操作</strong><br>
+      <br>
+      　　1) 实模式中断操作<br>
+      　　实模式下的中断操作和8086的中断操作是相同的。当微处理器执行完当前指令，按照以下顺序判断中断是否有效：（1）INT指令；（2）NMI；（3）协处理器段超限；（4）INTR；（5）单步。如果一个或多个中断请求出现，则进行如下操作：<br>
+      <br>
+      ��（1）标志寄存器的内容压入堆栈；<br>
+      ��（2）清除中断标志（IF）和陷阱标志（TF）；在中断响应周期禁止INTR中断和单步功能；<br>
+      ��（3）代码段寄存器（CS）的内容压入堆栈；<br>
+      ��（4）指令指针（IP）的内容压入堆栈；<br>
+      ��（5）取出中断向量内容，送入IP和CS，使程序指针指向由中断向量寻址的中断服务程序； </td>
+  </tr>
+</table>
+</body>
+</html>

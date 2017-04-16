@@ -1,0 +1,22 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body leftmargin="2" topmargin="2" marginwidth="2" marginheight="2" class="bg">
+<table width="100%" border="0" cellspacing="2" cellpadding="2">
+  <tr> 
+    <td class="pt9"><br>
+      　　　　　　表2-8：S2<sup>#</sup>、S1<sup>#</sup>、S0<sup>#</sup>的代码组合和对应的总线操作<br>
+      　　　　　　<img src="../../../images/chap2/p2_1_2_12.gif" width="271" height="202"><br>
+      　　我们前面说过，CPU工作在最小模式下，系统控制信号直接由CPU产生。在最大模式，系统控制信号则由总线控制器产生。CPU工作在最大模式时，不同总线周期S2<sup>#</sup>、S1<sup>#</sup>、S0<sup>#</sup>输出不同状态，S2<sup>#</sup>、S1<sup>#</sup>、S0<sup>#</sup>的不同组合指出了CPU当前不同的总线周期。将S2<sup>#</sup>、S1<sup>#</sup>、S0<sup>#</sup>输入总线控制器8288进行译码，8288便根据不同总线周期产生产相应的总线控制信号。这里简要解释一下什么叫无源状态。无源状态与有源是状态是相对的。一般情况下，在前一个总线周期的T4状态和现行总线周期的T1、T2状态中，至少有一个信号为低电平，每一种状态都对应某一个总线操作过程，我们称之为有源状态。在总线周期T3或TW状态，当READY信号为高电平时，S2<sup>#</sup>、S1<sup>#</sup>、S0<sup>#</sup>都为高电平，此时，一个总线操作过程即将结束而另一个新的总线周期还未开始，我们称之为无源状态。 
+      <br>
+      <strong> </strong></td>
+  </tr>
+</table>
+</body>
+</html>

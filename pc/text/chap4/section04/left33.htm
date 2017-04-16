@@ -1,0 +1,18 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td height="51" class="pt9"><strong>3、模拟与数字信号的共地问题</strong><br>
+      　　前面曾经提到，模数、数模转换芯片都分别设计了独立的模拟电源和模拟地引脚、数字电源和数字地引脚，形成相互独立的模拟和数字供电系统。模拟和数字电路需要在芯片外部共地。一般来讲，系统中应该只有一个共地点。如果在两处或多处共地，将会形成电流回路，造成数字的大信号流经模拟信号地产生对模拟小信号的噪声。那么应该选择什么地方进行共地呢？通常选择精度要求最高的那一级电路进行共地。比如，在一个计算机控制系统当中，对A/D转换的精度要求要高于对D/A转换的精度要求，因此在A/D转换电路处共地，见图4-53（a）。这样，来自模拟电源的模拟信号电流流经模拟电路最终流向模拟地，来自数字电源的数字信号电流流经数字电路最终流入数字地，各自有各自的电流通路。但是，如果系统中有多组模数混合电路分别分布在不同板卡上，而系统中模拟数字信号只有一个共地点，在系统上电时远离共地点的模数混合电路就会因为模数电源地之间的瞬时电位差造成电路损坏。因此，通常在远离共地点的模数混合电路的模拟和数字地之间连接‘背靠背’并联的二级管，对电路进行保护。见图4-53（b）。 
+    </td>
+  </tr>
+</table>
+</body>
+</html>

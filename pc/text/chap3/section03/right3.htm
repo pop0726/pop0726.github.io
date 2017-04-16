@@ -1,0 +1,38 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="bg">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9" height="217">　　注意HOLD比INTR或NMI中断的优先级更高。中断在指令的未尾被检测，而HOLD在指令的中间被检测，微处理器当中唯一比HOLD优先级更高的系统输入信号是RESET。当然，HOLD在RESET期间不会有效，否则不能保证正常复位。<br>
+      <table width="100%" border="0">
+        <tr> 
+          <td> 
+            <div align="center"><img src="../../../images/chap3/p3_3_1_2.gif" width="400" height="232"></div>
+          </td>
+        </tr>
+        <tr> 
+          <td height="2"> 
+            <div align="center" class="tit">图3-14 DMA请求与响应时序</div>
+          </td>
+        </tr>
+      </table>
+      <br>
+      　　来自DMA的HRQ请求信号发生后，可以在任何一个时钟周期上升沿被采样。如上图所示，HOLD高电平有效后，在紧接着的一个时钟周期便被CPU采样。CPU在该总线周期的最后一拍（T4）或者空闲周期（TI）作出应答，使HLDA输出有效高电平，表示CPU已经相应DMA请求，并交出总线控制权给DMA控制器。<br>
+      　　DMA控制方式与中断方式相比，传输效率有了很大的提高。但随着计算机技术和应用需求的不断发展，DMA方式也渐渐显示出一些不足。<br>
+      在DMA方式开始之前，要对DMA控制器进行初始化，包括向DMA控制器传送主存缓冲区首地址、设备地址、交换的数据块的长度等，然后启动设备开始工作。在DMA方式结束后，DMA控制器要向CPU申请中断，在中断服务程序中对主存储器中数据缓冲区进行后处理。如果需要继续传送数据的话，需要再次对DMA控制器进行初始化。由此可以看出，虽然使用DMA方式可以减少CPU的干预，但在DMA方式的开始和结束仍然需要CPU进行初始化和后处理工作。 
+      <br>
+      　　与此同时，在较大型的计算机系统中，外围设备比较多，但一般不同时工作。为了提高输入输出数据的速度，节省CPU的时间，而采用DMA方式传送数据，但这需要为每一台快速外设都配备一个专用的DMA控制器。由于这些外设一般不同时工作，因此DMA控制器的大多数时候都将处于闲置状态，其利用率很低，这是一种很大的浪费。<br>
+      基于以上等原因，在大型的计算机系统中一般采用通道处理机。通道处理机能够负担外围设备的大部分输入输出工作，包括管理低速外围设备，对DMA接口的初始化，设备故障检测和处理等。如果需要了解更多有关通道处理机的知识，请参考有关书籍，这里不做详细讨论。<br>
+      　　由于从存储器到存储器的传送过程其数据的源和目的都是存储器，因此它与DMA读和DMA写的过程有些不同。在从存储器到存储器的传送过程中，对源地址的读和对目标地址的写操作不能在同一个DMA周期完成。对源地址读时，DMA控制要发送源存储器的地址信号和MEMR#信号；对目标地址写时，DMA控制器要发送目标存储器的地址信号和MEMW#信号，对于只有一组地址总线的DMA来说，这两种操作不可能同时进行。因此，需要两个DMA周期：第一个DMA周期进行存储器读，第二个DMA周期进行存储器写。另外，由于传送数据的源和目的都是存储器，传送过程中，源和目标存储体都需要使用地址寄存器，都需要地址增量或减量，因此需要两个DMA通道才能完成传送。<br>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="bg">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9" > 
+      <table width="100%" border="0">
+        <tr> 
+          <td> 
+            <div align="center"><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="385" height="470">
+                <param name=movie value="../../../flash/p_3_3_2_10.swf">
+                <param name=quality value=high>
+                <embed src="../../../flash/p_3_3_2_10.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="385" height="470">
+                </embed> 
+              </object></div>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <div align="center" class="tit">图3-24 命令寄存器</div>
+          </td>
+        </tr>
+      </table>
+      　　通过前面的学习，大家知道，在从存储器到存储器的传输过程中，由于源存储器和目标存储器都需要一个基本地址寄存器和当前地址寄存器，因此需要用两个通道来实现。在8237A中，默认由通道0和通道1两个通道完成，而且规定通道1存放的是目标存储器地址，通道0存放源存储器地址。<br>
+      　　将命令寄存器的D0位设为1，就表示此次DMA传输是从存储器到存储器的传输。可以将某段内存的内容填充到另外一段内存，也可以将某个地址固定的字节复制到一段内存区域中。至于前者，通道1和通道0中的当前地址寄存器同时变化即可实现。对于后者，通过设置命令寄存器的D1位，将通道0访问的存储器地址固定，仅仅变化通道1访问的存储器地址，这样就将地址固定的源字节填充到目标存储器区域中。至于传输字节数，以上两种情况都是由通道1的计数寄存器决定。<br>
+      　　命令寄存器的D2位是用来启动或者停止8237A的。当设置D2位为0，就启动8237A工作；设置D2位为1，就停止8237A工作。<br>
+      　　命令寄存器D3位用于选择正常传送时序或压缩传送时序。如果D3位设为1，则压缩传送，由2个时钟周期组成一个DMA读或写周期；如果D3位设为0，则按正常时序传送，由3个时钟周期组成一个DMA周期。D3位的设置在D0位为1的情况下，即在进行从存储器到存储器的传送时是无效的。<br>
+      　　D4位用于定义DMA的优先级管理方式。0为固定优先级方式，1为循环优先级方式。<br>
+      　　命令寄存器的D5位选择在正常时序情况下是否需要写脉冲扩展。该位的设置只有在正常工作时序时才是有意义的。当通道连接的I/O设备需要较宽的写脉冲时，就应该设置D5位为1，使得写脉冲可以提前一个时钟周期有效。<br>
+      　　D6和D7位编程输入信号DREQ和输出信号DACK的极性。<br>
+      <br>
+      <br>
+      <br>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

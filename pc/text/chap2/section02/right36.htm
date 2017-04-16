@@ -1,0 +1,22 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" class="bg">
+<table width="100%" border="0" cellspacing="2" cellpadding="2">
+  <tr> 
+    <td class="pt9">　　<img src="../../../images/chap2/p2_2_5_3.gif" ><br>
+      　　　　　　图2-39 工作模式之间的转换<br>
+      　　Intel结构微处理器在系统上电或复位以后，进入实地址模式。实地址模式只能和保护模式或系统管理模式进行切换。实地址模式和保护模式之间的切换是由控制寄存器CR0中的PE（保护模式使能）位来进行控制的，在系统程序中置PE为1处理器进入保护模式。<br>
+      　　当EFLAGS寄存器中的VM标志置位时，处理器进入虚拟8086模式。该标志只能在保护方式下进行任务切换，也就是说虚拟8086模式只有在保护模式下才能进入。它是保护模式下的一种特例。<br>
+      　　系统软件不能通过指令，如POPFD，来直接改变EFLAGS寄存器中的VM标，但是，它可以通过调用中断或异常的处理过程来改变保存在TSS中或堆栈中EFLAGS寄存器映像中的VM标志。例如，当第一次创建虚拟8086任务时，软件就将TSS内EFLAGS映像中的VM标志置位。<br>
+      　　无论处理器处在哪一种工作模式，一旦接收到SMI#中断请求，便进入系统管理模式，处理电源管理、系统安全等任务。在系统管理模式下，只有执行了从系统模式返回的指令RSM以后，处理器才能返回到原有的工作模式；但是，如果处理器接收到复位信号，则直接进入实地址模式。</td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9"><strong>2) 保护模式下的中断操作</strong><br>
+      　　保护模式下的中断操作与实模式基本相同，只是在中断向量表上有所不同，保护模式使用256个存储在中断描述符表（IDT）中的中断描述符取代中断向量，中断描述表的长度为256×8（2K）字节，每个描述符由8个字节表示，中断描述符表的首地址由中断描述符表寄存器（IDTR）提供，它可以定位在存储器的任意地址。在保护模式下，微处理器在中断应答周期访问的是中断描述符表而不是中断向量表。<br>
+      <br>
+      　　图3-1为中断描述符的结构。中断描述符包含中断服务程序的地址，其中8位段选择符和32位偏移地址。中断描述符还包含表示描述符有效的P位（1bit）和表示描述中断优先级的DPL位（2bits）。图中蓝颜色的4位是描述符的类型标志位，1110表示该描述符为中断描述符。 
+      <br>
+      <br>
+      　　可以将实模式下的中断向量转换成保护模式下的中断描述符。只要将中断向量表中的中断服务程序地址取出转换成32位的偏移地址，并且将它存储在中断描述符中，便形成中断描述符表。中断段描述符通常放在全局描述符表中，存储器的前1MB被定义为中断段。 
+    </td>
+  </tr>
+</table>
+</body>
+</html>

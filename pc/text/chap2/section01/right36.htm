@@ -1,0 +1,17 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" class="bg">
+<table width="100%" border="0" cellspacing="2" cellpadding="2">
+  <tr> 
+    <td class="pt9"><img src="../../../images/chap2/p2_1_2_14a.gif" width="262" height="304">　<img src="../../../images/chap2/p2_1_2_14b.gif" width="330" height="305"><br>　　　　图2-16 8288总线控制器的结构图<br>　　我们曾在最小模式系统中解释过控制信号M/IO<sup>#</sup>、WR<sup>#</sup>、INTA<sup>#</sup>、ALE、DT/R<sup>#</sup>和DEN<sup>#</sup>信号，它们指出了数据传送的类型，提供了中断响应信号、锁存器控制信号和总线收发器控制信号。但在最大模式系统中，状态信号S2<sup>#</sup>、S1<sup>#</sup>、S0<sup>#</sup>隐含了这些信息。S2<sup>#</sup>、S1<sup>#</sup>、S0<sup>#</sup>的不同组合指出了CPU执行的不同总线操作。见表2-4【在此设置一个按钮指向表2-4】最大模式系统是通过总线控制器来产生诸如最小方式CPU所提供的那些系统控制信号的。8288的状态译码电路对来自CPU的S2<sup>#</sup>、S1<sup>#</sup>、S0<sup>#</sup>进行译码。控制逻辑的4个输入信号：时钟信号CLK来自系统时钟。地址使能AEN<sup>#</sup>由DMA控制器控制，AEN<sup>#</sup>为低时，系统由DMA控制总线，8288输出为高阻态。命令信号使能CEN控制命令信号发生器的输出，高有效。IO总线方式控制信号IOB则根据系统的配置情况连接不同的输入电平，控制信号发生器生成不同控制信号MCE或PDEN<sup>#</sup>。</td>
+  </tr>
+</table>
+</body>
+</html>

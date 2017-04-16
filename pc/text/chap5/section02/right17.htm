@@ -1,0 +1,50 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="bg">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9">　　　　表5-1 存储器访问期间PCD的状态<br>
+      <table border=0 cellpadding=1 cellspacing=1 bgcolor="#000000">
+        <tr bgcolor="#FFFFFF" class="pt9"> 
+          <td width=127 align=center valign=top><b>条件</b></td>
+          <td width=156 align=center valign=top><b>PCD</b><b>状态生成原因</b></td>
+          <td width=108 align=center valign=top><b>PCD</b><b>引脚状态</b></td>
+        </tr>
+        <tr bgcolor="#FFFFFF" class="pt9"> 
+          <td width=127 valign=top > 分页禁止</td>
+          <td width=156 valign=top > CR0的CD位=0， CR0的CD位=1</td>
+          <td width=108 align=center valign=top>01</td>
+        </tr>
+        <tr bgcolor="#FFFFFF" class="pt9"> 
+          <td width=127 valign=top > 分页允许</td>
+          <td width=156 valign=top > CR0的CD位=1</td>
+          <td width=108 align=center valign=top>1</td>
+        </tr>
+        <tr bgcolor="#FFFFFF" class="pt9"> 
+          <td width=127 valign=top > 分页允许，一个页目录正在被访问时 CR0的CD位=0</td>
+          <td width=156 valign=top > CR3的PCD位=0 CR3的PCD位=1</td>
+          <td width=108 align=center valign=top>01</td>
+        </tr>
+        <tr bgcolor="#FFFFFF" class="pt9"> 
+          <td width=127 valign=top > 分页允许，一个页表正在被访问时 CR0的CD位=0</td>
+          <td width=156 valign=top > 页目录项的PCD位=0 页目录项的PCD位=1</td>
+          <td width=108 align=center valign=top>01</td>
+        </tr>
+        <tr bgcolor="#FFFFFF" class="pt9"> 
+          <td width=127 valign=top > 分页允许，存储器正在被访问时 CR0的CD位=0</td>
+          <td width=156 valign=top > 页表项的PCD位=0 页表项的PCD位=1</td>
+          <td width=108 align=center valign=top>01</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

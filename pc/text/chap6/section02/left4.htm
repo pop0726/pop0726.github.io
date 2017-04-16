@@ -1,0 +1,16 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="10" cellpadding="2">
+  <tr>
+    <td class="pt9" height="2"> 　　对16位ISA从设备的标准I/O访问，也是由3个BCLK组成。与16位ISA标准存储器访问不同的是，在地址周期BCLK1当中，扩展的高位地址LA[23：17]无效。BCLK2的上升沿，数据周期开始，如果是写操作，数据在数据线上有效。但是I/O读或写的信号在BCLK2的下降沿才开始有效。到BCLK3的下降沿，控制器采样16位I/O传送信号IO16#，确定本次访问是否是16位I/O访问。如果是16位I/O读访问，Host在BCLK3结束时采样数据；如果是16位I/O写访问，IOW#信号在BCLK3末将数据写入外设。</td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="10" cellpadding="2">
+  <tr>
+    <td class="pt9" height="2"> 　　同样，ISA要在BCLK2的下降沿采样零等待周期信号NOWS#。如果NOWS#为高，系统主板自动插入一个等待周期，在3个周期内完成I/O访问。如果采样到NOWS#为低，可以在2个总线时钟周期中完成本次I/O访问。和对存储器访问一样，ISA同样要采样通道准备好信号IOCHRDY，决定是否插需要入等待周期，这里不在赘述。<br>
+      　　ISA 规范定义，标准的8位数据访问需要6个时钟，而标准的16位数据访问仅仅需要3个时钟。不难看出，在仅仅需要8位数据传送的情况下，如果我们把ISA接口设计为16位的数据传送规格，即将扩展卡的M16#或IO16#信号置为有效状态，并将扩展卡的8位数据线连接在ISA低8位数据线上，主设备可以通过对偶地址的访问，利用BHE#和A0选择该从设备，就能够缩短访问周期，在3个BCLK内完成对8位的ISA从设备的访问。<br>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

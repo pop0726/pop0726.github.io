@@ -1,0 +1,32 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="bg">
+<table width="100%" border="0" cellspacing="2" cellpadding="2">
+  <tr> 
+    <td class="pt9"> 　　8086的AD<sub>15</sub>～AD<sub>0</sub>是地址/数据复用信号，地址仅在T<sub>1</sub>状态有效，从T2状态开始总线AD<sub>15</sub>～AD<sub>0</sub>将浮空或出现数据，这样就不能正确地对所选择的存储器或I/O地址进行读写操作。为了使地址信号在整个读写周期内有效，要使用ALE把地址信号锁存在地址锁存器当中。通常利用ALE的下降沿锁存地址，锁存器采用和8086配套的8282/8283。 
+      <br>
+      <strong> </strong><br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      　　CPU的信号线上，特别是地址、数据、控制线上，通常连接多个器件，也就是说，CPU的每根信号线要带多个负载，为增强其负载能力，通常在CPU的地址、数据、控制线上设计驱动器。因地址信号采用8282地址锁存器锁存，其本身具有较强的负载能力，所以不再另加驱动器。数据线驱动一般采用双向数据驱动器8286。DEN<sup>#</sup> 
+      用作对数据驱动器的使能。<br>
+      　　DEN<sup>#</sup>在存储器或I/O访问周期或中断响应周期都为低电平，即为有效电平。如果是读周期或者中断响应周期，DEN<sup>#</sup>从T2状态中开始有效，一直到T<sub>4</sub>状态中结束；如果是写周期，则从T2状态的开始就是有效电平。在DMA方式时，DEN<sup>#</sup> 
+      被置为高阻状态。 <strong> <br>
+      </strong><br>
+      <br>
+      　　通常DT/R<sup>#</sup>和DEN<sup>#</sup>配合使用，控制数据驱动器的使能和数据流向。</td>
+  </tr>
+</table>
+</body>
+</html>

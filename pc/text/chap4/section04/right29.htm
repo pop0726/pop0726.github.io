@@ -1,0 +1,18 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="bg">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9">　　系统的定时与控制是由8253和三个RS触发器完成的。8253有比较完备的计时功能，用来控制系统每次DMA周期的定时，由8253的OUT端输出周期性的矩形波，其周期的时间长度为数据采集、转换、DMA请求与转送所花费时间之和。RS（1）（右下角的那个RS触发器）为A/D转换控制触发器，当8253输出的矩形波的负边沿将RS（1）置1，启动AD570转换并使AD580同时进入保持状态。A/D转换结束后，END#信号输入到RS(1)的复位引脚，从而将RS（1）复位。END#信号同时还使控制多路器的8进制计数器进位，并且他还连接到RS(2)的置位端，将DMA请求触发器RS（2）置位为1。RS（2）输出高电平，从而令DRQ1为1，DMA向CPU请求总线。CPU响应DMA的总线请求以后，DMA的DACK1#有效，此时系统进入DMA周期。在DMA系统中通常使用DACK#信号作为I/O的选择，本采集系统当中将DACK#和IOR#相“与”，作为A/D转换结果的数据读出信号，当他们同时有效时，转换结果将被读出。DMA的IOR#有效的同时，MEMW#信号有效，将A/D结果写入存储器。DACK#的另一个作用是复位DMA请求触发器RS（2），为下一次DMA请求做好准备。RS（3）是启动采集系统触发器，它依靠外电路产生的启动采样的负脉冲将RS（3）置1来启动系统的，RS（3）被置1以后，8253的门控端为有效电平，OUT端便输出期望的矩形波，控制采集系统开始工作。当DMA设定的要传送的字节数减为0时，TC信号有效，TC将RS（3）复位表示本次数据采集过程结束。TC同时请求CPU中断，通知CPU可以对所采集的数据进行处理。<br><img src="../../../images/chap4/p4_4_4_6.gif"><br>
+      　　　　图4-52 DMA控制传送的高速数据采集系统</td>
+  </tr>
+</table>
+</body>
+</html>

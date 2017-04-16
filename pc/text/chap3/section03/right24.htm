@@ -1,0 +1,41 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="bg">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9" height="294" > 　　
+      <table width="100%" border="0">
+        <tr> 
+          <td> 
+            <div align="center"><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="360" height="620">
+                <param name=movie value="../../../flash/p_3_3_2_7.swf">
+                <param name=quality value=high>
+                <embed src="../../../flash/p_3_3_2_7.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="360" height="620">
+                </embed> 
+              </object></div>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <div align="center" class="tit">图3-21 随机请求传送</div>
+          </td>
+        </tr>
+      </table>
+      　　几种传送方式的流程比较。从图上可以看出，能够进行DMA方式进行数据传输的前提都是&quot;允许DMA&quot;。也就是相应通道的DMA屏蔽位应该被清除，如果一个通道的DMA屏蔽标志为1，那么这个通道就不能接收DMA请求了。DMA屏蔽标志是通过往屏蔽寄存器中写入屏蔽字节来设置的。&quot;允许DMA&quot;的另外一个含义就是DMA控制器处于正常的工作状态。<br>
+      　　在图3-19中，DMAC获得总线控制权后，完成一个字节的传送。如果块传输完成，则DMAC输出EOP#信号，释放总线控制权给CPU。如果块传送未结束，则在完成传送一个字节之后，释放至少一个总线周期，然后继续测试I/O的DREQ请求。直到I/O再次请求DMA传输，DMAC将重新向CPU申请总线控制权。如此循环，直到数据块传送结束。<br>
+      　　与图3-19所示的流程不同，图3-20中的DMA控制器向CPU只申请一次总线控制权。在DMAC获得总线后，便一直进行DMA传输，直到整个数据块传送完毕。在此过程中，DMAC控制总线，直到DMA方式结束，输出EOP#信号，释放总线控制权给CPU。很明显，由于在字节传送方式中，每传送一个字节都需要申请一次总线控制权，而且在一个字节传送完成后还要释放至少一个总线周期，因此块传送方式的传输效率比字节传送方式要高。但是，又由于DMA在进行块传送过程中一直占有总线，它的优先权又大于中断的优先权，因此这一期间的中断请求得不到CPU的响应，在有些情况下这是不允许的。<br>
+      　　随机请求传送方式则是字节传送方式和块方式的折中。如果在整个DMA传输期间，保持DREQ一直有效，那么要等到整个块传送结束DMA才释放总线，随机请求传送方式实质上就变成了块传送方式；相反地，如果每传送一个字节后DREQ就变成无效，随机请求传送方式就蜕变成字节传送方式。<br>
+      <br>
+      
+    </td>
+  </tr>
+</table>
+</body>
+</html>

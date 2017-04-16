@@ -1,0 +1,19 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4" >
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9"><strong>2、动态转移预测策略</strong><br>
+      　　一条指令进入任意一条流水线以后，若它是分支指令，BTB就根据它的源存储器地址在Cache中查找，如果这条指令在BTB中有记录项，分支预测逻辑便以该记录项的历史信息为依据，预测转移发生的情况。历史记录为11表示转移强烈发生、10表示转移较弱发生，历史记录为01表示转移基本不发生、00表示转移强烈不发生。分支预测逻辑是这样进行预测的：若历史记录项为10或11则指示正向预测，预测该分支指令将发生转移，并指示预取器从记录在BTB中的该指令的转移目标地址开始取指令，切换到另一条指令队列顺序存放。若历史记录项为01或00则指示负向预测，分支预测逻辑预测该分支指令不会发生转移。<br>
+      　　当分支指令第一次进入流水线时，它在Cache中没有记录项，便产生一次查找BTB不命中。因为它是第一次进入流水线，对这条分支指令的预测为不发生转移，即使这条指令是无条件转移指令。预取器也不做指令队列的切换。<br>
+      　　分支指令到达执行级ALU以后，ALU将分支指令的执行结果反馈到BTB，BTB根据执行结果修正历史记录位，将发生转移的频度值增加或减少。下面定义了转移预测经过执行级检验以后，不同结果之下BTB的操作。见图2-36.</td>
+  </tr>
+</table>
+</body>
+</html>

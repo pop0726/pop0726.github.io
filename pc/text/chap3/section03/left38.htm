@@ -1,0 +1,25 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9" height="9" > <br>
+      <b>●</b> 软命令触发器<br>
+      　　8237A有3条软命令直接控制它的操作，这些命令没有二进制位模式，对软命令相应端口的I/O写操作便可以发出软命令，软命令的功能解释如下：<br>
+      　　◇ 清除先／后触发器：令8237A内部的先／后（F／L）位字节触发器为0。F／L触发器用来指定读、写16位的当前地址寄存器和当前计数寄存器中的高位字节还是低位字节。如果F／L＝0，选中低8位字节，如果F／L＝1，选中高8位字节。对地址寄存器和计数寄存器的每次访问，都将使F／L触发器自动翻转（由1变零或由0变1）。因此，在编程地址寄存器和计数寄存器之前，应该首先清除F／L触发器，使F／L触发器等于0。<br>
+      　　◇ 主清除：与8237A RESET信号的作用相同。该命令将禁止所有通道的DMA请求。<br>
+      　　◇ 清除屏蔽寄存器：允许所有四个DMA通道的请求。<br>
+      　　8237A的用户可访问的寄存器一共有17个，对命令寄存器和状态寄存器的访问分别为寄存器读和寄存器写，它们共用一个地址，8237A各寄存器的地址分配如表3-5 
+      ：<br>
+      <br>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td height="51" class="pt9"> <strong>2、与CPU或系统总线的连接</strong><br>
+      　　对于数模转换电路，从给定二进制数据到运算放大器建立相应的输出电压，转换时间在1us以内，因此D/A转换电路可以工作在与CPU的同步方式，它与CPU或总线的连接十分简单，D/A转换电路与CPU或总线的连接问题就变成D/A转换电路的数据输入寄存器和CPU或总线的连接问题。连接方法这里不再赘述。<br>　　模数转换电路在启动信号的触发下开始工作，虽然模数转换电路的转换时间有很大差异，但是它们通常工作在与CPU异步的方式。和一般的异步接口与CPU的连接类似，CPU在A/D转换结束以后通过程序查询和中断方式控制对A/D转换结果数据的读取。芯片的转换结束信号既可以作为程序查询得状态信号又可以作为中断请求信号。模数转换的启动信号需要根据芯片的要求来设计。有些芯片的启动信号要求为电平方式，而多数芯片则要求为脉冲方式。对于脉冲方式启动的A/D转换电路，往往使用I/O写信号和地址信号相”与”，产生启动脉冲。当然，需要检查写脉冲的宽度是否满足A/D芯片启动脉冲对的时间要求。A/D转换电路的数据线应该和CPU或系统总线的数据线相连。由于A/D转换电路的数据寄存器是数据输出寄存器，因此，输出数据线需要具有三态功能。否则，需要在A/D转换电路和CPU的数据线之间增加具有三态功能的数据缓冲器。同样，A/D转换器的转换结束信号在用于程序查询时也需要经过三态的缓冲器才能连接到数据总线上。<br></td>
+  </tr>
+</table>
+</body>
+</html>

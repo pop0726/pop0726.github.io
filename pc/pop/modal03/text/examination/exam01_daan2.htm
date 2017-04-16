@@ -1,0 +1,73 @@
+<html>
+<head>
+<title>编译原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../css/text.css" type="text/css">
+<link href="../../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" class="pop">
+<center><table width="95%" border="0" cellspacing="0" cellpadding="0">
+    <tr> 
+      <td class=text> <p><b>二、 问答题答案</b></p>
+        <p>问答第1题<br>
+          参考答案：与程序查询方式相比，中断方式节省了大量的用于查询外设工作状态的时间。CPU不再需要轮流对每个外设进行查询，一方面可以使得CPU与外设并行工作，另一方面，由于外设具有申请CPU的主动权，可以很好的满足外设对CPU提出输入/输出服务要求的随机性，即具备实时性。<br>
+          与DMA方式相比，中断控制方式又有诸多不足的地方。首先，在整个中断处理过程中都是需要CPU参与。其次，每申请一次中断，都需要进入中断的应答周期，重复进行现场保存现场恢复等过程。在需要进行大量数据传输的情况下，地址增1和计数器减1都需要执行程序来实现，中断控制方式显然是效率较低。再次，由中断产生的程序转移必然引起CPU指令队列的刷新，这也会产生时间的延误。<br>
+          DMA控制方法则比中断方法具有更大的优势。DMA方式下，由DMA控制器替代处理器控制系统总线，不须通过累加器，控制存储器数据的直接存取并和外设进行交互，同时由硬件完成计数器减量和地址增量的过程。DMA方式下，数据在存储器与I／O设备之间或存储器与存储器之间的传输速率仅仅受到存储器件或DMA控制器的速度限制。 
+          <br>
+          <br>
+          问答第2题<br>
+          参考答案： <br>
+          从标志位的设置可以看出，页面大小为4KB。</p>
+        <ul>
+          <li>页目录表基地址：0H</li>
+          <li>性地址中页目录项索引为09H，即偏移量为024H（09H×4）<br>
+            在页目录表中，偏移量为024H的页目录项在内存中的位置是090H（0H +024H×4），从090H～094H是相应目录项的内容，其中页表的基地址的高20位存放094H、093H、092H中。[094H]=0A9H，[093H]=0A8H，[092H]=0A7H。假设数据在内存中存放是按照低位放低字节，高位放高字节的顺序，根据这三字节可以算出页表的基地址为A9A8A000H</li>
+          <li>线性地址中页表项索引为351H，即偏移量为05D44H（351H ×4）<br>
+            在页表中，偏移量为05D44H的页表项在内存中的位置是A9AA1510H（A9A8A000H+05D44H×4），从A9AA1510H到A9AA1514H是相应页表项的内容。同页表的基地址计算一样，可以得到物理地址的高20为：020202H。</li>
+          <li>最后得到物理地址：20202000H＋056CH = 2020256CH。</li>
+        </ul>
+        问答第3题<br>
+        参考答案： 电路图如下<br>
+        <img src="../../../../images/exam/ps_3_1.gif" width="397" height="236"> 
+        <br>
+        输出三角形电压波形的程序：<br>
+        MOV DX, 400H ;端口地址<br>
+        J0:<br>
+        MOV CX, 0FFH<br>
+        MOV AL, 0<br>
+        J1:<br>
+        OUT DX, AL<br>
+        INC AL<br>
+        LOOP J1<br>
+        MOV CX, 0FFH<br>
+        J2:<br>
+        DEC AL<br>
+        OUT DX, AL<br>
+        CALL DELAY ；调用一个延时程序<br>
+        LOOP J2<br>
+        JMP J0 <p>输出锯齿形电压波形的程序：<br>
+          MOV DX, 400H ;端口地址<br>
+          J0:<br>
+          MOV CX, 0FFH<br>
+          MOV AL, 0<br>
+          J1:<br>
+          OUT DX, AL<br>
+          INC AL<br>
+          CALL DELAY ；调用一个延时程序<br>
+          LOOP J1<br>
+          JMP J0<br>
+          <br>
+          问答第4题<br>
+          <img src="../../../../images/exam/ps_3_2.gif" width="395" height="239"> 
+          <br>
+          如上图所示，M1对应奇地址，M2对应偶地址。MEMCS16#信号由LA23～LA17产生。 详细的译码电路略。 <br>
+          <!--czp-wenda-daan-->
+        </p>
+        </td>
+  </tr>
+</table>
+  </center>
+
+</body>
+</html>

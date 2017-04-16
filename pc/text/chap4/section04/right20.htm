@@ -1,0 +1,28 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="bg">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9">　　让我们看看AD574的内部结构和引脚功能图，如图4-44。分别看一下其中各个信号的含义。<br>
+      　　DB0~DB11：三态的数据输出线。<br>
+      　　12/<img src="../../../images/chap4/00008.gif" width="11" height="16">：是12位数据输出或8位/4位数据输出的选择端。如果12/<img src="../../../images/chap4/00008.gif" width="11" height="16">接高电平，表示AD574同时输出12位数据。否则分8位/4位两次输出。<br>
+      　　A<sub>0</sub>：和12/<img src="../../../images/chap4/00008.gif" width="11" height="16">共同作用，12/<img src="../../../images/chap4/00008.gif" width="11" height="16">接地的时候，A<sub>0</sub>为1选择12位转换结果数据的高8位，A<sub>0</sub>为0选择12位转换结果数据的低4位。<br>
+      　　CS#：片选择信号，<br>
+      　　CE：片使能信号，<br>
+      　　R/C#：启动转换/结果数据读出控制。CS#和CE同时有效时，R/C#为低电平就启动AD574开始转换；当R/C#为高电平就让CPU读AD574转换结果数据。<br>
+      　　STATUS（STS）：转换状态信号，STS为高，指示AD574“忙”；STS由高变为低，指示转换结束，数据缓冲器中为有效数据。图4-45是AD574的启动转换和数据读出时序图。情况和AD570类似，在这里就不再详细描述了。<br>
+      <img src="../../../images/chap4/p4_4_3_4.gif"> <br>
+      　　　　图4- 44 AD574的结构与功能引脚 <br><img src="../../../images/chap4/p4_4_3_5a.gif"><br>
+<img src="../../../images/chap4/p4_4_3_5b.gif"><br>
+      　　　　　　　图4-45 AD574的时序 </td>
+  </tr>
+</table>
+</body>
+</html>

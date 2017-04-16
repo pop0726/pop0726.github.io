@@ -1,0 +1,29 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" class="bg">
+<table width="100%" border="0" cellspacing="10" cellpadding="2">
+  <tr>
+    <td class="pt9" height="147" > <br>
+      　　当机器第一次上电时，配置软件首先扫描在系统中的不同总线(PCI和其他)，确定总线上存在什么设备以及它们有什么配置要求。这个过程常常指的是：<br>
+      　　■扫描总线<br>
+      　　■激活总线<br>
+      　　■检查总线<br>
+      　　■发现过程<br>
+      　　■总线枚举<br>
+      　　执行PCI总线扫描的程序常称为PCI总线枚举。<br>
+      　　为了实现配置过程，每个PCI功能必须设计一组由PCI规范定义的配置寄存器。<br>
+      　　配置软件首先读取设备配置寄存器的相应标志位，以确定功能的存在及功能的类型。在确定设备存在以后，配置软件访问功能的其他配置寄存器，确定该设备需要多少存储器和/或IO空间。然后根据可用地址范围，编程设备的存储器和/或IO地址译码器，保证与已分配给其他系统设备地址范围的互斥。<br>
+      　　如果功能的配置寄存器相应位表示它需要使用一个PCI中断请求引脚，配置软件根据功能的PCI中断请求引脚与系统中断请求线(IRQ)的连接信息来编程功能的配置寄存器。<br>
+      　　如果设备具有总线主设备能力，配置软件可以读取配置寄存器中的两个值，了解该设备对获得PCI总线访问权的速度要求(它具有什么仲裁优先权)，以及它为达到足够的数据流通量对总线权保持时间的要求。系统配置软件再根据这种信息，编程总线设备的延迟定时器(或时间片)寄存器和PCI总线仲裁器(如果它可编程)，提供优化的PCI总线性能供设备使用。<br>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

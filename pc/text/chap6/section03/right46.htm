@@ -1,0 +1,48 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" class="bg">
+<table width="100%" border="0" cellspacing="2" cellpadding="2">
+  <tr>
+    <td class="pt9" height="69"> 　 <br>
+      　 ◆ 存储器基地址寄存器：如果设备提供了存储器和/或IO译码器就要求基地址寄存器。事实上所有设备都提供了某种存储器、和/或设备指定的寄存器组来控制设备，如可以驻留在IO或存储器映射IO空间的并行口状态、命令和数据寄存器，网络接口的控制、命令/状态寄存器、RAM缓冲存储器等，另外，设备常常具有含有BIOS和中断服务程序的设备ROM。<br>
+      　　当系统启动时，配置软件自动配置每个设备功能的IO和存储器的地址范围。配置过程中，系统首先检测每一个设备需求存储器和IO地址的数量，系统必须具有编程设备地址译码器的能力，以便给设备分配互相不冲猝的地址范围。<br>
+      　　基地址寄存器(BAR)定位在设备配置首部空间第4到9 的双字上，用于实现功能的可编程存储器和/或IO译码器，每个寄存器为32位(或者是64位，如果它是一个存储器译码器以及它相连的存储器块能够被放置在4GB地址边界以上)。图6-�埠屯�6-35 
+      是存储器基地址寄存器的格式，位0是只读位，指示该设备译码器是一个存储器还是一个IO译码器。<br>
+      　　位0＝0，寄存器是存储器地址译码器<br>
+      　　位0＝1，寄存器是IO地址译码器<br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9">
+        <tr> 
+          <td> 
+            <div align="center"><b>图 6-35</b> 存储器基地址寄存器位<br>
+              <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0" width="290" height="260">
+                <param name="movie" value="../../../flash/p6_3_6_19.swf">
+                <param name="quality" value="high">
+				
+                <embed src="../../../flash/p6_3_6_19.swf"   quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="290" height="260"></embed></object>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div align="center">图 6-36 I/O基地址寄存器<br>
+              <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0" width="290" height="160">
+                <param name="movie" value="../../../flash/p6_3_6_20.swf">
+                <param name="quality" value="high">
+				
+                <embed src="../../../flash/p6_3_6_20.swf"   quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="290" height="160"></embed></object>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

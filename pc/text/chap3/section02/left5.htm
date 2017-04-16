@@ -1,0 +1,18 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9">　　在中断服务程序的未尾，当遇到中断返回指令IRET时，标志寄存器的内容从堆栈中弹出，IF和IT标志回到中断前的状态。因此，如果在中断服务程序之前中断标志是允许状态，那么通过服务程序的IRET指令可以自动再次允许中断。<br>
+      <br>
+      　　在中断期间返回地址（在CS和IP中）被压入堆栈。有时候，返回地址指向程序中发生中断的下一指令，有时候却指向程序中发生中断本身的那条指令。类型号为0、5、7、8、10、11、12和13的中断，压入堆栈的返回地址指向出错指令，而不是指向程序中的下一条指令，这就有可能使得中断服务程序在某些错误情况下重新执行这条指令。</td>
+  </tr>
+</table>
+</body>
+</html>

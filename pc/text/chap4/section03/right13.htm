@@ -1,0 +1,20 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="bg">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9"> <img src="../../../images/chap4/p4_3_1_9.gif"><br>
+      　　　　图4-25 RS-232串行通信连接器的连接方式 <br>
+      　　以RS-232串行通信标准通信的发送、接收端有多种连接方式，图4-25 列出了(a)无联络信号的自发自收、(b)有联络信号的自发自收、(c)无联络信号的全双工、(d)有联络信号的全双工，以及(e)有联络信号的单工五种通信方式下的连线方式。<br>
+      　　让我们来逐一解释一下：无联络的自发自收就是把自己的数据发送端和接收端相连，有联络的自发自收除了把自己的数据发送端和接收端相连之外，还要把上面提到的两对联络信号连接起来。这两种方式常常用作系统的调试和检测。在传输距离较近的应用场合，更多地使用前面讲过的无联络的三线全双工连接方法，分别把自己的发送端和对方的接收端相连，再共地就可以了。距离要求较长、可靠性要求较高的应用，一般采用有联络线的通信连接，互相把成对的联络信号连接在一起。更长距离的通信则需要加入调制解调器。在(e)中提到“使用两组联络信号之中的一组”是指：DTR#和RTS#是CPU要传递给外设的控制信号，DSR#和CTS#是外设要传递给CPU的状态信号。因此可以把DTR#和DSR#组成一组联络信号，RTS#和CTS#组成一组联络信号。在使用(e)这种单工方式时，只要求一组联络信号即可正常工作。只有当工作在全双工情况下，才需要两对联络信号。</td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4" >
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td height="229" valign="top" class="pt9"><strong>　5、中断响应的总线周期</strong><br>
+      　　我们再分析一下中断响应周期的时序。8086的中断响应占用两个总线周期。在两个中断响应周期当中，CPU从INTA#引脚上向外设接口各发送一个负脉冲。这两个负脉冲都将从T2一直维持到T4状态的开始。第一个负脉冲通知外设，本次申请得到响应。第二个负脉冲相当于CPU的读信号，外设接口收到第二个负脉冲以后，把中断类型码送到数据总线的低8位D<sub>7</sub>～D<sub>0</sub>上，通过CPU的地址/数据管脚D<sub>7</sub>～D<sub>0</sub>传送给CPU。在这两个总线周期的其余时间，D<sub>7</sub>～D<sub>0</sub>是浮空的。中断响应的总线周期参见下图：</td>
+  </tr>
+</table>
+</body>
+</html>

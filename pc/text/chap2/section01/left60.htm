@@ -1,0 +1,25 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4" >
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td height="229" valign="top" class="pt9"><strong>
+      　2、外部中断<br>
+      <br>
+      </strong>　　8086具有两条中断请求引脚INTR和NMI，用于传送外部设备送来的中断请求信号。引脚INTR上引发的中断，为可屏蔽中断，引脚NMI上引发的中断，为非屏蔽中断。<br>　<strong>可屏蔽中断INTR</strong>      <br>
+      　　可屏蔽中断INTR受标志寄存器的中断标志位IF控制，当IF为1时，表示允许中断。IF为0时，可屏蔽中断的请求受到禁止。INTR要求中断请求信号为高电平，高电平需要保持到中断请求被响应。一旦采样到INTR信号有效，CPU执行完当前的指令，便响应可屏蔽中断INTR的请求。可屏蔽中断被响应以后，由外设（多数由中断控制器）提供中断类型。<br>
+      　　虽然，可屏蔽中断只有一根中断请求线，但是通过外部电路可以允许系统连接多个中断源。最常用的器件为可编程中断控制器。它管理多个可屏蔽中断的中断优先级，为中断源向CPU提供中断向量。<br><strong>　非屏蔽中断NMI</strong>
+      <br>
+      　　非屏蔽中断NMI不受中断允许标志IF的影响，是不可屏蔽的。NMI要求中断请求信号为脉冲上升沿，并要求上升沿之后保持2个CLK的高电平。当CPU采样到NMI引脚上的中断请求时，产生类型号为2的中断。CPU执行完当前指令，便响应这个中断请求而进入相应的中断处理。在实际系统中，非屏蔽中断一般用来处理系统的重大故障，例如系统掉电等。<br>
+      　　在整个系统中一般只有一个非屏蔽中断。 
+    </td>
+  </tr>
+</table>
+</body>
+</html>

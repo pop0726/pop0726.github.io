@@ -1,0 +1,19 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9"> <b>4.1.2 输出接口电路</b><br>
+      　　图4-2是中断控制方式下的输出接口原理。黄线勾勒部分是一个8位并行输出接口的原理性结构。<br>
+      　　输出接口包括一个输出数据锁存器、一个状态寄存器和它们的控制逻辑。给输出数据锁存器分配的地址为CS1#，CS1#在用作对输出锁存器写入控制的同时用作对接口状态寄存器的置位控制。状态寄存器的输出缓冲器空/满信号一方面用作送给输出设备的数据选通信号，一方面作为和CPU方面的中断联络信号。输出设备的应答信号ACK#用作接口状态寄存器的复位。该接口允许中断方式请求传送，因此，一个D触发器作为屏蔽触发器，D触发器的输入端和数据线D0相连，地址为CS2#，可以通过对CS2#写1、写0设置中断屏蔽或解除屏蔽。系统复位（RESET#）时端口的中断请求信号为屏蔽状态。 
+    </td>
+  </tr>
+</table>
+</body>
+</html>

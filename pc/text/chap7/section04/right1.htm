@@ -1,0 +1,36 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="bg">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9"><p>　　 NetBurst 微结构采用一种深层的流水线设计，可以使芯片的不同部分以不同于处理器主时钟的频率运行，有些部分的运行频率可以高于处理器频率，而另外一些部分的运行频率可以低于处理器频率，NetBurst结构使P4成功地获得了比PIII更高的有效速率。预计NetBurst微结构可以使未来的IA-32处理器的时钟频率达到10GHz。<br>
+        　　通过结构的优化，流水线提高了那些经常使用的普通指令的执行性能。在一般的环境下那些被最频繁执行的指令，可以在更短的时间片内更有效的译码执行，通过流水线。<br>
+        　　NetBurst结构优化了并行执行、重排序缓冲和推测执行等技术，由于动态的执行指令，所以每条指令的执行时间并不是总是确定的。<br>
+        　　归纳起来Netburst有如下的特征： </p>
+      <ul>
+        <li>快速的执行引擎：ALU可以以两倍于处理器频率执行，基本的整数运算操作按1/2时钟周期进行，提供了高的吞吐率并且减小了执行的延迟；</li>
+        <li>超流水线技术：将指令的处理过程进一步细分，采用20级流水线，预计处理器频率能够增高到10GHz。</li>
+        <li>先进的动态执行：深度的无序（超顺序）推理执行引擎，可以使高达126条指令在线执行、48条装入指令和24条存储指令占用流水线；4K项分支目标阵列，支持增强的分支预测能力；协同超标量的发送进一步强化了并行机制。</li>
+        <li>新的Cache子系统：第一级先进的执行跟踪Cache存储已经译码的指令，执行跟踪Cache可以消除执行循环程序时译码器的时间延迟，执行跟踪Cache将程序执行流的通路集中到单条线路；先进的二级Cache容量为512KB。</li>
+        <li>四条高性能的转储（总线）和Intel的Netburst微结构的系统总线接口：支持四条转储可扩展总线，时钟可实现4倍有效速率；为Pentium 
+          4提供最高到3.2GB/秒带宽能力；</li>
+        <li>扩展重命名硬件寄存器避免了寄存器名空间的局限；</li>
+        <li>64和128字节的Cache行容量，128字节包括两个64字节的分区。</li>
+        <li>全硬件的预取结构</li>
+      </ul>
+      　　图7-11表示了NetBurst微结构的概况，它的流水线包括：按序输出的前端部分、无序超标量执行的内核、按序的退出单元。<br>
+      <img src="../../../images/chap7/p7_4_1_1.gif"><br>
+      　　　　　　 图7.11 NetBurst的微结构示意图<br>
+      　　这种新结构的P4，使得P4的性能在PIII的基础上有了更大的飞跃，除了PC机以外，以P4为基础的服务器和小型机更展示了它在性能和价格上的优势。 
+    </td>
+  </tr>
+</table>
+</body>
+</html>

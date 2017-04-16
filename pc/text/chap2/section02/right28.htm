@@ -1,0 +1,20 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" class="bg">
+<table width="100%" border="0" cellspacing="2" cellpadding="2">
+  <tr> 
+    <td class="pt9"><br><br><br>　　当一条分支指令到达指令流水线的第一级译码以后，分支预测逻辑就检查分支目标缓冲器BTB，看BTB中是否有这条指令的记录。如果有记录项，说明该分支指令不是第一次执行，那么就根据记录项中这条指令历史上发生转移的情况预测它到达执行级时是不是会发生转移。BTB中的历史记录指示了该条指令历史上转移发生的频度，2位二进制数 
+      11、10、01、00分别表示转移强烈发生、弱发生、基本不发生、强烈不发生4种情况。如果历史记录为11或10，分支预测逻辑就预测本条指令将发生转移，通知指令预取器根据BTB中与该记录项相关连的转移目标地址取指令，并切换指令队列；如果历史记录为01或00，就预测这条指令不会发生转移。<br>
+      　　　　<img src="../../../images/chap2/p2_2_4_2.gif" width="395" height="177"><br>
+      　　　　 　　　　　图2-36 根据转移发生情况对历史位的修改 </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="10" cellpadding="2">
+  <tr>
+    <td class="pt9" height="28"> ● 接口控制信号<br>
+      下面是PCI总线交易中一组接口控制信号，是总线交易过程中主设备和目标设备的握手信息。<br>
+      　- FRAME# s/t/s<br>
+      　　总线周期帧确认信号，三态，作为主设备时此信号为双向信号，作为从设备时为输入信号。FRAME#信号的负向跳变，指示总线交易的开始。FRAME#信号有效的持续时间表示总线交易持续的时间。<br>
+      　　主设备在PCI的CLK信号的上升沿同时采样FRAME#、IRDY#和GNT#信号，当FRAME#、IRDY#无效而GNT#有效时，表示该主设备获得了总线权。之后，当前主设备驱动FRAME#有效，指出总线交易的开始。在当前主设备和当前寻址的目标之间，一个交易可包含一次或多次数据传送，在主设备准备完成最后的数据交互时，驱动FRAME#为无效状态。<br>
+      　- IRDY# s/t/s<br>
+      　　主设备（启动方）准备好信号，三态，对于主设备该信号为双向信号，对于从设备为输入信号。IRDY# 表示主设备准备好与当前寻址目标设备交换数据。<br>
+      　　在主设备与从设备进行交易时，IRDY#有效表示主设备已准备好向目标设备发送（写）数据或从目标设备接收（读）数据。用此信号通知从设备主准备已准备好。<br>
+      　- TRDY# s/t/s<br>
+      　　目标设备准备好信号，三态，作为主设备时为输入信号，从设备时为输出信号。表示目标设备准备好与主设备交换数据。<br>
+      　　在主设备与从设备进写交易时，TRDY#有效表示目标设备已准备好接收主设备发送的数据；读交易时，表示目标设备准备好向数据总线发送数据。用此信号通知主设备目标设备已准备好。<br>
+      　- STOP# s/t/s<br>
+      　　终止交易信号，对于主设备它是输入信号，对于目标设备是输出信号。当目标设备有效STOP#时，表明它希望主设备停止处理当前交易。<br>
+      　- LOOK# s/t/s<br>
+      　　锁定信号，对于主设备，为双向信号，对于目标设备是输入信号。在基本交易系列中(例如：在一个信号机读/修改/写操作中)主设备用此信号锁定当前寻址的目标。	
+      <br>
+      　- IDSEL（Initialization Device Select）：初始化设备选择信号，是PCI设备的一个输入信号，在访问设备配置寄存器时用作片选择信号。<br>
+      　- DEVSEL#（Device Select）：设备选择信号，对于主设备，它是输入信号，对于目标设备它是输出信号。当目标设备进行地址译码且该目标地址命中时，便使能设备选择信号有效。它作为当前主设备和扩展总线桥中负向译码器的输入信号。如果当一个主设备起动一次交易，并在6个CLK周期内没有检测到DEVSEL#信号有效，主设备必定假设目标不能响应或者访问地址不存在。因此，致主设备当前交易终止。<br>
+      <br>
+        　　　　<br>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9"> 　　对外设的数据输出操作通常是在中断服务程序中完成的。CPU执行对地址CS1#的I/O写指令（（CS1#*IOW#）#信号有效），把需要送给外设的数据写入锁存器，（CS1#*IOW#）# 
+      信号同时把状态寄存器置位，OBF信号为1，OBF通知外设输出缓冲器满，它作为外设的数据选通信号将锁存器数据打入外设。外设接收到数据以后，输出应答信号ACK#将状态寄存器复位，OBF为0指示输出缓冲器空。该信号作为中断请求，告诉CPU端口已被外设利用，申请CPU再次进行对外设的数据传送。当然，此时的中断屏蔽触发器必须是0状态。<br>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

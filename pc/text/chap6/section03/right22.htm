@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" class="bg">
+<table width="100%" border="0" cellspacing="10" cellpadding="2">
+  <tr>
+    <td class="pt9" height="135" > 
+      <table width="100%" border="0">
+        <tr> 
+          <td> 
+            <div align="center"> 
+              <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="400" height="371">
+                <param name=movie value="../../../flash/p6_3_4_3.swf">
+                <param name=quality value=high>
+                <embed src="../../../flash/p6_3_4_3.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="400" height="371">
+                </embed> 
+              </object></div>
+          </td>
+        </tr>
+        <tr> 
+          <td height="2"> 
+            <div align="center" class="tit">图6-20 PCI中断应答交易时序图。</div>
+          </td>
+        </tr>
+      </table>
+      <br>
+      　　注意，在Intel x86的系统中，一般是ISA总线上的要求服务子系统通过中断请求信号IRQ0~IRQ15发出中断请求的。在PCI/ISA桥中的中断控制器检测到中断请求信号IRQ，驱动INTR信号有效，向处理器发出中断请求。此时，如果处理器允许中断，即EFLAG中的中断允许标志为1。处理器就进入中断响应总线周期。Intel 
+      x86和P6系统中断应答的操作过程略有不同，x86处理器是通过启动两个总线周期完成中断应答的。一个总线周期确认中断，另一个周期读取中断向量。P6系列处理器仅用一个中断应答周期读取中断向量（但是这种差异仅仅是由处理器处理中断应答的过程不同引起的，而在PCI总线上的中断应答交易是在Host/PCI桥和PCI/ISA桥之间进行的，不受上述差异的影响）。当Host/PCI桥检测到（CPU一方）一个中断应答周期的开始，桥就要求占有PCI总线并开始一次中断应答交易。 
+      <br>
+      　　PCI目标PCI/ISA桥检测到中断应答交易，驱动DEVSEL#有效响应交易。PCI/ISA桥模拟CPU，由内部产生2个连续的中断应答负脉冲给桥内的8259A中断控制器。作为响应，8259在低位数据通道上驱动中断向量，并使TRDY#有效通知Host/PCI桥目标准备好。当Host/PCI桥采样到TRDY#和IRDY#同时有效，就从低位数据通道上读取数据并终止中断交易。<br>
+      　　图6-20 是PCI中断应答交易时序图。PCI总线的中断应答交易是在Host/PCI桥和PCI/ISA桥之间进行的。CLK1是地址段，由于是中断交易，桥并不驱动有效地址到AD线上，但是，AD线上奇偶校验照样进行。桥驱动FRAME#信号有效，表示交易开始，C/BE#上送出交易命令，指出是中断应答交易。<br>
+      　　CLK2开始是数据段，Host/PCI桥驱动IRDY#有效，表示桥准备好读取中断向量，同时使FRAME#无效，表示数据线上传送的数据将是最后一个数据段。在本交易中，AD线上的信息将要从Host/PCI桥送出的地址过度到PCI/ISA桥送的数据（中断向量），需要有一个过渡时间。因此，目标PCI/ISA桥在CLK2仍然使TRDY#和DEVSEL#无效。迫使在数据段插入一个等待状态。通常，主设备在CLK3的前沿采样DEVSEL#信号，Host/PCI桥采样DEVSEL#无效，便插入一个等待状态。<br>
+      　　进入CLK3，即等待状态，目标完成了命令译码，驱动DEVSEL#有效承认交易，将中断矢量送到数据总线，驱动C/BE#总线上的字节使能信号有效，指出中断向量字节所在的数据通道。此外，目标还驱动TRDY#信号有效，通知主设备，目标以将数据（中断向量）准备好。<br>
+      　　在CLK4的上升沿，Host/PCI桥采样DEVSEL#有效，知道目标已确认交易。采样TRDY#有效，表明PCI/ISA桥已把中断向量送到数据总线上。此时，Host/PCI桥读取中断向量。同时采样到IRDY#有效且FRAME#无效，说明主设备读取的是最后的数据段，因此，它停止驱动字节使能并使IRDY#无效，以便使总线返回空闲状态。跟着，目标令TDRY#和DEVSEL#无效并停止驱动中断向量。<br>
+      在CLK5的上升沿，总线回到空闲状态。<br>
+      　　Host/PCI桥将中断向量送往处理器将从中取向量的数据总线并终止中断应答交易。<br>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="bg">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9"> 　　了解了上面两种方式的原理以及优缺点，我们来看系统中经常使用的一个映射方式：组相联映射。这种方式是直接映射和相联映射方法的结合，它综合了直接映射结构简单和相联映射数据替换灵活的优点，利用这些优点改善了二者的不足。下面我们就来仔细分析一下组相联映射的具体映射方法。<br>
+      　　在组相联映射的结构中，将Cache分为m组，每组r’行，主存中共有s个数据块，每s/r’个数据块可以分别装入某一相同行号的m个Cache行中。这样说也许有点抽象，可以通过下面的例子来了解。这样，既避免了由于主存块映射固定Cache行引起的Cache命中率低的不足，又减少了标记位的长度降低了比较电路的复杂性。我们还可以发现，当m为1时，其实就是直接映射，当r’为1时，就是相联映射。换句话说，前两种方式都是组相联映射的特例。<br>
+      <br>
+      <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0" width="390" height="640">
+        <param name="movie" value="../../../flash/p5_1_2_4.swf">
+        <param name="quality" value="high">
+		<param name=wmode  value="transparent"> 
+        <embed src="../../../flash/p5_1_2_4.swf"  quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="390" height="640"></embed></object> 
+      <br>
+      　　　　　图5-6 两路组相联的Cache组织<br>
+      <br>
+      　　从前面的分析我们也可以看出，Cache分的组数不适合过多，否则并行比较带来很大麻烦。实际系统中一般采用两路组相联或者四路，基本不采用更多组的方法。 
+    </td>
+  </tr>
+</table>
+</body>
+</html>

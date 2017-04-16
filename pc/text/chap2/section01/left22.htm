@@ -1,0 +1,24 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4" >
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9"> <strong>　　&#8226; HLDA：</strong>总线保持响应信号，输出，高电平有效。HLDA有效时表示CPU响应了其他总线主的总线请求，一旦HLDA有效，CPU的数据/地址控制信号变为高阻状态，而请求总线的总线主（DMA）获得了总线权。<strong><br>
+      <br>
+      <br>
+      　　&#8226; MN/MX<sup>#</sup>(Minimum/Maximum Mode Control)：</strong>最大最小模式控制信号（标号33），输入。决定8086工作在哪种工作模式。如果MN/MX<sup>#</sup>＝1（＋5V），CPU工作在最小模式。MN/MX<sup>#</sup>＝0（接地），CPU则工作在最大模式。<strong><br>
+      <br>
+      　　&#8226; CLK(Clock)：</strong>时钟信号（标号19），输入。为CPU和总线控制逻辑提供定时。要求时钟信号的占空比为33％。<strong><br>
+      <br>
+      　　&#8226; RESET(Reset)：</strong>复位信号（标号21），输入，高电平有效。复位信号有效时，CPU结束当前操作并对标志寄存器FLAG 
+      、IP、DS、SS、ES及指令队列清零，并将CS设置为FFFFH。当复位信号撤除时，（即电平由高变低时）CPU从FFFF0H开始执行程序。 </td>
+  </tr>
+</table>
+</body>
+</html>

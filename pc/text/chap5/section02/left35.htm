@@ -1,0 +1,18 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9"> 　　Pentium处理器输出目标地址以后，主存控制器又是怎样解释地址呢？从主存控制器的角度把存储器看成如图5-17 
+      所示的概念性结构。主存控制器将存储体分为结构相同的两部分：A排（bank）和B排。A和B中每行都是8个字节，每次猝发读正好读取8个字节。两排合在一起，每2行对应一个Cache行。由A4的0和1状态分别控制选取两排存储体的偶数行和奇数行，由A3的0和1分别选择A排与B排。按照Cache行填充的读取顺序，首先读取目标地址所在的8个字节，然后是A4不变，A3变换状态的另外8个字节。其后A4改变状态，先后读出A3等于1和0时的8个字节。对于目标地址是0000008CH~0000008FH的双字，猝发读的顺序是88~8FH，80~87H，98~9FH，90~97H。<br>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+<STYLE TYPE="text/css">
+<!--
+BODY {background-image: URL(../../../../image/index/bg.gif);
+background-position: right;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr> 
+    <td><span class="text">　　差分传感器的例子是跟踪球Dimension6。这是安装有传感器的球，它测量用户的手施加在弹性元件上的三个力和三个力矩。力和力矩是基于弹性变形定律间接测量的。球的中心部分是固定的，并有六个发光二极管。相应的六个光敏传感器安装在运动的外部球。当用户在运动球上施加力和力矩时，用六个光敏传感器的输出测量三个力和三个力矩。这些力和力矩数据经过串行口送给主计算机。这些值由软件乘上增益，就得到物体位置和方向的差分变化。增益越大，物体的速度越大，但若主机不能足够快的更新屏幕，物体运动将不平滑。这种方式实际上是，由用户的手施加在球上的力和力矩的大小，控制虚拟物体的运动速度和角速度的大小。<br>
+      　　控制物体的另一种方式是通过力控制，由跟踪球测量的力用于施加给物体的力。跟踪球也可以用于在仿真环境中&quot;飞行&quot;，这时传感器影响虚拟摄像机观看虚拟世界的视点和方向。<br>
+      　　还有几个按键安装在跟踪球的支座上，用户的手指可以摸到它们。这些按键都是开关，并可根据应用安排其用途。例如一个键可用于增加增益，另一个用于减小增益（即物体的速度）。有的键连接或断开跟踪球与它控制的虚拟物体。某些键可用于开始或停止仿真，或者在用户迷失方向时把仿真复原到初始状态。<br>
+      　　跟踪球的一个缺点是，它存在传感器的耦合。用户可能希望物体只平移不转动，但跟踪球使得物体即平移又转动。这是因为当用户施加纯力时，测量的力矩往往非零。这些不希望的运动可以由软件滤波或硬件滤波抑制。硬件滤波器就是按键，它可以使用户选择&quot;只输入平移&quot;、&quot;只输入转动&quot;或&quot;只输入主要运动&quot;。<br>
+      　　跟踪球的另一个缺点是，它工作在开环方式。用户可以控制在物体和环境之间的力，但用户的手不能感觉到这个力。（用户的手只能感觉到手与球的力。）1993年推出Global 
+      Devices 3D Controller 才解决了这个问题。这个设备象一般的跟踪球那样，提供3D的相对位置控制。但它的传感球内安装了电子的执行机构，这个执行机构能提供16级的触摸振动。于是，用户可以感到在受控物体与环境之间的接触。这个控制器不包括硬件滤波器，也没有附加的按键。这是为了降低产品的成本，但可能在下一代振动跟踪球上改进。<br>
+      　　下图表示，跟踪球Dimension6的原理。其中(a)为其外观，(b)为其传感机构的原理图。 <br>
+      <br>
+      </span><b class="explan">　　　图 2-1-01</b> <span class="text"><br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td align="center" class="explan"><b><br>
+            <img src="../../../../image/ch2/sec1/t2_1_01.gif" width="433" height="261"></b><br>
+            CiS DIMENSION6 （产品商标，用原文）</td>
+        </tr>
+      </table>
+      </span></td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9"><strong>5) 连接总线方式</strong><br>
+      　　有些系统的8259和数据总线是直接连接的，有些是通过驱动器连接的，这主要取决于数据总线的负载能力和连接芯片的多少。通过驱动器和数据总线相连的称为缓冲方式，直接和总线连接的称为非缓冲方式。<br>
+      <strong>　缓冲方式</strong><br>
+      　　在多片8259A级联的系统中，8259A和数据总线之间需要安排数据总线驱动器。如果8259A工作在缓冲方式，当8259A送出状态字或类型码时，使能信号SP#/EN#在8259A输出数据时变为有效，SP#/EN#被用做数据驱动器的驱动。因此，可以将SP#/EN#直接连接数据驱动器的输出使能端。图3－7为级联缓冲模式8259A的连接图<br>
+      <strong>　</strong><strong>非缓冲方式</strong><br>
+      　　在只有一片或少数几片8259A的小系统中，8259可以直接与数据总线相连，在这种情况下，8259A工作在非缓冲方式。非缓冲方式下，SP#/EN#仅仅作为输入信号（图3-8）。当SP#/EN#=1，表示该8259A为主片；SP#/EN#=0，8259A为从片。 
+    </td>
+  </tr>
+</table>
+</body>
+</html>

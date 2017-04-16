@@ -1,0 +1,26 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="bg">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9"><br>
+      　　为了解决上述方法带来的不便，我们向电路中加入一些简单的硬件，来实现中断扩展。另一种常用的中断扩展方法是菊花链式的排队电路。图3-5是菊花链式的中断排队电路的原理图。链式排队电路按照中断请求信号在电路队列中的物理连接位置分配优先级。因此如果想把某个中断源的优先级提高，就要将它的连接位置提前。在这幅图中，中断请求A的优先级最高，C的优先级最低。当一个接口发出中断请求时，如果CPU允许中断，会发出有效的INTA#信号，如果一个级别较高的外部设备没有发中断请求信号，那么这级中断逻辑电路会允许中断回答信号原封不动的往后传递，这样，该信号就可以送到发出中断请求的接口。本级中断逻辑电路就对后面的中断逻辑电路实行阻塞，使得INTA#信号不再传到后面的接口。于是就实现了对优先级的保证。本例中，当中断请求A、B、C同时有效时，只有A能够被响应。当A正在服务时，屏蔽B和C。<br>
+      　　　　
+      <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0" width="330" height="370">
+        <param name="movie" value="../../../flash/p_3_2_1_5.swf">
+        <param name="quality" value="high">
+		
+        <embed src="../../../flash/p_3_2_1_5.swf"  quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="330" height="370"></embed></object>
+      <br>
+      　　　　　　图3-5菊花链式的中断排队电路</td>
+  </tr>
+</table>
+</body>
+</html>

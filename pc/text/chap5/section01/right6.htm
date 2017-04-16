@@ -1,0 +1,24 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="bg">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9"> 　　Cache，就是我们所说的高速缓存。在塔型分层结构中处于第二层，特点是存取速度快，价格贵。在32位微型机中，普遍采用了高速缓存技术。而且Cache原来在CPU外，现在已经在采用CPU片内Cache技术了。简单的说，这种技术是将高速的小容量的静态存储器Cache和低价格大容量的动态主存储器连接在一起，以此来解决容量速度价格的矛盾，这是个很有效的提高平均存取速度的方法。它的原理主要就是：在Cache当中存放主存中内容的副本，主存到Cache形成地址的映射，也就是说Cache中的每个数据块对应于主存中的某几个数据块。当CPU打算从主存储器中读取数据时，首先从Cache中查找是否存有主存中该数据块的副本，如果有，则直接从Cache中读取；如果没有，则访问主存储器，在从主存中读取数据的同时，将包含此数据的固定大小的数据块复制到Cache中，以便CPU以后再次访问。图5-3表示了处理器Cache读的流程。因为在程序代码中有很多指令被重复执行，比如循环体中的语句，或者有些数据（包括与之相邻的内存区域中的数据）会连续很多次参与运算。根据程序访问局部性原则，当一块数据装入Cache以满足当前的存储器访问时，以后的程序有很大的可能继续访问该数据块。这样，在多数情况下处理器是以最快的速度直接访问Cache，一少部分情况是Cache中的内容没有命中需要重新载入。而可访问的范围却是价格低廉的大容量的主存储器空间。速度、价格、容量之间的看似不可调和的矛盾于是就得到了解决。<br>
+      <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0" width="310" height="410">
+        <param name="movie" value="../../../flash/p5_1_2_1.swf">
+        <param name="quality" value="high">
+		
+        <embed src="../../../flash/p5_1_2_1.swf"  quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="310" height="410"></embed></object> 
+      <br>
+      　　　　　　图5-3 Cache读操作</td>
+  </tr>
+</table>
+</body>
+</html>

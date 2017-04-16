@@ -1,0 +1,39 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="bg">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9" > 　　<b>1、DMA 传送的工作过程</b><br>
+      　　● 首先由外部设备发出DMA传送请求信号，或通过程序将DMA通道请求触发器置1；<br>
+      　　● 如果有2个以上DMA通道请求信号有效，8237A的优先权编码器和裁决器裁决出优先级最高的DMA通道；<br>
+      　　● DMA通过HOLD信号向CPU发出总线请求；<br>
+      　　● CPU完成当前总线周期以后，回送HLDA信号，同时让出总线权；<br>
+      　　● DMA获取总线，驱动DACK信号有效，该信号通常用做I/O通道的片选择信号，DMA的控制信号MEMR#和I/OW#，或IOR#和MEMW#成对有效，控制存储器和I/O通道之间的数据传送。如果是存储器到存储器之间的传送，一般需要占用2个DMA通道。<br>
+      　　● DMA传送完毕以后，送出EOP信号，使DACK信号无效，HRQ信号无效，DMA释放总线。<br>
+      <b>　2、DMA传送的条件</b><br>
+      　　●l 外设DREQ信号有效，在字节传送方式和请求传送方式下，每个字节传送之前，DREQ必须有效，或DMA通道请求触发器为1状态；<br>
+      　　● 8237A的DMA允许位置位；<br>
+      　　● CPU应答信号HLDA为有效状态；<br>
+      　　● 外部EOP无效<br>
+      　　● 请求通道优先级最，请求通道无屏蔽<br>
+      <b>　3、DMA 编程</b><br>
+      　　● 使用清除F／L命令使F／L触发器为0；<br>
+      　　● 禁止DMA的通道请求；<br>
+      　　● 编程地址寄存器的低8位，然后是高8位； <br>
+      　　● 编程计数寄存器的低8位，然后是高8位；<br>
+      　　● 编程控制整个8237A的命令寄存器；<br>
+      　　● 设置每个通道的模式寄存器；<br>
+      　　● 送DMA允许命令，准备开始DAM传送；<br>
+      　　● 若软件请求，写请求触发器。<br>
+    
+  </tr>
+</table>
+</body>
+</html>

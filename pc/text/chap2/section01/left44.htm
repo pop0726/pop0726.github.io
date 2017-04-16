@@ -1,0 +1,22 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9"> <strong>　　等待周期T<sub>W</sub>：<br>
+      </strong>　　在系统设计时，为了使相对快速的CPU能够和相对慢速的存储器或I/O接口匹配，可以在一个总线周期的T<sub>3</sub>和T<sub>4</sub>之间插入T<sub>W</sub>，延长CPU对存储器或I/O访问的时间。在T<sub>W</sub>状态周期内，地址、数据和控制信号的状态不变。 
+      <br>
+      　　当CPU访问这些速度较慢的存储器或I/O的时候，由存储器或I/O接口通过相应电路发出申请。在T3状态开始8ns之前使READY信号变低。CPU 
+      在T3的上升沿采样READY信号，如果有等待状态插入，READY则在T<sub>W</sub>中间被再次采样。CPU根据READY低电平延续的时间，决定插入一个或一个以上的T<sub>W</sub>。输入到8086的READY信号有严格的定时要求。图2-18（a）为系统只需要插入一个Tw时READY信号的时序，它对系统时钟建立的要求和保持时间。这个操作的定时要求由8284A时钟产生器内部的READY同步电路来实现。当使用8284A产生READY时，输入给8284A的RDY输入信号的低电平应该出现在每个T2状态结束前至少35ns。如图2-18（b）。8284 
+      RDY不同于8086 READY的输入时序，8284内部电路保证了提供给8086微处理器的READY信号的同步精度。
+    </td>
+  </tr>
+</table>
+</body>
+</html>

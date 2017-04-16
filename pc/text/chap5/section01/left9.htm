@@ -1,0 +1,21 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9"><strong>1) 直接映射</strong><br>
+      　　直接映射把主存的每一块分别映射到某一个固定可用的Cache行中。它们的映射关系是：<br>
+      　　　Cache行号 = 主存块号 mod Cache行数 <br>
+      　　图5-4表示了直接映射Cache的组织结构。为了实现映射关系，将主存储器的s（24）位地址分为3个域，字域w、行域r和标记域s-r。字域w由2位表示，用来选择数据块（或Cache行）中的字节；行域r等于Cache行的数目，由14位表示，用于选择Cache行的行号，采用主存部分地址作为Cache行行号的办法可以形成主存的每一块到Cache行的唯一映射；剩余的8位地址位为标记域s-r，标记域正好和Cache中每行的标记位相对应，当数据块从主存中读出被装入与地址行域指示的Cache行时，必须给该数据块做标记，以示与从其他主存地址取出也能够装入该Cache行的数据块的数据的区别。主存分为B<sub>0</sub>、B<sub>1</sub>…B<sub>j</sub> 
+      …B<sub>2</sub><sup>s</sup><sub>-1</sub>，一共4M个块，Cache包含L<sub>0</sub>、L<sub>1</sub>…L<sub>i</sub>…L<sub>2</sub><sup>r</sup><sub>-1</sub>，共16K个行。不难看出，根据这种映射关系，每256个主存块对应一个Cache行。主存块B<sub>0</sub>、B<sub>2</sub><sup>r</sup>…B<sub>2</sub><sup>s</sup>-<sub>2</sub><sup>r</sup>只可能被装入Cache的L<sub>0</sub>行，B<sub>1</sub>、B<sub>2</sub><sup>r</sup><sub>+1</sub>…B<sub>2</sub><sup>s</sup><sub>-2</sub><sup>r</sup><sub>+1</sub>块只可能被装入L<sub>1</sub>行…，而B<sub>2</sub><sup>r</sup><sub>-1</sub>、B<sub>2*2</sub><sup>r</sup>-<sub>1</sub>…B<sub>2</sub><sup>s</sup><sub>-1</sub>只可能被装入L<sub>2</sub><sup>r</sup><sub>-1</sub>行。<br>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="bg">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9">
+      我们把这些信号分成两部分来看：和CPU或系统连接的信号，以及和外设连接的信号。<br>
+      <b>和CPU或系统连接的信号</b><br>
+      ・ D7~D0: 双向，就是可以作为输入引脚，也可以作为输出引脚。一共8位数据线，可以与计算机系统数据总线直接相连，用于在CPU和8251A之间传送命令、状态和数据。可以接收来自CPU的数据输入，也可以接收CPU发给8251A的控制命令。<br>
+      ・ RESET：输入引脚，复位信号，高电平有效，执行&quot;重新启动&quot;的功能。当这个信号有效时就把8251A的模式寄存器与状态寄存器复位，使同步检测信号SYNDET变为低电平，使8251处于空闲状态。<br>
+      ・ CS#：片选择信号。低电平有效。<br>
+      ・ C/D#: 输入引脚，用来选择命令寄存器和数据寄存器，为&quot;1&quot;时选择模式和控制寄存器，为&quot;0&quot;时选择数据寄存器。该信号说明8251A需要占用2个连续地址，奇地址为命令端口，偶地址为数据端口。<br>
+      ・ RD#、WR#: 输入引脚，分别是读信号和写信号，都是低电平有效。读信号有效时可以从8251读状态字和外设发来的数据，写信号有效时可以向8251写命令、控制字并向8251A写数据。<br>
+      ・ TXRDY: 输出引脚，这个信号用来表示发送器准备好，高电平有效，表示8251A已经准备好发送一个字符，其有效条件是：数据缓冲器空∧（CTS#=0）∧（TXEN=1）。于是CPU得知，8251A已经做好发送准备，因而CPU可以往8251A传输一个数据。该信号可以用于CPU向8251的数据传送的中断请求或状态查询信号，CPU响应这个请求，并且向8251A发送数据以后，TXRDY就被复位为无效的低电平状态。<br>
+      <br>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

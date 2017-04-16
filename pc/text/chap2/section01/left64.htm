@@ -1,0 +1,21 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4" >
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td height="229" valign="top" class="pt9"><strong>4、中断操作</strong><br>
+      <br>
+      <strong>1) 中断的请求与响应</strong>
+      <br>
+      　　中断的过程，即中断请求与响应的过程。8086的中断类型分为外部中断和内部中断。内部中断的中断过程相对简单，可以看成是外部中断过程的一部分，因此，我们以INTR中断为例，着重就外部中断的请求与响应做一个分析。<br>
+      　　中断源发出中断请求以后，如果中断请求信号符合要求，即INTR为高电平且保持足够长时间，同时如果CPU的中断允许标志IF=1，则在CPU执行完当前指令，便进入中断响应周期。CPU是在每条指令的最后一拍，检测INTR信号的。<br>　　CPU响应中断以后，通过INTA管脚连续发出两个负脉冲信号，表示进入中断响应周期。第一个负脉冲用来通知外设，CPU响应了中断请求。第二个负脉冲则用来读取中断向量，在此即中断类型。再通过中断类型查找中断向量表，得到中断入口地址，转入相应的中断服务程序。</td>
+  </tr>
+</table>
+</body>
+</html>

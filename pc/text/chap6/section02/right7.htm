@@ -1,0 +1,36 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" class="bg">
+<table width="100%" border="0" cellspacing="10" cellpadding="2">
+  <tr>
+    <td class="pt9" height="41" > <br><br><br>
+      <table width="100%" border="0">
+        <tr> 
+          <td height="19"> 
+            <div align="center"><img src="../../../images/chap6/ch16.gif" width="210" height="210"></div>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <div align="center" class="tit">图6-16 编址电路</div>
+          </td>
+        </tr>
+      </table>
+      　　我们具一个在ISA总线上的扩展16位I/O接口实例。图6-15中AD574A为12位分辩率的模数转换电路，AD585是采样保持器。着重说明两个问题。一是IO16#的产生方法，二是接口译码器与总线AEN信号的连接。<br>
+      　　IO16#信号的低电平由对AD574的片选择信号提供，每次对AD574的访问，总是会产生对AD574D的片选择信号，并且会有IOR#或IOW#信号之一有效，输出负脉冲。IOR#或IOW#的负脉冲打开控制片选信号与IO16#连接的三态门。这样，访问AD574的时候，给IO16#的负脉冲也就随着产生了。<br>
+      　　AEN是ISA总线上DMA周期的地址使能信号。CPU控制总线时，AEN输出逻辑0，DMA控制总线时，AEN输出逻辑1。把AEN连接在译码器的低电平使能端上，就保证了在CPU访问接口时AD574被选中，而在DMA控制周期数据采集系统是无效的。<br>
+      　　为了使用方便，ISA板卡的地址都设计成用户可设置的。通常，选用数据比较器实现地址编码，用来设定ISA板卡的地址（高位）。常用的数据比较器如74LS688，将数据比较器的一组数据输入端连接一组乒乓开关，另一组数据输入端连接到ISA总线的地址线上（见图6-16）。乒乓开关可以任意设定一组二进制编码，作为为该ISA板卡分配的地址（高位IO地址）。当ISA总线的地址线上出现一个地址时，数据比较器将它和开关设定的地址值相比较，如果相等，输出端（P=Q）#输出有效状态0，表示该板卡被选中。（P=Q）#连接板内的低位地址译码器，作为板内地址译码器的使能。图6-16表示了一个对3FFh（1024）以上地址编码的地址选择电路。<br>
+      <br>
+      
+    </td>
+  </tr>
+</table>
+</body>
+</html>

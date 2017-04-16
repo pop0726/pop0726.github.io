@@ -1,0 +1,28 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="pop">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" >
+  <tr> 
+    <td valign="top" class="pt9">1.程序查询方式：在I/O接口当中有一个反映接口状态的寄存器，在满足数据传送条件的情况下，状态寄存器会呈现一定的状态。程序查询方式就是通过执行程序，不断查询接口的状态，一旦发现外设做好数据传送的准备就转向执行数据传送程序。<br>
+      <br>
+      2.异步数据传输：异步方式又称为条件方式。异步方式传输时，字符是一帧一帧的传送，发送方和接收方没有统一的时钟控制，每一帧字符的传送靠起始位来同步。通信中，两个字符的时间间隔是不固定的，但在同一字符中的两个相邻代码间的时间间隔是固定的。<br>
+      <br>
+      3.同步数据传输: 同步方式也称作无条件传送方式。同步传输时，由一个统一的时钟控制发送方和接收方，因此字符间不需要同步位，字符一个接一个地传送。在没有字符时，也要发送专用的同步字符或者“空闲”字符。<br>
+      <br>
+      4.DMA：DMA即直接存储器存取（Direct Memory Access）。直接存储器存取控制方式是由DMA控制器来实现对存储器的直接访问，控制存储器与I/O设备之间或者存储器与存储器之间的数据传送。<br>
+      <br>
+      5.DMA通道：一般地，一个DMA控制器可以连接几个I/O接口。我们将DMA控制器中与某个I/O接口相关的部分称作一个通道。<br>
+      <br>
+      6.DMA随机请求传送：随机请求传送是8237A的一种传送方式。在该方式的传送过程中，每传送完一个字节，DMAC都需要测试DMA请求信号DREQ的状态。如果DREQ为有效状态，则继续进行DMA传送，直至字节计数器为0。如果DREQ为无效状态，DMAC便释放总线，并继续测试DREQ的状态，只有在DREQ回到有效状态以后，DMAC才继续控制数据传送。<br>
+      <br>
+      7.总线主：像CPU那样能够控制系统总线进行数据传输的部件称作总线主。常见的总线主还有DMA控制器。</td>
+  </tr>
+</table>
+</body>
+</html>

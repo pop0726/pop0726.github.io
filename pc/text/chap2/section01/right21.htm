@@ -1,0 +1,29 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" class="bg">
+<table width="100%" border="0" cellspacing="2" cellpadding="2">
+  <tr> 
+    <td class="pt9"><br>
+      <br>
+      　　非屏蔽中断是不受中断允许标志IF的影响的，不能用软件进行屏蔽。<br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      　　与非屏蔽中断不一样，可屏蔽中断要根据中断允许标志的设置来判断CPU是否能响应中断请求。当INTR信号有效，同时中断允许标志IF为1的时候，CPU才会响应中断去执行一个中断处理子程序。需要注意的是，不论是非屏蔽中断还是可屏蔽中断，CPU都是在每条指令的最后一拍去采样中断请求信号的。如果有中断请求，又符合中断响应条件，CPU将在执行完当前指令之后进入中断响应周期。也就是说在指令执行中是不可以中断的。<br>
+      <br>
+      　　在上面很多地方已经提到了DMA，在这里需要简单解释一下什么是DMA。DMA即“直接存储器访问”。在DMA方式下，外部设备利用专用的控制电路直接和存储器进行高速的数据传送，而不经过CPU。这样，传输时就不必进行CPU执行程序过程中完成的地址增量、计数器减量，以及在中断方式下CPU保护现场、恢复现场之类的操作，大大提高了数据传送的速度。<br>
+      　　在利用DMA方式进行数据传输时，DMA控制系统总线，因此在DMA开始工作之前，首先要向CPU发出申请总线的请求，令CPU让出总线。这个请求是由DMA设置HOLD信号有效产生的。</td>
+  </tr>
+</table>
+</body>
+</html>

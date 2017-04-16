@@ -1,0 +1,28 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="10" cellpadding="2">
+  <tr>
+    <td class="pt9" height="86"> <b>6.3.3 PCI /ISA 桥的负向译码</b><br>
+      　<b>1、ISA 桥的负向译码（Subtractive Decode）概念</b><br>
+      　　在典型的PCI系统（图6-2）中，由芯片组北桥和南桥连接微处理器、PCI设备以及扩展总线ISA上的设备。我们知道，当PCI上的主设备寻址PCI目标设备时，由PCI主设备发出寻址地址，PCI目标设备进行译码，被选中的目标设备和主设备进行交互。这一过程叫做正向译码。但是，如果PCI主设备要寻址一个驻留在ISA总线上的设备时，桥就带来了问题。主设备不知道是否有设备安装在ISA扩展槽上，即使知道，它也没有途径知道存储器或I/O所用地址的范围。在这种情况下，就引出了由桥执行负向译码的概念。 
+      <br>
+      　<b>2、 址设备在PCI/ISA桥中</b><br>
+      　　PCI主设备寻址嵌入在南桥（PCI / ISA）中的器件时，如访问时钟，南桥就会立即响应，进行译码，这也属于正向译码。<br>
+      　<b>3、 址设备在ISA 总线上</b><br>
+      　　当一个主设备寻址一个驻留在ISA总线上的设备，桥执行负向译码操作。在一个指定的时间周期内，如果没有其他PCI设备声明交易，PCI的扩展总线桥驱动DEVSEL＃有效，并且将交易转送到扩展总线上。扩展总线桥可以通过监督其他PCI设备产生的DEVSEL＃信号状态，来确定有没有其他PCI设备声明交易，如果扩展总线桥在一个交易的地址段之后的4个时钟周期没有采样到有效的DEVSEL＃，就说明没有其他PCI设备已经声明交易，扩展总线桥在交易的第五和第六个时钟周期之内驱动DEVSEL＃有效来声明交易。这就称作负向译码。然后，扩展总线桥启动 
+      ISA 总线上的访问（低于16M 存储器地址，低于16K 的I/O 地址传到ISA 总线）。<br>
+      <br>
+      <br>
+        　　　　<br>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

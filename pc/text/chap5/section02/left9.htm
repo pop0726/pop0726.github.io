@@ -1,0 +1,19 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9">　　如果主存页地址和任何一个标记域都不匹配，就产生了Cache的不命中，Cache控制器就要执行Cache行的替换，请求总线单元从主存中读取所需要的数据，覆盖掉与主存行序号相同的2路Cache行中的一行。Pentium的Cache控制器采用&quot;最近最少使用替换算法&quot;，从2路的行中选择最近最少使用的那一行进行替换。图5-8 
+      的左部，有一个128位的LRU标志，每位对应2个序号相同的目录项。LRU标志位记录了2个同序号行中最近最少使用行所在路的序号。从存储器读出数据进行Cache行替换的时候，根据LRU位指示的路序号，用新数据替换最近最少使用的那一行。例如，对应于第5行的LRU位为0，表示0路最近最少使用。如果需要在Cache中复制某一页存储器第5行的数据，那么就要将新数据填入0路的第5行。然后对LRU位更新，第5行的最近最少使用位变为1，1路的第5行成为最近最少使用行。<br>
+      　　数据更新以后，相关的目录项也要更新，要在标记域中记录源存储器的页号并修改MESI状态。<br>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

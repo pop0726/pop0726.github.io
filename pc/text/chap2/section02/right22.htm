@@ -1,0 +1,20 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" class="bg">
+<table width="100%" border="0" cellspacing="2" cellpadding="2">
+  <tr> 
+    <td class="pt9"><br>
+      　　　　<a href="../../../images/chap2/p2_2_3_2.gif" target="_blank"><img src="../../../images/chap2/p2_2_3_2.gif" width="395" height="386" border="0"></a><br>
+      　　　　　图2-33 分支目标缓冲器与指令预取单元<br>
+      　　Pentium具有两条预取指令队列。安排两条预取指令队列目的是为了提高指令预取效率，解决分支预测问题。在对被使能Cache的正常操作期间，指令预取器每从总线单元接收一行代码，便将它们放入一条预取指令队列。再由这条指令队列向流水线提供指令。两个指令队列之中每一时刻只有一个是有效的。指令被顺序地存放在有效的那个指令队列当中。这一过程一直持续进行，直到遇到一条分支指令。分支指令不是在预取指令队列中被预测是否会发生转移的，而是当分支指令到达指令执行级的译码级1时，由分支目标缓冲器的分支预测逻辑来进行判断的。如果预测分支指令将产生程序地址转移，则分支预测逻辑便将另一条目前不工作的指令队列激活，令指令预取器从分支转移的目标地址开始取指，往另一条指令队列顺序存放分支转移地址之后的指令。如果分支预测逻辑预测分支不会发生，则原来有效的指令队列继续工作。预取器继续在原先的指令队列中顺序存放指令。以上仅仅介绍的是指令预取和预取过程遇到分支指令对指令队列的操作问题，至于如何预测分支的发生以及如何根据预测结果的正确性进行操作将在下一节2.2.4中介绍。</td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9">　　分析了方式2的时序，就能清楚地了解方式2的工作过程。图4-14 是方式2的时序图。图中绿颜色标注的部分是和输出过程有关的信号和时序，红颜色标注的部分是和输入过程有关的信号和时序。CPU向端口写数据时，WR#有效。这一操作发生在向外设输出数据的中断服务程序之中。这次中断是由接口的输出缓冲器“空”（OBF# 
+      =1）引起的。写操作复位中断请求信号INTR，数据写入端口的同时，写脉冲的后沿（上升沿）置输出缓冲器满信号OBF#有效。OBF#通知外设，在外设数据线上的数据可以利用。外设接收到OBF#的有效信号以后，锁存在外设数据线上的数据。作为应答，外设置ACK#信号有效，回送给端口。ACK#信号复位端口的输出缓冲器满标志OBF#为1，OBF#无效指示输出缓冲器空。如果在CPU与输出设备的传送过程中，端口的IBF标志为无效状态，表示输入缓冲器空，该信号通知外部输入设备可以再一次送数据给端口。外设检测到该信号以后，将数据送到外设的数据线，并发出选通脉冲信号STB#将数据打入端口。同时，STB#置输入缓冲器满信号为有效状态并令INTR为1请求CPU中断（如果此时INTE2为1）。CPU响应中断以后，执行从端口（来自输入设备）读取数据的中断服务程序。读操作RD#信号复位INTR及IBF为0，撤除中断请求并指示输入缓冲器空。<br>
+      　　从图4-13 中断请求信号的产生逻辑可以看出，只要接口电路中“输出缓冲器空”或“输入缓冲器满”两状态之一成立，且它们相应的中断允许标志位INTE为有效状态，INTR便变为有效状态，产生对CPU的中断请求。CPU响应中断以后，通过读取C口状态（PC7和PC5）判断到底是输入设备还是输出设备引起的中断，进而转向相应的读写操作。</td>
+  </tr>
+</table>
+</body>
+</html>

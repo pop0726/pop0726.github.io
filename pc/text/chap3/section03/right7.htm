@@ -1,0 +1,31 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="bg">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9" > 　　<br><br>
+      　　CLK是8237A的时钟信号，要求CLK低于等于5MHZ，CLK可以与系统时钟信号连 接。在8086／8088系统中，必须将系统时钟反相，提供8237正确工作。<br><br><br>
+      <br>
+      　　当DMA控制器作为从模块时，CPU通过该引脚选择8237对其进行编程。<br>
+      <br>
+      　　RESET为复位信号。系统通过该信号清除8237的命令、状态、请求寄存器，临时存 储器，它还清除高／低触发器并设置屏蔽寄存器。 <br>
+      <br><br>
+      　　其作用与8086的READY相同。在访问速度较慢的存储器或I／O器件时，可以通过在READY端上加入负脉冲信号，使8237插入等待状态，以延长读写周期。<br>
+      <br>
+      　　对于CPU来说，任意一个DMA通道所产生的DMA请求信号都是一样的，CPU的应答也是没有区别的。也就是说，通道的区分和管理由DMA控制器完成，CPU交出总线控制权后，由DMA控制器来控制相应通道的DMA传输。<br>
+      <br><br>
+      　　这些输入信号的极性是可编程的，所以它们可以是高有效也可以是低有效信号。<br><br><br>
+      <br>
+      　　当DMA控制器为主模块时，DB7~DB0在T1状态将当前地址寄存器中的高8位输出到地址锁存器，和A7～A0输出的地址低8位一起构成16位的存储器地址。当DMA控制器为从模块时，CPU可以通过控制IOW#或者IOR＃信号，实现对DMA控制器的寄存器中进行编程，或者从DMA控制器的寄存器中读数据。 
+    </td>
+  </tr>
+</table>
+</body>
+</html>

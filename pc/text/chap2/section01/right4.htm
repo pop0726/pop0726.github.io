@@ -1,0 +1,26 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" class="bg">
+<table width="100%" border="0" cellspacing="2" cellpadding="2">
+  <tr>
+    <td class="pt9">
+      <br>　　具体地讲，BIU要不断从内存读取指令送到指令队列，以便EU从队列中取指执行。当EU执行指令时，如果需要操作数，BIU则要配合EU从指定的内存单元或者外设端口中读取数据，将该数据传送给EU，或者把EU的操作结果传送到指定的内存单元或外设端口中。<br><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0" width="420" height="370" >
+        <param name="movie" value="../../../flash/2_2.swf">
+        <param name="quality" value="high">
+		
+        <embed src="../../../flash/2_2.swf" width="420" height="370" quality="high"  pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" ></embed></object><br>
+        　　为了系统便于维护，存储器中的指令和数据通常是分区域存放的。课文中已经解释了存储器分段的意义。我们仅以取指为例，说明BIU中各个部件的作用。CS是代码段的段寄存器。一条指令的物理地址就是根据代码段寄存器CS内容和指令指针寄存器IP的内容得到的。具体计算是通过地址加法器进行的，地址加法器将段寄存器的内容左移4位（乘以16），然后再与IP的内容相加。得到指令的物理地址。例如：<br>
+        　　设CS＝ED00H，IP=0020H，计算物理地址时，先将CS左移4位，即得到ED00 0H，再与IP内容相加，即ED00 0H + 0020H 
+        = ED020H，ED020H就是该指令的物理地址。<br>
+        　　然后，由总线控制逻辑驱动地址信号和控制信号，读取ED020H单元的指令。取到指令以后，送入指令队列的队尾，备EU执行。EU总是从指令队列的队首得到指令。BIU在EU执行指令的同时，不断从存储器顺序读取一条或多条指令，陆续将指令队列添满。这样，EU就可以连续执行指令，实现指令级的流水作业。<br></td>
+  </tr>
+</table>
+</body>
+</html>

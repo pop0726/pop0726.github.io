@@ -1,0 +1,60 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="bg">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9">　　表5-5 当前Cache 目录状态<br>
+      <table border=0 cellpadding=1 cellspacing=1 bgcolor="#000000">
+        <tr bgcolor="#FFFFFF" class="pt9"> 
+          <td align=center valign=top >目录状态</td>
+          <td align=center valign=top >目录项2</td>
+          <td align=center valign=top >目录项4</td>
+          <td align=center valign=top >目录项7C</td>
+        </tr>
+        <tr bgcolor="#FFFFFF" class="pt9"> 
+          <td align=center valign=top >LRU位</td>
+          <td align=center valign=top >1</td>
+          <td align=center valign=top >1</td>
+          <td align=center valign=top >0</td>
+        </tr>
+        <tr bgcolor="#FFFFFF" class="pt9"> 
+          <td align=center valign=top >目录0状态位</td>
+          <td align=center valign=top >S</td>
+          <td align=center valign=top >S</td>
+          <td align=center valign=top >1</td>
+        </tr>
+        <tr bgcolor="#FFFFFF" class="pt9"> 
+          <td align=center valign=top >目录1状态位</td>
+          <td align=center valign=top >S</td>
+          <td align=center valign=top >E</td>
+          <td align=center valign=top >1</td>
+        </tr>
+        <tr bgcolor="#FFFFFF" class="pt9"> 
+          <td align=center valign=top >目录0标记域</td>
+          <td align=center valign=top >002A1</td>
+          <td align=center valign=top >002A1</td>
+          <td align=center valign=top >000F5</td>
+        </tr>
+        <tr bgcolor="#FFFFFF" class="pt9"> 
+          <td align=center valign=top >目录1标记域</td>
+          <td align=center valign=top >00FB6</td>
+          <td align=center valign=top >0385C</td>
+          <td align=center valign=top >00F49</td>
+        </tr>
+      </table>
+      　　译码后在Cache目录中查找，Cache控制器将地址分解，得到U、V流水线要访问存储器的行域值为2和4，再从目录中访问第2和4个目录项，将存储器的页面地址与目录项中记录的地址相比较，没有找到值为00000的项，就发生了2次内部Cache的不命中（见图5-14）。于是，同时产生了2个对处理器总线单元的Cache行填充请求，其中U流水线的请求高于V。接到Cache行填充请求以后，处理器运行什么总线周期取决于几方面的因素：目标地址是否是能够进行高速缓存的；L2 
+      Cache中是否存在目标地址的副本，是否必须进行对主存储器的访问。下面的例子将着重讨论在不同情况下Pentium运行的总线周期。前提是假设目标地址是能够进行高速缓存的。 
+      <br>
+      <img src="../../../images/chap5/p5_2_3_2.gif"><br>
+      　　　　图5-14 读周期内部数据Cache不命中 </td>
+  </tr>
+</table>
+</body>
+</html>

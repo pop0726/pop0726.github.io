@@ -1,0 +1,37 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="pop">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" >
+  <tr> 
+    <td valign="top" class="pt9"><br>
+      1. Cache：就是我们所说的高速缓存，其特点是存取速度快，一般是小容量的SRAM。在分层存储系统中，通过高速Cache的应用来提高存储系统的整体性能。<br>
+      <br>
+      2.直接映射：直接映射就是把主存的每一块分别映射到某一个固定可用的Cache行中。它们的映射关系是：Cache行号 = 主存块号 mod Cache行数<br>
+      <br>
+      3.相联映射：相联映射允许每个主存块装入Cache的任意一行，主存块在Cache各行中的存放是无序的，标记域便成了标识主存块的唯一标志。<br>
+      <br>
+      4.组相联映射：组相联映射是直接映射和相联映射方法的结合。在组相联映射的结构中，将Cache分为m组，每组r’行，主存中共有s个数据块，每s/r’个数据块可以分别装入某一相同行号的m个Cache行中。<br>
+      <br>
+      5.写直达：写操作对Cache和主存储器同时进行，从而保证主存储器数据的有效性。<br>
+      <br>
+      6.写回：写操作只对Cache进行，对写入行设置修改标志。当某一个数据块要被替换时，只有他的修改标志被置位时，才将他回写到主存储器。<br>
+      <br>
+      7.Cache一致性：Cache一致性是指，Cache行的数据能够和所有与它的地址有关联的存储单元保持数据保持一致。<br>
+      <br>
+      8.Cache命中：每当CPU需要访问某个存储器单元时，首先在Cache中查找是否存在该存储单元的副本，如果存在则是Cache命中。<br>
+      <br>
+      9.Cache替换算法：当Cache访问不命中，需要对主存访问并将数据块装入Cache时，Cache行中原来的数据将被替换。对于组相联映射和相联映射，主存中特定块可以对应多组或任意Cache行，Cache替换算法就是用来决定替换哪一Cache行。<br>
+      <br>
+      10.段描述符：段描述符用于提供段的基址、段长、段类型以及当前特权级等段的信息。它由2个双字即64字节组成。<br>
+      <br>
+      11.分页技术：在保护方式下，处理器将线性地址空间通过分页间接映射到一个较小的物理存储空间和磁盘存储器中。在采用分页技术时，处理器将线性地址空间划分为固定大小的页面，这些页面能够被映射到物理存储器和磁盘存储器中。</td>
+  </tr>
+</table>
+</body>
+</html>

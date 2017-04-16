@@ -1,0 +1,20 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" class="bg">
+<table width="100%" border="0" cellspacing="2" cellpadding="2">
+  <tr> 
+    <td class="pt9"><br>
+          　　了解了总线控制器8288的原理与作用以后，我们不难理解图2-15最大模式的典型配置的连接方法。<br>
+      　　注意地址锁存器8282的锁存信号STB和数据驱动器8286的输出使能OE<sup>#</sup>、数据传送方向控制端T，它们不是象最小模式系统配置（图2-10）那样连接CPU的ALE、DEN<sup>#</sup>和DT/R<sup>#</sup>，由CPU直接控制。而是连接总线控制器8288，由8288产生与CPU类似的控制信号来进行控制的。只是8288输出的DEN高电平有效。8286的OE<sup>#</sup>是由8288的DEN和8259的SP<sup>#</sup>/EN<sup>#</sup>相与取非来控制的。8259是中断控制器，当CPU响应可屏蔽中断INTR时，由8259将中断类型码通过数据总线送往CPU，此时不能允许8286的被选通， 
+      8259的SP<sup>#</sup>/EN<sup>#</sup>输出的有效电平将8286封锁。因此，只有当8288的DEN和8259的SP<sup>#</sup>/EN<sup>#</sup>同时为高时，8286的OE<sup>#</sup>才输入低电平而被选通。8288的S2<sup>#</sup>、S1<sup>#</sup>、S0<sup>#</sup>则直接与CPU相连，在CPU的S2<sup>#</sup>、S1<sup>#</sup>、S0<sup>#</sup>控制下，产生不同的总线控制信号。</td>
+  </tr>
+</table>
+</body>
+</html>

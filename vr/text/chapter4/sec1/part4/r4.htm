@@ -1,0 +1,32 @@
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+<STYLE TYPE="text/css">
+<!--
+BODY {background-image: URL(../../../../image/index/bg.gif);
+background-position: right;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr> 
+    <td><span class="text"> 　　对二维虚拟演播室，虚拟摄像机应该跟踪真实摄像机的左右摇摆（A），上下俯仰（B），以及前后推拉（C）。其跟踪函数为：T2=f（A，B，C）。对三维虚拟演播室，还应该跟踪机位横向移动（D），机位纵向移动（E），机座高度升降（F），摄像机旋转（G），以及镜头光圈变动（H）。其跟踪函数为：T3=f（A，B，C，D，E，F，G，H）。跟踪函数是复杂的非线性函数，而且摄像机旋转（G）和镜头光圈变动（H）难以得到。</span><span class="text"><br>
+      　　第一种方法是传感器跟踪技术。它使用安装在镜头上的编码传感器，检测聚焦（Focus）、变焦（Zooming）、及光圈（Iris）；采用安装在云台上的基座旋转编码器，检测机头摇移（Panning）和俯仰（Tilt）；采用在云台上安装辅助摄像机扫描拍摄固定在天花板上或墙上的同心环标或条码，检测云台的位置。这些编码数据，在视频场的逆程期间送入摄像机定位的分析计算机，计算摄像机的位置、方向和视角。然后，译码成位置参数指令，通过虚拟摄像机控制设备控制虚拟背景图像，跟踪真实图像。传感器的性能，直接影响到跟踪精度、跟踪分辨率、跟踪速度。 
+      <br>
+      同步跟踪系统现有的产品有，8个传感器的托马系统（Thoma System），Radamec虚拟现实编码头（Radamec Virtual Reality 
+      Encoder Head）。<br>
+      　　同步跟踪技术的优点是：计算延迟时间3帧左右，跟踪速度快，跟踪精度高。其缺点是：摄像机机位固定，更换位置要求重新调整；摄像机锁定和镜头校准困难，限制了拍摄自由度；对摄像机机型和云台有要求，限制了选择范围；增加传感器会加大经费。<br>
+      　　第二种方法是图形识别跟踪技术。在真实环境中蓝幕上画上两种蓝色深浅不同、线条粗细不等、线间空格不均匀的网格图像。1994年，欧洲BBC与Radamec的系统进行了试验。可以根据真实图像的分析，计算摄像机的机头和镜头参数，但还不能计算摄像机位置参数。1996年，以色列Gamir公司以每组4个相邻网格的组合为识别的最小单位，而且各组互不相同。通过网格图案特征的分析，可以得到摄像机的机头和镜头参数，以及摄像机位置参数。<br>
+      　　图形识别技术的计算量较大，导致虚拟图像比前景图像滞后6-7帧，而传感器方式的延迟只有3帧。为了保证前景运动和背景运动的时间同步性，前景图像要求经过硬件的延时器。<br>
+      　　图形识别方式的优点是：对摄像机机型无限制，无需附加设备，不必改造演播室。图形识别方式的缺点是：跟踪精度低，摄像机散焦或网格在3格以下时跟踪失常。为了保持网格的高清晰度，限制了摄像机景深；为保证网格的数量，限制了演员的活动范围；为保证网格的识别，要求色键的高质量。</span></td>
+  </tr>
+</table>
+</body>
+</html>

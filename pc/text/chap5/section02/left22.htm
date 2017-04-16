@@ -1,0 +1,19 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFF3C4">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9">　　如果系统中其他总线主读/写系统存储器，处理器和L2控制器将根据总线主的不同操作进行不同处理，下面分别加以讨论：<br>
+      　　●总线主从L2 Cache一个状态为M的行中读数据<br>
+      　　当其他总线主设备从存储器的某一行读取数据，这个存储器行在L2中也存在副本，L2控制器就监听那个总线主发出的地址。如果L2相应行当前的状态为M，表示行中的数据已被修改，也就是说那个总线主要读的那行存储器数据已经过时。这时，L2控制器阻止那个总线主读取数据，将目标地址传给处理器，让处理器也来监听这个地址，因为L2控制器不知道上次写直达以后，L1的对应行是否也经过修改。<br>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

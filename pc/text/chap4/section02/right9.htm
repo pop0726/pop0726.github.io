@@ -1,0 +1,19 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+<link href="../../../css/weiji.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="bg">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="pt9">
+      　　当A端口设定为方式1，并且作为输入端口，C端口的PC4、PC5和PC3分别用做A端口的数据选通信号STBA#、输入缓冲器满IBFA和中断请求信号INTRA。当B口也设定为方式1输入，C口的PC2、PC1和PC0分别用做B口的数据选通STBB#、输入缓冲器满IBFB和中断请求信号INTRB。通过PC2置位B端口的中断允许触发器INTEB。C口剩余的2位PC6和PC7只能工作在方式0。<br>
+      　　A、B端口的控制信号是类似的。我们以A端口的控制信号为例来看。选通信号STBA#为输入引脚，低电平有效，是由外设提供给82C55A的，当该信号有效时，外设送来的一个数据就被打入输入端口。于是输入缓冲器中就有了一个新的数据。输入缓冲器满信号IBFA为输出引脚，高电平有效，该信号输出为1指示来自外设数据已经装入相应端口，存放在输入缓冲器中。在STBA#有效时将IBFA置位，读信号RD#的上升沿将其复位。这两个信号用做与外设进行联络。中断请求信号INTRA，为输出引脚，高有效，用来向CPU申请中断，以中断方式控制数据传送。从图4-9中可以看出，当IBFA有效时，如果中断允许标志INTEA同时有效，则INTRA为1。RD#信号的下降沿将INTRA复位。INTEA是A口内部的中断允许触发器，用来控制中断允许或者中断屏蔽。这个信号没有外部引出端，是由软件通过对C端口的PC4进行设置和复位指令来实现对中断的控制的，该位置1表示中断允许。这就为CPU在中断方式下工作提供了条件。如果要使用中断功能，就要用软件把相应的端口设置为中断允许状态。当需要CPU进行处理时，比如一旦外设向CPU输入的数据已经打入I/O接口，便INTRA为1状态，向CPU申请中断，CPU响应中断以后，可以通过执行读指令，发出RD#信号来读取数据，读信号RD#的下降沿把INTR<sub>A</sub>复位，准备下一次传送。</td>
+  </tr>
+</table>
+</body>
+</html>
