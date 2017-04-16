@@ -1,0 +1,148 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url('../../../img/text/bg.jpg');
+background-repeat: no-repeat;
+background-attachment: fixed; background-position-y:50%
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">　</td>
+    <td>　</td>
+    <td width="10">　</td>
+  </tr>
+  <tr>
+    <td width="10">　</td>
+    <td> <!-- #BeginEditable "1" --><font color="#CC0000">4. 利用游标修改数据</font><br>
+      &nbsp;
+      SQL Server中的 UPDATE语句 和 DELETE语句也支持游标操作，它们可以通过游标修改或删除游标基表中的当前数据行。<br>
+      UPDATE语句的格式为：<br>
+      UPDATE table_name<br>
+      SET 列名=表达式}[,…n]<br>
+      WHERE CURRENT OF cursor_name<br>
+      DELETE语句的格式为：<br>
+      DELETE FROM table_name<br>
+      WHERE CURRENT OF cursor_name<br>
+      说明:<br>
+      CURRENT OF cursor_name：<br>
+      &nbsp;表示当前游标指针所指的当前行数据。CURRENT OF 只能在UPDATE和DELETE语句中使用。<br>
+      &nbsp;注意：<br>
+      &nbsp;
+      o使用游标修改基表数据的前提是声明的游标是可更新的。 <br>
+      &nbsp;
+      o 对相应的数据库对象（游标的基表）有修改和删除权限。 
+      <p><font color="#CC0000">5. 关闭游标</font><br>
+        &nbsp;
+        关闭游标后，游标区的数据不可再读。CLOSE语句关闭已打开的游标，之后不能对游标进行读取等操作，但可以使用OPEN语句再次打开该游标。<br>
+        CLOSE语句的格式为：<br>
+        CLOSE 游标名<br>
+        例如：关闭tcursor游标如下描述：<br>
+        CLOSE tcursor</p>
+      <p><font color="#CC0000">6 删除游标语句</font><br>
+        DEALLOCATE语句删除定义游标的数据结构，删除后不可再用。语句格式：<br>
+        DEALLOCATE 游标名<br>
+        例如，删除tcursor游标<br>
+        DEALLOCATE tcursor</p>
+      <p>例1,读JS2001班的学生的学号和姓名：<br>
+        #define MAX 30<br>
+        EXEC SQL BEGIN DECLARE SECTION;<br>
+        char TN[12], FU[20]； //定义主变量//<br>
+        EXEC SQL END DECLARE SECTION; <br>
+        char tarn1[30][12],tarn2[30][20]； //定义 C 变量//<br>
+        . . . . . .<br>
+        EXEC SQL //执行SQL语句，定义游标//<br>
+        DCLARE Scursor CURSOR FOR //声明游标Scursor//<br>
+        SELECT sno,sname //查询sno,sname//<br>
+        FROM student //对student表chax 查询//<br>
+        WHERE sclass = 'JS2001'； //sclass＝'JS2001'的班级//<br>
+        EXEC SQL OPEN Scursor ； //打开游标//<br>
+        for (i=0; i&lt;MAX; i++) <br>
+        { EXEC SQL FETCH FROM Scursor<br>
+        INTO @TN, @FU； //取到宿主变量//<br>
+        tarn1[i]= TN; //赋值到C数组变量// <br>
+        tarn2[i]= FU;<br>
+        }<br>
+        .................... <br>
+        EXEC SQL CLOSE Scursor ； //关闭游标//<br>
+        EXEC SQL DEALLOCATE Scursor ； //删除游标//</p>
+      <p>例2，定义游标，使结果集包括 pubs 数据库的 authors 表中的所有行和列。因为没指定 SCROLL 选项，FETCH NEXT 
+        是唯一可用的提取选项。<br>
+        DECLARE authors_cursor CURSOR FOR //声明游标authors_cursor //<br>
+        SELECT * FROM authors <br>
+        OPEN authors_cursor //打开游标authors_cursor //<br>
+        FETCH NEXT FROM authors_cursor //读游标authors_cursor中的一行 //<br>
+        .................... </p>
+      <p>例3, 定义和使用滚动游标<br>
+        DECLARE tcursor SCROLL CURSOR FOR <br>
+        SELECT tname, cname FROM teacher ,couse<br>
+        WHERE teacher.tno = couse.tno;<br>
+        OPEN tcursor; <br>
+        取tcursor中当前位置向下的第二行数据<br>
+        FETCH RELATIVE 2 FROM tcursor<br>
+        取tcursor中最后一行数据<br>
+        FETCH LAST FROM tcursor<br>
+        取tcursor中当前位置向前的第4行数据<br>
+        FETCH RELATIVE -4 FROM tcursor</p>
+      <p>例4 利用 @@FETCH_STATUS 控制一个 WHILE 循环中的游标活动。<br>
+        DECLARE S_Cursor CURSOR FOR <br>
+        SELECT sname, sno FROM student <br>
+        OPEN S_Cursor <br>
+        FETCH NEXT FROM S_Cursor <br>
+        WHILE @@FETCH_STATUS = '000000'<br>
+        BEGIN FETCH NEXT FROM S_Cursor END<br>
+        CLOSE S_Cursor <br>
+        DEALLOCATE S_Cursor </p>
+      <p>例5，职工普调工资，从最低工资调起，每人工资长10%，但工资总额不能超过50万元。当调完某个职工工资后，如果工资总额达到或超过50万元，就不再调了，另外，如果职工全部调了一遍，工资总额还没到50万元，也到此为止。现有职工表emp，定义了一个游标cl,游标的查询语句取出职工号和工资值，并按增序排列。下面是程序代码： 
+        <br>
+        void addsalary()<br>
+        { EXEC SQL BEGIN DECLARE SECTION //声明SQL变量//<br>
+        char empno[8], e_sno，SQLSTATE[6]；<br>
+        float s_sal, e_sal；<br>
+        EXEC SQL END DECLARE SECTION; //声明SQL变量完//<br>
+        EXEC SQL DECLARE cl CURSOR FOR //定义游标 cl ,对emp表的eno,sal列可以作任何操作<br>
+        SELECT eno, sal <br>
+        FROM emp <br>
+        ORDER BY sal ASC;<br>
+        EXEC SQL OPEN cl; //打开游标/<br>
+        EXEC SQL SELECT SUM(sal) INTO @s_sal FROM emp; //取工资总和到s_sal <br>
+        while(s_sal &lt; 500000.00)<br>
+        {<br>
+        EXEC SQL FETCH FROM cl<br>
+        INTO @e_sno , @e_sal; //从游标中读出的数据放入e_sno,e_sal变量<br>
+        If(SQLSTATE='02000') BREAK; //读完记录，退出//<br>
+        EXEC SQL UPDATE emp <br>
+        SET sal=sal*1.1 //游标内容更新，将empno=e_sno相应的sal*1.1<br>
+        WHERE empno=@e_eno;<br>
+        s_sal = s_sal+ e_sal *0.1; //计算工资总和到s_sal<br>
+        };<br>
+        EXEC SQL CLOSE cl; /关闭游标/} </p>
+      <p>&nbsp; 　SQL Server提供两种游标应用接口方法：第一种是符合ANSI标准的SQL游标语句，它们可以实现声明、打开、读取或关闭游标操作，这些语句可用在Transact_SQL语句或存储过程内；第二种是库函数形式，客户端的DB_Library 
+        或ODBC应用程序可以调用这些函数。<br>
+        &nbsp; 　游标语句增强了Transact_SQL对集合数据的处理能力，在SQL Server中，通过游标还可以修改或删除基表中的数据。<br>
+        <br>
+        <font color="#CC0000">7，使用游标时应注意的问题：</font><br>
+        　(1) 尽管使用游标比较灵活，可以实现对数据集中单行数据的直接操作，但游标会在下面几个方面影响系统的性能：<br>
+        　　-使用游标会导致页锁与表锁的增加<br>
+        　　-导致网络通信量的增加<br>
+        　　-增加了服务器处理相应指令的额外开销<br>
+        　(2) 使用游标时的优化问题：<br>
+        　　-明确指出游标的用途：for read only或for update<br>
+        　　-在for update后指定被修改的列<br>
+      </p>
+      <!-- #EndEditable --></td>
+    <td width="10">　</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

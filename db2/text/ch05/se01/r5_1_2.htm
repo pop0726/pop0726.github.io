@@ -1,0 +1,71 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" --> 　　什么样的关系模式是一个好的关系模式呢？这就是我们下面要讨论的问题。我们先给出一个关系模式的例子。该模式的一个关系如表5-1所示。<br>
+      　　设有零件供应商关系模式如下：<br>
+      　　供应商（供应商名称，供应商地址，供应商电话，供货名称，供货单价）<br>
+      　　关键字（供应商名称，供货名称）<br>
+      <br>
+      　　<span class="tubiaoti">表5-1 供应商关系</span><br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td align="center" class="pt9-black"><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="400" height="300">
+              <param name=movie value="../../../swf/ch5/5-1.swf">
+              <param name=quality value=high>
+              <param name="wmode" value="transparent">
+              <embed src="../../../swf/ch5/5-1.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="400" height="300" wmode="transparent">
+              </embed> 
+            </object></td>
+        </tr>
+      </table>
+      　　<font color="#5a5aad">在供应商的关系模式中，一个供应商可以供应多种货物，同一种货物也可以由多个供应商供应，所以供应商和供货名称之间是多对多的联系。因此，一个供应者供应一种货物就构成该关系中的一个元组，同一个供应商如果供应多种货物名称，在该关系中就有多个元组存在。所以，决定该关系中一个元组值的唯一关键字属性组是供应商名称和供货名称的组合。</font><br>
+      　　对于关系模式供应商，我们会发现这是一个&quot;不好&quot;的关系模式，之所以说是不好的关系模式，因为它有如下的一些问题：<br>
+      　（1） 数据冗余：<br>
+      　　上面表中供应商的信息，如供应商名称、供应商地址等对每种供货名称都要重复输入。<br>
+      　　<font color="#5a5aad">在上面供应者的关系表中，一个供应者每供应一种货物，他的名称、地址和电话号码就要重复输入一次。如果一个供应商供应多种货物，他的名称、地址和电话号码即使不改变，也要输入多次，即造成数据冗余，又会引起输入上的麻烦。</font><br>
+      　（2） 更新异常：<br>
+      　　更新每个供应商地址时，要注意修改多条记录。<br>
+      　　<font color="#5a5aad">由于数据冗余，每个供应商的地址和电话存在于多个元组中，当更新一个供应商的地址或电话时，必须注意更新多条元组，否则会产生同一个供应商有不同的地址或电话，使数据库的数据与事实不符，产生了数据的不一致性。</font><br>
+      　（3） 插入异常：<br>
+      　　目前没有供货的供应商的信息，如供应商的名字、供应商的地址、电话都无法保存。因为供货名为空。码为空的记录不能存在。<br>
+      　　<font color="#5a5aad">如果某个供应商目前没有供应任何货物，该供应商的地址，名称和电话号码无法在供应商的关系中记录下来。因为，供应商的名称和供货名称共同组成供应者关系的主码，没有供货名称，相当于主码的一部分为空值，码值的一部分为空的元组不能够插入到关系中去，造成插入异常。</font><br>
+      　（4） 删除异常：<br>
+      　　如果一个供应商供应的货物 被删除，该供应商的名字、供应商的地址和电话也被丢失。<br>
+      　　<font color="#5a5aad">如果一个供货商供应的所有货物被删除，则该供应者的名称，地址，电话号码等信息也必须被删除。因为没有供货的供应商的信息因为其供货名称为空，供货人的信息也不能保留在此关系中，这就是删除异常。 
+      </font><br>
+      　　因为上述关系模式存在数据冗余，会引起更新异常，插入异常和删除异常等，所以这是一个不好的关系模式。如果把上述关系模式改造一下，把它分解为如下两个模式：<br>
+      　　供应商（供应商名称，供应商地址，供应商电话）<br>
+      　　供应（供应商名称，供货名称，供货单价）<br>
+      　　<font color="#5a5aad">在这两个模式中，数据的冗余大大减少，而且消除了更新异常，插入异常和删除异常现象。因为每个供应商的信息只在供应商表中用一个元组值记录下来，改变供应商的地址或电话号码只需改变这一个元组值即可。该关系的关键字是供应商名称。供应关系模式中的主关键字是供应商名称和供货名称。每个供应商供应了一种货物，就在供应关系中插入一个相应的元组。如果某供应商没有供货，或者他的供货全部被删除了，在供应关系表中就没有了相应的元组，但是供应商的信息在供应商表中仍然存在。当然，如果一个供应商的信息从供应商表中全部被删除，在供应关系中也就不能存在被删除供应商的供应信息。因为供应关系中的供应商名称来自于供应商关系表。 
+      </font><br>
+      　　如何构造一个好的关系模式呢？简单地说，就是消除上面提到的数据冗余，更新异常，插入异常和删除异常的模式，这种模式就是一个比较好的模式。上述模式之所以会发生插入异常和删除异常，是因为在这个模式中，属性间的函数依赖存在一些不好的性质。如何分析一个关系模式有哪些不好的性质，如何消除这些不好的性质，把一个不好的关系模式分解改造为一个好的关系模式，这就是关系数据库设计过程中要讨论的规范化理论问题。<br>
+      <!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

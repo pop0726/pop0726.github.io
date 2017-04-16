@@ -1,0 +1,59 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" --> 
+      <p>　　分布式事务必须满足传统事务的特性，即原子性，一致性，分离性和持久性。但是分布式事务处理过程中，某些场地(Server)可能发生故障，或者由于网络发生故障而无法访问到某些场地。为了防止分布式系统部分失败时产生数据的不一致性。在分布式事务的控制中采用了两阶段提交协议（Two-Phase 
+        Commit Protocol）。即事务的提交分为两个阶段：<br>
+        <br>
+        　　预提交阶段(Pre-Commit Phase)<br>
+        　　决策后阶段（Post-Decision Phase）<br>
+        <br>
+        　　<font color="5a5aad">两阶段提交用来协调参与一个更新中的多个服务器的活动，以防止分布式系统部分失败时产生数据的不一致性。例如，如果一个更新操作要求位于三个不同结点上的记录被改变，且其中只要有一个结点失败，另外两个结点必须检测到这个失败并取消它们所做的改变。<br>
+        <br>
+        　　为了支持两阶段提交，一个分布式更新事务中涉及到的服务器必须能够相互通信。一般来说一个服务器会被指定为&quot;控制&quot;或&quot;提交&quot;服务器并监控来自其它服务器的信息。<br>
+        <br>
+        　　在分布式更新期间，各服务器首先标志它们已经完成（但未提交）指定给它们的分布式事务的那一部分，并准备提交（以使它们的更新部分成为永久性的）。这是两阶段提交的第一阶段。如果有一结点不能响应，那么控制服务器要指示其它结点撤消分布式事务的各个部分的影响。如果所有结点都回答准备好提交，控制服务器则指示它们提交并等待它们的响应。等待确认信息阶段是第二阶段。在接收到可以提交指示后，每个服务器提交分布式事务中属于自己的那一部分，并给控制服务器发回提交完成信息。</font><br>
+        <br>
+        　　在一个分布式事务中，必须有一个场地的Server作为协调者(coordinator)，它能向其它场地的Server发出请求，并对它们的回答作出响应，由它来控制一个分布式事务的提交或撤消。该分布式事务中涉及到的其它场地的Server称为参与者（Participant）。</p>
+      　　事务两阶段提交的过程如下：<br>
+      　　● 两阶段提交在应用程序向协调者发出一个提交命令时被启动。这时提交进入第一阶段，即预提交阶段。在这一阶段中：<br>
+      　　(1) 协调者准备局部（即在本地）提交并在日志中写入&quot;预提交&quot;日志项，并包含有该事务的所有参与者的名字。<br>
+      　　(2) 协调者询问参与者能否提交该事务。一个参与者可能由于多种原因不能提交。例如，该Server提供的约束条件（Constraints）的延迟检查不符合限制条件时，不能提交；参与者本身的Server进程或硬件发生故障，不能提交；或者协调者访问不到某参与者（网络故障），这时协调者都认为是收到了一个否定的回答。<br>
+      　　(3) 如果参与者能够提交，则在其本身的日志中写入&quot;准备提交&quot;日志项，该日志项立即写入硬盘，然后给协调者发回一�&quot;已准备好提交&quot;的回答。<br>
+      　　(4) 协调者等待所有参与者的回答，如果有参与者发回否定的回答，则协调者撤消该事务并给所有参与者发出一个&quot;撤消该事务&quot;的消息，结束该分布式事务，撤消该事务的所有影响。<br>
+      <br>
+      　　● 如果所有的参与者都送回&quot;已准备好提交&quot;的消息，则该事务的提交进入第二阶段，即决策后提交阶段。在这一阶段中：<br>
+      　　(1) 协调者在日志中写入&quot;提交&quot;日志项，并立即写入硬盘。<br>
+      　　(2) 协调者向参与者发出&quot;提交该事务&quot;的命令。各参与者接到该命令后，在各自的日志中写入&quot;提交&quot;日志项，并立即写入硬盘。然后送回&quot;已提交&quot;的消息，释放该事务占用的资源。 
+      <br>
+      　　(3) 当所有的参与者都送回&quot;已提交&quot;的消息后，协调者在日志中写入&quot;事务提交完成&quot;日志项，释放协调者占用的资源 
+      。这样，完成了该分布式事务的提交。<!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

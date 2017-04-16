@@ -1,0 +1,37 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body  bgcolor="#FFFFFF" bgproperties=fixed background="../../../../image/moban/15.gif">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" height="8">
+        <tr> 
+          <td class="text" align="left"> 
+            <p><span class="text">��</span><span class="part">1、问题的提出</span><span class="text"><br>
+              ��所谓的参照完整性就是说一个关系中给定属性集的取值都来自于另一关系中某个属性集的取值。例如，关系account和branch的关系模式分别是Account-schema和Branch-schema：<br>
+              Account-schema = (branch-name, account-number, balance)<br>
+              Branch-schema = (branch-name, branch-city, assets)<br>
+              针对上述关系模式，以下两种情况是完全不同的：<br>
+              ⑴关系account中branch-name的属性值有一个为Tsinghua，它在关系branch中是不存在的；<br>
+              ⑵关系branch中branch-name的属性值有一个为Peking，但是它从来都没有在关系account中出现过。<br>
+              ��对于第⑵种情况来说是合理的，因为即使一个银行的分支机构已经存在，也不一定有客户在该机构申请帐号办理存款；而对于第⑴种情况来说就有问题了，因为该分支机构还不存在，却已经有客户在该机构申请帐号办理存款了。因此，在数据库中要禁止第⑴种情况出现。<br>
+              <br>
+              �</span><span class="part">�2、参照完整性的形式化定义</span><span class="text"><br>
+              ��假设关系r1(R1)和r2(R2)的主码分别为K1和K2。称R2的子集a为参照关系r1中K1的外码，是要求对r2中的任意元组t2，均存在r1中的元组t1，使得：<br>
+              ��<font size="2">t</font><font size="-5">1</font>[<i>K<font size="-5">1</font></i>] 
+              = <font size="2">t</font><font size="-5">2</font>[α]<br>
+              这种要求就称为参照完整性约束，或子集依赖。子集依赖也可以表示为：<br>
+              ��<img src="../../../../image/title/05/02.gif" width="104" height="18"><br>
+              一般来说，α是等于<i>K<font size="-5">1</font></i>的！</span></p>
+            </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

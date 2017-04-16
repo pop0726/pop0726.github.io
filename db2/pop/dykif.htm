@@ -1,0 +1,254 @@
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../img/pop/bg.gif">
+<table width="95%" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td><span class="biaoti_1">问题：</span><span class="pt9-black"><br>
+      <a name="top"></a>1．</span><a href="dykif.htm#1" class="pt9-black"><span class="pt9-black">不同的Cax之间数据集成和交换的三个级别的含义是什么? 
+      </span></a><span class="pt9-black"><br>
+      <br>
+      2．</span><a href="dykif.htm#2"><span class="pt9-black">层次数据模型的定义?</span></a><span class="pt9-black"><br>
+      <br>
+      3．</span><a href="dykif.htm#3"><span class="pt9-black">网状数据模型的定义?</span></a><span class="pt9-black"><br>
+      <br>
+      4．</span><a href="dykif.htm#4"><span class="pt9-black">关系数据模型的定义?</span></a><span class="pt9-black"><br>
+      <br>
+      5．</span><a href="dykif.htm#5"><span class="pt9-black">什么是数据完整性？关系数据库中数据完整性约束的分类。 
+      </span></a><span class="pt9-black"><br>
+      <br>
+      6．</span><a href="dykif.htm#6"><span class="pt9-black">什么是存储过程？存储过程的优点是什么？</span></a><span class="pt9-black"><br>
+      <br>
+      7．</span><a href="dykif.htm#7" class="pt9-black"><span class="pt9-black">有关系模式R(U,F)，属性集U={A,B,C,D,E}，函数依赖集合F={AB?C, 
+      C?D, B?E}，请回答：R最高属于第几范式？说明理由；如果R不属于第三范式？说明理由并转换为第三范式。</span></a><span class="pt9-black"><br>
+      <br>
+      8．<a href="dykif.htm#8" ><span class="pt9-black">什麽是数据字典？</span></a><br>
+      <br>
+      9．</span><a href="dykif.htm#9" class="pt9-black"><span class="pt9-black">视图集成中，主要解决的冲突有哪些？</span></a><span class="pt9-black"><br>
+      <br>
+      10．</span><a href="dykif.htm#10" class="pt9-black"><span class="pt9-black">什么是事务，简述事务主要特性。</span></a><span class="pt9-black"><br>
+      <br>
+      11．</span><a href="dykif.htm#11" class="pt9-black"><span class="pt9-black">并发控制的目的和意义？并发操作可能产生的主要问题有哪些？</span></a><span class="pt9-black"><br>
+      <br>
+      12．</span><a href="dykif.htm#12"><span class="pt9-black">数据库系统可能发生的主要故障有哪些？简述DBMS恢复数据库的措施和方</span></a><span class="pt9-black">法。<br>
+      <br>
+      13．</span><a href="dykif.htm#13" class="pt9-black"><span class="pt9-black">DBMS的体系结构分几种？</span></a><span class="pt9-black"><br>
+      <br>
+      14．</span><a href="dykif.htm#14"><span class="pt9-black">在分布式事务的控制中采用了哪两阶段提交协议（Two-Phase 
+      Commit Protocol）？</span></a><span class="pt9-black"><br>
+      <br>
+      15．</span><a href="dykif.htm#15" class="pt9-black"><span class="pt9-black">面向对象数据库独立的对象标识的特性?</span></a><span class="pt9-black"><br>
+      <br>
+      16．</span><a href="dykif.htm#16" class="pt9-black"><span class="pt9-black">简述数据仓库的定义。</span></a><span class="pt9-black"><br>
+      <br>
+      17．</span><a href="dykif.htm#17" class="pt9-black"><span class="pt9-black">数据仓库的分析型的数据与传统数据库的操作型数据的主要差别有哪些？ 
+      </span></a><span class="pt9-black"><br>
+      <br>
+      18．</span><a href="dykif.htm#19" class="pt9-black"><span class="pt9-black">图书馆管理系统中管理员与图书之间的管理关系，如图书上架、借出图书等管理工作的联系是否在E-R模型中</span></a><span class="pt9-black"><a href="dykif.htm#19">画出？ 
+      </a><br>
+      <br>
+      19．</span><a href="dykif.htm#20" class="pt9-black"><span class="pt9-black">图书馆管理系统中借阅人（学生）查询图书的联系是否需要在E-R模型中画出？ 
+      </span></a><span class="pt9-black"><br>
+      <br>
+      20．</span><a href="dykif.htm#21" class="pt9-black"><span class="pt9-black">SQL 
+      Server中服务器分组的目的？</span></a><span class="pt9-black"><br>
+      <hr size="1">
+      </span><span class="biaoti_2"><a name="1"></a>答案1：</span><span class="pt9-black"><br>
+      　不同系统间数据集成与交换的方式有三种：<br>
+      　（1） 点到点的集成：有N个应用程序模块，就要 N*(N-1)个前后处理器转换接口。<br>
+      　（2） BUS总线集成：N个不同的应用程序只需2×N个前后处理器转换程序，每个应用程序都转换为采用国际数据交换标准格式中性文件结构。<br>
+      　（3） 用统一的数据模型集成：所有的应用程序都采用统一的数据模型和数据结构、统一的标准接口，一个应用程序的数据可由其他应用程序共享。<br>
+      </span>　<a href="dykif.htm#top" class="biaoti_2"><span class="biaoti_2">返回题目&gt;&gt;</span></a><span class="pt9-black"><br>
+      </span><span class="biaoti_2"><a name="2"></a>答案2：</span><span class="pt9-black"><br>
+      　在数据库中定义满足下面两个条件的基本层次联系的集合为层次模型： <br>
+      ・ 有且只有一个结点没有双亲结点，这个结点称为根结点<br>
+      ・ 根以外的其他结点有且只有一个双亲结点。 <br>
+      　<a href="dykif.htm#top" class="biaoti_2"><span class="biaoti_2">返回题目&gt;&gt;</span></a><span class="pt9-black"></span><br>
+      </span><span class="biaoti_2"><a name="3"></a>答案3：</span><span class="pt9-black"><br>
+      　在数据库中定义满足下面两个条件的基本层次联系的集合为网状模型：<br>
+      ・ 允许一个以上的结点没有双亲结点<br>
+      ・ 至少有一个结点可以有多于一个的双亲结点。<br>
+      　<a href="dykif.htm#top" class="biaoti_2"><span class="biaoti_2">返回题目&gt;&gt;</span></a><span class="pt9-black"></span> 
+      <br>
+      </span><span class="biaoti_2"><a name="4"></a>答案4：</span><span class="pt9-black"><br>
+      　关系数据模型是由若干关系组成的集合。 每个关系从结构上看实际上是一张二维表格，表中的每行表示一个实体对象，表的每列对应一个实体属性, 实体之间的关系用关键字来表示，这样的一张表称为一个关系。<br>
+      　<a href="dykif.htm#top" class="biaoti_2"><span class="biaoti_2">返回题目&gt;&gt;</span></a><span class="pt9-black"></span> 
+      <br>
+      </span><span class="biaoti_2"><a name="5"></a>答案5：</span><span class="pt9-black"><br>
+      　(1) 数据的完整性是指存储在数据库中的数据的一致性和正确性。 关系模型数据完整性的分类有<br>
+      ・ 域完整性：列的值域的完整性。<br>
+      ・实体完整性：表中记录的完整性。<br>
+      ・?引用完整性：被引用表中的主关键字和引用表中的外部主关键字之间的关系。<br>
+      ・ 用户自定义完整性： <br>
+      　<a href="dykif.htm#top" class="biaoti_2"><span class="biaoti_2">返回题目&gt;&gt;</span></a><span class="pt9-black"></span> 
+      <br>
+      </span><span class="biaoti_2"><a name="6"></a>答案6：</span><span class="pt9-black"><br>
+      　(1) 存储过程是存放在服务器上的预先定义与编译好的T_SQL语句。存储过程在第一次执行时进行语法检查和编译。编译好的版本存储在过程高速缓存中用于后续调用，执行速度快。存储过程由应用程序激活，而不是由SQL 
+      Server自动执行。<br>
+      　(2) 存储过程特点：<br>
+      ・ 使多个应用程序可以共享应用程序的处理逻辑，所有的客户机程序使用同一个存储过程进行各种操作，从而确保数据访问和操作的一致性，也提高了应用程序的可维护性。<br>
+      ・ 由于存储过程在第一次执行之后，就驻存在高速缓存存储器中，因此可以提高系统的执行效率。<br>
+      ・ 提供一种安全机制。如果用户被授予执行存储过程的权限，那么既使该用户没有执行访问在该存储过程中所参考的表或者视图的权限，该用户也可以完全执行该存储过程。<br>
+      ・ 减少了网络的流量负载。由于存储过程是存在服务器端的，因此客户端要执行存储过程时，只需要传送一条命令即可，如果不使用存储过程，则需要传送许多条SQL语句。 
+      <br>
+      ・ 因为存储过程提供该前端应用程序共享的处理逻辑，若要改变业务规则或策略，只需改变存储过程和参数。 <br>
+      　<a href="dykif.htm#top" class="biaoti_2"><span class="biaoti_2">返回题目&gt;&gt;</span></a><span class="pt9-black"></span> 
+      <br>
+      </span><span class="biaoti_2"><a name="7"></a>答案7：</span><span class="pt9-black"><br>
+      　(1) R最高属于第一范式；<br>
+      　(2) R的候选码是：（A,B） (A,C)<br>
+      　(3) 分解R为第三范式:<br>
+      　　oR1(A,B,C)<br>
+      　　oR2(C,D)<br>
+      　　oR3(B,E) <br>
+      　<a href="dykif.htm#top" class="biaoti_2"><span class="biaoti_2">返回题目&gt;&gt;</span></a><span class="pt9-black"></span> 
+      <br>
+      </span><span class="biaoti_2"><a name="8"></a>答案8：</span><span class="pt9-black"><br>
+      　数据字典是系统中各类数据描述的集合，是进行详细的数据收集和数据分析所获得的主要成果。数据字典在数据库设计中占有很重要的地位。 <br>
+      　数据字典通常包括数据项、数据结构、数据流、数据存储和处理过程五个部分。其中数据项是数据的最小组成单位，若干个数据项可以组成一个数据结构，数据字典通过对数据项和数据结构的定义来描述数据流、数据存储的逻辑内容。<br>
+      每个数据库中至少要存储两部分内容：数据的描述和对应每个描述的若干值。 <br>
+      　<a href="dykif.htm#top" class="biaoti_2"><span class="biaoti_2">返回题目&gt;&gt;</span></a><span class="pt9-black"></span> 
+      <br>
+      </span><span class="biaoti_2"><a name="9"></a>答案9：</span><span class="pt9-black"><br>
+      　(1) 命名冲突：在不同的视图中，可能有：<br>
+      　・ 同名异义冲突<br>
+      　・ 异名同义冲突<br>
+      　・ 相同属性的取值单位冲突。 <br>
+      　(2) 结构冲突：<br>
+      　・ 同一对象在一个 视图中作为实体，在另一个视图中可能作为属性或联系。<br>
+      　・ 同一实体在不同的分E-R图中所包含的属性个数和属性排列次序不完全相同。<br>
+      　・ 不同的视图对同一个联系可能有不同的约束。 <br>
+      　<a href="dykif.htm#top" class="biaoti_2"><span class="biaoti_2">返回题目&gt;&gt;</span></a><span class="pt9-black"></span> 
+      <br>
+      </span><span class="biaoti_2"><a name="10"></a>答案10：</span><span class="pt9-black"><br>
+      　(1) 事务(transaction)是用户定义的一个数据库操作序列，是数据库中不可分割的最基本的工作单元，也是数据库恢复和并发控制的基本单元。<br>
+      　(2) 事务具有四个特性：<br>
+      　・ 原子性(Atomicity)，事务的原子性指的是，事务中包含的程序作为数据库的逻辑工作单位，它所做的数据修改操作要么全部执行，要么完全不执行。这种特性称为原子性。 
+      <br>
+      　・ 一致性(Consistency)，事务的一致性指的是在一个事务执行之前和执行之后数据库都必须处于一致性状态。这种特性称为事务的一致性。<br>
+      　・ 分离性(Isolation)，分离性指并发的事务是相互隔离的。即一个事务内部的操作及正在操作的数据必须封锁起来，不被其它企图进行修改的事务看到。分离性是DBMS针对并发事务间的冲突提供的安全保证。DBMS可以通过加锁在并发执行的事务间提供不同级别的分离。<br>
+      　・ 持久性(Durability)，持久性意味着当系统或介质发生故障时，确保已提交事务的更新不能丢失。即一旦一个事务提交，DBMS保证它对数据库中数据的改变应该是永久性的，耐得住任何系统故障。持久性通过数据库备份和恢复来保证。 
+      <br>
+      　<a href="dykif.htm#top" class="biaoti_2"><span class="biaoti_2">返回题目&gt;&gt;</span></a><span class="pt9-black"></span> 
+      <br>
+      </span><span class="biaoti_2"><a name="11"></a>答案11：</span><span class="pt9-black"><br>
+      　（1） 并发控制的目的：改善系统的资源利用率，充分利用数据库共享数据的特点；在保证事务的特性和数据库一致的前提下，提高多用户的并发程度；<br>
+      　（2） 事务如果不加控制地并发执行，会产生下列三个问题：<br>
+      　・ 丢失更新 (lost update)<br>
+      　・ 读脏数据 (dirty read)<br>
+      　・ 读值不可复现 (unrepeatable read) <br>
+      　<a href="dykif.htm#top" class="biaoti_2"><span class="biaoti_2">返回题目&gt;&gt;</span></a><span class="pt9-black"></span> 
+      <br>
+      </span><span class="biaoti_2"><a name="12"></a>答案12：</span><span class="pt9-black"><br>
+      　(1) 数据库系统的主要故障有以下三种:<br>
+      　・ 事务故障<br>
+      　・ 系统故障<br>
+      　・ 存储介质故障<br>
+      (2) DBMS采用相应策略进行数据库恢复:<br>
+      　・ 事务提交<br>
+      　・ 数据库转储<br>
+      　・ 日志和日志文件 <br>
+      　<a href="dykif.htm#top" class="biaoti_2"><span class="biaoti_2">返回题目&gt;&gt;</span></a><span class="pt9-black"></span> 
+      <br>
+      </span><span class="biaoti_2"><a name="13"></a>答案13：</span><span class="pt9-black"><br>
+      　DBMS的三种体系结构：<br>
+      　（1） 物理中心数据库；一台大型的中心计算机存放数据库管理系统和数据库，通过网络连接大量终端。<br>
+      　（2） 分布式数据库：一个分布式数据库是由分布于计算机网络上的多个逻辑相关的数据库组成的集合，网络中的每个结点具有独立处理的能力（称为场地自治），可执行局部应用，同时，每个结点通过网络通讯系统也能执行两个结点以上的全局应用。<br>
+      　（3） 客户/服务器结构：一台大型的服务器计算机存放数据库管理系统和数据库，通过网络连接大量客户端计算机；数据库服务器提供客户端的服务请求，存储和管理数据库，把局部数据传送到客户端进行处理，处理后的数据再写回服务器；客户端的DBMS没有并发控制要求，功能比较简单。客户端和服务器端分工明确，各司其职。 
+      <br>
+      　<a href="dykif.htm#top" class="biaoti_2"><span class="biaoti_2">返回题目&gt;&gt;</span></a><span class="pt9-black"></span> 
+      <br>
+      </span><span class="biaoti_2"><a name="14"></a>答案14：</span><span class="pt9-black"><br>
+      　即分布式事务的提交分为两个阶段：<br>
+      　・ 预提交阶段(Pre-Commit Phase)<br>
+      　・ 决策后阶段（Post-Decision Phase） <br>
+      　<a href="dykif.htm#top" class="biaoti_2"><span class="biaoti_2">返回题目&gt;&gt;</span></a><span class="pt9-black"></span> 
+      <br>
+      </span><span class="biaoti_2"><a name="15"></a>答案15：</span><span class="pt9-black"><br>
+      　独立的对象标识符 OID具有下面特性：<br>
+      　(1) 每个对象在产生时得到一个唯一的标识符。<br>
+      　(2) 标识符在对象的整个生命周期内是固定不变的。<br>
+      　(3) 一个被删除对象的标识符不可再用。<br>
+      　(4) 对象标识独立于对象的存储位置和对象的状态。<br>
+      　(5) 用户定义的关键字仍然可以存在。 <br>
+      　<a href="dykif.htm#top" class="biaoti_2"><span class="biaoti_2">返回题目&gt;&gt;</span></a><span class="pt9-black"></span> 
+      <br>
+      </span><span class="biaoti_2"><a name="16"></a>答案16：</span><span class="pt9-black"><br>
+      　数据仓库的定义是：&quot;数据仓库是支持决策过程的、面向主题的、集成的、随时间变化的、持久的数据集合。&quot; <br>
+      　<a href="dykif.htm#top" class="biaoti_2"><span class="biaoti_2">返回题目&gt;&gt;</span></a><span class="pt9-black"></span> 
+      <br>
+      </span><span class="biaoti_2"><a name="17"></a>答案17：</span> 
+      <table width="100%" border="1" cellspacing="0" cellpadding="0" bordercolor="#003366" bordercolordark="#ffffff">
+        <tr align="center" bgcolor="#D9F5FD"> 
+          <td class="pt9-black">操作型数据</td>
+          <td class="pt9-black">分析型数据</td>
+        </tr>
+        <tr align="center"> 
+          <td class="pt9-black">细节的</td>
+          <td class="pt9-black">综合的</td>
+        </tr>
+        <tr align="center"> 
+          <td class="pt9-black">在存取的瞬间是正确的</td>
+          <td class="pt9-black">代表过去的数据</td>
+        </tr>
+        <tr align="center"> 
+          <td class="pt9-black">可更新，由录入人员或经过专门培训的输入事务而更新</td>
+          <td class="pt9-black">不可更新，终端用户的访问权限常常是只读的</td>
+        </tr>
+        <tr align="center"> 
+          <td class="pt9-black">处理细节问题</td>
+          <td class="pt9-black">受到更多关注的是结论性的数据，是综合的，或是提炼的</td>
+        </tr>
+        <tr align="center"> 
+          <td class="pt9-black">操作需求事先可知道，系统可按预计的工作量进行优化</td>
+          <td class="pt9-black">操作需求事先不知道，永远不知道下一步用户要做什么</td>
+        </tr>
+        <tr align="center"> 
+          <td class="pt9-black">事务驱动</td>
+          <td class="pt9-black">分析驱动</td>
+        </tr>
+        <tr align="center"> 
+          <td class="pt9-black">对性能要求高</td>
+          <td class="pt9-black">对性能要求宽松</td>
+        </tr>
+        <tr align="center"> 
+          <td class="pt9-black">面向日常业务操作应用</td>
+          <td class="pt9-black">面向分析决策，支持管理需求</td>
+        </tr>
+        <tr align="center"> 
+          <td class="pt9-black">一次操作数据量少</td>
+          <td class="pt9-black">一次操作数据量多</td>
+        </tr>
+        <tr align="center"> 
+          <td class="pt9-black">对响应时间要求高</td>
+          <td class="pt9-black">对响应时间要求低</td>
+        </tr>
+      </table>
+      <span class="pt9-black">　<a href="dykif.htm#top" class="biaoti_2"><span class="biaoti_2">返回题目&gt;&gt;</span></a><span class="pt9-black"></span> 
+      <br>
+      </span><span class="biaoti_2"><a name="18"></a>
+      <br>
+      <span class="biaoti_2"><a name="19"></a>答案18：</span><span class="pt9-black"><br>
+      <img src="../img/pop/t1.gif" width="348" height="57"> <br>
+      　（1） 凡是E_R模型中出现的联系，都应该反映在数据库中，就是说，数据库中应该存储在E-R模型图中画出的所有联系信息。<br>
+      　（2） 根据用户对系统的要求，判断是否需要建立管理员与图书之间的管理关系。例如，假如用户要求记录每个管理员的工作情况：如每个管理员每天借出了多少图书？接收还回图书多少次？购进图书多少？上架多少等等，领导可以根据每个人的工作情况评价工作人员的业绩，这就需要在数据库中记录这些管理工作。否则，就不需要建立这种联系。 
+      <br>
+      　<a href="dykif.htm#top" class="biaoti_2"><span class="biaoti_2">返回题目&gt;&gt;</span></a><span class="pt9-black"></span> 
+      <br>
+      </span><span class="biaoti_2"><a name="20"></a>答案19：</span><span class="pt9-black"><br>
+      <img src="../img/pop/t2.gif" width="351" height="61"> <br>
+      　查阅操作是否需要在数据库中有关的信息，也根据用户对系统的要求，决定是否需要建立查阅人员与查阅图书之间的关系。对于保密的资料，必须记录每个查阅人的情况，包括查阅人的信息、查阅时间、查阅内容等。对于不需要记录查阅过程的系统，就不需要建立这种联系。 
+      <br>
+      </span><span class="biaoti_2">　<a href="dykif.htm#top" class="biaoti_2"><span class="biaoti_2">返回题目&gt;&gt;</span></a><span class="pt9-black"></span><br>
+      <a name="21"></a>答案20：</span><span class="pt9-black"><br>
+      　一个企业的数据可能分布在多个服务器上，为了便于管理和使用，把所有的服务器按管理的内容分组。如财务部门使用两个服务器，设计部门使用三个服务器，人事部门使用一个个服务器等等，可把服务器分为财务组服务器，设计组服务器，人事组服务器等等。<br>
+      　<a href="dykif.htm#top" class="biaoti_2"><span class="biaoti_2">返回题目&gt;&gt;</span></a><span class="pt9-black"></span> 
+      </span></td>
+  </tr>
+</table>
+</body>
+</html>

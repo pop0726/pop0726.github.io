@@ -1,0 +1,81 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url('../../../img/text/bg.jpg');
+background-repeat: no-repeat;
+background-attachment: fixed; background-position-y:50%
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">　</td>
+    <td>　</td>
+    <td width="10">　</td>
+  </tr>
+  <tr>
+    <td width="10">　</td>
+    <td> <!-- #BeginEditable "1" -->
+      <p><span class="biaoti_1"><span class="biaoti_2">　　</span></span>使用嵌入式SQL，必须解决如下几个问题：<br>
+        　　(1) SQL语言和宿主语言的数据类型可能不完全一致，必须解决数据类型的转换问题，这与DBMS和其支持的宿主语言有关。<br>
+        　　(2) 用SQL语句查询数据库的结果是元组的集合，而宿主语言只支持数字型、字符性、数组和记录等数据类型，不支持集合和关系类型。为此，要通过SQL语句使用的宿主变量逐个地把每个元组传递给宿主语言中的程序变量。宿主语言编译器不能识别和接受在宿主语言中的SQL语句代码，必须把嵌入有SQL 
+        语句的宿主语言程序翻译成标准的宿主语言语句再进行编译，或直接产生可执行的代码，这是首先要解决的问题。为此，通常先对嵌入有SQL语句的宿主语言程序进行预处理，翻译成标准的宿主语言语句，再用宿主语言编译器进行编译。数据库和宿主语言之间如何通过宿主变量传递数据和信息。<br>
+        　　(3) 在宿主语言程序中如何判断SQL语句执行的正确或错误？<br>
+        　　</p>
+      <p>下面对这些问题逐一给出解答。 </p>
+      <p><font color="#CC0000">1.嵌入式SQL语言的使用格式</font><br>
+        　　为了把SQL语句嵌入主程序设计语言中，并且在主程序设计语言的源代码中能够区分宿主语言的语句和嵌入的SQL语句，便于预处理程序识别它，必须有开始和结束的语句块标识符，把SQL语句括在其中。通常在SQL语句前面加上前缀表示&quot;EXEC 
+        SQL&quot;，并以&quot;END_EXEC&quot;作为语句结束的标志，构成EXEC SQL &lt;SQL 语句&gt; END_EXEC的嵌入语句块，如下所示：<br>
+        开始标识符： 'EXEC SQL'<br>
+        〈嵌入的SQL语句〉<br>
+        结束标识符：'END_SQL'<br>
+        　　说明：SQL语句的结束标志随着宿主语言的不同而有差别。因此，嵌入式SQL的确切语法依赖于宿主语言。当宿主语言为C、PL/1或Pascal时，嵌入语句块的结束符使用分号'；'，不使用'END_SQL'。<br>
+        　　Oracle数据库系统提供了Pro*C语言，在C语言中可嵌入SQL语句，以分号'；'作为结束标识符。为了方便起见，下面的示例程序中，嵌入语句块以EXEC 
+        SQL开始，用分号'；'作为结束标志。</p>
+      <p><font color="#CC0000">2 .共享主变量的声明 </font><br>
+        　　凡在SQL语句中使用的、用于与宿主语言交换数据的变量，称为宿主变量，简称主变量。主变量也必须用开始和结束标识符括起来进行声明。只有这样声明的主变量才能用于SQL与宿主语言交换数据，所以主变量是SQL和宿主语言共享的变量。<br>
+        主变量是主语言的变量，所以主变量的说明必须遵从宿主语言的规定，但主变量类型必须是两种语言都能处理的。<br>
+        主变量的声明格式： EXEC SQL BEGIN DECLARE SECTION<br>
+        &lt;SQL 宿主变量说明&gt;<br>
+        EXEC SQL END DECLARE SECTION <br>
+        　　这些共享的变量在宿主语言中使用时同其他变量一样，当在SQL语句中使用宿主变量时，宿主变量前必须要冠以某种特殊符号，用以区别宿主变量和SQL语句中的列名。Oracle的宿主变量前使用冒号'：'，SQL 
+        Server中使用'@'符号。例如，@xy，@post等，称为SQL Server的局部变量。<br>
+        　　在SQL中可以使用共享宿主变量实现与宿主语言之间传递具体的值。下面的例子是在C语言中嵌入SQL语句，使用共享宿主变量时在前面加上冒号。<br>
+        <img src="../../../img/text/liti.gif" width="35" height="36" alt="例题">例1，声明三个主变量，如下描述：<br>
+        EXEC SQL BEGIN DECLARE SECTION<br>
+        Char sname[20], ssex[1];<br>
+        Char sclass[10];<br>
+        EXEC SQL END DECLARE SECTION<br>
+        　　说明：上面的例子夹在嵌入式SQL标识语句之间的是宿主变量的声明，只有宿主语言和SQL都能处理的变量类型才有意义。中间的语句说明了三个变量 sname,ssex,sclass，都是字符数组，用来保存学生的姓名、性别、班级编号。它们的说明形式必须遵从宿主语言的规定。例如，上面的例子中，就是因为宿主语言是C语言而采用的说明形式。</p>
+      <p><font color="#CC0000">3 特殊的系统变量 </font><br>
+        　　每个数据库管理系统都提供一个专用的系统变量SQLSTATE，记录SQL语句执行的状态。每当执行完一个SQL语句之后，一个代码便被放入到该系统变量SQLSTATE中，该代码标识SQL语句执行情况。在程序中，要使用SQLSTATE主变量，也必须要事先说明，并在每一个SQL语句之后，检验SQLSTATE 
+        的状态，判断SQL语句的执行结果。 <br>
+        SQLSTATE 的状态码为：<br>
+        SQLSTATE='00000' 表示执行正确，<br>
+        SQLSTATE='02000' 表示没有满足要求的元组。<br>
+        说明SQLSTATE主变量示例：<br>
+        EXEC SQL BEGIN DECLARE SECTION ; <br>
+        char SQLSTATE [6]; // 5个字符和一个空字符<br>
+        EXEC SQL END DECLARE SECTION; <br>
+        检查SQLSTATE主变量的返回值示例：<br>
+        EXEC SQL WHENEVER &lt;条件&gt;&lt;动作&gt;<br>
+        其中：<br>
+        条件：为'NOT FOUND'(02000) 或'SQLERROR'(其他码)<br>
+        动作:为CONTINUE（继续执行） 或 GO TO&lt;语句标号&gt; <br>
+        　　在宿主语言程序中，依据专用的系统变量的值就可以判断SQL语句执行的正确与否。如果SELECT语句没有查到记录，系统就会把一个错误代码写入相应系统变量SQLSTATE中，SQLSTATE='00000'表示执行正确。<br>
+      </p>
+      <!-- #EndEditable --></td>
+    <td width="10">　</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

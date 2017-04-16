@@ -1,0 +1,62 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgproperties=fixed bgcolor="#FFFFFF" background="../../../../image/moban/15.gif">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" height="40">
+        <tr> 
+          <td class="text" align="left" height="2">��<span class="part">1、问题的提出</span><br>
+            ��假设我们有如<span class="part">图7-3-4</span>所示的两个关系customer和depositor，对于它们的自然连接运算，用SQL表达如下：<br>
+            select customer-name, … <br>
+            from customer, depositor<br>
+            where customer.customer-name = depositor.customer-name<br>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left"> 
+            <div align="center"><span class="part">图7-3-4关系customer和depositor 
+              </span><br>
+              <img src="../../../../image/chapter/07/7-3-4(1).gif" width="420" height="76"><br>
+              <img src="../../../../image/chapter/07/7-3-4(2).gif" width="363" height="174"> 
+            </div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left">那么如何在文件中组织记录，才能提高上述自然连接的效率呢？<br>
+            ��<span class="part">2、问题的解决</span><br>
+            ��由于自然连接运算需要不断地访问磁盘文件中的记录，使得自然连接的性能瓶颈出现在磁盘I/O上。因此可以考虑把相关记录放在磁盘上一个块(或临近的块)中存储，这样一次读块操作就能取得需要连接的所有相关记录，减少了磁盘I/O次数，提高了连接的性能。具体做法是将关系customer和depositor在文件中按<span class="part">图7-3-5</span>所示的方式进行组织。<br>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left"> 
+            <div align="center"><span class="part">图7-3-5簇集文件组织示例 </span><br>
+              <img src="../../../../image/chapter/07/7-3-5.gif" width="420" height="206"> 
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="text" align="left">从图中我们可以看出，簇集文件组织就是把有关的记录按簇集键值集中在一个物理块内或物理上相邻的区域内，以提高某些数据访问的速度。在这个例子中，簇集键就是自然连接的连接属性。一般来说，簇集键是用户用来集中存储记录所依据的某个属性或属性集。简单地说，簇集键是某个属性或属性集，根据它们的值来确定记录的集中存放。在实际的DBMS中，簇集的建立是使用create 
+            cluster语句。<br>
+            ��<span class="part">3、簇集文件的问题</span><br>
+            ��虽然簇集文件组织能够为某些数据查询带来巨大的好处，但是簇集文件组织也还存在下列问题：⑴如果改用其他属性或属性集做簇集键，将引起所有记录的移动；⑵如果一个记录的簇集键值修改了，则这个记录也要做相应的移动；⑶如果不是针对簇集设计的查询，而是按其他条件进行查询，则这种簇集没有一点好处！<br>
+            ��<span class="part">4、何时才考虑使用簇集</span><br>
+            ��虽然簇集能够为某些查询带来巨大的好处，使得查询性能显著提高，但是在实际应用中还是要慎用簇集。只有在下列情况下，才可以考虑使用簇集：<br>
+            ��⑴�通过簇集键进行访问或连接是该表的主要应用，与簇集键无关的其他访问很少，或是次要的。尤其当语句中包含与簇集键有关的ORDER 
+            BY、GROUP BY、UNION、DISTINCT等语法成分时，簇集格外有用，可以省去对结果的排序等工作；<br>
+            ��⑵�对应每个簇集键值的平均记录数既不太少，也不太多。太少了则簇集的效益不明显，甚至浪费物理块的空间；太大了就要采用多个溢出块，同样对提高性能不利；<br>
+            ��⑶�簇集键的值应相对稳定，以减少因修改簇集键值而引起的巨大的维护开销。<br>
+            <br>
+            ��<span class="menu">Knuth、Aho、Horowitz、Sahni、Toorey、Fry、Smith、Barnes和Ullman等人对文件中记录组织的数据结构进行了相当深的研究，他们对数据库系统的文件组织和存取方式作出了贡献。<br>
+            ��这部分的内容在《数据结构》课程中描述的非常详细，这里只是简单地重新回忆一下我们已经学过的知识，具体的内容可以参看由清华大学出版社出版的严蔚敏老师编著的《数据结构》教材。</span></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

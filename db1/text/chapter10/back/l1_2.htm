@@ -1,0 +1,444 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+</head>
+<body background="../../../image/moban/15.gif" bgproperties=fixed>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="354">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" height="205">
+        <tr> 
+          <td class="text"> 
+            <p align="center" class="zhishidian">第十章　事务--概念</p>
+          </td>
+        </tr>
+        <tr> 
+          <td class="part">10.1 事务的概念</td>
+        </tr>
+        <tr> 
+          <td class="text"> 
+            <div align="center"><span style="font-size:9.0pt;font-family:宋体;Times New Roman&quot;" class="part">表<span lang="EN-US">10-1</span></span> 
+              <table border="1" cellspacing="0" cellpadding="0" class="text" bordercolor="#000000">
+                <tr> 
+                  <td width="132" valign="top"> 
+                    <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">概念</span></b></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">解释</span></b></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top" align="center"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">事务</span></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;;
+  color:black">参见第一章“引言――概念”的表<span lang="EN-US">1-5。</span></span><span lang="EN-US" style="font-family:宋体;Times New Roman&quot;"> 
+                      </span></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top" align="center"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">原子性</span></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">是指事务中的所有操作要么全部执行，要么都不执行的特性。</span></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top" align="center"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">一致性</span></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;;
+  Times New Roman&quot;">所谓一致性简单地说就是数据库中数据的完整性，包括它们的正确性。</span><span lang="EN-US" style="font-family:宋体;Times New Roman&quot;"> 
+                      </span></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top" align="center"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">隔离性</span></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">即使多个事务并发（同时）执行，每个事务都感觉不到系统中有其他的事务在执行。</span></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top" align="center"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">持久性</span></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;;
+  Times New Roman&quot;">持久性的含义是说，一旦事务成功执行之后，它对数据库的更新是永久的。</span><span lang="EN-US" style="font-family:宋体;Times New Roman&quot;"> 
+                      </span></p>
+                  </td>
+                </tr>
+              </table>
+             </div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="part">10.2 事务的状态</td>
+        </tr>
+        <tr> 
+          <td class="text" height="65"> 
+            <div align="center"><span style="font-size:9.0pt;font-family:宋体;Times New Roman&quot;"><span class="part">表<span lang="EN-US">10-2</span></span></span> 
+              <table border="1" cellspacing="0" cellpadding="0" bordercolor="#000000" class="text">
+                <tr> 
+                  <td width="132" valign="top"> 
+                    <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">概念</span></b></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">解释</span></b></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top" align="center"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">中止事务</span></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">执行中发生故障、不能执行完成的事务。</span></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top" align="center"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">事务回滚</span></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">将中止事务对数据库的更新撤消掉。</span></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top" align="center"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">已提交事务</span></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">成功执行完成的事务。</span></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top" align="center"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">活动状态</span></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">事务开始执行后所处的状态。</span></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top" align="center"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">部分提交状态</span></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">事务的最后一条语句被执行后的状态。</span></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top" align="center"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">失败状态</span></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">事务正常的执行不能继续后的状态。</span></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top" align="center"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">中止状态</span></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">事务回滚并且数据库被恢复到事务开始执行前的状态后的状态。</span></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top" align="center"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">提交状态</span></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">事务成功完成之后的状态。</span></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top" align="center"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">已经结束的事务</span></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">提交的或中止的事务。</span></p>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="part">10.3 原子性和持久性的实现</td>
+        </tr>
+        <tr> 
+          <td class="text"> 
+            <div align="center"><span style="font-size:9.0pt;font-family:宋体;Times New Roman&quot;" class="part">表<span lang="EN-US">10-3 
+              </span></span> 
+              <table border="1" cellspacing="0" cellpadding="0" bordercolor="#000000" class="text">
+                <tr> 
+                  <td width="132" valign="top"> 
+                    <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">概念</span></b></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">解释</span></b></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top">&nbsp; </td>
+                  <td width="420" valign="top">&nbsp; </td>
+                </tr>
+              </table></div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text"><span lang="EN-US" style="font-size:9.0pt;font-family:宋体;
+Times New Roman&quot;"><span class="part">10.4 事务的并发执行</span></span></td>
+        </tr>
+        <tr> 
+          <td class="text" height="2"> 
+            <div align="center"><span style="font-size:9.0pt;font-family:宋体;Times New Roman&quot;" class="part">表<span lang="EN-US">10-4 
+              </span></span> 
+              <table border="1" cellspacing="0" cellpadding="0" bordercolor="#000000" class="text">
+                <tr> 
+                  <td width="132" valign="top"> 
+                    <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">概念</span></b></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">解释</span></b></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top" align="center"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">调度</span></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;;
+  Times New Roman&quot;">调度就是指多个事务中所有指令的执行序列。</span><span lang="EN-US" style="font-family:宋体;Times New Roman&quot;"> 
+                      </span></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top" align="center"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">串行调度</span></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">由来自各个事务的指令序列组成，其中属于同一事务的指令在调度中紧挨在一起。</span></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top" height="51" align="center"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">并发调度</span></p>
+                  </td>
+                  <td width="420" valign="top" height="51"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">由来自各个事务的全部指令组成，虽然属于不同事务的指令在调度中交叉在一起，但仍然保持其在各自事务中的先后顺序。</span></p>
+                  </td>
+                </tr>
+              </table></div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text"><span lang="EN-US" style="font-size:9.0pt;font-family:宋体;
+Times New Roman&quot;" class="part"><br>
+            10.5 调度的可串行化</span></td>
+        </tr>
+        <tr> 
+          <td class="text"> 
+            <div align="center"><span style="font-size:9.0pt;font-family:宋体;Times New Roman&quot;" class="part">表<span lang="EN-US">10-5 
+              </span></span> 
+              <table border="1" cellspacing="0" cellpadding="0" bordercolor="#000000" class="text">
+                <tr> 
+                  <td width="132" valign="top"> 
+                    <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">概念</span></b></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">解释</span></b></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">等价</span></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">设<span lang="EN-US">I<sub><font size="-5">m</font></sub>和I<sub><font size="-5">n</font></sub>是调度S的两条连续指令。若I<sub><font size="-5">m</font></sub>和I<sub><font size="-5">n</font></sub>属于不同的事务且不冲突，则可以交换I<sub><font size="-5">m</font></sub>和I<sub><font size="-5">n</font></sub>的顺序得到一个新的调度S</span></span><span lang="EN-US">’</span><span style="font-family:
+  宋体;Times New Roman&quot;">，并称<span lang="EN-US">S与S</span></span><span lang="EN-US">’</span><span style="font-family:
+  宋体;Times New Roman&quot;">是等价的。</span></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">冲突等价</span></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">如果调度<span lang="EN-US">S可以经过一系列非冲突指令交换变成调度S</span></span><span lang="EN-US">’</span><span style="font-family:宋体;
+  Times New Roman&quot;">，则称<span lang="EN-US">S与S</span></span><span lang="EN-US">’</span><span style="font-family:
+  宋体;Times New Roman&quot;">是冲突等价的。</span></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">冲突可串行化</span></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">称一个调度<span lang="EN-US">S是冲突可串行化的，是指该调度S与一个串行调度冲突等价。 
+                      </span></span></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">视图等价</span></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">考虑两个调度<span lang="EN-US">S和S</span></span><span lang="EN-US">’</span><span style="font-family:宋体;Times New Roman&quot;">，其中参与两个调度的事务集是相同的。若调度<span lang="EN-US">S和S</span></span><span lang="EN-US">’</span><span style="font-family:宋体;Times New Roman&quot;">满足下面三个条件，则称<span lang="EN-US">S和S</span></span><span lang="EN-US">’</span><span style="font-family:宋体;Times New Roman&quot;">是视图等价的：<span lang="EN-US"> 
+                      </span></span></p>
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">⑴对于每个数据项<span lang="EN-US">Q，若事务T<sub>i</sub>在调度S中读取了Q的初始值，那么T<sub><font size="-5">i</font></sub>在调度S</span></span><span lang="EN-US">’</span><span style="font-family:
+  宋体;Times New Roman&quot;">中也必须读取<span lang="EN-US">Q的初始值； </span></span></p>
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">⑵对于每个数据项<span lang="EN-US">Q，若事务T<sub><font size="-5">i</font></sub>在调度S中执行了read(Q)并且读取的值是由T<sub>j</sub>产生的(write(Q))，则T<sub>I</sub>在调度S</span></span><span lang="EN-US">’</span><span style="font-family:
+  宋体;Times New Roman&quot;">中读取的值也必须是由<span lang="EN-US">T<sub>j</sub>产生的(write(Q))； 
+                      </span></span></p>
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">⑶对于每个数据项<span lang="EN-US">Q，若在调度S中有事务执行了最后的写操作write(Q)，则在调度S</span></span><span lang="EN-US">’</span><span style="font-family:宋体;
+  Times New Roman&quot;">中该事务也必须执行最后的写操作<span lang="EN-US">write(Q)。 </span></span></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">视图可串行化</span></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">如果某个调度视图等价于一个串行调度，则说这个调度是视图可串行化的。</span></p>
+                  </td>
+                </tr>
+              </table></div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="part">10.6 调度的可恢复性</td>
+        </tr>
+        <tr> 
+          <td class="text"> 
+            <div align="center"><span style="font-size:9.0pt;font-family:宋体;Times New Roman&quot;" class="part">表<span lang="EN-US">10-6 
+              </span></span> 
+              <table border="1" cellspacing="0" cellpadding="0" class="text" bordercolor="#000000">
+                <tr> 
+                  <td width="132" valign="top"> 
+                    <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">概念</span></b></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">解释</span></b></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top" align="center"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">可恢复调度</span></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">对于每对事务<span lang="EN-US">T<sub><font size="-5">i</font></sub>和T<sub>j</sub>，如果T<sub><font size="-5">j</font></sub>读取了由T<sub><font size="-5">i</font></sub>所写的数据项，则T<sub><font size="-5">i</font></sub>应先于T<sub><font size="-5">j</font></sub>提交。我们把这样的调度称为可恢复调度。 
+                      </span></span></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top" align="center"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">级联回滚</span></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">因一个事务的故障而导致一系列事务回滚的现象称为级联回滚。</span></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top" align="center"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">无级联调度</span></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">对于每对事务<span lang="EN-US">T<sub><font size="-5">i</font></sub>和T<sub><font size="-5">j</font></sub>，如果T<sub><font size="-5">j</font></sub>读取了由T<sub><font size="-5">i</font></sub>所写的数据项，则T<sub><font size="-5">i</font></sub>必须在T<font size="-5"><sub>j</sub></font>读取之前提交。我们把这样的调度称为无级联调度。 
+                      </span></span></p>
+                  </td>
+                </tr>
+              </table></div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="part" height="14">10.7 隔离性的实现</td>
+        </tr>
+        <tr> 
+          <td class="text"> 
+            <div align="center"><span style="font-size:9.0pt;font-family:宋体;Times New Roman&quot;" class="part">表<span lang="EN-US">10-7 
+              </span></span> 
+              <table border="1" cellspacing="0" cellpadding="0" bordercolor="#000000" class="text">
+                <tr> 
+                  <td width="132" valign="top"> 
+                    <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">概念</span></b></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">解释</span></b></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top">&nbsp; </td>
+                  <td width="420" valign="top">&nbsp; </td>
+                </tr>
+              </table></div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="part">10.8 SQL中事务的定义</td>
+        </tr>
+        <tr> 
+          <td class="text"> 
+            <div align="center"><span style="font-size:9.0pt;font-family:宋体;Times New Roman&quot;" class="part">表<span lang="EN-US">10-8</span></span> 
+              <table border="1" cellspacing="0" cellpadding="0" bordercolor="#000000" class="text">
+                <tr> 
+                  <td width="132" valign="top"> 
+                    <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">概念</span></b></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">解释</span></b></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top">&nbsp; </td>
+                  <td width="420" valign="top">&nbsp; </td>
+                </tr>
+              </table></div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="part">10.9 冲突可串行化的判定</td>
+        </tr>
+        <tr>
+          <td class="text">
+            <div align="center" class="part">表10-9 
+              <table border="1" cellspacing="0" cellpadding="0" bordercolor="#000000" class="text">
+                <tr> 
+                  <td width="132" valign="top"> 
+                    <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">概念</span></b></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">解释</span></b></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top" align="center"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">优先图</span></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">设<span lang="EN-US">S是一个调度，由S构造一个有向图，称为优先图。该图由两部分G 
+                      = (V,E)组成，其中V是顶点集，E是边集。顶点集由所有参与调度的事务组成。边集由满足下列三个条件之一的边T<sub><font size="-5">i</font></sub></span></span><span class="text">→</span><span lang="EN-US" style="font-family:宋体;Times New Roman&quot;">T<sub><font size="-5">j</font></sub>组成： 
+                      </span></p>
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">�C<span lang="EN-US">T<sub><font size="-5">i</font></sub>的write(Q)在T<sub><font size="-5">j</font></sub>的read(Q)之前执行； 
+                      </span></span></p>
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">�C<span lang="EN-US">T<sub><font size="-5">i</font></sub>的read(Q)在T<sub><font size="-5">j</font></sub>的write(Q)之前执行； 
+                      </span></span></p>
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">�C<span lang="EN-US">T<sub><font size="-5">i</font></sub>的write(Q)在T<sub><font size="-5">j</font></sub>的write(Q)之前执行。 
+                      </span></span></p>
+                  </td>
+                </tr>
+              </table></div>
+          </td>
+        </tr>
+      </table></td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" --> 
+      <p> 　　在介绍Armstrong公理系统之前，我们先给出逻辑蕴含和F的闭包的概念。<br>
+        <br>
+        <font color="#CC0000">1. 逻辑蕴含</font><br>
+        　　给定一个关系模式，只考虑给定的函数依赖是不够的，必须找出在该关系模式上成立的其他函数依赖。<br>
+        　　逻辑蕴含：设F是关系模式R（U）的函数依赖集合，由F出发，可以证明其他某些函数依赖也成立，我们称这些函数依赖被F逻辑蕴含。<br>
+        　　例如，设F={ A→B，B→C }，则函数依赖A→C被F逻辑蕴含，记作：F |= A→C。即函数依赖集 F 逻辑蕴含函数依赖A→C。<br>
+        <br>
+        <font color="#CC0000">2. F的闭包F<sup>+</sup></font><br>
+        　　对于一个关系模式，如何由已知的函数依赖集合F，找出F逻辑蕴涵的所有函数依赖集合呢？这就是我们下面要讨论的问题。<br>
+        　　F的闭包F<sup>+</sup>：设F为一个函数依赖集，F的闭包是指F逻辑蕴涵的所有函数依赖集合。 F的闭包记作F<sup>+</sup>。<br>
+        　　例如，给定关系模式R(A,B,C,G,H,I)，函数依赖集合F={A→B，A→C，CG→H，CG→I，B→H}。可以证明函数依赖A→H被F逻辑蕴涵。<br>
+        　　设有元组s和t，满足s[A]=t[A]，根据函数依赖的定义，由已知的A→B，可以推出s[B]=t[B]。又根据函数依赖B→H，可以有s[H]=t[H]。因此，已经证明对任意的两个元组s和t，只要有s[A]=t[A]，就有s[H]=t[H]。所以，函数依赖A→H被F逻辑蕴涵。<br>
+        　　计算F的闭包F<sup>+</sup>，可以由函数依赖的定义直接计算，如上面的示例。但是，当F很大时，计算的过程会很长。为了从已知的函数依赖推导出其它函数依赖，Armstrong 
+        提出了一套推理规则，称为Armstrong 公理 ，通过反复使用这些规则，可以找出给定F的闭包F<sup>+</sup>。其推理规则可归结为如下3条：自反律(reflexivity)、增广律(augmentation)和 
+        传递律(transitivity)。 
+      <p><font color="#CC0000">3．Armstrong 公理</font> <br>
+        　　设U为属性总体集合，F为U上的一组函数依赖，对于关系模式R（U，F），X、Y、Z为属性U的子集，有下列推理规则：<br>
+        　　　A1：自反律(reflexivity)<br>
+        　　　若Y X U，则X→Y为F所蕴函。<br>
+        　　A2：增广律(augmentation)<br>
+        　　若X→Y为F所蕴函，且Z是U的子集，则XZ→YZ为F所蕴函。式中XZ和YZ是X∪Z 和 Y∪Z的简写。<br>
+        　　A3：传递律(transitivity)<br>
+        　　若X→Y、Y→Z为F所蕴函，则X→Z为F所蕴函。<br>
+        　　由自反律所得到的函数依赖都是平凡的函数依赖，自反律的使用并不依赖于F，而只依赖于属性集U。<br>
+        　　Armstrong公理是有效的和完备的。可以利用该公理系统推导F的闭包F<sup>+</sup>。由于利用Armstrong公理直接计算F<sup>+</sup>很麻烦。根据A1, 
+        A2, A3这三条推理规则还可以得到其他规则，用于简化计算F<sup>+</sup>的工作。如下面扩展的三条推理规则:<br>
+        　　＊合并规则: 由X→Y, X→Z, 有X→YZ<br>
+        　　＊伪传递规则: 由X→Y, WY→Z, 有XW→Z<br>
+        　　＊分解规则: 由X→YZ, 则有X→Z，X→Y<br>
+        　　Armstrong公理可以有多种表示形式，例如，增广律A2可以用合并规则代替。例如，用自反律A1，传递律A3和合并规则可推导出增广律A2。<br>
+        　　证明：XZ →X (A1：自反律)<br>
+        　　X →Y (给定条件)<br>
+        　　XZ →Y (A3：传递律)<br>
+        　　XZ →Z (A1：自反律)<br>
+        　　XZ →YZ (合并规则)<br>
+        <font color="#CC0000"><br>
+        4．属性集的闭包</font><br>
+        　　原则上讲，对于一个关系模式R(U,F)，根据已知的函数依赖F，反复使用前面的规则，可以计算函数依赖集合F的闭包F<sup>+</sup>。但是，利用推理规则求出其全部的函数依赖F<sup>+</sup>是非常困难的，而且也没有必要。因此，可以计算闭包的子集，即选择一个属性子集，判断该属性子集能函数决定哪些属性，这就是利用属性集闭包的概念。 
+        <br>
+        　（1）属性集闭包的定义<br>
+        　　设F为属性集U上的函数依赖集，X<img src="../../../img/text/ch05/13.gif" width="8" height="8">U，即X为U的一个子集。在函数依赖集F下被X函数决定的所有属性为F<sup>+</sup>下属性集X的闭包，记作X<sup>+</sup>。即X<sup>+</sup>＝{ 
+        A| X→A } 。<br>
+        　（2）计算属性集闭包X<sup>+</sup>的算法如下：<br>
+        　　输入：X，F<br>
+        　　输出： X<sup>+</sup> <br>
+        　迭代算法的步骤：<br>
+        　　① 选取X<sup>+</sup>的初始值为X ，即X<sup>+</sup>＝{X}；<br>
+        　　② 计算X<sup>+</sup>， X<sup>+</sup>＝{X<img src="../../../img/text/ch05/18.gif" width="11" height="11">Z} 
+        ，其中Z要满足如下条件：<br>
+        Y<img src="../../../img/text/ch05/13.gif" width="8" height="8">X<sup>+</sup>，且F中存在一函数依赖Y→Z。实际上就是以X<sup>+</sup>中的属性子集作为函数依赖的决定因素，在F中搜索函数依赖集，找到函数依赖的被决定属性Z放到X<sup>+</sup>中。<br>
+        　　③ 判断：如果X<sup>+</sup>没有变化？或X<sup>+</sup>等于U？则X<sup>+</sup>就是所求的结果，算法终止。否则转②。<br>
+        　因为U是有穷的，所以上述迭代过程经过有限步骤之后就会终止。<br>
+        　例如，已知关系模式R(U,F)，U={A,B,C,D,E,G}，F={AB→C,D→EG,C→A,BE→C,BC→D,AC→B,CE→AG},求(BD)<sup>+</sup> 
+        <br>
+        　　　解：<br>
+        　　　① (BD)<sup>+</sup> = {BD}；<br>
+        　　　② 计算(BD)<sup>+</sup> ，在F中扫描函数依赖，其左边为B,D或BD的函数依赖，得到一个D→EG。所以，(BD)<sup>+</sup>= {BDEG}。<br>
+        　　　③ 计算(BD)<sup>+</sup>，在F中查找左部为BDEG的所有函数依赖，有两个：D→EG和BE→C。所以(BD)<sup>+</sup>＝{(BD)<img src="../../../img/text/ch05/18.gif" width="11" height="11">EGC}={BCDEG}。<br>
+        　　　④ 计算(BD)<sup>+</sup>，在F中查找左部为BCDEG子集的函数依赖，除去已经找过的以外，还有三个新的函数依赖：C→A,BC→D,CE→AG。得到(BD)<sup>+</sup>＝{(BD)<img src="../../../img/text/ch05/18.gif" width="11" height="11">ADG}＝{ABCDEG}。<br>
+        　　　⑤ 判断(BD)<sup>+</sup>=U，算法结束。得到(BD)<sup>+</sup>＝{ABCDEG}。<br>
+        　　说明：上面说明(B,D)是该关系模式的一个候选码。<br>
+        <font color="#CC0000"><br>
+        5. Armstrong公理系统的有效性和完备性</font><br>
+        　　①Armstrong公理系统的有效性指的是：由F出发根据Armstrong公理系统推导出来的每一个函数依赖一定是F所逻辑蕴含的函数依赖。<br>
+        　　②Armstrong公理系统的完备性指的是：对于F所逻辑蕴含的每一函数依赖，必定可以由F出发根据Armstrong公理系统推导出来。<br>
+      </p>
+      <!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

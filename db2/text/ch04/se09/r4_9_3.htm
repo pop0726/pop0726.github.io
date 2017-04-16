@@ -1,0 +1,59 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url('../../../img/text/bg.jpg');
+background-repeat: no-repeat;
+background-attachment: fixed; background-position-y:50%
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">　</td>
+    <td>　</td>
+    <td width="10">　</td>
+  </tr>
+  <tr>
+    <td width="10">　</td>
+    <td> <!-- #BeginEditable "1" --><span class="biaoti_1">1. 触发器的主要优点</span> 
+      <br>
+      　(1) 触发器能够实施比外键约束，检查约束和规则对象等更为复杂的数据完整性检查。<br>
+      　(2) 和约束相比，触发器提供了更多的灵活性。约束将系统错误信息返回给用户，但这些错误并不是总能有帮助，而触发器则可以打印错误信息，调用其他存储过程，或根据需要纠正错误。<br>
+      　(3) 无论对表中的数据进行何种修改，录入或更新，触发器都能被激活，对数据实施完整性检查。<br>
+    　(4) 触发器能够级联修改数据库中的表内容。<br>
+      <br>
+      　<span class="biaoti_1">2. 触发器支持的功能</span><br>
+      　(1) 触发器可以在事件之前、之后执行，还可以替代事件本身。例如可以定义触发器在对某关系执行insert、 update和delete操作之前（或之后）触发。<br>
+      　(2) 触发器代码可以引用事件中对于元组修改前后的值（OLD值和NEW值）。对于update语句，OLD值和NEW值意义很明确。<br>
+      　(3) 对于update事件可以定义对哪个关系、或关系中的哪一列修改时，触发器触发。<br>
+      　(4) 可以用WHEN子句来指定执行条件，当触发器被触发后，触发器功能代码只有在条件成立时才执行。<br>
+      　(5) 触发器有语句级触发器和行级触发器之 分。所谓语句级触发器是指当update语句执行完触发一次，而行触发器是指当update语句每修改完一个元组就触发一次。<br>
+      　(6) 触发器可以完成一些复杂的数据检查，可以实现某些操作的前后处理等。 <br>
+      　(7) 触发器定义的约束可以在任何颗粒级别上实现、表示动态的或静态的约束、延迟或不延迟进行触发检查、可以用SQL语句定义约束触发器的功能。<br>
+      <br>
+      　<span class="biaoti_1">3. 建立触发器的语句格式</span><br>
+      　　CREATE TRIGGER 触发器名<br>
+      　　ON [表名、视图名] [WITH ENCRYPTION]<br>
+      　　FOR {INSERT,UPDATA,DELETE }<br>
+      　　AS SQL操作语句<br>
+      　　<font color="#5a5aad">参数说明：<br>
+      　　表名,视图名：为触发该触发器的表名或视图名。SQL Server中，只有表的所有者才有权建立触发器。<br>
+      　　INSERT,UPDATA,DELETE ：说明触发触发器的事件。一个定义语句允许定义多个触发事件，用逗号分开，第2个只能是插入和更新语句。<br>
+    　　</font>WITH ENCRYPTION<font color="#5A5AAD">：</font><font color="#5a5aad">该选项对触发器的定义文本加密。<br>
+      　　SQL操作语句：指定触发器动作。该语句中可以指定多个触发器操作，这时要用BEGIN…END将它们组成语句块。</font>　<font color="#5a5aad"><br>
+      </font><br>
+      <!-- #EndEditable --></td>
+    <td width="10">　</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

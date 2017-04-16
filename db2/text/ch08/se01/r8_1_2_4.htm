@@ -1,0 +1,72 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" --> 
+      <p>　<span class="biaoti_1">4. 封装、重载和动态联编</span><br>
+        <br>
+        　　<b>(1) 封装特性</b><br>
+        　　封装是指在类的定义中封装了类的结构表示和对该类实例的操作方法。只能通过传递消息来完成操作，具体的结构和实现对用户是隐藏的。封装意味着允许用户定义操作方法作为对象的行为特性。<br>
+        <br>
+        　　<font color="5a5aad">封装使数据和操作有了统一的模型界面，提供了逻辑数据的独立性和信息隐藏能力。使得在不改变应用程序的情况下可以改变类型的操作实现。因为只有界面(过程名和参数)是用户可见的，具体结构和实现对用户是不可见的。</font></p>
+      <p>　　<b>(2) 重载和动态联编</b><br>
+        　　<font color="5a5aad">重载是在相同名字空间，语义相关但具有不同编码实现的操作方法使用相同的名称。重载操作至少在下列几方面是不同的：实现编码不同或参数不同。与重载紧密相关的概念是动态联编。</font><br>
+        <br>
+        　　重载就是允许具有相同名字的多个操作同时存在，但对于不同对象的调用有不同的语义和实现。操作符的重载自然引出动态联编的概念，也称滞后联编。动态联编是面向对象程序设计风格的最经常引用的优点。例如，在学生类中定义了过程 
+        average-grade ( record， student )，本科学生要继承该过程，但它也可以定义自己单独的求平均值的过程，以便对某些课程按其难度(如外语等级)进行加权平均。过程名字和参数仍是average_grade(record，student)，只是具体的编码实现不同。这种在不同对象类中定义具有相同名字的过程，称为操作符重载(overloading)。<br>
+        <br>
+        　　<font color="5a5aad">在面向对象的系统中，通常通过发送消息执行相应的操作过程，对同名的过程消息的内容是相同的，系统要根据具体对象自动选择执行相应的程序代码。例如，在求学生平均成绩的应用程序中只出现如下语句：<br>
+        　　average_grade(record, student)</font><br>
+        <br>
+        　　编译程序在编译和联接时无法确定要与哪个过程代码相联接，只有留待程序运行时根据对象所属的类动态地实现联接，这种推迟的联编称为动态联编或滞后联编。<br>
+        <br>
+        　　<font color="cc0000">通过动态联编，系统在运行时由联编信息选择符实现它们的操作，而不是在编译时选择实现的操作。在联编时使用的方法依赖于接收者的对象类。下面的理由更充分地说明需要运行时的动态联编功能：<br>
+        　　① 由于面向对象的语言支持操作符重载，对给定消息决定要执行的方法是在运行时动态完成的。需要执行一个方法时，系统先传送信息到目标对象。目标对象要检查这个选择符是否符合它的协议，如果是，目标对象就执行相应的方法。<br>
+        　　② 对一个可变的对象类或类型在运行之前是无法确定的。象Smalltalk就是这样的语言。在这类语言中，要在编译时确定一个可变的引用对象的类型是困难的甚至是不可能的。<br>
+        　　③ 重载和滞后联编可免于用户记忆许多功能相似的程序名、或者编写开关控制程序，从而减少程序的复杂性和系统扩充的工作量。 <br>
+        　　④ 动态联编便于程序代码的重用、可修改和可扩充的要求。<br>
+        <br>
+        　　重载和动态联编的优点可用下面的例子说明。例如对不同的文档资料对象使用不同的打印方法，但使用相同的信息&quot;print&quot;。假定用栈stack存放要打印的文档，每个文档使用不同的打印方法，即每个不同的打印方法与文档类有关，不同的打印方法有不同的实现(包括打印驱动、格式、打印机等)。打印栈中的文档可使用如下语句：<br>
+        　　FOR i:=1 TO top stack(i) print<br>
+        <br>
+        　　对数组stack(i)中的每个对象，根据它所属的类执行相应的打印方法。选择符print要执行的程序编码不是唯一的，即根据打印信息&quot;print&quot;打印的目标对象所属的类决定要执行的程序编码。对象对打印选择符&quot;print&quot;的响应是使用适合该类的方法打印。<br>
+        <br>
+        　　假如程序设计语言不支持重载和动态联编，就要使用大量的&quot;CASE&quot;语句。根据要打印的文档类型调用相应的程序：<br>
+        　　　FOR i:=1 TO top DO<br>
+        　　　CASE stack(i).type<br>
+        　　　document: print doc(stack[i].obj)<br>
+        　　　Image : print Ima(stack[i].obj)<br>
+        　　　...<br>
+        </font></p>
+      <font color="cc0000">　　如果要增加一种新类型X，CASE语句也要扩展一个print X语句。这种扩展必然要引起整个程序的重新编译。<br>
+      <br>
+      　　对使用重载和动态联编的系统，可以增加任意数目的新类型。这种扩展即不影响原来的方法，也不用修改原来的方法和程序，用户仍可用打印语句print。 
+      </font><!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

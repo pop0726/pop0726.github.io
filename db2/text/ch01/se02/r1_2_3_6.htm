@@ -1,0 +1,114 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" --> 
+      <p></p>
+      <p></p>
+      <p></p>
+      <p></p>
+      <p></p>
+      <p></p>
+      <p></p>
+      <p></p>
+      <p></p>
+      <p></p>
+      <p></p>
+      <p></p>
+      <p></p>
+      <p></p>
+      <p></p>
+      <p></p>
+      <p></p>
+      <p></p>
+      <p></p>
+      <p></p>
+      <p></p>
+      <p></p>
+      <p></p>
+      <p></p>
+      <p></p>
+      <p></p>
+      <p></p>
+      <p></p>
+      <p></p>
+      <p></p>
+      <p></p>
+      　　(2) 分布式对象处理技术<br>
+      　　分布式对象处理技术产生的背景源于异构多数据源问题。在早期的应用系统中，应用程序处理的数据一般来自本单位的数据库系统，数据种类单一，应用程序和数据库系统之间的关系比较密切。随着网络环境的日益流行，应用程序处理的数据也逐步多源化。一般说来，用户已经积累了一批极具价值的系统，通常这些系统的改造和重写的代价很高，所以在构造新系统时，用户希望能够利用这些资源。因此，如何有效地将已有系统集成或移植到新系统中，是用户应用系统开发中提出的迫切要求。集成新老系统的方式可以有几种选择：<br>
+      如果让新的应用程序用不同的接口分别访问这些老的数据源，则应用程序的通用性和可移植性也将很差。<br>
+      如果将这些已有的数据都复制或转换到新数据库中，则不但工作量巨大，而且还会导致数据的大量冗余，难以维护。<br>
+      因此，需要实现不同的软件、硬件平台上的系统之间资源的共享和互操作。<br>
+      采用CORBA技术，在充分发挥新技术的优势和克服已有方法缺陷的基础上，引入了一些新特色，其主要技术特点包括：<br>
+      ① 引入了代理 (Broker) 的概念；<br>
+      ② 客户方程序与服务器方程序的完全分离；<br>
+      ③ 将分布计算同面向对象的概念相互结合；<br>
+      ④ 提供了软件总线的机制；软件总线是指CORBA系统定义了一组接口规范，任何应用程序、软件系统或工具只要具有与该接口规范相符合的接口定义，就能方便地集成到CORBA系统中，而这个接口规范独立于任何实现语言和环境。<br>
+      ⑤ 分层的设计原则和实现方法。<br>
+      CORBA技术的体系结构如图1-12所示。<br>
+      <br>
+      <br>
+      　　<span class="tubiaoti">图1-12 CORBA的体系结构 </span> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td align="center"><img src="../../../img/text/ch01/a8.gif" width="383" height="277"><br>
+          </td>
+        </tr>
+      </table>
+      <br>
+      　　① ORB 截获服务请求调用，然后识别网络中服务器的位置。ORB自动解决客户机和服务器之间数据格式的任何差别(如字节次序)，把请求提交给服务器。<br>
+      　　② 若这个服务请求需要有数据返回给客户机，则ORB把数据再转换成客户机平台上的原有表示，并把结果送回客户机。<br>
+      　　③ 不同的ORB之间通过IIOP协议 (Internet Inter-ORB Protocol) 进行通信，IIOP是建立在TCP/IP之上的协议。<br>
+      　　④ ORB使客户机程序的开发可以不考虑以下问题：<br>
+      　　　　<font color="#FF0000">服务器编程语言：</font>实现服务器的具体语言可以是Smalltalk，COBOL，Ada，C，C++，Java等，实际的实现语言对客户程序没有任何影响。<br>
+      　　　　<font color="#FF0000">服务器平台：</font>服务器可以在不同硬件平台或操作系统上，ORB自动对不同数据格式进行转换。<br>
+      　　　　<font color="#FF0000">地点透明：</font>服务器的地点(本地或远程)对客户机是隐藏的，服务器程序可以从一个平台移到另一个平台而不影响客户机。<br>
+      　　　　<font color="#FF0000">网络协议：</font>ORB能处理客户机和服务器之间的网络协议，客户机程序不需要了解这种协议。<br>
+      　　COM是在操作系统级实现的对象管理与通信规范，实现进程内、进程间的对象引用与数据交换。DCOM是在COM基础上发展起来的，可以支持网络上的对象。COM/DCOM定义了几个标准接口，完成对象管理、查询等功能。以COM/DCOM为底层支持的如ActiveX、OLE、ISAP等。<br>
+      　　(3) CORBA与COM/DCOM的比较当前分布式对象模型有两大主流，一是OMG提出的 CORBA 规范，另一个是微软提出的COM/DCOM 
+      (Component Object Model/Distributed COM)对象模型。CORBA和 COM/DCOM在体系结构、编程方式和性能等方面有较大的差异。<br>
+      　　一般说来，在Windows平台上，COM/DCOM 的性能要高于CORBA，因为COM是实现在操作系统中，而目前的CORBA产品都还是操作系统之上的应用程序。CORBA面向的是异构环境下分布式应用的集成，而COM/DCOM 
+      面向的是Windows平台上应用的集成。因此CORBA更适合于开发企业级的分布式应用，而COM/DCOM更适合于Windows平台上的分布式应用。<br>
+      　　CORBA产品需要单独购买，而COM/DCOM 是集成在Windows操作系统之中的。<br>
+      　　从发展趋势来看，不大可能出现CORBA取代COM/DCOM或 COM/DCOM取代CORBA的情况，很可能是两者共存，并出现支持两者之间互操作的技术和工具。<br>
+      <br>
+      　　通用对象请求代理体系结构 CORBA 是OMG (Object Management Group) 制定的标准的分布式对象体系结构。OMG是一国际性的组织， 
+      OMG并不开发软件，仅仅制定标准。现有800多个成员公司，包括Sun, HP, IBM, IONA, Oracle, Sybase等公司。OMG还颁布过其它很多标准，如UML。有关OMG 
+      和 CORBA规范说明的资料可从OMG的站点 http://www.omg.org/ 获得。<br>
+      　　OMG的CORBA是一个分布式对象体系与运行环境，核心部件是对象请求代理ORB。通过代理，ORB接收到客户请求，查找到合适的对象实现后，即建立两者的通信。<br>
+      　　Microsoft的COM，是在操作系统级实现的对象管理与通信规范，可以实现进程内、进程间的对象引用与数据交换。DCOM是在COM基础上发展起来的，可以支持网络上的对象。在COM/DCOM中，对象的一些属性及方法，被组合成&quot;接口&quot;（实际上是一个函数指针数组），用唯一的数字串标识；通过继承（实际上是一种接口实现），对象可以拥有多个接口。COM/DCOM定义了几个标准接口，用以完成对象生命周期管理、查询接口等功能；底层的进程间通信细节被隐藏起来。<br>
+      <br>
+      <br>
+      <span class="biaoti_1">3 信息处理设备的可移植性 <br>
+      <br>
+      </span><span class="pt9-black">　　信息处理设备的可移植性指信息处理设备可即插即用，不再需要用户编写信息处理设备的驱动程序。目前，各种操作系统下的输入、输出设备都已经实现了即插即用。<br>
+      　　信息处理设备包括:打印机、绘图仪、扫描仪、多媒体输入输出设备、视频和音频等设备。</span><br>
+      <!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

@@ -1,0 +1,95 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" --> 　 (3)多元联系的转换在多元联系中，如果M，N，P中这些基数最多只有一个大于1，则可以由一个实体的主键识别一个多元联系，在转换时可将联系合并在此实体的关系中。<br>
+      　・ 对于其它情况，可以通过增加新关系进行转换。例如，图5-33所示的E-R图，有三类实体E1、E2和E3，分别转换为关系模式R1、R2和R3。它们之间m：n：P的联系转换为独立的关系模式R4，联系r的属性s转换为R4的属性，R4的候选码是k、h和j的组合。可以转换的关系模式如下：<br>
+      <br>
+      　　<span class="tubiaoti">图5-33 多元联系的转换</span><br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td align="center"><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="400" height="300">
+              <param name=movie value="../../../swf/ch5/5-33.swf">
+              <param name=quality value=high>
+              <param name="wmode" value="transparent">
+              <embed src="../../../swf/ch5/5-33.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="400" height="300" wmode="transparent">
+              </embed> 
+            </object></td>
+        </tr>
+      </table>
+      　　例如，对于图5-34所示的零件、供应者和工程之间的三元联系，可以建立四个关系表： 零件表（零件号，零件名，………）。<br>
+      　　供应者表（供应者号，供应者名，……）<br>
+      　　工程表（工程号，工程名，………）<br>
+      　　工程供应零件表（供应者号，零件号，工程号，供应数量）<br>
+      <br>
+      　　<span class="tubiaoti">图5-34 零件、供应者和工程之间三元联系</span><br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td align="center"><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="400" height="280">
+              <param name=movie value="../../../swf/ch5/5-34.swf">
+              <param name=quality value=high>
+              <param name="wmode" value="transparent">
+              <embed src="../../../swf/ch5/5-34.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="400" height="280" wmode="transparent">
+              </embed> 
+            </object></td>
+        </tr>
+      </table>
+      <br>
+      　(3) 多重联系的转换 <br>
+      　　对于多重联系要一重一重的考虑。转换规则与单重联系相同。<br>
+      　　例如，职工与设备之间的联系，有两个m：n的联系。每重增加一个新关系，即职工与设备之间的使用联系，以及职工与设备之间的保养联系：<br>
+      　・ 使用表（职工号，设备号，设备数量）<br>
+      　・ 保养表（职工号，设备号，设备数量） 　(4) 弱实体的处理<br>
+      　・ 弱实体不能独立存在，它必须依附于一个所有者实体。<br>
+      　・ 在转换成关系模式时，弱实体所对应的关系中必须包含所有者实体的主键。<br>
+      　　例如，图3-35是一个弱实体的例子。家属是一个弱实体，职工是其所有者实体。转换成关系模式时，家属所对应的关系中必须包含职工号。职工号与家属的姓名构成家属的主键。 
+      <br>
+      <br>
+      　　<span class="tubiaoti">图5-35 弱实体E-R图转换示例 </span> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td align="center"><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="400" height="330">
+              <param name=movie value="../../../swf/ch5/5-35.swf">
+              <param name=quality value=high>
+              <param name="wmode" value="transparent">
+              <embed src="../../../swf/ch5/5-35.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="400" height="330" wmode="transparent">
+              </embed> 
+            </object></td>
+        </tr>
+      </table>
+      　E-R图转换为关系模式后，得到一般的关系数据模型。下一步就是向特定的DBMS规定的模型转换。设计人员必须熟悉所用DBMS的功能与限制。 <br>
+      <br>
+      　<span class="biaoti_1">3. 数据模型的调整与完善</span><br>
+      　　关系数据据库逻辑设计的结果不是唯一的。在逻辑结构设计的基础上，根据需要对设计结构进行适当的调整和完善，以期提高系统的性能。<br>
+      　　<font color="#5a5aad">关系数据模型的调整通常包括两个方面：<br>
+      　・ 根据数据字典中对信息查询响应时间的要求和查询频率要求，适当调整数据结构。如增加必要的冗余数据；或把经常进行查询连接的两个关系合并为一个关系。这些调整需要仔细考虑后再进行修改。<br>
+      　・ 根据局部应用要求，设计用户外部模型。就是设计用户视图。如设计符合用户习惯的属性别名；对不同级别的用户定义不同的视图，提高系统的安全性要求；为简化用户的对系统的使用，可以把某些复杂的查询定义为视图，用户可以直接对视图进行查询，使用户自觉简单、直观。</font><br>
+      <!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

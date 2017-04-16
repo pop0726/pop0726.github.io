@@ -1,0 +1,325 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+</head>
+<body background="../../../image/moban/15.gif" bgproperties=fixed>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="354">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" height="1085">
+        <tr> 
+          <td class="text"> 
+            <p align="center" class="zhishidian">第八章　索引和散列--概念</p>
+          </td>
+        </tr>
+        <tr> 
+          <td class="part">8.1 基本概念</td>
+        </tr>
+        <tr> 
+          <td class="text"> 
+            <div align="center"><span style="font-size:9.0pt;font-family:宋体;Times New Roman&quot;" class="part">表<span lang="EN-US">8-1</span></span> 
+              <table border="1" cellspacing="0" cellpadding="0" class="text" bordercolor="#000000">
+                <tr> 
+                  <td width="132" valign="top"> 
+                    <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">概念</span></b></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">解释</span></b></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top"> 
+                    <p class="MsoNormal" align="center"><span style="font-family:宋体;Times New Roman&quot;">顺序索引</span></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">顺序索引是基于对值的一种排序。</span></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top"> 
+                    <p class="MsoNormal" align="center"><span style="font-family:宋体;Times New Roman&quot;">散列</span></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">散列是基于将值平均地、随机地分布到若干存储桶中。</span></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top"> 
+                    <p class="MsoNormal" align="center"><span style="font-family:宋体;Times New Roman&quot;">存储桶</span></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">存储桶是由<span lang="EN-US">1至32个物理块构成的一种存储结构。结合索引文件组织，用于数据文件中数据单元的存储和传输。与物理块不同的是，存储桶只能包含整记录，即记录可以跨块存储但不能跨桶存储。 
+                      </span></span></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top"> 
+                    <p class="MsoNormal" align="center"><span style="font-family:宋体;Times New Roman&quot;">散列函数</span></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">一个值所属的存储桶由一个函数来决定，该函数称为散列函数，也叫哈稀函数。</span></p>
+                  </td>
+                </tr>
+              </table></div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="part">8.2 顺序索引</td>
+        </tr>
+        <tr> 
+          <td class="text"> 
+            <div align="center"><span style="font-size:9.0pt;font-family:宋体;Times New Roman&quot;"><span class="part">表<span lang="EN-US">8-2</span></span></span> 
+              <table border="1" cellspacing="0" cellpadding="0" class="text" bordercolor="#000000">
+                <tr> 
+                  <td width="132" valign="top"> 
+                    <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">概念</span></b></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">解释</span></b></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top"> 
+                    <p class="MsoNormal" align="center"><span style="font-family:宋体;Times New Roman&quot;">主索引</span></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">如果包含记录的文件按照某个搜索码指定的顺序存储，那么该搜索码对应的索引称为主索引，也叫簇集索引。</span></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top"> 
+                    <p class="MsoNormal" align="center"><span style="font-family:宋体;Times New Roman&quot;">辅助索引</span></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">与主索引（簇集索引）相反，搜索码顺序与文件中记录的物理顺序不同的那些索引称为辅助索引或非簇集索引。</span></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top"> 
+                    <p class="MsoNormal" align="center"><span style="font-family:宋体;Times New Roman&quot;">索引顺序文件</span></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">如果文件按照某个搜索码顺序存储，称这种在某个搜索码上有主索引的文件为索引顺序文件。</span></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top"> 
+                    <p class="MsoNormal" align="center"><span style="font-family:宋体;Times New Roman&quot;">稠密索引</span></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">对应文件中搜索码的每一个值都有一个索引记录（或索引项）。</span></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top"> 
+                    <p class="MsoNormal" align="center"><span style="font-family:宋体;Times New Roman&quot;">稀疏索引</span></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">只为文件中搜索码的某些值建立索引记录（或索引项）。</span></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top"> 
+                    <p class="MsoNormal" align="center"><span style="font-family:宋体;Times New Roman&quot;">多级索引</span></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">像对待其他任何顺序文件那样来对待索引结构，在主索引上再构造一个稀疏索引，形成一个具有内层索引和外层索引的索引结构，旧叫多级索引。</span></p>
+                  </td>
+                </tr>
+              </table></div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text"><span lang="EN-US" style="font-size:9.0pt;font-family:宋体;
+Times New Roman&quot;" class="part">8.3 B+树索引文件</span></td>
+        </tr>
+        <tr> 
+          <td class="text"> 
+            <div align="center"><span style="font-size:9.0pt;font-family:宋体;Times New Roman&quot;" class="part">表<span lang="EN-US">8-3 
+              </span></span> 
+              <table border="1" cellspacing="0" cellpadding="0" bordercolor="#000000" class="text">
+                <tr> 
+                  <td width="132" valign="top"> 
+                    <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">概念</span></b></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">解释</span></b></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top"> 
+                    <p class="MsoNormal" align="center"><span lang="EN-US" style="font-family:宋体;Times New Roman&quot;">B<sup>+</sup>树文件组织 
+                      </span></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal"><span lang="EN-US" style="font-family:宋体;Times New Roman&quot;">B<sup>+</sup>树结构不仅可以用做索引，同时还可以是文件中记录的组织者。当树叶结点中存储的是记录而不是指向记录的指针时，这样的记录组织方式就称为B<sup>+</sup>树文件组织。 
+                      </span></p>
+                  </td>
+                </tr>
+              </table>
+              </div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text"><span lang="EN-US" style="font-size:9.0pt;font-family:宋体;
+Times New Roman&quot;"><span class="part">8.4 散列文件组织</span></span></td>
+        </tr>
+        <tr> 
+          <td class="text"> 
+            <div align="center"><span style="font-size:9.0pt;font-family:宋体;Times New Roman&quot;" class="part">表<span lang="EN-US">8-4 
+              </span></span> 
+              <table border="1" cellspacing="0" cellpadding="0" class="text" bordercolor="#000000">
+                <tr> 
+                  <td width="132" valign="top"> 
+                    <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">概念</span></b></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">解释</span></b></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top"> 
+                    <p class="MsoNormal" align="center"><span style="font-family:宋体;Times New Roman&quot;">散列文件组织</span></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">在散列文件组织中，我们用存储桶来表示能存储一条或多条记录的一个存储单位。通过计算搜索码上的一个函数，即散列函数，就可以确定包含该搜索码值的记录应该存储在哪个桶中。利用散列函数决定记录应该存储在什么位置，这种组织记录的方式就是散列文件组织。</span></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top"> 
+                    <p class="MsoNormal" align="center"><span style="font-family:宋体;Times New Roman&quot;">散列函数的均匀性</span></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">即每个存储桶从所有可能的搜索码值集合中分配到的值的个数差不多相同，这就是散列函数的均匀性。</span></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top"> 
+                    <p class="MsoNormal" align="center"><span style="font-family:宋体;Times New Roman&quot;">散列函数的随机性</span></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">一般情况下，不管搜索码值实际情况是怎样的，每个存储桶应分配到的搜索码值的个数也差不多相同，这就是散列函数的随机性。</span></p>
+                  </td>
+                </tr>
+              </table></div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text"><span lang="EN-US" style="font-size:9.0pt;font-family:宋体;
+Times New Roman&quot;" class="part">8.5 散列索引</span></td>
+        </tr>
+        <tr> 
+          <td class="text"> 
+            <div align="center"><span style="font-size:9.0pt;font-family:宋体;Times New Roman&quot;" class="part">表<span lang="EN-US">8-5 
+              </span></span> 
+              <table border="1" cellspacing="0" cellpadding="0" class="text" bordercolor="#000000">
+                <tr> 
+                  <td width="132" valign="top" height="20"> 
+                    <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">概念</span></b></p>
+                  </td>
+                  <td width="420" valign="top" height="20"> 
+                    <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">解释</span></b></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top"> 
+                    <p class="MsoNormal" align="center"><span style="font-family:宋体;Times New Roman&quot;">散列索引</span></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">散列索引是指将一般索引结构中的搜索码及相应指针组织成散列文件结构。</span></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top"> 
+                    <p class="MsoNormal" align="center"><span style="font-family:宋体;Times New Roman&quot;">散列文件</span></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">散列文件是指用来组织和存储文件中记录的散列结构</span></p>
+                  </td>
+                </tr>
+              </table></div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text"><span lang="EN-US" style="font-size:9.0pt;font-family:宋体;
+Times New Roman&quot;" class="part">8.6 顺序索引和散列的比较</span></td>
+        </tr>
+        <tr> 
+          <td class="text"> 
+            <div align="center"><span style="font-size:9.0pt;font-family:宋体;Times New Roman&quot;" class="part">表<span lang="EN-US">8-6 
+              </span></span> 
+              <table border="1" cellspacing="0" cellpadding="0" bordercolor="#000000" class="text">
+                <tr> 
+                  <td width="132" valign="top"> 
+                    <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">概念</span></b></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">解释</span></b></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top">&nbsp; </td>
+                  <td width="420" valign="top">&nbsp; </td>
+                </tr>
+              </table></div>
+          </td>
+        </tr>
+        <tr>
+          <td class="part" height="14">8.7 SQL中索引的定义</td>
+        </tr>
+        <tr>
+          <td class="text">
+            <div align="center"><span style="font-size:9.0pt;font-family:宋体;Times New Roman&quot;" class="part">表<span lang="EN-US">8-7 
+              </span></span> 
+              <table border="1" cellspacing="0" cellpadding="0" bordercolor="#000000" class="text">
+                <tr> 
+                  <td width="132" valign="top"> 
+                    <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">概念</span></b></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">解释</span></b></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top" height="17">&nbsp; </td>
+                  <td width="420" valign="top" height="17">&nbsp; </td>
+                </tr>
+              </table></div>
+          </td>
+        </tr>
+        <tr>
+          <td class="text"><span lang="EN-US" style="font-size:9.0pt;font-family:宋体;
+Times New Roman&quot;" class="part">8.8 多码访问</span></td>
+        </tr>
+        <tr> 
+          <td class="text" align="center"> 
+            <div align="center"></div>
+            <div align="center" class="part">表<span lang="EN-US">8-8</span></div>
+          <table border="1" cellspacing="0" cellpadding="0" bordercolor="#000000" class="text">
+              <tr> 
+                <td width="132" valign="top"> 
+                  <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">概念</span></b></p>
+                </td>
+                <td width="420" valign="top"> 
+                  <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">解释</span></b></p>
+                </td>
+              </tr>
+              <tr> 
+                <td width="132" valign="top"> 
+                  <p class="MsoNormal" align="center"><span style="font-family:宋体;Times New Roman&quot;">复合索引</span></p>
+                </td>
+                <td width="420" valign="top"> 
+                  <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">建立在复合搜索码，例如<span lang="EN-US">(<i>branch-name</i>, 
+                    <i>balance</i>)之上的索引就称为复合索引。 </span></span></p>
+                </td>
+              </tr>
+            </table>
+            </td>
+        </tr>
+      </table></td>
+  </tr>
+</table>
+</body>
+</html>

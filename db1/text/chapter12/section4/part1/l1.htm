@@ -1,0 +1,36 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgproperties=fixed bgcolor="#FFFFFF" background="../../../../image/moban/15.gif">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td class="text" align="left"> �<span class="menu"><br>
+            </span></td>
+        </tr>
+        <tr> 
+          <td class="text" align="left"> 
+            <div align="center" class="part">图12-4-1：分布式数据库系统的拓扑结构示意图 <br>
+              <img src="../../../../image/chapter/12/12-4-1.gif" width="351" height="199"> 
+            </div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left">��在分布式数据库系统中，每个节点都是一个完整的DBMS，称为本地的DBMS（Local 
+            DBMS），它是高度自治的，即每个节点的DBMS对该节点的数据有完全的管理和修改功能。所有节点的本地数据库（Local Database）在逻辑上形成一个完整的分布式数据库（DDB--Distributed 
+            Database），会有一个全局的DBMS（Global DBMS）来管理这个分布式数据库。这个全局的DBMS可以运行在一台中心计算机上，也可以运行在各个节点的计算机上。当一个查询涉及到多个节点的数据库时，就需要全局的DBMS和本地的DBMS共同发挥作用才能达到全局查询的目的。<br>
+            ��虽然无共享的并行DBMS（参阅<span class="part">图12-3-3</span>）和分布式DBMS都不共享公共的内存和磁盘，但它们之间还是有重要的区别：<br>
+            ��⑴�分布式数据库一般是地理上分布的、分别管理的，并且以较低的速度互连；<br>
+            ��⑵�在分布式DBMS中，事务分为全局事务和局部事务。全局事务需要访问事务发起节点之外的某些节点的数据。而局部事务只需要访问本地的数据库。</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

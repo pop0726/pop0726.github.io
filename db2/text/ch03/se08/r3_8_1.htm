@@ -1,0 +1,92 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" --><span class="biaoti_1">　1.物理中心数据库<br>
+      </span><span class="pt9-black">　　通常要提供一台大型的中心计算机，通过局部网络或区域网络相联的大量终端都可以访问该中心计算机。如图 
+      3-27 所示。这种系统的优点适当地减少了中心控制的开销，这包括事务调度、一致性实施、并发和恢复等。但是也要花费很大的代价，因为随着整个系统可靠性的提高，也要提高系统的保护性和数据传送代价。<br>
+      <br>
+      　　</span><span class="tubiaoti">图 3-27 物理中心数据库</span><span class="pt9-black"><br>
+      </span> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td align="center" class="pt9-black"><br>
+            <img src="../../../img/text/ch03/d3.gif" width="248" height="155"></td>
+        </tr>
+      </table>
+      <span class="pt9-black"><br>
+      　　物理中心数据库特点：<br>
+      　・ 一台大型的中心计算机存放数据库管理系统和数据库，通过网络连接大量终端。<br>
+      　・ 花费较小的控制开销，如事务调度、一致性检查、并发和恢复等。<br>
+      　・ 数据在网上传输的代价高。<br>
+      　　这种集中式系统的弱点是：一是随着数据量的增加，系统相当庞大，操作复杂，开销大；二是数据集中存储，大量的通信都要通过主机，造成拥挤。随着小型计算机和微机的发展，随着计算机网络软件和远程通信的发展，分布式数据库系统崛起了。<br>
+      　<br>
+      </span><span class="biaoti_1">　2.分布式数据库</span><span class="biaoti_2"><br>
+      </span><span class="pt9-black"> 　　分布式数据库系统通常使用较小的计算机系统，每台计算机可单独放在一个地方，每台计算机中都有DBMS的一份完整拷贝副本，并具有自己局部的数据库，位于不同地点的许多计算机通过网络互相连接，共同组成一个完整的、全局的大型数据库，如图 
+      3-28 所示。<br>
+      　　<font color="#5a5aad">这种组织数据库的方法克服了物理中心数据库组织的弱点。首先，降低了数据传送代价，因为大多数的对数据库的访问操作都是针对局部数据库的，而不是对其他位置的数据库访问；其次，系统的可靠性提高了很多，因为当网络出现故障时，仍然允许对局部数据库的操作，而且一个位置的故障不影响其他位置的处理工作，只有当访问出现故障位置的数据时，在某种程度上才受影响；第三，便于系统的扩充，增加一个新的局部数据库，或在某个位置扩充一台适当的小型计算机，都很容易实现。然而有些功能要付出更高的代价。例如，为了调配在几个位置上的活动，事务管理的性能比在中心数据库时花费更高，而且甚至抵消许多其他的优点。</font><br>
+      <br>
+      　　</span><span class="tubiaoti">图 3-28 分布式数据库</span><span class="pt9-black"><br>
+      </span> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td align="center" class="pt9-black"><br>
+            <img src="../../../img/text/ch03/d4.gif" width="340" height="198"></td>
+        </tr>
+      </table>
+      <span class="pt9-black"><br>
+      　　分布式数据库系统主要特点：<br>
+      　・ 多数处理就地完成；<br>
+      　・ 各地的计算机由数据通信网络相联系。<br>
+      　・ 克服了中心数据库的弱点：降低了数据传输代价；<br>
+      　・ 提高了系统的可靠性，局部系统发生故障，其他部分还可继续工作；<br>
+      　・ 各个数据库的位置是透明的，方便系统的扩充；<br>
+      　・ 为了协调整个系统的事务活动，事务管理的性能花费高；<br>
+      </span><br>
+      　<span class="biaoti_1">3.客户/服务器结构 <br>
+      </span><span class="pt9-black"> 　　客户/服务器组织方式有时看上去好像前两种方式之间的一种折衷。它仍保留中心数据库，数据存放在服务器结点上。它提供的服务包括大批数据库用户的访问、数据库保护、一致性约束的实施、并发控制和恢复等功能。客户端有它们自己的DBMS和事务管理，但没有并发控制、没有数据存储。如图 
+      3-29 所示。<br>
+      <br>
+      　　</span><span class="tubiaoti">图3-29 客户服务器结构</span><span class="pt9-black"><br>
+      </span> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td align="center" class="pt9-black"><br>
+            <img src="../../../img/text/ch03/d5.gif" width="280" height="180"></td>
+        </tr>
+      </table>
+      <span class="pt9-black"><br>
+      　　<font color="#5a5aad">因此，由于把中心服务器和局部客户机之间的工作划分开来，仅有部分功能重叠，中心服务器和局部客户机所使用的DBMS比物理中心数据库的DBMS要简单些。这种组织形式是目前最流行的DBMS体系结构。</font><br>
+      　　客户/服务器结构的特点：<br>
+      　・ 是前两种方式的折中，数据集中存放在服务器结点上；<br>
+      　・ 数据库服务器提供客户端的服务请求，把客户端请求的数据传送到客户端进行处理，处理后的数据再写回服务器；<br>
+      　・ 客户端的DBMS没有并发控制要求，功能比较简单。<br>
+      　・ 客户端和服务器端分工明确，各司其职。</span><!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

@@ -1,0 +1,57 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body text="#000000" bgproperties=fixed background="../../../../image/moban/15.gif">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td class="text" align="left"> 
+            <p>��假设branch、account和depositor是以下关系模式上的关系：<br>
+              <i><font size="2">Branch-schema = (branch-name, branch-city, assets)<br>
+              Account-schema = (branch-name, account-number, balance)<br>
+              Depositor-schema = (customer-name, account-number)</font></i><br>
+              对于关系代数表达式：<br>
+              <font size="2"><b>Π</b></font><font size="-2">customer-name</font>(<font size="3"><b>σ</b></font><font size="-2">branch-city 
+              = &quot;Brooklyn&quot;</font>(<i><font size="2">branch</font>��</i>(<i><font size="2">account��depositor</font></i>)))<br>
+              利用前面介绍的规则⑺①，可以得到如下的等价表达式：<br>
+              <font size="2"><b>Π</b></font><font size="-2">customer-name</font>((<font size="3"><b>σ</b></font><font size="-2">branch-city</font>= 
+              <font size="-2">&quot;Brooklyn&quot;</font>(<i><font size="2">branch</font></i>))��(<i><font size="2">account��depositor</font></i>))<br>
+              如果我们将上述查询修改为：<br>
+              <font size="2"><b>Π</b></font><font size="-2">customer-name</font>((<font size="3"><b>σ</b></font><font size="-2">branch-city</font>= 
+              <font size="-2">&quot;Brooklyn&quot;∧balance&gt;1000</font>(<i><font size="2">branch</font></i>��(<i><font size="2">account��depositor</font></i>)))<br>
+              如何进行等价变换呢？由于选择条件中属性<i>balance</i>和<i>branch-city</i>分别只涉及到关系<i>account</i>和<i>branch</i>，因此利用规则⑹①将画线的子表达式变换为：<br>
+              <u>((<i><font size="2">branch</font></i><font size="2">��<i>account</i></font>)��<i><font size="2">depositor</font></i>)</u><br>
+              对于新产生的子表达式：<br>
+              <font size="3"><b>σ</b></font><font size="-2">branch-city</font>= 
+              <font size="-2">&quot;Brooklyn&quot;∧balance&gt;1000</font>((<i><font size="2">branch��account</font></i>)��<i><font size="2">depositor</font></i>)<br>
+              利用规则⑺①可以得到：<br>
+              <u>(<font size="3"><b>σ</b></font><font size="-2">branch-city</font>= 
+              <font size="-2">&quot;Brooklyn&quot;∧balance&gt;1000</font>(<i><font size="2">branch��account</font></i>))</u>��<i><font size="2">depositor</font></i><br>
+              对于上面画线部分的子表达式利用规则⑺②得到：<br>
+              (<font size="3"><b>σ</b></font><font size="-2">branch-city</font>= 
+              <font size="-2">&quot;Brooklyn&quot;</font>(<i><font size="2">branch</font></i>))��(<font size="3"><b>σ</b></font><font size="-2">balance&gt;1000</font>(<i><font size="2">account</font></i>))<br>
+              最终的变换结果如下所示：<br>
+              <font size="2"><b>Π</b></font><font size="-2">customer-name</font>(((<font size="3"><b>σ</b></font><font size="-2">branch-city</font>= 
+              <font size="-2">&quot;Brooklyn&quot;</font>(<font size="2"><i>branch</i></font>))��(<font size="3"><b>σ</b></font><font size="-2">balance&gt;1000</font>(<font size="2"><i>account</i></font>)))��<font size="2"><i>depositor</i></font>)<br>
+              用关系代数表达式树可以更明显地看出两个表达式的差别，如下<span class="part">图9-2-2</span>所示<br>
+            </p>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left"> 
+            <div align="center"><span class="part">图9-2-2：关系代数表达式树</span><br>
+              <br>
+              <span class="part"><img src="../../../../image/chapter/09/9-2-2.gif" width="420" height="140"></span></div>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

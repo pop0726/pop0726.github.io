@@ -1,0 +1,122 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link href="../../../css/text.css" rel="stylesheet" type="text/css">
+</head>
+
+<body background="../../../image/tanchu/01.gif" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><div align="center"> 
+        <table border="1" cellpadding="0" cellspacing="0" bordercolor="#000000">
+          <tr class="zhishidian"> 
+            <td width="132" valign="top"> <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">术�语</span></b></p></td>
+            <td width="420" valign="top"> <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">解�释</span></b></p></td>
+          </tr>
+          <tr> 
+            <td width="132" align="center" valign="middle" class="section"> <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">物理层抽象</span></p></td>
+            <td width="420" valign="top"> <p class="MsoNormal"><span class="text" style="font-family:宋体;Times New Roman&quot;;
+  color:black">最低层次的抽象，描述数据实际上是</span><span class="text" style="font-family:宋体;Times New Roman&quot;">如何<span style="color:black">存储的。物理层详细描述复杂的低层数据结构，是开发<span lang="EN-US">DBMS的数据库供应商应该研究的事情。 
+                </span></span></span></p></td>
+          </tr>
+          <tr> 
+            <td width="132" align="center" valign="middle" class="section"> <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">物理模式（内模式）</span></p></td>
+            <td width="420" valign="top"> <p class="text">是指数据库在物理层的模式。</p></td>
+          </tr>
+          <tr> 
+            <td width="132" align="center" valign="middle" class="section"> <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">物理数据独立性</span></p></td>
+            <td width="420" valign="top"> <p class="text">是指修改数据库的物理模式而不必重写应用程序的能力。</p></td>
+          </tr>
+          <tr> 
+            <td width="132" align="center" valign="middle" class="section"> <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">网状模型</span></p></td>
+            <td width="420" valign="top"> <p class="text">是指数据用记录（与<span lang="EN-US">Pascal语言中的记录含义相同）的集合来表示，数据间的联系用链接（可看作指针）来表示。数据库中的记录可被组织成任意图的集合。 
+                </span></p></td>
+          </tr>
+          <tr> 
+            <td width="132" align="center" valign="middle" class="section"> <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">文件管理器</span></p></td>
+            <td width="420" valign="top"> <p class="text">管理磁盘空间的分配；管理用于表示数据库所存储信息的数据结构。</p></td>
+          </tr>
+          <tr> 
+            <td width="132" align="center" valign="middle" class="section"> <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">外码</span></p></td>
+            <td width="420" valign="top"> <p class="text">关系模式的属性中可以包含另一关系模式的主码，这样的属性称为外码。<span lang="EN-US" style="color:black"> 
+                </span></p></td>
+          </tr>
+          <tr> 
+            <td width="132" align="center" valign="middle" class="section"> <p class="section"><span style="font-family:宋体;Times New Roman&quot;;
+  color:black"><font color="#CC0000">无损连接分解</font></span><font color="#CC0000"><span style="font-family:宋体;Times New Roman&quot;" lang="EN-US"> 
+                </span></font></p></td>
+            <td width="420" valign="top"> <p class="MsoNormal" style="text-autospace:none"><span class="text" style="font-family:宋体;Times New Roman&quot;">令<i><span lang="EN-US">R</span></i>为关系模式，关系模式集<span lang="EN-US">{<i>R<sub>1</sub></i>,<i>R<sub>2</sub></i>,</span></span><span class="text" lang="EN-US">…</span><span class="text" style="font-family:宋体;Times New Roman&quot;" lang="EN-US">,<i>R<sub>n</sub></i>}为<i>R</i>的一个分解，即：<i>R 
+                </i>= <i>R<sub>1</sub></i>∪<i>R<sub>2</sub></i>∪...∪<i>R<sub>n</sub></i>。令<i>r</i>是模式<i>R</i>上的关系，即<i>r</i>(<i>R</i>)，而<i>r<sub>i</sub></i>=</span><span class="text" style="font-family: 宋体;" lang="EN-US">Π</span><span class="text"><i><sub><span lang="EN-US" style="font-family:
+  宋体;Times New Roman&quot;">Ri</span></sub></i><span lang="EN-US" style="font-family:宋体;Times New Roman&quot;">(<i>r</i>)，于是总有：</span></span><span class="text"><span style="font-family:宋体;Times New Roman&quot;"><img src="../../../image/tanchu/image/04.gif" width="31" height="20" align="texttop">�� 
+                <i><span lang="EN-US">r<sub>2 </sub></span></i>�� </span></span><span class="text" lang="EN-US">…</span><span class="text" style="font-family:宋体;Times New Roman&quot;" lang="EN-US"> 
+                �� <i>r<sub>n</sub></i>。令<i>C</i>表示数据库上的约束集。如果对模式<i>R</i>上满足<i>C</i>的所有合法关系<i>r</i>，均有：<i>r</i>=</span><span class="text" style="font-family: 宋体;" lang="EN-US">Π</span><span class="text"><i><sub><span lang="EN-US" style="font-family:宋体;Times New Roman&quot;">R1</span></sub></i><span lang="EN-US" style="font-family:
+  宋体;Times New Roman&quot;">(<i>r</i>) ��</span><span class="text" style="font-family: 宋体;" lang="EN-US">Π</span><i><sub><span lang="EN-US" style="font-family:
+  宋体;Times New Roman&quot;">R2</span></sub></i><span lang="EN-US" style="font-family:宋体;Times New Roman&quot;">(<i>r</i>) 
+                �� </span></span><span class="text" lang="EN-US">…</span><span class="text" style="font-family:
+  宋体;Times New Roman&quot;" lang="EN-US"> �� </span><span class="text" style="font-family: 宋体;" lang="EN-US">Π</span><span class="text"><i><sub><span lang="EN-US" style="font-family:宋体;Times New Roman&quot;">Rn</span></sub></i><span lang="EN-US" style="font-family:宋体;Times New Roman&quot;">(<i>r</i>)，那么，{<i>R<sub>1</sub></i>,<i>R<sub>2</sub></i>,</span></span><span class="text" lang="EN-US">…</span><span class="text" style="font-family:宋体;Times New Roman&quot;" lang="EN-US">,<i>R<sub>n</sub></i>}就是关于<i>R</i>的无损连接分解。</span><span lang="EN-US" style="font-family:宋体;Times New Roman&quot;"> 
+                </span></p></td>
+          </tr>
+          <tr> 
+            <td width="132" align="center" valign="middle" class="section"> <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">物理块（块）</span></p></td>
+            <td width="420" valign="top"> <p class="text">一个盘片的一条磁道内几个连续的扇区构成的序列，称为物理块，也简称为块。</p></td>
+          </tr>
+          <tr> 
+            <td width="132" align="center" valign="middle" class="section"> <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">位图索引<span lang="EN-US">&nbsp;&nbsp;&nbsp; 
+                </span></span></p></td>
+            <td width="420" valign="top"> <p class="text">一个比特表，该表的每一行代表一个关键字的特有值且每一列是一个比特，每一列位置上的记录指出对应的一个域值。</p></td>
+          </tr>
+          <tr> 
+            <td width="132" align="center" valign="middle" class="section"> <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">文件扫描</span></p></td>
+            <td width="420" valign="top"> <p class="text">文件扫描是用于定位、检索满足选择条件的记录的搜索算法。</p></td>
+          </tr>
+        </table>
+        <br>
+        <br>
+        <table border="1" cellpadding="0" cellspacing="0" bordercolor="#000000">
+          <tr class="zhishidian"> 
+            <td width="94" valign="top"> <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">缩写与符号</span></b></p></td>
+            <td width="254" valign="top"> <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">英文解释</span></b></p></td>
+            <td width="220" valign="top"> <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">中文解释</span></b></p></td>
+          </tr>
+          <tr class="zhishidian"> 
+            <td width="94" align="center" valign="middle" class="section"> <p class="MsoNormal"><span lang="EN-US" style="font-family:宋体;Times New Roman&quot;">WAL 
+                </span></p></td>
+            <td width="254" valign="top"> <p class="text">Write-ahead log </p></td>
+            <td width="220" valign="top"> <p class="text">写在前日志</p></td>
+          </tr>
+          <tr class="zhishidian"> 
+            <td width="94" align="center" valign="middle" class="section"> <p class="MsoNormal"><span lang="EN-US" style="font-family:宋体;Times New Roman&quot;">WAN 
+                </span></p></td>
+            <td width="254" valign="top"> <p class="text">Wide area network </p></td>
+            <td width="220" valign="top"> <p class="text">广域网</p></td>
+          </tr>
+          <tr class="zhishidian"> 
+            <td width="94" align="center" valign="middle" class="section"> <p class="MsoNormal"><span lang="EN-US" style="font-family:宋体;Times New Roman&quot;">WFF 
+                </span></p></td>
+            <td width="254" valign="top"> <p class="MsoNormal"><span lang="EN-US" style="font-family:宋体;Times New Roman&quot;">Well-formed 
+                formula </span></p></td>
+            <td width="220" valign="top"> <p class="text">合式公式</p></td>
+          </tr>
+          <tr class="zhishidian"> 
+            <td width="94" align="center" valign="middle" class="section"> <p class="MsoNormal"><span lang="EN-US" style="font-family:宋体;Times New Roman&quot;">WORM 
+                </span></p></td>
+            <td width="254" valign="top"> <p class="text">Write once/read many 
+                times </p></td>
+            <td width="220" valign="top"> <p class="text">一次写<span lang="EN-US">/多次读 
+                </span></p></td>
+          </tr>
+          <tr class="zhishidian"> 
+            <td width="94" align="center" valign="middle" class="section"> <p class="MsoNormal"><span lang="EN-US" style="font-family:宋体;Times New Roman&quot;">WYSIWYG 
+                </span></p></td>
+            <td width="254" valign="top"> <p class="text">What you see is what 
+                you get </p></td>
+            <td width="220" valign="top"> <p class="text">所见即所得</p></td>
+          </tr>
+        </table>
+      </div></td>
+  </tr>
+</table>
+</body>
+</html>

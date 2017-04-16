@@ -1,0 +1,28 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" bgproperties=fixed background="../../../../image/moban/14.gif">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" height="18">
+        <tr> 
+          <td class="text"><span class="zhishidian">11.1.6　商用DBMS中封锁协议的实现 </span> 
+            <p>��在实际的商用DBMS中，根据封锁协议实现的并发控制机制很简单且被广泛采用。这样的机制保证并发控制管理器自动为事务产生加锁、解锁指令：<br>
+              ��<span class="part">⑴</span>�当事务T进行read(Q)操作时，系统产生lock-S(Q)指令，后接read(Q)指令；<br>
+              ��<span class="part">⑵</span>�当事务T进行write(Q)操作时，系统检查T是否已在Q上持有共享锁。若有，则系统发出upgrade(Q)指令，后接write(Q)指令，否则系统发出lock-X(Q)指令，后接write(Q)指令；<br>
+              ��<span class="part">⑶</span>�在事务提交或回滚之后，该事务持有的锁都被释放。</p>
+            </td>
+        </tr>
+      </table>
+    <div align="center"></div>
+    </td>
+  </tr>
+</table>
+<p class="explaination">&nbsp;</p>
+</body>
+</html>

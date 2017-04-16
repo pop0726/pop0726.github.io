@@ -1,0 +1,80 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" --><font color="#cc0000">　<span class="biaoti_1">1．检索操作：</span><br>
+      　（1）简单检索：<br>
+      　　例1：查询所有被选修的课程号码；<br>
+      　　GET W (SC.Cno)<br>
+      　　W是工作空间名称，这里的表达式指出要返回被选修的课程号，而操作条件为空表示没有限定条件，返回所有的课程号。<br>
+      　（2）限定检索：<br>
+      　　例2 查询所有计算机系（CS）中学生的学号和年龄；<br>
+      　　GET W (Student.Sno , Student.Sage): Student.Sdept ='CS'<br>
+      　　在后面加上操作条件Student.Sdept='CS'，表示所选择的学生为计算机系的学生。<br>
+      　（3）带定额的检索：<br>
+      　　例3：取出一个计算机系学生的学号；<br>
+      　　GET W(1) (Student.Sno): Student.Sdept ='CS'<br>
+      　　定额的检索规定了检索元组的个数。在工作空间后面加上定额数量（1）。<br>
+      　　在检索的时候，可以加入全称量词，存在量词等。还可以用集函数对元组进行一些简单的运算。例如COUNT，TOTAL,MAX,MIN,AVG等。<br>
+      <br>
+      　<span class="biaoti_1">2．更新操作：</span><br>
+      　（1）修改操作<br>
+      　　修改操作用UPDATE实现，步骤为：<br>
+      　　首先用HOLD将要修改的元组从数据库中读到工作空间中。然后用宿主语言修改工作空间中元组的属性，最后用UPDATE语句将修改后的元组送回数据库。<br>
+      　　例如，把学号为J20001的学生的所在系名称改为电子工程系<br>
+      　　HOLD W (Student.Sno, Student.Sdept): Student.Sno='J20001' <br>
+      　　　//从关系Student中读取学号为J20001的所在系的名称信息//；<br>
+      　　MOVE 'EE' TO W.Sdept <br>
+      　　　//用宿主语言进行修改，将所在系名称从CS变为EE<br>
+      　　UPDATE W <br>
+      　　　//把修改的元组送回Student关系。<br>
+      　　值得注意的是，修改主关键码的操作是不允许的，在上例中，Student.Sno是关系Student的主关键字，就不能用UPDATE修改 ，只能先删去该元组，再插入新主关键字的元组。<br>
+      　（2）插入操作<br>
+      　　插入操作的语句是PUT，步骤如下：<br>
+      　　首先用宿主语言在工作空间建立新元组，然后用PUT语句将该元组插入到指定的关系中。<br>
+      　　例如，插入一个学号为J20023，姓名为王山的计算机系的男生。操作如下：<br>
+      　　　MOVE 'J20023' TO W.Sno<br>
+      　　　MOVE '王山' TO W.Sname<br>
+      　　　MOVE 'CS' TO W.Sdept<br>
+      　　　MOVE '男' TO W.Ssex<br>
+      　　　PUT W (Student) //将空间W的新元组插到关系Student中。<br>
+      <br>
+      　　<span class="biaoti_1">3. 删除操作</span><br>
+      　　在删除操作中，首先用HOLD语句将欲删除的元组从数据库读到工作空间中，然后用DELETE语句删除该元组。<br>
+      　　例如，将学号为J20023的学生从关系Student中删除，操作如下：<br>
+      　　　HOLD W (Student): Student.Sno=' J20023'<br>
+      　　　DELETE W<br>
+      　　也可以删除一个关系中的全部元组。<br>
+      　　例如，将关系Student中的全部元组删除。<br>
+      　　　HOLD W(Student)<br>
+      　　　DELETE W<br>
+      　　考虑到引用的完整性，删除了学生(Student)中的元组以后，应该相应地删除选课表中的学生选课元组。</font><br>
+      <!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

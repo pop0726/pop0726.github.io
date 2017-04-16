@@ -1,0 +1,71 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgproperties=fixed bgcolor="#FFFFFF" background="../../../../image/moban/15.gif">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" height="8">
+        <tr> 
+          <td class="text" align="left"> 
+            <p class="part">1、问题的提出<span class="text"><br>
+              ��在两阶段封锁协议下，还有一个大问题就是事务的级联回滚可能发生，这是我们不希望出现的事情。如</span>图11-1-8<span class="text">所示，给出了两阶段封锁协议下某调度的一部分：<br>
+              </span></p>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left"> 
+            <div align="center" class="part">图11-1-8：两阶段封锁协议下的某个调度<br>
+              <img src="../../../../image/chapter/11/11-1-8.gif" width="377" height="407"> 
+            </div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left">如果在事务T<font size="-5">11</font>的read(A)指令执行之后事务T<font size="-5">9</font>发生故障，从而导致事务T<font size="-5">10</font>与T<font size="-5">11</font>的级联回滚。<br>
+            <br>
+            <span class="part">2、问题的解决</span><br>
+            ��为了解决两阶段封锁协议下的级联回滚问题，需要对该协议的内容进行加强，这就产生了下面两种加强的两阶段封锁协议：<br>
+            ��<u>⑴�严格两阶段封锁协议：</u>除了要求封锁是两阶段之外，还要求事务持有的所有排他锁必须在事务提交之后方可释放。这个要求保证未提交事务所写的任何数据在该事务提交之前均以排他方式加锁，防止其他事务读取这些数据；<br>
+            ��<u>⑵�强两阶段封锁协议：</u>它要求事务提交之前不得释放任何锁。它旨在让冲突的事务尽可能地串行执行，这样的话，调度中的事务可以按其提交的顺序串行化。<br>
+            ��注意：大部分商用数据库系统都采用这两种协议中的一种。<br>
+            <br>
+            <span class="part">3、锁的转换</span><br>
+            ��<u>⑴�问题的提出</u><br>
+            ��如果事务一开始就申请排他锁并获得该锁，那么根据加强的两阶段封锁协议的要求，其他事务只能在该事务提交之后才有可能获得锁而继续执行。也就是说，加强的两阶段封锁协议虽然保证了调度不会发生级联回滚，但却降低了事务之间的并发度。如<span class="part">图11-1-9</span>所示：<br>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left"> 
+            <div align="center"><span class="part">图11-1-9：事务T<font size="-5">12</font>与T<font size="-5">13 
+              </font></span><br>
+              <span class="part"><img src="../../../../image/chapter/11/11-1-9.gif" width="216" height="418"></span></div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left">由于T<font size="-5">12</font>必须对<font size="3">a</font><font size="-5">1</font>加排他锁，导致两个事务的任何并发执行方式都相当于串行执行！<br>
+            ��<u>⑵问题的解决</u><br>
+            ��事实上，只是在T<font size="-5">12</font>写<font size="3">a</font><font size="-5">1</font>的时候才需要对<font size="3">a</font><font size="-5">1</font>加排他锁。因此，一开始T<font size="-3">12</font>只要对<font size="3">a</font><font size="-5">1</font>加共享锁就可以，只是在需要时再将其变更为排他锁，这样T<font size="-5">12</font>和T<font size="-5">13</font>就可以真正地实现并发执行，如<span class="part">图11-1-10</span>所示。这里的upgrade表示将共享锁提升为排他锁，相应地downgrade表示将排他锁降级为共享锁。特别要注意的是：锁提升只能发生在事务的增长阶段；而锁降级只能发生在事务的缩减阶段。这是为什么？请大家自己思考。<br>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left"> 
+            <div align="center"><span class="part">图11-1-10：带有锁转换的调度 </span><br>
+              <img src="../../../../image/chapter/11/11-1-10.gif" width="254" height="418"> 
+            </div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left"><span class="part">4、小结</span><br>
+            ��⑴�封锁协议是通过对事务所要访问的数据项进行加锁和解锁（由DBMS的并发控制管理器负责锁的授予和释放）来保证事务的并发执行；<br>
+            ��⑵�而基本的两阶段封锁协议指出了并发控制管理器只能在事务的增长阶段进行加锁，而在事务的缩减阶段进行解锁，并且一个调度可以根据它所包含的各个事务的封锁点做串行化；<br>
+            ��⑶�如果调度中事务的排他锁直到该事务提交之后才释放，则调度是无级联的。而带有锁转换的封锁协议则大大地提高了事务之间的并发度。</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

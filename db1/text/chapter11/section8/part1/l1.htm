@@ -1,0 +1,36 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body  bgcolor="#FFFFFF" bgproperties=fixed background="../../../../image/moban/15.gif">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" height="80">
+        <tr> 
+          <td class="text" align="left"> 
+            <p><span class="part">1、与delete操作冲突的操作</span><br>
+              ��首先要弄清楚调度中删除操作和哪些操作冲突。假设调度S中两个连续的操作I<font size="-5">m</font>和I<font size="-5">n</font>分别属于事务T<font size="-5">i</font>和T<font size="-5">j</font>，其中I<font size="-5">m</font> 
+              = delete(Q)：<br>
+              ��⑴�若I<font size="-5">n</font> = read(Q)：则当I<font size="-5">m</font>位于I<font size="-5">n</font>之前时冲突，为什么？<br>
+              ��⑵�若In = write(Q)：则当Im位于In之前时冲突，为什么？<br>
+              ��⑶�若In = delete(Q)：无论Im和In谁在前都冲突，为什么？<br>
+              ��⑷�若I<font size="-5">n</font> = insert(Q)：则冲突。分两种情况：<br>
+              ����①�在Im与In之前，Q还不存在，若Im位于In之前，则冲突；<br>
+              ����②�在Im与In之前，Q已经存在，若In位于Im之前，则冲突；<br>
+              <span class="part">2、并发控制机制中删除操作的处理</span><br>
+              ��⑴�如果使用两阶段封锁协议，则在一数据项被删除之前，应该为其申请加排他锁；<br>
+              ��⑵�在时间戳排序协议下进行类似于write操作的测试。假设事物T<font size="-5">i</font>发出delete(Q)操作：<br>
+              ����-�如果TS(T<font size="-5">i</font>)&lt;R-TS(Q)，则T<font size="-5">i</font>应回滚；<br>
+              ����-�如果TS(T<font size="-5">i</font>)&lt;W-TS(Q)，则T<font size="-5">i</font>应回滚；<br>
+              ����-�否则，执行delete(Q)操作。</p>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" --> 
+      <p><span class="biaoti_1">　1. ODBC工作原理</span><br>
+        　　ODBC驱动程序类似于Windows下的打印机驱动程序，通过ODBC驱动程序管理器统一对应用程序对数据库的访问进行规范化管理：<br>
+        　● ODBC的所有驱动程序都是动态连接库DLL(Dynamic Link Library)，由 ODBCADM.DLL驱动程序管理器统一进行管理。<br>
+        　● 任何DBMS，只要提供了并符合ODBC接口规范的DLL库，便可以加载到系统中被ODBC建立的应用程序所访问。<br>
+        　● ODBC.DLL通过WINDOWS系统注册表（或ODBC.INI文件）中的数据源 (Data Source)了解到对某个数据库应调用哪个DLL。每个数据源对应一个数据库驱动程序库（DBMS或ISAM文件）。<br>
+        <br>
+        　<span class="biaoti_1">2. 驱动程序的类型　<br>
+        </span><span class="pt9-black">　　根据数据库管理系统的结构，ODBC的数据库驱动程序分为以下两大类：单层驱动程序和多层驱动程序。下面分别介绍它们的结构。</span></p>
+      　(1) 单层数据库驱动程序： <br>
+      　　单层驱动程序不仅要处理ODBC函数调用，还要解释执行SQL语句，执行数据库管理系统（DBMS）的功能，实际上它就是一个数据库管理系统。例如，xBASE数据库系统的驱动程序就属于单层驱动程序。单层驱动程序本身具备数据库引擎的功能，利用它所编写的数据库应用程序为非客户机/服务器结构，这种应用程序既可以是运行于单机环境桌面数据库应用产品，如图6-15所示，也可以是运行在网络环境下的文件服务器数据库应用产品，如图6-16所示。<br>
+      　　<font color="#5a5aad">运行于网络环境时，应用程序将服务器作为文件服务器使用，要访问数据时，将整个数据库文件传送到应用程序主机一方进行处理，应用程序处理结束后，再将数据库送到服务器上，服务器的作用只是管理用户的访问操作和实现文件的存储管理。<br>
+      </font>　① 单机环境的应用程序结构 <br>
+      <br>
+      　　<span class="tubiaoti">图6－15 单机下基于单层驱动程序的应用程序结构</span><br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td align="center"><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="400" height="260">
+              <param name=movie value="../../../swf/ch6/6-14.swf">
+              <param name=quality value=high>
+              <param name="wmode" value="transparent">
+              <embed src="../../../swf/ch6/6-14.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="400" height="260" wmode="transparent">
+              </embed> 
+            </object> </td>
+        </tr>
+      </table>
+      <br>
+      　② 网络环境下的数据库文件服务器 <br>
+      　　运行于网络环境时，应用程序将服务器作为文件服务器使用，要访问数据时，将整个数据库文件传送到应用程序主机一方进行处理，应用程序处理结束后，再将数据库送到服务器上，服务器的作用只是管理用户的访问操作和实现文件的存储管理。这种的数据库软件如FoxPro, 
+      Access, Paradox等网络版本。<br>
+      <br>
+      　　<span class="tubiaoti">图6-16 基于单层驱动程序的网络环境的应用程序结构</span><br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td align="center" class="pt9-black"><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="400" height="320">
+              <param name=movie value="../../../swf/ch6/6-15.swf">
+              <param name=quality value=high>
+              <param name="wmode" value="transparent">
+              <embed src="../../../swf/ch6/6-15.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="400" height="320" wmode="transparent">
+              </embed> 
+            </object> </td>
+        </tr>
+      </table>
+      <!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

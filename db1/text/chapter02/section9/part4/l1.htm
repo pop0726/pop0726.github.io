@@ -1,0 +1,86 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgproperties=fixed bgcolor="#FFFFFF" background="../../../../image/moban/15.gif">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td class="text" align="left">��例如联系集borrower涉及两个实体集customer和loan，它们的主码分别为social-security和loan-number，而该联系集没有任何属性。所以borrower表就只有两列，如<span class="part">图2-9-4</span>所示。<br>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="center"><span class="part">图2-9-4：表borrower</span> 
+            <br>
+            <br>
+            <img src="../../../../image/chapter/02/2-9-4.gif" width="420" height="267"> 
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="center"> 
+            <div align="left">��在用表表示联系集的时候，有两点需要注意：<br>
+              ��<b>1、表的冗余</b><br>
+              ��将弱实体集和相应强实体集相关联的联系集比较特殊，如<span class="part">图2-9-5</span>所示，弱实体集payment通过标识性联系集loan-payment依赖于强实体集loan。<br>
+            </div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left"> 
+            <div align="center"><span class="part">图2-9-5：与弱实体集相关联的标识性联系集</span> 
+              <br>
+              <br>
+              <img src="../../../../image/chapter/02/2-9-5.gif" width="420" height="63"> 
+            </div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left">弱实体集的主码是{loan-number, payment-number}，按照前面的规则，loan的主码和payment主码的并集可以表示联系集loan-payment：loan-payment(loan-number, 
+            payment-number)<br>
+            而在<span class="part">图2-9-3</span>中介绍过弱实体集payment可以用表：payment(loan-number, 
+            payment-number, payment-date, payment-amount)来表示，它已经包含了表loan-payment的所有属性。因此，在这里loan-payment表是多余的，不必给出．<br>
+            ��<b>2、表的合并</b><br>
+            ��如<span class="part">图2-9-6</span>所示，它表示从实体集A到实体集B的多对一的联系集AB。用前面介绍的建表方法将得到三个表：A、B和AB。如果实体集A全部参与联系集AB，那么可以将表A和表AB合并成一个表，该表的列就是上述两个表所包含列的并集；如果实体集A部分参与联系集AB，那么合并后的表将会在联系集AB的属性上出现空值null。<br>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left"> 
+            <div align="center"><span class="part">图2-9-6：实体集A全部参与的多对一联系集AB</span> 
+              <br>
+              <br>
+              <img src="../../../../image/chapter/02/2-9-6.gif" width="420" height="95"> 
+            </div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left">��由于表AB的列包含了实体集A和B的主码属性，因此只需要将实体集B的主码属性和联系集AB所特有的属性作为列加入到表A中，就可以完成表A和表AB的合并。<br>
+            ��<span class="part">如图2-9-7</span>所示，联系集account-branch从account到branch是多对一的，且实体集account全部参与到account-branch中。</td>
+        </tr>
+        <tr> 
+          <td class="text" align="left"> 
+            <div align="center">
+              <p><span class="part">图2-9-7：多对一的联系集account-branch </span><br>
+              </p>
+              <p><img src="../../../../image/chapter/02/2-9-7.gif" width="420" height="139"> 
+              </p>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="text" align="left">按照前面的规则，<span class="part">图2-9-7</span>将产生以下三个表：<br>
+            account(account-number, balance)<br>
+            account-branch(account-number, branch-name)<br>
+            branch(branch-name, branch-city, assets)<br>
+            由于一个帐户不可能不与任何银行分之机构相联系而存在，因此只需要以下两个表就可以表示<span class="part">图2-9-7</span>的E-R模式：<br>
+            account(account-number, balance, branch-name)<br>
+            branch(branch-name, branch-city, assets)</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

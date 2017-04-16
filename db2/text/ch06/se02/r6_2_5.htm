@@ -1,0 +1,80 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" --> 
+      <p>　　<font color="#cc0000">本节的例子用来说明如何调用ODBC数据库连接函数实现与数据源的连接，怎么执行SQL语句、释放数据库连接资源，以及在执行过程中出现错误如何处理等。<br>
+        　程序清单6.1<br>
+        　　#include &lt;stdio.h&gt;<br>
+        　　#include &lt;string.h&gt;<br>
+        　　#include &lt;windows.h&gt;<br>
+        　　#include &lt;sql.h&gt; //ODBC 驱动程序基本头文件<br>
+        　　#include &lt;sqlext.h&gt; //ODBC 驱动程序扩展头文件<br>
+        　　#include &lt;sqltypes.h&gt; //ODBC 数据类型头文件<br>
+        　　SQLHENV henv = SQL_NULL_HENV; //环境句柄<br>
+        　　SQLHDBC hdbc1 = SQL_NULL_HDBC; //数据库句柄<br>
+        　　SQLHSTMT hstmt1 = SQL_NULL_HSTMT; //语句句柄</font></p>
+      <font color="#cc0000">　　int main() {<br>
+      　　　RETCODE retcode; //SQL语句执行返回信息码<br>
+      　　//数据源定义<br>
+      　　　UCHAR szDSN[SQL_MAX_DSN_LENGTH+1] = &quot;MyDSN&quot;,<br>
+      　　　szUID[MAXNAME] = &quot;sa&quot;, szAuthStr[MAXNAME] = &quot;MyPassword&quot;;<br>
+      　　// 申请ODBC环境句柄<br>
+      　　　retcode = SQLAllocHandle (SQL_HANDLE_ENV, NULL, &amp;henv);<br>
+      　　// 让ODBC驱动程序管理器知道这是一个ODBC3.0应用程序<br>
+      　　　retcode = SQLSetEnvAttr(henv, SQL_ATTR_ODBC_VERSION,<br>
+      　　　　　(SQLPOINTER)SQL_OV_ODBC3, SQL_IS_INTEGER);<br>
+      　　// 申请ODBC连接句柄并与数据库连接<br>
+      　　　　retcode = SQLAllocHandle(SQL_HANDLE_DBC, henv, &amp;hdbc1);<br>
+      　　　　retcode = SQLConnect(hdbc1, szDSN, (SWORD)strlen(szDSN),<br>
+      　　　　szUID, (SWORD)strlen(szUID),<br>
+      　　　　szAuthStr, (SWORD)strlen(szAuthStr));<br>
+      　　　　if ( (retcode != SQL_SUCCESS) &amp;&amp; <br>
+      　　　　(retcode != SQL_SUCCESS_WITH_INFO) ) { <br>
+      　　//如果连接不成功或有信息返回，调用SQLGetDiagRec处理错误信息.<br>
+      　　//释放相应句柄，返回。<br>
+      　　　　}<br>
+      　　// 申请语句句柄<br>
+      　　　　retcode =SQLAllocStmt(hdbc1,&amp; hstmt1)<br>
+      　　　　if ( (retcode != SQL_SUCCESS) &amp;&amp; <br>
+      　　　　(retcode != SQL_SUCCESS_WITH_INFO) ) { <br>
+      　　//如果连接不成功或有信息返回，调用SQLGetDiagRec处理错误信息.<br>
+      　　//释放相应句柄，返回。<br>
+      　　　　　　　　　　　}<br>
+      　　// 处理SQL语句<br>
+      　　　　retcode=SQLExecDirect(hstmt1,'SELECT * FROM authors', SQL_NTS);<br>
+      　　//释放数据库连接资源<br>
+      　　　SQLDisconnect(hdbc1); //断开与数据库的连接<br>
+      　　　SQLFreeStmt(hstm1, SQL_CLOSE); //释放语句句柄<br>
+      　　　SQLFreeHandle(SQL_HANDLE_DBC, hdbc1); //释放数据库句柄<br>
+      　　　SQLFreeHandle(SQL_HANDLE_ENV, henv); //释放环境句柄<br>
+      　　　　return(0);<br>
+      　　　　　　　　　}</font><!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

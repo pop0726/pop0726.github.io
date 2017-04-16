@@ -1,0 +1,61 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" --> 　<span class="biaoti_1">4. 执行SQL</span>　<br>
+      　　Connection对象还能执行SQL语句。Connection对象的Execute方法能用来执行一条SQL语句并返回Recordset对象，如程序清单6.8。<br>
+      　(7) 程序清单6.8： 通过Connection 对象执行SQL，没有返回结果。<br>
+      　　<font color="#5a5aad">'---创建Connection对象</font><br>
+      　　　Set objConn = Server.CreateObject( &quot;ADODB.Connection &quot; )<br>
+      　　<font color="#5a5aad">'---通过存储在Application中连接字符串打开连接</font><br>
+      　　　ObjConn.Open Application(&quot;ConnString&quot;)<br>
+      　　<font color="#5a5aad">'---通过Connection对象执行一条SQL语句</font><br>
+      　　　ObjConn.Execute &quot;UPDATE titles SET price = price * 1.1&quot;<br>
+      　　<font color="#cc0000">程序清单6.8执行SQL且没有返回Recordset对象。这就是ADO1.5与ADO2.0 差别之处：ADO 
+      1.5返回一个Recordset对象，无论有无数据都返回给应用。在ADO2.0中，就可以用Execute方法的参数设定是否返回Recordset。为此，只要将adExecuteNoRecords值加到Execute方法的Options参数即可，如程序清单6.8。<br>
+      　　Connection对象的Execute方法有三个参数如下：<br>
+      　　Connection.Execute CommandText、RecordsAffected、Options<br>
+      　　其中<br>
+      　・ CommandText可以是SQL语句、表名或要执行的存储过程(如果是表则打开)。<br>
+      　・ RecordsAffected 是个传值参数，返回受CommandText作用的记录数。如果执行某一查询，该参数返回受查询作用的记录数。<br>
+      　・ Options 参数允许指定一些选项，如进行异步取或CommandText的表示等。<br>
+      </font>　(8) 程序清单6.9：从Connection 对象返回一个Recordset。<br>
+      　　<font color="#5a5aad">'---创建Connection对象</font><br>
+      　　　Set objConn = Server.CreateObject( &quot;ADODB.Connection &quot; )<br>
+      　　<font color="#5a5aad">'---创建数据集对象</font><br>
+      　　　set objRS = Server.CreateObject(&quot;ADODB.Recordset&quot;)<br>
+      　　<font color="#5a5aad">'---通过存储在Application中连接字符串打开连接</font><br>
+      　　　objConn.Open Application(&quot;ConnString&quot;)<br>
+      　　　strSQL = &quot;SELECT * FROM titles&quot;<br>
+      　　<font color="#5a5aad">'---通过Connection对象执行一条SQL语句，并将结果集返回</font><br>
+      　　　set objRS = objConn.Execute(strSQL)<br>
+      　　<font color="#5a5aad">当然，如果希望返回一个Recordset，可以将一个Recordset加入变量，如程序清单6.9所示。</font><br>
+      <!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

@@ -1,0 +1,370 @@
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/pop/bg.gif">
+<center><table width="95%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+      <td> 
+        <p class="pt9-black"><b>问答题答案</b></p>
+        <p class="pt9-black">　<b>第1题</b><br>
+          　・ 语言功能的一体化: 集数据定义DDL、数据操纵DML、数据控制DCL为一体。且它不严格区分数据定义和数据操纵，在一次操作中可以使用任何语句。结构的一体化：关系模型中唯一的结构类型就是关系表，这种数据结构的单一性,使得增、删、改、查询等操作都只须使用一种操作符。 
+          <br>
+          　・ 高度非过程化：只须提出"做什么"无须指 明"怎样做"。用户不必了解存取路径。面向集合的操作方式：在元组集合上操作,操作结果仍是元组集合。查找、插入、删除和更新都可以是元组集合。<br>
+          　・ 两种操作方式、统一的语法结构：既是自含式语言，又是嵌入式语言。作为自含式语言，可作为连机交互式使用；作为嵌入式语言，SQL语句可嵌入高级程序设计语言中使用。<br>
+          　・ 语言简洁、易学易用：数据定义、操纵和控制只用了9个动词。<br>
+          <br>
+          　<b>第2题</b><br>
+          　答案略。<br>
+          <br>
+          　<b>第3题</b><br>
+          　・ 什么是视图： <br>
+          　　视图是查询结果的关系，是一个基于查询的逻辑表，视图本身并不存储数据，但它可以表示来自不同来源的数据，对应用程序来说，视图就相当一个表，数据可以从视图中查得，而且在权限许可的情况下，还可以通过视图来插入、更改和删除数据。<br>
+          　・ 视图的优点如下： <br>
+          　　(1)提供了逻辑上的数据独立性：修改了基本表，通过建立视图，可以不改变应用程序。 <br>
+          　　(2)简化了用户查询；<br>
+          　　(3)不同的用户通过视图可以从不同的观点观察数据；<br>
+          　　(4)视图作为授权的单位提高了系统的安全性，通过视图可以对用户隐藏某些数据。<br>
+          <br>
+          　<b>第4题</b><br>
+          　・ 什么是游标： <br>
+          　　通过嵌入式SQL语句进行查询时，当查询结果为一组记录时，不能把提取的元组集合直接传递到应用程序中，必须先放到某种缓冲存储空间，这称为使用游标 
+          CURSOR。因此，游标是系统为用户的查询结果开辟的数据缓冲区，存放SQL的查询结果。<br>
+          　・ 嵌入式SQL中使用游标的操作过程：<br>
+          　　(1). 定义游标(2). 打开游标(3). 逐一读游标区中的元组值；(4). 关闭游标(5) 删除游标<br>
+          <br>
+          　<b>第5题</b><br>
+          　触发器是一种特殊类型的存储过程，当表中数据被修改时，系统自动执行触发器。 <br>
+          　当一个触发器建立后，它作为一个数据库对象被存储。当事件出现时，触发器被触发，定义在触发器中的功能将被DBMS执行。触发器建立在表一级，它与指定的数据修改操作相对应。SQL 
+          Server 中的触发器可分为INSERT触发器、UPDATE触发器和DELETE触发器三种。<br>
+          <br>
+          　<b>第6题</b><br>
+          　(1) 存储过程是存放在服务器上的预先定义与编译好的SQL语句。存储过程在第一次执行时进行语法检查和编译。编译好的版本存储在过程高速缓存中用于后续调用，执行速度快。存储过程由应用程序激活，而不是由系统自动执行。<br>
+          　(2) 存储过程特点： <br>
+          　　・使多个应用程序可以共享应用程序的处理逻辑，所有的客户机程序使用同一个存储过程进行各种操作，从而确保数据访问和操作的一致性，也提高了应用程序的可维护性。<br>
+          　　・由于存储过程在第一次执行之后，就驻存在高速缓存存储器中，因此可以提高系统的执行效率。<br>
+          　　・ 提供一种安全机制。如果用户被授予执行存储过程的权限，那么既使该用户没有执行访问在该存储过程中所参考的表或者视图的权限，该用户也可以完全执行该存储过程。<br>
+          　　・ 减少了网络的流量负载。由于存储过程是存在服务器端的，因此客户端要执行存储过程时，只需要传送一条命令即可，如果不使用存储过程，则需要传送许多条SQL语句。<br>
+          　　・ 因为存储过程提供该前端应用程序共享的处理逻辑，若要改变业务规则或策略，只需改变存储过程和参数。<br>
+          <br>
+          　<b>第7题</b><br>
+          　(1) 统计每个学生的平均成绩和姓名 <br>
+          　　　select s.sname, AVG(grade) <br>
+          　　　from student s ,sc <br>
+          　　　where s.sno = sc.sno<br>
+          　　　group by s.sname<br>
+          　(2) 统计平均成绩超过85分的学生的名字、学号和成绩。 <br>
+          　　　Select s.sname,s.sno,avg(sc.grade) <br>
+          　　　from student s, sc where s.sno = sc.sno <br>
+          　　　　　group by s.sname,s.sno <br>
+          　　　　　having avg(grade)>=85 <br>
+          　(3)查询平均成绩超过85分的学生的人数大于20人的班级的名字和平均成绩超过85分的人数。 <br>
+          　　　Select classname,count(*) <br>
+          　　　from student s, sc ,class <br>
+          　　　where s.sclass = class.classname <br>
+          　　　　　AND s.sno IN<br>
+          　　　　　( select sno<br>
+          　　　　　　from sc <br>
+          　　　　　　group by sno<br>
+          　　　　　　having avg(grade)>=85) <br>
+          　　　group by classname <br>
+          　　　having count(*) >=20<br>
+          <br>
+          　<b>第8题</b><br>
+          　/* 下面是SQL语句的练习部分示例 */<br>
+          　/*************创建数据库****************/ <br>
+          　create database Business1 <br>
+          　on <br>
+          　(name=Business1_dat, <br>
+          　filename='f:\mssql7\Data1\businessdat.mdf', <br>
+          　size=10, <br>
+          　maxsize=50, <br>
+          　filegrowth=5) <br>
+          　log on <br>
+          　(name=Business1_log, <br>
+          　filename='f:\mssql7\Data1\businesslog.ldf', <br>
+          　size=5MB, <br>
+          　maxsize=25MB, <br>
+          　filegrowth=5MB) <br>
+          　go <br>
+          <br>
+          　/*创建数据库一个主文件、2个次文件、2个日志文件*/<br>
+          　create database archive1 <br>
+          　on <br>
+          　primary(name=arch1,<br>
+          　filename='f:\Program Files\mssql7\Data1\archdat1.mdf', <br>
+          　size=10MB, <br>
+          　maxsize=20, <br>
+          　filegrowth=2), <br>
+          　(name=arch2, <br>
+          　filename='f:\Program Files\mssql7\Data1\archdat2.ndf', <br>
+          　size=10MB,<br>
+          　maxsize=20, <br>
+          　filegrowth=2), <br>
+          　(name=arch3, <br>
+          　filename='f:\Program Files\mssql7\Data1\archdat3.ndf', <br>
+          　size=10MB, <br>
+          　maxsize=20, <br>
+          　filegrowth=2) <br>
+          　log on <br>
+          　(name=archlog1,<br>
+          　filename='f:\Program Files\mssql7\Data1\archlog1.ldf', <br>
+          　size=10MB,<br>
+          　maxsize=20, <br>
+          　filegrowth=2), <br>
+          <br>
+          　(name=archlog2,<br>
+          　filename='f:\Program Files\mssql7\Data1\archlog2.ldf', <br>
+          　size=10MB,<br>
+          　maxsize=20, <br>
+          　filegrowth=2) <br>
+          　go <br>
+          <br>
+          　/*利用文件组创建数据库*/<br>
+          　create database company2<br>
+          　on <br>
+          　primary (name=pril_dat, <br>
+          　filename='f:\Program Files\mssql7\Data1\pril1dat.mdf',<br>
+          　size=10, <br>
+          　maxsize=50, <br>
+          　filegrowth=15%), <br>
+          　(name=pri2_dat, <br>
+          　filename='f:\Program Files\mssql7\Data1\pri21dat.mdf', <br>
+          　size=10, <br>
+          　maxsize=50, <br>
+          　filegrowth=15%), <br>
+          　filegroup <br>
+          　comgroup1 <br>
+          　(name=grp1fi11_dat, <br>
+          　filename='f:\Program Files\mssql7\Data1\g1fi11dt.ndf', <br>
+          　size=10, <br>
+          　maxsize=50, <br>
+          　filegrowth=5), <br>
+          　(name=grp2fi22_dat, <br>
+          　filename='f:\Program Files\mssql7\Data1\g2fi22dt.ndf',<br>
+          　size=10,<br>
+          　maxsize=50, <br>
+          　filegrowth=5), <br>
+          　filegroup <br>
+          　comgroup2<br>
+          　(name=grp2fi11_dat, <br>
+          　filename='f:\Program Files\mssql7\Data1\g2fi11dt.ndf',<br>
+          　size=10, <br>
+          　maxsize=50, <br>
+          　filegrowth=5), <br>
+          　(name=grp2fi21_dat,<br>
+          　filename='f:\Program Files\mssql7\Data1\g2fi21dt.ndf', <br>
+          　size=10, <br>
+          　maxsize=50, <br>
+          　filegrowth=5) <br>
+          <br>
+          　log on <br>
+          　(name=company1_log, <br>
+          　filename='f:\Program Files\mssql7\Data1\comlog.ldf', <br>
+          　size=5, <br>
+          　maxsize=25, <br>
+          　filegrowth=5) <br>
+          　go <br>
+          <br>
+          　/*修改大小*/<br>
+          　use my_library <br>
+          　go<br>
+          <br>
+          　alter database my_library <br>
+          　add file <br>
+          　(name=testdat2, <br>
+          　filename='f:\Program Files\mssql7\Data1\t1dat2.ndf', <br>
+          　size=5MB, <br>
+          　maxsize=100, <br>
+          　filegrowth=5)<br>
+          　go <br>
+          <br>
+          　use company2<br>
+          　go <br>
+          <br>
+          　alter database company2 <br>
+          　add file<br>
+          　(name=pri3_dat,<br>
+          　filename='f:\Program Files\mssql7\Data1\pri31dat.mdf', <br>
+          　size=5mb,<br>
+          　maxsize=100mb,<br>
+          　filegrowth=5mb), <br>
+          　(name=pri4_dat,<br>
+          　filename='f:\Program Files\mssql7\Data1\pri41dat.mdf', <br>
+          　size=5mb, <br>
+          　maxsize=100mb,<br>
+          　filegrowth=5mb) to filegroup comgroup1<br>
+          <br>
+          　alter database company2<br>
+          　modify file<br>
+          　(name=pri3_dat,<br>
+          　size=20mb) <br>
+          　go <br>
+          　dbcc shrinkfile(pri3_dat,15) <br>
+          　go<br>
+          <br>
+          　/*删除数据库*/ <br>
+          　drop database archive1 <br>
+          <br>
+          　/*以下都是在pubs库中的操作*/<br>
+          　/*产生表*/ <br>
+          　create table student <br>
+          　(sno char(8) not null unique ,<br>
+          　sname char(8) not null unique, <br>
+          　ssex char(20) not null, <br>
+          　sage char (12) not null, <br>
+          　sadd char (40), <br>
+          　primary key (sno) <br>
+          　) <br>
+          <br>
+          　/*修改表*/<br>
+          　alter table student <br>
+          　add sdept char(20) <br>
+          <br>
+          　/*删除表*/ <br>
+          　drop table student <br>
+          <br>
+          　/*查询表*/ <br>
+          　select sum(qty) '销售总量'<br>
+          　from sales<br>
+          <br>
+          　select avg(qty) '平均销量' <br>
+          　from sales <br>
+          <br>
+          　select stor_id '销量最小书',qty '最小量' <br>
+          　from sales <br>
+          　where qty=(select min(qty) <br>
+          　　　　　　　　from sales) <br>
+          　select * <br>
+          　from sales <br>
+          　order by qty desc <br>
+          <br>
+          　select stor_id,sum(qty)'总量',avg(qty)'平均',max(qty)'最大量',min(qty)'最小量'<br>
+          　from sales <br>
+          　group by stor_id <br>
+          　having count(*)>2 <br>
+          <br>
+          　select jobs.job_id,job_desc,lname+','+fname,hire_date <br>
+          　from jobs <br>
+          　join employee <br>
+          　on jobs.job_id=employee.job_id <br>
+          <br>
+          　/*插入表*/ <br>
+          　insert into dtproperties <br>
+          　values('1','5','beijing','BJ','de','23') <br>
+          <br>
+          　/*增加约束*/ <br>
+          　alter table discounts<br>
+          　add constraint pk_id <br>
+          　primary key(discounttype)<br>
+          <br>
+          　/*产生缺省对象*/<br>
+          　create default zero <br>
+          　as 0 <br>
+          　sp_bindefault "zero","discounts.lowqty" <br>
+          <br>
+          　/*增加约束*/<br>
+          　alter table authors <br>
+          　add constraint ck_id <br>
+          　check(contract>=0) <br>
+          <br>
+          　/*增加约束*/<br>
+          　alter table authors <br>
+          　add constraint uk_id <br>
+          　unique(au_id) <br>
+          <br>
+          　/*增加约束*/<br>
+          　alter table titles <br>
+          　add constraint foreignkey_pub_id <br>
+          　foreign key(pub_id) <br>
+          　references publishers(pub_id)<br>
+          <br>
+          　/*创建视图*/<br>
+          　create view author_view<br>
+          　as <br>
+          　select au_id,au_fname,au_lname,contract <br>
+          　from authors<br>
+          　where state='CA' <br>
+          <br>
+          　/*通过视图插入数据*/<br>
+          　insert into author_view <br>
+          　(au_id,au_fname,au_lname,contract) <br>
+          　values('123-23-3456','zhaoxia','yang',1) <br>
+          <br>
+          　/*通过视图更新数据*/ <br>
+          　update author_view <br>
+          　set contract=2 <br>
+          　where au_fname='zhaoxia' <br>
+          <br>
+          　/*产生索引*/<br>
+          　create index titleid_idx<br>
+          　on titles(title_id) <br>
+          <br>
+          　/*授权和撤消授权*/ <br>
+          　grant select on authors <br>
+          　to cnk6<br>
+          　revoke select on authors <br>
+          　from cnk6<br>
+          <br>
+          　/*创建存储过程*/<br>
+          　CREATE PROCEDURE nocontract_au <br>
+          　as <br>
+          　select au_id ,contract <br>
+          　from authors <br>
+          　where contract=0 <br>
+          <br>
+          　/*创建触发器*/<br>
+          　create trigger del <br>
+          　on jobs <br>
+          　for delete <br>
+          　as delete from employee<br>
+          　where jobs.job_id=employee.job_id <br>
+          <br>
+          　/*创建、打开和使用游标*/<br>
+          　declare a_ta_t cursor scroll for <br>
+          　select au_lname,title,price <br>
+          　from authors a,titleauthor ta,titles t <br>
+          　where a.au_id=ta.au_id <br>
+          　and ta.title_id=t.title_id <br>
+          　and a.state="CA" <br>
+          　for update of price <br>
+          <br>
+          　declare @fetch_status int <br>
+          <br>
+          　open a_ta_t <br>
+          　fetch a_ta_t <br>
+          　select @fetch_status=@@FETCH_STATUS <br>
+          　while @fetch_status=0 <br>
+          　begin <br>
+          　　update titles <br>
+          　　set price=price/1.5 <br>
+          　　where current of a_ta_t <br>
+          　　fetch a_ta_t <br>
+          　　select @fetch_status=@@FETCH_STATUS <br>
+          　end <br>
+          <br>
+          　close a_ta_t <br>
+          　deallocate a_ta_t <br>
+          <br>
+          　declare @author varchar(20) <br>
+          　set @author='作者' <br>
+          　select @author,au_lname,au_fname <br>
+          　from authors <br>
+          　where state="ca" <br>
+          <br>
+          　/*创建规则对象*/<br>
+          　create rule list_rule <br>
+          　as <br>
+          　@list in('1389','0736','0877') <br>
+          　sp_addmessage 50002, 16, 'This is a test%s'<br>
+          　RAISERROR (50002, 16, -1, "aaa")　</p>
+      </td>
+  </tr>
+</table>
+  </center>
+
+</body>
+</html>

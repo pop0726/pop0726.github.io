@@ -1,0 +1,84 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" --><span class="pt9-black">　　在SQL中，最常用的向表格中添加数据的方法是使用INSERT语句。但是，用INSERT语句每次只能插入一个元组。用带子查询插入语句，一个次可以插入一个或多个元组。 
+      <br>
+      　● 插入一个元组的语句格式：<br>
+      　　　INSERT INTO 表名[（列名[，列名]…）]<br>
+      　　　VALUES(值[，值]…..)<br>
+      　　<font color="#5a5aad">插入单个元组，按顺序在表名后给出表中每个列名，在VALUES后给出对应的每个列值。插入一个完整的新元组时，可省略表的列名。插入部分列值，必须在表名后给出要输入值的列名。</font></span> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+        <tr> 
+          <td width="35" valign="top"><img src="../../../img/text/liti.gif" width="35" height="36" alt="例题"></td>
+          <td>　例1，插入单个元组，按顺序给出表中每个列值。<br>
+            　　INSERT INTO DEPT VALUES( &quot;CS&quot;,&quot;计算机&quot;,&quot;888&quot;, 
+            &quot;10区&quot; )</td>
+        </tr>
+        <tr> 
+          <td valign="top"><img src="../../../img/text/liti.gif" width="35" height="36" alt="例题"></td>
+          <td><br>
+            　例2，插入一个学生的部分列值，必须在表名后给出要输入值的列名。<br>
+            　　INSERT INTO <font color="#5a5aad">STUDENT</font> (sno ,sname) <br>
+            　　VALUES( &quot;J20045&quot;, &quot;刘琉&quot;)</td>
+        </tr>
+      </table>
+      <p>　　<font color="#5a5aad">在使用INSERT语句的时候，VALUES列表中的值或表达式必须匹配表中的列数，并和相应各列数据类型兼容。如果表格中存在某些列定义为NOT 
+        NULL，那么在插入时该列必须要出现在VALUES的列表中，否则插入会失败。</font></p>
+      <span class="pt9-black">　● </span> 用子查询插入多个元组值的语句格式：<br>
+      　　　INSERT INTO 表名[（列名[，列名]…）]<br>
+      　　子查询<br>
+      　　<font color="#5a5aad">注意：在使用子查询的结果插入元组时，子查询的结果必须匹配待插入表中的列数，并和相应各列数据类型兼容。如果表格中存在某些列定义为NOT 
+      NULL，那么子查询的结果在该列上必须有值，否则插入会失败。</font>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+        <tr> 
+          <td width="35" valign="top"><img src="../../../img/text/liti.gif" width="35" height="36" alt="例题"></td>
+          <td>　例3，建立一个新表，存放每个学生的学号、姓名和平均成绩。把子查询结果插入新表中。<br>
+            　　CREATE TABLE savg( sno CHAR(8),sname CHAR(20), avage REAL )<br>
+            　　INSERT INTO savg (sno,sname,avage) <br>
+            　　( SELECT sno,sname，AVG(grade)<br>
+            　　FROM SC，STUDENT<br>
+            　　WHERE SC.sno = STUDENT.sno<br>
+            　　GROUP BY sno )</td>
+        </tr>
+        <tr> 
+          <td valign="top"><img src="../../../img/text/liti.gif" width="35" height="36" alt="例题"></td>
+          <td><br>
+            　例4，在表Studio中插入属性name，这些name是在表Movie中提到，但没有在表Studio中出现的studioName。<br>
+            　　INSERT INTO Studio(name)<br>
+            　　SELECT DISTINCT studioName<br>
+            　　FROM Movie<br>
+            　　WHERE studioName NOT IN<br>
+            　　(SELECT name FROM Studio); </td>
+        </tr>
+      </table>
+      <br>
+      　　<font color="#5a5aad">考虑上述例子如果去掉DISTINCT会是什么样子？和你想象的一样吗？</font><!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

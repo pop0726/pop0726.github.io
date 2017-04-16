@@ -1,0 +1,55 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgproperties=fixed bgcolor="#FFFFFF" background="../../../../image/moban/15.gif">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" height="39">
+        <tr> 
+          <td class="text" align="left"> 
+            <p class="text"><img src="../../../../image/tubiao/lt.gif" width="35" height="35" alt="示例">��例1：<br>
+              ��如<span class="part">图5-5-1</span>所示，关系r上函数依赖A<span class="text">→</span>C是满足的，但C<span class="text">→</span>A是不满足的；函数依赖AB<span class="text">→</span>D也是满足的。注意，我们用AB作为{A,B}的简写。</p>
+          </td>
+        </tr>
+        <tr>
+          <td class="text" align="left">
+            <div align="center"><span class="part">图5-5-1：数据库中的一个关系r </span><br>
+              <img src="../../../../image/chapter/05/5-5-1.gif" width="185" height="160"> 
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="text" align="left" height="153"> ��有些函数依赖在所有关系中都是满足的，例如A<span class="text">→</span>A和AB<span class="text">→</span>A在所有包含属性A（及B）的关系中都是满足的。一般来说，如果<span class="text">β<img src="../../../../image/title/05/06.gif" width="11" height="10">α</span>，则形如<span class="text">α</span><span class="text">→</span><span class="text">β</span>的函数依赖是平凡的，本章只讨论非平凡的函数依赖。对于平凡的函数依赖的证明可以采用以下简单的方法：<br>
+            证明：因为<span class="text">β<img src="../../../../image/title/05/06.gif" width="11" height="10">α</span>，所以令<span class="text">α</span>=<span class="text">β</span>∪γ，然后再用函数依赖的定义进行证明即可。<br>
+            例2：<br>
+            　　假如有如下的关系模式：<br>
+            <i>Loan-info-schema</i> = (<i>branch-name, loan-number, customer-name, 
+            amount</i>)<br>
+            一般来说，我们希望在这个关系模式上有函数依赖集（即多个函数依赖组成的集合）：<br>
+            loan-number<span class="text">→</span>amountloan-number<span class="text">→</span>branch-name<br>
+            但是，不希望有函数依赖：<br>
+            loan-number<span class="text">→</span>customer-name<br>
+            那么，这些要求的具体含义是什么呢？请大家自己思考。<br>
+            ��如<span class="part">图5-5-2</span>所示，对于关系<i>customer(Customer-schema)</i>来说，函数依赖：<i>customer-street<span class="text">→</span>customer-city</i>是满足的。但是对关系模式<i>Customer-schema</i>来说，上述函数依赖却不一定成立！因为不同的城市具有同名的街道是很可能的。</td>
+        </tr>
+        <tr>
+          <td class="text" align="left">
+            <div align="center" class="part">图5-5-2：关系customer<br>
+              <img src="../../../../image/chapter/05/5-5-2.gif" width="420" height="301"> 
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="text" align="left">由此，我们可以得出结论：函数依赖a<span class="text">→</span>b在关系r(R)上是满足的，但在关系模式R上不一定是成立的！ 
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

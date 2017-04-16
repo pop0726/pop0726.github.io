@@ -1,0 +1,83 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body  bgcolor="#FFFFFF" bgproperties=fixed background="../../../../image/moban/15.gif">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" height="18">
+        <tr> 
+          <td class="text" height="2"> 
+            <p>��<span class="part">1、定长记录</span><br>
+              ��文件的问题我们首先考虑由银行数据库的account记录组成的一个文件。该文件中的记录定义如下：<br>
+              type account = record <br>
+              ���������branch-name: char(22); <br>
+              ���������account-number: char(10); <br>
+              ���������balance: real; <br>
+              ��������end<br>
+              假设每个字符占一个字节，一个实数占8个字节，那么一个account记录占40个字节。存储account记录的简单办法就是用文件的头40个字节存储第一个记录，接着的40个字节存储第二个记录，依次类推，如<span class="part">图7-2-1</span>所示。<br>
+            </p>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" height="2" valign="top"> 
+            <div align="center" class="part">图7-2-1：存储account记录的文件<br>
+              <img src="../../../../image/chapter/07/7-2-1.gif" width="320" height="300"> 
+            </div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" height="2"> ��这种文件结构的主要问题是：<br>
+            ��⑴�删除一条记录比较困难：要么填充被删空间，要么标记被删记录；<br>
+            ��⑵�除非块的大小恰好是40的倍数，否则记录会跨块存储，如果要恰好访问跨块存储的记录，那么系统将会花费很长的时间，因为它要涉及到两次磁盘I/O。<br>
+            ��<span class="part">2、定长记录文件的维护</span><br>
+            ��定长记录文件的维护主要是指如何处理文件中记录的删除与插入，可以采用的策略有以下几种：<br>
+            ��⑴�删除一条记录时，顺序移动其后的所有记录；而插入一条记录则始终在文件的尾部进行。<span class="part">图7-2-2</span>显示的是删除<span class="part">图7-2-1</span>中的记录2之后的文件情况。<br>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" height="87"> 
+            <div align="center"><span class="part">图7-2-2：删除记录2之后的文件</span><br>
+              <img src="../../../../image/chapter/07/7-2-2.gif" width="320" height="312"> 
+            </div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" height="1">��⑵�删除一条记录时，将文件的最后一条记录移动到被删记录的位置即可；而插入一条记录则始终在文件的尾部进行。<span class="part">图7-2-3</span>显示的是删除<span class="part">图7-2-1</span>中的记录2之后的文件情况。<br>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" height="2"> 
+            <div align="center"><span class="part">图7-2-3：删除记录2之后的文件 </span><br>
+              <img src="../../../../image/chapter/07/7-2-3.gif" width="320" height="306"> 
+            </div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" height="2">��⑶�删除一条记录时，并不着急移动记录，而是将其空间加入空闲记录列表；当要插入记录时，就使用空闲记录列表中的记录空间，如果没有空闲空间就插入到文件的尾部，<span class="part">图7-2-4</span>显示了具有空闲记录列表的account记录文件。</td>
+        </tr>
+        <tr> 
+          <td class="text" height="2"> 
+            <div align="center"><span class="part">图7-2-4：具有空闲记录列表的account记录文件 
+              </span><br>
+              <img src="../../../../image/chapter/07/7-2-4.gif" width="353" height="270"> 
+            </div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" height="2">需要说明的是在<span class="part">图7-2-4</span>中，引入了额外的结构：文件头及其指针列，文件头包含该文件的各种信息，指针列用于标记文件中的空闲记录。由于文件中有指针存在，因此在移动记录时就务必小心，以免由于记录的移动而改变指针引起错误。<br>
+            <br>
+            ��<span class="menu">在DBMS中，为什么我们要研究文件组织呢？对一个DBMS来说，我们首先要搞清楚下面三个问题：<br>
+            ��1、DBMS中的一个数据库（DB）是由几个操作系统文件构成的？<br>
+            ��2、在每个文件中记录是如何存储的？即是采用定长记录的结构呢还是采用变长记录的结构呢？<br>
+            ��3、在每个文件中记录的逻辑顺序又是如何组织的？或者说记录是按什么样的顺序存放的？</span></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

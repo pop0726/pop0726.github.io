@@ -1,0 +1,48 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgproperties=fixed bgcolor="#FFFFFF" background="../../../../image/moban/15.gif">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td class="text" align="left">&nbsp; </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left"> 
+            <div align="center" class="part">图11-3-3：托马斯写规则的示例图<br>
+              <img src="../../../../image/chapter/11/11-3-3.gif" width="248" height="195"> 
+            </div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left">如<span class="part">图11-3-3</span>所示，TS(T<font size="-5">3</font>)&lt;TS(T<font size="-5">4</font>)，假设T<font size="-5">3</font>的read(Q)和T<font size="-5">4</font>的write(Q)都成功执行，则W-TS(Q)=TS(T<font size="-5">4</font>)。当T<font size="-5">3</font>试图执行write(Q)时，由于TS(T<font size="-5">3</font>)&lt;W-TS(Q)=TS(T<font size="-5">4</font>)，该操作被拒绝且事务T<font size="-5">3</font>回滚。<br>
+            ��虽然按照时间戳排序协议的要求T<font size="-5">3</font>应该回滚，但实际上是没有必要的。为什么呢？因为T<font size="-5">4</font>已经写入了Q，而T<font size="-5">3</font>想要写入的Q值将永远不会被读到。原因如下：<br>
+            ��⑴�满足TS(Ti)&lt;W-TS(Q)=TS(T<font size="-5">4</font>)的任何事务T<font size="-5">i</font>试图进行read(Q)操作时均被回滚；<br>
+            ��⑵�满足TS(T<font size="-5">j</font>)&gt;W-TS(Q)=TS(T<font size="-5">4</font>)的任何事务T<font size="-5">j</font>必须读入由T<font size="-5">4</font>而不是T<font size="-5">3</font>写入的Q值。<br>
+            ��因此，结论就是：T<font size="-5">3</font>的write(Q)操作已过时，可以忽略。实际的串行顺序如<span class="part">图11-3-4</span>所示：<br>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left"> 
+            <div align="center"><span class="part">图11-3-4：可以忽略的写操作 </span><br>
+              <img src="../../../../image/chapter/11/11-3-4.gif" width="248" height="195"></div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left"> ��综上所述，Thomas(托马斯)写规则表达如下：<br>
+            ��当事务T<font size="-5">i</font>发出write(Q)操作时：<br>
+            ��①�若TS(T<font size="-5">i</font>)&lt;R-TS(Q)，则T<font size="-5">i</font>产生的Q值是先前所需要的，但系统已假定该值不会被产生。因此write操作被拒绝，T<font size="-5">i</font>回滚；<br>
+            ��②�若TS(T<font size="-5">i</font>)&lt;W-TS(Q)，则T<font size="-5">i</font>试图写入的Q值已经过时。因此该write操作可被忽略；<br>
+            ��③�其他情况下执行write操作，并将W-TS(Q)的值设为TS(T<font size="-5">i</font>)。</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" --><span class="pt9-black"><font color="#CC0000">1. 
+      作为语义数据模型，当初提出E-R数据模型的目的有3个：</font><br>
+      　　(1) 建立一个统一的数据模型，以概括3种传统的结构化数据模型；<br>
+      　　(2) 作为三种传统的结构化数据模型相互转换的中间模型；<br>
+      　　(3) 作为超脱DBMS的一种概念数据模型，以比较自然的方式模拟现实世界。 </span> 
+      <p><font color="#CC0000">2. 在描述数据模型的E-R图中，使用的符号</font><br>
+        　　E-R数据模型用得最成功和最广泛的是作为数据库概念设计的数据模型。在E-R模型中，基本的建模结构是实体、联系和属性。实体联系数据模型用E-R模型图描述。E-R模型图是直观的表示概念模型的有力工具，在软件工程和数据库设计过程中使用很普遍，是描述数据模型很方便的方法。在E-R图中，使用的符号如下:<br>
+        　　(1) 矩形框表示实体类型，单线矩形框表示强实体类型，双线矩形框表示弱实体类型。<br>
+        　　(2) 菱形表示联系类型。<br>
+        　　(3) 椭圆框表示属性。<br>
+        　　(4) 用弧(连线)表示实体或实体类型之间的联系。每条孤上附加一对数表示对参与联系的每个角色的约束，即　　在相关类型的联系中，一个实体作为一个给定的角色参与到该联系中的最大可能性。<br>
+        　　E-R模型支持一对一、一对多和多对多的联系。实体集之间三种联系的表示如图2-6。</p>
+      <p align="center"><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="400" height="300">
+          <param name=movie value="../../../swf/ch2/2-6.swf">
+          <param name=quality value=high>
+          <param name="wmode" value="transparent">
+          <embed src="../../../swf/ch2/2-6.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="400" height="300" wmode="transparent">
+          </embed> 
+        </object></p>
+      <p align="center"><span class="pt9-black"></span><span class="tubiaoti">图2-6 
+        两个实体集之间的三种联系</span><span class="pt9-black"></span></p>
+      <p><span class="pt9-black"><font color="#0033CC">注释：<br>
+        在E-R模型中，联系是n维的， 在一个联系中，一个实体起的作用称作角色。角色的概念类似于关系模型中的关系属性的概念。在E-R模型中的联系语义，比网状或关系模型中的语义需有更强的表达能力。<br>
+        注释：连线上的数字有两种表示方法：<br>
+        o表示方法1：用一对数，表示实体角色的最大参与度，如图2-6中的a)和c)所示。<br>
+        o表示方法2：用两对数，表示实体角色的最小和最大参与度，2-6中的b)和d)所示。</font></span></p>
+      <p align="center"><img src="../../../img/text/ch02/c3.gif" width="357" height="181"></p>
+      <p align="center">图2-7 用一对数和两对数表示实体的参与度</p>
+      <p align="left">　　<font color="#0033CC">学生和课程之间是多对多的联系，一个学生可以选修多门课程，每门课程有多个学生选修。在图2-6a)中，用{m:n}一对数表示学生和课程参与选课联系的最大可能是m（多）和n（多）。在图2-6 
+        b)中，用{(1,m)：(10,n)}两　　对数表示学生参与选课联系的最小可能是1，最大可能是n（多），即每个学生至少要选修1门课，最多选修m门课；而课程参与选课联系的最小可能是10，最大可能是m（多），即每门课程至少要有10个学生选课，否则不开课，最多可以有n(n 
+        10)个学生选修课。<br>
+        　　部门和职工之间是一对多的联系，一个职工只能属于一个部门，每个部门可以有多个职工。在图2-6c)中，用{1:n}一对数表示部门和职工参与属于联系的最大可能是1和n（多）。在图2-6 
+        d)中，用{(1,1)：(1,n)}两对数表示职工参与属于联系的最小可能是1，最大可能也是1，即每个职工至少要属于一个部门，最多也只能属于一个部门；而部门参与属于联系的最小可能是1，最大可能是n（多），即每个部门至少要有1个职工，最多可以有n(n 
+        1)个职工。</font><br>
+      </p>
+      <!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

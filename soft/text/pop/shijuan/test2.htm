@@ -1,0 +1,338 @@
+<HTML>
+<HEAD>
+<TITLE>软件工程 </TITLE>
+<SCRIPT language=JavaScript>
+/*-------------------------------------------填空题---------------------------------------------*/
+function getKeyWord(form){
+var mykeys=new Array();
+mykeys[0]="追溯";mykeys[1]="高内聚";mykeys[2]="低耦合";mykeys[3]="作用范围";mykeys[4]="控制范围";mykeys[5]="信息隐蔽";mykeys[6]="最小界面";mykeys[7]="高内聚";mykeys[8]="显式信息传递";mykeys[9]="继承性";mykeys[10]="纯计算构件";mykeys[11]="存储构件";mykeys[12]="管理构件";mykeys[13]="控制构件";mykeys[14]="链接构件";
+
+var answer=new Array();
+for(var I=0;I<mykeys.length;I++) answer[I]="";
+
+var every=form.elements;
+for(var I=0;I<every.length;I++)
+{
+if(every[I].type=="text")
+{
+ if(every[I].value!==null)
+ {var item=parseInt(every[I].name.substr(0))
+  answer[item-1]+=every[I].value;
+  }
+ }
+}
+var newcount="<html><head><title>谢谢您!</title></head><body><center><h2><font color=red>您的测试结果</font></h2></center>";
+var totalscore=0;
+for(var I=0;I<answer.length;I++)
+{var re=/</g;
+var rd=/>/g;
+var re=/\\/g;
+answer[I]=answer[I].replace(re,"&#92;");
+answer[I]=answer[I].replace(re,"&lt;");
+answer[I]=answer[I].replace(rd,"&gt;");
+	if(answer[I].toUpperCase()==mykeys[I].toUpperCase())
+	{
+		var rstr="<font size=2>第"+(I+1)+"个空答案正确!</font><br>";
+		newcount+=rstr;
+		totalscore+=1/15*100;
+	}else
+	{
+		var rstr="<font size=2>第"+(I+1)+"个空答案错误!正确答案为"+mykeys[I]+"</font><br>";
+		newcount+=rstr;
+	}
+
+}
+
+newcount+="<br>您的总成绩为:";
+newcount+=Math.ceil(totalscore);
+newcount+="分";
+newwin=window.open("","","height=400,width=400,scrollbars=yes,resizable=no");
+newwin.document.write(newcount);
+}
+/*-------------选择提----------------------------------------------------------------*/
+function getresultcheck(form)
+{var mykeys=new Array();
+mykeys[0]="ADFGJ";mykeys[1]="CDGIJ";
+
+
+var answer=new Array();
+for(var I=0;I<mykeys.length;I++) answer[I]="";
+
+var every=form.elements;
+//var lastname="";
+for(var I=0;I<every.length;I++)
+{
+	if(every[I].type=="checkbox")
+	{
+		/*alert("checkbox:name->"+every[I].name+"value->"+every[I].value);*/
+		if(every[I].checked)
+		{	
+			//var item=parseInt(every[I].name.charAt(1));
+			var item=parseInt(every[I].name.substr(0));/*返回由字符串转换得到的整数*/
+			/*substr返回一个从指定位置开始的指定长度的子字符串。*/
+			answer[item-1]+=every[I].value;
+		}
+	}				
+}
+
+var newcount="<html><head><title>谢谢您!</title></head><body><center><h2><font color=red>您的测试结果</font></h2></center>";
+var totalscore=0;
+for(var I=0;I<answer.length;I++)
+{
+	if(answer[I].toUpperCase()==mykeys[I].toUpperCase())
+	{
+		var rstr="<font size=2>第"+(I+1)+"题答案正确!</font><br>";
+		newcount+=rstr;
+		totalscore+=1/2*100;//每题分数
+	}else
+	{
+		var rstr="<font size=2>第"+(I+1)+"题答案错误!正确答案为"+mykeys[I]+"</font><br>";
+		newcount+=rstr;
+	}
+
+}
+
+newcount+="<br>您的总成绩为:";
+newcount+=Math.ceil(totalscore);
+newcount+="分";
+newwin=window.open("","","height=400,width=400,scrollbars=yes,resizable=no");
+newwin.document.write(newcount);}
+/*--------------------------------判断题----------------------------------------------------*/
+
+function getresultpanduan(form)
+{var mykeys=new Array();
+
+
+
+var answer=new Array();
+for(var I=0;I<mykeys.length;I++) answer[I]="";
+
+var every=form.elements;
+//var lastname="";
+for(var I=0;I<every.length;I++)
+{
+	if(every[I].type=="checkbox")
+	{
+		/*alert("checkbox:name->"+every[I].name+"value->"+every[I].value);*/
+		if(every[I].checked)
+		{	
+			//var item=parseInt(every[I].name.charAt(1));
+			var item=parseInt(every[I].name.substr(0));/*返回由字符串转换得到的整数*/
+			/*substr返回一个从指定位置开始的指定长度的子字符串。*/
+			answer[item-1]+=every[I].value;
+		}
+	}				
+}
+
+var newcount="<html><head><title>谢谢您!</title></head><body><center><h2><font color=red>您的测试结果</font></h2></center>";
+var totalscore=0;
+for(var I=0;I<answer.length;I++)
+{
+	if(answer[I].toUpperCase()==mykeys[I].toUpperCase())
+	{
+		var rstr="<font size=2>第"+(I+1)+"题 您答对了!</font><br>";
+		newcount+=rstr;
+		totalscore+=1/0*100;//每题分数
+	}else
+	{
+		var rstr="<font size=2>第"+(I+1)+"题 您答错了!</font><br>";
+		newcount+=rstr;
+	}
+
+}
+
+newcount+="<br>您的总成绩为:";
+newcount+=Math.ceil(totalscore);
+newcount+="分";
+newwin=window.open("","","height=400,width=400,scrollbars=yes,resizable=no");
+newwin.document.write(newcount);
+}
+/*--------------------------------简答题----------------------------------------------------*/
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+</SCRIPT>
+<style type="text/css"><!--
+-->
+</style>
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+</HEAD>
+<BODY text=black bgColor=#FFFFFF topMargin=10 marginheight="10">
+<DIV class=p2 align=center></DIV>
+<FORM >
+  <P><SMALL><span class="section">一、多选题 </span></SMALL><span class="section"><SMALL></SMALL></span><span class="text"><SMALL><BR>
+    <BR>
+    &nbsp; 1.</SMALL></span><SMALL><span class="text"> 从下面关于程序设计风格和软件测试的叙述中，选出5条正确的叙述</span></SMALL><span class="text">。<br>
+    <small>　 </small></span><SMALL><span class="text"> 
+    <input type="checkbox" name="1" value="A">
+    A<SPAN style="FONT-FAMILY: 宋体; FONT-SIZE: 12pt;  'Times New Roman'; 'Times New Roman'; 'Times New Roman';    "><SMALL><FONT face="Times New Roman">.</FONT></SMALL></SPAN></span><SPAN style="FONT-FAMILY: 宋体; FONT-SIZE: 12pt;  'Times New Roman'; 'Times New Roman'; 'Times New Roman';    "><SMALL><span class="text">�假如数据结构中常使用数组、指针等数据类型，则对它们必须采取随机访问，这样势必产生访问上的混乱</span></SMALL></SPAN><span class="text">。</span></SMALL><span class="text"><SMALL><BR>
+    　 
+    <input type="checkbox" name="1" value="B">
+    B<SPAN style="FONT-FAMILY: 宋体;  'Times New Roman'; 'Times New Roman'"><FONT face="Times New Roman">.�</FONT></SPAN></SMALL></span><SMALL><SPAN style="FONT-FAMILY: 宋体;  'Times New Roman'; 'Times New Roman'"><span class="text">尽量用公共过程或子程序去代替重复的代码段。</span></SPAN></SMALL><span class="text"><SMALL><br>
+    � 
+    <input type="checkbox" name="1" value="C">
+    C.�</SMALL></span><SMALL><span class="text">测试是为了验证该软件已正确地实现了用户的要求。</span></SMALL><span class="text"><SMALL><SPAN style="FONT-FAMILY: 宋体;  'Times New Roman'; 'Times New Roman'"><BR>
+    　 
+    <input type="checkbox" name="1" value="D">
+    D.�</SPAN></SMALL></span><SMALL><span style="FONT-FAMILY: 宋体;  'Times New Roman'; 'Times New Roman'" class="text">对于连锁型分支结构，若有</span><span lang="EN-US" class="text">n</span><span style="FONT-FAMILY: 宋体;  'Times New Roman'; 'Times New Roman'" class="text">个判定语句，则有</span><span lang="EN-US" class="text">2<SUP>8</SUP></span><span style="FONT-FAMILY: 宋体;  'Times New Roman'; 'Times New Roman'" class="text">条路径。</span></SMALL><span class="text"><SMALL><SPAN style="FONT-FAMILY: 宋体;  'Times New Roman'; 'Times New Roman'"><BR>
+    　 
+    <input type="checkbox" name="1" value="E">
+    E.�</SPAN></SMALL></span><SMALL><SPAN style="FONT-FAMILY: 宋体;  'Times New Roman'; 'Times New Roman'"><span class="text">尽量采用复合的条件测试，以避免嵌套的分支结构。</span></SPAN></SMALL><span class="text"><SMALL><SPAN style="FONT-FAMILY: 宋体;  'Times New Roman'; 'Times New Roman'"><BR>
+    　 
+    <input type="checkbox" name="1" value="F">
+    F.�</SPAN></SMALL></span><SMALL><span lang="EN-US" class="text">GOTO</span><span style="FONT-FAMILY: 宋体;  'Times New Roman'; 'Times New Roman'" class="text">语句概念简单，使用方便，在某些情况下，保留</span><span lang="EN-US" class="text">GOTO</span><span style="FONT-FAMILY: 宋体;  'Times New Roman'; 'Times New Roman'" class="text">语句反能使写出的程序更加简洁。</span></SMALL><span class="text"><SMALL><SPAN style="FONT-FAMILY: 宋体;  'Times New Roman'; 'Times New Roman'"><BR>
+    　 
+    <input type="checkbox" name="1" value="G">
+    G.�</SPAN></SMALL></span><SMALL><SPAN style="FONT-FAMILY: 宋体;  'Times New Roman'; 'Times New Roman'"><span class="text">发现错误多的程序模块，残留在模块中的错误也多。</span></SPAN></SMALL><span class="text"><SMALL><SPAN style="FONT-FAMILY: 宋体;  'Times New Roman'; 'Times New Roman'"><BR>
+    　 
+    <input type="checkbox" name="1" value="H">
+    H.�</SPAN></SMALL></span><SMALL><SPAN style="FONT-FAMILY: 宋体;  'Times New Roman'; 'Times New Roman'"><span class="text">黑盒测试方法中最有效的是因果图法。</span></SPAN></SMALL><span class="text"><SMALL><SPAN style="FONT-FAMILY: 宋体;  'Times New Roman'; 'Times New Roman'"><BR>
+    　 
+    <input type="checkbox" name="1" value="I">
+    I.�</SPAN></SMALL></span><SMALL><SPAN style="FONT-FAMILY: 宋体;  'Times New Roman'; 'Times New Roman'"><span class="text">在做程序的单元测试时，桩（存根）模块比驱动模块容易编写。<br>
+    <small><span style="FONT-FAMILY: 宋体;  'Times New Roman'; 'Times New Roman'">　 
+    </span></small></span><SPAN style="FONT-FAMILY: 宋体; FONT-SIZE: 10.5pt; 'Times New Roman'; 'Times New Roman'; 'Times New Roman';    "><SMALL><span class="text"> 
+    <input type="checkbox" name="1" value="J">
+    J</span></SMALL></SPAN></SPAN></SMALL><span class="text"><SMALL><SPAN style="FONT-FAMILY: 宋体;  'Times New Roman'; 'Times New Roman'"><span class="text"><small><span style="FONT-FAMILY: 宋体;  'Times New Roman'; 'Times New Roman'">.</span></small></span><SPAN style="FONT-FAMILY: 宋体; FONT-SIZE: 10.5pt; 'Times New Roman'; 'Times New Roman'; 'Times New Roman';    "><SMALL>�</SMALL></SPAN></SPAN></SMALL></span><SMALL><SPAN style="FONT-FAMILY: 宋体;  'Times New Roman'; 'Times New Roman'"><SPAN style="FONT-FAMILY: 宋体; FONT-SIZE: 10.5pt; 'Times New Roman'; 'Times New Roman'; 'Times New Roman';    "><SMALL><span class="text">程序效率的提高主要应通过选择高效的算法来实现。</span></SMALL></SPAN></SPAN><BR>
+    <BR>
+    &nbsp; </SMALL><span class="text">2.</span><SPAN style="FONT-FAMILY: 宋体; FONT-SIZE: 12pt;  'Times New Roman'; 'Times New Roman'; 'Times New Roman';    "><SMALL class="text">在下面关于软件开发的项目管理的叙述中，选出5条正确的叙述</SMALL></SPAN>。<br>
+    <small><span style="FONT-FAMILY: 宋体;  'Times New Roman'; 'Times New Roman'"><span class="text"><small><span style="FONT-FAMILY: 宋体;  'Times New Roman'; 'Times New Roman'">　 
+    </span></small></span><span style="FONT-FAMILY: 宋体; FONT-SIZE: 10.5pt; 'Times New Roman'; 'Times New Roman'; 'Times New Roman';    "><small><span class="text"> 
+    </span></small></span></span></small><span class="text"> 
+    <input type="checkbox" name="２" value="A">
+    A.</span><SPAN style="FONT-FAMILY: 宋体; FONT-SIZE: 12pt;  'Times New Roman'; 'Times New Roman'"><SMALL><span class="text">软件开发过程中人力的配备必须保持恒定，避免中途加人。</span></SMALL></SPAN><span class="text"><SPAN style="FONT-FAMILY: 宋体; FONT-SIZE: 12pt;  'Times New Roman'; 'Times New Roman'"><br>
+    <small><span style="FONT-FAMILY: 宋体;  'Times New Roman'; 'Times New Roman'"><span class="text"><small><span style="FONT-FAMILY: 宋体;  'Times New Roman'; 'Times New Roman'">　 
+    </span></small></span><span style="FONT-FAMILY: 宋体; FONT-SIZE: 10.5pt; 'Times New Roman'; 'Times New Roman'; 'Times New Roman';    "><small><span class="text"> 
+    </span></small></span></span></small> 
+    <input type="checkbox" name="2" value="B">
+    </SPAN></span><SPAN style="FONT-FAMILY: 宋体; FONT-SIZE: 12pt;  'Times New Roman'; 'Times New Roman'"><SMALL><span class="text">B.为得到可靠的成本和工作量估算，应把估算推迟到项目的后期进行。在项目完成时可得到100%精确的估算结果。</span></SMALL></SPAN><span class="text"><SPAN style="FONT-FAMILY: 宋体; FONT-SIZE: 12pt;  'Times New Roman'; 'Times New Roman'"><br>
+    <small><span style="FONT-FAMILY: 宋体;  'Times New Roman'; 'Times New Roman'"><span class="text"><small><span style="FONT-FAMILY: 宋体;  'Times New Roman'; 'Times New Roman'">　 
+    </span></small></span><span style="FONT-FAMILY: 宋体; FONT-SIZE: 10.5pt; 'Times New Roman'; 'Times New Roman'; 'Times New Roman';    "><small><span class="text"> 
+    </span></small></span></span></small> 
+    <input type="checkbox" name="2" value="C">
+    </SPAN></span><SPAN style="FONT-FAMILY: 宋体; FONT-SIZE: 12pt;  'Times New Roman'; 'Times New Roman'"><SMALL><span class="text">C.在无规则和混乱的管理条件下，先进的工具和技术是发挥不出它应有的作用的。 
+    　　　<BR>
+    � 
+    <input type="checkbox" name="2" value="D">
+    D.除了对语言的熟悉程度、工作年限、工资收入之外，良好的办公环境对保证软件人员高质量地完成任务起着很大的作用。<BR>
+    � 
+    <input type="checkbox" name="2" value="E">
+    E.在软件开发过程中需要处理好软件产品质量与生产率之间的关系，因此可以在软件质量与价格之间进行权衡，做出折衷。<BR>
+    � 
+    <input type="checkbox" name="2" value="F">
+    F.在安排软件开发进度时常采用关键路径法（CPM），若加速关键路径上任一关键任务的完成就能使整个软件开发进度提前。<BR>
+    � 
+    <input type="checkbox" name="2" value="G">
+    G.在诸多软件质量度量的方法中用得最多得是事后度量或验收度量。</span></SMALL></SPAN><span class="text"><SPAN style="FONT-FAMILY: 宋体; FONT-SIZE: 12pt;  'Times New Roman'; 'Times New Roman'"><SMALL><br>
+    </SMALL></SPAN></span><SPAN style="FONT-FAMILY: 宋体; FONT-SIZE: 12pt;  'Times New Roman'; 'Times New Roman'"><SMALL> 
+    <span class="text"> � 
+    <input type="checkbox" name="2" value="H">
+    </span></SMALL><span class="text"><SMALL></SMALL></span><SMALL><span class="text">H.软件能够正常工作的持续时间叫做软件的使用寿命，它与使用者的输入环境无关。<BR>
+    � 
+    <input type="checkbox" name="2" value="I">
+    I.建立软件可靠性（Shooman）模型的一个前提条件是：错误检出率与程序中残留的错误数成正比。<BR>
+    � 
+    <input type="checkbox" name="2" value="J">
+    J.通过软件测试不可能将软件中隐藏的错误完全检出。</span></SMALL></SPAN><BR>
+    <BR>
+    <INPUT id=A type=reset value=清空>
+    <INPUT id=A onclick=getresultcheck(this.form) type=button value=提交>
+    <BR>
+    <BR>
+    <SMALL class="text"><span class="section">二、填空题</span><br>
+    </SMALL><SMALL><span class="text">1. 在完成软件概要设计，并编写出相关文档之后，应当组织对概要设计工作的评审。<BR>
+    �评审的内容包括： <BR>
+    �分析该软件的系统结构、子系统结构，确认该软件设计是否覆盖了所有已确定的软件需求，软件每一成份是否可 
+    <INPUT id=c1 maxLength=20 name=1 size=4 style="BORDER-BOTTOM-COLOR: #003399; BORDER-BOTTOM-WIDTH: 2px; BORDER-LEFT-COLOR: black; BORDER-LEFT-WIDTH: 0px; BORDER-RIGHT-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-COLOR: black; BORDER-TOP-WIDTH: 0px">
+    到某一项需求。<BR>
+    �分析软件各部分之间的联系，确认该软件的内部接口与外部接口是否已经明确定义。模块是否满足 
+    <INPUT id=c1 maxLength=20 name=2 size=4 style="BORDER-BOTTOM-COLOR: #003399; BORDER-BOTTOM-WIDTH: 2px; BORDER-LEFT-COLOR: black; BORDER-LEFT-WIDTH: 0px; BORDER-RIGHT-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-COLOR: black; BORDER-TOP-WIDTH: 0px">
+    和 
+    <INPUT id=c1 maxLength=20 name=3 size=4 style="BORDER-BOTTOM-COLOR: #003399; BORDER-BOTTOM-WIDTH: 2px; BORDER-LEFT-COLOR: black; BORDER-LEFT-WIDTH: 0px; BORDER-RIGHT-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-COLOR: black; BORDER-TOP-WIDTH: 0px">
+    的要求。模块 
+    <INPUT id=c1 maxLength=20 name=4 size=4 style="BORDER-BOTTOM-COLOR: #003399; BORDER-BOTTOM-WIDTH: 2px; BORDER-LEFT-COLOR: black; BORDER-LEFT-WIDTH: 0px; BORDER-RIGHT-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-COLOR: black; BORDER-TOP-WIDTH: 0px">
+    是否在其 
+    <INPUT id=c1 maxLength=20 name=5 size=4 style="BORDER-BOTTOM-COLOR: #003399; BORDER-BOTTOM-WIDTH: 2px; BORDER-LEFT-COLOR: black; BORDER-LEFT-WIDTH: 0px; BORDER-RIGHT-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-COLOR: black; BORDER-TOP-WIDTH: 0px">
+    之内。<BR>
+    <BR>
+    </span></SMALL><span class="text">2.&nbsp; </span><SPAN style="FONT-FAMILY: 宋体; FONT-SIZE: 12pt;  'Times New Roman'; 'Times New Roman'"><SMALL><span class="text">在面向对象软件设计过程中，应按如下要求进行类的设计</span></SMALL></SPAN><span class="text"><SPAN style="FONT-FAMILY: 宋体; FONT-SIZE: 12pt;  'Times New Roman'; 'Times New Roman'"><SMALL>：<br>
+    �</SMALL></SPAN></span><SPAN style="FONT-FAMILY: 宋体; FONT-SIZE: 12pt;  'Times New Roman'; 'Times New Roman'"><SMALL><span class="text">其它类的成员只能使用类的共有界面上的操作，这就是软件设计的</span></SMALL></SPAN><span class="text"><SPAN style="FONT-FAMILY: 宋体; FONT-SIZE: 12pt;  'Times New Roman'; 'Times New Roman'"><SMALL> 
+    <INPUT id=c1 maxLength=20 name=6 size=4 style="BORDER-BOTTOM-COLOR: #003399; BORDER-BOTTOM-WIDTH: 2px; BORDER-LEFT-COLOR: black; BORDER-LEFT-WIDTH: 0px; BORDER-RIGHT-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-COLOR: black; BORDER-TOP-WIDTH: 0px">
+    </SMALL></SPAN></span><SPAN style="FONT-FAMILY: 宋体; FONT-SIZE: 12pt;  'Times New Roman'; 'Times New Roman'"><SMALL><span class="text">原则。</span></SMALL></SPAN><span class="text"><SPAN style="FONT-FAMILY: 宋体; FONT-SIZE: 12pt;  'Times New Roman'; 'Times New Roman'"><br>
+    �</SPAN></span><SPAN style="FONT-FAMILY: 宋体; FONT-SIZE: 12pt;  'Times New Roman'; 'Times New Roman'"><SMALL><span class="text">只有类的实例的用户需要使用的操作才能成为类的公共界面的一个成员，这是软件设计的 
+    <INPUT id=c1 maxLength=20 name=7 size=4 style="BORDER-BOTTOM-COLOR: #003399; BORDER-BOTTOM-WIDTH: 2px; BORDER-LEFT-COLOR: black; BORDER-LEFT-WIDTH: 0px; BORDER-RIGHT-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-COLOR: black; BORDER-TOP-WIDTH: 0px">
+    原则。<BR>
+    �存取或加工类的数据必须通过该类的操作来实现，这是软件设计的 
+    <INPUT id=c1 maxLength=20 name=8 size=4 style="BORDER-BOTTOM-COLOR: #003399; BORDER-BOTTOM-WIDTH: 2px; BORDER-LEFT-COLOR: black; BORDER-LEFT-WIDTH: 0px; BORDER-RIGHT-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-COLOR: black; BORDER-TOP-WIDTH: 0px">
+    原则。 两个类之间的交互应当仅通过参数表，这是软件设计的 
+    <INPUT id=c1 maxLength=20 name=9 size=4 style="BORDER-BOTTOM-COLOR: #003399; BORDER-BOTTOM-WIDTH: 2px; BORDER-LEFT-COLOR: black; BORDER-LEFT-WIDTH: 0px; BORDER-RIGHT-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-COLOR: black; BORDER-TOP-WIDTH: 0px">
+    原则。</span></SMALL></SPAN><span class="text"><SPAN style="FONT-FAMILY: 宋体; FONT-SIZE: 12pt;  'Times New Roman'; 'Times New Roman'"><SMALL><BR>
+    �</SMALL></SPAN></span><SPAN style="FONT-FAMILY: 宋体; FONT-SIZE: 12pt;  'Times New Roman'; 'Times New Roman'"><SMALL><span class="text">每个派生类应该当做基类的特殊化来开发，而基类所具有的公共界面成为派生类的共有界面的一个子集，这是软件设计的 
+    <INPUT id=c1 maxLength=20 name=10 size=4 style="BORDER-BOTTOM-COLOR: #003399; BORDER-BOTTOM-WIDTH: 2px; BORDER-LEFT-COLOR: black; BORDER-LEFT-WIDTH: 0px; BORDER-RIGHT-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-COLOR: black; BORDER-TOP-WIDTH: 0px">
+    原则。</span></SMALL></SPAN><span class="text"><SPAN style="FONT-FAMILY: 宋体; FONT-SIZE: 12pt;  'Times New Roman'; 'Times New Roman'"><SMALL><BR>
+    <BR>
+    </SMALL></SPAN></span><SPAN style="FONT-FAMILY: 宋体; FONT-SIZE: 12pt;  'Times New Roman'; 'Times New Roman'"><SMALL><span class="text">3. 
+    </span><SPAN style="FONT-FAMILY: 宋体; FONT-SIZE: 12pt;  'Times New Roman'; 'Times New Roman'"><SMALL><span class="text">在典型的软件体系结构中应包括5种构件，它们是</span><SPAN style="FONT-FAMILY: 宋体; FONT-SIZE: 12pt;  'Times New Roman'; 'Times New Roman'; 'Times New Roman';    "><SMALL><span class="text">纯计算构件</span></SMALL></SPAN><span class="text">、</span><span style="FONT-FAMILY: 宋体; FONT-SIZE: 12pt;  'Times New Roman'; 'Times New Roman'"><small><span style="FONT-FAMILY: 宋体; FONT-SIZE: 12pt;  'Times New Roman'; 'Times New Roman'"><small><span style="FONT-FAMILY: 宋体; FONT-SIZE: 12pt;  'Times New Roman'; 'Times New Roman'; 'Times New Roman';    "><small><span class="text">存储构件</span></small></span><span class="text">、</span></small></span></small></span><SPAN style="FONT-FAMILY: 宋体; FONT-SIZE: 12pt;  'Times New Roman'; 'Times New Roman'; 'Times New Roman';    "><SMALL><span class="text">管理构件</span></SMALL></SPAN><span class="text">、<SPAN style="FONT-FAMILY: 宋体; FONT-SIZE: 12pt;  'Times New Roman'; 'Times New Roman'; 'Times New Roman';    "><SMALL class="text">控制构件</SMALL></SPAN>和</span><SPAN style="FONT-FAMILY: 宋体; FONT-SIZE: 12pt;  'Times New Roman'; 'Times New Roman'; 'Times New Roman';    "><SMALL><span class="text">链接构件</span></SMALL></SPAN><span class="text">。 
+    其中， 
+    <INPUT id=c1 maxLength=20 name=11 size=4 style="BORDER-BOTTOM-COLOR: #003399; BORDER-BOTTOM-WIDTH: 2px; BORDER-LEFT-COLOR: black; BORDER-LEFT-WIDTH: 0px; BORDER-RIGHT-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-COLOR: black; BORDER-TOP-WIDTH: 0px">
+    </span> <span class="text">具有简单的输入�M输出关系</span></SMALL></SPAN><span class="text"><SPAN style="FONT-FAMILY: 宋体; FONT-SIZE: 12pt;  'Times New Roman'; 'Times New Roman'"><SMALL>，</SMALL></SPAN></span><SPAN style="FONT-FAMILY: 宋体; FONT-SIZE: 12pt;  'Times New Roman'; 'Times New Roman'"><SMALL><span class="text">没有运行状态的变化</span></SMALL></SPAN><span class="text"><SPAN style="FONT-FAMILY: 宋体; FONT-SIZE: 12pt;  'Times New Roman'; 'Times New Roman'"><SMALL>。</SMALL></SPAN></span><SPAN style="FONT-FAMILY: 宋体; FONT-SIZE: 12pt;  'Times New Roman'; 'Times New Roman'"><SMALL><span class="text">例如</span></SMALL></SPAN><span class="text"><SPAN style="FONT-FAMILY: 宋体; FONT-SIZE: 12pt;  'Times New Roman'; 'Times New Roman'"><SMALL>，</SMALL></SPAN></span><SPAN style="FONT-FAMILY: 宋体; FONT-SIZE: 12pt;  'Times New Roman'; 'Times New Roman'"><SMALL><span class="text">数值计算</span></SMALL></SPAN><span class="text"><SPAN style="FONT-FAMILY: 宋体; FONT-SIZE: 12pt;  'Times New Roman'; 'Times New Roman'"><SMALL>、</SMALL></SPAN></span><SPAN style="FONT-FAMILY: 宋体; FONT-SIZE: 12pt;  'Times New Roman'; 'Times New Roman'"><SMALL><span class="text">过滤器</span></SMALL></SPAN><span class="text"><SPAN style="FONT-FAMILY: 宋体; FONT-SIZE: 12pt;  'Times New Roman'; 'Times New Roman'"><SMALL>、</SMALL></SPAN></span><SPAN style="FONT-FAMILY: 宋体; FONT-SIZE: 12pt;  'Times New Roman'; 'Times New Roman'"><SMALL><span class="text">转换器等</span></SMALL></SPAN><span class="text"><SPAN style="FONT-FAMILY: 宋体; FONT-SIZE: 12pt;  'Times New Roman'; 'Times New Roman'"><SMALL>。 
+    <INPUT id=c1 maxLength=20 name=12 size=4 style="BORDER-BOTTOM-COLOR: #003399; BORDER-BOTTOM-WIDTH: 2px; BORDER-LEFT-COLOR: black; BORDER-LEFT-WIDTH: 0px; BORDER-RIGHT-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-COLOR: black; BORDER-TOP-WIDTH: 0px">
+    </SMALL></SPAN></span><SPAN style="FONT-FAMILY: 宋体; FONT-SIZE: 12pt;  'Times New Roman'; 'Times New Roman'"><SMALL><span class="text">用于存放共享的</span></SMALL></SPAN><span class="text"><SPAN style="FONT-FAMILY: 宋体; FONT-SIZE: 12pt;  'Times New Roman'; 'Times New Roman'"><SMALL>、</SMALL></SPAN></span><SPAN style="FONT-FAMILY: 宋体; FONT-SIZE: 12pt;  'Times New Roman'; 'Times New Roman'"><SMALL><span class="text">永久性的、结构化的数据。例如，数据库、文件、符号表、超文本等。 
+    <INPUT id=c1 maxLength=20 name=13 size=4 style="BORDER-BOTTOM-COLOR: #003399; BORDER-BOTTOM-WIDTH: 2px; BORDER-LEFT-COLOR: black; BORDER-LEFT-WIDTH: 0px; BORDER-RIGHT-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-COLOR: black; BORDER-TOP-WIDTH: 0px">
+    使得执行的操作与运行状态紧密耦合。例如，抽象数据类型、面向对象系统中的对象、许多服务器等。 
+    <INPUT id=c1 maxLength=20 name=14 size=4 style="BORDER-BOTTOM-COLOR: #003399; BORDER-BOTTOM-WIDTH: 2px; BORDER-LEFT-COLOR: black; BORDER-LEFT-WIDTH: 0px; BORDER-RIGHT-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-COLOR: black; BORDER-TOP-WIDTH: 0px">
+    管理其它构件运行的时间、时机及次序。例如，调度器、同步器等。 
+    <INPUT id=c1 maxLength=20 name=15 size=4 style="BORDER-BOTTOM-COLOR: #003399; BORDER-BOTTOM-WIDTH: 2px; BORDER-LEFT-COLOR: black; BORDER-LEFT-WIDTH: 0px; BORDER-RIGHT-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-COLOR: black; BORDER-TOP-WIDTH: 0px">
+    在实体之间传递信息。例如，通信机制、用户界面等。</span></SMALL></SPAN></SMALL></SPAN><span class="text"><SPAN style="FONT-FAMILY: 宋体; FONT-SIZE: 12pt;  'Times New Roman'; 'Times New Roman'"><SMALL><SPAN style="FONT-FAMILY: 宋体; FONT-SIZE: 12pt;  'Times New Roman'; 'Times New Roman'"><SMALL><BR>
+    </SMALL></SPAN></SMALL></SPAN></span><SPAN style="FONT-FAMILY: 宋体; FONT-SIZE: 12pt;  'Times New Roman'; 'Times New Roman'"><SMALL><SPAN style="FONT-FAMILY: 宋体; FONT-SIZE: 12pt;  'Times New Roman'; 'Times New Roman'"><SMALL><BR>
+    <INPUT id=A type=reset value=清空>
+    <INPUT id=A onclick=getKeyWord(this.form) type=button value=提交>
+    <BR>
+    <BR>
+    <BR>
+    </SMALL></SPAN></SMALL></SPAN><SMALL><span class="section">三、简答题</span><BR>
+    <BR>
+    <span class="text">1. </span><SPAN style="FONT-FAMILY: 宋体; FONT-SIZE: 12pt;  'Times New Roman'; 'Times New Roman'"><SMALL><span class="text">下面是快速排序算法中的一趟划分算法</span></SMALL></SPAN><span class="text"><SPAN style="FONT-FAMILY: 宋体; FONT-SIZE: 12pt;  'Times New Roman'; 'Times New Roman'"><SMALL>：</SMALL></SPAN></span><SPAN style="FONT-FAMILY: 宋体; FONT-SIZE: 12pt;  'Times New Roman'; 'Times New Roman'"><SMALL><span class="text">（描述语言：C++）</span></SMALL></SPAN><span class="text"><SPAN style="FONT-FAMILY: 宋体; FONT-SIZE: 12pt;  'Times New Roman'; 'Times New Roman'"><SMALL> 
+    <BR>
+    </SMALL></SPAN></span> <span class="text">int Partition ( dataType A[ ], int 
+    low, int high ) {<br>
+    //在区间[ low, high ]以第一个对象为基准进行一次划分，k返回基准对象回放位置。<br>
+    �int k = low; dataType pivot = A[low];�//基准对象位置<br>
+    �for ( i = low+1; i &lt;= high; i++ )���//检测整个序列，进行划分<br>
+    ��if ( A[i].key &lt; pivot.key )�����//小于基准的交换到左侧去<br>
+    ���Swap ( A[++k], A[i] );������ //交换<br>
+    �Swap ( A[low], A[k] );�������� //交换，将基准对象就位<br>
+    �return k;���������������//返回基准对象位置k<br>
+    </span><SPAN style="FONT-FAMILY: 宋体; FONT-SIZE: 12pt;  'Times New Roman'; 'Times New Roman'"><SMALL><span class="text">}</span></SMALL></SPAN><span class="text"><SPAN style="FONT-FAMILY: 宋体; FONT-SIZE: 12pt;  'Times New Roman'; 'Times New Roman'"><SMALL><BR>
+    </SMALL></SPAN></span><SPAN style="FONT-FAMILY: 宋体; FONT-SIZE: 12pt;  'Times New Roman'; 'Times New Roman'"><SMALL><span class="text">(1) 
+    试画出它的程序流程图，并计算它的环路复杂性度量； <BR>
+    (2) 试利用路径覆盖方法为它设计足够的测试用例（循环次数限定为0次，1次和2次）。</span><BR>
+    <font size=2> 
+    <textarea cols=40 id=c1 rows=10 name="textarea"></textarea>
+    </font><br>
+    <BR>
+    <span class="text">2.</span><SPAN style="FONT-FAMILY: 宋体; FONT-SIZE: 12pt;  'Times New Roman'; 'Times New Roman'; 'Times New Roman';    "><SMALL><span class="text">下面是两个程序流程图，试分别用N-S图和PAD表示之，并计算它们的McCabe复杂性度量。</span></SMALL><span class="text"><SMALL></SMALL></span><SMALL><BR>
+    <IMG align=baseline alt="" border=0 hspace=0 src="../../../images/images/shijuan/05.gif" width="416" height="196"><BR>
+    <font size=2> 
+    <textarea cols=40 id=c1 rows=10 name="textarea2"></textarea>
+    </font><br>
+    <BR>
+    <span class="text"> 3. </span><SPAN style="FONT-FAMILY: 宋体; FONT-SIZE: 12pt;  'Times New Roman'; 'Times New Roman'"><SMALL><span class="text">请回答下列有关软件配置管理方面的问题。</span></SMALL></SPAN><span class="text"><SPAN style="FONT-FAMILY: 宋体; FONT-SIZE: 12pt;  'Times New Roman'; 'Times New Roman'"><SMALL><BR>
+    </SMALL></SPAN></span><SPAN style="FONT-FAMILY: 宋体; FONT-SIZE: 12pt;  'Times New Roman'; 'Times New Roman'"><SMALL><span class="text">(1) 
+    什么叫做基线？基线的作用是什么？为什么要做基线控制？ <BR>
+    (2) 什么叫做版本管理？简要解释它的4种主要功能。</span></SMALL><span class="text"><SMALL></SMALL></span><SMALL><BR>
+    <font size=2> 
+    <textarea cols=40 id=c1 rows=10 name="textarea3"></textarea>
+    </font><br>
+    <BR>
+    <INPUT id=A type=reset value=清空>
+    </SMALL></SPAN></SMALL></SPAN></SMALL></SPAN></SMALL> 
+    <input type=button name=Button value=答案 onClick="MM_openBrWindow('jd2.htm','','width=471,height=384')">
+    <BR>
+    <BR>
+  </P>
+  <br>
+  <br>
+</form>
+</BODY>
+</HTML>

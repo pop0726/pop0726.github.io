@@ -1,0 +1,33 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgproperties=fixed bgcolor="#FFFFFF" background="../../../../image/moban/15.gif">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" height="8">
+        <tr> 
+          <td class="text" align="left"><span class="menu">��</span>例如：<br>
+            select sum(<i>balance</i>) as Sum-Of-Balance<br>
+            from <i>account</i><br>
+            where <i>branch-name</i> = &quot;Perryridge&quot;<br>
+            ��在这里，我们需要强调的是SQL表达式中&quot;*&quot;的使用：<br>
+            ��⑴�一般来说，计算一个关系中元组的个数使用函数count(*)，这时，绝对不能使用distinct选项；例如：<br>
+            select count(*) from <i>customer</i><br>
+            select count(distinct <i>customer-city</i>) from <i>customer</i><br>
+            而select count(distinct *) from <i>customer</i>则是错误的语句。<br>
+            ��⑵�一般来说，表示关系中的所有属性使用符号&quot;*&quot;，而为了找出一个关系中的不同元组则可以在&quot;*&quot;之前使用保留字distinct，例如：select 
+            * from customerselect distinct * from customer<br>
+            <br>
+            ��<span class="menu">聚集函数是不可以嵌套的，它的含义是说，在一个聚集函数的操作数中不能包含其他的聚集函数操作。</span><br>
+            ��</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

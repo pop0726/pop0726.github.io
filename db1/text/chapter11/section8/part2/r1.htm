@@ -1,0 +1,28 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" bgproperties=fixed background="../../../../image/moban/14.gif">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td><span class="zhishidian">11.8.2　插入</span> 
+            <p class="text">��同样，insert(Q)操作与delete(Q)、write(Q)和read(Q)操作冲突。由于insert(Q)操作创建新数据项Q并为其赋初值，因此，在并发控制中应当像处理write操作那样来处理insert操作：<br>
+              ��<span class="part">⑴�在两阶段封锁协议下：</span>如果Ti要执行insert(Q)操作，则事务T<font size="-5">i</font>应该为Q申请加排他锁；<br>
+              ��<span class="part">⑵�在时间戳排序协议下：</span>由于在数据项Q存在之前，read(Q)和write(Q)都不可能成功执行，因此，R-TS(Q)与W-TS(Q)都为0。如果T<font size="-5">i</font>发出insert(Q)操作，则执行之并将R-TS(Q)与W-TS(Q)的值设为TS(T<font size="-5">i</font>)。注意：R-TS(Q)与W-TS(Q)的初值保证在insert(Q)之前，不可能执行write(Q)与read(Q)）。<br>
+              ��</p>
+          </td>
+        </tr>
+      </table>
+      <div align="center"></div>
+    </td>
+  </tr>
+</table>
+<p class="explaination">&nbsp;</p>
+</body>
+</html>

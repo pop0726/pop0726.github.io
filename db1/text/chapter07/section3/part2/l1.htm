@@ -1,0 +1,45 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgproperties=fixed bgcolor="#FFFFFF" background="../../../../image/moban/15.gif">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" height="305">
+        <tr> 
+          <td class="text" align="left" height="2">��<span class="part">1、什么是顺序文件</span><br>
+             ��在<u>顺序文件组织</u>方式中，逻辑上记录是根据<u>搜索码</u>（搜索码是用于在文件中查找记录的属性或属性集，与码的概念完全不同）值的顺序存储的。为了快速地按搜索码获取记录，通过指针把记录链接起来，每个记录的指针都指向在搜索码顺序上的下一个记录。同时，为了减少顺序文件处理中物理块的访问次数，在物理上也按搜索码值的顺序存储记录，或尽可能地按照搜索码顺序物理存储。如<span class="part">图7-3-1</span>所示就是一个顺序文件的组织形式，当文件中的记录在物理上也按照搜索码值的顺序存储的时候，记录的搜索码链表就显得有点多余了，但还必须要有，原因就是文件中的记录不是严格地按照搜索码值的顺序物理存储，而只是尽可能地按照搜索码顺序物理存储。<br>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="center"><span class="part">图7-3-1：顺序文件组织</span><br>
+            <img src="../../../../image/chapter/07/7-3-1.gif" width="420" height="278"> 
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left"> 
+            <p>��<span class="part">2、顺序文件的利弊</span><br>
+              ��顺序文件是在实际应用中用的最多的文件组织形式，原因就是顺序文件结构清晰，容易理解，而且对特定的查询能快速地处理。当然顺序文件组织也有它的问题，最大的问题就是在向顺序文件插入和删除记录后，首先要保证记录按搜索码顺序重新链接起来，但是要想维护记录的物理顺序则将十分困难。如果靠移动记录的方式来维护记录在物理上的顺序，则维护代价十分昂贵！可采用下面将要介绍的变通的方式进行处理。<br>
+              ��<span class="part">3、记录的删除与插入</span><br>
+              ��受前面7.2.2小节中变长记录的定长表示法中的锚块-溢出块方案的启发，可以在维护顺序文件的时候也引入溢出块的概念，以减少文件中记录的移动，具体结构如<span class="part">图7-3-2</span>所示：</p>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left"> 
+            <div align="center"><span class="part">图7-3-2：带有溢出块的顺序文件组织</span><br>
+              <img src="../../../../image/chapter/07/7-3-2.gif" width="420" height="242"> 
+            </div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left">在带有溢出块的顺序文件组织中用指针链表来管理删除记录之后留下来的空闲空间。而对于插入来说，首先要定位被插入的记录按搜索码排序时它前面的那条记录，如果这条记录所在的物理块中有空闲空间，就在这个块中插入该记录；否则，将记录插入到溢出块中。如果溢出块中的记录不多，则这种方式还有效，但是记录的搜索码顺序和物理顺序之间的一致性最终将完全丧失，这时对文件的顺序处理将明显变得效率低下，需要对文件进行重组，重新调整记录的物理顺序和相应的搜索码链表。对于文件重组，需要估计文件重组的代价，选择文件重组的时机。因为文件重组是很耗时的，因此一般选择在系统负载比较轻的时候进行文件重组。</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

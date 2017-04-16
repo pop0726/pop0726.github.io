@@ -1,0 +1,48 @@
+<html>
+<head>
+<title>l1</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center" height="8">
+        <tr> 
+          <td class="text">&nbsp;</td>
+        </tr>
+        <tr> 
+          <td class="text"><img src="../../../../images/tubiao/dy.gif" width="25" height="17" alt="定义">��所谓独立路径，是指包括一组以前没有处理的语句或条件的一条路径。如在<span class="part">图5.19(b)</span>所示的控制流图中，一组独立的路径是<br>
+            ��path1：1 - 11<br>
+            ��path2：1 - 2 - 3 - 4 - 5 - 10 - 1 - 11<br>
+            ��path3：1 - 2 - 3 - 6 - 8 - 9 - 10 - 1 - 11<br>
+            ��path4：1 - 2 - 3 - 6 - 7 - 9 - 10 - 1 - 11<br>
+            　　路径path1，path2，path3，path4组成了图5.19 (b) 所示控制流图的一个基本路径集。只要设计出的测试用例能够确保这些基本路径的执行，就可以使得程序中的每个可执行语句至少执行一次，每个条件的取真和取假分支也能得到测试。<br>
+            　　<br>
+            <img src="../../../../images/tubiao/ts.gif" width="25" height="16" alt="图示"> 
+          </td>
+        </tr>
+        <tr> 
+          <td class="text"> 
+            <div align="center"><img src="../../../../images/images/chapter05/5_19.gif" width="450" height="219"><br>
+              <span class="part">图5.19 程序流程图与对应的控制流图</span> <br>
+              　　</div>
+          </td>
+        </tr>
+        <tr>
+          <td class="text">��从控制流图来看，一条独立路径是至少包含有一条在其他独立路径中未有过的边的路径。由独立路径构成的基本路径集不是唯一的，对于给定的控制流图，可以得到不同的基本路径集。<br>
+            �� 通常环路复杂性可用以下三种方法求得。<br>
+            ��<span class="part">(1)</span> 将环路复杂性定义为控制流图中的区域数。<br>
+            ��<span class="part">(2)</span> 设E为控制流图的边数，N为图的结点数，则定义环路复杂性为 V(G)＝E－N＋2。<br>
+            ��<span class="part">(3)</span> 若设P为控制流图中的判定结点数，则有 V(G)＝P＋1。<br>
+            ��因为<span class="part">图5.19(b)</span>所示控制流图有4个区域。其环路复杂性为4。 它是构成基本路径集的独立路径数的上界。可以据此得到应该设计的测试用例的数目。<br>
+            ��</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

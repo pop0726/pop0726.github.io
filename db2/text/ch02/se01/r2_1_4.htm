@@ -1,0 +1,61 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" -->　　使用DBMS存储和管理数据，应用程序从数据库中存取数据，需要应用程序、数据库管理系统、操作系统和计算机硬件同时协同工作才能完成。数据库管理系统在进行工作时，要综合使用外模式、概念模式和物理存储模式等几个层次的数据描述，以及模式之间的映射关系，才能从数据库中存取数据。因此，从数据库中存取数据的过程是一个较为复杂的过程。下面我们以从数据库中读取数据记录为例，说明应用程序访问数据库数据的过程。<br>
+      <br>
+      　　<span class="tubiaoti">图2-4 从数据库中读取数据记录的过程</span><br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td align="center"><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="400" height="300">
+              <param name=movie value="../../../swf/ch2/2-3.swf">
+              <param name=quality value=high>
+              <param name="wmode" value="transparent">
+              <embed src="../../../swf/ch2/2-3.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="400" height="300" wmode="transparent">
+              </embed> 
+            </object></td>
+        </tr>
+      </table>
+      <br>
+      　　应用程序从数据库中读取数据记录的过程可以划分为如下10步：<br>
+      　(1) 应用程序A向DBMS发出读取记录的命令,应用程序在命令中给出所读记录的条件；<br>
+      　(2) DBMS分析用户命令，对于合法的用户和正确的命令，调用应用程序A对应的外模式,从子模式中找到对应记录的数据描述，把对应的数据记录描述先读到系统缓冲区中；<br>
+      　(3) DBMS调用概念模式,根据所读记录的外模式/概念模式的映射关系，决定读入数据模式中的哪些记录；<br>
+      　(4) DBMS调用物理存储模式，依据概念模式/物理模式映射关系，决定从哪台设备、用何种存取方式读取哪些记录；<br>
+      　(5) DBMS首先检查系统缓冲区，若系统缓冲区存在所要的数据记录，转向(9),否则，转到(6).<br>
+      　(6)DBMS向操作系统发出读取所需物理记录的命令；<br>
+      　(7)操作系统向有关的物理设备发出调出物理记录(物理存储页)的命令；<br>
+      　(8)相关的物理记录从数据库（硬盘）读到系统缓冲区。<br>
+      　(9)DBMS根据子模式/模式映射关系，导出应用程序A要读取的逻辑记录；<br>
+      　(10)DBMS把数据从系统缓冲区填写到应用程序A的用户工作区；<br>
+      　(11)DBMS向应用程序A返回操作命令执行正确与否的信息。<br>
+      <br>
+      <!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

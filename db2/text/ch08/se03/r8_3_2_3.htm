@@ -1,0 +1,49 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" --> 
+      <p>　<span class="biaoti_1">　3． 更改分布式数据<br>
+        <br>
+        </span><span class="pt9-black">　　当想更改连接服务器上的数据时，必须通过执行BEGIN DISTRIBUTED 
+        TRANSACTION 语句来执行分布式事务。<br>
+        　　语法：BEGIN DISTRIBUTED TRANSACTION [transaction_name]</span></p>
+      <p><img src="../../../img/text/liti.gif" width="35" height="36" align="absmiddle">例1，下面的例子把SQL 
+        Server登录名Mary添加到两个不同的服务器：本地数据库服务器和连接数据库服务器remoteservr，要么提交事务,要么撤消事务。<br>
+        　　BEGIN DISTRIBUTED TRANSACTION<br>
+        　　　　EXEC sp-addlogin Mary<br>
+        　　　　EXEC remoteservr.master. dbo.sp-addlogin Mary<br>
+        　　COMMIT TRAN</p>
+      <p>　　处理分布式事务时应注意的要点：<br>
+        　　● 分布式事务不支持保存点；<br>
+        　　● 撤消分布式事务时是撤消整个分布式事务。<br>
+        　　● 分布式事务（Begin Distributed Transaction 语句）不能嵌套。</p>
+      <!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

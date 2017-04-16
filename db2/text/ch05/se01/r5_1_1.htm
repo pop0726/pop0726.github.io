@@ -1,0 +1,60 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" -->
+      <p>　<span class="biaoti_1">1． 关系模式的形式化定义</span> <br>
+        　　对某一具体的问题，应该如何构造一个适合于它的数据模式(data schema)，即应该构造几个关系模式，每个关系由哪些属性组成等。这是数据库(逻辑)设计的问题。<br>
+        　　对某一类数据的结构、属性、联系和约束的描述称为数据模式。关系模式（Relation Schema）是对一个关系的描述。关系模式的形式化表示为：<br>
+        　　　R（U,F） 或R（U）。<br>
+        　　　其中： R：关系名；<br>
+        　　　U：关系R的属性名集合，每个属性值来自于相应的属性域D。<br>
+        　　　F：属性集合U上的一组数据依赖集合。<br>
+        　　当且仅当U上的一个关系r，满足数据依赖关系F时，r称为关系模式R（U,F）的一个关系。 <br>
+            　　关系模式R对应的当前值r是元组的集合，r称为关系或关系实例。r通过增删等操作在不断的变化，而关系模式R是相对稳定的。<br>
+        　<span class="biaoti_1">2．数据依赖。</span>　<br>
+        　　数据依赖是指一个关系中属性值的相等与否体现出来的数据间的相互关系。它是现实世界中属性间相互关联的抽象，是数据内在的性质，是语义的体现。<br>
+        　　在现实生活中，有许多种类型的数据依赖，其中最重要的是函数依赖（Functional Dependency，简称FD）和多值依赖（Multivalued 
+        Dependency，简称MVD）。<br>
+        　　数据依赖可以作为关系模式取值的任何一个关系所必须满足的一种约束条件，是透过一个关系中数值间的相等与否体现出来的相互关系。<br>
+        　　数据依赖在关系数据库设计中起着核心的作用。<br>
+        　　<font color="#5a5aad">数据依赖普遍存在于现实世界中。例如：在一个学生关系中，客观存在每个学生必须有一个唯一的学号，当一个学生的学号确定以后，该学生的其他属性，如姓名，性别，班级等的值就唯一的确定了。在关系模式学生的任何一个关系中，都不可能存在两个元组，他们的学号取值相等，而他们的姓名，性别和班级取值不相等。这就是一种数据依赖。</font><br>
+        <br>
+        　<span class="biaoti_1">3.函数依赖</span>　<br>
+        　　所谓函数依赖是指一个或一组属性的值可以决定其它属性的值。例如，一个学生的学号可以决定一个学生的姓名；一个学生的学号和他所选课程的课程号可以决定他这门课的成绩。<br>
+        函数依赖正象一个函数 y = f(x) 一样，x的值给定后，y的值也就唯一地确定了。<br>
+        　　一个函数依赖要能成立，不但要求关系的当前值都能满足函数依赖条件，而且要求关系的任一可能值都能满足函数依赖条件。<br>
+        　　函数依赖存在与否，完全取决于数据的语义。<br>
+        　　例如，如果允许一个职工只有一个电话号码，那么，职工号确定了，则其电话号码也就随之确定了。也就是说，职工电话号码与职工号之间有函数依赖：职工号→电话号码。如果允许一个职工有多个电话号码，那么就不存在这种函数依赖了。<br>
+        <br>
+        　<span class="biaoti_1"><br>
+        </span><span class="pt9-black"></span></p>
+      <!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

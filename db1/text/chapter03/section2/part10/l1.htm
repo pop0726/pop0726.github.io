@@ -1,0 +1,76 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body  bgcolor="#FFFFFF" bgproperties=fixed background="../../../../image/moban/15.gif">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" height="18">
+        <tr> 
+          <td class="text" height="2"> 
+            <p><span class="part"><br>
+              �</span><span class="text">�</span><span class="part">1、问题的提出</span><span class="text"><br>
+              ��除运算用符号&quot;÷&quot;表示，适合于包含诸如&quot;对所有的……&quot;此类短语的查询。假设希望找出在Brooklyn市的所有分支机构中都有帐户的客户姓名，可以分步求解如下：<br>
+              　<b>①</b>　位于Brooklyn市的所有分支机构的名称：</span></p>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" height="2" valign="top"> 
+            <div align="center"><img src="../../../../image/chapter/03/3_2w.gif" width="356" height="23"></div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" height="2">�<b>②</b>�客户在分支机构中有帐户的所有(customer-name, 
+            branch-name)对：</td>
+        </tr>
+        <tr> 
+          <td class="text" height="2"> 
+            <div align="center"><img src="../../../../image/chapter/03/3_2x.gif" width="396" height="22"> 
+            </div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" height="1">�<b>③</b>�现在需要找出这样的客户：他(她)与r<font size="-5">1</font>中每个分支机构名称的结对都在r<font size="-5">2</font>中出现。而给出所有这样的客户的运算是除运算，即r<font size="-5">2</font><span class="text">÷</span>r<font size="-5">1</font>：</td>
+        </tr>
+        <tr> 
+          <td class="text" height="2"> 
+            <div align="center"><img src="../../../../image/chapter/03/3_2y.gif" width="400" height="50"></div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" height="2">此表达式产生的关系模式为(customer-name)，结果元组为(Johnson)。具体示例如<span class="part">图3-2-13</span>所示：</td>
+        </tr>
+        <tr> 
+          <td class="text" height="2"> 
+            <div align="center"><span class="part">图3-2-13：参与除运算的关系r2和r1 </span><br>
+              <img src="../../../../image/chapter/03/3-2-13(1).gif" width="328" height="222"><br>
+              <img src="../../../../image/chapter/03/3-2-13(2).gif" width="167" height="91"> 
+            </div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" height="2"><span class="part">��2、除运算的形式化定义</span><br>
+            <br>
+            ��设r(R)和s(S)是两个关系，并且S≤R，即模式S中的每个属性都在模式R中出现。关系r<span class="text">÷</span>s是模式R-S上的关系，即此模式中包含所有在R中而不在S中的属性。若元组t属于r<span class="text">÷</span>s，当且仅当以下两个条件同时成立：<span class="menu"><br>
+            </span> ��<b>第一</b>：t在∏<font size="-6">r-S</font>(R)中；<br>
+            ��<b>第二</b>：对于s中的每一个元组t<font size="-6">s</font>，在r中都有元组t<font size="-5">r</font>同时满足以下两个条件：<span class="menu"> 
+            <br>
+            </span>��①�t<font size="-5">r</font>[S]=ts；�②�t<font size="-5">r</font>[R-S]=t<br>
+            ��特别要注意的是：①和②的含义是说r中的元组tr不仅在S上，而且在R-S上都有相同的值！即R-S中的元组t与S中的每一个元组ts的结对就是R中的元组tr，如<span class="part">图3-2-14</span>所示：</td>
+        </tr>
+        <tr> 
+          <td class="text" height="2"> 
+            <div align="center" class="part">图3-2-14：R-S中的元组t与S中的元组t<font size="-5">s</font>及其r中的元组t<font size="-5">r</font>的关系<br>
+              <img src="../../../../image/chapter/03/3-2-14.gif" width="420" height="149"> 
+            </div>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

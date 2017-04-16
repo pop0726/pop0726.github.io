@@ -1,0 +1,59 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgproperties=fixed bgcolor="#FFFFFF" background="../../../../image/moban/15.gif">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td class="text" align="left" height="17"> 
+            <p><b>��1、问题的提出</b><br>
+              ��E-R模型的一个局限性在于它不能表达联系间的联系，或联系集与实体集间的联系。如<span class="part">图2-7-2</span>所示，仍以customer和loan实体集为例，假设每个&quot;客户-贷款&quot;对(实质上就是一个borrower联系)可能会有某个银行员工对此负责，那么如何在E-R图中描述它们和实体集employee之间的这种关系呢？<br>
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td class="text" align="left">
+            <div align="center"><span class="part">图2-7-2：实体集与联系集之间的联系</span> 
+              <br>
+              <br>
+              <img src="../../../../image/chapter/02/2-7-2.gif" width="420" height="158"> 
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="text" align="left"> ��<span class="zhishidian">2、问题的解决方案之一<br>
+            </span>��一种方法就是利用多元联系集CLE，如<span class="part">图2-7-3</span>所示。但CLE描述的是上述三个实体集之间的关系，从而模糊了该模式的逻辑结构(例如，我们关心的事情之一是&quot;客户-贷款&quot;对与employee之间的联系集loan-officer)。问题的实质是多元联系集CLE没有明确表达出borrower联系集和employee实体集之间的联系。那么如何解决这个问题呢？<br>
+          </td>
+        </tr>
+        <tr>
+          <td class="text" align="left">
+            <div align="center"><span class="part">图2-7-3：多元联系集的缺陷</span> <br>
+              <br>
+              <span class="part"><img src="../../../../image/chapter/02/2-7-3.gif" width="420" height="149"> 
+              </span></div>
+          </td>
+        </tr>
+        <tr>
+          <td class="text" align="left">��<span class="zhishidian">3、聚集的提出<br>
+            </span>��对类似上述情况建模的最好办法是使用聚集。聚集是一种高度抽象，通过这种抽象，联系被当作实体来看待。上例中，将联系集borrower、实体集customer和loan看成一个称作borrower的实体集。也就是说把实体集customer和loan以及它们之间的联系集borrower当作一个整体来看待。<span class="part">图2-7-4</span>就是这种情况下包含聚集的E-R图。<br>
+          </td>
+        </tr>
+        <tr>
+          <td class="text" align="left">
+            <div align="center"><span class="part">图2-7-4：包含聚集的E-R图 </span><br>
+              �<br>
+              <img src="../../../../image/chapter/02/2-7-4.gif" width="420" height="177"> 
+            </div>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

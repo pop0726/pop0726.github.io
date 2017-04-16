@@ -1,0 +1,55 @@
+<html>
+<head>
+<title>l1</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center" height="8">
+        <tr> 
+          <td class="text" height="231"> 
+            <p><br>
+              <span class="part">(3) 三视图模型3VM（3-View Modeling）</span><br>
+              <img src="../../../../images/tubiao/dy.gif" width="25" height="17" alt="定义"> 
+              �在做面向对象分析时，还用到 3 种非常有用的传统系统分析工具：<span class="part">数据流图、实体-关系图</span>以及<span class="part">状态-迁移图</span>，它们涉及系统的 
+              3 个不同的、相互独立的方面（处理过程、数据和控制），称为<span class="part">三视图模型3VM（3-View 
+              Modeling）</span>。<br>
+              ��<span class="part">①</span> 实体-关系图（简称ERD）<br>
+              ��在ERD中的实体很有可能成为对象，实体的属性可表示成最终要由对象进行存储的数据，实体之间的关系有可能将建立&quot;关联对象&quot;。此外，表示关系(连接)的基数，以及因果条件可能成为维持这些关系的服务。所以ERD是OOA的一个有力的工具。<br>
+              ��ERD的问题是：标识的实体可能与应用论域概念无关，且对于那些不存储数据的对象显得无能为力。<br>
+              ��<span class="part">②</span> 数据流模型 <br>
+              ��有两种形式的数据流模型：<span class="part">上下文图</span>和<span class="part">分层的数据流图</span>。上下文图从全局上确定系统的边界，描述系统和外部实体的交互，这些外部实体应成为候选对象。该图阐明外部实体的数据流是如何被接收、处理及生成的。分层的数据流图描述系统的功能如何分解成为一些基本加工规格说明，用这些基本加工规格说明来描述对象的方法或服务。此外，还可用判定表或场景描述系统的功能。<br>
+              <img src="../../../../images/tubiao/ts.gif" width="25" height="16" alt="图示"> 
+            </p>
+            </td>
+        </tr>
+        <tr>
+          <td class="text">
+            <div align="center"><img src="../../../../images/images/chapter06/6_29.gif" width="364" height="77"><br>
+              <span class="part">图6.30 商店业务处理系统的上下文图 <br>
+              ��</span></div>
+          </td>
+        </tr>
+        <tr>
+          <td class="text">��<span class="part">③</span> 状态-迁移模型<br>
+            ��有两种形式的状态-迁移模型：<span class="part">事件-响应模型</span>和<span class="part">状态-迁移图</span>。任何一个系统中的对象必须是事件的识别者或事件的响应者。如果一个对象既不能识别事件的发生，也不能响应任一事件，它就不是属于这个系统的对象。因此，事件-响应模型必须标识出系统必须识别的所发生的每一个事件，以及系统必须作出的预期响应的事件，还必须标识一系列的识别事件的对象、产生响应的对象。状态-迁移图则可用来标识事件识别对象和对事件产生响应的对象，标识保存状态信息的属性。<br>
+            <img src="../../../../images/tubiao/ts.gif" width="25" height="16" alt="图示"> 
+          </td>
+        </tr>
+        <tr>
+          <td class="text">
+            <div align="center"><img src="../../../../images/title/6/06_9.gif" width="396" height="249"><br>
+              <span class="part">图6.31 事件-响应模型<br>
+              　　　</span></div>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

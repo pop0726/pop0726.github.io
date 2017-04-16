@@ -1,0 +1,39 @@
+<html>
+<head>
+<title>l1_2</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td class="text" height="3">��<br>
+            ��继续对3.1和4.1细化下去，直到最后每一个语句都能直接用程序设计语言来表示为止。</td>
+        </tr>
+        <tr>
+          <td class="text"> main ( ) {<br>
+            � for ( i = 2；i &lt;= 100；i++ ) A[i] = i；<br>
+            � B[1] =2； B[2] = 3； B[3] = 5； B[4] = 7；<br>
+            � /*若A[i]＝i是B[ ]中任一数的倍数，则剔除A[i]*/<br>
+            � for ( j = 1；j &lt;= 4；j++ )<br>
+            � ��/*检查A[ ]所有的数能否被B[j]整除并将能被整除的数从A[ ]中剔除*/<br>
+            � ��for ( i = 2；i &lt;= 100；i++ )<br>
+            � ����if ( A[i]／B[j]*B[j] == A[i] ) A[i] = 0；<br>
+            /*输出A[]中所有没有被剔除的数*/<br>
+            for ( i = 2；i &lt;= 100；i++ ) <br>
+            /*若A[i]没有被剔除，则输出之*/<br>
+            ���if ( A[i] != 0 ）<br>
+            �����printf（&quot;A[%d]＝%d\n&quot;，i，A[i]）； <br>
+            }<br>
+            ��</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

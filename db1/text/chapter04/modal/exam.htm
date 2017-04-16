@@ -1,0 +1,233 @@
+<html>
+<head>
+<title>Java期末考试题</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="css/text.css" type="text/css">
+<script language="JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+</head>
+<script language="JavaScript">
+function getresultcheck(form)
+{var mykeys=new Array();
+//  mykeys[0]="B";
+//czp-select-answer
+var answer=new Array();
+for(var I=0;I<mykeys.length;I++) answer[I]="";
+
+var every=form.elements;
+
+<!--czp-select-count-->
+for(var I=0;I<every.length;I++)
+{
+	if(every[I].type=="radio")
+	{
+		
+		if(every[I].checked)
+		{	
+	
+			var item=parseInt(every[I].name.substr(0));
+		
+			answer[item-1]+=every[I].value;
+		}
+	}				
+}
+
+var newcount="<html><head><title>谢谢您!</title></head><body><center><h2><font color=red>您的测试结果</font></h2></center>";
+var totalscore=0;
+for(var I=0;I<answer.length;I++)
+{
+	if(answer[I]==mykeys[I])
+	{
+		var rstr="<font size=2>第"+(I+1)+"题答案正确!</font><br>";
+		newcount+=rstr;
+		totalscore+=1/(answer.length)*100;//每题分数
+	}else
+	{
+		var rstr="<font size=2>第"+(I+1)+"题答案错误!正确答案为"+mykeys[I]+"</font><br>";
+		newcount+=rstr;
+	}
+
+}
+
+newcount+="<br>您的总成绩为:";
+newcount+=Math.ceil(totalscore);
+newcount+="分";
+newwin=window.open("","","height=200,width=300,scrollbars=yes,resizable=no");
+newwin.document.write(newcount);}
+
+
+
+function getresultcheck1(form)
+{var mykeys=new Array();
+//  mykeys[0]="B";
+//czp-mulselect-answer
+var answer=new Array();
+for(var I=0;I<mykeys.length;I++) answer[I]="";
+
+var every=form.elements;
+
+<!--czp-mulselect-count-->
+for(var I=0;I<every.length;I++)
+{
+	if(every[I].type=="checkbox")
+	{
+		
+		if(every[I].checked)
+		{	
+	
+			var item=parseInt(every[I].name.substr(0));
+		
+			answer[item-1]+=every[I].value;
+		}
+	}				
+}
+
+var newcount="<html><head><title>谢谢您!</title></head><body><center><h2><font color=red>您的测试结果</font></h2></center>";
+var totalscore=0;
+for(var I=0;I<answer.length;I++)
+{
+	if(answer[I]==mykeys[I])
+	{
+		var rstr="<font size=2>第"+(I+1)+"题答案正确!</font><br>";
+		newcount+=rstr;
+		totalscore+=1/(answer.length)*100;//每题分数
+	}else
+	{
+		var rstr="<font size=2>第"+(I+1)+"题答案错误!正确答案为"+mykeys[I]+"</font><br>";
+		newcount+=rstr;
+	}
+
+}
+
+newcount+="<br>您的总成绩为:";
+newcount+=Math.ceil(totalscore);
+newcount+="分";
+newwin=window.open("","","height=200,width=300,scrollbars=yes,resizable=no");
+newwin.document.write(newcount);}
+
+
+
+
+
+
+
+
+
+
+
+
+function check(){
+var mykeys=new Array();
+//czp-tiankong-answer
+//mykeys[0]="B";
+var answer=new Array();
+for(var I=0;I<mykeys.length;I++) answer[I]="";
+
+var every=zfl.elements;
+for(var I=0;I<every.length;I++)
+{
+if(every[I].type=="text")
+{
+ if(every[I].value!==null)
+ {
+ //var item=parseInt(every[I].name.substr(1))
+//  answer[item-1]+=every[I].value;
+  answer[I]+=every[I].value;
+  }
+ }
+}
+
+
+var newcount="<html><head><title>谢谢您!</title></head><body><center><h2><font face=\"隶书\" size=\"5\" color=\"#000099\">您的测试结果</font></h2></center>";
+var totalscore=0;
+for(var i=0;i<answer.length;i++)
+{
+	if(answer[i]==mykeys[i])
+	{
+		var rstr="<font face=\"宋体\" size=2>第"+(i+1)+"个空答案正确!</font><br>";
+		newcount+=rstr;
+		totalscore+=1/(answer.length)*100;
+	}else
+	{
+		var rstr="<font face=\"宋体\" size=2>第"+(i+1)+"个空答案错误!正确答案为"+mykeys[i]+"</font><br>";
+		newcount+=rstr;
+	}
+
+}
+
+newcount+="<br><font face=\"宋体\" size=3><b>您的总成绩为:</b></font><font face=\"宋体\" size=3 color=red>";
+newcount+=Math.ceil(totalscore);
+newcount+="分</font><br>";
+newwin=window.open("","","height=400,width=400,scrollbars=yes,resizable=no");
+newwin.document.write(newcount);
+}
+
+</script>
+<body bgcolor="#FFFFFF" text="#000000" topmargin=0 background="../../../image/moban/15.gif" bgproperties=fixed>
+
+<center>
+  <br>
+  <span class="section"> 第四章　SQL――习题</span><br>
+  <br>
+  <table width="95%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+      <td valign="top" class=text> 
+        <form>
+          <b>问答题</b><br>
+          <br>
+          <span class="explaination"> 问答第1题： </span>如下所示是一个保险公司的数据库，其中加下划线的是主码。对这个关系数据库用SQL回答以下问题：<br>
+          　　 a. 找出在1989年其车辆出过车祸的人员总数； <br>
+          　　 b. 找出和John Smith的车有关的车祸数量； <br>
+          　　 c. 为数据库添加一个新客户； <br>
+          　　 d. 删除John Smith的马自达车（Mazda）； <br>
+          　　 e. 为Jones的丰田车（Toyota）加一条车祸记录。 person (ss, name, address) car (license, 
+          year, model) accident (date, driver, damage-amount) owns (ss, license) 
+          log (license, date, driver) <br>
+          <textarea name=jianda cols=50 rows=5></textarea>
+          <br>
+          <br>
+          <br>
+          <span class="explaination">问答第2题：</span> 已知关系模式：R = （A，B，C）和S = （D，E，F）以及关系r(R)和s(S)。请给出与下列查询等价的SQL表达式。<br>
+          　　 a. ∏A(r) <br>
+          　　 b. sB=17(r) <br>
+          　　 c. rＸs <br>
+          　　 d. <img src="../../../image/shiti/17.jpg" width="92" height="20" align="absmiddle"><br>
+          <textarea name=jianda cols=50 rows=5></textarea>
+          <br>
+          <br>
+          <br>
+          <span class="explaination">问答第3题：</span> 基于第四章"SQL"的4.1.3小节的关系模式和相应的关系，利用关系更名，写出下列查询的SQL语句：找出资产至少比位于Brooklyn市的某一家分支机构的资产高的分支机构名称。要求去掉重复元组！<br>
+          <textarea name=jianda cols=50 rows=5></textarea>
+          <br>
+          <br>
+          <br>
+          <span class="explaination">问答第4题：</span>已知关系loan和borrower如下，请问下列SQL表达式的结果是什么？ 
+          loan full outer join borrower using (loan-number) <br>
+          <img src="../../../image/shiti/14.jpg" width="294" height="90"> <br>
+          <img src="../../../image/shiti/15.jpg" width="228" height="87"> <br>
+          <textarea name=jianda cols=50 rows=5></textarea>
+          <br>
+          <br>
+          <br>
+          <span class="explaination">问答第5题：</span> 上机练习：熟悉SQL SERVER 7.0中有关SQL的语法和使用方法，了解SQL-92标准与SQL 
+          SERVER 7.0中T-SQL实现之间的差别。要求：针对第四章的内容和例子，从基本的SQL DDL开始，完成基本的SQL DML练习，结合以下特别内容完成一份实验报告。特别内容包括：重复元组、更名运算、字符串操作、排序、集合并交差、聚集函数、分组查询、空值测试、嵌套子查询、派生关系、视图、视图更新、连接类型和连接条件等等。<br>
+          <textarea name=jianda cols=50 rows=5></textarea>
+          <br>
+          <br>
+          <br>
+          <input type=button name=Button value=答案 案 onClick="MM_openBrWindow('text/examination/exam01_pop2.htm','','width=471,height=384')" class=pbox>
+          <input type='reset' name='Submit3' value='重置' class=pbox>
+          <br>
+        </form>
+        
+      　　</td>
+  </tr>
+</table></center>
+
+</body>
+</html>

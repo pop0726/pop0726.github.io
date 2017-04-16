@@ -1,0 +1,71 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" --> 
+      <p><span class="biaoti_1">2. 面向对象（设计）的关系数据库 </span><br>
+        <br>
+        　　应用软件和数据库设计的方法学有两种最典型的方法：面向过程的设计方法和面向对象的设计方法。用面向对象的方法学设计关系数据库模式，即面向对象<font color="#5a5aad">(设计)</font>的关系数据库。<br>
+        　　用面向对象的方法学设计数据库应用软件，定义数据库概念模型，是数据库用户设计数据库的一种方法和思路，是面向对象软件工程设计中，有关数据库设计部分的工作。用面向对象的方法定义关系数据库的概念模型，最终仍用关系数据库管理系统来建立数据库，即面向对象（设计）的关系数据库。在数据库应用软件的设计过程中，应用系统的分析和设计在前，数据库设计在后，数据库设计是应用软件面向对象设计的一个环节。数据库的模式设计必须支持应用系统的对象模型，即应用系统的对象模型首先要映射到数据库系统的对象模型，再把数据库的对象模型映射为关系数据库的关系模型，这就是面向对象（设计）数据库的关键。<br>
+        　　数据库设计模型应支持应用系统的对象模型，这是面向对象的数据库系统的基本出发点。<br>
+        　　<font color="#5a5aad">面向对象的关系数据库，用面向对象的设计和编程方法将对象应用于关系数据库的应用软件中，在关系数据库管理系统中，存储和操作这些数据对象。在外部应用系统中，以对象模型抽象现实世界的事物，从各个不同的应用抽象的对象模型，可称为外部对象模型，而后形成数据库系统的总体系统对象模型，最后映射为关系数据库的概念模型，用关系数据库存取数据。这不象对象关系型数据库系统，把对象整体存储到数据库中，这只是在设计和应用开发中采用对象模型。</font><br>
+        　　这种面向对象设计的关系数据库有如下特点：<br>
+        　◆ 数据库结构清晰，便于实现面向对象程序设计OOP，使数据库应用软件具有更多的灵活性。 <br>
+        　◆ 数据库对象具有独立性，便于维护。<br>
+        　◆ 需求变更时，应用程序与数据库重用率高，修改少。<br>
+        <br>
+        　　<font color="#5a5aad">设计示例 <br>
+        　　在CAD二维绘图设计系统中，用面向对象的方法定义直线对象类，直线的属性和操作方法都封装在直线的定义中，在程序中直线的结构也是独立的。直线的定义包括：<br>
+        　(1) 属性：直线起点、直线终点，线型、线宽、线色，…<br>
+        　(2) 直线的操作方法：<br>
+        　　　产生直线generateline ()；<br>
+        　　　删除直线deleteline ()；<br>
+        　　　编辑修改直线editline()；编辑直线包括修改直线的起点和终点坐标值，修改线型、线宽、线色等；对直线进行旋转、平移；与其他直线相交、垂直、平行等。<br>
+        　　直线数据在数据库中可以用如下二维表格存储：<br>
+        　　Create Table line(point1 real, point2 real ,style int ,weght int, color 
+        int )<br>
+        　　对直线的操作函数可以放在动态连接库中提供程序调用。面向对象关系数据库设计的一个事例可用直线说明。对象的模型定义至少包含两部分：直线的属性和对直线数据的操作。这两部分都封装在直线的定义中。直线的数据存储在二维表中，它们的存储结构是独立的。修改直线的数据、或修改直线的属性结构，只与直线实体相关，与其他图形实体无关。在一个图形设计软件系统中，如果所有的图形实体都用面向对象方法来定义，不但系统结构清晰、便于维护，当需求变化时，只改变相应的对象结构及其操作，与其它对象结构无关，程序的可重用率高。 
+        <br>
+        </font><br>
+        <span class="biaoti_1">3、数据仓库</span><br>
+        <br>
+        　　在数据库技术的当前及未来发展的里程中，数据仓库及其基于此技术的商业智能技术将是大势所趋，因此，也就成了各个数据库厂家的必争之地。数据仓库提供的系列产品主要包括：<br>
+        ● OLAP联机分析处理服务器。<br>
+        ● 数据仓库前端的查询和报表工具。<br>
+        ● 数据仓库建模和构建工具。<br>
+        ● 用于数据和文本信息挖掘的工具。<br>
+        ● 用于同构数据复制和异构数据复制的工具。<br>
+        ● 用于客户关系管理及与其他相关产品集成的接口等。</p>
+      　　<font color="#5a5aad">目前,各数据库厂家都把数据仓库功能和工具增加到DBMS系统中。例如，IBM发布的DB2 数据仓库7.2，Oracle发布的Oracle8i、9i，Sybase发布ASE(Adaptive 
+      Server Enterprise)11.9.2，微软的SQL Server 7.0/2000等，都提供了数据仓库功能。</font><br>
+      　　<font color="#5a5aad">世界上最早的数据仓库系统是NCR公司建立的基于Teradata数据库，拥有24TB数据量的Wal*Mart（美国最大的零售连锁店）数据仓库系统，并产生了世界经典的&quot;尿布与啤酒&quot;故事。数据仓库是商业用户和企业的决策顾问和助手。<br>
+      　　数据仓库的提供者有两大类：基于本身数据库系统的公司；只做数据仓库工具的公司。<br>
+      　　</font><!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

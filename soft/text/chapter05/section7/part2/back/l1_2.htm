@@ -1,0 +1,796 @@
+<HTML>
+<HEAD>
+<TITLE>软件工程 </TITLE>
+<SCRIPT language=JavaScript>
+/*-------------------------------------------填空题---------------------------------------------*/
+function getKeyWord(form){
+var mykeys=new Array();
+mykeys[0]="文档资料";mykeys[1]="内部结构";mykeys[2]="执行程序";mykeys[3]="发现错误";mykeys[4]="拒绝执行";mykeys[5]="运行程序";mykeys[6]="白盒测试";mykeys[7]="被测试程序";mykeys[8]="人工检测";mykeys[9]="计算机辅助静态分析";mykeys[10]="软件需求规格说明";mykeys[11]="功能要求";mykeys[12]="数据驱动";mykeys[13]="逻辑路径";mykeys[14]="数据结构";mykeys[15]="运行状态";mykeys[16]="语句或条件";mykeys[17]="上层调用模块";mykeys[18]="测试输入数据";mykeys[19]="驱动";mykeys[20]="实测结果";mykeys[21]="子模块";mykeys[22]="返回被测模块所需";mykeys[23]="正比";
+
+var answer=new Array();
+for(var I=0;I<mykeys.length;I++) answer[I]="";
+
+var every=form.elements;
+for(var I=0;I<every.length;I++)
+{
+if(every[I].type=="text")
+{
+ if(every[I].value!==null)
+ {var item=parseInt(every[I].name.substr(0))
+  answer[item-1]+=every[I].value;
+  }
+ }
+}
+var newcount="<html><head><title>谢谢您!</title></head><body><center><h2><font color=red>您的测试结果</font></h2></center>";
+var totalscore=0;
+for(var I=0;I<answer.length;I++)
+{var re=/</g;
+var rd=/>/g;
+var re=/\\/g;
+answer[I]=answer[I].replace(re,"&#92;");
+answer[I]=answer[I].replace(re,"&lt;");
+answer[I]=answer[I].replace(rd,"&gt;");
+	if(answer[I]==mykeys[I])
+	{
+		var rstr="<font size=2>第"+(I+1)+"个空答案正确!</font><br>";
+		newcount+=rstr;
+		totalscore+=1/24*100;
+	}else
+	{
+		var rstr="<font size=2>第"+(I+1)+"个空答案错误!正确答案为"+mykeys[I]+"</font><br>";
+		newcount+=rstr;
+	}
+
+}
+
+newcount+="<br>您的总成绩为:";
+newcount+=Math.ceil(totalscore);
+newcount+="分";
+newwin=window.open("","","height=400,width=400,scrollbars=yes,resizable=no");
+newwin.document.write(newcount);
+}
+/*-------------选择提----------------------------------------------------------------*/
+function getresultcheck(form)
+{var mykeys=new Array();
+mykeys[0]="A";mykeys[1]="B";mykeys[2]="C";mykeys[3]="A";mykeys[4]="A";mykeys[5]="C";mykeys[6]="B";mykeys[7]="A";mykeys[8]="D";mykeys[9]="A";mykeys[10]="D";mykeys[11]="B";mykeys[12]="D";mykeys[13]="C";mykeys[14]="B";mykeys[15]="D";mykeys[16]="D";mykeys[17]="A";mykeys[18]="C";mykeys[19]="D";mykeys[20]="C";mykeys[21]="D";mykeys[22]="B";mykeys[23]="D";mykeys[24]="C";mykeys[25]="C";mykeys[26]="A";
+
+
+var answer=new Array();
+for(var I=0;I<mykeys.length;I++) answer[I]="";
+
+var every=form.elements;
+//var lastname="";
+for(var I=0;I<every.length;I++)
+{
+	if(every[I].type=="radio")
+	{
+		/*alert("checkbox:name->"+every[I].name+"value->"+every[I].value);*/
+		if(every[I].checked)
+		{	
+			//var item=parseInt(every[I].name.charAt(1));
+			var item=parseInt(every[I].name.substr(0));/*返回由字符串转换得到的整数*/
+			/*substr返回一个从指定位置开始的指定长度的子字符串。*/
+			answer[item-1]+=every[I].value;
+		}
+	}				
+}
+
+var newcount="<html><head><title>谢谢您!</title></head><body><center><h2><font color=red>您的测试结果</font></h2></center>";
+var totalscore=0;
+for(var I=0;I<answer.length;I++)
+{
+	if(answer[I].toUpperCase()==mykeys[I].toUpperCase())
+	{
+		var rstr="<font size=2>第"+(I+1)+"题答案正确!</font><br>";
+		newcount+=rstr;
+		totalscore+=1/29*100;//每题分数
+	}else
+	{
+		var rstr="<font size=2>第"+(I+1)+"题答案错误!正确答案为"+mykeys[I]+"</font><br>";
+		newcount+=rstr;
+	}
+
+}
+
+newcount+="<br>您的总成绩为:";
+newcount+=Math.ceil(totalscore);
+newcount+="分";
+newwin=window.open("","","height=400,width=400,scrollbars=yes,resizable=no");
+newwin.document.write(newcount);}
+/*--------------------------------判断题----------------------------------------------------*/
+
+function getresultpanduan(form)
+{var mykeys=new Array();
+
+
+
+var answer=new Array();
+for(var I=0;I<mykeys.length;I++) answer[I]="";
+
+var every=form.elements;
+//var lastname="";
+for(var I=0;I<every.length;I++)
+{
+	if(every[I].type=="checkbox")
+	{
+		/*alert("checkbox:name->"+every[I].name+"value->"+every[I].value);*/
+		if(every[I].checked)
+		{	
+			//var item=parseInt(every[I].name.charAt(1));
+			var item=parseInt(every[I].name.substr(0));/*返回由字符串转换得到的整数*/
+			/*substr返回一个从指定位置开始的指定长度的子字符串。*/
+			answer[item-1]+=every[I].value;
+		}
+	}				
+}
+
+var newcount="<html><head><title>谢谢您!</title></head><body><center><h2><font color=red>您的测试结果</font></h2></center>";
+var totalscore=0;
+for(var I=0;I<answer.length;I++)
+{
+	if(answer[I].toUpperCase()==mykeys[I].toUpperCase())
+	{
+		var rstr="<font size=2>第"+(I+1)+"题 您答对了!</font><br>";
+		newcount+=rstr;
+		totalscore+=1/0*100;//每题分数
+	}else
+	{
+		var rstr="<font size=2>第"+(I+1)+"题 您答错了!</font><br>";
+		newcount+=rstr;
+	}
+
+}
+
+newcount+="<br>您的总成绩为:";
+newcount+=Math.ceil(totalscore);
+newcount+="分";
+newwin=window.open("","","height=400,width=400,scrollbars=yes,resizable=no");
+newwin.document.write(newcount);
+}
+/*--------------------------------简答题----------------------------------------------------*/
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+</SCRIPT>
+<style type="text/css"><!--
+-->
+</style>
+<link rel="stylesheet" href="../../../../../css/text.css" type="text/css">
+</HEAD>
+<BODY text=black bgColor=#FFFFFF topMargin=10 marginheight="10">
+<DIV class=p2 align=center></DIV>
+<FORM >
+  <P><span class="text">一、填空<BR>
+    &nbsp;1、软件测试阶段的基本任务应当是根据软件开发各阶段的 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=1>
+    和程序的 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=2>
+    ，精心设计一批“高产”的测试用例，利用这些测试用例&nbsp;&nbsp; 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=3>
+    ，找出软件中潜藏的各种错误和缺陷。 <BR>
+    &nbsp;2、测试用例不仅要选用合理的测试输入数据，还需要选用不合理的测试输入数据，这样能更多地 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=4>
+    ，提高程序的可靠性。对于不合理的测试输入数据，程序应 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=5>
+    ，并给出相应的提示。<BR>
+    &nbsp;3、动态测试指通过&nbsp; 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=6>
+    发现错误。对软件产品进行动态测试时使用黑盒测试法和&nbsp;&nbsp; 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=7>
+    法。<BR>
+    &nbsp;4、静态测试指 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=8>
+    不在机器上运行，而是采用 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=9>
+    和 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=10>
+    的手段对程序进行检测。<BR>
+    &nbsp;5、黑盒测试依据 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=11>
+    ，检查程序是否满足 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=12>
+    。因此，黑盒测试由称为功能测试或 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=13>
+    测试。<BR>
+    &nbsp;6、白盒测试以检查处理过程的细节为基础，对程序中尽可能多的 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=14>
+    进行测试，检查内部 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=15>
+    和 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=16>
+    是否有错，程序的 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=17>
+    与预期的状态是否一致。<BR>
+    &nbsp;7、在基本路径测试中，独立路径是指包括一组以前没有处理过的 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=18>
+    的一条路径。从程序图来看，一条独立路径是至少包含有一条&nbsp;&nbsp; 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=19>
+    的边的路径。<BR>
+    &nbsp;8、在单元测试中，驱动模块的作用是用来模拟被测模块的 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=20>
+    。它的工作是接受&nbsp; 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=21>
+    ，以上层模块调用被测模块的形式 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=22>
+    被测模块，接收被测模块的&nbsp; 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=23>
+    并输出。<BR>
+    &nbsp;9、在单元测试中，桩模块用来代替被测模块的&nbsp; 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=24>
+    。其作用是 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=25>
+    的信息。<BR>
+    &nbsp;10、错误的群集现象是指模块错误发现率与模块的残留错误数成 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=26>
+    关系。</span>&nbsp;<BR>
+    <BR>
+    <INPUT id=A type=reset value=清�空>
+    <INPUT id=A onclick=getKeyWord(this.form) type=button value=提�交>
+    <BR>
+    <BR>
+    <span class="section">二、选择题</span><BR>
+    <BR>
+    &nbsp;<span class="text">1、在软件测试中，下面说法中错误的是(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    )。<BR>
+    <INPUT id=c1 type=radio value=A name=１>
+    A. 测试是为了发现程序中的错误而执行程序的过程<BR>
+    <INPUT id=c1 type=radio value=B name=1>
+    B. 测试是为了表明程序是正确的<BR>
+    <INPUT id=c1 type=radio value=C name=1>
+    C. 好的测试方案是极可能发现迄今为止尚未发现的错误的方案<BR>
+    <INPUT id=c1 type=radio value=D name=1>
+    D. 成功的测试是发现了至今为止尚未发现的错误的测试</span><BR>
+    <BR>
+    &nbsp;<span class="text">2、软件测试的目的是(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )。<BR>
+    <INPUT id=c1 type=radio value=A name=2>
+    A. 试验性运行软件&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=2>
+    B. 发现软件错误<BR>
+    <INPUT id=c1 type=radio value=C name=2>
+    C. 证明软件正确&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=2>
+    &nbsp;D. 找出软件中全部错误</span><BR>
+    <BR>
+    &nbsp;<span class="text">3、软件测试用例主要由测试输入数据和(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    )两部分组成。<BR>
+    <INPUT id=c1 type=radio value=A name=3>
+    A. 测试计划&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=3>
+    B. 测试规则<BR>
+    <INPUT id=c1 type=radio value=C name=3>
+    C. 测试的预期结果&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=3>
+    D. 以往测试记录分析<BR>
+    <BR>
+    &nbsp;4、与设计测试用例无关的文档是(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )。<BR>
+    <INPUT id=c1 type=radio value=A name=4>
+    A. 项目开发计划&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=4>
+    B. 需求规格说明书<BR>
+    <INPUT id=c1 type=radio value=C name=4>
+    C. 软件设计说明书&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=4>
+    &nbsp;D. 源程序<BR>
+    <BR>
+    &nbsp;5、软件测试是软件质量保证的主要手段之一，测试的成本已超过(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )的30%以上。因此，提高测试的有效性非常重要。<BR>
+    <INPUT id=c1 type=radio value=A name=5>
+    A. 软件开发成本&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=5>
+    &nbsp;B. 软件维护成本<BR>
+    <INPUT id=c1 type=radio value=C name=5>
+    C. 软件开发成本和维护成本&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=5>
+    D. 软件研制成本<BR>
+    <BR>
+    &nbsp;6、“高产”的测试是指(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )。<BR>
+    <INPUT id=c1 type=radio value=A name=6>
+    A. 用适量的测试用例说明被测试程序正确无误<BR>
+    <INPUT id=c1 type=radio value=B name=6>
+    B. 用适量的测试用例说明被测试程序符合相应的要求<BR>
+    <INPUT id=c1 type=radio value=C name=6>
+    C. 用适量的测试用例发现被测试程序尽可能多的错?<BR>
+    <INPUT id=c1 type=radio value=D name=6>
+    D. 用适量的测试用例纠正被测试程序尽可能多的错误<BR>
+    <BR>
+    &nbsp;7、如果想要进行成功的测试，为其设计测试用例主要依赖于(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )。<BR>
+    <INPUT id=c1 type=radio value=A name=7>
+    A. 黑盒测试方法&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=7>
+    B. 测试人员的经验<BR>
+    <INPUT id=c1 type=radio value=C name=7>
+    C. 白盒测试方法&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=7>
+    D. 错误推测法<BR>
+    <BR>
+    &nbsp;8、使用白盒测试方法时，确定测试数据应根据(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )和指定的覆盖标准。<BR>
+    <INPUT id=c1 type=radio value=A name=8>
+    A. 程序的内部结构&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=8>
+    B. 程序的复杂性<BR>
+    <INPUT id=c1 type=radio value=C name=8>
+    C. 使用说明书&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=8>
+    &nbsp;D. 程序的功能</span><BR>
+    <BR>
+    &nbsp;<span class="text">9、在用逻辑覆盖法设计测试用例时，有语句覆盖、分支覆盖、条件覆盖、判定-条件覆盖、条件组合覆盖和路径覆盖等。其中(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    )是最强的覆盖准则。<BR>
+    <INPUT id=c1 type=radio value=A name=9>
+    A. 语句覆盖&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=9>
+    B. 条件覆盖<BR>
+    <INPUT id=c1 type=radio value=C name=9>
+    C. 判定-条件覆盖&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=9>
+    &nbsp;D. 路径覆盖<BR>
+    <BR>
+    &nbsp;10、在设计测试用例时，(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )是用得最多的一种黑盒测试方法。<BR>
+    <INPUT id=c1 type=radio value=A name=10>
+    A. 等价类划分&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=10>
+    B. 边界值分析<BR>
+    <INPUT id=c1 type=radio value=C name=10>
+    C. 因果图&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=10>
+    D. 功能图<BR>
+    <BR>
+    &nbsp;11、在黑盒测试中，着重检查输入条件的组合的测试用例设计方法是(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )。<BR>
+    <INPUT id=c1 type=radio value=A name=11>
+    A. 等价类划分&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=11>
+    B. 边界值分析<BR>
+    <INPUT id=c1 type=radio value=C name=11>
+    C. 错误推测法&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=11>
+    D. 因果图法<BR>
+    <BR>
+    &nbsp;12、从下列叙述中，能够与软件开发各阶段，如需求分析、设计、编码相对应的软件测试是(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    )。<BR>
+    <INPUT id=c1 type=radio value=A name=12>
+    A. 组装测试、确认测试、单元测试&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=12>
+    B. 单元测试、组装测试、确认测试<BR>
+    <INPUT id=c1 type=radio value=C name=12>
+    C. 单元测试、确认测试、组装测试<BR>
+    <INPUT id=c1 type=radio value=D name=12>
+    D. 确认测试、组装测试、单元测试</span><BR>
+    <BR>
+    &nbsp;<span class="text">13、单元测试将根据在(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )阶段中产生的规格说明进行。<BR>
+    <INPUT id=c1 type=radio value=A name=13>
+    A. 可行性研究与计划&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=13>
+    B. 需求分析<BR>
+    <INPUT id=c1 type=radio value=C name=13>
+    C. 概要设计&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=13>
+    &nbsp;D. 详细设计<BR>
+    <BR>
+    &nbsp;14、组装测试计划是在(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )阶段制定的。<BR>
+    <INPUT id=c1 type=radio value=A name=14>
+    A. 可行性研究与计划&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=14>
+    B. 需求分析<BR>
+    <INPUT id=c1 type=radio value=C name=14>
+    C. 概要设计&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=14>
+    D. 详细设计<BR>
+    <BR>
+    &nbsp;15、确认测试计划是在(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )阶段制定的。<BR>
+    <INPUT id=c1 type=radio value=A name=15>
+    A. 可行性研究与计划&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=15>
+    B. 需求分析<BR>
+    <INPUT id=c1 type=radio value=C name=15>
+    C. 概要设计&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=15>
+    D. 详细设计<BR>
+    <BR>
+    &nbsp;16、软件的组装测试最好是由(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )承担，以提高组装测试的效果。<BR>
+    <INPUT id=c1 type=radio value=A name=16>
+    A. 该软件的设计者&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=16>
+    B. 该软件开发组的负责人<BR>
+    <INPUT id=c1 type=radio value=C name=16>
+    C. 该软件的编程者&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=16>
+    D. 不属于该开发组的人员<BR>
+    <BR>
+    &nbsp;17、(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )是简化了的模拟较低层次模块功能的虚拟子程序。<BR>
+    <INPUT id=c1 type=radio value=A name=17>
+    A. 过程&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=17>
+    B. 函数<BR>
+    <INPUT id=c1 type=radio value=C name=17>
+    C. 仿真&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=17>
+    D. 桩<BR>
+    <BR>
+    &nbsp;18、(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )是指为查明程序中的错误和缺陷，可能使用的工具和手段。<BR>
+    <INPUT id=c1 type=radio value=A name=18>
+    A. 调试技术&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=18>
+    B. 测试技术<BR>
+    <INPUT id=c1 type=radio value=C name=18>
+    C. 跟踪法&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=18>
+    D. 动态测试</span><BR>
+    <BR>
+    &nbsp;<span class="text">19、从已发现故障的存在到找到准确的故障位置并确定故障的性质，这一过程称为(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    )。<BR>
+    <INPUT id=c1 type=radio value=A name=19>
+    A. 错误检测&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=19>
+    B. 故障排除<BR>
+    <INPUT id=c1 type=radio value=C name=19>
+    C. 调试&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=19>
+    D. 测试<BR>
+    <BR>
+    &nbsp;20、在程序设计的过程中应为程序调试做好准备，主要体现在(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )方面。<BR>
+    <INPUT id=c1 type=radio value=A name=20>
+    A. 采用模块化、结构化的程序设计方法设计程序<BR>
+    <INPUT id=c1 type=radio value=B name=20>
+    B. 编写程序时要为程序调试提供足够的灵活性<BR>
+    <INPUT id=c1 type=radio value=C name=20>
+    C. 根据程序调试的需要，选择并安排适当的中间结果输出和必要的断?<BR>
+    <INPUT id=c1 type=radio value=D name=20>
+    D. 以上全是<BR>
+    &nbsp;<BR>
+    &nbsp;21、统计资料表明，软件测试的工作量占整个软件开发工作量的(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )。<BR>
+    <INPUT id=c1 type=radio value=A name=21>
+    A. 30%<BR>
+    <INPUT id=c1 type=radio value=B name=21>
+    B. 70%<BR>
+    <INPUT id=c1 type=radio value=C name=21>
+    C. 40%～50%&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=21>
+    D. 95%<BR>
+    <BR>
+    &nbsp;22、软件测试计划是一些文档，它们描述了(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )。<BR>
+    <INPUT id=c1 type=radio value=A name=22>
+    A. 软件的性质&nbsp;&nbsp;&nbsp; <BR>
+    <INPUT id=c1 type=radio value=B name=22>
+    B. 软件的功能和测试用例<BR>
+    <INPUT id=c1 type=radio value=C name=22>
+    C. 软件的规定动作&nbsp;&nbsp; <BR>
+    <INPUT id=c1 type=radio value=D name=22>
+    D. 对于预定的测试活动将要采取的手段<BR>
+    <BR>
+    &nbsp;23、IBM公司的统计资料表明，使用静态测试的方法最高可以查出在测试中查出的全部软件错误的(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    )。<BR>
+    <INPUT id=c1 type=radio value=A name=23>
+    A. 80%&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=23>
+    B. 70%<BR>
+    <INPUT id=c1 type=radio value=C name=23>
+    C. 50%&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=23>
+    D. 35%<BR>
+    <BR>
+    &nbsp;24、黑盒测试方法的优点是(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )。<BR>
+    <INPUT id=c1 type=radio value=A name=24>
+    A. 可测试软件的特定部位&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=24>
+    B. 能站在用户立场测试<BR>
+    <INPUT id=c1 type=radio value=C name=24>
+    C. 可按软件内部结构测试&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=24>
+    D. 可发现实现功能需求中的错误<BR>
+    <BR>
+    &nbsp;25、白盒测试方法的优点是(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )。<BR>
+    <INPUT id=c1 type=radio value=A name=25>
+    A. 可测试软件的特定部位&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=25>
+    B. 能站在用户立场测试<BR>
+    <INPUT id=c1 type=radio value=C name=25>
+    C. 可按软件内部结构测试&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=25>
+    D. 可发现实现功能需求中的错误<BR>
+    </span><span class="text"><BR>
+    &nbsp;26、等价类划分完成后，就可得出(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )，它是确定测试用例的基础。<BR>
+    <INPUT id=c1 type=radio value=A name=26>
+    A. 有效等价类&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=26>
+    B. 无效等价<BR>
+    <INPUT id=c1 type=radio value=C name=26>
+    C. 等价类表<BR>
+    <INPUT id=c1 type=radio value=D name=26>
+    D. 测试用例集<BR>
+    <BR>
+    &nbsp;27、由因果图转换出来的(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )是确定测试用例的基础。<BR>
+    <INPUT id=c1 type=radio value=A name=27>
+    A. 判定表<BR>
+    <INPUT id=c1 type=radio value=B name=27>
+    B. 约束条件表<BR>
+    <INPUT id=c1 type=radio value=C name=27>
+    C. 输入状态表<BR>
+    <INPUT id=c1 type=radio value=D name=27>
+    D. 输出状态表</span><BR>
+    <BR>
+    <INPUT id=A type=reset value=清空>
+    <INPUT id=A onclick=getresultcheck(this.form) type=button value=提交>
+    <BR>
+    <BR>
+    <span class="section">三、选择填空题</span></P>
+  <P class="text">&nbsp;1、从供选择的答案中选出应填入下列(&nbsp;&nbsp; )中的字句。<BR>
+    �软件测试的目的是（&nbsp; A&nbsp; ）。为了提高测试的效率，应该（&nbsp; B&nbsp; ）。使用白盒测试方法时，确定测试数据应根据（&nbsp; 
+    C&nbsp; ）和指定的覆盖标准。与设计测试数据无关的文档是（&nbsp; D&nbsp; ）。<BR>
+    �软件的集成测试工作最好由（&nbsp; E&nbsp; ）承担，以提高集成测试的效果?BR&gt;供选择的答案：<BR>
+    A.�① 评价软件的质量����② 发现软件的错误<BR>
+    ��③ 找出软件中的所有错误�④ 证明软件是正确的<BR>
+    B.�① 随机地选取测试数据&nbsp;&nbsp;&nbsp;<BR>
+    ��② 取一切可能的输入数据作为测试数据<BR>
+    ��③ 在完成编码以后制定软件的测试计划<BR>
+    ��④ 选择发现错误的可能性大的数据作为测试数据<BR>
+    C.�① 程序的内部逻辑�② 程序的复杂程度<BR>
+    ��③ 使用说明书���④ 程序的功能<BR>
+    D.�① 该软件的设计人员�② 程序的复杂程度<BR>
+    ��③ 源程序������④ 项目开发计划<BR>
+    E.�① 该软件的设计人员�② 该软件开发组的负责人<BR>
+    ��③ 该软件的编程人员�④ 不属该软件开发组的软件人员</P>
+  <P> 
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    <br>
+    <span class="text"> 2、从供选择的答案中选出应填入下列(&nbsp;&nbsp; )中的字句。<BR>
+    �为了把握软件开发各个环节的正确性和协调性，人们需要进行（&nbsp; A&nbsp; ）和（&nbsp; B&nbsp; ）工作。（&nbsp; 
+    A&nbsp; ）的目的是想证实在一给定的外部环境中软件的逻辑正确性。它包括（&nbsp; C&nbsp; ）和（&nbsp; D&nbsp; ），（&nbsp; 
+    B&nbsp; ）则试图证明在软件生存期各个阶段，以及阶段间的逻辑（&nbsp; E&nbsp; ）、（&nbsp; F&nbsp; ）和正确性。<BR>
+    供选择的答案：<BR>
+    A, B.�① 操作&nbsp;&nbsp;② 确认&nbsp;&nbsp;&nbsp; &nbsp;③ 验证&nbsp;&nbsp; &nbsp;④ 
+    测试&nbsp;&nbsp; &nbsp;⑤ 调试<BR>
+    C, D.�① 用户的确认&nbsp;&nbsp;&nbsp; &nbsp;② 需求规格说明的确认<BR>
+    ��� ③ 程序的确认&nbsp;&nbsp; &nbsp;④ 测试的确认<BR>
+    E, F.�① 可靠性&nbsp;② 独立性&nbsp;③ 协调性&nbsp;&nbsp; ④ 完备性&nbsp;&nbsp; ⑤ 扩充性</span></P>
+  <P>
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    &nbsp;</P>
+  <P class="text">3、从供选择的答案中选出应填入下列(&nbsp;&nbsp; )中的字句。<BR>
+    &nbsp;测试过程需要三类输入：（&nbsp; A&nbsp; ）、（&nbsp; B&nbsp; ）和（&nbsp; C&nbsp; ）。请选择正确的答案填入下图中以完成测试信息处理的全过程。<br>
+    <img src="image/01.gif" width="416" height="181"> </P>
+  <P class="text">供选择的答案?<BR>
+    A～C.�① 接口选择�② 软件配置�③ 硬件配置<BR>
+    ��� ④ 测试配置�⑤ 测试环境�⑥ 测试工具&nbsp;<BR>
+    D~ F.�① 排错&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ② 可靠性分析&nbsp;&nbsp; ③ 结果分析&nbsp;&nbsp;&nbsp; 
+    ④ 数据分类</P>
+  <P>
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    &nbsp;</P>
+  <P class="text">&nbsp;4、请从供选择的答案中选出应填入下列（&nbsp;&nbsp;&nbsp;&nbsp; ）中的字句。<BR>
+    �程序的三种基本控制结构是（&nbsp; A&nbsp; ）。它们的共同点是（&nbsp; B&nbsp; ）。结构化程序设计的一种基本方法是（&nbsp; 
+    C&nbsp; ）。软件测试的目的是（&nbsp; D&nbsp; ）。软件调试的目的是（&nbsp; E&nbsp; ）。<BR>
+    供选择的答案：<BR>
+    A.�① 过程，子程序，分程序 &nbsp;&nbsp;② 顺序，条件，循环<BR>
+    ��③ 递归，堆栈，队列 &nbsp;&nbsp;&nbsp;④ 调用，返回，转移<BR>
+    B.�① 不能嵌套使用 &nbsp;&nbsp;&nbsp;&nbsp;② 只能用来写简单的程序<BR>
+    ��③ 已经用硬件实现&nbsp;&nbsp; &nbsp;&nbsp;④ 只有一个入口和一个出口<BR>
+    C.�① 筛选法 &nbsp;&nbsp;② 递归法 &nbsp;&nbsp;③ 归纳法 &nbsp;&nbsp;④ 逐步求精法<BR>
+    D.�① 证明程序中没有错误 &nbsp;&nbsp;&nbsp;② 发现程序中的错误<BR>
+    ��③ 测量程序的动态特性 &nbsp;&nbsp;&nbsp;④ 检查程序中的语法错误<BR>
+    E.�① 找出错误所在并改正之 &nbsp;&nbsp;② 排除存在错误的可能性<BR>
+    ��③ 对错误性质进行分类 &nbsp;&nbsp;&nbsp;④ 统计出错的次数</P>
+  <P>
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    <BR>
+    &nbsp;<BR>
+    &nbsp;<span class="text">5、从供选择的答案中选出同下列各条叙述关系最密切的字句。<BR>
+    �(1) 对可靠性要求很高的软件，例如操作系统，由第三者对源代码进行逐行检查。<BR>
+    �(2) 已有的软件被改版时，由于受到变更的影响，改版前正常的功能可能发生异常，性能也可能下降。因此，对变更的软件进行测试是必要的。<BR>
+    �(3) 在意识到被测试模块的内部结构或算法的情况下进行测试。<BR>
+    �(4) 为了确认用户的需求，先做出系统的主要部分，提交给用户试用。<BR>
+    �(5) 在测试具有层次结构的大型软件时，有一种方法是从上层模块开始，由上到下进行测试。此时，有必要用一些模块替代尚未测试过的下层模块。<BR>
+    供选择的答案：<BR>
+    A～E：�① 仿真器&nbsp;&nbsp;② 代码审查&nbsp;&nbsp;③ 模拟器&nbsp;&nbsp;④ 桩<BR>
+    ����⑤ 驱动器&nbsp;&nbsp;⑥ 域测试&nbsp;&nbsp;⑦ 黑盒测试&nbsp;&nbsp;⑧ 原型<BR>
+    ����⑨ 白盒测试&nbsp;&nbsp; &nbsp;⑩ 退化测试</span></P>
+  <P>
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    &nbsp;</P>
+  <P class="text">&nbsp;6、从供选择的答案中选出应填入下面叙述的（&nbsp;&nbsp;&nbsp; ）内的正确答案。<BR>
+    &nbsp;软件测试方法可分为黑盒测试法和白盒测试法两种。<BR>
+    �黑盒测试法是通过分析程序的（&nbsp; A&nbsp; ）来设计测试用例的方法。除了测试程序外，它还适用于对（&nbsp; B&nbsp; ）阶段的软件文档进行测试。<BR>
+    �白盒测试法是根据程序的（&nbsp; C&nbsp; ）来设计测试用例的方法。除了测试程序外，它也适用于对（&nbsp; D&nbsp; ）阶段的软件文档进行测试。<BR>
+    �白盒法测试程序时常按照给定的覆盖条件选取测试用例。（&nbsp; E&nbsp; ）覆盖比（&nbsp; F&nbsp; ）覆盖严格，它使得每一个判定的每一条分支至少经历一次。（&nbsp; 
+    G&nbsp; ）覆盖既是判定覆盖，又是条件覆盖，但它并不保证使各种条件都能取到所有可能的值。（&nbsp; H&nbsp; ）覆盖比其他条件都要严格，但它不能保证覆盖程序中的每一条路径?BR&gt;&nbsp;单元测试一般以（&nbsp; 
+    I&nbsp; ）为主，测试的依据是（&nbsp; J&nbsp; ）。<BR>
+    供选择的答案：<BR>
+    A, C：�① 应用范围&nbsp;&nbsp;&nbsp; ② 内部逻辑&nbsp;&nbsp;&nbsp; &nbsp;③ 功能&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    ④ 输入数据<BR>
+    B, D：�① 编码&nbsp;&nbsp; &nbsp;&nbsp; ② 软件详细设计 &nbsp;③ 软件总体设计&nbsp; ④ 需求分析<BR>
+    E～H：�① 语句&nbsp;&nbsp;&nbsp; ② 判定&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; 
+    ③ 条件&nbsp; &nbsp;&nbsp; &nbsp; ④ 判定/条件<BR>
+    ����⑤ 多重条件&nbsp;&nbsp;&nbsp; ⑥ 路径<BR>
+    I： ��① 白盒法&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ② 黑盒法<BR>
+    J：�� ① 模块功能规格说明&nbsp;&nbsp;&nbsp;&nbsp; ② 系统模块结构图&nbsp;&nbsp; ③ 系统需求规格说明</P>
+  <P>
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    &nbsp;</P>
+  <P class="text">&nbsp;<span class="text">7、从供选择的答案中选出应填入下面叙述的（&nbsp;&nbsp;&nbsp; 
+    ）内的正确答案。<BR>
+    �集成测试也叫做（&nbsp; A&nbsp; ）或（&nbsp; B&nbsp; ）。通常，在（&nbsp; C&nbsp; ）的基础上，将所有模块按照设计要求组装成为系统。子系统的集成测试特别称为?nbsp; 
+    D&nbsp; ），它所做的工作是要找出子系统和系统需求规格说明之间的（&nbsp; E&nbsp; ）。需要考虑的问题是：在把各个模块连接起来的时侯，穿越模块接口的数据是否会（&nbsp; 
+    F&nbsp; ）； 一个模块的功能是否会对另一个模块的功能产生不利的影响；各个（&nbsp; G&nbsp; ）组合起来，能否达到预期要求的（&nbsp; 
+    H&nbsp; ）；（&nbsp; I&nbsp; ）是否有问题；单个模块的误差累积起来是否会放大。<BR>
+    供选择的答案：<BR>
+    A～D.�① 单元测试&nbsp;&nbsp;&nbsp;② 部件测试&nbsp;&nbsp;&nbsp;③ 组装测试<BR>
+    ��� ④ 系统测试&nbsp;&nbsp;&nbsp;⑤ 确认测试&nbsp;&nbsp;&nbsp;⑥ 联合测试<BR>
+    E～I.�① 子功能&nbsp;&nbsp;&nbsp; &nbsp;② 丢失&nbsp;&nbsp;&nbsp;&nbsp;③ 父功能&nbsp; 
+    &nbsp;<BR>
+    ��� ④ 局部数据结构 &nbsp;⑤ 全局数据结构&nbsp;&nbsp;⑥ 不一致</span><BR>
+    ��� ⑦ 一致</P>
+  <P>
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    &nbsp;</P>
+  <P class="text">&nbsp;8、从供选择的答案中选出应该填入下列叙述的(&nbsp; )内的正确答案。<BR>
+    �软件测试中常用的静态分析方法是（&nbsp; A&nbsp; ）和（&nbsp; B&nbsp; ）。（&nbsp; B&nbsp; ）用于检查模块或子程序间的调用是否正确。分析方法（白盒方法）中常用的方法是（&nbsp; 
+    C&nbsp; ）方法。非分析方法（黑盒方法）中常用的方法是（&nbsp; D&nbsp; ）方法和（&nbsp; E&nbsp; ）方法。（&nbsp; 
+    E&nbsp; ）方法根据输出对输入的依赖关系设计测试用例。<BR>
+    供选择的答案：<BR>
+    A～B：�① 引用分析&nbsp;&nbsp;&nbsp; &nbsp;② 算法分析&nbsp;&nbsp; ③ 可靠性分析&nbsp; ④ 效率分析&nbsp; 
+    <BR>
+    &nbsp;&nbsp;����⑤ 接口分析&nbsp;&nbsp;&nbsp; &nbsp;⑥ 操作分析<BR>
+    C～E：�① 路径测试&nbsp;&nbsp;&nbsp;&nbsp; ② 等价类&nbsp; &nbsp;&nbsp; ③ 因果图&nbsp; &nbsp; 
+    ④ 归纳测试<BR>
+    ����⑤ 综合测试&nbsp;&nbsp;&nbsp;&nbsp; ⑥ 追踪&nbsp; &nbsp;&nbsp; ⑦ 深度优先&nbsp; &nbsp; 
+    ⑧ 调试<BR>
+    ����⑨ 相对图</P>
+  <P>
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    <BR>
+    <BR>
+    <span class="text">9、从供选择的答案中选出应填入下面叙述的（&nbsp;&nbsp;&nbsp; ）内的正确答案。<BR>
+    &nbsp;�等价类划分是一种典型的（&nbsp; A&nbsp; ）方法，也是一种非常实用的重要的测试方法。使用这一方法，完全不考虑程序的（&nbsp; 
+    B&nbsp; ）。用所有可能输入的数据来测试程序是不可能的，只能从全部可供输入的数据中选择一个（&nbsp; C&nbsp; ）进行测试。（&nbsp; 
+    D&nbsp; ）是指某个输入域的集合，在该集合中，各个输入数据对于揭露程序中的错误是（&nbsp; E&nbsp; ）。<BR>
+    供选择的答案：<BR>
+    A：� �① 白盒测试方法&nbsp;&nbsp;&nbsp; &nbsp;② 黑盒测试方法<BR>
+    B：�� ① 内部结构&nbsp;&nbsp;&nbsp;② 外部环境&nbsp; &nbsp;③ 顺序&nbsp;&nbsp;&nbsp;④ 流程<BR>
+    C～E：�① 全集&nbsp;&nbsp; &nbsp;&nbsp;② 子集&nbsp; &nbsp;&nbsp; &nbsp;③ 等效?BR&gt;&nbsp;&nbsp;④ 
+    不同的&nbsp;&nbsp;⑤ 等价类&nbsp;&nbsp;⑥ 典型集</span></P>
+  <P> 
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    <br>
+    <br>
+    <span class="text">10、从供选择的答案中选出应填入下面叙述的（&nbsp;&nbsp;&nbsp; ）内的正确答案。</span><br>
+    <br>
+    <span class="text">�①　黑盒测试方法的缺点是(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )和(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    )。<br>
+    �A. 不可测试软件的特定部位<br>
+    �B. 不能发现功能需求中的错误<br>
+    �C. 无法检验软件的外部特性&nbsp;&nbsp;<br>
+    �D. 无法测试未实现功能需求的软件的内部缺陷</span><br>
+    <br>
+    &nbsp;<span class="text">�②　白盒测试方法的缺点是(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )和(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    )。<br>
+    �A. 不可测试软件的特定部位<br>
+    �B. 不能发现功能需求中的错误<br>
+    �C. 无法检验软件的外部特性&nbsp;&nbsp;<br>
+    �D. 无法测试未实现功能需求的软件的内部缺陷</span> <br>
+    <textarea id=c1 rows=10 cols=40 name="textarea2"></textarea>
+    &nbsp;</P>
+  <P class="section">四、问答计算题</P>
+  <P class="text">&nbsp;1、从下列关于软件测试的叙述中，选出5条正确的叙述。<BR>
+    &nbsp;(1) 用黑盒法测试时，测试用例是根据程序内部逻辑设计的。<BR>
+    &nbsp;(2) 尽量用公共过程或子程序去代替重复的代码段。<BR>
+    &nbsp;(3) 测试是为了验证该软件已正确地实现了用户的要求。<BR>
+    &nbsp;(4) 对于连锁型分支结构，若有n个判定语句，则有2n条路径。<BR>
+    &nbsp;(5) 尽量采用复合的条件测试，以避免嵌套的分支结构?BR&gt;&nbsp;(6) GOTO语句概念简单，使用方便，在某些情况下，保留GOTO语句反能使写出的程序更加简洁。<BR>
+    &nbsp;(7) 发现错误多的程序模块，残留在模块中的错误也多。<BR>
+    &nbsp;(8) 黑盒测试方法中最有效的是因果图法。<BR>
+    &nbsp;(9) 在做程序的单元测试时，桩（存根）模块比驱动模块容易编写。<BR>
+    &nbsp;(10) 程序效率的提高主要应通过选择高效的算法来实现。</P>
+  <P>
+    <TEXTAREA id=c1 rows=10 cols=40>&nbsp;</TEXTAREA>
+    <BR>
+    <BR>
+    <span class="text">2、对小的程序进行穷举测试是可能的，用穷举测试能否保证程序是百分之百正确呢？</span></P>
+  <P> 
+    <textarea id=c1 rows=10 cols=40 name="textarea"></textarea>
+  </P>
+  <P class="text">&nbsp;3、在任何情况下单元测试都是可能的吗？都是需要的吗？</P>
+  <P>
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    &nbsp;</P>
+  <P>&nbsp;<span class="text">4、如图所示的程序有三条不同的路径。分别表示为L1(a→b)、L2(a→c→d)、L3(a→c→e)，或简写为ace、abd、abe及acd。根据判定覆盖、条件覆盖、判定�C条件覆盖、条件组合覆盖和路径覆盖等五种覆盖标准，从供选择的答案中分别找出满足相应覆盖标准的最小测试用例组。(用①~ 
+    ⑩回答)</span><BR>
+    <img alt="" hspace=0 src="image/04.gif" align=baseline border=0></P>
+  <P class="text">供选择的答案：<BR>
+    ①�x = 90, y = 90��②�x = 50, y = 50<br>
+    <br>
+    ③�x = 90, y = 90��④�x = 90, y = 70<BR>
+    ��x = 50, y = 50����x = 40, x = 90</P>
+  <P class="text">&nbsp;⑤�x = 90, y = 90��⑥�x = 90, y = 90&nbsp;<br>
+    ��x = 50, y = 50����x = 70, y = 90<BR>
+    ��x = 90, y = 70����x = 50, y = 50</P>
+  <P class="text">&nbsp;⑦�x = 90, y = 90��⑧�x = 90, y = 90&nbsp; <br>
+    ��x = 50, y = 50����x = 50, y = 50<br>
+    ��x = 80, y = 70����x = 90, y = 50<br>
+    ��x = 70, y = 90����x = 80, y = 80<br>
+    <br>
+    ⑨�x = 90, y = 90��⑩�x = 90, y = 90&nbsp; <br>
+    ��x = 90, y = 70����x = 80, y = 80<br>
+    ��x = 90, y = 30����x = 90, y = 70<br>
+    ��x = 70, y = 90����x = 90, y = 30&nbsp;<br>
+    ��x = 30, y = 90����x = 70, y = 90<br>
+    ��x = 70, y = 70����x = 30, y = 90<br>
+    ��x = 50, y = 50����x = 70, y = 70<br>
+    ��x = 50, y = 50</P>
+  <P>
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    <BR>
+    <BR>
+    <span class="text">5、在白盒测试用例设计中，有语句覆盖、分支覆盖、条件覆盖、路径覆盖等，其中（&nbsp; A&nbsp; ）是最强的覆盖准则。为了对如下图所示的程序段进行覆盖测试，必须适当地选取测试用例组。若x, 
+    y是两个变量，可供选择的测试用例组共有Ⅰ、Ⅱ、Ⅲ、Ⅳ四组，如表中给出，则实现判定覆盖至少应采取的测试用例组是（&nbsp; B&nbsp; ）或（&nbsp; 
+    C&nbsp; ）；实现条件覆盖至少应采取的测试用例组是（&nbsp; D&nbsp; ）；实现路径覆盖至少应采取的测试用例组是（&nbsp; E&nbsp; 
+    ）或（&nbsp; F&nbsp; ）。</span></P>
+  <P><IMG alt="" hspace=0 src="image/12.gif" align=baseline border=0><BR>
+    <IMG alt="" hspace=0 src="image/12b.gif" align=baseline border=0></P>
+  <P class="text">供选择的答案<BR>
+    A：��① 语句覆盖&nbsp;&nbsp;&nbsp; ② 条件覆盖&nbsp;&nbsp;&nbsp; ③ 判定覆盖&nbsp;&nbsp;&nbsp; 
+    ④ 路径覆盖<BR>
+    B～F:�① Ⅰ和Ⅱ组&nbsp;&nbsp;&nbsp; ② Ⅱ和Ⅲ组&nbsp;&nbsp; ③ Ⅲ和Ⅳ组&nbsp; ④ Ⅰ和Ⅳ组<BR>
+    ��� ⑤ Ⅰ、Ⅱ、Ⅲ组&nbsp;&nbsp;&nbsp;&nbsp; ⑥ Ⅱ、Ⅲ、Ⅳ组&nbsp;&nbsp;&nbsp; ⑦ Ⅰ、Ⅲ、Ⅳ组<BR>
+    ��� ⑧ Ⅰ、Ⅱ、Ⅳ组</P>
+  <P>
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    <BR>
+    <BR>
+    <span class="text">6、下面是快速排序算法中的一趟划分算法，其中datalist是数据表，它有两个数据成员：一是元素类型为Element的数组V，另一个是数组大小n。算法中用到两个操作，一是取某数组元素V[i]的关键码操作getKey 
+    ( )，一是交换两数组元素内容的操作Swap( )：<BR>
+    �int Partition ( datalist &amp;list, int low, int high ) {<BR>
+    �//在区间[ low, high ]以第一个对象为基准进行一次划分，k返回基准对象回放位置。<BR>
+    ���int&nbsp; k = low;&nbsp; Element pivot = list.V[low];� //基准对象<BR>
+    ���for ( int i = low+1; i &lt;= high; i++ )��� //检测整个序列，进行划分<BR>
+    �����if ( list.V[i].getKey ( ) &lt; pivot.getKey( ) &amp;&amp; ++ k != i ) 
+    <BR>
+    �������Swap ( list.V[k], list.V[i] );���//小于基准的交换到左侧去<BR>
+    �����Swap ( list.V[low], list.V[k] );����//将基准对象就位&nbsp;<BR>
+    �����return k;��������������� //返回基准对象位置<BR>
+    &nbsp;&nbsp; �}<BR>
+    &nbsp;(1) 试画出它的程序流程图；<BR>
+    &nbsp;(2) 试利用路径覆盖方法为它设计足够的测试用例（循环次数限定为0次，1次和2次）。</span></P>
+  <P>
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    <BR>
+    <BR>
+    &nbsp;<span class="text">7、下面是选择排序的程序，其中datalist是数据表，它有两个数据成员：一是元素类型为Element的数组V，另一个是数组大小n。算法中用到两个操作，一是取某数组元素V[i]的关键码操作getKey 
+    ( )，一是交换两数组元素内容的操作Swap( )：<BR>
+    �void SelectSort ( datalist &amp; list ) {<BR>
+    �//对表list.V[0]到list.V[n-1]进行排序,&nbsp; n是表当前长度。<BR>
+    ���for ( int i = 0; i &lt; list.n-1; i++ ) {<BR>
+    �����int k = i;&nbsp;&nbsp; //在list.V[i].key到list.V[n-1].key中找具有最小关键码的对象<BR>
+    �����for ( int j = i+1; j &lt; list.n; j++)<BR>
+    �������if ( list.V[j].getKey ( ) &lt; list.V[k].getKey ( ) ) k = j;<BR>
+    ��������������//当前具最小关键码的对象<BR>
+    �����if ( k != i ) Swap ( list.V[i], list.V[k] );���//交换<BR>
+    &nbsp;&nbsp;&nbsp;���}<BR>
+    �}<BR>
+    &nbsp;(1) 试计算此程序段的McCabe复杂性；<BR>
+    &nbsp;(2) 用基本路径覆盖法给出测试路径；<BR>
+    &nbsp;(3) 为各测试路径设计测试用例。</span></P>
+  <P>
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    <BR>
+    <BR>
+    <span class="text">8、根据下面给出的规格说明，利用等价类划分的方法，给出足够的测试用例。<BR>
+    &nbsp;“一个程序读入三个整数。把此三个数值看成是一个三角形的三个边。这个程序要打印出信息，说明这个三角形是三边不等的、是等腰的、还是等边的。”</span></P>
+  <P>
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    <BR>
+    <BR>
+    <span class="text">9、设要对一个自动饮料售货机软件进行黑盒测试。该软件的规格说明如下：<BR>
+    &nbsp;“有一个处理单价为1元5角钱的盒装饮料的自动售货机软件。若投入1元5角硬币，按下“可乐”、“雪碧”或“红茶”按钮，相应的饮料就送出来。若投入的是2元硬币，在送出饮料的同时退还5角硬币。”<BR>
+    &nbsp;(1) 试利用因果图法，建立该软件的因果图；<BR>
+    &nbsp;(2) 设计测试该软件的全部测试用例。</span></P>
+  <P>
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    &nbsp;</P>
+  <P>&nbsp;<span class="text">11、应该由谁来进行确认测试？是软件开发者还是软件用户？为什么？</span><BR>
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    <BR>
+    <BR>
+  </P>
+  <input type=button name=Button value=答�案 onClick="MM_openBrWindow('tanchu.htm','','width=471,height=384')">
+  <br>
+  <br>
+</form>
+</BODY>
+</HTML>

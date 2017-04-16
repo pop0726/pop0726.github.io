@@ -1,0 +1,30 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgproperties=fixed bgcolor="#FFFFFF" background="../../../../image/moban/15.gif">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" height="157">
+        <tr> 
+          <td class="text" align="left"><b class="part">1、方法一</b><br>
+            ��为高层实体集创建一个表，为每个低层实体集创建一个表(其中的部分列对应于高层实体集的主码属性)。表的结构如下所示，这是表示概括的最通用的方法。<br>
+            account(account-number, balance)<br>
+            savings-account(account-number, interest-rate)<br>
+            checking-account(account-number, overdraft-amount)<br>
+            <b class="part">2、方法二</b><br>
+            ��如果概括是不相交且全部的--即每个高层实体只会对应于一个低层实体集，而且每个高层实体肯定会对应于某个低层实体集。这时，就没有必要为高层实体集创建任何表，而只需要为每个低层实体集创建相应的表，即：<br>
+            savings-account(account-number, balance, interest-rate)<br>
+            checking-account(account-number, balance, overdraft-amount)<br>
+            如果概括是可重叠的，那么某些属性如balance就会被存储两次；如果概括不是全部的，即有的帐户，如股票帐户，既不是储蓄帐户又不是支票帐户，这样的帐户就无法用方法二来表示。总之，方法一是表示概括的最通用的方法，而方法二是在给定条件下表示概括的最精练的方法。<br>
+            ��</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

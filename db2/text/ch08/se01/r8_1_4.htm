@@ -1,0 +1,57 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" --> 　<span class="biaoti_1">1. 长事务</span><br>
+      　　<span class="explaination">在CAD/CAM、CASE等现代数据库应用中，比起传统的DBMS的应用有许多不同的要求，传统的DBMS应用事务是短事务，提取和更新数据库中少量的记录。<br>
+      <br>
+      　　在工程设计应用中，事务的概念比传统的要复杂。例如，完成一个零件的几何造型设计，可能要经过几个中间阶段，花费较长的时间才能完成。假如在设计过程的某个阶段发生故障，按着事务的原子性，整个事务都要回退，这是不可接受的。<br>
+      <br>
+      　　由于事务是长期的，在它的整个生命周期内，可能会访问许多个不同的对象，较大和较复杂的事务极有可能与其他事务发生冲突。根据事务的分离特性，更新事务的效果在事务提交之前，对外部世界是不能提供的。长事务通常在整个执行过程中可能有多个工作人员合作完成。<br>
+      　　当用户企图对一个大而复杂的对象进行各种更新时，可能花费相当长的时间，如几个小时或几天时，用户就要开始一个长事务，只有该事务完成以后，所实现的更新对外部世界才是可见的。这时用户可从并发共享的数据库中检出(Check 
+      out)这个复杂对象和它的子对象，然后在自己的设计数据库中对检出的对象进行操作。在设计库中用户使用短事务实现对检出对象的更新，然后提交事务。只有在所有的短事务都完成，并对检出对象的所有操作都完成以后，用户才提交这个长事务，并检入(Check 
+      in)所有检出的对象。</span><br>
+      <br>
+      　<span class="biaoti_1">2. 嵌套的事务</span><br>
+      <span class="explaination">　　长事务是新一代数据库应用的特征。最早处理长事务的事务模型是嵌套事务。<br>
+      <br>
+      　　一个嵌套事务可能包含着许多子事务。嵌套的事务可形成一种树结构。最顶级的事务是一个根，根下可有一个或多个子事务，子事务还可包含着更下一级的子事务，如此等等。在嵌套事务中，要想提交顶级事务，必须先完成它的所有的子事务。每个子事务必须被完成或撤消。<br>
+      如果某个子事务失败，该子事务的双亲可以重新试做该子事务，但这时双亲事务通常会选择撤消它的子事务。假如顶级的事务撤消，则不管子事务是否已提交，所有子事务的效果都必须抹掉。<br>
+      <br>
+      　　支持嵌套事务的面向对象数据库如ObjectStore、ONTOS等。在ONTOS中，用户可以产生嵌套事务多达127级。<br>
+      </span><br>
+      　<span class="biaoti_1">3. 合作事务</span><br>
+      <span class="explaination">　　随着设计项目的增大，设计成员之间的交互次数和复杂性也在增加。大的设计队伍通常要分组，每个组负责设计或开发一部分工程。一个组的成员要合作完成他们的工作，因此，DBMS要支持同组成员之间的合作，以及多个组之间的协作。<br>
+      <br>
+      　　合作事务可以看作是相互使用中间结果。合作事务的正确模型是由用户定义的。这与传统事务的严格顺序规则完全不同，彼此要照顾中间结果，以便最后能很好地协调一致。<br>
+      <br>
+      　　某些面向对象的数据库系统，如ITASCA、Vbase(ONTOS 的前身)支持共享事务的概念，允许多个用户合作完成一个双亲事务。合作事务使用的不多，但是允许合作事务是很有用的。</span> 
+      <!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

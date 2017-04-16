@@ -1,0 +1,74 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" -->　　从某种意义上来说，更新语句UPDATE比插入语句INSERT，删除语句DELETE更接近于&quot;修改&quot;的具体意义。当需要修改数据库表中某一列的数据的时候，使用UPDATE语句可以指定要修改的列和想要赋予的新值。通过给出查询匹配数据行的WHERE子句，还可以指定要更新的列必须符合的条件。<br>
+      　　单个更新操作可修改指定表中满足条件的一行或多行元组中的一个或多个列值。 <br>
+      　　语句格式： UPDATE 表名<br>
+      　　　SET 列名={表达式|(子查询)} [, 列名={表达式|(子查询)}]…. <br>
+      　　　[WHERE 条件表达式]<br>
+      　　<font color="#5a5aad">WHERE子句中的条件表达式给出被修改元组应满足的条件； <br>
+      　　SET子句指定要修改的列和修改后的值。</font><br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+        <tr> 
+          <td valign="top" width="35"><img src="../../../img/text/liti.gif" width="35" height="36" alt="例题"></td>
+          <td>　例1，把 DEPT 中的计算机系的电话号码改为&quot;9888&quot;。 <br>
+            　　UPDATE DEPT SET deptphno = &quot;9888&quot; WHERE deptno = 'cs' 
+          </td>
+        </tr>
+        <tr> 
+          <td valign="top" width="35"><img src="../../../img/text/liti.gif" width="35" height="36" alt="例题"></td>
+          <td><br>
+            　例2，有课程的学分都加1<br>
+            　　UPDATE COUSE<br>
+            　　SET credit = credit+1</td>
+        </tr>
+        <tr> 
+          <td valign="top" width="35"><img src="../../../img/text/liti.gif" width="35" height="36" alt="例题"></td>
+          <td><br>
+            　例3，数据库课程的成绩提高10%。<br>
+            　　UPDATE SC<br>
+            　　SET grade = grade*110%<br>
+            　　WHERE cno = &quot;g008&quot;</td>
+        </tr>
+        <tr> 
+          <td valign="top" width="35"><img src="../../../img/text/liti.gif" width="35" height="36" alt="例题"></td>
+          <td><br>
+            　例4，将JS2001斑学生的成绩提高10%。<br>
+            　　UPDATE SC<br>
+            　　SET grade = grade*110%<br>
+            　　WHERE &quot;JS2001&quot;= <br>
+            　　SELECT sclass<br>
+            　　FROM STUDENT<br>
+            　　WHERE STUDENT.sno=SC.sno)</td>
+        </tr>
+      </table>
+      <!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

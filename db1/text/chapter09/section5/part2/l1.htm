@@ -1,0 +1,69 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgproperties=fixed bgcolor="#FFFFFF" background="../../../../image/moban/15.gif">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" height="39">
+        <tr> 
+          <td class="text" align="left"> 
+            <p class="text"><span class="menu">��</span><span class="part">1、流水线计算</span><br>
+              ��流水线计算方法是指将表达式中多个关系运算组合成一个操作流水线来实现，即将一个运算的结果作为输入直接传送到下一个运算。例如：<br>
+              ��<font size="2">Π</font><font size="-5">customer-name</font>(<font size="3">σ</font><font size="-5">balance&lt;2500</font>(<font size="2"><i>account</i></font>)��<i><font size="2">customer</font></i>)<br>
+              用关系代数表达式树表示流水线计算的过程如<span class="part">图9-5-2</span>所示：<br>
+            </p>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left"> 
+            <div align="center" class="part">图9-5-2：流水线计算方法示意<br>
+              <img src="../../../../image/chapter/09/9-5-2.gif" width="265" height="154"> 
+            </div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left">说明：如<span class="part">图9-5-2</span>所示，关系account上的选择运算产生一个结果元组①之后，立即就与关系customer进行自然连接；自然连接运算产生一个结果元组②之后，立即就在该元组②上做投影；最后投影运算产生一个最终的结果元组③。<br>
+            <br>
+            �<span class="part">�2、流水线计算方法模型</span><br>
+            ��实体化计算方法可以直接利用各个关系运算的算法实现(即操作代码)，而流水线计算方法虽然具有减少产生临时关系、提高查询执行效率的优点，但它需要对流水线中的每一运算建模，以便能够重用各个关系运算的操作代码。最简单的模型就是：每一关系运算都作为系统内独立的进程或线程，它从流水化的输入中接受元组流，并产生一个元组流作为其输出。对于流水线中的每对相邻运算，<br>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left"> 
+            <div align="center" class="part">图9-5-3：流水线计算方法模型<br>
+              <img src="../../../../image/chapter/09/9-5-3.gif" width="420" height="42"> 
+            </div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left">��<span class="part">3、流水线计算方法的执行</span><br>
+            ��流水线计算方法可按以下两种方式之一来执行：<br>
+            ��<span class="part">⑴</span>�需求者驱动：系统不停地向位于流水线顶端的操作发出需要元组的请求。每当一个运算收到需要元组的请求时，它就计算下一个或多个元组并返回它们；<br>
+            ��<span class="part">⑵</span>�生产者驱动：各个运算并不等待元组请求，而是不停地产生元组。流水线底端的每个操作不断地产生元组并将它们放在输出缓冲区中，直到缓冲区满为止。从效果上看需求者驱动策略是一个&quot;拉&quot;的过程；而生产者驱动策略是一个&quot;推&quot;的过程。</td>
+        </tr>
+        <tr>
+          <td class="text" align="left">
+            <div align="center"><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="450" height="100">
+                <param name=movie value="../../../../swf/F9_2_1.swf">
+                <param name=quality value=high>
+                <embed src="../../../../swf/F9_2_1.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="450" height="100">
+                </embed> 
+              </object><br>
+              <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="450" height="100">
+                <param name=movie value="../../../../swf/F9_2_2.swf">
+                <param name=quality value=high>
+                <embed src="../../../../swf/F9_2_2.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="450" height="100">
+                </embed> 
+              </object> </div>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" -->　<span class="biaoti_1">1．RESTORE语句的语法格式：</span><br>
+      ��RESTORE DATABASE|LOG {database_name|@database_name_var}<br>
+      ��[FROM &lt;backup_device&gt;[,…n]]<br>
+      ��[ WITH<br>
+      ���[[,]FILE=file_number]<br>
+      ���[[,]MOVE 'logical_file_name'TO' operation_system_file_name]<br>
+      ���[[,]REPLACE]<br>
+      ���[[,]{NORECOVERY|RECOVERY}]<br>
+      ��][STOPAT=date_time|@date_time_var]<br>
+      <span class="explaination">参数说明：<br>
+      ��DATABASE：指定从备份还原整个数据库。如果指定了文件和文件组列表，则只还原那些文件和文件组。<br>
+      ��{database_name | @database_name_var}：是将日志或整个数据库还原到的原来数据库。<br>
+      ��FROM：指定从中还原备份的备份设备。如果没有指定 FROM 子句，则不会发生备份还原，而是恢复数据库。<br>
+      ��&lt; backup_device &gt;：指定还原操作要使用的逻辑或物理备份设备。<br>
+      ��FILE = { file_number | @file_number }：标识要还原的备份集。<br>
+      ��例如，file_number 为 1 表示备份媒体上的第一个备份集，file_number 为 2 表示第二个备份集。<br>
+      ��MOVE 'logical_file_name' TO 'operating_system_file_name'：指定应将给定的 logical_file_name 
+      移到 operating_system_file_name。可以在不同的 MOVE 语句中指定数据库内的每个逻辑文件。 <br>
+　　REPLACE：指定即使存在另一个具有相同名称的数据库，SQL 
+      Server 也应该创建指定的数据库及其相关文件。在这种情况下将删除现有的数据库。 <br>
+      ��NORECOVERY：指示还原操作不回滚任何未提交的事务。<br>
+      ��RECOVERY：指示还原操作回滚任何未提交的事务。在恢复进程后即可随时使用数据库。<br>
+      ��STOPAT=date_time|@date_time_var：指定将数据库还原到其在指定的日期和时间的状态。</span><br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+        <tr> 
+          <td valign="top" width="35"><img src="../../../img/text/liti.gif" width="35" height="36" alt="例题"></td>
+          <td><br>
+            �例1：从MyDB1_1备份设备中恢复MyDB1数据库：<br>
+            ��RESTORE DATABASE MyDB1<br>
+            ��FROM MyDB1_1</td>
+        </tr>
+        <tr>
+          <td valign="top" width="35"><img src="../../../img/text/liti.gif" width="35" height="36" alt="例题"></td>
+          <td><br>
+            �例2：从备份文件中恢复MyDB1数据库。<br>
+            ��RESTORE DATABASE MyDB1<br>
+            ��FROM DISK = '\\DBServer\backup\MyDB1.dat'</td>
+        </tr>
+        <tr>
+          <td valign="top" width="35"><img src="../../../img/text/liti.gif" width="35" height="36" alt="例题"></td>
+          <td><br>
+            �例3：把MyDB1数据库恢复到它在98年10月20日下午6:00以前的状态：<br>
+            ��RESTORE DATABASE MyDB1<br>
+            ��FROM MyDB1_1<br>
+            ��WITH NORECOVERYRESTORE LOG MyDB1<br>
+            ��FROM LogDevice<br>
+            ��WITH RECOVERY, STOPAT='Oct 20, 1998 6:00 PM'说明：NORECOVERY 指出在执行数据库恢复操作后不回滚未完成的事务。RECOVERY 
+            指出在执行数据库恢复操作后回滚所有未完成的事务。STOPAT 指出RESTORE语句只恢复指定日期和时间之前的数据库内容。</td>
+        </tr>
+      </table>
+      <br>
+      <span class="biaoti_1">　2．使用Enterprise Manager恢复数据库的步骤：</span><br>
+      ��(1) 展开指定的服务器节点；<br>
+      ��(2) 展开Database节点；<br>
+      ��(3) 选中指定的数据库节点；<br>
+      ��(4) 从工具（Tools）菜单中选择还原数据库（Restore Database）命令，系统弹出对话框如图片7-5。<br>
+      ��(5) 在如图片7-5中，选择要还原的数据库，选择备份的数据库、备份文件或文件组。在参数（Parameters）选项组中，选择相应的备份选项；<br>
+      ��(6) 单击&quot;确定&quot;按钮，完成对数据库的恢复。<br>
+      <!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

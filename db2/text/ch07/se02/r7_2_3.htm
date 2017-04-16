@@ -1,0 +1,49 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" --> 　　SQL Server数据库管理系统中的事务模式可分为三种：显式事务、隐式事务和自动事务模式。<br>
+      <br>
+      <span class="explaination">(1) 显式事务：</span><br>
+      ��显式事务是指由用户通过SQL事务语句而定义的事务。即用BEGIN TRANSACTION语句标识事务的开始，用 COMMIT TRANSACTION(或COMMIT 
+      WORK) 标识事务的结束。<br>
+      <br>
+      <span class="explaination">(2) 隐式事务：</span><br>
+      ��在SQL Server中，用SET IMPLICITY_TRANSACTIONS ON和SET IMPLICITY_TRANSACTIONS 
+      OFF语句来进入隐式事务连接模式和退出隐式事务连接模式。<br>
+      ��隐式事务不需要使用BEGIN TRANSACTION语句标识事务的开始，但需要有事务结束语句COMMIT TRANSACTION(或ROLLBACK TRANSACTION
+      ) 标识事务的结束。在隐式事务模式下，某些SQL语句（例CREATE TABLE，DROP TABLE语句等）被执行后，马上导致提交操作，结束当前事务。<br>
+      ��<br>
+      <span class="explaination">(3)自动事务模式：</span>自动事务是SQL Server的默认事务管理模式。在自动事务模式下，当一个语句成功执行后，它被自动提交，而当事务执行过程中产生错误时，则被自动回滚。<br>
+      ��当应用程序与SQL Server建立连接后，直接进入自动事务模式，直到使用BEGIN TRANSACTION语句开始一个显式事务，或者打开IMPLICIT_TRANSACTIONS 
+      连接选项进入隐式事务模式为止。<br>
+      ��当显式事务被提交或回滚，或者关闭IMPLICIT_TRANSACTIONS连接选项后，SQL Server又进入自动事务管理模式。<br>
+      <!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

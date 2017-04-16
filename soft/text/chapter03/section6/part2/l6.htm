@@ -1,0 +1,49 @@
+<html>
+<head>
+<title>l6</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td class="text" valign="top" width="25"><br>
+            <div align="left"> <img src="../../../../images/tubiao/cxd.gif" width="25" height="20" alt="程序段"><br>
+            </div>
+          </td>
+          <td class="text"><br>
+            <br>
+            <br>
+            PROCESS_CUST_DATA seq<br>
+            　open PAY_FILE； open CUST_M_FILE； <span class="part">{分别打开支付文件和顾客主文件}</span><br>
+            　PROCESS_CNO_GROUP iter until eof: PAY_FILE； <br>
+            　　　　　　　　　　　　　　　　　　 <span class="part">{处理顾客号码组}</span><br>
+            　　read PAY_FILE； 　　　　　　　　 <span class="part">{读支付文件一个记录}</span><br>
+            　　PROCESS_CNO； 　　　　　　　　　 <span class="part">{读顾客主文件一个记录，找老结余}</span><br>
+            　　PROCESS_PAY_RECORD iter until end: CNO_GROUP；<br>
+            　　　　　　　　　　　　　　　　　　 <span class="part">{处理顾客号码组中每个支付记录}</span><br>
+            　　　write report line； 　　　　　 <span class="part">{写出报告行}</span><br>
+            　　　compute total payments； 　　　<span class="part">{计算总支付额}</span><br>
+            　　　read PAY_FILE； 　　　　　　　 <span class="part">{读支付文件下一个记录}</span><br>
+            ��PROCESS_PAY_RECORD end；���� <span class="part">{一位顾客数据处理完}</span><br>
+            ��COMPUTE_CUST_TOTAL； ������<span class="part">{计算顾客总数}</span><br>
+            ��COMPUTE_BALANCE seq ������ <span class="part">{计算结余}</span> <br>
+            ���PROCESS_OLD_BALANCE； ���� <span class="part">{处理老结余}</span><br>
+            ���COMPUTE_NEW_BALANCE；�����<span class="part">{计算新结余)</span><br>
+            ���write report line；������<span class="part">{写出报告行}</span> <br>
+            ��COMPUTE_BALANCE end；������<span class="part">{计算结余完毕}</span><br>
+            �PROCESS_CNO_GROUP end； ����� <span class="part">{支付文件处理完成}</span><br>
+            PROCESS_CUST_DATA end ；������ <span class="part">{Substructure PROCESS_CUST_DATA}<br>
+            </span>��</td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+</body>
+</html>

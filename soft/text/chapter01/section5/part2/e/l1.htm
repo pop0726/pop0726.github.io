@@ -1,0 +1,109 @@
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../../css/text.css" type="text/css">
+<script language="JavaScript">
+<!--
+function JustSoPicWindow(imageName,imageWidth,imageHeight,alt,bgcolor,hugger) {
+
+// by E Michael Brandt of ValleyWebDesigns.com - Please leave this comment intact.
+
+	alt=alt+"  ** Click window to close **"
+	if (bgcolor=="") {
+		bgcolor="#FFFFFF";
+	}
+	var adj=10
+	var w = screen.width;
+	var h = screen.height;
+	var byFactor=1;
+
+    if(w<740){
+      var lift=0.90;
+    }
+    if(w>=740 & w<835){
+      var lift=0.91;
+    }
+    if(w>=835){
+      var lift=0.93;
+    }
+
+	if (imageWidth>w){	
+		byFactor = w / imageWidth;			
+		imageWidth = w;
+		imageHeight = imageHeight * byFactor;
+	}
+	if (imageHeight>h-adj){
+		byFactor = h / imageHeight;
+		imageWidth = (imageWidth * byFactor);
+		imageHeight = h; 
+	}
+	   
+	var scrWidth = w-adj;
+	var scrHeight = (h*lift)-adj;
+
+	if (imageHeight>scrHeight){
+		imageHeight=imageHeight*lift;
+		imageWidth=imageWidth*lift;
+	}
+
+	var posLeft=0
+	var posTop=0
+	
+	if (hugger=="hug image") {
+		posTop = (scrHeight-imageHeight)/2;
+		posLeft = ((w-imageWidth)/2);
+		scrHeight = imageHeight-adj;
+		scrWidth = imageWidth-adj;
+ 	}
+	
+	imageHeight=imageHeight-adj;
+	imageWidth=imageWidth-adj;
+
+	newWindow = window.open("","newWindow","width="+scrWidth+",height="+scrHeight+",left="+posLeft+",top="+posTop);
+	newWindow.document.open();
+	newWindow.document.write('<html><title>'+alt+'</title><body leftmargin="0" topmargin="0" marginheight="0" marginwidth="0" bgcolor='+bgcolor+' onBlur="self.close()" onClick="self.close()">');  
+	newWindow.document.write('<table width='+imageWidth+' border="0" cellspacing="0" cellpadding="0" align="center" height='+scrHeight+' ><tr><td>');
+	newWindow.document.write('<img src='+imageName+' width='+imageWidth+' height='+imageHeight+' alt=\"Click\&nbsp\;screen\&nbsp\;to\&nbsp\;close.\" >'); 
+	newWindow.document.write('</td></tr></table></body></html>');
+	newWindow.document.close();
+	newWindow.focus();
+}
+//-->
+</script>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td colspan="2"><span class="text"><br>
+            　　基于知识的智能模型如</span><span class="part">图1.9</span><span class="text">所示。该模型基于瀑布模型，在各阶段都有相应的专家系统支持。<br>
+            　</span></td>
+        </tr>
+        <tr> 
+          <td class="text" width="25" valign="top"><img src="../../../../../images/tubiao/ts.gif" width="25" height="20" alt="图示"></td>
+          <td class="text">
+            <div align="center">　<a href="javascript:;" onClick="JustSoPicWindow('../../../../../images/images/chapter01/1_9.gif','490','267','1_9','#FFFFFF','hug image')"><img src="../../../../../images/images/chapter01/1_9s.gif" width="279" height="150" alt="点击放大" border="0"></a> 
+              <br>
+              <span class="part">图1.9 智能模型(点击看大图)</span></div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" colspan="2"><br>
+            　　支持需求活动的专家系统用于支持帮助减少需求活动中的二义性的、不精确的、冲突或易变的需求。这需要使用应用论域的知识和应用系统的规则，从而建立应用论域的专家系统以支持需求活动。<br>
+            　　支持设计活动的专家系统用于选择支持设计功能的CASE工具和文档。它要用到软件开发的知识。<br>
+            　　支持测试活动的专家系统用来支持测试自动化。利用基于知识的系统来选择测试工具。生成测试用例，跟踪测试过程，分析测试结果。<br>
+            　　支持维护活动的专家系统将维护变成新的应用开发过程的重复，运行可利用的基于知识的系统来进行维护。 <br>
+            <br>
+            　　基于知识的模型将软件工程知识从特定论域中分离出来，随过程范例收入知识库，在接受软件工程技术的基础上编成专家系统，用来辅助软件的开发。在使用过程中，将软件工程专家系统与其他论域的应用知识的专家系统连接起来，形成特定软件系统，用于开发一个软件产品。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

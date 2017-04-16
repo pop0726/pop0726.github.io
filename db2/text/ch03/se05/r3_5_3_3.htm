@@ -1,0 +1,172 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url('../../../img/text/bg.jpg');
+background-repeat: no-repeat;
+background-attachment: fixed; background-position-y:50%
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">　</td>
+    <td>　</td>
+    <td width="10">　</td>
+  </tr>
+  <tr>
+    <td width="10">　</td>
+    <td> <!-- #BeginEditable "1" -->　<span class="biaoti_1">4、除(Division)：</span><br>
+      　　除操作是同时从行和列的角度进行运算。<br>
+      　　定义：象集（Image Set）<br>
+      　　给定关系R(X , Z), X, Z是属性组，x是X上的取值，定义当t[X]=x时，x在R中的象集为:<br>
+      　　<img src="../../../img/text/ch03/008.gif" width="180" height="15"><br>
+      　　即从R中选出在X上取值为x的元组，去掉X上的分量，只留Z上的分量。<br>
+      　　例如，图3-10中，a)为学生选课表R(X姓名，Z课程)，X上的取值有x=张会，x=张会在选课表R中的象集为表b)的内容，张会同学所选修的全部课程。<br>
+      <br>
+      　　<span class="tubiaoti">图3-10 象集示例</span><br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td align="center"><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="400" height="300">
+              <param name=movie value="../../../swf/ch3/3-10.swf">
+              <param name=quality value=high>
+              <param name="wmode" value="transparent">
+              <embed src="../../../swf/ch3/3-10.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="400" height="300" wmode="transparent">
+              </embed></object></td>
+        </tr>
+      </table>
+      <br>
+      　　定义：除<br>
+      　　给定关系R(X,Y)和S(Y,Z)，其中X,Y,Z为属性组，R中的Y与S中的Y可以有不同的属性名，但必须出自相同的域集。R与S的除运算得到一个新关系P(X)，P是R中满足下列条件的元组在X属性列上的投影：元组在X属性列上分量值x的象集<img src="../../../img/text/ch03/009.gif" width="15" height="15" align="top">包含S在Y上投影的集合。记作：<br>
+      <img src="../../../img/text/ch03/010.gif" width="189" height="21"> <br>
+      其中<img src="../../../img/text/ch03/009.gif" width="15" height="15" align="top">为x在R中的象集，x=<img src="../../../img/text/ch03/011.gif" width="28" height="14" align="top"> 
+      <br>
+      　　例如，有关系R和S分别为图3-11中的a)和b)，R/S的结果为图3-11c)。除运算过程分析如下：在关系R中，三个属性分为学生和(教师,课程)两组。在关系S中，三个属性分为(教师,课程)和学分两组。计算R/S，实际上是要从学生选修的教师和课程关系中，找出选课符合关系S中所以教师和课程的元组集合的学生。在关系R中学生有4个取值：{张会、李学、王大、赵四}。其中<br>
+      　　张会的象集为（教师和课程集合）：{(t1,c2), (t2,c3), (t2,c1)}<br>
+      　　李学的象集为（教师和课程集合）：{(t3,c7), (t2,c3)}<br>
+      　　王大的象集为（教师和课程集合）：{(t4,c6)}<br>
+      　　赵四的象集为（教师和课程集合）：{(t6,c6)}<br>
+      　　S在(教师、课程)上的投影为{(b1,c2), (b2,c3), (b2,c1)}。在R中，分析前面的四个象集，只有张会的象集(教师、课程) 
+      张会包含了S在(教师、课程)属性组上的投影，所以，R÷S = {张会}（<font color="#CC0000">就是说只有张会一个学生选择了关系S中的教师和课程集合</font>）<br>
+      <br>
+      　　<span class="tubiaoti">图3-11 除运算示例</span><br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td align="center"> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td align="center" width="56%"> 
+                  <table width="63%" border="1" cellspacing="0" cellpadding="1" class="unnamed2">
+                    <tr> 
+                      <td colspan="3"> 
+                        <div align="center"><font color="#CC0000">（a）　　关系R</font></div>
+                      </td>
+                    </tr>
+                    <tr> 
+                      <td><font color="#0033CC">学生</font></td>
+                      <td><font color="#0033CC">教师</font></td>
+                      <td><font color="#0033CC">课程</font></td>
+                    </tr>
+                    <tr> 
+                      <td>张会</td>
+                      <td>t1</td>
+                      <td>c2</td>
+                    </tr>
+                    <tr> 
+                      <td>李学</td>
+                      <td>t3</td>
+                      <td>c7</td>
+                    </tr>
+                    <tr> 
+                      <td>王大</td>
+                      <td>t4</td>
+                      <td>c6</td>
+                    </tr>
+                    <tr> 
+                      <td>张会</td>
+                      <td>t2</td>
+                      <td>c3</td>
+                    </tr>
+                    <tr> 
+                      <td>赵四</td>
+                      <td>t6</td>
+                      <td>c6</td>
+                    </tr>
+                    <tr> 
+                      <td>李学</td>
+                      <td>t2</td>
+                      <td>c3</td>
+                    </tr>
+                    <tr> 
+                      <td>张会</td>
+                      <td>t2</td>
+                      <td>c1</td>
+                    </tr>
+                  </table>
+                </td>
+                <td width="44%"> 
+                  <table width="100%" border="1" cellspacing="0" cellpadding="1" class="unnamed2">
+                    <tr> 
+                      <td colspan="3"> 
+                        <div align="center"><font color="#CC0000">（b）　　关系S</font></div>
+                      </td>
+                    </tr>
+                    <tr> 
+                      <td><font color="#0033CC">教师</font></td>
+                      <td><font color="#0033CC">课程</font></td>
+                      <td><font color="#0033CC">学分</font></td>
+                    </tr>
+                    <tr> 
+                      <td>t1</td>
+                      <td>c2</td>
+                      <td>d1</td>
+                    </tr>
+                    <tr> 
+                      <td>t2</td>
+                      <td>c1</td>
+                      <td>d1</td>
+                    </tr>
+                    <tr> 
+                      <td>t2</td>
+                      <td>c3</td>
+                      <td>d2</td>
+                    </tr>
+                  </table>
+                  <br>
+                  <table width="90%" border="1" cellspacing="0" cellpadding="1" class="unnamed2">
+                    <tr> 
+                      <td> 
+                        <div align="center"><font color="#CC0000">（c）　　R/S 结果</font></div>
+                      </td>
+                    </tr>
+                    <tr> 
+                      <td> 
+                        <div align="center">学生</div>
+                      </td>
+                    </tr>
+                    <tr> 
+                      <td> 
+                        <div align="center">张会</div>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <!-- #EndEditable --></td>
+    <td width="10">　</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

@@ -1,0 +1,73 @@
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" background="../../../../../image/pop/r2_c3.gif">
+<center><table width="95%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+      <td class=text> 
+        <p><b> 问答题答案</b></p>
+        <p><span class="explaination">问答第1题</span><br>
+          　　查询处理一般分为三个步骤： <br>
+          　　 第一：语法分析与翻译。语法分析与翻译的过程类似于程序设计语言编译器的语法分析过程：它以高层的查询语句（如：SQL）作为输入，而输出的是关系代数表达式； 
+          <br>
+          　　 第二：查询优化。查询优化器以关系代数表达式作为输入，输出的是一个查询执行计划。所谓的查询优化就是为给定查询选择最有效的查询执行计划的过程； 
+          <br>
+          　　 第三：查询执行。查询执行引擎所接受的输入是查询执行计划，而输出的则是具体的查询结果。 <br>
+          　　 因此，查询优化是在查询处理的第二步，即选择查询执行计划的时候进行的。<br>
+          　　 <br>
+          <span class="explaination">问答第2题</span><br>
+          假设关系r(A, B)如下：<br>
+          <img src="../../../../../image/shiti/31.gif" width="193" height="68"><br>
+          假设关系s(A, B)如下：<br>
+          <img src="../../../../../image/shiti/32.gif" width="194" height="49"> 
+          <br>
+          则<img src="../../../../../image/shiti/33.gif" width="56" height="20" align="absmiddle">的结果为{a2, 
+          a3}，而<img src="../../../../../image/shiti/34.gif" width="96" height="20" align="absmiddle">的结果为{a3}。所以这两个表达式不等价。<br>
+          <br>
+          <span class="explaination">问答第3题</span><br>
+          <img src="../../../../../image/shiti/35.gif" width="265" height="62"> 
+          <br>
+          <span class="explaination">问答第4题</span><br>
+          　　由于是计算三个关系的自然连接，且连接属性中的C、E是各自关系的主码，因此r1��r2��r3的大小最多为1000个元组。有效地计算这个连接的策略就是让连接结果较小的连接运算先执行，即：（r1��r2）��r3。原因就是：由于A是r1的主码，C是连接属性，因此r1��r2的最大结果为1000个元组；而C是r2的主码，E是连接属性，因此r2��r3的最大结果为1500个元组。所以，要让（r1��r2）先做连接运算，以减少结果集的大小。<br>
+          <br>
+          <span class="explaination">问答第5题</span><br>
+          　　最坏情况下，缓冲区只能容纳每个关系的一个数据块，因而算法的代价为：<font size="2">E</font><font size="-2">J</font> 
+          = <font size="2">n</font><font size="-2">r</font> * <font size="2">b</font><font size="-3">s</font> 
+          + <font size="2">b</font><font size="-2">r</font>。这里，<font size="2">n</font><font size="-2">r</font> 
+          = 20000，<font size="2">b</font><font size="-2">s</font> =1500，<font size="2">b</font><font size="-2">r 
+          </font>=800，所以所需要的块存取数为20000*1500+800，约为30M个块存取。 最好情况下，两个关系都能放到内存里，因而算法代价为：<font size="2">E</font><font size="-2">J</font> 
+          = <font size="2">b</font><font size="-2">s</font> + <font size="2">b</font><font size="-2">r</font>。大约需要2.3K个块存取。 
+          <br>
+          <br>
+          <span class="explaination">问答第6题</span><br>
+          　　 ⑴ r��<img src="../../../../../image/shiti/36.gif" width="5" height="20" align="absmiddle">s：算法代价为：<font size="2">E</font><font size="-2">J</font> 
+          = <font size="2">b</font><font size="-2">r</font> + <font size="2">n</font><font size="-2">r</font> 
+          * <font size="2">b</font><font size="-2">s</font>，由于s足够小，完全可以放在内存里，所以最终的算法代价为<font size="2">E</font><font size="-2">J</font> 
+          = <font size="2">b</font><font size="-2">r</font> + <font size="2">b</font><font size="-4">s</font> 
+          <br>
+          　　 ⑵ s��<img src="../../../../../image/shiti/36.gif" width="5" height="20" align="absmiddle">r：算法代价为：E<font size="-2">J</font> 
+          = <font size="2">b</font><font size="-2">s</font> + <font size="2">n</font><font size="-2">s</font> 
+          *<font size="2"> b</font><font size="-2">r</font> <br>
+          问答第7题<br>
+          　　 ⑴r��<img src="../../../../../image/shiti/36.gif" width="5" height="20" align="absmiddle">s：算法代价为：<font size="2">E</font><font size="-2">J</font> 
+          = b<font size="-2">r</font> + <font size="2">n</font><font size="-2">r</font> 
+          * <font size="2">c</font><font size="-2">1</font> <br>
+          　　 ⑵s��<img src="../../../../../image/shiti/36.gif" width="5" height="20" align="absmiddle">r：算法代价为：<font size="2">E</font><font size="-3">J 
+          </font>= <font size="2">b</font><font size="-3">s</font> + <font size="2">n</font>s 
+          * <font size="2">c</font><font size="-3">2</font> 由于关系r和s在连接条件q的属性上建有高度相同的B<SUP>+</SUP>树索引，所以算法代价中有关利用索引进行索引扫描（即选择运算）的代价是相同的，即c1 
+          = c2，而又由于<font size="2">b</font><font size="-2">r</font> > <font size="2">b</font><font size="-4">s</font>，<font size="2">n</font><font size="-3">r</font> 
+          > <font size="2">n</font><font size="-5">s</font>，所以r��<img src="../../../../../image/shiti/36.gif" width="5" height="20" align="absmiddle">s的磁盘访问代价要大一些。 
+          <br>
+          <!--czp-wenda-daan-->
+        </p>
+      </td>
+  </tr>
+</table>
+  </center>
+
+</body>
+</html>

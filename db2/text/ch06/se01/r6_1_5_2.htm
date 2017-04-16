@@ -1,0 +1,69 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" -->　　图6-11说明访问SQL Server数据库的应用程序实现的方式。<br>
+      <br>
+      　　<span class="tubiaoti">图6-11 访问SQL Server的对象接口</span><br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td align="center"><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="400" height="300">
+              <param name=movie value="../../../swf/ch6/6-10.swf">
+              <param name=quality value=high>
+              <param name="wmode" value="transparent">
+              <embed src="../../../swf/ch6/6-10.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="400" height="300" wmode="transparent">
+              </embed> 
+            </object> </td>
+        </tr>
+      </table>
+      　　<font color="#5a5aad">调用DAO接口的应用程序用于通过MS Visual Basic或MS Access附带的Jet数据库引擎来访问本地数据库。DAO为Jet数据库作了优化，因此，如果应用程序必须只访问SQL 
+      Server的话它也许不是好的选择，因为DAO要通过ODBC驱动程序访问SQL Server数据库。但是，DAO能够将来自多个数据源的数据作连接，这可认为是该接口的极大优点。<br>
+      　　从DAO3.5版开始，DAO有了一种连接模式ODBCDirect，该模式直接建立到ODBC数据源的连接，而不用在计算机内存里加载MS Jet数据库引擎。由此，数据库应用程序能更快速和更高效的访问远程数据库。<br>
+      RDO与ODBC紧密相连，RDO通过ODBC驱动程序访问SQL Server数据库,因此，当访问SQL Server数据库时明显比DAO快。它用以开发访问远程服务器而不是本地数据库的数据库应用程序。RDO功能与DAO相似，因此在SQL 
+      Server应用程序中优先考虑RDO。但是，RDO不允许数据源连接或访问Jet数据库。RDO的一个重要特性是向Visual Basic程序返回一个ODBC句柄，于是用户有能力使用RDO不支持的ODBC特性。<br>
+      ADO通过OLE DB 提供者访问SQL Server数据库，ADO有两种OLE DB提供者访问SQL Server数据库：直接访问SQL Server数据库的OLE 
+      DB 提供者；第二是通过ODBC访问SQL Server数据库的OLE DB 提供者。OLE DB可以认为是ODBC API的继承者或对象版本，ADO被看作DAO和RDO的继承者。OLE 
+      DB和ADO都比DAO和RDO要快。ADO还可被脚本语言如VBScript所访问，这使得其成为新的工业标准。</font><br>
+      　　不同的数据访问接口的速度比较如图6-12。<br>
+      <br>
+      　　<span class="tubiaoti">图6-12 不同数据访问接口速度比较</span><br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td align="center"><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="400" height="130">
+              <param name=movie value="../../../swf/ch6/6-11.swf">
+              <param name=quality value=high>
+              <param name="wmode" value="transparent">
+              <embed src="../../../swf/ch6/6-11.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="400" height="130" wmode="transparent">
+              </embed> 
+            </object> </td>
+        </tr>
+      </table>
+      <!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

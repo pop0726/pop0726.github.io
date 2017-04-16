@@ -1,0 +1,65 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgproperties=fixed bgcolor="#FFFFFF" background="../../../../image/moban/15.gif">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" height="11">
+        <tr> 
+          <td class="text" align="left" height="2">&nbsp;</td>
+        </tr>
+        <tr>
+          <td class="text" align="left" height="50">
+            <div align="center" class="part">图4-12-1：嵌入式SQL的处理过程<br>
+              <img src="../../../../image/chapter/04/4-12-1.gif" width="420" height="70"> 
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="text" align="left" height="50">��在宿主语言中，一个典型的嵌入式SQL的查询过程如下所示：<br>
+            ⑴定义游标：EXEC SQL <br>
+            ������declare c cursor for <br>
+            ������select <i>customer-name</i> from <i>customer </i><br>
+            ������END-SQL<br>
+            ⑵打开游标：EXEC SQL open c END-SQL<br>
+            ⑶取 数 据：EXEC SQL fetch c into :v END-SQL<br>
+            ⑷关闭游标：EXEC SQL close c END-SQL<br>
+            ��下面是一段带有嵌入式SQL的C程序：<br>
+            ………<br>
+            ………<br>
+            EXEC SQL INCLUDE SQLCA;..................⑴定义SQL通信区<br>
+            EXEC SQL BEGIN DECLARE SECTION;..........⑵主变量说明开始 <br>
+            ���CHAR Sno(5);<br>
+            ���CHAR Cno(3);<br>
+            ���INT Grade;<br>
+            EXEC SQL END DECLARE SECTION;............主变量说明结束<br>
+            main()<br>
+            { <br>
+            �EXEC SQL DECLARE C1 CURSOR FOR........⑶游标操作（定义游标）<br>
+            ��SELECT Sno, Cno, Grade<br>
+            ��FROM SC; ��������/*从表中查询Sno, Cno, Grade*/<br>
+            �EXEC SQL OPEN C1;.....................⑷游标操作（打开游标） <br>
+            �for(; ;) <br>
+            ��{ <br>
+            ���EXEC SQL FETCH CI INTO :Sno, :Cno, :Grade;<br>
+            ��������������......⑸游标操作（推进游标指针<br>
+            ������������������并将当前数据放入主变量） <br>
+            ����if (sqlca.sqlcode &lt;&gt; SUCCESS)<br>
+            ��������������......⑹利用SQLCA中的状态信息决<br>
+            ������������������定何时退出循环<br>
+            ����break; <br>
+            ����print(&quot;Sno: %s, Cno: %s, Grade: %d\n&quot;, Sno, Cno, Grade);<br>
+            �����������������/*打印查询结果*/ <br>
+            ��} <br>
+            �EXEC SQL CLOSE C1;..............⑺游标操作（关闭游标）}</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

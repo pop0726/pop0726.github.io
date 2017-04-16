@@ -1,0 +1,122 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" -->　<span class="biaoti_1">自学内容：</span><br>
+      　　<font color="#cc0000">尽管RDO的对象模型并不复杂，也可以用于访问任何符合ODBC标准的数据库，但是，一方面，RDO是专门针对SQL 
+      Server和Oracle两种数据库优化的，对其他数据库的存取性能没有保证；另一方面，微软的策略是建立一种新的，可以访问包括ODBC数据源在内的任何数据源的存取技术标准，所以，RDO很快就被证明是一种过渡性的技术：VB4首次出现、VB5中真正完善，到VB6时，已经推荐使用ADO替换RDO。<br>
+      　　ADO我们将在6.4节详细介绍，本节只对MFC对象模型、DAO和RDO作简要的介绍。下面的内容学生可以自学。 </font> 
+      <p><font color="#cc0000">　1 MFC对象模型<br>
+        MFC数据库对象接口是在ODBC API上提供一个薄层：即通过几个对象实现对ODBC API函数的封装如表6-1。CDatabase 类封装了数据源连接，而语句和结果集合并到CRecordset 
+        类中。是适用使用VC开发数据库应用的对象接口。<br>
+        </font></p>
+      　　<font color="#cc0000"><span class="tubiaoti">表6-1 MFC ODBC 类</span><br>
+      <br>
+      </font> 
+      <table width="95%" border="1" cellspacing="0" cellpadding="0" class="pt9-black" bordercolorlight="#004080" bordercolordark="#ffffff" align="center">
+        <tr bgcolor="#BFDFFF"> 
+          <td bgcolor="#BFDFFF" align="center"><font color="#cc0000">类</font></td>
+          <td align="center"><font color="#cc0000">作用</font></td>
+        </tr>
+        <tr> 
+          <td height="18" align="center"><font color="#cc0000">Cdatabase</font></td>
+          <td height="18"><font color="#cc0000">由环境和对数据库的连接组成，维护连接的以上选项</font></td>
+        </tr>
+        <tr> 
+          <td align="center"><font color="#cc0000">CDBException</font></td>
+          <td><font color="#cc0000">Cexception 的子类，提供带有例外数据的数据库状态变量</font></td>
+        </tr>
+        <tr> 
+          <td align="center"><font color="#cc0000">CfieldExchange</font></td>
+          <td><font color="#cc0000">由记录域交换使用的常量定义和数据组成</font></td>
+        </tr>
+        <tr> 
+          <td align="center"><font color="#cc0000">ClongBinary, CbyteArray</font></td>
+          <td><font color="#cc0000">维护BLOB 数据类型</font></td>
+        </tr>
+        <tr> 
+          <td align="center"><font color="#cc0000">CRecordset</font></td>
+          <td><font color="#cc0000">由ODBC 语句的数据和结果集/游标组成</font></td>
+        </tr>
+      </table>
+      <font color="#cc0000"><br>
+      　　MFC只做了些普通工作使用户从ODBC的复杂性中解脱出来，但所做的这点已有巨大的影响。MFC简化数据库访问依靠建立一个两单元的模型：数据库和记录集。使用这两个单元，各种数据库已经完全可以访问，然而，这一抽象仍很简单，使用从ODBC 
+      获取的知识，两个单元能完成纯ODBC代码所做的工作，并使客户端代码复杂性有显著降低。像许多程序单元一样，程序降低复杂性往往具备更少的漏洞和更容易的维护。 
+      </font> 
+      <p><font color="#cc0000">　2 数据访问对象DAO<br>
+        　　数据访问对象是数据源的一个对象接口，表现为一系列描述不同级别的数据层次设计的对象。DAO是用于Microsoft Jet数据引擎的对象接口。本地Jet数据库是Access数据库的起源，DAO为其作了优化。<br>
+        　　先前，使用DAO来访问SQL Server或其他数据库的每个程序都需要Jet引擎在运行。从DAO3.5版开始，DAO有了一种连接模式ODBCDirect，该模式直接建立到ODBC数据源的连接，而不用在计算机内存里加载MS 
+        Jet数据库引擎。由此，数据库应用程序能更快速和更高效的访问远程数据库。<br>
+        　　使用ODBCDirect的另一优点是可以使用ODBC的特殊功能，比如批更新(batch update)(同时发送几条语句到服务器)或异步查询(asynchronous 
+        query)(异步地执行查询)。<br>
+        　　除了易于学习之外，DAO的最大特点是只读性能高，查询结果集的返回和处理都非常快（甚至比RDO和ADO都快）。</font></p>
+      <p><font color="#cc0000">　3 远程数据对象RDO<br>
+        　　为了提高对SQL Server和Oracle这两种大型数据库的存取速度，微软专门提供了一种位于ODBC Driver Manager之上的薄层：远程数据对象。这个薄层的实质是ODBC 
+        API的对象化，也就是将标准的C函数&quot;包裹&quot;成便于VB、VC等开发工具调用的对象模型。<br>
+        　　与DAO相比，这两个对象接口在功能上存在很大不同。主要因为它们为不同目的而设计。DAO设计用于访问本地数据库，尤其是Access数据库；RDO设计用于访问远程数据哭，如SQL 
+        Server和Oracle。表6-2比较了DAO和RDO功能。<br>
+        </font></p>
+      　　<font color="#cc0000"><span class="tubiaoti">表6-2 DAO 和RDO功能比较</span><br>
+      <br>
+      </font> 
+      <table width="95%" border="1" cellspacing="0" cellpadding="0" class="pt9-black" bordercolorlight="#004080" bordercolordark="#ffffff" align="center">
+        <tr bgcolor="#BFDFFF"> 
+          <td bgcolor="#BFDFFF" align="center">MS Jet 工作空间的DAO</td>
+          <td align="center">RDO</td>
+        </tr>
+        <tr> 
+          <td height="18">主要为本地Access数据库</td>
+          <td height="18">主要为访问在远程服务器的数据</td>
+        </tr>
+        <tr> 
+          <td>使用Microsoft Jet，产生很大开销，从而需要更强的计算机的计算机上</td>
+          <td>不使用Jet，而使用非常薄的层。能运行在最低配置</td>
+        </tr>
+        <tr> 
+          <td>不能访问服务器端游标</td>
+          <td>能访问服务器端游标</td>
+        </tr>
+        <tr> 
+          <td>不支持异步访问(除非ODBCDirect QueryDef 对象)</td>
+          <td>支持异步查询</td>
+        </tr>
+        <tr> 
+          <td> DAO2.5工作在16位操作系统上，更高版本只工作只工作在32位操作系统上</td>
+          <td>在32位操作系统上</td>
+        </tr>
+      </table>
+      <br>
+      <font color="#cc0000">　　也许，使用RDO和使用DAO编程的不同是模型设计的结果。DAO为ISAM (索引顺序访问方法，Index 
+      Sequential Access Method)数据库如Access而设计；但RDO为关系数据库而设计。DAO支持数据字典的创建和修改，而RDO依靠服务器工具。但是，用户能运行语句以创建、修改和删除表和数据库。<br>
+      　　与ADO相比，RDO提供了前所未有的连接和查询速度，并且使得VB,VC程序可以不必登记ODBC数据源，就可以创建与后台数据库的连接，即所谓的&quot;无数据源连接&quot;（DSN-Less 
+      Connection）。<br>
+      　　尽管RDO的对象模型并不复杂，也可以用于访问任何符合ODBC标准的数据库，但是，一方面，RDO是专门针对SQL Server和Oracle两种数据库优化的，对其他数据库的存取性能没有保证；另一方面，微软的策略是建立一种新的，可以访问包括ODBC数据源在内的任何数据源的存取技术标准，所以，RDO很快就被证明是一种过渡性的技术：VB4首次出现、VB5中真正完善，到VB6时，已经推荐使用ADO替换RDO。</font><br>
+      <!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

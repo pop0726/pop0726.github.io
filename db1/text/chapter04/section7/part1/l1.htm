@@ -1,0 +1,31 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgproperties=fixed bgcolor="#FFFFFF" background="../../../../image/moban/15.gif">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td class="text" align="left" height="2"> 
+            <p>��前面4.6节讲到的所有子查询都出现在where子句中，SQL-92也允许在from子句中使用子查询，例如：<br>
+              select <i>branch-name, avg-balance</i><br>
+              from (select <i>branch-name</i>, avg(<i>balance</i>) <br>
+              ���from <i>account</i> <br>
+              ���group by <i>branch-name</i>) <br>
+              ���as <i>result </i>(<i>branch-name, avg-balance</i>)<br>
+              where <i>avg-balance</i> &gt; 1200<br>
+              要想使子查询在from子句中出现，就必须将from子句中的子查询定义成一个关系，这个关系就是派生关系，其语法格式如下：<br>
+              (select-from-where) as <i>temp-r</i> (A<font size="-5">1</font>,A<font size="-5">2</font>,…,An)<br>
+              派生关系是临时关系，可以像使用普通关系一样使用临时关系，但是查询完成之后临时关系就不复存在。</p>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" --> <b><font color="#cc0000">-�h &quot;hint [,...n]&quot;</font></b><font color="#cc0000"><br>
+      ��指定在大容量复制数据到表或视图时所使用的提示。在大容量复制数据到 SQL Server 6.x 或更早版本时，不能使用此选项。<br>
+      </font> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+        <tr> 
+          <td width="35" valign="top"><font color="#cc0000"><img src="../../../img/text/liti.gif" width="35" height="36" alt="例题"></font></td>
+          <td><font color="#cc0000">�例1：下面命令用字符格式将pubs数据库中 publishers 表的内容拷贝到 
+            publisher1.txt 文件中。在拷贝时，字段间分隔符使用默认值(\t制表符)，行终结符为回车符：<br>
+            ��bcp pubs..publishers out publisher1.txt -c -Usa -P<br>
+            　下面是拷贝所产生的publisher1.txt文件内容：<br>
+            ��0736 New Moon Books Boston MA USA<br>
+            ��0877 Binnet &amp; Hardley Washington DC USA<br>
+            ��1389 Algodata Infosystems Berkeley CA USA<br>
+            ��1622 Five Lakes Publishing Chicago IL USA<br>
+            ��1756 Ramona Publishers Dallas TX USA<br>
+            ��9901 GGG&amp;G M�nchen Germany<br>
+            ��9952 Scootney Books New York NY USA<br>
+            ��9999 Lucerne Publishing Paris France</font></td>
+        </tr>
+        <tr> 
+          <td width="35" valign="top"><font color="#cc0000"><img src="../../../img/text/liti.gif" width="35" height="36" alt="例题"></font></td>
+          <td><font color="#cc0000">�例2：下面命令使用字符格式将pubs数据库中 publishers 表的内容拷贝到 
+            publishers2.txt 文件中。在拷贝时，设置字段间分隔符为逗号，并用-F和-L选项将拷贝的起始行和结束行设置为2和5：<br>
+            ��bcp pubs..publishers out publisher2.txt -c -F2 -L5 -t, -Usa -P<br>
+            ��下面是bcp所产生的publisher2.txt文件内容，它为publishers表中第二行到第五行的数据：0877,Binnet 
+            &amp; Hardley,Washington,DC,USA<br>
+            ��1389,Algodata Infosystems,Berkeley,CA,USA<br>
+            ��1622,Five Lakes Publishing,Chicago,IL,USA<br>
+            ��1756,Ramona Publishers,Dallas,TX,USA</font></td>
+        </tr>
+        <tr> 
+          <td width="35" valign="top"><font color="#cc0000"><img src="../../../img/text/liti.gif" width="35" height="36" alt="例题"></font></td>
+          <td><font color="#cc0000"><br>
+            �例3：将publisher3.txt文件中的数据拷贝到SQL Server的publishers表中，使用格式文件bcp1.fmt 
+            控制 bcp 向 SQL Server 表中拷贝数据。其中格式控制文件bcp1.fmt的内容如下：<br>
+            ��7.0 <br>
+            ��5 <br>
+            ��1 SQLCHAR 0 4 &quot;,&quot; 1 pub_id <br>
+            ��2 SQLCHAR 0 30 &quot;,&quot; 5 country <br>
+            ��3 SQLCHAR 0 2 &quot;,&quot; 4 state <br>
+            ��4 SQLCHAR 0 20 &quot;,&quot; 3 city <br>
+            ��5 SQLCHAR 0 40 &quot;\r\n&quot; 2 pub_name<br>
+            ��publisher3.txt文件内容为：<br>
+            ��9910,USA,MA,Boston,New Moon Books <br>
+            ��9911,USA,DC,Washington,Binnet &amp; Hardly<br>
+            ��执行下面的命令将 publisher3.txt文件内容添加到 publishers表中：<br>
+            ��bcp pubs..publishers in publihser3.txt -fbcp1.fmt -Usa -P</font></td>
+        </tr>
+      </table>
+      <font color="#cc0000"><span class="biaoti_1"><br>
+      (3) BULK INSERT命令</span><br>　　BULK INSERT命令是SQL Server 7.0新提供的内容，用于向一个数据库表中批量装入数据。BULK 
+      INSERT与BCP之间的主要不同是：BULK INSERT是装入操作，是基于SQL语句的操作；而BCP是双向的操作，是基于命令行的操作。<br>
+      ��BULK INSERT语句的语法可查联机帮助。例如：下面的语句采用BULK INSERT语句从c:\customer.dat文件中装入自定义的数据，各字段之间用逗号分隔：<br>
+      ��BULK INSERT northwind..customers<br>
+      ��FROM 'c:\customer.dat'<br>
+      ��WITH (FIELDTERMINATOR=',' , ROWTERMINATOR='\n')</font><!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

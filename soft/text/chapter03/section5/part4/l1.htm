@@ -1,0 +1,30 @@
+<html>
+<head>
+<title>l1</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+          <td class="text">　　<br>
+            　　<span class="part">1、</span>复审基本系统模型（0层数据流图和支持信息）。评估系统规格说明和软件需求规格说明。<br>
+            　　<span class="part">2、</span>复审和细化软件的数据流图。重画数据流图时， 可以从物理输入到物理输出，或者相反。还可以从顶层加工框开始，逐层向下。<br>
+            　　<span class="part">3、</span>确定数据流图中含有变换流特征还是含有事务流特征。通常，系统的信息流总能表示为变换型，但其中也可能遇到明显的事务流特征，这时可采用变换型为主，在局部范围采用事务型的设计方法。<br>
+            　　<span class="part">4、</span>区分输入流、输出流和中心变换部分，即标明流的边界。不同的设计人员可能选择不同的流边界，这将导致不同的系统结构图。<br>
+            　　<span class="part">5、</span>进行一级&quot;因子化&quot;分解，设计顶层和第一层模块。<br>
+            　　首先设计主模块，用程序名字为它命名，将它画在与中心变换相对应的位置上。做为系统的顶层，它调用下层模块，完成系统所要做的各项工作。系统结构第一层的设计方针：为每一个逻辑输入设计一个输入模块，它为主模块提供数据；为每一个逻辑输出设计一个输出模块，它将主模块提供的数据输出；为中心变换设计一个变换模块，它将逻辑输入转换成逻辑输出。第一层模块与主模块之间传送的数据应与数据流图相对应。<br>
+            　　<span class="part">6、</span>进行二级&quot;因子化&quot;分解，设计中、下层模块。这一步工作是自顶向下，逐层细化，为每一个输入模块、输出模块、变换模块设计它们的从属模块。<br>
+            　　输入模块要向调用它的上级模块提供数据，因而它必须有两个下属模块：一个是接收数据；另一个是把这些数据变换成它的上级模块所需的数据。输出模块是从调用它的上级模块接收数据，用以输出，因而也应当有两个下属模块：一个是将上级模块提供的数据变换成输出的形式；另一个是将它们输出。中心变换模块的下层模块没有通用的设计方法，一般应参照数据流图的中心变换部分和功能分解的原则来考虑如何对中心变换模块进行分解。<br>
+            　　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

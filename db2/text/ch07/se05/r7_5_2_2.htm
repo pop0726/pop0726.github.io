@@ -1,0 +1,109 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" -->　<span class="biaoti_1">2. 安全帐户认证管理</span><br>
+      ��在SQL Server中，管理数据库帐户(服务器登录标识)有两种方法：使用系统存储过程语句管理，和使用Enterprise Manager管理。<br>
+      　　（1） 使用系统存储过程管理安全帐户认证：<br>
+      ��<span class="explaination">在SQL Server中，可以使用系统存储过程sp_grantlogin 授予Windows 
+      NT用户或组连接SQL Server服务器的权限。这实际上是将Windows NT 用户或小组成员映射为SQL Server的登录帐户。SQL 
+      Server可以对这些帐户采取信任登录的方式。如果这些Windows NT的用户或小组成员能够成功登录Windows NT，则SQL Server就承认它们是合法的用户，从而允许它们连接上服务器。</span><br>
+      ��●　sp_grantlogin授予访问权的语法格式为：<br>
+      ��sp_grantlogin [@loginame=] 'login'<br>
+      ��<span class="explaination">其中，login为Windows NT用户或用户组名称，其格式为 &quot;域\用户名称&quot; 
+      或 &quot;计算机名\用户名称&quot;。</span><br>
+      ��对于Windows内置的本地组，不能使用域名或计算机名，而使用BUILTIN关键字。<br>
+      ��例1：<span class="explaination">授予domain1域中用户user1登录权限，命令如下：</span><br>
+      ��sp_grantlogin 'domain1\user1' <br>
+      ��例2：<span class="explaination">授予domain1域中用户组group1中的用户登录权限，命令如下：</span>sp_grantlogin 
+      'domain1\group1' <br>
+      ��例3：<span class="explaination">授予本地计算机中用户组Users中的用户登录权限，命令如下：</span><br>
+      ��sp_grantlogin 'BUILTIN\Users' <br>
+      ��<font color="#cc0000">●　使用系统存储过程sp_denylogin禁止指定的Windows NT用户或组连接SQL Server服务器。Sp_denylogin的语法格式为：<br>
+      　　sp_denylogin [@loginame=] 'login'<br>
+      　　例4：禁止本地计算机中用户组Users中的用户登录权限，命令如下：<br>
+      　　sp_denylogin 'BUILTIN\Users' <br>
+      　　系统存储过程sp_grantlogin和sp_denylogin所添加的登录标识均存储在SQL Server的syslogins系统表中，系统存储过程sp_revokelogin能够将它们从系统表syslogin中删除。Sp_revokelogin的语法格式为：<br>
+      　　sp_revokelogin [@loginame=] 'login'<br>
+      　　例5：撤销本地计算机中用户组Users和SQL Server帐户的映射，命令如下： <br>
+      　　sp_revokelogin 'BUILTIN\Users' <br>
+      　　当使用混合认证模式时，对于没有建立Windows NT帐户的用户，只能使用SQL Server登录标识来管理用户连</font>接。<br>
+      　　●　建立SQL Server登录标识用系统存储过程sp_addlogin。Sp_addlogin语法格式为：<br>
+      　　sp_addlogin [@loginame=] 'login'<br>
+      　　例6：<span class="explaination">建立一个名叫user2，密码是pwd，默认数据库为pubs的帐户，命令如：</span><br>
+      　　sp_addlogin user2, pwd, pubs<br>
+      　　●　删除SQL Server登录标识用系统存储过程sp_droplogin。Sp_droplogin语法格式为：<br>
+      　　p_droplogin [@loginame=] 'login'<br>
+      　　例7：<span class="explaination">删除刚刚建立的帐户user2，命令如下：</span> <br>
+      　　sp_droplogin 'user2'<br>
+      　　（2） 使用企业管理器管理安全帐户认证。<br>
+      　　●　展开要创建登录帐户的&quot;服务器&quot;节点；<br>
+      　　●　选中树形结构上的&quot;安全性&quot;节点，展开，如图片7-7；在&quot;登录&quot;节点上右击，选择&quot;新建登录&quot;，如图片7-8，在登录界面中输入相关信息。采用SQL 
+      Server身份验证的信息为：帐户名、密码和缺省访问的数据库。采用Windows身份验证的信息为：域名、选择允许或不允许访问和缺省访问的数据库等。<br>
+      　　●　打开&quot;服务器角色&quot;，分配给帐户固定服务器角色，如图片7-9；<br>
+      　　●　打开&quot;数据库访问&quot;，决定登录帐户允许访问的数据库，以及分配给帐户的数据库角色，如图片7-10。<br>
+      　　（3） 特殊帐户sa<br>
+      ��在完成SQL Server安装以后，SQL Server就建立了一个特殊帐户sa。sa帐户拥有最高的管理权限，不管SQL Server实际的数据库所有权如何，sa可以执行服务器范围内的所有操作。在刚刚完成SQL 
+      Server的安装时候，sa帐户没有任何密码，所以要尽快为其设置密码。 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td><span class="pt9-black">　　</span><span class="tubiaoti">图片7-7</span></td>
+        </tr>
+        <tr> 
+          <td align="center"><br>
+            <img src="../../../img/text/ch07/29.gif" width="409" height="298"></td>
+        </tr>
+        <tr> 
+          <td class="tubiaoti">　　图片7-8</td>
+        </tr>
+        <tr> 
+          <td align="center" class="pt9-black"><br>
+            <img src="../../../img/text/ch07/30.gif" width="371" height="397"> 
+          </td>
+        </tr>
+        <tr> 
+          <td class="tubiaoti">　　图片7-9</td>
+        </tr>
+        <tr> 
+          <td align="center" class="pt9-black"><br>
+            <img src="../../../img/text/ch07/31.gif" width="332" height="301"> 
+          </td>
+        </tr>
+        <tr>
+          <td class="tubiaoti">　　图片7-10</td>
+        </tr>
+        <tr> 
+          <td align="center" class="pt9-black"><br>
+            <img src="../../../img/text/ch07/32.gif" width="336" height="287"> 
+          </td>
+        </tr>
+      </table>
+      <!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

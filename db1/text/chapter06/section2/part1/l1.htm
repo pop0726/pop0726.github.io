@@ -1,0 +1,45 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body  bgcolor="#FFFFFF" bgproperties=fixed background="../../../../image/moban/15.gif">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" height="360">
+        <tr> 
+          <td class="text" align="left"> 
+            <p><span class="part">1、问题的提出</span><br>
+              ��在讨论数据库的物理设计之前，首先应该了解数据库的物理组织。数据库是大量数据的有结构的综合性的集合，如何将这样一个庞大的数据集合以最优的形式组织起来存放在磁盘上是一个非常重要的问题。所谓&quot;优&quot;包括两方面：一是存储效率高，节省存储空间；二是存取效率高，速度快，代价小，节省存取时间，这对数据库应用的性能有很大的影响。<br>
+              <span class="part">2、物理组织的基本问题</span><br>
+              ��数据库系统是文件系统的发展。数据库实现的基础是操作系统的文件，对数据库的任何操作最终要转化为对文件的操作。所以在数据库的物理组织中，基本的问题是：如何设计文件组织；如何利用好操作系统提供的基本的文件组织方法。<br>
+              ��<br>
+              ��<span class="menu">实际上在选定了DBMS之后，数据库的物理组织的大框架也就基本上确定了。这里所说的大框架就是说一个数据库是用几个文件来实现的，每个文件的作用都是什么？例如，在SQL 
+              Server 7.0中，一个数据库一般是对应三个文件：<br>
+              ��1、*.MDF文件：主数据文件，存放数据和索引的；<br>
+              ��2、*.LDF文件：日志文件，存放数据库日志的；<br>
+              ��3、*.NDF文件：次数据文件，在必要的时候作为MDF文件的补充，存放数据和索引的。<br>
+              如果数据库直接对磁盘等进行操作，而不通过操作系统的文件系统，这样就可以大大地提高数据访问的速度。但是要做的工组还很多。目前似乎还没有直接建立在物理存储设备上的数据库系统，清华大学数据库研究组正在做这方面的研究工作。<br>
+              <br>
+              </span><span class="part">3、物理组织的对象<br>
+              ��</span><span class="text">数据库中要存储四个方面的数据：<br>
+              ��①�数据描述(即数据的外模式、模式和内模式)：它们将存储在数据字典里；<br>
+              ��②�数据本身：它们将存储在数据文件里；<br>
+              ��③�数据之间的联系：这些内容体现在数据的存储结构上；<br>
+              ��④�存取路径(即索引结构)：它们同时体现在数据文件和数据字典里。<br>
+              <br>
+              </span><span class="part">4、数据之间的联系</span><span class="text"><br>
+              ��数据库中数据组织与数据之间的联系是紧密结合在一起的。在数据的组织和存储中必须直接或间接地体现数据之间的联系，这是数据库物理组织的主要内容之一。例如：在网状和层次数据库中，常用链接法实现数据之间的联系；而关系数据库则实现了数据表示的单一性，即实体及实体之间的联系都用一种数据结构--&quot;表&quot;(Table)</span></p>
+          </td>
+        </tr>
+        <tr>
+          <td class="text" align="left">&nbsp;</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

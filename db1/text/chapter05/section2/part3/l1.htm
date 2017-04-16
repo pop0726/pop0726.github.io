@@ -1,0 +1,30 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgproperties=fixed bgcolor="#FFFFFF" background="../../../../image/moban/15.gif">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td class="text" align="left"> ��<span class="part">1、插入</span><br>
+            ��向<i><font size="3">r</font><font size="-5">2</font></i>中插入元组<i><font size="3">t</font></i><font size="-5">2</font>，则系统必须保证<font size="3">r</font><font size="-5">1</font>中存在元组<font size="3">t</font><font size="-5">1</font>，使得<font size="3">t</font><font size="-5">1</font>[<i>K</i>]=<font size="3">t</font><font size="-5">2</font>[α]，即<font size="3">t</font><font size="-5">2</font>[α]∈Π<font size="-5">K</font>(<font size="3"><i>r</i></font><font size="-5">1</font>)；否则失败！<br>
+            ��<span class="part">2、删除</span><br>
+            ��如果从<font size="3">r</font><font size="-5">1</font>中删除元组<font size="3">t</font><font size="-5">1</font>，则系统必须计算<font size="3">r</font><font size="-5">2</font>中参照<font size="3">t</font><font size="-5">1</font>的元组集合，即<img src="../../../../image/title/05/04.gif" width="82" height="22">。如果该集合非空，则：<br>
+            ��①�报错并撤消删除命令；或者是<br>
+            ��②�<font size="3">r</font><font size="-5">2</font>中参照<font size="3">t</font><font size="-5">1</font>的元组也必须被删除掉(可能导致级联删除)。<br>
+            ��<span class="part">3、更新</span><br>
+            ��有两种情况要考虑：<br>
+            ��⑴�如果关系<font size="3">r</font><font size="-5">2</font>中元组<font size="3">t</font><font size="-5">2</font>被更新，并且该更新修改外码a上的值，则进行类似插入情况的测试。令<font size="3">t</font><font size="-5">2</font>'表示元组<font size="3">t</font><font size="-5">2</font>的新值，则系统必须保证：<font size="3">t</font><font size="-5">2</font>'[α]∈Π<i><font size="-5">K</font></i>(<font size="3">r</font><font size="-5">1</font>)；否则更新失败！<br>
+            ��⑵�如果关系<font size="3">r</font><font size="-5">1</font>中元组<font size="3">t</font><font size="-5">1</font>被更新，并且该更新修改主码K上的值，则进行类似删除情况的测试。系统必须用旧的<font size="3">t</font><font size="-5">1</font>值(更新前的值)计算<img src="../../../../image/title/05/05.gif" width="60" height="14">。如果该集合非空，则更新失败或者进行级联更新。<br>
+            ��</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

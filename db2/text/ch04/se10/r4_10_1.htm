@@ -1,0 +1,88 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url('../../../img/text/bg.jpg');
+background-repeat: no-repeat;
+background-attachment: fixed; background-position-y:50%
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">　</td>
+    <td>　</td>
+    <td width="10">　</td>
+  </tr>
+  <tr>
+    <td width="10">　</td>
+    <td> <!-- #BeginEditable "1" --> 
+      <p><font color="#CC0000">1 SQL Server的系统变量@@ERROR</font></p>
+      <p>&nbsp; 　在不同的DBMS系统中，提供不同的系统变量名称检查错误信息。SQL Server专用的系统变量为@@ERROR<br>
+        　　@@ERROR = 0 表示执行正确。<br>
+        　　@@ERROR 0 表示执行错误。<br>
+        　　每当完成 一条SQL 语句的执行时，如果语句执行成功，则 @@ERROR 设置为 0。若出现一个错误，则返回一条错误信息。@@ERROR 返回此错误信息代码，直到另一条 
+        T-SQL 语句被执行。您可以在 sysmessages 系统表中查看与 @@ERROR 错误代码相关的文本信息。<br>
+        　　由于 @@ERROR 在每一条语句执行后被清除并且重置，应在语句验证后立即检查它，或将其保存到一个局部变量中以备事后查看。<br>
+        　　例如，在一个 UPDATE 语句中检测查冲突（错误 #547）。<br>
+        　　USE pubs<br>
+        　　GO <br>
+        　　UPDATE authors <br>
+        　　SET au_id = '172 32 1176'<br>
+        　　WHERE au_id = &quot;172-32-1176&quot; <br>
+        　　IF @@ERROR = 547<br>
+        　　print &quot;A check constraint violation occurred&quot; </p>
+      <p><font color="#CC0000">2. SQL Server错误消息</font><br>
+        <br>
+        　　＊当SQL Server运行或T-SQL语句编译、执行过程中遇到错误时，它将显示一条错误消息，向用户报告发生的错误号、错误级别及错误原因等内容。<br>
+        　　＊错误消息存储在sysmessages系统表中，每条消息由错误消息号、错误严重级别、状态和错误描述信息四部分组成。<br>
+        　　＊错误描述信息有两类：一类是静态文本，另一类包含了类似C语言printf函数中的格式控制变量，如%d， %c ，%s等。这类错误消息在报告给用户之前，需要用SQL 
+        Server所接收到参数值替换格式控制变量，动态生成完整的错误描述信息。<br>
+        <img src="../../../img/text/liti.gif" width="35" height="36" alt="例题">例1：<br>
+        　　SELECT * FROM abc<br>
+        　　将产生208号错误，208号错误的描述信息是：<br>
+        　　Invalid object name '%.*ls'.<br>
+        　　在显示错误信息前，SQL Server将自动用所操作的表名abc替换%.*ls变量，最终向用户发出的错误消息为：Server: Msg 208, 
+        Level 16, State 1, Line 1<br>
+        　　Invalid object name 'abc'.</p>
+      <p><font color="#CC0000">3. 建立用户自定义错误消息</font><br>
+        <br>
+        　　＊SQL Server提供了一种添加用户自定义错误消息的机制，使用系统存储过程sp_addmessage将用户自定义的错误消息存放到sysmessage表中。<br>
+        　　＊用户定义的错误消息号应大于50000。<br>
+        　　＊可以用RAISERROR语句从sysmessages表中检索信息，并把它发送给相应的用户。<br>
+        　　系统存储过程sp_addmessage的语法格式：<br>
+        　　sp_addmessage { number, severity, 'msg' }<br>
+        　　[, 'language' ]<br>
+        　　[, 'with_log' ]<br>
+        　　[, 'replace' ]<br>
+        <img src="../../../img/text/liti.gif" width="35" height="36" alt="例题">例2：添加一条错误号为50002的错误消息。<br>
+        　　sp_addmessage 50002, 16, 'This is a test%s'<br>
+        　　＊RAISERROR语句返回用户所定义的错误消息，并且设置系统标识来记录所发生的错误：其语法格式如下：<br>
+        　　RAISERROR ( { msg_id | msg_str } <br>
+        　　{ ,severity ,state }<br>
+        　　[, argument[,...n]] )<br>
+        　　[WITH option] <br>
+        <img src="../../../img/text/liti.gif" width="35" height="36" alt="例题">例3：下面语句将产生50002号错误消息，并用字符串&quot;aaa&quot;替换格式控制变量%s：<br>
+        RAISERROR (50002, 16, -1, &quot;aaa&quot;) </p>
+      <p><font color="#CC0000">4 删除用户定义的错误消息</font><br>
+        <br>
+        　　当用户不再使用所定义的错误消息时，可使用系统存储过程sp_dropmessage删除。sp_dropmessage的格式为：<br>
+        　　sp_dropmessage [@msgnum =] message_number<br>
+        　　[ , [@lang = ] 'language']<br>
+        <img src="../../../img/text/liti.gif" width="35" height="36" alt="例题">例4：下面语句删除前面所定义的50002号错误消息：<br>
+        sp_dropmessage 50002</p>
+      <p>　</p>
+      <!-- #EndEditable --></td>
+    <td width="10">　</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

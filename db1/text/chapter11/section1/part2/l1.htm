@@ -1,0 +1,54 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgproperties=fixed bgcolor="#FFFFFF" background="../../../../image/moban/15.gif">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" height="61">
+        <tr> 
+          <td class="text" align="left" height="2"> <span class="part">1、加锁与解锁</span><br>
+            ��封锁协议的主要内容是：<br>
+            ��<span class="part">⑴�加锁：</span>要访问一个数据项，事务T必须首先申请给该数据项加锁。如果该数据项已被另一事务加上了不相容类型的锁，则在所有不相容类型的锁被释放之前，并发控制管理器不会授予事务T申请的锁。因此T必须等待，直到所有不相容类型的锁被释放；<br>
+            ��<span class="part">⑵�解锁：</span>只要事务T还在访问某数据项，它就必须拥有该数据项上的锁。除此之外，事务T可以随时释放先前它加在某个数据项上的锁。<br>
+            <br>
+            <span class="part">2、加锁与解锁指令</span><br>
+            ��<u>加锁指令：</u><br>
+            ��-�lock-S(Q)：申请数据项Q上的共享锁；<br>
+            ��-�lock-X(Q)：申请数据项Q上的排他锁。<br>
+            ��<u>解锁指令：</u><br>
+            ��-unlock(Q)：释放数据项Q上的锁。<br>
+            如<span class="part">图11-1-2</span>所示，给出的是两个带有加锁和解锁指令的事务。<br>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left" height="2"> 
+            <div align="center"><span class="part">图11-1-2：带锁的事务 </span><br>
+              <img src="../../../../image/chapter/11/11-1-2.gif" width="338" height="386"> 
+            </div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left" height="2"><span class="part">3、带锁的调度</span><br>
+            ��如<span class="part">图11-1-3</span>所示，给出的是一个带锁的调度。</td>
+        </tr>
+        <tr> 
+          <td class="text" align="left" height="2"> 
+            <div align="center"><span class="part">图11-1-3：带锁的调度 </span><br>
+              <img src="../../../../image/chapter/11/11-1-3.gif" width="420" height="357"> 
+            </div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left" height="2">正如图中所示，事务T<font size="-5">1</font>的lock-X(B)表示申请对数据项B加排他锁，该请求是发送给并发控制管理器的，如第三栏所示。并发控制管理器首先检查是否可以授予事务T<font size="-5">1</font>的数据项B上的排他锁，如果可以，则通过grant-X(B, 
+            T<font size="-5">1</font>)指令在将要执行事务T<font size="-5">1</font>的read(B)指令之前将锁授予；如果不可以，则事务T<font size="-5">1</font>就必须等待。今后为了讲课方便，将省略&quot;并发控制管理器&quot;授权加锁的这一栏。</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

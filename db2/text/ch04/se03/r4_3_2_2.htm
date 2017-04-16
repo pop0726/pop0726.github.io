@@ -1,0 +1,66 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" --> <span class="biaoti_1">　2． 修改索引 </span><span class="pt9-black"><br>
+      　　用ALTER INDEX可以将一个聚集索引改为一个非聚集索引，或将可以将一个非聚集索引改为一个聚集索引。缺省为非聚集索引。 <br>
+      　　修改索引语句格式： ALTER INDEX 索引名 TO [NOT]CLUSTER</span>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+        <tr> 
+          <td width="35" valign="top"><img src="../../../img/text/liti.gif" width="35" height="36" alt="例题"></td>
+          <td>　<font color="#5a5aad">例1，把tnamex改为一个聚集索引，该表的元组的物理位置要从新排列，原有的非聚集索引需要全部删除，而后重建。</font><br>
+            　　　ALTER INDEX tnamex TO CLUSTER</td>
+        </tr>
+        <tr> 
+          <td valign="top"><img src="../../../img/text/liti.gif" width="35" height="36" alt="例题"></td>
+          <td><br>
+            　例2，把scinx改为一个非聚集索引<br>
+            　　　ALTER INDEX scinx TO NOT CLUSTER<br>
+            　<font color="#5a5aad">这里只介绍用SQL语句修改索引，使用企业管理器修改索引与添加索引大致相同，在此不再赘述。</font><span class="pt9-black"></span></td>
+        </tr>
+      </table>
+      <span class="pt9-black"><br>
+      </span><span class="biaoti_1">　3．删除索引：</span><span class="pt9-black">　<br>
+      　　删除索引的语句格式：<br>
+      　　　DROP INDEX table_name. index_name<br>
+      　　<font color="#5a5aad">参数说明：<br>
+      　　　Table_name：要删除索引所在的表。<br>
+      　　　Index_name：要删除索引的名称。</font><br>
+      　　例如：将teacher表中的索引tnamex删除：<br>
+      　　　DROP INDEX teacher.tnamex<br>
+      　　<font color="#5a5aad">执行 DROP INDEX 后，将重新获得以前由索引占用的空间。此后可将该空间用于任何数据库对象。</font></span> 
+      <p><font color="#5a5aad">　使用索引的一点说明：<br>
+        　(1) 使用SQL语言，用户可以随时在基本表上建立索引、增加新索引、删除索引。用户根据具体应用环境需要的情况，可动态地调整索引结构，达到较高的查询性能。<br>
+        　(2) 用户只能建立、修改和删除索引，不能在数据操作中引用索引，在数据操作执行中如何使用索引完全由系统决定。从而保证了增加和删除索引时不必修改应用程序，支持数据的物理独立性。<br>
+        　(3)不能用DROP INDEX删除在系统表上的索引。<br>
+        　(4) 若要删除为实现 PRIMARY KEY 或 UNIQUE 约束而创建的索引，必须先除去约束，因为许多DBMS系统自动为PRIMARY KEY和UNIQUE属性列建立索引。<br>
+        　(5) 只有表的所有者和sysadmin有权删除表的索引。</font></p>
+      <!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

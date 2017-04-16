@@ -1,0 +1,94 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url('../../../img/text/bg.jpg');
+background-repeat: no-repeat;
+background-attachment: fixed; background-position-y:50%
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">　</td>
+    <td>　</td>
+    <td width="10">　</td>
+  </tr>
+  <tr>
+    <td width="10">　</td>
+    <td> <!-- #BeginEditable "1" --> <span class="biaoti_1">　2. 修改表</span><span class="pt9-black"><br>
+      　　SQL语言提供对设计好的表进行补充和修改的功能，包括增加，修改和删除某些列等。在SQL Server中，可以使用SQL语句或SQL企业管理器来修改数据库表。<br>
+      　(1) 使用企业管理器修改表格。<br>
+      　　从树形结构展开要修改定义的表所在数据库，并选中该数据库节点下面的表节点，在企业管理器右侧显示出该数据库下全部表格。选择要修改的表，单击鼠标右键，从弹出的快捷菜单中选择&quot;设计表&quot;命令，其余操作和最初建立表格时一样，如图4-15。<br>
+      <br>
+      　　</span><span class="tubiaoti">图4-15</span><span class="pt9-black"><br>
+      </span> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td align="center" class="pt9-black"><br>
+            <img src="../../../img/text/ch04/b9.gif" width="420" height="276"></td>
+        </tr>
+      </table>
+      <p class="pt9-black">　(2) 使用SQL语句修改表 <br>
+        　　使用SQL语句，可以在更大范围修改表格。包括增加、删除、修改列定义或完整性约束条件，其格式： <br>
+        　　　ALTER TABLE 表名 <br>
+      　　　[ADD子句]　<font color="#5a5aad">　　　　　　　　 增加新的列定义或列说明</font><br>
+        　　　[ALTER COLUMN子句]　　　　　<font color="#5a5aad">修改表中列定义或列说明</font><br>
+        　　　[DROP子句]　　　　　　　　　<font color="#5a5aad">删除表中的列或列说明</font><br>
+        　　　[ADD CONSTRAINT子句]　　　　<font color="#5a5aad">增加约束 <br>
+        　　　</font>[DROP CONSTRAINT子句]<font color="#5a5aad">　　　 删除约束<br>
+        </font> </p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+        <tr> 
+          <td valign="top" width="35"><img src="../../../img/text/liti.gif" width="35" height="36" alt="例题"></td>
+          <td class="pt9-black">　例1，修改表COUSE。上面的例4产生的表不能满足设计要求，必须对该表进行修改，增加约束外部关键字约束说明,满足设计要求，语句如下: 
+            ALTER TABLE COUSE<br>
+            　　ADD FOREIGN KEY (cdept) REFERENCES DEPT [deptno]<br>
+            　　ADD FOREIGN KEY (ctno) REFERENCES TEACHER [tno] </td>
+        </tr>
+        <tr> 
+          <td valign="top"><img src="../../../img/text/liti.gif" width="35" height="36" alt="例题"></td>
+          <td><br>
+            　例2，修改学生的年龄为出生日期（日期类型）。<br>
+            　　ALTER TABLE STUDENT<br>
+            　　ALTER COLUMN sage DATETIME</td>
+        </tr>
+        <tr> 
+          <td valign="top"><img src="../../../img/text/liti.gif" width="35" height="36" alt="例题"></td>
+          <td><br>
+            　例3：增加学生的电话属性:<br>
+            　　ALTER TABLE STUDENT<br>
+            　　ADD sphno CHAR(12)</td>
+        </tr>
+        <tr> 
+          <td valign="top"><img src="../../../img/text/liti.gif" width="35" height="36" alt="例题"></td>
+          <td> 　例4，增加学生的国家属性<br>
+            　　ALTER TABLE STUDENT<br>
+            　　ADD country CHAR(30)</td>
+        </tr>
+      </table>
+      <br>
+      　(3) 在查询分析器中修改表，修改结果如图4-16。<br>
+      <br>
+      　　<span class="tubiaoti">图4-16</span><br>
+      <span class="pt9-black"> </span> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td align="center" class="pt9-black"><br>
+            <img src="../../../img/text/ch04/b10.gif" width="339" height="216"></td>
+        </tr>
+      </table>
+      <!-- #EndEditable --></td>
+    <td width="10">　</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

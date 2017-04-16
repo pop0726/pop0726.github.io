@@ -1,0 +1,39 @@
+<html>
+<head>
+<title>l1</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center" height="8">
+        <tr> 
+          <td class="text"> 
+            <p><br>
+              <span class="section">1、生成各种引用表</span><br>
+              ��在源程序编制完成后生成各种引用表，是为了支持对源程序进行静态分析。引用表按功能分类，有以下三种：<br>
+              ��<span class="part">・</span> 直接从表中查出说明／使用错误等。如，循环层次表、变量交叉引用表、标号交叉引用表等。<br>
+              ��<span class="part">・</span> 为用户提供辅助信息。如，子程序（宏、函数）引用表、等价（变量、标号）表、常数表等。<br>
+              ��<span class="part">・</span> 用来做错误预测和程序复杂度计算。如，操作符和操作数的统计表等。<br>
+              ��这些引用表包括有：<br>
+              ��<span class="part">(1)</span> <span class="part">标号交叉引用表</span>──它列出在各模块中出现的全部标号。 
+              其顺序可以是按标号出现的先后次序，也可以是字典顺序。在表中标出标号的属性：已说明、未说明、已使用、未使用。表中还包括在模块以外的全局标号、计算标号等。 
+              <br>
+              ��<span class="part">(2) 变量交叉引用表</span>──即变量定义与引用表。 在表中，变量的顺序可以按它在程序中出现的先后次序，也可以按字典顺序，还可以按它们的类型排序。表中应标明各变量的属性：已说明、未说明、隐式说明，以及类型及使用情况。进一步，还可区分是否出现在赋值语句的右边，是否属于COMMON变量、全局变量或特权变量等。<br>
+              ��<span class="part">(3)</span> <span class="part">子程序、宏和函数表</span>──在表中，各个子程序、宏和函数的属性：已定义、 
+              未定义、定义类型；参数表、输入参数的个数、顺序、类型，输出参数的个数、顺序、类型；已引用、未引用、引用次数等等。 <br>
+              ��<span class="part">(4) 等价表</span>──表中列出在等价语句或等值语句中出现的全部变量和标号。<br>
+              ��<span class="part">(5)</span> <span class="part">常数表</span>──在表中列出全部数字常数和字符常数， 
+              并指出它们在哪些语句中首先被定义，即首先出现在哪些赋值语句的左部或哪些数据语句或参数语句中。<br>
+              ��</p>
+            </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,251 @@
+<html>
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<script language="JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+</head>
+<script language="JavaScript">
+function getresultcheck(form)
+{var mykeys=new Array();
+//  mykeys[0]="B";
+//czp-select-answer
+var answer=new Array();
+for(var I=0;I<mykeys.length;I++) answer[I]="";
+
+var every=form.elements;
+
+<!--czp-select-count-->
+for(var I=0;I<every.length;I++)
+{
+	if(every[I].type=="radio")
+	{
+		
+		if(every[I].checked)
+		{	
+	
+			var item=parseInt(every[I].name.substr(0));
+		
+			answer[item-1]+=every[I].value;
+		}
+	}				
+}
+
+var newcount="<html><head><title>谢谢您!</title></head><body><center><h2><font color=red>您的测试结果</font></h2></center>";
+var totalscore=0;
+for(var I=0;I<answer.length;I++)
+{
+	if(answer[I]==mykeys[I])
+	{
+		var rstr="<font size=2>第"+(I+1)+"题答案正确!</font><br>";
+		newcount+=rstr;
+		totalscore+=1/(answer.length)*100;//每题分数
+	}else
+	{
+		var rstr="<font size=2>第"+(I+1)+"题答案错误!正确答案为"+mykeys[I]+"</font><br>";
+		newcount+=rstr;
+	}
+
+}
+
+newcount+="<br>您的总成绩为:";
+newcount+=Math.ceil(totalscore);
+newcount+="分";
+newwin=window.open("","","height=200,width=300,scrollbars=yes,resizable=no");
+newwin.document.write(newcount);}
+
+function check(){
+var mykeys=new Array();
+mykeys[0]="网络技术";mykeys[1]="关系表";mykeys[2]="水平分片、垂直分片、水平垂直混合分片三种方法";mykeys[3]="数据页";mykeys[4]="访问时间效率和空间利用效率";mykeys[5]="共享锁和独占锁";mykeys[6]="直接数据挖掘和间接数据挖掘";mykeys[7]="一对一联系、一对多联系、多对多联系";mykeys[8]="提高数据库恢复的效率";mykeys[9]="外模式、概念模式和内模式";//czp-tiankong-answer
+//mykeys[0]="B";
+var answer=new Array();
+for(var I=0;I<mykeys.length;I++) answer[I]="";
+
+var every=zfl.elements;
+for(var I=0;I<every.length;I++)
+{
+if(every[I].type=="text")
+{
+ if(every[I].value!==null)
+ {
+ //var item=parseInt(every[I].name.substr(1))
+//  answer[item-1]+=every[I].value;
+  answer[I]+=every[I].value;
+  }
+ }
+}
+
+
+var newcount="<html><head><title>谢谢您!</title></head><body><center><h2><font face=\"隶书\" size=\"5\" color=\"#000099\">您的测试结果</font></h2></center>";
+var totalscore=0;
+for(var i=0;i<answer.length;i++)
+{
+	if(answer[i]==mykeys[i])
+	{
+		var rstr="<font face=\"宋体\" size=2>第"+(i+1)+"个空答案正确!</font><br>";
+		newcount+=rstr;
+		totalscore+=1/(answer.length)*100;
+	}else
+	{
+		var rstr="<font face=\"宋体\" size=2>第"+(i+1)+"个空答案错误!正确答案为"+mykeys[i]+"</font><br>";
+		newcount+=rstr;
+	}
+
+}
+
+newcount+="<br><font face=\"宋体\" size=3><b>您的总成绩为:</b></font><font face=\"宋体\" size=3 color=red>";
+newcount+=Math.ceil(totalscore);
+newcount+="分</font><br>";
+newwin=window.open("","","height=400,width=400,scrollbars=yes,resizable=no");
+newwin.document.write(newcount);
+}
+
+</script><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+<body bgcolor="#FFFFFF" text="#000000" topmargin=0>
+
+<center><br>
+  试卷二<br>
+  <table width="95%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+      <td class=pt9-black> 
+        <form name="zfl">
+          <p>一<b>、 填空题</b><br>
+            <br>
+            1、
+            分布式数据库是数据库技术和 
+            <input type=text size=10 style="border-color: black black #000000; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 1px; border-left-width: 0px">
+            结合的产物。<br>
+            <br>
+            2、
+            在关系数据库中，通过 
+            <input type=text size=10 style="border-color: black black #000000; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 1px; border-left-width: 0px">
+            来表示实体集之间的联系。<br>
+            <br>
+            3、
+            分布式数据库系统中数据分片的方法有： 
+            <input type=text size=10 style="border-color: black black #000000; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 1px; border-left-width: 0px">
+            <br>
+            <br>
+            4、
+            DBMS的系统缓冲区是由控制信息和若干 
+            <input type=text size=10 style="border-color: black black #000000; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 1px; border-left-width: 0px">
+            组成。<br>
+            <br>
+            5、
+            对数据库的物理设计优劣评价的重点是 
+            <input type=text size=10 style="border-color: black black #000000; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 1px; border-left-width: 0px">
+            。<br>
+            <br>
+            6、
+            DBMS中基本的加锁类型是 
+            <input type=text size=10 style="border-color: black black #000000; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 1px; border-left-width: 0px">
+            <br>
+            <br>
+            7、
+            数据挖掘的方法有 
+            <input type=text size=10 style="border-color: black black #000000; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 1px; border-left-width: 0px">
+            <br>
+            <br>
+            8、
+            现实世界中，实体之间联系的类型有如下几种： 
+            <input type=text size=10 style="border-color: black black #000000; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 1px; border-left-width: 0px">
+            <br>
+            <br>
+            9、
+            DBMS设置检查点的主要目的是 
+            <input type=text size=10 style="border-color: black black #000000; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 1px; border-left-width: 0px">
+            <br>
+            10、
+            数据库系统的三级模式是：
+            <input type=text size=10 style="border-color: black black #000000; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 1px; border-left-width: 0px" name="text">
+            <br>
+            <br>
+            <input type="reset" name="Reset" value="重置" class=pbox>
+            <input type=button name=Button23 value="判分" onClick="check()" class=pt9-black>
+          </p>
+        </form>
+          <form>
+          <p>&nbsp;</p>
+          <p><b>二、 问答题</b><br>
+            <br>
+            <br>
+            1、 视图概念的主要优点有：<br>
+            <textarea name=jianda cols=50 rows=5></textarea>
+            <br>
+            <br>
+            <br>
+            2、 关系数据库逻辑设计过程主要包括哪些步骤：<br>
+            <textarea name=jianda cols=50 rows=5></textarea>
+            <br>
+            <br>
+            <br>
+            3、 简述语义数据模型和结构数据模型的主要差别： (1) 语义数据模型注重： (2) 语义数据模型不注重： (3) 语义数据模型如：<br>
+            　　A、结构数据模型注重： B、结构数据模型不注重：C、结构数据模型如： <br>
+            <textarea name=jianda cols=50 rows=5></textarea>
+            <br>
+            <br>
+            <br>
+            4、 简述数据仓库的特征：<br>
+            <textarea name=jianda cols=50 rows=5></textarea>
+            <br>
+            <br>
+            <br>
+            5、 解释下面的词语： (1) 物理数据的独立性： (2) 逻辑数据的独立性： (3) 意向锁： (4) 关系： <br>
+            <textarea name=jianda cols=50 rows=5></textarea>
+            <br>
+            <br>
+            6、 设有关系R和S如下图所示。请画出R和S等值(R.A=S.A)连接和不等值(R.A&lt;S.A)连接的运算结果。 <br>
+            <img src="../../../img/text/test/004.gif" width="379" height="129"> 
+            <br>
+            <textarea name=jianda cols=50 rows=5></textarea>
+            <br>
+            <br>
+            <br>
+            7、 有关系模式R(U,F)，属性集合U ={A,B,C,D,E}， 函数依赖集合F = {A->BC, B->D, CD->E, 
+            E->B}，<br>
+            请回答如下的问题： <br>
+            　(1) R的候选码是： <br>
+            　(2) R的主码是： <br>
+            　(3) R最高属于第几范式? 说明理由；<br>
+            　(4) R是否为第三范式 , 解释原因； <br>
+            　(5) 请分解R为符合第三范式的关系模式集合，并给出每个关系模式的主码。 <br>
+            <textarea name=jianda cols=50 rows=5></textarea>
+            <br>
+            <br>
+            8、完成下面的数据库设计： 请设计某单位的科研项目管理数据库，主要的实体包括：科研项目组、科研人员和科研项目。<br>
+            他们之间的关系如下：每个科研项目组可以有多个科研人员，每个科研人员可以属于多个科研项目组；每个科研项目组可以负责多个科研项目，每个科研项目只能由一个科研项目组负责；每个科研人员可以参与多个科研项目的工作，每个科研项目由多个科研人员参与工作。学生自己设计每类实体的主要属性。<br>
+            　要求完成如下设计工作： <br>
+            　　(1) 画出该系统的E-R模型图，包括实体及实体之间的联系，并标出：<br>
+            　　　(a) 实体的主要属性,<br>
+            　　　(b) 实体之间联系的主要属性；<br>
+            　　(2) 把E-R模型图转换为关系表（标明主关键字）。<br>
+            　　(3) 请设计一个SQL查询语句,显示参与科研项目数大于5项的科研人员的姓名、参与的科研项目数目。 <br>
+            <textarea name=jianda cols=50 rows=5></textarea>
+            <br>
+            <br>
+            <input type=button name=Button value=答案 案 onClick="MM_openBrWindow('text/examination/exam01_pop2.htm','','width=471,height=384')" class=pbox>
+            <input type='reset' name='Submit3' value='重置' class=pbox>
+            <br>
+          </p>
+        </form>
+      </td>
+  </tr>
+</table></center>
+
+</body>
+</html>

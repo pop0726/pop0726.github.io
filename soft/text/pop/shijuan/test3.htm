@@ -1,0 +1,324 @@
+<HTML>
+<HEAD>
+<TITLE>软件工程 </TITLE>
+<SCRIPT language=JavaScript>
+/*-------------------------------------------填空题---------------------------------------------*/
+function getKeyWord(form){
+var mykeys=new Array();
+mykeys[0]="类与对象";mykeys[1]="属性";mykeys[2]="类与对象";mykeys[3]="类与对象";mykeys[4]="服务";mykeys[5]="类与对象";mykeys[6]="结构";mykeys[7]="结构";mykeys[8]="主题";mykeys[9]="正确性";mykeys[10]="可维护性";mykeys[11]="完整性";mykeys[12]="完整性";mykeys[13]="危险性";mykeys[14]="安全性";mykeys[15]="可使用性";mykeys[16]="物理";mykeys[17]="怎么做";mykeys[18]="逻辑";mykeys[19]="做什么";mykeys[20]="逻辑";
+
+var answer=new Array();
+for(var I=0;I<mykeys.length;I++) answer[I]="";
+
+var every=form.elements;
+for(var I=0;I<every.length;I++)
+{
+if(every[I].type=="text")
+{
+ if(every[I].value!==null)
+ {var item=parseInt(every[I].name.substr(0))
+  answer[item-1]+=every[I].value;
+  }
+ }
+}
+var newcount="<html><head><title>谢谢您!</title></head><body><center><h2><font color=red>您的测试结果</font></h2></center>";
+var totalscore=0;
+for(var I=0;I<answer.length;I++)
+{var re=/</g;
+var rd=/>/g;
+var re=/\\/g;
+answer[I]=answer[I].replace(re,"&#92;");
+answer[I]=answer[I].replace(re,"&lt;");
+answer[I]=answer[I].replace(rd,"&gt;");
+	if(answer[I].toUpperCase()==mykeys[I].toUpperCase())
+	{
+		var rstr="<font size=2>第"+(I+1)+"个空答案正确!</font><br>";
+		newcount+=rstr;
+		totalscore+=1/21*100;
+	}else
+	{
+		var rstr="<font size=2>第"+(I+1)+"个空答案错误!正确答案为"+mykeys[I]+"</font><br>";
+		newcount+=rstr;
+	}
+
+}
+
+newcount+="<br>您的总成绩为:";
+newcount+=Math.ceil(totalscore);
+newcount+="分";
+newwin=window.open("","","height=400,width=400,scrollbars=yes,resizable=no");
+newwin.document.write(newcount);
+}
+/*-------------选择提----------------------------------------------------------------*/
+function getresultcheck(form)
+{var mykeys=new Array();
+mykeys[0]="CFGI";mykeys[1]="BCDFG";
+
+
+var answer=new Array();
+for(var I=0;I<mykeys.length;I++) answer[I]="";
+
+var every=form.elements;
+//var lastname="";
+for(var I=0;I<every.length;I++)
+{
+	if(every[I].type=="checkbox")
+	{
+		/*alert("checkbox:name->"+every[I].name+"value->"+every[I].value);*/
+		if(every[I].checked)
+		{	
+			//var item=parseInt(every[I].name.charAt(1));
+			var item=parseInt(every[I].name.substr(0));/*返回由字符串转换得到的整数*/
+			/*substr返回一个从指定位置开始的指定长度的子字符串。*/
+			answer[item-1]+=every[I].value;
+		}
+	}				
+}
+
+var newcount="<html><head><title>谢谢您!</title></head><body><center><h2><font color=red>您的测试结果</font></h2></center>";
+var totalscore=0;
+for(var I=0;I<answer.length;I++)
+{
+	if(answer[I].toUpperCase()==mykeys[I].toUpperCase())
+	{
+		var rstr="<font size=2>第"+(I+1)+"题答案正确!</font><br>";
+		newcount+=rstr;
+		totalscore+=1/2*100;//每题分数
+	}else
+	{
+		var rstr="<font size=2>第"+(I+1)+"题答案错误!正确答案为"+mykeys[I]+"</font><br>";
+		newcount+=rstr;
+	}
+
+}
+
+newcount+="<br>您的总成绩为:";
+newcount+=Math.ceil(totalscore);
+newcount+="分";
+newwin=window.open("","","height=400,width=400,scrollbars=yes,resizable=no");
+newwin.document.write(newcount);}
+/*--------------------------------判断题----------------------------------------------------*/
+
+function getresultpanduan(form)
+{var mykeys=new Array();
+
+
+
+var answer=new Array();
+for(var I=0;I<mykeys.length;I++) answer[I]="";
+
+var every=form.elements;
+//var lastname="";
+for(var I=0;I<every.length;I++)
+{
+	if(every[I].type=="checkbox")
+	{
+		/*alert("checkbox:name->"+every[I].name+"value->"+every[I].value);*/
+		if(every[I].checked)
+		{	
+			//var item=parseInt(every[I].name.charAt(1));
+			var item=parseInt(every[I].name.substr(0));/*返回由字符串转换得到的整数*/
+			/*substr返回一个从指定位置开始的指定长度的子字符串。*/
+			answer[item-1]+=every[I].value;
+		}
+	}				
+}
+
+var newcount="<html><head><title>谢谢您!</title></head><body><center><h2><font color=red>您的测试结果</font></h2></center>";
+var totalscore=0;
+for(var I=0;I<answer.length;I++)
+{
+	if(answer[I].toUpperCase()==mykeys[I].toUpperCase())
+	{
+		var rstr="<font size=2>第"+(I+1)+"题 您答对了!</font><br>";
+		newcount+=rstr;
+		totalscore+=1/0*100;//每题分数
+	}else
+	{
+		var rstr="<font size=2>第"+(I+1)+"题 您答错了!</font><br>";
+		newcount+=rstr;
+	}
+
+}
+
+newcount+="<br>您的总成绩为:";
+newcount+=Math.ceil(totalscore);
+newcount+="分";
+newwin=window.open("","","height=400,width=400,scrollbars=yes,resizable=no");
+newwin.document.write(newcount);
+}
+/*--------------------------------简答题----------------------------------------------------*/
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+</SCRIPT>
+<style type="text/css"><!--
+-->
+</style>
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+</HEAD>
+<BODY text=black bgColor=#FFFFFF topMargin=10 marginheight="10">
+<DIV class=p2 align=center></DIV>
+<FORM >
+  <P class="text"><span class="section">一、多选题</span><BR>
+    1.在下面关于程序设计风格和软件测试的叙述中，选出4条正确的叙述。<BR>
+    <input type="checkbox" name="1" value="A">
+    A.功能性注释嵌在源程序体中，用以解释下面的程序语句怎么做。<BR>
+    <input type="checkbox" name="1" value="B">
+    B.对于批处理的输入和输出，不应按逻辑顺序，应按物理顺序要求组织输入数据。<BR>
+    <input type="checkbox" name="1" value="C">
+    C.对辅助存储的输入／输出，应当成块传送。<BR>
+    <input type="checkbox" name="1" value="D">
+    D.在使用等价类划分生成测试用例时，应选用输出等价类中的边界值作为代表值作为测试数据。<BR>
+    <input type="checkbox" name="1" value="E">
+    E.程序测试应对程序模块的所有独立的执行路径至少测试一次。<BR>
+    <input type="checkbox" name="1" value="F">
+    F.在程序调试时，找出错误的位置和性质比改正该错误更难。<BR>
+    <input type="checkbox" name="1" value="G">
+    G.对于嵌套型分支结构，若有n个判定语句，则有n+1条路径。<BR>
+    <input type="checkbox" name="1" value="H">
+    H.对于包含有多个数组元素的表达式，可引入临时变量以提高运算效率。<BR>
+    <input type="checkbox" name="1" value="I">
+    I.对于递归的问题应使用递归的过程，这样做可提高编程效率。<BR>
+    <input type="checkbox" name="1" value="J">
+    J.当验收测试通过，软件开发就完成了。<BR>
+    <BR>
+    2.在下面关于标准和文档的叙述中，选出5条正确的叙述。<BR>
+    <input type="checkbox" name="2" value="A">
+    A.国家标准是由政府或国家级机构制定或批准，适用于全国的标准。这些标准都是强制性的，相关产品必须严格执行标准。<BR>
+    <input type="checkbox" name="2" value="B">
+    B.ISO9001是设计/开发、生产、安装和服务中的质量保证模式，ISO9000-3是使ISO9001适合于软件的质量保证指南。<BR>
+    <input type="checkbox" name="2" value="C">
+    C.软件工程标准化可提高软件的生产率。<BR>
+    <input type="checkbox" name="2" value="D">
+    D.软件质量保证体系是贯穿于整个软件生存期集成化过程体系，而不仅仅体现在最后产品的检验上。<BR>
+    <input type="checkbox" name="2" value="E">
+    E.ISO9000-3与具体的开发模式有关。它将软件全过程工序从管理角度、合同角度和工程角度划分为三大类。<BR>
+    <input type="checkbox" name="2" value="F">
+    F.软件测试计划始于需求分析阶段，完成于软件设计阶段。<BR>
+    <input type="checkbox" name="2" value="G">
+    G.任何一个文档都应是完整的、独立的，它应自成体系。<BR>
+    <input type="checkbox" name="2" value="H">
+    H.在新文档取代旧文档后，管理人员不应注销旧文档。<BR>
+    <input type="checkbox" name="2" value="I">
+    I.软件开发机构应保存一份完整的主文档，并允许开发人员可以保存主文档中的部分主文档，有自己的活动空间。<BR>
+    <input type="checkbox" name="2" value="J">
+    J.软件需求分析报告是给开发人员使用的，不是给其它人员，如维护人员，用户等使用的。</P>
+  <P> 
+    <INPUT id=A type=reset value=清空>
+    <INPUT id=A onclick=getresultcheck(this.form) type=button value=提交>
+    <BR>
+    <BR>
+    <span class="section">二、填空题</span></P>
+  <P class="text">1.应用Coad和yourdon方法构造和评审OOA概念模型时，应按如下的五个层次进行：<BR>
+    �第一个层次是识别 
+    <INPUT id=c1 maxLength=20 name=1 size=4 style="BORDER-BOTTOM-COLOR: #003399; BORDER-BOTTOM-WIDTH: 2px; BORDER-LEFT-COLOR: black; BORDER-LEFT-WIDTH: 0px; BORDER-RIGHT-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-COLOR: black; BORDER-TOP-WIDTH: 0px">
+    。它们是对应用中的概念的抽象，可以从用户要求书或其它规格说明中找到。<BR>
+    �第二个层次是识别 
+    <INPUT id=c1 maxLength=20 name=2 size=4 style="BORDER-BOTTOM-COLOR: #003399; BORDER-BOTTOM-WIDTH: 2px; BORDER-LEFT-COLOR: black; BORDER-LEFT-WIDTH: 0px; BORDER-RIGHT-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-COLOR: black; BORDER-TOP-WIDTH: 0px">
+    。它们是 
+    <INPUT id=c1 maxLength=20 name=3 size=4 style="BORDER-BOTTOM-COLOR: #003399; BORDER-BOTTOM-WIDTH: 2px; BORDER-LEFT-COLOR: black; BORDER-LEFT-WIDTH: 0px; BORDER-RIGHT-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-COLOR: black; BORDER-TOP-WIDTH: 0px">
+    所保存的信息，同时要给出各个 
+    <INPUT id=c1 maxLength=20 name=4 size=4 style="BORDER-BOTTOM-COLOR: #003399; BORDER-BOTTOM-WIDTH: 2px; BORDER-LEFT-COLOR: black; BORDER-LEFT-WIDTH: 0px; BORDER-RIGHT-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-COLOR: black; BORDER-TOP-WIDTH: 0px">
+    之间的实例连接。这些实例连接包括有1对1、1对多、多对多、多对1等联系。<BR>
+    �第三个层次是识别 
+    <INPUT id=c1 maxLength=20 name=5 size=4 style="BORDER-BOTTOM-COLOR: #003399; BORDER-BOTTOM-WIDTH: 2px; BORDER-LEFT-COLOR: black; BORDER-LEFT-WIDTH: 0px; BORDER-RIGHT-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-COLOR: black; BORDER-TOP-WIDTH: 0px">
+    。它们是 
+    <INPUT id=c1 maxLength=20 name=6 size=4 style="BORDER-BOTTOM-COLOR: #003399; BORDER-BOTTOM-WIDTH: 2px; BORDER-LEFT-COLOR: black; BORDER-LEFT-WIDTH: 0px; BORDER-RIGHT-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-COLOR: black; BORDER-TOP-WIDTH: 0px">
+    可提供的操作，同时要根据需要的功能给出各个操作之间的消息连接。<BR>
+    �第四个层次是建立 
+    <INPUT id=c1 maxLength=20 name=7 size=4 style="BORDER-BOTTOM-COLOR: #003399; BORDER-BOTTOM-WIDTH: 2px; BORDER-LEFT-COLOR: black; BORDER-LEFT-WIDTH: 0px; BORDER-RIGHT-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-COLOR: black; BORDER-TOP-WIDTH: 0px">
+    。有两种 
+    <INPUT id=c1 maxLength=20 name=8 size=4 style="BORDER-BOTTOM-COLOR: #003399; BORDER-BOTTOM-WIDTH: 2px; BORDER-LEFT-COLOR: black; BORDER-LEFT-WIDTH: 0px; BORDER-RIGHT-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-COLOR: black; BORDER-TOP-WIDTH: 0px">
+    ：整体与部分；泛化与特化。前者表明一种聚合关系，后者表明一种继承关系。<BR>
+    �第五个层次是识别 
+    <INPUT id=c1 maxLength=20 name=9 size=4 style="BORDER-BOTTOM-COLOR: #003399; BORDER-BOTTOM-WIDTH: 2px; BORDER-LEFT-COLOR: black; BORDER-LEFT-WIDTH: 0px; BORDER-RIGHT-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-COLOR: black; BORDER-TOP-WIDTH: 0px">
+    。它相当于高层的模块或子系统。</P>
+  <P class="text">2.已经有许多软件质量度量的方法，使用得最广泛的是事后度量或验收度量。它包括正确性、可维护性、完整性和可使用性。Gilb给出了它们的定义和度量。<BR>
+    �
+<INPUT id=c1 maxLength=20 name=10 size=4 style="BORDER-BOTTOM-COLOR: #003399; BORDER-BOTTOM-WIDTH: 2px; BORDER-LEFT-COLOR: black; BORDER-LEFT-WIDTH: 0px; BORDER-RIGHT-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-COLOR: black; BORDER-TOP-WIDTH: 0px">
+    要求软件正确地执行所要求的功能，最一般的度量是每千代码行的差错数；<BR>
+    �
+<INPUT id=c1 maxLength=20 name=11 size=4 style="BORDER-BOTTOM-COLOR: #003399; BORDER-BOTTOM-WIDTH: 2px; BORDER-LEFT-COLOR: black; BORDER-LEFT-WIDTH: 0px; BORDER-RIGHT-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-COLOR: black; BORDER-TOP-WIDTH: 0px">
+    用于衡量软件在使用期间改错，移植或更新的容易程度。目前还没有直接度量它的方法，一般采用间接度量。<BR>
+    �
+<INPUT id=c1 maxLength=20 name=12 size=4 style="BORDER-BOTTOM-COLOR: #003399; BORDER-BOTTOM-WIDTH: 2px; BORDER-LEFT-COLOR: black; BORDER-LEFT-WIDTH: 0px; BORDER-RIGHT-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-COLOR: black; BORDER-TOP-WIDTH: 0px">
+    用于度量软件抗击对它的安全性攻击的能力。为了度量 
+    <INPUT id=c1 maxLength=20 name=13 size=4 style="BORDER-BOTTOM-COLOR: #003399; BORDER-BOTTOM-WIDTH: 2px; BORDER-LEFT-COLOR: black; BORDER-LEFT-WIDTH: 0px; BORDER-RIGHT-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-COLOR: black; BORDER-TOP-WIDTH: 0px">
+    ，需要定义两个子属性危险性和安全性。 
+    <INPUT id=c1 maxLength=20 name=14 size=4 style="BORDER-BOTTOM-COLOR: #003399; BORDER-BOTTOM-WIDTH: 2px; BORDER-LEFT-COLOR: black; BORDER-LEFT-WIDTH: 0px; BORDER-RIGHT-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-COLOR: black; BORDER-TOP-WIDTH: 0px">
+    是一个特定类型的攻击在一给定时间内发生的概率， 
+    <INPUT id=c1 maxLength=20 name=15 size=4 style="BORDER-BOTTOM-COLOR: #003399; BORDER-BOTTOM-WIDTH: 2px; BORDER-LEFT-COLOR: black; BORDER-LEFT-WIDTH: 0px; BORDER-RIGHT-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-COLOR: black; BORDER-TOP-WIDTH: 0px">
+    是排除特定类型攻击的概率。<BR>
+    �
+<INPUT id=c1 maxLength=20 name=16 size=4 style="BORDER-BOTTOM-COLOR: #003399; BORDER-BOTTOM-WIDTH: 2px; BORDER-LEFT-COLOR: black; BORDER-LEFT-WIDTH: 0px; BORDER-RIGHT-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-COLOR: black; BORDER-TOP-WIDTH: 0px">
+    是对“用户友好性”进行的量化的度量。<BR>
+    <BR>
+    3.当前系统的 
+    <INPUT id=c1 maxLength=20 name=17 size=4 style="BORDER-BOTTOM-COLOR: #003399; BORDER-BOTTOM-WIDTH: 2px; BORDER-LEFT-COLOR: black; BORDER-LEFT-WIDTH: 0px; BORDER-RIGHT-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-COLOR: black; BORDER-TOP-WIDTH: 0px">
+    模型描述现行系统的实际业务处理过程，反映了现行系统具体 
+    <INPUT id=c1 maxLength=20 name=18 size=4 style="BORDER-BOTTOM-COLOR: #003399; BORDER-BOTTOM-WIDTH: 2px; BORDER-LEFT-COLOR: black; BORDER-LEFT-WIDTH: 0px; BORDER-RIGHT-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-COLOR: black; BORDER-TOP-WIDTH: 0px">
+    的现实。当前系统的 
+    <INPUT id=c1 maxLength=20 name=19 size=4 style="BORDER-BOTTOM-COLOR: #003399; BORDER-BOTTOM-WIDTH: 2px; BORDER-LEFT-COLOR: black; BORDER-LEFT-WIDTH: 0px; BORDER-RIGHT-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-COLOR: black; BORDER-TOP-WIDTH: 0px">
+    模型描述现行系统的功能结构、数据组织以及动态行为，反映了现行系统 
+    <INPUT id=c1 maxLength=20 name=20 size=4 style="BORDER-BOTTOM-COLOR: #003399; BORDER-BOTTOM-WIDTH: 2px; BORDER-LEFT-COLOR: black; BORDER-LEFT-WIDTH: 0px; BORDER-RIGHT-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-COLOR: black; BORDER-TOP-WIDTH: 0px">
+    的本质。<BR>
+    �目标系统是指待开发的新系统。根据计算机系统的特点，分析、比较目标系统和当前系统逻辑上的差别，确定目标系统的软件工作范围，采用自顶向下逐步分解的分析策略，确定目标系统的功能结构、数据组织以及动态行为，从而建立起目标系统的 
+    <INPUT id=c1 maxLength=20 name=21 size=4 style="BORDER-BOTTOM-COLOR: #003399; BORDER-BOTTOM-WIDTH: 2px; BORDER-LEFT-COLOR: black; BORDER-LEFT-WIDTH: 0px; BORDER-RIGHT-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-COLOR: black; BORDER-TOP-WIDTH: 0px">
+    模型。</P>
+  <P> 
+    <INPUT id=A type=reset value=清空>
+    <INPUT id=A onclick=getKeyWord(this.form) type=button value=提交>
+    <BR>
+    <BR>
+    <span class="section">三、简答题</span><span class="text"><BR>
+    1.下面给出一个求实函数方程Func(x)在自变量区间[a, b]中的全部实根的算法。首先阅读此由类C语言编写的程序，然后<BR>
+    �(1) 画出消去全部goto语句的在判定中没有复合逻辑条件的结构化程序的N-S图。<BR>
+    �(2) 计算该程序的McCabe复杂性度量。&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <BIG>�在算法中，<SMALL>a</SMALL>与<SMALL>b</SMALL></BIG>是区间[a, b]的两端点值；eps1与eps2是用户要求的求解精度。如果区间中点的函数值的绝对值小于eps1或新的小区间的长度小于eps2，就认为这个中点为根。</span></P>
+  <P class="text">float BinRoot ( float a, float b, float eps1, float eps2 ) {&nbsp; 
+    <BR>
+    &nbsp;&nbsp; float low = a,&nbsp; high = b; <BR>
+    &nbsp;&nbsp; float flow = Func(low),&nbsp; fhigh = Func(high);<BR>
+    &nbsp;&nbsp; float mid,&nbsp; fmid; <BR>
+    &nbsp;&nbsp;&nbsp; label L1, L2, L3;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    //标号说明，给定某些程序地址</P>
+  <P><span class="text">&nbsp;&nbsp; if ( flow * fhigh &gt; 0.0 ) { BinRoot = 
+    0;&nbsp; goto L3; }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //无实根<BR>
+    L1:&nbsp;&nbsp;&nbsp; mid = (low + high) / 2;&nbsp; fmid = Func(mid);<BR>
+    &nbsp;&nbsp;&nbsp; if ( abs ( fmid ) &lt;= eps1 ) {<BR>
+    L2:&nbsp;&nbsp;&nbsp; BinRoot = mid;&nbsp; goto L3;<BR>
+    &nbsp;&nbsp;&nbsp; }<BR>
+    &nbsp;&nbsp;&nbsp; else if ( high - mid &lt;= eps2 ) goto L2;<BR>
+    &nbsp;&nbsp;&nbsp; else if ( flow * fmid &gt; 0.0 ) { low = mid;&nbsp; flow 
+    := fmid;&nbsp; goto L1; }<BR>
+    &nbsp;&nbsp;&nbsp;&nbsp; else { high := mid;&nbsp; goto L1 };<BR>
+    L3:&nbsp;&nbsp;&nbsp; <BR>
+    &nbsp;&nbsp;&nbsp;&nbsp; } </span><br>
+    <font size=2> 
+    <textarea cols=40 id=c1 rows=10 name="textarea"></textarea>
+    </font><br>
+  </P>
+  <P><span class="text">2.“有一个处理单价为1元5角钱的盒装饮料的自动售货机软件。若投入1元5角硬币，按下“橙汁”、“啤酒”或“红茶”按钮，相应的饮料就送出来。若投入的是2元硬币，在送出饮料的同时退还5角硬币。”<BR>
+    �(1) 试利用因果图法，建立该软件的因果图；<BR>
+    �(2) 设计测试该软件的全部测试用例。</span><br>
+    <font size=2> 
+    <textarea cols=40 id=c1 rows=10 name="textarea2"></textarea>
+    </font><br>
+  </P>
+  <P><span class="text">3.请回答下列有关软件维护方面的问题。<BR>
+    �(1) 什么是程序修改的副作用？<BR>
+    �(2) 程序修改的副作用有哪几种？试举例说明？</span><BR>
+    <font size=2> 
+    <textarea cols=40 id=c1 rows=10 name="textarea3"></textarea>
+    </font><br>
+    <BR>
+    <INPUT id=A type=reset value=清空>
+    <input type=button name=Button value=答案 onClick="MM_openBrWindow('jd3.htm','','width=471,height=384')">
+    <BR>
+  </P>
+  <br>
+  <br>
+</form>
+</BODY>
+</HTML>

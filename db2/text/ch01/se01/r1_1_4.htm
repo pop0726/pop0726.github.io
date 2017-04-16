@@ -1,0 +1,60 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" --><span class="biaoti_1">1．对象关系数据库ORDBMS（Object 
+      Relation DBMS）</span><br>
+      <br>
+      　　ORDBMS是在关系模型数据库基础上扩充复杂的数据类型和操作而产生的。主要的扩充包括增加描述非文本、非结构化数据的对象类和相应的对象操作支持功能，使数据库系统可以满足跨平台和不同媒体对象的应用，特别是支持Web数据库应用。<br>
+      　　对象关系数据库扩充支持SQL语言，所以是关系型的；同时又支持复杂数据类型，故又是面向对象的。在本质上，它是关系世界的SQL与对象世界的模型基元的结合，保持了RDBMS的所有功能和优势，同时在数据库服务器中添加灵活的功能，支持复杂的&quot;用户自定义&quot;应用程序对象。<br>
+      　　<font color="#5a5aad">如前所述，传统的数据类型和SQL的搜索能力不足以应付新的应用对数据库技术的要求；同时，我们需要的不是一组新的数据类型和新功能的堆积，而是一种能够让用户自己灵活地定义需要的数据类型和函数，要求数据库不仅要存储多种数据类型，还要能完成和实现对多种数据类型的操作行为。</font><br>
+      　　为了实现允许用户自定义数据类型/函数和自定义操作数据的行为规则，在关系数据库的基础上通过扩展如下两个方面来实现：<br>
+      　(1) 第一是在关系数据库管理系统中增加&quot;对象体系结构&quot;，支持用户自定义数据类型、函数和规则。例如，定义非结构化的大对象；定义用户约束和触发等。<br>
+      　(2) 第二是在对象体系结构的基础上建立&quot;关系型扩展器&quot;。 <br>
+      　　这种既包含底层对象结构，又包含一组关系型扩展器的系统被称为&quot;对象关系型&quot;数据库系统。对象关系型系统是把面向对象编程语言的优势与关系型数据库的特征和高级非过程化查询语言结合起来。<br>
+      　　对象-关系型数据库的基本<font color="#cc0000">应用领域</font>包括CAD/CAM/CAPP/CAE/电子商务等。<font color="#cc0000">扩充的</font>主要内容是数据类型以及函数（方法和操作符）的扩展。实现的方法是将高级查询语言与数据的多视图相结合，目的是抓住更多的数据语义。对象关系型数据库的基本特征包括：<br>
+      　　(1) <font color="#cc0000">复杂对象：</font>由多种基本的或用户定义的类型构成的对象，如多媒体数据、超文本数据、时态数据、图形图象数据等。 
+      <br>
+      　　(2) <font color="#cc0000">继承性：</font>支持类继承特性。在将复杂数据集成到数据库的同时，还需要自动应用业务规则以确保数据的完整性和一致性。 
+      <br>
+      　　以IBM公司的DB2关系数据库为例，说明对象关系型数据库的对象体系结构和它的关系型扩展器。<br>
+      　　<br>
+      　　<font color="#5a5aad">(1) DB2的对象体系结构<br>
+      　　・ 用户定义大对象。DB2提供三种数据类型存储大型对象：BLOB用于存储大型二进制对象；CLOB用于存储字符串大对象；DBCLOB用于存储双字节字符串对象。这三种类型都可以存储多达2GB的对象。<br>
+      　　・ 用户自定义函数。DB2提供了100多个内置函数，以进行对数字、串、日期和其他类型数据的各种计算，允许用户用C、C++等语言创建自己的新函数，用户定义的函数还可以带参数，而且其中可以含有获得标量值的SQL语句表达式。<br>
+      　　・ 用户自定义数据类型。基于DB2内置的数据类型基础上，用户可创建自己的数据类型，并指定适合自定义类型的操作。<br>
+      </font> <font color="#5a5aad">　　(2) 关系型扩展器<br>
+      　　在对象底层结构的基础上，可以写出关系型扩展器来支持特定领域的应用。DB2已经提供的扩展器包括：<br>
+      　　・ 文本扩展器：支持快速大型文本文档基于内容的检索，对文档的存储格式没有特定的要求，适合当前流行的文档格式，如WORD、TXT等。支持18种语言的文档处理。利用内置的语言知识，通过特殊的索引方法为存储整个文档的内容建立索引，实现快速搜索。<br>
+      　　・ 图像扩展器：能存储和检索几种流行格式的图像，包括GIF、JPEG和BMP等。可以执行基于内容的图像搜索。例如，搜索与给定的样本色彩和构造相似的图像。<br>
+      　　・ 视频扩展器：存储和检索几种流行格式的视频序列，包括MPEG1、AVI和Quick-time等。它可以通过探测场景变化自动地把一个视频分割成&quot;镜头&quot;，并且可以从每一个&quot;镜头&quot;检索代表性画面。<br>
+      　　・ 声音扩展器：存储和检索几种流行格式的声音剪辑，包括AIFF、MIDI和WAVE等。它可以探测声音数据的特征，如一个剪辑的播放时间、音轨数和曲子数目等。<br>
+      　　・ 指纹扩展器：存储和检索一种特定格式的指纹，它可以搜索与给定的样本相似的指纹。</font><!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

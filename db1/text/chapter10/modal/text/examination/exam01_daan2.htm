@@ -1,0 +1,55 @@
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" background="../../../../../image/pop/r2_c3.gif">
+<center><table width="95%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+      <td class=text> 
+        <p><b>问答题答案</b></p>
+        <p><span class="explaination">问答第1题</span><br>
+          　　为了保证数据库的完整性(正确性)，数据库系统必须维护事务的以下特性(简称ACID)：<br>
+          　　 ⑴　原子性(Atomicity)：事务中的所有操作要么全部执行，要么都不执行；<br>
+          　　 ⑵　一致性(Consistency)：主要强调的是，如果在执行事务之前数据库是一致的，那么在执行事务之后数据库也还是一致的； <br>
+          　　 ⑶　隔离性(Isolation)：即使多个事务并发（同时）执行，每个事务都感觉不到系统中有其他的事务在执行，因而也就能保证数据库的一致性； 
+          <br>
+          　　 ⑷　持久性(Durability)：事务成功执行后它对数据库的修改是永久的，即使系统出现故障也不受影响。<br>
+          <br>
+          <span class="explaination">问答第2题</span><br>
+          　　事务从开始执行到提交或中止，其间要经过的事务状态序列如下图所示：<br>
+          <img src="../../../../../image/shiti/37.gif" width="315" height="188"><br>
+          　　-　活动状态：事务开始执行后就处于该状态； -部分提交状态：事务的最后一条语句被执行后； <br>
+          　　 -　失败状态：事务正常的执行不能继续后； -中止状态：事务回滚并且数据库被恢复到事务开始执行前的状态后； <br>
+          　　 -　提交状态：事务成功完成之后。<br>
+          　　 <br>
+          <span class="explaination">问答第3题</span><br>
+          　　首先要明确的是冲突可串行化是说一个调度与一个串行调度冲突等价。假设调度S与一个串行调度S'冲突等价，也就是说调度S可经过一系列非冲突指令的交换变成调度S'。这些非冲突指令要么是访问不同的数据项，要么就是访问相同数据项的read-read指令。<br>
+          　　 而视图可串行化是说一个调度与一个串行调度视图等价。为了说明每个冲突可串行化的调度都是视图可串行化的，在这里只要说明S与S'是视图等价的即可。根据视图等价的三个条件，简单地说就是每个数据项的"最初读"、"中间读"和"最终写"这三个条件在S与S'中都不改变即可。因为从S到S'只是经过了一系列非冲突指令的交换，这些非冲突指令的交换并不影响每个数据项的"最初读"、"中间读"和"最终写"，例如以下调度的部分变化： 
+          <br>
+          <img src="../../../../../image/shiti/38.gif" width="352" height="87"><br>
+          　　为了说明每个数据项的上述三个条件都没有变化，我们选择"最初读"给以证明。也就是说对于每个数据项A，若事务T<font size="-2">i</font>在调度S中读取了A的初始值，那么T<font size="-2">i</font>在调度S'中也必须读取A的初始值。如果不是这样，就是说T<font size="-3">i</font>在调度S'中读取了A的中间值，也就是说在Ti的read(A)执行之前，事务T<font size="-3">j</font>的write(A)已被执行。而在S中事务T<font size="-5">j</font>的write(A)是绝对不会在T<font size="-5">i</font>的read(A)执行之前出现，而现在之所以事务T<font size="-4">j</font>的write(A)在T<font size="-5">i</font>的read(A)执行之前出现，是由于经过一系列非冲突指令的交换才有可能，但是T<font size="-5">j</font>的write(A)和T<font size="-4">i</font>的read(A)恰恰是冲突的，因此不可能交换，也就是说每一个数据项的"最初读"条件都是不会变的。 
+          用类似的方法可以说明每一个数据项的"中间读"和"最终写"条件也是不会变的。<br>
+          <br>
+          <span class="explaination">问答第4题</span><br>
+          　　如下图所示的调度就是非冲突可串行化的，但却是视图可串行化的，它视图等价于串行调度＜＜T<font size="-5">3</font>, 
+          T<font size="-5">4</font>, T<font size="-5">5</font>＞。<br>
+          <img src="../../../../../image/shiti/39.gif" width="334" height="150"><br>
+          <br>
+          <span class="explaination">问答第5题</span><br>
+          　　如下图所示的调度就既不是冲突可串行化的，也不是视图可串行化的：<br>
+          <img src="../../../../../image/shiti/40.gif" width="299" height="154"><br>
+          <br>
+          <span class="explaination">问答第6题</span><br>
+          　　首先该调度的优先图中没有有向环，因此对应的调度是冲突可串行化的。与之等价的串行调度可以是＜T<font size="-2">1</font>、T<font size="-5">2</font>、T<font size="-5">3</font>、T<font size="-5">4</font>、T<font size="-5">5</font>＞或＜T<font size="-5">1</font>、T<font size="-6">2</font>、T<font size="-5">4</font>、T<font size="-6">3</font>、T<font size="-5">5</font>＞。<br>
+          <!--czp-wenda-daan-->
+        </p>
+      </td>
+  </tr>
+</table>
+  </center>
+
+</body>
+</html>

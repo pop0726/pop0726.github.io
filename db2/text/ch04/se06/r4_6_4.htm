@@ -1,0 +1,78 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url('../../../img/text/bg.jpg');
+background-repeat: no-repeat;
+background-attachment: fixed; background-position-y:50%
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">　</td>
+    <td>　</td>
+    <td width="10">　</td>
+  </tr>
+  <tr>
+    <td width="10">　</td>
+    <td> <!-- #BeginEditable "1" -->　　视图定义以后，用户可以象对基本表一样对视图进行操作，主要包括：<br>
+      　◆ 查询视图：同对基本表的查询。<br>
+      　◆ 更新视图：同对基本表的更新。<br>
+      　1． 查询视图<br>
+      　　由于视图是虚表，对视图的查询，是通过视图查询基本表中的数据。<br>
+      <br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+        <tr> 
+          <td valign="top" width="35"><img src="../../../img/text/liti.gif" width="35" height="36" alt="例题"></td>
+          <td>　例1，查询视图student2，具有3个列属性：学号、姓名、班级。如下描述：<br>
+          SELECT *　　FROM student2</td>
+        </tr>
+        <tr> 
+          <td valign="top" width="35"><img src="../../../img/text/liti.gif" width="35" height="36" alt="例题"></td>
+          <td>　例2，查询视图csstud(只包含计算机系的学生)。如下描述：<br>
+          SELECT *　　FROM csstud </td>
+        </tr>
+      </table>
+      　　2 更新视图<br>
+    　　由于视图是虚表，对视图的更新操作，是通过视图实现对基本表的插入、修改和删除数据的操作。为了防止通过视图对基本表中数据更新操作破坏数据的完整性，定义视图时可以使用WITH 
+      CHECK OPTION选项，检查更新数据是否满足基本表的约束条件。<br>
+      　　在对视图的数据进行插入和修改的时候，和向基本表中插入数据一样，用户必须具有向基本表中插入数据的权限。如果视图上没有包括基本表中所有属性为NOT 
+      NULL的列，那么插入操作会因为那些列的值为NULL而失败。<br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+        <tr> 
+          <td width="35" valign="top"><img src="../../../img/text/liti.gif" width="35" height="36" alt="例题"></td>
+          <td> 　例3，对视图的更新操作示例：在视图student2中插入一个学生：<br>
+            　　INSERT student2 VALUES(&quot;J20018&quot;,&quot;张 五&quot;，&quot;JS2002&quot;)</td>
+        </tr>
+        <tr>
+          <td width="35" valign="top"><img src="../../../img/text/liti.gif" width="35" height="36" alt="例题"></td>
+          <td>　例4，修改视图student2中一个学生的信息把学号由&quot;J20038&quot;改为&quot;J20018&quot;：<br>
+            　UPDATE student2 SET sno = &quot;J20038&quot;WHERE sno = &quot;J20018&quot;例5，下面的例子向视图sales和表employees中
+          各插入了一行数据，name为Mark Leonard，department为Sales，badge为3331。如果插入的一行中department不为Sales，仍然能够向表employees中插入，但在视图Sales中检查不到这一行数据。视图的更新操作的语句如下：<br>
+            　　CREATE VIEW sales<br>
+            　　AS<br>
+            　　　SELECT * <br>
+            　　　FROM employees<br>
+            　　　WHERE department='Sales'<br>
+            　　Go<br>
+            　　　INSERT INTO sales<br>
+            　　　VALUES ('Mark Leonard', 'Sales', 3331)</td>
+        </tr>
+      </table>
+      　　<font color="#5a5aad">通过视图更新的任何数据变化总是会影响基本表。视图允许建立虚表，它像基本表一样组织数据行，但是虚表是在视图被引用的时候动态创建的，把视图作为对数据的访问方式来使用是很方便的。 
+      </font><br>
+      <!-- #EndEditable --></td>
+    <td width="10">　</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

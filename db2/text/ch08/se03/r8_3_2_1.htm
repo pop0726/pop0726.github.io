@@ -1,0 +1,83 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" --> 
+      <p>　　<span class="biaoti_1">1． 建立分布式环境</span><br>
+        <br>
+        　　为了使用远程SQL Server 或另一个OLE DB 数据源，必须先建立一个连接服务器。连接服务器是预先在本地SQL Server注册的OLE 
+        DB 数据源，使其在被引用时本地服务器知道在哪里找到远程数据和对象。连接服务器的信息存放在sysoledbusers系统表中。<br>
+        要建立连接服务器，首先必须建立一个到远程数据源的连接，然后还需要建立与远程服务器之间的安全策略。<br>
+        <br>
+        　　<b>（1） 连接到远程数据源</b><br>
+        　　要运行远程SQL Server 或OLE DB 数据源上的Transact-SQL语句，必须建立到该服务器或数据源的连接。建立到远程SQL 
+        Server的连接方法：<br>
+        　　● 可以使用SQL Server Enterprise Manager 或；<br>
+        　　● sp-addlinkedserver系统存储过程。<br>
+        　　<br>
+        　　<font color="5a5aad">系统存储过程的参数包括：<br>
+        　　Server：连接服务器名<br>
+        　　Product_name： OLE DB 数据源产品名；<br>
+        　　provider-name ：对应数据源的OLE DB提供者的唯一名；<br>
+        　　data-source：由OLE DB提供者解释的数据源名；<br>
+        　　location ：由OLE DB提供者解释的数据库的位置；<br>
+        　　provider-string：标识唯一数据源的OLE DB提供者特定的链接串；<br>
+        　　Catalog: OLE DB支持多种数据源类别时使用。</font><br>
+        <br>
+        　　① 使用系统存储过程链接远程数据源<br>
+        　　◆ 连接到远程SQL Server<br>
+        　　如果连接到运行Microsoft SQL Server 的服务器，则不需要指定provider-name, data-source, location 
+        , provider-string，Catalog。</p>
+      <p>　　例1，添加运行SQL Server 计算机AccountingServer到本地SQL Server计算机可用的连接服务器列表中，命令如下:<br>
+        　　　EXEC sp-addlinkedserver'AccountingServer','SQL Server'<br>
+        　　　　　　　　　　　　　　　　　　服务器名 　　数据源产品名<br>
+        　　　或：<br>
+        　　　EXEC sp_addlinkedserver<br>
+        　　　　　　　　　　@server = 'AccountingServer',<br>
+        　　　　　　　　　　@product_name = 'SQL Server'<br>
+        　　常用的OLE DB提供者名字参见SQL Server在线手册。</p>
+      <p>　　例2，连接到OLE DB 数据源'OracleDB'<br>
+        　　　EXEC sp_addlinkedserver<br>
+        　　　　　　　　　　@server = 'OracleFinance', //服务器名字<br>
+        　　　　　　　　　　@product_name = 'Oracle' // OLE DB 数据源产品名；<br>
+        　　　　　　　　　　@provider_name = 'MSDORA' // OLE DB提供者的唯一名；<br>
+        　　　　　　　　　　@data_source = 'OracleDB' //由OLE DB提供者解释的数据源名；</p>
+      <p>　　② 使用Enterprise Manager链接远程数据源<br>
+        　　● 打开企业管理器Enterprise Manager；<br>
+        　　● 展开服务器组和本地服务器；<br>
+        　　● 展开安全（Security）文件夹，右击链接服务器（Linked Server），选择新建链接服务器（New Linked Server），选择服务器类型：连接到SQL 
+        Server 或连接到其他OLE DB 数据源。</p>
+      <p>　　<b>（2） 建立与连接服务器的安全策略</b><br>
+        　　需要建立远程服务器和本地服务器之间的安全策略，有如下几种方法：<br>
+        　　● 可以用本地服务器以用户的名义登录到远程服务器上；.<br>
+        　　● 如果用户的登录名存在于两个服务器上，可用于登录到已链接的远程服务器上。当两个服务器使用相同的域帐号时，可用这种方式建立安全策略；<br>
+        　　● 使用sp_addlinkedsrvlogin实现服务器之间映射登录ID和密码。</p>
+      <!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

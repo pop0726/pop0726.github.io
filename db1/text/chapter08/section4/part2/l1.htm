@@ -1,0 +1,45 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgproperties=fixed bgcolor="#FFFFFF" background="../../../../image/moban/15.gif">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" height="157">
+        <tr> 
+          <td class="text" align="left" height="51"> 
+            <p>��<span class="part">⑴�分布是均匀的：</span>即每个存储桶从所有可能的搜索码值集合中分配到的值的个数差不多相同。这就是散列函数的均匀性；例如，假设搜索码值的可能集合为{A..Z}，而一共有5个存储桶，那么散列函数应该使每个桶分配到5个左右的搜索码；<br>
+              ��<span class="part">⑵�分布是随机的：</span>一般情况下，不管搜索码值实际情况是怎样的，每个存储桶应分配到的搜索码值的个数也差不多相同。这就是散列函数的随机性，更确切地说，散列函数结果的分布不应与搜索码的任何外部可见的特性相关。例如，假设实际的搜索码值是{A,B,C,D,E}，那么散列函数应该使这5个存储桶中的每一个都分配到一个搜索码。<br>
+              ��下面我们看一个具体的例子：假设我们需要将26个大写英文字母分布到5个存储桶中(地址从0到4)，那么散列函数h该如何设计呢？<br>
+              假设用code(A)表示A所对应的编号0，用code(B)表示B所对应的编号1，用code(C)表示C所对应的编号2，……<br>
+              {A,B,C,…,Z}上的一个散列函数可以设计成：<br>
+              ��h = code(Search Key) mod 5<br>
+              那么26个大写字母的分配如下<span class="part">图8-4-1</span>所示： <br>
+            </p>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left" height="113"> 
+            <div align="center"><span class="part">图8-4-1：散列函数的均匀性与随机性 </span><br>
+              <img src="../../../../image/chapter/08/8-4-1.gif" width="420" height="127"> 
+            </div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left"><br>
+            ��<span class="menu">散列函数在散列文件组织和散列索引中起着至关重要的作用，至今仍然没有一种好的选择散列函数的方法，只能根据模拟试验和统计结果。选择的散列函数不同，散列的效果就不同；而且散列的效果还和数据值的分布情况有关，在某些极端情况下，散列比不散列还要差，这就要看运气。飞机一旦出事，那么就是非常危险的，但是别人坐飞机没有出事，为什么那个小概率事件要发生在我的身上呢，于是我也坐飞机。大家都相信自己的运气，这就是哈希函数至今用的比较普遍的原因。</span></td>
+        </tr>
+        <tr>
+          <td class="text" align="left">
+            <div align="center"><img src="../../../../swf/F8_2.gif" width="460" height="300"></div>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

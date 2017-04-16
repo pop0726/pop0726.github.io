@@ -1,0 +1,114 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" --><p><font color="#CC0000">5.使用SQL的一些常见问题</font><br>
+        <font color="#0033CC">　(1).在SQL Server 7.0以后，一个汉字的长度为一个字符，而不是以往的两个字符。</font><br>
+        　<font color="#0033CC">(2).创建表时，表名，字段名可以是中文名，但标点符号，必须是英文标点，如逗号&quot;,&quot;，园括号&quot;(&quot;等。</font><br>
+        　<font color="#0033CC">(3).测试一个字段的值是否为NULL使用</font><br>
+        IS NULL而不是 = NULL<br>
+        <img src="../../../img/text/liti.gif" width="35" height="36" alt="例题">例1：在范例数据库pubs中检索表titles 
+        中 price字段为NULL的行。<br>
+        USE pubs<br>
+        GO<br>
+        SELECT * FROM titles WHERE price IS NULL</p>
+      <p>　<font color="#0033CC">(4).SQL Server中转义字符的使用</font><br>
+        <img src="../../../img/text/liti.gif" width="35" height="36" alt="例题">例2：查找所有以&quot;%&quot;开头的字符串<br>
+        SELECT col1<br>
+        FROM example<br>
+        WHERE col1 LIKE '/%%' ESCAPE '/'<br>
+        <img src="../../../img/text/liti.gif" width="35" height="36" alt="例题">例3：查找&quot;[X&quot;开头，以&quot;Z]&quot;结尾，第三个字符为X，Y，Z中的任意一个的字符串。<br>
+        SELECT col1<br>
+        FROM example<br>
+        WHERE col1 LIKE &quot;t[X[XYZ]%Z]&quot; ESCAPE &quot;t&quot;</p>
+      <p>　<font color="#0033CC">(5).SQL Server中SET命令的使用</font><br>
+        ＊T-SQL提供了一组SET命令，使用这些命令能设置某些选项，帮助分析T-SQL语句。如：<br>
+        ＊SET STATICTICS io ON：显示扫描数量，逻辑读，物理读和提前读数量。<br>
+        <img src="../../../img/text/liti.gif" width="35" height="36" alt="例题">例5：<br>
+        SET STATICTICS io ON <br>
+        USE pubs<br>
+        SELECT * FROM authors<br>
+        ＊SET STATISTICS time ON：显示查询执行所需的CPU执行时间和总的耗费时间。<br>
+        <img src="../../../img/text/liti.gif" width="35" height="36" alt="例题">例6：<br>
+        SET STATISTICS time ON<br>
+        USE pubs<br>
+        SELECT * FROM authors<br>
+        ＊SET ROWCOUNT n：使服务器仅显示查询结果的前 n 行。<br>
+        <img src="../../../img/text/liti.gif" width="35" height="36" alt="例题">例7：<br>
+        SET rowcount 5<br>
+        USE pubs<br>
+        SELECT * FROM authors<br>
+        <img src="../../../img/text/liti.gif" width="35" height="36" alt="例题">例8：<br>
+        SET rowcount 0<br>
+        返回查询结果的所有行</p>
+      <p>　<font color="#0033CC">(6).SQL语句中注释的使用</font><br>
+        <1> 单行语句<br>
+        -- 注释说明<br>
+        <2> 多行语句<br>
+        /***** <br>
+        first line<br>
+        second line<br>
+        *****/</p>
+      <p>　<font color="#0033CC">(7).IDENTITY列的使用</font><br>
+        ＊如果表中的一个列为IDENTITY列，则当用户向表中插入新的数据时，系统自动为该行的IDENTITY列赋值，并保证其值在表中的唯一性。<br>
+        ＊每个表中只有一个IDENTITY列。<br>
+        ＊IDENTITY列的数据类型只能为int, smallint, tinyint, numeric, decimal等。<br>
+        ＊可以对IDENTITY列设置初始值和增量值。</p>
+      <p>　<font color="#0033CC">(8).数据库中表的记录没有顺序</font><br>
+        从SQL的角度来说，表中的记录没有顺序。在一个表中不存在类似&quot;前十个记录&quot;这种概念。<br>
+        说明：<br>
+        在SQL Server中，打开一个表时可以只返回前n行（Open Table－&gt;Return Top）菜单。但这是指查询结果集中的前n行，而不是指表中记录的前n行。有可能后插入的数据在表的前面，只要在表的前面有空的存储空间（比如刚删除了一个表中的记录）</p>
+      <p>　<font color="#0033CC">(9).用INSERT 语句一次添加多个记录</font><br>
+        INSERT 语句与DELETE语句和UPDATE语句有一点不同是，它一次只操作一个记录。然而，利用SELECT语句，可以使INSERT语句一次添加多个记录。<br>
+        <img src="../../../img/text/liti.gif" width="35" height="36" alt="例题">例9：从table2拷贝记录到table1。只有表table2中字段c3的值为'aaa'的记录才被拷贝。<br>
+        INSERT table1 (c1, c2)<br>
+        SELECT c3, c4<br>
+        FROM table2<br>
+        WHERE c3='aaa'<br>
+        在对表中的数据进行处理前，可以用这种形式的INSERT语句为表中的数据建立备份或对数据进行预处理。<br>
+        例如，设表table1, 表中字段为c1, c2；表table2, 表中字段为c1, c2, c3, 现要把table1中的记录拷贝到表table2中，同时table2的c3列的值设为常量ddd。<br>
+        insert table2 select c1,c2, 'ddd' from table1<br>
+        用SELECT...INTO语句复制一个表的结构及其中的数据<br>
+        <img src="../../../img/text/liti.gif" width="35" height="36" alt="例题">例10：如果要复制一个表的结构及其中的数据：<br>
+        SELECT * <br>
+        INTO newtable <br>
+        FROM oldtable<br>
+        即创建一个newtable表，且newtable表中的数据和oldtable中的数据一样。<br>
+        说明：<br>
+        用SELECT INTO语句可以用来建立临时表。<br>
+        也可以指定只有特定的字段被用来创建这个新表。要做到这一点，只需在字段列表中指定想要拷贝的字段。另外，可以使用WHERE 子句来限制拷贝到新表中的记录。<br>
+        例如：只拷贝second_column列的值等于'aaa'的记录的first_column列。<br>
+        SELECT first_column <br>
+        INTO newtable<br>
+        FROM oldtable<br>
+        WHERE second_column='aaa' </p>
+      
+      <!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

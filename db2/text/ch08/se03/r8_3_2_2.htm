@@ -1,0 +1,69 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" --> 
+      <p>　<span class="biaoti_1">　2． 执行分布式查询(查询连接服务器)</span><br>
+        <br>
+        　　分布式查询指在一个查询中，可以包括对多个数据源数据的查询。<br>
+        <br>
+        　　<b>（1） 分布式对象名字</b><br>
+        　　在执行分布式查询时，对于非本地查询对象，必须指明分布式查询对象的名字，以下格式说明具有四部分名字的连接对象：<br>
+        　　<font color="5a5aad">linked-server-name.catalog-name.schema-name.object-name<br>
+        　　其中，<br>
+        　　linked-server-name: 连接服务器名<br>
+        　　catalog-name: 对应一个数据库名<br>
+        　　schema-name: 对应于一个对象所有者<br>
+        　　object-name: 对应一个表名<br>
+        　　例如,corpserver.northwind.db_owner.authors，说明该分布式对象为corpserver服务器上的northwind数据库，数据库所有者是db_owner，表名是authors。</font><br>
+        <br>
+        　　<b>(2) 允许在连接服务器上使用的Transact-SQL语句</b><br>
+        　　● 带有WHERE子句或JOIN子句的SELECT语句；<br>
+        　　● INSERT，UPCATE和DELETE语句。<br>
+        <br>
+        　　<b>(3) 不允许在连接服务器上使用的Transact-SQL语句和动作</b><br>
+        　　● CREATE，ALTER 或DROP语句等；<br>
+        　　● READTEXT，WRITETEXT和UPDATETEXT等语句。</p>
+      <p><img src="../../../img/text/liti.gif" width="35" height="36" align="absmiddle">例1，本例把连接服务器AccountingServer上的northwindremote 
+        数据库中的suppliers表与本地SQL Server上的products表进行连接查询，语句如下：<br>
+        　　USE northwind<br>
+        　　SELECT productname,companyname<br>
+        　　FROM products p JOIN<br>
+        　　AccountingServer.northwindremote.dbo.suppliers s<br>
+        　　ON p.supplierid = s.supplierid</p>
+      <p><img src="../../../img/text/liti.gif" width="35" height="36" align="absmiddle">例2，这个例子使用SELECT 
+        INTO语句，把从连接服务器AccountingServer上的northwindremote 数据库中的suppliers表中查出的数据，传输到本地SQL 
+        Server上的永久表PhoneList中。语句如下：<br>
+        　　USE northwind<br>
+        　　SELECT companyname,phone<br>
+        　　INTO PhoneList<br>
+        　　FROM AccountingServer.northwindremote.dbo.suppliers</p>
+      <!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

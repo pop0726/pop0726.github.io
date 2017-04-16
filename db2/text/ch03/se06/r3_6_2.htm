@@ -1,0 +1,268 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" --> <span class="pt9-black">　　</span><span class="tubiaoti">图3-12 
+      QBE的操作框架 </span> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td align="center"><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="400" height="300">
+              <param name=movie value="../../../swf/ch3/3-12.swf">
+              <param name=quality value=high>
+              <param name="wmode" value="transparent">
+              <embed src="../../../swf/ch3/3-12.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="400" height="300" wmode="transparent">
+              </embed> 
+            </object></td>
+        </tr>
+      </table>
+      <br>
+      　<span class="biaoti_1">1．检索操作：<br>
+      </span>　　<font color="#cc0000">(1) 简单查询：<br>
+      　　用户提出要求，在最左边的关系名一栏中输入查询相应关系的关系名。系统显示该关系的所有属性名。<br>
+      　　例如，在图3-13中，给定关系名称student，系统自动显示该关系的全部属性。<br>
+      </font> <br>
+      <span class="pt9-black">　　</span><span class="tubiaoti">图3-13 简单查询示例 </span> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td align="center"><font color="#cc0000"><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="400" height="300">
+              <param name=movie value="../../../swf/ch3/3-13.swf">
+              <param name=quality value=high>
+              <param name="wmode" value="transparent">
+              <embed src="../../../swf/ch3/3-13.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="400" height="300" wmode="transparent">
+              </embed> 
+            </object></font></td>
+        </tr>
+      </table>
+      <font color="#cc0000"><br>
+      　　在图3-14中，用户对简单查询示例构造查询要求。图中P(Print)为操作符，表示显示输出。QBE要求查询输出的示例元素下面加上下划线，在这里输入的'19'无任何意义，可能在计算机系中并不存在这样一个学生有19岁，可是它是这个域的示例元素，说明这个域的数据是什么样的类型(此处19表示为整数类型)。而对应在Sdept下面的是查询条件CS(计算机系)。本例说明要查询计算机系学生的年龄。<br>
+      <br>
+      　　<span class="tubiaoti">图3-14 构造查询要求</span><br>
+      </font> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td align="center"><font color="#cc0000"><br>
+            <img src="../../../img/text/ch03/c3.gif" width="374" height="190"></font></td>
+        </tr>
+      </table>
+      <font color="#cc0000"><br>
+      　　屏幕上会显示结果如图3-15。显示结果说明计算机系所有学生的年龄为21或23岁，实际的显示结果下面不带下划线。<br>
+      <br>
+      </font> 　　<span class="tubiaoti">图3-15 显示查询结果 </span><br>
+      <br>
+      <table width="70%" border="1" cellspacing="0" cellpadding="0" class="pt9-black" bordercolorlight="#004080" bordercolordark="#ffffff" align="center">
+        <tr align="center" bgcolor="#BFDFFF"> 
+          <td bgcolor="#BFDFFF">Student</td>
+          <td>Sno</td>
+          <td>Sname</td>
+          <td>Ssex</td>
+          <td>Sage</td>
+          <td>Sdept</td>
+        </tr>
+        <tr align="center"> 
+          <td height="18">&nbsp;</td>
+          <td height="18">&nbsp;</td>
+          <td height="18">&nbsp;</td>
+          <td height="18">&nbsp;</td>
+          <td height="18"><u>19</u><br>
+            21<br>
+            23<br>
+          </td>
+          <td height="18">CS<br>
+            <br>
+          </td>
+        </tr>
+      </table>
+      <br>
+      <font color="#cc0000">　　(2) 条件查询：<br>
+      　　条件查询中可以使用比较运算符&gt;,&lt;,=等。其中＝可以省略。<br>
+      　　例1：查询年龄大于19岁的学生学号。如图3-16。</font><br>
+      <br>
+      　　<span class="tubiaoti">图3-16 简单条件查询<font color="#cc0000"></font></span><font color="#cc0000"><br>
+      </font> <br>
+      <table width="70%" border="1" cellspacing="0" cellpadding="0" class="pt9-black" bordercolorlight="#004080" bordercolordark="#ffffff" align="center">
+        <tr align="center" bgcolor="#BFDFFF"> 
+          <td bgcolor="#BFDFFF">Student</td>
+          <td>Sno</td>
+          <td>Sname</td>
+          <td>Ssex</td>
+          <td>Sage</td>
+          <td>Sdept</td>
+        </tr>
+        <tr align="center"> 
+          <td height="18">&nbsp;</td>
+          <td height="18"><font color="#FF0000">P.<u>3339</u></font></td>
+          <td height="18">&nbsp;</td>
+          <td height="18">&nbsp;</td>
+          <td height="18"><font color="#FF00FF">&gt;19</font><br>
+          </td>
+          <td height="18">&nbsp;</td>
+        </tr>
+      </table>
+      <span class="pt9-black"><br>
+      　　<font color="#cc0000">也可以对查询使用逻辑运算AND(与)和OR(或)。<br>
+      　　例2：查询关系Student中的学号，要求年龄&gt;19并且为计算机系的学生。如图3-17。</font><br>
+      </span> <br>
+      　　<span class="tubiaoti">图3-17 两个条件与的查询<font color="#cc0000"></font></span><font color="#cc0000"><br>
+      </font> <br>
+      <table width="70%" border="1" cellspacing="0" cellpadding="0" class="pt9-black" bordercolorlight="#004080" bordercolordark="#ffffff" align="center">
+        <tr align="center" bgcolor="#BFDFFF"> 
+          <td bgcolor="#BFDFFF">Student</td>
+          <td>Sno</td>
+          <td>Sname</td>
+          <td>Ssex</td>
+          <td>Sage</td>
+          <td>Sdept</td>
+        </tr>
+        <tr align="center"> 
+          <td height="18">&nbsp;</td>
+          <td height="18">P.<u>3339</u></td>
+          <td height="18">&nbsp;</td>
+          <td height="18">&nbsp;</td>
+          <td height="18">&gt;19<br>
+          </td>
+          <td height="18">CS</td>
+        </tr>
+      </table>
+      <span class="pt9-black"><br>
+      　　<font color="#cc0000">例3：查询关系Student中的学号，要求为计算机系的学生或者年龄&gt;19的学生。查询条件构造如图3-18。</font> 
+      <br>
+      </span> <br>
+      　<span class="tubiaoti">　图3-18 两个条件或的查询</span> <br>
+      <br>
+      <table width="70%" border="1" cellspacing="0" cellpadding="0" class="pt9-black" bordercolorlight="#004080" bordercolordark="#ffffff" align="center">
+        <tr align="center" bgcolor="#BFDFFF"> 
+          <td bgcolor="#BFDFFF">Student</td>
+          <td>Sno</td>
+          <td>Sname</td>
+          <td>Ssex</td>
+          <td>Sage</td>
+          <td>Sdept</td>
+        </tr>
+        <tr align="center"> 
+          <td height="18">&nbsp;</td>
+          <td height="18">P.<u>3339<br>
+            P.<u>3333</u></u></td>
+          <td height="18">&nbsp;</td>
+          <td height="18">&nbsp;</td>
+          <td height="18">&gt;19<br>
+            <br>
+          </td>
+          <td height="18"><br>
+            CS</td>
+        </tr>
+      </table>
+      <br>
+      <span class="pt9-black">　　<font color="#cc0000">区别在于与操作是在一行中输入多个查询条件，这些条件作与操作。得出最后满足条件的元组。而或操作在多行中输入查询条件，每行只输入一个查询条件。注意每行都要输入示例元素值，如P.3339和P.3333，示例元素值不能相同，如果每行的示例元素值都相同，那么就成了与操作。<br>
+      　　下面的操作是与操作，查询计算机系并且年龄&gt;19岁的学生学号，如图3-19。</font><br>
+      </span> <br>
+      　　<span class="tubiaoti">图3-19 两个条件与的查询 </span> <br>
+      <br>
+      <table width="70%" border="1" cellspacing="0" cellpadding="0" class="pt9-black" bordercolorlight="#004080" bordercolordark="#ffffff" align="center">
+        <tr align="center" bgcolor="#BFDFFF"> 
+          <td bgcolor="#BFDFFF">Student</td>
+          <td>Sno</td>
+          <td>Sname</td>
+          <td>Ssex</td>
+          <td>Sage</td>
+          <td>Sdept</td>
+        </tr>
+        <tr align="center"> 
+          <td height="18">&nbsp;</td>
+          <td height="18">P.<u>3339<br>
+            P.<u>3339</u></u></td>
+          <td height="18">&nbsp;</td>
+          <td height="18">&nbsp;</td>
+          <td height="18">&gt;19<br>
+            <br>
+          </td>
+          <td height="18"><br>
+            CS</td>
+        </tr>
+      </table>
+      <br>
+      <font color="#cc0000">　　(3)集合函数 <br>
+      　　为了方便使用，QBE提供了集合函数。包括CNT(对元组计数），SUM（求总和），AVG（求平均值），MAX（求最大值），MIN（求最小值）<br>
+      　　例如：查询计算机系学生的平均年龄，如图3-20。</font><br>
+      <br>
+      　　<span class="tubiaoti">图3-20 求平均年龄的查询 </span><br>
+      <br>
+      <table width="70%" border="1" cellspacing="0" cellpadding="0" class="pt9-black" bordercolorlight="#004080" bordercolordark="#ffffff" align="center">
+        <tr align="center" bgcolor="#BFDFFF"> 
+          <td bgcolor="#BFDFFF">Student</td>
+          <td>Sno</td>
+          <td>Sname</td>
+          <td>Ssex</td>
+          <td>Sage</td>
+          <td>Sdept</td>
+        </tr>
+        <tr align="center"> 
+          <td height="18">&nbsp;</td>
+          <td height="18">&nbsp;</td>
+          <td height="18">&nbsp;</td>
+          <td height="18">&nbsp;</td>
+          <td height="18">P.AVG.ALL.<br>
+            <br>
+          </td>
+          <td height="18">CS<br>
+          </td>
+        </tr>
+      </table>
+      <br>
+      <font color="#cc0000"><span class="pt9-black">　　</span>(4) 对查询结果进行排序 <span class="pt9-black"><br>
+      </span> 　　对查询结果按照某个属性值进行升序排列，只要填入AO.，按照降序排序，只要填入DO。<br>
+      　　例如：查询计算机系全体学生学号，按照年龄升序排列。如图3-21。</font><br>
+      <span class="pt9-black"><br>
+      　　</span><span class="tubiaoti">图3-21 对查询结果升序排列 </span> <br>
+      <br>
+      <table width="70%" border="1" cellspacing="0" cellpadding="0" class="pt9-black" bordercolorlight="#004080" bordercolordark="#ffffff" align="center">
+        <tr align="center" bgcolor="#BFDFFF"> 
+          <td bgcolor="#BFDFFF">Student</td>
+          <td>Sno</td>
+          <td>Sname</td>
+          <td>Ssex</td>
+          <td>Sage</td>
+          <td>Sdept</td>
+        </tr>
+        <tr align="center"> 
+          <td height="18">&nbsp;</td>
+          <td height="18"><u>P.<u>3339<br>
+            <br>
+            </u></u></td>
+          <td height="18">&nbsp;</td>
+          <td height="18">&nbsp;</td>
+          <td height="18"><font color="#FF0000">AO</font>.<br>
+            <br>
+          </td>
+          <td height="18">CS<br>
+          </td>
+        </tr>
+      </table>
+      <!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

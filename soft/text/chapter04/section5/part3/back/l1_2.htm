@@ -1,0 +1,531 @@
+<HTML>
+<HEAD>
+<TITLE>软件工程 </TITLE>
+<SCRIPT language=JavaScript>
+/*-------------------------------------------填空题---------------------------------------------*/
+function getKeyWord(form){
+var mykeys=new Array();
+mykeys[0]="每个模块的功能";mykeys[1]="清晰易懂";mykeys[2]="理解";mykeys[3]="验证";mykeys[4]="自顶向下、逐步细化";mykeys[5]="三种基本控制结构";mykeys[6]="数据结构合理化";mykeys[7]="顺序";mykeys[8]="选择";mykeys[9]="重复";mykeys[10]="单入口";mykeys[11]="单出口";mykeys[12]="特点";mykeys[13]="习惯";mykeys[14]="逻辑思路";mykeys[15]="简单直接";mykeys[16]="复杂化";mykeys[17]="程序可读性";mykeys[18]="可靠性";mykeys[19]="设计方法";mykeys[20]="数据结构和算法";mykeys[21]="心理特性";mykeys[22]="工程特性";mykeys[23]="项目的应用领域";mykeys[24]="软件开发的方法";mykeys[25]="软件执行的环境";
+
+var answer=new Array();
+for(var I=0;I<mykeys.length;I++) answer[I]="";
+
+var every=form.elements;
+for(var I=0;I<every.length;I++)
+{
+if(every[I].type=="text")
+{
+ if(every[I].value!==null)
+ {var item=parseInt(every[I].name.substr(0))
+  answer[item-1]+=every[I].value;
+  }
+ }
+}
+var newcount="<html><head><title>谢谢您!</title></head><body><center><h2><font color=red>您的测试结果</font></h2></center>";
+var totalscore=0;
+for(var I=0;I<answer.length;I++)
+{var re=/</g;
+var rd=/>/g;
+var re=/\\/g;
+answer[I]=answer[I].replace(re,"&#92;");
+answer[I]=answer[I].replace(re,"&lt;");
+answer[I]=answer[I].replace(rd,"&gt;");
+	if(answer[I].toUpperCase()==mykeys[I].toUpperCase())
+	{
+		var rstr="<font size=2>第"+(I+1)+"个空答案正确!</font><br>";
+		newcount+=rstr;
+		totalscore+=1/26*100;
+	}else
+	{
+		var rstr="<font size=2>第"+(I+1)+"个空答案错误!正确答案为"+mykeys[I]+"</font><br>";
+		newcount+=rstr;
+	}
+
+}
+
+newcount+="<br>您的总成绩为:";
+newcount+=Math.ceil(totalscore);
+newcount+="分";
+newwin=window.open("","","height=400,width=400,scrollbars=yes,resizable=no");
+newwin.document.write(newcount);
+}
+/*-------------选择提----------------------------------------------------------------*/
+function getresultcheck(form)
+{var mykeys=new Array();
+mykeys[0]="D";mykeys[1]="B";mykeys[2]="B";mykeys[3]="D";mykeys[4]="B";mykeys[5]="B";mykeys[6]="B";mykeys[7]="C";mykeys[8]="C";mykeys[9]="A";mykeys[10]="D";mykeys[11]="A";
+
+
+var answer=new Array();
+for(var I=0;I<mykeys.length;I++) answer[I]="";
+
+var every=form.elements;
+//var lastname="";
+for(var I=0;I<every.length;I++)
+{
+	if(every[I].type=="radio")
+	{
+		/*alert("checkbox:name->"+every[I].name+"value->"+every[I].value);*/
+		if(every[I].checked)
+		{	
+			//var item=parseInt(every[I].name.charAt(1));
+			var item=parseInt(every[I].name.substr(0));/*返回由字符串转换得到的整数*/
+			/*substr返回一个从指定位置开始的指定长度的子字符串。*/
+			answer[item-1]+=every[I].value;
+		}
+	}				
+}
+
+var newcount="<html><head><title>谢谢您!</title></head><body><center><h2><font color=red>您的测试结果</font></h2></center>";
+var totalscore=0;
+for(var I=0;I<answer.length;I++)
+{
+	if(answer[I].toUpperCase()==mykeys[I].toUpperCase())
+	{
+		var rstr="<font size=2>第"+(I+1)+"题答案正确!</font><br>";
+		newcount+=rstr;
+		totalscore+=1/12*100;//每题分数
+	}else
+	{
+		var rstr="<font size=2>第"+(I+1)+"题答案错误!正确答案为"+mykeys[I]+"</font><br>";
+		newcount+=rstr;
+	}
+
+}
+
+newcount+="<br>您的总成绩为:";
+newcount+=Math.ceil(totalscore);
+newcount+="分";
+newwin=window.open("","","height=400,width=400,scrollbars=yes,resizable=no");
+newwin.document.write(newcount);}
+/*--------------------------------判断题----------------------------------------------------*/
+
+function getresultpanduan(form)
+{var mykeys=new Array();
+
+
+
+var answer=new Array();
+for(var I=0;I<mykeys.length;I++) answer[I]="";
+
+var every=form.elements;
+//var lastname="";
+for(var I=0;I<every.length;I++)
+{
+	if(every[I].type=="checkbox")
+	{
+		/*alert("checkbox:name->"+every[I].name+"value->"+every[I].value);*/
+		if(every[I].checked)
+		{	
+			//var item=parseInt(every[I].name.charAt(1));
+			var item=parseInt(every[I].name.substr(0));/*返回由字符串转换得到的整数*/
+			/*substr返回一个从指定位置开始的指定长度的子字符串。*/
+			answer[item-1]+=every[I].value;
+		}
+	}				
+}
+
+var newcount="<html><head><title>谢谢您!</title></head><body><center><h2><font color=red>您的测试结果</font></h2></center>";
+var totalscore=0;
+for(var I=0;I<answer.length;I++)
+{
+	if(answer[I].toUpperCase()==mykeys[I].toUpperCase())
+	{
+		var rstr="<font size=2>第"+(I+1)+"题 您答对了!</font><br>";
+		newcount+=rstr;
+		totalscore+=1/0*100;//每题分数
+	}else
+	{
+		var rstr="<font size=2>第"+(I+1)+"题 您答错了!</font><br>";
+		newcount+=rstr;
+	}
+
+}
+
+newcount+="<br>您的总成绩为:";
+newcount+=Math.ceil(totalscore);
+newcount+="分";
+newwin=window.open("","","height=400,width=400,scrollbars=yes,resizable=no");
+newwin.document.write(newcount);
+}
+/*--------------------------------简答题----------------------------------------------------*/
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+</SCRIPT>
+<style type="text/css"><!--
+-->
+</style>
+<link rel="stylesheet" href="../../../../../css/text.css" type="text/css">
+</HEAD>
+<BODY text=black bgColor=#FFFFFF topMargin=10 marginheight="10">
+<DIV class=p2 align=center></DIV>
+<FORM >
+  <P class="text"><span class="section">一、填空</span><BR>
+    &nbsp;1、软件详细设计的目标不仅是逻辑上正确地实现
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=1>
+    ，还应使设计出的处理过程&nbsp;
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=2>
+    。结构化程序设计是实现该目标的关键技术之一;它指导人们用良好的思想方法开发易于 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=3>
+    、易于
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=4>
+    的程序。<BR>
+    2、结构化程序设计方法的基本要点是：① 采用
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=5>
+    的程序设计方法；② 使用
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=6>
+    构造程序，避免GOTO语句的使用；③
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=7>
+    。<BR>
+    3、任何程序都可由
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=8>
+    、
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=9>
+    和&nbsp;
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=10>
+    等三种基本控制结构构造。这三种基本控制结构的共同点是
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=11>
+    和&nbsp;&nbsp; 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=12>
+    。<BR>
+    4、程序设计风格是人们编写程序的
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=13>
+    、
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=14>
+    和
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=15>
+    等。<BR>
+    5、语句构造的原则是
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=16>
+    ，不能因为追求效率而使代码
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=17>
+    。&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <BR>
+    6、追求效率建立在不损害
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=18>
+    或
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=19>
+    的基础上。<BR>
+    7、提高程序效率的根本途径在于选择良好的
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=20>
+    、良好的
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=21>
+    ，而不是靠编程时对语句进行调整。<BR>
+    8、为开发一个特定的项目选择程序设计语言时，必须从
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=22>
+    、
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=23>
+    和技术性能特性等几方面考虑。<BR>
+    9、通常考虑选用程序设计语言的因素有
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=24>
+    、
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=25>
+    、
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=26>
+    、算法和数据结构的复杂性和软件开发人员的知识。</P>
+  <P> 
+    <INPUT id=A type=reset value=清�空>
+    &nbsp; 
+    <INPUT id=A onclick=getKeyWord(this.form) type=button value=提�交>
+    <BR>
+    <BR>
+    <span class="section">二、单项选择题</span><br>
+    <BR>
+    <span class="text">1、在编制程序时应采纳的原则之一是(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )。<BR>
+    <INPUT id=c1 type=radio value=A name=1>
+    A. 不限制 goto语句的使用&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=1>
+    B. 减少或取消注解行<BR>
+    <INPUT id=c1 type=radio value=C name=1>
+    C. 程序越短越好&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=1>
+    D. 程序结构应有助于读者理解<BR>
+    <BR>
+    &nbsp;2、一个程序如果把它作为一个整体，它也是只有一个入口、一个出口的单个顺序结构，这是一个(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    )。<BR>
+    <INPUT id=c1 type=radio value=A name=2>
+    A. 结构化程序&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=2>
+    B. 组合的过程<BR>
+    <INPUT id=c1 type=radio value=C name=2>
+    C. 自顶向下程序设计&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=2>
+    D. 分解过程<BR>
+    <BR>
+    &nbsp;3、程序控制一般分为(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )、分支和重复等三种基本控制结构。<BR>
+    <INPUT id=c1 type=radio value=A name=3>
+    A. 分块<BR>
+    <INPUT id=c1 type=radio value=B name=3>
+    B. 顺序<BR>
+    <INPUT id=c1 type=radio value=C name=3>
+    C. 迭代<BR>
+    <INPUT id=c1 type=radio value=D name=3>
+    D. 循环<BR>
+    <BR>
+   4、将非结构化的程序转换为结构化程序的过程中，下面(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )不适用于具有重复结构的程序。<BR>
+    <INPUT id=c1 type=radio value=A name=4>
+    A. 重复编码法&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=4>
+    B. 状态变量法<BR>
+    <INPUT id=c1 type=radio value=C name=4>
+    C. 布尔标记法&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=4>
+    D. 全部方法<BR>
+    <BR>
+    &nbsp;5、以下说法正确的是(&nbsp;&nbsp;&nbsp;&nbsp; )。<BR>
+    <INPUT id=c1 type=radio value=A name=5>
+    A. 所有改变循环条件的成分都在循环体外<BR>
+    <INPUT id=c1 type=radio value=B name=5>
+    B. 在直到型循环中，循环体至少要执行一次<BR>
+    <INPUT id=c1 type=radio value=C name=5>
+    C. 在当型循环中，循环体至少要执行一次<BR>
+    <INPUT id=c1 type=radio value=D name=5>
+    D. 基本程序结构不允许嵌套<BR>
+    <BR>
+    &nbsp;6、源程序文档化要求在每个模块的首部加序言性注释。该注释的内容不应有(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )。<BR>
+    <INPUT id=c1 type=radio value=A name=6>
+    A. 模块的功能&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=6>
+    B. 语句的功能<BR>
+    <INPUT id=c1 type=radio value=C name=6>
+    C. 模块的接口&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=6>
+    D. 扇入数越低<BR>
+    <BR>
+    &nbsp;7、功能性注释的作用是解释下面的语句(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )。<BR>
+    <INPUT id=c1 type=radio value=A name=7>
+    A. 怎么做&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=7>
+    B. 做什么<BR>
+    <INPUT id=c1 type=radio value=C name=7>
+    C. 何时做&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=7>
+    D. 为何做<BR>
+    <BR>
+    &nbsp;8、对于不好的程序，应当(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ).<BR>
+    <INPUT id=c1 type=radio value=A name=8>
+    A. 打补丁&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=8>
+    B. 修改错误<BR>
+    <INPUT id=c1 type=radio value=C name=8>
+    C. 重新编写&nbsp;&nbsp;&nbsp;&nbsp; <br>
+    <INPUT id=c1 type=radio value=D name=8>
+    D. 原封不动<BR>
+    <BR>
+    &nbsp;9、程序设计语言的心理特性在语言中表现不应包括(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )。<BR>
+    <INPUT id=c1 type=radio value=A name=9>
+    A. 二义性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=9>
+    B. 简洁性<BR>
+    <INPUT id=c1 type=radio value=C name=9>
+    C. 保密性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=9>
+    D. 传统性<BR>
+    <BR>
+    &nbsp;10、程序设计语言的工程特性之一表现在(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )。<BR>
+    <INPUT id=c1 type=radio value=A name=10>
+    A. 软件的可复用性&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=10>
+    B. 数据结构的可描述性<BR>
+    <INPUT id=c1 type=radio value=C name=10>
+    C. 抽象类型的可描述性&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=10>
+    D. 数据库的易操作性<BR>
+    <BR>
+    &nbsp;11、程序设计语言的技术特性不应包括(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )。<BR>
+    <INPUT id=c1 type=radio value=A name=11>
+    A. 数据结构的可描述性&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=11>
+    B. 抽象类型的可描述性<BR>
+    <INPUT id=c1 type=radio value=C name=11>
+    C. 数据库的易操作性&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=11>
+    D. 软件的可移植性<BR>
+    <BR>
+   12、Lipow证明了：当源程序少于100个语句时，每行代码的出错率随程序行数的增长(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    )。<BR>
+    <INPUT id=c1 type=radio value=A name=12>
+    A. 呈线性相关关系&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=12>
+    B. 呈指数方式增长<BR>
+    <INPUT id=c1 type=radio value=C name=12>
+    C. 呈对数方式增长&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=12>
+    D. 没有一定规律</span><BR>
+    <BR>
+    <INPUT id=A type=reset value=清�空>
+    &nbsp; 
+    <INPUT id=A onclick=getresultcheck(this.form) type=button value=提�交>
+    <BR>
+    <BR>
+    <span class="section">三、选择填空题</span><span class="text"><br>
+    <BR>
+    &nbsp;1、从下列关于模块化程序设计的叙述中选出5条正确的叙述。<BR>
+    &nbsp;(&nbsp;&nbsp; )(1) 程序设计比较方便，但比较难以维护。<BR>
+    &nbsp;(&nbsp;&nbsp; )(2) 便于由多个人分工编制大型程序。<BR>
+    &nbsp;(&nbsp;&nbsp; )(3) 软件的功能便于扩充。<BR>
+    &nbsp;(&nbsp;&nbsp; )(4) 程序易于理解，也便于排错。<BR>
+    &nbsp;(&nbsp;&nbsp; )(5) 在主存储器能够容纳得下的前提下，应使模块尽可能大，以便减少模块的个数。<BR>
+    &nbsp;(&nbsp;&nbsp; )(6) 模块之间的接口叫做数据文件。<BR>
+    &nbsp;(&nbsp;&nbsp; )(7) 只要模块之间的接口关系不变，各模块内部实现细节的修改将不会影响别的模块。<BR>
+    &nbsp;(&nbsp;&nbsp; )(8) 模块间的单向调用关系叫做模块的层次结构。<BR>
+    &nbsp;(&nbsp;&nbsp; )(9) 模块越小，模块化的优点越明显。一般来说，模块的大小都在10行以下。</span></P>
+  <P>
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    &nbsp;</P>
+  <P class="text">&nbsp;2、从下列叙述中选出5条符合程序设计风格指导原则的叙述。<BR>
+    &nbsp;(1) 嵌套的重数应加以限制。<BR>
+    &nbsp;(2) 尽量多使用临时变量。<BR>
+    &nbsp;(3) 不滥用语言特色。<BR>
+    &nbsp;(4) 不用可以省略的括号。<BR>
+    &nbsp;(5) 使用有意义的变量名。<BR>
+    &nbsp;(6) 应尽可能把程序编得短些。<BR>
+    &nbsp;(7) 把常见的局部优化工作留给编译程序去做。<BR>
+    &nbsp;(8) 注解越少越好。<BR>
+    &nbsp;(9) 程序的格式应有助于读者理解程序。<BR>
+    &nbsp;(10) 应尽可能多用GOTO语句。</P>
+  <P>
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    &nbsp;</P>
+  <P class="text">&nbsp;3、从下面关于程序编制的叙述中，选出三条正确的叙述。<BR>
+    &nbsp;(1) 在编制程序之前，首先必须仔细阅读给定的程序说明书。然后，必须如实地依照说明书编写程序。说明书中常会有含糊不清或难以理解的地方。程序员在作业时应该对这些地方作出适当的解释。<BR>
+    &nbsp;(2) 在着手编制程序时，重要的是采用既能使程序正确地按设计说明书进行处理，又易于出错的编写方法。<BR>
+    &nbsp;(3) 在编制程序时，首先应该对程序的结构充分考虑，不要急于开始编码，而要象写软件文档那样，很好地琢磨程序具有什么样的功能，这些功能如何安排等等。<BR>
+    &nbsp;(4) 考虑到以后的程序变更，为程序编写完整的说明书是一项很重要的工作。只要有了完整的程序说明书，即使程序的编写形式难以让他人看懂也没有什么关系。<BR>
+    &nbsp;(5) 编制程序时不可缺少的条件是，程序的输入和输出数据的格式都应确定。其他各项规定都是附带的，无足轻重。<BR>
+    &nbsp;(6) 作为一个好的程序，不仅处理速度要快，而且易读易修改等等也都是重要的条件。为了能得到这样的程序，不仅要熟悉程序设计语言的语法，还要注意采用适当的规程和单纯的表现方法，注意使整个程序的结构简洁。</P>
+  <P> 
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    <br>
+    <span class="text">4、从供选择的答案中选出应该填入下面 (&nbsp;&nbsp;&nbsp;&nbsp; ) 中的正确答案。<BR>
+    A. 允许用户建立、修改、存储正文的计算机程序是(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )。<BR>
+    �① BOOtstrap�② Editor<BR>
+    �③ Loader�� ④ Textformatter<BR>
+    B. 程序语言的编译系统和解释系统相比，从用户程序的运行效率来看 (&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )。<BR>
+    �① 前者运行效率高�② 两者大致相同<BR>
+    �③ 后者运行效率高�④ 不能确定<BR>
+    C. FORTRAN语言的源程序是(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )结构。<BR>
+    �① COBOL��② BASIC<BR>
+    �③ FORTRAN�④ PL/1<BR>
+    E. 国际上最流行的数值计算的程序设计语言是(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )。<BR>
+    �① BASIC��② ALGOL<BR>
+    �③ FORTRAN�④ C<BR>
+    F. 美国国防部主持开发了高级程序设计语言Ada，在它研制开始时，经反复比较，确定以高级语言(&nbsp;&nbsp;&nbsp;&nbsp; )作为Ada研究的出发点。<BR>
+    �① LISP�� ②ALGOL<BR>
+    �③ ALGOL68�④ PL/1<BR>
+    G. 在人工智能领域，目前最广泛使用的高级语言是(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )。<BR>
+    �① Ada��② FORTRAN<BR>
+    �③ COBOL�④ LISP</span><BR>
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+  </P>
+  <P class="text">&nbsp;5、从供选择的答案中选出应该填入下面(&nbsp;&nbsp;&nbsp;&nbsp; )中的正确答案。<BR>
+    A. 汇编程序是指(&nbsp;&nbsp;&nbsp;&nbsp; )。<BR>
+    �① 用汇编语言写的程序�② 符号程序<BR>
+    �③ 汇编语言的处理程序<BR>
+    B. 为了实现递归子程序的正确调用，人们必须用(&nbsp;&nbsp;&nbsp;&nbsp; )来保存(&nbsp;&nbsp;&nbsp;&nbsp; 
+    )及有关信息。<BR>
+    �① 堆栈��② 线性表<BR>
+    �③ 队列��④ 树<BR>
+    �⑤ 入口点�⑥ 返回地址<BR>
+    �⑦ 断点<BR>
+    C. UNIX操作系统是(&nbsp;&nbsp;&nbsp;&nbsp; )研制的，它是用程序语言(&nbsp;&nbsp;&nbsp;&nbsp; 
+    )书写实现的。<BR>
+    �① Bell实验室�② DEC公司<BR>
+    �③ IBM公司 ��④ PASCAL<BR>
+    �⑤ 并发PASCAL�⑥ MODULA<BR>
+    �⑦ C</P>
+  <P>
+<TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+  </P>
+  <P>&nbsp;<span class="text">6、从供选择的答案中选出适当的字句填入下面关于程序生产率的描述中的(&nbsp;&nbsp;&nbsp;&nbsp; 
+    )内。<BR>
+    (1) 1960年底Dijkstra提倡的 (&nbsp; A&nbsp; ) 是一种有效的提高程序设计效率的方法。<BR>
+    (2) Dijkstra为了使程序结构易于理解，把基本控制结构限于顺序、(&nbsp; B&nbsp; )、(&nbsp; C&nbsp; )3种，应避免使用(&nbsp; 
+    D&nbsp; )。<BR>
+    (3) (&nbsp; A&nbsp; )不仅提高程序设计的生产率，同时也容易进行程序的(&nbsp; E&nbsp; )。<BR>
+    供选择的答案：<BR>
+    A.�① 标准化程序设计�② 模块化程序设计<BR>
+    ��③ 多道程序设计��④ 宏语言<BR>
+    ��⑤ 结构化程序设计�⑥ 汇编语言<BR>
+    ��⑦ 表格处理语言<BR>
+    B～C. &nbsp;① 分支�② 选择<BR>
+    ���③ 重复�④ 计算<BR>
+    ���⑤ 输入输出<BR>
+    D.�① GOTO语句�② DO语句<BR>
+    ��③ IF语句��④ REPEAT语句<BR>
+    E.�① 设计���② 调试<BR>
+    ��③ 维护���④ 编码</span><BR>
+    <BR>
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    <BR>
+    <BR>
+    <span class="section">四、问答题</span><span class="text"><br>
+    <BR>
+    &nbsp;1、试说明下面的两个程序段的功能是什么？可否用另一些等效的程序段来代替它，以提高其可读性。<BR>
+    (1)&nbsp;A[I] = A[I] + A[T];�(2)&nbsp; for ( i = 1; i &lt;= n; i ++ ) <BR>
+    ��A[T] = A[I] - A[T];����for ( j = 1; j &lt;= n; j ++ )<BR>
+    ��A[I] = A[I] - A[T];�����V[i][j] = ( i / j ) * ( j / i );&nbsp;</span> </P>
+  <P>
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    &nbsp;</P>
+  <P class="text">&nbsp;2、结构化程序设计有时被错误地称为“无GOTO语句”的程序设计。请说明为什么会出现这样的说法，并讨论环绕着这个问题的一些争论。</P>
+  <P>
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    &nbsp;</P>
+  <P>&nbsp;<span class="text">3、设下图给出的程序流程图代表一个非结构化的程序，试问：<BR>
+    &nbsp;(1) 为什么说它是一个非结构化的？ <BR>
+    &nbsp;(2) 设计一个等价的使用附加标志变量flag的结构化程序。 <BR>
+    &nbsp;(3) 设计一个使用break(用于代替goto)的程序。</span><BR>
+    <IMG alt="" hspace=0 src="image/02.gif" align=baseline border=0></P>
+  <P>
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    &nbsp;</P>
+  <P>&nbsp;<span class="text">4、有一种循环结构，叫做N+1/2循环。其流程图如下所示。这种控制结构不属于基本控制结构：它既不是先判断型循环，又不是后判断型循环。试修改此流程图，将它改为用基本控制结构表示的等效的流程图。</span><BR>
+    <IMG alt="" hspace=0 src="image/03.gif" align=baseline border=0></P>
+  <P>
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    <BR>
+    <BR>
+    &nbsp;<span class="text">5、下面是两个程序流程图，试分别用N-S图和PAD表示之，并计算它们的McCabe复杂性度量。</span></P>
+  <P><IMG alt="" hspace=0 src="image/05.gif" align=baseline border=0><BR>
+    <BR>
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    &nbsp;</P>
+  <P class="text">&nbsp;6、下面给出一个求实函数方程F(x)在自变量区间 [a, b] 中的全部实根的算法。首先阅读此程序，然后<BR>
+    �(1) 画出消去全部goto语句的结构化程序流程图。<BR>
+    �(2) 将它改成N_S图。<BR>
+    �(3) 计算该程序的McCabe复杂性度量。&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    �在算法中，a与b是区间[a, b]的两端点值；eps1与eps2是用户要求的求解精度。如果区间中点的函数值的绝对值小于eps1或新的小区间的长度小于eps2，就认为这个中点为根。<BR>
+    �float BinRoot ( float a, float b, float eps1, float eps2 ) {&nbsp; <BR>
+    ���float low= a,&nbsp; high = b,&nbsp; mid,&nbsp; fmid;<BR>
+    ���float flow = Func(low),&nbsp; fhigh := Func(high);<BR>
+    ���label L1, L2, L3;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    //标号说明，给定某些程序地址<BR>
+    ���if ( flow * fhigh &gt; 0.0 ) { BinRoot = 0;&nbsp; goto L3; }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    //无实根<BR>
+    �L1:&nbsp;&nbsp;&nbsp; mid = (low + high) / 2;&nbsp; fmid = Func(mid);<BR>
+    ���if ( abs ( fmid ) &lt;= eps1 ) {<BR>
+    �L2: BinRoot = mid;&nbsp; goto L3 }<BR>
+    ���else if ( high - mid &lt;= eps2 ) goto L2;<BR>
+    ����else if ( flow * fmid &gt; 0.0){ low=mid;flow=fmid;goto L1; }<BR>
+    �����else { high = mid;&nbsp; goto L1 };<BR>
+    �L3:&nbsp;&nbsp;&nbsp; <BR>
+    �}</P>
+  <P>
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    <BR>
+    <BR>
+    <span class="text">7、用某种软件复杂性度量算法来度量不同类型的程序时，得出的度量值是否真正反映了它们的复杂性? 如果对同类型的程序进行度量，其结果是否就比较有价值?</span></P>
+  <P>
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    &nbsp;</P>
+  <P>&nbsp;<span class="text">8、软件复杂性有哪几类？软件复杂性度量模型应遵循哪些基本原则？</span><BR>
+    &nbsp;&nbsp;&nbsp; <BR>
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    <BR>
+  </P>
+  <input type=button name=Button value=答�案 onClick="MM_openBrWindow('tanchu.htm','','width=471,height=384')">
+  <br>
+  <br>
+</form>
+</BODY>
+</HTML>

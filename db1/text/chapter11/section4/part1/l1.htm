@@ -1,0 +1,33 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgproperties=fixed bgcolor="#FFFFFF" background="../../../../image/moban/15.gif">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" height="8">
+        <tr> 
+          <td class="text" align="left"><span class="part">1、问题的提出</span><br>
+            ��数据库系统中的大部分事务都是只读事务，在这种情况下事务发生冲突的频率较低。因此，即使没有并发控制机制的监控，也不会破坏数据库的一致性。并发控制机制会带来代码执行的开销及可能的事务延迟，因此，采用开销较小的机制是众望所归。本节介绍的协议就属于开销较小的协议之一。<br>
+            <br>
+            <span class="part">2、事务的生命周期</span><br>
+            ��根据事务所要执行的操作，将事务的生命周期分为三个或两个(对于只读事务来说是两个)阶段：<br>
+            ��<u>⑴�读阶段：</u>各数据项的值被读入并保存在事务的局部变量中，所有的写操作都是对局部临时变量进行的，并不对数据库进行真正的更新；<br>
+            ��<u>⑵�有效性检查阶段：</u>判定是否可以将写操作所更新的临时变量的值拷入数据库，同时又不违反可串行性；<br>
+            ��<u>⑶�写阶段：</u>若事务通过了有效性检查，则实际的更新可以写入数据库，否则事务回滚。<br>
+            <span class="part"><br>
+            3、时间戳</span><br>
+            ��有效性检查协议也是利用时间戳排序技术来保证调度的可串行性：<br>
+            ��⑴�Start(T<font size="-5">i</font>)：事务T<font size="-5">i</font>开始执行的时刻；<br>
+            ��⑵�Validation(T<font size="-5">i</font>)：事务T<font size="-5">i</font>完成读阶段并开始其有效性检查阶段的时刻；<br>
+            ��⑶�Finish(T<font size="-5">i</font>)：事务T<font size="-5">i</font>完成写阶段的时刻。和时间戳排序协议不同，有效性检查协议令TS(Ti)=Validation(T<font size="-5">i</font>)。若TS(T<font size="-5">j</font>)&lt;TS(T<font size="-5">k</font>)，则该协议产生的任何调度必定等价于&lt;T<font size="-5">j</font>,T<font size="-5">k</font>&gt;。</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

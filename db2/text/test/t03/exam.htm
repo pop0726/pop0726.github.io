@@ -1,0 +1,215 @@
+<html>
+<head>
+<title><!--czp-title --></title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<script language="JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+</head>
+<script language="JavaScript">
+function getresultcheck(form)
+{var mykeys=new Array();
+//  mykeys[0]="B";
+//czp-select-answer
+var answer=new Array();
+for(var I=0;I<mykeys.length;I++) answer[I]="";
+
+var every=form.elements;
+
+<!--czp-select-count-->
+for(var I=0;I<every.length;I++)
+{
+	if(every[I].type=="radio")
+	{
+		
+		if(every[I].checked)
+		{	
+	
+			var item=parseInt(every[I].name.substr(0));
+		
+			answer[item-1]+=every[I].value;
+		}
+	}				
+}
+
+var newcount="<html><head><title>谢谢您!</title></head><body><center><h2><font color=red>您的测试结果</font></h2></center>";
+var totalscore=0;
+for(var I=0;I<answer.length;I++)
+{
+	if(answer[I]==mykeys[I])
+	{
+		var rstr="<font size=2>第"+(I+1)+"题答案正确!</font><br>";
+		newcount+=rstr;
+		totalscore+=1/(answer.length)*100;//每题分数
+	}else
+	{
+		var rstr="<font size=2>第"+(I+1)+"题答案错误!正确答案为"+mykeys[I]+"</font><br>";
+		newcount+=rstr;
+	}
+
+}
+
+newcount+="<br>您的总成绩为:";
+newcount+=Math.ceil(totalscore);
+newcount+="分";
+newwin=window.open("","","height=200,width=300,scrollbars=yes,resizable=no");
+newwin.document.write(newcount);}
+
+function check(){
+var mykeys=new Array();
+//czp-tiankong-answer
+//mykeys[0]="B";
+var answer=new Array();
+for(var I=0;I<mykeys.length;I++) answer[I]="";
+
+var every=zfl.elements;
+for(var I=0;I<every.length;I++)
+{
+if(every[I].type=="text")
+{
+ if(every[I].value!==null)
+ {
+ //var item=parseInt(every[I].name.substr(1))
+//  answer[item-1]+=every[I].value;
+  answer[I]+=every[I].value;
+  }
+ }
+}
+
+
+var newcount="<html><head><title>谢谢您!</title></head><body><center><h2><font face=\"隶书\" size=\"5\" color=\"#000099\">您的测试结果</font></h2></center>";
+var totalscore=0;
+for(var i=0;i<answer.length;i++)
+{
+	if(answer[i]==mykeys[i])
+	{
+		var rstr="<font face=\"宋体\" size=2>第"+(i+1)+"个空答案正确!</font><br>";
+		newcount+=rstr;
+		totalscore+=1/(answer.length)*100;
+	}else
+	{
+		var rstr="<font face=\"宋体\" size=2>第"+(i+1)+"个空答案错误!正确答案为"+mykeys[i]+"</font><br>";
+		newcount+=rstr;
+	}
+
+}
+
+newcount+="<br><font face=\"宋体\" size=3><b>您的总成绩为:</b></font><font face=\"宋体\" size=3 color=red>";
+newcount+=Math.ceil(totalscore);
+newcount+="分</font><br>";
+newwin=window.open("","","height=400,width=400,scrollbars=yes,resizable=no");
+newwin.document.write(newcount);
+}
+
+</script><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+<body bgcolor="#FFFFFF" text="#000000" topmargin=0>
+
+<center><br>
+  试卷三<br>
+ 
+  <table width="95%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+      <td class=pt9-black> 
+        <form name="form1">
+          <p><b>问答题</b><br>
+            <br>
+            1、 数据库管理系统的体系结构有哪三种:<br>
+            <textarea name=jianda cols=50 rows=5></textarea>
+            <br>
+            <br>
+            <br>
+            2、 面向对象数据库管理系统中的模式演变的内容主要包括如下两方面：<br>
+            <textarea name=textarea cols=50 rows=5></textarea>
+            <br>
+            <br>
+            <br>
+            3、 关系数据模型的完整性包括：<br>
+            <textarea name=textarea cols=50 rows=5></textarea>
+            <br>
+            <br>
+            <br>
+            4、 DBMS中事务的特性是:<br>
+            <textarea name=textarea cols=50 rows=5></textarea>
+            <br>
+            <br>
+            <br>
+            5、 SQL Server的数据库备份策略有三种：<br>
+            <textarea name=textarea cols=50 rows=5></textarea>
+            <br>
+            <br>
+            <br>
+            6、 数据库设计的4个阶段是:<br>
+            <textarea name=textarea cols=50 rows=5></textarea>
+            <br>
+            <br>
+            <br>
+            7、 数据库管理系统在事务日志中记录的主要信息有：<br>
+            <textarea name=textarea cols=50 rows=5></textarea>
+            <br>
+            <br>
+            <br>
+            8、 解释下面词语的含义： (1) 数据库安全性指： (2) DBMS保证数据库安全性的措施： (3) 数据库完整性指： (4) DBMS保证数据库完整性的措施： 
+            (5) 数据库DB： (6) 数据库管理系统DBMS：<br>
+            <textarea name=textarea cols=50 rows=5></textarea>
+            <br>
+            <br>
+            9、 CAx系统集成中,实现不同应用系统数据集成的三种方式为:<br>
+            <textarea name=textarea cols=50 rows=5></textarea>
+            <br>
+            <br>
+            <br>
+            10、 数据仓库的分析型数据与事务管理数据库的操作型数据之间的主要差别（至少写出5点）：<br>
+            <textarea name=textarea cols=50 rows=5></textarea>
+            <br>
+            <br>
+            <br>
+            11、 分析如下的问题：有关系模式R(U,F)， 属性集U={A,B,C,D,E}， 函数依赖集合F={AB->C, C ->D, 
+            D->E }，请回答如下的问题：<br>
+            (1) R最高属于第几范式? 说明理由； <br>
+            <textarea name=textarea cols=50 rows=5></textarea>
+            <br>
+            <br>
+            <br>
+            (2) 如果R不属于第三范式？说明理由,并分解R为符合第三范式的关系模式集合。<br>
+            <textarea name=textarea cols=50 rows=5></textarea>
+            <br>
+            <br>
+            <br>
+            12、 完成如下设计: 请设计某单位的库存管理数据库系统，系统要求如下：存储供应商信息，库存零件信息，仓库信息，仓库管理员的信息。该单位有多个仓库，每个仓库可以存放多种零件，一种零件可以存放在多个仓库中；每个仓库只有一个仓库管理员，一个仓库管理员只能管理一个仓库；每个供应商可以供应多种零件，同一种零件可以由多个供应商供应。 
+            要求完成如下设计工作： (1) 画出该系统的E-R模型图，包括实体及实体之间的联系，并标出： (a) 实体的主要属性, (b) 实体之间联系的主要属性； 
+            (2) 把E-R模型图转换为关系表（标明主关键字）。 (3) 请定义一个视图，该视图的列信息包括零件名称以及零件所在仓库名称的信息。 
+            <br>
+            <textarea name=textarea cols=50 rows=5></textarea>
+            <br>
+            <br>
+          </p>
+          <p>13、设有关系R和S如下图所示。请画出R和S的等值连接和自然连接的运算结果。</p>
+          <p><img src="../t01/text/examination/s1.gif" width="176" height="115"></p>
+          <p>
+            <textarea name=textarea cols=50 rows=5></textarea>
+            <br>
+            <br>
+            <input type=button name=Button value=答案 案 onClick="MM_openBrWindow('text/examination/exam01_pop2.htm','','width=505,height=384')" class=pbox>
+            <input type='reset' name='Submit3' value='重置' class=pbox>
+            <br>
+          </p>
+        </form>
+      </td>
+  </tr>
+</table></center>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" bgproperties=fixed background="../../../../image/moban/14.gif">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td class="text"> 
+            <p class="zhishidian"> 11.1.3　基本封锁协议的问题</p>
+            <p>��从上页的<span class="part">图11-1-3</span>的例子可以看出，即使在调度中采用了封锁协议，也还有可能导致数据库的不一致。<span class="part">图11-1-3</span>中，事务T<font size="-5">2</font>的计算结果就是错误的，因此封锁协议也有缺陷，这些缺陷概括起来就是下面三个问题：<br>
+              ��<span class="part">⑴�解锁问题：</span>在事务中过早地释放数据项上的锁，有可能导致数据库的不一致；<br>
+              ��<span class="part">⑵�死锁问题：</span>所有的事务因为持有锁和申请锁而导致大家都处于等待状态，无法继续执行；<br>
+              ��<span class="part">⑶�饿死问题：</span>一个事务总是不能在某数据项上加上锁，因此该事务也就永远不能取得进展。<br>
+              ��</p>
+            </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<p class="explaination">&nbsp;</p>
+</body>
+</html>

@@ -1,0 +1,137 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" --> 　　<span class="biaoti_1">定义1：域（Domain）</span><br>
+      　　域是一组具有相同数据类型的值的集合。例如：整数，字符串等等，都可以是域。在关系模型中，要求每个元组的属性都属于某种基本类型，并把与关系的每个属性相对应的特定的基本类型称为域。<br>
+      <br>
+      　　<span class="biaoti_1">定义2：笛卡儿积(Cartesian Product)</span><br>
+      　　给定一组域，D1,D2,…,Dn，这些域中可以有相同的，D1,D2,D3…Dn的笛卡儿积定义为：<br>
+      　　D1xD2xD3…xDn＝{(d1,d2,d3…,dn)|di∈Di，i=1,2,…,n}。其中的每一个元素（d1,d2,d3,…dn）叫做一个n元组或者简称元组。元素中每一个值di叫做一个分量。<br>
+      　　笛卡儿积可以表示为一个二维表，表中的每一行对应一个元组，表中的每列对应一个域。<br>
+      　　例如：给定的三个域：D1:年份集合＝1992，1993；<br>
+      　　D2:电影名集合=星球大战，独立日；<br>
+      　　D3:电影长度集合＝100，120；<br>
+      　　D1，D2，D3的笛卡儿积为：D1xD2xD3={（1992，星球大战，100），（1992，星球大战，120），（1992，独立日，100），（1992，独立日，120），（1993，星球大战，100），（1993，星球大战，120），（1993，独立日，100），（1993，独立日，120）}。其中（1992，独立日，100）是元组，1992，独立日，100都是分量。<br>
+      　　该笛卡儿积的基数2×2×2＝8，一共8个元组。这8个元组可以用表3-2来存放。<br>
+      <br>
+      　　<span class="tubiaoti">表 3-2</span><br>
+      <br>
+      <table width="80%" border="1" cellspacing="0" cellpadding="0" bordercolorlight="#004080" bordercolordark="#ffffff" class="pt9-black" align="center">
+        <tr bgcolor="#BFDFFF" align="center"> 
+          <td bgcolor="#BFDFFF">年份</td>
+          <td>电影名</td>
+          <td>电影长度</td>
+        </tr>
+        <tr align="center"> 
+          <td>1992</td>
+          <td>星球大战，</td>
+          <td>100</td>
+        </tr>
+        <tr align="center"> 
+          <td>1992</td>
+          <td>星球大战，</td>
+          <td>120</td>
+        </tr>
+        <tr align="center"> 
+          <td>1992</td>
+          <td>独立日</td>
+          <td>100</td>
+        </tr>
+        <tr align="center"> 
+          <td>1992</td>
+          <td>独立日</td>
+          <td>100</td>
+        </tr>
+        <tr align="center"> 
+          <td>1993</td>
+          <td>星球大战，</td>
+          <td>100</td>
+        </tr>
+        <tr align="center"> 
+          <td>1993</td>
+          <td>星球大战，</td>
+          <td>120</td>
+        </tr>
+        <tr align="center"> 
+          <td>1993</td>
+          <td>独立日</td>
+          <td>100</td>
+        </tr>
+        <tr align="center"> 
+          <td>1993</td>
+          <td>独立日</td>
+          <td>100</td>
+        </tr>
+      </table>
+      <br>
+      　　<span class="biaoti_1">定义3：关系（Relation）</span><br>
+      　　笛卡尔积D1x D2x…x Dn的子集叫做在域 D1，D2，…， Dn上的关系(Relation)。用R(D1，D2，…， Dn)表示，R是关系名。关系中的每个元素是关系中的元组，通常用t表示。<br>
+      　　关系是笛卡儿积的有一定意义的、有限的子集，所以关系也是一个二维表，表的每一行对应一个元组，表的每一列对应一个域。由于域可以相同，为了加以区分，必须对每列起一个唯一的名字，称为属性（Attribute）。n目关系有n个属性。当n=1时，称该关系为单元关系，当n=2时，称该关系为二元关系。<br>
+      　　<font color="#5a5aad">例如：对给定的三个域：D1(年份集合＝1992，1993)、D2(电影名集合=星球大战，独立日)、D3(电影长度集合＝100，120),它们的笛卡儿积构成的集合，不是一个有意义的关系，因为，每个电影的长度是固定的，电影的出版年份也是固定的。因此，该笛卡儿积构成关系的有意义的子集只有两个元素，如表3-3所示。</font><br>
+      <br>
+      　　<span class="tubiaoti">表 3-3</span><br>
+      <br>
+      <table width="80%" border="1" cellspacing="0" cellpadding="0"bordercolorlight="#004080" bordercolordark="#ffffff" class="pt9-black" align="center">
+        <tr bgcolor="#BFDFFF" align="center"> 
+          <td>年份</td>
+          <td>电影名</td>
+          <td>电影长度</td>
+        </tr>
+        <tr align="center"> 
+          <td>1992</td>
+          <td>星球大战，</td>
+          <td>100</td>
+        </tr>
+        <tr align="center"> 
+          <td>1993</td>
+          <td>独立日</td>
+          <td>120</td>
+        </tr>
+      </table>
+      <br>
+      　　如果关系的某一属性组的值能够唯一的标识一个元组，称该属性组为候选码。如果一个关系有多个候选码，可选择其中的一个候选码作为主码（Primary 
+      key）。包含在候选码中的属性称为主属性。不包含在任何候选码中的属性称为非码属性或非主属性。最简单的情况下，候选码包含一个属性，这时该关系只有一个主属性。最极端的情况下，关系的所有属性共同组成这个关系的候选码，称为全码，这时该关系的所有属性都是主属性。<br>
+      　　<font color="#5a5aad">例如，前面的系关系表中，系名称是该关系的主码，也是唯一的主属性，其他属性是非主属性。学生选课关系（学号，课程号，成绩）中，学号和课程号共同组成为主关键字，则学号和课程号都是主属性，只有成绩是非主属性。 
+      </font><br>
+      　　关系可以有三种类型：基本关系（通常称为基本表或基表），查询表和视图表。基本表是实际存在的表，它是实际储存数据的逻辑表示。查询表是查询结果相对应的表。视图表是由基本表和其它视图导出的表，是虚表，不对应实际存储的数据。<br>
+      　　按照笛卡儿积的定义，关系可以是一个无限集合。由于笛卡儿积不满足交换率，所以按照数学定律，（d1,d2,…,dn）≠(d2,d1,…,dn)。当关系作为关系数据模型的数据结构时，需要给予限定和扩充：<br>
+      　（1） 无限关系在数据库系统中无意义，因此，限定关系数据模型中的关系必须是有意义和有限的集合。 <br>
+      　（2） 通过为关系的每个列附加一个属性名的方法取消了关系元素的有序性。即（d1,d2,…,dn）＝(d2,d1,…,dn)。因为元组之间的区别仅仅是其中属性值的区别。<br>
+      　　因此，关系数据库中的关系与数学中定义的关系是有区别的。关系数据库中的基本关系具有以下六条性质：<br>
+      　（1） 列是同质的，即每一列中的分量是同一类型的数据，来自同一个域。<br>
+      　（2） 不同的列名可以出自相同的一个域，称其中每一列为一个属性，不同的属性必须有不同的属性名。对同一组域，域的次序对关系没有影响，即关系中列的次序可以交换。 
+      <br>
+      　（4） 关系中的任意两个元组不能完全相同。<br>
+      　（5） 关系中元组的顺序无关，即关系中元组的顺序可以交换。<br>
+      　（6） 分量必须取原子值，即每一分量都必须是不可再分的数据项。<br>
+      　　<font color="#5a5aad">关系模型要求关系必须是规范化的，即要求关系模式必须满足一定的规范条件。这些规范条件中最基本的一条是：关系中每一个分量必须是一个不可分的数据项。</font><br>
+      <!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

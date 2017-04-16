@@ -1,0 +1,53 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" -->��(6) 事务嵌套在SQL Server中，允许定义嵌套事务，但只有最外层的BEGIN 
+      TRANSACTION语句和COMMIT TRANSACTION语句才能建立和提交事务，在回滚事务时，也只能使用最外层定义的事务名或存储点标记，而不能使用内层定义的事务名。事务嵌套常用在存储过程或触发器内，它们可以使用BEGIN 
+      TRANSCATION 和COMMIT TRANSACTION对来相互调用。 ��(7) 事务状态的变化事务从开始到结束，事务状态的变化过程如图7-6所示。图中说明事务状态的变化有如下几种情况：<br>
+      ��● 如果事务状态的变化过程是0-1--3--5，说明事务中的全部语句正确执行，事务提交，事务对数据库的所有改变都永久写入数据库，结束事务。 
+      <br>
+      ��● 如果事务状态的变化过程是0-1-2-4--5，说明事务中的部分语句正确执行，有的语句出现错误，无法继续执行，事务没有全部执行完而非正常终止，数据库恢复到事务执行前的状态全部语句正确执行，结束事务。<br>
+      ��● 如果事务状态的变化过程是0-2-4--5，说明事务一开始就发现错误，无法继续执行，事务中的所有语句都没有正确执行，事务非正常终止，数据库恢复到事务执行前的状态，结束事务。<br>
+      <br>
+      　　<span class="tubiaoti">图7-6事务状态的变化</span><br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td align="center"><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="400" height="300">
+              <param name=movie value="../../../swf/ch7/20.swf">
+              <param name=quality value=high>
+              <param name="wmode" value="transparent">
+              <embed src="../../../swf/ch7/20.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="400" height="300" wmode="transparent">
+              </embed> 
+            </object> </td>
+        </tr>
+      </table>
+      <!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

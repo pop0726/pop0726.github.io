@@ -1,0 +1,896 @@
+<HTML>
+<HEAD>
+<TITLE>软件工程 </TITLE>
+<SCRIPT language=JavaScript>
+/*-------------------------------------------填空题---------------------------------------------*/
+function getKeyWord(form){
+var mykeys=new Array();
+mykeys[0]="所有阶段";mykeys[1]="要求";mykeys[2]="需求";mykeys[3]="返工";mykeys[4]="评审";mykeys[5]="标准";mykeys[6]="生存期";mykeys[7]="全过程";mykeys[8]="质量目标";mykeys[9]="损失";mykeys[10]="技术评审";mykeys[11]="照原样";mykeys[12]="配置管理";mykeys[13]="配置管理";mykeys[14]="登入";mykeys[15]="完整性";mykeys[16]="项目（课题）";mykeys[17]="等同采用";mykeys[18]="工作表格";mykeys[19]="文档";mykeys[20]="软件生存期";mykeys[21]="有序";mykeys[22]="优先次序";mykeys[23]="第三方";mykeys[24]="生产";mykeys[25]="受控";
+
+var answer=new Array();
+for(var I=0;I<mykeys.length;I++) answer[I]="";
+
+var every=form.elements;
+for(var I=0;I<every.length;I++)
+{
+if(every[I].type=="text")
+{
+ if(every[I].value!==null)
+ {var item=parseInt(every[I].name.substr(0))
+  answer[item-1]+=every[I].value;
+  }
+ }
+}
+var newcount="<html><head><title>谢谢您!</title></head><body><center><h2><font color=red>您的测试结果</font></h2></center>";
+var totalscore=0;
+for(var I=0;I<answer.length;I++)
+{var re=/</g;
+var rd=/>/g;
+var re=/\\/g;
+answer[I]=answer[I].replace(re,"&#92;");
+answer[I]=answer[I].replace(re,"&lt;");
+answer[I]=answer[I].replace(rd,"&gt;");
+	if(answer[I].toUpperCase()==mykeys[I].toUpperCase())
+	{
+		var rstr="<font size=2>第"+(I+1)+"个空答案正确!</font><br>";
+		newcount+=rstr;
+		totalscore+=1/26*100;
+	}else
+	{
+		var rstr="<font size=2>第"+(I+1)+"个空答案错误!正确答案为"+mykeys[I]+"</font><br>";
+		newcount+=rstr;
+	}
+
+}
+
+newcount+="<br>您的总成绩为:";
+newcount+=Math.ceil(totalscore);
+newcount+="分";
+newwin=window.open("","","height=400,width=400,scrollbars=yes,resizable=no");
+newwin.document.write(newcount);
+}
+/*-------------选择提----------------------------------------------------------------*/
+function getresultcheck(form)
+{var mykeys=new Array();
+mykeys[0]="B";mykeys[1]="C";mykeys[2]="A";mykeys[3]="A";mykeys[4]="C";mykeys[5]="D";mykeys[6]="A";mykeys[7]="B";mykeys[8]="C";mykeys[9]="D";mykeys[10]="A";mykeys[11]="C";mykeys[12]="A";mykeys[13]="D";mykeys[14]="B";mykeys[15]="B";mykeys[16]="A";mykeys[17]="A";mykeys[18]="D";mykeys[19]="B";mykeys[20]="C";mykeys[21]="A";
+
+
+var answer=new Array();
+for(var I=0;I<mykeys.length;I++) answer[I]="";
+
+var every=form.elements;
+//var lastname="";
+for(var I=0;I<every.length;I++)
+{
+	if(every[I].type=="radio")
+	{
+		/*alert("checkbox:name->"+every[I].name+"value->"+every[I].value);*/
+		if(every[I].checked)
+		{	
+			//var item=parseInt(every[I].name.charAt(1));
+			var item=parseInt(every[I].name.substr(0));/*返回由字符串转换得到的整数*/
+			/*substr返回一个从指定位置开始的指定长度的子字符串。*/
+			answer[item-1]+=every[I].value;
+		}
+	}				
+}
+
+var newcount="<html><head><title>谢谢您!</title></head><body><center><h2><font color=red>您的测试结果</font></h2></center>";
+var totalscore=0;
+for(var I=0;I<answer.length;I++)
+{
+	if(answer[I].toUpperCase()==mykeys[I].toUpperCase())
+	{
+		var rstr="<font size=2>第"+(I+1)+"题答案正确!</font><br>";
+		newcount+=rstr;
+		totalscore+=1/22*100;//每题分数
+	}else
+	{
+		var rstr="<font size=2>第"+(I+1)+"题答案错误!正确答案为"+mykeys[I]+"</font><br>";
+		newcount+=rstr;
+	}
+
+}
+
+newcount+="<br>您的总成绩为:";
+newcount+=Math.ceil(totalscore);
+newcount+="分";
+newwin=window.open("","","height=400,width=400,scrollbars=yes,resizable=no");
+newwin.document.write(newcount);}
+/*--------------------------------判断题----------------------------------------------------*/
+
+function getresultpanduan(form)
+{var mykeys=new Array();
+
+
+
+var answer=new Array();
+for(var I=0;I<mykeys.length;I++) answer[I]="";
+
+var every=form.elements;
+//var lastname="";
+for(var I=0;I<every.length;I++)
+{
+	if(every[I].type=="checkbox")
+	{
+		/*alert("checkbox:name->"+every[I].name+"value->"+every[I].value);*/
+		if(every[I].checked)
+		{	
+			//var item=parseInt(every[I].name.charAt(1));
+			var item=parseInt(every[I].name.substr(0));/*返回由字符串转换得到的整数*/
+			/*substr返回一个从指定位置开始的指定长度的子字符串。*/
+			answer[item-1]+=every[I].value;
+		}
+	}				
+}
+
+var newcount="<html><head><title>谢谢您!</title></head><body><center><h2><font color=red>您的测试结果</font></h2></center>";
+var totalscore=0;
+for(var I=0;I<answer.length;I++)
+{
+	if(answer[I].toUpperCase()==mykeys[I].toUpperCase())
+	{
+		var rstr="<font size=2>第"+(I+1)+"题 您答对了!</font><br>";
+		newcount+=rstr;
+		totalscore+=1/0*100;//每题分数
+	}else
+	{
+		var rstr="<font size=2>第"+(I+1)+"题 您答错了!</font><br>";
+		newcount+=rstr;
+	}
+
+}
+
+newcount+="<br>您的总成绩为:";
+newcount+=Math.ceil(totalscore);
+newcount+="分";
+newwin=window.open("","","height=400,width=400,scrollbars=yes,resizable=no");
+newwin.document.write(newcount);
+}
+/*--------------------------------简答题----------------------------------------------------*/
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+</SCRIPT>
+<style type="text/css"><!--
+-->
+</style>
+<link rel="stylesheet" href="../../../../../css/text.css" type="text/css">
+</HEAD>
+<BODY text=black bgColor=#FFFFFF topMargin=10 marginheight="10">
+<DIV class=p2 align=center></DIV>
+<FORM >
+  <P><span class="section">一、填空题</span> &nbsp;<BR>
+    <span class="text">1、软件的质量保证活动是确保软件产品在软件生存期 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=1>
+    的质量的活动。<BR>
+    2、软件质量保证人员必须熟练掌握正确定义用户 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=2>
+    的技术，也包括熟练使用和指导他人使用定义软件 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=3>
+    的支持工具。<BR>
+    3、最大的无效劳动就是因需求规格说明有误、设计有误而造成的&nbsp; 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=4>
+    。<BR>
+    4、软件开发小组为将要开展的工作选择软件过程，SQA小组则要&nbsp; 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=5>
+    过程说明，以保证该过程与组织政策、内部软件标准、外界所制定的 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=6>
+    以及软件项目计划的其他部分相符。<BR>
+    5、软件质量保证的实施需要从纵向和横向两个方面展开。一方面要求所有与 软件&nbsp;&nbsp; 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=7>
+    有关的人员都要参加，另一方面要求对产品形成的 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=8>
+    进行质量管理。<BR>
+    6、为了开发高质量的软件，从计划阶段开始，不但需要明确软件的功能，还要明确软件应达到什么样的质量标准，即制定软件的 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=9>
+    。<BR>
+    7、检验不能直接提高产品的附加价值，但不检验，就可能产生 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=10>
+    。<BR>
+    8、必须在开发的每个阶段，特别是设计阶段结束时都要进行严格的 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=11>
+    ，尽量不让错误传播到下一个阶段。<BR>
+    9、所谓兼容性，是指当软件功能扩充了之后，其已有功能还能 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=12>
+    使用的特性。<BR>
+    10、协调软件开发使得混乱减到最小的技术叫做 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=13>
+    。<BR>
+    11、软件 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=14>
+    活动的目标就是为了标识变更，控制变更，确保变更正确地实现，向其他有关的人报告变更。<BR>
+    12、版本管理的操作是将开发组的档案集中存放在服务器上，经系统管理员授权给各个用户。用户通过 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=15>
+    和检出方式访问服务器上的文件。<BR>
+    13、软件的 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=16 size=16 name=16>
+    ，是指开发后期的软件产品能够正确地反映用户所提出的对软件的要求。<BR>
+    14、软件工程标准可分为五个级别，即国际标准、国家标准、行业标准、企业（机构）标准及 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=17 size=17 name=17>
+    标准。<BR>
+    15、中国制定和推行标准化工作的总原则是向国际标准靠拢，对于能够在中国适用的标准一律按 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=18>
+    的方法。<BR>
+    16、软件文档从形式上可分为两类：一类是开发过程中填写的各种图表，可称之为&nbsp;&nbsp; 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=19>
+    ；另一类是应编制的技术资料或技术管理资料，可称之为 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=20>
+    或文件。<BR>
+    17、软件过程是软件生存期中的一系列相关的过程，又称为&nbsp; 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=21>
+    过程。<BR>
+    18、软件机构成熟度等级定义了一个 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=22>
+    的尺度，用来测量一个机构的软件过程成熟度和评价其软件过程能力。这些等级还能帮助软件机构对其本身的改进工作排出 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=23>
+    。<BR>
+    19、质量认证是由可以充分信任的<INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 
+    0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: 
+    #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: 
+    black" maxLength=15 size=15 name=24>
+    证实某一经鉴定的产品或服务符合特定标准或其他技术规范的活动。<BR>
+    20、产品质量并非在产品检验中得到，而是形成于 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=25>
+    的全过程。<BR>
+    21、为把握产品的质量，必须使影响产品质量的全部因素在生产全过程中始终处于&nbsp;&nbsp; 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=26>
+    状态。</span></P>
+  <P> 
+    <INPUT id=A type=reset value=清�空>
+    <INPUT id=A onclick=getKeyWord(this.form) type=button value=提�交>
+  </P>
+  <P><span class="section">二、单选填空题</span><BR>
+    <BR>
+    &nbsp;<span class="text">1、利用已有软件成果是提高软件质量和软件生产率的重要途径。为此，在开发过程中应随时考虑所生产软件的_____。<BR>
+    <INPUT id=c1 type=radio value=A name=1>
+    A. 灵活性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=1>
+    B. 复用性<BR>
+    <INPUT id=c1 type=radio value=C name=1>
+    C. 继承性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=1>
+    D. 复合性<BR>
+    <BR>
+    &nbsp;2、要想生产出高质量的软件产品必须有高水平的_____。即在软件开发环境或软件工具箱的支持下，运用先进的开发技术、工具和管理方法开发软件的能力。<BR>
+    <INPUT id=c1 type=radio value=A name=2>
+    A. 软件开发组织&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=2>
+    B. 软件支撑环境<BR>
+    <INPUT id=c1 type=radio value=C name=2>
+    C. 软件工程能力&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=2>
+    D. 软件管理人员<BR>
+    <BR>
+    &nbsp;3、软件质量保证任务的参与者有两种人：软件开发人员和_____人员。<BR>
+    <INPUT id=c1 type=radio value=A name=3>
+    A. 质量保证&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=3>
+    B. 项目管理<BR>
+    <INPUT id=c1 type=radio value=C name=3>
+    C. 测试&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=3>
+    D. 系统分析<BR>
+    <BR>
+    &nbsp;4、当开发阶段出现异常时，要从质量特性方面进行_____，看是否会给后续阶段带来影响，并对判断其好坏程度。<BR>
+    <INPUT id=c1 type=radio value=A name=4>
+    A. 检验&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=4>
+    B. 验证<BR>
+    <INPUT id=c1 type=radio value=C name=4>
+    C. 确认&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=4>
+    D. 量度<BR>
+    <BR>
+    &nbsp;5、必须在各开发阶段对影响产品质量的因素进行切实的管理，认真检查实施落实情况，只有这样才能使产品达到_____。<BR>
+    <INPUT id=c1 type=radio value=A name=5>
+    A. 软件需求&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=5>
+    B. 设计规格<BR>
+    <INPUT id=c1 type=radio value=C name=5>
+    C. 用户要求&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=5>
+    D. 程序规格<BR>
+    <BR>
+    &nbsp;6、软件的质量评价标准分为三级：质量需求评价准则、质量设计评价准则、质量____准则。<BR>
+    <INPUT id=c1 type=radio value=A name=6>
+    A. 估算&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=6>
+    B. 评价<BR>
+    <INPUT id=c1 type=radio value=C name=6>
+    C. 评审&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=6>
+    D. 度量<BR>
+    <BR>
+    &nbsp;7、_____评审的评审对象是在需求分析阶段产生的软件需求规格说明、数据要求规格说明，在软件概要设计阶段产生的软件概要设计说明书等。<BR>
+    <INPUT id=c1 type=radio value=A name=7>
+    A. 设计质量&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=7>
+    B. 程序质量<BR>
+    <INPUT id=c1 type=radio value=C name=7>
+    C. 文档质量&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=7>
+    D. 代码质量<BR>
+    <BR>
+    &nbsp;8、_____评审是着眼于软件本身的结构、与运行环境的接口、变更带来的影响而进行的评审活动。<BR>
+    <INPUT id=c1 type=radio value=A name=8>
+    A. 设计质量&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=8>
+    B. 程序质量<BR>
+    <INPUT id=c1 type=radio value=C name=8>
+    C. 文档质量&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=8>
+    D. 代码质量<BR>
+    <BR>
+    &nbsp;9、在软件的各种结构中，____是用户唯一能见到的结构。<BR>
+    <INPUT id=c1 type=radio value=A name=9>
+    A. 程序结构<BR>
+    <INPUT id=c1 type=radio value=B name=9>
+    B. 数据结构<BR>
+    <INPUT id=c1 type=radio value=C name=9>
+    C. 功能结构&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=9>
+    D. 物理结构<BR>
+    <BR>
+    &nbsp;10、模块层次应当根据功能层次来设计，模块层次____与功能层次相同。<BR>
+    <INPUT id=c1 type=radio value=A name=10>
+    A. 一定&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=10>
+    B. 应当<BR>
+    <INPUT id=c1 type=radio value=C name=10>
+    C. 不&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=10>
+    D. 不一定<BR>
+    <BR>
+    &nbsp;11、由正式的技术评审而得到的软件配置项协议和软件配置的正式文本才能成为______。它的作用是把各阶段工作的划分更加明确化，使本来连续的工作在这些点上断开，以便于检验和肯定阶段成果。<BR>
+    <INPUT id=c1 type=radio value=A name=11>
+    A. 基线&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=11>
+    B. 死线<BR>
+    <INPUT id=c1 type=radio value=C name=11>
+    C. 评审对象&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=11>
+    D. 配置项<BR>
+    <BR>
+    &nbsp;12、软件配置管理的5个任务是____、版本管理、变更控制、配置审核和配置报告。<BR>
+    <INPUT id=c1 type=radio value=A name=12>
+    A. 配置项&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=12>
+    B. 配置对象<BR>
+    <INPUT id=c1 type=radio value=C name=12>
+    C. 配置标识&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=12>
+    D. 配置库管理<BR>
+    <BR>
+    &nbsp;13、软件工程过程中某一阶段的变更，均要引起______的变更，这种变更必须严格加以控制和管理。<BR>
+    <INPUT id=c1 type=radio value=A name=13>
+    A. 配置项&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=13>
+    B. 配置对象<BR>
+    <INPUT id=c1 type=radio value=C name=13>
+    C. 配置标识&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=13>
+    D. 配置库管理<BR>
+    <BR>
+    &nbsp;14、软件文档可作为开发人员在一定阶段的工作成果和_____。<BR>
+    <INPUT id=c1 type=radio value=A name=14>
+    A. 验收标准&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=14>
+    B、结束标志<BR>
+    <INPUT id=c1 type=radio value=C name=14>
+    C. 检查点&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=14>
+    D. 协调工具<BR>
+    <BR>
+    &nbsp;15、任何一个文档都应当是完整的、独立的，它应_____。<BR>
+    <INPUT id=c1 type=radio value=A name=15>
+    A. 与其他文档配合使用&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=15>
+    B. 自成体系<BR>
+    <INPUT id=c1 type=radio value=C name=15>
+    C. 可参见其他文档&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=15>
+    D. 尽可能详尽<BR>
+    <BR>
+    &nbsp;16、通过对过程进行形式化或非形式化的建模，人们可以对过程活动和过程之间的&nbsp;____进行分析、比较和预测，以评估和改善过程的有效性。<BR>
+    <INPUT id=c1 type=radio value=A name=16>
+    A. 接口&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=16>
+    B. 相互关系<BR>
+    <INPUT id=c1 type=radio value=C name=16>
+    C. 相互影响&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=16>
+    D. 连接<BR>
+    <BR>
+    &nbsp;17、为有效地实施软件过程，需要针对特定应用论域的软件工程，____选定的软件过程模型和标准，以形成该工程的模型和标准，形成该工程的各个软件过程和活动。<BR>
+    <INPUT id=c1 type=radio value=A name=17>
+    A. 剪裁&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=17>
+    B. 继承<BR>
+    <INPUT id=c1 type=radio value=C name=17>
+    C. 拼接&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=17>
+    D. 组装<BR>
+    <BR>
+    &nbsp;18、在从非工程化的软件开发方式转变为工程化的开发方式时，须按照软件工程的系统方法进行软件的工程活动和管理活动，不断完善各个软件过程，不断提高软件______能力。<BR>
+    <INPUT id=c1 type=radio value=A name=18>
+    A. 过程&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=18>
+    B. 开发<BR>
+    <INPUT id=c1 type=radio value=C name=18>
+    C. 维护&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=18>
+    D. 管理<BR>
+    <BR>
+    &nbsp;19、对于不同的软件开发机构，组织人员在完成软件项目时所依据的管理策略有很大差别，因而软件项目所遵循的_____软件过程也有很大差别。<BR>
+    <INPUT id=c1 type=radio value=A name=19>
+    A. 软件组织方法&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=19>
+    B. 软件体制<BR>
+    <INPUT id=c1 type=radio value=C name=19>
+    C. 软件方法&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=19>
+    D. 软件过程<BR>
+    <BR>
+    &nbsp;20、CMM提供了一个______，将软件过程改进的进化步骤组织成5个成熟度等级，为软件过程改进奠定了循序渐进的基础，<BR>
+    <INPUT id=c1 type=radio value=A name=20>
+    A. 层次&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=20>
+    B. 框架<BR>
+    <INPUT id=c1 type=radio value=C name=20>
+    C. 演化模型&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=20>
+    D. 增量模型<BR>
+    <BR>
+    &nbsp;21、为便于理解，将ISO 9001质量保证标准的20个______分为5类，分别隶属于机构、管理者、工程、支持和顾客的类别下。<BR>
+    <INPUT id=c1 type=radio value=A name=21>
+    A. 质量特性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=21>
+    B. 质量度量准则<BR>
+    <INPUT id=c1 type=radio value=C name=21>
+    C. 质量体系要素&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=21>
+    D. 质量评价准则<BR>
+    <BR>
+    &nbsp;22、ISO 9000-3是使ISO 9001适用于软件开发、供应及维护的指南。<BR>
+    <INPUT id=c1 type=radio value=A name=22>
+    A. 指南&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=22>
+    B. 标准<BR>
+    <INPUT id=c1 type=radio value=C name=22>
+    C. 准则&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=22>
+    D. 规定</span></P>
+  <P> 
+    <INPUT id=A type=reset value=重�置>
+    <INPUT id=A onclick=getresultcheck(this.form) type=button value=提�交>
+    <BR>
+    &nbsp;&nbsp;<BR>
+    <span class="section">三、选择填空题</span></P>
+  <P class="text">&nbsp;1、从供选择的答案中选出与下列有关软件质量保证的叙述相对应的正确答案，将其编号填入到相应的括弧（&nbsp;&nbsp; 
+    ）内。<BR>
+    �质量保证是为了保证产品和服务充分满足消费者要求的质量而进行的有计划、有组织的活动。质量保证是面向(&nbsp; A&nbsp; )的活动，是为了使产品实现(&nbsp; 
+    B&nbsp; )的功能。<BR>
+    �软件质量保证活动即为了确定、达到和(&nbsp; C&nbsp; )需要的软件质量而进行的所有有计划、有系统的管理活动。为了提高软件的(&nbsp; 
+    D&nbsp; )和(&nbsp; E&nbsp; )，软件质量保证的主要任务主要有：正确定义用户要求；力争不重复劳动；掌握开发新软件的软件工程学方法和工具；组织外部力量协作开发；排除(&nbsp; 
+    F&nbsp; )；发挥每个开发者的能力；提高软件开发的(&nbsp; G&nbsp; )；提高(&nbsp; H&nbsp; )，即将评价、评审工作在工程实施之前就列入整个开发工程的工程计划之中。<BR>
+    供选择的答案：<BR>
+    A, B.�① 系统分析员&nbsp; &nbsp;② 开发者&nbsp;&nbsp; &nbsp;③ 消费者&nbsp; &nbsp;&nbsp;&nbsp; 
+    &nbsp;④ 软件需求<BR>
+    ��� ⑤ 用户要求<BR>
+    C～E.�① 测试&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;② 维护&nbsp;&nbsp; &nbsp;&nbsp;③ 质量&nbsp; 
+    &nbsp;&nbsp;&nbsp; &nbsp;④ 价格<BR>
+    ��� ⑤ 生产率&nbsp; &nbsp;&nbsp;⑥ 效率<BR>
+    F～H.�① 冗余&nbsp;&nbsp; &nbsp;&nbsp;② 无效劳动&nbsp;&nbsp; &nbsp;③ 开发方法 &nbsp;④ 
+    工程过程能力<BR>
+    ��� ⑤ 测试能力&nbsp;&nbsp; &nbsp;⑥ 计划和管理质量&nbsp; &nbsp;④ 测试和维护的效率</P>
+  <P> 
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    <BR>
+    <BR>
+    <span class="text">2、从供选择的答案中选出与下列有关软件质量设计的叙述相对应的正确答案，将其编号填入到相应的括弧?nbsp;&nbsp; 
+    ）内。<BR>
+    &nbsp;�为了实现规定的质量特性，需要把这些质量特性转换为软件的(&nbsp; A&nbsp; )的特性。软件质量需求中的“性能”，可以转换成(&nbsp; 
+    A&nbsp; )中的(&nbsp; B&nbsp; )，即每一个程序模块和(&nbsp; C&nbsp; )各自应具有的性能特性。这些性能特性的累积就形成设计规格说明中的性能特性。这种情况也适用于(&nbsp; 
+    D&nbsp; )。在质量特性中，有一些特性与功能及用户界面有关，必须把这些功能或用户界面数据正确映射到(&nbsp; A&nbsp; )中来。这时，必须对软件的(&nbsp; 
+    E&nbsp; )进行评价。此外，决定软件“适用范围”的质量特性，取决于(&nbsp; A&nbsp; )中各种(&nbsp; F&nbsp; )部分是否实现(&nbsp; 
+    G&nbsp; )。<BR>
+    供选择的答案：<BR>
+    A, B, C, E, F.�① 接口&nbsp; &nbsp;② 内部结构&nbsp; &nbsp;③ 结构特性&nbsp;&nbsp;&nbsp; 
+    &nbsp;④ 构成元素<BR>
+    ��������⑤ 结构单元 &nbsp;⑥ 性能要求&nbsp;&nbsp;⑦ 物理数据&nbsp; &nbsp;⑧ 逻辑数据<BR>
+    D, G.����� ① 模块化&nbsp;&nbsp;② 可靠性&nbsp;&nbsp; &nbsp;③ 适应性 &nbsp;&nbsp;&nbsp; 
+    &nbsp;④ 性能<BR>
+    ��������⑤ 结构化 </span></P>
+  <P> 
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    <BR>
+    <BR>
+    &nbsp;<span class="text">3、从供选择的答案中选出与下列有关软件质量检验的叙述相对应的正确答案，将其编号填入到相应的括弧（&nbsp;&nbsp; 
+    ）内。<BR>
+    &nbsp;�软件质量必须在设计和实现过程中加以保证。为了确保每个开发过程的质量，防止把差错传播到下一个过程，必须进行(&nbsp; A&nbsp; 
+    )。(&nbsp; A&nbsp; )是质量保证活动的一个重要部分，其目的有两个：其一是切实搞好开发阶段的管理；其二是(&nbsp; B&nbsp; 
+    )软件差错给用户造成损失。(&nbsp; A&nbsp; )的实施有两种方式：(&nbsp; C&nbsp; )和(&nbsp; D&nbsp; )。(&nbsp; 
+    C&nbsp; )即白盒测试和黑盒测试。(&nbsp; A&nbsp; )的类型有(&nbsp; E&nbsp; )、(&nbsp; F&nbsp; 
+    )、(&nbsp; G&nbsp; )和(&nbsp; H&nbsp; )。<BR>
+    供选择的答案：<BR>
+    A.�� ① 质量保证&nbsp;&nbsp;② 差错检测&nbsp;&nbsp; &nbsp;③ 质量检验&nbsp; &nbsp;④ 质量管理<BR>
+    B.�� ① 预先防止&nbsp;&nbsp;&nbsp; &nbsp;② 完全避免&nbsp;&nbsp; &nbsp;③ 减少&nbsp; &nbsp;&nbsp;④ 
+    消除<BR>
+    C, D.�① 鉴定&nbsp;&nbsp;&nbsp;② 测试&nbsp;&nbsp;&nbsp;③ 实际运行管理&nbsp;<BR>
+    ��� ④ 实际运行检验<BR>
+    E～H.�① 供货检验&nbsp;&nbsp; &nbsp;&nbsp;② 集中测试&nbsp;&nbsp; &nbsp;③ 中间检验�M阶段评审<BR>
+    ��� ④ 产品检验&nbsp; &nbsp;&nbsp;⑤ 用户检测&nbsp; &nbsp;⑥ 程序检测<BR>
+    ��� ⑦ 验收检验</span></P>
+  <P> 
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+  </P>
+  <P class="text">&nbsp;4、从供选择的答案中选出与下列有关正式技术评审的叙述相对应的正确答案，将其编号填入到相应的括弧（&nbsp;&nbsp; 
+    ）内。<BR>
+    �(&nbsp; A&nbsp; )是以提高软件质量为目的的技术活动。把(&nbsp; B&nbsp; )定义为“用户的满意程度”。为使得用户满意，有两个必要条件?BR&gt;&nbsp;(1)设计的规格说明要符合用户的要求；<BR>
+    &nbsp;�(2)程序要按照设计规格说明所规定的情况正确执行。<BR>
+    &nbsp;�把上述条件(1)称为(&nbsp; C&nbsp; )，把条件(2)称为(&nbsp; D&nbsp; )。与上述观点相对应，软件的规格说明可以分为(&nbsp; 
+    E&nbsp; )和(&nbsp; F&nbsp; )。(&nbsp; E&nbsp; )是从用户角度来看的，包括硬件／软件系统设计(在(&nbsp; 
+    G&nbsp; )阶段进行)、功能设计(在需求分析阶段与概要设计阶段进行)，而(&nbsp; F&nbsp; )是为了实现(&nbsp; E&nbsp; 
+    )的更详细的规格。<BR>
+    &nbsp;对(&nbsp; E&nbsp; )进行(&nbsp; A&nbsp; )时，(&nbsp; A&nbsp; )对象是在需求分析阶段产生的软件需求规格说明、数据要求规格说明，在软件概要设计阶段产生的软件概要设计规格说明等。<BR>
+    供选择的答案：<BR>
+    A,B.�① 技术创新&nbsp; &nbsp;② 管理评审 &nbsp;③ 技术评审&nbsp; &nbsp;④ 过程改进<BR>
+    ���⑤ “质量”&nbsp;&nbsp;⑥ “数量”<BR>
+    C,D.�① 程序流程&nbsp; &nbsp;② 程序质量 &nbsp;③ 设计要求&nbsp;&nbsp;&nbsp; &nbsp;④ 设计质量<BR>
+    E～G. ① 内部规格说明&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;② 外部规格说明<BR>
+    ���③ 概要设计&nbsp; &nbsp;④ 详细设计&nbsp;&nbsp;⑤ 系统分析&nbsp;&nbsp;⑥ 需求分析 </P>
+  <P> 
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+  </P>
+  <P class="text">&nbsp;5、从供选择的答案中选出与下列有关正式技术评审的叙述相对应的正确答案，将其编号填入到相应的括弧（&nbsp;&nbsp; 
+    ）内。<BR>
+    &nbsp;�评审软件是否有可扩充性，需要考虑可能的扩充、(&nbsp; A&nbsp; )和(&nbsp; B&nbsp; )。而软件的(&nbsp; 
+    C&nbsp; )是指当软件功能扩充了之后，其已有功能还能照原样使用的特性。注意(&nbsp; C&nbsp; )与(&nbsp; D&nbsp; 
+    )有区别。(&nbsp; D&nbsp; )是指软件运行环境改变时，可不改变软件的规格而能照原样工作的特性。(&nbsp; D&nbsp; )是与(&nbsp; 
+    C&nbsp; )相反的概念。<BR>
+    &nbsp;在评审(&nbsp; C&nbsp; )时，要考虑软件结构上的(&nbsp; E&nbsp; )，即如果一个软件由多个模块构成，在改变运行环境时，仅修改或更换因环境不同而受影响的那些(&nbsp; 
+    F&nbsp; )就可达到(&nbsp; C&nbsp; )。<BR>
+    供选择的答案：<BR>
+    A,B.① 结构化&nbsp;&nbsp;② 模块化&nbsp;&nbsp;③ 模块耦合性&nbsp;④ 模块通用性<BR>
+    C,D.① 可移植性&nbsp;&nbsp;② 兼容性&nbsp;&nbsp;③ 可修改性&nbsp;&nbsp;④ 互操作性<BR>
+    E.�① 简明性&nbsp;&nbsp;② 清晰性&nbsp;&nbsp;③ 稳定性&nbsp;&nbsp;④ 结构性<BR>
+    F.�① 程序&nbsp;&nbsp;&nbsp;② 模块&nbsp;&nbsp;&nbsp;③ 语句&nbsp;&nbsp;&nbsp;④ 指令</P>
+  <P> 
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+  </P>
+  <P>&nbsp;<span class="text">6、从供选择的答案中选出与下列有关正式技术评审的叙述相对应的正确答案，将其编号填入到相应的括弧（&nbsp;&nbsp; 
+    ）内。<BR>
+    &nbsp;�为了开发高质量的软件，从计划阶段开始，不但要明确软件的功能，还要明确软件应当达到什么样的质量标准，即指定软件的质量指标。软件质量度量和保证的条件通常有以下几项：(&nbsp; 
+    A&nbsp; )，即必须制定能够适应用户要求、软件类型和规模的质量标准；(&nbsp; B&nbsp; ),即人人都容易掌握；(&nbsp; C&nbsp; 
+    )，即对于同一软件评价的结果必须一致；；(&nbsp; D&nbsp; )，即各阶段确立质量目标并落实；(&nbsp; E&nbsp; )，即从不同角度加以评价；(&nbsp; 
+    F&nbsp; )。软件的质量评价标准分为3级：(&nbsp; G&nbsp; )、(&nbsp; H&nbsp; )和(&nbsp; I&nbsp; 
+    )。(&nbsp; G&nbsp; )的着眼点是“是否满足用户的要求”；(&nbsp; H&nbsp; )的着眼点是“开发者在设计实现时是否按照软件需求保证了质量”；(&nbsp; 
+    I&nbsp; )是为定量度量软件质量而规定的一些检查项目。它们一级比一级(&nbsp; J&nbsp; )，一级比一级易于(&nbsp; K&nbsp; 
+    )。<BR>
+    供选择的答案：<BR>
+    A～F.�① 可靠性&nbsp;&nbsp;&nbsp; &nbsp;② 易学习性&nbsp;&nbsp; &nbsp;③ 适应性&nbsp; &nbsp;&nbsp;④ 
+    针对性<BR>
+    ��� ⑤ 客观性&nbsp;&nbsp;⑥ 经济性&nbsp;&nbsp;⑦ 主观性&nbsp;&nbsp;⑧ 多样性<BR>
+    G～I.�① 子质量特性 &nbsp;&nbsp;② 质量度量准则&nbsp; &nbsp;③ 质量特性<BR>
+    ��� ④ 质量维护准则&nbsp;&nbsp;&nbsp; &nbsp;⑤ 质量管理准则<BR>
+    J,K.� ① 抽象&nbsp;&nbsp;&nbsp;② 具体&nbsp;&nbsp;&nbsp;③ 检验&nbsp;&nbsp;&nbsp;④ 
+    定量评价</span><BR>
+    <BR>
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+  </P>
+  <P class="text">7、从供选择的答案中选出与下列有关正式技术评审的叙述相对应的正确答案，将其编号填入到相应的括弧（&nbsp;&nbsp; 
+    ）内。<BR>
+    �从技术上改进软件的开发过程，提高软件产品的质量无非是两个方面：一是提高(&nbsp; A&nbsp; )，二是改进(&nbsp; B&nbsp; 
+    )。在发现错误和排除错误方面更重要也是更困难的是(&nbsp; C&nbsp; )。由于软件测试技术方面没有多少新的突破，人们只能用加强阶段评审或是检查作为辅助手段。这是一个由同行人员小组(&nbsp; 
+    D&nbsp; )所开发的阶段产品的验证方法。至于改进(&nbsp; B&nbsp; )的新技术，是采用面向对象的开发技术或是建立(&nbsp; E&nbsp; 
+    )。一个诱人的说法是采用(&nbsp; F&nbsp; )技术，其基本思想在于(&nbsp; G&nbsp; )开发过程，使得差错或缺陷不可能有机可乘混入开发过程。<BR>
+    供选择的答案：<BR>
+    A,B.�① 测试效率&nbsp;&nbsp;② 开发速度&nbsp;&nbsp;&nbsp; &nbsp;③ 开发过程&nbsp; &nbsp;④ 
+    维护过程<BR>
+    ���⑤ 测试方法&nbsp;&nbsp;⑥ 开发工具<BR>
+    C.��① 排除错误&nbsp;&nbsp;② 发现错误<BR>
+    D.��① 机器检查&nbsp;&nbsp;② 人工检查&nbsp;&nbsp;&nbsp; &nbsp;③ 集成测试&nbsp; &nbsp;④ 
+    单元测试<BR>
+    E,F.�① 智能&nbsp;&nbsp;&nbsp;② 软件原型&nbsp;&nbsp;&nbsp; &nbsp;③ “净室”软件开发 &nbsp;<BR>
+    ���④ 基于构件的复用<BR>
+    G.��① 简化&nbsp;&nbsp;&nbsp;② 结构化&nbsp;&nbsp;&nbsp; &nbsp;③ 净化&nbsp; &nbsp;&nbsp;④ 
+    强化</P>
+  <P> 
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+  </P>
+  <P class="text">&nbsp;8、从供选择的答案中选出与下列有关软件配置管理的叙述相对应的正确答案，将其编号填入到相应的括弧（&nbsp;&nbsp; 
+    ）内。<BR>
+    &nbsp;�按照软件配置管理的原始指导思想，受控制的对象应是(&nbsp; A&nbsp; )。(&nbsp; B&nbsp; )将软件配置管理定义成一门管理学科；(&nbsp; 
+    C&nbsp; )将软件配置管理定义成一种标识、组织和控制修改的技术；(&nbsp; D&nbsp; )指出配置管理过程是在整个软件生存期中实施管理和技术规程的过程。软件配置状态报告见图：</P>
+  <P><IMG alt="" hspace=0 src="image/04.gif" align=baseline border=0 width="363" height="120"></P>
+  <P class="text">供选择的答案：<BR>
+    A.� ① 软件元素&nbsp;&nbsp;② 软件项目&nbsp;&nbsp;③ 软件配置项&nbsp;④ 软件过程<BR>
+    B～D.①《GB�MT 11457-1995 软件工程术语》<BR>
+    �� ②《ISO�MIEC 12207-1995 信息技术�D软件生存期过程》<BR>
+    �� ③《ISO 9000-3：1997 质量管理和质量保证标准&nbsp; 第三部分：ISO 9001：1994在计算机软件开发、供应和维护中的使用指南》<BR>
+    �� ④ 巴比奇(W.Babich)<BR>
+    E～H.① 配置审核&nbsp;&nbsp;② 配置标识&nbsp;&nbsp;③ 配置控制&nbsp;&nbsp;④ 配置状态报告<BR>
+    �� ⑤ 版本控制&nbsp;&nbsp;⑥ 基线与变更控制</P>
+  <P> 
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    <BR>
+    <BR>
+    <span class="text">9、从供选择的答案中选出与下列有关软件配置管理的叙述相对应的正确答案，将其编号填入到相应的括弧（&nbsp;&nbsp; 
+    ）内。<BR>
+    &nbsp;软件配置项是软件配置管理的对象，指的是软件工程过程中所产生的(&nbsp; A&nbsp; )。不仅如此，而且在不同的时期，出于不同的要求，可进行各种组合，如针对不同的硬件环境和(&nbsp; 
+    B&nbsp; )的组合，这就是软件配置的概念。实施软件配置管理要做的事情有：制定(&nbsp; C&nbsp; )；实施(&nbsp; D&nbsp; 
+    )；实施版本管理和发行管理。制定适当的命名规则是(&nbsp; E&nbsp; )的重要工作，命名要求：(&nbsp; F&nbsp; )，目的在于避免出现重名，以免造成混乱；(&nbsp; 
+    G&nbsp; )，以反映命名对象之间的关系。<BR>
+    供选择的答案：<BR>
+    A,B.�① 接口&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;② 软件环境&nbsp;&nbsp; &nbsp;③ 信息项&nbsp; 
+    &nbsp;&nbsp;④ “版本”<BR>
+    C～E. ① 配置标识 &nbsp;② 配置管理&nbsp; &nbsp;③ 配置管理计划<BR>
+    ���④ 变更管理&nbsp;&nbsp;⑤ 版本变化&nbsp;&nbsp;⑥ 配置审核<BR>
+    F,G.�① 多态性&nbsp;&nbsp;② 唯一性&nbsp;&nbsp;③ 独立性&nbsp;&nbsp;④ 可追溯性</span></P>
+  <P> 
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+  </P>
+  <P>&nbsp;<span class="text">10、从供选择的答案中选出与下列有关软件配置管理的叙述相对应的正确答案，将其编号填入到相应的括弧（&nbsp;&nbsp; 
+    ）内。<BR>
+    &nbsp;�在变更管理中，“检出”和“登录”处理实现了两个重要的变更控制要素，即(&nbsp; A&nbsp; )和(&nbsp; B&nbsp; 
+    )。(&nbsp; A&nbsp; )控制和管理各个软件技术人员存取或修改一个特定软件配置对象的权限；(&nbsp; B&nbsp; )可用来确保由不同的人所执行的并发的变更不会产生混乱。请选择适合的答案完成右图所示的存取和控制图。<BR>
+    </span><BR>
+    <IMG alt="" hspace=0 src="image/06.gif" align=baseline border=0 width="296" height="202"></P>
+  <P><BR>
+    <span class="text">供选择的答案：<BR>
+    A,B.�① 异步控制&nbsp;&nbsp;② 同步控制&nbsp;&nbsp;③ 存取控制&nbsp;&nbsp;④ 基线控制<BR>
+    C,D.�① 登入&nbsp;&nbsp;&nbsp;② 检出&nbsp;&nbsp;&nbsp;③ 管理&nbsp;&nbsp;&nbsp;④ 填写变更请求<BR>
+    E.��① 审查人员&nbsp;&nbsp;② 配置人员&nbsp;&nbsp;③ 质量保证人员&nbsp;&nbsp;④ 软件工程人员</span></P>
+  <P> 
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+  </P>
+  <P class="text">&nbsp;11、从供选择的答案中选出与下列有关软件工程标准的叙述相对应的正确答案，将其编号填入到相应的括弧（&nbsp;&nbsp; 
+    ）内。<BR>
+    &nbsp;软件工程标准的类型是多方面的。它可能包括(&nbsp; A&nbsp; )标准，如方法、技术、度量等；(&nbsp; B&nbsp; )标准，如需求、设计、部件、描述、计划、报告等；(&nbsp; 
+    C&nbsp; )标准，如职别、道德准则、认证、特许、课程等；(&nbsp; D&nbsp; )标准，如术语、表示法、语言等。根据中国国家标准GB�MT 
+    15538-1995(软件工程标准分类法)规定，软件工程标准可用一张(&nbsp; E&nbsp; )来表示。<BR>
+    供选择的答案：<BR>
+    A～D.① 专业&nbsp;&nbsp;&nbsp; ② 产品&nbsp;&nbsp; ③ 记法&nbsp; ④ 过程&nbsp;⑤ 管理<BR>
+    E.� ① 矩阵图&nbsp;&nbsp; ② 一维的表格&nbsp;&nbsp;③ 二维的表格&nbsp; ④ 帕列特图</P>
+  <P> 
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+  </P>
+  <P class="text">&nbsp;12、从供选择的答案中选出与下列有关软件工程标准的叙述相对应的正确答案，将其编号填入到相应的括弧（&nbsp;&nbsp; 
+    ）内。<BR>
+    &nbsp;�根据软件工程标准制定的机构和标准的适用范围有所不同，它可分为五个级别，即(&nbsp; A&nbsp; )、(&nbsp; B&nbsp; 
+    )、(&nbsp; C&nbsp; )、(&nbsp; D&nbsp; )和(&nbsp; E&nbsp; )。(&nbsp; A&nbsp; )由国际联合机构制定和公布，通常冠有ISO字样；而GB、ANSI、JIS等属于(&nbsp; 
+    B&nbsp; )；IEEE、GJB等属于(&nbsp; C&nbsp; )；(&nbsp; D&nbsp; )的实例是(&nbsp; F&nbsp; 
+    )；(&nbsp; E&nbsp; )是专用的软件工程规范，如(&nbsp; G&nbsp; )。<BR>
+    供选择的答案：<BR>
+    A～E.�① 国家标准&nbsp;&nbsp; &nbsp;② 国际标准&nbsp;&nbsp;&nbsp; &nbsp;③ 企业规范&nbsp;&nbsp;④ 
+    项目规范<BR>
+    ��� ⑤ 行业标准<BR>
+    F,G.� ① DOD-STD&nbsp;② FIPS(NBS)&nbsp;③ BS&nbsp;&nbsp;&nbsp;④ MIL-S<BR>
+    ��� ⑤ IBM的《程序设计开发指南》&nbsp;⑥ CIMS的《软件工程规范》</P>
+  <P> 
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+  </P>
+  <P class="text">&nbsp;13、下面关于标准和文档的叙述中正确的叙述为<BR>
+    &nbsp;&nbsp;&nbsp;&nbsp;（&nbsp;&nbsp;&nbsp;&nbsp; 、&nbsp;&nbsp;&nbsp;&nbsp; 
+    、&nbsp;&nbsp;&nbsp;&nbsp; 、&nbsp;&nbsp;&nbsp;&nbsp; 、&nbsp;&nbsp;&nbsp;&nbsp; 
+    ）。<BR>
+    &nbsp;① 国家标准是由政府或国家级机构制定或批准，适用于全国的标准。这些标准都是强制性的，相关产品必须严格执行标准。<BR>
+    &nbsp;② ISO9001是设计／开发、生产、安装和服务中的质量保证模式，ISO9000-3是使ISO9001适合于软件的质量保证指南。<BR>
+    &nbsp;③ 软件工程标准化可提高软件的生产率。<BR>
+    &nbsp;④ 软件质量保证体系是贯穿于整个软件生存期集成化过程体系，而不仅仅体现在最后产品的检验上。<BR>
+    &nbsp;⑤ ISO9000-3与具体的开发模式有关。它将软件全过程工序从管理角度、合同角度和工程角度划分为三大类?BR&gt;&nbsp;⑥ 软件测试计划始于需求分析阶段，完成于软件设计阶段。<BR>
+    &nbsp;⑦ 任何一个文档都应是完整的、独立的，它应自成体系。<BR>
+    &nbsp;⑧ 在新文档取代旧文档后，管理人员应删去旧文档。<BR>
+    &nbsp;⑨ 软件开发机构应保存一份完整的主文档，并允许开发人员可以保存主文档中的部分主文档，有自己的活动空间。<BR>
+    &nbsp;⑩ 软件需求分析报告是给开发人员使用的，不是给其他人员，如维护人员，用户等使用的。</P>
+  <P> 
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+  </P>
+  <P class="text">&nbsp;14、从供选择的答案中选出同下列各条叙述关系最密切的字句。<BR>
+    (1) 在软件开发中以下几方面的内容应分别在哪个文档中得到阐明：<BR>
+    �A) 软件总体结构&nbsp;&nbsp; B) 运行环境&nbsp;&nbsp; C) 出错处理设计<BR>
+    (2) 以下两个文档应分别在哪两个阶段中开发：<BR>
+    &nbsp;&nbsp;�D) 初步的用户手册&nbsp;&nbsp; E) 确认测试计划<BR>
+    供选择的答案：<BR>
+    A～C.�① 可行性研究报告&nbsp; &nbsp;&nbsp;&nbsp;② 项目开发计划&nbsp;<BR>
+    ��� ③ 软件需求规格说明&nbsp;&nbsp;&nbsp;④ 数据要求规格说明<BR>
+    ��� ⑤ 概要设计规格说明&nbsp; &nbsp;&nbsp;&nbsp;⑥ 详细设计规格说明<BR>
+    ��� ⑦ 测试计划&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;⑧ 测试报告<BR>
+    ��� ⑨ 用户手册<BR>
+    D, E： ① 可行性研究与计划&nbsp;&nbsp;&nbsp;② 需求分析<BR>
+    ��� ③ 概要设计&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;④ 详细设计<BR>
+    ��� ⑤ 测试&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;⑥ 维护</P>
+  <P> 
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+  </P>
+  <P class="text">&nbsp;15、从下列关于文档编制的叙述中选出五条正确的叙述。<BR>
+    ① 可行性研究报告应评述为了合理地达到开发目标而可能选择的各种方案，以便用户抉择。因此，编写者不必提出结论。<BR>
+    ② 操作手册的编写工作应该在软件测试阶段之前完成。<BR>
+    ③ 软件的开发单位应该建立本单位文档的标识方法，使文档的每一页都具有明确的标识。<BR>
+    ④ 为了使得文档便于修改保持一致性，各文档的内容不应有相互重复的地方。<BR>
+    ⑤ 用户手册要使用专门术语，并充分地描述该软件系统的结构及使用方法。<BR>
+    ⑥ 详细设计说明书中可以使用判定表及必要的说明来表示程序的逻辑。<BR>
+    ⑦ 概要设计说明书中可以使用IPO图来说明接口设计。<BR>
+    ⑧ 测试分析报告应把每个模块实际测试的结果，与软件需求规格说明书和概要设计说明书中规定的要求进行对照并作出结论。<BR>
+    ⑨ 软件需求规格说明书中可以对软件的操作人员和维护人员的教育水平和技术专长提出要求。<BR>
+    ⑩ 项目开发计划除去规定项目开发所需的资源、开发的进度等以外，还可以包括用户培训计划。</P>
+  <P> 
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+  </P>
+  <P class="text">&nbsp;16、从供选择的答案中选出与下列有关软件过程的叙述相对应的正确答案，将其编号填入到相应的括弧（&nbsp;&nbsp; 
+    ）内。<BR>
+    �软件过程不断改进是(&nbsp; A&nbsp; )的基本原理之一，是(&nbsp; B&nbsp; )的基本过程之一。软件过程需要不断完善，首先从(&nbsp; 
+    C&nbsp; )的软件开发方式改变为(&nbsp; D&nbsp; )的软件开发方式，按照软件过程的系统方法进行软件的工程活动和管理活动，进而不断完善软件各个软件过程，从而不断提高(&nbsp; 
+    E&nbsp; )。(&nbsp; E&nbsp; )的提高首先需要对当前的软件过程状况进行科学的(&nbsp; F&nbsp; )。<BR>
+    供选择的答案：<BR>
+    A,B.�① 软件过程&nbsp;&nbsp;② 软件工程七原理&nbsp;③ 软件生存期<BR>
+    ���④ 软件需求<BR>
+    C,D.�① 工程化&nbsp;&nbsp;② 过程化&nbsp;&nbsp;&nbsp;③ 非过程化<BR>
+    ���④ 非工程化<BR>
+    E.��① 软件工程能力&nbsp;&nbsp;② 软件过程能力&nbsp;&nbsp;③ 软件成熟度模型<BR>
+    F.��① 度量&nbsp;&nbsp;&nbsp;&nbsp;② 估算&nbsp;&nbsp;&nbsp;&nbsp;③ 评估<BR>
+    ���④ 管理&nbsp;</P>
+  <P> 
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+  </P>
+  <P class="text">&nbsp;17、从供选择的答案中选出与下列有关软件过程的叙述相对应的正确答案，将其编号填入到相应的括弧（&nbsp;&nbsp; 
+    ）内。<BR>
+    &nbsp;保证软件过程质量应包含的工作有：(&nbsp; A&nbsp; )过程标准，(&nbsp; B&nbsp; )开发过程，(&nbsp; 
+    C&nbsp; )软件过程。近年来，软件工程界的专家对过程评估和过程改进表现出浓厚的兴趣。其中有卡内基-梅隆大学SEI的(&nbsp; D&nbsp; 
+    )；ISO的(&nbsp; E&nbsp; )。(&nbsp; D&nbsp; )的主题是(&nbsp; F&nbsp; )，(&nbsp; E&nbsp; 
+    )的主题是(&nbsp; G&nbsp; )。Bell的(&nbsp; I&nbsp; )的主题是(&nbsp; H&nbsp; )。<BR>
+    供选择的答案：<BR>
+    A～C.��① 监控&nbsp;&nbsp;&nbsp;② 报告&nbsp;&nbsp;&nbsp;③ 定义&nbsp;&nbsp;&nbsp;④ 
+    执行<BR>
+    D, E, I.&nbsp;① ISO 9001, ISO 9000-3&nbsp;&nbsp;&nbsp;② CMM&nbsp;&nbsp; &nbsp;&nbsp;<BR>
+    ���� ③ ISO�MIEC TR15504 SPICE&nbsp;&nbsp;④ MIL-STD-498<BR>
+    ���� ⑤ TRILLTUM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;⑥ V-Model<BR>
+    ���� ⑦ BooTSTRAP <BR>
+    F～H.��① 软件过程改进和能力评估&nbsp;&nbsp;&nbsp; &nbsp;② 建立和维持质量体系<BR>
+    ���� ③ 软件过程能力评估&nbsp;&nbsp;&nbsp;④ 软件过程评估（基于CMM）<BR>
+    ���� ⑤ 软件过程定义&nbsp;</P>
+  <P> 
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+  </P>
+  <P class="text">&nbsp;18、从供选择的答案中选出与下列有关软件机构能力成熟度的叙述相对应的正确答案，将其编号填入到相应的括弧（&nbsp;&nbsp; 
+    ）内。<BR>
+    �人们用于开发和维护软件及其相关产品的一系列活动称为(&nbsp; A&nbsp; )；表示(开发组织或项目组)遵循其软件过程所获得的实际结果称为(&nbsp; 
+    B&nbsp; )；而描述通过遵循其软件过程能够实现预期结果的程度称为(&nbsp; C&nbsp; )；一个特定软件过程被明确和有效地定义、管理、测量和控制的程度称为(&nbsp; 
+    D&nbsp; )；表征(&nbsp; D&nbsp; )的平台称为(&nbsp; E&nbsp; )；对软件机构进化阶段的描述，随着软件机构定义、实践、测量、控制和改进其软件过程，软件机构的能力经过这些阶段逐步前进，称为(&nbsp; 
+    F&nbsp; )；互为关联的若干软件实践活动和有关基础设施的一个集合称为(&nbsp; G&nbsp; )；对(&nbsp; G&nbsp; )的实施起关键作用的方针、规程、措施、活动以及相关基础设施的建立称为(&nbsp; 
+    H&nbsp; )。<BR>
+    供选择的答案：<BR>
+    A～H.�① 关键过程域&nbsp;&nbsp;② 软件能力成熟度模型&nbsp;&nbsp;③ 关键实践<BR>
+    ��� ④ 软件过程&nbsp;&nbsp;&nbsp;⑤ 软件过程能力&nbsp;&nbsp;&nbsp;&nbsp;⑥ 软件过程成熟度<BR>
+    ��� ⑦ 软件过程性能&nbsp;&nbsp;⑧ 软件能力成熟度等级</P>
+  <P> 
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+  </P>
+  <P class="text">&nbsp;19、从供选择的答案中选出与下列有关CMM的叙述相对应的正确答案，将其编号填入到相应的括弧（&nbsp;&nbsp; 
+    ）内。<BR>
+    �CMM提供了一个框架，将软件过程改进的进化步骤组织成5个成熟度等级，为过程不断改进奠定了(&nbsp; A&nbsp; )的基础。。这5个成熟度等级定义了一个(&nbsp; 
+    B&nbsp; )的尺度，用来衡量一个软件机构的(&nbsp; C&nbsp; )和评价其软件过程能力。每一个成熟度等级为继续改进过程提供了一个(&nbsp; 
+    D&nbsp; )。每一个等级包含了一组(&nbsp; E&nbsp; )，通过实施相应的一组(&nbsp; F&nbsp; )达到这一组(&nbsp; 
+    E&nbsp; )。5个成熟度等级各有其不同的行为特征，通过3个方面来表现，即一个机构为建立或改进软件过程所进行的活动，对每个项目所进行的活动和所产生的跨越各项目的过程能力。<BR>
+    供选择的答案：<BR>
+    A,B.�① 无序&nbsp;&nbsp;&nbsp;② 有序&nbsp;&nbsp;&nbsp;③ 循环&nbsp;&nbsp;&nbsp;④ 循序渐进<BR>
+    C～F. ① 基本特征&nbsp;&nbsp;② 关键实践&nbsp;&nbsp;③ 关键过程域&nbsp;④ 台基<BR>
+    ���⑤ 过程目标&nbsp;&nbsp;⑥ 成熟度框架&nbsp;⑦ 软件过程成熟度</P>
+  <P> 
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+  </P>
+  <P class="text">&nbsp;20、从供选择的答案中选出与下列有关软件人员能力成熟度模型的叙述相对应的正确答案，将其编号填入到相应的括弧（&nbsp;&nbsp; 
+    ）内。<BR>
+    �基于软件人员能力成熟度模型的评估的依据是成熟度级别上的(&nbsp; A&nbsp; )。一个企业的成熟度级别是所有(&nbsp; A&nbsp; 
+    )被实施的(&nbsp; B&nbsp; )级别。软件企业通过评估结果可以了解(&nbsp; A&nbsp; )方面的强项和弱项，明确努力的方向。P-CMM模型并不禁止处于较低成熟度级别上的企业在需要的时候实施高一级关键过程域的内容。但是，由于每一级都是向上一级进化的基础，所以，跳越成熟度级别的进化是(&nbsp; 
+    C&nbsp; )。基于P-CMM 的改进工作和其他任何发展项目一样，第一要有(&nbsp; D&nbsp; )，第二要(&nbsp; E&nbsp; 
+    )，第三要有专人负责。卡内基�D梅隆大学SEI的P-CMM顾问委员会建议：在软件工程小组内加入人力资源管理人员，以进行基于P-CMM的改进工作。这样，带给软件机构管理层的信息就是：一个致力于改善整个软件过程能力的项目强调的是(&nbsp; 
+    F&nbsp; )，缺一不可。<BR>
+    供选择的答案：<BR>
+    A,B.�① 最高&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;② 最低&nbsp;&nbsp;&nbsp;③ 中间&nbsp;&nbsp;&nbsp;④ 
+    关键过程域<BR>
+    ���⑤ 实践&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;⑥ 软件过程改进<BR>
+    C.��① 无风险的&nbsp;&nbsp;&nbsp; &nbsp;② 有风险的&nbsp;&nbsp;③ 盲目的&nbsp;&nbsp;④ 可预测的<BR>
+    D,E.�① 方法&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;② 计划&nbsp;&nbsp;&nbsp;③ 跟踪其发展&nbsp;④ 
+    加速其进程<BR>
+    F.��① 过程、技术和人员&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;② 人力、软件和硬件<BR>
+    ���③ 目标、方法和过程&nbsp;&nbsp;&nbsp;④ 计划、测试和维护<BR>
+    ���⑤ 过程、评估和检验</P>
+  <P> 
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+  </P>
+  <P class="text">&nbsp;21、从供选择的答案中选出与下列有关软件人员能力成熟度模型的叙述相对应的正确答案，将其编号填入到相应的括弧（&nbsp;&nbsp; 
+    ）内。<BR>
+    &nbsp;�P-CMM将软件人员能力成熟度模型的本质用于软件机构的劳动力能力发展工作，它可以更容易地集成到已有的软件过程改进的项目中，指导与人员管理有关的工作。P-CMM的价值取决于(&nbsp; 
+    A&nbsp; )，通常不外乎两种应用方式：一是作为(&nbsp; B&nbsp; )，评价劳动力工作的水平；二是作为(&nbsp; C&nbsp; 
+    )，用于改进和规范劳动力工作。当P-CMM评估与软件过程评估联合进行时，用于P-CMM评估的数据应(&nbsp; D&nbsp; )。因为软件过程评估的分析对象是(&nbsp; 
+    E&nbsp; )，而人员能力评估的分析对象是(&nbsp; F&nbsp; )。作为(&nbsp; C&nbsp; )，P-CMM的作用是为(&nbsp; 
+    G&nbsp; )提供框架，帮助企业找出劳动力条例体系中的(&nbsp; H&nbsp; )。&nbsp;<BR>
+    供选择的答案：<BR>
+    A.� ① 软件质量&nbsp;&nbsp;&nbsp;② 软件改进过程&nbsp;&nbsp;③ 软件企业如何使用它<BR>
+    �� ④ 软件企业目标<BR>
+    B,C. ① 发展的指南&nbsp;&nbsp;② 评估的标准&nbsp;&nbsp;③ 测试的目标<BR>
+    �� ④ 维护的方法<BR>
+    D.� ① 集中收集&nbsp;&nbsp;&nbsp;② 分散应用&nbsp;&nbsp;&nbsp;③ 统一规划<BR>
+    �� ④ 单独收集<BR>
+    E～H.① 宏观发展&nbsp;&nbsp;&nbsp;② 微观应用 &nbsp;③ 软件项目<BR>
+    �� ④ 薄弱环节&nbsp;&nbsp; &nbsp;&nbsp;⑤ 企业的部门和部门中劳动力条例的实施情况&nbsp;&nbsp;&nbsp;⑥ 
+    关键过程域</P>
+  <P> 
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+  </P>
+  <P class="text">&nbsp;22、从供选择的答案中选出与下列有关ISO 9000的叙述相对应的正确答案，将其编号填入到相应的括弧（&nbsp;&nbsp; 
+    ）内。<BR>
+    &nbsp;所谓进行质量管理就是在自己的机构内开展下列的质量活动：确定自己的(&nbsp; A&nbsp; )和(&nbsp; B&nbsp; )；确定各个岗位的职责和权限；建立质量体系，并使其有效运行。(&nbsp; 
+    C&nbsp; )是为实施质量管理所需的组织机构、程序、过程和资源。(&nbsp; D&nbsp; )包括产品策划、管理和作业策划，以及质量计划的编制和(&nbsp; 
+    E&nbsp; )的准备工作。(&nbsp; E&nbsp; )是以追求更高的效益和效率为目标的持续性活动；(&nbsp; F&nbsp; )采取某些特定作业技术或展开某些活动以达到质量要求；(&nbsp; 
+    G&nbsp; )是供方为使用户确信能够满足质量要求所开展的有计划的和系统的活动，将所有影响质量的因素都得到有效的控制，从而证实确有减少、消除和预防出现质量缺陷的机制。<BR>
+    供选择的答案：<BR>
+    A～G.�① 质量改进&nbsp;&nbsp;② 质量保证&nbsp;&nbsp;③ 质量控制&nbsp;&nbsp;④ 质量体系<BR>
+    ��� ⑤ 质量策划&nbsp;&nbsp;⑥ 质量方针&nbsp;&nbsp;⑦ 质量维护&nbsp;&nbsp;⑧ 质量目标<BR>
+    ��� ⑨ 质量管理</P>
+  <P> 
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+  </P>
+  <P class="text">&nbsp;23、从供选择的答案中选出与下列有关ISO 9000的叙述相对应的正确答案，将其编号填入到相应的括弧（&nbsp;&nbsp; 
+    ）内。<BR>
+    &nbsp;ISO 9000族标准是指国际标准化组织中的质量管理和质量保证技术委员会(ISO�MTC176)制定的标准，现有(&nbsp; A&nbsp; 
+    )个标准，可分为5类：质量术语标准，如(&nbsp; B&nbsp; )。(&nbsp; C&nbsp; ),如ISO 9001、ISO 9002、ISO 
+    9003系列标准。(&nbsp; D&nbsp; )，如ISO 9004系列标准。(&nbsp; E&nbsp; )，如ISO 9000系列标准。(&nbsp; 
+    F&nbsp; )，如ISO 10005质量计划指南，ISO 10007技术状态管理指南等。<BR>
+    供选择的答案：<BR>
+    A. �① 10&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;② 25&nbsp;&nbsp;&nbsp;③ 20&nbsp;&nbsp;&nbsp;④ 
+    30<BR>
+    B. �① ISO 9000-3&nbsp;② ISO 9004-4&nbsp;③ ISO 9001&nbsp;&nbsp;④ ISO 8402<BR>
+    C～F.① 支持性技术标准 ② 质量管理和质量保证标准的选用和实施指南<BR>
+    �� ③ 质量保证标准&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;④ 质量管理标准<BR>
+    �� ⑤ 质量改进标准</P>
+  <P> 
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+  </P>
+  <P>&nbsp;<span class="text">24、从供选择的答案中选出与下列有关ISO 9000的叙述相对应的正确答案，将其编号填入到相应的括弧（&nbsp;&nbsp; 
+    ）内。<BR>
+    &nbsp;�质量体系是一种(&nbsp; A&nbsp; )。质量体系是通过若干(&nbsp; B&nbsp; )来实现的。(&nbsp; B&nbsp; 
+    )是将(&nbsp; C&nbsp; )转化为(&nbsp; D&nbsp; )的一组彼此相关的资源和活动。(&nbsp; B&nbsp; )本身具有(&nbsp; 
+    E&nbsp; )的效果，是一种有效益的行为。(&nbsp; F&nbsp; )是通过质量体系来实现的。一个组织机构建立自己的质量体系，并使之有效地运行，使达到(&nbsp; 
+    F&nbsp; )目标的重要手段。请选择合适的答案，完成下图的质量体系文件。</span><BR>
+    <IMG alt="" hspace=0 src="image/09.gif" align=baseline border=0 width="273" height="144"></P>
+  <P class="text">供选择的答案：<BR>
+    A.� ① 体系结构&nbsp;&nbsp;&nbsp; &nbsp;② 管理手段&nbsp;&nbsp;&nbsp; ③ 质量改进过程&nbsp;④ 
+    质量管理制度<BR>
+    B～E.① 输出&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;② 输入&nbsp;&nbsp;&nbsp;&nbsp; ③ 接口&nbsp;&nbsp;&nbsp;④ 
+    减少<BR>
+    �� ⑤ 增值&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;⑥ 过程&nbsp;&nbsp;&nbsp;&nbsp; ⑦ 扩充<BR>
+    F.� ① 质量保证&nbsp;&nbsp;&nbsp; &nbsp;② 质量管理&nbsp;&nbsp;&nbsp; ③ 质量检验&nbsp;&nbsp;④ 
+    质量改进<BR>
+    G～J.① 质量记录&nbsp; &nbsp;② 程序文件&nbsp;&nbsp;&nbsp; ③ 质量手册&nbsp;&nbsp;④ 作业指导书
+  <P> 
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+  </P>
+  <P>&nbsp;<span class="text">25、从供选择的答案中选出与下列有关ISO 9000的叙述相对应的正确答案，将其编号填入到相应的括弧（&nbsp;&nbsp; 
+    ）内。<BR>
+    �(&nbsp; A&nbsp; )是计算机软件机构实施ISO 9001的指南性标准。它的指南性主要表现在：�。┒杂谡攵缘谋曜几�予特定的(&nbsp; 
+    B&nbsp; )，ISO 9001提供了(&nbsp; C&nbsp; )个质量体系要素。��）指南性的标准不是(&nbsp; D&nbsp; )的依据。在ISO 
+    9001的质量体系要素的每一条都强调了要求的强制性，而在(&nbsp; A&nbsp; )中是建议性指南。由于ISO 9001标准本来是针对传统的制造业制定的，而软件业又有许多不同于制造业的特性，所以，(&nbsp; 
+    A&nbsp; )起了桥梁作用。<BR>
+    &nbsp;此外，(&nbsp; E&nbsp; )将整个软件生存期分为17个过程，并且对每一个过程按(&nbsp; F&nbsp; )的三个层次具体做了解释，为我们进一步理解(&nbsp; 
+    A&nbsp; )提供了帮助。<BR>
+    供选择的答案：<BR>
+    A～E.�① ISO 9001&nbsp;&nbsp; &nbsp;&nbsp;② ISO 9002&nbsp;&nbsp;&nbsp;③ ISO 
+    9000-3<BR>
+    ��� ④ ISO�MIEC 9126&nbsp;⑤ ISO 8402&nbsp;&nbsp;&nbsp;⑥ ISO�MIEC 12207<BR>
+    B,D.� ① 说明与解?nbsp; &nbsp;&nbsp;② 强制性&nbsp;&nbsp;&nbsp;③ 建议性<BR>
+    ��� ④ 认证审核<BR>
+    C.�� ① 10&nbsp;&nbsp; &nbsp;&nbsp;② 20&nbsp;&nbsp;&nbsp;③ 25&nbsp;&nbsp; &nbsp; 
+    ④ 30<BR>
+    F.�� ① “任务-活动-过程”&nbsp;&nbsp;&nbsp;② “活动-任务-过程”<BR>
+    ��� ③ “过程-活动-任务”&nbsp;&nbsp;&nbsp;④ “任务-过程-活动”</span><BR>
+    &nbsp;<BR>
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+  </P>
+  <input type=button name=Button value=答�案 onClick="MM_openBrWindow('tanchu.htm','','width=471,height=390')"><br>
+  <br>
+</form>
+</BODY>
+</HTML>

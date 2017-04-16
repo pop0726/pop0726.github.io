@@ -1,0 +1,68 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" --> <span class="biaoti_1">1 基于API的数据库应用开发接口</span> 
+      　<font color="#cc0000"><br>
+      　　</font>基于API的数据库开发是指应用程序通过DBMS提供的函数调用程序库（专用函数库）或基于微软的ODBC API技术的函数库，作为其应用程序接口（API）。应用程序得调用API库中的函数，把SQL语句传递给DBMS，并调用其他函数读取DBMS执行SQL语句的查询结果和状态信息。<br>
+      　　应用程序编程接口API定义如何编写应用程序连接到数据库；如何把命令传递到DBMS；如何执行相应的SQL语句。主要有三类数据库应用编程接口API：<br>
+      　　(1)ODBC开放数据库互连：它是适用于C语言的调用级接口。<br>
+      　　(2)JDBC：主要用于JAVA语言编程访问数据库。<br>
+      　　(3) OLE DB API：OLE DB 是底层编程接口，它支持关系和非关系数据源，并隐藏了创建数据访问服务过程的细节。<br>
+      　　目前商品化的DBMS基本都提供专用的基于API的数据库编程接口，同时提供遵循开放数据库互连接口规范ODBC API的数据库驱动程序（包括OLE 
+      DB API）。用户通过数据库对象接口和应用程序编程接口API，使用程序设计语言或客户前端编程工具软件，可以开发各种数据库应用软件访问数据库服务器。<br>
+      　　基于API的数据库通用开发接口主要有ODBC API和OLE DB API。ODBC API我们将在下一节详细介绍，本节只简单介绍OLE DB 
+      API。 
+      <p><b><span class="biaoti_1">2 OLE DB 接口API</span></b><br>
+        　　微软的OLE DB也是一个动态连接库，而OLE DB涉及的目标是用于所有数据源的标准编程接口。通过OLE DB API，可以在不同的数据源之间使用同样的接口，除了对关系型数据库的访问外，还提供了对其他各种数据源的访问，包括EXCEL电子表格的表格数据、dBase的ISAM文件、DB2数据、甚至还可以访问电子邮件。<br>
+        　　OLE DB有两种提供者：数据提供者和服务提供者。数据提供者负责从数据源中提取数据，而服务提供者负责传输和处理数据。服务提供者一般是比较高级的函数，可以扩展OLE 
+        DB数据提供者中的基本数据访问功能。<br>
+        　　OLE DB根据各种OLE DB提供者的功能，分别提供了不同等级的功能模块。例如，SQL Server 2000中带的OLE DB驱动程序支持一个通用界面，每一个驱动程序都可以扩展OLE 
+        DB功能。每个不同的OLE DB数据源都使用自己的OLE DB提供者。为了最大限度的兼容已有的ODBC数据源，Microsoft公司开发了ODBC的OLE 
+        DB提供者MSDASQL。和大多数的OLE DB提供者不同的是，MSDASQL OLE DB Provider for ODBC可使用已有的ODBC驱动程序访问数据。MSDASQL 
+        OLE DB Provider for ODBC将OLE DB调用映射为与之等价的ODBC接口进行调用。MSDASQL OLE DB Provider 
+        for ODBC提供的功能依赖于基本的ODBC驱动程序。<br>
+        　　每一个OLE DB提供者通过其COM接口传送数据，并显示其功能。然而，OLE DB的COM接口是一种行级界面，要求支持指针、数据结构和直接内存分配。因此，直接使用OLE 
+        DB不适合于不支持行级功能指针的开发环节，例如，Visual Basic、Java等编程语言。但它适合于ADO访问接口，ADO允许通过交互式操作方式和脚本语言访问OLE 
+        DB提供者，这些脚本语言支持数据访问，但是不支持行级内存的访问和操纵。<br>
+      </p>
+      <font color="#cc0000"><br>
+      　<span class="biaoti_2"><b>本节小结：</b></span><br>
+      　　OLE DB和ADO是MicroSoft公司为了适应网络迅速发展的趋势而开发的最新的数据访问编程接口。OLE DB和ADO都作为SQL Server数据库管理系统的一部分提供。微软公司已经把OLE 
+      DB定位为ODBC的继承者。由于ODBC在实际工作中的广泛应用，用OLE DB代替ODBC还是一个漫长的过程。ODBC API已经被广泛接受。除了为数千种定制的数据库应用程序提供数据库支持外，大多数桌面应用系统，例如Microsoft 
+      Office 系列，都支持ODBC API，ODBC驱动程序存在于所有主要的数据库系统中，然而ODBC主要用于处理关系型数据库。ODBC是基于SQL的，它可以很好地用于关系型数据库访问，但是对于非关系型数据库就无能为力了。OLE 
+      DB作为新的数据访问编程接口，除了提供了对关系型数据库的访问外，还扩展了ODBC提供的功能，可以访问非关系型数据库和其它一些资源，例如文本文件之类的数据源。 
+      <br>
+      　　有关OLE DB 的开发文档在微软的OLE DB 系统开发工具集（SDK）里。最新的OLE DB 程序设计参考手册为Programmer's 
+      Reference Version 2.0，包含在OLE DB Software Development Kit (SDK). Both the 
+      SDK and Programmer's Reference can be downloaded from the Microsoft Web 
+      site at <a href="../../../../../../../../www.microsoft.com/data">http://www.microsoft.com/data</a>.<br>
+      </font> <!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

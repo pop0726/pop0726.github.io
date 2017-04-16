@@ -1,0 +1,45 @@
+<html>
+<head>
+<title>l1</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center" height="8">
+        <tr> 
+          <td class="text"> 
+            <p><br>
+              ��如果在一个判定的复合条件表达式中每个布尔变量和关系运算符最多只出现一次，而且没有公共变量，应用一种称之为BRO（分支与关系运算符）的测试法可以发现多个布尔运算符或关系运算符错，以及其它错误。<br>
+              ��BRO策略引入条件约束的概念。设有n个简单条件的复合条件C，其条件约束为D =（D1, D2, …, Dn），其中Di（1≤i≤n）是条件C中第i个简单条件的输出约束。如果在C的执行过程中，其每个简单条件的输出都满足D中对应的约束，则称条件C的条件约束D由C的执行所覆盖。特别地，布尔变量或布尔表达式的输出约束必须是真（T）或假（F）；关系表达式的输出约束为符号 
+              &gt;、=、&lt;。<br>
+              <br>
+              <span class="part">(1) 设条件为 C1 : B1 &amp; B2</span><br>
+              ��其中B1、B2是布尔变量，C1的输出约束为（D1, D2），在此，D1和D2或为T或为F。则（T, F）是C1可能的一个约束。覆盖此约束的测试（一次运行）将令B1为T，B2为F。BRO策略要求对C1的可能约束集合 
+              { ( T, T ), ( F, T ), ( T, F ) } 中的每一个，分别设计一组测试用例。如果布尔运算符有错，这三组测试用例的运行结果必有一组导致C1失败。<br>
+              <br>
+              <span class="part">(2) 设条件为C2 : B1 &amp; ( E3 = E4 )</span><br>
+              ��其中B1是布尔表达式，E3和E4是算术表达式，C2 的输出约束为（D1, D2），在此，D1或为T或为F；D2则是 &lt;、= 
+              或 &gt;。因此，只有D2与C1中D2的不同，可以修改C1的约束集合 { ( T, T ), ( F, T ), ( T, F 
+              ) }，导出C2的约束集合。因为在 ( E3 = E4 ) 中，&quot;T&quot; 相当于 &quot;=&quot;，&quot;F&quot; 
+              相当于 &quot;&lt;&quot; 或 &quot;&gt;&quot;，则C2的约束集合为 { ( T, = ), ( 
+              F, = ), ( T, &lt; ), ( T, &gt; ) }。据此设计4组测试用例，检查C2中可能的布尔或关系运算符中的错误。<br>
+              <br>
+              <span class="part">(3) 设条件为C3 : ( E1 &gt; E2 ) &amp; ( E3 = E4 )</span><br>
+              ��其中E1、E2、E3、E4都是算术表达式，C3的输出约束为（D1, D2），在此，D1和D2的约束均为 &lt;、=、&gt;。C3 
+              中只有D1与C2中的D1不同，可以修改C2的约束集合 { ( T, = ), ( F, = ), ( T, &lt; ), ( 
+              T, &gt; ) }，导出C3的约束集合。因为在 ( E1 &gt; E2 ) 中，&quot;T&quot; 相当于 &quot;&gt;&quot;，&quot;F&quot; 
+              相当于 &quot;&lt;&quot; 或 &quot;=&quot;，则C3的约束集合为 { ( &gt;, = ), ( 
+              &lt;, = ), ( =, = ), ( &gt;, &lt; ), ( &gt;, &gt; ) }。根据这个约束集合设计测试用例，就能够检测C3中的关系运算符中的错误。<br>
+              ��</p>
+            </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

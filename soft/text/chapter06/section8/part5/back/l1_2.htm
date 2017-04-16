@@ -1,0 +1,710 @@
+<HTML>
+<HEAD>
+<TITLE>软件工程 </TITLE>
+<SCRIPT language=JavaScript>
+/*-------------------------------------------填空题---------------------------------------------*/
+function getKeyWord(form){
+var mykeys=new Array();
+mykeys[0]="对象惟一性";mykeys[1]="分类性";mykeys[2]="继承性";mykeys[3]="多态性";mykeys[4]="抽象";mykeys[5]="封装性（信息隐蔽）";mykeys[6]="共享性";mykeys[7]="对象状态";mykeys[8]="数据结构";mykeys[9]="对象行为";mykeys[10]="操作名";mykeys[11]="操作方法";mykeys[12]="单继承";mykeys[13]="多继承";mykeys[14]="现实世界的对象建模";mykeys[15]="分析模型";mykeys[16]="对象和分类结构";mykeys[17]="类和类层次结构";mykeys[18]="名词";mykeys[19]="动词";mykeys[20]="Ada";mykeys[21]="UML";mykeys[22]="一般化-特殊化关系";mykeys[23]="操作内聚";mykeys[24]="类内聚";mykeys[25]="一般化-特殊化内聚";
+
+var answer=new Array();
+for(var I=0;I<mykeys.length;I++) answer[I]="";
+
+var every=form.elements;
+for(var I=0;I<every.length;I++)
+{
+if(every[I].type=="text")
+{
+ if(every[I].value!==null)
+ {var item=parseInt(every[I].name.substr(0))
+  answer[item-1]+=every[I].value;
+  }
+ }
+}
+var newcount="<html><head><title>谢谢您!</title></head><body><center><h2><font color=red>您的测试结果</font></h2></center>";
+var totalscore=0;
+for(var I=0;I<answer.length;I++)
+{var re=/</g;
+var rd=/>/g;
+var re=/\\/g;
+answer[I]=answer[I].replace(re,"&#92;");
+answer[I]=answer[I].replace(re,"&lt;");
+answer[I]=answer[I].replace(rd,"&gt;");
+	if(answer[I].toUpperCase()==mykeys[I].toUpperCase())
+	{
+		var rstr="<font size=2>第"+(I+1)+"个空答案正确!</font><br>";
+		newcount+=rstr;
+		totalscore+=1/26*100;
+	}else
+	{
+		var rstr="<font size=2>第"+(I+1)+"个空答案错误!正确答案为"+mykeys[I]+"</font><br>";
+		newcount+=rstr;
+	}
+
+}
+
+newcount+="<br>您的总成绩为:";
+newcount+=Math.ceil(totalscore);
+newcount+="分";
+newwin=window.open("","","height=400,width=400,scrollbars=yes,resizable=no");
+newwin.document.write(newcount);
+}
+/*-------------选择提----------------------------------------------------------------*/
+function getresultcheck(form)
+{var mykeys=new Array();
+mykeys[0]="C";mykeys[1]="B";mykeys[2]="D";mykeys[3]="A";mykeys[4]="B";mykeys[5]="A";mykeys[6]="B";mykeys[7]="A";mykeys[8]="C";mykeys[9]="D";mykeys[10]="C";mykeys[11]="B";mykeys[12]="D";mykeys[13]="C";mykeys[14]="C";mykeys[15]="A";mykeys[16]="A";mykeys[17]="B";mykeys[18]="A";mykeys[19]="A";mykeys[20]="D";mykeys[21]="A";mykeys[22]="B";mykeys[23]="A";
+
+
+var answer=new Array();
+for(var I=0;I<mykeys.length;I++) answer[I]="";
+
+var every=form.elements;
+//var lastname="";
+for(var I=0;I<every.length;I++)
+{
+	if(every[I].type=="radio")
+	{
+		/*alert("checkbox:name->"+every[I].name+"value->"+every[I].value);*/
+		if(every[I].checked)
+		{	
+			//var item=parseInt(every[I].name.charAt(1));
+			var item=parseInt(every[I].name.substr(0));/*返回由字符串转换得到的整数*/
+			/*substr返回一个从指定位置开始的指定长度的子字符串。*/
+			answer[item-1]+=every[I].value;
+		}
+	}				
+}
+
+var newcount="<html><head><title>谢谢您!</title></head><body><center><h2><font color=red>您的测试结果</font></h2></center>";
+var totalscore=0;
+for(var I=0;I<answer.length;I++)
+{
+	if(answer[I].toUpperCase()==mykeys[I].toUpperCase())
+	{
+		var rstr="<font size=2>第"+(I+1)+"题答案正确!</font><br>";
+		newcount+=rstr;
+		totalscore+=1/24*100;//每题分数
+	}else
+	{
+		var rstr="<font size=2>第"+(I+1)+"题答案错误!正确答案为"+mykeys[I]+"</font><br>";
+		newcount+=rstr;
+	}
+
+}
+
+newcount+="<br>您的总成绩为:";
+newcount+=Math.ceil(totalscore);
+newcount+="分";
+newwin=window.open("","","height=400,width=400,scrollbars=yes,resizable=no");
+newwin.document.write(newcount);}
+/*--------------------------------判断题----------------------------------------------------*/
+
+function getresultpanduan(form)
+{var mykeys=new Array();
+
+
+
+var answer=new Array();
+for(var I=0;I<mykeys.length;I++) answer[I]="";
+
+var every=form.elements;
+//var lastname="";
+for(var I=0;I<every.length;I++)
+{
+	if(every[I].type=="checkbox")
+	{
+		/*alert("checkbox:name->"+every[I].name+"value->"+every[I].value);*/
+		if(every[I].checked)
+		{	
+			//var item=parseInt(every[I].name.charAt(1));
+			var item=parseInt(every[I].name.substr(0));/*返回由字符串转换得到的整数*/
+			/*substr返回一个从指定位置开始的指定长度的子字符串。*/
+			answer[item-1]+=every[I].value;
+		}
+	}				
+}
+
+var newcount="<html><head><title>谢谢您!</title></head><body><center><h2><font color=red>您的测试结果</font></h2></center>";
+var totalscore=0;
+for(var I=0;I<answer.length;I++)
+{
+	if(answer[I].toUpperCase()==mykeys[I].toUpperCase())
+	{
+		var rstr="<font size=2>第"+(I+1)+"题 您答对了!</font><br>";
+		newcount+=rstr;
+		totalscore+=1/0*100;//每题分数
+	}else
+	{
+		var rstr="<font size=2>第"+(I+1)+"题 您答错了!</font><br>";
+		newcount+=rstr;
+	}
+
+}
+
+newcount+="<br>您的总成绩为:";
+newcount+=Math.ceil(totalscore);
+newcount+="分";
+newwin=window.open("","","height=400,width=400,scrollbars=yes,resizable=no");
+newwin.document.write(newcount);
+}
+/*--------------------------------简答题----------------------------------------------------*/
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+</SCRIPT>
+<style type="text/css"><!--
+-->
+</style>
+<link rel="stylesheet" href="../../../../../css/text.css" type="text/css">
+</HEAD>
+<BODY text=black bgColor=#FFFFFF topMargin=10 marginheight="10">
+<DIV class=p2 align=center></DIV>
+<FORM >
+  <P class="section">一、填空题</P>
+  <P>&nbsp;<span class="text">1、面向对象的特征是 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=1>
+    、 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=2>
+    、 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=3>
+    和 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=4>
+    。<BR>
+    &nbsp;2、面向对象有三个基本要素，它们是 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=5>
+    、 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=6>
+    和&nbsp;&nbsp; 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=7>
+    。<BR>
+    &nbsp;3、类具有属性，它是 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=8>
+    的抽象，用 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=9>
+    来描述类的属性。<BR>
+    &nbsp;4、类具有操作，它是 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=10>
+    的抽象，用 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=11>
+    和 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=12>
+    实现来描述。<BR>
+    &nbsp;5、在类层次中，子类只继承一个父类的属性和方法，则称为 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=13>
+    。子类继承了多个父类的属性和方法，则称为 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=14>
+    。<BR>
+    &nbsp;6、OMT方法是RumBaugh等人提出的面向对象开发方法。开发工作的基础是对&nbsp;&nbsp; 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=15>
+    ，然后围绕这些对象使用 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=16>
+    来进行独立于语言的设计。<BR>
+    &nbsp;7、Coad和Yourdon方法完成了从需求角度出发的 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=17>
+    认定工作，面向对象设计可以在此基础上，从设计的角度进一步进行 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=18>
+    的认定。<BR>
+    &nbsp;8、Booch方法通过分析问题陈述正文，将其中的 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=19>
+    映射为对象，将其中的&nbsp; 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=20>
+    映射为方法，从而为对象和方法的认定提供了一种简单的策略，虽然Booch方法原是面向 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=21>
+    的语言，但仍处于面向对象开发方法的奠基性地位。<BR>
+    &nbsp;9、 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=22>
+    不仅统一了Booch方法、OMT方法、OOSE方法的表示方法，而且对其作了进一步的发展，最终成为为国际对象组织（OMG）认可的同一建模语言。<BR>
+    &nbsp;10、在客观世界中有若干类，这些类之间有一定的结构关系。通常有两种主要的结构关系，即 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=23>
+    和整体-部分关系。<BR>
+    &nbsp;11、在面向对象设计中存在三种内聚，即 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=24>
+    、 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=25>
+    和 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=26>
+    。<BR>
+    </span><BR>
+    <INPUT id=A type=reset value=清�空>
+    <INPUT id=A onclick=getKeyWord(this.form) type=button value=提�交>
+  </P>
+  <P class="section">二、单选填空题</P>
+  <P>&nbsp;<span class="text">1、对象是面向对象开发方法的基本成分，每个对象可用它本身的一组(&nbsp;&nbsp;&nbsp; 
+    )和它可以执行的一组操作来定义。<BR>
+    <INPUT id=c1 type=radio value=A name=1>
+    A. 服务&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=1>
+    B. 参数&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=C name=1>
+    C. 属性&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=1>
+    D. 调用<BR>
+    <BR>
+    &nbsp;2、在面向对象方法中，把一组具有相同数据结构和相同操作的对象的集合定义为(&nbsp;&nbsp;&nbsp; )。此定义包括一组数据属性和在数据上的一组合法操作。<BR>
+    <INPUT id=c1 type=radio value=A name=2>
+    A. 聚合&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=2>
+    B. 类&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=C name=2>
+    C. 结构&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=2>
+    D. 主题<BR>
+    <BR>
+    &nbsp;3、面向对象技术的许多强有力的功能和突出的优点都来源于把系统组织成一个类的层次结构。一个类的上层可以有父类，下层可以有子类。这种系统的类层次结构的一个重要性质是(&nbsp;&nbsp;&nbsp; 
+    )，通过它，一个类可共享其父类的全部数据和操作。<BR>
+    <INPUT id=c1 type=radio value=A name=3>
+    A. 传递性&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=3>
+    B. 复用性&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=C name=3>
+    C. 并行性&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=3>
+    D. 继承性<BR>
+    <BR>
+    &nbsp;4、一个面向对象软件的体系结构通过它的成分对象及各对象之间的关系来确定，与传统的结构化开发方法相比，它具有(&nbsp;&nbsp;&nbsp; 
+    )的优点。<BR>
+    <INPUT id=c1 type=radio value=A name=4>
+    A. 设计稳定&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=4>
+    B. 性能稳定&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=C name=4>
+    C. 模块独立&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=4>
+    D. 硬件独立<BR>
+    <BR>
+    &nbsp;5、封装性是指所有软件部件都有明确的范围以及清楚的外部边界。每个软件部件都有友好的(&nbsp;&nbsp;&nbsp; )，软件部件的内部实现和外部使用分离。<BR>
+    <INPUT id=c1 type=radio value=A name=5>
+    A. 使用方式&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=5>
+    B. 界面&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=C name=5>
+    C. 调用&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=5>
+    D. 继承<BR>
+    <BR>
+    &nbsp;6、属性指的是类中对象具有的特性（数据）。不同对象的同一属性可具有相同的或不同的(&nbsp;&nbsp;&nbsp; )。<BR>
+    <INPUT id=c1 type=radio value=A name=6>
+    A. 属性值&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=6>
+    B. 操作&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=C name=6>
+    C. 服务&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=6>
+    D. 控制<BR>
+    <BR>
+    &nbsp;7、操作是类中对象所使用的一种功能或变换。类中的各个对象可以共享操作，方法是类中操作的(&nbsp;&nbsp;&nbsp; )。<BR>
+    <INPUT id=c1 type=radio value=A name=7>
+    A. 别名&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=7>
+    B. 实现步骤&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=C name=7>
+    C. 功能&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=7>
+    D. 脚本<BR>
+    <BR>
+    &nbsp;8、(&nbsp;&nbsp;&nbsp; )应当在应用分析之前进行，因为我们在了解问题之前应对问题敞开思想考虑，不应加以限制。<BR>
+    <INPUT id=c1 type=radio value=A name=8>
+    A. 论域分析&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=8>
+    B. 高层设计&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=C name=8>
+    C. 实例建立&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=8>
+    D. 类的开发<BR>
+    <BR>
+    &nbsp;9、应用程序可以通过执行对象的操作来改变对象的属性值，但它必须通过(&nbsp;&nbsp;&nbsp; )的传递。<BR>
+    <INPUT id=c1 type=radio value=A name=9>
+    A. 接口&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=9>
+    B. 控制&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=C name=9>
+    C. 消息&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=9>
+    D. 实例<BR>
+    <BR>
+    &nbsp;10、在软件开发过程中，抽取和整理用户要求并建立问题论域精确模型的过程叫做(&nbsp;&nbsp;&nbsp; )。<BR>
+    <INPUT id=c1 type=radio value=A name=10>
+    A. 生存期&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=10>
+    B. 面向对象分析<BR>
+    <INPUT id=c1 type=radio value=C name=10>
+    C. 面向对象程序设计&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=10>
+    D. 面向对象设计<BR>
+    <BR>
+    &nbsp;11、Rumbaugh等人提出的对象模型化技术OMT把分析时收集到的信息组织在三种模型中，即对象模型、动态模型和(&nbsp;&nbsp;&nbsp; 
+    )。<BR>
+    <INPUT id=c1 type=radio value=A name=11>
+    A. 信息模型&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=11>
+    B. 控制模型&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=C name=11>
+    C. 功能模型&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=11>
+    D. 行为模型<BR>
+    <BR>
+    &nbsp;12、对象模型表示了静态的、结构化的系统数据性质，描述了系统的静态结构。它是从现实世界实体的相互关系的角度来描述、表现对象间的相互关系。该模型主要关心系统中对象的结构、属性和操作，使用了(&nbsp;&nbsp;&nbsp; 
+    )的工具来刻划。<BR>
+    <INPUT id=c1 type=radio value=A name=12>
+    A. E-R图&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=12>
+    B. 对象图&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=C name=12>
+    C. 系统流程图&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=12>
+    D. 系统结构图<BR>
+    <BR>
+    &nbsp;13、组装关系是一种“整体-部分” 关系。在这种关系中，有整体类和部分类之分。组装关系中最重要的性质是(&nbsp;&nbsp;&nbsp; 
+    )，它还具有逆对称性。<BR>
+    <INPUT id=c1 type=radio value=A name=13>
+    A. 局部性&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=13>
+    B. 完整性&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=C name=13>
+    C. 一致性&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=13>
+    D. 传递性<BR>
+    <BR>
+    &nbsp;14、分类关系是“一般化-特殊化”关系。一般化类又称为父类，特殊化类又称为子类。分类关系和(&nbsp;&nbsp;&nbsp; )是同时存在的。<BR>
+    <INPUT id=c1 type=radio value=A name=14>
+    A. 传递性&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=14>
+    B. 逐步求精&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=C name=14>
+    C. 继承性&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=14>
+    D. 全局性<BR>
+    <BR>
+    &nbsp;15、继承有单继承和多继承。单继承指的是子类只有一个父类，在一个类层次结构中若只有单继承，则该类层次结构是树形结构。多继承指的是子类可以有多个父类，在一个类层次结构中若有多继承，则该类层次结构是(&nbsp;&nbsp;&nbsp; 
+    )层次结构。<BR>
+    <INPUT id=c1 type=radio value=A name=15>
+    A. 树形&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=15>
+    B. 星形&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=C name=15>
+    C. 网状&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=15>
+    D. 环形<BR>
+    <BR>
+    &nbsp;16、动态模型描述与时间和变化有关的系统的性质。该模型描述了系统的控制结构，表示了瞬时的行为化的系统控制性质，它关心的是系统的控制、操作的执行顺序。它从系统涉及的事件和对象的(&nbsp;&nbsp;&nbsp; 
+    )出发，表现了对象及对象间的相互行为。<BR>
+    <INPUT id=c1 type=radio value=A name=16>
+    A. 状态&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=16>
+    B. 属性&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=C name=16>
+    C. 操作&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=16>
+    D. 控制<BR>
+    <BR>
+    &nbsp;17、动态模型描述的系统属性是触发事件、事件序列、状态、事件和状态的组织。使用(&nbsp;&nbsp;&nbsp; )作为描述工具。<BR>
+    <INPUT id=c1 type=radio value=A name=17>
+    A. 状态图&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=17>
+    B. 顺序图&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=C name=17>
+    C. 活动图&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=17>
+    D. 进程图<BR>
+    <BR>
+    &nbsp;18、功能模型用来说明值是如何计算的，表明值之间的依赖关系及其相关的功能。数据流图有助于表示功能依赖关系，其中的处理对应于状态图中的活动和动作，数据流对应于对象图中的(&nbsp;&nbsp;&nbsp; 
+    )。<BR>
+    <INPUT id=c1 type=radio value=A name=18>
+    A. 实例连接&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=18>
+    B. 对象或属性&nbsp;<BR>
+    <INPUT id=c1 type=radio value=C name=18>
+    C. 消息传递&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=18>
+    D. 关联<BR>
+    <BR>
+    &nbsp;19、操作与对象模型中的属性和关联的查询有关，与动态模型中的(&nbsp;&nbsp;&nbsp; )有关，与功能模型中的加工有关。<BR>
+    <INPUT id=c1 type=radio value=A name=19>
+    A. 事件&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=19>
+    B. 状态&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=C name=19>
+    C. 变换&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=19>
+    D. 处理<BR>
+    <BR>
+    &nbsp;20、面向对象设计阶段中的高层设计是要确定实现系统的策略和目标系统的(&nbsp;&nbsp;&nbsp; )。<BR>
+    <INPUT id=c1 type=radio value=A name=20>
+    A. 体系结构&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=20>
+    B. 算法设计&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=C name=20>
+    C. 类结构&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=20>
+    D. 类设计<BR>
+    <BR>
+    &nbsp;21、面向对象设计阶段中的类设计是要确定实现方案中的类、关联和接口形式及实现操作的(&nbsp;&nbsp;&nbsp; )。<BR>
+    <INPUT id=c1 type=radio value=A name=21>
+    A. 逻辑&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=21>
+    B. 顺序&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=C name=21>
+    C. 控制&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=21>
+    D. 算法<BR>
+    <BR>
+    &nbsp;22、状态是对象属性值的抽象，状态指明了对象对(&nbsp;&nbsp;&nbsp; )的响应。<BR>
+    <INPUT id=c1 type=radio value=A name=22>
+    A. 输入事件&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=22>
+    B. 输入信息&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=C name=22>
+    C. 输入数据&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=22>
+    D. 输入序列<BR>
+    <BR>
+    &nbsp;23、活动是一种有时间间隔的操作，它是依附于状态的操作。动作是一种瞬时操作，它是与(&nbsp;&nbsp;&nbsp; )联系在一起的操作。<BR>
+    <INPUT id=c1 type=radio value=A name=23>
+    A. 时间&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=23>
+    B. 事件&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=C name=23>
+    C. 控制&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=23>
+    D. 状态<BR>
+    <BR>
+    &nbsp;24、事件可以看成是信息从一个对象到另一个对象的单向传送。因此要确定各事件的发送对象和接收对象。(&nbsp;&nbsp;&nbsp; 
+    )用来表示事件、事件的接收对象和发送对象。<BR>
+    <INPUT id=c1 type=radio value=A name=24>
+    A. 事件追踪图&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=24>
+    B. 进程图&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=C name=24>
+    C. 脚本&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=24>
+    D. 状态序列图</span><BR>
+    <BR>
+    <INPUT id=A type=reset value=重�置>
+    <INPUT id=A onclick=getresultcheck(this.form) type=button value=提�交>
+  </P>
+  <P class="section">三、选择填空题</P>
+  <P class="text">&nbsp;1、从供选择的答案中选择适合下面有关范型的叙述的正确答案，将答案编号与叙述的题号对应起来。<BR>
+    &nbsp;(1) 问题的解决是基于规则的，它把有关问题的知识分解成一组具体规则，用语言的if_then等结构来表示这些规则。<BR>
+    &nbsp;(2) 问题的解决把软件视为由一系列步骤构成的算法。每一步骤都是带有预定输入和特定输出的一个过程，连贯起来产生合理的稳定的贯通于整个程序的控制流。 
+    <BR>
+    &nbsp;(3) 把一个问题分解成独立执行的模块。让不只一个程序(进程)同时运行。这些进程互相配合，解决问题。<BR>
+    &nbsp;(4) 把标识和模型化问题论域中的主要实体做为系统开发的起点，主要考虑对象的行为而不是必须执行的一系列动作。<BR>
+    供选择的答案：<BR>
+    &nbsp;① 面向存取&nbsp;&nbsp;② 面向对象&nbsp;&nbsp;③ 过程性&nbsp;&nbsp;④ 逻辑性<BR>
+    &nbsp;⑤ 函数型&nbsp;&nbsp;⑥ 面向进程&nbsp; &nbsp;⑦ 说明型&nbsp; &nbsp;&nbsp;⑧ 原型</P>
+  <P>
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    &nbsp; </P>
+  <P>&nbsp;<span class="text">2、从供选择的答案中选出与下面有关面向对象范型的叙述最适合的答案，将其编号填入相应的括号内。<BR>
+    �对象是面向对象范型的（&nbsp; A&nbsp; ）。每个对象可用它自己的一组（&nbsp; B&nbsp; ）和它可以执行的一组（&nbsp; 
+    C&nbsp; ）来表征。应用执行对象的（&nbsp; C&nbsp; ）可以改变该对象的（&nbsp; B&nbsp; ）。它的应用必须通过（&nbsp; 
+    D&nbsp; ）的传递。可以认为，这种（&nbsp; D&nbsp; ）的传递大致等价于过程性范型中的函数调用。某些语言提供了特殊功能，允许对象引用自己。若一个对象没有显式地被引用，则可让该对象（&nbsp; 
+    E&nbsp; ）。<BR>
+    供选择的答案：<BR>
+    &nbsp;A. � ① 基本单位 &nbsp;&nbsp; ② 最小单位&nbsp;③ 最大单位&nbsp;&nbsp;&nbsp; ④ 语法单位<BR>
+    &nbsp;B～C. ① 行为&nbsp; &nbsp;&nbsp; ② 功能&nbsp;&nbsp; ③ 操作&nbsp;&nbsp;&nbsp; 
+    ④ 数据&nbsp;&nbsp;&nbsp; ⑤ 属性<BR>
+    &nbsp;D. � ① 接口&nbsp;&nbsp;&nbsp; ② 消息 &nbsp;&nbsp; ③ 信息&nbsp;&nbsp;&nbsp; 
+    ④ 操作&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ⑤ 过程<BR>
+    &nbsp;E.&nbsp; � ① 撤消&nbsp;&nbsp;&nbsp; ② 歇着 &nbsp;&nbsp; ③ 缺省&nbsp;&nbsp;&nbsp; 
+    ④ 隐式引用&nbsp;&nbsp;&nbsp; ⑤ 引用自己<BR>
+    </span><BR>
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+  </P>
+  <P><BR>
+    <span class="text">3、从供选择的答案中选出与下面有关面向对象开发过程的叙述最适合的答案，将其编号填入相应的括号内。<BR>
+    �在面向对象软件开发过程中特别重视复用。软件构件应独立于当初开发它们的应用而存在。在以后的应用开发中，可以调整这些独立构件以适应新问题的需要。因此，应使得类成为一个（&nbsp; 
+    A&nbsp; ）的单元。这样就有一个（&nbsp; B&nbsp; ）生存期问题。（&nbsp; B&nbsp; ）生存期有自己的步骤，与任一特定应用的开发（&nbsp; 
+    C&nbsp; ）。按照这些步骤，可以完整地描述一个基本（&nbsp; D&nbsp; ）。而不仅仅考虑当前正在开发的系统。系统开发的各个阶段都可能会标识新的类。随着各个新类的标识，（&nbsp; 
+    B&nbsp; ）生存期引导开发工作逐个阶段循序渐进。<BR>
+    �在设计与实现类时，应尽可能利用既存类提供为当前应用所需要的功能，利用既存类的三个可能途径是：(&nbsp; E&nbsp; )复用既存类；对既存类进行（&nbsp; 
+    F&nbsp; ）以得到满足要求的类；重新开始进行开发。<BR>
+    供选择的答案：<BR>
+    &nbsp;A.&nbsp;① 可复用 &nbsp;&nbsp;② 可测试 &nbsp;&nbsp;③ 可适用&nbsp;&nbsp;④ 可靠<BR>
+    &nbsp;B.&nbsp;① 应用 &nbsp;&nbsp;② 寿命 &nbsp;&nbsp;③ 类&nbsp;&nbsp;&nbsp;④ 软件 
+    &nbsp;<BR>
+    &nbsp;C.&nbsp;① 相关 &nbsp;&nbsp;② 密切相关&nbsp;&nbsp;③ 负相关&nbsp;&nbsp;④ 无关<BR>
+    &nbsp;D.&nbsp;① 概念 &nbsp;&nbsp;② 实体&nbsp;&nbsp;&nbsp;③ 事件&nbsp;&nbsp;&nbsp;④ 
+    事情<BR>
+    &nbsp;E, F. ① 修改&nbsp; &nbsp;&nbsp;② 更新 &nbsp;&nbsp;③ 照原样&nbsp;&nbsp;④ 演化</span></P>
+  <P>
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    <BR>
+    <BR>
+    <span class="text">4、从供选择的答案中选出与下面有关类设计的叙述最适合的答案，将其编号填入相应的括号内。<BR>
+    �类常常被看做是一个抽象数据类型的实现，更合适的是把类看做是某种（&nbsp; A&nbsp; ）的一个模型。事实上，类是单个的（&nbsp; B&nbsp; 
+    ）语义单元。类的用户能够操纵的操作叫做类的（&nbsp; C&nbsp; ）。类定义的其余部分给出数据定义和辅助功能定义，包括类的实现。<BR>
+    &nbsp;类的实现常常包括了其它类的实例，这些实例（&nbsp; D&nbsp; ）被其它对象存取，包括同一个类的其它实例。类的实现可能还包括某些私有方法，实现它们的类可以使用，而其它任何对象都不能使用。<BR>
+    �类，就它是一个数据值的聚合的意义上来看，与Pascal中的记录或C中的结构类似，但又有差别。类扩展了通常的记录语义，可提供各种级别的（&nbsp; 
+    E&nbsp; ）。类不同于记录，因为它们包括了操作的定义，这些操作与类中声明的数据值有相同的地位。<BR>
+    供选择的答案：<BR>
+    &nbsp;A.&nbsp;① 功能 &nbsp;&nbsp;② 概念 &nbsp;&nbsp;③ 结构&nbsp;&nbsp;&nbsp;④ 数据<BR>
+    &nbsp;B.&nbsp;① 语法 &nbsp;&nbsp;② 词法 &nbsp;&nbsp;③ 语义&nbsp;&nbsp;&nbsp;④ 上下文环境 
+    &nbsp;<BR>
+    &nbsp;C.&nbsp;① 界面 &nbsp;&nbsp;② 操作&nbsp;&nbsp;&nbsp;③ 行为&nbsp;&nbsp;&nbsp;④ 
+    活动<BR>
+    &nbsp;D.&nbsp;① 可自由地&nbsp;&nbsp;② 可有控制地&nbsp;③ 可通过继承&nbsp;④ 应受保护不<BR>
+    &nbsp;E.&nbsp;① 可移植性 &nbsp;② 可重复性 &nbsp;③ 可访问性&nbsp;&nbsp;④ 继承性</span></P>
+  <P> <span class="text">
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    </span><BR>
+    <BR>
+    <span class="text">5、从供选择的答案中选出与下面有关需求定义的叙述最适合的答案，将其编号填入相应的括号内。<BR>
+    &nbsp;有一种非形式的技术，对于捕获信息有时很有用，它就是CRC卡片。CRC是(&nbsp; A&nbsp; )、(&nbsp; B&nbsp; 
+    )和(&nbsp; C&nbsp; )的缩写。它可以用来组织在每一个子系统中的类。以CRC卡片为辅助工具的设计有以下几个步骤：识别(&nbsp; A&nbsp; 
+    )和(&nbsp; B&nbsp; )，分配(&nbsp; B&nbsp; )，找寻(&nbsp; C&nbsp; )， 细化。CRC的作者强调模拟在执行每个基本功能时系统内部出现的(&nbsp; 
+    D&nbsp; )，以此推动细化工作的进行。在这个过程中，CRC卡片是十分重要的一个工具。<BR>
+    用CRC卡片来进行设计，既不是传统的“自上而下”，也不是“自下而上”，而是从已知到未知的逐步(&nbsp; E&nbsp; )的过程。<BR>
+    供选择的答案：<BR>
+    A～C.&nbsp;① 控制 &nbsp;&nbsp;② 协作者&nbsp;&nbsp;③ 可靠性&nbsp;&nbsp;④ 类<BR>
+    ���⑤ 计算 &nbsp;&nbsp;⑥ 职责 &nbsp;&nbsp;⑦ 比较&nbsp;&nbsp;&nbsp;⑧ 上下文环境 &nbsp;<BR>
+    D.&nbsp;� ① 场景&nbsp;&nbsp;&nbsp;② 算法&nbsp;&nbsp;&nbsp;③ 进程&nbsp;&nbsp;&nbsp;④ 
+    变换<BR>
+    E. � ① 演化 &nbsp;&nbsp;② 进展 &nbsp;&nbsp;③ 展开&nbsp;&nbsp;&nbsp;④ 认识</span></P>
+  <P> <span class="text">
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    </span> &nbsp;</P>
+  <P class="text">&nbsp;6、从供选择的答案中选出与下面有关论域分析的叙述最适合的答案，将其编号填入相应的括号内。<BR>
+    �论域分析的(&nbsp; A&nbsp; )和对应用分析和高层设计的(&nbsp; B&nbsp; )就构成问题论域的模型。已有许多建立这种模型的技术，一种特别适用的技术就是语义数据模型。<BR>
+    �语义数据模型来源于Codd的(&nbsp; C&nbsp; )数据模型和实体―联系模型，并对这类模型进行了扩充和一般化。语义数据模型可以表达问题论域的内涵，还可以表示复杂对象和对象之间的联系。语义数据模型与(&nbsp; 
+    C&nbsp; )数据模型本来都是在(&nbsp; D&nbsp; )设计时使用的，但它们的范围已经扩展到系统的开发。作为(&nbsp; D&nbsp; 
+    )结构标准的ANSI／SPARC建议提出了三层模型：外部模型、概念模型和(&nbsp; E&nbsp; )模型。这三层可以被映象到面向对象设计的三个层次上去。外部模型与概念模型层相当于高层设计阶段。<BR>
+    供选择的答案：<BR>
+    A, B. ① 控制 &nbsp;&nbsp;② 输出&nbsp;&nbsp;&nbsp;③ 输入&nbsp;&nbsp;&nbsp;④ 处理<BR>
+    ���⑤ 计算 &nbsp;&nbsp;⑥ 解释 &nbsp;&nbsp;⑦ 比较&nbsp;&nbsp;&nbsp;⑧ 创建 &nbsp;<BR>
+    C. � ① 变换&nbsp;&nbsp;&nbsp;② 关系&nbsp;&nbsp;&nbsp;③ 抽象&nbsp;&nbsp;&nbsp;④ 事务<BR>
+    D.��① 网络&nbsp;&nbsp;&nbsp;② 程序&nbsp;&nbsp;&nbsp;③ 算法&nbsp;&nbsp;&nbsp;④ 数据库<BR>
+    E.��① 低层 &nbsp;&nbsp;② 底层 &nbsp;&nbsp;③ 内部&nbsp;&nbsp;&nbsp;④ 存储</P>
+  <P>
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    <BR>
+    <BR>
+    <span class="text">7、从供选择的答案中选出与下面的叙述最适合的答案，将其编号填入相应的括号内。</span><BR>
+    <IMG alt="" hspace=0 src="image/01.gif" align=baseline border=0><BR>
+    �<span class="text">从分析到设计的过程流如图所示。一旦已经开发完成一个合理完整的(&nbsp; A&nbsp; )模型后，就要着手(&nbsp; 
+    B&nbsp; )的设计。这需要描述(&nbsp; B&nbsp; )的特征，以准确表达待实现的用户需求，以及实现需求所必须的支持环境。一旦定义了各个(&nbsp; 
+    B&nbsp; )，就开始(&nbsp; C&nbsp; )设计，这时，可利用CRC卡片，将属性转换为(&nbsp; D&nbsp; )，将关系转换为(&nbsp; 
+    E&nbsp; )。<BR>
+    供选择的答案：<BR>
+    A～C. ① 分析 &nbsp;&nbsp;② 系统设计&nbsp;&nbsp;③ 模块设计&nbsp;&nbsp;④ 子系统设计<BR>
+    ���⑤ 对象设计 &nbsp;⑥ 数据设计 &nbsp;⑦ 操作设计&nbsp;&nbsp;⑧ 行为设计 &nbsp;<BR>
+    D～E. ① 对象&nbsp;&nbsp;&nbsp;② 数据结构&nbsp;&nbsp;③ 算法&nbsp;&nbsp;&nbsp;④ 消息传递<BR>
+    ���⑤ 控制 &nbsp;&nbsp;⑥ 并发处理 &nbsp;⑦ 进程&nbsp;&nbsp;&nbsp;⑧ 过程</span><BR>
+    <BR>
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+  </P>
+  <P>&nbsp;<span class="text">8、从供选择的答案中选出与下面有关面向对象分析的叙述最适合的答案，将其编号填入相应的括号内。<BR>
+    �由RumBaugh等人提出的一种面向对象方法叫做对象模型化技术(OMT)，即三视点技术，它要求把分析时收集的信息建立在三个模型中。第一个模型是(&nbsp; 
+    A&nbsp; )，它的作用是描述系统的静态结构，包括构成系统的对象和类，它们的属性和操作，以及它们之间的联系。第二个模型是(&nbsp; B&nbsp; 
+    )，它描述系统的控制逻辑，主要涉及系统中各个对象和类的时序及变化状况。(&nbsp; B&nbsp; )包括两种图， 即(&nbsp; C&nbsp; 
+    )和(&nbsp; D&nbsp; )。(&nbsp; C&nbsp; )描述每一类对象的行为，(&nbsp; D&nbsp; )描述发生于系统执行过程中的某一特定场景。第三个模型是(&nbsp; 
+    E&nbsp; )，它着重于描述系统内部数据的传送与处理，它由多个数据流图组成。&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    <BR>
+    供选择的答案：<BR>
+    A,B,E： ① 数据模型&nbsp;&nbsp; ② 功能模型&nbsp;&nbsp;③ 行为模型&nbsp;&nbsp;④ 信息模型<BR>
+    ����⑤ 原型&nbsp;&nbsp;&nbsp; ⑥ 动态模型&nbsp;&nbsp;⑦ 对象模型&nbsp;&nbsp;⑧ 逻辑模型<BR>
+    ����⑨ 控制模型&nbsp;&nbsp; ⑩ 仿真模型<BR>
+    C,D：� ① 对象图&nbsp; &nbsp;&nbsp; ② 概念模型图&nbsp;&nbsp;③ 状态迁移图&nbsp; &nbsp;④ 数据流程图<BR>
+    ����⑤ 时序图&nbsp;&nbsp;&nbsp; ⑥ 事件追踪图&nbsp;&nbsp;⑦ 控制流程图&nbsp; &nbsp;⑧ 逻辑模拟图 
+    &nbsp;&nbsp; ⑨ 仿真图&nbsp;&nbsp;&nbsp; ⑩ 行为图</span><BR>
+    <BR>
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+  </P>
+  <P class="text">&nbsp;9、从供选择的答案中选出与下面有关面向对象设计的叙述最适合的答案，将其编号填入相应的括号内。<BR>
+    �在面向对象软件设计过程中，应按如下要求进行类的设计：只有类的共有界面的成员才能成为使用类的操作，这就是软件设计的(&nbsp; A&nbsp; )原则。当且仅当一个操作对类的实例的用户有用时，它才是类公共界面的一个成员，这是软件设计的(&nbsp; 
+    B&nbsp; )原则。由同属一个类的操作负担存取或加工类的数据，这是软件设计的(&nbsp; C&nbsp; )原则。两个类之间的交互应当仅涉及参数表，这是软件设计的(&nbsp; 
+    D&nbsp; )原则。每个派生类应该当做基类的特殊化来开发，而基类所具有的公共界面成为派生类的共有界面的一个子集，这是软件设计的(&nbsp; E&nbsp; 
+    )原则。<BR>
+    供选择的答案：<BR>
+    A：① 过程抽象&nbsp;&nbsp;② 功能抽象&nbsp;&nbsp;③ 信息隐蔽&nbsp;&nbsp;&nbsp; &nbsp;④ 共享性<BR>
+    � ⑤ 连通性 <BR>
+    B：① 标准调用&nbsp;&nbsp;&nbsp; &nbsp;② 最小界面&nbsp; &nbsp;③ 高耦合&nbsp;&nbsp;④ 高效率<BR>
+    � ⑤ 可读性<BR>
+    C：① 数据抽象&nbsp;&nbsp;&nbsp; &nbsp;② 低内聚&nbsp;&nbsp;③ 高内聚&nbsp;&nbsp;④ 低复杂度<BR>
+    � ⑤ 低强度<BR>
+    D：① 显式信息传递&nbsp;&nbsp; ② 高内聚&nbsp;&nbsp;③ 低内聚&nbsp;&nbsp;④ 相互操作性<BR>
+    � ⑤ 连接性&nbsp;&nbsp;&nbsp; <BR>
+    E：① 动态联编&nbsp;&nbsp;&nbsp; &nbsp;② 异质表&nbsp;&nbsp;③ 信息隐蔽&nbsp;&nbsp;④ 多态性<BR>
+    � ⑤ 继承性</P>
+  <P>
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    &nbsp;</P>
+  <P>&nbsp;<span class="text">10、从供选择的答案中选出与下面有关面向对象程序设计的叙述最适合的答案，将其编号填入相应的括号内。<BR>
+    �面向对象的程序设计语言具有数据抽象、信息隐蔽、(&nbsp; A&nbsp; )等特征。作为运算单位的对象应具有下列特性：(&nbsp; B&nbsp; 
+    )、(&nbsp; C&nbsp; )、(&nbsp; D&nbsp; )。(&nbsp; E&nbsp; )是面向对象的语言。<BR>
+    供选择的答案：<BR>
+    A：① 对象调用&nbsp;&nbsp;&nbsp;② 对象变换&nbsp;&nbsp;&nbsp;&nbsp;③ 非过程性<BR>
+    � ④ 信息继承&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;⑤ 并发性<BR>
+    B～D：① 对象把数据和处理数据的操作结合为一体<BR>
+    ���② 在程序运行时对象都处于活动状态<BR>
+    ���③ 对象在计算中可向其他对象发送消息<BR>
+    ���④ 接受消息的对象必须给消息发送者以回答<BR>
+    ���⑤ 对象的内部状态只根据外部送来的消息才操作<BR>
+    E：① C++，SMALLTALK，object C&nbsp;&nbsp;&nbsp;② C，Ada，Modula2<BR>
+    � ③ PASCAL，C++，APL&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;④ Ada，object C，C<BR>
+    <BR>
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    </span></P>
+  <P class="section">四、问答题</P>
+  <P class="text">&nbsp;1、什么叫面向对象？面向对象方法的特点是什么？为什么要用面向对象方法开发软件？<BR>
+    <BR>
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+  </P>
+  <P class="text">&nbsp;2、什么是“对象”？识别对象时将潜在对象分成7类，试给出这7类对象的名称，并举例说明。</P>
+  <P> <span class="text"> 
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    &nbsp;</span></P>
+  <P class="text">&nbsp;3、什么是“类”？ “类”与传统的数据类型有什么关系？有什么区别？</P>
+  <P> <span class="text"> 
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    &nbsp;</span></P>
+  <P class="text">&nbsp;4、基于复用的面向对象开发过程分为哪几个阶段？每一个阶段需要做哪些事情？</P>
+  <P> <span class="text"> 
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    &nbsp;</span></P>
+  <P class="text">&nbsp;5、按照类生存期，类的开发有哪几种方式？每一种方式需要做哪些事情？</P>
+  <P> <span class="text"> 
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    &nbsp;</span></P>
+  <P class="text">&nbsp;6、面向对象开发方法与面向数据流的结构化开发方法有什么不同？使用面向对象开发方法的优点在什么地方？</P>
+  <P> <span class="text"> 
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    &nbsp;</span></P>
+  <P class="text">&nbsp;7、基于复用的面向对象的需求分析过程主要分为两个阶段：论域分析和应用分析。试讨论它们各自承担什么任务？如何衔接？</P>
+  <P> <span class="text"> 
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    &nbsp;</span></P>
+  <P class="text">&nbsp;8、建立分析和设计模型的一种重要方法是UML。试问UML是一种什么样的建模方法？它如何表示一个系统？<BR>
+    <BR>
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+  </P>
+  <P class="text">&nbsp;9、使用面向对象设计方法进行高层设计，以建立系统的体系结构。这样的结构有哪几种主要的组成部分？每一部分所承担的职责是什么？</P>
+  <P> <span class="text"> 
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    &nbsp;</span></P>
+  <P class="text">&nbsp;10、在类的设计中需要遵循的方针是什么？三个主要的设计准则：抽象、信息隐蔽和模块化如何才能作到？<BR>
+    <BR>
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+  </P>
+  <P class="text">&nbsp;11、在类的通过复用的设计中，主要的继承关系有哪几种？试举例说明。<BR>
+    <BR>
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+  </P>
+  <P class="section">五、应用题</P>
+  <P class="text">&nbsp;1、建立窗口系统的对象模型，问题陈述如下：<BR>
+    &nbsp;“窗口分为对话窗、图形窗、滚动窗三种。对话窗中有若干对话项，由唯一的项名字来确定；对话项分为按钮、选择项和正文项三种，选择项中有若干选择项入口。图形窗中有若干形状元素，形状元素分为一维形状和二维形状。一维形状又分为直线、圆弧、折线；二维形状分为圆、椭圆、矩形、多边形，其中折线与多边形由若干有序顶点组成。正文窗是滚动窗的一种，而图形滚动窗既是图形窗又是滚动窗。”<BR>
+    <BR>
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+  </P>
+  <P class="text">&nbsp;2、在学校教学管理系统中，学生查询成绩就是系统中的一次交互，请用状态图来描述这种交互的行为。</P>
+  <P> <span class="text"> 
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    <BR>
+    <BR>
+    </span> &nbsp;</P>
+  <input type=button name=Button value=答�案 onClick="MM_openBrWindow('tanchu.htm','','width=471,height=384')">
+  <br>
+  <br>
+</form>
+</BODY>
+</HTML>

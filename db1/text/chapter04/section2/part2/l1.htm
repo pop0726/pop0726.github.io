@@ -1,0 +1,37 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgproperties=fixed bgcolor="#FFFFFF" background="../../../../image/moban/15.gif">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" height="8">
+        <tr> 
+          <td class="text">��例如：<br>
+            select <i>customer-name, borrower.loan-number as loan-id</i>�from 
+            <i>borrower</i>, loan<br>
+            where <i>loan-id</i> = <i>loan</i>.<i>loan-number and branch-name</i> 
+            = &quot;Perryridge&quot;<br>
+            ��问题是我们为什么要更改属性名和关系名呢？理由如下：<br>
+            ��⑴�from子句中的多个关系里可能含有相同名字的属性要在select子句中出现；<br>
+            ��⑵�select子句中可能使用算术表达式；<br>
+            ��⑶�确实想以不同的名字作为查询结果的列首进行显示，例如，关系中的属性名可能太简单了；<br>
+            ��⑷�from子句中可能需要具有相同名字的多个关系参与连接运算。例如：<br>
+            select<i> T.customer-name, T.loan-number<br>
+            </i>from <i>borrower as T, borrower as S</i><br>
+            where <i>T.loan-number</i> = <i>S.loan-number</i> and <i>T.customer-name 
+            &lt;&gt;</i> <br>
+            <i>S.customer-name</i><br>
+            这个SQL语句的含义，请大家自己思考。<br>
+            <br>
+            ��<span class="menu">这里的更名操作与第二章中的命名操作有些不同：命名操作只是对关系或关系代数表达式的操作，而这里的更名操作既可以对关系操作，也可以对属性进行更名。</span></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

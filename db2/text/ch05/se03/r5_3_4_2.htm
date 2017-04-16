@@ -1,0 +1,89 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url('../../../img/text/bg.jpg');
+background-repeat: no-repeat;
+background-attachment: fixed; background-position-y:50%
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">　</td>
+    <td>　</td>
+    <td width="10">　</td>
+  </tr>
+  <tr>
+    <td width="10">　</td>
+    <td> <!-- #BeginEditable "1" --> 　<span class="biaoti_1">2. E-R模型转换为关系模型</span>　<br>
+      　　关系数据据库的逻辑结构由一组关系模式组成,因而从概念结构到关系数据库逻辑结构的转换就是从E-R图转换为关系模式。具体的转换过程和转换规则分为如下两类：<br>
+      　A、 实体和实体属性的转换。一个实体对应一个关系模式，实体的属性对应关系的属性，实体的码对应关系模式的候选码。<br>
+      　B、 实体之间的联系和联系属性的转换：由于实体之间的联系有多种情况，下面分几种情情况进行讨论。<br>
+      　<font face="宋体">① </font>实体类型之间联系的转换1：1联系的转换 <br>
+      　・ 实体类型之间一个1：1联系转换为一个独立的关系模式，则与该联系相连的实体的码以及联系本身的属性均转换为关系的属性，每个实体的码均是该关系的候选码。<br>
+      　・ 实体类型之间一个1：1联系与任意一端实体对应的关系模式合并。则需要在该关系模式的属性中加入另一关系模式的码和联系本身的属性。<br>
+      　　<font color="#5a5aad">例如，图5-27所示的E-R图，有两类实体E1和E2，分别转换为关系模式R1和R2。它们之间的联系r和联系的属性s可以合并到R1或R2中（此处合并到R1中），或者转换为独立的关系模式R3，R3的候选码有h和k两个。</font><br>
+      <br>
+      　　<span class="tubiaoti">图5-27 1:1联系</span><br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td align="center"><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="400" height="160">
+              <param name=movie value="../../../swf/ch5/5-27.swf">
+              <param name=quality value=high>
+              <param name="wmode" value="transparent">
+              <embed src="../../../swf/ch5/5-27.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="400" height="160" wmode="transparent">
+              </embed></object></td>
+        </tr>
+      </table>
+      <br>
+      　　<font color="#5a5aad">例如，车间和车间主任之间的1：1的联系，有三种方法转换：<br>
+      　　在双方表中增加对方表的关键字列属性。车间表中增加&quot;车间主任号&quot;属性，车间主任表中增加&quot;车间号&quot;属性。<br>
+      　　在其中一个表中增加对方表的关键字列属性。例如，车间表中增加&quot;车间主任号&quot;属性，或在车间主任表中增加&quot;车间号&quot;属性。</font><br>
+      　增加新关系。例如，车间和车间主任（车间号，车间主任号）。<p>&nbsp;　     ② 1：n联系的转换<br>
+      　・ 一个1：n联系可以转换为一个独立的关系模式，则与该联系相连的各实体的码以及联系本身的属性均转换为新关系的属性，而新关系的码为n端实体的码。<br>
+      　・ 一个1：n联系也可以与n端对应的关系模式合并。 在n端的子表中增加父表的关键字列。例如，在间成员表中增加所属&quot;车间号&quot;属性。<br>
+      　　<font color="#5a5aad">例如，图5-28所示的E-R图，有两类实体E1和E2，分别转换为关系模式R1和R2。它们之间的联系r和联系的属性s可以合并到R2中，或者转换为独立的关系模式R3，R3的候选码有h。可以转换的关系模式如下：</font><br>
+      <br>
+      　　<span class="tubiaoti">图5-28 1:N联系</span><br>
+      </p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td align="center"><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="400" height="160">
+              <param name=movie value="../../../swf/ch5/5-28.swf">
+              <param name=quality value=high>
+              <param name="wmode" value="transparent">
+              <embed src="../../../swf/ch5/5-28.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="400" height="160" wmode="transparent">
+              </embed></object></td>
+        </tr>
+      </table>
+      <br>
+      　③ m：n联系的转换一个m：n联系必须转换为一个新关系模式，与该联系相连的各实体的码以及联系本身的属性均转为新关系的属性，而新关系的码是各实体码的组合。例如，供应者和零件之间m：n的联系，增加供应零件表：<br>
+      　　供应零件表（供应者号，零件号，供应数量）。<br>
+      　　<font color="#5a5aad">如图5-29所示的E-R图，有两类实体E1和E2，分别转换为关系模式R1和R2。它们之间m：n的联系转换为独立的关系模式R3，联系r的属性s是属性，R3的候选码是k和h的组合。可以转换的关系模式如下：</font><br>
+      <br>
+      　　<span class="tubiaoti">图5-29 M:N联系</span><br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td align="center"><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="400" height="160">
+              <param name=movie value="../../../swf/ch5/5-29.swf">
+              <param name=quality value=high>
+              <param name="wmode" value="transparent">
+              <embed src="../../../swf/ch5/5-29.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="400" height="160" wmode="transparent">
+              </embed></object></td>
+        </tr>
+      </table>
+      <!-- #EndEditable --></td>
+    <td width="10">　</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

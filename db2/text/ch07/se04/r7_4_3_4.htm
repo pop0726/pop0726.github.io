@@ -1,0 +1,62 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" -->　<span class="biaoti_1">5. 先写日志的原则</span><br>
+      ��在把缓冲区中的数据写入外存的过程中要遵循先写日志的原则。因为写入日志是记录对数据库将要发生何种修改，而写入数据库内容表示实际上已经发生了何种修改。因此，在将数据库缓冲区写到外存之前，必须先将日志缓冲区内容写到外存去。如果先写数据库，则有可能在写的中途发生系统崩溃，导致内存缓冲区内容丢失，而外存数据库处于不一致状态，由于日志缓冲区内容已破坏，导致无法对数据库进行恢复。<br>
+      ��<span class="explaination">由于系统在向外存写缓冲区内容时，是整页数据一起写入外存。如果事务刚刚确认提交，还没有来得及把物理缓冲区的内容完全写入外存磁盘，系统发生故障，提交的数据被丢失。如果在提交的过程完成之前先写了日志，即先写日志的原则。这样，即便更新的数据没有写入磁盘，系统重新启动后，通过日志文件即可重做提交的事务。</span><br>
+      <br>
+      <span class="biaoti_1">　6. 数据库镜像</span><br>
+      ��<span class="explaination">前面提到介质故障是最为严重的一种故障。系统出现介质故障之后，恢复起来会比较费时。而且DBA必须周期性转储数据库，这样加重了DBA的负担。如果不及时正确的转储数据库，一旦发生介质故障，会造成较大的损失。</span><br>
+      ��随着磁盘容量越来越大，为避免磁盘介质出现故障影响数据库的可用性，许多DBMS提供了数据库镜像（Mirror）功能用于数据库恢复。根据DBA的要求，系统自动把整个数据库或其中关键的数据复制到另一个磁盘上。当数据库更新的时候，DBMS自动把更新后的数据复制过去，即DBMS自动保证镜像数据和主数据的一致性。这样一旦出现介质故障，可以由镜像磁盘继续提供使用，同时DBMS自动利用镜像磁盘数据进行数据库恢复，不需要关闭系统和重装数据库备份，用户不必中断使用，如图7-20所示。<br>
+      <br>
+      　　<span class="tubiaoti">图7-20 利用镜像磁盘数据恢复数据</span><br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td align="center"><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="400" height="200">
+              <param name=movie value="../../../swf/ch7/15-A.swf">
+              <param name=quality value=high>
+              <param name="wmode" value="transparent">
+              <embed src="../../../swf/ch7/15-A.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="400" height="200" wmode="transparent">
+              </embed> 
+            </object><br>
+            <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="400" height="200">
+              <param name=movie value="../../../swf/ch7/15-B.swf">
+              <param name=quality value=high>
+              <param name="wmode" value="transparent">
+              <embed src="../../../swf/ch7/15-B.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="400" height="200" wmode="transparent">
+              </embed> 
+            </object></td>
+        </tr>
+      </table>
+      ��<span class="explaination">在没有出现故障的时候，数据库镜像还可以用于并发操作，当一个用户对数据加独占锁的时候，其它用户可以读镜像数据库上的数据，不必等待该用户释放锁。<br>
+      ��数据库镜像是通过复制数据实现的，频繁复制数据会降低系统运行效率，因此在实际中用户一般选择对关键数据和日志文件镜像，而不是对整个数据库进行镜像。</span><br>
+      <!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

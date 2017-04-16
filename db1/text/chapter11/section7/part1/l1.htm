@@ -1,0 +1,18 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body  bgcolor="#FFFFFF" bgproperties=fixed background="../../../../image/moban/15.gif">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%"> 
+<tr> <td align="center" valign="top"> <table width="92%" border="0" cellspacing="0" cellpadding="0" height="80"> 
+<tr> <td class="text" align="left"> <p><span class="part">1、死锁的定义</span><br> ��前面我们对死锁问题已经有了初步的了解，本小节专门介绍死锁的定义与处理。如果存在一个事务集，该集合中的每个事务都在等待集合中的另外一个事务，我们就说系统处于死锁状态。例如，如<span class="part">图11-7-1</span>所示，在集合{T<font size="-5">0</font>,T<font size="-5">1</font>,…,Tn}中，若T<font size="-5">0</font>在等待被T<font size="-5">1</font>锁住的数据项；T<font size="-5">1</font>在等待被T<font size="-5">2</font>锁住的数据项；…；T<font size="-5">n-1</font>在等待被T<font size="-5">n</font>锁住的数据项；而T<font size="-5">n</font>在等待被T<font size="-5">0</font>锁住的数据项，则系统死锁。<br> 
+</p></td></tr> <tr> <td class="text" align="left"> <div align="center"><span class="part">图11-7-1：死锁的示意图 
+</span><br> <img src="../../../../image/chapter/11/11-7-1.gif" width="214" height="117"> 
+</div></td></tr> <tr> <td class="text" align="left"><span class="part">2、死锁的解决</span><br> 
+��解决死锁问题主要有以下两种策略：<br> ��<u>⑴�死锁预防：</u>预先防止死锁发生，保证系统永不进入死锁状态；<br> ��<u>⑵�死锁检测与恢复：</u>允许系统进入死锁状态，但要周期性地检测系统有无死锁。如果有，则把系统从死锁中恢复过来。两种策略都会引起事务回滚。如果系统进入死锁状态的概率相对较高，则通常采用死锁预防策略；否则使用死锁检测与恢复更有效。<br> 
+</td></tr> <tr> <td class="text" align="left"> <div align="center"><img src="../../../../swf/f11_4.jpg" width="400" height="400"></div></td></tr> 
+</table></td></tr> </table>
+</body>
+</html>

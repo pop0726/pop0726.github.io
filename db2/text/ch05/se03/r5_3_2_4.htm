@@ -1,0 +1,88 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url('../../../img/text/bg.jpg');
+background-repeat: no-repeat;
+background-attachment: fixed; background-position-y:50%
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">　</td>
+    <td>　</td>
+    <td width="10">　</td>
+  </tr>
+  <tr>
+    <td width="10">　</td>
+    <td> <!-- #BeginEditable "1" --> 
+      <p> 　<span class="biaoti_1">6． 数据流和数据字典描述示例</span>　<br>
+        　　了解了用户的应用要求，可以使用信息流程图分析应用系统中的信息流。下面的例子是实现一个计算机综合教务管理系统，完成班级信息管理，学生信息管理，课程信息管理和学生选课管理等功能。<br>
+        　　本系统的用户分为超级用户和普通用户两类，超级用户负责系统维护，包括对班级信息，学生个人信息，课程信息的录入，修改，查询，删除等。普通用户即选课学生则只具有为自己选课的权限。下面给出部分数据流图和数据字典作为示例。<br>
+        　　(1) 学生选课系统简单的上下文信息流图如图5-15。 
+      <p align="center"><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="400" height="180">
+          <param name=movie value="../../../swf/ch5/5-13.swf">
+          <param name=quality >
+           <param name="wmode" value="transparent">
+          <embed src="../../../swf/ch5/5-13.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="400" height="180" wmode="transparent">
+          </embed></object> 
+      <p></p>
+      <p></p>
+      <p></p>
+      <p></p>
+      <p></p>
+      <p></p>
+      <p></p>
+      <p> 　　(2) 学生选课第一层次数据流图<br>
+        　　下面是学生选课申请的数据流图，作为第一层数据流图,如图5-16。</p>
+      <p align="center"><img src="5_39.gif" width="460" height="433"></p>
+      <p>　</p>
+      <p>　　(3) 数据字典中数据项和数据流的描述</p>
+      <p> 　　数据项名：学生编号<br>
+        　　说明： 标识每个学生身份<br>
+        　　类型： CHAR<br>
+        　　长度： 8<br>
+        　　别名： 学号<br>
+        　　取值范围：970000－979999 <br>
+        　　数据流名：选课申请<br>
+        　　说明：由学生个人信息，欲选课程信息组成选课申请<br>
+        　　来自过程：无<br>
+        　　流至过程：身份验证<br>
+        　　数据结构：学生个人信息<br>
+        　　欲选课的课程信息 数据结构：学生个人信息<br>
+        　　说明： 说明了学生的个人情况。<br>
+        　　组成： 帐号<br>
+        　　密码<br>
+        　　数据存储：上课时间信息<br>
+        　　说明： 说明了每门课的上课时间，一门课可以有多个上课时间，同一时间可以有多门课程在上课。<br>
+        　　输出数据流：课程上课时间<br>
+        　　数据描述：课程编号<br>
+        　　上课时间<br>
+        　　数量：每学期200－300个<br>
+        　　存取方式：随机存取<br>
+        　　处理过程：身份验证<br>
+        　　说明： 对学生输入的帐号，密码进行验证，确定正确，得到相应的学生编号。<br>
+        　　输入：学生帐号；<br>
+        　　密码；<br>
+        　　选课的课程编号。<br>
+        　　输出：学生编号；<br>
+        　　选课的课程编号 <br>
+        　　程序提要说明：<br>
+        　　o 对输入的学生个人信息，检查学号和密码是否正确？<br>
+        　　o 对身份正确的学生检查要选修的课程是否允许？<br>
+        　　o 检查是否正确返回信息。<br>
+      <!-- #EndEditable --></td>
+    <td width="10">　</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

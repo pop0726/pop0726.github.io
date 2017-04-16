@@ -1,0 +1,55 @@
+<html>
+<head>
+<title>l1</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center" height="8">
+        <tr> 
+          <td class="text" width="1%" height="2" valign="bottom" align="left"><br>
+            <img src="../../../../images/tubiao/lt.gif" width="26" height="25" alt="例题"> 
+          </td>
+          <td class="text" width="99%" height="2">&nbsp;</td>
+        </tr>
+        <tr> 
+          <td class="text" width="1%">&nbsp;</td>
+          <td class="text" width="99%"> PROCEDURE averagy;<br>
+            �* This procedure computes the averagy of 100 or fewer numbers <br>
+            �* that liebounding values; it also computes the total input and <br>
+            �* the total valid. <br>
+            <p> �INTERFACE RETURNS averagy, total.input, total.valid;<br>
+              �INTERFACE ACCEPTS value, minimum, maximum;</p>
+            <p> �TYPE value[1:100] IS SCALAR ARRAY;<br>
+              �TYPE averagy, total.input, total.valid, minimum, maximum, sum IS 
+              SCALAR;<br>
+              �TYPE i IS INTEGER;</p>
+            <p> �i = 1;<br>
+              �total.input = total.vaalid = 0;<br>
+              �sum = 0;<br>
+              �DO WHILE value[i] &lt;&gt; -999 AND total.input &lt; 100<br>
+              ���increment total.valid by 1;<br>
+              ���IF value[i] &gt;= minimum AND value[i] &lt;= maximum<br>
+              ����THEN increment total.valid[i];<br>
+              ����ELSE skip;<br>
+              ���ENDIF <br>
+              ���Increment i by 1;<br>
+              �ENDDO<br>
+              �IF total.valid &gt; 0<br>
+              ���THEN averagy = sum / total.valid;<br>
+              ���ELSE averagy = -999;<br>
+              �ENDIF<br>
+              END averagy<br>
+              ��</p>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

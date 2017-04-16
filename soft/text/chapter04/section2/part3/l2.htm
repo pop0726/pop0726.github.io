@@ -1,0 +1,51 @@
+<html>
+<head>
+<title>l2</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td class="text" colspan="3"> ��<br>
+            　　课文注释：例如，下面是由三句C语句组成的程序段：<br>
+            <img src="../../../../images/tubiao/cxd.gif" width="25" height="20" alt="程序段"> 
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" width="8%">&nbsp;</td>
+          <td class="text" width="57%"> <span class="part">for ( i = 1; i &lt;= 
+            n; i++ )<br>
+            �for ( j = 1; j &lt;= n; j++ )<br>
+            ��v[i][j] = ( i / j )*( j / i );</span><br>
+          </td>
+          <td class="text" width="35%">&nbsp;</td>
+        </tr>
+        <tr> 
+          <td class="text" colspan="3">��事实上，这是一个有双重循环的程序段，得到的结果是一个n×n的二维数组，只是说明语句被略去了。在C语言中，除法运算（/）在除数和被除数都是整型量时，其结果只取整数部分。因此，当i 
+            &lt; j时，i / j = 0；当j &lt; i时，j / i = 0。其结果是：当i 1 j时，v[I][j] = ( i 
+            / j )*( j / i ) = 0；当i = j时，v[i][j] = ( i / j )*( j / i ) = 1。这样得到的数组V是一个单位矩阵。这个程序构思巧妙，但不易理解，读者可能要花很大的力气才能弄清程序编制者的真正意图，这无疑给软件的维护带来很大困难。如果改写成以下的形式，就能让读者直接了解程序编写者的意图了。<br>
+            <img src="../../../../images/tubiao/cxd.gif" width="25" height="20" alt="程序段"> 
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" width="8%">&nbsp;</td>
+          <td class="text" width="57%"> <span class="part">for ( i = 1; i &lt;= 
+            n; i++ )<br>
+            �for ( j = 1; j &lt;= n; j++ )<br>
+            ��if ( i == j ) v[i][j] = 1;<br>
+            ��else v[i][j] = 0;</span><br>
+            　<br>
+          </td>
+          <td class="text" width="35%">&nbsp;</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

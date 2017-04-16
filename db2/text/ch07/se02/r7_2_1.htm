@@ -1,0 +1,62 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" -->
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td width="36" valign="top"><img src="../../../img/text/liti.gif" width="35" height="36" alt="例题" align="absmiddle"></td>
+          <td width="723">　<span class="pt9-black">例1，设某公司在银行中有A，B两个帐号，现在公司想从帐号A中取出1万元，存入帐号B。显然，在A中取出1万元的操作和在B中增加1万元的操作要么都成功完成，要么都不做。因此，需要把这二个操作定义在一个事务中。</span><br>
+            <span class="explaination">��银行转帐：事务T从A帐户过户1万元到B帐户。<br>
+            ����T： read(A);<br>
+            ������A := A - 1;<br>
+            ������write(A);<br>
+            ������read(B);<br>
+            ������B := B + 1;<br>
+            ������write(B);<br>
+            ��read(X)：从数据库传送数据项X到事务的工作区中。<br>
+            ��write(X)：从事务的工作区中将数据项X写回数据库。 </span> </td>
+        </tr>
+        <tr>
+          <td width="36" valign="top"><img src="../../../img/text/liti.gif" width="35" height="36" alt="例题"></td>
+          <td width="723"><span class="pt9-black">�例2，考虑飞机订票系统中的一个活动序列：<br>
+            ��(1) 甲售票点读出某航班的机票余额=16；<br>
+            ��(2) 乙售票点读出同一航班的机票余额也为16；<br>
+            ��(3) 甲售票点卖出一张机票，修改余额为15，并把A写回数据库；<br>
+            ��(4) 乙售票点也卖出一张机票，也修改余额为15，并把A写回数据库。</span><br>
+            ���<span class="explaination">甲： read(A); 乙： read(A);<br>
+            ����甲： A := A - 1; 乙： A := A - 1;<br>
+            ����甲： write(A); 乙： write(A);<br>
+            ��结果卖出了两张机票，数据库中机票余额只减少1张。原因是甲乙售票过程是交叉进行的。因此，要把甲乙售票点的操作放在两个事务中，一个执行完了才能执行另一个。<br>
+            哪些数据库操作序列组成一个事务，依赖于把什么看作是数据库的一致性状态和过渡时期。最狭隘的解释是把事务看作确切状态的完整性约束，从这种观点出发，事务经常称为数据库事务。最广泛的解释是把事务看作在应用环境下一个完整的工作单位，其中工作的中间状态认为是不完全的、矛盾的，或者是易于恢复、修正和取消的。在这种应用事务意义下，最典型的事务是预订航班和出租汽车、超级市场的零售核算、银行出纳、以及订贷计划管理等。根据同样意义，一个完整的机械零件设计也可看作是一个事务。商业管理事务通常持续几分钟或几秒钟，而且只影响一个数据库中很少的数据。一个工程设计事务可以持续几天或几周，而且在其活动期间可能涉及大量的数据。目前的事务管理技术是面向商业事务。面向工程设计的事务称为应用事务，一个应用事务可包含一个或多个数据库事务。从用户的观点看，用户的初衷是应用事务，但同时也希望应用事务具有下面提到的那些事务特性。 
+            </span></td>
+        </tr>
+      </table><!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

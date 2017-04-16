@@ -1,0 +1,26 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" bgproperties=fixed background="../../../../image/moban/14.gif">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" height="18">
+        <tr> 
+          <td class="text"> 
+            <p class="section">2.7�扩展E-R特性</p>
+            <p><span class="section"><span class="section"><br>
+              </span></span><span class="text">��虽然基本的E-R概念已足以对大多数数据库特征进行建模，但通过对基本E-R模型作某些扩展可以更恰当地描述数据库的某些方面。这些扩展E-R特性包括特殊化与概括、高层实体集与低层实体集、属性继承以及聚集等等。</span></p>
+            <p class="zhishidian">2.7.1　特殊化</p>
+            ��实体集中可能包含一些子集，该子集的实体在某些方面与实体集中的其他实体不同。看一看实体集account，它具有account-number和balance属性。帐户可以进一步划分为以下两类：savings-account和checking-account，每类帐户都可以通过实体集account的所有属性和一些附加的特殊属性来描述。例如，savings-account实体集通过属性interest-rate进一步描述，而checking-account实体集通过属性overdraft-amount进一步描述。这种在实体集内部进行分组的过程称为<b><u>特殊化</u></b>。实体集可以根据多个差异特征来进行特殊化。上例是根据帐户实体间的差异来对帐户进行分类，实际上，我们还可以根据帐户拥有者的类型不同而进行特殊化，其结果是可能产生了实体集commercial-account和personal-account。当一个实体集进行了多次特殊化之后，某个特定的实体就可能同时属于多个特殊化实体集。例如，某个给定的帐户既是个人帐户，又是支票帐户。在数据库的概念设计阶段可以反复地使用特殊化来精简我们所设计的模式。</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

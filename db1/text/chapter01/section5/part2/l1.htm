@@ -1,0 +1,30 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgproperties=fixed bgcolor="#FFFFFF" background="../../../../image/moban/15.gif">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" height="157">
+        <tr> 
+          <td class="text" align="left"> 
+            <p class="part">1.5.2　事务的定义</p>
+            <p> ��<b><u>事务</u></b>是数据库应用中完成单一逻辑功能的操作集合，是一个既具原子性又具一致性的逻辑执行单元。事务的定义不能违反任何的数据库一致性要求。从上面的讨论中可知一个事务应具有原子性，应使数据库保持一致性和持久性。在事务的并发执行中，事务还应该保持其隔离性，这在第十章&quot;事务&quot;里会详细讨论。<span class="zhishidian"><br>
+              ��<br>
+              </span><span class="part">1.5.3　事务管理器 </span></p>
+            <p><span class="zhishidian"><span class="zhishidian">��</span></span>对于一个事务来说：IF 
+              事务执行前数据库是一致的在事务执行的过程中允许暂时的不一致，但此时发生故障将会产生不可预测的问题THEN 事务成功执行之后数据库也应该是一致的事务的定义应使之能保持数据库的一致性，这一点是由数据库程序员在定义事务时保证的。而事务的原子性和持久性则是由数据库管理系统保证的，具体地说，是事务管理器的任务。</p>
+            <p>��<span class="menu">显然，事务管理器就是用来管理事务的，它能够保证事务的ACID四个基本特性。</span></p>
+            <p class="part">1.5.4　并发控制管理器</p>
+            <p>��当多个事务同时执行时，即使每个单独的事务都正确执行完毕，数据的一致性也可能被破坏。并发控制管理器就是用来控制并发事务间的相互影响，把它们在逻辑上隔离开，以保证数据库的一致性。</p>
+            </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

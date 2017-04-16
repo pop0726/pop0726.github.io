@@ -1,0 +1,232 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" --> 　<span class="biaoti_1">1．模式分解的等价标准<br>
+      </span><span class="pt9-black">　　规范化过程中将一个关系模式分解为若干个关系模式，应该保证分解后产生的模式和原来的模式等价。常用的等价标准有要求：<br>
+      　● 分解是具有无损连接性的；<br>
+      　● 分解是保持函数依赖的；<br>
+      　● 分解既要具有无损连接又要保持函数依赖两种。<br>
+      　　将一个关系模式R(U,F)分解为若干个关系模式R1(U1,F1),R2(U2,F2)…Rn(Un,Fn)（其中U＝U1 U2 … Un，R1为F在U1上的投影），这意味着相应的将存储在一个二维表r中的数据分散到若干个二维表r1,r2,…,rn中（其中r1是r在属性组U1上的投影）。我们当然希望这样的分解不丢失信息，也就是说，希望能够通过对关系r1,r2…rn的自然连接运算重新得到关系r中的所有信息。<br>
+      　　事实上，将关系r投影为r1,r2,…,rn时并不会丢失信息，关键是对r1,r2,…,rn作自然连接可能会产生一些原来r中没有的元组，从而无法区别那些元组是r中原来有的，即数据库中应该存在的数据，在这个意义上丢失了信息。<br>
+      　　例如：设关系模式S(SNO,CLASSNO,DEPTNO)在某一时刻的关系r如下表5-14<br>
+      </span> <br>
+      　　<span class="tubiaoti">表5-14</span><br>
+      <br>
+      <table width="80%" border="1" cellspacing="0" cellpadding="0"bordercolorlight="#004080" bordercolordark="#ffffff" class="pt9-black" align="center">
+        <tr align="center"> 
+          <td bgcolor="#fefbe2">SNO</td>
+          <td bgcolor="#fefbe2">CLASSNO</td>
+          <td bgcolor="#fefbe2">DEPTNO</td>
+        </tr>
+        <tr align="center"> 
+          <td>S1</td>
+          <td>C1</td>
+          <td>D1</td>
+        </tr>
+        <tr align="center"> 
+          <td>S2</td>
+          <td>C2</td>
+          <td>D2</td>
+        </tr>
+        <tr align="center"> 
+          <td height="13">S3</td>
+          <td height="13">C2</td>
+          <td height="13">D2</td>
+        </tr>
+        <tr align="center"> 
+          <td>S4</td>
+          <td>C3</td>
+          <td>D1</td>
+        </tr>
+      </table>
+      <p><span class="pt9-black"><br>
+        　　若按分解方案一将关系模式S分解为：<br>
+        　　　S11(SNO,DEPTNO)和<br>
+        　　　S12(CLASSNO,DEPTNO)，<br>
+        　　则将r投影到S11和S12的属性上，得到关系r11如表5-15，r12如表5-16。<br>
+        </span> </p>
+      <p>　　<span class="tubiaoti">表5-15</span><br>
+      </p>
+      <table width="80%" border="1" cellspacing="0" cellpadding="0"bordercolorlight="#004080" bordercolordark="#ffffff" class="pt9-black" align="center">
+        <tr align="center"> 
+          <td bgcolor="#fefbe2">SNO</td>
+          <td bgcolor="#fefbe2">DEPTNO</td>
+        </tr>
+        <tr align="center"> 
+          <td>S1</td>
+          <td>D1</td>
+        </tr>
+        <tr align="center"> 
+          <td>S2</td>
+          <td>D2</td>
+        </tr>
+        <tr align="center"> 
+          <td height="13">S3</td>
+          <td height="13">D2</td>
+        </tr>
+        <tr align="center"> 
+          <td>S4</td>
+          <td>D1</td>
+        </tr>
+      </table>
+      <span class="biaoti_2"><br>
+      　　</span><span class="tubiaoti">表5-16 </span><br>
+      <br>
+      <table width="80%" border="1" cellspacing="0" cellpadding="0"bordercolorlight="#004080" bordercolordark="#ffffff" class="pt9-black" align="center">
+        <tr align="center"> 
+          <td bgcolor="#fefbe2">CLASSNO</td>
+          <td bgcolor="#fefbe2">DEPTNO</td>
+        </tr>
+        <tr align="center"> 
+          <td>C1</td>
+          <td>D1</td>
+        </tr>
+        <tr align="center"> 
+          <td height="13">C2</td>
+          <td height="13">D2</td>
+        </tr>
+        <tr align="center"> 
+          <td>C3</td>
+          <td>D1</td>
+        </tr>
+      </table>
+      <p><span class="pt9-black"><br>
+        　　对分解后的两个关系作自然连接r11*r12，得到r'如表5-17如下：<br>
+        </span> </p>
+      　　<span class="tubiaoti">表5-17</span><br>
+      <br>
+      <table width="80%" border="1" cellspacing="0" cellpadding="0"bordercolorlight="#004080" bordercolordark="#ffffff" class="pt9-black" align="center">
+        <tr align="center"> 
+          <td bgcolor="#fefbe2">SNO</td>
+          <td bgcolor="#fefbe2">CLASSNO</td>
+          <td bgcolor="#fefbe2">DEPTNO</td>
+        </tr>
+        <tr align="center"> 
+          <td>S1</td>
+          <td>C1</td>
+          <td>D1</td>
+        </tr>
+        <tr align="center"> 
+          <td><font color="#00CC00">S1</font></td>
+          <td><font color="#00CC00">C3</font></td>
+          <td><font color="#00CC00">D1</font></td>
+        </tr>
+        <tr align="center"> 
+          <td height="13">S2</td>
+          <td height="13">C2</td>
+          <td height="13">D2</td>
+        </tr>
+        <tr align="center"> 
+          <td>S3</td>
+          <td>C2</td>
+          <td>D2</td>
+        </tr>
+        <tr align="center"> 
+          <td><font color="#00CC00">S4</font></td>
+          <td><font color="#00CC00">C1</font></td>
+          <td><font color="#00CC00">D1</font></td>
+        </tr>
+        <tr align="center"> 
+          <td>S4</td>
+          <td>C3</td>
+          <td>D1</td>
+        </tr>
+      </table>
+      <span class="pt9-black"><br>
+      　　r'中的元组S1C3D1和S4C1D1都不是原来r中的元组。就是说，我们无法知道原来r中到底有哪些元组，这是我们不希望的。<br>
+      　　<b>定义1</b>：设关系模式R(U,F)分解为关系模式R1(U1,F1)，R2(U2,F2)，…，Rn(Un,Fn)，若对于R的任何一个可能的关系r，都有r=r1*r2…*rn，即r在R1,R2,…,Rn上的投影的自然连接等于r，则称关系模式R的这个分解是具有无损连接性的。<br>
+      　　分解1不具有无损连接性，这是一个不好的分解方案。<br>
+      　　<font color="#5a5aad">在将一个关系模式分解为三个或者更多个关系模式的情况下，要判别分解是否具有无损连接性需要比较复杂的算法。然而若将一个关系模式分解为两个关系模式，则很容易判别分解是否具有无损连接性。 
+      <br>
+      　　关系模式R(U,F)分解为关系模式R1(U1,F1),R2(U2,F2)是具有无损连接性的分解的充分必要条件是（U1∩U2→U1-U2）∈F<sup>+</sup>，或者（U2∩U1→U2-U1）∈F<sup>+</sup>。</font><br>
+      　　让我们再考察第二种分解方案，将关系模式S分解为：<br>
+      　　　S21(SNO,CLASSNO)，<br>
+      　　　S22(SNO,DEPTNO)<br>
+      　　由于U1∩U2＝SNO，U1-U2=CLASSNO，显然U1 U2→U1-U2，所以分解2具有无损连接性。然而分解2也不是一个很好的分解方案，将前面例子的关系r投影到S21,S22的属性上，得到关系r21如表5-18和r22如表5-19：<br>
+      </span> <br>
+      　　<span class="tubiaoti">表5-18</span><br>
+      <br>
+      <table width="80%" border="1" cellspacing="0" cellpadding="0"bordercolorlight="#004080" bordercolordark="#ffffff" class="pt9-black" align="center">
+        <tr align="center"> 
+          <td bgcolor="#fefbe2">SNO</td>
+          <td bgcolor="#fefbe2">CLASSNO</td>
+        </tr>
+        <tr align="center"> 
+          <td>S1</td>
+          <td>C1</td>
+        </tr>
+        <tr align="center"> 
+          <td>S2</td>
+          <td>C2</td>
+        </tr>
+        <tr align="center"> 
+          <td height="13">S3</td>
+          <td height="13">C2</td>
+        </tr>
+        <tr align="center"> 
+          <td>S4</td>
+          <td>C3</td>
+        </tr>
+      </table>
+      <span class="biaoti_2"><br>
+      　　</span><span class="tubiaoti">表5-19 <br>
+      <br>
+      </span> 
+      <table width="80%" border="1" cellspacing="0" cellpadding="0"bordercolorlight="#004080" bordercolordark="#ffffff" class="pt9-black" align="center">
+        <tr align="center"> 
+          <td bgcolor="#fefbe2">SNO</td>
+          <td bgcolor="#fefbe2">DEPTNO</td>
+        </tr>
+        <tr align="center"> 
+          <td>S1</td>
+          <td>D1</td>
+        </tr>
+        <tr align="center"> 
+          <td height="13">S2</td>
+          <td height="13">D2</td>
+        </tr>
+        <tr align="center"> 
+          <td height="13">S3</td>
+          <td height="13">D2</td>
+        </tr>
+        <tr align="center"> 
+          <td>S4</td>
+          <td>D1</td>
+        </tr>
+      </table>
+      <span class="pt9-black"><br>
+      　　<font color="#5a5aad">在这种分解中，假设学生S3从C2班转到C3班，于是我们需要在r21中将元组S3C2修改为S3C3，同时在r22中将元组S3D2修改为S3D1。如果这两个修改没有同时完成，数据库中就会存在不一致信息。这是因为分解得到的两个关系模式不是互相独立造成的。F中的函数依赖CLASSNO→DEPTNO既没有投影到关系模式R22中，而是跨在两个关系模式上。函数依赖是数据库中的完整性约束条件。在r中，若两个元组的X值相等，则Y值也必须相等。现在r的一个元组中的X值和Y值跨在两个不同的关系中，为维护数据库的一致性，在一个关系中修改X值时就需要相应的在另外一个关系中修改Y值，这当然是很麻烦而且是容易出错的，于是我们要求模式分解保持函数依赖这条等价标准。</font><br>
+      　　<b>定义2</b>：设关系模式R(U,F)分解为关系模式R1(U1,F1)，R2(U2,F2)，…，Rn(Un,Fn)，若F=(F1<img src="../../../img/text/ch05/18.gif" width="11" height="11">F2<img src="../../../img/text/ch05/18.gif" width="11" height="11">…<img src="../../../img/text/ch05/18.gif" width="11" height="11">Fn) 
+      ，即F所逻辑蕴含的函数依赖一定也由分解得到的各个关系式中的函数依赖所逻辑蕴含，则称关系模式R的这个分解是保持函数依赖的。<br>
+      　　分解方案二不是保持函数依赖的，因为分解得到的关系模式中只有函数依赖SNO→CLASSNO，丢失了函数依赖CLASSNO→DEPTNO。不是一个好的分解。<br>
+      　　分解方案三是保持函数依赖的。</span><span class="pt9-black"><br>
+      </span> <!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

@@ -1,0 +1,716 @@
+<HTML>
+<HEAD>
+<TITLE>软件工程 </TITLE>
+<SCRIPT language=JavaScript>
+/*-------------------------------------------填空题---------------------------------------------*/
+function getKeyWord(form){
+var mykeys=new Array();
+mykeys[0]="改正性维护";mykeys[1]="适应性维护";mykeys[2]="完善性维护";mykeys[3]="预防性维护";mykeys[4]="生产性活动";mykeys[5]="非生产性活动";mykeys[6]="非结构化的维护";mykeys[7]="非生产性活动";mykeys[8]="非结构化的维护";mykeys[9]="结构化的维护";mykeys[10]="维护申请报告";mykeys[11]="维护的副作用";mykeys[12]="软件配置";mykeys[13]="评审";mykeys[14]="在检查点进行检查";mykeys[15]="周期性维护检查";mykeys[16]="对软件包检查";mykeys[17]="理解软件";mykeys[18]="改进软件";mykeys[19]="获取、保存和扩充软件知识";mykeys[20]="结构化设计技术";mykeys[21]="软件复用技术";mykeys[22]="过程风险";mykeys[23]="人员风险";mykeys[24]="应用问题风险";mykeys[25]="系统大小";mykeys[26]="系统年龄";mykeys[27]="程序设计语言";
+
+var answer=new Array();
+for(var I=0;I<mykeys.length;I++) answer[I]="";
+
+var every=form.elements;
+for(var I=0;I<every.length;I++)
+{
+if(every[I].type=="text")
+{
+ if(every[I].value!==null)
+ {var item=parseInt(every[I].name.substr(0))
+  answer[item-1]+=every[I].value;
+  }
+ }
+}
+var newcount="<html><head><title>谢谢您!</title></head><body><center><h2><font color=red>您的测试结果</font></h2></center>";
+var totalscore=0;
+for(var I=0;I<answer.length;I++)
+{var re=/</g;
+var rd=/>/g;
+var re=/\\/g;
+answer[I]=answer[I].replace(re,"&#92;");
+answer[I]=answer[I].replace(re,"&lt;");
+answer[I]=answer[I].replace(rd,"&gt;");
+	if(answer[I]==mykeys[I])
+	{
+		var rstr="<font size=2>第"+(I+1)+"个空答案正确!</font><br>";
+		newcount+=rstr;
+		totalscore+=1/26*100;
+	}else
+	{
+		var rstr="<font size=2>第"+(I+1)+"个空答案错误!正确答案为"+mykeys[I]+"</font><br>";
+		newcount+=rstr;
+	}
+
+}
+
+newcount+="<br>您的总成绩为:";
+newcount+=Math.ceil(totalscore);
+newcount+="分";
+newwin=window.open("","","height=400,width=400,scrollbars=yes,resizable=no");
+newwin.document.write(newcount);
+}
+/*-------------选择提----------------------------------------------------------------*/
+function getresultcheck(form)
+{var mykeys=new Array();
+mykeys[0]="D";mykeys[1]="C";mykeys[2]="A";mykeys[3]="C";mykeys[4]="D";mykeys[5]="C";mykeys[6]="A";mykeys[7]="C";mykeys[8]="B";mykeys[9]="C";mykeys[10]="B";mykeys[11]="C";mykeys[12]="B";mykeys[13]="D";mykeys[14]="D";mykeys[15]="C";mykeys[16]="B";mykeys[17]="C";mykeys[18]="C";mykeys[19]="C";
+
+
+var answer=new Array();
+for(var I=0;I<mykeys.length;I++) answer[I]="";
+
+var every=form.elements;
+//var lastname="";
+for(var I=0;I<every.length;I++)
+{
+	if(every[I].type=="radio")
+	{
+		/*alert("checkbox:name->"+every[I].name+"value->"+every[I].value);*/
+		if(every[I].checked)
+		{	
+			//var item=parseInt(every[I].name.charAt(1));
+			var item=parseInt(every[I].name.substr(0));/*返回由字符串转换得到的整数*/
+			/*substr返回一个从指定位置开始的指定长度的子字符串。*/
+			answer[item-1]+=every[I].value;
+		}
+	}				
+}
+
+var newcount="<html><head><title>谢谢您!</title></head><body><center><h2><font color=red>您的测试结果</font></h2></center>";
+var totalscore=0;
+for(var I=0;I<answer.length;I++)
+{
+	if(answer[I].toUpperCase()==mykeys[I].toUpperCase())
+	{
+		var rstr="<font size=2>第"+(I+1)+"题答案正确!</font><br>";
+		newcount+=rstr;
+		totalscore+=1/20*100;//每题分数
+	}else
+	{
+		var rstr="<font size=2>第"+(I+1)+"题答案错误!正确答案为"+mykeys[I]+"</font><br>";
+		newcount+=rstr;
+	}
+
+}
+
+newcount+="<br>您的总成绩为:";
+newcount+=Math.ceil(totalscore);
+newcount+="分";
+newwin=window.open("","","height=400,width=400,scrollbars=yes,resizable=no");
+newwin.document.write(newcount);}
+/*--------------------------------判断题----------------------------------------------------*/
+
+function getresultpanduan(form)
+{var mykeys=new Array();
+
+
+
+var answer=new Array();
+for(var I=0;I<mykeys.length;I++) answer[I]="";
+
+var every=form.elements;
+//var lastname="";
+for(var I=0;I<every.length;I++)
+{
+	if(every[I].type=="checkbox")
+	{
+		/*alert("checkbox:name->"+every[I].name+"value->"+every[I].value);*/
+		if(every[I].checked)
+		{	
+			//var item=parseInt(every[I].name.charAt(1));
+			var item=parseInt(every[I].name.substr(0));/*返回由字符串转换得到的整数*/
+			/*substr返回一个从指定位置开始的指定长度的子字符串。*/
+			answer[item-1]+=every[I].value;
+		}
+	}				
+}
+
+var newcount="<html><head><title>谢谢您!</title></head><body><center><h2><font color=red>您的测试结果</font></h2></center>";
+var totalscore=0;
+for(var I=0;I<answer.length;I++)
+{
+	if(answer[I].toUpperCase()==mykeys[I].toUpperCase())
+	{
+		var rstr="<font size=2>第"+(I+1)+"题 您答对了!</font><br>";
+		newcount+=rstr;
+		totalscore+=1/0*100;//每题分数
+	}else
+	{
+		var rstr="<font size=2>第"+(I+1)+"题 您答错了!</font><br>";
+		newcount+=rstr;
+	}
+
+}
+
+newcount+="<br>您的总成绩为:";
+newcount+=Math.ceil(totalscore);
+newcount+="分";
+newwin=window.open("","","height=400,width=400,scrollbars=yes,resizable=no");
+newwin.document.write(newcount);
+}
+/*--------------------------------简答题----------------------------------------------------*/
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+</SCRIPT>
+<style type="text/css"><!--
+-->
+</style>
+<link rel="stylesheet" href="../../../../../css/text.css" type="text/css">
+</HEAD>
+<BODY text=black bgColor=#FFFFFF topMargin=10 marginheight="10">
+<DIV class=p2 align=center></DIV>
+<FORM >
+  <P class="section">一、&nbsp;填空题</P>
+  <P><span class="text">&nbsp;1、为了识别和纠正错误，修改软件性能上的缺陷所需进行的确定和修改错误的维护活动称为&nbsp; 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=1>
+    。<BR>
+    &nbsp;2、为了使应用软件适应计算机硬件、软件和数据环境的变化而修改软件的维护活动称为 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=2>
+    。<BR>
+    &nbsp;3、为增加软件功能、增强软件性能、提高软件运行效率而进行的维护活动称为 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=3>
+    。<BR>
+    &nbsp;4、为了提高软件的可维护性和可靠性而对软件进行的修改成为&nbsp; 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=4>
+    。<BR>
+    &nbsp;5、用于软件维护工作的活动可分为 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=5>
+    和 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=6>
+    两种。 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=7>
+    包括分析、评价、修改设计和修改程序代码等， 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=8>
+    包括理解程序代码功能、解释数据结构、接口特点和设计约束。<BR>
+    &nbsp;6、软件的开发过程对软件的维护有较大影响。若不采用软件工程的方法开发软件，则软件只有程序，没有文档，维护工作非常困难，这是 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=9>
+    ，若采用软件工程的方法开发软件，则各阶段都有相应的文档，容易进行维护工作，这是 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=10>
+    。<BR>
+    &nbsp;7、 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=11>
+    是一种由用户产生的文档，它用做计划维护任务的基础。<BR>
+    &nbsp;8、因修改软件而造成的错误或其他不希望出现的情况称为 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=12>
+    。<BR>
+    &nbsp;9、必须在软件交付之前对整个 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=13>
+    进行 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=14>
+    ，以减少文档的副作用。<BR>
+    &nbsp;10、为了保证软件的可维护性所进行的软件质量保证审查有 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=15>
+    、验收检查、 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=16>
+    和 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=17>
+    。<BR>
+    &nbsp;11、软件再工程主要包括 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=18>
+    、 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=19>
+    和&nbsp; 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=20>
+    等三种。<BR>
+    &nbsp;12、用于软件再工程的重构技术有&nbsp; 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=21>
+    和 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=22>
+    。<BR>
+    &nbsp;13、软件再工程的风险主要包括 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=23>
+    、 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=24>
+    、&nbsp;&nbsp; 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=25>
+    、技术风险、工具风险和策略风险。<BR>
+    &nbsp;14、影响维护工作量的程序特征有 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=26>
+    、 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=27>
+    、&nbsp;&nbsp; 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=28>
+    、数据库技术的应用、先进的软件开发技术、应用的类型、数学模型、任务的难度等。<BR>
+    </span><BR>
+    <INPUT id=A type=reset value=清�空>
+    <INPUT id=A onclick=getKeyWord(this.form) type=button value=提�交>
+  </P>
+  <P class="section">二、单选题</P>
+  <P>&nbsp;<span class="text">1、在软件生存期中，工作量所占比例最大的阶段是(&nbsp;&nbsp;&nbsp; )阶段。<BR>
+    <INPUT id=c1 type=radio value=A name=1>
+    A. 需求分析&nbsp; &nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=1>
+    B. 软件设计&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=C name=1>
+    C. 测试&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=1>
+    D. 维护<BR>
+    <BR>
+    &nbsp;2、在整个软件维护阶段，以(&nbsp;&nbsp;&nbsp; )维护所花费的工作量所占比例最大。<BR>
+    <INPUT id=c1 type=radio value=A name=2>
+    A. 改正性&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=2>
+    B. 适应性&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=C name=2>
+    C. 完善性&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=2>
+    D. 预防性<BR>
+    <BR>
+    &nbsp;3、一个软件产品开发完成投入使用后，常常由于各种原因需要对它做适当的变更。通常把软件交付使用后所做的变更叫做(&nbsp;&nbsp;&nbsp; 
+    )。<BR>
+    <INPUT id=c1 type=radio value=A name=3>
+    A. 维护&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=3>
+    B. 设计&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=C name=3>
+    C. 软件再工程&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=3>
+    D. 逆向工程<BR>
+    <BR>
+    &nbsp;4、软件工程针对维护工作的主要目标是提高软件(&nbsp;&nbsp;&nbsp; )，降低维护的成本。<BR>
+    <INPUT id=c1 type=radio value=A name=4>
+    A. 生产率&nbsp;&nbsp; <BR>
+    <INPUT id=c1 type=radio value=B name=4>
+    B. 可靠性&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=C name=4>
+    C. 可维护性&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=4>
+    D. 维护效率<BR>
+    <BR>
+    &nbsp;5、软件可维护性是指软件能够被理解、改正、(&nbsp;&nbsp;&nbsp; )功能的容易程度。<BR>
+    <INPUT id=c1 type=radio value=A name=5>
+    A. 变更&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=5>
+    B. 维护&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=C name=5>
+    C. 修改&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=5>
+    D. 适应及增强<BR>
+    <BR>
+    &nbsp;6、软件可维护性是软件开发阶段的关键目标。软件可维护性可用下面七个质量特性来衡量，即可理解性、可测试性、可修改性、可靠性、(&nbsp;&nbsp;&nbsp; 
+    )、可使用性和效率。<BR>
+    <INPUT id=c1 type=radio value=A name=6>
+    A. 完备性&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=6>
+    B. 安全性&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=C name=6>
+    C. 可移植性&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=6>
+    D. 灵活性<BR>
+    <BR>
+    &nbsp;7、可维护性的特性中相互促进的是(&nbsp;&nbsp;&nbsp; )。<BR>
+    <INPUT id=c1 type=radio value=A name=7>
+    A. 可理解性与可测试性&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=7>
+    B. 效率和可移植性<BR>
+    <INPUT id=c1 type=radio value=C name=7>
+    C. 效率和可修改性&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=7>
+    D. 效率和可靠性<BR>
+    <BR>
+    &nbsp;8、可维护性的特性中相互矛盾的是(&nbsp;&nbsp;&nbsp; )。<BR>
+    <INPUT id=c1 type=radio value=A name=8>
+    A. 可修改性和可理解性&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=8>
+    B. 可测试性和可理解性<BR>
+    <INPUT id=c1 type=radio value=C name=8>
+    C. 效率和可修改性&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=8>
+    D. 可理解性和可读性<BR>
+    <BR>
+    &nbsp;9、在软件维护的实施过程中，为了正确、有效地修改程序，需要经历以下三个步骤：分析和理解程序、修改程序和(&nbsp;&nbsp;&nbsp; 
+    )。<BR>
+    <INPUT id=c1 type=radio value=A name=9>
+    A. 建立目标程序&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=9>
+    B. 重新验证程序<BR>
+    <INPUT id=c1 type=radio value=C name=9>
+    C. 验收程序&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=9>
+    D. 测试程序<BR>
+    <BR>
+    &nbsp;10、在软件维护的实施过程中，为了正确、有效地修改程序，需要经历以下三个步骤：分析和理解程序、修改程序和重新验证程序。其中(&nbsp;&nbsp;&nbsp; 
+    )是决定维护成败和质量好坏的关键。<BR>
+    <INPUT id=c1 type=radio value=A name=10>
+    A. 分析和理解程序&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=10>
+    B. 重新验证程序<BR>
+    <INPUT id=c1 type=radio value=C name=10>
+    C. 修改程序&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=10>
+    D. 验收程序<BR>
+    <BR>
+    &nbsp;11、在软件维护的实施过程中，为了正确、有效地修改程序，需要经历以下三个步骤：分析和理解程序、修改程序和重新验证程序。重新验证程序包括(&nbsp;&nbsp;&nbsp; 
+    )确认、计算机确认和维护后的验收。<BR>
+    <INPUT id=c1 type=radio value=A name=11>
+    A. 动态&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=11>
+    B. 静态&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=C name=11>
+    C. 人工&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=11>
+    D. 自动<BR>
+    <BR>
+    &nbsp;12、在下面的叙述中与可维护性关系最密切的是(&nbsp;&nbsp;&nbsp; )。<BR>
+    <INPUT id=c1 type=radio value=A name=12>
+    A. 软件从一个计算机系统和环境转移到另一个计算机系统和环境的容易程度。<BR>
+    <INPUT id=c1 type=radio value=B name=12>
+    B. 尽管有不合法的输入，软件仍能继续正常工作的能力。<BR>
+    <INPUT id=c1 type=radio value=C name=12>
+    C. 软件能够被理解、改正、适应和增强功能的容易程度。<BR>
+    <INPUT id=c1 type=radio value=D name=12>
+    D. 在规定的条件下和规定的时间内，实现指定的功能的能力。<BR>
+    <BR>
+    &nbsp;13、在软件维护工作的过程中，第一步是先确认(&nbsp;&nbsp;&nbsp; )。<BR>
+    <INPUT id=c1 type=radio value=A name=13>
+    A. 维护环境&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=13>
+    B. 维护类型&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=C name=13>
+    C. 维护要求&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=13>
+    D. 维护者<BR>
+    <BR>
+    &nbsp;14、不管维护类型如何，大体上要开展相同的技术工作。这些工作包括修改软件设计、(&nbsp;&nbsp;&nbsp; )、单元测试、集成测试、确认测试以及验收。<BR>
+    <INPUT id=c1 type=radio value=A name=14>
+    A. 分析&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=14>
+    B. 测试&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=C name=14>
+    C. 检验&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=14>
+    D. 修改代码<BR>
+    <BR>
+    &nbsp;15、软件生存期的(&nbsp;&nbsp;&nbsp; )的工作与软件可维护性有密切的关系。<BR>
+    <INPUT id=c1 type=radio value=A name=15>
+    A. 编码阶段&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=15>
+    B. 设计阶段&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=C name=15>
+    C. 测试阶段&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=15>
+    D. 每个阶段<BR>
+    <BR>
+    &nbsp;16、软件维护困难的主要原因是(&nbsp;&nbsp;&nbsp; )。<BR>
+    <INPUT id=c1 type=radio value=A name=16>
+    A. 费用低&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=16>
+    B. 人员少&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=C name=16>
+    C. 开发方法缺陷&nbsp;&nbsp; <BR>
+    <INPUT id=c1 type=radio value=D name=16>
+    D. 维护难<BR>
+    <BR>
+    &nbsp;17、软件维护费用高的主要原因是(&nbsp;&nbsp;&nbsp; )。<BR>
+    <INPUT id=c1 type=radio value=A name=17>
+    A. 生产率高&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=17>
+    B. 生产率低&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=C name=17>
+    C. 人员多&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=17>
+    D. 人员少<BR>
+    <BR>
+    &nbsp;18、维护阶段的文档是(&nbsp;&nbsp;&nbsp; )。<BR>
+    <INPUT id=c1 type=radio value=A name=18>
+    A. 软件需求说明书&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=18>
+    B. 操作手册<BR>
+    <INPUT id=c1 type=radio value=C name=18>
+    C. 软件问题报告&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=18>
+    D. 测试分析报告<BR>
+    <BR>
+    &nbsp;19、产生软件维护的副作用，是指(&nbsp;&nbsp;&nbsp; )。<BR>
+    <INPUT id=c1 type=radio value=A name=19>
+    A. 开发时的错误&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=19>
+    B. 隐含的错误<BR>
+    <INPUT id=c1 type=radio value=C name=19>
+    C. 因修改软件造成的错误&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=19>
+    D. 运行时误操作 <BR>
+    <BR>
+    &nbsp;20、在维护中，因误删除一个标识符而引起的错误是(&nbsp;&nbsp;&nbsp; )副作用。<BR>
+    <INPUT id=c1 type=radio value=A name=20>
+    A. 文档&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=20>
+    B. 数据&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=C name=20>
+    C. 编码&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=20>
+    D. 设计</span><BR>
+    <BR>
+    <INPUT id=A type=reset value=清空>
+    <INPUT id=A onclick=getresultcheck(this.form) type=button value=提交>
+  </P>
+  <P class="section">三、选择填空题</P>
+  <P class="text">&nbsp;1、从供选择的答案中选出与下面有关软件质量的叙述最适合的答案，将其编号填入相应的括号内。<BR>
+    �软件产品质量是生产者和用户都十分关心的问题，早期的质量管理只看到产品的质量，近年来质量管理向(&nbsp; A&nbsp; )发展，一个重要的基本假设是(&nbsp; 
+    B&nbsp; )直接影响(&nbsp; C&nbsp; )。这一假设最初是根据制造业情况作出的。(&nbsp; D&nbsp; )自然就会得到高质量的产品。(&nbsp; 
+    D&nbsp; )的思想是美国工程师戴明(W. E. Deming)提出来的，戴明等人在质量管理中引入统计质量控制的概念，以降低软件产品缺陷数作为(&nbsp; 
+    D&nbsp; )的目标，请选择合适的答案完成下面有关软件质量与过程的关系的示意图。</P>
+  <P><IMG alt="" hspace=0 src="image/01.gif" align=baseline border=0><BR>
+    <span class="text">供选择的答案：<BR>
+    A～D.�① 过程的质量&nbsp;&nbsp;② 产品的质量&nbsp;&nbsp;③ 产品质量的控制<BR>
+    ��� ④ 过程质量的控制&nbsp;⑤ 过程的改进&nbsp;&nbsp;⑥ 产品的改进<BR>
+    ��� ⑦ 技术的革新<BR>
+    E～H.�① 定义过程&nbsp;&nbsp;&nbsp;② 将过程标准化&nbsp;&nbsp;③ 开发产品<BR>
+    ��� ④ 改进过程&nbsp;&nbsp;&nbsp;⑤ 质量控制</span></P>
+  <P> <span class="text">
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    </span><BR>
+    <BR>
+    &nbsp;<span class="text">2、从供选择的答案中选出与下面有关软件质量的叙述最适合的答案，将其编号填入相应的括号内。<BR>
+    &nbsp;�对于软件产品来说，有4个方面影响着产品的质量，即(&nbsp; A&nbsp; )、(&nbsp; B&nbsp; )、(&nbsp; 
+    C&nbsp; )及成本、时间和进度等条件。重视软件过程的质量是近年来质量管理理论和实践的新发展。重视软件过程质量的控制，其部分原因可能是：相对于产品质量的控制来说，过程质量的控制是(&nbsp; 
+    D&nbsp; )、(&nbsp; E&nbsp; )、(&nbsp; F&nbsp; )，而产品质量的控制是(&nbsp; G&nbsp; )、(&nbsp; 
+    H&nbsp; )、(&nbsp; I&nbsp; )。<BR>
+    供选择的答案：<BR>
+    A～C.�① 开发时间&nbsp;&nbsp;② 开发技术&nbsp;&nbsp;③ 过程质量&nbsp;&nbsp;④ 风险控制<BR>
+    ��� ⑤ 质量控制&nbsp;&nbsp;⑥ 人员素质 &nbsp;⑦ 项目管理&nbsp;&nbsp;⑧ 配置管理 &nbsp;<BR>
+    D～I.�① 主动的&nbsp;&nbsp;② 被动的&nbsp;&nbsp;③ 整体的&nbsp;&nbsp;④ 系统的<BR>
+    ��� ⑤ 先期的 &nbsp;&nbsp;⑥ 事后的 &nbsp;&nbsp;⑦ 个别的&nbsp;&nbsp;⑧ 部分的</span></P>
+  <P> 
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    &nbsp;</P>
+  <P class="text">&nbsp;3、从供选择的答案中选出与下面有关软件质量特性的叙述最适合的答案，将其编号填入相应的括号内。<BR>
+    �McCall提出了表明软件质量的11个质量特性。它们是(&nbsp; A&nbsp; )、(&nbsp; B&nbsp; )、(&nbsp; C&nbsp; 
+    )、(&nbsp; D&nbsp; )、(&nbsp; E&nbsp; )、(&nbsp; F&nbsp; )、(&nbsp; G&nbsp; )、(&nbsp; 
+    H&nbsp; )、效率、可测试性和互连性。我们把这11个特性分为3组，使其分别隶属于产品修正、产品转移和产品运行等3个方面，如图所示。</P>
+  <P><IMG alt="" hspace=0 src="image/03.gif" align=baseline border=0></P>
+  <P><span class="text">供选择的答案：<BR>
+    A～H.&nbsp;① 可读性&nbsp;&nbsp; ② 正确性&nbsp;&nbsp;③ 功能性&nbsp;&nbsp; ④ 完整性&nbsp;<BR>
+    ���⑤ 可靠性&nbsp;&nbsp; ⑥ 可移植性&nbsp;⑦ 可复用性&nbsp;&nbsp; ⑧ 灵活性<BR>
+    ���⑨ 可维护性&nbsp;&nbsp; ⑩ 可使用性</span><BR>
+    <BR>
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+  </P>
+  <P class="text">&nbsp;4、从供选择的答案中选出与下面有关软件质量模型的叙述最适合的答案，将其编号填入相应的括号内。<BR>
+    �国际标准化组织和国际电工委员会于1991年发布了关于软件质量的标准ISO�MIEC 9126�D1991。我国于1996年将其等同采用，成为国家标准GB�MT16260�D1996《软件产品评价、质量特性及其使用指南》。在此标准中规定了6个质量特性及相关的(&nbsp; 
+    A&nbsp; )个质量子特性。质量特性包括(&nbsp; B&nbsp; )、(&nbsp; C&nbsp; )、(&nbsp; D&nbsp; 
+    )、效率、可维护性和可移植性等。准确性属于(&nbsp; B&nbsp; )，容错性属于(&nbsp; C&nbsp; )，易学习性属于(&nbsp; 
+    D&nbsp; )。<BR>
+    供选择的答案：<BR>
+    A.&nbsp;&nbsp;� ① 12 &nbsp;&nbsp;&nbsp;② 16 &nbsp;&nbsp;&nbsp;③ 21&nbsp;&nbsp;&nbsp;④ 
+    22<BR>
+    B～D. &nbsp;① 可靠性&nbsp;&nbsp;② 适应性 &nbsp;&nbsp;③ 可使用性&nbsp;&nbsp;④ 安全性 &nbsp;<BR>
+    &nbsp; ���⑤ 一致性&nbsp;&nbsp;⑥ 功能性&nbsp;&nbsp;⑦ 依从性&nbsp;&nbsp;⑧ 互操作性<BR>
+    ���⑨ 时间特性&nbsp;&nbsp;⑩ 资源特性</P>
+  <P> 
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    <BR>
+    <BR>
+    <span class="text">5、从供选择的答案中选出与下面有关软件维护的叙述最适合的答案，将其编号填入相应的括号内。<BR>
+    �一个软件产品开发完成投入使用后，常常由于各种原因需要对它做适当的变更。在软件的使用过程中，软件原来的(&nbsp; A&nbsp; )可能不再适应用户的要求，需要进行变更；软件的工作环境也可能发生变化，最常见的是配合软件工作的(&nbsp; 
+    B&nbsp; )有变动；还有一种情况是在软件使用过程中发现错误，需要进行修正。通常把软件交付使用后做的变更称为(&nbsp; C&nbsp; )。软件投入使用后的另一项工作是(&nbsp; 
+    D&nbsp; )，针对这类软件实施的软件工程活动，主要是对其重新实现，使其具有更好的(&nbsp; E&nbsp; )，包括软件重构、重写文档等。(&nbsp; 
+    D&nbsp; )和新的软件开发工作的主要差别在于(&nbsp; H&nbsp; )。我们把常规的软件开发称为(&nbsp; F&nbsp; )，而(&nbsp; 
+    G&nbsp; )是从代码开始推导出设计或是规格说明来。<BR>
+    供选择的答案：<BR>
+    A, B. ���① 环境&nbsp;&nbsp;② 软件&nbsp;&nbsp;③ 硬件&nbsp;&nbsp;④ 功能和性能&nbsp;⑤ 要求<BR>
+    C, D, F, G. ① 逆向工程&nbsp;&nbsp;② 正向工程&nbsp;&nbsp;③ 软件再工程&nbsp;④ 维护<BR>
+    ������⑤ 设计<BR>
+    E. ���� ① 可靠性&nbsp;&nbsp;② 可维护性&nbsp;&nbsp;③ 可移植性&nbsp;&nbsp;④ 可修改性<BR>
+    H. ���� ① 使用的工具不同&nbsp;&nbsp;&nbsp;② 开发的过程不同<BR>
+    � ���� ③ 开发的起点不同&nbsp;&nbsp;&nbsp;④ 要求不同</span></P>
+  <P> 
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    &nbsp;</P>
+  <P>&nbsp;<span class="text">6、从供选择的答案中选出与下面有关软件维护的叙述最适合的答案，将其编号填入相应的括号内。<BR>
+    &nbsp;�软件维护是软件生存期的最后一个阶段。软件工程学针对维护工作的主要目标是提高(&nbsp; A&nbsp; )，降低(&nbsp; B&nbsp; 
+    )。软件的(&nbsp; C&nbsp; )、(&nbsp; D&nbsp; )、(&nbsp; E&nbsp; )是决定软件可维护性的基本因素。软件生存期(&nbsp; 
+    F&nbsp; )的工作与软件可维护性有密切的关系。<BR>
+    &nbsp;右图为结构化维护和非结构化维护的对比，请选择合适的答案填入图中。<BR>
+    供选择的答案：<BR>
+    A, B.��① 软件的生产率&nbsp;&nbsp;<BR>
+    ���� ② 文档<BR>
+    ��� �③ 软件的可靠性 &nbsp; <BR>
+    ���� ④ 软件的可维护性<BR>
+    ��� �⑤ 维护的代价<BR>
+    ���� ⑥ 维护的效率 &nbsp;<BR>
+    C, D, E.&nbsp;① 可测试性 &nbsp;② 互操作性<BR>
+    ���� ③ 可理解性&nbsp;&nbsp;④ 可修改性<BR>
+    ���� ⑤ 可复用性&nbsp;&nbsp;⑥ 可管理性<BR>
+    F. ���① 编码阶段 &nbsp;② 设计阶段<BR>
+    ���� ③ 测试阶段&nbsp;&nbsp;④ 每个阶段<BR>
+    G～L. � ① 复查&nbsp; &nbsp;&nbsp;② 计划途径&nbsp;&nbsp;&nbsp;&nbsp;③ 重编程序&nbsp;&nbsp;④ 
+    评价设计<BR>
+    ��� �⑤ 评价代码&nbsp;&nbsp;⑥ 修改设计</span><BR>
+    <IMG alt="" hspace=0 src="image/06.gif" align=baseline border=0></P>
+  <P> 
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    <BR>
+    <BR>
+    <span class="text">7、从供选择的答案中选出同下列各叙述关系最密切的字句。<BR>
+    A. 软件从一个计算机系统或环境转移到另一个计算系统或环境的容易程度。<BR>
+    B. 软件在需要它投入使用时能实现其指定的功能的概率。<BR>
+    C. 软件使不同的系统约束条件和用户需求得到满足的容易程度。<BR>
+    D. 在规定的条件下和规定的一段期间内，实现所指定的功能的概率。<BR>
+    E. 尽管有不合法的输入，软件仍能继续正常工作的能力。<BR>
+    供选择的答案：<BR>
+    ① 可测试性 &nbsp;&nbsp;② 可理解性 &nbsp;&nbsp;③ 可靠性 &nbsp;&nbsp;④ 可移植性<BR>
+    ⑤ 可使用性 &nbsp;&nbsp;⑥ 兼容性 &nbsp;&nbsp;&nbsp;　⑦ 容错性 &nbsp;&nbsp;⑧ 可修改性<BR>
+    ⑨ 可接近性 ⑩ 一致性</span></P>
+  <P> 
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    <BR>
+    &nbsp;<BR>
+    &nbsp;<span class="text">8、下面有关软件维护的叙述有些是不准确的，请将它们列举出来。<BR>
+    供选择的答案：<BR>
+    ① 要维护一个软件，必须先理解这个软件。<BR>
+    ② 阅读别人写的程序并不困难。<BR>
+    ③ 如果文档不齐全也可以维护一个软件。<BR>
+    ④ 谁写的软件就得由谁来维护这个软件。<BR>
+    ⑤ 设计软件时就应考虑到将来的可修改性。<BR>
+    ⑥ 维护软件时一件很吸引人的创造性工作。<BR>
+    ⑦ 维护软件就是改正软件中的错误。<BR>
+    ⑧ 维护好一个软件是一件很难的事情。</span></P>
+  <P> 
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+  </P>
+  <P class="text">&nbsp;9、从供选择的答案中选出与下面有关软件维护实施的叙述最适合的答案，将其编号填入相应的括号内。<BR>
+    &nbsp;在软件维护的实施过程中，为了正确、有效地修改，需要经历以下3个步骤：(&nbsp; A&nbsp; )、(&nbsp; B&nbsp; 
+    )、(&nbsp; C&nbsp; )。(&nbsp; A&nbsp; )是决定维护成败和质量好坏的关键。(&nbsp; C&nbsp; )包括(&nbsp; 
+    D&nbsp; )确认、计算机确认和维护后的(&nbsp; E&nbsp; )。<BR>
+    供选择的答案：<BR>
+    &nbsp;A～C. &nbsp;① 修改程序&nbsp;&nbsp;&nbsp;② 建立目标程序&nbsp;&nbsp;③ 分析和理解程序<BR>
+    ���④ 重新验证程序&nbsp;&nbsp; &nbsp;⑤ 验收程序 &nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    D.&nbsp;&nbsp;� ① 动态&nbsp;&nbsp;&nbsp;② 静态&nbsp;&nbsp;&nbsp;③ 人工&nbsp;&nbsp;&nbsp;④ 
+    自动<BR>
+    E.&nbsp;&nbsp; � ① 验证 &nbsp;&nbsp;② 验收 &nbsp;&nbsp;③ 检验&nbsp;&nbsp;&nbsp;④ 
+    存档</P>
+  <P> 
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+  </P>
+  <P class="text">&nbsp;10、从供选择的答案中选出与下面有关软件可维护性的叙述最适合的答案，将其编号填入相应的括号内。<BR>
+    &nbsp;软件可维护性是指纠正软件系统出现的错误和缺陷，以及为满足新的要求进行修改，(&nbsp; A&nbsp; )的容易程度。目前广泛使用7个特性来衡量软件的可维护性，其中就有(&nbsp; 
+    B&nbsp; )、(&nbsp; C&nbsp; )、(&nbsp; D&nbsp; )。其中，(&nbsp; B&nbsp; )和(&nbsp; 
+    D&nbsp; )主要在改正性维护中侧重应用，(&nbsp; C&nbsp; )主要在适应性维护和(&nbsp; E&nbsp; )维护中侧重应用。<BR>
+    供选择的答案：<BR>
+    A.&nbsp;&nbsp;� ① 维护&nbsp;&nbsp;&nbsp;② 扩充与压缩&nbsp;③ 调整&nbsp;&nbsp;&nbsp;④ 
+    再工程<BR>
+    B～D. &nbsp;① 安全性&nbsp;&nbsp;② 可靠性&nbsp;&nbsp;③ 完整性&nbsp;&nbsp;④ 适应性<BR>
+    &nbsp; &nbsp;&nbsp;���⑤ 可理解性&nbsp;&nbsp;⑥ 可使用性&nbsp;&nbsp;⑦ 一致性&nbsp;&nbsp;⑧ 
+    数据无关性<BR>
+    E.&nbsp;&nbsp;� ① 预防性&nbsp;&nbsp;② 完善性&nbsp;&nbsp;③ 改正性&nbsp;&nbsp;④ 容错性</P>
+  <P> 
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    <BR>
+    <BR>
+    <span class="text">11、从供选择的答案中选出与下面有关软件可移植性的叙述最适合的答案，将其编号填入相应的括号内。<BR>
+    &nbsp;软件可移植性是用来衡量软件的(&nbsp; A&nbsp; )的重要尺度之一。为了提高软件的可移植性，应注意提高软件的(&nbsp; B&nbsp; 
+    )。采用(&nbsp; C&nbsp; )有助于提高(&nbsp; B&nbsp; )。为了提高可移植性，还应(&nbsp; D&nbsp; )。使用(&nbsp; 
+    E )语言开发的系统软件具有较好的可移植性。<BR>
+    供选择的答案：<BR>
+    A. ① 通用性 ② 效率 ③ 质量 ④ 人机界面<BR>
+    B. ① 使用的方便性 ② 简洁性 ③ 可靠性 ④ 设备独立性<BR>
+    C. ① 优化算法 ② 专用设备 ③ 表格驱动方式<BR>
+    � ④ 树型文件目录<BR>
+    D. ① 有完备的文件资料 ② 选择好的宿主计算机 ③ 减少输入输出次数<BR>
+    � ④ 选择好的操作系统<BR>
+    E. ① COBOL ② APL ③ C ④ SQL</span></P>
+  <P> 
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+  </P>
+  <P class="text">&nbsp;12、从下列叙述中选出5条与提高软件的可移植性有关的叙述。<BR>
+    ① 把程序中与计算机硬件特性有关的部分集成在一起。<BR>
+    ② 选择时间效率和空间效率高的算法。<BR>
+    ③ 使用结构化的程序设计方法。<BR>
+    ④ 尽量用高级语言编写程序中对效率要求不高的部分。<BR>
+    ⑤ 尽可能减少注释。<BR>
+    ⑥ 采用表格控制方式。<BR>
+    ⑦ 文档资料详尽、正确。<BR>
+    ⑧ 在有虚拟存储器的计算机系统上开发软件。<BR>
+    ⑨ 减少程序中对文件的读写次数。<BR>
+    ⑩ 充分利用宿主计算机的硬件特性。</P>
+  <P> 
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+  </P>
+  <P>&nbsp;<span class="text">13、从供选择的答案中选出与下面有关软件再工程技术的叙述最适合的答案，将其编号填入相应的括号内。<BR>
+    &nbsp;�软件再工程技术主要有(&nbsp; A&nbsp; )、(&nbsp; B&nbsp; )和(&nbsp; C&nbsp; )。分析、度量属于(&nbsp; 
+    C&nbsp; )，知识库和变换属于(&nbsp; D&nbsp; )；复用工程属于(&nbsp; E&nbsp; )，其目的是(&nbsp; F&nbsp; 
+    )，使其更容易复用。通常是先寻找(&nbsp; G&nbsp; )，然后将其改造，使之能放入(&nbsp; H&nbsp; )中。实际应用可从(&nbsp; 
+    H&nbsp; )中选取(&nbsp; I&nbsp; )，以实现复用。<BR>
+    供选择的答案：<BR>
+    A～E. ① 改进软件 ② 编码 ③ 理解软件 ④ 维护<BR>
+    ���⑤ 获取、保存及扩充软件知识 <BR>
+    F.　　① 保存软件 ② 修改软件 ③ 设计软件 ④ 开发软件<BR>
+    G～I. ① 构件 ② 可复用库 ③ 可复用构件 ④ 信息库</span></P>
+  <P> <span class="text">
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    </span></P>
+  <P class="text">&nbsp;14、从供选择的答案中选出与下面有关软件再工程的叙述最适合的答案，将其编号填入相应的括号内。<BR>
+    �软件再工程是一类软件工程活动，它能够使我们：�。┰鼋�对软件的理解；��）准备或直接提高软件自身的(&nbsp; A&nbsp; )、(&nbsp; 
+    B&nbsp; )或演化性。第�⒉糠种荚诟纳迫砑�的(&nbsp; C&nbsp; )，使得软件更容易为人们服务。纯粹是出于改善性能的代码优化(&nbsp; 
+    D&nbsp; )软件再工程。逆向工程属于上述软件再工程的第(&nbsp; E&nbsp; )部分。<BR>
+    供选择的答案：<BR>
+    A, B. ① 可靠性 ② 灵活性 ③ 可维护性 ④ 可复用性<BR>
+    ���⑤ 可修改性<BR>
+    C.��① 静态质量 ② 动态质量 ③ 性能 ④ 功能<BR>
+    D.��① 属于 ② 不属于<BR>
+    E.��① �� ② ��</P>
+  <P> 
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    <BR>
+    <BR>
+    <span class="text">15、从供选择的答案中选出与下面有关软件再工程的叙述最适合的答案，将其编号填入相应的括号内。<BR>
+    &nbsp;关于软件再工程的定义有这样两种说法。�。┤砑�再工程是变更系统(或程序)的(&nbsp; A&nbsp; )，或是系统(或程序)的(&nbsp; 
+    B&nbsp; )，而不变更其(&nbsp; C&nbsp; )的一种工程活动。��）检查并改进对象系统，按新的模式对系统进行(&nbsp; D&nbsp; 
+    )，进而实现其新的模式。<BR>
+    &nbsp;多数软件再工程工具可按图示的自动进行再工程的模式工作。请选择合适的答案完成这个图示。<BR>
+    供选择的答案：<BR>
+    A ～D.  ① 外部环境 ② 接口<BR>
+    ��� ③ 内部机制 ④ 流程图<BR>
+    ��� ⑤ 重构 　　⑥ 数据结构<BR>
+    ��� ⑦ 功能性 　⑧ 层次性<BR>
+    E～H.�① 其它产品 ② 软件工具<BR>
+    ��� ③ 信息库 　④ 软件<BR>
+    ��� ⑤ 软件的新视图</span><br>
+    <BR>
+    <IMG alt="" hspace=0 src="image/10.gif" align=baseline border=0 width="211" height="239"></P>
+  <P> 
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+  </P>
+  <P class="text">&nbsp;16、从供选择的答案中选出与下面有关软件视图的叙述最适合的答案，将其编号填入相应的括号内。<BR>
+    &nbsp;(&nbsp; A&nbsp; )是软件的一种表达形式，或是有关软件的一种报告。(&nbsp; A&nbsp; )可分为4类：软件的规格说明属于(&nbsp; 
+    B&nbsp; )，PDL或DFD属于(&nbsp; C&nbsp; )，规格说明文本的图索引属于(&nbsp; D&nbsp; )，程序和程序段属于(&nbsp; 
+    E&nbsp; )。(&nbsp; A&nbsp; )得到工具支持时，就成为(&nbsp; F&nbsp; )，可用其支持加入、变更或浏览信息。<BR>
+    供选择的答案：<BR>
+    A, F. &nbsp;① 软件说明&nbsp;&nbsp;&nbsp; &nbsp;② 概要设计&nbsp;&nbsp;③ 软件视图&nbsp;&nbsp;④ 
+    信息库<BR>
+    &nbsp;&nbsp; ���⑤ 视图编辑器&nbsp;⑥ 软件设计 <BR>
+    B～E. &nbsp;① A类视图&nbsp;&nbsp;&nbsp; &nbsp;② 1类视图(非过程性描述和�M或元描述)<BR>
+    &nbsp;���③ 2类视图(伪过程性描述和�M或面向体系结构的描述)<BR>
+    &nbsp;���④ 3类视图(纯过程性描述或直接导出的信息)</P>
+  <P> 
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+  </P>
+  <P class="section">四、问答题</P>
+  <P class="text">1、为什么软件需要维护？维护有哪几种类型？简述它们的维护过程。</P>
+  <P> 
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+  </P>
+  <P class="text">2、改正性维护与“排错”是否是一回事？为什么？</P>
+  <P class="text">
+    <textarea id=c1 rows=10 cols=40 name="textarea"></textarea>
+  </P>
+  <P class="text">3、什么是程序修改的副作用？程序修改的副作用有哪几种？试举例说明？</P>
+  <P> 
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+  </P>
+  <P class="text">4、讨论高级语言对适应性维护的影响。使程序适应新的环境是可能的吗？</P>
+  <P> 
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+  </P>
+  <P class="text">5、在软件计划中是否应该把维护费用计划在内？实际情况如何？</P>
+  <P> 
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    <BR>
+    &nbsp;</P>
+  <input type=button name=Button value=答�案 onClick="MM_openBrWindow('tanchu.htm','','width=471,height=384')">
+  <br>
+  <br>
+</form>
+</BODY>
+</HTML>

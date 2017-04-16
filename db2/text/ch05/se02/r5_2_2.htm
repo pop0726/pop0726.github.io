@@ -1,0 +1,131 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" --> 
+      <p> 　<span class="biaoti_1">1． 多值依赖的定义：</span> <br>
+        　　有关系模式R(U)，其中X、Y、Z是U的子集，并且Z = U - X - Y，关系模式R(U)中，当且仅当满足下列性质：对R(U)的任一关系r，给定一对（x,z）值，就有一组y值与之相对应，而且这组y值只依赖于x值，而与z值无关。则称Y多值依赖于X，记作X→→Y。<br>
+        　　<font color="#5a5aad">下面给出多值依赖的例子。假如，一位教师可以教授多门课程，同时又可以在多个系教课，而且在每个系都是教同样的几门课。即每位教师无论在那个系都对应一组自己所教授的课程。设计关系模式TSC(T,S,C)， 
+        T表示教师，S表示系,C表示课程。在这个关系中，假定每一位教师在不同的系教授的课程如下所示：<br>
+        　　教师T 授课系S 教授课程C<br>
+        　　　王　　{计算机，电子工程}　　　　　　　　　{数学}<br>
+        　　　李　　{计算机，电子工程，自动化，微电子}　{英文}<br>
+        　　　周　　{计算机，电子工程}　　　　　　　　　{c语言，数据结构}<br>
+        　　把这些数据组成规范化的二维表如下表5-3所示。</font><br>
+        <br>
+        　　<span class="tubiaoti">表5-3 <br>
+        <br>
+        </span> 
+      <table width="80%" border="1" cellspacing="0" cellpadding="0"bordercolorlight="#004080" bordercolordark="#ffffff" class="pt9-black" align="center">
+        <tr bgcolor="#fefbe2" align="center"> 
+          <td>教师T</td>
+          <td>系S</td>
+          <td>课程C</td>
+        </tr>
+        <tr align="center"> 
+          <td>王</td>
+          <td>计算机</td>
+          <td>数学</td>
+        </tr>
+        <tr align="center"> 
+          <td>王</td>
+          <td>电子工程</td>
+          <td>数学</td>
+        </tr>
+        <tr align="center"> 
+          <td>李</td>
+          <td>计算机</td>
+          <td>英文</td>
+        </tr>
+        <tr align="center"> 
+          <td bgcolor="#BFDFFF">李</td>
+          <td bgcolor="#BFDFFF">电子工程</td>
+          <td>英文</td>
+        </tr>
+        <tr align="center"> 
+          <td bgcolor="#BFDFFF">李</td>
+          <td bgcolor="#BFDFFF">自动化</td>
+          <td>英文</td>
+        </tr>
+        <tr align="center"> 
+          <td bgcolor="#BFDFFF">李</td>
+          <td bgcolor="#BFDFFF">微电子</td>
+          <td>英文</td>
+        </tr>
+        <tr align="center"> 
+          <td bgcolor="#BFDFFF">周</td>
+          <td bgcolor="#BFDFFF">计算机</td>
+          <td>c语言</td>
+        </tr>
+        <tr align="center"> 
+          <td>周</td>
+          <td>电子工程</td>
+          <td>数据结构</td>
+        </tr>
+        <tr align="center"> 
+          <td>周</td>
+          <td>电子工程</td>
+          <td>c语言</td>
+        </tr>
+        <tr align="center"> 
+          <td>周</td>
+          <td>计算机</td>
+          <td>数据结构</td>
+        </tr>
+      </table>
+      <br>
+      　　<font color="#5a5aad">在这个关系模式中，对于一个教师，有一组他自己所教授的课程，无论他在哪个系都教授这几门课程。这样，每个教师所教授的课程只由这个教师决定，而与该教师在哪个系教课无关。例如：对于一个值（周，计算机）有一组值{c语言，数据结构}，对于{周，电子工程}同样有一组值{c语言，数据结构}，尽管系不同了，但对应课程C值仍然不变，因为这组值只取决于教师T的值。这就是课程C多值依赖于教师T。</font><br>
+      <br>
+      　<span class="biaoti_1">２． 平凡的多值依赖</span><br>
+      　　有关系模式R(U)，当U=XY，即Z=<img src="../../../img/text/ch05/t3.gif" width="12" height="13" align="middle">时，若X→→Y总能成立，则称X→→Y为平凡的多值依赖。<br>
+      <br>
+      　<span class="biaoti_1">３．多值依赖的性质</span><br>
+      　（1） 对称性：若X→→Y，则X→→Z，其中Z=U-X-Y。<br>
+      　　在关系模式TDC 中，T→→C(课程)，T→→(U-T-C)，即T→→D(D=U-T-C)。<br>
+      　（2） 函数依赖可以看作是多值依赖的特例<br>
+      　　即若X→Y，则X→→Y。这是因为当X→Y时，对X的每一个值x，Y有一个确定的值y与之相对应，所以X→→Y。<br>
+      　　<font color="#5a5aad">换句话说，对于每一对X和Z（Z=U-X-Y）的值，都有Y的一个值与之对应，这个Y值只依赖于X值，而不依赖于Z值。这符合多值依赖X→→Y的定义，只是将Y的一组值换成一个值，因此函数依赖是多值依赖的特殊情况。</font> 
+      <br>
+      　（3）多值依赖的有效性与属性集的范围有关<br>
+      　　多值依赖的有效性与属性集的范围有关，设属性集之间的包含关系是XY<img src="../../../img/text/ch05/13.gif" align="top">W<img src="../../../img/text/ch05/13.gif" align="top">U，那么，当X→→Y在R(U)上成立时，X→→Y也在R(W)上成立；反过来，当X→→Y在R(W)上成立时，X→→Y在R(U)上不一定成立。这是因为多值依赖的定义中，不仅涉及属性组X、Y，而且涉及U中其余的属性Z。<br>
+      　　通常，在R(U)上若有X→→Y在R(W)(W<img src="../../../img/text/ch05/13.gif" align="top">U)上成立，则称X→→Y是R(U)的嵌入型多值依赖。<br>
+      　　<font color="#5a5aad">若X→→Y在R(U)上成立，而且Y'<img src="../../../img/text/ch05/13.gif" align="top">Y，我们不能断言X→→Y'在R(U)上成立。这也是因为多值依赖的定义中涉及了U中除了XY之外的其余属性Z，考虑X→→Y'是否成立时涉及的其余属性Z'=U-X-Y'，比确定X→→Y成立时涉及的其余属性Z＝U-X-Y包含的属性列多，因此X→→Y'不一定成立。</font><br>
+      　（4）多值依赖的传递性<br>
+      　　　若X→→Y，Y→→Z，则有X→→Z；<br>
+      　　　若X→→Y，X→→Z，则有X→→YZ<br>
+      　　　若X→→Y，X→→Z，则有X→→Y∩Z；<br>
+      　　若X→→Y，X→→Z，则有X→→Y-Z，X→→Z-Y<br>
+      　<span class="biaoti_1">4. 多值依赖与函数依赖的比较</span><br>
+      　（1） <font color="#5a5aad">与多值依赖相比较，在关系模式R(U)中，函数依赖X→Y只与属性集X和Y有关，与其他属性集Z(Z=U-X-Y)无关。只要X→Y在R(XY)上成立，则X→Y在任何R(W)(XY<img src="../../../img/text/ch05/13.gif" align="absmiddle">W<img src="../../../img/text/ch05/13.gif" align="absmiddle">U)上成立。</font><br>
+      　（2）<font color="#5a5aad"> 在关系模式R(U)中，若函数依赖X→Y在R(U)上成立，而且Y'<img src="../../../img/text/ch05/13.gif" align="absmiddle">Y，那么肯定X→Y'在R(U)上也成立。而多值依赖X→ 
+      → Y在R(U)上成立，当Y'<img src="../../../img/text/ch05/13.gif" align="absmiddle" width="8" height="8">Y，不能肯定X→→ 
+      Y'在R(U)上成立。<br>
+      </font> <!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

@@ -1,0 +1,54 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" --> 
+      <p><span class="biaoti_1"> 　1．磁盘页和文件</span><br>
+        ��数据库系统是文件系统的发展，每个文件通常包含多个物理磁盘块，同一个文件中的多个磁盘页有不同的分配方法：<br>
+        ��<span class="biaoti_2">(1) 连续分配：</span>分配给同一个文件的磁盘页在物理上是连续的。<br>
+        ��<span class="biaoti_2">(2) 链接分配：</span>分配给同一个文件的磁盘页在物理上不一定是连续的，各个物理页用指针链接。<br>
+        ��<span class="biaoti_2">(3) 聚簇分配：</span>分配给同一个文件的磁盘页划分为若干簇，每个簇包含的磁盘页在物理上是连续的，簇之间用指针链接。<br>
+        ��<span class="biaoti_2">(4) 索引分配：</span>每个文件有一个分配给文件的磁盘页号和磁盘物理页地址索引表。通过索引可以查找分配给文件的每一块的物理地址。<br>
+        ��连续分配物理磁盘空间的方法对顺序存取整个文件效果好，但不利于文件的扩充和修改。链接分配利于文件的扩充和修改，但存取效率差。索引分配比较灵活，也便于文件的扩充和修改，但访问数据时，增加了从逻辑块到物理块地址映射查询的开销，其效果比链接分配好。逻辑上相邻的物理块不一定在物理上是邻接的，因此连续访问整个文件时性能不高。</p>
+      <span class="biaoti_1">　2. 数据的存储方式</span><br>
+      ��数据库是大量数据的有结构的综合性集合。如何将这样一个庞大的数据集合以最优的形式组织起来存放在外存上是一个非常重要的问题。所谓&quot;优&quot;应该包括两方面：一是存储效率高，节省存储空间；二是存取效率高，速度快，代价小。<br>
+      ��记录是数据库数据的基本数据单元。记录由若干字段组成，每个字段有数据类型、取值范围和字段宽度。字段宽度有定长和变长之分，记录也有定长记录和变长记录。记录的物理存储方式有多种形式，如固定长度定位方法、用特殊字符区分的变长定位方法和字段长度记数方法等。<br>
+      ��<span class="biaoti_2">(1) 固定长度定位方法：</span>每个字段按定义的最大长度分配固定的位置，数据由左向右填入，剩余的部分填空格。这种方法简单，使用普遍。系统可以根据记录的定义计算出每个字段相对于记录起始位置的偏移值。其不足点是存储空间利用低，特别是当字段长度参差不齐时更严重。 
+      <br>
+      ��<span class="biaoti_2">(2) 用特殊字符区分的变长定位方法：</span>每个字段分配的空间长度不定，用特殊的字符区分各个字段的值和不同的记录。例如，用#字符区分字段值，用|符号区分不同的记录等，这种方法表示的记录是变长的。<br>
+      ��<span class="biaoti_2">(3) 字段长度记数方法：</span>在每个字段的开始增加定长的数字字段，表示该字段的长度。这种方法当字段本身很长时，记数方法增加的空间开销相对不大，当字段本身很短时，则显著地增加记录长度。<br>
+      <img src="../../../img/text/liti.gif" width="35" height="36" alt="例题" align="absmiddle">�例如，有3个字段的学生记录：姓名、班级和出生日期，每个字段的长度分别为20、10和8个字节。现有学生张力，在JS20014班，于1984年3月8日出生，按上述三种存储方式，三种存储格式如下：<br>
+      ��固定长度(-表示空格)：ZhangLi_____________JS20014___19840308<br>
+      ��变长存储(#字段分隔，|记录分割)：ZhangLi#JS20014#19840308#|<br>
+      ��记数方法存储：07ZhangLi07JS200140819840308 <br>
+      <span class="biaoti_1"><br>
+      　3. 记录在物理页中的分配</span><br>
+      ��通常，定长记录的长度小于物理磁盘页的空间大小，一个物理磁盘页中可以存放多个记录。但是物理磁盘页中可用空间的大小并不可能刚好和存放的多个记录长度相等，对于多余的空间，可以作为无用的空间，或者跨块存放记录。对于变长记录，通常采用跨块存放。<!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

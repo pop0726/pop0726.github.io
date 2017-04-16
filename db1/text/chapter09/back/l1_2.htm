@@ -1,0 +1,261 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+</head>
+<body background="../../../image/moban/15.gif" bgproperties=fixed>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="354">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" height="205">
+        <tr> 
+          <td class="text"> 
+            <p align="center" class="zhishidian">第九章　查询处理--概念</p>
+          </td>
+        </tr>
+        <tr> 
+          <td class="part">9.1 查询处理的过程</td>
+        </tr>
+        <tr> 
+          <td class="text"> 
+            <div align="center"><span style="font-size:9.0pt;font-family:宋体;Times New Roman&quot;" class="part">表<span lang="EN-US">9-1</span></span> 
+              <table border="1" cellspacing="0" cellpadding="0" bordercolor="#000000" class="text">
+                <tr> 
+                  <td width="132" valign="top"> 
+                    <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">概念</span></b></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">解释</span></b></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top" align="center"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">执行原语</span></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;;
+  Times New Roman&quot;">标有有关“如何执行”的注释（例如，说明某个关系运算所采用的算法或将要使用的一个或多个特定的索引）的关系代数运算称为执行原语。</span><span lang="EN-US" style="font-family:宋体;Times New Roman&quot;"> 
+                      </span></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top" align="center"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">查询执行计划</span></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">用于计算一个查询的原语序列称为查询执行计划或查询计算计划。</span></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top" align="center"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">查询优化</span></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">为给定查询选择最有效的查询执行计划的过程。</span></p>
+                  </td>
+                </tr>
+              </table>
+              </div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="part">9.2 关系代数表达式的转换</td>
+        </tr>
+        <tr> 
+          <td class="text" height="65"> 
+            <div align="center"><span style="font-size:9.0pt;font-family:宋体;Times New Roman&quot;"><span class="part">表<span lang="EN-US">9-2</span></span></span> 
+              <table border="1" cellspacing="0" cellpadding="0" class="text" bordercolor="#000000">
+                <tr> 
+                  <td width="132" valign="top"> 
+                    <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">概念</span></b></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">解释</span></b></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top" align="center"> 
+                    <p class="MsoNormal" style="text-align:justify;text-justify:inter-ideograph"><span style="font-family:宋体;Times New Roman&quot;;Times New Roman&quot;">保持等价</span><b><span lang="EN-US" style="font-family:宋体;Times New Roman&quot;"> 
+                      </span></b></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal" style="text-align:justify;text-justify:inter-ideograph"><span style="font-family:宋体;Times New Roman&quot;;Times New Roman&quot;">所谓保持等价是指两个关系代数表达式所产生的结果关系具有相同的属性集和相同的元组集，但属性出现的次序可以不同。</span><b><span lang="EN-US" style="font-family:宋体;
+  Times New Roman&quot;"> </span></b></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top" align="center"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">等价规则</span></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">是指两种不同形式的关系代数表达式可以相互转换，而又保持等价。</span></p>
+                  </td>
+                </tr>
+              </table></div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text"><span lang="EN-US" style="font-size:9.0pt;font-family:宋体;
+Times New Roman&quot;" class="part">9.3 查询代价的度量</span></td>
+        </tr>
+        <tr> 
+          <td class="text"> 
+            <div align="center"><span style="font-size:9.0pt;font-family:宋体;Times New Roman&quot;" class="part">表<span lang="EN-US">9-3 
+              </span></span> 
+              <table border="1" cellspacing="0" cellpadding="0" bordercolor="#000000" class="text">
+                <tr> 
+                  <td width="132" valign="top"> 
+                    <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">概念</span></b></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">解释</span></b></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top">&nbsp; </td>
+                  <td width="420" valign="top">&nbsp; </td>
+                </tr>
+              </table></div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text"><span lang="EN-US" style="font-size:9.0pt;font-family:宋体;
+Times New Roman&quot;"><span class="part">9.4 实现关系运算的算法代价</span></span></td>
+        </tr>
+        <tr> 
+          <td class="text" height="2"> 
+            <div align="center"><span style="font-size:9.0pt;font-family:宋体;Times New Roman&quot;" class="part">表<span lang="EN-US">9-4 
+              </span></span> 
+              <table border="1" cellspacing="0" cellpadding="0" class="text" bordercolor="#000000">
+                <tr> 
+                  <td width="132" valign="top"> 
+                    <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">概念</span></b></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">解释</span></b></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top" align="center"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">文件扫描</span></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;;
+  Times New Roman&quot;">文件扫描是用于定位、检索满足选择条件的记录的搜索算法。</span><span lang="EN-US" style="font-family:宋体;Times New Roman&quot;"> 
+                      </span></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top" align="center"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">索引扫描</span></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;;
+  Times New Roman&quot;">索引扫描是利用索引来定位、检索满足选择条件的记录的搜索算法。</span></p>
+                  </td>
+                </tr>
+              </table></div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text"><span lang="EN-US" style="font-size:9.0pt;font-family:宋体;
+Times New Roman&quot;" class="part"><br>
+            9.5 表达式的求值方法</span></td>
+        </tr>
+        <tr> 
+          <td class="text"> 
+            <div align="center"><span style="font-size:9.0pt;font-family:宋体;Times New Roman&quot;" class="part">表<span lang="EN-US">9-5 
+              </span></span> 
+              <table border="1" cellspacing="0" cellpadding="0" class="text" bordercolor="#000000">
+                <tr> 
+                  <td width="132" valign="top"> 
+                    <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">概念</span></b></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">解释</span></b></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top"> 
+                    <p class="MsoNormal" align="center"><span style="font-family:宋体;Times New Roman&quot;">实体化计算方法</span></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">以适当的顺序每次执行关系代数表达式里的一个运算，每次计算的结果都被保存（实体化）到一个临时关系中以备后面的运算使用。</span></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top" height="49"> 
+                    <p class="MsoNormal" align="center"><span style="font-family:宋体;Times New Roman&quot;">流水线计算方法</span></p>
+                  </td>
+                  <td width="420" valign="top" height="49"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">将关系代数表达式中的多个关系运算组合成一个操作流水线来实现，即将一个关系运算的结果作为输入直接传送到下一个关系运算。</span></p>
+                  </td>
+                </tr>
+              </table></div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text"><span lang="EN-US" style="font-size:9.0pt;font-family:宋体;
+Times New Roman&quot;" class="part">9.6 查询优化</span></td>
+        </tr>
+        <tr> 
+          <td class="text"> 
+            <div align="center"><span style="font-size:9.0pt;font-family:宋体;Times New Roman&quot;" class="part">表<span lang="EN-US">9-6 
+              </span></span> 
+              <table border="1" cellspacing="0" cellpadding="0" class="text" bordercolor="#000000">
+                <tr> 
+                  <td width="132" valign="top"> 
+                    <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">概念</span></b></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">解释</span></b></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top"> 
+                    <p class="MsoNormal" align="center"><span style="font-family:宋体;Times New Roman&quot;">基于代价的优化</span></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">基于代价的优化是指将各种可能的查询执行计划全部产生出来，然后从中估计出代价最小的一个。</span></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top"> 
+                    <p class="MsoNormal" align="center"><span style="font-family:宋体;Times New Roman&quot;">启发式优化</span></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">启发式优化是指利用启发式规则来得到代价较小的查询执行计划。</span></p>
+                  </td>
+                </tr>
+              </table></div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="part" height="14">9.7 查询优化器的构造</td>
+        </tr>
+        <tr> 
+          <td class="text"> 
+            <div align="center"><span style="font-size:9.0pt;font-family:宋体;Times New Roman&quot;" class="part">表<span lang="EN-US">9-7 
+              </span></span> 
+              <table border="1" cellspacing="0" cellpadding="0" bordercolor="#000000" class="text">
+                <tr> 
+                  <td width="132" valign="top"> 
+                    <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">概念</span></b></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">解释</span></b></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top">&nbsp; </td>
+                  <td width="420" valign="top">&nbsp; </td>
+                </tr>
+              </table></div>
+          </td>
+        </tr>
+      </table></td>
+  </tr>
+</table>
+</body>
+</html>

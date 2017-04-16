@@ -1,0 +1,47 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgproperties=fixed bgcolor="#FFFFFF" background="../../../../image/moban/15.gif">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td class="text" align="center"> 
+            <p align="left">�</p>
+          </td>
+        </tr>
+        <tr>
+          <td class="text" align="center"><span class="part">图1-2-1：数据抽象的三个层次 
+            </span><br>
+            <img src="../../../../image/chapter/01/1-2-1.gif" width="420" height="184"></td>
+        </tr>
+        <tr> 
+          <td class="text" align="left">��为了便于你理解数据抽象的三个层次，把它们与程序设计语言中数据类型的概念进行类比。首先用一种类<span class="part">Pascal</span>语言定义如下的记录类型：<br>
+            <span class="part">��type customer = record<br>
+            　　　　　　　　　customer-name:　string;<br>
+            　　　　　　　　　social-security:　string;<br>
+            　　　　　　　　　customer-street:　string;<br>
+            　　　　　　　　　customer-city:　string;<br>
+            　　　　　　　　end;</span><br>
+            ��另外，可能还有如下记录类型：<br>
+            <span class="part">account: </span>包含<span class="part">account-number</span>和<span class="part">balance</span>两个字段；<span class="part"><br>
+            employee:</span>包含<span class="part">employee-name</span>和<span class="part">salary</span>两个字段。<br>
+            ��在物理层，customer、account等记录可能被描述为由连续的存储位置（如字或字节）组成的存储块。语言编译器为程序��设计人员屏蔽了这一层的细节。与此类似，数据库管理系统为数据库程序设计人员屏蔽了许多低层的存储细节。<br>
+            ��在逻辑层，正如前面的代码所示，每个这样的记录通过类型定义进行描述。程序设计人员正是在这个抽象层次上使用某种高级语言进行工作。与此类似，数据库管理员或程序设计人员也常常在这个抽象层次上工作。如：<br>
+            <span class="part">create table customer(<br>
+            ������ customer-name varchar(30),<br>
+            　　　　　� social-security char(18),<br>
+            　　　　　　 customer-street varchar(50),<br>
+            　　　　　　 customer-city varchar(20))</span><br>
+            ��在视图层，计算机用户看见的是为其屏蔽了数据类型细节的一组应用程序(界面)。与此类似，视图层上数据库管理系统定义了数据库的多个视图，数据库用户看到的是这些视图。除了屏蔽数据库的逻辑层细节外，视图还提供了防止用户访问数据库某些部分的安全机制。例如，能看到客户帐户信息的用户不一定能够访问银行内部员工的工资信息。</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

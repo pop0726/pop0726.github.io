@@ -1,0 +1,76 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" -->　<span class="biaoti_1">1 整数类型：</span><span class="pt9-black"><br>
+      <font color="#cc0000">　　整数存储的数字是精确的。在每个整数类型允许的取值范围内，不管多大的数字，存储的空间大小总是一样的。<br>
+      　・ BIGINT 8字节的整型<br>
+      　　BIGINT 可以存储-2EXP(63)到2EXP(63)的所有正负整数，范围从-9223372036854775808到9223372036854775807。每个BIGINT类型占8字节（64BIT）,其中63BIT表明数的大小。1BIT表示符号位（正或负）。<br>
+      　・ INT 4字节的整型<br>
+      　　INT 是几种整数类型中常用的一种。可以存储-2EXP(31)到2EXP(31)的所有正负整数，范围从-2147483648到2147483647。每个INT类型占4字节（32BIT）,其中31BIT表明数的大小。1BIT表示符号位（正或负）。<br>
+      　・ SMALL INT 2字节的整型<br>
+      　　SMALL INT可以存储-2EXP(15)到2EXP(15)的所有正负整数，范围从-32768到32767。每个SMALL INT类型占2字节（16BIT）,其中15BIT表明数的大小。1BIT表示符号位（正或负）。<br>
+      　・ TINY INT 1字节的整型<br>
+      　　可以存储-2EXP(7)到2EXP(7)的所有正负整数，范围从-255到255。每个TINY INT类型占1字节（8BIT）,其中7BIT表明数的大小。1BIT表示符号位（正或负）。<br>
+      　・ BIT 1位的整型<br>
+      　　只能表示0或1，一般不用来存储整数，而用来表示真假逻辑关系（TRUE/FALSE）。<br>
+      </font></span> <br>
+      　<span class="biaoti_1">2.浮点数据类型：<br>
+      </span><span class="pt9-black"> 　　<font color="#cc0000">浮点数据类型用来存储十进制小数，但是由于存储位数的限制，有些小数不能精确的表示，这样会存在舍入误差。例如：精确位是15，这样超过15位的数字虽然也能被存储，但是只能用前15位表示，例如，分数 
+      1/3 表示成小数形式为 0.333333（循环小数），该数字不能以近似小数数据精确表示。因此，从 SQL Server 获取的值可能并不准确代表存储的原始数据。<br>
+      　・ FLOAT[(N)] <br>
+      　　从-1.79E+308到1.79E+308之间的浮点数字数据。n为用于存储科学记数法float数尾数的位数，同时指示其精度和存储大小。n必须为从1到53之间的值。如下表4-1。</font></span> 
+      <br>
+      <br>
+      　　<span class="tubiaoti">表 4-1 </span> <br>
+      <br>
+      <table width="80%" border="1" cellspacing="0" cellpadding="0" class="pt9-black" bordercolorlight="#004080" bordercolordark="#ffffff" align="center">
+        <tr align="center" bgcolor="#BFDFFF"> 
+          <td bgcolor="#BFDFFF">n 所在范围</td>
+          <td>精度</td>
+          <td>存储大小</td>
+        </tr>
+        <tr align="center"> 
+          <td height="18">1-14</td>
+          <td height="18">7 位数</td>
+          <td height="18">4 字节</td>
+        </tr>
+        <tr align="center"> 
+          <td>25-53</td>
+          <td>15 位数</td>
+          <td>8 字节</td>
+        </tr>
+      </table>
+      <span class="biaoti_1"><br>
+      </span><span class="pt9-black"> 　<font color="#cc0000">・ REAL 4字节的浮点数型 <br>
+      　　REAL类型的表示范围在-3.40E+38到3.40E+38之间，存储使用4个字节，可以精确到第7位的正负小数。在SQL Server中，real的同义词为float(24)。<br>
+      　・ NUMERIC(n,s) 实型，最大精度n，s为小数位数<br>
+      　　SMALL INT可以存储-2EXP(15)到2EXP(15)的所有正负整数，范围从-32768到32767。每个SMALL INT类型占2字节（16BIT）,其中15BIT表明数的大小。1BIT表示符号位（正或负）。</font></span><!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

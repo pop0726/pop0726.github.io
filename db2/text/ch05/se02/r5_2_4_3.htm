@@ -1,0 +1,223 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url('../../../img/text/bg.jpg');
+background-repeat: no-repeat;
+background-attachment: fixed; background-position-y:50%
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">　</td>
+    <td>　</td>
+    <td width="10">　</td>
+  </tr>
+  <tr>
+    <td width="10">　</td>
+    <td> <!-- #BeginEditable "1" --> 　<span class="biaoti_1">5.第四范式（4NF）</span>　<br>
+      　　<font color="#5a5aad">第四范式是BCNF的推广，它适用于多值依赖的关系模式。</font><br>
+      　　定义：设关系模式R属于1NF，如果对于R的每个非平凡多值依赖X→→Y（Y<img src="../../../img/text/ch05/15.gif" width="11" height="12">X），X都包含码，则称R为第四范式，表示为R<img src="../../../img/text/ch05/14.gif" width="7" height="11">4NF。如果一个关系模式属于BCNF，但没有达到4NF，仍然存在操作中的异常问题。例如，在关系模式TSC中，数据的冗余度很大。解决的方法是分解TSC为 
+      TS (T, S)和 TC(T, C)，则TC和TS都是第四范式。对应的关系如表5-11和5-12。<br>
+      <br>
+      　　<span class="tubiaoti">表5-11 T_S</span><br>
+      <br>
+      <table width="80%" border="1" cellspacing="0" cellpadding="0"bordercolorlight="#004080" bordercolordark="#ffffff" class="pt9-black" align="center">
+        <tr align="center"> 
+          <td width="25%">T</td>
+          <td width="25%">S</td>
+        </tr>
+        <tr align="center"> 
+          <td width="25%">王</td>
+          <td width="25%">计算机</td>
+        </tr>
+        <tr align="center"> 
+          <td width="25%">王</td>
+          <td width="25%">电子工程</td>
+        </tr>
+        <tr align="center"> 
+          <td width="25%">李</td>
+          <td width="25%">计算机</td>
+        </tr>
+        <tr align="center"> 
+          <td width="25%">李</td>
+          <td width="25%">电子工程</td>
+        </tr>
+        <tr align="center"> 
+          <td width="25%">李</td>
+          <td width="25%">自动化</td>
+        </tr>
+        <tr align="center"> 
+          <td width="25%">李</td>
+          <td width="25%">微电子</td>
+        </tr>
+        <tr align="center"> 
+          <td width="25%">周</td>
+          <td width="25%">计算机</td>
+        </tr>
+        <tr align="center"> 
+          <td width="25%">周</td>
+          <td width="25%">电子工程</td>
+        </tr>
+      </table>
+      <span class="biaoti_2"><br>
+      　　</span><span class="tubiaoti">表5-12 T_C</span><br>
+      <br>
+      <table width="80%" border="1" cellspacing="0" cellpadding="0"bordercolorlight="#004080" bordercolordark="#ffffff" class="pt9-black" align="center">
+        <tr align="center"> 
+          <td width="50%">T</td>
+          <td width="50%">C</td>
+        </tr>
+        <tr align="center"> 
+          <td width="50%">王</td>
+          <td width="50%">数学</td>
+        </tr>
+        <tr align="center"> 
+          <td width="50%">李</td>
+          <td width="50%">英语</td>
+        </tr>
+        <tr align="center"> 
+          <td width="50%">周</td>
+          <td width="50%">C语言</td>
+        </tr>
+        <tr align="center"> 
+          <td width="50%">周</td>
+          <td width="50%">数据结构</td>
+        </tr>
+      </table>
+      　　<br>
+      　　显然4NF是用多值依赖的概念定义的，但4NF是BCNF的进一步规范化。可以证明，若R<img src="../../../img/text/ch05/14.gif" width="7" height="11">4NF，则必有R<img src="../../../img/text/ch05/14.gif" width="7" height="11">BCNF。<br>
+      <br>
+      　<span class="biaoti_1">6．关系模式规范化设计实例2</span> <br>
+      　　有学生基本情况的关系模式STUDENT：<br>
+      　　STUDENT（SNO，SNAME，AGE，SEX，CLASS，DEP，CNO，CNAME，GRADE，SCORE）<br>
+      　　该关系模式的函数依赖集<br>
+      　　　F={ SNO→SNAME，SNO→AGE，SNO→SEX，SNO→CLASS，SNO→DEP，CLASS→DEP， CNO→CNAME，CNO→SCORE，SNO+CNO→GRADE 
+      }<br>
+      　　该模式的码是(SNO, CNO)<font color="#5a5aad">该模式是属于1NF：满足的条件是元组的每个分量必须是不可分的数据项。它不是一个好的关系模式。同学自己分析为什么是一个不好的关系模式？</font><br>
+      　(1)修改设计使其满足第二范式2NF关系模式STUDENT不符合2NF要求。因为其中存在部分函数依赖。<br>
+      　・ 关系模式STUDENT的主码是（SNO，CNO）。<br>
+      　・ 非主属性SNAME，AGE，SEX，CLASS，DEP，CNAME，GRADE，SCORE<br>
+      　・ 非主属性中存在对码的部分函数依赖，如，SNO→SNAME，CNO→CNAME。<br>
+      　　消除部分函数依赖，将STUDENT关系模式进行分解，消除部分函数依赖，得到三个关系模式符合2NF要求：<br>
+      　・ STUDENT2（SNO，SNAME，AGE，SEX，CLASS，DEP）<br>
+      　・ COURSE（CNO，CNAME，SCORE）<br>
+      　・ SC（SNO，CNO， GRADE）<br>
+      　　分解后，在STUDENT2模式中，仍然存在数据冗余，以及插入和删除异常。因为在STUDENT2模式中，仍然有非主属性中对码的传递函数依赖<br>
+      　(2)修改设计使其满足第三范式3NF关系模式STUDENT2不满足第三范式要求，因为存在传递依赖。如 <br>
+      　　SNO→CLASS→DEP，消除传递依赖，分解STUDENT2如下：<br>
+      　・ STUDENT3（SNO，SNAME，AGE，SEX，CLASS）CLASS（CLASS，DEP）<br>
+      　　至此，关系模式STUDENT分解为4个3NF的关系模式：<br>
+      　・ STUDENT3（SNO，SNAME，AGE，SEX，CLASS）CLASS（CLASS，DEP）<br>
+      　・ COURSE（CNO，CNAME，SCORE）<br>
+      　・ SC（SNO，CNO， GRADE）<br>
+      　(3) 修改设计使其满足BCNF范式<br>
+      　　分析STUDENT分解的四个关系模式，它们是满足第三范式的，同时也是满足BCNF范式的。<br>
+      <br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+        <tr> 
+          <td width="35" valign="top"><img src="../../../img/text/liti.gif" width="35" height="36" alt="例题"></td>
+          <td>　例1，关系模式课程COUSE(CNO，CNAME，SCORE)<br>
+            　其中只有一个码CNO，没有任何属性对码有部分和传递函数以来，所以COUSE?3NF。<br>
+            　同时，COUSE中CNO是唯一的决定因素，因此COUSE?BCNF。</td>
+        </tr>
+        <tr> 
+          <td width="35" valign="top"><img src="../../../img/text/liti.gif" width="35" height="36" alt="例题"></td>
+          <td>　例2， 在关系模型例2中，有关系模式CSZ(CITY，ST，ZIP)，其中城市 CITY，街道 ST，邮政编码 ZIP。<br>
+            　关系模式CSZ<img src="../../../img/text/ch05/14.gif" width="7" height="11">3NF。但是，关系模式CSZ<img src="../../../img/text/ch05/14.gif" width="7" height="11">BCNF，因为函数依赖ZIP→CITY的决定因素ZIP不包含码，所以CSZ<img src="../../../img/text/ch05/14.gif" width="7" height="11">BCNF。<br>
+            　若将关系模式CSZ分解为两个关系模式：<br>
+            　　ZC(ZIP，CITY)和<br>
+            　　SZ(ST，ZIP),<br>
+            　它们就都是BCNF的关系模式了。</td>
+        </tr>
+      </table>
+      <p>　<span class="biaoti_1">7.规范化小结</span>　<br>
+        　　(1) 规范化的基本思想是逐步消除数据依赖中不合适的部分，使关系模型中的各关系模式达到某种程度的&quot;分离&quot;，以解决关系模式中存在的插入、删除、修改异常和数据冗余等毛病。但关系模式的分解不是唯一的。<br>
+        　(2) 数据库设计是一个相当复杂而且是具有很强应用性的工作，规范化理论仅仅从一个侧面提供了改善关系模式的理论和方法。(3) 规范化程度是衡量一个关系模式好坏的标准之一，但不是唯一的标准。<br>
+        　(4) 一个关系数据库模式中的关系模式都属于BCNF，则在函数依赖的范畴内，已实现了彻底的分离，消除了插入、删除和修改异常。<br>
+        　(5) 在实际设计中，并不是规范化程度越高越好，这取决于应用。因为对规范化程度高的关系模式进行查询时，可能要做更多的连接操作。 <br>
+        　　<font color="#5a5aad">例如，原来的STUDENT数据模式中存在数据冗余度大，及插入，删除和修改异常现象，但用来查询非常方便。对原数据模式进行分解后，所带来的问题是对某些查询需要进行开销很大的连接操作，可能影响数据库的性能。<br>
+        </font><br>
+        　<span class="biaoti_1">8. 第四范式设计示例2</span>　<br>
+        　　<font color="#cc0000">在函数依赖范畴内，BCNF达到了最高的规范化程度。BCNF的关系模式是否就很完美呢？我们先看一个例子：<br>
+        　　关系模式WSC(W,S,C)中W表示仓库，S表示保管员，C表示物品。假设每个仓库有若干个保管员，存放若干种物品。每种物品由存放仓库中的所有保管员负责保管。现有仓库、保管员、物品一组数据如下表5-13所示： 
+        <br>
+        </font></p>
+      <font color="#cc0000">　　<span class="tubiaoti">表5-13</span><br>
+      </font> <br>
+      <table width="80%" border="1" cellspacing="0" cellpadding="0"bordercolorlight="#004080" bordercolordark="#ffffff" class="pt9-black" align="center">
+        <tr align="center"> 
+          <td><font color="#cc0000"><b>W</b></font></td>
+          <td><font color="#cc0000"><b>S</b></font></td>
+          <td><font color="#cc0000"><b>C</b></font></td>
+        </tr>
+        <tr align="center"> 
+          <td><font color="#cc0000">W1</font></td>
+          <td><font color="#cc0000">S1</font></td>
+          <td><font color="#cc0000">C1</font></td>
+        </tr>
+        <tr align="center"> 
+          <td><font color="#cc0000">W1</font></td>
+          <td><font color="#cc0000">S1</font></td>
+          <td><font color="#cc0000">C2</font></td>
+        </tr>
+        <tr align="center"> 
+          <td><font color="#cc0000">W1</font></td>
+          <td><font color="#cc0000">S1</font></td>
+          <td><font color="#cc0000">C3</font></td>
+        </tr>
+        <tr align="center"> 
+          <td><font color="#cc0000">W1</font></td>
+          <td><font color="#cc0000">S2</font></td>
+          <td><font color="#cc0000">C1</font></td>
+        </tr>
+        <tr align="center"> 
+          <td><font color="#cc0000">W1</font></td>
+          <td><font color="#cc0000">S2</font></td>
+          <td><font color="#cc0000">C2</font></td>
+        </tr>
+        <tr align="center"> 
+          <td><font color="#cc0000">W1</font></td>
+          <td><font color="#cc0000">S2</font></td>
+          <td><font color="#cc0000">C3</font></td>
+        </tr>
+        <tr align="center"> 
+          <td><font color="#cc0000">W2</font></td>
+          <td><font color="#cc0000">S1</font></td>
+          <td><font color="#cc0000">C3</font></td>
+        </tr>
+        <tr align="center"> 
+          <td><font color="#cc0000">W2</font></td>
+          <td><font color="#cc0000">S1</font></td>
+          <td><font color="#cc0000">C4</font></td>
+        </tr>
+        <tr align="center"> 
+          <td><font color="#cc0000">W2</font></td>
+          <td><font color="#cc0000">S2</font></td>
+          <td><font color="#cc0000">C3</font></td>
+        </tr>
+        <tr align="center"> 
+          <td><font color="#cc0000">W2</font></td>
+          <td><font color="#cc0000">S2</font></td>
+          <td><font color="#cc0000">C4</font></td>
+        </tr>
+      </table>
+      <font color="#cc0000"><br>
+      　　关系模式WSC的属性之间没有任何函数依赖，(W,S,C)是码。WSC?BCNF，但关系模式有明显的毛病：数据冗余。若仓库W1增加一个保管员S3，则必须插入W1S3C1，W1S3C2，W1S3C3三个元组，若仓库W2减少一种物品C4，则必须删除W2S1C4，W2S2C4两个元组。造成上述问题的原因是关系模式WSC的属性之间存在一种称为多值依赖的数据依赖。<br>
+      　　4NF是限制关系模式的属性之间不允许有非平凡函数依赖的多值依赖。因为根据定义，要求每一个非平凡的多值依赖X→→Y（Y<img src="../../../img/text/ch05/15.gif" width="11" height="12"> 
+      X），都有X包含码，当然就有X→Y。所以，之所以允许的非平凡多值依赖实际上是函数依赖。<br>
+      　　关系模式WSC中，W→→S，W→→C，都是非平凡的多值依赖，而W中又不含码(W,S,C)，因此WSC<img src="../../../img/text/ch05/14.gif" width="7" height="11">4NF。正是由于W→→S，W→→C，这样的非平凡依赖，且非函数依赖的多值依赖的存在，造成关系模式WSC的数据冗余。若将WSC分解为两个关系模式：WS(W,S)，WC(W,C)，就不再有非平凡依赖且非函数依赖的多值依赖，就都是4NF的关系模式了。</font><!-- #EndEditable --></td>
+    <td width="10">　</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

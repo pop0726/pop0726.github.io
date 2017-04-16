@@ -1,0 +1,57 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" --> 
+      <p>　<span class="biaoti_1">２ 数据分片</span><span class="pt9-black"><br>
+        <br>
+        　　在ORACLE 中，全局关系是一个视图，而数据分片是通过关系数据的基本运算实现的，这一点在全局视图的定义中体现。<br>
+        数据分片主要有两种方式：<br>
+        <br>
+        　　<b>(1) 水平分片</b><br>
+        　　按一定条件将全局关系的所有元组划分成若干个相交的子集，每个子集为关系的一个片段。<br>
+        　　例如，一个公司下属两个子公司，每个子公司建有自己的数据库，并存放本公司的职员信息。在总公司的数据库上建立一个全局关系，可以看到全公司的全体职员信息。建立全局关系emp（视图）的语句如下：<br>
+        　　CREARTE VIEW emp AS <br>
+        　　（SELECT* FROM emp1@ D1）<br>
+        　　UNION <br>
+        　　（SELECT *FROM emp2@ D2）；<br>
+        　　这样，全局关系emp中的元组实际上是分布在另外两个不同的数据库上。</span></p>
+      <p>　　<b>(2) 垂直分片</b><br>
+        　　把全局关系的属性集分成若干子集，形成几个垂直片段。<br>
+        　　例如，全局关系emp中，有关职工的人事信息在数据库D1上，而职工的业务信息在数据库D2上。当然，有些属性（如职工号这样的关键字属性）应出现在每个垂直片中。建立全局关系EMP（视图）的语句如下：<br>
+        　　CREATTE VIEW emp AS <br>
+        　　SELECRT emp1.eno， emp1.ename， emp2.sal，…<br>
+        　　FROM emp1@D1, emp2@D2<br>
+        　　WHERE emp1.eno=emp2.eno;<br>
+        <br>
+        　　全局关系实际上是将分布在不同数据库中的一个职工记录的各部分重新连接起来,然后投影出所要的属性。<br>
+        实际上,我们可以通过视图的定义,实现全局关系数据的多种分布要求，全局关系屏蔽了数据的物理分布,提供了数据分布的又一个透明性。</p>
+      <!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

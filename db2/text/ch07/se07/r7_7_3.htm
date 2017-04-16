@@ -1,0 +1,81 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" --><span class="biaoti_1">1. SQL Server复制的基本元素</span><br>
+　　<span class="biaoti_2"><font color="#cc0000">SQL Server复制技术的基本元素包括：<br>
+      ��(1) 出版服务器：</font></span><font color="#cc0000">出版服务器是被复制数据的源服务器，即提供数据的服务器。出版服务器使用一个或多个出版数据库(publication 
+      database)作为信息源。</font><br>
+      ��<span class="biaoti_2"><font color="#cc0000">(2) 订阅服务器：</font></span><font color="#cc0000">订阅服务器是接收复制数据的目标服务器。订阅服务器从一个或多个出版服务器上订阅不同的出版物(publications)。在订阅服务器上有订阅数据库(subscription 
+      database)，用以存放接收的出版物。<br>
+      ��(3) 分发服务器：分发服务器是执行出版物存储与转发功能的服务器。分发服务器中包含有分发数据库(distribution database)，用于存放从出版服务器上发送来的数据。分发服务器负责将复制的信息分发给各订阅服务器。分发服务器的角色可以由出版服务器一并担任。 
+      <br>
+      ��</font><span class="biaoti_2"><font color="#cc0000">(4) 出版物(publications)：</font></span><font color="#cc0000">出版物是指出版服务器上将要发表的一个或一组表，是实际发表数据的组合。<br>
+　　(5)文章(article)：文章是出版物中的一组数据。文章可以是一个完整的表，也可以是表中的某些行或某些列，还可以是某个存储过程。SQL 
+      Server主要采用出版和订阅的方式处理复制，如图7-27所示：<br>
+　　2、SQL Server复制模型SQL Server支持多种复制模型，包括:<br>
+      ��-�中心出版者模型<br>
+      ��-�中心订阅者模型<br>
+      ��-�多订阅者-多出版者模型</font><br>
+      <br>
+      　　<span class="tubiaoti">图7-27</span><br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td> 
+            <div align="center"><br>
+              <img src="../../../img/text/ch07/43.gif" width="360" height="53"></div>
+          </td>
+        </tr>
+      </table>
+      <span class="biaoti_1">２．不同的复制模型可以实现不同的应用功能。</span><br>
+      ��<font color="#cc0000">(1) 中心出版者模型即一个出版服务器对多个订阅服务器进行复制，如图7-28所示：</font><br>
+      <br>
+      　　<span class="tubiaoti">图7-28</span><br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td> 
+            <div align="center"><img src="../../../img/text/ch07/44.gif" width="397" height="233"></div>
+          </td>
+        </tr>
+      </table>
+      �<font color="#cc0000">�中心出版者模型是SQL Server复制的默认选项。对于下面的方案可以使用中心出版者模型：一个企业收集所有的信息，然后设计不同的出版物，再将不同的出版物，分发给企业的不同部门，如销售数据分发给销售部门，采购信息分发给采购部门等。<br>
+      ��在中心出版者模型中，也可以采用远程分发服务器的方式，如图7-29所示。其中远程分发服务器和订阅服务器在同一个局域网中。</font><br>
+      <br>
+      <span class="pt9-black"> 　　</span><span class="tubiaoti">图7-29</span><br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td> 
+            <div align="center"><img src="../../../img/text/ch07/45.gif" width="397" height="243"></div>
+          </td>
+        </tr>
+      </table>
+      
+      <!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

@@ -1,0 +1,171 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" -->　<span class="biaoti_1">3. 查询中使用表达式运算符 </span><br>
+      　　(1) SQL中使用的表达式运算符包括：<br>
+      　◆ 算术运算符：+,-,*,/<br>
+      　◆ 比较运算符：=，&lt;&gt;，&gt;=，&gt;，&lt;，&lt;=<br>
+      　◆ 逻辑运算符：NOT，AND，OR<br>
+      　◆ 测试空值：IS NULL，IS NOT NULL<br>
+      　◆ 集合运算符：IN，NOT IN，ANY，ALL<br>
+      　◆ 模糊查询： LIKE(_ 或 %), NOT LIKE<br>
+      　◆ 判断列值是否在指定的区间内：<br>
+      　　BETWEEN … AND … <br>
+      　　NOT BETWEEN … AND … <br>
+      　　(2) 算术运算符和比较运算符的例子<br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+        <tr> 
+          <td valign="top" width="35"><img src="../../../img/text/liti.gif" width="35" height="36" alt="例题"></td>
+          <td>　例1：搜索pubs数据库中的title表，返回书的价格打了8折后仍然大于12美元的书名、书的类型和价格。<br>
+            　　USE pubs<br>
+            　　Go<br>
+            　　SELECT title_id , type , price<br>
+            　　FROM titles<br>
+            　　WHERE price * 0.8 &gt;12<br>
+            　　Go</td>
+        </tr>
+      </table>
+      <br>
+      　　(3) 使用集合运算符的例子灵活的使用IN,NOT IN,ANY,ALL这些关键字，可以用简洁的语言实现较为复杂的查询，同时整个程序的可读性也会变得更好。<br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+        <tr> 
+          <td width="35" valign="top"><img src="../../../img/text/liti.gif" width="35" height="36" alt="例题"></td>
+          <td>　例2：<br>
+            　　Use pubs<br>
+            　　Go<br>
+            　　SELECT au_id, au_lname, au_fname<br>
+            　　FROM authors<br>
+            　　WHERE state IN ('CA','KS','MI','IN')<br>
+            　　Go<br>
+          </td>
+        </tr>
+        <tr> 
+          <td valign="top"><img src="../../../img/text/liti.gif" width="35" height="36" alt="例题"></td>
+          <td>　例3，查询籍贯是北京、天津和上海来的学生：<br>
+            　　SELECT *FROM student<br>
+            　　WHERE 籍贯 IN ('北京'，'天津'，'上海')ORDER BY 籍贯</td>
+        </tr>
+        <tr> 
+          <td valign="top"><img src="../../../img/text/liti.gif" width="35" height="36" alt="例题"></td>
+          <td><br>
+            　例4，查询年龄大于35岁的学生：<br>
+            　　SELECT *FROM student<br>
+            　　WHERE 年龄 &gt;= 35</td>
+        </tr>
+      </table>
+      <br>
+      　　(4) 测试空值的查询的例子使用IS操作符测试空值的例子，例如，从STUDENT表中查找学生电话是空值的学生名字和班级号码： SELECT 
+      sname, sclass<br>
+      　　　　FROM STUDENT<br>
+      　　　　WHERE sphno IS NULL;<br>
+      　　输出结果如下：<br>
+      　　　sname sclass<br>
+      　　　王 者 JS2001 <br>
+      　　　赵 良 DZ2001 
+      <p>　　(5) 使用逻辑运算符的例子查询所有在美国加利福尼亚州的出版社<br>
+        　　　Use pubs<br>
+        　　　Go<br>
+        　　　SELECT pub_id, pub_name, city, state, country <br>
+        　　　FROM publishers<br>
+        　　　WHERE country='USA' and state='CA'<br>
+        　　　Go<br>
+        　　(6) 进行模糊查询的例子<br>
+        　　在实际的应用中，如果无法给出精确的例子，只能根据较为模糊的情况来查询数据，比如：只知道数据中含有某几个特定的字符，在这种情况下，SQL提供了LIKE子句和通配符进行模糊查询。<br>
+        　　通配符的使用：<br>
+        　%：表示从0到n个任意字符。<br>
+        　_：表示单个的任意字符。<br>
+        　[ ]：表示方括号里面列出的任意一个字符。<br>
+        　[^]：表示任意一个没有在方括号里面列出的字符</p>
+      <img src="../../../img/text/liti.gif" width="35" height="36" alt="例题" align="absmiddle">例1，查询所有以D开头的作家的名字，如图4-20：<br>
+      <br>
+      　　<span class="tubiaoti">图4-20查询所有以D开头的作家名字</span><br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td align="center" class="pt9-black"><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="400" height="240">
+              <param name=movie value="../../../swf/ch4/4-5.swf">
+              <param name=quality value=high>
+              <param name="wmode" value="transparent">
+              <embed src="../../../swf/ch4/4-5.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="400" height="240" wmode="transparent">
+              </embed> 
+            </object></td>
+        </tr>
+      </table>
+      <br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+        <tr> 
+          <td width="35" valign="top"><img src="../../../img/text/liti.gif" width="35" height="36" alt="例题"></td>
+          <td>　　例2，查询电话号码本中含有5737的电话号码：<br>
+            　　　SELECT *FROM calltable<br>
+            　　　WHERE callno LIKE '%5735%' ;</td>
+        </tr>
+        <tr> 
+          <td valign="top"><img src="../../../img/text/liti.gif" width="35" height="36" alt="例题"></td>
+          <td><br>
+            　　例3，查询电话号码本中最后一位数是8的电话号码：<br>
+            　　　SELECT *FROM calltable<br>
+            　　　WHERE callno LIKE '%8' ; </td>
+        </tr>
+        <tr> 
+          <td valign="top"><img src="../../../img/text/liti.gif" width="35" height="36" alt="例题"></td>
+          <td><br>
+            　　例4，查询所有满足au_id的前两个字母为'72'，第四个字母为'－'的作家的姓名和电话号码：<br>
+            　　　Use pubs<br>
+            　　　Go<br>
+            　　　SELECT au_lname ,au_fname, phone, au_id<br>
+            　　　FROM authors<br>
+            　　　WHERE au_id LIKE'72_-%'<br>
+            　　　Go<br>
+            　　<font color="#5a5aad">如果在LIKE表达式中包含字符％或_，可以采用加上换码字符的方法解决。</font></td>
+        </tr>
+        <tr> 
+          <td valign="top"><img src="../../../img/text/liti.gif" width="35" height="36" alt="例题"></td>
+          <td><br>
+            　　例5，下面的例子将匹配所有以'％'开始并以'％'结束的任意字符串：<br>
+            　　s LIKE 'x%%x%'<font color="#5a5aad"> ESCAPE 'x'ESCAPE 'x' 声明：x作为'x%%x%'的换码字符，x%指的是单独的字符％，x只起标记作用，不再表示字符。</font></td>
+        </tr>
+        <tr> 
+          <td valign="top"><img src="../../../img/text/liti.gif" width="35" height="36" alt="例题"></td>
+          <td><br>
+            　　例6，在SQL中用两个连续的单引号&quot;'&quot;表示一个单独的单引号，下面的例子表示电影名中含有's的电影。<br>
+            　　Title LIKE '%''s%'(7) 指定范围查询的例子例1，查询年龄在20至30之间的学生：<br>
+            　　　SELECT *FROM student<br>
+            　　　WHERE 年龄 BETWEEN 20 AND 30 ;</td>
+        </tr>
+        <tr> 
+          <td valign="top"><img src="../../../img/text/liti.gif" width="35" height="36" alt="例题"></td>
+          <td><br>
+            　　例2，查询年龄不在20至30之间的学生：<br>
+            　　　SELECT *FROM student<br>
+            　　　WHERE 年龄 NOT BETWEEN 20 AND 30 ;</td>
+        </tr>
+      </table>
+      <!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

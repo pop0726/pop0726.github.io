@@ -1,0 +1,80 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" --> 　<span class="biaoti_1">1. 对象</span><br>
+      <br>
+      　　面向对象的方法基于对象概念。数据库中的每个事物都看作是一个对象，而且每个对象是唯一可标识的，并且是自完全的。对象可以是有形的或抽象的，简单的或复杂的。基本(原子)的对象如一个整数、一个字符串，它们没有属性，仅有一个值，其值就是对象本身。较复杂的对象包含有属性和行为特性。通过属性还可以引用其他对象，其他对象仍然还可以包含有属性和行为特性等等。<br>
+      <br>
+      　　<font color="5a5aad">一个对象的行为特性隐藏在方法中。方法是由操纵和回送一个对象状态的编码组成。方法是对象定义的一个组成部分。对象的方法以及属性在对象外部是不可见的。一个对象与其他对象的通讯是通过消息实现。对于由一个对象可解释的消息，存在着一个相应的执行该消息的方法。通过执行一个相应的方法并回送一个对象作为一个对象对某个消息的反应。 
+      </font><br>
+      <br>
+      　　复杂对象是包含了其他对象而建立的一些对象，或者说是对简单的对象进行各种构造而得到的对象。简单的对象如整数、实数、字符串、布尔量等。构造型的复杂对象如集合、元组和表等。还有许多其他的方法，可以构造更复杂的对象。下面讨论复杂对象主要的三种形式。<br>
+      <br>
+      　　<b>(1) 具有共享子对象的网络结构</b><br>
+      　　复杂对象是指对象的属性值是其它的对象，而且子对象之间形成聚合层次或网络关系。<font color="5a5aad">例如，一张建筑施工平面图，其中包括许多基本图素，如点、线、圆等。同时还包含许多部件或符号，如门、窗、轴线、墙线、单元房间等。这些墙线和单元房间又与门、窗有联系,因为墙线中要为门、窗开洞，洞的大小要与使用的门、窗型号一致，因此形成复杂的网络关系。</font>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td align="center"><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="400" height="170">
+              <param name=movie value="../../../swf/ch8/2.swf">
+              <param name=quality value=high>
+              <param name="wmode" value="transparent">
+              <embed src="../../../swf/ch8/2.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="400" height="170" wmode="transparent">
+              </embed> 
+            </object></td>
+        </tr>
+      </table>
+      　　<b>(2) 组合对象层次结构</b><br>
+      　　组合对象是复杂对象的一种特殊形式，是由下一级的其他对象组合而成的，这下一级对象又可由它的更下一级的对象组成，如此等等，形成一种层次结构。组成下级对象的部件通常是不同的实体。传统的数据库系统不能直接支持组合对象层次结构。然而现实世界中这是一种非常普遍的事物。<br>
+      <br>
+      　　<font color="5a5aad">例如，在城市规划系统中，一个地区可划分成许多小区，每个小区可包含建筑物、公园、树林和道路等。这些对象都是基于不同的实体，各自具有自己的特性，但是它们彼此通过特殊的内容相关联，即建筑物、公园、树林和道路都包含在小区内，小区是整个地区的组成部分，地区规划组合对象的层次结构描述如下:</font>
+<p><font color="5a5aad">　　CLASS region //地区类定义<br>
+        　　name: string; //地区名<br>
+        　　boundary: polygon ; //地区边界<br>
+        　　contains_districts: array[1,.n] OF district; //地区内小区<br>
+        　　ENDCLASS；<br>
+        　　CLASS district //小区类定义<br>
+        　　name: string； //小区名<br>
+        　　boundary: polygon； //小区边界<br>
+        　　contains buildings: array[1,.m] OF building； //小区内建筑<br>
+        　　ENDCLASS；<br>
+        　　CLASS building //建筑物<br>
+        　　location: point; //建筑物位置<br>
+        　　building_id : integer; //建筑物标识<br>
+        　　ENDCLASS；</font></p>
+      <p>　　<b>(3) 聚合属性</b><br>
+        　　传统的DBMS只支持简单属性，即属性值是单值的，并且是基于标准类型的不可再分的。如字符、数字、日期型等。但在现实生活中，一个单个属性，可能由用户定义的几种不同的部分组成，构成聚合属性。例如，一个人的地址是由楼房名称、街道号码、城市名、国家和邮政编码组成。<br>
+        <br>
+        　　<font color="5a5aad">在CAD／CAM的应用环境中，必须提供表示某些特殊对象的功能。在二维图形系统中，要表示一个点、一条线、一个圆弧或一个多边形等，都可看作是聚合属性。例如，在地区规划结构描述中，表示一个建筑物的定位属性必须使用点(ｘ和ｙ两个坐标值)；表示一个地区或小区的边界，必须是一个有序点的集合，也就是一个封闭的多边形。更有甚者，可以把一个对象的平面图、立面图、以及图片或扫描输入的点阵信息作为单个一个属性。一个图形文件中通常包含许多直线、圆弧、矩形、多边形等；一个对象的图象中通常由许多象素点组成。</font><br>
+      </p>
+      <p><br>
+      </p>
+      <!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

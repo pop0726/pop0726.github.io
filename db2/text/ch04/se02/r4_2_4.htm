@@ -1,0 +1,141 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url('../../../img/text/bg.jpg');
+background-repeat: no-repeat;
+background-attachment: fixed; background-position-y:50%
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">　</td>
+    <td>　</td>
+    <td width="10">　</td>
+  </tr>
+  <tr>
+    <td width="10">　</td>
+    <td> <!-- #BeginEditable "1" --><span class="pt9-black">　</span><span class="biaoti_1">1.数据库改名：</span><span class="pt9-black"><br>
+      　　使用系统存储过程sp_renamedb可以修改数据库的名称，语句格式：<br>
+      　　　<font color="#cc0000">sp_renamedb old_dbname, new_dbname<br>
+&nbsp;&nbsp; </font>例如：sp_renamedb 
+      'zzg', 'zzg1'注意：<br>
+      　<font color="#5a5aad">● 只有属于sysadmin服务器角色的成员可以给数据库更名。<br>
+      　● 在给数据库更名前，必须在企业管理器中设置该数据库为单用户状态。在单用户状态下，只能有一个用户使用该数据库，因此，这时不能同时打开企业管理器和查询分析器。</font><br>
+      <br>
+      </span><span class="biaoti_1">　2.修改数据库选项：</span><span class="pt9-black"> 
+      <br>
+      　　(1) 可以在企业管理器中修改数据库属性，如图4-8，<br>
+      <br>
+      　</span><span class="tubiaoti">　图4-8</span><span class="pt9-black"><br>
+      </span> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td align="center" class="pt9-black"><br>
+            <img src="../../../img/text/ch04/b2.gif" width="454" height="282"></td>
+        </tr>
+      </table>
+      <span class="pt9-black">　　(2)使用SQL语句来修改数据库的属性，添加数据库数据文件，改变其大小等。语法如下：<br>
+      　　　ALTER DATABASE database <br>
+      　　　{ <br>
+      　　　ADD FILE &lt; filespec &gt; [ ,...n ] [ TO FILEGROUP filegroup_name ] 
+      <br>
+      　　　| ADD LOG FILE &lt; filespec &gt; [ ,...n ] <br>
+      　　　| REMOVE FILE logical_file_name <br>
+      　　　| ADD FILEGROUP filegroup_name <br>
+      　　　| REMOVE FILEGROUP filegroup_name <br>
+      　　　| MODIFY FILE &lt; filespec &gt; <br>
+      　　　| MODIFY NAME = new_dbname <br>
+      　　　| MODIFY FILEGROUP filegroup_name {filegroup_property | NAME = <br>
+      　　　new_filegroup_name }<br>
+      　　　| SET &lt; optionspec &gt; [ ,...n ] [ WITH &lt; termination &gt; ] <br>
+      　　　| COLLATE &lt; collation_name &gt; <br>
+      　　　}<br>
+      　　<font color="#5a5aad">其大部分语法成分与CREATE DATABASE相同。其他参数说明如下：<br>
+      　　　ADD FILE…… 表示向指定文件组中添加新的数据文件。<br>
+      　　　ADD LOGFILE…… 增加新的日志文件。<br>
+      　　　REMOVE FILE…… 表示删除一个操作系统文件。<br>
+      　　　ADD FILEGROUP…… 增加一个文件组。<br>
+      　　　MODIFY FILE…… 修改某操作系统文件属性。<br>
+      　　　MODIFY FILEGROUP…… 修改某文件组的属性。 <br>
+      　　文件组的属性有三种：<br>
+      　● READONLY：只能读取该文件组中的数据，不能修改。<br>
+      　● READWRITE:既可以读取又可以修改该文件组中的数据。<br>
+      　● DEFAULT： 设置该文件组为默认文件组。</font><br>
+      　　<font color="#cc0000">注意：<br>
+      　● 如果操作系统文件中有任何数据或数据库对象存在，则该操作系统文件无法被删除。<br>
+      　● 一次只能修改一个文件属性。如果修改大小，则只能增加文件长度。<br>
+      　● PRIMARY文件组属性不能设置为READONLY。</font></span> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td width="35" valign="top"><img src="../../../img/text/liti.gif" width="35" height="36" alt="例题"></td>
+          <td class="pt9-black"><font color="#5a5aad">　例1，下例更改该数据库以添加一个 5 MB 大小的新数据文件。<br>
+            　　ALTER DATABASE Test1 <br>
+            　　ADD FILE (<br>
+            　　NAME = Test1dat2,<br>
+            　　FILENAME = 'c:\Microsoft SQL Server\MSSQL\Data\t1dat2.ndf',<br>
+            　　SIZE = 5MB,<br>
+            　　MAXSIZE = 100MB,<br>
+            　　FILEGROWTH = 5MB)</font></td>
+        </tr>
+      </table>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td width="35" valign="top"><img src="../../../img/text/liti.gif" width="35" height="36" alt="例题"></td>
+          <td class="pt9-black">　例2，使用查询分析器如图4-9</td>
+        </tr>
+      </table>
+      <br>
+      　　<span class="tubiaoti">图4-9</span><br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td align="center" class="pt9-black"><br>
+            <img src="../../../img/text/ch04/b3.gif" width="410" height="323"></td>
+        </tr>
+      </table>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td width="35" valign="top"><img src="../../../img/text/liti.gif" width="35" height="36" alt="例题"></td>
+          <td><span class="pt9-black"><font color="#5a5aad">　例3，更改数据库并添加一个名为&quot;Company&quot;的文件组，并将一个5MB的新数据库文件添加到该Company文件组中。<br>
+            　　① ALTER DATABASE zzg1<br>
+            　　　　ADD FILEGROUP Company1 添加 &quot;Company&quot;的文件组 　<br>
+            　　②ALTER DATABASE zzg1 添加一个数据库文件<br>
+            　　　　ADD FILE (<br>
+            　　　　NAME = Test1dat3,<br>
+            　　　　FILENAME = 'c:\MSSQL\Data\t1dat3.ndf',<br>
+            　　　　SIZE = 5MB,<br>
+            　　　　MAXSIZE = 100MB,<br>
+            　　　　FILEGROWTH = 5MB)<br>
+            　　　　TO FILEGROUP Company1 新文件放入&quot;Company&quot;的文件组</font></span> 
+          </td>
+        </tr>
+      </table>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td width="35" valign="top"><img src="../../../img/text/liti.gif" width="35" height="36" alt="例题"></td>
+          <td class="pt9-black">　<font color="#5a5aad">例4，使用查询分析器如图4-10。</font></td>
+        </tr>
+      </table>
+      <br>
+      　<span class="tubiaoti">　图4-10</span><br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td align="center" class="pt9-black"><br>
+            <img src="../../../img/text/ch04/b4.gif" width="393" height="270"></td>
+        </tr>
+      </table>
+      <!-- #EndEditable --></td>
+    <td width="10">　</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

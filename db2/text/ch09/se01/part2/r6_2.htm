@@ -1,0 +1,45 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url('../../../../img/text/bg.jpg');
+background-repeat: no-repeat;
+background-attachment: fixed; background-position-y:50%
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">　</td>
+    <td>　</td>
+    <td width="10">　</td>
+  </tr>
+  <tr>
+    <td width="10">　</td>
+    <td> <!-- #BeginEditable "1" -->　　动画中左边表示的是企业数据仓库的逻辑结构。我们看到，其中的数据来自于各生产系统，把它们的操作数据按照企业数据库物理模型结构的定义转换过来。采用这种中央数据仓库的做法，可以保证现实世界的一致性。<br>
+      <br>
+      　　中间表示的是从属数据集市的逻辑结构。所谓从属，是指它的数据直接来自于中央数据仓库。显然，这种结构仍能保持数据的一致性。<font color="5a5aad">一般情况下，为那些访问数据仓库十分频繁的关键业务部门建立从属的数据集市，这样可以很好地提高查询的反应速度。另外一个原因是：在设计数据仓库的逻辑模型时，为了保证结构清楚，降低数据冗余度，一般都按第三范式（3NF：Third 
+      Normal Form）来设计。但在物理实现时，出于性能方面的考虑，常常要作非正则处理（De-Normalize），使得中央库的复杂性增加，不易维护，数据冗余大。因此，当中央数据仓库十分庞大时，我们一般不对中央库作非正则处理，而是建立一个从属数据集市，对它作非正则处理，这样既能提高赂应速度，又能保证整个系统的易维护性。其代价是增加了对数据集市的投资。<br>
+      </font><br>
+      　　右边描述了独立数据集市的逻辑结构，它的数据直接来源于各生产系统。许多企业在计划实施数据仓库时，往往出于投资方面的考虑，最后建成的就是这种结构的独立数据集市，用来解决个别部门比较迫切的决策问题。<font color="5a5aad">从这个意义上讲，它和企业数据仓库除了在数据量大小和服务对象上有所区别外，逻辑结构并无多大区别，也许这是把数据集市称为部门数据仓库的主要原因。关键问题在于：随着需求的增加，数据量也会迅速增加，系统规模将迅速扩大，是把原来的独立数据集市扩展成为上图中左边的企业数据仓库呢？还是为各部门分别建立数据集市形成
+    繁杂系统呢？</font><br>
+      <br>
+      　　综合数据集市的优点如下：<br>
+      　　・数据针对一个组织中特定的要求进行设计；<br>
+      　　・投资回收快；<br>
+      　　・设计的更易于访问；<br>
+      　　・对小批量数据查询响应进行了优化。<br>
+      <!-- #EndEditable --></td>
+    <td width="10">　</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

@@ -1,0 +1,110 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" -->　<span class="biaoti_1">8. SQL Server的备份功能</span><br>
+      <br>
+      　　SQL Server数据库备份操作可以通过SQL语句BACKUP来实现，也可以通过Enterprise Manager实现备份数据库的操作。<br>
+      ��<span class="biaoti_2">(1) BACKUP语句的语法格式：</span><br>
+      ��Backup DATABASE|LOG { database_name |@database_name_var}<br>
+      ��TO<br>
+      ��&lt;backup_device_name&gt;[，..n]<br>
+      ��[WITH DIFFERENTIAN]<br>
+      ��<span class="explaination">参数说明：<br>
+      ��DATABASE：指定一个完整的数据库备份。假如指定了一个文件和文件组的列表，那么仅有这些被指定的文件和文件组被备份。<br>
+      ��LOG：指定只备份事务日志。该日志是从上一次成功执行了的 LOG 备份到当前日志的末尾。<br>
+      ��{database_name|@database_name_var}：指定了一个数据库名，从该数据库中对事务日志、部分数据库或完整的数据库进行备份。<br>
+　　backup_device_name：指定备份操作时要使用的逻辑或物理备份设备。<br>
+　　WITH DIFFERENTIAN: 表示增量备份。</span><br>
+      <br>
+      <img src="../../../img/text/liti.gif" width="35" height="36" alt="例题" align="absmiddle">例1：下面的例子首先分别创建不同的备份设备，然后执行全面备份和备份事务日志操作。<br>
+      ��<span class="explaination">创建备份数据库的设备，包括逻辑设备和物理设备，命令如下：</span><br>
+      ��exec sp_addumpdevice 'disk', 'Myweb_2','c:\mssql\backup\Myweb_2.dat'<br>
+      ��GO<br>
+      ��<span class="explaination">用逻辑设备名Myweb_2备份数据库MyDB，命令如下：</span><br>
+      ��backup database MyDB to Myweb_2 <br>
+      ��GO<br>
+      ��<span class="explaination">创建备份日志文件的设备，包括逻辑设备和物理设备，命令如下：</span><br>
+      ��exec sp_addumpdevice 'disk', 'MyDBLog1',<br>
+      ��'c:\mssql\backup\MyDBLog1.dat'<br>
+      ��GO<br>
+      ��<span class="explaination">使用逻辑设备名MyDBLog1备份数据库MyDB的日志文件，命令如下：</span><br>
+      ��backup LOG MyDB to MyDBLog1 <br>
+      ��GO ��<span class="biaoti_2">(2) 使用Enterprise Manager备份数据库的操作</span><br>
+      ��① 展开指定的服务器节点和Database节点；<br>
+      ��②选中指定的数据库，在Tools菜单中选择Backup Database命令，如图片7-1；<br>
+      ��③ 在SQL Server Backup对话框中，选择备份的数据库，输入备份的名字和对备份的描述，选择备份的类型：增量备份或完全备份，如图片7-2；<br>
+      ��④ 在图片7-2中单击添加（Add）按钮进入图片7-3，选择要备份的目的设备；<br>
+      ��⑤ 在图片7-4中重写（Overwrite）选项中，选择在设备上进行操作的方式；<br>
+      ��⑥ 在图片7-4中调度（Schedule）复选框中，指定自动备份操作的时间表；<br>
+      ��⑦ 单击&quot;确定&quot;按钮，完成备份操作。<br>
+      <br>
+      　　<span class="tubiaoti">图片7-1</span><br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td> 
+            <div align="center" class="pt9-black"><br>
+              <img src="../../../img/text/ch07/23.gif" width="374" height="264"> 
+            </div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="tubiaoti">　　图7-2</td>
+        </tr>
+        <tr> 
+          <td> 
+            <div align="center" class="pt9-black"><br>
+              <img src="../../../img/text/ch07/24.gif" width="346" height="324"> 
+            </div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="tubiaoti">　　图7-3</td>
+        </tr>
+        <tr> 
+          <td> 
+            <div align="center" class="pt9-black"><br>
+              <img src="../../../img/text/ch07/25.gif" width="354" height="244"> 
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="tubiaoti">　　图7-4</td>
+        </tr>
+        <tr> 
+          <td> 
+            <div align="center" class="pt9-black"><br>
+              <img src="../../../img/text/ch07/26.gif" width="316" height="283"> 
+            </div>
+          </td>
+        </tr>
+      </table>
+      <!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

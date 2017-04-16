@@ -1,0 +1,34 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgproperties=fixed bgcolor="#FFFFFF" background="../../../../image/moban/15.gif">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" height="11">
+        <tr> 
+          <td class="text" align="left" height="50"> 
+            <p class="menu"><span class="text">��具体的语法格式如下所示：<br>
+              r [natural] [left | right | full] [inner | outer] join s [on &lt;谓词&gt; 
+              | using (A<font size="-5">1</font>,A<font size="-5">2</font>,…,An)]<br>
+              在这里，inner也称内连接，outer也称外连接。特别需要注意的事项如下所示：<br>
+              ��⑴�关键词natural除指明了连接条件(相关表中的所有公共属性进行相等比较)以外，还指出了使用natural和不用natural的结果关系模式的区别；<br>
+              ��⑵�关键词inner和outer是可省略的，因为可根据其他信息推断出连接是内连接还是外连接。inner只处理符合连接条件的元组，而outer除了处理符合连接条件的元组以外，还要处理由关键词left、right和full所指定的关系中都不匹配的元组；<br>
+              ��⑶�连接条件&quot;on &lt;谓词&gt;&quot;用来指定一些并非相等比较的连接(如theta连接)。连接条件&quot;using 
+              (A<font size="-5">1</font>,A<font size="-5">2</font>,…,An)&quot;类似于自然连接的条件，只不过A<font size="-5">1</font>,A<font size="-5">2</font>,…,An是两个关系的部分公共属性而非全部，而且A<font size="-5">1</font>,A<font size="-5">2</font>,…,An在结果关系模式中也只出现一次；<br>
+              ��⑷�对外连接而言，连接条件是必须的(为什么?请大家自己思考)，对内连接而言，连接条件是可选的(如果省略，则产生笛卡尔积)；<br>
+              ��⑸�连接结果的关系模式中，属性出现的顺序根据以下原则确定：如果没有关键词natural和using出现，则结果关系模式的属性顺序为R+S；如果有natural和using出现，则结果关系模式的属性顺序为R+S'(S'是在S中去掉那些已经在R中出现过的连接属性)。</span><br>
+              <br>
+              ��注意，我们这里讲的连接类型和连接条件是SQL-92标准中的规定。对于一个实际的DBMS来说，这些内容是如何实现的，相应的语法格式是什么，都可能与SQL-92的规定相差甚远。例如，在SQL 
+              Server 7.0中，连接的类型和连接的条件都需要在查询语句的from子句中给出。因此关于这一部分内容，还需要上机练习，才能深刻理解。</p>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

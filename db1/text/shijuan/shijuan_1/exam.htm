@@ -1,0 +1,383 @@
+<html>
+<head>
+<title>《数据库系统概论》考试试卷一</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<script language="JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+</head>
+<script language="JavaScript">
+function getresultcheck(form)
+{var mykeys=new Array();
+//  mykeys[0]="B";
+//czp-select-answer
+var answer=new Array();
+for(var I=0;I<mykeys.length;I++) answer[I]="";
+
+var every=form.elements;
+
+<!--czp-select-count-->
+for(var I=0;I<every.length;I++)
+{
+	if(every[I].type=="radio")
+	{
+		
+		if(every[I].checked)
+		{	
+	
+			var item=parseInt(every[I].name.substr(0));
+		
+			answer[item-1]+=every[I].value;
+		}
+	}				
+}
+
+var newcount="<html><head><title>谢谢您!</title></head><body><center><h2><font color=red>您的测试结果</font></h2></center>";
+var totalscore=0;
+for(var I=0;I<answer.length;I++)
+{
+	if(answer[I]==mykeys[I])
+	{
+		var rstr="<font size=2>第"+(I+1)+"题答案正确!</font><br>";
+		newcount+=rstr;
+		totalscore+=1/(answer.length)*100;//每题分数
+	}else
+	{
+		var rstr="<font size=2>第"+(I+1)+"题答案错误!正确答案为"+mykeys[I]+"</font><br>";
+		newcount+=rstr;
+	}
+
+}
+
+newcount+="<br>您的总成绩为:";
+newcount+=Math.ceil(totalscore);
+newcount+="分";
+newwin=window.open("","","height=200,width=300,scrollbars=yes,resizable=no");
+newwin.document.write(newcount);}
+
+
+
+function getresultcheck1(form)
+{var mykeys=new Array();
+//  mykeys[0]="B";
+//czp-mulselect-answer
+var answer=new Array();
+for(var I=0;I<mykeys.length;I++) answer[I]="";
+
+var every=form.elements;
+
+<!--czp-mulselect-count-->
+for(var I=0;I<every.length;I++)
+{
+	if(every[I].type=="checkbox")
+	{
+		
+		if(every[I].checked)
+		{	
+	
+			var item=parseInt(every[I].name.substr(0));
+		
+			answer[item-1]+=every[I].value;
+		}
+	}				
+}
+
+var newcount="<html><head><title>谢谢您!</title></head><body><center><h2><font color=red>您的测试结果</font></h2></center>";
+var totalscore=0;
+for(var I=0;I<answer.length;I++)
+{
+	if(answer[I]==mykeys[I])
+	{
+		var rstr="<font size=2>第"+(I+1)+"题答案正确!</font><br>";
+		newcount+=rstr;
+		totalscore+=1/(answer.length)*100;//每题分数
+	}else
+	{
+		var rstr="<font size=2>第"+(I+1)+"题答案错误!正确答案为"+mykeys[I]+"</font><br>";
+		newcount+=rstr;
+	}
+
+}
+
+newcount+="<br>您的总成绩为:";
+newcount+=Math.ceil(totalscore);
+newcount+="分";
+newwin=window.open("","","height=200,width=300,scrollbars=yes,resizable=no");
+newwin.document.write(newcount);}
+
+
+
+
+
+
+
+
+
+
+
+
+function check(){
+var mykeys=new Array();
+//czp-tiankong-answer
+//mykeys[0]="B";
+var answer=new Array();
+for(var I=0;I<mykeys.length;I++) answer[I]="";
+
+var every=zfl.elements;
+for(var I=0;I<every.length;I++)
+{
+if(every[I].type=="text")
+{
+ if(every[I].value!==null)
+ {
+ //var item=parseInt(every[I].name.substr(1))
+//  answer[item-1]+=every[I].value;
+  answer[I]+=every[I].value;
+  }
+ }
+}
+
+
+var newcount="<html><head><title>谢谢您!</title></head><body><center><h2><font face=\"隶书\" size=\"5\" color=\"#000099\">您的测试结果</font></h2></center>";
+var totalscore=0;
+for(var i=0;i<answer.length;i++)
+{
+	if(answer[i]==mykeys[i])
+	{
+		var rstr="<font face=\"宋体\" size=2>第"+(i+1)+"个空答案正确!</font><br>";
+		newcount+=rstr;
+		totalscore+=1/(answer.length)*100;
+	}else
+	{
+		var rstr="<font face=\"宋体\" size=2>第"+(i+1)+"个空答案错误!正确答案为"+mykeys[i]+"</font><br>";
+		newcount+=rstr;
+	}
+
+}
+
+newcount+="<br><font face=\"宋体\" size=3><b>您的总成绩为:</b></font><font face=\"宋体\" size=3 color=red>";
+newcount+=Math.ceil(totalscore);
+newcount+="分</font><br>";
+newwin=window.open("","","height=400,width=400,scrollbars=yes,resizable=no");
+newwin.document.write(newcount);
+}
+
+</script><STYLE TYPE="text/css">
+<!--
+BODY {background-image: URL(../../../image/moban/15.gif);
+background-position:top;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+<body bgcolor="#FFFFFF" text="#000000" topmargin=0>
+<center>
+  <br>
+  <span class="section">《数据库系统概论》考试试卷一</span><br>
+  <br>
+  <table width="95%" border="0" cellspacing="0" cellpadding="0">
+    <tr> 
+      <td valign="top" class=text><form><p>本试题所用到的银行企业的数据库模式如下所示： <br>
+          �� Customer-schema=(customer-name, customer-street, customer-city) <br>
+          �� Account-schema=(branch-name, account-number, balance) <br>
+          �� Depositor-schema=(customer-name, account-number) <br>
+          �� Branch-schema=(branch-name, branch-city, assets) <br>
+          �� Loan-schema=(branch-name, loan-number, amount) <br>
+          �� Borrower-schema=(customer-name, loan-number) <br>
+          建立在这些关系模式上的数据库中的关系如下所示： <br>
+          �� customer (Customer-schema) <br>
+          �� account (Account-schema) <br>
+          �� depositor (Depositor-schema) <br>
+          �� branch (Branch-schema) <br>
+          �� loan (Loan-schema) <br>
+          �� borrower (Borrower-schema)<br>
+          <span class="explaination"><br>
+          试题一（２０分）：</span>请将下列术语填入与其相应的空(仅填对应序号即可)： <br>
+          �� a 存储在二级存储器里的数据的结构 <br>
+          �� b 应用程序 <br>
+          �� c 事实，文本，图形，图像等 <br>
+          �� d 集成的决策支持数据库 <br>
+          �� e 相关数据的集合 <br>
+          �� f 系统开发的一个快速途径 <br>
+          �� g 失败后恢复数据库的数据库管理系统(DBMS)模块 <br>
+          �� h 描述所有的数据库对象 <br>
+          �� i 不能违反的规则 <br>
+          �� j 数据库中部分数据的逻辑描述 <br>
+          <br>
+          ��1 数据 ���( ) <br>
+          ��2 数据库应用 ( ) <br>
+          ��3 约束 ���( ) <br>
+          ��4 物理模式 �( ) <br>
+          ��5 恢复管理 �( ) <br>
+          ��6 数据仓库 �( ) <br>
+          ��7 原型方法 �( ) <br>
+          ��8 用户视图 �( ) <br>
+          ��9 数据字典 �( ) <br>
+          ��10 数据库��( ) <br>
+          <textarea name=jianda cols=50 rows=5></textarea>
+          <br>
+          <br>
+          <span class="explaination"><br>
+          试题二（２０分）：</span>请用关系代数表达式表示下列查询：<br>
+          �� 1 用两种不同的关系代数表达式表示"在银行中既有贷款又有帐户的客户姓名"；（１２分） <br>
+          �� 2 "找出那些在其所居住的城市里的银行分支机构中有帐户的客户姓名"。（８分） <br>
+          <textarea name=jianda cols=50 rows=5></textarea>
+          <br>
+          <span class="explaination"><br>
+          试题三（２０分）：</span>请简要回答以下问题： <br>
+          �� 1 视图是ＤＢＭＳ中的一种虚关系，大多数ＤＢＭＳ都不允许在视图这种虚关系上进行数据的插入、删除和更新的操作，请问这是为什么？（１０分） 
+          <br>
+          �� 2 建立在关系模式主码上的索引就是主索引吗？为什么？（１０分） <br>
+          <textarea name=jianda cols=50 rows=5></textarea>
+          <br>
+          <br>
+          <span class="explaination"><br>
+          试题四（２０分）：</span>用ＳＱＬ表示下列查询： <br>
+          �� 1 "请找出在银行中一笔贷款贷给多个（至少两个）客户的所有贷款号和发放贷款的分支机构名称"；（１０分） <br>
+          �� 2 假设有关系模型Ｒ＝（Ｎａｍｅ，Ｓｅｘ），求关系ｒ（Ｒ）中不同元组的个数，要求重复的元组只记数一次。（１０分） <br>
+          <textarea name=jianda cols=50 rows=5></textarea>
+          <br>
+          <span class="explaination"><br>
+          试题五（１０分）：</span>在数据库系统中有如下一个调度Ｓ，它涉及到5个不同的事务Ｔ<font size="-2">1</font>、Ｔ<font size="-4">２</font>、Ｔ<font size="-3">３</font>、Ｔ<font size="-4">４</font>和Ｔ<font size="-4">５</font>。请问调度Ｓ是冲突可串行化的吗？为什么？如果调度Ｓ是冲突可串行化的，就请给出与之等价的一个串行调度序列。</p>
+        <table border="1" cellpadding="0" cellspacing="0" bordercolor="#000000">
+          <tr> 
+            <td width="70" valign="top"> <p class="MsoNormal" align="center" style="text-align:center;"><b><span style="font-size:14.0pt;color:black">Ｔ<sub><font size="2">１</font></sub><span lang="EN-US"> 
+                </span></span></b></p></td>
+            <td width="70" valign="top"> <p class="MsoNormal" align="center" style="text-align:center;"><b><span style="font-size:14.0pt;color:black">Ｔ<sub><font size="2">２</font></sub><span lang="EN-US"> 
+                </span></span></b></p></td>
+            <td width="70" valign="top"> <p class="MsoNormal" align="center" style="text-align:center;"><b><span style="font-size:14.0pt;color:black">Ｔ<sub><font size="2">３</font></sub><span lang="EN-US"> 
+                </span></span></b></p></td>
+            <td width="70" valign="top"> <p class="MsoNormal" align="center" style="text-align:center;"><b><span style="font-size:14.0pt;color:black">Ｔ<sub><font size="2">４</font></sub><font size="2"><span lang="EN-US"> 
+                </span></font></span></b></p></td>
+            <td width="70" valign="top"> <p class="MsoNormal" align="center" style="text-align:center;"><b><span style="font-size:14.0pt;color:black">Ｔ<sub><font size="2">５</font></sub><span lang="EN-US"> 
+                </span></span></b></p></td>
+          </tr>
+          <tr> 
+            <td width="70" valign="top">&nbsp; </td>
+            <td width="70" valign="top"> <p class="MsoNormal"><span lang="EN-US" style="font-size:
+  9.0pt;color:black">Read(A) </span></p></td>
+            <td width="70" valign="top">&nbsp; </td>
+            <td width="70" valign="top">&nbsp; </td>
+            <td width="70" valign="top">&nbsp; </td>
+          </tr>
+          <tr> 
+            <td width="70" valign="top"> <p class="MsoNormal"><span lang="EN-US" style="font-size:
+  9.0pt;color:black">Read(Q) </span></p></td>
+            <td width="70" valign="top">&nbsp; </td>
+            <td width="70" valign="top">&nbsp; </td>
+            <td width="70" valign="top">&nbsp; </td>
+            <td width="70" valign="top">&nbsp; </td>
+          </tr>
+          <tr> 
+            <td width="70" valign="top">&nbsp; </td>
+            <td width="70" valign="top">&nbsp; </td>
+            <td width="70" valign="top">&nbsp; </td>
+            <td width="70" valign="top">&nbsp; </td>
+            <td width="70" valign="top"> <p class="MsoNormal"><span lang="EN-US" style="font-size:
+  9.0pt;color:black">Read(C) </span></p></td>
+          </tr>
+          <tr> 
+            <td width="70" valign="top"> <p class="MsoNormal"><span lang="EN-US" style="font-size:
+  9.0pt;color:black">Write(Q) </span></p></td>
+            <td width="70" valign="top">&nbsp; </td>
+            <td width="70" valign="top">&nbsp; </td>
+            <td width="70" valign="top">&nbsp; </td>
+            <td width="70" valign="top">&nbsp; </td>
+          </tr>
+          <tr> 
+            <td width="70" valign="top">&nbsp; </td>
+            <td width="70" valign="top">&nbsp; </td>
+            <td width="70" valign="top">&nbsp; </td>
+            <td width="70" valign="top"> <p class="MsoNormal"><span lang="EN-US" style="font-size:
+  9.0pt;color:black">Read(A) </span></p></td>
+            <td width="70" valign="top">&nbsp; </td>
+          </tr>
+          <tr> 
+            <td width="70" valign="top">&nbsp; </td>
+            <td width="70" valign="top"> <p class="MsoNormal"><span lang="EN-US" style="font-size:
+  9.0pt;color:black">Write(Q) </span></p></td>
+            <td width="70" valign="top">&nbsp; </td>
+            <td width="70" valign="top">&nbsp; </td>
+            <td width="70" valign="top">&nbsp; </td>
+          </tr>
+          <tr> 
+            <td width="70" valign="top"> <p class="MsoNormal"><span lang="EN-US" style="font-size:
+  9.0pt;color:black">Write(B) </span></p></td>
+            <td width="70" valign="top">&nbsp; </td>
+            <td width="70" valign="top">&nbsp; </td>
+            <td width="70" valign="top">&nbsp; </td>
+            <td width="70" valign="top">&nbsp; </td>
+          </tr>
+          <tr> 
+            <td width="70" valign="top">&nbsp; </td>
+            <td width="70" valign="top">&nbsp; </td>
+            <td width="70" valign="top"> <p class="MsoNormal"><span lang="EN-US" style="font-size:
+  9.0pt;color:black">Read(Q) </span></p></td>
+            <td width="70" valign="top">&nbsp; </td>
+            <td width="70" valign="top">&nbsp; </td>
+          </tr>
+          <tr> 
+            <td width="70" valign="top">&nbsp; </td>
+            <td width="70" valign="top">&nbsp; </td>
+            <td width="70" valign="top"> <p class="MsoNormal"><span lang="EN-US" style="font-size:
+  9.0pt;color:black">Read(M) </span></p></td>
+            <td width="70" valign="top">&nbsp; </td>
+            <td width="70" valign="top">&nbsp; </td>
+          </tr>
+          <tr> 
+            <td width="70" valign="top">&nbsp; </td>
+            <td width="70" valign="top">&nbsp; </td>
+            <td width="70" valign="top">&nbsp; </td>
+            <td width="70" valign="top"> <p class="MsoNormal"><span lang="EN-US" style="font-size:
+  9.0pt;color:black">Read(Q) </span></p></td>
+            <td width="70" valign="top">&nbsp; </td>
+          </tr>
+          <tr> 
+            <td width="70" valign="top">&nbsp; </td>
+            <td width="70" valign="top">&nbsp; </td>
+            <td width="70" valign="top">&nbsp; </td>
+            <td width="70" valign="top"> <p class="MsoNormal"><span lang="EN-US" style="font-size:
+  9.0pt;color:black">Read(M) </span></p></td>
+            <td width="70" valign="top">&nbsp; </td>
+          </tr>
+          <tr> 
+            <td width="70" valign="top">&nbsp; </td>
+            <td width="70" valign="top">&nbsp; </td>
+            <td width="70" valign="top">&nbsp; </td>
+            <td width="70" valign="top">&nbsp; </td>
+            <td width="70" valign="top"> <p class="MsoNormal"><span lang="EN-US" style="font-size:
+  9.0pt;color:black">Read(M) </span></p></td>
+          </tr>
+          <tr> 
+            <td width="70" valign="top">&nbsp; </td>
+            <td width="70" valign="top">&nbsp; </td>
+            <td width="70" valign="top">&nbsp; </td>
+            <td width="70" valign="top">&nbsp; </td>
+            <td width="70" valign="top"> <p class="MsoNormal"><span lang="EN-US" style="font-size:
+  9.0pt;color:black">Write(M) </span></p></td>
+          </tr>
+        </table>
+       
+          ��<br>
+        <textarea name=jianda cols=50 rows=5></textarea>
+          <br>
+        <br>
+        <span class="explaination">试题六（２０分）：</span> 请举例说明：在强两阶段封锁协议中，每一对冲突事务的可串行化次序是由执行时第一个两者都申请但互相冲突的锁决定的。<br>
+          <textarea name=jianda cols=50 rows=5></textarea>
+          <br>
+        <br>
+          <input type=button name=Button value=答案 案 onClick="MM_openBrWindow('text/examination/exam01_pop2.htm','','width=471,height=384')" class=pbox>
+        <input type='reset' name='Submit3' value='重置' class=pbox>
+		</form>
+      </td>
+  </tr>
+</table></center>
+
+</body>
+</html>

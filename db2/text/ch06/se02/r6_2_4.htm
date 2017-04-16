@@ -1,0 +1,67 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" --> 　<span class="biaoti_1">1．申请语句句柄</span>　<br>
+      　　SQLAllocStmt函数为应用程序分配语句句柄，其格式为：<br>
+      　　　RETCODE SQLAllocStmt(<br>
+      　　　　　　　　　　　　　　HDBC hdbc,<br>
+      　　　　　　　　　　　　　　HSTMT FAR * phstmt<br>
+      　　　　　　　　　　　　　　)<font color="#5a5aad">其中，hdbc为连接句柄。每个语句句柄总是与一个连接句柄相关联，所以在申请语句句柄时，要提供一个有效的连接句柄，否则，SQLAllocStmt函数将返回错误码：SQL＿INVALID＿HANDLE。<br>
+      　　Phstmt为输出参数，它是一个指向语句句柄变量的指针，当SQLAllocStmt函数执行成功时，它返回SQL＿SUCCESS，并将为应用程序分配的语句句柄存储到指定的语句句柄变量中，否则返回SQL＿ERROR。</font><br>
+      <br>
+      　<span class="biaoti_1">2. 释放语句句柄</span>　<br>
+      　　在使用语句句柄处理完数据库操作后，应用程序应调用SQLFreeStmt函数关闭语句句柄的游标、释放为结果集合所分配的缓冲区、释放语句句柄，从而释放它占用的系统资源。　　 
+      　　　SQLFreeStmt函数的格式为：<br>
+      　　　　　　　　　　　　RETCODE SQLFreeStmt(<br>
+      　　　　　　　　　　　　HSTMT hstmt,<br>
+      　　　　　　　　　　　　UWORD fOption<br>
+      　　　　　　　　　　　　)<br>
+      　　　<font color="#5a5aad">其中，hstmt为待释放的语句句柄，fOption参数控制SQLFreeStmt函数的动作。因为SQLFreeStmt函数不仅仅用来释放语句句柄，它还有其它多种功能，如能够关闭游标，释放列和参数缓冲区等，SQLFreeStmt函数的所有这些功能由fOption参数的取值决定。</font><br>
+      　　<font color="#cc0000">FOption参数取值如下：<br>
+      　．SQL＿CLOSE：关闭与hstmt句柄相关联的游标，废除所有正在处理的结果。关闭游标后，再次执行SELECT语句可以重新打开游标；<br>
+      　．SQL＿DROP：关闭所有与hstmt相关联的游标，废除正在处理的结果，结束一切对hstmt句柄的访问，并释放hstmt 句柄；<br>
+      　．SQL＿UNBIND：解除SQLBindCol函数为hstmt结果集合所关联的所有列缓冲区；<br>
+      　．SQL＿RESET＿PARAS：释放SQLBinParameter函数为hstmt句柄所关联的参数缓区。</font><br>
+      <br>
+      　　<span class="tubiaoti">图6-19 ODBC各种句柄的申请和释放流程图</span><br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td align="center"><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="400" height="550">
+              <param name=movie value="../../../swf/ch6/6-18.swf">
+              <param name=quality value=high>
+              <param name="wmode" value="transparent">
+              <embed src="../../../swf/ch6/6-18.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="400" height="550" wmode="transparent">
+              </embed> 
+            </object> </td>
+        </tr>
+      </table>
+      <!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

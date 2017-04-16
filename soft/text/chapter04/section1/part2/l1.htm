@@ -1,0 +1,46 @@
+<html>
+<head>
+<title>l1</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td class="text" height="4">&nbsp;</td>
+        </tr>
+        <tr>
+          <td class="text"><img src="../../../../images/tubiao/lt.gif" width="25" height="20" alt="例题">��例如，要求用筛选法求100以内的素数。所谓筛选法，就是从2到100中去掉2,3,…,9,10的倍数，剩下的就是100以内的素数。为了解决这个问题，可先按程序功能写出一个框架。</td>
+        </tr>
+        <tr>
+          <td class="text">main ( ) {<br>
+            � 建立2到100的数组A[ ]，其中A[i]＝i； - - - - - - - - - - - - - - - - - 1<br>
+            � 建立2到10的素数表B[ ]，其中存放2到10以内的素数；- - - - - - - - - - - 2<br>
+            � 若A[i]＝i是B[ ]中任一数的倍数，则剔除A[i]； - - - - - - - - - - - - - 3<br>
+            � 输出A[ ]中所有没有被剔除的数；- - - - - - - - - - - - - - - - - - - - 4<br>
+            }<br>
+            上述框架中每一个加工语句都可进一步细化成一个循环语句。<br>
+            main ( ) {<br>
+            � /*建立2到100的数组A[ ]，其中A[i]＝i*/ - - - - - - - - - - - - - - - - 1<br>
+            � for ( i = 2；i &lt;= 100；i++ ) A[i] = i；<br>
+            � /* 建立2到10的素数表B[ ]，其中存放2到10以内的素数*/ - - - - - - - - - 2<br>
+            � B[1] =2； B[2] = 3； B[3] = 5； B[4] = 7；<br>
+            � /*若A[i]＝i是B[ ]中任一数的倍数，则剔除A[i]*/ - - - - - - - - - - - - 3<br>
+            � for ( j = 1；j &lt;= 4； j++ )<br>
+            ���检查A[ ]所有的数能否被B[j]整除并将能被整除的数从A[]中剔除；- - - 3.1<br>
+            � /*输出A[ ]中所有没有被剔除的数*/- - - - - - - - - - - - - - - - - - - 4<br>
+            � for ( i = 2；i &lt;= 100；i++ )<br>
+            � ��若A[i]没有被剔除，则输出之；- - - - - - - - - - - - - - - - - - 4.1<br>
+            }<br>
+            ��</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

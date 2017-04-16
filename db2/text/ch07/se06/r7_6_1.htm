@@ -1,0 +1,82 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" --> 
+      <p><span class="biaoti_1">7.6.1 数据库完整性简述</span><br>
+        <br>
+        　　<span class="explaination">所谓数据库完整性，是衡量数据库数据质量好坏的一种标志，是确保数据库中数据的一致，正确性以及符合企业规则的一种思想，是使无序数据条理化，确保正确的数据被存放在正确位置的一种手段。</span><br>
+        ��数据库的完整性是指数据的正确性和相容性。例如：学生的学号必须唯一；性别只能为男或女；本科生年龄的取值范围为14－30的整数；学生所在的系必须是学校已开设的系等。<br>
+        <br>
+        　　数据库的完整性和安全性是两个不同的概念：<br>
+        ��数据库完整性是为了防止数据库中存在不符合语义的数据，防止错误信息的输入和输出。而数据库的安全性是为了防止对数据库的恶意破坏和非法存取。<br>
+        ��为维护数据库的完整性，DBMS必须提供一种机制来检查数据库中的数据，看其是否满足语义约束规定的条件。这些加在数据库数据之上的语义约束条件称为完整性约束条件，它们作为模式的一部分存入数据库中。<br>
+        <br>
+        <span class="explaination">满足数据完整性的要求必须满足以下特点：<br>
+        ��●　数据的值必须正确无误，即数据类型必须正确，数据的值必须在规定范围之内；<br>
+        ��●　数据的存在必须确保同一表格数据之间及不同表格数据之间的和谐关系。</span></p>
+      <span class="biaoti_1">7.6.2完整性约束条件 </span><br>
+      　　完整性检查是围绕着完整性约束条件进行的，因此完整性约束条件是完整性控制机制的核心。完整性约束条件作用的对象可以是关系、元组和列三种。<br>
+      　　<span class="pt9-black">●　</span>列约束主要是列的数据类型、取值范围、精度、排序等约束条件。<br>
+      　　<span class="pt9-black">●　</span>元组的约束是元组中各个字段间的联系的约束。<br>
+      　　<span class="pt9-black">●　</span>关系的约束是若干元组间、关系集合上以及关系之间的联系的约束。<br>
+      　　<span class="explaination">完整性约束条件涉及这三类对象，其状态可以是静态的，也可以是动态的。所谓静态约束是指数据库每一确定状态时的数据对象所应满足的约束条件。它是反映数据库状态合理性的约束，这是最重要的一类完整性约束。<br>
+      　　动态约束是指数据库从一种状态转变为另一种状态时，新、旧值之间所应满足的约束条件。</span> <span class="biaoti_1"><br>
+      <br>
+      7.6.3 完整性约束的条件分类 <br>
+      </span>　　完整性约束条件可分为以下六类：<br>
+      　　<span class="pt9-black">●　</span>静态列级约束<br>
+      　　<span class="pt9-black">●　</span>静态元组约束<br>
+      　　<span class="pt9-black">●　</span>静态关系约束<br>
+      　　<span class="pt9-black">●　</span>动态列级约束<br>
+      　　<span class="pt9-black">●　</span>动态元组约束<br>
+      　　<span class="pt9-black">●　</span>动态关系约束<br>
+      　　1. 静态列级约束是对一个列的取值域的说明，包括以下几个方面：<br>
+      　　(1)　对数据类型的约束，包括数据的类型、长度、单位、精度等；<br>
+      　　(2)　对数据格式的约束。例如规定日期的格式为YYYY－MM－DD；<br>
+      　　(3)　对取值范围或取值集合的约束。例如规定学生的成绩取值范围为0～100；<br>
+      　　(4)　对空值的约束，规定哪些列可以为空值，哪些列不能为空值； <br>
+      　　2. 静态元组约束就是规定元组的各个列之间的约束关系。例如，订货关系中包含发货量、订货量等列，规定发货量不得超过订货量。<br>
+      　　3. 静态关系约束是指在一个关系的各个元组之间或者若干关系之间存在的约束。常见的静态约束有：<br>
+      　　(1)　实体完整性约束；<br>
+      　　(2)　引用完整性约束；<br>
+      　　(3)　函数依赖约束；大部分函数依赖约束都在关系模式中定义。<br>
+      　　(4)　统计约束；即字段值与关系中多个元组的统计值之间的约束关系。例如，规定部门经理的工资不得高于本部门职工平均工资的5倍，不得低于本部门职工平均工资的2倍。<br>
+      　　4. 动态列级约束是修改列定义或列值时应满足的约束条件，包括下面两方面：<br>
+      　　(1)　修改列定义时的约束。例如，将允许空值的列改为不允许空值时，如果该列目前已存在空值，则拒绝这种修改。<br>
+      　　(2)　修改列值时的约束。修改列值时有时需要参照其旧值，并且新旧值之间需要满足某种约束条件。例如，职工调整后的工资不得低于其调整前的原来工资；职工婚姻状态的变化只能是由未婚到已婚、已婚到离异、离异到再婚等几种情况。<br>
+      　　5. 动态元组约束是指修改元组的值时元组中各个字段间需要满足某种约束条件。例如，职工工资调整时新工资不得低于原工资＋工龄*1.5等。<br>
+      6. 动态关系约束是加在关系变化前后状态上的限制条件。例如，在集成电路芯片设计数据库中，一个设计中用到的所有单元的工艺必相同，因此，在更新某个设计单元时，设计单元的新老工艺必须保持一致。<br>
+      <br>
+      <span class="biaoti_1">7.6.4 SQL Server中实现数据完整性</span><br>
+      　　在SQL Server中，通过约束（constraint）、默认对象（default）、规则对象（rule）、触发器（trigger）、标识列（identity 
+      column）、数据类型（data type）、索引（index）和存储过程（stored procedure）等数据库对象来保证数据的完整性。<br>
+      　　约束又分为：默认值约束、空值约束、检查约束、主链约束、唯一性约束和外部关键约束等。<!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

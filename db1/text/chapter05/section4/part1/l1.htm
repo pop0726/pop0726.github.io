@@ -1,0 +1,62 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgproperties=fixed bgcolor="#FFFFFF" background="../../../../image/moban/15.gif">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" height="8">
+        <tr> 
+          <td class="text" align="left"><span class="menu">��</span><span class="part">1、触发器的概念</span><br>
+             ��所谓触发器(trigger)就是一系列SQL语句，当对数据库做修改（包括插入、删除和更新）时，它自动被系统执行。<br>
+            ��<span class="part">2、要设置触发器机制，必须满足两个条件：</span><br>
+            ��①�指明什么条件下触发器被执行，即触发条件；<br>
+            ��②�指明触发器执行的动作是什么，即触发什么。<br>
+            ��<span class="part">3、触发器的利弊<br>
+            ��</span>①�一方面能够保证数据库的一致性；<br>
+            ��②�另一方面，检测和维护触发器需要很大的开销，降低了数据库增、删、改的效率！<br>
+            �<span class="part">�4、举例</span><br>
+            ��例如，当银行某客户的帐户透支时，请将其帐户余额设为0，并且建立一笔贷款，其金额为透支额。规定这笔贷款的贷款号为透支帐户的帐户号。<br>
+            define trigger <i>overdraft</i> on update of <i>account T</i><br>
+            (if new <i>T.balance</i> &lt; 0 then ( <br>
+            insert into <i>loan</i> <br>
+            values(<i>T.branch-name</i>, <i>T.account-number</i>, -new <i>T.balance</i>)<br>
+            insert into <i>borrower</i> (select <i>customer-name</i>, <i>account-number</i> 
+            <br>
+            �����������from <i>depositor</i><br>
+            ����where <i>depositor</i>.<i>account-number</i> =<i> T.account-number</i>) 
+            <br>
+            update <i>account</i> <i>S</i> set <i>S.balance</i> = 0 <br>
+            where <i>S.account-number</i> = <i>T.account-number</i>))<br>
+            ��从广义上讲，约束实际上就是对数据库的一种限制，因此，可以把很多内容都看作是数据库的约束。例如，定义在一个关系上的约束可以有：<br>
+            ��①�域约束<br>
+            ��②�DEFAULT（缺省值约束）<br>
+            ��③�NOT NULL（非空值约束）<br>
+            ��④�PRIMARY KEY（主码约束）<br>
+            ��⑤�FOREIGN KEY（外码约束）<br>
+            ��⑥�CHECK（check约束）<br>
+            而定义在整个数据库上的约束可以有：<br>
+            ��①�断言<br>
+            ��②�触发器对约束来说，要注意以下两个问题：<br>
+            ����⑴�约束与系统性能的关系<br>
+            ����⑵�约束的一致性检查顺序<br>
+            ������①�域约束<br>
+            ������②�DEFAULT<br>
+            ������③�NOT NULL<br>
+            ������④�CHECK<br>
+            ������⑤�对有FOREIGN KEY约束的参照表的检查<br>
+            ������⑥�对有FOREIGN KEY约束的被参照表的检查<br>
+            ������⑦�PRIMARY KEY<br>
+            ������⑧�断言<br>
+            ������⑨�触发器<br>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

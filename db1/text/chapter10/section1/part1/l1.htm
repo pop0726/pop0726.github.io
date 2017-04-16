@@ -1,0 +1,53 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgproperties=fixed bgcolor="#FFFFFF" background="../../../../image/moban/15.gif">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" height="8">
+        <tr> 
+          <td class="text" align="left"> 
+            <p class="part"><span class="menu">��</span><span class="text">在详细介绍有关事务的概念和特性之前，首先应该了解以下几件事情：<br>
+              ��</span>1、古老而典型的例子<span class="text"><br>
+              ��提起事务，就会用到银行中两个帐户之间转帐的例子，即从帐户A转XX元钱到帐户B，它同时涉及到两个不同帐户的读写操作。</span></p>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left"> 
+            <div align="center"><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="400" height="400">
+                <param name=movie value="../../../../swf/F1_9.swf">
+                <param name=quality value=high>
+                <param name="wmode" value="transparent">
+                <embed src="../../../../swf/F1_9.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="32" height="32" wmode="transparent">
+                </embed> 
+              </object></div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left"> ��<span class="part">2、事务中涉及数据库访问的基本操作</span><br>
+            ��⑴�read(X)：从数据库传送数据项X到执行read操作的事务的一个局部缓冲区中；<br>
+            ��⑵�write(X)：从执行write的事务的局部缓冲区中把数据项X传回数据库。<br>
+            ��<span class="part">3、事务之间的相互影响</span><br>
+            ��数据库系统中同时可能有很多事务要执行，这些事务要么互不相干，要么要访问相同的数据项。对于那些要访问相同数据项的事务之间的相互影响要特别处理，如<span class="part">图10-1-1</span>所示。<br>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left">
+            <div align="center"><span class="part">图10-1-1：事务之间的相互影响</span> <br>
+              <img src="../../../../image/chapter/10/10-1-1.gif" width="420" height="179"> 
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="text" align="left">��如<span class="part">图10-1-1</span>所示，事务TI是从A帐户转50元钱到B帐户，事务Tj是计算帐户A和B的和。两个事务同时在系统中执行，那么事务Tj的read(A)操作可能在事务TI的write(A)之前或之后执行；同理，事务Tj的read(B)操作也可能在事务Ti的write(B)之前或之后执行。如果事务Tj的read(A)操作在事务Ti的write(A)之前执行，而事务Tj的read(B)操作却在事务Ti的write(B)之后执行，那么事务Tj的计算结果就是3050，而不是想象中的3000，凭空就多了50元钱。</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

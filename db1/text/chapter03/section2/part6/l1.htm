@@ -1,0 +1,54 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgproperties=fixed bgcolor="#FFFFFF" background="../../../../image/moban/15.gif">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" height="8">
+        <tr> 
+          <td class="text" height="2"> ��作为命名运算的例子，来看一看查询&quot;找出银行中最大的帐户余额&quot;。这是一个在关系中求最大值的问题，看似简单，事实并非如此。一般的思路是将account关系中元组的余额两两进行比较(通过一个二重循环来实现)来得到最大值，但遗憾的是关系代数中没有这样的运算。<br>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" height="2"> 
+            <div align="center"><span class="part">图3-2-9：关系account </span><br>
+              <img src="../../../../image/chapter/03/3-2-9.gif" width="420" height="220"> 
+            </div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" height="2">��为了模拟元组的两两比较，需要一个和account关系相同但名字为d的关系。然后进行笛卡尔积运算account×d，把需要比较的两个balance属性连接在一起。</td>
+        </tr>
+        <tr> 
+          <td class="text" height="2"> 
+            <div align="center">accountｘrd(account)</div>
+          </td>
+        </tr>
+        <tr>
+          <td class="text" height="2">首先对上述笛卡尔积结果中的两个balance进行比较，选择出那些比最大余额都小的余额：</td>
+        </tr>
+        <tr>
+          <td class="text" height="2">
+            <div align="center"><img src="../../../../image/chapter/03/3_2n.gif" width="288" height="54"></div>
+          </td>
+        </tr>
+        <tr>
+          <td class="text" height="2">上述结果包含了除最大余额以外的所有余额，因此要找出最大余额，只需要在关系account中将所有的非最大余额减去即可：</td>
+        </tr>
+        <tr>
+          <td class="text" height="2">
+            <div align="center"><img src="../../../../image/chapter/03/3_2o.gif" width="403" height="52"></div>
+          </td>
+        </tr>
+        <tr>
+          <td class="text" height="2">��<span class="menu">假设r(R)是一个关系，那么命名运算ρ<font size="-2">s</font>(r)将产生一个新的关系s，关系s和关系r具有相同的关系模式R，关系r仍然存在，所以说命名运算不是给关系r更改名字。相比较而言，命名运算更像是操作系统的copy命令。</span></td>
+        </tr>
+      </table></td>
+  </tr>
+</table>
+</body>
+</html>

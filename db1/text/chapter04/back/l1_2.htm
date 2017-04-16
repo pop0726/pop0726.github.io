@@ -1,0 +1,565 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+</head>
+<body background="../../../image/moban/15.gif" bgproperties=fixed>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="354">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" height="205">
+        <tr> 
+          <td class="text"> 
+            <p align="center" class="zhishidian">第四章　SQL--概念</p>
+          </td>
+        </tr>
+        <tr> 
+          <td class="part">4.1　背景</td>
+        </tr>
+        <tr> 
+          <td class="text"> 
+            <div align="center"><span style="font-size:9.0pt;font-family:宋体;Times New Roman&quot;" class="part">表<span lang="EN-US">4-1</span></span> 
+              <table border="1" cellspacing="0" cellpadding="0" bordercolor="#000000" class="text">
+                <tr> 
+                  <td width="139" valign="top"> 
+                    <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">概念</span></b></p>
+                  </td>
+                  <td width="429" valign="top"> 
+                    <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">解释</span></b></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="139" valign="top" align="center"> 
+                    <p class="MsoNormal"><span lang="EN-US" style="font-family:宋体;Times New Roman&quot;">SQL 
+                      </span></p>
+                  </td>
+                  <td width="429" valign="top"> 
+                    <p class="MsoNormal"><span lang="EN-US" style="font-family:宋体;Times New Roman&quot;">SQL是结构化查询语言(Structured 
+                      Query Language)的简称，它除了具有查询数据库的功能以外，还具有定义数据结构、修改数据和说明安全性约束条件等特性。它已经成为数据库的标准语言。 
+                      </span></p>
+                  </td>
+                </tr>
+              </table>
+              <span style="font-size:9.0pt;font-family:宋体;Times New Roman&quot;" class="part"></span></div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="part">4.2　基本结构</td>
+        </tr>
+        <tr> 
+          <td class="text" height="172"> 
+            <div align="center"><span style="font-size:9.0pt;font-family:宋体;Times New Roman&quot;"><span class="part">表<span lang="EN-US">4-2</span></span></span> 
+              <table border="1" cellspacing="0" cellpadding="0" class="text" bordercolor="#000000">
+                <tr> 
+                  <td width="139" valign="top"> 
+                    <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">概念</span></b></p>
+                  </td>
+                  <td width="429" valign="top"> 
+                    <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">解释</span></b></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="139" valign="top" align="center"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">投影</span></p>
+                  </td>
+                  <td width="429" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;;
+  color:black">参见第三章“关系模型――概念”的表<span lang="EN-US">3-2。</span></span><span lang="EN-US" style="font-family:宋体;Times New Roman&quot;"> 
+                      </span></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="139" valign="top" align="center"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;;
+  Times New Roman&quot;">笛卡尔积</span></p>
+                  </td>
+                  <td width="429" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;;
+  color:black">参见第三章“关系模型――概念”的表<span lang="EN-US">3-2。</span></span></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="139" valign="top" align="center"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;;
+  Times New Roman&quot;">关系</span></p>
+                  </td>
+                  <td width="429" valign="top"> 
+                    <p class="MsoNormal" style="text-autospace:none"><span style="font-family:宋体;Times New Roman&quot;;color:black">参见第二章“实体<span lang="EN-US">-联系模型――概念”的表2-9。</span></span></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="139" valign="top" align="center"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;;
+  Times New Roman&quot;">元组</span></p>
+                  </td>
+                  <td width="429" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;;
+  color:black">参见第三章“关系模型――概念”的表<span lang="EN-US">3-1。</span></span></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="139" valign="top" align="center"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;;
+  Times New Roman&quot;">自然连接</span></p>
+                  </td>
+                  <td width="429" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;;
+  color:black">参见第三章“关系模型――概念”的表<span lang="EN-US">3-2。</span></span></p>
+                  </td>
+                </tr>
+              </table></div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text"><span lang="EN-US" style="font-size:9.0pt;font-family:宋体;
+Times New Roman&quot;" class="part">4.3　集合操作</span></td>
+        </tr>
+        <tr> 
+          <td class="text" height="57"> 
+            <div align="center"><span style="font-size:9.0pt;font-family:宋体;Times New Roman&quot;" class="part">表<span lang="EN-US">4-3 
+              </span></span> 
+              <table border="1" cellspacing="0" cellpadding="0" bordercolor="#000000" class="text">
+                <tr> 
+                  <td width="139" valign="top"> 
+                    <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">概念</span></b></p>
+                  </td>
+                  <td width="429" valign="top"> 
+                    <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">解释</span></b></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="139" valign="top" align="center"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;;
+  Times New Roman&quot;">并</span></p>
+                  </td>
+                  <td width="429" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;;
+  color:black">参见第三章“关系模型――概念”的表<span lang="EN-US">3-2。</span></span></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="139" valign="top" align="center"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;;
+  Times New Roman&quot;">集合交</span></p>
+                  </td>
+                  <td width="429" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;;
+  color:black">参见第三章“关系模型――概念”的表<span lang="EN-US">3-2。</span></span></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="139" valign="top" align="center"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;;
+  Times New Roman&quot;">集合差</span></p>
+                  </td>
+                  <td width="429" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;;
+  color:black">参见第三章“关系模型――概念”的表<span lang="EN-US">3-2。</span></span></p>
+                  </td>
+                </tr>
+              </table>
+              </div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text"><span lang="EN-US" style="font-size:9.0pt;font-family:宋体;
+Times New Roman&quot;"><span class="part">4.4　聚集函数</span></span></td>
+        </tr>
+        <tr> 
+          <td class="text" height="33"> 
+            <div align="center"><span style="font-size:9.0pt;font-family:宋体;Times New Roman&quot;" class="part">表<span lang="EN-US">4-4 
+              </span></span> 
+              <table border="1" cellspacing="0" cellpadding="0" class="text" bordercolor="#000000">
+                <tr> 
+                  <td width="139" valign="top"> 
+                    <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">概念</span></b></p>
+                  </td>
+                  <td width="429" valign="top"> 
+                    <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">解释</span></b></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="139" valign="top" align="center"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;;
+  Times New Roman&quot;">聚集函数</span></p>
+                  </td>
+                  <td width="429" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;;
+  color:black">参见第三章“关系模型――概念”的表<span lang="EN-US">3-4。</span></span><span lang="EN-US" style="font-family:宋体;Times New Roman&quot;"> 
+                      </span></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="139" valign="top" align="center"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;;
+  Times New Roman&quot;">分组聚集</span></p>
+                  </td>
+                  <td width="429" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;;
+  color:black">参见第三章“关系模型――概念”的表<span lang="EN-US">3-4。</span></span><span lang="EN-US" style="font-family:宋体;Times New Roman&quot;"> 
+                      </span></p>
+                  </td>
+                </tr>
+              </table>
+              </div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text"><span lang="EN-US" style="font-size:9.0pt;font-family:宋体;
+Times New Roman&quot;" class="part">4.5　空值<span style="color:black"> </span></span></td>
+        </tr>
+        <tr> 
+          <td class="text" height="2"> 
+            <div align="center"><span style="font-size:9.0pt;font-family:宋体;Times New Roman&quot;" class="part">表<span lang="EN-US">4-5 
+              </span></span> 
+              <table border="1" cellspacing="0" cellpadding="0" bordercolor="#000000" class="text">
+                <tr> 
+                  <td width="139" valign="top"> 
+                    <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">概念</span></b></p>
+                  </td>
+                  <td width="429" valign="top"> 
+                    <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">解释</span></b></p>
+                  </td>
+                </tr>
+              </table>
+              </div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text"><span lang="EN-US" style="font-size:9.0pt;font-family:宋体;
+Times New Roman&quot;" class="part">4.6　嵌套子查询</span></td>
+        </tr>
+        <tr> 
+          <td class="text"> 
+            <div align="center"><span style="font-size:9.0pt;font-family:宋体;Times New Roman&quot;" class="part">表<span lang="EN-US">4-6 
+              </span></span> 
+              <table border="1" cellspacing="0" cellpadding="0" bordercolor="#000000" class="text">
+                <tr> 
+                  <td width="139" valign="top"> 
+                    <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">概念</span></b></p>
+                  </td>
+                  <td width="429" valign="top"> 
+                    <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">解释</span></b></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="139" valign="top" height="17" align="center"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">子查询</span></p>
+                  </td>
+                  <td width="429" valign="top" height="17"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">子查询是嵌套在另一个查询中的<span lang="EN-US">select-from-where表达式。 
+                      </span></span></p>
+                  </td>
+                </tr>
+              </table>
+              </div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="part" height="14">4.7　派生关系</td>
+        </tr>
+        <tr> 
+          <td class="text"> 
+            <div align="center"><span style="font-size:9.0pt;font-family:宋体;Times New Roman&quot;" class="part">表<span lang="EN-US">4-7 
+              </span></span> 
+              <table border="1" cellspacing="0" cellpadding="0" class="text" bordercolor="#000000">
+                <tr> 
+                  <td width="139" valign="top"> 
+                    <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">概念</span></b></p>
+                  </td>
+                  <td width="429" valign="top"> 
+                    <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">解释</span></b></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="139" valign="top" align="center"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">派生关系</span></p>
+                  </td>
+                  <td width="429" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">将出现在<span lang="EN-US">from子句中的子查询定义成一个关系，这个关系就是派生关系。派生关系是临时关系，查询完成之后临时关系就不复存在。 
+                      </span></span></p>
+                  </td>
+                </tr>
+              </table>
+              </div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text"><span lang="EN-US" style="font-size:9.0pt;font-family:宋体;
+Times New Roman&quot;" class="part">4.8　视图</span></td>
+        </tr>
+        <tr> 
+          <td class="text" align="center" height="8"> 
+            <div align="center"></div>
+            <div align="center" class="part">表<span lang="EN-US">4-8</span></div>
+          <table border="1" cellspacing="0" cellpadding="0" class="text" bordercolor="#000000">
+              <tr> 
+                <td width="139" valign="top"> 
+                  <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">概念</span></b></p>
+                </td>
+                <td width="429" valign="top"> 
+                  <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">解释</span></b></p>
+                </td>
+              </tr>
+              <tr> 
+                <td width="139" valign="top" align="center"> 
+                  <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">视图</span></p>
+                </td>
+                <td width="429" valign="top"> 
+                  <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;;
+  color:black">参见第三章“关系模型――概念”的表<span lang="EN-US">3-6。</span></span><span lang="EN-US" style="font-family:宋体;Times New Roman&quot;"> 
+                    </span></p>
+                </td>
+              </tr>
+            </table>
+            </td>
+        </tr>
+        <tr> 
+          <td class="text" align="center"> 
+            <div align="left" class="part">4.9　数据库的修改</div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="center"> <span class="part">表<span lang="EN-US">4-9</span></span>
+<table border="1" cellspacing="0" cellpadding="0" class="text" bordercolor="#000000">
+              <tr> 
+                <td width="139" valign="top"> 
+                  <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">概念</span></b></p>
+                </td>
+                <td width="429" valign="top"> 
+                  <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">解释</span></b></p>
+                </td>
+              </tr>
+              <tr> 
+                <td width="139" valign="top" align="center"> 
+                  <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">删除</span></p>
+                </td>
+                <td width="429" valign="top"> 
+                  <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;;
+  color:black">参见第三章“关系模型――概念”的表<span lang="EN-US">3-5。</span></span><span lang="EN-US" style="font-family:宋体;Times New Roman&quot;"> 
+                    </span></p>
+                </td>
+              </tr>
+              <tr> 
+                <td width="139" valign="top" align="center"> 
+                  <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">插入</span></p>
+                </td>
+                <td width="429" valign="top"> 
+                  <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;;
+  color:black">参见第三章“关系模型――概念”的表<span lang="EN-US">3-5。</span></span><span lang="EN-US" style="font-family:宋体;Times New Roman&quot;"> 
+                    </span></p>
+                </td>
+              </tr>
+              <tr> 
+                <td width="139" valign="top" align="center"> 
+                  <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">更新</span></p>
+                </td>
+                <td width="429" valign="top"> 
+                  <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;;
+  color:black">参见第三章“关系模型――概念”的表<span lang="EN-US">3-5。</span></span><span lang="EN-US" style="font-family:宋体;Times New Roman&quot;"> 
+                    </span></p>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="center"> 
+            <div align="left" class="part">4.10　关系的连接</div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="center" height="195"> <span class="part">表<span lang="EN-US">4-10</span></span>
+<table border="1" cellspacing="0" cellpadding="0" class="text" bordercolor="#000000">
+              <tr> 
+                <td width="139" valign="top"> 
+                  <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">概念</span></b></p>
+                </td>
+                <td width="429" valign="top"> 
+                  <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">解释</span></b></p>
+                </td>
+              </tr>
+              <tr> 
+                <td width="139" valign="top" align="center"> 
+                  <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">外连接</span></p>
+                </td>
+                <td width="429" valign="top"> 
+                  <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">外连接是自然连接的扩展，当然它的连接条件可以不是自然的。它除了处理符合连接条件的元组以外，还要根据其他条件来处理连接关系中不符合连接条件的元组。</span></p>
+                </td>
+              </tr>
+              <tr> 
+                <td width="139" valign="top" align="center"> 
+                  <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">内连接</span></p>
+                </td>
+                <td width="429" valign="top"> 
+                  <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">内连接也是自然连接的扩展，当然它的连接条件可以不是自然的，但它只处理符合连接条件的元组。</span></p>
+                </td>
+              </tr>
+              <tr> 
+                <td width="139" valign="top" align="center"> 
+                  <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">自然连接</span></p>
+                </td>
+                <td width="429" valign="top"> 
+                  <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;;
+  color:black">参见第三章“关系模型――概念”的表<span lang="EN-US">3-2。</span></span><span lang="EN-US" style="font-family:宋体;Times New Roman&quot;"> 
+                    </span></p>
+                </td>
+              </tr>
+              <tr> 
+                <td width="139" valign="top" align="center"> 
+                  <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">左外连接</span></p>
+                </td>
+                <td width="429" valign="top"> 
+                  <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;;
+  color:black">参见第三章“关系模型――概念”的表<span lang="EN-US">3-4。</span></span><span lang="EN-US" style="font-family:宋体;Times New Roman&quot;"> 
+                    </span></p>
+                </td>
+              </tr>
+              <tr> 
+                <td width="139" valign="top" align="center"> 
+                  <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">右外连接</span></p>
+                </td>
+                <td width="429" valign="top"> 
+                  <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;;
+  color:black">参见第三章“关系模型――概念”的表<span lang="EN-US">3-4。</span></span><span lang="EN-US" style="font-family:宋体;Times New Roman&quot;"> 
+                    </span></p>
+                </td>
+              </tr>
+              <tr> 
+                <td width="139" valign="top" align="center"> 
+                  <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">全外连接</span></p>
+                </td>
+                <td width="429" valign="top"> 
+                  <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;;
+  color:black">参见第三章“关系模型――概念”的表<span lang="EN-US">3-4。</span></span><span lang="EN-US" style="font-family:宋体;Times New Roman&quot;"> 
+                    </span></p>
+                </td>
+              </tr>
+            </table>
+            </td>
+        </tr>
+        <tr> 
+          <td class="text" align="center"> 
+            <div align="left" class="part">4.11　SQL DDL</div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="part" align="center"> 表4-11
+<table border="1" cellspacing="0" cellpadding="0" class="text" bordercolor="#000000">
+              <tr> 
+                <td width="139" valign="top"> 
+                  <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">概念</span></b></p>
+                </td>
+                <td width="429" valign="top"> 
+                  <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">解释</span></b></p>
+                </td>
+              </tr>
+              <tr> 
+                <td width="139" valign="top" align="center"> 
+                  <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">域</span></p>
+                </td>
+                <td width="429" valign="top"> 
+                  <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;;
+  color:black">参见第三章“关系模型――概念”的表<span lang="EN-US">3-1。</span></span><span lang="EN-US" style="font-family:宋体;Times New Roman&quot;"> 
+                    </span></p>
+                </td>
+              </tr>
+              <tr> 
+                <td width="139" valign="top" align="center"> 
+                  <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">关系模式</span></p>
+                </td>
+                <td width="429" valign="top"> 
+                  <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;;
+  color:black">参见第三章“关系模型――概念”的表<span lang="EN-US">3-1。</span></span><span lang="EN-US" style="font-family:宋体;Times New Roman&quot;"> 
+                    </span></p>
+                </td>
+              </tr>
+              <tr> 
+                <td width="139" valign="top" height="16" align="center"> 
+                  <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">主码</span></p>
+                </td>
+                <td width="429" valign="top" height="16"> 
+                  <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;;
+  color:black">参见第二章“实体<span lang="EN-US">-联系模型――概念”的表2-4。</span></span><span lang="EN-US" style="font-family:宋体;Times New Roman&quot;"> 
+                    </span></p>
+                </td>
+              </tr>
+            </table>
+            
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="center"> 
+            <div align="left" class="part">4.12　嵌入式SQL</div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="part" align="center" height="49"> 表4-12
+<table border="1" cellspacing="0" cellpadding="0" class="text" bordercolor="#000000">
+              <tr> 
+                <td width="139" valign="top"> 
+                  <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">概念</span></b></p>
+                </td>
+                <td width="429" valign="top"> 
+                  <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">解释</span></b></p>
+                </td>
+              </tr>
+              <tr> 
+                <td width="139" valign="top" align="center"> 
+                  <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">宿主语言</span></p>
+                </td>
+                <td width="429" valign="top"> 
+                  <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">除了在<span lang="EN-US">DBMS中通过交互的方式使用SQL语句之外，还允许在高级程序设计语言，如Pascal、C等中嵌入SQL语句，这样的高级语言称为宿主语言。 
+                    </span></span></p>
+                </td>
+              </tr>
+              <tr> 
+                <td width="139" valign="top" align="center"> 
+                  <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">嵌入式<span lang="EN-US">SQL 
+                    </span></span></p>
+                </td>
+                <td width="429" valign="top"> 
+                  <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">宿主语言中的<span lang="EN-US">SQL结构称为嵌入式SQL。 
+                    </span></span></p>
+                </td>
+              </tr>
+            </table>
+            
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="center"> 
+            <div align="left" class="part">4.13　其他SQL特性</div>
+          </td>
+        </tr>
+        <tr>
+          <td class="text" align="center"> <span class="part">表4-12</span>
+<table border="1" cellspacing="0" cellpadding="0" class="text" bordercolor="#000000">
+              <tr> 
+                <td width="139" valign="top"> 
+                  <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">概念</span></b></p>
+                </td>
+                <td width="429" valign="top"> 
+                  <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">解释</span></b></p>
+                </td>
+              </tr>
+              <tr> 
+                <td width="139" valign="top" height="69" align="center"> 
+                  <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">第四代语言</span></p>
+                </td>
+                <td width="429" valign="top" height="69"> 
+                  <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">大多数商业数据库产品都提供一种特殊语言，帮助应用程序员创建用户界面、生成报表等等，这种特殊的语言就是第四代语言。</span></p>
+                </td>
+              </tr>
+            </table>
+          
+          </td>
+        </tr>
+      </table>
+      <br>
+      ��</td>
+  </tr>
+</table>
+</body>
+</html>

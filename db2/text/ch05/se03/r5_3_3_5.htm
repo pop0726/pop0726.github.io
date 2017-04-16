@@ -1,0 +1,73 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" --> 　(3) 视图集成的要求视图集成要尽可能合并对应的部分，保留特殊的部分，删除冗余部分，必要时对模式进行适当的修改，力求使模式简明清晰。<br>
+      　　视图集成后，要对整体概念结构进行验证：<br>
+      　・ 整体概念结构必须具有一致性，不存在矛盾；<br>
+      　・ 整体概念结构要反映单个视图的结构，包括实体及实体之间的联系；<br>
+      　・ 整体概念结构必须满足需求分析阶段确定的所有要求。如果两个实体在不同的视图中存在着不同的联系，集成时，所有联系都要保留。例如，维修部门视图中的职工和设备的保养联系以及生产部门视图中的职工与设备的使用联系，如图5-23所示。<br>
+      <br>
+      　　<span class="tubiaoti">图5-23 多重联系示例</span><br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td align="center"><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="400" height="250">
+              <param name=movie value="../../../swf/ch5/5-24.swf">
+              <param name=quality value=high>
+              <param name="wmode" value="transparent">
+              <embed src="../../../swf/ch5/5-24.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="400" height="250" wmode="transparent">
+              </embed> 
+            </object></td>
+        </tr>
+      </table>
+      <br>
+      　　另一种形式的E-R图集成如图5-24，把职工分为保养工和使用工。<br>
+      <br>
+      　　<span class="tubiaoti">图5-24 职工分为保养工和使用工</span><br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td align="center"><img src="../../../img/text/ch05/d9.gif" width="260" height="192"> 
+          </td>
+        </tr>
+      </table>
+      <br>
+      　　<font color="#5a5aad">各个局部应用所面向的问题不同，且通常是由不同的设计人员进行局部试图设计，这就导致各个分E-R图之间必定会存在许多不一致的地方，称之为冲突。因此合并分E-R图时并不能简单的将各个分E-R图画到一起，而是必须着力消除各个分E-R图中的不一致，已形成一个能为全系统中所有用户共同理解和接受的统一的概念模型。合理消除各分E-R图中的冲突是合并分E-R图的主要工作与关键所在。</font><br>
+      <br>
+      　<span class="biaoti_1">6. 数据库概念设计总结</span> <br>
+      　・ 用E-R数据模型进行概念设计，首先必须根据需求说明，确认实体、联系和属性。<br>
+      　・ 采用E-R方法进行数据库的概念设计，可以分成三步进行：首先设计局部E-R图；然后合并各局部E-R图，并解决可能存在的冲突，得到初步E-R图；最后修改和重构初步E-R图，消除其中的冗余部分，得到最终的全局E-R图，即概念模式。o设计全局E-R模式的目的不在于把若干局部E-R模式形式上合并为一个E-R模式，而在于消除冲突使之成为能够被全系统总所有用户共同理解和接受的统一的概念模型。<br>
+      　　在需求分析和逻辑设计之间增加概念设计阶段，使设计人员仅从用户角度看待数据及处理要求和约束，产生一个反映用户观点的概念模式。这样做有三个好处： 
+      <br>
+      　(1) 数据库设计各阶段的任务相对单一化，设计复杂程度得到降低，便于组织管理。<br>
+      　(2) 概念模式不受特定DBMS限制，也独立于存储安排，因而比逻辑设计得到的模式更为稳定。<br>
+      　(3) 概念模式不含具体的DBMS所附加的技术细节，更容易为用户所理解，因而能准确反映用户的信息需求。<br>
+      　　<font color="#5a5aad">在初步E-R图中，可能存在一些冗余的数据和实体间冗余的联系。所谓冗余的数据是指可由基本数据导出的数据，冗余的联系是指可由其他联系导出的联系。冗余的数据和冗余联系容易破坏数据库的完整性，为数据库的维护增加困难，应当予以消除。消除了冗余后的初步E-R图称为基本E-R图。<br>
+      　　但并不是所有的冗余数据与冗余联系都必须加以消除，有时为了提高效率，不得不以冗余信息作为代价。因此在设计数据库概念结构时，那些冗余信息必须消除，那些冗余信息允许存在，需要根据用户的整体需求来确定。如果人为地保留了一些冗余数据，则应把数据字典中数据关联的说明作为完整性约束条件。</font><!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

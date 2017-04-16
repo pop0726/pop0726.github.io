@@ -1,0 +1,114 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgproperties=fixed bgcolor="#FFFFFF" background="../../../../image/moban/15.gif" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" height="61">
+        <tr> 
+          <td class="text" align="left" height="2"> <p>��<span class="part">1、一致性</span><br>
+              ��所谓一致性简单地说就是数据库中数据的完整性，包括它们的正确性。<br>
+            </p></td>
+        </tr>
+        <tr> 
+          <td class="text" align="left" height="2"> 
+            <div align="center"><span class="part">图10-1-2：事务<font size="2">T</font><font size="-5">i</font></span><br>
+              <img src="../../../../image/chapter/10/10-1-2.gif" width="180" height="222"> 
+            </div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left" height="2">��对于<span class="part">图10-1-2</span>中的事务<font size="2">T</font><font size="-5">i</font>来说，一致性要求就是事务的执行不改变帐户A和帐户B的和。否则的话事务就会创造或销毁钱！<br>
+            ��单个事务的一致性是由对该事务进行编码的应用程序员的责任，但是在某些情况下利用DBMS中完整性约束(如触发器)的自动检查功能有助于一致性的维护。<br> 
+            <br>
+            ��<span class="part">2、原子性</span><br>
+            ��如果事务没有原子性的保证，那么在发生系统故障的情况下，数据库就有可能处于不一致状态。如<span class="part">图10-1-3</span>所示，如果故障发生在write(A)和read(B)之间，则将有可能造成帐户A的余额已经减去50元钱，而帐户B的余额却没有改变，凭空就少了50元钱。<br>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left" height="2"> 
+            <div align="center" class="part">图10-1-3：执行过程中发生故障的事务T<font size="-5">i</font><br>
+              <img src="../../../../image/chapter/10/10-1-3.gif" width="185" height="222"> 
+            </div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left" height="1">��值得注意的是，即使没有故障发生，系统在某一时刻也会处于不一致状态。原子性的要求就是这种不一致状态除了在事务执行当中出现外，在其他任何时刻都是不可见的。保证原子性是DBMS的责任：即事务管理器和恢复管理器的责任。<br> 
+            <br>
+            ��<span class="part">3、持久性</span><br>
+            ��持久性的含义是说：一旦事务成功执行之后，它对数据库的更新是永久的。可以用以下两种方式中的任何一种来达到持久性的目的：<br>
+            ��⑴�以牺牲应用系统的性能为代价：要求事务对数据库系统所做的更新在事务结束前已经写入磁盘；<br>
+            ��⑵�以多占用磁盘空间为代价：要求事务已经执行的和已写到磁盘的、对数据库进行更新的信息是充分的（例如，数据库日志的信息就足够的多），使得DBMS在系统出现故障后重新启动系统时，能够(根据日志)重新构造更新。保证持久性也是DBMS的责任：即恢复管理器的责任。<br> 
+            <br>
+            ��<span class="part">4、隔离性</span><br>
+            ��<u>⑴�事情的起因</u><br>
+            ��正如<span class="part">图10-1-4</span>所示，即使每个事务都能保持一致性和原子性，但如果几个事务并发执行，且访问相同的数据项，则它们的操作会以人们所不希望的某种方式交叉执行（参见10.1.1小节），结果导致不一致的状态！</td>
+        </tr>
+        <tr> 
+          <td class="text" align="left" height="0"> 
+            <div align="center" class="part">图10-1-4：访问相同数据项的两个事务并发执行<br>
+              <img src="../../../../image/chapter/10/10-1-4.gif" width="420" height="181"> 
+            </div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left" height="0">��<u>⑵�解决办法</u><br>
+            ��如果几个事务要访问相同的数据项，为了保证数据库的一致性，可以让这几个事务：<br>
+            ��<b>①</b> 串行执行：即一个接着一个地执行事务；</td>
+        </tr>
+        <tr> 
+          <td class="text" align="left" height="0">
+            <div align="center"> <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="400" height="400">
+                <param name=movie value="../../../../swf/F10_2.swf">
+                <param name=quality value=high>
+                <param name="wmode" value="transparent">
+                <embed src="../../../../swf/F10_2.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="32" height="32" wmode="transparent">
+                </embed> 
+              </object> </div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left" height="0"><b>��② </b>并行执行</td>
+        </tr>
+        <tr> 
+          <td height="0" align="center" valign="top" class="text"> 
+            <div align="center"> <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="400" height="400">
+                <param name=movie value="../../../../swf/F10_3.swf">
+                <param name=quality value=high>
+                <param name="wmode" value="transparent">
+                <embed src="../../../../swf/F10_3.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="32" height="32" wmode="transparent">
+                </embed> 
+              </object> </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="text" align="left" height="0"><b>��③</b>并发执行：即同时执行多个事务，但用并发控制机制来解决不同事务间的相互影响。 
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left" height="1">
+            <div align="center"> <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="400" height="400">
+                <param name=movie value="../../../../swf/F10_4.swf">
+                <param name=quality value=high>
+                <param name="wmode" value="transparent">
+                <embed src="../../../../swf/F10_4.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="32" height="32" wmode="transparent">
+                </embed> 
+              </object> </div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left" height="1"> ��<u>⑶�隔离性的保证</u><br>
+            ��事务的隔离性能够确保事务并发执行后的系统状态与这些事务按某种次序串行执行后的状态是等价的。保证隔离性也是DBMS的责任：即并发控制管理器的责任。<br>
+            ��<span class="menu">事务概念是随着数据库应用的不断深化而提出和发展的。最初的数据库是单机的、单进程的，各个操作只能串行执行。后来数据库发展到支持多进程或多线程，支持网络应用，同时可能有多个用户或者多个进程对同样的数据进行操作，这时就迫切需要一种机制来保证数据库应用的正确性，&quot;事务&quot;就被提出并且广泛应用了。Jim 
+            Gray因为这方面的优秀工作而获得了计算机界的最高奖&quot;图灵奖&quot;。</span></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

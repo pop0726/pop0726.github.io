@@ -1,0 +1,90 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgproperties=fixed bgcolor="#FFFFFF" background="../../../../image/moban/15.gif">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td class="text" align="center"> 
+            <div align="left"><span class="part">1、调度的简化</span><br>
+              ��事务并发执行时，只有访问相同数据项的基本操作read和write才会在事务间产生影响。换句话说，对于数据项Q，在read(Q)和write(Q)指令之间，事务可以对驻留在事务局部缓冲区中的数据项Q的拷贝执行任意的操作序列。所以，从调度的角度来看，事务仅有的重要操作是read与write指令，因此，调度中通常只显示read和write指令如<span class="part">图10-5-1</span>所示。<span class="menu"><br>
+              </span></div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="center"><span class="part">图10-5-1：简化后的调度3 </span><br>
+            <img src="../../../../image/chapter/10/10-5-1.gif" width="227" height="322"> 
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="center"> 
+            <div align="left"><span class="part">2、指令的可交换性</span><br>
+              ��对于一个调度S来说，假设I<font size="-4">m</font>和I<font size="-5">n</font>(m&lt;n)分别是属于事务T<font size="-5">i</font>和T<font size="-5">j</font>的两条连续的读写指令：<br>
+              ��-�如果I<font size="-5">m</font>和I<font size="-5">n</font>分别访问不同的数据项，则交换I<font size="-5">m</font>和I<font size="-5">n</font>的顺序不会影响调度中任何指令的结果；<br>
+              ��-�如果I<font size="-5">m</font>和I<font size="-5">n</font>访问相同的数据项Q，则两者的顺序就不能随便交换。<br>
+              ��下面就详细介绍调度中指令的可交换性：<br>
+              ��<u>⑴�read-read指令
+              </u></div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="center"><span class="part">图10-5-2：read-read指令</span> 
+            <br>
+            <img src="../../../../image/chapter/10/10-5-2.gif" width="420" height="207"> 
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="center"> 
+            <div align="left">如<span class="part">图10-5-2</span>所示，由于I<font size="-5">m</font>和I<font size="-5">n</font>都是read指令，无论谁先执行或谁后执行，它们读到的都是同一个Q值，所以这两条指令不冲突，可以交换先后顺序。<br>
+              ��<u>⑵�read-write指令<br>
+              </u></div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="part" align="center">图10-5-3：read-write指令<br>
+            <img src="../../../../image/chapter/10/10-5-3.gif" width="420" height="206"> 
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="center"> 
+            <div align="left">如<span class="part">图10-5-3</span>所示，由于I<font size="-5">m</font>是read指令，I<font size="-5">n</font>是write指令，如果I<font size="-5">m</font>在I<font size="-5">n</font>之前，则I<font size="-5">m</font>读到的是I<font size="-5">n</font>写之前的Q值；如果I<font size="-5">m</font>在I<font size="-5">n</font>之后，则I<font size="-5">m</font>读到的是I<font size="-5">n</font>写之后的Q值。所以这两条指令冲突，不可以交换先后顺序。<br>
+              ��<u>⑶�write-read指令<br>
+              </u></div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="part" align="center">图10-5-4：write-read指令<br>
+            <img src="../../../../image/chapter/10/10-5-4.gif" width="420" height="206"> 
+          </td>
+        </tr>
+        <tr> 
+          <td class="part" align="center"> 
+            <div align="left" class="text">如<span class="part">图10-5-4</span>所示，由于I<font size="-5">m</font>是write指令，I<font size="-5">n</font>是read指令，如果I<font size="-5">m</font>在I<font size="-5">n</font>之前，则I<font size="-5">n</font>读到的是I<font size="-5">m</font>写之后的Q值；如果I<font size="-5">m</font>在I<font size="-5">n</font>之后，则I<font size="-5">n</font>读到的是I<font size="-5">m</font>写之前的Q值。所以这两条指令冲突，不可以交换先后顺序。<br>
+              ��<u>⑷�write-write指令</u></div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="part" align="center">图10-5-5：write-write指令<br>
+            <img src="../../../../image/chapter/10/10-5-5.gif" width="420" height="207"> 
+          </td>
+        </tr>
+        <tr> 
+          <td class="part" align="center"> 
+            <div align="left" class="text">如<span class="part">图10-5-5</span>所示，由于I<font size="-5">m</font>是write指令，I<font size="-5">n</font>也是write指令，交换I<font size="-5">m</font>和In的顺序，并不影响各自的事务。但是指令I<font size="-5">m</font>和I<font size="-5">n</font>的先后顺序将会影响调度的下一条read(Q)指令读到的Q值；如果I<font size="-5">m</font>和I<font size="-5">n</font>是这个调度的最后的写Q的指令，则指令I<font size="-5">m</font>和I<font size="-5">n</font>的先后顺序将会影响Q的最终值。所以这两条指令冲突，不可以交换先后顺序。<br>
+              <br>
+              <span class="part">3、非冲突指令的交换</span><br>
+              ��当I<font size="-5">m</font>和I<font size="-5">n</font>是不同事务在相同数据项上的操作，并且其中至少有一条是write指令时，我们称Im和I<font size="-5">n</font>是冲突的。在<span class="part">图10-5-6</span>所示的调度3中，T<font size="-5">1</font>的write(A)与T<font size="-5">2</font>的read(A)指令是冲突的，而T2的指令write(A)与T1的read(B)是不冲突的，因此可以交换顺序。
+            </div>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

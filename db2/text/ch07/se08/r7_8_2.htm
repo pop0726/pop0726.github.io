@@ -1,0 +1,84 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" --> <span class="pt9-black">　　</span><span class="tubiaoti">图7-34 
+      ORACLE数据库基本结构</span><span class="pt9-black"><br>
+      </span> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td align="center" class="pt9-black"><img src="../../../img/text/ch07/56.gif" width="328" height="294"></td>
+        </tr>
+      </table>
+      <span class="pt9-black"><br>
+      </span><span class="biaoti_1">　1． 逻辑数据结构</span><span class="pt9-black"><br>
+      ��</span>（1） 段<span class="pt9-black"><br>
+      ��段为表空间中一种指定的逻辑存储结构，在ORACLE数据库中使用4种类型的段：<br>
+      ��<b>①</b>数据段：用来存储数据。每当用户执行建表语句时，ORACLE生成这个数据段。段是仅次于空间表的一个逻辑单位。一个段不能跨越一个表空间，但可以跨越表空间的文件。<br>
+      ��<b>②</b> 索引段：ORACLE数据库中每个索引用一个索引段存储数据。每当用户发出建立索引（CREATE INDEX）命令时，ORACLE建立索引段。<br>
+      ��<b>③</b> 临时段：是ORACLE处理某些操作时需要的临时空间，用来存放处理的中间结果。例如，像SELECT…ORDER BY、SELECT 
+      DISTINCT…、SEELECT…、INTERSECT等语句都要占用临时段，语句完成后临时段被释放。<br>
+      ��<b>④</b>回滚段：每个数据库含有一个或多个回滚段。回滚段中记载每个事务修改前的数据值，当事务异常终止时，ORACLE系统利用回滚段的信息恢复未提交的事务。回滚段还被用来提供数据库中数据的读一致性。</span> 
+      <br>
+      ��（2） 范围<br>
+      ��段由一组范围组成，这些范围用来存放数据库中的数据。例如，ORACLE为每张表分配一个或多个范围，以形成这张表的数据段。对于每个索引，ORACLE分配一个或多个范围形成一个索引段。<br>
+      ��范围是数据库系统分配存储空间的一个逻辑单位，一个或多个范围组成一个段。当段内分配的空间被用完时，ORACLE自动为这个段分配新的范围。<br>
+      ��（3） 数据块<br>
+      ��范围由若干连续的数据块组成。数据块被称为ORACLE块或页，它是ORACLE数据块文件中存储空间的一个单位。数据块是数据库输入/输出的最小单位。每个ORACLE 
+      块的大小不同于操作系统块的大小，它通常是操作系统块大小的倍数。<br>
+      <span class="biaoti_1"> 　2． 表空间和数据文件</span><br>
+      ��ORACLE逻辑上存储数据在表空间中，物理上数据存储在与表空间相对应的数据文件中。图7-35说明了这种关系。<br>
+      <br>
+      　　<span class="tubiaoti">图7-35 表空间和数据文件</span><br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td align="center"> <img src="../../../img/text/ch07/57.gif" width="293" height="179"></td>
+        </tr>
+      </table>
+      <p>��数据库、表空间和数据文件密切相关，又相互区别。一个ORACLE 数据库由一个或多个逻辑存储单元------表空间组成。每个表空间由一个或多个数据文件组成，一个数据文件只能与一个表空间相联系。这里指的数据文件就是操作系统中的文件。</p>
+      <span class="biaoti_1"> 　3． 物理数据库结构</span><br>
+      ��ORACLE数据库的物理结构包括数据文件，日志文件和控制文件。<br>
+      ��（1） 数据文件<br>
+      ��每个ORACLE数据库有一个或多个物理数据文件，数据文件包含数据库的全部数据。逻辑数据库结构（如表，索引）的数据被物理地存储在数据库指定的数据文件中。数据文件一旦建立，其大小不能改变。<br>
+      ��（2） 日志文件<br>
+      ��每个ORACLE数据库有2个或多个日志文件组。日志的重要功能就是把对数据库的全部修改记录在案。日志文件主要用于保护数据库的数据，日志文件中的信息仅被用于系统故障或介质故障时的恢复。<br>
+      为了防止包括日志文件本身的故障，ORACLE允许多重日志，将两个或多个日志文件的拷贝放在不同的磁盘上，并由ORACLE系统负责维护。<br>
+      ��（3） 控制文件<br>
+      ��每个ORACLE数据库有一个控制文件。控制文件包含数据库的物理结构，例如。数据库名、数据文件的名字和位置、数据库建立的日期等。每当ORACLE数据库启动时，控制文件用于标识被打开的数据库和日志文件。<br>
+      <span class="biaoti_1"><br>
+      　4． 数据字典</span><br>
+      ��数据字典是ORACLE数据库的重要组成部分，它是由ORACLE自动生成并维护的一组表和视图。用户只能读或检索这组表和视图，并从中获取数据库的有关信息，例如：<br>
+      ��(1) 数据库中各个对象（如表、视图、索引、聚集、同义词、过程、函数、包等）的定义信息，以及这些对象分配的空间信息等。<br>
+      ��(2) 列的缺省值及完整性约束信息。<br>
+      ��(3) ORACLE用户的信息，包括每个用户被授予的角色和权限。<br>
+      ��用户可以用SELECT语句检索数据字典，例如：<br>
+      ��SELSECT * FROM CAT<br>
+      ��该语句可以查询出用户所建立的表及视图的名字。<!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

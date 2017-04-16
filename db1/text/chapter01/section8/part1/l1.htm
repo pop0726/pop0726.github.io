@@ -1,0 +1,32 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgproperties=fixed bgcolor="#FFFFFF" background="../../../../image/moban/15.gif">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" height="157">
+        <tr> 
+          <td class="text" align="left"> 
+            <p> �<span class="part">1、DML编译器</span><br>
+              ��DML编译器负责将查询语言中DML语句翻译成查询计算引擎能理解的低级指令。另外，DML编译器力图将用户请求转换成一个等价的但效率更高的形式，以找到执行查询的更好策略，这就是DBMS的主要功能--查询优化。<br>
+              <br>
+               �<span class="part">2、嵌入式DML预编译器</span><br>
+              ��有很多时候DML调用嵌套在宿主语言里，如C、Cobol等等。由于DML调用语法与宿主语言的语法明显不同，为了能够产生正确的代码，DML调用常常以一个特殊的字符串作为前导，如EXEC 
+              SQL。嵌入式DML预编译器，如Oracle数据库中的Pro*C：PCC、Sybase数据库中的sqlpp等，将嵌入在宿主语言中的DML语句转化成宿主语言中普通的过程调用语句。预编译器必须同DML编译器共同发挥作用，才能保证产生正确的程序代码。预编译所产生的程序再通过宿主语言的编译器产生正确的目标代码来运行。当然数据库管理系统也支持在宿主语言中像调用宿主语言的普通函数和过程一样直接调用那些访问数据库的函数和过程，而且这是实际中最常用的方法。例如，Sybase数据库中的DB-Library/C；Oracle数据库中的Oracle调用接口OCI(Oracle 
+              Call Interface)等等，这就是我们常说的数据库管理系统的API。</p>
+            <p> �<span class="part">3、DDL解释器</span><br>
+              ��DDL解释器负责解释用户的DDL语句并将其记录到包含元数据的一系列系统表中。</p>
+            <p>�<span class="part">4、查询计算引擎</span><br>
+              ��负责具体执行由DML编译器产生的低级指令。</p>
+            </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

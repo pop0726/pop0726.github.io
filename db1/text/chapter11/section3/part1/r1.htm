@@ -1,0 +1,35 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" bgproperties=fixed background="../../../../image/moban/14.gif">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" height="88">
+        <tr> 
+          <td class="text"> 
+            <p> <span class="section">11.3�时间戳排序协议</span><br>
+              <br>
+              ��<span class="text">在封锁协议中，每一对冲突事务的可串行化次序是由执行时第一个两者都申请但互相冲突的锁决定的（与&quot;按调度中事务提交的顺序做串行化&quot;或&quot;按调度中事务封锁点的顺序做串行化&quot;的说法不矛盾，为什么？请大家自己思考），如</span><span class="part">图11-3-1</span><span class="text">所示：</span><br>
+              ��在<span class="part">图11-3-1</span>中，事务T<font size="-5">i</font>和T<font size="-5">j</font>的第一个两者都申请但相互冲突的锁是T<font size="-5">j</font>的lock-S(A)和Ti的lock-X(A)，但由于事务T<font size="-5">j</font>先获得锁，因此事务T<font size="-5">j</font>先提交。所以这个调度中事务的可串行化次序是&lt;T<font size="-5">j</font>, 
+              T<font size="-5">i</font>&gt;。另一种决定事务可串行化次序的方法是事先选定事务的次序，其中最常用的方法就是时间戳排序机制。<br>
+              <br>
+              <span class="zhishidian">11.3.1　时间戳</span></p>
+            <p class="part">��1、基本概念<br>
+              ��2、实现方式<br>
+              ��3、两个重要的时间戳<br>
+              ��</p>
+            </td>
+        </tr>
+      </table>
+    <div align="center"></div>
+    </td>
+  </tr>
+</table>
+<p class="explaination">&nbsp;</p>
+</body>
+</html>

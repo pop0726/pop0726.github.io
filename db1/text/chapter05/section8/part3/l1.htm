@@ -1,0 +1,55 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgproperties=fixed bgcolor="#FFFFFF" background="../../../../image/moban/15.gif">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td class="text" align="left"> ��假设在关系模式:<br>
+            <i>Lending-schema = (branch-name, branch-city, assets, <u>customer-name,</u> 
+            <u>loan-number</u>, amount)</i>上有函数依赖集：<br>
+            <i>Branch-name<span class="text">→</span>assets branch-cityLoan-number<span class="text">→</span>amount 
+            branch-name <br>
+            </i>那么如何根据函数依赖集进行模式分解呢？在进行模式分解之前，首先我们必须搞清楚：<u>模式分解要达到的目标是什么？</u> <br>
+            <br>
+            <span class="part">1、模式分解的目标模式分解要达到的目标是：</span><br>
+            ��⑴�是一个无损连接分解；<br>
+            ��⑵�保持所有的函数依赖(应用Armstrong公里)；<br>
+            ��⑶�分解后的模式最好是属于BCNF或3NF，因为属于这两种范式的关系模式可以避免出现前面<u>5.7节</u>中讲到的设计问题。<br>
+            <br>
+            <span class="part">2、无损连接分解的条件</span><br>
+            ��令R为一关系模式，F为R上的函数依赖集。R<font size="-5">1</font>和R<font size="-5">2</font> 
+            为R的无损连接分解的条件是：F中至少有如下函数依赖中的一个：<br>
+            ��⑴�R<font size="-5">1</font>∩R<font size="-5">2<span class="text">→</span></font>R<font size="-5">1</font>或<br>
+            ��⑵�R<font size="-5">1</font>∩R<font size="-5">2</font><span class="text">→</span>R<font size="-5">2</font><br>
+            也就是说两个模式的公共属性可以函数确定其中的一个模式。<br>
+            <br>
+            <span class="part">3、分解模式Lending-schema</span><br>
+            ��<b>⑴</b>�第一步，对于函数依赖：branch-name<span class="text">→</span>assets 
+            branch-city，根据增补律可以得到函数依赖：<br>
+            branch-name<span class="text">→</span>branch-name assets branch-city<br>
+            可以考虑将Lending-schema分解为两个模式，它们的公共属性为branch-name，且其中的一个模式包含属性branch-name、assets和branch-city。这样的分解符合无损连接分解的条件。这样关系模式Lending-schema就分解为如下两个模式：<br>
+            Branch-schema = (branch-name, branch-city, assets)<br>
+            Loan-info-schema = (branch-name, customer-name, loan-number, amount)<br>
+            ��<b>⑵</b>�第二步，根据第二个函数依赖：loan-number?amount branch-name继续对模式Loan-info-schema进行分解。根据增补律可以得到如下的函数依赖：<br>
+            loan-number<span class="text">→</span>loan-number amount branch-name<br>
+            可以考虑将Loan-info-schema分解为两个模式，它们的公共属性为loan-number，且其中的一个模式包含属性loan-number、amount和branch-name。这样的分解符合无损连接分解的条件。这样关系模式Loan-info-schema就分解为如下的两个模式：<br>
+            Loan-schema = (branch-name, loan-number, amount)<br>
+            Borrower-schema = (loan-number, customer-name)<br>
+            ��<b>⑶</b>�第三步，根据前面的结果得到最终的分解结果如下：<br>
+            Branch-schema = (branch-name, branch-city, assets)<br>
+            Loan-schema = (branch-name, loan-number, amount)<br>
+            Borrower-schema = (loan-number, customer-name)<br>
+            有关这方面的更多内容，可以参考教材或其他书籍自学。 </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

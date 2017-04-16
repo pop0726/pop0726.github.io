@@ -1,0 +1,62 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" --> <b class="biaoti_1">1．SQL Server</b><span class="biaoti_1">的各种物理锁粒度</span><br>　　SQL 
+      Server提供三种级别的物理锁 如图7-15所示。<br>
+      ��<span class="biaoti_2">行锁(row-level lock):</span>是指锁定一个数据页或索引页中的一行数据。<br>
+      ��<span class="biaoti_2">页锁(page lock)：</span>用于锁定一个页。一个页由8KB的数据或索引信息组成。<br>
+      ��<span class="biaoti_2">表锁（table lock）：</span>用于锁定包含数据与索引的整个表。用于表级别的锁定。<br>
+      <br>
+      　　<span class="tubiaoti">图7-15</span><br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td align="center"><img src="../../../img/text/ch07/16.gif" width="414" height="152"></td>
+        </tr>
+      </table>
+      <span class="biaoti_1">2．SQL Server锁类型锁管理器基于事务类型(如select，insert，delete等)来选择锁的类型。</span><br>　　锁管理器使用的各种类型的锁如下：<br>
+      ��<span class="biaoti_2">(1) 共享锁(shared)：</span>用于读事务<br>
+      ��<span class="biaoti_2">(2) 更新锁(update)：</span>用于更新，而后升级为独占锁。<br>
+      ��<span class="biaoti_2">(3) 独占锁(execusive)：</span>用于写事务<br>
+      ��<span class="biaoti_2">(4) 意向锁(intent)：</span>说明其下级节点正在被加锁。<br>
+      ��<span class="biaoti_2">(5) 模式锁(schema)：</span>分为模式静态锁和模式修改锁。当禁止修改模式时，使用静态锁；实际修改表或索引时，使用修改锁。 
+      <p>
+       
+        <span class="biaoti_1">3．SQL Server中浏览锁的方法</span><br>
+        <font color="cc0000">　　SQL Server中有两种方法可以浏览数据库中保持的锁的信息：即系统存储过程sp_lock和SQL 
+        Server Enterprise Manager。<br>
+        ��(1) 使用系统存储过程sp_lock<br>
+        ��使用系统存储过程sp_lock可以查看SQL Server系统或指定进程对资源的锁定情况，sp_lock的语法格式为：<br>
+        ��sp_lock [spid1] [,spid2]<br>
+        ��其中spid1, spid2是进程标识号。指定spid1、spid2参数时，SQL Server显示这些进程的锁定情况，否则显示整个系统的锁定情况。<br>
+        ��(2) 使用Enterprise Manager <br>
+        ��使用Enterprise Managerd 的操作过程是：选择展开组/展开服务器/选择Current Activity，可以看到有关锁的选择信息。</font></p>
+      <!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

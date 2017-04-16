@@ -1,0 +1,70 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" --> 　<br>
+      　　4． 创建多维数据集<br>
+      　　创建多维数据集，先选择事实数据表，在事实数据表中定义度量值。<br>
+      　　创建多维数据集的操作步骤如下：<br>
+      　　(1) 在 Analysis Manager 树窗格中，在FoodMart2000数据库下，右击&quot;多维数据集&quot;文件夹，单击&quot;新建多维数据集&quot;菜单，然后单击&quot;向导&quot;命令。<br>
+      　　(2) 在多维数据集向导的&quot;欢迎&quot;框中，单击&quot;下一步&quot;按钮。 <br>
+      　　(3) 在&quot;从数据源中选择事实数据表&quot; 框中，展开&quot;FoodMart2000&quot;数据库下的&quot;默认架构&quot;，列出FoodMart2000数据库的所有表，从中选择事实表&quot;sales_fact_1998&quot;。如图9-17。<br>
+      　　(4) 单击&quot;浏览数据&quot;按钮可以查看&quot;sales_fact_1998&quot;表中的数据。数据浏览完毕后，关闭&quot;浏览数据&quot;窗口，然后单击&quot;下一步&quot;按钮。<br>
+      <br>
+      　　<span class="tubiaoti">图9-17</span><br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td align="center"><br>
+            <img src="../../../img/text/ch09/008.gif" width="456" height="257"></td>
+        </tr>
+      </table>
+      　　(5) 若要定义多维数据集的度量值，在&quot;事实数据表数据列&quot;下，双击&quot;store_sales&quot;。对&quot;store_cost&quot;和&quot;unit_sales&quot;列重复此步骤，然后单击&quot;下一步&quot;按钮。<br>
+      　　如何向多维数据集添加度量值：度量值是要进行分析的数据库中的量化值。常用的度量值为销售、成本和预算数据。度量值根据多维数据集不同的维度类别进行分析。图9-18选择的是多维数据集中的事实表sales_fact_1998，以及其中的度量值。<br>
+      <br>
+      　　<span class="tubiaoti">图9-18</span><br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td align="center"><br>
+            <img src="../../../img/text/ch09/009.gif" width="379" height="244"></td>
+        </tr>
+      </table>
+      　　5. 创建维度表 第9章123.PPT文件第34页<br>
+      　　在选择了事实表和相应的度量值之后，为了完成多维数据集的设计，必须建立起和事实表对应的维度。维度是多维数据集的结构性特性。它们是事实数据表中用来描述数据的分类的有组织层次结构。每个维度表的主键都与多维数据集的事实数据表或另一个维度表中的外键联接。<br>
+      　　也就是说，上面建立的事实表Sale_Fact_1998所对应的维度表可以包括Product表，Time表，Customer表，Promotion表，以及Store表。<br>
+      <br>
+      　　<span class="tubiaoti">图9-19 维度和度量值 </span><br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td align="center"><br>
+            <img src="../../../img/text/ch09/010.gif" width="453" height="216"></td>
+        </tr>
+      </table>
+      　　<!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

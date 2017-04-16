@@ -1,0 +1,64 @@
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" background="../../../../../image/pop/r2_c3.gif">
+<center><table width="95%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+      <td class=text> <p class="section">《数据库系统概论》考试试卷答案二</p>
+        <p><span class="explaination">问答第1题</span><br>
+          ��1j、2h、3f、4b、5c、6i、7e、8a、9d、10g<br>
+          �� <br>
+          <span class="explaination">问答第2题答案： </span><br>
+          �� 1、 <font size="2">Π</font><font size="-3">customer-name<font size="2">(</font></font><font size="2">borrower)∪Π</font><font size="-2">customer-name</font><font size="2">(depositor)</font><br>
+          �� 2、 <font size="2">Π</font><font size="-2">customer-name</font>(<font size="4">σ</font><font size="-3">customer-street 
+          = street∧customer-city = city∧customer-name<>"Smith"</font>(<font size="2">customerxp</font> 
+          <font size="-2">rsmith-addr (street, city)</font>(<font size="2">Π</font><font size="-3">customer-street, 
+          customer-city</font>(Π<font size="-4">customer-name = "Smith"</font><font size="2">(customer)))))</font> 
+          <br>
+          �� 3、 <font size="2">Π</font><font size="-4">customer-name, branch-name</font>(depositor��account)<font size="2">÷Π</font><font size="-4">branch-name</font>(<font size="4">σ</font><font size="-3">branch-city="Brooklyn"</font>(branch)) 
+          <br>
+          <br>
+          <span class="explaination">问答第3题答案： </span><br>
+          �� 1、 在单处理机系统中，事务的并行执行实际上是这些事务的并行操作轮流交叉运行。这种并行执行方式称为交叉并发方式。虽然单处理机系统中的并行事务并没有真正地并行运行，但是减少了处理机的空闲时间，提高了系统的效率。在多处理机系统中，每个处理机可以运行一个事务，多个处理机可以同时运行多个事务，实现多个事务真正的并行运行。这种并行执行方式称为同时并发方式。 
+          要注意DBMS中的"并发执行"并不是真正意义上的"并行执行"。首先，从用户的角度来看，这两种方式的结果是类似的，都是在一段时间内完成了多项任务。但是并发执行一般来说是单CPU进行处理，靠分时来造成同时执行的假相。数据库系统调度中事务的并发执行就是利用了计算机的磁盘I/O可以和CPU处理并行工作的特性，将不同事务的指令放在一起交叉执行。而并行执行一般是用多个CPU同时进行处理，是真正意义上的同时执行。<br>
+          �� 2、 假设有如下的关系模式： <br>
+          �� Customer-schema = (customer-name, customer-street, customer-city) 
+          和关系： <br>
+          �� customer(Customer-schema) <br>
+          �� 对于关系customer来说，由于关系中的记录个数有限，因此函数依赖：customer-street?customer-city可能是满足的，即客户所在的街道函数确定客户所在的城市。但是对关系模式Customer-schema来说，上述函数依赖却不一定成立！因为现实生活中，不同的城市具有相同名字的街道是很有可能的事情。<br>
+          <br>
+          <span class="explaination">问答第4题答案： </span><br>
+          �� 1、 select customer-name, sum(balance) <br>
+          ���� from depositor as d, account as a <br>
+          ���� where d.account-number = a.account-number <br>
+          ���� group by customer-name <br>
+          ���� having count(distinct d.account-number) >= 2 <br>
+          �� 2、 1) 列出关系r中所有不同的记录； <br>
+          ���� 2) 给出关系r中所有记录的个数； <br>
+          ���� 3) 给出关系r中属性a的不同值的数目。<br>
+          <br>
+          <span class="explaination">问答第5题答案：</span>首先要给出该调度的优先图：<br>
+          <img src="../../../../../image/shiti/03.gif" width="217" height="164"><br>
+          调度的优先图中存在有向环，因此该调度不是冲突可串行化的。<br>
+          <br>
+          <span class="explaination">问答第6题答案： </span>在封锁协议中，冲突的事务可以按事务的封锁点顺序串行化。如下图所示： 
+          <br>
+          <img src="../../../../../image/shiti/04.gif" width="142" height="91"><br>
+          ��根据两阶段封锁协议授权加锁的条件，我们不难知道： ��<br>
+          �� 1）事务T<font size="-3">i</font>在发出最后一个锁申请之后还没有获得锁之前一直处于等待状态，等待事务T<font size="-5">j</font>释放锁；<br>
+          �� 2）事务的封锁点是指事务获得最后一个锁的时刻，事务在获得最后一个锁之后才会全部执行完事务，因为事务再也不会申请锁，因而也就不会处于等待状态。 
+          而根据强两阶段封锁协议，事务T<font size="-2">j</font>持有的所有锁都必须在事务提交之后才能释放。也就是说先到达封锁点的事务T<font size="-4">j</font>（它不会再申请任何锁，而且在提交之前也不会释放任何锁）一定会比事务T<font size="-4">i</font>先提交(T<font size="-4">j</font>提交之后才会释放锁，Ti才有可能获得锁到达封锁点)，而这种提交的先后顺序就是事务的一个可串性化顺序。因此，在强两阶段封锁协议中，冲突的事务可以按事务的封锁点顺序串性化。 
+          <br>
+          <!--czp-wenda-daan-->
+        </p>
+      </td>
+  </tr>
+</table>
+  </center>
+
+</body>
+</html>

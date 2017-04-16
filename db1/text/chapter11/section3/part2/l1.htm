@@ -1,0 +1,73 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgproperties=fixed bgcolor="#FFFFFF" background="../../../../image/moban/15.gif">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td class="text"><span class="part">1、协议内容</span><br>
+            ��时间戳排序协议保证任何有冲突的read和write操作按时间戳顺序执行：<br>
+            <u>⑴�假设事务T<font size="-5">i</font>发出read(Q)操作：</u><br>
+            ��① 若TS(T<font size="-5">i</font>)&lt;W-TS(Q)，则T<font size="-5">i</font>需要读入的Q值已被覆盖。因此，read操作被拒绝，Ti回滚；<br>
+            ��② 若TS(T<font size="-5">i</font>)≥W-TS(Q)，则执行read操作，而R-TS(Q)的值被设为R-TS(Q)与TS(T<font size="-5">i</font>)中的较大者。这一条主要是解决读/写冲突的！</td>
+        </tr>
+        <tr> 
+          <td class="text"> 
+            <div align="center"><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="400" height="400">
+                <param name=movie value="../../../../swf/F11_3.swf">
+                <param name=quality value=high>
+                <param name="wmode" value="transparent">
+                <embed src="../../../../swf/F11_3.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="32" height="32" wmode="transparent">
+                </embed> 
+              </object></div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text"><u>⑵ 假设事务Ti发出write(Q)操作：<br>
+            </u>��① 若TS(T<font size="-5">i</font>)&lt;R-TS(Q)，则Ti产生的Q值是先前所需要的值，但系统已假定该值不会被产生。因此，write操作被拒绝，T<font size="-5">i</font>回滚；</td>
+        </tr>
+        <tr> 
+          <td class="text">&nbsp;</td>
+        </tr>
+        <tr> 
+          <td class="text"> ��① 若TS(T<font size="-5">i</font>)&lt;R-TS(Q)，则T<font size="-5">i</font>产生的Q值是先前所需要的值，但系统已假定该值不会被产生。因此，write操作被拒绝，T<font size="-5">i</font>回滚；</td>
+        </tr>
+        <tr> 
+          <td class="text">&nbsp;</td>
+        </tr>
+        <tr> 
+          <td class="text">��③ 其他情况下执行write操作，并将W-TS(Q)的值设为TS(T<font size="-5">i</font>)。这一条主要是解决写/读和写/写冲突的！事务T<font size="-5">i</font>被并发控制机制回滚之后，被赋予新的时间戳并重新启动，进入系统。<br>
+            <br>
+            <span class="part">2、调度举例</span><br>
+            ��如<span class="part">图11-3-2</span>所示，我们来分析这个调度中的两个事务在时间戳排序协议下是如何执行的。首先我们假设事务在第一条指令执行之前的那一刻被赋予时间戳。同时，对事务要访问的任何数据项来说，假设它们的W-TS和R-TS的初始值都为0。<br>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text"> 
+            <div align="center"><span class="part">图11-3-2：在时间戳排序协议下调度中事务的执行 </span><br>
+              <img src="../../../../image/chapter/11/11-3-2.gif" width="420" height="379"> 
+            </div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text">��⑴�准备执行T<font size="-5">1</font>的read(B)，使得T<font size="-5">1</font>的时间戳为TS(T<font size="-5">1</font>)，由于W-TS(B)=0，根据时间戳排序协议的⑴②(TS(T<font size="-5">1</font>)≥W-TS(B))，则执行T<font size="-5">1</font>的read(B)，同时将R-TS(B)改为TS(T<font size="-5">1</font>)，即R-TS(B)=TS(T<font size="-5">1</font>)；<br>
+            ��⑵�准备执行T<font size="-5">2</font>的read(B)，使得T2的时间戳为TS(T<font size="-5">1</font>)，由于W-TS(B)=0，根据时间戳排序协议的⑴②(TS(T<font size="-5">1</font>)≥W-TS(B))，则执行T<font size="-5">2</font>的read(B)，同时将R-TS(B)设为TS(T<font size="-5">2</font>)（因为TS(T<font size="-5">2</font>)&gt;TS(T<font size="-5">1</font>)），即R-TS(B)=TS(T<font size="-5">2</font>)；<br>
+            ��⑶�准备执行T2的write(B)，由于R-TS(B)=TS(T<font size="-5">2</font>)，W-TS(B)=0，根据时间戳排序协议的⑵①和⑵②，这两个条件都不满足，因此根据⑵③执行T<font size="-5">2</font>的write(B)，同时将W-TS(B)改为TS(T<font size="-5">2</font>)，即R-TS(B)=TS(T<font size="-5">2</font>)；<br>
+            ��⑷�…………按照以上分析方法，请大家自己课下分析调度中其他读写操作在时间戳排序协议下是如何执行的。<br>
+            <span class="part"><br>
+            3、小结</span><br>
+            ��时间戳排序协议保证：<br>
+            ��⑴�满足该协议的任何调度都是冲突可串行化的，这主要是因为该协议是按照事务的时间戳顺序来处理事务之间的冲突操作；<br>
+            ��⑵�满足该协议的调度无死锁，因为冲突的事务被回滚重启并赋予新的时间戳，而不是等待执行。但该协议不保证：所产生的调度都是可恢复的，所以该协议在保证调度可恢复且无级联这一方面还需要加强。</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

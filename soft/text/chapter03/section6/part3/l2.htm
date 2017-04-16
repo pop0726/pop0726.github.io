@@ -1,0 +1,51 @@
+<html>
+<head>
+<title>l2_2</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td class="text"><br>
+            它可归纳成以下4点：<br>
+            <br>
+            <span class="part">(1) 利用数据结构图来定义输入数据结构的特性；<br>
+            <br>
+            (2) 将输入数据结构的元素分解，构造成中间数据结构；<br>
+            <br>
+            (3) 描述输出数据结构的特性；<br>
+            <br>
+            (4) 根据中间数据结构，构造输出数据结构。</span><br>
+            <br>
+            ��这就需要两套程序结构，一个是把输入数据结构转换成中间数据结构；另一个是把中间数据结构转换成输出数据结构。Myers提出了一种叫做&quot;程序变换&quot;或&quot;多道穿插&quot;的方法，用以解决冲突。 
+            即设计两个子程序，它们既能单独执行，又能并发执行。这样，中间数据结构也可以不要，而使用一个单记录缓冲区来代替它。第一个子程序读入输入记录，把它写到缓冲区中，然后开始等待，直到这个缓冲区变空，然后再把读入的下一个输入记录写到缓冲区中。第二个子程序在等待，待到一个记录被放入缓冲区中之后，它开始读它并进行处理，之后它再等待，直到下一个记录再放入缓冲区后，再读它并进行处理。<br>
+            　</td>
+        </tr>
+        <tr> 
+          <td class="text" align="left" valign="top"><img src="../../../../images/tubiao/lt.gif" width="25" height="20" alt="示例"> 
+            �例如，用卡片按行输入一个矩阵文件，要求按列打印该矩阵，<span class="part">图3.24(a)</span>表明这个例子的输入、输出数据结构。从图中可见，卡片文件和打印文件之间存在着对应关系，但行和列的内容不符，行选择和列选择的次序不同。因此，没有办法从这个结构图上构造出相应的程序结构。这就是所谓的结构冲突。</td>
+        </tr>
+        <tr> 
+          <td class="text"> 
+            <div align="center"><img src="../../../../images/images/chapter03/3_24.gif" width="442" height="336"><br>
+              <span class="part">图3.24 解决冲突的例子<br>
+              　　　</span></div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text">��对于这个问题，只能把输入和输出的处理分开来解决。办法有两种。其一是先读入全部卡片，然后再输出，其程序结构图如<span class="part">图3.24(b)</span>所示。 
+            其二是更一般的方法：构造两个程序结构，分别处理读入和打印，中间有一个排序，如<span class="part">图3.24(c)</span>所示。<br>
+            ��</td>
+        </tr>
+      </table>
+      <br>
+      ��</td>
+  </tr>
+</table>
+</body>
+</html>

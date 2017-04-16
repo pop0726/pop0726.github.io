@@ -1,0 +1,34 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgproperties=fixed bgcolor="#FFFFFF" background="../../../../image/moban/15.gif">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" height="8">
+        <tr> 
+          <td class="text" height="214">�<span class="part">�1、问题的提出</span><br>
+            ��假设一个文件有100000条记录，而一个物理块能存储10个记录，这样就需要10000个物理块；假设每个物理块有一个索引记录，这样该文件就需要10000个索引记录；再假设一个物理块能够存储100个索引记录，那么该文件的稀疏索引就需要100个物理块。从上面的数字可以看出，即使采用稀疏索引，索引本身有时也会变得非常庞大而难于有效处理；<br>
+            ��第二，如果索引过大在读索引时必须有一部分要放在磁盘上时，那么搜索一个索引项就必须多次读磁盘块。当然在索引上可以用二分法来定位索引项，最坏需要读<img src="../../../../image/title/08/03.gif" width="49" height="18" align="texttop">次块，假设索引占据了b个块。但遗憾的是二分法不能处理有溢出块的情况。<br>
+            ��问题是我们如何有效地对付这种庞大的索引呢？<br>
+            <br>
+            ��<span class="part">2、问题的解决</span><br>
+            ��如果索引小到一次I/O就能够放在主存里，那么搜索一个索引项的时间就很短，可以忽略不计。因此，我们可以考虑在索引上再建立索引的方案。也就是说，像对待其他任何顺序文件那样来对待索引结构，即在主索引上再构造一个稀疏索引，形成一个具有内层索引和外层索引的多级索引结构，如<span class="part">图8-2-4</span>所示。<br>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text"> 
+            <div align="center" class="part">图8-2-4：多级索引结构<br>
+              <img src="../../../../image/chapter/08/8-2-4.gif" width="420" height="171"> 
+            </div>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

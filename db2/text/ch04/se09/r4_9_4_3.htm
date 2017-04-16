@@ -1,0 +1,109 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url('../../../img/text/bg.jpg');
+background-repeat: no-repeat;
+background-attachment: fixed; background-position-y:50%
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">　</td>
+    <td>　</td>
+    <td width="10">　</td>
+  </tr>
+  <tr>
+    <td width="10">　</td>
+    <td> <!-- #BeginEditable "1" -->　<span class="biaoti_1">5 SQL Server提供的存储过程</span> 
+      <br>
+      　　SQL Server提供了很多现成的、实用的存储过程供用户使用。用户可以在Query Analyzer环境中象命令一样使用它们。常用的存储过程分为5类： 
+      <br>
+      　◆ 系统存储过程(sp_)<br>
+      　◆ 扩展存储过程(xp_)<br>
+      　◆ 远程存储过程<br>
+      　◆ 局部存储过程<br>
+      　◆ 临时存储过程。<br>
+      　(1) 系统存储过程(sp_)<br>
+      　　SQL Server系统存储过程是为管理员而提供的，SQL Server安装时在master数据库中创建并由系统管理员拥有。使用户可以很容易地从系统表中取出信息，管理数据库，并执行涉及更新系统表的其他任务。<br>
+      　　当系统存储过程的参数是保留字或数据库对象名时，且对象名由数据库或拥有者名字限定时，名字必须包含在单引号中。<br>
+      　　系统存储过程命令均以sq_打头，其作用主要是用于帮助用户进行数据库管理。<br>
+      　　用户也可以自己创建系统存储过程（只需以sp_作为过程名的开头）。一旦创建，该过程就有以下性质：<br>
+      　◆ 可在任何数据库中执行。<br>
+      　◆ 若在当前数据库中找不到，SQL Server就在master数据库中查找。<br>
+      　◆ 存储过程中引用的表如果不能在当前数据库中解析出来，将在master数据库查找。<br>
+      　　<font color="#5a5aad">注意：<br>
+      　◆ 一个用户要有在所有数据库中执行一个系统存储过程的许可权，否则，不能执行该系统存储过程。<br>
+      　◆ 数据库拥有者在自己的数据库中不能直接控制系统存储过程的执行。 <br>
+      　◆ SQL Server提供了许多系统存储过程以方便检索和操纵存放在系统表中的信息。<br>
+      　◆ 系统存储过程可以在任意一个数据库中执行。<br>
+      </font> 　　<font color="#cc0000">常用的系统存储过程<br>
+      　◆sp_ helpdb(database_name)：返回指定数据库的信息。<br>
+      　◆ sp_help(object)：返回指定数据库对象的信息。<br>
+      　◆ sp_helpindex(table_name)：返回指定表的索引信息。<br>
+      　◆ sp_helptext：显示存储过程定义文本。<br>
+      　◆ sp_depends：列出依赖于存储过程的对象或依赖于对象的存储过程。<br>
+      　◆sp_addlogin：建立SQL Server用户帐号。<br>
+      　◆sp_columns：返回当前环境中可以查询的指定对象的列信息。返回的列属于一个表或视图。 <br>
+      　◆sp_database：列出SQL Server安装的或通过数据库网关可访问的数据库名及相关信息。<br>
+      　◆sp_datatype_info：返回由当前环境支持的数据类型的信息。<br>
+      　◆sp_monitor：按一定格式显示的系统全局变量的当前值。</font>　(2) 扩展存储过程(xp_)<br>
+      　　扩展存储过程提供一种类似于存储过程的方式，它们是动态装入和执行的动态连接库（DLL）内的函数，无缝地扩展SQL Server功能。SQL Serve之外的动作可以很容易地触发，外部　　信息返回到SQL 
+      Server。另外，扩展存储过程支持返回状态码和输出。<br>
+      　　注意：必须从master数据库执行扩展存储过程。<br>
+      　　用户可以创建自己的扩展存储过程。 <br>
+      　　<font color="#cc0000">下面是常用的扩展存储过程：<br>
+      　◆ xp_cmdshell：作为一个操作系统外壳执行指定命令串，并以文本形式返回任何输出。<br>
+      　◆ xp_logevent：在SQL Server日志文件或WindowsNT事件查看器中记录用户定义的信息。<br>
+      　◆ xp_enumgroups：提供基于本地Windows NT的组的列表，或在指定的Windows NT域中定义的组的列表。<br>
+      　◆ xp_msver：返回SQL Server版本信息及各种环境信息。</font><br>
+      <br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+        <tr> 
+          <td valign="top" width="35"><img src="../../../img/text/liti.gif" width="35" height="36" alt="例题"></td>
+          <td><br>
+            　<font color="#cc0000">例1，列出了c:\mssql7当前目录下的.EXE文件，命令如下：<br>
+            　　　EXEC master..xp_cmdshell'dir c:\mssql7\*.exe' </font></td>
+        </tr>
+        <tr> 
+          <td valign="top" width="35"><img src="../../../img/text/liti.gif" width="35" height="36" alt="例题"></td>
+          <td><br>
+            　<font color="#cc0000">例2：列出目前Windows NT系统中的所有的组，命令如下： <br>
+            　　EXEC xp_enumgroups domain </font></td>
+        </tr>
+        <tr> 
+          <td valign="top" width="35"><img src="../../../img/text/liti.gif" width="35" height="36" alt="例题"></td>
+          <td><br>
+            　<font color="#cc0000">例3：SQL Server版本信息，命令如下：<br>
+            　　EXEC master..xp_msver</font> </td>
+        </tr>
+      </table>
+      <br>
+      　(3) 远程存储过程<br>
+      　　是从连接到不同服务器的远程服务器或客户机调用的存储过程。<br>
+      　(4) 局部存储过程<br>
+      　　局部存储过程在各个用户数据库中创建。只能由创建它的用户调用。<br>
+      　(5) 临时存储过程<br>
+      　　临时存储过程可以是局部的，名字前的前缀是&quot;#&quot;；也可以是全局的，名字前的前缀是&quot;##&quot;。临时存储过程存放在tempdb数据库中。<br>
+      　　局部临时存储过程在单个用户会话中使用，该用户退出时，自动被删除。<br>
+      　　全局临时存储过程所有用户都可以使用，当最后一个用户退出时，自动被删除。 <br>
+      <br>
+      　<span class="biaoti_1">6．存储过程说明和限制:</span>　<span class="pt9-black">　</span><font color="#5a5aad"><br>
+      <span class="pt9-black">　● </span>其它为永久存储过程。永久存储过程建立在当前数据库中。<br>
+      <span class="pt9-black">　● </span>在存储过程定义语句中不能使用CREATE语句来创建以下数据库对象：视图，默认，规则，触发器，存储过程。在过程中如果创建了这些对象以外的其它数据对象，之后又删除它们，那么在该过程内不能再创建与该对象同名的新对象。<br>
+      <span class="pt9-black">　● </span>在存储过程嵌套调用时，被调用的存储过程可以访问调用者所建立的除临时表以外的其它所有数据库对象。</font><br>
+      <!-- #EndEditable --></td>
+    <td width="10">　</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

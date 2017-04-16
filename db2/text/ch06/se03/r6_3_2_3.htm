@@ -1,0 +1,57 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" --> 　<span class="biaoti_1">3. 使用连接池</span> <br>
+      　　传统的客户/服务器应用程序中建议在应用程序开始时打开连接并在结束时关闭连接，主要的原因是每次为打开连接和关闭连接要花费很多的资源、是很花时间的过程。但是，这只有在连接混乱或者只是避免服务器资源过载时，才有这问题。ADO采用相应的新特性&quot;连接池&quot;来解决这个问题。<br>
+      　　连接池(Connection Pooling)是个资源管理工具，回收不用的数据库连接。当应用关闭一个连接时，就默认放入连接池中60秒钟。如果用户提出另一个连接请求，则检查池中有无可用的连接。如果池中有可用的连接，就分配给该用户，否则为用户创建新连接。如程序清单6.7。<br>
+      　　<font color="#5a5aad">连接池引发许多争论，因为它违背了几年来程序员编程途径的前提：在应用程序中保持连接打开。但是，只要坚持一条简单原则，连接池就值得去用。这条原则就是在需要时才打开连接，进行SQL操作，再关闭连接。按照此原则，意味着在一个ASP程序中， 
+      可以打开和关闭连接多次。这条规则的关键是连接在不需要时不被持有，因而减少了重新打开和关闭连接的资源负载。</font><br>
+      　(6) 程序清单6.7： 如何利用连接池编程。<br>
+      　　<font color="#5a5aad">'---创建Connection对象</font><br>
+      　　　Set objConn = Server.CreateObject( &quot;ADODB.Connection &quot; )<br>
+      　　<font color="#5a5aad">'---通过存储在Application中连接字符串打开连接</font><br>
+      　　　ObjConn.Open Application(&quot;ConnString&quot;)<br>
+      　　<font color="#5a5aad">'---通过存储在strSQL1和strSQL2字符串变量中的SQL语句操纵数据库</font><br>
+      　　　ObjConn.Execute strSQL1<br>
+      　　　ObjConn.Execute strSQL2<br>
+      　　<font color="#5a5aad">'--- 关闭连接.</font><br>
+      　　　ObjConn.Close<br>
+      　　<font color="#5a5aad">'---完成其它无需数据库连接的商业规则计算或管理</font><br>
+      　　　x = y + z<br>
+      　　　a = b * x<br>
+      　　<font color="#5a5aad">'--- 重新打开连接.</font><br>
+      　　　ObjConn.Open Application(&quot;ConnString&quot;)<br>
+      　　<font color="#5a5aad">'---通过存储在strSQL3和strSQL4字符串变量中的SQL语句操纵数据库</font><br>
+      　　　ObjConn.Execute strSQL3<br>
+      　　　ObjConn.Execute strSQL4<br>
+      　　<font color="#5a5aad">'--- 关闭连接.</font><br>
+      　　　ObjConn.Close<!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

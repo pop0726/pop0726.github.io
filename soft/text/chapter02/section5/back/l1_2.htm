@@ -1,0 +1,658 @@
+<HTML>
+<HEAD>
+<TITLE>软件工程 </TITLE>
+<SCRIPT language=JavaScript>
+/*-------------------------------------------填空题---------------------------------------------*/
+function getKeyWord(form){
+var mykeys=new Array();
+mykeys[0]="功能要求";mykeys[1]="需求规格说明书";mykeys[2]="分解";mykeys[3]="最小";mykeys[4]="短";mykeys[5]="开发";mykeys[6]="简化";mykeys[7]="设计";mykeys[8]="技术";mykeys[9]="经济";mykeys[10]="社会";mykeys[11]="解决方案";mykeys[12]="数据";mykeys[13]="功能";mykeys[14]="行为";mykeys[15]="数据库";mykeys[16]="一 ";mykeys[17]="一 ";mykeys[18]="行为";mykeys[19]="活动";mykeys[20]="事件";mykeys[21]="数据流";mykeys[22]="加工";mykeys[23]="数据存储";mykeys[24]="外部实体";
+
+var answer=new Array();
+for(var I=0;I<mykeys.length;I++) answer[I]="";
+
+var every=form.elements;
+for(var I=0;I<every.length;I++)
+{
+if(every[I].type=="text")
+{
+ if(every[I].value!==null)
+ {var item=parseInt(every[I].name.substr(0))
+  answer[item-1]+=every[I].value;
+  }
+ }
+}
+var newcount="<html><head><title>谢谢您!</title></head><body><center><h2><font color=red>您的测试结果</font></h2></center>";
+var totalscore=0;
+for(var I=0;I<answer.length;I++)
+{var re=/</g;
+var rd=/>/g;
+var re=/\\/g;
+answer[I]=answer[I].replace(re,"&#92;");
+answer[I]=answer[I].replace(re,"&lt;");
+answer[I]=answer[I].replace(rd,"&gt;");
+	if(answer[I]==mykeys[I])
+	{
+		var rstr="<font size=2>第"+(I+1)+"个空答案正确!</font><br>";
+		newcount+=rstr;
+		totalscore+=1/25*100;
+	}else
+	{
+		var rstr="<font size=2>第"+(I+1)+"个空答案错误!正确答案为"+mykeys[I]+"</font><br>";
+		newcount+=rstr;
+	}
+
+}
+
+newcount+="<br>您的总成绩为:";
+newcount+=Math.ceil(totalscore);
+newcount+="分";
+newwin=window.open("","","height=400,width=400,scrollbars=yes,resizable=no");
+newwin.document.write(newcount);
+}
+/*-------------选择提----------------------------------------------------------------*/
+function getresultcheck(form)
+{var mykeys=new Array();
+mykeys[0]="C";mykeys[1]="D";mykeys[2]="C";mykeys[3]="C";mykeys[4]="A";mykeys[5]="B";mykeys[6]="D";mykeys[7]="A";mykeys[8]="D";mykeys[9]="C";mykeys[10]="A";mykeys[11]="B";mykeys[12]="C";mykeys[13]="B";mykeys[14]="A";mykeys[15]="B";mykeys[16]="D";mykeys[17]="B";mykeys[18]="B";mykeys[19]="D";mykeys[20]="D";mykeys[21]="C";
+
+
+var answer=new Array();
+for(var I=0;I<mykeys.length;I++) answer[I]="";
+
+var every=form.elements;
+//var lastname="";
+for(var I=0;I<every.length;I++)
+{
+	if(every[I].type=="radio")
+	{
+		/*alert("checkbox:name->"+every[I].name+"value->"+every[I].value);*/
+		if(every[I].checked)
+		{	
+			//var item=parseInt(every[I].name.charAt(1));
+			var item=parseInt(every[I].name.substr(0));/*返回由字符串转换得到的整数*/
+			/*substr返回一个从指定位置开始的指定长度的子字符串。*/
+			answer[item-1]+=every[I].value;
+		}
+	}				
+}
+
+var newcount="<html><head><title>谢谢您!</title></head><body><center><h2><font color=red>您的测试结果</font></h2></center>";
+var totalscore=0;
+for(var I=0;I<answer.length;I++)
+{
+	if(answer[I].toUpperCase()==mykeys[I].toUpperCase())
+	{
+		var rstr="<font size=2>第"+(I+1)+"题答案正确!</font><br>";
+		newcount+=rstr;
+		totalscore+=1/22*100;//每题分数
+	}else
+	{
+		var rstr="<font size=2>第"+(I+1)+"题答案错误!正确答案为"+mykeys[I]+"</font><br>";
+		newcount+=rstr;
+	}
+
+}
+
+newcount+="<br>您的总成绩为:";
+newcount+=Math.ceil(totalscore);
+newcount+="分";
+newwin=window.open("","","height=400,width=400,scrollbars=yes,resizable=no");
+newwin.document.write(newcount);}
+/*--------------------------------判断题----------------------------------------------------*/
+
+function getresultpanduan(form)
+{var mykeys=new Array();
+
+
+
+var answer=new Array();
+for(var I=0;I<mykeys.length;I++) answer[I]="";
+
+var every=form.elements;
+//var lastname="";
+for(var I=0;I<every.length;I++)
+{
+	if(every[I].type=="checkbox")
+	{
+		/*alert("checkbox:name->"+every[I].name+"value->"+every[I].value);*/
+		if(every[I].checked)
+		{	
+			//var item=parseInt(every[I].name.charAt(1));
+			var item=parseInt(every[I].name.substr(0));/*返回由字符串转换得到的整数*/
+			/*substr返回一个从指定位置开始的指定长度的子字符串。*/
+			answer[item-1]+=every[I].value;
+		}
+	}				
+}
+
+var newcount="<html><head><title>谢谢您!</title></head><body><center><h2><font color=red>您的测试结果</font></h2></center>";
+var totalscore=0;
+for(var I=0;I<answer.length;I++)
+{var re=/</g;
+var rd=/>/g;
+var re=/\\/g;
+answer[I]=answer[I].replace(re,"&#92;");
+answer[I]=answer[I].replace(re,"&lt;");
+answer[I]=answer[I].replace(rd,"&gt;");
+	if(answer[I].toUpperCase( )==mykeys[I].toUpperCase( ))
+	{
+		var rstr="<font size=2>第"+(I+1)+"题 您答对了!</font><br>";
+		newcount+=rstr;
+		totalscore+=1/0*100;//每题分数
+	}else
+	{
+		var rstr="<font size=2>第"+(I+1)+"题 您答错了!</font><br>";
+		newcount+=rstr;
+	}
+
+}
+
+newcount+="<br>您的总成绩为:";
+newcount+=Math.ceil(totalscore);
+newcount+="分";
+newwin=window.open("","","height=400,width=400,scrollbars=yes,resizable=no");
+newwin.document.write(newcount);
+}
+/*--------------------------------简答题----------------------------------------------------*/
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+</SCRIPT>
+<style type="text/css"><!--
+-->
+</style>
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</HEAD>
+<BODY text=black bgColor=#FFFFFF topMargin=10 marginheight="10">
+<DIV class=p2 align=center></DIV>
+<FORM >
+  <P><BR>
+    <span class="section">一、填空 </span><span class="text"><BR>
+    1、在软件需求分析阶段，分析人员要确定对软件的综合要求，其中最重要的是&nbsp; 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=1>
+    。<BR>
+    2、需求分析阶段产生的最主要的文档是 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=2>
+    。<BR>
+    3、解决一个复杂的问题，往往采取的策略是 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=3>
+    。<BR>
+    4、可行性研究的目的是用 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=4>
+    的代价，在尽可能 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=5>
+    的时间内，确定该软件项目是否能够&nbsp; 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=6>
+    。<BR>
+    5、可行性研究实质上是进行一项 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=7>
+    、压缩了的需求分析、 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=8>
+    过程。<BR>
+    6、可以从4个方面研究可行性，即&nbsp; 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=9>
+    可行性、 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=10>
+    可行性、 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=11>
+    可行性、 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=12>
+    可行性。<BR>
+    &nbsp;7、结构化分析方法从三个方面建模：&nbsp; 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=13>
+    建模、 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=14>
+    建模、 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=15>
+    建模。<BR>
+    &nbsp;8、实体�D关系图用于 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=16>
+    建模，它最初用于 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=17>
+    设计。<BR>
+    &nbsp;9、数据流图中的每一个加工至少有 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=18>
+    个输入数据流和 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=19>
+    个输出数据流。<BR>
+    &nbsp;10、状态�D迁移图用于 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=20>
+    建模，状态中包含 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=21>
+    ，状态因&nbsp; 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=22>
+    发生转移。<BR>
+    &nbsp;11、数据词典中有四类条目，分别为&nbsp; 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=23>
+    、 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=24>
+    、&nbsp; 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=25>
+    、 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=26>
+    。&nbsp; </span><BR>
+    <BR>
+    <INPUT id=A type=reset value=清�空>
+    &nbsp; 
+    <INPUT id=A onclick=getKeyWord(this.form) type=button value=提�交>
+    <BR>
+    <BR>
+    <span class="section"> 二、单项选择</span><BR>
+    <BR>
+    &nbsp;<span class="text">1、软件需求分析阶段的工作可以划分以下四个方面：对问题的识别、分析与综合、制定需求规格说明和____。<BR>
+    <INPUT id=c1 type=radio value=A name=1>
+    A.总结 <BR>
+    <INPUT id=c1 type=radio value=B name=1>
+    B. 阶段性报告<BR>
+    <INPUT id=c1 type=radio value=C name=1>
+    C. 需求分析评审<BR>
+    <INPUT id=c1 type=radio value=D name=1>
+    D. 以上答案都不正确&nbsp;<BR>
+    <BR>
+    2、各种需求分析方法都有它们共同适用的_____。<BR>
+    <INPUT id=c1 type=radio value=A name=2>
+    A. 说明方法&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=2>
+    B. 描述方法<BR>
+    <INPUT id=c1 type=radio value=C name=2>
+    C. 准则&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=2>
+    D. 基本原则<BR>
+    <BR>
+    3、软件需求分析应从问题的信息域和功能域出发。信息域应包括信息流、信息内容和&nbsp;____。<BR>
+    <INPUT id=c1 type=radio value=A name=3>
+    A. 信息项&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=3>
+    B. 数据结构<BR>
+    <INPUT id=c1 type=radio value=C name=3>
+    C. 信息结构&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=3>
+    D. 信息内容<BR>
+    <BR>
+    4、需求分析产生的文档是&nbsp;____。<BR>
+    <INPUT id=c1 type=radio value=A name=4>
+    A. 项目开发计划&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=4>
+    B. 可行性分析报告<BR>
+    <INPUT id=c1 type=radio value=C name=4>
+    C. 需求规格说明书<BR>
+    <INPUT id=c1 type=radio value=D name=4>
+    D. 软件设计说明书<BR>
+    <BR>
+    &nbsp;5、需求分析中，分析人员要从用户那里解决的最重要的问题是____。<BR>
+    <INPUT id=c1 type=radio value=A name=5>
+    A. 要让软件做什么<BR>
+    <INPUT id=c1 type=radio value=B name=5>
+    B. 要给该软件提供什么信息<BR>
+    <INPUT id=c1 type=radio value=C name=5>
+    C. 要求软件工作效率如何&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=5>
+    D. 要让该软件具有何种结构<BR>
+    <BR>
+    &nbsp;6、可行性研究的目的是____。<BR>
+    <INPUT id=c1 type=radio value=A name=6>
+    A.�开发项目<BR>
+    <INPUT id=c1 type=radio value=B name=6>
+    B.�项目值得开发否<BR>
+    <INPUT id=c1 type=radio value=C name=6>
+    C.�规划项目&nbsp;<br>
+    <INPUT id=c1 type=radio value=D name=6>
+    D.�维护项目<BR>
+    <BR>
+    &nbsp;7、技术可行性要解决____。<BR>
+    <INPUT id=c1 type=radio value=A name=7>
+    A. 存在侵权否&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=7>
+    B. 成本效益问题<BR>
+    <INPUT id=c1 type=radio value=C name=7>
+    C. 运行方式可行&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=7>
+    D. 技术风险问题<BR>
+    <BR>
+    &nbsp;8、研究开发资源的有效性属于&nbsp;____ 可行性的一部分。<BR>
+    <INPUT id=c1 type=radio value=A name=8>
+    A. 技术&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=8>
+    B. 经济<BR>
+    <INPUT id=c1 type=radio value=C name=8>
+    C. 社会&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=8>
+    D. 操作<BR>
+    <BR>
+    &nbsp;9、在可行性研究过程中，对每一个合理的候选方案，分析人员都应准备如下资料&nbsp;_____。<BR>
+    <INPUT id=c1 type=radio value=A name=9>
+    A. 系统流程<BR>
+    <INPUT id=c1 type=radio value=B name=9>
+    B. 组成系统的物理元素清单、成本�D效益分析<BR>
+    <INPUT id=c1 type=radio value=C name=9>
+    C. 实现该系统的进度计划&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=9>
+    D. 以上全部<BR>
+    <BR>
+    &nbsp;10、软件需求分析的任务不应包括_____。<BR>
+    <INPUT id=c1 type=radio value=A name=10>
+    A. 问题分析&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=10>
+    B. 信息域分析<BR>
+    <INPUT id=c1 type=radio value=C name=10>
+    C. 结构化程序设计<BR>
+    <INPUT id=c1 type=radio value=D name=10>
+    D. 确定逻辑模型<BR>
+    <BR>
+    11、结构化语言、判定表和判定树属于____规格说明的描述工具。<BR>
+    <INPUT id=c1 type=radio value=A name=11>
+    A. 加工<BR>
+    <INPUT id=c1 type=radio value=B name=11>
+    B. 控制<BR>
+    <INPUT id=c1 type=radio value=C name=11>
+    C. 数据描述&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=11>
+    D. 脚本<BR>
+    <BR>
+    12、加工激活表属于____规格说明的描述工具。<BR>
+    <INPUT id=c1 type=radio value=A name=12>
+    A. 加工<BR>
+    <INPUT id=c1 type=radio value=B name=12>
+    B. 控制<BR>
+    <INPUT id=c1 type=radio value=C name=12>
+    C. 数据描述<BR>
+    <INPUT id=c1 type=radio value=D name=12>
+    D. 脚本<BR>
+    <BR>
+    13、基数和参与性属于_____图的描述工具。<BR>
+    <INPUT id=c1 type=radio value=A name=13>
+    A. 控制流<BR>
+    <INPUT id=c1 type=radio value=B name=13>
+    B. 数据流<BR>
+    <INPUT id=c1 type=radio value=C name=13>
+    C. 实体�D关系&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=13>
+    D. 状态�D迁移<BR>
+    <BR>
+    14、分层数据流图是一种比较严格又易于理解的描述方式，它的顶层数据流图描述了系统的_____。<BR>
+    <INPUT id=c1 type=radio value=A name=14>
+    A. 细节&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=14>
+    B. 输入与输出<BR>
+    <INPUT id=c1 type=radio value=C name=14>
+    C. 软件的作者<BR>
+    <INPUT id=c1 type=radio value=D name=14>
+    D. 绘制的时间<BR>
+    <BR>
+    &nbsp;15、对于分层的数据流图，父图与子图的平衡是指子图的输入、输出数据流同父图的输入、输出数据流_____。<BR>
+    <INPUT id=c1 type=radio value=A name=15>
+    A. 必须一致&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=15>
+    B. 数目必须相等<BR>
+    <INPUT id=c1 type=radio value=C name=15>
+    C. 名字必须相同<BR>
+    <INPUT id=c1 type=radio value=D name=15>
+    D. 数目必须不等<BR>
+    <BR>
+    &nbsp;16、在数据流图的基本图形符号中，加工是以信息结构或____作为加工对象的。<BR>
+    <INPUT id=c1 type=radio value=A name=16>
+    A. 数据结构<BR>
+    <INPUT id=c1 type=radio value=B name=16>
+    B. 信息内容<BR>
+    <INPUT id=c1 type=radio value=C name=16>
+    C. 信息流&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=16>
+    D. 数据内容<BR>
+    <BR>
+    17、一个局部数据存储当它作为____时就把它画出来。<BR>
+    <INPUT id=c1 type=radio value=A name=17>
+    A. 某些加工的数据接口&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=17>
+    B. 某个加工的特定输入<BR>
+    <INPUT id=c1 type=radio value=C name=17>
+    C. 某个加工的特定输出<BR>
+    <INPUT id=c1 type=radio value=D name=17>
+    D. 某些加工的数据接口或某个加工的特定输入/输出<BR>
+    <BR>
+    18、软件需求规格说明书的内容不应包括对____的描述。<BR>
+    <INPUT id=c1 type=radio value=A name=18>
+    A. 主要功能<BR>
+    <INPUT id=c1 type=radio value=B name=18>
+    B. 算法的详细过程<BR>
+    <INPUT id=c1 type=radio value=C name=18>
+    C. 用户界面及运行环境&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=18>
+   D. 软件的性能<BR>
+    <BR>
+    19、需求规格说明书的作用不应包括_____。<BR>
+    <INPUT id=c1 type=radio value=A name=19>
+    A. 软件设计的依据<BR>
+    <INPUT id=c1 type=radio value=B name=19>
+    B. 软件可行性研究的依据<BR>
+    <INPUT id=c1 type=radio value=C name=19>
+    C. 软件验收的依据&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=19>
+    D. 用户和开发人员对软件要做什么的共同理解<BR>
+    <BR>
+    20、快速原型化思想是在研究_____阶段的方法技术中产生的。<BR>
+    <INPUT id=c1 type=radio value=A name=20>
+    A. 可行性研究&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=20>
+    B. 软件设计<BR>
+    <INPUT id=c1 type=radio value=C name=20>
+    C. 程序编码&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=20>
+    D. 需求分析<BR>
+    <BR>
+    21、用于整个开发阶段，及早提供一个原型系统的是&nbsp;____原型。<BR>
+    <INPUT id=c1 type=radio value=A name=21>
+    A. 实验型<BR>
+    <INPUT id=c1 type=radio value=B name=21>
+    B. 探索型<BR>
+    <INPUT id=c1 type=radio value=C name=21>
+    C. 提交型<BR>
+    <INPUT id=c1 type=radio value=D name=21>
+    D. 演化型<BR>
+    <BR>
+    &nbsp;22、用于软件设计阶段，考察实现方案是否可行的是_____原型。<BR>
+    <INPUT id=c1 type=radio value=A name=22>
+    A. 探索型<BR>
+    <INPUT id=c1 type=radio value=B name=22>
+    B. 演化型<BR>
+    <INPUT id=c1 type=radio value=C name=22>
+    C. 实验型<BR>
+    <INPUT id=c1 type=radio value=D name=22>
+    D. 增量型</span><BR>
+    <BR>
+    &nbsp; 
+    <INPUT id=A type=reset value=重�置>
+    &nbsp; 
+    <INPUT id=A onclick=getresultcheck(this.form) type=button value=提�交>
+    <BR>
+    <BR>
+    <span class="section">三、选择填空</span></P>
+  <P><span class="text">1、从供选择的答案中选出与下列有关软件需求分析叙述相对应的正确答案，将其编号填入到相应的括弧（&nbsp;&nbsp; 
+    ）内。<BR>
+    �软件需求分析的任务不应包括(&nbsp; A&nbsp; )。进行需求分析可使用多种工具，但(&nbsp; B&nbsp; )是不适用的。在需求分析中，分析员要从用户那里解决的最重要的问题是(&nbsp; 
+    C&nbsp; )。需求规格说明书的内容不应当包括(&nbsp; D&nbsp; )。该文档在软件开发中具有重要的作用，但其作用不应当包括(&nbsp; 
+    E&nbsp; )。<BR>
+    供选择的答案：<BR>
+    A.�① 问题分析&nbsp; ② 信息域分析&nbsp;&nbsp; ③ 结构化程序设计&nbsp;&nbsp; ④ 确定逻辑模型<BR>
+    B.�① 数据流图&nbsp; ② 判定表&nbsp;&nbsp;&nbsp; ③ PAD图 &nbsp;&nbsp;&nbsp; ④ 数据词典<BR>
+    C.�① 要让软件做什么&nbsp;&nbsp;&nbsp;② 要给该软件提供哪些信息<BR>
+    ��③ 要求软件工作效率如何&nbsp;④ 要让软件具有什么样的结构<BR>
+    D.�① 对重要功能的描述&nbsp;&nbsp;② 对算法的详细过程性描述<BR>
+    ��③ 软件确认准则&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ④ 软件的性能<BR>
+    E.�① 软件设计的依据&nbsp;② 用户和开发人员对软件要“做什么”的共同理解<BR>
+    ��③ 软件验收的依据&nbsp;④ 软件可行性分析的依据</span><BR>
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+  </P>
+  <P class="text">2、从供选择的答案中选出与下列有关软件需求分析叙述相对应的正确答案，将其编号填入到相应的括弧（&nbsp;&nbsp; 
+    ）内。<BR>
+    &nbsp;�当前系统的（&nbsp; A&nbsp; ）模型描述现行系统的实际业务处理过程，反映了现行系统具体（&nbsp; B&nbsp; ）的现实。当前系统的（&nbsp; 
+    C&nbsp; ）模型描述现行系统的功能结构、数据组织以及动态行为，反映了现行系统（&nbsp; D&nbsp; ）的本质。<BR>
+    &nbsp;�目标系统是指待开发的新系统。根据计算机系统的特点，分析、比较目标系统和当前系统逻辑上的差别，确定目标系统的软件工作范围，采用自顶向下逐步分解的分析策略，确定目标系统的功能结构、数据组织以及动态行为，从而建立起目标系统的（&nbsp; 
+    E&nbsp; ）模型。<BR>
+    【供选择的答案】<BR>
+    &nbsp; A, C, E：① 对象&nbsp;&nbsp;&nbsp;&nbsp; ② 物理&nbsp;&nbsp;&nbsp;&nbsp; ③ 
+    服务&nbsp;&nbsp;&nbsp;&nbsp; ④ 过程&nbsp;&nbsp;&nbsp; ⑤ 逻辑 <BR>
+    &nbsp; B, D：&nbsp; ① 怎么做&nbsp;&nbsp; ② 何时做&nbsp;&nbsp; ③ 做什么&nbsp;&nbsp; ④ 
+    为何做&nbsp; ⑤ 谁来做</P>
+  <P> <span class="text"> 
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    </span>&nbsp;</P>
+  <P class="text">3、从供选择的答案中选出与下列有关软件需求分析叙述相对应的正确答案，将其编号填入到相应的括弧（&nbsp;&nbsp; 
+    ）内。<BR>
+    &nbsp;�结构化分析模型从多视角来描述系统。在分析模型的核心是（&nbsp; A&nbsp; ），它描述了所有在目标系统中使用和生成的数据对象。围绕着这个核心有三种图：（&nbsp; 
+    B&nbsp; ）、（&nbsp; C&nbsp; ）和（&nbsp; D&nbsp; ）。（&nbsp; B&nbsp; ）描述数据对象及其关系，用于建立数据模型；（&nbsp; 
+    C&nbsp; ）描述数据在系统中如何被传递和变换，用于建立功能模型，同时还需要给出加工规格说明；（&nbsp; D&nbsp; ）描述系统对外部事件如何响应，用于建立行为模型，同时还需要给出控制规格说明。<BR>
+    &nbsp;Petri网主要用于描述相互独立，协同操作的处理系统，即（&nbsp; E&nbsp; ）的处理系统。<BR>
+    【供选择的答案】<BR>
+    A～D：① 对象图&nbsp;&nbsp; ② 数据词典&nbsp;&nbsp;&nbsp; ③ 状态迁移图&nbsp;④ 数据流程图<BR>
+    ���⑤ 时序图&nbsp;&nbsp;&nbsp;&nbsp; ⑥ 事件追踪图&nbsp;&nbsp;&nbsp; ⑦ 控制流程图&nbsp;⑧ 
+    实体关系图<BR>
+    ���⑨ 仿真图&nbsp;&nbsp; ⑩ 行为图<BR>
+    E：� ① 并发执行&nbsp;&nbsp; ② 事件驱动&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ③ 时钟驱动&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    ④ 随机执行<BR>
+    ���⑤ 顺序执行</P>
+  <P>
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    &nbsp;</P>
+  <P class="text">4、从供选择的答案中选出与下列有关软件需求分析叙述相对应的正确答案，将其编号填入到相应的括弧（&nbsp;&nbsp; 
+    ）内。<BR>
+    &nbsp;软件需求分析方法必须能够理解和表达问题领域的信息域和功能域。信息域包括（&nbsp; A&nbsp; ）、（&nbsp; B&nbsp; 
+    ）和（&nbsp; C&nbsp; ）。<BR>
+    �（&nbsp; A&nbsp; ）表示数据和控制在系统中传递时的变化方式。输入对象首先被变换成数据和控制的（&nbsp; D&nbsp; ）信息，然后再变换成输出结果信息。<BR>
+    �（&nbsp; B&nbsp; ）表示信息在计算机中的组织形式。各种数据和控制对象按什么逻辑关系组织在一起，又按什么物理关系存储在计算机中，必须靠（&nbsp; 
+    B&nbsp; ）分析来解决。<BR>
+    �（&nbsp; C&nbsp; ）可以利用数据词典明确地表示，也可以通过数据或数据对象的层次结构隐含地表示。<BR>
+    对数据进行变换就是程序所表现的功能。两个功能之间的数据传递确定了功能之间的（&nbsp; E&nbsp; ）。<BR>
+    【供选择的答案】<BR>
+    A～C：① 信息属性&nbsp;&nbsp; ② 信息结构&nbsp;&nbsp; ③ 信息服务&nbsp;&nbsp; ④ 信息通信&nbsp; 
+    <BR>
+    ���⑤ 信息抽象&nbsp;&nbsp; ⑥ 信息内容&nbsp;&nbsp; ⑦ 信息流&nbsp;&nbsp;&nbsp;&nbsp; ⑧ 信息层次<BR>
+    ���⑨ 信息项&nbsp;&nbsp;&nbsp;&nbsp; ⑩ 信息行为<BR>
+    D～E：① 连接&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ② 接口&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    ③ 中间&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ④ 通讯&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    ⑤ 联系 </P>
+  <P> 
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    <BR>
+    &nbsp;<BR>
+    <span class="text">5、从供选择的答案中选出与下列有关软件需求分析叙述相对应的正确答案，将其编号填入到相应的括弧（&nbsp;&nbsp; 
+    ）内。<BR>
+    &nbsp;��原型化方法是用户和软件开发人员之间进行的一种交互过程，适用于(&nbsp; A&nbsp; )系统。它从用户界面的开发入手，首先形成(&nbsp; 
+    B&nbsp; )，用户(&nbsp; C&nbsp; )，并就(&nbsp; D&nbsp; )提出意见，它是一种(&nbsp; E&nbsp; 
+    )型的设计过程。<BR>
+    供选择的答案：<BR>
+    A.&nbsp;① 需求不确定性高的&nbsp;② 需求确定的&nbsp;③ 管理信息&nbsp;&nbsp;④ 决策支持<BR>
+    B.&nbsp;① 用户界面使用手册&nbsp;&nbsp;② 用户界面需求分析说明书<BR>
+    � ③ 系统界面原型 &nbsp;&nbsp;&nbsp;④ 完善的用户界面<BR>
+    C.&nbsp;① 改进用户界面的设计&nbsp;&nbsp;② 阅读文档资料<BR>
+    � ③ 模拟用户界面的运行&nbsp;&nbsp;④ 运行用户界面原型<BR>
+    D. ① 同意什么和不同意什么&nbsp;② 使用和不使用哪一种编程语言<BR>
+    � ③ 程序的结构&nbsp;&nbsp;&nbsp;④ 执行速度是否满足要求<BR>
+    E. ① 自外向内&nbsp;&nbsp;② 自顶向下&nbsp;&nbsp;③ 自内向外&nbsp;&nbsp;④ 自底向上</span><BR>
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    <BR>
+    <BR>
+    <span class="section">四、问答题</span><br>
+    <BR>
+    <span class="text">1、在软件需求分析时，首先建立当前系统的物理模型，再根据物理模型建立当前系统的逻辑模型。试问：什么是当前系统？当前系统的物理模型与逻辑模型有什么差别？</span></P>
+  <P>
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    &nbsp;</P>
+  <P class="text">2、软件需求分析是软件工程过程中交换意见最频繁的步骤。为什么交换意见的途径会经常阻塞？</P>
+  <P>
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    <BR>
+    <BR>
+    <span class="text">3、你认为一个系统分析员的理想训练和基础知识是什么？请说明理由。 </span><BR>
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    <BR>
+    <BR>
+    <span class="text">4、可行性研究主要研究哪些问题？试说明之。</span><BR>
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+  </P>
+  <P><span class="text">5、信息和信息结构有什么区别？有没有不存在信息流的系统？有没有不存在信息结构的系统？</span><BR>
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+  </P>
+  <P><span class="text">6、软件需求分析的操作性原则和需求工程的指导性原则是什么？</span><BR>
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+  </P>
+  <P><span class="text">7、数据流图的作用是什么？它有哪些基本成份？</span><BR>
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+  </P>
+  <P><span class="text">8、考务处理系统的分层数据流图如下图所示。</span><br>
+    <BR>
+    <IMG alt="" hspace=0 src="image/03a.gif" align=baseline border=0><BR>
+    <IMG alt="" hspace=0 src="image/03b.gif" align=baseline border=0><BR>
+    &nbsp;<span class="text">该考务处理系统有如下功能：<BR>
+    ①&nbsp;对考生送来的报名表进行检查；<BR>
+    &nbsp;② 对合格的报名表编好准考证号码后将准考证送给考生，并将汇总后的考生名单送给阅卷站；<BR>
+    &nbsp;③ 对阅卷站送来的成绩表进行检查，并根据考试中心指定的合格标准审定合格者；<BR>
+    &nbsp;④ 填写考生通知单（内容包含考试成绩及合格�M不合格标志），送给考生；<BR>
+    &nbsp;⑤ 按地区、年龄、文化程度、职业、考试级别等进行成绩分类统计及试题难度分析，产生统计分析表。<br>
+    <BR>
+    (1) 图(c)中，加工1.1的输入数据流是(&nbsp; A&nbsp; )，输出数据流是(&nbsp; B&nbsp; )，图(b)中，加工2的输出数据流是(&nbsp; 
+    C&nbsp; )，它是由(&nbsp; D&nbsp; )和(&nbsp; E&nbsp; )组成。<BR>
+    供选择的答案：<BR>
+    A～E.&nbsp;① 统计分析表 &nbsp;② 报名表&nbsp;&nbsp;③ 准考证&nbsp;&nbsp;④ 考生通知单<BR>
+    ���⑤ 合格报名表&nbsp;⑥ 难度分析表&nbsp;⑦ 错误成绩表&nbsp;⑧ 分类统计表<br>
+    <BR>
+    (2) 图(d)中的文件“试题得分表”是否在图(b)中漏掉了？ 回答是(&nbsp; F&nbsp; )。<BR>
+    供选择的答案：<BR>
+    F. &nbsp;① “试题得分表”没有在图(b)中画出，是错误的。<BR>
+    � ② “试题得分表”是图(b)中加工的内部文件，不必在图(b)中画出。<BR>
+    � ③ “试题得分表”是多余的。</span><BR>
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    <BR>
+    <BR>
+    <span class="text">9、Petri网可以描述计算机软件系统的执行。现有一个程序如下（类似于Pascal语言）<BR>
+    �L :&nbsp;S1;<BR>
+    &nbsp;�WHILE&nbsp; P1&nbsp; DO<BR>
+    &nbsp;��BEGIN<BR>
+    &nbsp;&nbsp; ���IF&nbsp; P2&nbsp; THEN&nbsp; S2<BR>
+    &nbsp;&nbsp;&nbsp;&nbsp;������ELSE&nbsp; S3;<BR>
+    &nbsp;&nbsp; ���COBEGIN<BR>
+    &nbsp;&nbsp;&nbsp;����S4;<BR>
+    &nbsp;&nbsp;&nbsp;����S5;<BR>
+    &nbsp;&nbsp;&nbsp;����S6;<BR>
+    &nbsp;&nbsp; ���COEND<BR>
+    &nbsp;&nbsp;&nbsp; ��END;<BR>
+    &nbsp;�GOTO&nbsp; L;<BR>
+    �其中，P1和P2为逻辑表达式，S1&#61566;S6是单个执行语句，COBEGIN和COEND是并行执行开始和并行执行结束（即S4，S5和S6语句并行执行）。试用Petri网描述这段程序的执行过程。</span><BR>
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+  </P>
+  <P><span class="text">10、数据词典的作用是什么？它有哪些基本词条？ </span><BR>
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+  </P>
+  <P class="text">11、传统的软件开发模型的缺陷是什么？原型化方法的类型有哪些？原型开发模型的主要优点是什么？<BR>
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+  </P>
+  <P><span class="text">12、试简述原型开发的过程和运用原型化方法的软件开发过程。</span><BR>
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+  </P>
+  <P><span class="text">13、软件需求分析说明书主要包括哪些内容?</span><BR>
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    <BR>
+    <BR>
+    <span class="text">14、阅读下列关于开发人事管理系统的交互式工作方式的叙述，再回答问题。<BR>
+    &nbsp;�某大企业最近决定采用高性能微机开发人事管理系统，将四台联机终端分置于人事处的三个科室。该系统可供操作员和程序员使用，也可供人事处负责人和主管人事的副厂长等查询人事信息用。人事管理系统通过录入人事数据和修改、删除等操作，产生和更新各类人事文件，通过搜索这些文件进行各类人事信息的查询。<BR>
+    �该企业有3000多个工人、干部和技术人员，大体可分成机关科室、生产车间、后勤服务和开发研制部门等几类部门。厂领导决定由计算机应用科来负责协调和开发应用系统。计算机应用科科长指示系统工程师张某负责进行系统分析。<BR>
+    �考虑到人事处有大量的查询信息要求、频繁的人事信息修改和文件存档、查阅等特点，计算机应用科决定认真设计人机交互界面，首先设计好在终端上的交互式会话的方式。<BR>
+    系统工程师张某通过调查收集到如下10条意见：<BR>
+    �(1)&nbsp;某程序员认为：系统在屏幕格式、编码等方面应具有一致性和清晰性，否则会影响操作人员的工作效率。<BR>
+    �(2)&nbsp;某操作人员认为：在交互式会话过程中，操作人员可能会忘记或记错某些事情，系统应当提供HELP功能。<BR>
+    �(3)&nbsp;某操作人员认为：既然是交互式会话，那么对所有的输入都应当作出响应，不应出现击键后，计算机没有任何反应的情况。<BR>
+    �(4)&nbsp;某操作人员认为：在出错的时候，交互式会话系统应当给出出错信息，并且尽可能告诉我们出错的性质和错在什么地方。<BR>
+    �(5)&nbsp;某程序员认为：终端会话也应当符合程序员编制程序时的习惯，这样可以更高效地维护人事管理系统。<BR>
+    �(6)&nbsp;教育科干部甲认为：应当对操作员进行一些必要的培训，让他们掌握交互式会话系统的设计技巧，有助于提高系统的使用效率。<BR>
+    �(7)&nbsp;教育科干部乙认为：尽管操作人员的指法已经强化训练但在交互式会话时应尽可能缩短和减少操作员输入的信息，以降低出错概率。<BR>
+    �(8)&nbsp;某程序员认为：由于本企业中有很多较大的文件，文件的查找很费时间，交互式会话系统在响应时间较长时应给予使用者以提示信息。<BR>
+    �(9)&nbsp;人事处干部丙认为：我们企业的人事资料相当复杂，格式非常之多，希望交互式系统使用十分清晰的格式，并容易对输入数据中的错误进行修改。<BR>
+    �(10)&nbsp; 人事处干部丁认为：人事管理系统应当具有相当的保密性和数据安全性，因此在屏幕上显示出的信息应该含混一些，以免泄密。<BR>
+    系统工程师张某对上述调查情况和其他要求作了分析后，发现收集到的10条意见中有3条意见是不能接受的，写出编号并各用40字以内叙述理由。</span><BR>
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    <BR>
+  </P>
+  <input type=button name=Button value=答�案 onClick="MM_openBrWindow('tanchu.htm','','width=471,height=390')">
+  <br>
+  <br>
+</form>
+</BODY>
+</HTML>

@@ -1,0 +1,368 @@
+<HTML>
+<HEAD>
+<TITLE>软件工程 </TITLE>
+<SCRIPT language=JavaScript>
+/*-------------------------------------------填空题---------------------------------------------*/
+function getKeyWord(form){
+var mykeys=new Array();
+mykeys[0]="弱";mykeys[1]="内容耦合";mykeys[2]="控制耦合";mykeys[3]="公共耦合";mykeys[4]="内容耦合";mykeys[5]="信息隐蔽";mykeys[6]="自顶向下";mykeys[7]="模块独立性";mykeys[8]="控制结构";mykeys[9]="程序块";
+
+var answer=new Array();
+for(var I=0;I<mykeys.length;I++) answer[I]="";
+
+var every=form.elements;
+for(var I=0;I<every.length;I++)
+{
+if(every[I].type=="text")
+{
+ if(every[I].value!==null)
+ {var item=parseInt(every[I].name.substr(0))
+  answer[item-1]+=every[I].value;
+  }
+ }
+}
+var newcount="<html><head><title>谢谢您!</title></head><body><center><h2><font color=red>您的测试结果</font></h2></center>";
+var totalscore=0;
+for(var I=0;I<answer.length;I++)
+{var re=/</g;
+var rd=/>/g;
+var re=/\\/g;
+answer[I]=answer[I].replace(re,"&#92;");
+answer[I]=answer[I].replace(re,"&lt;");
+answer[I]=answer[I].replace(rd,"&gt;");
+	if(answer[I].toUpperCase()==mykeys[I].toUpperCase())
+	{
+		var rstr="<font size=2>第"+(I+1)+"个空答案正确!</font><br>";
+		newcount+=rstr;
+		totalscore+=1/10*100;
+	}else
+	{
+		var rstr="<font size=2>第"+(I+1)+"个空答案错误!正确答案为"+mykeys[I]+"</font><br>";
+		newcount+=rstr;
+	}
+
+}
+
+newcount+="<br>您的总成绩为:";
+newcount+=Math.ceil(totalscore);
+newcount+="分";
+newwin=window.open("","","height=400,width=400,scrollbars=yes,resizable=no");
+newwin.document.write(newcount);
+}
+/*-------------选择提----------------------------------------------------------------*/
+function getresultcheck(form)
+{var mykeys=new Array();
+mykeys[0]="ADEGJ";mykeys[1]="ABCDH";mykeys[2]="CEGHJ";
+
+
+var answer=new Array();
+for(var I=0;I<mykeys.length;I++) answer[I]="";
+
+var every=form.elements;
+//var lastname="";
+for(var I=0;I<every.length;I++)
+{
+	if(every[I].type=="checkbox")
+	{
+		/*alert("checkbox:name->"+every[I].name+"value->"+every[I].value);*/
+		if(every[I].checked)
+		{	
+			//var item=parseInt(every[I].name.charAt(1));
+			var item=parseInt(every[I].name.substr(0));/*返回由字符串转换得到的整数*/
+			/*substr返回一个从指定位置开始的指定长度的子字符串。*/
+			answer[item-1]+=every[I].value;
+		}
+	}				
+}
+
+var newcount="<html><head><title>谢谢您!</title></head><body><center><h2><font color=red>您的测试结果</font></h2></center>";
+var totalscore=0;
+for(var I=0;I<answer.length;I++)
+{
+	if(answer[I].toUpperCase()==mykeys[I].toUpperCase())
+	{
+		var rstr="<font size=2>第"+(I+1)+"题答案正确!</font><br>";
+		newcount+=rstr;
+		totalscore+=1/3*100;//每题分数
+	}else
+	{
+		var rstr="<font size=2>第"+(I+1)+"题答案错误!正确答案为"+mykeys[I]+"</font><br>";
+		newcount+=rstr;
+	}
+
+}
+
+newcount+="<br>您的总成绩为:";
+newcount+=Math.ceil(totalscore);
+newcount+="分";
+newwin=window.open("","","height=400,width=400,scrollbars=yes,resizable=no");
+newwin.document.write(newcount);}
+/*--------------------------------判断题----------------------------------------------------*/
+
+function getresultpanduan(form)
+{var mykeys=new Array();
+
+
+
+var answer=new Array();
+for(var I=0;I<mykeys.length;I++) answer[I]="";
+
+var every=form.elements;
+//var lastname="";
+for(var I=0;I<every.length;I++)
+{
+	if(every[I].type=="checkbox")
+	{
+		/*alert("checkbox:name->"+every[I].name+"value->"+every[I].value);*/
+		if(every[I].checked)
+		{	
+			//var item=parseInt(every[I].name.charAt(1));
+			var item=parseInt(every[I].name.substr(0));/*返回由字符串转换得到的整数*/
+			/*substr返回一个从指定位置开始的指定长度的子字符串。*/
+			answer[item-1]+=every[I].value;
+		}
+	}				
+}
+
+var newcount="<html><head><title>谢谢您!</title></head><body><center><h2><font color=red>您的测试结果</font></h2></center>";
+var totalscore=0;
+for(var I=0;I<answer.length;I++)
+{
+	if(answer[I].toUpperCase()==mykeys[I].toUpperCase())
+	{
+		var rstr="<font size=2>第"+(I+1)+"题 您答对了!</font><br>";
+		newcount+=rstr;
+		totalscore+=1/0*100;//每题分数
+	}else
+	{
+		var rstr="<font size=2>第"+(I+1)+"题 您答错了!</font><br>";
+		newcount+=rstr;
+	}
+
+}
+
+newcount+="<br>您的总成绩为:";
+newcount+=Math.ceil(totalscore);
+newcount+="分";
+newwin=window.open("","","height=400,width=400,scrollbars=yes,resizable=no");
+newwin.document.write(newcount);
+}
+/*--------------------------------简答题----------------------------------------------------*/
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+</SCRIPT>
+<style type="text/css"><!--
+-->
+</style>
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+</HEAD>
+<BODY text=black bgColor=#FFFFFF topMargin=10>
+<DIV class=p2 align=center></DIV>
+<FORM >
+  <P align=left><FONT size=2><span class="section">一</span></FONT><span class="section"><FONT size=2>、多选题</FONT></span><FONT size=2><BR class="section">
+    <BR>
+    &nbsp; <span class="text">1. 从下列叙述中选出5条关于好的程序设计风格的正确叙述。<BR>
+    　 
+    <INPUT id=c1 name=1 type=checkbox value=A>
+    A.使用括号以改善表达式的清晰性。<BR>
+    　 
+    <INPUT id=c1 name=1 type=checkbox value=B>
+    B.对递归定义的数据结构不要使用递归过程。<BR>
+    　 
+    <INPUT id=c1 name=1 type=checkbox value=C>
+    C.尽可能对程序代码进行优化。<BR>
+    　 
+    <INPUT id=c1 name=1 type=checkbox value=D>
+    D.不要修补不好的程序, 要重新写。<BR>
+    　 
+    <INPUT id=c1 name=1 type=checkbox value=E>
+    E.不要进行浮点数的相等比较。<BR>
+    　 
+    <INPUT id=c1 name=1 type=checkbox value=F>
+    F.应尽可能多地输出中间结果。<BR>
+    　 
+    <INPUT id=c1 name=1 type=checkbox value=G>
+    G.利用数据类型对数据值进行防范。<BR>
+    　 
+    <INPUT id=c1 name=1 type=checkbox value=H>
+    H.用计数方法而不是用文件结束符或输入序列结束符来判别输入的结束。<BR>
+    　 
+    <INPUT id=c1 name=1 type=checkbox value=I>
+    I.程序中的注释是可有可无的。<BR>
+    　 
+    <INPUT id=c1 name=1 type=checkbox value=J>
+    J.使用有意义的标识符。</span><BR>
+    <BR>
+    &nbsp; <span class="text">2.从下列叙述中选出5条关于软件测试的正确叙述。<BR>
+    　 
+    <INPUT id=c1 name=2 type=checkbox value=A>
+    A.为了使得软件容易测试, 应该使用高级的程序设计语言编制程序。<BR>
+    </span></FONT><span class="text"><FONT size=2>　 
+    <INPUT id=c1 name=2 type=checkbox value=B>
+    </font></span><FONT size=2><span class="text">B</span></font><span class="text"><FONT size=2>.</font></span><FONT size=2><span class="text">程序测试是一个程序的执行过程</span></font><span class="text"><FONT size=2>,</font></span><FONT size=2><span class="text"> 
+    目的是为了发现软件中隐藏的错误</span></font><span class="text"><FONT size=2>。&nbsp;<BR>
+    　 
+    <INPUT id=c1 name=2 type=checkbox value=C>
+    </font></span><FONT size=2><span class="text">C</span></font><span class="text"><FONT size=2>.</font></span><FONT size=2><span class="text">如果程序中连锁式连接了8个判定(IF)结构</span></font><span class="text"><FONT size=2>,</font></span><FONT size=2><span class="text"> 
+    则程序中总的路径数达28 </span></font><span class="text"><FONT size=2>。<BR>
+    　 
+    <INPUT id=c1 name=2 type=checkbox value=D>
+    </font></span><FONT size=2><span class="text">D</span></font><span class="text"><FONT size=2>.</font></span><FONT size=2><span class="text">白盒测试仅与程序的内部结构有关, 
+    完全可以不考虑程序的功能要求</span></font><span class="text"><FONT size=2>。<BR>
+    　 
+    <INPUT id=c1 name=2 type=checkbox value=E>
+    </font></span><FONT size=2><span class="text">E</span></font><span class="text"><FONT size=2>.</font></span><FONT size=2><span class="text">为了快速完成集成测试, 
+    采用一次性集成方式是适宜的</span></font><span class="text"><FONT size=2>。<BR>
+    　 
+    <INPUT id=c1 name=2 type=checkbox value=F>
+    </font></span><FONT size=2><span class="text">F</span></font><span class="text"><FONT size=2>.</font></span><FONT size=2><span class="text">对一批模块进行测试,发现错误多的模块中残留的错误将比其它的模块少</span></font><span class="text"><FONT size=2>。<BR>
+    　 
+    <INPUT id=c1 name=2 type=checkbox value=G>
+    G.</font></span><FONT size=2><span class="text">好的测试用例应能证明软件是正确的</span></font><span class="text"><FONT size=2>。<BR>
+    　 
+    <INPUT id=c1 name=2 type=checkbox value=H>
+    </font></span><FONT size=2><span class="text">H</span></font><span class="text"><FONT size=2>.</font></span><FONT size=2><span class="text">边界值分析方法是取输入／输出等价类的边界值做为测试用例</span></font><span class="text"><FONT size=2>。<BR>
+    　 
+    <INPUT id=c1 name=2 type=checkbox value=I>
+    </font></span><FONT size=2><span class="text">I</span></font><span class="text"><FONT size=2>.</font></span><FONT size=2><span class="text">等价类划分方法考虑了各等价类之间取值的组合情况下可能的结果</span></font><span class="text"><FONT size=2>。<BR>
+    　 
+    <INPUT id=c1 name=2 type=checkbox value=J>
+    </font></span><FONT size=2><span class="text">J</span></font><span class="text"><FONT size=2>.</font></span><FONT size=2><span class="text">判定覆盖法可能查不出在判定中逻辑运算符使用有误时产生的错误</span></font><span class="text"><FONT size=2>。<BR>
+    <BR>
+    &nbsp; </font></span><FONT size=2><span class="text">3</span></font><span class="text"><FONT size=2>.</font></span><FONT size=2><span class="text">从下列叙述中选出5条有利于软件可维护性的正确叙述</span></font><span class="text"><FONT size=2>。<BR>
+    � 
+    <INPUT id=c1 name=３ type=checkbox value=Ａ>
+    </font></span><FONT size=2><span class="text">A.在进行需求分析时需同时考虑如何实现可维护性问题</span></font><span class="text"><FONT size=2>。<BR>
+    � 
+    <INPUT id=c1 name=3 type=checkbox value=B>
+    </font></span><FONT size=2><span class="text">B.完成测试作业后，为了缩短源程序的长度应删去程序中的注解。</span></font><span class="text"><FONT size=2><BR>
+    � 
+    <INPUT id=c1 name=3 type=checkbox value=C>
+    </font></span><FONT size=2><span class="text">C.尽可能在软件生产过程中保证各阶段文档的正确性。</span></font><span class="text"><FONT size=2><BR>
+    � 
+    <INPUT id=c1 name=3 type=checkbox value=D>
+    </font></span><FONT size=2><span class="text">D.编程时应尽可能使用全局变量。<BR>
+    � 
+    <INPUT id=c1 name=3 type=checkbox value=E>
+    E.选择时间效率和空间效率尽可能高的算法。 <BR>
+    � 
+    <INPUT id=c1 name=3 type=checkbox value=F>
+    F.尽可能利用硬件的特点。<BR>
+    � 
+    <INPUT id=c1 name=3 type=checkbox value=G>
+    G.重视程序结构的设计，使程序具有较好的层次结构。<BR>
+    � 
+    <INPUT id=c1 name=3 type=checkbox value=H>
+    H.使用维护工具或支撑环境。<BR>
+    � 
+    <INPUT id=c1 name=3 type=checkbox value=I>
+    I.在进行概要设计时应加强模块间的联系。<BR>
+    � 
+    <INPUT id=c1 name=3 type=checkbox value=J>
+    J.提高程序的可读性，尽可能使用高级语言编写程序。<BR>
+    � 
+    <INPUT id=c1 name=3 type=checkbox value=K>
+    K.为了加快软件维护作业的进度，应尽可能增加维护人员的数目</span></font><span class="text"><FONT size=2>。</font></span><FONT size=2><SPAN class=text4><br>
+    <br>
+    <INPUT id=A type=reset value=清空>
+    <INPUT id=A onclick=getresultcheck(this.form) type=button value=提交>
+    <BR>
+    </SPAN><BR>
+    <BR>
+    <span class="section">二、填空题</span><span class="text"><BR>
+    <BR>
+    &nbsp; 1. 软件设计中划分程序模块通常遵循的原则是使各模块间的耦合尽可能 
+    <INPUT id=c1 maxLength=20 name=1 size=4 style="BORDER-BOTTOM-COLOR: #003399; BORDER-BOTTOM-WIDTH: 2px; BORDER-LEFT-COLOR: black; BORDER-LEFT-WIDTH: 0px; BORDER-RIGHT-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-COLOR: black; BORDER-TOP-WIDTH: 0px">
+    。三种可能的模块耦合是： 
+    <INPUT id=c1 maxLength=20 name=2 size=4 style="BORDER-BOTTOM-COLOR: #003399; BORDER-BOTTOM-WIDTH: 2px; BORDER-LEFT-COLOR: black; BORDER-LEFT-WIDTH: 0px; BORDER-RIGHT-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-COLOR: black; BORDER-TOP-WIDTH: 0px">
+    ，例如，一个模块直接引用另一个模块中的数据。 
+    <INPUT id=c1 maxLength=20 name=3 size=4 style="BORDER-BOTTOM-COLOR: #003399; BORDER-BOTTOM-WIDTH: 2px; BORDER-LEFT-COLOR: black; BORDER-LEFT-WIDTH: 0px; BORDER-RIGHT-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-COLOR: black; BORDER-TOP-WIDTH: 0px">
+    ，例如，一个模块把开关量作为参数传送给另一个模块。 
+    <INPUT id=c1 maxLength=10 name=4 size=4 style="BORDER-BOTTOM-COLOR: #003399; BORDER-BOTTOM-WIDTH: 2px; BORDER-LEFT-COLOR: black; BORDER-LEFT-WIDTH: 0px; BORDER-RIGHT-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-COLOR: black; BORDER-TOP-WIDTH: 0px">
+    ，例如，一个模块通过公共数据结构把数据传送给另一个模块。其中， 
+    <INPUT id=c1 maxLength=20 name=5 size=4 style="BORDER-BOTTOM-COLOR: #003399; BORDER-BOTTOM-WIDTH: 2px; BORDER-LEFT-COLOR: black; BORDER-LEFT-WIDTH: 0px; BORDER-RIGHT-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-COLOR: black; BORDER-TOP-WIDTH: 0px">
+    的耦合性最强。<BR>
+    <BR>
+    &nbsp; 2. 为高质量地开发软件项目，在软件结构设计时必须遵循 
+    <INPUT id=c1 maxLength=20 name=6 size=4 style="BORDER-BOTTOM-COLOR: #003399; BORDER-BOTTOM-WIDTH: 2px; BORDER-LEFT-COLOR: black; BORDER-LEFT-WIDTH: 0px; BORDER-RIGHT-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-COLOR: black; BORDER-TOP-WIDTH: 0px">
+    的原则， 
+    <INPUT id=c1 maxLength=20 name=7 size=4 style="BORDER-BOTTOM-COLOR: #003399; BORDER-BOTTOM-WIDTH: 2px; BORDER-LEFT-COLOR: black; BORDER-LEFT-WIDTH: 0px; BORDER-RIGHT-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-COLOR: black; BORDER-TOP-WIDTH: 0px">
+    建立软件系统的模块结构。并且应根据 
+    <INPUT id=c1 maxLength=20 name=8 size=4 style="BORDER-BOTTOM-COLOR: #003399; BORDER-BOTTOM-WIDTH: 2px; BORDER-LEFT-COLOR: black; BORDER-LEFT-WIDTH: 0px; BORDER-RIGHT-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-COLOR: black; BORDER-TOP-WIDTH: 0px">
+    评价系统模块划分的质量。此外在模块设计时,应从5种基本的 
+    <INPUT id=c1 maxLength=20 name=9 size=4 style="BORDER-BOTTOM-COLOR: #003399; BORDER-BOTTOM-WIDTH: 2px; BORDER-LEFT-COLOR: black; BORDER-LEFT-WIDTH: 0px; BORDER-RIGHT-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-COLOR: black; BORDER-TOP-WIDTH: 0px">
+    出发，利用它们组合成一个模块的程序块结构。 要求每个 
+    <INPUT id=c1 maxLength=20 name=10 size=4 style="BORDER-BOTTOM-COLOR: #003399; BORDER-BOTTOM-WIDTH: 2px; BORDER-LEFT-COLOR: black; BORDER-LEFT-WIDTH: 0px; BORDER-RIGHT-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-COLOR: black; BORDER-TOP-WIDTH: 0px">
+    的结构应是单入口和单出口。</span> <br>
+    <br>
+    <INPUT id=A type=reset value=清空>
+    <INPUT id=A onclick=getKeyWord(this.form) type=button value=提交>
+    <BR>
+    <BR>
+    <span class="section">三、简答题</span><BR>
+    <BR>
+    &nbsp; <span class="text">1. 下面是一段用赛德尔迭代法求解线性方程组的程序。其中A[n][n] 是方程组的系数矩阵, B[n]是方程组的右端项，X[n] 
+    是方程组的解向量。eps是控制迭代精度的较小实数。imax是控制迭代的最大次数。flag是标志，＝0，表示迭代不收敛；＝1，表示迭代收敛。</span><BR>
+    <SPAN class=text>��</SPAN><SPAN class=zhishidian>for </SPAN><SPAN class=text>( 
+    k = 1; k &lt;= n; k++ ) X[k] = 0.0;<BR>
+    ��X[n] = 1.0;<BR>
+    ��</SPAN><SPAN class=zhishidian>for</SPAN><SPAN class=text> ( i = 1; i &lt;= 
+    imax; i++ ) </SPAN><SPAN class=zhishidian>{</SPAN><SPAN class=text><BR>
+    ���flag = 1;<BR>
+    ���</SPAN><SPAN class=zhishidian>for</SPAN><SPAN class=text> ( j = 1; j &lt;= 
+    n; j++ ) </SPAN><SPAN class=zhishidian>{</SPAN><SPAN class=text><BR>
+    ����s = B[j];<BR>
+    ����for ( k = 1; k &lt;= n; k++ ) </SPAN><SPAN class=zhishidian>{</SPAN><SPAN class=text><BR>
+    �����</SPAN><SPAN class=zhishidian>if </SPAN><SPAN class=text>( j == k ) s 
+    = s + X[k];<BR>
+    �����s = s－A[j, k] * X[k];<BR>
+    ����</SPAN><SPAN class=zhishidian>}</SPAN><SPAN class=text><BR>
+    ����</SPAN><SPAN class=zhishidian>if </SPAN><SPAN class=text>( </SPAN><SPAN class=zhishidian>abs</SPAN><SPAN class=text>(X[j]－s) 
+    &gt; (abs(s) + 1.0) * eps ) flag = 0;<BR>
+    ����X[j] = s;<BR>
+    ���}<BR>
+    ���</SPAN><SPAN class=zhishidian>if </SPAN><SPAN class=text>( flag )</SPAN><SPAN class=zhishidian> 
+    break;</SPAN><SPAN class=text><BR>
+    ��</SPAN><SPAN class=zhishidian>}</SPAN><BR>
+    <span class="text">��(1) 试画出它的结构化的程序流程图。<BR>
+    ��(2) 将它改为N-S图。<BR>
+    ��(3) 计算它的McCabe环路复杂性。</span><br>
+    <TEXTAREA cols=40 id=c1 rows=10></TEXTAREA>
+    <BR>
+    <BR>
+    <br>
+    <span class="text">2. 下面是一趟插入排序的程序, 把R[i＋1]插入到R[1..i]的适当位置 <BR>
+    ��R[0] = R[i + 1]; j = i;<BR>
+    ��while ( R[j] &gt; R[0] ) <BR>
+    ���{ R[j + 1] = R[j]; j = j －1; }<BR>
+    ��R[j + 1] = R[0];<BR>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 用路径覆盖方法为它设计足够的测试用例(while循环次数为0次、1次、2次)。</span><br>
+    <TEXTAREA cols=40 id=c1 rows=10></TEXTAREA>
+    <BR>
+    <BR>
+    <br>
+    <span class="text">3. 阅读下列关于软件可靠性方面的叙述，回答问题1和问题2。<BR>
+    ��软件的可靠度可定义为：在假定输入和硬件不发生错误的前提下，对于给定的环境和给定的输入，在指定的时间内能完成规定任务的概率。<BR>
+    ��某软件中心的评测部为了评估已开发实现的应用软件ASP的可靠性，决定采用软件可靠性的错误播种模型来进行测试和评估。评测部在评估时，作了下列三个假设：<BR>
+    �(1) 在测试前，单位长度的故障个数ET / IT 为一常数，此常数基本上落在一个固定的范围内。其中IT 为被测程序的长度(即机器指令条数)，ET 
+    为被测程序中故障总数。<BR>
+    �(2) 失效率正比于软件中剩余的（潜伏的）故障数，平均无故障时间MTTF与单位长度的剩余故障个数成反比，即 MTTF = 1/(K*εr )。其中εr 
+    为单位长度剩余故障个数，K的典型值现取为200。<BR>
+    �(3) 测试中发现的错误都得到了及时改正，在测试过程中没有引入新的错误。评测部对ASP软件人为地植入了10个错误，即NS = 10，在开始测试的一小段时间内，发现了160个固有故障，即n 
+    = 160，又发现了植入的故障2个，即nS = 2，被测程序ASP的长度（机器指令条数）为105 。<br>
+    �</span></font><font size="2"><span class="text">问题1：用故障播种（植入）的数学模型，估算出被测程序ASP的固有故障的个数N的值。如果通过测试一段时间后，发现的固有错误个数为ED 
+    = 795时，请估算此程序的平均无故障时间MTTF值。</span></font><span class="text"><br>
+    �</span><font size="2"><span class="text">问题2：若要求把此MTTF再提高4倍，应至少再排除多少个固有错误? 
+    请简要地列出有关计算式。</span><br>
+    <TEXTAREA cols=40 id=c1 rows=10></TEXTAREA>
+    <br>
+    </font> <br>
+    <INPUT id=A type=reset value=清空>
+    <input type=button name=Button value=答案 onClick="MM_openBrWindow('jd1.htm','','width=471,height=384')">
+    <br>
+    <br>
+  </P>
+  </form>
+</BODY>
+</HTML>

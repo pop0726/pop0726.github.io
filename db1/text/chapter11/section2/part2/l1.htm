@@ -1,0 +1,49 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgproperties=fixed bgcolor="#FFFFFF" background="../../../../image/moban/15.gif">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" height="8">
+        <tr> 
+          <td class="text" height="25">1、树形协议<br>
+            ��在树形协议中，可用的加锁指令只有lock-X，而且每个事务T对一个数据项Q最多只能加一次锁，且要遵守以下规则：<br>
+            ��⑴�事务T的首次加锁可以对任何数据项进行；<br>
+            ��⑵�此后，事务T对数据项Q加锁的前提是事务T持有Q的父亲数据项上的锁；<br>
+            ��⑶�对数据项解锁可以随时进行；⑷数据项被事务T加锁并解锁之后，就不能再对该数据项加锁。<br>
+            2、调度举例<br>
+            ��假设事务T<font size="-5">1</font>要依次访问数据项D、B、G、E，而事务T<font size="-5">2</font>要依次访问数据项D、H。它们的一个可能的调度如<span class="part">图11-2-2</span>所示。<br>
+          </td>
+        </tr>
+        <tr>
+          <td class="text">
+            <div align="center" class="part">图11-2-2：满足树形协议的一个调度实例<br>
+              <img src="../../../../image/chapter/11/11-2-2.gif" width="376" height="439"> 
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="text">图中左边是相应的数据库图，右边才是满足树形协议的一个调度。<br>
+            <span class="part"><br>
+            3、树形协议的优缺点</span><br>
+            ��<u>树形协议的优点是：</u><br>
+            ��⑴�树形协议可以在较早的时候释放锁，较早解锁减少了事务的等待时间，增加了事务之间的并发度；<br>
+            ��⑵�树形协议不会产生死锁，毋需回滚事务；<br>
+            ��<u>树形协议的缺点是：</u><br>
+            ��有时事务必须给那些根本不需要访问的数据项加锁，例如，前面讨论的事务T1在访问数据项B之前，必须要有lock-X(A)指令。这种额外的封锁导致封锁开销增加以及额外的等待时间。<br>
+            <br>
+            <span class="part">4、小结</span><br>
+            ��⑴�可以证明树形协议保证调度是冲突可串行化的，而且不会产生死锁(不会产生死锁的主要原因在于该协议允许随时释放锁)；<br>
+            ��⑵�对于树形协议只要求大家了解树形协议的基本内容，能根据树形协议的规则完成对事务的加锁和解锁；<br>
+            ��⑶�对于一些复杂的证明，如树形协议不会产生死锁等，涉及到我们学过的《图论》和《数据结构》等课程的知识，在本课程中不要求。</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

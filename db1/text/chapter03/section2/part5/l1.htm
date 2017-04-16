@@ -1,0 +1,132 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgproperties=fixed bgcolor="#FFFFFF" background="../../../../image/moban/15.gif">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td class="text" align="left"> 
+            <p class="text"><span class="part">��1、属性命名机制</span><br>
+              ��一般采用的方法是在属性名称前附加上该属性所来自的关系名称，中间用小数点分隔。例如，r = borrower×loan的关系模式为： 
+              <br>
+              ��R = (borrower. Customer-name, borrower.loan-number, loan.branch-name, 
+              loan.loan-number, loan.amount)<br>
+              ��用这种方法可以区别属性borrower.loan-number和属性loan.loan-number。对那些只在两个关系模式之一中出现的属性，通常省略其关系名前缀，这样的简化不会导致任何歧异。这样上述关系模式就简化为：<br>
+              ��R=(customer-name, borrower.loan-number, branch-name, loan.loan-number, 
+              amount)</p>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left"> 
+            <div align="left">��这种命名机制的一个缺陷就是要求参加笛卡尔积运算的关系名称必须不同。而当某个关系需要与自身做笛卡尔积时，这种命名机制就无能为力。</div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="part" align="left">��2、笛卡尔积的元组<br>
+            <span class="text">��假设关系borrower中有n1个元组，关系loan中有n2个元组，那么可以有n1×n2中方式构成：</span></td>
+        </tr>
+        <tr> 
+          <td class="text" align="left"> 
+            <div align="center">r = borrowerｘloan</div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left">中的元组。也就是说borrower中的每个元组都要与loan中的所有元组进行配对，这样就构成了r中的全部元组。因此，r中应该有n1×n2个元组。特别要注意的是对于r中的某些元组t来说，可能会有：<br>
+            ��t[borrower.loan-number]≠t[loan.loan-number]<br>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left"> 
+            <div align="center"><span class="part">图3-2-5：borrowerxloan的部分结果 </span><br>
+              <img src="../../../../image/chapter/03/3-2-5.gif" width="420" height="260"> 
+            </div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left">&nbsp;</td>
+        </tr>
+        <tr> 
+          <td class="text" align="left"> 
+            <div align="center"><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="400" height="400">
+                <param name=movie value="../../../../swf/F3_6.swf">
+                <param name=quality value=high>
+                <param name="wmode" value="transparent">
+                <embed src="../../../../swf/F3_6.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="32" height="32" wmode="transparent">
+                </embed> 
+              </object></div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left">��<span class="part">3、笛卡尔积的形式化定义<br>
+            ��</span>一般地，如果有关系<font size="+1"><i>r</i></font><font size="-5">1</font>(<i>R</i><font size="-5">1</font>)和<font size="+1"><i>r</i></font><font size="-5">2</font>(<i>R</i><font size="-5">2</font>)，则关系<font size="+1"><i>r</i></font><font size="-5">1</font>×<font size="+1"><i>r</i></font><font size="-5">2</font>的模式是R<font size="-5">1</font>和R<font size="-5">2</font>串接而成的R。关系r(R)中包含所有满足下列条件的元组t：若<font size="+1"><i>t</i></font><font size="-5">1</font>∈<font size="+1"><i>r</i></font><font size="-5">1</font>，<font size="+1"><i>t</i></font><font size="-5">2</font>∈<font size="+1"><i>r</i></font><font size="-5">2</font>，则t由<font size="+1"><i>t</i></font><font size="-5">1</font>和<font size="+1"><i>t</i></font><font size="-5">2</font>拼接而成，且t[<i>R</i><font size="-5">1</font>]=<font size="+1"><i>t</i></font><font size="-5">1</font>[<i>R</i><font size="-5">1</font>]，t[<i>R</i><font size="-5">2</font>]=<i><font size="+1">t</font></i><font size="-5">2</font>[<i>R</i><font size="-5">2</font>]。<br>
+            ��<span class="part">4、举例<br>
+            ��</span>假设要找出所有在Perryridge分支机构中有贷款的客户姓名，可以一步一步地分解如下：<br>
+            ��<b>①</b>�为实现这一要求，同时需要关系borrower和关系loan，这需要通过笛卡尔积将有关贷款关系的customer-name和branch-name连接起来：</td>
+        </tr>
+        <tr> 
+          <td class="text" align="left"> 
+            <div align="center"><img src="../../../../image/chapter/03/3_2j.gif" width="314" height="18"></div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left">假设关系borrower和关系loan中的元组如下<br>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left"> 
+            <div align="center"><span class="part">图3-2-6：关系borrower和关系loan </span><br>
+              <img src="../../../../image/chapter/03/3-2-6(1).gif" width="391" height="264"><br>
+              <img src="../../../../image/chapter/03/3-2-6(2).gif" width="417" height="262"> 
+            </div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left">那么，上述关系代数表达式的计算结果如<span class="part">图3-2-7</span>所示，表中所有的元组都与Perryridge分支机构有关：<br>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left"> 
+            <div align="center" class="part">图3-2-7：在笛卡尔积的结果上进行选择运算的结果 <br>
+              <img src="../../../../image/chapter/03/3-2-7.gif" width="420" height="251"> 
+            </div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left">��<b>②</b>�如果客户在Perryridge分支机构中有贷款，那么在borrower<font size="2">×</font>loan中必定存在某个元组，这个元组具有如下性质：<br>
+            ��borrower.loan-number = loan.loan-number<br>
+            因此，需要在①的结果<span class="part">（参见图3-2-7）</span>的基础上继续进行选择运算： </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left">
+            <div align="center"><img src="../../../../image/chapter/03/3_2k.gif" width="336" height="46"></div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left">��③最后，由于我们只需要列出客户姓名，因此再对②的结果进行投影运算即可：</td>
+        </tr>
+        <tr> 
+          <td class="text" align="left">
+            <div align="center"><img src="../../../../image/chapter/03/3_2m.gif" width="358" height="54"></div>
+          </td>
+        </tr>
+        <tr>
+          <td class="text" align="left">
+            <div align="center"><span class="part">图3-2-8：最终结果</span><br>
+              <img src="../../../../image/chapter/03/3-2-8.gif" width="191" height="108"> 
+            </div>
+          </td>
+        </tr>
+        <tr>
+         
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

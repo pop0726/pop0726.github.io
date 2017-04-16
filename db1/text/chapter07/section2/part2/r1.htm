@@ -1,0 +1,35 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" bgproperties=fixed background="../../../../image/moban/14.gif">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td><span class="zhishidian">7.2.2　变长记录</span> 
+            <p class="text">��变长记录是由以下因素引起的，第一，多种记录类型在一个文件中存储；第二，记录类型允许一个或多个字段是变长的；第三，记录类型允许有可重复的字段，举例如下：<br>
+              type account-list = record <br>
+              ���branch-name: char(22); <br>
+              ���account-info: array[1..∞] of <br>
+              ����record account-number: char(10); <br>
+              ��������balance: real; end end<br>
+              变长记录在文件中的存储方法有以下几种：<br>
+              <span class="part">��1、字节流表示法<br>
+              ��2、分槽的页结构<br>
+              ��3、定长表示法<br>
+              ��</span></p>
+          </td>
+        </tr>
+      </table>
+      <div align="center"></div>
+    </td>
+  </tr>
+</table>
+<p class="explaination">&nbsp;</p>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" --><span class="biaoti_1">1、 事务故障</span><br>
+      ��事务故障是指一个事务因自身流产不能执行完。流产的原因有二: 一种是由用户干预进行流产；另一种是需要解决死锁要rolledback。这类故障的最大特点是有完整的主存和外存，并且是单事务效应。<br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+        <tr> 
+          <td width="35" valign="top"><img src="../../../img/text/liti.gif" width="35" height="36" alt="例题"></td>
+          <td>�例如：银行转帐事务，把一笔金额从帐户A转移到帐户B，如果帐户A的存款不够转帐的金额，该事务就必须撤消。<br>
+            ��BEGIN TRANSACTION<br>
+            �����SELECT BALANCE FROM ACCOUNTS<br>
+            �����WHERE ACCOUNT_NO = A <br>
+            �����BALANCE_A = BALANCE <span class="explaination">(读取帐户A的余额BALANCE_A)</span><br>
+            ����BALANCE_A = BALANCE_A - AMOUNT；<span class="explaination">(AMOUNT为转帐金额)</span><br>
+            ����IF ( BALANCE_A&lt;0 ) THEN<br>
+            ����<span class="explaination">{ 打印'金额不足，不能转帐'</span>；<br>
+            �����ROLLBACK；<span class="explaination">（撤销该事务）}</span><br>
+            ����ELSE<br>
+            ����{ UPDATE ACCOUNTS<br>
+            ����SET BALANCE = BALANCE_A<br>
+            ����WHERE ACCOUNT_NO = A； <span class="explaination">(写回BALANCE_A)</span><br>
+            ����SELECT BALANCE FROM ACCOUNT<br>
+            ����WHERE ACCOUNT_NO = B<br>
+            ����BALANCE_B = BALANCE； <span class="explaination">（读帐户B的余额 BALANCE_B；）</span><br>
+            ����BALANCE_B = BALANCE_B + AMOUNT；<span class="explaination">资金转到帐户B</span><br>
+            ����UPDATE ACCOUNTS<br>
+            ����SET BALANCE = BALANCE_B<br>
+            ����WHERE ACCOUNT_NO = B； <span class="explaination">写回BALANCE_B</span><br>
+            ��COMMIT TRANSACTION；<span class="explaination">（提交事务）}</span></td>
+        </tr>
+      </table>
+      <br>
+      ��上面的例子包括的两个更新操作要么全部完成要么全都不做。否则会使数据库处于不一致的状态。在程序中如果产生帐户A中金额不足以转帐的情况，应用程序可以发现并让事务回滚，撤销作出的修改。<br>
+      ��<span class="explaination">事务内部大部分的故障是非预期的，是不能由应用程序处理的。如运算溢出，并发事务发生死锁而被选中撤销事务，违法了某些完整性限制等。事务的故障意味着事务没有到达预期的终点(COMMIT或者显式的ROLLBACK)，因此，数据库可能处于不正确状态。恢复程序要在不影响其它事务运行的情况下，强行回滚（ROLLBACK）该事务，即撤销该事务已经做出的任何对数据库的修改。这类恢复操作被称为事务撤销。 
+      </span> 
+      <p><span class="biaoti_1">2、 系统故障</span><br>
+        ��系统故障指硬件、操作系统或DBMS突然进到一种停机状态，系统不能从这种状态再继续执行。因此，所有正在执行中的事务都自动流产。在这种情况下，主存的某些内容或全部内容会丢失，但外存仍是完好无损的，而且要影响到任意数目的事务。<br>
+        ��<span class="explaination">系统故障是指造成系统停止运转的任何事件，使得系统要重新启动。一般情况下是由于特定的硬件错误（如CPU故障）、操作系统故障、DBMS代码错误等。这类故障影响正在运行的事务，但不破坏数据库。这时主存内容，特别是数据库缓冲区中的内容全部丢失，所有运行的事务都会非正常终止。发生系统故障的时候，一些未完成的事务可能送入了物理数据库，造成数据库处于不正确的状态。为保证数据一致，需要清除这些事务对数据库的所有修改。<br>
+        ��恢复系统必须在系统重新启动的时候让所有非正常终止的事务回滚，强行撤销所有未完成的事务。<br>
+        ��另一方面，发生系统故障的时候，有些完成的事务可能有一部分甚至全部留在缓冲区，尚未写到磁盘的物理数据库中，系统故障使这些事务对数据库的修改全部丢失，也会使数据库处于不一致的状态，因此要将这些事务已经提交的结果重新写入数据库。在系统重新启动之后，恢复系统要重作所有提交的事务，将数据库恢复到一致的状态。</span><br>
+        <br>
+        <span class="biaoti_1">3、 存储介质故障</span><br>
+        ��存储介质故障是指由于猛烈地碰撞使存储设备发生故障，如磁盘的读写头破坏；或者是环境故障，如高温或化学反映等破坏，都会损坏存储介质并丢失信息。这种情况丢失的是永久性信息，主存完好无事。<br>
+        ��<span class="explaination">介质故障和系统故障其区别在于一个是硬故障，一个是软故障。存储介质故障指外存由于磁盘损坏，读写头破坏，或者环境影响，破坏了物理数据库，并且影响了正在存取这部分数据的所有事务。这种故障发生的概率最小，但危害最大。</span>
+      <!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

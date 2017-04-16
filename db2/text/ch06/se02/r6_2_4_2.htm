@@ -1,0 +1,84 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" --> 　<span class="biaoti_1">3. 执行SQL语句</span>　<br>
+      　　ODBC应用程序的最终目的是通过ODBC API函数执行SQL语句，完成各种数据库操作。前面介绍的内容都是为执行SQL语句做准备。图6-20是ODBC执行SQL语句的简单流程。<br>
+      <br>
+      　　<span class="tubiaoti">图6-20</span><br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td align="center"><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="400" height="460">
+              <param name=movie value="../../../swf/ch6/6-19.swf">
+              <param name=quality value=high>
+              <param name="wmode" value="transparent">
+              <embed src="../../../swf/ch6/6-19.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="400" height="460" wmode="transparent">
+              </embed> 
+            </object></td>
+        </tr>
+      </table>
+      <br>
+      　　ODBC应用程序设计的核心内容之一是执行SQL语句。内容包括申请和释放语句句柄、SQL语句的执行方式及参数传递、选择SQL语句执行方式（同步执行和异步执行）执行SQL语句，以及事务管理等。ODBC应用程序通过执行SQL语句实现各种数据库操作，完成用户指定的程序功能。有关SQL语句的执行方式有两种：<br>
+      　(1) 直接执行：调用ODBC的SQLExecDriect()函数<br>
+      如果以下两方面都成立，用直接执行方式提交SQL语句：<br>
+      　・ 该SQL语句只执行一次； <br>
+      　・ 应用在执行前不需要结果集的信息。<br>
+      　　采用立即执行方式执行一条SQL语句比较简单，实现过程也很直观。首先将要执行的SQL语句文本传递给SQLExecDirect函数，SQL语句经驱动程序分析后立即提交给数据源执行。<br>
+      　　<font color="#5a5aad">SQLExecDirect函数的格式是：<br>
+      　　SQLExecDirect(HSTMT hstmt,UCHAR FAR * szSqlstr, SCWORD cbSqlstr)<br>
+      　　其中：<br>
+      　・ Hstmt为语句句柄。<br>
+      　・ SzSqlStr为SQL语句文本缓冲区;<br>
+      　・ cbSqlStr参数说明SQL语句文本的长度。使用C或C++编程时，可将它设置为SQL＿NTS。<br>
+      　　语句成功执行后，SQLExecDirect函数返回SQL＿SUCCESS。<br>
+      　　例如，下面代码通过SQLExecDirect函数立即执行一个数据库查询语句：<br>
+      　　rc=SQLExecDirect(hstmt,'SELECT*FROM authors', SQL_NTS);</font><br>
+      　(2) 准备执行：应用程序执行一条SQL语句需要两步实现先调用ODBC的SQLPrepare()函数准备SQL语句，再调用ODBC的SQLExecute()函数执行准备好SQL语句。<br>
+      　　如果以下两条件之一成立，用准备执行方式提交SQL语句：<br>
+      　* 该SQL语句要执行多次； <br>
+      　* 应用在执行前需了解结果集的信息<br>
+      　　在准备过程中，驱动程序将SQL语句转换为数据源本地SQL格式（有些驱动程序还对SQL语句进行句法分析）之后将它提交给数据源，数据源再对SQL语句进行编译，设计访问计划，最后将访问计划描述符返回给驱动程序。<br>
+      　　与立即执行相比，SQLExecute函数执行一个准备好的SQL语句的速度要快于前者，因为它省去了驱动程序和数据源对SQL语句的处理时间。应用程序究竟采用哪种方式执行SQL语句，主要考虑该语句是否要多次执行。<br>
+      　　<font color="#5a5aad">SQLPrepare 函数的格式是:<br>
+      　　RETCODE SQLPrepare(HSTMT hstmt,UCHAR FAR * szSqlstr, SCWORD cbSqlstr)<br>
+      　　其中：<br>
+      　・ Hstmt为语句句柄。<br>
+      　・ SzSqlStr为SQL语句文本缓冲区;<br>
+      　・ cbSqlStr参数说明SQL语句文本的长度。<br>
+      　　准备好的SQL语句通过SQLExecute函数执行，SQLExecute函数的格式比较简单，它只需一个准备语句使用的语句句柄，即：<br>
+      　　RETCODE SQLExecute(HSTMT hstmt)<br>
+      　　SQLPrepare函数准备好的SQL语句可以被SQLExecute函数多次执行。在每次执行时，可使用不同的语句参数。但是，当调用SQLExecute函数再次执行一个SELECT语句时，应用程序必须先使用SQL＿CLOSE参数调用SQLFreeStmt函数，关闭与该语句句柄相关联的游标，废除它正在处理的结果集合，然后再执行SELECT语句，生成新的结果集合。</font><br>
+      　　与立即执行相比，SQLExecute函数执行一个准备好的SQL语句的速度要快于前者，因为它省去了驱动程序和数据源对SQL语句的处理时间。应用程序究竟采用哪种方式执行SQL语句，主要考虑该语句是否要多次执行。<br>
+      　　<font color="#5a5aad">说明：<br>
+      　・ 异构数据库访问和ODBC技术，对开发人员和用户的好处是十分明显的。但是，用ODBC技术进行异构数据库访问还有一些不足：<br>
+      　・ 每个DBMS都提供自己的ODBC接口，自己的数据类型、单独的SQL版本和功能。许多接口不符合标准，使得相同的代码访问不同的数据库时，结果会出现不一致；<br>
+      　・ 使用ODBC接口应用程序的效率会降低。</font><br>
+      <!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

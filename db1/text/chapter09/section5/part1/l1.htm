@@ -1,0 +1,38 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgproperties=fixed bgcolor="#FFFFFF" background="../../../../image/moban/15.gif">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" height="8">
+        <tr> 
+          <td class="text" align="center"> 
+            <div align="left">��<u>实体化计算方法</u>是以适当的顺序每次执行表达式里的一个运算，每次计算的结果都被保存（实体化）到一个临时关系中以备后面的运算使用。如：<br>
+              ��<font size="2">Π</font><font size="-5">customer-name</font>(<font size="3">σ</font><font size="-5">balance&lt;2500</font>(<font size="2"><i>account</i></font>)��<i><font size="2">customer</font></i>)<br>
+              用关系代数表达式树表示实体化计算的过程如<span class="part">图9-5-1</span>所示：<br>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="text" align="center">
+            <div align="center" class="part">图9-5-1：实体化计算方法示意<br>
+              <img src="../../../../image/chapter/09/9-5-1.gif" width="281" height="154"> 
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="text" align="center">
+            <div align="left">说明：如<span class="part">图9-5-1</span>所示，关系account上的选择运算产生一个实体化的临时关系R①；临时关系R①与关系customer的自然连接运算产生一个实体化的临时关系R②；最后在临时关系R②上做投影运算产生实体化的临时关系R③。<br>
+              ��实体化计算方法的缺点是需要构造临时关系，这些临时关系除非很小(可以放在内存里)，否则必须写到磁盘上。因此实体化计算方法的代价不仅仅是表达式中那些所涉及的运算的代价总和，还应该加上把中间结果写回磁盘的代价(在估计单个关系运算的代价时，我们忽略了将运算结果写到磁盘上的代价。但对由多个关系运算构成的表达式来说，就不能简单地忽略掉回写磁盘的代价)。</div>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

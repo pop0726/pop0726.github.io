@@ -1,0 +1,37 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body text="#000000" bgproperties=fixed background="../../../../image/moban/15.gif">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td class="text" align="left"> 
+            <p>��也可能存在这样的调度，它们产生的结果相同，但却不是冲突等价的。考虑两个调度S和S'，其中参与两个调度的事务集是相同的。若调度S和S'满足下面三个条件，则称S和S'是<u>视图等价</u>的。<br>
+              ��⑴�对于每个数据项Q，若事务T<font size="-5">i</font>在调度S中读取了Q的初始值，那么T<font size="-5">i</font>在调度S'中也必须读取Q的初始值；<br>
+              ��⑵�对于每个数据项Q，若事务T<font size="-5">i</font>在调度S中执行了read(Q)并且读取的值是由Tj产生的(write(Q))，则T<font size="-5">i</font>在调度S'中读取的值也必须是由T<font size="-5">j</font>产生的(write(Q))；<br>
+              ��⑶�对于每个数据项Q，若在调度S中有事务执行了最后的写操作write(Q)，则在调度S'中该事务也必须执行最后的写操作write(Q)。<br>
+              ��在视图等价的三个条件中，前两个条件保证了两个调度中的每个事务都读取了相同的值，从而才能进行相同的计算。第三个条件和前两个条件一起保证了两个调度能够得到相同的最终结果。<br>
+              ��视图等价的概念引出了视图可串行化的概念。如果某个调度视图等价于一个串行调度，则说这个调度是视图可串行化的。如<span class="part">图10-5-11</span>所示，调度8就视图等价于串行调度&lt;T<font size="-5">3</font>,T<font size="-5">4</font>,T<font size="-5">5</font>&gt;，因此它是视图可串行化的。<br>
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td class="text" align="left">
+            <div align="center" class="part">图10-5-11：调度8<br>
+              <img src="../../../../image/chapter/10/10-5-11.gif" width="420" height="207"> 
+            </div>
+          </td>
+        </tr>
+        <tr>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

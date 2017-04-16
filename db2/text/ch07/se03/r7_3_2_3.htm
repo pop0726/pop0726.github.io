@@ -1,0 +1,84 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" --><span class="biaoti_1">　5. 死锁</span><br>
+      <br>
+      ��两个并发执行的事务可能发生死锁。当每个事务都企图对另一事务已加锁的数据单元再行加锁时，就可能发生死锁。<br>
+    
+　　一个事务如果申请锁而未获准，则需等待其他事务释放锁，这就形成了事务间的等待关系。当事务之间出现循环等待时，如果不加干预则会一直等待下去，即出现死锁。因此，死锁发生时，至少有两个或多个事务同时处于相互等待状态，即每个事务都在等待其他事务释放锁才能继续执行。图7-14是两个事务相互等待出现死锁的情况。<br>
+      　　<span class="tubiaoti">图7-14 两个事务出现死锁</span><br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td> 
+            <div align="center" class="pt9-black"><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="400" height="300">
+                <param name=movie value="../../../swf/ch7/10.swf">
+                <param name=quality value=high>
+                <param name="wmode" value="transparent">
+                <embed src="../../../swf/ch7/10.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="400" height="300" wmode="transparent">
+                </embed> 
+              </object> </div>
+          </td>
+        </tr>
+      </table>
+      <br>
+      ��在多个并发的事务之间出现死锁现象是可能的，下面的条件是发生死锁的充分必要条件：<br>
+      ��<span class="biaoti_2">① 互斥条件：</span>事务请求对资源的独占控制。<br>
+      ��<span class="biaoti_2">② 等待条件：</span>事务已持有一定资源，又去申请并等待其它资源。<br>
+      ��<span class="biaoti_2">③ 非抢占条件：</span>直到资源被持有它的事务释放之前，不可能将该资源强制从持有它的事务夺去。<br>
+      ��<span class="biaoti_2">④ 循环等待条件：</span>存在事务相互等待的等待圈。<br>
+      ��图7-15是三个事务相互等待的示例。<br>
+      <br>
+      　　<span class="tubiaoti">图7-15</span><br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" height="264">
+        <tr> 
+          <td> 
+            <div align="center" class="pt9-black"><img src="../../../img/text/ch07/14.gif" width="408" height="99"><br>
+              <img src="../../../img/text/ch07/15.gif" width="394" height="150"> 
+            </div>
+          </td>
+        </tr>
+      </table>
+      <p class="explaination"><span class="pt9-black">��发生死锁以后，DBMS必须采取措施解决死锁。解决死锁一般采用两种方法：预防死锁，以及检测与解除死锁。<br>
+        ��(1) 预防死锁预防死锁的方法较多，主要可以采用如下两种预防死锁的方法：<br>
+        ��●　一次封锁法：一次封锁法要求每个事务必须一次将所有要使用的数据全部加锁，否则就不能继续执行。<br>
+        ��●　顺序封锁法：顺序封锁法是预先对数据对象规定一个封锁顺序，所有事务都按这个顺序实现封锁。<br>
+        ��(2) 死锁的检测与解除如果允许数据库中出现死锁，应尽可能及时发现和处理，死锁的检测一般使用超时法或等待图法。<br>
+        ��●　超时法：如果一个事务的等待时间超过了规定的时限，则认为发生了死锁。<br>
+        ��●　等待图法：事务等待图是一个有向图G=(T, U)，T为结点的集合，每个结点表示正在运行的事务；U为边的集合，每条边表示事务等待的情况。若事务T1等待事务T2，则T1，T2之间有一条有向边，从 
+        T1 指向 T2。如果发现图中存在回路，则表示系统中出现了死锁。<br>
+        ��发现死锁后，靠事务本身无法打破死锁，必须由DBMS干预。DBMS对死锁一般作下列处理：<br>
+        ��●　在循环等待的事务中，选一个事务，将该事务撤销，释放其获得的锁及其它资源；<br>
+        ��●　将释放的资源分配给等待该事务的其它事务。<br>
+        </span><br>
+        ��综上所述有两种类型的访问同步: 一种是乐观派，假定访问冲突很难发生，事务可在不需要任何加锁的情况下访问所需要的对象，这只适合单用户单进程的操作。另一种就是由DBMS记录所有的访问，一旦在事务执行期间发生访问冲突，就UNDO 
+        该事务。这后一种方法在具体实现中有许多具体的实现策略。</p>
+      <!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

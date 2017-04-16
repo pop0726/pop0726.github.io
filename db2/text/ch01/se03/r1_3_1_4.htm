@@ -1,0 +1,63 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" --> 　　(5)多线程体系结构 <br>
+      　　SQL Server支持多线程，它有一个工作线程池，有1024个线程，响应用户的连接请求，使每个连接对应一个线程。理论上最多可以连接1024个用户，实际上由于SQL 
+      Server动态分配可用线程，用户连接的数目可超出线程总数。<br>
+      　　在多用户并发访问时，系统在产生较小开销情况下进行并发处理，减少内存需求，提高系统的吞吐量。用户数量增加时，系统运行速度没有明显改变。<br>
+      <br>
+      <span class="biaoti_1">　2 SQL Server的主要服务</span><br>
+      　　SQL Server提供的主要服务在图1-16中可以看到，主要是三部分：<br>
+      　　① MSSQL Server Service服务：是RDBMS。处理SQL语句，管理服务器上的数据文件。<br>
+      　　<font color="#5a5aad">它是 SQL Server中的核心组件。它管理了 SQL Server 2000系统拥有的所有文件，它是 
+      SQL Server2000中可以直接读取和修改数据的组件。客户对数据库所有服务的请求，都会体现为一组 Transact-SQL命令， Server-Service的功能是负责协调和安排这些服务请求的执行顺序，然后逐一解释执行。并向客户端返回执行结果。</font><br>
+      　　② SQL Server Agent服务：在Windows NT系统里以服务的形式存在和运行。提供SQL Server 的调度服务，创建和管理本地的和多服务器的作业等。 
+      <br>
+      　　<font color="#5a5aad">通过配置使用 Server Agent，可实现数据库系统的定时与自动管理，例如当数据库出现故障，它可以自动执行一系列操作进行处理。它必须和 
+      SQL Server一起使用。</font><br>
+      　　③ 分布式事务协调器MS DTC服务：MS DTC(Microsoft Distributed Transaction Coordinator)，是Microsoft事务服务器的一个组件，协调分布式事务的正常执行。<br>
+      　　<font color="#5a5aad">分布式事务协调器MS DTC负责控制一个完整的事务在所有服务器上或者完成或者撤消，从而保证了数据的一致性和完整性。 
+      </font><br>
+      <br>
+      　　<span class="tubiaoti">图1-16 SQL Server提供的主要服务</span><br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td align="center"><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="400" height="300">
+              <param name=movie value="../../../swf/ch1/1-15.swf">
+              <param name=quality value=high>
+              <param name="wmode" value="transparent">
+              <embed src="../../../swf/ch1/1-15.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="400" height="300" wmode="transparent">
+              </embed> 
+            </object></td>
+        </tr>
+      </table>
+      <!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

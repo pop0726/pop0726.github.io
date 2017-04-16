@@ -1,0 +1,48 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgproperties=fixed bgcolor="#FFFFFF" background="../../../../image/moban/15.gif">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" height="493">
+        <tr> 
+          <td class="text" align="left" height="51">  
+            �调度就是指多个事务中所有指令的执行序列。一组事务的一个调度必须保证：<br>
+            ��<span class="part">-�包含这组事务的全部指令；<br>
+            ��-�必须保持各条指令在各自事务中出现的顺序。</span><br>
+            调度的目的就是用于确定那些可以保证数据库一致性的所有事务的全部指令的执行序列！调度分为两种：分别是<span class="part">串行调度</span>和<span class="part">并发调度</span>。<br>
+            ��<span class="part">1、串行调度</span><br>
+            ��串行调度由来自各个事务的指令序列组成，其中属于同一事务的指令在调度中紧挨在一起。对于有n个事务的事务组，共有n!个可能的串行调度方案。如<span class="part">图10-4-1</span>所示，调度1就是一个串行调度。<br>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left"> 
+            <div align="center"><span class="part">图10-4-1：串行调度1</span><br>
+              <img src="../../../../image/chapter/10/10-4-1.gif" width="211" height="402"> 
+            </div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left"><span class="part">2、并发调度</span><br>
+            ��如<span class="part">图10-4-2</span>所示，调度2就是一个并发调度。并发调度由来自各个事务的全部指令组成，虽然属于不同事务的指令在调度中交叉在一起，但仍然保持在各自事务中的先后顺序。</td>
+        </tr>
+        <tr> 
+          <td class="text" align="left">
+            <div align="center" class="part">图10-4-2：并发调度2<br>
+              <img src="../../../../image/chapter/10/10-4-2.gif" width="216" height="396"> 
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="text" align="left"> 在系统中，并发调度是如何执行的呢？首先操作系统选择一个事务执行一段时间，然后切换上下文，执行别的事务一段时间，接着又切换回去，如此反复下去即可完成事务的并发执行。</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

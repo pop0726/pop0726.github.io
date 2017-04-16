@@ -1,0 +1,52 @@
+<html>
+<head>
+<title>l3_3</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td class="text" width="4%"><br>
+            <img src="../../../../images/tubiao/cxd.gif" width="25" height="20" alt="程序段"></td>
+          <td class="text" width="96%">&nbsp;</td>
+        </tr>
+        <tr> 
+          <td class="text" width="4%">&nbsp;</td>
+          <td class="text" width="96%"> F<font size="1">0 </font>= F(a)；F<font size="1">1</font> 
+            = F(b)；<br>
+            <span class="part">if</span> ( F<font size="1">0</font>*F<font size="1">1</font> 
+            &lt;= 0 ) {<br>
+            �X<font size="1">0</font> = a； X<font size="1">1</font> = b； i = 1； 
+            finished = 0；<br>
+            �<span class="part">while</span> ( i &lt;= n &amp;&amp; finished == 
+            0 ) {<br>
+            ��Xm = (X<font size="1">0</font>＋X<font size="1">1</font>)/2；<br>
+            ��Fm = F(Xm)；<br>
+            ��<span class="part">if</span> ( abs(Fm) &lt; eps || abs(X<font size="1">1</font>－X<font size="1">0</font>) 
+            &lt; eps ) finished = 1；<br>
+            ��<span class="part">if</span> ( finished == 0 )<br>
+            ��<span class="part">if</span> ( F<font size="1">0</font>*Fm &gt; 
+            0 ) { X<font size="1">0</font> = Xm；F<font size="1">0</font> = Fm；}<br>
+            ��<span class="part">else</span> X<font size="1">1</font> = X；<br>
+            �}<br>
+            }<br>
+            ��</td>
+        </tr>
+        <tr>
+          <td class="text" width="4%">&nbsp;</td>
+          <td class="text" width="96%">��此程序段中各种结构均为单入口与单出口，且没有GOTO语句，可以说它是一个结构化的程序。它的结构很简单，只有一重循环，但由于引入一个布尔变量来控制循环结束，可读性比<span class="part">〖程序段1〗</span>与<span class="part">〖程序段2〗</span>要差。在只有一重循环的情形，差的程度还不很明显，在多重循环的情形，引入多个布尔变量，可读性就很差了。理解程序的时间差几倍到几十倍不止。<br>
+            <br>
+            ��对于单入口多出口的循环，R.S.Pressman明确说明，用GOTO语句可得到较好的清晰性。<br>
+            ��</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

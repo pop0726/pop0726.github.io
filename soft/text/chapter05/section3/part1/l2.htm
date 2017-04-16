@@ -1,0 +1,42 @@
+<html>
+<head>
+<title>l1</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center" height="8">
+        <tr> 
+          <td class="text"> 
+            <p><br>
+              ��模块并不是一个独立的程序，在考虑测试模块时，同时要考虑它和外界的联系，用一些辅助模块去模拟与被测模块相联系的其它模块。这些辅助模块分为两种：<br>
+              ��<span class="part">・驱动模块：</span>相当于被测模块的主程序。它接收测试数据，把这些数据传送给被测模块，最后输出实测结果。<br>
+              ��<span class="part">・桩模块：</span>用以代替被测模块调用的子模块。桩模块可以做少量的数据操作，不需要把子模块所有功能都带进来，但不允许什么事情也不做。<br>
+              ��被测模块、与它相关的驱动模块及桩模块共同构成了一个&quot;测试环境&quot;，见<span class="part">图5.5</span>。驱动模块和桩模块的编写会给测试带来额外开销。因为它们在软件交付时不做为产品的一部分一同交付，而且它们的编写需要一定的工作量。特别是桩模块，不能只简单地给出&quot;曾经进入&quot;的信息。为了能够正确地测试软件，桩模块可能需要模拟实际子模块的功能。<br>
+              　　<br>
+              <img src="../../../../images/tubiao/ts.gif" width="25" height="16" alt="图示"> 
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td class="text">
+            <div align="center"><img src="../../../../images/images/chapter05/5_5.gif" width="302" height="145"><br>
+              <span class="part">图5.5 单元测试的测试环境</span> <br>
+              　　</div>
+          </td>
+        </tr>
+        <tr>
+          <td class="text"> ��模块的内聚程度高，可以简化单元测试过程。如果每一个模块只完成一种功能，则需要的测试用例数目将明显减少，模块中的错误也容易预测和发现。<br>
+            ��如果一个模块要完成多种功能，且以程序包或对象类的形式出现，例如Ada中的包，MODULA中的模块，C++中的类。这时可以将这个模块看成由几个小程序组成。对其中的每个小程序先进行单元测试要做的工作，对关键模块还要做性能测试。对支持某些标准规程的程序，更要着手进行互联测试。有人把这种情况特别称为模块测试，以区别单元测试。<br>
+            ��</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body text="#000000" bgcolor="#FFFFFF" background="../../../../image/moban/15.gif">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td class="text" align="left"> 
+            <p class="part">6、并发访问异常</p>
+            <p>��许多系统允许多个用户同时访问数据，在这样的环境中由于并发更新操作相互影响，可能就会导致数据的不一致。假设A帐户中有500元，客户B和客户C几乎同时从A帐户中分别取款50元和100元。假设每个取款操作对应的程序都是读取帐户余额，在其上减去取款的金额，然后将结果写回。如果两次取款的程序并发执行，可能它们读到的余额都是500元，并将分别写回450元和400元，到底是450元还是400元要看哪个程序后写回结果而定，而实际上这两个结果都是错误的。由于数据可能被多个不同的应用程序访问，而这些程序间事先又没有协调管理，因而可能会出现并发访问异常问题。<br>
+              ��</p>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

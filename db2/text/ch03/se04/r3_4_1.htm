@@ -1,0 +1,87 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" -->　　下面以一个简单的高校教学管理系统作为实例，贯穿于我们本章的描述过程中。学校有若干系组成；每个系有若干研究所和若干学生班级组成；并开设多门课程；每个研究所有多名教师组成；每个教师有自己的研究方向和所教授的课程；每个班级有若干学生组成。<br>
+      　　每个学生必须修学多门学位课程，每个教师可以教授多门课程，一门课程只能有一个教师讲解，所以学生可以修学数个教师的讲课，每个教师开设的课程必须同时有多个学生选课。<br>
+      　　在这个例子中，我们看到，现实世界中存在许多事物。例如，学生、教师、研究所、系、班级、课程等，这些都是客观存在的实体。这些实体并不是孤立存在的，不同的实体之间是有联系的，这种联系也是客观存在的。比如，教师属于某个系的某个研究所，而且只能隶属于一个研究所，学生和教师通过选修课程建立联系。图3-2 
+      是该教学管理系统的E-R模型图。<br>
+      <br>
+      　　<span class="tubiaoti">图3-2 教学管理系统的E-R模型图</span><br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td align="center"><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="400" height="300">
+              <param name=movie value="../../../swf/ch3/3-2.swf">
+              <param name=quality value=high>
+              <param name="wmode" value="transparent">
+              <embed src="../../../swf/ch3/3-2.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="400" height="300" wmode="transparent">
+              </embed> 
+            </object></td>
+        </tr>
+      </table>
+      <br>
+      　　该教学管理系统中的关系数据模型的实体类型：<br>
+      　　系(系号,系名,电话,地址)<br>
+      　　研究所(所号,所名,人数, 电话,地址,系号)<br>
+      　　课程(课程号,课程名, 学分，开课系号，授课教师号)<br>
+      　　班级(名称,人数, 电话,系号)<br>
+      　　学生(学号,姓名,性别,年龄, 斑号)<br>
+      　　教师(编号,姓名, 性别, 所号,电话,地址)<br>
+      　　选课(课程号,学号,成绩) 
+      <p>　　关系数据模型中的关系模式如下:<br>
+        　　(1) 系dept<br>
+        　　　(系编号 CHAR(10),系名称 CHAR(20), <br>
+        　　　系电话 CHAR（12）,系地址 CHAR（40）)<br>
+        　　　key 系编号<br>
+        　　(2) 研究所institute<br>
+        　　　(研究所编号 CHAR(10), 研究所名称 CHAR(30), 研究所人数 INT,<br>
+        　　　研究所电话 CHAR(12), 研究所地址 CHAR(40),系编号 CHAR(10))<br>
+        　　　key 研究所编号<br>
+        　　(3) 课程couse<br>
+        　　　(课程编号 CHAR(10), 课程名称 CHAR(20),<br>
+        　　　学分 INT，系编号 CHAR(10)，教师编号: CHAR(10))<br>
+        　　　key 课程编号<br>
+        　　(4) 班级class<br>
+        　　　(班级编号 CHAR(20), 班级人数 INT,<br>
+        　　　班级电话 CHAR(12), ,系编号 CHAR(10))<br>
+        　　　key 班级编号<br>
+        　　(5) 学生student<br>
+        　　　(学号 CHAR(10),姓名 CHAR(20),<br>
+        　　　性别 CHAR(1),年龄 INT,班级编号 CHAR(20))<br>
+        　　　key 学号<br>
+        　　(6) 教师teacher<br>
+        　　　(教师编号 CHAR(10),教师名称 CHAR(20),研究所编号 CHAR(10),<br>
+        　　　教师电话 CHAR(12),教师地址 CHAR(40) ,系编号 CHAR(10))<br>
+        　　　key 教室编号<br>
+        　　(7) 选课sc<br>
+        　　　(课程号 CHAR(10),学号 CHAR(10),成绩 INT)<br>
+        　　　key (课程号, 学号)</p>
+      <!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

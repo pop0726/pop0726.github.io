@@ -1,0 +1,522 @@
+<HTML>
+<HEAD>
+<TITLE>软件工程 </TITLE>
+<SCRIPT language=JavaScript>
+/*-------------------------------------------填空题---------------------------------------------*/
+function getKeyWord(form){
+var mykeys=new Array();
+mykeys[0]="文档";mykeys[1]="逻辑";mykeys[2]="文档";mykeys[3]="程序设计";mykeys[4]="程序系统";mykeys[5]="个体手工艺者";mykeys[6]="手工作坊";mykeys[7]="工程化";mykeys[8]="工程";mykeys[9]="数学";mykeys[10]="理论和原理";mykeys[11]="建造软件系统";mykeys[12]="方法";mykeys[13]="过程";mykeys[14]="工具";mykeys[15]="相对独立";mykeys[16]="相同";mykeys[17]="软件生存期";mykeys[18]="线性顺序";mykeys[19]="原型";mykeys[20]="制定计划";mykeys[21]="风险分析";mykeys[22]="用户评估";mykeys[23]="用户要求";mykeys[24]="对象";mykeys[25]="面向对象";
+
+var answer=new Array();
+for(var I=0;I<mykeys.length;I++) answer[I]="";
+
+var every=form.elements;
+for(var I=0;I<every.length;I++)
+{
+if(every[I].type=="text")
+{
+ if(every[I].value!==null)
+ {var item=parseInt(every[I].name.substr(0))
+  answer[item-1]+=every[I].value;
+  }
+ }
+}
+var newcount="<html><head><title>谢谢您!</title></head><body><center><h2><font color=red>您的测试结果</font></h2></center>";
+var totalscore=0;
+for(var I=0;I<answer.length;I++)
+{var re=/</g;
+var rd=/>/g;
+var re=/\\/g;
+answer[I]=answer[I].replace(re,"&#92;");
+answer[I]=answer[I].replace(re,"&lt;");
+answer[I]=answer[I].replace(rd,"&gt;");
+	if(answer[I].toUpperCase()==mykeys[I].toUpperCase())
+	{
+		var rstr="<font size=2>第"+(I+1)+"个空答案正确!</font><br>";
+		newcount+=rstr;
+		totalscore+=1/26*100;
+	}else
+	{
+		var rstr="<font size=2>第"+(I+1)+"个空答案错误!正确答案为"+mykeys[I]+"</font><br>";
+		newcount+=rstr;
+	}
+
+}
+
+newcount+="<br>您的总成绩为:";
+newcount+=Math.ceil(totalscore);
+newcount+="分";
+newwin=window.open("","","height=400,width=400,scrollbars=yes,resizable=no");
+newwin.document.write(newcount);
+}
+/*-------------选择提----------------------------------------------------------------*/
+function getresultcheck(form)
+{var mykeys=new Array();
+mykeys[0]="C";mykeys[1]="B";mykeys[2]="C";mykeys[3]="B";mykeys[4]="C";mykeys[5]="B";mykeys[6]="D";mykeys[7]="D";mykeys[8]="A";mykeys[9]="D";mykeys[10]="B";mykeys[11]="D";mykeys[12]="A";mykeys[13]="A";mykeys[14]="C";
+
+
+var answer=new Array();
+for(var I=0;I<mykeys.length;I++) answer[I]="";
+
+var every=form.elements;
+//var lastname="";
+for(var I=0;I<every.length;I++)
+{
+	if(every[I].type=="radio")
+	{
+		/*alert("checkbox:name->"+every[I].name+"value->"+every[I].value);*/
+		if(every[I].checked)
+		{	
+			//var item=parseInt(every[I].name.charAt(1));
+			var item=parseInt(every[I].name.substr(0));/*返回由字符串转换得到的整数*/
+			/*substr返回一个从指定位置开始的指定长度的子字符串。*/
+			answer[item-1]+=every[I].value;
+		}
+	}				
+}
+
+var newcount="<html><head><title>谢谢您!</title></head><body><center><h2><font color=red>您的测试结果</font></h2></center>";
+var totalscore=0;
+for(var I=0;I<answer.length;I++)
+{
+	if(answer[I].toUpperCase()==mykeys[I].toUpperCase())
+	{
+		var rstr="<font size=2>第"+(I+1)+"题答案正确!</font><br>";
+		newcount+=rstr;
+		totalscore+=1/15*100;//每题分数
+	}else
+	{
+		var rstr="<font size=2>第"+(I+1)+"题答案错误!正确答案为"+mykeys[I]+"</font><br>";
+		newcount+=rstr;
+	}
+
+}
+
+newcount+="<br>您的总成绩为:";
+newcount+=Math.ceil(totalscore);
+newcount+="分";
+newwin=window.open("","","height=400,width=400,scrollbars=yes,resizable=no");
+newwin.document.write(newcount);}
+/*--------------------------------判断题----------------------------------------------------*/
+
+function getresultpanduan(form)
+{var mykeys=new Array();
+
+
+
+var answer=new Array();
+for(var I=0;I<mykeys.length;I++) answer[I]="";
+
+var every=form.elements;
+//var lastname="";
+for(var I=0;I<every.length;I++)
+{
+	if(every[I].type=="checkbox")
+	{
+		/*alert("checkbox:name->"+every[I].name+"value->"+every[I].value);*/
+		if(every[I].checked)
+		{	
+			//var item=parseInt(every[I].name.charAt(1));
+			var item=parseInt(every[I].name.substr(0));/*返回由字符串转换得到的整数*/
+			/*substr返回一个从指定位置开始的指定长度的子字符串。*/
+			answer[item-1]+=every[I].value;
+		}
+	}				
+}
+
+var newcount="<html><head><title>谢谢您!</title></head><body><center><h2><font color=red>您的测试结果</font></h2></center>";
+var totalscore=0;
+for(var I=0;I<answer.length;I++)
+{
+	if(answer[I].toUpperCase()==mykeys[I].toUpperCase())
+	{
+		var rstr="<font size=2>第"+(I+1)+"题 您答对了!</font><br>";
+		newcount+=rstr;
+		totalscore+=1/0*100;//每题分数
+	}else
+	{
+		var rstr="<font size=2>第"+(I+1)+"题 您答错了!</font><br>";
+		newcount+=rstr;
+	}
+
+}
+
+newcount+="<br>您的总成绩为:";
+newcount+=Math.ceil(totalscore);
+newcount+="分";
+newwin=window.open("","","height=400,width=400,scrollbars=yes,resizable=no");
+newwin.document.write(newcount);
+}
+/*--------------------------------简答题----------------------------------------------------*/
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+</SCRIPT>
+<style type="text/css">
+<!--
+.unnamed1 {  font-family: "宋体"; font-size: 10pt}
+-->
+</style>
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</HEAD>
+
+<BODY text=black bgColor=white topMargin=10 marginheight="10">
+<DIV class=p2 align=center></DIV> 
+      <FORM >
+  <p class="unnamed1"><BR>
+    <BR>
+  <P class="section">一、填空题</P>
+  <P><span class="text">1、软件由计算机程序、数据和</span> 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=16 size=16 name=1>
+    <span class="text"> 组成。</span><BR>
+    <span class="text"> 2、软件是一种</span> 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=2>
+    <span class="text"> 产品，它与物质产品有很大的区别。</span><BR>
+    <span class="text"> 3、计算机系统由硬件、软件、使用计算机的人、数据库、 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=3>
+    和执行过程组成。<BR>
+    4、软件的发展，到现在为止，经历了三个阶段： 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=4>
+    、 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=5>
+    和软件工程。<BR>
+    5、程序设计时代的生产方式是 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=6>
+    ，程序系统时代的生产方式是&nbsp;&nbsp; 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=7>
+    ，软件工程时代的生产方式是&nbsp; 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=8>
+    。<BR>
+    6、软件工程是一门综合性的交叉学科，它涉及计算机学科、&nbsp;&nbsp; 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=9>
+    学科、管理学科和&nbsp; 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=10>
+    学科。 <BR>
+    7、计算机科学中的成果都可用于软件工程，但计算机科学着重于 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=11>
+    ，软件工程着重于 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=12>
+    。<BR>
+    8、软件工程研究的主要内容是 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=13>
+    、 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=14>
+    和 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=16>
+    等三个方面。<BR>
+    9、软件开发各阶段任务的划分应尽可能 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=16>
+    ，同一阶段任务的性质应尽可能 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=17>
+    。<BR>
+    10、瀑布模型是将&nbsp; 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=18>
+    各个活动规定为依 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=18>
+    连接的若干阶段的模型。它规定了各阶段的活动由前至后，相互衔接的固定次序，如同瀑布流水，逐级下落。<BR>
+    11、演化模型是一种非整体开发模型。先开发一个 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=20>
+    软件，完成部分主要功能，展示给用户并征求意见，然后逐步完善，最终获得满意的产品。<BR>
+    12、螺旋模型将开发过程分为几个螺旋周期。在每个螺旋周期内分为四个工作步骤： 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=21>
+    、 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=22>
+    、开发实施、 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=23>
+    。<BR>
+    13、喷泉模型是一种以 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=24>
+    为动力，以 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=25>
+    为驱动的模型。它使开发过程具有迭代性和无间隙性，适用于 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=26>
+    开发方法。</span><BR>
+    <BR>
+    &nbsp; 
+    <INPUT id=A type=reset value=清�空>
+    &nbsp;&nbsp; 
+    <INPUT id=A onclick=getKeyWord(this.form) type=button value=提�交>
+    <BR><BR>
+    <span class="section"> 二、单项选择题</span></P>
+  <P><span class="text">1、软件产品的生产主要是&nbsp;____。<br>
+    <INPUT id=c1 type=radio value=A name=1>
+    &nbsp; A. 制造<br>
+    <INPUT id=c1 type=radio value=B name=1>
+    &nbsp; B. 复制<br>
+    <INPUT id=c1 type=radio value=C name=1>
+    &nbsp; C.&nbsp;开发&nbsp;<br>
+    <INPUT id=c1 type=radio value=D name=1>
+    &nbsp; D. 研制<BR>
+    <BR>
+    2、个体手工劳动是____时代的软件生产方式。<br>
+    <INPUT id=c1 type=radio value=A name=2>
+    &nbsp; A. 程序系统 <br>
+    <INPUT id=c1 type=radio value=B name=2>
+    &nbsp; B. 程序设计<br>
+    <INPUT id=c1 type=radio value=C name=2>
+    &nbsp; C. 软件工程 <br>
+    <INPUT id=c1 type=radio value=D name=2>
+    &nbsp; D. 程序编码<BR>
+    <BR>
+    3、软件工程是一门____学科。<br>
+    <INPUT id=c1 type=radio value=A name=3>
+    &nbsp; A. 理论性 <br>
+    <INPUT id=c1 type=radio value=B name=3>
+    &nbsp; B. 原理性<br>
+    <INPUT id=c1 type=radio value=C name=3>
+    &nbsp; C. 工程性<br>
+    <INPUT id=c1 type=radio value=D name=3>
+    &nbsp; D. 心理性<BR>
+    <BR>
+    4、软件开发费用只占软件生存期全部费用的____。<br>
+    <INPUT id=c1 type=radio value=A name=4>
+    &nbsp; A. 1/2<br>
+    <INPUT id=c1 type=radio value=B name=4>
+    &nbsp; B. 1/3<br>
+    <INPUT id=c1 type=radio value=C name=4>
+    &nbsp; C. 1/4<br>
+    <INPUT id=c1 type=radio value=D name=4>
+    &nbsp; D. 2/3<BR>
+    <BR>
+    5、在软件开发过程中大约要花费____%的工作量进行测试和调试。<br>
+    <INPUT id=c1 type=radio value=A name=5>
+    &nbsp; A. 20<br>
+    <INPUT id=c1 type=radio value=B name=5>
+    &nbsp; B. 30<br>
+    <INPUT id=c1 type=radio value=C name=5>
+    &nbsp; C. 40&nbsp;<br>
+    <INPUT id=c1 type=radio value=D name=5>
+    &nbsp; D. 50<BR>
+    <BR>
+    6、准确地解决“软件系统必须做什么”是____阶段的任务。<br>
+    <INPUT id=c1 type=radio value=A name=6>
+    &nbsp; A. 可行性研究 <br>
+    <INPUT id=c1 type=radio value=B name=6>
+    &nbsp; B. 需求分析<br>
+    <INPUT id=c1 type=radio value=C name=6>
+    &nbsp; C. 软件设计<br>
+    <INPUT id=c1 type=radio value=D name=6>
+    &nbsp; D. 程序编码<BR>
+    <BR>
+    7、软件生存期中时间最长的是____ 阶段。<br>
+    <INPUT id=c1 type=radio value=A name=7>
+    A. 需求分析<br>
+    <INPUT id=c1 type=radio value=B name=7>
+    B. 软件设计<BR>
+    <INPUT id=c1 type=radio value=C name=7>
+    C. 软件测试<BR>
+    <INPUT id=c1 type=radio value=D name=7>
+    D. 软件运行/维护<BR>
+    <BR>
+    8、在软件生存期的模型中，___适合于大型软件的开发，它吸收了软件工程中“演化”的概念。<br>
+    <INPUT id=c1 type=radio value=A name=8>
+    &nbsp; A .喷泉模型<br>
+    <INPUT id=c1 type=radio value=B name=8>
+    &nbsp; B. 基于知识的模型<br>
+    <INPUT id=c1 type=radio value=C name=8>
+    &nbsp; C. 瀑布模型<br>
+    <INPUT id=c1 type=radio value=D name=8>
+    &nbsp; D. 螺旋模型<BR>
+    <BR>
+    &nbsp;9、在软件生存期中，用户的参与主要在____。<br>
+    <INPUT id=c1 type=radio value=A name=9>
+    A. 软件定义阶段<br>
+    <INPUT id=c1 type=radio value=B name=9>
+    B. 软件开发阶段<br>
+    <INPUT id=c1 type=radio value=C name=9>
+    C. 软件维护阶段<br>
+    <INPUT id=c1 type=radio value=D name=9>
+    D. 整个软件生存期过程中<BR>
+    <BR>
+    10、在软件开发过程中的每个阶段都要进行严格的_____，以尽早发现在软件开发过程中产生的错误。<br>
+    <INPUT id=c1 type=radio value=A name=10>
+    &nbsp; A. 检验<br>
+    <INPUT id=c1 type=radio value=B name=10>
+    &nbsp; B. 验证<br>
+    <INPUT id=c1 type=radio value=C name=10>
+    &nbsp; C. 度量<br>
+    <INPUT id=c1 type=radio value=D name=10>
+    &nbsp; D. 评审<BR>
+    <BR>
+    11、在软件开发和维护过程中需要变更需求时，为了保持软件各个配置成分的一致性，必须实施严格的_____。<br>
+    <INPUT id=c1 type=radio value=A name=11>
+    &nbsp; A. 产品检验<br>
+    <INPUT id=c1 type=radio value=B name=11>
+    &nbsp; B. 产品控制<br>
+    <INPUT id=c1 type=radio value=C name=11>
+    &nbsp; C. 产品标准化<br>
+    <INPUT id=c1 type=radio value=D name=11>
+    &nbsp; D. 开发规范<BR>
+    <BR>
+    12、实践表明，采用先进的开发技术可提高软件开发的生产率，还可提高软件的&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    。<br>
+    <INPUT id=c1 type=radio value=A name=12>
+    &nbsp; A. 可靠性<br>
+    <INPUT id=c1 type=radio value=B name=12>
+    &nbsp;&nbsp;B. 可使用性<br>
+    <INPUT id=c1 type=radio value=C name=12>
+    &nbsp; C. 安全性<br>
+    <INPUT id=c1 type=radio value=D name=12>
+    &nbsp; D. 可维护性<BR>
+    <BR>
+    13、为了提高软件开发过程的____，有效地进行管理，应当根据软件开发项目的总目标及完成期限，规定开发组织的责任和产品标准。<br>
+    <INPUT id=c1 type=radio value=A name=13>
+    &nbsp; A.&nbsp;&nbsp; 可见性<br>
+    <INPUT id=c1 type=radio value=B name=13>
+    &nbsp; B.&nbsp;&nbsp; 生产率 <br>
+    <INPUT id=c1 type=radio value=C name=13>
+    &nbsp; C.&nbsp;&nbsp; 安全性<br>
+    <INPUT id=c1 type=radio value=D name=13>
+    &nbsp; D.&nbsp; &nbsp;有效性<BR>
+    <BR>
+    14、随着开发小组人数的_____，因交流开发进展情况和讨论遇到的问题而造成的通信开销也急剧增加。 <br>
+    <INPUT id=c1 type=radio value=A name=14>
+    &nbsp; A. 增加&nbsp;<br>
+    <INPUT id=c1 type=radio value=B name=14>
+    &nbsp; B. 降低 <br>
+    <INPUT id=c1 type=radio value=C name=14>
+    &nbsp; C. 稳定 <br>
+    <INPUT id=c1 type=radio value=D name=14>
+    &nbsp; D. 不稳定<BR>
+    <BR>
+    15、为保证软件开发的过程能够跟上技术的进步，必须不断地灵活地改进软件工程____。 <br>
+    <INPUT id=c1 type=radio value=A name=15>
+    &nbsp; A. 原则&nbsp;<br>
+    <INPUT id=c1 type=radio value=B name=15>
+    &nbsp; B. 工具 <br>
+    <INPUT id=c1 type=radio value=C name=15>
+    &nbsp; C. 过程 <br>
+    <INPUT id=c1 type=radio value=D name=15>
+    &nbsp; D. 方法</span><BR>
+    <BR>
+    &nbsp; 
+    <INPUT id=A type=reset value=清�空>
+    &nbsp; &nbsp; 
+    <INPUT id=A onclick=getresultcheck(this.form) type=button value=提�交>
+    <BR>
+    <BR>
+    <span class="section"> 三、选择填空题</span></P>
+  <P><span class="text">1、从供选择的答案中选出与下列有关软件需求分析叙述相对应的正确答案，将其编号填入到相应的括弧（&nbsp;&nbsp; 
+    ）内。<BR>
+    &nbsp; �软件是计算机系统中与硬件相互依存的另一部分，它是包括(&nbsp; A&nbsp; )、(&nbsp; B&nbsp; )及(&nbsp; 
+    C&nbsp; )的完整集合。其中，(&nbsp; A&nbsp; )是按事先设计的功能和性能要求执行的指令序列。(&nbsp; B&nbsp; )是使程序能够正确操纵信息的数据结构。(&nbsp; 
+    C&nbsp; )是与程序开发、维护和使用有关的图文材料。<BR>
+    供选择的答案：<BR>
+    &nbsp; �A~C. ① 软件&nbsp;&nbsp;&nbsp; &nbsp;② 程序&nbsp;&nbsp; &nbsp;③ 代码&nbsp; 
+    &nbsp;④ 硬件 ⑤ 文档&nbsp; &nbsp;&nbsp;⑥ 外设&nbsp; &nbsp;⑦ 数据&nbsp; &nbsp;⑧ 图表</span><BR>
+    <BR>
+    �
+<TEXTAREA id=c1 rows=10 cols=40></TEXTAREA><BR><BR>
+    <span class="text"> 2、从供选择的答案中选出与下列有关软件需求分析叙述相对应的正确答案，将其编号填入到相应的括弧（&nbsp;&nbsp; 
+    ）内。<BR>
+    &nbsp; �开发软件时对提高软件开发人员工作效率至关重要的是(&nbsp; A&nbsp; )。软件工程中描述生存周期的瀑布模型一般包括计划、(&nbsp; 
+    B&nbsp; )、设计、编码、测试、维护等几个阶段，其中设计阶段在管理上又可以依次分成(&nbsp; C&nbsp; )和(&nbsp; D&nbsp; 
+    )两步。 <BR>
+    供选择的答案：<BR>
+    &nbsp; �A．① 程序开发环境&nbsp;&nbsp; &nbsp;&nbsp;② 操作系统的资源管理功能 ③ 程序人员数量&nbsp;&nbsp;&nbsp;④ 
+    计算机的并行处理能力<BR>
+    &nbsp; �B．① 需求分析&nbsp;&nbsp;② 需求调查&nbsp;&nbsp;③ 可行性分析&nbsp;④ 问题定义<BR>
+    &nbsp; �C、D．① 方案设计&nbsp;&nbsp;② 代码设计&nbsp;&nbsp;③ 概要设计&nbsp;&nbsp;④ 数据设计&nbsp; 
+    ⑤ 运行设计&nbsp;&nbsp;⑥ 详细设计&nbsp;&nbsp;⑦ 故障处理设计&nbsp;⑧ 软件体系结构设计<BR>
+    </span> <BR>
+    �
+<TEXTAREA id=c1 rows=10 cols=40></TEXTAREA><BR><BR><BR>
+    <span class="text">3、从供选择的答案中选出与下列有关软件需求分析叙述相对应的正确答案，将其编号填入到相应的括弧（&nbsp;&nbsp; 
+    ）内。<BR>
+    有人将软件的发展过程划分为4个阶段：<BR>
+    &nbsp; �第一阶段（1950～1950年代末）称为“程序设计的原始时期”，这时既没有(&nbsp; A&nbsp; )，也没有(&nbsp; 
+    B&nbsp; )，程序员只能用机器指令编写程序。<BR>
+    &nbsp; �第二阶段（1950年代末～1960年代末）称为“基本软件期”。出现了(&nbsp; A&nbsp; )，并逐渐普及。随着(&nbsp; 
+    B&nbsp; )的发展，编译技术也有较大的发展。<BR>
+    &nbsp;&nbsp; �第三阶段（1960年代末～1970年代中期）称为“程序设计方法时代”。这一时期，与硬件费用下降相反，软件开发费急剧上升。人们提出了(&nbsp; 
+    C&nbsp; )和(&nbsp; D&nbsp; )等程序设计方法，设法降低软件的开发费用。<BR>
+    &nbsp; �第四阶段（1970年代中期～现在）称为“软件工程时期”。软件开发技术不再仅仅是程序设计技术，而是包括了与软件开发的各个阶段，如(&nbsp; 
+    E&nbsp; )、(&nbsp; F&nbsp; )、编码、单元测试、综合测试、(&nbsp; G&nbsp; )及其整体有关的各种管理技术。<BR>
+    供选择的答案：<BR>
+    &nbsp; �A~D：① 汇编语言 &nbsp;② 操作系统 &nbsp;&nbsp;③ 虚拟存储器概念&nbsp; ④ 高级语言&nbsp;&nbsp;⑤ 
+    结构式程序设计 &nbsp;⑥ 数据库概念 ⑦ 固件 &nbsp;&nbsp;⑧ 模块化程序设计<BR>
+    &nbsp; �E~G：① 使用和维护 &nbsp;② 兼容性的确认 &nbsp;③ 完整性的确认&nbsp;&nbsp;&nbsp;④ 设计&nbsp;&nbsp;&nbsp;⑤ 
+    需求定义 &nbsp;&nbsp;⑥ 图象处理</span><BR>
+    <BR>
+    �
+<TEXTAREA id=c1 rows=10 cols=40></TEXTAREA><BR><BR>
+    <span class="text"> 4、从供选择的答案中选出与下列有关软件需求分析叙述相对应的正确答案，将其编号填入到相应的括弧（&nbsp;&nbsp; 
+    ）内。<BR>
+    &nbsp; �软件工程的最终目的是以较少的投资获得可维护的、可靠的、高效率的和可理解的软件产品。软件工程技术应遵循(&nbsp; A&nbsp; 
+    )、(&nbsp; B&nbsp; )、(&nbsp; C&nbsp; )、(&nbsp; D&nbsp; )、一致性、确定性、完备性、可验证性、抽象和信息隐蔽。<BR>
+    &nbsp; 原型法适用于开发较复杂的系统，原型可分为三种：(&nbsp; E&nbsp; )、(&nbsp; F&nbsp; )和(&nbsp; 
+    G&nbsp; )。<BR>
+    供选择的答案：<BR>
+    &nbsp;�A~D：① 有效性 &nbsp;&nbsp;② 合理性 &nbsp;&nbsp;③ 局部化&nbsp;&nbsp;④ 协同性&nbsp; 
+    ⑤ 实用性 &nbsp;&nbsp;⑥ 模块化&nbsp;&nbsp;⑦ 抽象 &nbsp;&nbsp;⑧ 信息隐蔽<BR>
+    &nbsp;&nbsp;&nbsp;�E~G：① 复用型 &nbsp;&nbsp;② 实验型 &nbsp;&nbsp;③ 废弃型&nbsp;&nbsp;④ 
+    演化型&nbsp; ⑤ 探索型</span><BR>
+    &nbsp;&nbsp;&nbsp;<BR>
+    �
+<TEXTAREA id=c1 rows=10 cols=40></TEXTAREA><BR><BR><BR>
+    <span class="section"> 四、问答题</span></P>
+  <P><span class="text">1．什么是软件？它的特性是什么？</span><BR>
+    �
+<TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    <BR>
+    <BR>
+    <span class="text"> 2．试比较软件发展的三个时期的特点，从软件所指、软件工作范围、软件开发组织、决定质量的因素、开发技术和手段等几个方面说明它们的差别。</span><BR>
+    �
+<TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    <BR>
+    <span class="text"><BR>
+    3．软件工程是开发、运行、维护和修复软件的系统化方法，它包含哪些要素？试说明之。</span><BR>
+    �
+<TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    <BR>
+    <BR>
+    <span class="text">4．软件工程过程有哪几个基本过程活动？试说明之。 </span><br>
+    �
+<TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    <BR>
+    <BR>
+    <span class="text">5．试说明“软件生存期”的概念。</span><BR>
+    �
+<TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    <BR>
+    <BR>
+    <span class="text">6．试论述瀑布模型软件开发方法的基本过程，比较它的优点和缺点。</span><BR>
+    �
+<TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    <BR>
+    <BR>
+    <span class="text">7．试说明演化模型软件开发方法的基本过程，比较它的优点和缺点。</span><BR>
+    �
+<TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    <BR>
+    <BR>
+    <span class="text">8．试说明螺旋模型软件开发方法的基本过程，比较它的优点和缺点。</span><BR>
+    �
+<TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    <BR>
+    <BR>
+    <span class="text">9．软件工程的基本目标有哪些？试说明它们之间的关系。</span><BR>
+    �
+<TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    <BR>
+    <BR>
+    <span class="text">10．软件工程的基本原则有哪些？试说明之。</span><BR>
+    �
+<TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    <BR>
+    <BR>
+    <span class="text">11．软件工程的基本原理有哪些？试说明之。</span><BR>
+    �
+<TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    <BR>
+    <BR>
+    <span class="text">12．有人说：软件开发时，一个错误发现得越晚，为改正它所付出的代价就越大。对否？请解释你的回答。</span><BR>
+    �
+<TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    <BR>
+    <BR>
+    　
+    <input type=button name=Button value=答�案 onClick="MM_openBrWindow('tanchu.htm','','width=471,height=384')">
+  </P>
+    <br><br>    
+</form></BODY></HTML>

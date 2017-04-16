@@ -1,0 +1,62 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url('../../../img/text/bg.jpg');
+background-repeat: no-repeat;
+background-attachment: fixed; background-position-y:50%
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">　</td>
+    <td>　</td>
+    <td width="10">　</td>
+  </tr>
+  <tr>
+    <td width="10">　</td>
+    <td> <!-- #BeginEditable "1" -->　当查询结果为一组记录时，不能把提取的元组集合直接传递到应用程序中，必须先放到某种缓冲存储空间，这称为使用游标 
+      CURSOR。因此，游标是系统为用户的查询结果开辟的数据缓冲区，存放SQL的查询结果。每个游标有一个单独的名字。<br>
+      　　定义游标，是把该游标与相应的SELECT语句相关联，用于存放该 SELECT 语句的查询结果；打开游标，是执行对应的SELECT 语句，把查询结果放到游标缓冲区中；通过FETCH 
+      函数和主变量从游标缓冲区的查询结果集合中逐一取出每条记录。<br>
+      　　由于SELECT语句是基于集合操作的。无法将结果关系直接交给过程化的宿主语言程序（如C程序），游标正是在这两者之间架起的一座桥梁。DBMS 提供操作函数用于对一个给定游标中的结果集合的数据进行单行处理，通过逐一取出查询结果中的关系元组，逐一放入宿主变量中，完成SQL语言与宿主语言的通讯，该函数为FETCH()。<br>
+      SQL Server还提供了系统变量@@FETCH_STATUS，保存FETCH函数的执行状态：<br>
+      　@@FETCH_STATUS = 0 表示执行正确；<br>
+      　@@FETCH_STATUS = -1 FETCH语句错； <br>
+      　@@FETCH_STATUS = -2 取的行丢失。 
+      <p>　从概念上讲，游标由两部分内容组成：<br>
+        　记录集：游标内SELECT语句的执行结果。<br>
+        　游标位置：游标指针的当前位置。<br>
+        　游标指针示意图如下图4-24所示：<br>
+        <span class="tubiaoti">　图4-24 游标指针示意图</span> </p>
+      <p align="center"><img src="../../../img/text/ch04/c8.gif" width="197" height="143"></p>
+      <p> 使用游标要遵循如下的操作过程：<br>
+        　(1). 用DECLARE语句声明游标,并定义游标类型和属性<br>
+        　(2). 调用OPEN语句打开和填充游标<br>
+        　(3). 执行FETCH语句读取游标中的单行数据<br>
+        　(4). 如果需要,修改游标基表中的当前行数据<br>
+        　(5). 执行CLOSE语句关闭游标<br>
+        　(6). 执行DEALLOCATE语句删除游标,并释放它所占用的所有资源.<br>
+        SQL Server中使用游标的过程如图4-25。</p>
+      <p><span class="tubiaoti">图4-25 嵌入式SQL中使用游标的流程</span></p>
+      <p align="center"><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="400" height="150">
+          <param name=movie value="../../../swf/ch4/4-13.swf">
+          <param name=quality value=high>
+          <param name="wmode" value="transparent">
+          <embed src="../../../swf/ch4/4-13.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="400" height="150" wmode="transparent">
+          </embed></object></p>
+      <!-- #EndEditable --></td>
+    <td width="10">　</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

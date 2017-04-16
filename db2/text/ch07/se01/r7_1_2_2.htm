@@ -1,0 +1,78 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" --><span class="explaination"> ��DDL描述的模式通常是文本文件格式，必须由计算机转换为便于计算机查询和操纵的格式，完成这个转换工作的程序称为模式编译器。<br>
+      <br>
+      ��模式编译器要为数据库支持的各种宿主语言提供用户工作区的数据类型和结构定义，就是为每种语言定义一个头文件，使用户工作区和数据库的逻辑结构相一致。有的数据库管理系统对同一个模式可为FORTRAN、PASCAL和 
+      C分别产生程序头文件。</span>下面给出为 C 语言产生的一个头文件的例子。<br>
+      <br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td width="46" align="right" valign="top" height="167"><img src="../../../img/text/liti.gif" width="35" height="36" alt="例题"></td>
+          <td height="167"> 
+            <div align="left"><span class="biaoti_2">例如，用 DDL 模式描述语言描述小汽车，其描述模式如下：<br>
+              <b>CLASS CAR<br>
+              �ATTRIBUTES</b><br>
+              ���name : <b>STRING</b>;<br>
+              ���model : <b>INT</b>;<br>
+              ���color : <b>INT</b>;<br>
+              <b>ENDCLASS;</b> </span> 
+              <p><span class="biaoti_2">经模式编译器编译，在头文件中产生的 C 语言的结构如下：<br>
+                �struct car {<br>
+                �������char * name;<br>
+                �������int model;<br>
+                �������int color;<br>
+                };</span> </p>
+            </div>
+          </td>
+        </tr>
+        <tr> 
+          <td colspan="2" height="109" valign="top">��<span class="explaination">关于对象类CAR的描述，其中只给出属性定义，没有约束、操作方法和类之间关系的描述。对类的操作方法和约束表达式的处理，是把用户用DDL描述的操作过程和约束表达式翻译成用程序语言描述的程序源代码。</span><span class="pt9-black"><br>
+            ��关系数据库的关系模式描述是通过SQL语言中的CREATE 语句实现的。如<br>
+            ��</span><span class="biaoti_2">CREATE TABLE student</span><span class="pt9-black"><br>
+            ��(学号 <b>int</b>，姓名 <b>char[20]</b>，性别 <b>char[1]</b>，出生日 <b>date</b>，系名 
+            <b>char[20]</b>，电话 <b>char[8]</b>，班级 <b>char[12])</b><br>
+            SQL的描述也要经过处理存储到计算机中。</span><br>
+          </td>
+        </tr>
+        <tr> 
+          <td colspan="2" valign="top"><span class="biaoti_1">2 对模式的操作<br>
+            ��<span class="pt9-black">对模式的操作包括：存取、查找、浏览和修改。对已经存储了数据的数据库中的模式进行修改操作，要涉及到如下数据的修改：<br>
+            ��</span><span class="biaoti_2">(1) 数据字典信息的修改；<br>
+            ��</span><span class="biaoti_1"><span class="biaoti_2">(</span></span><span class="biaoti_2">2) 
+            数据结构和类型以及约束和操作方法的修改；<br>
+            ��(3) 数据库中对应修改模式的数据值的修改。</span><span class="pt9-black"><br>
+            ��</span></span><span class="explaination">例如，在关系表中增加一个属性字段或减少一个属性字段时，已有的元组值必须进行修改。增加一个属性字段时，每个已有值的元组要增加相应的属性值空间并赋予空值（如果允许）。减少一个属性字段时，对每个已有值的元组要删除相应的属性值。模式的修改要保持数据的完整性约束。</span><span class="biaoti_1"> 
+            </span></td>
+        </tr>
+      </table>
+      <!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

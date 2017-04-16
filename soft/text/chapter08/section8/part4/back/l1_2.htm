@@ -1,0 +1,599 @@
+<HTML>
+<HEAD>
+<TITLE>软件工程 </TITLE>
+<SCRIPT language=JavaScript>
+/*-------------------------------------------填空题---------------------------------------------*/
+function getKeyWord(form){
+var mykeys=new Array();
+mykeys[0]="软件开发工作";mykeys[1]="早先开发";mykeys[2]="横向复用";mykeys[3]="纵向复用";mykeys[4]="横向复用";mykeys[5]="纵向复用";mykeys[6]="管理";mykeys[7]="用户需求";mykeys[8]="广阔";mykeys[9]="论域";mykeys[10]="设计决策";mykeys[11]="分离";mykeys[12]="类";mykeys[13]="使用者";mykeys[14]="风格";mykeys[15]="运行环境";mykeys[16]="硬件";mykeys[17]="同义词";mykeys[18]="概念距离";mykeys[19]="概念";mykeys[20]="内容";mykeys[21]="上下文";mykeys[22]="概念";mykeys[23]="内容";mykeys[24]="上下文";mykeys[25]="复杂性";mykeys[26]="可复用构件库";mykeys[27]="接口";mykeys[28]="构件库";mykeys[29]="实用软件";mykeys[30]="平台";
+
+var answer=new Array();
+for(var I=0;I<mykeys.length;I++) answer[I]="";
+
+var every=form.elements;
+for(var I=0;I<every.length;I++)
+{
+if(every[I].type=="text")
+{
+ if(every[I].value!==null)
+ {var item=parseInt(every[I].name.substr(0))
+  answer[item-1]+=every[I].value;
+  }
+ }
+}
+var newcount="<html><head><title>谢谢您!</title></head><body><center><h2><font color=red>您的测试结果</font></h2></center>";
+var totalscore=0;
+for(var I=0;I<answer.length;I++)
+{var re=/</g;
+var rd=/>/g;
+var re=/\\/g;
+answer[I]=answer[I].replace(re,"&#92;");
+answer[I]=answer[I].replace(re,"&lt;");
+answer[I]=answer[I].replace(rd,"&gt;");
+	if(answer[I]==mykeys[I])
+	{
+		var rstr="<font size=2>第"+(I+1)+"个空答案正确!</font><br>";
+		newcount+=rstr;
+		totalscore+=1/26*100;
+	}else
+	{
+		var rstr="<font size=2>第"+(I+1)+"个空答案错误!正确答案为"+mykeys[I]+"</font><br>";
+		newcount+=rstr;
+	}
+
+}
+
+newcount+="<br>您的总成绩为:";
+newcount+=Math.ceil(totalscore);
+newcount+="分";
+newwin=window.open("","","height=400,width=400,scrollbars=yes,resizable=no");
+newwin.document.write(newcount);
+}
+/*-------------选择提----------------------------------------------------------------*/
+function getresultcheck(form)
+{var mykeys=new Array();
+mykeys[0]="B";mykeys[1]="B";mykeys[2]="D";mykeys[3]="C";mykeys[4]="C";mykeys[5]="A";mykeys[6]="D";mykeys[7]="A";mykeys[8]="B";mykeys[9]="A";mykeys[10]="D";mykeys[11]="B";mykeys[12]="C";mykeys[13]="B";mykeys[14]="D";
+
+
+var answer=new Array();
+for(var I=0;I<mykeys.length;I++) answer[I]="";
+
+var every=form.elements;
+//var lastname="";
+for(var I=0;I<every.length;I++)
+{
+	if(every[I].type=="radio")
+	{
+		/*alert("checkbox:name->"+every[I].name+"value->"+every[I].value);*/
+		if(every[I].checked)
+		{	
+			//var item=parseInt(every[I].name.charAt(1));
+			var item=parseInt(every[I].name.substr(0));/*返回由字符串转换得到的整数*/
+			/*substr返回一个从指定位置开始的指定长度的子字符串。*/
+			answer[item-1]+=every[I].value;
+		}
+	}				
+}
+
+var newcount="<html><head><title>谢谢您!</title></head><body><center><h2><font color=red>您的测试结果</font></h2></center>";
+var totalscore=0;
+for(var I=0;I<answer.length;I++)
+{
+	if(answer[I].toUpperCase()==mykeys[I].toUpperCase())
+	{
+		var rstr="<font size=2>第"+(I+1)+"题答案正确!</font><br>";
+		newcount+=rstr;
+		totalscore+=1/15*100;//每题分数
+	}else
+	{
+		var rstr="<font size=2>第"+(I+1)+"题答案错误!正确答案为"+mykeys[I]+"</font><br>";
+		newcount+=rstr;
+	}
+
+}
+
+newcount+="<br>您的总成绩为:";
+newcount+=Math.ceil(totalscore);
+newcount+="分";
+newwin=window.open("","","height=400,width=400,scrollbars=yes,resizable=no");
+newwin.document.write(newcount);}
+/*--------------------------------判断题----------------------------------------------------*/
+
+function getresultpanduan(form)
+{var mykeys=new Array();
+
+
+
+var answer=new Array();
+for(var I=0;I<mykeys.length;I++) answer[I]="";
+
+var every=form.elements;
+//var lastname="";
+for(var I=0;I<every.length;I++)
+{
+	if(every[I].type=="checkbox")
+	{
+		/*alert("checkbox:name->"+every[I].name+"value->"+every[I].value);*/
+		if(every[I].checked)
+		{	
+			//var item=parseInt(every[I].name.charAt(1));
+			var item=parseInt(every[I].name.substr(0));/*返回由字符串转换得到的整数*/
+			/*substr返回一个从指定位置开始的指定长度的子字符串。*/
+			answer[item-1]+=every[I].value;
+		}
+	}				
+}
+
+var newcount="<html><head><title>谢谢您!</title></head><body><center><h2><font color=red>您的测试结果</font></h2></center>";
+var totalscore=0;
+for(var I=0;I<answer.length;I++)
+{
+	if(answer[I].toUpperCase()==mykeys[I].toUpperCase())
+	{
+		var rstr="<font size=2>第"+(I+1)+"题 您答对了!</font><br>";
+		newcount+=rstr;
+		totalscore+=1/0*100;//每题分数
+	}else
+	{
+		var rstr="<font size=2>第"+(I+1)+"题 您答错了!</font><br>";
+		newcount+=rstr;
+	}
+
+}
+
+newcount+="<br>您的总成绩为:";
+newcount+=Math.ceil(totalscore);
+newcount+="分";
+newwin=window.open("","","height=400,width=400,scrollbars=yes,resizable=no");
+newwin.document.write(newcount);
+}
+/*--------------------------------简答题----------------------------------------------------*/
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+</SCRIPT>
+<style type="text/css"><!--
+-->
+</style>
+<link rel="stylesheet" href="../../../../../css/text.css" type="text/css">
+</HEAD>
+<BODY text=black bgColor=#FFFFFF topMargin=10 marginheight="10">
+<DIV class=p2 align=center></DIV>
+<FORM >
+  <P>&nbsp; <span class="section">一、&nbsp;填空题</span></P>
+  <P><span class="text">&nbsp;1、实施软件复用的目的是要使 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=1>
+    进行得“更快、更好、更省”。<BR>
+    &nbsp;2、对建立软件目标系统而言，软件复用就是利用某些 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=2>
+    的对建立新软件系统有用的软件元素来生产新系统。<BR>
+    &nbsp;3、软件复用可以区分为 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=3>
+    和 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=4>
+    。 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=5>
+    是复用不同应用论域中的软件元素； 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=6>
+    是在一类具有较多公共性的应用论域间复用软件构件。<BR>
+    &nbsp;4、系统的软件复用由可复用资产的创建、 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=7>
+    、支持和复用4个过程组成。<BR>
+    &nbsp;5、论域工程创建应用论域的模型，该模型成为软件工程中分析 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=8>
+    的基础。<BR>
+    &nbsp;6、论域分析必须具有比需求分析更为&nbsp; 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=9>
+    的视角：不仅要服务于当前的应用，而且还要放眼于同类或相似应用论域的未来软件项目。<BR>
+    &nbsp;7、需求级软件构件通常包括问题（及子问题）描述、有关的&nbsp; 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=10>
+    知识、相应的需求规格说明。<BR>
+    &nbsp;8、设计级软件构件包括设计规格说明（片段）、 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=11>
+    描述、相应的设计文档（如总体设计方案、抽象算法）。<BR>
+    &nbsp;9、需求级和设计级软件构件的开发必须遵循的原则之一是将构件应用的上下文与构件严格 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=12>
+    。<BR>
+    &nbsp;10、在基于对象和面向对象程序设计语言及相应的开发环境下，软件构件可以用Ada程序包或C++ 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=13>
+    来实现。<BR>
+    &nbsp;11、功能抽象是指软件构件的功能由接口说明中的输入�D输出关系确定，实现细节对构件的 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=14>
+    隐藏起来。<BR>
+    &nbsp;12、可复用性、可理解性、正确性和易组装性是衡量软件构件质量的重要标准。这些标准都与构件开发过程中的程序设计 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=15>
+    密切相关。<BR>
+    &nbsp;13、可复用性与易组装性要求除参数外，接口中的成分不应与 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=16>
+    相关。<BR>
+    &nbsp;14、在构件的设计过程中必须预先考虑构件对于各类可能的 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=17>
+    环境的可移植性和对于不同软件环境的适应能力。<BR>
+    &nbsp;15、采用多面分类法进行可复用构件库的组织，必须在存储软件构件的同时，表示并存储多面分类机制、 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=18>
+    库和 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=19>
+    图。<BR>
+    &nbsp;16、Tracz提出的3C模型包括 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=20>
+    、 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=21>
+    和 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=22>
+    。 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=23>
+    描述软件构件做什么。 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=24>
+    描述软件构件的概念如何实现。 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=25>
+    将可复用的构件安置到它的应用论域中。<BR>
+    &nbsp;17、良好定义的软件体系结构是简化软件系统 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=26>
+    的关键，可让大规模的软件开发以并行方式开展工作。<BR>
+    &nbsp;18、在分层的体系结构中，最高层是应用层，可包容许多应用系统。次高层是构件层，可包括多个 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=27>
+    系统，可用于建立应用系统。<BR>
+    &nbsp;19、在应用系统层，每个应用系统可以通过其 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=28>
+    与其他系统操作，还可以通过低层软件提供的服务或对象(如操作系统、特定业务服务)间接地与其他系统交互操作。<BR>
+    &nbsp;20、特定业务层应当包括专门针对不同业务类型的一系列&nbsp; 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=29>
+    系统。<BR>
+    &nbsp;21、中间件层为各个构件库系统提供 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=30>
+    类，以及不依赖于 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=31>
+    的服务。</span><BR>
+    <BR>
+    <INPUT id=A type=reset value=清�空>
+    <INPUT id=A onclick=getKeyWord(this.form) type=button value=提�交>
+  </P>
+  <P class="section">二、单选填空题</P>
+  <P>&nbsp;<span class="text">1、复用必须以对被复用对象的(��)为基础。<BR>
+    <INPUT id=c1 type=radio value=A name=1>
+    A. 使用&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=1>
+    B. 理解<BR>
+    <INPUT id=c1 type=radio value=C name=1>
+    C. 重构&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=1>
+    D. 标准化<BR>
+    <BR>
+    &nbsp;2、可供选择的软件构件从库中被检索出来之后，用户还必须理解它的功能或(��)，以判定它是否真正适合于当前的应用。<BR>
+    <INPUT id=c1 type=radio value=A name=2>
+    A. 行为&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=2>
+    B. 数据结构<BR>
+    <INPUT id=c1 type=radio value=C name=2>
+    C. 过程&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=2>
+    D. 界面<BR>
+    <BR>
+    &nbsp;3、针对复用的过程模型强调(��)的工作方式。以这种方式，论域工程和基于构件的应用开发同时进行。<BR>
+    <INPUT id=c1 type=radio value=A name=3>
+    A. 顺序&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=3>
+    B. 串行<BR>
+    <INPUT id=c1 type=radio value=C name=3>
+    C. 协同&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=3>
+    D. 并行<BR>
+    <BR>
+    &nbsp;4、开发需求级和设计级构件时应利用抽象化、(��)等手段提取公共特征。<BR>
+    <INPUT id=c1 type=radio value=A name=4>
+    A. 实例化&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=4>
+    B. 模块化<BR>
+    <INPUT id=c1 type=radio value=C name=4>
+    C. 参数化&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=4>
+    D. 结构化<BR>
+    <BR>
+    &nbsp;5、数据抽象是在功能抽象的基础上进一步(　　)除接口参数外的所有数据。<BR>
+    <INPUT id=c1 type=radio value=A name=5>
+    A. 细化&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=5>
+    B. 求精<BR>
+    <INPUT id=c1 type=radio value=C name=5>
+    C. 隐藏&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=5>
+    D. 抽象<BR>
+    <BR>
+    &nbsp;6、可复用性与易组装性要求(　　)建立构件的外部接口，保证接口在语法上和语义上的清晰性。<BR>
+    <INPUT id=c1 type=radio value=A name=6>
+    A. 显式&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=6>
+    B. 通过全局数据<BR>
+    <INPUT id=c1 type=radio value=C name=6>
+    C. 隐式&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=6>
+    D. 按照功能<BR>
+    <BR>
+    &nbsp;7、在构件的设计过程中应当尽可能将构件的与(　　)有关的因素抽象成为构件的参数。<BR>
+    <INPUT id=c1 type=radio value=A name=7>
+    A. 调用程序&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=7>
+    B. 全局变量<BR>
+    <INPUT id=c1 type=radio value=C name=7>
+    C. 文件&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=7>
+    D. 环境<BR>
+    <BR>
+    &nbsp;8、超文本是一种非线性的(　　)信息组织方法，它以结点为基本单位，链作为结点之间的联想式关联。<BR>
+    <INPUT id=c1 type=radio value=A name=8>
+    A. 网状&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=8>
+    B. 层次性<BR>
+    <INPUT id=c1 type=radio value=C name=8>
+    C. 关系型&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=8>
+    D. 面向对象型<BR>
+    <BR>
+    &nbsp;9、开发组织的(��)越大（特别是跨地域分布的情形），通信联系的开支就越大，因为软件人员必须经常协调他们的工作。<BR>
+    <INPUT id=c1 type=radio value=A name=9>
+    A. 年龄&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=9>
+    B. 规模<BR>
+    <INPUT id=c1 type=radio value=C name=9>
+    C. 复杂性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=9>
+    D. 严密性<BR>
+    <BR>
+    &nbsp;10、软件的组织方式通常是指软件的(��)分层结构，就像在编译连接时软件各个模块之间的分层依赖关系那样。<BR>
+    <INPUT id=c1 type=radio value=A name=10>
+    A. 静态&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=10>
+    B. 动态<BR>
+    <INPUT id=c1 type=radio value=C name=10>
+    C. 网状&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=10>
+    D. 关联<BR>
+    <BR>
+    &nbsp;11、在构件库的说明文档中应当全面、准确地说明构件的功能和行为、相关的论域知识、(��)约束条件和例外情况、可以预见的修改部分和修改方法。<BR>
+    <INPUT id=c1 type=radio value=A name=11>
+    A. 正确性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=11>
+    B. 可复用性<BR>
+    <INPUT id=c1 type=radio value=C name=11>
+    C. 可理解性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=11>
+    D. 可适应性<BR>
+    <BR>
+    &nbsp;12、用户必须借助设计信息和说明文档来理解、修改构件。例如，如果需要将用C语言编写的构件（源程序代码）改写为其他语言的形式，构件的(��)描述就十分必要。<BR>
+    <INPUT id=c1 type=radio value=A name=12>
+    A. 接口&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=12>
+    B. 算法<BR>
+    <INPUT id=c1 type=radio value=C name=12>
+    C. 模块&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=12>
+    D. 修改履历<BR>
+    <BR>
+    &nbsp;13、类库的组织方式采用类的(��)层次结构。<BR>
+    <INPUT id=c1 type=radio value=A name=13>
+    A. 动态链接&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=13>
+    B. 对象嵌入<BR>
+    <INPUT id=c1 type=radio value=C name=13>
+    C. 继承结构&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=13>
+    D. 复合方式<BR>
+    <BR>
+    &nbsp;14、类库的文档以(��)方式组织，每个类的说明文档中都可以包含指向其他说明文档的关键词结点的链接指针。<BR>
+    <INPUT id=c1 type=radio value=A name=14>
+    A. 图解&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=14>
+    B. 超文本<BR>
+    <INPUT id=c1 type=radio value=C name=14>
+    C. 正文文本&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=14>
+    D. 图文结合<BR>
+    <BR>
+    &nbsp;15、为了在子类中使用库中的基类的属性和操作，可以考虑在子类中引进基类的(��)作为子类的实例变量，然后在子类中通过实例变量来复用基类的属性或操作。<BR>
+    <INPUT id=c1 type=radio value=A name=15>
+    A. 变量&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=15>
+    B. 操作<BR>
+    <INPUT id=c1 type=radio value=C name=15>
+    C. 属性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=15>
+    D. 实例</span><BR>
+    <BR>
+    <INPUT id=A type=reset value=重�置>
+    <INPUT id=A onclick=getresultcheck(this.form) type=button value=提�交>
+  </P>
+  <P class="section">三、选择填空题</P>
+  <P class="text">1、从供选择的答案中选出与下列有关软件复用的叙述相对应的正确答案，将其编号填入到相应的括弧（&nbsp;&nbsp; ）内。<BR>
+    &nbsp;�实施软件复用的目的是要使软件开发工作进行得(&nbsp; A&nbsp; )。软件复用的实际效益除了(&nbsp; B&nbsp; )之外，在企业的经营管理方面也可望达到理想的效益。<BR>
+    &nbsp;新的应用软件开发技术和工具是以(&nbsp; C&nbsp; )作为关键，复用大粒度的(&nbsp; D&nbsp; )，为的是快速开发应用软件。这些新技术包括微软的(&nbsp; 
+    E&nbsp; )、(&nbsp; F&nbsp; )、(&nbsp; G&nbsp; )，SUN公司的Java，OMG公司的CORBA、IDL等。<BR>
+    供选择的答案：<BR>
+    A. � ① 更简捷&nbsp;&nbsp;② 更方便&nbsp;&nbsp;③ 更快、更好、更省&nbsp;④ 更丰富<BR>
+    B.��① 复用率&nbsp;&nbsp;② 功能扩充&nbsp;&nbsp;③ 效率&nbsp;&nbsp;&nbsp;④ 空间利用率<BR>
+    C, D. ① 软件&nbsp;&nbsp;② 固件&nbsp;&nbsp;&nbsp;③ 构件&nbsp;&nbsp; &nbsp;④ 属性<BR>
+    ���⑤ 对象&nbsp; &nbsp;&nbsp;⑥ 事物&nbsp;&nbsp;&nbsp;⑦ 数据&nbsp; &nbsp;&nbsp;⑧ 代码<BR>
+    E～G. ① office&nbsp;&nbsp;&nbsp; &nbsp;② Visual Basic&nbsp; &nbsp;③ Active 
+    X&nbsp; &nbsp;④ Photoshop<BR>
+    ���⑤ OLE&nbsp; &nbsp;&nbsp;⑥ Fortran&nbsp; &nbsp;&nbsp;⑦ COBOL &nbsp;&nbsp;⑧ 
+    Delphi &nbsp;</P>
+  <P>
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+  </P>
+  <P class="text">2、从供选择的答案中选出与下列有关软件复用的叙述相对应的正确答案，将其编号填入到相应的括弧（&nbsp;&nbsp; ）内。<BR>
+    �以往的软件工程技术不能满足复用的需要，体现在工程、(&nbsp; A&nbsp; )、(&nbsp; B&nbsp; )、经营业务等4个方面。“工程”指软件开发工程，表现在缺乏(&nbsp; 
+    C&nbsp; )手段，缺乏(&nbsp; D&nbsp; )构件，缺乏对潜在可复用的(&nbsp; E&nbsp; )，缺乏实施复用的工具。 <BR>
+    供选择的答案：<BR>
+    A, B.�① 需求&nbsp;&nbsp; &nbsp;&nbsp;② 过程&nbsp;&nbsp;&nbsp;③ 环境 &nbsp;&nbsp;④ 
+    组织管理<BR>
+    C～E.�① 复用&nbsp;&nbsp;&nbsp;② 可靠性&nbsp;&nbsp;③ 灵活性&nbsp;&nbsp;④ 界定<BR>
+    ��� ⑤ 工具&nbsp;&nbsp;&nbsp;⑥ 互连性</P>
+  <P>
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+  </P>
+  <P class="text">3、从供选择的答案中选出与下列有关论域工程的叙述相对应的正确答案，将其编号填入到相应的括弧（&nbsp;&nbsp; ）内。<BR>
+    &nbsp; �当今大多数软件复用过程中，都涉及创建过程的一个重要活动，即界定潜在的可复用的资源。在这个活动中需要一整套的界定方法，并需要一个能确保可复用资源被复用的体系结构。这个活动就叫做(&nbsp; 
+    A&nbsp; )。而应用软件的开发过程或复用过程则称为(&nbsp; B&nbsp; )。系统地软件复用的实质是：(&nbsp; C&nbsp; 
+    )先投资，即界定并仔细地创建出可复用的资源，从而可以使得(&nbsp; D&nbsp; )能够又快又省地开发应用软件。<BR>
+    供选择的答案：<BR>
+    A, B.�① 应用系统工程&nbsp;&nbsp;② 软件工程 &nbsp;③ 论域工程&nbsp;&nbsp;④ 需求工程<BR>
+    C, D.�① 用户 &nbsp;&nbsp;&nbsp;② 创建者&nbsp;&nbsp; &nbsp;③ 复用者&nbsp;&nbsp;④ 投资者<BR>
+    ��� ⑤ 管理者</P>
+  <P>
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+  </P>
+  <P class="text">4、从供选择的答案中选出与下列有关论域工程的叙述相对应的正确答案，将其编号填入到相应的括弧（&nbsp;&nbsp; ）内。<BR>
+    &nbsp;论域工程过程要在选定的应用论域中界定出(&nbsp; A&nbsp; )和(&nbsp; B&nbsp; )，要为多个应用和构件定义一个(&nbsp; 
+    C&nbsp; )，并开发一系列可适度扩展的(&nbsp; D&nbsp; )。创建可复用构件既困难又昂贵。所以，应当帮助软件人员进行界定工作，以及按重要性对各项(&nbsp; 
+    E&nbsp; )进行优先性排队。在一定程度上，这项工作要依赖于(&nbsp; F&nbsp; )。<BR>
+    供选择的答案：<BR>
+    A, B, E, F：① 共性 &nbsp;&nbsp;② 特性 &nbsp;&nbsp;③ 可变性&nbsp;&nbsp;④ 属性<BR>
+    ������⑤ 灵活性 &nbsp;&nbsp;⑥ 可靠性&nbsp;&nbsp;⑦ 健壮性&nbsp;&nbsp;⑧ 适用性<BR>
+    C, D：���① 固件 &nbsp;&nbsp;② 构件&nbsp;&nbsp;&nbsp;③ 体系结构&nbsp;&nbsp;④ 组件<BR>
+    ������⑤ 总体框图&nbsp;&nbsp;⑥ 数据结构</P>
+  <P> <span class="text"> 
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    </span></P>
+  <P class="text">5、从供选择的答案中选出与下列有关软件构件的叙述相对应的正确答案，将其编号填入到相应的括弧（&nbsp;&nbsp; ）内。<BR>
+    �所谓一个“构件”，可以是一个类型、类或其他的工作成品。对于构件，应当按可复用的要求(&nbsp; A&nbsp; )、(&nbsp; B&nbsp; 
+    )、打包、编写文档。构件是(&nbsp; C&nbsp; )，并具有相当稳定的公开的(&nbsp; D&nbsp; )。这里的构件是基于(&nbsp; 
+    E&nbsp; )技术的。(&nbsp; E&nbsp; )技术中的封装、多态等特性，可简化构件的开发工作。而(&nbsp; E&nbsp; )技术中的(&nbsp; 
+    F&nbsp; )机制则有使开发简化、维护复杂的两面性。<BR>
+    供选择的答案：<BR>
+    A, B.�① 实现&nbsp;&nbsp;&nbsp;② 运行 &nbsp;&nbsp;③ 设计&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;④ 
+    计划<BR>
+    C, D.�① 外联的 &nbsp;&nbsp;② 内聚的&nbsp;&nbsp; &nbsp;③ 公开的&nbsp;&nbsp;&nbsp; &nbsp;④ 
+    私有的<BR>
+    ��� ⑤ 外设&nbsp;&nbsp;&nbsp;⑥ 接口&nbsp;&nbsp;&nbsp; &nbsp;⑦ 输出<BR>
+    E, F.�① 面向数据&nbsp;&nbsp;② 面向对象&nbsp;&nbsp; &nbsp;③ 封装&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;④ 
+    继承<BR>
+    ��� ⑤ 复用</P>
+  <P> <span class="text"> 
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    </span></P>
+  <P class="text">6、从供选择的答案中选出与下列有关软件构件的叙述相对应的正确答案，将其编号填入到相应的括弧（&nbsp;&nbsp; ）内。<BR>
+    �软件开发人员必须用各种抽象化手段来开发代码级构件。典型的抽象方法有3种。(&nbsp; A&nbsp; )、(&nbsp; B&nbsp; )、(&nbsp; 
+    C&nbsp; )。(&nbsp; A&nbsp; )使构件的(&nbsp; D&nbsp; )仅由接口说明确定，而把实现细节对构件的使用者隐藏起来；(&nbsp; 
+    B&nbsp; )在(&nbsp; A&nbsp; )的基础上进一步隐藏除接口参数外的所有数据。面向对象程序设计语言中的“类”是一种典型的基于(&nbsp; 
+    B&nbsp; )的构件。(&nbsp; C&nbsp; )则在(&nbsp; B&nbsp; )的基础上进一步实现在同一构件上并发执行的多个(&nbsp; 
+    E&nbsp; )的无关性。构件提供端口，以便为多个(&nbsp; F&nbsp; )同时访问构件中的资源进行(&nbsp; G&nbsp; )控制。<BR>
+    供选择的答案：<BR>
+    A～B.�① 数据抽象&nbsp;&nbsp;② 需求抽象&nbsp;&nbsp; &nbsp;③ 设计抽象&nbsp;&nbsp; &nbsp;④ 
+    过程抽象<BR>
+    ��� ⑤ 功能抽象&nbsp;&nbsp;⑥ 实例抽象<BR>
+    D～G.�① 异步&nbsp;&nbsp;&nbsp;② 程序&nbsp;&nbsp;&nbsp; &nbsp;③ 线程&nbsp;&nbsp;&nbsp; 
+    &nbsp;④ 用户<BR>
+    ��� ⑤ 功能&nbsp;&nbsp;&nbsp;⑥ 同步</P>
+  <P> <span class="text"> 
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    </span></P>
+  <P class="text">7、从供选择的答案中选出与下列有关软件构件的叙述相对应的正确答案，将其编号填入到相应的括弧（&nbsp;&nbsp; ）内。<BR>
+    �可以有很多方法来描述可复用的构件，其中最理想的是由Tracz提出的3C模型。3C是指(&nbsp; A&nbsp; )、(&nbsp; B&nbsp; 
+    )和(&nbsp; C&nbsp; )。(&nbsp; A&nbsp; )描述构件做什么。为此，需要完全地描述构件的(&nbsp; D&nbsp; 
+    )和表示(&nbsp; E&nbsp; )。(&nbsp; B&nbsp; )描述构件的(&nbsp; F&nbsp; )如何实现。一般来讲，(&nbsp; 
+    B&nbsp; )是对外来用户(&nbsp; G&nbsp; )的信息，是只有试图修改或测试该构件的人才需要了解的信息。(&nbsp; C&nbsp; 
+    )将通过定义概念的、操作的和实现的特征，使用户能够找到合适的构件以满足应用的需求。<BR>
+    供选择的答案：<BR>
+    A～C.�① 包容(container)&nbsp;&nbsp;② 上下文(context)&nbsp;&nbsp;③ 代价(cost)<BR>
+    &nbsp;��� ④ 控制(control)&nbsp;&nbsp; &nbsp;&nbsp;⑤ 概念(concept)&nbsp;&nbsp;⑥ 
+    内容(content)<BR>
+    D～C.�① 概念&nbsp;&nbsp;&nbsp;② 接口&nbsp;&nbsp;&nbsp;③ 公开&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+    &nbsp;④ 服务<BR>
+    ��� ⑤ 语义&nbsp;&nbsp;&nbsp;⑥ 语法&nbsp;&nbsp;&nbsp;⑦ 隐藏&nbsp;&nbsp;&nbsp;⑧ 结构</P>
+  <P> <span class="text"> 
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    </span></P>
+  <P class="text">8、从供选择的答案中选出与下列有关软件体系结构的叙述相对应的正确答案，将其编号填入到相应的括弧（&nbsp;&nbsp; 
+    ）内。<BR>
+    &nbsp;�软件体系设计的一个中心问题是能否(&nbsp; A&nbsp; )，以及采用何种软件体系结构风格。有原则地使用体系结构风格可带来一些实际的好处：<BR>
+    �(1) 它促进了对设计的(&nbsp; B&nbsp; )；<BR>
+    �(2) 它可以带来显著的(&nbsp; C&nbsp; )(体系结构风格的不变部分使它们可以共享同一个实现代码)；<BR>
+    �(3) 只要系统是使用常用的、规范的方法组织起来的，就可以让其他设计者很容易地理解软件的体系结构；<BR>
+    �(4) 对标准或规范风格的使用也支持了(&nbsp; D&nbsp; )，例如像CORBA这样的面向对象的架构和基于事件机制的工具的集成；<BR>
+    �(5) 在限制了设计空间的情况下体系结构风格通常允许进行特殊的与风格有关的分析；<BR>
+    �(6) 通常可以对特定的风格提供(&nbsp; E&nbsp; )手段。<BR>
+    供选择的答案：<BR>
+    A～C.�① 使用特定的体系模式 &nbsp;&nbsp;&nbsp;② 使用重复的体系模式<BR>
+    ��� ③ 复用&nbsp;&nbsp;&nbsp;④ 专用 &nbsp;&nbsp;⑤ 代码复用&nbsp;&nbsp;⑥ 结构复用<BR>
+    D～E.�① 可视化 &nbsp;&nbsp;② 构件&nbsp;&nbsp;&nbsp;③ 互操作性&nbsp;&nbsp;④ 可移植性<BR>
+    ��� ⑤ 可调度性&nbsp;&nbsp;⑥ 框架</P>
+  <P> <span class="text"> 
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    </span></P>
+  <P class="text">9、从供选择的答案中选出与下列有关软件体系结构的叙述相对应的正确答案，将其编号填入到相应的括弧（&nbsp;&nbsp; 
+    ）内。<BR>
+    �分层系统采用层次化的组织方法，每一层向其(&nbsp; A&nbsp; )提供服务，并利用(&nbsp; B&nbsp; )的服务。在一些分层系统中，(&nbsp; 
+    C&nbsp; )全部被隐藏起来，只有(&nbsp; D&nbsp; )和一部分精心选择的功能可以被系统外部看到。在这种系统中，(&nbsp; E&nbsp; 
+    )是实现在层次结构中的一些虚拟机，(&nbsp; F&nbsp; )是层次与层次之间交互的协议，(&nbsp; G&nbsp; )包括对层次之间交互的限制。分层系统中有许多可取的属性。首先，它支持(&nbsp; 
+    H&nbsp; )的系统设计，这使得设计者可以把一个复杂的系统按递增的步骤分解开来；其次，它支持(&nbsp; I&nbsp; )，像管道结构的系统一样，因为每一层至多和相邻的上下层交互，因此，功能的改变最多只影响相邻的上下层。另外，它能支持(&nbsp; 
+    J&nbsp; )，和抽象数据类型一样，只要提供的服务接口定义不变，同一层的不同实现可以交换使用。<BR>
+    供选择的答案：<BR>
+    A～D.�① 下层 &nbsp;&nbsp; &nbsp;② 内部层次&nbsp;&nbsp;&nbsp;③ 外部层次<BR>
+    ��� ④ 上层&nbsp;&nbsp;&nbsp;&nbsp;⑤ 中间件&nbsp;&nbsp;&nbsp;⑥ 接口<BR>
+    E～G.�① 接口定义 &nbsp; &nbsp;② 软件部件&nbsp;&nbsp; &nbsp;&nbsp;③ 连接<BR>
+    ��� ④ 拓扑约束&nbsp;&nbsp;&nbsp;⑤ 规范定义&nbsp;&nbsp;&nbsp;⑥ 推理机制<BR>
+    ��� ⑦ 系统结构<BR>
+    H～J.�① 基于抽象程度递增 &nbsp;② 基于具体细节递增&nbsp;③ 复用<BR>
+    ��� ④ 可视化&nbsp;&nbsp;&nbsp;⑤ 互操作&nbsp;&nbsp;&nbsp;⑥ 功能增强<BR>
+    ��� ⑦ 效率提高&nbsp;&nbsp;&nbsp;⑧ 结构化<BR>
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+  </P>
+  <P class="text">10、从供选择的答案中选出与下列有关软件体系结构的叙述相对应的正确答案，将其编号填入到相应的括弧（&nbsp;&nbsp; 
+    ）内。<BR>
+    �所谓分层式体系结构是按层组织的软件的一种软件体系结构，其中，每一层的软件建立在低一层的软件层上。低层软件比高层软件更具(&nbsp; A&nbsp; 
+    )。下图是一种4层次的分层体系结构，请选择B、C、D、E。<BR>
+    <IMG alt="" hspace=0 src="image/14.gif" align=baseline border=0><BR>
+    供选择的答案：<BR>
+    A.�� ① 高效性&nbsp;&nbsp;&nbsp;&nbsp; ② 通用性&nbsp;&nbsp;③ 可靠性&nbsp;&nbsp;&nbsp;&nbsp; 
+    ④ 保密性<BR>
+    B～E.�① 系统软件&nbsp;&nbsp;② 特定业务&nbsp;&nbsp; &nbsp;③ 中间件&nbsp;&nbsp;&nbsp;&nbsp; 
+    ④ 应用软件<BR>
+    ��� ⑤ 软件平台<BR>
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+  </P>
+  <P class="text">11、从供选择的答案中选出与下列有关软件复用类型的叙述相对应的正确答案，将其编号填入到相应的括弧（&nbsp;&nbsp; 
+    ）内。<BR>
+    &nbsp;软件复用可分为以下三个层次：<BR>
+    &nbsp;(&nbsp; A&nbsp; )，例如软件工程知识的复用。<BR>
+    &nbsp;(&nbsp; B&nbsp; )，例如面向对象方法或国家制定的软件开发规范的复用。<BR>
+    &nbsp;软件成分的复用。软件成分的复用又可进一步划分为(&nbsp; C&nbsp; )，如剪贴；(&nbsp; D&nbsp; )，如复用设计模型；(&nbsp; 
+    E&nbsp; )，更高级别复用。<BR>
+    &nbsp;为了研究软件复用程度与软件生产率之间的关系，我们引进：生产率P = (&nbsp; F&nbsp; )和复用率R = (&nbsp; G&nbsp; 
+    )的公式，以及两者之间的关系P = (&nbsp; H&nbsp; )。其中，用Lt代表程序总长度，Ln和Lr分别为新编代码和复用代码的长度。令Et、En和Er分别代表开发该程序的总工作量、新编程序的工作量和复用已有软件构件的工作量，Cn和Cr分别代表开发新代码和复用已有软件构件的生产率。<BR>
+    供选择的答案：<BR>
+    A～E.�① 知识复用&nbsp;&nbsp;&nbsp;&nbsp;② 分析结果复用&nbsp;&nbsp;③ 代码复用<BR>
+    ��� ④ 方法与标准复用&nbsp;&nbsp;⑤ 设计结果复用&nbsp;&nbsp;⑥ 软件成分复用<BR>
+    &nbsp;<BR>
+    F～H.&nbsp;&nbsp;<BR>
+    <img alt="" hspace=0 src="image/16.gif" align=baseline border=0><BR>
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+  </P>
+  <P class="text">四、问答题</P>
+  <P class="text">1、软件复用的含义是什么？软件复用的范围有哪些方面？</P>
+  <P> <span class="text"> 
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    </span></P>
+  <P class="text">2、简述软件复用的大致过程。说明在此过程中每个步骤需采用的关键步骤。 <BR>
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+  </P>
+  <P class="text">3、回答下列问题。<BR>
+    (1) 比较横向复用和纵向复用的异同及优劣。<BR>
+    (2) 假定有一个结构形如图8.3所示的构件库，基于该构件库的软件复用属于横向复用还是纵向复用？为什么？ <BR>
+    解答：(1) 软件复用可以区分为横向复用和纵向复用。横向复用是复用不同应用论域中的软件元素，例如数据结构、排序算法、人机界面构件等。标准函数库是一种典型的原始的横向复用机制。纵向复用是在一类具有较多公共性的应用论域之间复用软件构件。<BR>
+    &nbsp;横向复用是在几个截然不同的应用论域之间进行软件复用，可复用的资源有限，潜力不大。纵向复用的应用范围较大，从系统软件到特定论域的软件及应用软件，还有软件工程过程方面，许多计算机软件厂商开发了大量可复用的构件或软件包，在软件工程实践中取得显著的效益，因此受到广泛关注。<BR>
+    &nbsp;(2) 图8.4 是关键词分类结构的示例，它是横向复用的典型例子，用户界面所涉及的技术可用于各个不同应用论域的软件中。</P>
+  <P class="text">4、回答下列问题。<BR>
+    (1) 简述关键词分类法、多面分类法和超文本分类法等组织方法的概要。<BR>
+    (2) 简述相应的检索方法。 <BR>
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+  </P>
+  <P><span class="text">5、试简述基于软件复用的软件项目管理机构的组织和工作职责。 <BR>
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    <BR>
+    <BR>
+    </span> &nbsp;</P>
+  <input type=button name=Button value=答�案 onClick="MM_openBrWindow('tanchu.htm','','width=471,height=384')">
+  <br>
+  <br>
+</form>
+</BODY>
+</HTML>

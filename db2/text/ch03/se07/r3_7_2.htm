@@ -1,0 +1,138 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" --><span class="biaoti_1">　1</span><span class="pt9-black">．</span><span class="biaoti_1">数据库模式定义语言DDL 
+      </span><span class="pt9-black"><br>
+      　　数据库模式定义语言DDL(Data Description Language)，是用于描述数据库中要存储的现实世界实体的语言。一个数据库模式包含该数据库中所有实体的描述定义。这些定义包括结构定义、操作方法定义等。<br>
+      　　DDL描述的模式，必须由计算机软件进行编译，转换为便于计算机存储、查询和操纵的格式，完成这个转换工作的程序称为模式编译器。<br>
+      　　模式编译器处理模式定义主要产生两种类型的数据：数据字典以及数据类型和结构定义。<br>
+      　　<font color="#5a5aad">数据字典和数据库内部结构信息是创建该模式所对应的数据库的依据，根据这些信息创建每个数据库对应的逻辑结构；对数据库数据的访问、查询也根据模式信息决定数据存取的方式和类型，以及数据之间的关系和对数据的完整性约束。<br>
+      　　数据字典是模式的内部信息表示，数据字典的存储方式对不同的DBMS各不相同。<br>
+      　　数据类型和结构的定义，是指当应用程序与数据库连接操作时，应用程序需要了解产生和提取的数据类型和结构。是为各种宿主语言提供的用户工作区的数据类型和结构定义，使用户工作区和数据库的逻辑结构相一致，减少数据的转换过程，这种数据类型和结构的定义通常用一个头文件来实现。</font><br>
+      　　数据库模式的定义通常有两种方式: 交互方式定义模式和通过数据描述语言 DDL 描述文本定义模式。<br>
+      　(1) 交互方式定义模式 <br>
+      　　通过屏幕交互方式定义和修改数据模式，有交互表格设计方式和交互图形设计方式。交互方式借助图形化的表格或图形化的工具，操作简单、直观，易于修改。<br>
+      　　<font color="#5a5aad">目前大多数的关系数据库管理系统都提供了这种交互设计表结构的功能。如Access、FoxPro、SQL 
+      Server、Oracle等关系数据库的模式定义。对要产生的表结构在屏幕上逐个输入表的字段名、字段类型、字段宽度等。交互表格方式通常用于简单数据类型的描述，对于复杂的数据类型及复杂数据间的复杂关系，有时不易交互方式定义模式。</font><br>
+      　　交互图形定义数据模式，多用于面向对象的分析和设计过程。用图形和各种符号表示类和对象，以及类和类之间的关系。现在已经出现许多图形化的设计工具软件产品。<br>
+      ● 交互式屏幕表格定义<br>
+      　　例如，通过表3-19，定义学生关系表（学号、姓名、性别、出生日、系名、电话、班级）。<br>
+      <br>
+      </span> 　　<span class="tubiaoti">表 3-19</span><br>
+      <br>
+      <table width="80%" border="1" cellspacing="0" cellpadding="0" class="pt9-black" bordercolorlight="#004080" bordercolordark="#ffffff" align="center">
+        <tr align="center" bgcolor="#BFDFFF"> 
+          <td bgcolor="#BFDFFF">字段名</td>
+          <td>数据类型</td>
+          <td>字段宽度</td>
+          <td>小数位数</td>
+          <td>字段标识</td>
+        </tr>
+        <tr align="center"> 
+          <td>学号</td>
+          <td>char</td>
+          <td>6</td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr align="center"> 
+          <td>姓名</td>
+          <td>char</td>
+          <td>20</td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr align="center"> 
+          <td>性别</td>
+          <td>char</td>
+          <td>1</td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr align="center"> 
+          <td>出生日</td>
+          <td>date</td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr align="center"> 
+          <td>系名</td>
+          <td>char</td>
+          <td>30</td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr align="center"> 
+          <td>电话</td>
+          <td>char</td>
+          <td>12</td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr align="center"> 
+          <td>班级</td>
+          <td>char</td>
+          <td>20</td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+        </tr>
+      </table>
+      <span class="pt9-black"><br>
+      ● 交互图形定义数据模式<br>
+      　　交互图形定义过程中，通常用不同的图形符号表示不同的对象类型；用不同的连线符号表示不同的关系。如图3-23中列出的符号。<br>
+      　　图形建模工具通常把设计好的图形模式产生对应的建摸语言文本，再通过模式编译器编译存储到数据字典中。<br>
+      <br>
+      　　</span><span class="tubiaoti">图3-23 图形建模符号</span><span class="pt9-black"><br>
+      </span> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td align="center" class="pt9-black"><br>
+            <img src="../../../img/text/ch03/d2.gif" width="174" height="184"></td>
+        </tr>
+      </table>
+      <span class="pt9-black"><font color="#5a5aad"><br>
+      　　目前已形成产品的图形建摸工具软件有多种，下面仅列出两个：<br>
+      　　① 支持STEP标准的ROSE中的EXPRESS_G。它包括：把文本转换到图形文件express2expg；把图形文件转换到文本文件的expg2ps。<br>
+      　　② RATIONAL中的模式定义工具Rational Software Corporation提供了完整的软件工程工具集。其中的产品有Rational 
+      Rose。Rational Rose系列软件是图形化的、面向对象的软件工程工具，支持面向对象分析和设计、通讯和一致性检查。</font><br>
+      　(2) 数据描述语言 DDL 定义模式 <br>
+      　　<font color="#5a5aad">数据描述语言也称数据库模式描述语言，使用该语言描述现实世界中各种复杂的实体及实体之间的关系。不同的数据库管理系统提供的描述语言不同，关系数据库都使用SQL语言描述关系模式。DDL描述的模式由模式编译器转换为便于计算机操作的格式。</font><br>
+      　　关系数据库的模式描述是通过SQL语言中的CREATE 语句实现。例如，针对表3-7，产生student表的SQL语句如下：<br>
+      　　CREATE TABLE student <br>
+      　　(学号 CHAR(10) NOT NULL UNIQUE, <font color="#5a5aad">//列级完整性约束条件</font><br>
+      　　姓名 CHAR(20) NOT NULL, <font color="#5a5aad">//列级完整性约束条件</font><br>
+      　　性别 CHAR(1),<br>
+      　　年龄 INT,<br>
+      　　班级编号 CHAR(20) )<br>
+      　　PRIMARY KEY （学号）； <font color="#5a5aad">//指定主关键字，实体完整性约束条件</font><br>
+      </span><!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

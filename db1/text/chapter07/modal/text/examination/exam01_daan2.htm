@@ -1,0 +1,60 @@
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" background="../../../../../image/pop/r2_c3.gif">
+<center><table width="95%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+      <td class=text> 
+        <p><b>问答题答案</b></p>
+        <p><span class="explaination">问答第1题</span><br>
+          <img src="../../../../../image/shiti/22.gif" width="127" height="188"><br>
+          　　如图所示，每种存储介质的数据存取速度从下到上是越来越快。<br>
+          <br>
+          <span class="explaination">问答第2题</span><br>
+          　　由于RAID2和RAID4被RAID3和RAID5所包容，所以一般只需要在RAID0、RAID1、RAID3、RAID5和RAID6之间作出选择即可： 
+          <br>
+          　　 1、RAID0：用于可以容忍数据丢失的高性能应用中； <br>
+          　　 2、RAID1：广泛用于存储类似数据库系统日志文件的应用中，因为它提供了最好的写性能，同时又保证可靠性；<br>
+          　　 3、RAID3：用于存储大量数据，并提供高的数据传输率； <br>
+          　　 4、RAID5：用于存储大量数据，且随机读的效率更高。大多数数据库系统都属于这种情况<br>
+          　　 5、RAID6：提供比RAID5更高的可靠性，但很多RAID实现不支持RAID6。 <br>
+          　　 <br>
+          <span class="explaination">问答第3题</span><br>
+          　　1、 这种删除技术实现简单、容易理解，因为在删除记录5时，很容易找到它的下一条记录（即记录6）的位置。但这种方法需要移动多条记录； 
+          <br>
+          　　 2、 这种技术在实现时，首先要找到文件的尾部，即最后一条记录7的位置，然后再移动记录。但这种方法只需要移动一条记录； <br>
+          　　 3、 这种技术在实现时比较麻烦，但是它不需要移动任何记录，因此删除的效率比较高。但是它要标记被删除的记录，因此需要引入额外的结构，是用空间的代价来换取时间的节省。 
+          <br>
+          　　 <br>
+          <span class="explaination">问答第4题</span><br>
+          　　 1、插入(Brighton, A-323, 1600) <br>
+          <img src="../../../../../image/shiti/26.gif" width="288" height="218"> 
+          <br>
+          　　 2、删除记录2 <br>
+          <img src="../../../../../image/shiti/27.gif" width="288" height="209"> 
+          <br>
+          　　 3、插入(Brighton, A-626, 2000)<br>
+          <img src="../../../../../image/shiti/28.gif" width="288" height="214"> 
+          <br>
+          　　 <br>
+          <span class="explaination">问答第5题</span><br>
+          　　受变长记录的定长表示法中的锚块-溢出块方案的启发，可以在维护顺序文件的时候也引入溢出块的概念，以减少文件中记录的移动。在带有溢出块的顺序文件组织中用指针链表来管理删除记录之后留下来的空闲空间。而对于插入来说，首先要定位被插入的记录按搜索码排序时它前面的那条记录，如果这条记录所在的物理块中有空闲空间，就在这个块中插入该记录；否则，将该记录插入到溢出块中。<br>
+          　　 <br>
+          <span class="explaination">问答第6题</span><br>
+          　　虽然簇集能够为某些查询带来巨大的好处，使得查询性能显著提高，但是在实际应用中还是要慎用簇集。这主要是因为：<br>
+          　　 ⑴　如果改用其他属性或属性集做簇集键，将引起所有记录的移动； <br>
+          　　 ⑵　如果一个记录的簇集键值修改了，则这个记录也要做相应的移动；<br>
+          　　 ⑶　如果不是针对簇集设计的查询，而是按其他条件进行查询，则这种簇集没有一点好处！ <br>
+          <!--czp-wenda-daan-->
+        </p>
+      </td>
+  </tr>
+</table>
+  </center>
+
+</body>
+</html>

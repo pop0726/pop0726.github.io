@@ -1,0 +1,79 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgproperties=fixed bgcolor="#FFFFFF" background="../../../../image/moban/15.gif">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" height="157">
+        <tr> 
+          <td class="text" align="left" height="51"> 
+            <p><span class="part">1、嵌套循环连接</span><br>
+              ��我们以theta连接r�ˇ�<sup>s</sup>为例，从最简单、最容易理解的嵌套循环连接算法开始，讨论连接运算的代价。算法的主要代码介绍如下：<br>
+              for each 元组tr in r do<br>
+              begin <br>
+              ��for each 元组ts in s do<br>
+              begin <br>
+              ��测试元组对(tr,ts)是否满足连接条件θ 如果满足，把tr・ts加到结果集中 <br>
+              ��end<br>
+              end<br>
+            </p>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left"> 
+            <div align="center"><span class="part">图9-4-2：嵌套循环连接算法的说明</span><br>
+              <img src="../../../../image/chapter/09/9-4-2.gif" width="407" height="267"> 
+            </div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left">��如图9-4-2所示该算法分析如下：<br>
+            ��⑴�与文件的线性扫描算法类似，关系文件的每个数据块都必须访问；<br>
+            ��⑵�不要求有任何索引，任何连接条件都能适应；<br>
+            ��⑶�对于关系r的每一条记录必须对s做一次完整的扫描，因此算法的代价为：<br>
+            ����①�最坏情况下，缓冲区只能容纳每个关系的一个数据块，因而<br>
+            ������<font size="2">E</font><font size="-5">J</font> =<font size="2"> 
+            n</font><font size="-5">r</font> * <font size="2">b</font><font size="-5">s</font> 
+            + <font size="2">b</font><font size="-5">r</font><br>
+            ����②�最好情况下，两个关系都能放到内存里，因而算法代价为<br>
+            ������<font size="2">E</font><font size="-5">J</font> = <font size="2">b</font><font size="-5">s</font> 
+            + <font size="2">b</font><font size="-5">r</font><br>
+            <br>
+            <span class="part">2、索引嵌套循环连接</span><br>
+            ��与嵌套循环连接算法的代码相同，只不过将算法中的文件扫描策略用索引扫描策略代替。算法代码如下：<br>
+            for each 元组tr in r do<br>
+            begin <br>
+            ��for each 元组ts in s do <br>
+            ��begin <br>
+            ����测试元组对(tr,ts)是否满足连接条件θ<br>
+            ����如果满足，把tr・ts加到结果集中<br>
+            ��end<br>
+            end<br>
+          </td>
+        </tr>
+        <tr>
+          <td class="text" align="left">
+            <div align="center"><span class="part">图9-4-3：索引嵌套循环连接算法的说明</span> 
+              <br>
+              <img src="../../../../image/chapter/09/9-4-3.gif" width="420" height="254"> 
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="text" align="left">��如<span class="part">图9-4-3</span>所示，在给定元组tr的情况下，在关系s中查找满足连接条件的元组本质上是在s上做选择运算。因此该算法的代价为：<br>
+            ���<font size="2">E</font><font size="-5">J</font> = <font size="2">b</font><font size="-5">r</font> 
+            + <font size="2">n</font><font size="-5">r</font> * <font size="2">c</font><br>
+            其中c是使用连接条件并利用索引对关系s进行单个选择运算的代价。<br>
+            <br>
+            <span class="menu">��本节中提到的关系运算的代价都可以转化为基本的数据结构的复杂性来考虑。而且由于时间在多数情况下是人们最关心的，所以这里只考虑了时间复杂性。你自己可以考虑一下它们的空间复杂性。</span></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

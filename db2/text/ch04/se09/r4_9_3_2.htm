@@ -1,0 +1,88 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url('../../../img/text/bg.jpg');
+background-repeat: no-repeat;
+background-attachment: fixed; background-position-y:50%
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">　</td>
+    <td>　</td>
+    <td width="10">　</td>
+  </tr>
+  <tr>
+    <td width="10">　</td>
+    <td> <!-- #BeginEditable "1" -->　<span class="biaoti_1">4. INSERT 触发器</span> 
+      <br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+        <tr> 
+          <td width="35" valign="top"><img src="../../../img/text/liti.gif" width="35" height="36" alt="例题"></td>
+          <td><br>
+            　例1，每在离退休表freeemp中增加一个职工记录时，同时要在在职人员表work_table中删除一条相应的职工记录。定义触发器如下：<br>
+            　　CREATE TRIGGER freeemp <font color="#5a5aad">//触发器名称freeemp</font><br>
+            　　ON free_table <font color="#5a5aad">//作出向free_tableInsert的动作</font><br>
+            　　FOR INSERT<br>
+            　　AS<br>
+            　　DELETE FROM work_table <font color="#5a5aad">//发生的条件为从work_table中删除记录</font><br>
+            　　WHERE free_table.no = work_table.no <font color="#5a5aad">//设定free_table插入的no为相应work_table的no</font></td>
+        </tr>
+      </table>
+      <br>
+      　<span class="biaoti_1">5．UPDATE触发器</span><br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+        <tr> 
+          <td width="35" valign="top"><img src="../../../img/text/liti.gif" width="35" height="36" alt="例题"></td>
+          <td><br>
+            　例2，该触发器是在对emp表的sal属性执行update语句时触发：每修改一个职工的工资，就检查新工资是否比原工资低，若是低，则恢复原工资而不做修改。 
+            <br>
+            　　CRATE TRIGGER newsaltrigger <font color="#5a5aad">//触发器名称newsaltrigger</font><br>
+            　　AFTER UPDATE OF sal ON emp <font color="#5a5aad">//在对emp表的sal属性更新时触发</font><br>
+            　　REFERENCING OLD AS oldtuple NEW AS newtuple <br>
+            　　WHEN(newtuple.sal &lt; oldtuple.sal) <font color="#5a5aad">//当新工资低于旧工资时触发</font><br>
+            　　UPDATE emp <br>
+            　　SET sal = oldtuple.sal <font color="#5a5aad">//更新emp表，设定工资为旧工资</font>。<br>
+            　　WHERE eno =newtuple.eno <font color="#5a5aad">//更新条件emp表的eno等于newtuple表的eno。</font><br>
+            　　FOR EACH ROW ;</td>
+        </tr>
+      </table>
+      <br>
+      　<span class="biaoti_1">6．DELETE触发器</span> <br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+        <tr> 
+          <td width="35" valign="top"><img src="../../../img/text/liti.gif" width="35" height="36" alt="例题"></td>
+          <td><br>
+            　例3，如图4-26所示，通路P3包括R1,R2,R3，从通路表CONNECTION删除其中任何一条通路，都要将整个通路的所有矩形从矩形表RECTANGLE中全部删除，这时就要用触发器实现。<br>
+            　　CREATE TRIGGER T3 <font color="#5a5aad">//触发器名称T3</font><br>
+            　　ON CONNECTION <font color="#5a5aad">//对connection表</font><br>
+            　　FOR DELETE <font color="#5a5aad">//当发生删除事件时</font><br>
+            　　AS DELETE RECTANGLE <br>
+            　　WHERE RECTANGLE.path = CONNECTION.path_name <br>
+            　　　　<font color="#5a5aad">//动作为从rectangle表中删除path＝connection.path_name的元组。</font></td>
+        </tr>
+      </table>
+      <br>
+      　　<span class="tubiaoti">图4-26 通路P3</span><br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td align="center" class="pt9-black"><br>
+            <img src="../../../img/text/ch04/d1.gif" width="181" height="90"></td>
+        </tr>
+      </table>
+      <!-- #EndEditable --></td>
+    <td width="10">　</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

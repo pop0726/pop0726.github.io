@@ -1,0 +1,50 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgproperties=fixed bgcolor="#FFFFFF" background="../../../../image/moban/15.gif">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" height="8">
+        <tr> 
+          <td class="text"><span class="part">1、等待-死亡机制</span><br>
+            ��这种机制基于非抢占技术。当事务T<font size="-5">i</font>申请的数据项当前被Tj持有，仅当TS(T<font size="-5">i</font>)&lt;TS(T<font size="-5">j</font>)时，允许T<font size="-5">i</font>等待。否则，T<font size="-5">i</font>回滚。如<span class="part">图11-7-2</span>所示：<br>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text"> 
+            <div align="center"><span class="part">图11-7-2：等待-死亡机制示意图</span> <br>
+              <img src="../../../../image/chapter/11/11-7-2.gif" width="387" height="69"> 
+            </div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text">例如，若事务T<font size="-5">i</font>、T<font size="-5">j</font>、T<font size="-5">k</font>的时间戳分别为5、10、15。如果T<font size="-5">i</font>申请的数据项当前被T<font size="-5">j</font>持有，则T<font size="-5">i</font>将等待；如果T<font size="-5">k</font>申请的数据项当前被T<font size="-5">j</font>持有，则T<font size="-5">k</font>将回滚。<br>
+            <br>
+            <span class="part">2、受伤-等待机制</span><br>
+            ��这种机制基于抢占技术，是wait-die的相反机制。当事务T<font size="-5">i</font>申请的数据项当前被T<font size="-5">j</font>持有，仅当TS(T<font size="-5">i</font>)&gt;TS(T<font size="-5">j</font>)时，允许T<font size="-5">i</font>等待。否则，T<font size="-5">i</font>抢占T<font size="-5">j</font>持有的数据项，而T<font size="-5">j</font>回滚。如<span class="part">图11-7-3</span>所示：<br>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text"> 
+            <div align="center"><span class="part">图11-7-3：受伤-等待机制示意图 </span><br>
+              <img src="../../../../image/chapter/11/11-7-3.gif" width="392" height="69"> 
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="text">和上面的例子相同。如果Ti申请的数据项当前被Tj持有，则Ti将从Tj抢占数据项，Tj回滚；如果Tk申请的数据项当前被Tj持有，则Tk将等待。<br>
+            <br>
+            <span class="part">3、等待-死亡与受伤-等待的区别</span><br>
+            ��<u>⑴�等待区别：</u>在等待-死亡机制中，较老的事务必须等待较新的事务释放它所持有的数据项。因此，事务变得越老，它越要等待。与此相反，在受伤-等待机制中，较老的事务从不等待较新的事务；<br>
+            ��<u>⑵�回滚区别：</u>在等待-死亡机制中，如果事务T<font size="-5">k</font>由于申请的数据项当前被Tj持有而死亡并回滚，则当事务T<font size="-5">k</font>重启时它可能重新发出相同的申请序列。如果该数据项仍被T<font size="-5">j</font>持有，则Tk将再度死亡。因此，T<font size="-5">k</font>在获得所需数据项之前可能死亡多次！而在受伤-等待机制中，如果T<font size="-5">i</font>申请的数据项当前被Tj持有而引起T<font size="-5">j</font>受伤并回滚，则当T<font size="-5">j</font>重启并发出相同的申请序列时，T<font size="-5">j</font>会等待而不是回滚！为什么？请大家自己思考。</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

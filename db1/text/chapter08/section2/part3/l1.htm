@@ -1,0 +1,59 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgproperties=fixed bgcolor="#FFFFFF" background="../../../../image/moban/15.gif">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td class="text" align="left"> <span class="menu">��</span>每当文件中有记录插入或删除时，相应的索引也需要更新，首先我们来看一看在文件中删除记录时，如何影响索引结构。<br>
+            ��<span class="part">1、删除记录</span><br>
+            ��如<span class="part">图8-2-5</span>显示的是稠密索引的情况：<br>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left">
+            <div align="center"><span class="part">图8-2-5：稠密索引</span><br>
+              <img src="../../../../image/chapter/08/8-2-5.gif" width="420" height="158"> 
+            </div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left">��①�删除数据文件中的Mianus记录：由于数据文件中搜索码为Mianus的记录没有了，因此索引结构中搜索码为Mianus的索引项也应该删除；<br>
+            ��②�删除数据文件中Perryridge的A-102记录：由于数据文件中搜索码为Perryridge的记录还有，因此索引结构中搜索码为Perryridge的索引项不应该删除，只是把相应索引项的指针指向数据文件中搜索码为Perryridge的A-201记录；<br>
+            ��③�删除数据文件中Perryridge的A-201记录：由于数据文件中搜索码为Perryridge的记录还有，并且索引结构中搜索码为Perryridge的索引项指针指向的记录还存在，因此索引结构中搜索码为Perryridge的索引项不应该删除，而且索引项的指针也不改变，也就是说，索引结构无须任何变化。如<span class="part">图8-2-6</span>显示的是稀疏索引的情况：<br>
+          </td>
+        </tr>
+        <tr>
+          <td class="text" align="left">
+            <div align="center" class="part">图8-2-6：稀疏索引<br>
+              <img src="../../../../image/chapter/08/8-2-6.gif" width="420" height="172"> 
+            </div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left">��①�删除数据文件中搜索码为Downtown的某一条记录：由于在索引结构中，根本就没有搜索码为Downtown的索引项，因此索引结构不需要做任何改动；<br>
+            ��②�删除数据文件中搜索码为Brighton的记录：由于数据文件中搜索码为Brighton的记录没有了，而该搜索码又是索引结构的第一个索引项，因此需要将索引结构中搜索码为Brighton的索引项更新为搜索码为Downtown、索引项的指针指向数据文件中搜索码为Downtown的第一条记录；<br>
+            ��③�删除数据文件中的Mianus记录：由于数据文件中搜索码为Mianus的记录没有了，因此索引结构中搜索码为Mianus的索引项也应该删除；<br>
+            ��④�删除数据文件中Perryridge的A-102记录：由于数据文件中搜索码为Perryridge的记录还有，因此索引结构中搜索码为Perryridge的索引项不应该删除，只是把相应索引项的指针指向数据文件中搜索码为Perryridge的A-201记录；<br>
+            ��⑤�删除数据文件中Perryridge的A-201记录：由于数据文件中搜索码为Perryridge的记录还有，并且索引结构中搜索码为Perryridge的索引项指针指向的记录还存在，因此索引结构中搜索码为Perryridge的索引项不应该删除，而且索引项的指针也不改变，也就是说，索引结构无须任何变化。<br>
+            <br>
+            ��<span class="part">2、插入记录</span><br>
+            ��①�如果索引是稠密的，并且待插入记录的搜索码值不在索引中，就要把该搜索码值插入到索引中；<br>
+            ��②�如果索引是为每个块保存一个索引项的稀疏索引，只要没有新块产生，索引就无需做任何改动；在产生新块的情况下（不是指溢出块），新块中（按搜索码顺序的）第一个搜索码值将被插入到索引中。<br>
+            <br>
+            ��<span class="part">3、多级索引</span><br>
+            ��多级索引分内层索引和外层索引，它的删除与插入同上面介绍的单级索引的情况类似：<br>
+            ��①�在插入和删除数据文件中的记录时，内层索引的更新同上；<br>
+            ��②�对外层索引而言，内层索引不过是一个包含记录的文件。该文件的改变（插入和删除），引起外层索引按上述算法更新！</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

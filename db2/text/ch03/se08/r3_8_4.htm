@@ -1,0 +1,42 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" --> 　　下面仅就用户可见的两个方面进行讨论。<br>
+      　1. 文件管理<br>
+      　　数据库包括原始数据、数据库模式、以及支持有关访问的辅助结构，如索引等，所有这些都要映像到操作系统的文件中。 <br>
+      　　<font color="#5a5aad">当安装一个DBMS时，或产生一个数据库时，必须定义所需要的文件，其中包括大量的参数，如文件访问方法、存储空间的组织、记录格式和长度、以及缓冲区技术等。参数选择的不好会影响导航的效果。</font><br>
+      　2. 任务管理<br>
+      　　现今的操作系统都基于进程并发执行的原理。因此，组织事务的直接方法应当是把每个事务与一个进程联系起来。这有几种选择方案：<br>
+      　<font color="#5a5aad">　(1) 每个进程对应一个事务。即每个并发的事务在单独的一个用户进程(任务)中运行。把DBMS与任务内的事务程序&quot;连接&quot;起来。由操作系统根据它自己的策略实现调度，操作系统的这些策略适合数据库的特殊要求。如果DBMS是不可重入的程序，每个任务都有它自己的DBMS拷贝副本。可重入的程序可同时被多个任务或多个用户使用，常用于多道程序设计和分时系统中。由于任务之间的交叉，DBMS必须保证事务的特性，必须管理几个共亨的数据结构，并由操作系统同步对它们的访问。这些数据结构将发展成一系列性能的瓶颈。<br>
+      　　(2) 独立的DBMS进程。为了克服瓶颈造成的困难，可以把DBMS组织成一个单独的、永久执行的任务。用户任务和DBMS任务之间的通讯由消息完成，用户任务刚好包括事务程序。只有当事务的调度由DBMS任务负责而不是留给操作系统来完成时，这种方式才有实际优点。然而，大量的任务切换会降低系统的性能。<br>
+      　　实际系统中，选择那种策略取决于对具体情况的分析，这类任务由系统管理员负责。<span class="pt9-black"><br>
+      </span></font><!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

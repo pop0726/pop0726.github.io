@@ -1,0 +1,75 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" --> <span class="biaoti_1">　1 访问远程数据库<br>
+      <br>
+      </span><span class="pt9-black">　　ORACLE系统中是通过&quot;数据库链&quot;来实现访问远程数据库的。我们可以在本地数据库上建立一个数据库链，它封装了如下信息：<br>
+      　　（1） 网络协议（如TCP/IP）<br>
+      　　（2） 远程数据库服务器的网络地址（如IP地址166。111。7。123）<br>
+      　　（3） 远程数据库的名字（如ORA2）<br>
+      　　（4） 远程数据库上建立的用户名及口令（如SCOTT/TIGER，你将以此帐号访问远程数据库）<br>
+      　<br>
+      　　其中前三项是有关网络上一个结点的信息，系统管理员可以在本地数据库服务器上的系统网络配置文件中（TNSNAME。ORA）先将它们定义为一个&quot;连接串&quot;，如123。<br>
+      <br>
+      　　下面是建立数据库链的语句示例：<br>
+      　　CREATE DATABASE LINK sales<br>
+      　　CONNECT TO scott IDENTIFIED BY tiger<br>
+      　　USING '123'：<br>
+      　<br>
+      　　作为本地数据库的一个对象，数据库链可以被看作是远程数据库在本地的一个代理。<br>
+      　　在本地数据库中，可以根据需要建立若干个数据库链。一旦建立了数据库链，便可以利用它访问远程数据库中的数据。例如：<br>
+      　　SELECT * //查询远程数据库上emp表的内容<br>
+      　　FROM dept， emp@sales //部门dept表为本地表，emp表为远程表<br>
+      　　WHERE dept.don = emp.don： //不同数据库上表的连接<br>
+      <br>
+      　　<font color="5a5aad">注意：数据库链仅在说明表名的地方（如FROM子句）出现，其他地方不需要（如WHERE子句）出现。<br>
+      </font><br>
+      　　ORCALE分布数据库系统的应用如图8-11所示。 <br>
+      <br>
+      　　</span><span class="tubiaoti">图8-11 ORACLE分布数据库系统 </span><span class="pt9-black"><br>
+      </span> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td align="center" class="pt9-black"><br>
+            <img src="../../../img/text/ch08/8_11.gif" width="469" height="238"></td>
+        </tr>
+      </table>
+      <span class="pt9-black"><br>
+      　　如果读者要问：能否更透彻的对远程数据库进行存取？答案是肯定的，我们可以利用&quot;同义词&quot;机制实现透明访问。例如，我们建立一个同义词：<br>
+      　　CREATE SYNONYM emp1 FOR emp @sales ；<br>
+      <br>
+      　　上述语句中在本地数据库中为远程数据库sales的表emp建立了一个同义词emp1.。建立了同义词后，就可以在SQL语句中使用它。例如：<br>
+      　　SELECT * FROM emp1；<br>
+      <br>
+      　　从该查询语句中看不出emp1表的物理位置，形式上与本地表没有区别。实际上emp1是一个远程表的别名，系统会根据该同义词的定义来定位实际的emp。<br>
+      <br>
+      　　&quot;同义词&quot;是ORACLE的一个数据库对象，同义词可为表、视图、序列或其他同义词等对象定义别名，由于同义词包含数据库链的信息，因此ORACLE通过同义词机制提供了数据物理位置的透明性。</span><!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

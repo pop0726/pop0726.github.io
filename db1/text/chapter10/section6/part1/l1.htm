@@ -1,0 +1,54 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgproperties=fixed bgcolor="#FFFFFF" background="../../../../image/moban/15.gif">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" height="11">
+        <tr> 
+          <td class="text" align="left" height="50"> 
+            <p><span class="part">1、问题的提出</span><br>
+              ��无论是什么原因，如果事务T<font size="-5">i</font>失败了，为保证事务的原子性我们必须撤消该事务对数据库造成的影响，即将事务T<font size="-5">i</font>回滚。同时由于系统中事务的并发执行，还必须确保那些依赖于T<font size="-5">i</font>的任何事务T<font size="-5">j</font>(即T<font size="-5">j</font>读取了由T<font size="-5">i</font>所写的数据)也必须同时撤消掉（即回滚掉）。<br>
+              <br>
+              <span class="part">2、问题的解决</span><br>
+              ��<u>⑴�可恢复调度</u><br>
+              ��如<span class="part">图10-6-1</span>所示，事务T7读取了事务T<font size="-5">6</font>所写的数据A，如果事务T<font size="-5">6</font>发生故障而回滚，就有可能引起T7的回滚，因此事务T<font size="-5">6</font>必须在T<font size="-5">7</font>提交之前进行提交，才能保证调度中事务是可恢复的。<br>
+            </p>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left" height="50"> 
+            <div align="center"><span class="part">图10-6-1：调度9 </span><br>
+              <img src="../../../../image/chapter/10/10-6-1.gif" width="337" height="239"> 
+            </div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left" height="50">��为什么事务T<font size="-5">6</font>必须先于事务T7提交呢？原因就是，如果是事务T<font size="-5">7</font>先提交，而事务T<font size="-5">6</font>后提交，事务T<font size="-5">6</font>在提交的过程中发生了故障，这时候事务T<font size="-5">6</font>可以回滚，而事务T<font size="-5">7</font>已经提交成为结束的事务，因此无法回滚，这势必造成调度中的事务无法恢复，因此事务T6必须先于事务T<font size="-5">7</font>提交。<br>
+            ��总上所述，对于每对事务T<font size="-5">i</font>和T<font size="-5">j</font>，如果T<font size="-5">j</font>读取了由T<font size="-5">i</font>所写的数据项，则T<font size="-5">i</font>应先于T<font size="-5">j</font>提交。我们把这样的调度称为可恢复调度。<br>
+            ��<u>⑵�无级联调度</u><br>
+            ��因一个事务故障导致一系列事务回滚的现象称为级联回滚，系统应该避免级联回滚。如<span class="part">图10-6-2</span>所示，事务T<font size="-5">9</font>读取了事务T<font size="-5">8</font>写的数据A，事务T<font size="-5">10</font>读取了事务T<font size="-5">9</font>写的数据A，如果调度10的指令已经执行完事务T<font size="-5">10</font>的read(A)，而这时事务T<font size="-5">8</font>发生了故障必须回滚，势必引起事务T<font size="-5">9</font>和T<font size="-5">10</font>的回滚。<br>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left" height="50">
+            <div align="center"><span class="part">图10-6-2：调度10 </span><br>
+              <img src="../../../../image/chapter/10/10-6-2.gif" width="410" height="353"> 
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="text" align="left">��<span class="menu">为什么我们不希望在调度中出现级联回滚的现象呢？原因很简单，就是级联回滚需要撤消大量的工作，而这是人们一般不希望发生的事情。<br>
+            <br>
+            ��</span>为了避免调度中事务的级联回滚，对于每对事务T<font size="-5">i</font>和T<font size="-5">j</font>，如果T<font size="-5">j</font>读取了由T<font size="-5">i</font>所写的数据项，则T<font size="-5">i</font>必须在T<font size="-5">j</font>读取之前提交。我们把这样的调度称为无级联调度。至于为什么T<font size="-5">i</font>必须在T<font size="-5">j</font>读取之前提交，可以用可恢复调度中讲过的思路，请大家自己思考。</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

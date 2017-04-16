@@ -1,0 +1,37 @@
+<html>
+<head>
+<title>l1</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center" height="8">
+        <tr> 
+          <td class="text"> 
+            <p><br>
+              <span class="part">(5) 修改设计以提高性能</span><br>
+              ��提高执行效率和速度是系统设计的主要指标之一。有时，必须改变问题论域的结构以提高效率。如果类之间经常需要传送大量消息，可合并相关的类，使得通信成为对象内的通信，而不是对象间的通信；或者使用全局数据作用域，打破封装的原则，以减少消息传递引起的速度损失。增加某些属性到原来的类中，或增加低层的类，以保存暂时结果，避免每次都要重复计算造成速度损失。<br>
+              ��为提高性能，在对OOA模型进行大规模改动之前，应考虑下面一些问题：<br>
+              ��<span class="part">・</span> 如果没有性能准则，不要去人为地建立。<br>
+              ��当软件运行在一个CPU速度很快的计算机上，并是单机的人机交互时，大多数的时钟周期都用在了等待用户输入上。 <br>
+              ��<span class="part">・</span> 不要认为象C++之类的OOPL就一定效率不高。<br>
+              ��有一些事实表明，非OOPL的紧凑代码的效率比OOPL的效率高近10倍，但在大多数情况下，OOPL的效率损失约为10%。而且用非OOPL编程会令程序员非常疲劳，容易出错。<br>
+              ��<span class="part">・</span> 提高一个现存系统的工作效率比重新设计一个高效的系统要容易。<br>
+              ��一开始应当建立一个原始的简单的设计，实现和调试不会太困难。如果对设计有性能要求，只需加入少量的工作就可以了。<br>
+              ��<span class="part">・</span> 通常系统80%的开销都集中在20%的代码段上。与其为了尽量处处节省系统开销而破坏完善的系统结构，还不如找出系统开销最集中的地方，只对那部分做优化。 
+              <br>
+              ��<span class="part">・</span> 预测软件开销集中在什么地方是困难的, 进行优化最有效的方法是在系统运行时使用性能监测工具对系统进行观测。一些像继承、动态绑定、消息传递等处理虽然看起来简单，但需要大量的系统开销。有的代码看起来复杂，但效率不见得低。在代码复杂性与运行的低效之间没有相关性。<br>
+              ��<span class="part">・</span> 提高性能最好的方法是采用最出色的解决方案，而不是拼命地去节省几个微秒、几个字节。<br>
+              ��</p>
+            </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

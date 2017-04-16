@@ -1,0 +1,40 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgproperties=fixed bgcolor="#FFFFFF" background="../../../../image/moban/15.gif">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td class="text" align="left"> <span class="part">1、工作机制</span><br>
+            ��死锁检测与恢复机制的工作方式如下：检查系统状态的算法周期性地被激活，判断有无死锁。如果发生死锁，则系统要进行恢复。这种机制的基本要求如下：<br>
+            ��⑴�维护当前已分配给事务的数据项的有关信息以及任何尚未解决的数据项请求信息；<br>
+            ��⑵�提供一个使用这些信息判断系统是否进入死锁状态的算法；<br>
+            ��⑶�提供解除死锁的策略。<br>
+            <br>
+            <span class="part">2、死锁检测</span><br>
+            ��死锁可以用称为等待图的有向图来描述。该图由两部分G=(V,E)组成，其中V是顶点集，E是边集。顶点集由系统中的所有事务组成；如果事务Ti在等待T<font size="-5">j</font>释放所需数据项，则存在从T<font size="-5">i</font>到T<font size="-5">j</font>的一条有向边T<font size="-5">i</font>→T<font size="-5">j</font>。死锁检测算法就是要检查等待图中是否存在有向环，图论中有相应的深度(广度)优先搜索算法。这和前面介绍过的判断冲突可串行化的优先图类似（参阅第十章&quot;事务&quot;的10.9.1和10.9.2小节）。<br>
+            <br>
+            <span class="part">3、死锁恢复</span><br>
+            ��解除死锁的常用方法是回滚一个或多个事务。在选择要回滚的事务时，要考虑以下情况：<br>
+            ��<span class="part">⑴</span>�选择使回滚代价最小的事务作为牺牲者，例如：<br>
+            ����①�该事务已计算了多久？<br>
+            ����②�该事务已使用了多少数据项？<br>
+            ����③�完成该事务还需要多少数据项？<br>
+            ����④�回滚该事务将牵涉多少事务？<br>
+            ��<span class="part">⑵</span>�决定回滚多远：是彻底回滚，即中止该事务尔后重启；还是部分回滚，即只回滚到可以解除死锁为止；<br>
+            ��<span class="part">⑶</span>�避免饿死。避免同一事务总是作为回滚代价最小的事务而被选中。最常用的方法就是在代价因素中包含回滚次数。<br>
+            <br>
+            ��<span class="menu">另一种处理死锁的简单方法是基于锁超时的机制。在这种方法中，申请锁的事务至多等待一个给定的时间。若在此期间内锁未授予该事务，则称该事务超时，此时该事务自己回滚并重启。如果确实存在死锁，卷入死锁的一个或多个事务将超时并回滚，从而使其他事务继续。该机制介于死锁预防（不会发生死锁）与死锁检测及恢复之间。<br>
+            ��超时机制的实现极其容易，并且在事务是短事务或长时间等待是由死锁引起时该机制运作良好。但是，一般而言很难确定一个事务超时之前应等待多长时间。如果已发生死锁，则等待时间太长而导致不必要的延迟。如果等待时间太短，即便没有死锁，也可能引起事务回滚，造成资源浪费。该机制还可能会产生饿死，故此，基于超时的机制应用不多。</span></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

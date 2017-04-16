@@ -1,0 +1,61 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgproperties=fixed bgcolor="#FFFFFF" background="../../../../image/moban/15.gif">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" height="57">
+        <tr> 
+          <td class="text" align="left" height="2"> 
+            <p>��假设关系lending(Lending-schema)如下<span class="part">图5-8-1</span>所示：<br>
+            </p>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left"> 
+            <div align="center"><span class="part">图5-8-1：关系lending </span><br>
+              <img src="../../../../image/chapter/05/5-8-1.gif" width="420" height="226"> 
+            </div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left">��现在假设关系模式:<br>
+            Lending-schema = (<i>branch-name</i>,<i> branch-city, assets, customer-name, 
+            loan-number, amount</i>)被分解成如下两个模式：<br>
+            <b>⑴</b>�<i>Branch-customer-schema</i> = (<i>branch-name, branch-city, 
+            assets, customer-name</i>)；<br>
+            <b>⑵</b>�<i>Customer-loan-schema</i> = <i>(customer-name, loan-number, 
+            amount)</i><br>
+            那么，这样不假思索的分解又会产生什么样的后果呢？首先，我们看到分解之后的关系branch-customer和customer-loan如<span class="part">图5-8-2</span>所示：</td>
+        </tr>
+        <tr> 
+          <td class="text" align="left"> 
+            <div align="center" class="part">图5-8-2：分解之后的关系branch-customer和customer-loan<br>
+              <img src="../../../../image/chapter/05/5-8-2(1).gif" width="420" height="280"><br>
+              <img src="../../../../image/chapter/05/5-8-2(2).gif" width="293" height="315"> 
+            </div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left">��现在需要根据关系branch-customer和customer-loan重新构造关系lending，希望找出贷款金额小于1000元的所有分支机构的名称：<font size="2">Π</font><font size="-5">branch-name</font>(<font size="3">σ</font><font size="-5">amount</font>&lt;1000(<i>branch-customer��customer-loan</i>))问题是在关系branch-customer和customer-loan的自然连接的结果中多了一些元组！如<span class="part">图5-8-3</span>所示：</td>
+        </tr>
+        <tr> 
+          <td class="text" align="left"> 
+            <div align="center" class="part">图5-8-3：关系branch-customer和customer-loan的自然连接<br>
+              <img src="../../../../image/chapter/05/5-8-3.gif" width="420" height="119"> 
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="text" align="left">��由于我们把模式<i>Lending-schema</i>分解为两个模式<i>Branch-customer-schema</i>和<i>Customer-loan-schema</i>之后，它们之间的联系只能靠二者的公共属性<i>customer-name</i>来连接。如果一个客户恰好从不同的分支机构贷款，这样分解之后将分不清哪个分支机构贷了哪笔款给这个客户。所以说，尽管上述自然连接的结果包含了原来的所有元组，同时还产生了一些无用的多余的信息，但实际上真正的信息却少了一部分（丢失了）。由于丢失了信息，我们把这样的分解称为有损分解，或有损连接分解，相反就是无损连接分解。</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgproperties=fixed bgcolor="#FFFFFF" background="../../../../image/moban/15.gif">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" height="11">
+        <tr> 
+          <td class="text" align="left" height="2">&nbsp; </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left" height="25"> 
+            <div align="center" class="part">图9-6-1：一个查询执行计划的例子<br>
+              <img src="../../../../image/chapter/09/9-6-1.gif" width="420" height="285"> 
+            </div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left" height="25"><span class="zhishidian">1、查询优化器的优化方法</span><br>
+            ��总之，查询优化器在第二步的主要工作是：<br>
+            ��⑴�选择实现关系运算的具体算法(包括各种索引，因为算法是和索引密切相关的)；<br>
+            ��⑵�协调各关系运算的具体执行，例如，是采用实体化计算方法还是采用流水线计算方法；<br>
+            ��⑶�对整个关系代数表达式进行优化，产生代价最小的查询执行计划。<br>
+            ��一般来说，简单地为每个关系运算选择一个代价最小的算法，整个表达式的代价也可能最小。但这样做往往是事与愿违(例如，索引嵌套循环连接并不是实现连接运算代价最小的算法，但是它可以提供把结果流水地传给下一个运算的机会)！因此，必须采用一定的查询优化策略才能满足需要。查询优化方法包括：基于代价的优化和启发式优化。<br>
+            <br>
+            <span class="menu">��选择最优的问题一般来说是一个NP问题。对于这类问题，选择一个最优的解答其代价异常大，是得不偿失的，所以人们一般只是利用一些启发式的规则选择较优的策略。查询的优化问题就属于这个范畴。所以对查询进行优化通常是为了避免出现最坏的执行策略，同时选择一个相对较好的执行计划，而不是找到最优的执行策略。将基于代价的优化和启发式的优化方法结合起来，其实是在局部最优的基础上实现全局的较优，效率比较高。</span><br>
+            <br>
+            <span class="zhishidian">2、基于代价的优化方法</span><br>
+            ��基于代价的优化，其核心思想是将各种可能的查询执行计划全部产生出来，然后从中估计出代价最小的一个。这件事情说起来容易做起来很难，而且几乎是不可能的！例如，考虑r1��r2��r3的连接顺序的可能组合就有12种之多！如<span class="part">图9-6-2</span>所示：<br>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left" height="12"> 
+            <div align="center" class="part">图9-6-2：r1��r2��r3的各种连接顺序<br>
+              <img src="../../../../image/chapter/09/9-6-2.gif" width="420" height="129"> 
+            </div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left" height="6">��如果估计每一种连接顺序的代价，则将会花费很长的时间。也有可能在运算代价还没有估计完之前，没有优化的连接运算r1��r2��r3的计算结果已经出来了！因此基于代价的优化方法在某些时候优化本身的代价太高，有点得不偿失</td>
+        </tr>
+        <tr> 
+          <td class="text" align="left" height="7"> 
+            <div align="center"><img src="../../../../swf/F9_3_1.gif" width="460" height="300"><br>
+              <img src="../../../../swf/F9_3_2.gif" width="460" height="300"> 
+            </div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left" height="6"><span class="zhishidian">3、启发式优化方法</span><br>
+            ��由于基于代价的优化方法本身的代价太高，因此在很多系统中采用启发式规则来减少基于代价优化的可选方案数。这种摸着石头过河的优化方法就叫启发式优化方法。启发式优化的规则如下：<br>
+            ��⑴�将合取(∧)选择运算分解为单个选择运算序列；<br>
+            ��⑵�尽可能早地执行选择运算；<br>
+            ��⑶�确定哪些选择运算和连接运算将产生比较小的关系，重新组织表达式中多个连接的顺序；<br>
+            ��⑷�将其后跟有选择运算的笛卡尔积运算替换成连接运算；<br>
+            ��⑸�将投影属性加以分解，并尽可能早地执行投影运算；<br>
+            ��⑹�识别哪些运算可用流水线计算方法执行就采用流水线计算方法。</td>
+        </tr>
+        <tr> 
+          <td class="text" align="left" height="3"> 
+            <div align="center"><img src="../../../../swf/F9_4.gif" width="460" height="300"></div>
+          </td>
+        </tr>
+        <tr>
+          <td class="text" align="left" height="4"> �<span class="menu">�SQL语言给查询优化带来了一些挑战，包括重复值和空值，还有嵌套子查询的语义。除了最基本的基于代价的优化和启发式的优化技术以外，一些新的查询优化技术如雨后春笋般地被开发出来，使得这一领域始终成为数据库研究人员关注的热点。Ioannidis等人在1992年提出了参数化的查询优化技术，解决关系大小频繁宾化时的查询处理问题。优化器在编译时先计算出一系列的计划，每个计划针对不同大小关系中的一种，然后将这些计划保存下来。执行时根据关系的实际大小选出其中之一，避免运行时做完整优化导致的开销。值的非均匀分布为查询结果大小及代价估计带来问题，为解决这个问题，人们又提出了使用值分布直方图的代价估计技术。除此之外，还有多查询的优化技术。这是关于将几个查询视为一组来执行时如何优化的问题。如果考虑整组查询，则有可能发现对整个组来说只需计算一次的公共子表达式。另外，查询优化还可以利用语义信息，如函数依赖和其他完整性约束，这些都是基于知识的一种查询优化方法。<br>
+            ��当前的RDBMS优化器是非常复杂的软件，需要40到50人年的开发工作量。IBM的System R查询优化器在很大程度上影响了目前的关系查询优化器。</span></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

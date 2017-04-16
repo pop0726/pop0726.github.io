@@ -1,0 +1,96 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" -->与层次和网状模型相比, 关系模型有如下特点:<br>
+      　　(1) 关系模型结构间单<br>
+      　　关系模型中, 无论是实体还是实体之间的联系都用关系表来表示。不同的关系表之间通过相同的数据项或关键字构成联系。<br>
+      　　(2) 关系模型可以直接处理多对多的关系<br>
+      　　层次和网状模型不能直接处理多对多的关系, 必须要增加连接记录进行转换。关系模型可通过关键字直接建立一个表中的元组与其他多个表中的元组之间的联系。<br>
+      　　(3) 关系模型是面向记录集合的<br>
+      　　层次和网状模型每次只能操作一个记录, 而关系模型是面向记录集合的, 通过过程化的查询语言一次可得到和处理一个元组的集合, 即一张新的二维表。 
+      <br>
+      <font color="#0033CC">注释:<br>
+      　　所谓过程化的查询语言是只需要指出要干什么, 而不必详细地指出如何干, 就能得到所希望的结果。使用户不必关心数据的物理存储, 省略了繁琐的导航操作, 
+      大大提高了数据的独立性和系统的效率。</font><br>
+      　　例如，从一张学生表如表2-5中，在其中查询年龄小于20岁的学生的学号、名字和班级，查询结果得到的仍然是一张二维关系表如表2-8。<br>
+      表2-8 查询年龄小于20岁的学生结果　　<br>
+      <br>
+      　　对于三个关系构成的关系表如 表2-5，2-6，2-7。在选课表中，主码是由学号和课程号的组合共同组成。 <br>
+      <br>
+      　　<span class="tubiaoti">表2-8 <b>查询年龄小于20岁的学生结果</b></span><br>
+      <br>
+      <table border=1 cellspacing=0 cellpadding=0 class="pt9-black" width="80%"  bordercolorlight="#004080" bordercolordark="#ffffff" align="center">
+        <tr> 
+          <td width=85 valign=top bgcolor="#BFDFFF" > 
+            <p align=center ><b>学号</b></p>
+          </td>
+          <td width=96 valign=top bgcolor="#BFDFFF" > 
+            <p align=center ><b>姓名</b></p>
+          </td>
+          <td width=113 valign=top bgcolor="#BFDFFF" > 
+            <p align=center ><b>班级编号</b></p>
+          </td>
+        </tr>
+        <tr> 
+          <td width=85 valign=top > 
+            <p align=center ><b>J20001</b></p>
+          </td>
+          <td width=96 valign=top > 
+            <p align=center ><b>李 楷</b></p>
+          </td>
+          <td width=113 valign=top > 
+            <p align=center ><b>JS2001</b></p>
+          </td>
+        </tr>
+        <tr> 
+          <td width=85 valign=top > 
+            <p align=center ><b>D20001</b></p>
+          </td>
+          <td width=96 valign=top > 
+            <p align=center ><b>赵 良</b></p>
+          </td>
+          <td width=113 valign=top > 
+            <p align=center ><b>DZ2001</b></p>
+          </td>
+        </tr>
+      </table>
+      　　(4) 关系模型有坚实的理论基础<br>
+      　　关系数据模型的理论基础是集合论与关系代数，这些数学理论的研究为关系数据库技术地发展垫定了基础。一个关系是数学意义上的一个集合，因此，一个关系内的元组是无序的，而且在关系内没有重复的元组存在。<br>
+      　　(5) 在结构化的数据模型中，关系模型具有较高的数据独立性。<br>
+      　　<font color="#0033CC">如前所见，关系数据模型有很多优点，主要是：<br>
+      　　* 关系模型的概念单一。无论实体还是实体之间的联系都用关系表示。对数据的检索结果也是关系（即表）。所以数据结构简单、清晰、用户易懂易用。<br>
+      　　* 关系模型的存取路径对用户是透明的，从而具有高度的数据独立性，也简化了程序员的工作和数据库开发建立的工作。<br>
+      　　然而，关系模型仍然有它的局限性。其中最主要的是关系数据模型的存取路径对用户透明，查询效率往往不如非关系数据模型。因此，为了提高系统性能，必须对用户的查询请求进行优化，这增加了开发数据库管理系统的难度。</font><br>
+      　　在关系数据模型中，实体以及实体间的联系用属性或关系表来表示。在数据库物理组织中，关系表以文件形式存储，一般一个表对应于一个操作系统文件，或多个表存储在一个文件中。不同的数据库管理系统有不同的组织方式。<br>
+      <br>
+      　　<br>
+      　　 <!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

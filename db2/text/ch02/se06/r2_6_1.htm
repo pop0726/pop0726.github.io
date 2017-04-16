@@ -1,0 +1,90 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" --><span class="biaoti_1">
+      </span>　　关系模型是由若干关系模式组成的集合。关系模式相当于前面提到的记录类型，它的实例称为关系，每个关系实际上是一张二维表格。<br>
+      　　关系数据模型是由若干关系组成的集合，每个关系从结构上看实际上是一张二维表格，即把某记录类型的记录集合写成一张二维表，表中的每行表示一个实体对象，表的每列对应一个实体属性。这样的一张表结构称为一个关系模式,其表中的内容称为一个关系。<br>
+      　　关系数据模型中，实体类型用关系表表示；实体类型之间的联系可以用关系表表示，也可以用属性来表示。<br>
+      　　关系是一种规范化的二维表。关系中的每个属性值必须是不可再分的数据项。 <br>
+      　　关系数据库是大量二维关系表组成的集合，每个关系表中是大量记录（元组）的集合，每个记录包含着若干属性。关系中的记录是没有重值的、是无序的。<br>
+      　　例如，某学校有若干个系，系的属性包括系的编号、名称、电话和办工地点。如表2-4所示。表2-4是学校的各个系的描述表，也就是一张简单的关系表。<br>
+      <br>
+      <br>
+      　　<span class="tubiaoti">表 2-4 系的关系表 </span><br>
+      <br>
+      <table width="80%" border="1" cellspacing="0" cellpadding="0" align="center"bordercolorlight="#004080" bordercolordark="#ffffff" class="pt9-black">
+        <tr align="center" bgcolor="#BFDFFF"> 
+          <td>系编号</td>
+          <td>系名称</td>
+          <td>系电话号码</td>
+          <td>系所在地</td>
+        </tr>
+        <tr align="center"> 
+          <td>CS</td>
+          <td>计算机</td>
+          <td>888</td>
+          <td>10区</td>
+        </tr>
+        <tr align="center"> 
+          <td>EE</td>
+          <td>电子工程</td>
+          <td>666</td>
+          <td>11区</td>
+        </tr>
+        <tr align="center"> 
+          <td>AU</td>
+          <td>自动化</td>
+          <td>266</td>
+          <td>8区</td>
+        </tr>
+      </table>
+      <p>下面给出关系数据模型的主要术语：<br>
+        　　<font color="#CC0000">* 关系(Relation)：</font>一个关系就是一张二维表，每张表有一个表名，表中的内容是对应关系模式在某个时刻的值，称为一个关系。例如，系的登记表2-4。<br>
+        　　<font color="#CC0000">* 元组(Tuple)：</font>表中的一行称为一个元组。一个元组可表示一个实体或实体之间的联系。<br>
+        　　* 属性( Attribute)：表中的一个列称为关系的一个属性，即元组的一个数据项。属性有属性名、属性类型、属性值域和属性值之分。属性名在一个关系表中是维一的, 
+        属性的取值范围称为属性域。<br>
+        例如，系的登记表2-4中有四列，对应四个属性（系号，系名，系的电话号码，系的地址）。<br>
+        　　<font color="#CC0000">* 属性域(Domain)：</font>属性的取值范围。例如，大学生的年龄是14岁至35岁；人的性别是男和女两种类型等。<br>
+        　　<font color="#CC0000">* 分量：</font>元组中的一个属性值；<br>
+        　　<font color="#CC0000">* 主码( Key )：</font>或称为关键字，表中的一个属性或几个属性的组合、其值能唯一地标识表中一个元组的称为关系的主码或关键字。例如，学生的学号，系的编号或系的名字。关键字属性不能取空值。<br>
+        　　<font color="#CC0000">* 外部关键字(Forgien Key)：</font>在一个关系中含有的与另一个关系的关键字相对应的属性组称为该关系的外部关键字。<br>
+        外部关键字取空值或为外部表中对应的关键字值。例如，在学生表中含有的所属班级名字，是班级表中的关键字属性，它是学生表中的外部关键字。 <br>
+        　　<font color="#CC0000">* 关系模式：</font> 对一个关系的结构描述。每个描述包括关系名、属性等。属性的描述有属性名、属性类型、属性值域和约束等。关系模式的描述格式为:<br>
+        关系名( 属性1, 属性2, ...... , 属性n )。<br>
+        下面的例子，只给出了属性名，省略了属性的其他描述。<br>
+        例如，系关系表的描述：<br>
+        <font color="#660033">　系</font> (系编号, 系名称,系的电话号码，系的地址) <br>
+        学生关系表的描述：<br>
+        <font color="#660033">　学生 </font>(学号，姓名，性别，年龄,入学日期，班级)。<br>
+        <font color="#0033CC">一个关系数据库中包含许多关系模式。每个关系有一个唯一的关系名称，每个关系内的属性有唯一的属性名。通常属性名与其相关的属性值的集合(域)同时出现。</font><br>
+      </p>
+      <!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

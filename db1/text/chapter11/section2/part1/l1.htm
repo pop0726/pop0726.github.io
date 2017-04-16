@@ -1,0 +1,35 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body  bgcolor="#FFFFFF" bgproperties=fixed background="../../../../image/moban/15.gif">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" height="76">
+        <tr> 
+          <td class="text" align="left" height="2"> 
+            <p><span class="part">1、背景</span><br>
+              ��理论证明，两阶段封锁协议对保证调度可串行化来说不仅是必要的而且是充分的。因此，如果要开发非两阶段封锁协议，就需要知道一些额外信息。例如，最简单的模型要求我们应事先知道访问数据项的先后顺序，这样的模型介绍如下：<br>
+              假设数据项集合D={d<font size="-5">1</font>,d<font size="-5">2</font>,…,d<font size="-5">n</font>}的所有数据项满足偏序关系→。即，如果d<font size="-5">i</font>→d<font size="-5">j</font>，则任何既访问d<font size="-5">i</font>又访问d<font size="-5">j</font>的事务必须首先访问d<font size="-5">i</font>，然后再访问d<font size="-5">j</font>。这种偏序可以是数据的逻辑或物理组织的结果，也可以只是为了并发控制而强加上的。<br>
+              <br>
+              <span class="part">2、数据库图</span><br>
+              ��偏序(Partial Ordering)意味着集合D可视为有向无环图，称为数据库图，如<span class="part">图11-2-1</span>所示。为简单起见，在数据库图中，我们只考虑那些带有根的树，为这些带根的树定义一个简单的树形封锁协议，该协议只使用排他锁。<br>
+            </p>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left"> 
+            <div align="center" class="part">图11-2-1：一个数据库图实例<br>
+              <img src="../../../../image/chapter/11/11-2-1.gif" width="223" height="382"> 
+            </div>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

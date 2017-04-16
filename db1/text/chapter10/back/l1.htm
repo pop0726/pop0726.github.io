@@ -1,0 +1,51 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+</head>
+<body background="../../../image/moban/15.gif" bgproperties=fixed>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td align="center"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" height="502">
+        <tr> 
+          <td class="text" height="19"> 
+            <p>��<font color="#000000">●</font>�1、事务就是构成单一逻辑工作单元的操作集合，它有ACID四大特性：分别是原子性、一致性、隔离性和持久性；<br>
+              ��<font color="#000000">●</font>�2、除了一致性的实现要由应用程序员负责以外，事务的其他特性都是由DBMS负责实现的，这涉及到DBMS的部件：事务管理器、恢复管理器和并发控制管理器；<br>
+              ��<font color="#000000">●</font>�3、事务的执行分为串行执行（缺点是效率低）和并发执行（提高了系统的吞吐量，减少了平均响应时间）；<br>
+              ��<font color="#000000">●</font>�4、事务的状态图：</p>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text"> 
+            <div align="center"><img src="../../../image/chapter/10/10-2-1.gif" width="420" height="209"><br>
+              <span class="part">图10-2-1：事务的状态图 </span></div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text">��<font color="#000000">●</font>�5、原子性和持久性的实现采用影子数据库方案的原理，类似于日常办公用的文本编辑过程。</td>
+        </tr>
+        <tr>
+          <td class="text">
+            <div align="center" class="part"><img src="../../../image/chapter/10/10-3-1.gif" width="420" height="127"><br>
+              图10-3-1：影子数据库方案</div>
+          </td>
+        </tr>
+        <tr>
+          <td class="text">��<font color="#000000">●</font>�6、调度是指一组事务中指令的执行序列，调度分为串行调度和并发调度；<br>
+            ��<font color="#000000">●</font>�7、调度的目的就是用于确定那些可以保证数据库一致性的所有事务的全部指令的执行序列；<br>
+            ��<font color="#000000">●</font>�8、指令冲突是指在一个调度中，属于不同事务的两条连续的指令访问相同的数据项，且至少有一个是write指令。指令冲突分为：read-write冲突、write-read冲突、write-write冲突；<br>
+            ��<font color="#000000">●</font>�9、调度的等价性是指：包含相同事务集的不同调度，它们的执行效果是相同的。调度等价又分为冲突等价和视图等价，它们引起的另外两个重要的概念就是调度的冲突可串行化和视图可串行化。其中视图等价是在解决了下面三个问题之后，才满足的一种等价调度：�D初始读�D中间读�D最终写<br>
+            ��<font color="#000000">●</font>�10、事务的隔离性实现是由并发控制机制来完成的。并发控制机制保证系统只产生这样的调度：冲突或视图可串行化且无级联，一个无级联的调度保证事务是可恢复的！<br>
+            ��<font color="#000000">●</font>�11、调度的冲突可串行化判定分为下面两个步骤：<br>
+            ��第一：构造优先图：G=(V,E)�D顶点V是参与调度的所有事务；�D边<font size="2">T</font><font size="-5">i</font>→<font size="2">T</font><font size="-5">j</font>是指对于相同的数据项Q，<font size="2">T</font><font size="-5">i</font>对Q的访问(至少要有write指令)在<font size="2">T</font><font size="-5">j</font>之前。<br>
+            ��第二：检查优先图中是否有有向环。<br>
+            ��</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

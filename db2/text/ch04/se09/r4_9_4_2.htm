@@ -1,0 +1,71 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url('../../../img/text/bg.jpg');
+background-repeat: no-repeat;
+background-attachment: fixed; background-position-y:50%
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">　</td>
+    <td>　</td>
+    <td width="10">　</td>
+  </tr>
+  <tr>
+    <td width="10">　</td>
+    <td> <!-- #BeginEditable "1" --> <span class="pt9-black">　</span><span class="biaoti_1">3 
+    执行存储过程<br>
+      </span><span class="pt9-black">　　在SQL Server中，使用EXECUTE语句执行存储过程。EXECUTE语句格式如下：<br>
+      　　EXEC[ute]<br>
+      　　[@return_status =]<br>
+      　　{ procedure_name[；number] | @procedure_name_var } [[@parameter =] {value 
+      | @variable[OUTPUT] | [DEFAULT]} ,…]<br>
+      　　[WITH RECOMPILE]</span> 　　在SQL Server中，执行存储过程的方法有两种：<br>
+      　(1) 独立执行存储过程<br>
+      <br>
+      　　例如，EXEC overdate_books <br>
+      　(2) 在INSERT语句中执行存储过程<br>
+      <br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td valign="top" width="35"><img src="../../../img/text/liti.gif" width="35" height="36" alt="例题"></td>
+          <td class="pt9-black"><br>
+            　例1，定义存储过程把从employee 表中查到的今天雇佣的雇员数据加载到customer表。存储过程的定义如下：<br>
+            　　CREATE PROCEDURE employee_customer <br>
+            　　AS <br>
+            　　SELECT * FROM employee<br>
+            　　WHERE hiredate = getdate() </td>
+        </tr>
+        <tr> 
+          <td valign="top" width="35"><img src="../../../img/text/liti.gif" width="35" height="36" alt="例题"></td>
+          <td><br>
+            <span class="pt9-black">　例2，在INSERT语句中调用存储过程employee_customer执行。<br>
+            　　INSERT INTO customer<br>
+            　　EXEC employee_customer</span></td>
+        </tr>
+      </table>
+      　 <br>
+      　<span class="biaoti_1">4. 更改和删除存储过程</span> <br>
+      　(1) 更改存储过程：ALTER PROCEDURE<br>
+      　　SQL Server中可以更改存储过程，就是用新定义的存储过程替换原来的定义。语句格式： <br>
+      　　ALTER PROC[EDURE] &lt;存储过程名&gt; { 同定义}<br>
+      　(2) 删除存储过程：DROP PROCEDURE <br>
+      　　从当前数据库中删除用户定义的存储过程。语句格式：<br>
+      　　DROP PROC[EDURE] &lt;存储过程名&gt; <br>
+      <!-- #EndEditable --></td>
+    <td width="10">　</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

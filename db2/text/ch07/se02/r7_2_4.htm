@@ -1,0 +1,67 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" -->SQL Server中有关事务处理的语句包括：<br>
+      ��(1) BEGIN TRANSACTION[] ：开始一个显式事务。<br>
+      ��(2)COMMIT TRANSACTION ：标识一个显式事务或隐式事务正常结束而提交。<br>
+      ��(3)SAVE TRANSACTION ：在事务内定义一个存储点标记。<br>
+      ��(4)ROLLBACK TRANSACTION ：回滚当前事务。<br>
+      <br>
+      ��(1)定义和提交事务的语句格式：<br>　　BEGIN TRANSACTION [事务名称]<br>
+      ��{ SQL 语句 }<br>
+      ��COMMIT TRANSACTION<br>
+      �<span class="explaination">�① 哪些SQL语句组成一个事务由用户根据情况而定。<br>
+      ��② 定义一个事务时，BEGIN TRANSACTION语句与COMMIT TRANSACTION语句必须成对出现。</span><br>
+      <br>
+      ��(2) 回滚事务的语句格式：<br>　　ROLLBACK TRANSACTION[事务名称|存储点名称]<br>
+      ��该语句回滚整个事务或是在存储点定义以后所发生的事务。ROLLBACK TRANSACTION语句应在COMMIT TRANSACTION语句之前调用。<br>
+      ��<span class="explaination">回滚事务，就是消除事务执行的影响。在一个事务被提交之前可以使用ROLLBACK TRANSACTION语句进行回滚，事务一旦提交就不能撤销。</span><br>
+      <br>
+      ��(3) 定义存储点标记的语句格式：<br>　　SAVE TRANSACTION 存储点名称<br>
+      ��在一个事务内建立一个存储点标记。<br>　　ROLLBACK TRANSACTION 语句可使用该标记来回滚部分事务操作，即回滚在存储点名称标记之后事务执行的部分操作。<br>
+      <br>
+      ��(4) 定义和回滚事务<br>　　例1,下面例子说明怎样定义一个用户事务，并在事务中的建立存储点标记，实现回滚操作和事务提交操作。<br>
+      ��BEGIN TRANSACTION demo <span class="explaination">/开始一个事务/</span><br>
+      ��SELECT * FROM discounts <span class="explaination">/查询discounts表中的所有记录/</span><br>
+      ��SAVE TRANSACTION save_demo <span class="explaination">/建立存储点标记save_demo 
+      /</span><br>
+      ��INSERT discounts /在discounts<span class="explaination">表中插入一条记录/</span><br>
+      ��VALUES ('demo',null,null,null,20.0)<br>
+      ��SELECT * FROM discounts <span class="explaination">/查询discounts表中的所有记录/</span><br>
+      ��ROLLBACK TRANSACTION save_demo <span class="explaination">/回滚到存储点标记save_demo/</span><br>
+      ��COMMIT TRANSACTION <span class="explaination">/提交事务/</span><br>
+      ��SELECT *FROM discounts <span class="explaination">/再查询discounts表的所有记录，是否有变化？/</span><br>
+      <br>
+      ��例2,更新矩形表，所有在P3中的矩形都左移5个单位。作为一个事务处理，语句如下：<br>
+      ��BEGIN TRANSACTION uprec <br>　　UPDATE 矩形<br>
+      ��SET x_position = x_position-5<br>
+      ��WHERE envelope=&quot;p3&quot;<br>　　COMMIT TRANSACTION<!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

@@ -1,0 +1,163 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" -->　<span class="biaoti_1">1. 
+      创建表：</span><span class="pt9-black"><br>
+      　　在SQL Server中，可以使用SQL语句或SQL企业管理器来创建数据库表。在创建表的时候最主要的工作是定义各列的数据类型及约束。<br>
+      　(1) 用企业管理器创建表。<br>
+      　　展开企业管理器上的数据库节点，从中选择一个要建立表的数据库，在鼠标右键单击出来的快捷菜单中选择&quot;新建&quot;，子菜单，选择&quot;表&quot;命令。如图4-11。<br>
+      <br>
+      　　</span><span class="tubiaoti">图4-11</span><span class="pt9-black"><br>
+      </span> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td align="center" class="pt9-black"><br>
+            <img src="../../../img/text/ch04/b5.gif" width="406" height="261"></td>
+        </tr>
+      </table>
+      <span class="pt9-black"><br>
+      　　弹出窗口如图4-12。 <br>
+      <br>
+      　　</span><span class="tubiaoti">图4-12</span><span class="pt9-black"><br>
+      </span> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td align="center" class="pt9-black"><br>
+            <img src="../../../img/text/ch04/b6.gif" width="385" height="270"></td>
+        </tr>
+      </table>
+      <span class="pt9-black"><br>
+      　　<font color="#5a5aad">在该窗口中，对表的内容进行定义：<br>
+      　　指定列名：在创建一个新列的时候，首先输入列名，列名在表中必须唯一，列的命名遵守SQL Server的数据库对象命名规则。<br>
+      　　指定数据类型：接下来选择该列的数据类型，这里有不同的数据类型，包括你创建的用户定义的数据类型，显示在&quot;数据类型&quot;下拉清单对话框中。其长度取决于你选择的数据类型。当然有些数据类型的长度，如char，可以进行改变。<br>
+      　　指定其他特性：在指定完某一列的数据类型之后，可以为每种数据类型指定附加特性--数据的长度和是否允许空等。如果一列允许空，则在输入数据的时候，可以省略输入该列的值。若定义了一列不允许空，则在输入数据的时候，必须输入该列的值。可以说，允许空实际上提供了一种数据的校验。<br>
+      　　对于INT，SMALLINT，TINYINT，NUMERIC(P,0)等数据类型可以指定为标识列(identity)特性。当用identity特性定义一个列，可以指定该列初始值和每次添加的增量。在往表中增加元组的时候，系统自动为该列赋值，第一行使用初始值，以后每一行增加增量。如果这一列允许为空，则不能指定为identity特性。<br>
+      　　设置主键：选择要建立主键的列，单击鼠标右键，选择&quot;设置主键&quot;即可。</font><br>
+      　　关闭和保存新建的表时，系统会弹出对话框让你输入该表的名称，如图4-13<br>
+      <br>
+      </span> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td width="46" align="right" valign="top"><img src="../../../img/text/tushi.gif" width="30" height="20" alt="图示"></td>
+          <td align="center" class="pt9-black">图4-13<br>
+            <img src="../../../img/text/ch04/b7.gif" width="409" height="269"></td>
+        </tr>
+      </table>
+      <span class="pt9-black"><br>
+      <br>
+      　(2) 用SQL语句创建表：<br>
+      　　使用SQL创建表的语法如下：<br>
+      　　　CREATE TABLE 表名<br>
+      　　　( &lt;列名&gt;&lt;数据类型&gt; [&lt;列级完整性约束条件&gt;]<br>
+      　　　[,&lt;列名&gt;&lt;数据类型&gt; [&lt;列级完整性约束条件&gt;]]… [，取唯一值的列（列名[，列名]….）]<br>
+      　　　[，关键字列（列名[，列名]…）]<br>
+      　　　[，外部关键字列 （列名[，列名]…）<br>
+      　　　引用的外部表名（列名[，列名]…）]<br>
+      　　　[,&lt; 表级完整性约束条件 &gt;] );</span> <br>
+      　　　CREATE TABLE 表名<br>
+      　　　（<br>
+      　　　列名 数据类型[缺省值][NOT NULL]<br>
+      　　　[,列名 数据类型[缺省值][NOT NULL]]….<br>
+      　　　[，UNIQUE（列名[，列名]….）]<br>
+      　　　[，PRIMARY KEY（列名[，列名]…）]<br>
+      　　　[，FOREIGN KEY （列名[，列名]…）REFERENCES 表名（列名[，列名]…）]<br>
+      　　　[,CKECK (条件)]<br>
+      　　　)<br>
+      　　<font color="#5a5aad">参数说明：缺省值(DEFAULT):指定列的缺省值；<br>
+      　　NOT NULL：列值不能为空值；<br>
+      　　UNIQUE：取值唯一的列名；<br>
+      　　PRIMARY KEY：主关键字（主码）列名；<br>
+      　　FOREIGN KEY：外部码列名；<br>
+      　　REFERENCES：引用的外部码的表名和列名 <br>
+      　　CKECK ：指定表级约束条件。 </font><br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+        <tr> 
+          <td width="35" valign="top"><img src="../../../img/text/liti.gif" width="35" height="36" alt="例题"></td>
+          <td>　例1，定义一个表DEPT，包括4列。其中deptno为主键。<br>
+            　CREATE TABLE DEPT( deptno CHAR(8) NOT NULL, <br>
+            　Deptname CHAR(20) NOT NULL, <br>
+            　Deptphno CHAR（12）,<br>
+            　Deptadd CHAR（40）<br>
+            　PRINARY KEY (deptno)<br>
+            　)</td>
+        </tr>
+        <tr> 
+          <td valign="top"><img src="../../../img/text/liti.gif" width="35" height="36" alt="例题"></td>
+          <td><br>
+            　例2，定义表student，包括5列，其中sno为主键，sclass为外键码，sclass为表classname的主键。Ppt37CREATE 
+            TABLE student( sno CHAR(8) NOT NULL,<br>
+            　　Sname CHAR(20) NOT NULL,<br>
+            　　Ssex CHAR(1),<br>
+            　　Sage INT,<br>
+            　　Sclass CHAR(8)<br>
+            　　PRINARY KEY (sno)FOREIGN KEY(sclass) <br>
+            　　REFERENCES class(classname)<br>
+            　　)</td>
+        </tr>
+        <tr> 
+          <td valign="top"><img src="../../../img/text/liti.gif" width="35" height="36" alt="例题"></td>
+          <td><br>
+            　例3，产生表student,与例2基本相同，但需要通过check约束学生年龄大于等于14岁，如下定义。ppt38CREATE TABLE 
+            student( sno CHAR(8) NOT NULL,<br>
+            　　Sname CHAR(20) NOT NULL,<br>
+            　　Ssex CHAR(1),<br>
+            　　Sage INT CHECK (sage &gt;= 14),<br>
+            　　Sclass CHAR(8)<br>
+            　　PRINARY KEY (sno)FOREIGN KEY(sclass) <br>
+            　　REFERENCES class(classname)<br>
+            　　)</td>
+        </tr>
+        <tr> 
+          <td valign="top"><img src="../../../img/text/liti.gif" width="35" height="36" alt="例题"></td>
+          <td><br>
+            　例4，产生表couse，设计要求：开课系必须是已有的系,授课教师必须是本校的教师。CREATE TABLE couse<br>
+            　　(cno CHAR(6) NOT NULL,<br>
+            　　cname CHAR(20) NOT NULL,<br>
+            　　credit INT，<br>
+            　　cdept CHAR(8)，<br>
+            　　ctno CHAR(8)<br>
+            　　)<br>
+            　注意：例4产生的表不能满足设计要求，必须对该表进行修改，增加约束外部关键字约束说明,满足设计要求。</td>
+        </tr>
+      </table>
+      <br>
+      　(3). 在查询分析器中使用SQL语句建表如图4-14。<br>
+      <span class="pt9-black"><br>
+      </span> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td width="46" align="right" valign="top"><img src="../../../img/text/tushi.gif" width="30" height="20" alt="图示"></td>
+          <td align="center" class="pt9-black">图4-14<br>
+            <img src="../../../img/text/ch04/b8.gif" width="420" height="269"></td>
+        </tr>
+      </table>
+      <!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

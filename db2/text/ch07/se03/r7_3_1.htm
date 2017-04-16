@@ -1,0 +1,74 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" --><span class="biaoti_1">　1 并发控制的目的：</span><br>
+      <br>
+      　　一个事务由不同的步骤组成，所涉及的系统资源也不同。这些步骤可以并发执行，以提高系统的吞吐量，改善系统的资源利用率； 。<br>
+      ��系统中存在着周期不等的各种事务，串行会导致难以预测的时延。如果各个事务所涉及的是数据库的不同部分，采用并发会减少平均响应时间。<br>
+      ��改善短事务的响应时间；<br>
+      ��在单事务处理系统中，事务一个一个的串行执行，即在一个事务运行的时候，其它事务只能等到这个事务结束以后才能运行。但是事务在执行过程中需要不同资源，有时需要CPU，有时需要读写I/O，如果事务串行执行，则许多系统资源会处于空闲状态。为了充分利用系统资源，提高系统运行效率，发挥数据库共享资源的特点，应当允许多个事务并发执行。 
+      <br>
+      ��事务并发执行的例子：<br>
+      <img src="../../../img/text/liti.gif" width="35" height="36" alt="例题"><br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td> 
+            <div align="center"><span class="pt9-black">图7-6</span><br>
+              <img src="../../../img/text/ch07/06.gif" width="278" height="101"></div>
+          </td>
+        </tr>
+      </table>
+      ��在图7-6的例子中，在T1事务运行过程中，T2事务就开始运行，并在T1事务结束之前结束了。这是一个很典型的事务并发执行的例子。<br>
+      ��在事务并发执行过程中，如果不加控制地并发执行，会产生下列三个问题：<br>
+      <span class="biaoti_2">��-�丢失更新 (lost update)<br>
+      ��-�读脏数据 (dirty read)<br>
+      ��-�读值不可复现 (unrepeatable read)</span><br>
+      <br>
+      <span class="biaoti_2">　　(1) 丢失更新 </span><br>
+      ��如图7-7所示，事务T1和T2并发执行，丢失更新的情况。如果x的初始值为5，则x的结果值为15，正确的结果应该是x的结果值为18，这是因为T1对x的更新被丢失了。<br>
+      <br>
+      　　<span class="tubiaoti">图7-7 丢失更新</span><br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td> 
+            <div align="center" class="pt9-black"><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="400" height="320">
+                <param name=movie value="../../../swf/ch7/6.swf">
+                <param name=quality value=high>
+                <param name="wmode" value="transparent">
+                <embed src="../../../swf/ch7/6.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="400" height="320" wmode="transparent">
+                </embed> 
+              </object></div>
+          </td>
+        </tr>
+      </table>
+      ��丢失更新问题是由于两个事务对同一数据并发写入所引起的，这称为&quot;写－写冲突&quot;。<br>
+      <!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

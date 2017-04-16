@@ -1,0 +1,43 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgproperties=fixed bgcolor="#FFFFFF" background="../../../../image/moban/15.gif">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" height="57">
+        <tr> 
+          <td class="text" align="left"> 
+            <p>��<span class="part">1、问题的提出</span><br>
+              ��到目前为止，我们都隐含地假设在关系上查询时只使用一个索引或散列表。如果存在多个索引，该如何处理呢？<br>
+              ��假设文件<i>account</i>有两个索引，分别建立在<i>branch-name</i>和<i>balance</i>上。考虑如下查询：<i><br>
+              </i>select<i> loan-number<br>
+              </i>from<i> account<br>
+              </i>where<i> branch-name = </i>&quot;Downtown&quot; AND<i> balance 
+              = 800 <br>
+              </i>对于这个查询，如何利用上面已有的两个索引呢？<br>
+              ��<span class="part">2、多个索引的利用</span><br>
+              ��处理上面的查询有以下三种利用索引的策略：<br>
+              ��<span class="part">⑴�</span>利用branch-name上的索引，找出Downtown分支机构的所有记录。然后检查每条记录是否满足条件：balance 
+              = 800；<br>
+              ��<span class="part">⑵</span>�利用balance上的索引，找出所有余额等于800的记录。然后检查每条记录是否满足条件：branch-name 
+              = &quot;Downtown&quot; ；<br>
+              ��<span class="part">⑶</span>�分别利用上述两个索引找出满足各自条件的所有记录的指针。计算这两个指针集合的交即可。<br>
+              ��在上面三种策略中，只有第三个方案同时利用了两个索引。但它有可能是最糟糕的选择，如果以下条件成立的话：<br>
+              ��①�属于Downtown分支机构的记录太多；<br>
+              ��②�余额为800的记录太多；<br>
+              ��③�Downtown分支机构中余额为800的记录又很少。<br>
+              ��这样的话，为了得到一个很小的结果，我们将不得不扫描大量的指针。最好的解决方案是在复合搜索码(branch-name, balance)上建立和使用索引，这样的索引也叫复合索引。 
+              <br>
+              ��</p>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

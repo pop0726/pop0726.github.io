@@ -1,0 +1,82 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" --><font color="#cc0000">　　(2) 中心订阅者<br>
+　　  模型中心订阅者模型和中心出版者模型正好相反。在中心订阅者模型中，多个出版服务器将数据发表到单一的订阅服务器上。<br>
+      ��对于下面的方案可以使用中心订阅者模型：一个企业的各个部门跟踪本地各自的数据，并将本地数据的改变送交到总部的数据中心，进行信息的统计和重新发布。<br>
+      　　中心订阅者模型如图7-30所示：</font><br>
+      <br>
+      　　<span class="tubiaoti">图7-30</span><br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td align="center"><img src="../../../img/text/ch07/46.gif" width="362" height="242"></td>
+        </tr>
+      </table>
+      <font color="#cc0000">　　(3) 多出版者-多订阅者模型
+　　<br>  　　在多出版者-多订阅者模型中，一个SQL Server服务器可以具有出版、分发、订阅等多重职务。<br>
+      多出版者-多订阅者的模型如下图7-31所示：<br>
+      ��由于多出版者-多订阅者模型的复杂性，因此，除非有特殊要求，一般不使用多出版者-多订阅者模型。<br>
+      </font><br>
+      　　<span class="tubiaoti">图7-31</span><br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td> 
+            <div align="center"><br>
+              <img src="../../../img/text/ch07/47.gif" width="323" height="250"></div>
+          </td>
+        </tr>
+      </table>
+      <font color="#cc0000"><br>
+      　　3. SQL Server复制技术
+　　<br>  　　SQL Server提供了3种复制技术，即：<br>
+      ��-�快照复制(Snapshot Replication)：<br>
+      ��-�事务复制(Transaction Replication)；<br>
+      ��-�合并复制(Merge Replication)；<br>
+      ��(1) 快照复制
+　　<br>  　　快照复制 (Snapshot Replication)是指出版服务器在指定的时刻把发表数据的变化更新到分发服务器上，改写原来存在的任何数据。<br>
+      ��使用快照复制不需要连续监视出版服务器的事务日志，需要的开销较小。快照复制适用于不需要连续保持最新数据库和不需要经常连接出版服务器的情况。 <br>
+      ��(2) 事务复制
+　　<br>  　　事务复制 (Transaction Replication) 发布的是修改发表数据的语句，如INSERT，UPDATE，DELETE，而实际的数据并不会传输。事务复制需要连续监视出版服务器事务日志的改变。<br>
+      ��由于发表数据的任何改变都发布给订阅服务器，而且数据的改变按事务执行的顺序发布以确保订阅服务器接收的顺序与出版服务器改变数据的顺序相同，所以事务复制可以确保事务一致性。<br>
+      ��(3) 合并复制
+　　<br>  　　合并复制 (Merge Replication)允许修改出版服务器中的出版数据库和订阅服务器中的订阅数据库，它能够自动监视这些数据库中的数据变化，并定期将这些修改操作进行合并，把合并后的结果提交给所有订阅者。<br>
+      从实现方式来看，合并复制并不确保事务的一致性。 </font> <font color="#cc0000"><br>
+      　　4. 使用Enterprise Manager实现复制操作
+　　<br>  　　SQL Server提供了两种数据复制实现方法：一种是使用T-SQL语句和系统存储过程，另一种方法是使用图形化管理工具Enterprise 
+      Manger。使用Enterprise Manager可以完成以下操作：<br>
+      ��(1) 配置出版服务器、分发服务器和订阅服务器；<br>
+      ��(2) 创建和管理出版物及出版条目；<br>
+      ��(3) 设计订阅；<br>
+      ��(4) 停止服务器的出版、分发和订阅操作<br>
+      ��(5) 删除出版物和订阅；<br>
+      ��(6) 产生复制脚本程序文件。</font><br>
+      <!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

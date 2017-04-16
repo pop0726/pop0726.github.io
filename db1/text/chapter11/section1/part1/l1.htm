@@ -1,0 +1,40 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgproperties=fixed bgcolor="#FFFFFF" background="../../../../image/moban/15.gif">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" height="8">
+        <tr> 
+          <td class="text" align="left"> 
+            <p class="part">1、共享锁与排他锁<span class="text"><br>
+              ��给数据项加的锁有两种：<br>
+              ��</span>⑴�共享锁：<span class="text">如果事务T获得了数据项Q上的共享锁(记为S)，则T可读Q但不能写Q；<br>
+              ��</span>⑵�排他锁：<span class="text">如果事务T获得了数据项Q上的排他锁(记为X)，则T既可读Q又可写Q。<br>
+              每个事务要根据自己将对数据项Q进行的操作申请适当的锁，该请求是发送给并发控制管理器的。只有在并发控制管理器授予所需要的锁之后，事务才能继续其操作。<br>
+              <br>
+              </span>2、锁相容函数<span class="text"><br>
+              ��对于给定的锁类型集合，可以按如下方式定义一个锁相容函数：令A与B代表任意类型的锁。假设事务T<font size="-5">i</font>请求对数据项Q加A类型锁，而事务T<font size="-5">j</font>(T<font size="-5">i</font>≠T<font size="-5">j</font>)当前在数据项Q上拥有B类型锁。尽管数据项Q上存在B类型锁，但如果事务T<font size="-5">I</font>可以立即获得数据项Q上的A类型锁，则称A类型锁与B类型锁相容。锁相容函数一般用矩阵来表示，称为锁相容矩阵，如</span>图11-1-1<span class="text">所示。图中只有其值为TRUE的两类锁才相容。<br>
+              </span></p>
+          </td>
+        </tr>
+        <tr>
+          <td class="text" align="left">
+            <div align="center"><span class="part">图11-1-1：锁相容矩阵 </span><br>
+              <img src="../../../../image/chapter/11/11-1-1.gif" width="243" height="137"> 
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="text" align="left"> ��<span class="menu">在实际的数据库管理系统中，并发控制管理机制中的锁不止排他锁和共享锁，还有其他形式的锁。具体内容可以参考各商业DBMS的各种文档或手册。</span></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" --><span class="biaoti_1">　2．数据库操纵语言DML</span><span class="biaoti_2"><br>
+      </span><span class="pt9-black"> 　　DBMS提供的数据操纵语言DML(Data Manipulation Language)是终端用户、应用程序实现对数据库中的数据进行各种操纵的语言。DML包括的基本操作功能有：增加、删除、修改、检索、显示输出等。<br>
+      　　DML通常有三种形式的用户界面：交互式命令语言、程序语言可调用的DML函数( 过程 ) 库和嵌入式语言。大多数DBMS都提供两种或三种形式的用户界面。<br>
+      　　(1) 交互式命令语言<br>
+      　　借助于友好的图形交互界面来实现。交互式命令语言语法简单、直观形象、使用方便，几乎所有的DBMS都把提供友好的面向图形的交互界面作为一个重要指标。例如，SQL 
+      Server的查询分析器，类似QBE的查询语言等。<br>
+      　　使用基于图形的数据操纵命令，主要优点是，第一，用户通过屏幕菜单和表格或符号构造操作命令，减少不必要的打字输入。第二，用户对组成操作命令的成份可以按任意的次序指定。第三，用户在显示屏幕上可以建立自己的查询视图，根据需要可以随时增加或修改命令的组成部分，直到当前的视图达到满意为止。甚至一个用户可以同时建立多个视图，从不同的角度查看数据库。<br>
+      　　<font color="#5a5aad">面向图形的交互界面可以使系统对用户非常友好。利用高级的光珊扫描显示设备或随机扫描显示器，以及高级的图形输入设备，如触摸屏幕、光笔和鼠标等。人们甚至用图(icon)表示实体对象，而不用名称或文件说明。例如，用人的图像可代替实体名：人；用一本书的图像代替实体名：书，等等。<br>
+      　　随着计算机图形学和图形设备的发展，用户界面管理软件 UIMS(User Interface Management Software)的研究也成为一个新兴学科。如 
+      Ms_Windows、 X_Window、Motif、Openlook等。利用这些窗口软件可以开发直观、生动、形象的交互图形界面。如菜单生成器、报表生成器、表格生成器等，在许多数据库系统中都作为数据库的应用工具开发出来。<br>
+      　　使用图形界面的不足之处是，需要用户知道数据库的有关结构；另一方面，对一个较为复杂的操作命令，虽然敲键盘不多，但要求熟练地使用鼠标工作。</font></span><br>
+      　　(2) 高级程序设计语言可调用的数据库操作函数(过程)<br>
+      　　高级程序设计语言可调用的数据库操纵函数(过程)是面向应用程序设计人员使用的。应用程序设计员可以使用各种高级语言来编写应用程序，在应用程序中需要访问数据库的地方，调用相应的数据库操纵函数，完成对数据库的访问操作。<br>
+      　　<font color="#5a5aad">调用数据库操纵函数的应用程序，通常要配合使用与数据库模式相对应的数据类型和结构定义的头文件，保证应用程序的用户工作区与数据操纵语言所访问的数据类型和结构相一致。为了适应各种高级程序设计语言访问数据库，数据库管理系统要提供各种高级程序设计语言对应的调用函数库。</font><br>
+      　　例如，开放数据库互连ODBC，数据对象接口ADO等。<br>
+      　　(3) 嵌入式语言 <br>
+      　　嵌入宿主语言是把对数据库进行操作的SQL语句嵌入到数据库应用程序设计语言中。如嵌入到C 、COBOL 等语言中。在应用程序中，需要访问数据库的地方，嵌入 
+      SQL 语句块, 通常有块头和块尾标识语句，块内是 SQL 语句。例如，ORACLE关系数据库提供有编程语言PRO * C。它是在 C 语言中嵌入 
+      SQL语言。使用PRO * C类似使用 C 语言编程。嵌入 SQL 语句块的一般格式如下所示：<br>
+      　　　EXEC SQL BEGIN<br>
+      　　　　(SQL 语句)<br>
+      　　　EXEC SQL END ;<br>
+      　　实现嵌入式数据库操作通常要开发预编译器。所谓预编译器是指在用主程序语言编译器编译之前，对带有嵌入语句的源程序代码进行预处理，转换成主程序语言源代码。再利用主语言编译器生成目标代码，最后产生可执行代码。 
+      <br>
+      　　<font color="#5a5aad">所以，预编译器的工作过程是先扫描带有嵌入 SQL 语句的源程序，把嵌入的 SQL 语句块经预编译器翻译成相应主语言对数据库操作函数的调用语句，产生纯主语言程序文本。预编译的结果是产生纯主语言的源代码程序。为了增加可读性，可把原来的嵌入语句改成相应主语言的注释语句。<br>
+      　　使用嵌入式的 SQL，当 SQL 语句是标准的数据操作语句时，可增加程序的可移植性，减少程序员开发软件中熟悉新语言的麻烦。目前大多数数据库操作语言都用美国国家标准局规定的标准 
+      SQL (Structured Query Language)语言。</font><!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

@@ -1,0 +1,66 @@
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" background="../../../../../image/pop/r2_c3.gif">
+<center><table width="95%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+      <td class=text> 
+        <p><b>问答题答案</b></p>
+        <p><span class="explaination">问答第1题</span><br>
+          　　create table employee (person-name varchar(20) not null, <br>
+          　　 　　　　　　　　　　　street varchar(50), <br>
+          　　　　　　　　　　　　　 city varchar(20), <br>
+          　　　　　　　　　　　　　 primary key (person-name)) <br>
+          　　 create table company (company-name varchar(30) not null, <br>
+          　　　　　　　　　　　　　 city varchar(20), <br>
+          　　　　　　　　　　　　　 primary key (company-name)) <br>
+          　　 create table works (person-name varchar(20) not null, <br>
+          　　　　　　　　　　　　　 company-name varchar(30) not null, <br>
+          　　　　　　　　　　　　　 salary float, <br>
+          　　　　　　　　　　　　　 primary key (person-name, company-name), <br>
+          　　　　　　　　　　　　　 foreign key (person-name) references employee, <br>
+          　　　　　　　　　　　　　 foreign key (company -name) references company) <br>
+          　　 create table manages (person-name varchar(20) not null, <br>
+          　　　　 manager-name varchar(20) not null references employee(person-name),<br>
+          　　　　　　　　　　　　　 primary key (person-name, manager-name), <br>
+          　　　　　　　　　　　　　 foreign key (person-name) references employee) <br>
+          <br>
+          <span class="explaination">问答第2题</span><br>
+          　　由于在关系account中account-number是主码，因此，在关系depositor中account-number是外码，它参照关系account的主码。我们可以只根据在关系account中插入和删除来触发视图的更新。<br>
+          　　 define trigger delete-from-account on delete of account T <br>
+          　　 (delete from branch-cust as BC <br>
+          　　 where BC.customer-name in (select D.customer-name from depositor 
+          as D <br>
+          　　　　　　　　　　　　　　　　 where D.account-number = T.account-number) )<br>
+          　　　define trigger insert-into-account on insert of account T <br>
+          　　 (insert into branch-cust <br>
+          　　　 　　　　　(select T.branch-name, D.customer-name from depositor as D 
+          <br>
+          　　　　　　　　 where D.account-number = T.account-number) <br>
+          <br>
+          <span class="explaination">问答第3题</span><br>
+          　　在此关系上满足的所有函数依赖是：A→B、AC→B、C→B<br>
+          <br>
+          <span class="explaination">问答第4题</span><br>
+          　　 ⑴　证明：根据已知条件有：A→B和B→H，再利用Armstrong公理的传递率就可以得到A→H。证明完毕； <br>
+          　　 ⑵　证明：根据已知条件有：CG→H和CG→I，再利用Armstrong公理的合并率就可以得到CG→HI。证明完毕； <br>
+          　　⑶　证明：根据已知条件有：A→C和CG→I，再利用Armstrong公理的伪传递率就可以得到AG→I。证明完毕。<br>
+          <span class="explaination"><br>
+          问答第5题</span><br>
+          　　证明： 根据无损连接分解的条件，也就是要证明两个模式的公共属性可以函数确定其中的一个模式，即A→ABC或A→ADE。而根据增补率只需要证明A→BC或A→DE成立即可。很明显A→BC显然是成立的，因此该分解是无损连接分解。<br>
+          　　 更进一步，我们还可以证明A→DE成立： <br>
+          　　 已知CD→E，根据增补率，得到CD→DE； <br>
+          　　 已知B→D，根据增补率，得到BC→CD； <br>
+          　　 再加上已知A→BC，由上面得到的BC→CD和CD→DE，利用传递率可以得到A→DE。 <br>
+          　　 证明完毕。 </p>
+      </td>
+  </tr>
+</table>
+  </center>
+
+</body>
+</html>

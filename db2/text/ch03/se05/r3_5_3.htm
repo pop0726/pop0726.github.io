@@ -1,0 +1,101 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" -->　<span class="biaoti_1">1. 选择：</span><br>
+      　　选择操作是对关系的水平分解，即从关系中选择部分满足条件的元组，组成新关系。选择运算用下式表示:<br>
+      　　<font color="#cc0000">σ<sub>F</sub>(R)={t|t∈R∧F(t)='真'}</font><br>
+      　　其中，σ为选择运算符，R是关系名，F为逻辑表达式。F中的运算对象通常为常量、简单函数或元组分量，运算符为比较运算符和逻辑运算符，表示的条件取值为'真'或'假'。<br>
+      　　例1，在学生(students)表中，列出性别为男的所有学生组成新关系。该条件表示F 为 ssex = 'm' 。选择表达式可以写成：<br>
+      　　<font color="#cc0000">σ<sub>ssex</sub>(R)='m'(student)</font><br>
+      　对表3-7操作的结果如表3-17所示。<br>
+      <br>
+      　　<span class="tubiaoti">表 3-17</span><br>
+      <br>
+      <table width="80%" border="1" cellspacing="0" cellpadding="0" class="pt9-black" bordercolorlight="#004080" bordercolordark="#ffffff" align="center">
+        <tr align="center" bgcolor="#BFDFFF"> 
+          <td bgcolor="#BFDFFF">sno</td>
+          <td>sname</td>
+          <td>ssex</td>
+          <td>sage</td>
+          <td>sclass</td>
+        </tr>
+        <tr align="center"> 
+          <td>J20001</td>
+          <td>李 楷</td>
+          <td>m</td>
+          <td>19</td>
+          <td>JS2001</td>
+        </tr>
+        <tr align="center"> 
+          <td>J20003</td>
+          <td>王 者</td>
+          <td>m</td>
+          <td>20</td>
+          <td>JS2001</td>
+        </tr>
+        <tr align="center"> 
+          <td>D20001</td>
+          <td>赵 良</td>
+          <td>m</td>
+          <td>18</td>
+          <td>DZ2001</td>
+        </tr>
+      </table>
+      <br>
+      　<span class="biaoti_1">2．投影：</span><br>
+      　　投影操作是对关系的垂直分解，即从关系的属性集中选择属性子集，由关系的部分列构成的元组组成一个新关系。投影操作用下式表示：<br>
+      <img src="../../../img/text/ch03/004.gif" width="221" height="23"> <br>
+      　　其中，π为投影运算符，R是关系名，(ai,…,aj)表示关系R中的属性子集合。该操作从关系R中移出部分列，只保留(ai,…,aj)列组成一个新的关系，并去掉重复的元组。新关系中的属性值来自原关系中相应的属性值，列的次序在新关系中可以重新排列。<br>
+      　　例2，对表3-8中元组集合进行投影操作，列出所有老师的编号和所在的研究所号，操作结果如表3-18所示。投影表达式可以写为:<br>
+      πtno, instno（teacher）3-18<br>
+      <br>
+      <table width="50%" border="1" cellspacing="0" cellpadding="0" class="pt9-black" bordercolorlight="#004080" bordercolordark="#ffffff" align="center">
+        <tr align="center" bgcolor="#BFDFFF"> 
+          <td bgcolor="#BFDFFF">tno</td>
+          <td>istno</td>
+        </tr>
+        <tr align="center"> 
+          <td>T001</td>
+          <td>CS01</td>
+        </tr>
+        <tr align="center"> 
+          <td>T020</td>
+          <td>CS02</td>
+        </tr>
+        <tr align="center"> 
+          <td>T012</td>
+          <td>EE01</td>
+        </tr>
+      </table>
+      <br>
+      　　投影操作不仅要去掉原关系中的某些列，还要去掉某些重复的元组，因为减少了某些列之后，原关系中就可能出现重复的元组，应当消去相同的行。<br>
+      <!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

@@ -1,0 +1,22 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgproperties=fixed bgcolor="#FFFFFF" background="../../../../image/moban/15.gif">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" height="126">
+        <tr> 
+          <td class="text">��<span class="menu">在时间戳排序协议下：由于在数据项Q存在之前，read(Q)和write(Q)都不可能成功执行，因此，R-TS(Q)与W-TS(Q)都为0。如果T<font size="-5">i</font>发出insert(Q)操作，则执行之并将R-TS(Q)与W-TS(Q)的值设为TS(T<font size="-5">i</font>)。<br>
+            ��在这里，表面上看insert(Q)操作相当于write(Q)操作，按照时间戳排序协议的规定，只需要将W-TS(Q)的值设为TS(Ti)即可，为什么还要将R-TS(Q)的值也设为TS(T<font size="-5">i</font>)呢？<br>
+            ��事实上，在数据库中插入一条记录的过程是这样的：首先生成一条新的空记录，然后再更新这条空记录的值，将要插入的内容写入数据库中。实际上对记录的UPDATE的过程首先就是读记录，因此在插入一条记录的过程也要读记录。所以按照时间戳排序协议的规定，也应该将R-TS(Q)的值也设为TS(T<font size="-5">i</font>)。</span></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

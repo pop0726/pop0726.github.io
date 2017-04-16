@@ -1,0 +1,83 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" -->　<span class="biaoti_1">4 SQL Server中的缺省对象(Default)</span> 
+      <br>
+      　　缺省对象是SQL Server中的一种数据库对象，类似于缺省值约束，但缺省对象只适用于INSERT语句中为未指定数据的列值设置缺省值。下面介绍：<br>
+      　　　创建缺省对象<br>
+      　　　应用缺省对象<br>
+      　　　删除缺省对象<br>
+      　　<font color="#5a5aad">缺省对象和缺省值约束的区别：缺省对象和缺省值约束有些类似，但两者存在一些区别，缺省值约束是在用CREATE 
+      TABLE 或 ALTER TABLE语句定义表结构时定义，它与表定义存储在一起，所以，在删除表时，缺省值约束被自动删除。而缺省对象则需要使用CREATE 
+      DEFAULT语句定义，它作为一种数据库对象单独存储，所以它可以被多次应用于不同列或用户定义的数据类型。在删除表时不能删除缺省对象，而需要使用DROP 
+      DEFAULT语句删除。<br>
+      </font><br>
+      　(1) 创建缺省对象<br>
+      　　T_SQL中，创建缺省数据库对象的语句格式：<br>
+      　　CREATE DEFAULT [owner.] default_name <br>
+      　　AS constant_expression<br>
+      　　<font color="#5a5aad">其中，<br>
+      　　default_name ：缺省对象名。<br>
+      　　constant_expression：缺省对象值的计算表达式。</font><br>
+      <br>
+      　　例如：<br>
+      　　　CREATE DEFAULT DF_char AS 'unknown'CREATE DEFAULT DF_date AS 'Feb 21 
+      2000'CREATE DEFAULT DF_binary AS oxFFFFF00000<br>
+      　　　CREATE DEFAULT DF_phone AS'(010)0000-0000' 
+      <p>　(2) 绑定和应用缺省对象<br>
+        　　创建缺省对象后，必须使用系统存储过程sp_bindefault把它绑定到一个列或用户定义的数据类型, 缺省对象才能起作用。语句格式：<br>
+        　　sp_bindefault defname , objname [, futureonly]<br>
+        　　<font color="#5a5aad">其中：<br>
+        　　defname: 为所关联的缺省对象名称。<br>
+        　　objname: 为缺省对象所关联到的列名或用户定义的数据类型名称。如果objname的格式为&quot;表名.列名&quot;形式时，说明它为一列名，否则，objname参数指定的为用户定义的数据类型。<br>
+        　　futureonly：只用于用户定义数据类型。且只对未来的值起作用，不影响已经存在的值。<br>
+        </font><br>
+        　　例如，以正确位数的电话号码缺省值绑定客户电话。<br>
+        　　sp_bindefault DF_phone customer.phone_col<br>
+        　　在关联缺省对象时，不能将它关联到timestamp数据类型列或具有IDENTITY属性列，也不能将缺省对象关联到已具有缺省值约束的列。</p>
+      　(3) 解除和删除缺省对象<br>
+      　　要删除缺省对象时，必须先解除缺省对象与指定列或用户定义数据类型之间的关联。<br>
+      　● 解除缺省对象与相应对象关联的语句格式：<br>
+      　　sp_unbindefault objname [, futureonly] <br>
+      　　<font color="#5a5aad">objname: 为缺省对象所关联到的列名或用户定义的数据类型名称。<br>
+      　　futureonly：只用于用户定义数据类型。且只对未来的缺省值起作用，不影响已存在的缺省值。<br>
+      </font><br>
+      　　例如，解除DF_phone和 customer.phone_col列的关联：<br>
+      　　sp_unbindefault customer.phone_col<br>
+      　　解除缺省对象的关联后，该对象仍存在于当前数据库中，这时可执行DROP DEFAULT语句将其删除。<br>
+      　● 删除缺省对象的语句格式：<br>
+      　　DROP DEFAULT default_name [,...n]<br>
+      　　一个DROP 语句可以同时删除多个缺省对象。<br>
+      <br>
+      　　例如，下面的语句删除前面建立的DF_char，DF_date，DF_binary,DF_phone等缺省对象:<br>
+      　　　DROP DEFAULT DF_char, DF_date, DF_binary, DF_phone<br>
+      <!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

@@ -1,0 +1,64 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" -->　<span class="biaoti_1">4．具有检查点的恢复技术</span><br>
+      ��利用日志文件恢复数据库时，恢复子系统必须搜索日志文件，确定哪些事务需要REDO，哪些事务需要UNDO。一般来说，需要检查所有日志记录。这样做有两个问题。一个是搜索整个日志耗费了大量时间。第二个是许多需要REDO处理的事务实际上已经将更新操作结果写到数据库中了，然而恢复子系统又重新作了这些操作，浪费了大量时间。为了解决这些问题，发展了具有检查点的恢复技术。这种技术是在日志文件中增加新的一类记录--检查点（Checkpoint）记录，增加一个重新开始文件，并让恢复子系统在登录日志文件期间动态维护日志。<br>
+      检查点记录的内容包括：<br>
+      ��（1） 建立检查点时刻所有正在执行的事务清单。<br>
+      ��（2） 这些事务最近一个日志记录的地址。<br>
+      ��重新开始文件用来记录各个检查点记录在日志文件中的地址。图7-19中说明了建立检查点Ci时对应的日志文件和重新开始文件。<br>
+      <br>
+      　　<span class="tubiaoti">图7-19 重新开始文件和日志文件</span><br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td align="center"><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="400" height="250">
+              <param name=movie value="../../../swf/ch7/14.swf">
+              <param name=quality value=high>
+              <param name="wmode" value="transparent">
+              <embed src="../../../swf/ch7/14.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="400" height="250" wmode="transparent">
+              </embed> 
+            </object> </td>
+        </tr>
+      </table>
+      �<span class="pt9-black">�</span><span class="explaination">在图7-19中，重新开始文件中记录了检查点Ci在日志文件中的地址，由此找到检查点Ci在日志文件中的位置。并找到事务T1相应的日志记录位置D1和事务T2的日志记录位置D2，决定哪些事务需要REDO，哪些不需要。这样不需要检索整个的日志文件，只需要按照检查点地址就可以找到相应的日志记录。</span><br>
+      ��动态维护日志文件的方法是周期性执行如下操作：建立检查点，保存数据库状态。具体步骤为：<br>
+      ��（1） 将当前日志缓冲所有日志记录写入磁盘日志文件；<br>
+      ��（2） 在日志中写入一个检查点记录；<br>
+      ��（3） 将当前数据缓冲区的所有数据记录写入磁盘数据库；<br>
+      ��（4） 把检查点记录在日志文件中的地址写入一个重新开始文件。<br>
+      ��<font color="cc0000">恢复子系统可以定期或者不定期建立检查点保存数据库状态。检查点可以按照规定的一个时间间隔建立，间隔时间系统有缺省值，也可以用户设定，比如每隔一个小时建立一个检查点；也可以按照某种规则建立检查点，如日志文件写满一半建立一个检查点。检查点也可以人为的干预执行。无论是人为的或者自动的，当发出一个检查点命令时，所有缓冲区中的脏数据都被保存到磁盘上。实现缓冲区和数据库文件的同步。</font><br>
+      ��<span class="explaination">使用检查点可以改善恢复的效率。当事务T在一个检查点之前提交，T对数据库所作的修改一定已经写入了数据库，写入时间是在这个检查点建立之前或在这个检查点发生的时候。这样在恢复处理的时候，就没必要对事务T进行REDO操作。只有在检查点之前或之后开始，在故障发生之前已提交的事务才需要REDO。在检查点之前或之后开始，在故障发生时仍没有提交的事务需要UNDO。</span><br>
+      ��利用检查点技术进行数据库恢复的步骤：<br>
+      ��(1) 从重新开始文件找到最后一个检查点记录在日志文件中的地址，由此找到日志文件中最后一个检查点记录。 <br>
+      ��(2) 由检查点记录得到所有在检查点发生时正在执行的事务清单。并由此正向扫描日志文件得到检查点发生后开始的事务和检查发生后提交的事务。根据事务在故障发生时是否提交决定哪些需要REDO，哪些需要UNDO。<br>
+          　　(3) 撤消需要UNDO的事务，重做需要REDO的事务
+<!-- #EndEditable --></td> 
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

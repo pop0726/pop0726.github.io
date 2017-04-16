@@ -1,0 +1,47 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body  bgcolor="#FFFFFF" bgproperties=fixed background="../../../../image/moban/15.gif">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%"> 
+<tr> <td align="center" valign="top"> <table width="92%" border="0" cellspacing="0" cellpadding="0" height="256"> 
+<tr> <td class="text" align="left" height="24"> <p><span class="part">1、数据仓库是面向主题的</span><br> 
+��数据仓库中的数据是面向主题的，主题是数据归类的标准，每个主题对应一个客观分析领域，如客户、商店等，它可为辅助决策集成多个部门不同系统的大量数据。如<span class="part">图13-2-1</span>就显示了一个保险公司的业务应用与主题领域的不同。<br> 
+</p></td></tr> <tr> <td class="text" align="left" height="16"> <div align="center" class="part">图13-2-1：一个保险公司的业务应用与主题领域<br> 
+<img src="../../../../image/chapter/13/13-2-1.gif" width="415" height="135"> </div></td></tr> 
+<tr> <td class="text" align="left" height="16">例如，对一个保险公司来说，它的业务应用系统可能有汽车保险、人寿保险、健康医疗保险及家庭财产保险等，而保险公司的主题领域可以是客户、保单、保费及索赔等等。<br> 
+<br> <span class="part">2、数据仓库中的数据是集成的</span><br> ��数据仓库中的数据是集成的，这一点在数据仓库中是最重要的。不同的应用在编码、命名、属性的度量等方面都有很大的差别，数据集成就是要解决这些问题。例如，以下的<span class="part">图13-2-2</span>、<span class="part">图13-2-3</span>、<span class="part">图13-2-4</span>和<span class="part">图13-2-5</span>分别显示了在数据仓库中如何解决编码问题、属性度量问题、同一描述的不同来源问题和关键字冲突问题。<br> 
+��<u>⑴�编码问题<br> </u></td></tr> <tr> <td class="text" align="left" height="16"> 
+<div align="center" class="part">图13-2-2：编码问题<br> <img src="../../../../image/chapter/13/13-2-2.gif" width="420" height="119"> 
+</div></td></tr> <tr> <td class="text" align="left" height="16">在A、B、C和D四个不同的应用中，对&quot;性别&quot;这个属性值的编码分别是（M，F）、（1，0）、（X，Y）和（MALE，FEMALE），而在数据仓库中要将这个属性值的编码统一成（M，F）。因此应用B、C和D的有关属性值要在这个约定下进行转换。<br> 
+��<u>⑵�属性度量问题<br> </u></td></tr> <tr> <td class="text" align="left" height="16"> 
+<div align="center" class="part">图13-2-3：属性度量问题<br> <img src="../../../../image/chapter/13/13-2-3.gif" width="420" height="117"> 
+</div></td></tr> <tr> <td class="text" align="left" height="16">在A、B、C和D四个不同的应用中，对&quot;长度&quot;这个属性值的度量单位分别是厘米、英寸、尺和码，而在数据仓库中要将这个属性值的度量单位统一成厘米。因此应用B、C和D的有关属性值要在这个约定下进行转换。<br> 
+��<u>⑶�多源问题<br> </u></td></tr> <tr> <td class="text" align="left" height="16"> 
+<div align="center" class="part">图13-2-4：多源问题<br> <img src="../../../../image/chapter/13/13-2-4.gif" width="420" height="100"> 
+</div></td></tr> <tr> <td class="text" align="left" height="16">在A、B和C三个不同的应用中，对同一个属性的值的描述性内容各不相同，但都本质上是一致的，而在数据仓库中要将这个属性值的描述性内容根据三个不同应用的情况进行综合统一。因此三个应用的有关属性值的描述性内容要在这个约定下进行综合统一。<br> 
+��<u>⑷�关键字冲突问题<br> </u></td></tr> <tr> <td class="text" align="left" height="16"> 
+<div align="center" class="part">图13-2-5：关键字冲突问题<br> <img src="../../../../image/chapter/13/13-2-5.gif" width="420" height="119"> 
+</div></td></tr> <tr> <td class="text" align="left" height="16">在A、B、C和D四个不同的应用中，对关键字这个属性的定义分别是CHAR（10）、DEC 
+FIXED（9，2）、PIC '999999'和CHAR（12），而在数据仓库中要将这个属性的定义统一成CHAR（12）。因此应用A、B和C的有关属性值要在这个约定下进行转换。<br> 
+<span class="part"><br> 3、数据仓库中的数据是稳定的</span><br> ��数据仓库中的数据是稳定的。数据仓库包含了大量的历史数据，经集成进入数据仓库后主要用于决策分析，而极少更新。可以将其理解为只读的（READ-ONLY）。如<span class="part">图13-2-6</span>所示：<br> 
+</td></tr> <tr> <td class="text" align="left" height="16"> <div align="center" class="part">图13-2-6：数据仓库是只读的<br> 
+<img src="../../../../image/chapter/13/13-2-6.gif" width="420" height="160"> </div></td></tr> 
+<tr> <td class="text" align="left" height="16">在业务应用中，对数据库中的数据要不断地进行插入、删除和更新等操作，而在数据仓库中仅仅是对大量数据的访问和对数据仓库的定期更新，即数据加载。<br> 
+<span class="part"><br> 4、数据仓库中的数据是不同时间的</span><br> ��数据仓库中的数据是不同时间的。数据仓库内的数据时限至少为5到10年，主要用于进行时间趋势分析；而一般业务数据库的时限为1个月至1年，有的甚至更短。如<span class="part">图13-2-7</span>所示：<br> 
+</td></tr> <tr> <td class="text" align="left" height="8"> <div align="center" class="part">图13-2-7：数据仓库是包含历史数据的<br> 
+<img src="../../../../image/chapter/13/13-2-7.gif" width="415" height="205"> </div></td></tr> 
+<tr> <td class="text" align="left" height="8">一般数据仓库是对历史数据的分析，因此它必须包含不同时期的业务应用系统的数据，而业务应用系统则不同，它仅关系当前这个时期的数据，因此数据库中一般只包含一到两年的数据。5、数据仓库的目的从数据仓库的定义可以看出，建立数据仓库的目的主要是为企业或政府的管理决策提供服务的，因此，数据仓库主要应用在两个方面：<br> 
+��⑴�使用浏览分析工具在数据仓库中寻找有用的信息；<br> ��⑵�基于数据仓库，在数据仓库系统上建立应用，形成决策支持系统。<br> </td></tr> 
+<tr> <td class="text" align="left" height="8"> <div align="center" class="part">图13-2-8：数据仓库的目的<br> 
+<img src="../../../../image/chapter/13/13-2-8.gif" width="420" height="119"> </div></td></tr> 
+<tr> <td class="text" align="left" height="2">从图中可以看出，业务应用系统是一个从数据到数据的OLTP的过程，可以说是主要是产生数据，而数据仓库应用是一个从数据到知识的OLAP、DM和OLAM的过程，是一个对大量数据进行分析的过程。<br> 
+��在这里我们有必要对一些术语再次进行解释：<br> ��⑴�OLTP：联机事务处理，主要完成对数据的增、删、改等操作；<br> ��⑵�OLAP：联机分析处理，主要完成对数据的向上综合（ROLL-UP）、向下细化（DRILL-DOWN）、旋转（PIVOTING）、切片和分割（SLICING-DICING）--又称局部分析等操作。OLAP以多维分析为基础，刻画了管理和决策过程中对数据进行多层面、多角度的分析处理。根据支持OLAP的低层数据结构的不同，它又分为多维OLAP--MOLAP和关系OLAP--ROLAP；<br> 
+��⑶�DM：数据挖掘，是指从大量数据中发现数据模式、预测趋势和行为，致力于知识的自动发现的一种数据分析技术；<br> </td></tr> <tr> <td class="text" align="left" height="2"><div align="center"><img src="../../../../swf/f13_2.jpg" width="400" height="400"></div></td></tr> 
+<tr> <td class="text" align="left" height="4">��<span class="menu">虽然数据挖掘的概念很早就提出了，但是在数据库中进行数据挖掘的综述最早是由Agrawal等人在1993作出的。<br> 
+<br> ��</span>⑷�OLAM：联机分析挖掘，将OLAP与DM结合起来的数据分析技术；<br> ��⑸�DSS：决策支持系统，利用OLAP、DM、OLAM等技术，为企业或政府的管理决策提供服务的系统。</td></tr> 
+</table></td></tr> </table>
+</body>
+</html>

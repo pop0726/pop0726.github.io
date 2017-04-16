@@ -1,0 +1,82 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" -->　<span class="biaoti_1">7．User.asp</span>　<br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td align="center"><br>
+            <img src="../../../img/text/ch05/g9.gif" width="339" height="188"></td>
+        </tr>
+      </table>
+      <br>
+      　　口令修改包括对本人账号和口令的修改，和增加、修改、删除学生和管理员账号的功能。<br>
+      　（1） 增加账号：输入该账号对应的学号，并输入新的账号、密码。选择增加用户的角色，包括有管理员，学生。如果是增加管理员，则无须输入学号。注意在输入的时候，如果数据库中有重复的信息，或者学生的学号在数据库中不存在，就会无法输入相应的信息。<br>
+      　（2） 修改账号：输入相应的账号，并点击确定按钮，在相应的文本框中会出现该账号对应的学号，账号，密码。修改后点击确定按钮，则完成对账号信息的修改。注意如果修改后的信息在数据库中有重复，或者学生的学号在数据库中不存在，就会无法修改相应的信息。<br>
+      　（3） 删除账号：输入相应的账号，并点击确定按钮，则完成对该账号信息的删除。<br>
+      　（4） 修改本人账号：直接在文本框中输入修改的密码，点击确定后，完成对本人密码的修改。<br>
+      <br>
+      　<span class="biaoti_1">8．StudentIndex.asp</span>　<br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td align="center"><br>
+            <img src="../../../img/text/ch05/g10.gif" width="348" height="205"></td>
+        </tr>
+      </table>
+      <br>
+      　　上图是以学生身份登录时的界面。左边有四项功能，分别是课称信息查询，选课管理，口令修改和退出系统，其中默认界面是课程信息查询界面，此时将数据库中所有的课程信息列出。<br>
+      <br>
+      　<span class="biaoti_1">9．CourseQuery.asp</span>　<br>
+      　　上图右上边可以输入相关的课程信息进行查询，包括有课程编号，课程名称，授课教师，可以进行模糊查询，在其中输入任意几项，点击确定按钮，可以在右下方查询到相应的课程信息。<br>
+      　　模糊查询指在相关的文本框中输入相应信息的一部分，也可以查到类似的信息。例如对于上面的课程，在课程名称一栏中输入&quot;语言&quot;，则会列出c++语言和java语言的相关课程信息。<br>
+      <br>
+      　<span class="biaoti_1">10．CourseSelect.asp</span>　<br>
+      　　该界面可以为学生本人添加，删除选择的课程，并自动显示已经选择的总学分数。<br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td align="center"><br>
+            <img src="../../../img/text/ch05/g11.gif" width="347" height="207"></td>
+        </tr>
+      </table>
+      　（1） 选择新课程：在右上方输入要添加的课程编号，点击确定按钮，则在下方自动添加上新选择的课程。注意：如果选择的新课程与已经选择的课程有重复，或者时间上有冲突，或者选择的总学分超出了该班级的学分限制，则不能添加新的课程。<br>
+      　（2） 删除旧课程：只要点击右下方该课程相应的删除按钮，就可以删除该课程。注意：为该班级自动添加的必修课不能由学生删除。<br>
+      <br>
+      　<span class="biaoti_1">11．StudentPasswd.asp</span>　<br>
+      　　在修改密码界面，学生只能修改自己的密码，在右上方显示学生的个人信息。在右下方修改密码，需要输入旧密码，并重复输入新密码。这时学生的密码才修改成功。如果两次输入不一致，则不会修改密码。<br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td align="center"><br>
+            <img src="../../../img/text/ch05/g12.gif" width="345" height="202"></td>
+        </tr>
+      </table>
+      <br>
+      　　在学生用户选择退出之后，如果其选课总学分小于该班级的最小学分限制，系统会提出警告，不过因为学生可以多次登录该系统，因此学生可以多次登录，重复选课，直到满意。<br>
+      <!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

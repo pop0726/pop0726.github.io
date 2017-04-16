@@ -1,0 +1,40 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgproperties=fixed bgcolor="#FFFFFF" background="../../../../image/moban/15.gif">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" height="11">
+        <tr> 
+          <td class="text" align="left" height="50"> 
+            <p class="menu"><span class="text">��SQL-92支持的预定义的域类型，即数据类型如下：<br>
+              ��<b>⑴</b>�char(n)：当一个属性的类型为char(n)时，如果该属性的一个值的长度不够n个字符，则DBMS仍然为其分配至少n个字节的空间，而没有填满的字节用空格补上；<br>
+              ��<b>⑵</b>�varchar(n)：SQL-89不支持该类型。当一个属性的类型为varchar(n)时，如果该属性的一个值的长度只有m(m&lt;=n)个字符，则DBMS只为其分配m个字节的空间，而不像char(n)那样是补空格；<br>
+              ��<b>⑶</b>�int：8字节长的整数类型；<br>
+              ��<b>⑷</b>�smallint：4字节长的小整数类型；<br>
+              ��<b>⑸</b>�numeric(p, d)：定点数类型，例如：44.5就是类型numeric(3,1)的一个定点数；<br>
+              ��<b>⑹</b>�real、double：实数和双精度浮点数；<br>
+              ��<b>⑺</b>�float：单精度浮点数；<br>
+              ��<b>⑻</b>�date：日期类型，SQL-89不支持该类型；<br>
+              ��<b>⑼</b>�time：时间类型，SQL-89不支持该类型。需要特别说明的是：<br>
+              ��</span><span class="part">⑴</span><span class="text">�有关上述各种数据类型的名称、占用的字节数、表示的值的范围等信息，只能从有关的DBMS的手册中得到，而且不同的商用DBMS，这些信息还不完全一样。例如，在Microsoft 
+              SQL Server中将日期类型和时间类型合并成一种类型，即datetime和smalldatetime类型；<br>
+              ��</span><span class="part">⑵�</span><span class="text">SQL允许在各种数据类型的域上进行算术运算和比较运算，如日期之间的差等等；<br>
+              ��</span><span class="part">⑶</span><span class="text">�在DBMS中允许用户自己定义域，即用户定义的数据类型。例如：create 
+              domain person-name char(20)</span><br>
+              <br>
+              ��使用varchar类型比使用char类型的好处就是可以节省元组的存储空间。节省存储空间带来的另外一个好处就是可以提高查询的性能。原因就是数据库查询的性能主要是由磁盘的I/O次数决定的，假设一次I/O可以读到磁盘的一页的内容。而在数据库中，每一页的大小都是固定的（例如，SQL 
+              Server 7.0中页的大小就是8K），如果每个元组占用的空间小了，一页就可以存放更多的元组，那么一次I/O就可以读出更多的元组，提高了查询的命中率，因而性能就有可能提高。<br>
+              ��</p>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

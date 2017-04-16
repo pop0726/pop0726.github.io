@@ -1,0 +1,93 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" -->　　由CREATE TABLE产生的表称为基本表，是数据库存储数据的基本单位。视图创建者必须拥有在视图定义中引用的任何对象的使用权方可创建视图。视图只能在当前数据库中建立。一个视图最多可以引用250个字段。视图的定义存放在数据字典中，只有在操作（查询或通过视图更新数据）视图时，系统才执行视图的子查询，产生视图数据。<br>
+      定义视图的语句格式：<br>
+      　　CREATE VIEW 视图名 [(列名[，列名]……)]<br>
+      　　AS <br>
+      　　　　子查询<br>
+      　　　　[WITH CHECK OPTION]<br>
+      　　<font color="#5a5aad">视图名：在当前数据库中产生的视图名，一个视图可以参照当前数据库中的一个或多个表中的多个列。<br>
+      　　列名：指视图的列名。视图的列名或者都指定，或者都不指定，缺省情况下，视图的列名与子查询中的目标列名相同。但下列情况必须明确指定列名：<br>
+      　　・ 视图中的列来自算术表达式、函数或常量；<br>
+      　　・ 查询子句中由于连接多个表，不同表中的列具有相同的列名；<br>
+      　　・ 视图中的列需要使用别名。<br>
+      　　WITH CHECK OPTION选项：表示对视图的更新操作必须满足子查询语句中WHERE设置的条件。</font><br>
+      <br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+        <tr> 
+          <td width="35" valign="top"><img src="../../../img/text/liti.gif" width="35" height="36" alt="例题"></td>
+          <td>　例1，在student表上定义视图student 2，视图具有3列属性：学号、姓名、班级。如下描述： CREATE VIEW 
+            student2 <br>
+            　AS <br>
+            　　SELECT sno, sname, sclass<br>
+            　　FROM student<br>
+          </td>
+        </tr>
+        <tr> 
+          <td width="35" valign="top"><img src="../../../img/text/liti.gif" width="35" height="36" alt="例题"></td>
+          <td>　例2，在student表上建立视图，使用不同于基表的列名： <br>
+            　CREATE VIEW student3（学号、姓名、班级）<br>
+            　　AS <br>
+            　　SELECT sno, sname, sclass<br>
+            　　FROM student <br>
+          </td>
+        </tr>
+        <tr> 
+          <td width="35" valign="top"><img src="../../../img/text/liti.gif" width="35" height="36" alt="例题"></td>
+          <td>　例3，在student表上定义视图csstud，只包含计算机系的学生。虽然视图中的数据只来源于student表，但是查询条件要用到班级名称和系的名称。视图定义如下描述：CREATE 
+            VIEW csstud <br>
+            　AS <br>
+            　　SELECT sno,sname, sex，birthday <br>
+            　　FROM student，class，dept <br>
+            　　WHERE student.sclass = class.classname<br>
+            　　　　AND class.deptno = dept.deptno<br>
+            　　　　AND deptname = '计算机'；<br>
+            　<font color="#5a5aad">可以定义一个基于视图的视图，而不是基于基本表的视图。也可以创建引用几个视图或者视图和表组合的视图。</font><br>
+          </td>
+        </tr>
+        <tr> 
+          <td width="35" valign="top"><img src="../../../img/text/liti.gif" width="35" height="36" alt="例题"></td>
+          <td>　例4：建立第一个视图salesonly，是基于基本表创建的，第二个视图salespersons是基于第一个视图salesonly创建的。<br>
+            　CREATE VIEW salesonly <br>
+            　AS<br>
+            　　SELECT name, department, badge<br>
+            　　FROM employee<br>
+            　　WHERE department='Sales'<br>
+            　Go<br>
+            　CREATE VIEW salespersons<br>
+            　AS<br>
+            　　SELECT name <br>
+            　　FROM salesonly</td>
+        </tr>
+      </table>
+      <!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

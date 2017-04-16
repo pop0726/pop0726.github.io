@@ -1,0 +1,103 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url('../../../img/text/bg.jpg');
+background-repeat: no-repeat;
+background-attachment: fixed; background-position-y:50%
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">　</td>
+    <td>　</td>
+    <td width="10">　</td>
+  </tr>
+  <tr>
+    <td width="10">　</td>
+    <td> <!-- #BeginEditable "1" -->
+<p><span class="biaoti_1">1. 满足数据完整性的数据要具有以下的特点：</span><br>
+        　● 数据的值必须正确无误：数据的数据类型必须正确，数据的值必须在正确范围内。必须保证同一表格数据间的不相冲突。在不同表格间的数据也必须相互一致。<br>
+        　● 从实施来分类，SQL Server支持两类数据完整性。一种是声明引用完整性，它在模式描述时候定义检查条件，并在数据插入、修改和删除的时候自动实施数据完整性。另一种是过程数据完整性，可以通过触发器和其他工具来维护数据完整性。<br>
+        　● 数据完整性的分类为域完整性、实体完整性、引用完整性和用户自定义完整性。<br>
+        <font color="#5a5aad">例如：在一个数据库中有两个表，人事表和财务表。人事表记录了本单位的员工信息，财务表记录了本单位员工的借款情况。如果某个员工有借款，那么他不能从人事表中删除，这就是一种数据完整性约束。</font><br>
+        <br>
+        　<span class="biaoti_1">2. 约束的表示：<br>
+　　</span><span class="pt9-black">约束是强制数据完整性的首选方法。</span><span class="biaoti_1"><br>
+        </span><span class="pt9-black">　　SQL Server提供的实施数据完整性的途径主要是约束、规则、触发器、索引、数据类型和存储过程。其中约束总是在对象级上实现数据完整性，即数据完整性约束总是和表一起定义的。约束的用途是限制输入到表中的值的范围。SQL 
+        Server根据不同的用途提供了多种约束，分别是：<br>
+        　　(1).DEFAULT（默认值）约束<br>
+        　　(2).CHECK(核查)约束<br>
+        　　(3).PRIMARY KEY(主键)约束<br>
+        　　(4).UNIQUE(唯一性)约束<br>
+        　　(5).FOREIGN KEY(外键)约束<br>
+　　　　SQL Server产生的各种约束对象包括：缺省对象约束，规则对象约束<br>
+        <br>
+        　</span><span class="biaoti_1">3. 定义约束的语句格式CREATE TABLE table_name</span> 
+        <br>
+        　　( column_name data_type <br>
+        　　[ [CONSTRAINT constraint_name]<br>
+        　　{ PRIMARY KEY [CLUSTERED | NON CLUSTERED] <br>
+        　　|UNIQUE [CLUSTERED | NON CLUSTERED] <br>
+        　　|[FOREIGN KEY]REFERENCESref_table[(ref_column)] <br>
+        　　|DEFAULT constant_expression <br>
+        　　|CHECK (logical_ expression) <br>
+        　　} <br>
+        　　] [,…,n]<br>
+        　　&lt;table_ constraint&gt;::=<br>
+        　　[CONSTRAINT constraint_name]<br>
+        　　{PRIMARY KEY|UNIQUE [CLUSTERED |NON CLUSTERED] [(column[,…,n])] <br>
+        　　|[FOREIGN KEY] [(column[,…,n])]<br>
+        　　REFERENCES ref_table[(ref_column[,…,n])] <br>
+        　　|CHECK (search_ condition)<br>
+        　　} [,…,n]<br>
+        　　　)<br>
+        　　<font color="#5a5aad">参数说明：<br>
+        　　CONSTRAINT：是可选关键字，表示 PRIMARY KEY、NOT NULL、UNIQUE、FOREIGN KEY 或 CHECK 
+        约束定义的开始。<br>
+        　　Constraint_name：约束的名字，约束名在数据库内必须是唯一的。<br>
+        　　PRIMARY KEY：是通过唯一索引对给定的一列或多列强制实体完整性的约束。对于每个表只能创建一个 PRIMARY KEY 约束。<br>
+        　　UNIQUE：是通过唯一索引为给定的一列或多列提供实体完整性的约束。一个表可以有多个UNIQUE 约束<br>
+        　　CLUSTERED | NONCLUSTERED：是表示为 PRIMARY KEY 或 UNIQUE 约束创建聚集或非聚集索引的关键字。PRIMARY 
+        KEY 约束默认为 CLUSTERED，UNIQUE 约束默认为 NONCLUSTERED。在 CREATE TABLE 语句中只能为一个约束指定 
+        CLUSTERED。如果在为 UNIQUE 约束指定 CLUSTERED 的同时又指定了 PRIMARY KEY 约束，则 PRIMARY 
+        KEY 将默认为 NONCLUSTERED。<br>
+        　　FOREIGN KEY...REFERENCES：是为列中的数据提供引用完整性的约束。FOREIGN KEY 约束要求列中的每个值在被引用表中对应的被引用列中都存在。FOREIGN 
+        KEY 约束只能引用被引用表中为 PRIMARY KEY 或 UNIQUE 约束的列或被引用表中在 UNIQUE INDEX 内引用的列。<br>
+        　　ref_table：是 FOREIGN KEY 约束所引用的表名。 <br>
+        　　(ref_column[,...n])：是 FOREIGN KEY 约束所引用的表中的一列或多列。</font></p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+        <tr> 
+          <td width="35" valign="top"><img src="../../../img/text/liti.gif" width="35" height="36" alt="例题"></td>
+          <td><br>
+            　例1，为student表中的国家列设置缺省值'中国':<br>
+            　　CREATE TABLE student<br>
+            　　( name char(20) NOT NULL,<br>
+            　　country char(30) DEFAULT('中国')<br>
+            　　)</td>
+        </tr>
+        <tr> 
+          <td width="35" valign="top"><img src="../../../img/text/liti.gif" width="35" height="36" alt="例题"></td>
+          <td><br>
+            　例2，为student表中的name列增加缺省值约束:<br>
+            　　ALTER TABLE student<br>
+            　　ADD <br>
+            　　DEFAULT 'unknown' FOR name</td>
+        </tr>
+      </table>
+      <p>　</p>
+      <!-- #EndEditable --></td>
+    <td width="10">　</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

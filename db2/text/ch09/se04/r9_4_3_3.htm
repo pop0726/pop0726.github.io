@@ -1,0 +1,108 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" --> 　　6．建立时间维<br>
+      　　首先建立时间维Time,步骤如下：<br>
+      　　(1) 选择&quot;共享维度&quot; ，单击右键，选择&quot;新建维度/向导&quot;命令。此操作调用维度向导。 <br>
+      　　(2) 在&quot;欢迎&quot;框中，单击&quot;下一步&quot;按钮。 <br>
+      　　(3) 在&quot;选择维度的创建方式&quot;框中，选择&quot;星型架构：单个维度表&quot;选项，单击&quot;下一步&quot;按钮。如图片9-20。<br>
+      　　注意：在这里选择不同的维度创建方式，在本例中使用的只有星型架构和雪花架构。<br>
+      　<br>
+      　　<span class="tubiaoti">图9-20 选择维度的创建方式</span><br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td align="center"><br>
+            <img src="../../../img/text/ch09/011.gif" width="450" height="263"></td>
+        </tr>
+      </table>
+      　　(4) 在&quot;选择维度表&quot;框中，单击&quot;time_by_day&quot;。单击&quot;浏览数据&quot;按钮可以查看包含在&quot;time_by_day&quot;表中的数据。 
+      查看完&quot;time_by_day&quot;表后，单击&quot;下一步&quot;按钮。 <br>
+      　　(5) 在&quot;选择维度类型&quot;步骤，选择&quot;时间维度&quot;选项，然后单击&quot;下一步&quot;按钮。如图片9-21。<br>
+      <br>
+      　　<span class="tubiaoti">图9-21 选择时间维度</span><br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td align="center"><br>
+            <img src="../../../img/text/ch09/012.gif" width="431" height="253"></td>
+        </tr>
+      </table>
+      　　(6) 在&quot;创建时间维度级别&quot;框中，由下拉列表&quot;选择时间级别&quot;中选择&quot;年、季度、月&quot;，单击&quot;下一步&quot;按钮。如图片9-22。<br>
+      　　由于下拉列表中设计了各种维度结构，其中有维度为年、季、月的，因此直接使用时间架构中的固定组织层次，不用自己手工设置。<br>
+      <br>
+      　　<span class="tubiaoti">图9-22</span><br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td align="center"><br>
+            <img src="../../../img/text/ch09/013.gif" width="423" height="281"></td>
+        </tr>
+      </table>
+      　　(7) 在&quot;选择高级选项&quot;框中，单击&quot;下一步&quot;按钮。<br>
+      　　(8) 在向导的最后一步，输入&quot;Time3&quot;作为新维度的名称，如图片9-23。按&quot;完成&quot;，进入&quot;维度编辑器&quot;。<br>
+      <br>
+      　<span class="tubiaoti">图9-23</span><br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td align="center"><br>
+            <img src="../../../img/text/ch09/014.gif" width="454" height="252"></td>
+        </tr>
+      </table>
+      　　如果不进行维度编辑，可以关闭窗口，进行新的维度设计。下面设计产品维度。其他的维度设计类似。<br>
+      　　7． 建立产品维度<br>
+      　　(1)再次选择&quot;共享维度&quot; ，单击右键，选择&quot;新建维度/向导&quot;命令。<br>
+      　　(2)在&quot;欢迎&quot;框中，单击&quot;下一步&quot;按钮。 <br>
+      　　(3)在&quot;选择维度的创建方式&quot;框中，选择&quot;雪花架构：多个相关维度表&quot;选项，单击&quot;下一步&quot;按钮。 
+      <br>
+      　　(4)在&quot;选择维度表&quot;框中，双击&quot;Product&quot;和&quot;product_class&quot;，将它们添加到&quot;选定的表&quot;。单击&quot;下一步&quot;按钮。 
+      <br>
+      　　(5)在维度向导的&quot;创建和编辑联接&quot;框中，显示在(4)中选定的两个表以及它们之间的联接。单击&quot;下一步&quot;按钮。<br>
+      <br>
+      　　<span class="tubiaoti">图9-24</span><br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td align="center"><br>
+            <img src="../../../img/text/ch09/015.gif" width="465" height="263"></td>
+        </tr>
+      </table>
+      　　(6) 若要定义维度的级别，在&quot;可用的列&quot;下，按顺序双击&quot;product_category&quot;、&quot;product_subcategory&quot;和&quot;brand_name&quot;。 
+      双击每列后，其名称显示在&quot;维度级别&quot;下。在选择了所有三列后，单击&quot;下一步&quot;按钮。如图9-25。<br>
+      <br>
+      　　<span class="tubiaoti">图9-25 选择维度级别</span><br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td align="center"><br>
+            <img src="../../../img/text/ch09/016.gif" width="436" height="266"></td>
+        </tr>
+      </table>
+      　　(7) 在&quot;指定成员键列&quot;步骤，单击&quot;下一步&quot;按钮。 <br>
+      　　(8) 在&quot;选择高级选项&quot;步骤，单击&quot;下一步&quot;按钮。 <br>
+      　　(9) 在向导的最后一步，在&quot;维度名称&quot;框中，输入&quot;Product2&quot;。单击&quot;完成&quot;按钮，进入&quot;维度编辑器&quot;。<br>
+      　　<!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

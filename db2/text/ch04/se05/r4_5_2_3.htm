@@ -1,0 +1,139 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url('../../../img/text/bg.jpg');
+background-repeat: no-repeat;
+background-attachment: fixed; background-position-y:50%
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">　</td>
+    <td>　</td>
+    <td width="10">　</td>
+  </tr>
+  <tr>
+    <td width="10">　</td>
+    <td> <!-- #BeginEditable "1" -->　<span class="biaoti_1">3. 多元连接 </span><br>
+      　(1) 对两个以上的表进行连接查询。<br>
+      　　例如，有学生表student，学生选课表sc，课程表course。查询数据结构课不及格的学生的学号、名字和成绩。SQL语句如下：<br>
+      　　　SELECT student.sno,student.sname,grade FROM student, sc, course<br>
+      　　　WHERE cname = 'DATA STRUCTURE' AND grade &lt; 60<br>
+      　　　AND course.cno = sc.cno<br>
+      　　　AND sc.sno = student.sno;<br>
+      　　<font color="#5a5aad">由于该查询的目标列分布在两个关系表中，学生的学号和名字在学生表student中，成绩在学生选课表sc中，课程名称在课程表course中，因此要用到三个表连接查询。</font><br>
+      　(2) 使用别名查询<br>
+      　　SQL语言中，允许对关系表使用别名，简化表名的书写。例如，前面的例子中，可以使用student的别名为 s，course的别名为 c，改写其如下：<br>
+      　　　SELECT s.sno, s.sname,sc.grade FROM student s, sc, course c<br>
+      　　　WHERE sc.cname = 'DATA STRUCTURE' AND sc.grade &lt; 60<br>
+      　　　AND c.cno = sc.cno<br>
+      　　　AND sc.sno = s.sno;使用JOIN和ON的连接查询<br>
+      　　使用JOIN连接不同的表，使用ON给出两个表之间的连接条件。这是ANSI92标准进行多表查询的书写方式。<br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+        <tr> 
+          <td valign="top" width="35"><img src="../../../img/text/liti.gif" width="35" height="36" alt="例题"></td>
+          <td>　例1，前面的例子可以改写如下：<br>
+            　　SELECT s.sno, s.sname, sc.grade FROM student s JOIN sc ON sc.sno 
+            = s.sno <br>
+            　　JOIN course c ON c.cno = sc.cno <br>
+            　　WHERE sc.cname = 'DATA STRUCTURE' AND sc.grade &lt; 60 <br>
+          </td>
+        </tr>
+        <tr> 
+          <td valign="top" width="35"><img src="../../../img/text/liti.gif" width="35" height="36" alt="例题"></td>
+          <td>　例2：选择出大于平均销售数量的书的名字和价格：<br>
+            　　SELECT titles.title, titles.price<br>
+            　　FROM titles JOIN sales ON sales_id = titles_id<br>
+            　　WHERE sales.qty &gt; (SELECT AVG(qty) FROM sales) </td>
+        </tr>
+      </table>
+      <p>　<span class="biaoti_1">4. 自身连接（同一个表内）</span><br>
+        　自身连接是指使用同一个表的相同列进行比较连接。这时，对于同一个表应给出不同的别名。例如，查询每门课程的先修课程的先修课。可以在课程表中增加直接先修课属性，但是没有先修课程的先修课属性。查询必须先找到直接先修课程，再在同一个课程表中查找先修课程的先修课。构成对COURSE表的自身连接查询。 
+        <br>
+        　<br>
+        <br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+        <tr> 
+          <td width="35" align="right" valign="top"><img src="../../../img/text/liti.gif" width="35" height="36" alt="例题"></td>
+          <td>　例1，自身连接示例：有课程表如图4-22：为课程表取两个别名：Acourse和Bcourse.<br>
+            　　　图4-22 课程表<br>
+            　　<img src="../../../img/text/ch04/c6.gif" width="292" height="144"><br>
+            　自身连接查询SELECT Acourse.cno 课程号， Bcourse.cpno 先修课程的先修课<br>
+            　　FROM course Acourse , course Bcourse<br>
+            　　WHERE Acourse.cpno = Bcourse.cno输出结果如下：<br>
+            　课程号, 先修课程的先修课程号<br>
+            　　1 　　　　　　3<br>
+            　　4 <br>
+            　　5 </td>
+        </tr>
+        <tr> 
+          <td width="35" align="right" valign="top"><img src="../../../img/text/liti.gif" width="35" height="36" alt="例题"></td>
+          <td><br>
+            　例2，选择具有相同价格的书<br>
+            　　SELECT DISTINCT t1.price, t1.title<br>
+            　　FROM titles t1 JOIN titles t2<br>
+            　　ON t1.price = t2.price<br>
+            　　AND t1.title_id &lt;&gt; t2.title_id</td>
+        </tr>
+      </table>
+      <br>
+      　<span class="biaoti_1">5. 外连接 <br>
+      </span><span class="pt9-black">　　（连接表中有空值的情况）在前面连接中，返回到查询结果集中的仅是符合查询条件（WHERE搜索条件或HAVING条件）和连接条件的行。而采用外连接时，它返回到查询结果集中的不仅包含符合连接条件的行，而且还包括在左表（左外连接）、右表（右外连接）或两个连接表（全外连接）中的所有为空值的数据行。外连接分为左外连接，右外连接和全外连接。可以使用left 
+      outer join 、 right outer join 和full outer join分别表示左外连接、右外连接和全外连接。<br>
+      </span> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+        <tr> 
+          <td width="35" valign="top"><img src="../../../img/text/liti.gif" width="35" height="36" alt="例题"></td>
+          <td><span class="pt9-black">　例1，查询每个学生的选课情况：学号、姓名、班级、课程号和成绩；假如某个学生没有选课，只输出学生的基本情况：学号、姓名、班级。 
+            <br>
+            　　SELECT s.sno, sname, sclass, cno, grade<br>
+            　　FROM student s , sc<br>
+            　　WHERE s.sno = sc.sno(*)<br>
+            　其中，在连接谓词的某边加符号* （SQL Server中使用 + 号）。在加*号的一边为空值的也作为查询结果输出。学生王者没有选课，查询结果如下：<br>
+            　　s.sno sname sclass cno grade<br>
+            　　J20001 李楷 Js2001 G001 78<br>
+            　　J20002 张会 Js2001 G002 85 <br>
+            　　J20003 王者 JS2001</span><br>
+          </td>
+        </tr>
+        <tr> 
+          <td width="35" valign="top"><img src="../../../img/text/liti.gif" width="35" height="36" alt="例题"></td>
+          <td>　例2 左外连接示例。假设在 city 列上连接 authors 表和 publishers 表。结果只显示在出版商所在城市居住的作者；<br>
+            　若要在结果中包括所有的作者，而不管出版商是否住在同一个城市，使用左外连接。<br>
+            　　USE pubs <br>
+            　　SELECT a.au_fname, a.au_lname, p.pub_name <br>
+            　　FROM authors a LEFT OUTER JOIN publishers p <br>
+            　　ON a.city = p.city <br>
+            　　ORDER BY p.pub_name ASC, a.au_lname ASC, a.au_fname ASC <font color="#5a5aad">
+          <br>
+&nbsp;&nbsp;&nbsp; 不管是否与 
+            publishers 表中的 city 列匹配，LEFT OUTER JOIN 均会在结果中包含 authors 表的所有行。注意：结果中所列的大多数作者都没有相匹配的数据，因此，这些行的 
+            pub_name 列包含空值。</font><br>
+          </td>
+        </tr>
+        <tr> 
+          <td width="35" valign="top"><img src="../../../img/text/liti.gif" width="35" height="36" alt="例题"></td>
+          <td>　例3，右外连接示例。若要在结果中包括所有的出版商，而不管城市中是否还有作者居住，使用右外连接。下面是右外连接的查询语句：<br>
+            　　USE pubs <br>
+            　　SELECT a.au_fname, a.au_lname, p.pub_name<br>
+            　　FROM authors AS a RIGHT OUTER JOIN publishers AS p <br>
+            　　ON a.city = p.city<br>
+            　　ORDER BY p.pub_name ASC, a.au_lname ASC, a.au_fname ASC</td>
+        </tr>
+      </table>
+      <font size="+7"><b><font color="#FF0000"> </font></b></font><!-- #EndEditable --></td>
+    <td width="10">　</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

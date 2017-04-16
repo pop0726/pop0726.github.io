@@ -1,0 +1,77 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" --><font color="#cc0000">bcp的语法格式：<br>
+      bcp {[[database_name.][owner].]{table_name | view_name} | &quot;query&quot;}<br>
+      ��{in | out | queryout | format} data_file<br>
+      ��[-m max_errors] [-f format_file] [-e err_file]<br>
+      ��[-F first_row] [-L last_row] [-b batch_size]<br>
+      ��[-n] [-c] [-w] [-N] [-V (60 | 65 | 70)] [-6]<br>
+      ��[-q] [-C code_page] [-t field_term] [-r row_term]<br>
+      ��[-i input_file] [-o output_file] [-a packet_size]<br>
+      ��[-S server_name[\instance_name]] [-U login_id] [-P password]<br>
+      ��[-T] [-v] [-R] [-k] [-E] [-h &quot;hint [,...n]&quot;]<br>
+      <br>
+      参数说明： <br>
+      <b>database_name</b><br>
+      ��指定的表或视图所在数据库的名称。如果未指定，则为用户默认数据库。<br>
+      <br>
+      <b>owner</b><br>
+      ��表或视图所有者的名称。如果执行大容量复制操作的用户拥有指定的表或视图，则 owner 是可选的。如果没有指定 owner 并且执行大容量复制操作的用户不拥有指定的表或视图，则 
+      Microsoft SQL Serve 2000 将返回错误信息并取消大容量复制操作。<br>
+      <br>
+      <b>table_name</b><br>
+      ��是将数据复制到 SQL Server 时 (in) 的目的表名，以及从 SQL Server 复制数据时 (out) 的源表名。<br>
+      <br>
+      <b>view_name</b><br>
+      ��是将数据复制到 SQL Server 时 (in) 的目的视图名，以及从 SQL Server 复制数据时 (out) 的源视图名。只有其中所有列都引用同一个表的视图才能用作目的视图。<br>
+      <br>
+      <b>Query</b><br>
+      ��是返回一个结果集的 Transact-SQL 查询。如果查询返回多个结果集，例如指定 COMPUTE 子句的 SELECT 语句，只有第一个结果集将复制到数据文件，随后的结果集被忽略。使用双引号引起查询语句，使用单引号引起查询语句中嵌入的任何内容。在从查询中大容量复制数据时，还必须指定 
+      queryout。<br>
+      <br>
+      <b>in | out | queryout | format</b><br>
+      ��指定大容量复制的方向。in 是从文件复制到数据库表或视图，out 是指从数据库表或视图复制到文件。只有从查询中大容量复制数据时，才必须指定 
+      queryout。根据指定的选项（-n、-c、-w、-6 或 -N）以及表或视图分隔符，format 将创建一个格式文件。如果使用 format，则还必须指定 
+      -f 选项。<br>
+      <br>
+      <b>data_file</b><br>
+      ��大容量复制表或视图到磁盘（或者从磁盘复制）时所用数据文件的完整路径。当将数据大容量复制到 SQL Server 时，此数据文件包含将复制到指定表或视图的数据。当从 
+      SQL Server 大容量复制数据时，该数据文件包含从表或视图复制的数据。路径可以有 1 到 255 个字符。<br>
+      <br>
+      <b>-�m max_errors</b><br>
+      ��指定在大容量复制操作取消之前可能产生的错误的最大数目。bcp 无法复制的每一行都将被忽略并计为一个错误。如果没有包括该选项，则默认为 10。<br>
+      <br>
+      <b>-�f format_file</b><br>
+      ��指定格式文件的完整路径，该格式文件包含以前在同一个表或视图上使用 bcp 时的存储响应。当使用由 format 选项所创建的格式文件大容量复制入或复制出数据时，使用此选项。格式文件的创建是可选的。在提示几个格式问题之后，bcp 
+      将提示是否在格式文件中保存回答。默认文件名为 Bcp.fmt。大容量复制数据时，bcp 可引用一个格式文件，因此不必重新交互输入以前的回答。如果未使用此选项，也没有指定 
+      -n、-c、-w、-6 或 -N，则 bcp 将提示输入格式信息。</font><!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

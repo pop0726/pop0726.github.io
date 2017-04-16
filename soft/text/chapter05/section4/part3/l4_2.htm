@@ -1,0 +1,31 @@
+<html>
+<head>
+<title>l1</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center" height="8">
+        <tr> 
+          <td class="text"> 
+            <p><br>
+              <span class="part">(2) 嵌套循环</span><br>
+              ��不能将简单循环的测试方法简单地扩大到嵌套循环，因为可能的测试数目将随嵌套层次的增加呈几何倍数增长。这可能导致一个天文数字的测试数目。下面给出一种有助于减少测试数目的测试方法。<br>
+              ��<span class="part">・</span> 除最内层循环外，从最内层循环开始，置所有其它层的循环为最小值；<br>
+              ��<span class="part">・</span> 对最内层循环做简单循环的全部测试。测试时保持所有外层循环的循环变量为最小值。另外，对越界值和非法值做类似的测试。<br>
+              ��<span class="part">・</span> 逐步外推，对其外面一层循环进行测试。测试时保持所有外层循环的循环变量取最小值，所有其它嵌套内层循环的循环变量取&quot;典型&quot;值。<br>
+              ��<span class="part">・</span> 反复进行，直到所有各层循环测试完毕。<br>
+              ��<span class="part">・</span> 对全部各层循环同时取最小循环次数，或者同时取最大循环次数。对于后一种测试，由于测试量太大，需人为指定最大循环次数。<br>
+              ��</p>
+            </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

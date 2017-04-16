@@ -1,0 +1,52 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" -->　<span class="biaoti_1">5. 备份数据库和事务日志</span><br>
+      <br>
+      　　通过备份数据库和事务日志可以在意外发生时有效地恢复数据库：所有在意外发生时已经完成的事务都将被恢复，只有在意外发生时，还没有提交的事务会丢失。所以使用这种策略可以将数据库恢复到发生意外前的状态，从而将数据损失减少到最小。<br>
+      在下面的情况建议使用备份数据库和事务日志的策略：<br>
+      ��●　数据至关重要，任何数据丢失都是难以接受的情况。如银行取款系统。<br>
+      ��●　要求精确恢复数据库状态到意外发生前多少分钟的情况。如要求恢复数据库到发生意外前10分钟的状态。<br>
+      ��●　数据库更新非常频繁的情况。如股票交易市场交易情况的数据库系统。<br>
+      ��<span class="explaination">由于备份事务日志通常需要较少的备份资源，所以一般应当频繁备份事务日志，减少丢失数据的可能。例如：一天备份一次数据库主文件，而每小时备份一次事务日志。<br>
+      </span> <span class="biaoti_1">　6． 增量备份</span><br>
+      �<span class="explaination">�增量备份是一种可以增加备份操作速度，从而减少备份时间的备份策略。增量备份同全面备份不一样，增量备份只备份上次全面备份以来，数据库又发生的一系列新变化。增量备份在备份的数据规模和花费的时间上少于全面备份，因此可以频繁执行，减少丢失数据的风险。<br>
+      增量备份的特点：</span><br>
+      ��●　增量备份在备份的数据规模和花费的时间上都远远少于全面备份，因此 可以相对频繁地执行。<br>
+      ��●　与全面备份不同的是，增量备份无法将数据库恢复到出现意外前某一指定的时刻，它只能将数据库恢复到上一次增量备份结束的时刻。 <br>
+      <br>
+      <span class="biaoti_1">　7． 综合数据库备份方案</span><br>
+      ��一般说来，对数据库进行备份，应综合使用全面数据库备份、增量备份和事务日志备份：<br>
+      ��-�根据系统运行的实际情况，周期性地进行全面数据库的备份。比如在每天凌晨2点进行数据库的全面备份。<br>
+      ��-�在较短的时间间隔内进行数据库的增量备份，比如每4小时备份一次。<br>
+      ��-�在每两次增量备份之间进行事务日志的备份，例如每30分钟备份一次。<br>
+      <!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

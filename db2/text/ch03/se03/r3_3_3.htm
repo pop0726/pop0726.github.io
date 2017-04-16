@@ -1,0 +1,59 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" --> 　　引用完整性指被引用表中的主关键字和引用表中的外部主关键字之间的关系。如被引用行是否可以被删除等。 
+      <br>
+      　　在现实生活中的实体之间总是存在着某种联系，在关系模型中实体与实体之间的联系都是用关系来描述的，这样就存在关系与关系之间的引用。例如，有学生实体和班级两个实体集合：<br>
+      　　学生（学号，姓名，性别，年龄，班级编号）其中学号为主码。<br>
+      　　班级（班级编号，学生数量，班主任姓名），其中班级编号为主码。<br>
+      　　<font color="#5a5aad">这两个关系之间存在着属性的引用，即学生关系引用了班级关系的主关键字&quot;班级编号&quot;，显然，学生关系中的&quot;班级编号&quot;值必须是在班级表中确实存在的班级的班级编号，即班级关系中有该班级的记录。这说明学生关系中某个属性的取值要参照班级关系的属性取值。 
+      <br>
+      　　在这种情况下，&quot;班级编号&quot;不是学生关系的主关键字，但是却是班级关系的主码，则称&quot;班级编号&quot;是学生关系的外关键字。</font><br>
+      　　外关键字的定义：<br>
+      　　设FK是基本关系R的一个或一组属性，但不一定是关系R的主关键字。如果FK与基本关系S的主关键字相对应，则称FK是基本关系R的外关键字，并称基本关系R为引用关系，基本关系S为被引用关系。<br>
+      　　<font color="#5a5aad">在上例中，&quot;班级编号&quot;是学生关系的外关键字，学生关系是引用关系，班级关系是被引用关系。</font><br>
+      　　引用完整性就是定义外关键字与主关键字之间的引用规则。如果要删除被引用的对象，那么也要删除引用它的所有对象，或者把引用值设置为空(如果允许的话)。例如，前面的学生和班级关系中，删除某个班级元组之前，必须先删除相应的引用该班级的学生元组。这就是引用完整性。<br>
+      　　图3-1，综合了三种关系数据的完整性。由图中可以看到，实体完整性是对应元组或行而言域完整性是对应属性或列而言，引用完整性是对不同表之间的属性或列的引用关系而言。<br>
+      <br>
+      　　<span class="tubiaoti">图3-1 关系数据的完整性</span><br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td align="center"><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="400" height="300">
+              <param name=movie value="../../../swf/ch3/3-1.swf">
+              <param name=quality value=high>
+              <param name="wmode" value="transparent">
+              <embed src="../../../swf/ch3/3-1.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="400" height="300" wmode="transparent">
+              </embed> 
+            </object></td>
+        </tr>
+      </table>
+      <!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

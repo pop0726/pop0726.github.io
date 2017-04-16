@@ -1,0 +1,48 @@
+<html>
+<head>
+<title>l3_2</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td class="text" width="25" valign="top"><br>
+            <img src="../../../../images/tubiao/cxd.gif" width="25" height="20" alt="程序段"></td>
+          <td class="text"><br>
+            <br>
+            F<font size="1">0</font> = F(a)； F<font size="1">1</font> = F(b)； 
+            ������<span class="part">/*区间两端点的函数值*/</span><br>
+            <span class="part">if</span> ( F<font size="1">0</font>*F<font size="1">1</font> 
+            &lt;= 0 ){���������<span class="part">/*区间中没有根，不做*/</span><br>
+            ��X<font size="1">0</font> = a； X<font size="1">1</font> = b； �������<span class="part">/*设置当前求根区间的两个端点*/</span><br>
+            ��for ( i = 1；i &lt;= n；i++ ){��<span class="part"> /*最多允许迭代n次*/</span><br>
+            ��Xm = (X<font size="1">0</font>＋X<font size="1">1</font>)/2；<br>
+            ��Fm = F(Xm)； ��������� <span class="part">/*求中点及中点的函数值*/</span><br>
+            ��<span class="part">if</span> ( abs(Fm) &lt; eps || abs(X<font size="1">1</font>－X<font size="1">0</font>) 
+            &lt; eps ) <br>
+            　　　　break；<span class="part">　　　　　　　　　　 /*求到转出循环*/</span><br>
+            ��<span class="part">if</span> ( F<font size="1">0</font>*Fm &gt; 
+            0 )��������<span class="part">/*没有求到，缩小求根区间*/ </span><br>
+            ����{ X<font size="1">0</font> = Xm；F<font size="1">0</font> = Fm；}���<span class="part"> 
+            /*向右缩小区间*/</span><br>
+            ��<span class="part">else</span> X<font size="1">1</font> = X； ���������<span class="part">/*向左缩小区间*/</span><br>
+            �}<br>
+            }<br>
+            ��</td>
+        </tr>
+        <tr> 
+          <td class="text" height="2" colspan="2"> ��这段程序仍然不是结构化的程序，利用了C语言中的一个语句break，它的功能是将控制转移到它所在循环的后面第一个后续语句处。它与<span class="part">〖程序段1〗</span>完成的工作相同，由于将转移语句与转出条件的判断直接联系在一起，可读性较好。再看<span class="part">〖程序段3〗</span>，它利用了一个布尔变量finished，该变量的初值为false，当循环中求到了要求的结果时，将此变量的值改变为true，表示循环应结束，while 
+            循环测试到finished为true，就自动退出循环，执行后续的语句。<br>
+            ��</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

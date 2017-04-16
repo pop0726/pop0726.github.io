@@ -1,0 +1,70 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" --> 　<span class="biaoti_1">3. 模式演变过程中的操作</span><br>
+      <br>
+      　　模式演变过程中，增加或删除一个类的超类会重复使用增加和删除一个实例变量或方法的操作。<br>
+      <br>
+      　　<b>(1) 增加一个实例变量</b><br>
+      　　如果对现存的类增加一个新实例变量，该类的所有现存实例增加空的新实例变量空间，它的类层次中的子类及其实例也要做相应的修改。<br>
+      <br>
+      　　<b>(2) 删除一个实例变量</b><br>
+      　　从类C中删除一个实例变量V，必须从C的所有子类中删除之。假如C或C的任何子类有其他的超类，这些超类中有与C同名的实例变量V，它继承超类的实例变量V，在这种情况下，也必须从C和它的子类中被删除，这些类要丢失现有的V值。<br>
+      <br>
+      　　<b>(3) 增加一个超类</b><br>
+      使一个类S是一个类C的超类，如动画所示。要从S到C增加一个新边，同时必须保证在类格中不引起出现环。C和它的子类要继承S的实例变量和方法，要以不出现同名的冲突为条件。C和它的子类的实例对新继承的实例变量要接受空值。<br>
+      　　<font color="5a5aad">新继承的实例变量和方法通过分别把从S继承的实例变量和方法加到C类及其C的子类中实现。</font> 
+      <p align="center"><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="170" height="200">
+          <param name=movie value="../../../swf/ch8/7.swf">
+          <param name=quality value=high>
+          <param name="wmode" value="transparent">
+          <embed src="../../../swf/ch8/7.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="170" height="200" wmode="transparent">
+          </embed> 
+        </object></p>
+      <br>
+      　　<b>(4) 删除一个类的超类</b><br>
+      　　
+      　从一个类C的超级类表中删除一个类S，要删除从S到C的一条边，同时必须保证类格是连通的。当S是C的唯一的超类时，S的直接超类同时就变成C的直接超类，与S有关的超类的顺序对C保持不变。这样，C并不丢失从S的超类继承下来的任何实例变量和方法。C仅仅丢失在S中定义的那些实例变量和方法。假如删除从S到C的边并没有使类格变成不连通，C还留有几个超级类，它必须摘除它已经从S中继承的实例变量和方法。摘除实例变量和方法的操作通过分别从C中摘除每个实例变量和方法来实现。<br>
+      <br>
+      　　<b>(5) 删除一个现有的类</b><br>
+      　　删除一个现有的类C，如动画所示。同时要删除由C到它的子类的所有边，以及从它的超类到C的边。最后删除C的定义，C的子类仍存在。C的直接超类要由C的子类继承，且继承的顺序不变。
+      <p align="center"><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="170" height="200">
+          <param name=movie value="../../../swf/ch8/8.swf">
+          <param name=quality value=high>
+          <param name="wmode" value="transparent">
+          <embed src="../../../swf/ch8/8.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="170" height="200" wmode="transparent">
+          </embed> 
+        </object></p>
+      　　<font color="5a5aad">删除一个现有的类C，同时要删除由C到它的子类的所有边，以及从它的超类到C的边。最后要删除C的定义，C的子类仍存在。假如类C是另一个类C1的一个实例变量V1的域，V1被赋予一个新域，通常为C的第一个超类。<br>
+      <br>
+      　　由此可以看到，对一个数据库系统，随着模式的演变要能自动的维持相应的改变是相当复杂的，假如再增加视图的概念，随着类的改变，与这些类定义相关的视图也要随之改变。</font><br>
+      <!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

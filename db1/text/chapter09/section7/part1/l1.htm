@@ -1,0 +1,37 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgproperties=fixed bgcolor="#FFFFFF" background="../../../../image/moban/15.gif">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td class="text" align="left" height="1"> 
+            <p>��实际DBMS中的优化器大部分都是将基于代价的优化和启发式优化方法结合起来。例如：<br>
+              ��<span class="part">-�IBM的System R：</span>并不考虑所有的连接顺序，仅考虑右操作数是原始关系的<font size="2">r</font><font size="-5">1</font>, 
+              <font size="2">r</font><font size="-5">2</font>, … ,<font size="2"> 
+              r</font><font size="-5">n</font>的连接顺序。这种连接顺序称为左深连接顺序，如<span class="part">图9-7-1</span>所示，用于流水线计算特别方便；<br>
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td class="text" align="left" height="1">
+            <div align="center" class="part">图9-7-1：左深连接与非左深连接<br>
+              <img src="../../../../image/chapter/09/9-7-1.gif" width="420" height="189"> 
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="text" align="left" height="2">��<span class="part">-�Sybase的优化器：</span>对索引扫描采用了较好的代价估计技术，它充分考虑了包含所要元组的页在缓冲区中的概率；<br>
+            ��<span class="part">-�Oracle7/Oracle8的优化器：</span>分为两个部件，一个是基于启发式规则的，一个是基于代价优化的，这两个部件在优化的时候交叉协同工作。</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

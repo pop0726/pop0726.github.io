@@ -1,0 +1,42 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url('../../../img/text/bg.jpg');
+background-repeat: no-repeat;
+background-attachment: fixed; background-position-y:50%
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">　</td>
+    <td>　</td>
+    <td width="10">　</td>
+  </tr>
+  <tr>
+    <td width="10">　</td>
+    <td> <!-- #BeginEditable "1" --> 　<span class="biaoti_1">1 检索整个表</span>　<br>
+      　　使用ADO，用户可以从表中检索所有行和列的数据。只需指定表名作为Recordset对象的源，设置Open方法和Options参数为adCmdTable，如程序清单6.12。<br>
+      　(11) 程序清单6.12 打开表到Recordset<br>
+      　　objRS.Open &quot;authors&quot;, objConn, adOpenForwardOnly, adLockReadOnly, 
+      adCmdTable；<br>
+      　　<font color="#5a5aad">Recordset对象的Open方法有5个参数如程序清单6.12所示。第一个参数表示Recordset的数据源，程序清单中指定表authors。第二个参数指定使用的Connection对象。第三个参数指示使用的游标类型，例中选择使用前向游标，允许一次向前推进一条记录或指向首记录(关于其他游标类型，参阅MSDN的ADO部分)。第四个参数指定用在Recordset上的锁类型，例如选择记录集的数据只读。最后，第五个参数指定记录集的选项，在此我们打开一个表，可以指定运行SQL语句、打开文件或存储过程。<br>
+      　　还可以使用Command对象打开表到Recordset对象，如程序清单6.13所示。两种方法都是可行的，但是在这种情况下使用Command对象稍微麻烦，因为Recordset对象缺少用于Command对象的CommandType属性。所以，如果决定不用Command对象，就必须设定Recordset的Open方法和Options参数。</font><br>
+      　(12) 程序清单6.13 使用Command对象打开表　　<br>
+      　　　objCmd.CommandText = &quot;authors&quot;　　　／制定Command对象操作的表名／　　<br>
+      　　　objCmd.CommandType = adCmdTable　　／设置commandText属性为adCmdTable／　　<br>
+      　　　set objRS = objCmd.Execute<!-- #EndEditable -->　　　　／执行Command命令，得到结果集合／</td>
+    <td width="10">　</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

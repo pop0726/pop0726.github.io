@@ -1,0 +1,61 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" -->　　由于聚集函数的计算很费时间，在数据仓库中常常把这些计算结果当作实视图(materialized 
+      view)保存起来，一次计算，可供多次使用。<br>
+      <br>
+      　　针对数据仓库以读为主的特点，把查询中常用的结果定义为视图，并将事先计算好的视图存于数据仓库中。这种既有逻辑定义，又在数据库中存有对应表的视图称为实视图。<br>
+      <br>
+      　　以前面的连锁商店的销售表为例，说明如何用聚集函数定义实视图。以P(product)、S(store)、D(date)表示产品、商店和日期，以SUM聚集函数为代表。<br>
+      <br>
+      　　从事实表可以定义下列4种实视图：<br>
+      <br>
+      <span class="biaoti_1">　(1) PSD视图</span><br>
+      <br>
+      　　CREATE VIEW PSD (产品标识符, 商店标识符, 日期标识符, 销售总额) AS<br>
+      　　SELECT 产品标识符, 商店标识符, 日期标识符, SUM(销售总额) AS 销售总额<br>
+      　　FORM 销售表<br>
+      　　GROUP BY 产品标识符, 商店标识符, 日期标识符<br>
+      <br>
+      　　PSD视图相当于把事实表变换为一组维值对应一个量值的表。<br>
+      <br>
+      <span class="biaoti_1">　(2) PS视图、SD视图、PD视图</span><br>
+      <br>
+      　定义PS视图的语句如下所示：<br>
+      <br>
+      　　CREATE VIEW PS (产品标识符, 商店标识符, 销售总额) AS<br>
+      　　SELECT 产品标识符, 商店标识符, SUM(销售总额) AS 销售总额<br>
+      　　FORM PSD<br>
+      　　GROUP BY 产品标识符, 商店标识符<br>
+      <br>
+      　　SD视图、PD视图可以类似地定义。PS、SD、PD用PSD实视图来定义，而不是用事实表来定义，可以节省计算量。<br>
+      <!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

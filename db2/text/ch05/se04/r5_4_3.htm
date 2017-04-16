@@ -1,0 +1,322 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" --> <span class="biaoti_2">　</span><span class="biaoti_1">1. 
+      将E-R模型转换为关系模式</span><span class="pt9-black"> <br>
+      　(1) 班级实体集可以转换为关系：<br>
+      　　CLASS（CLASSNAME,MAXCREDIT,MINCREDIT）<br>
+      　　CLASSNAME表示班级名称，MAXCREDIT表示最大学分限制，MINCREDIT表示最小学分限制。</span> 
+      <p> 　(2) 学生实体集可以转换为关系<br>
+        　　STUDENT（STUDENTID , NAME , SEX , BIRTHDAY）<br>
+        　　STUDENTID表示学号，NAME表示姓名，SEX表示性别，BIRTHDAY表示生日</p>
+      <p> 　(3) 课程实体可以转换为关系<br>
+        　　COURSE（COURSEID, COURSENAME, CREDIT, TEACHER, ACCEPTION）<br>
+        　　COURSEID表示课程号，COURSENAM表示课程名，CREDIT表示学分，TEACHER表示授课教师，ACCEPTION表示接纳人数。</p>
+      <p> 　(4) 班级和学生之间的联系是1：M的联系，所以没有必要为其建立一个关系，可以通过扩展学生关系来表示：<br>
+        　　STUDENT(STUDENTID , NAME , SEX , BIRTHDAY , CLASSNAME)<br>
+        　　CLASSNAME表示学生所在班级名。</p>
+      <p> 　(5) 班级和课程之间的必修联系可以转换为关系：<br>
+        　　CLASSCOURSE(CLASSNAME , COURSEID)<br>
+        　　CLASSNAME表示班级名称，COURSEID表示课程号。</p>
+      <p> 　(6) 学生和课程之间的选修联系可以转化为关系：<br>
+        　　STUDENTCOUSE(STUDENTID, COURSEID)<br>
+        　　STUDENTID表示学号，COURSEID表示课程号。</p>
+      　(7) 课程和上课之间的联系可以转化为关系：<br>
+      　　COURSETIME(COURSEID , TIME)<br>
+      　　COURSEID表示课程号，TIME表示上课时间。<br>
+      <br>
+      　<span class="biaoti_1">2. 数据库表结构设计：</span>　<br>
+      　　把关系模型转化为表结构：<br>
+      <br>
+      　　<span class="pt9-black">班级信息表(class)：包含所有的班级信息，定义如下：</span><br>
+      <br>
+      <table width="80%" border="1" cellspacing="0" cellpadding="0" bordercolorlight="#004080" bordercolordark="#ffffff" class="pt9-black" align="center">
+        <tr bgcolor="#BFDFFF" align="center"> 
+          <td bgcolor="#BFDFFF">域名</td>
+          <td>含义</td>
+          <td>数据类型</td>
+          <td>例子</td>
+          <td>备注</td>
+        </tr>
+        <tr align="center"> 
+          <td>CLASSNAME</td>
+          <td>班级名称</td>
+          <td>字符类型</td>
+          <td>计71</td>
+          <td>主码</td>
+        </tr>
+        <tr align="center"> 
+          <td>MAXCREDIT</td>
+          <td>最大学分限制</td>
+          <td>数值类型</td>
+          <td>30</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr align="center"> 
+          <td>MINCREDIT</td>
+          <td>最小学分限制</td>
+          <td>数值类型</td>
+          <td>20</td>
+          <td>&nbsp;</td>
+        </tr>
+      </table>
+      <br>
+      　　<span class="pt9-black">学生信息表(student)：包含所有学生的个人信息，定义如下：</span><br>
+      <br>
+      <table width="80%" border="1" cellspacing="0" cellpadding="0" bordercolorlight="#004080" bordercolordark="#ffffff" class="pt9-black" align="center">
+        <tr bgcolor="#BFDFFF" align="center"> 
+          <td bgcolor="#BFDFFF">域名</td>
+          <td>含义</td>
+          <td>数据类型</td>
+          <td>例子</td>
+          <td>备注</td>
+        </tr>
+        <tr align="center"> 
+          <td>STUDENTID</td>
+          <td>学号</td>
+          <td>字符类型</td>
+          <td>971329</td>
+          <td>主码</td>
+        </tr>
+        <tr align="center"> 
+          <td>NAME</td>
+          <td>姓名</td>
+          <td>字符类型</td>
+          <td>王强</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr align="center"> 
+          <td>SEX</td>
+          <td>性别</td>
+          <td>字符类型</td>
+          <td>男</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr align="center"> 
+          <td>BIRTHDAY</td>
+          <td>生日</td>
+          <td>日期类型</td>
+          <td>79/07/15</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr align="center"> 
+          <td>CLASSNAME</td>
+          <td>班级名称</td>
+          <td>字符类型</td>
+          <td>计71</td>
+          <td> 
+            <p></p>
+            <p>外码</p>
+          </td>
+        </tr>
+      </table>
+      <br>
+      　　<span class="pt9-black">课程信息表(course)：包含所有课程信息，定义如下：</span><br>
+      <br>
+      <table width="80%" border="1" cellspacing="0" cellpadding="0" bordercolorlight="#004080" bordercolordark="#ffffff" class="pt9-black" align="center">
+        <tr bgcolor="#BFDFFF" align="center"> 
+          <td bgcolor="#BFDFFF">域名</td>
+          <td>含义</td>
+          <td>数据类型</td>
+          <td>例子</td>
+          <td>备注</td>
+        </tr>
+        <tr align="center"> 
+          <td>COURSEID</td>
+          <td>课程号</td>
+          <td>字符类型</td>
+          <td>000001</td>
+          <td>主码</td>
+        </tr>
+        <tr align="center"> 
+          <td>COURSENAME</td>
+          <td>课程名称</td>
+          <td>字符类型</td>
+          <td>数值分析</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr align="center"> 
+          <td>CREDIT</td>
+          <td>学分</td>
+          <td>数值类型</td>
+          <td>4</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr align="center"> 
+          <td>TEACHER</td>
+          <td>任课教师</td>
+          <td>字符类型</td>
+          <td>刘强</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr align="center"> 
+          <td>ACCEPTION</td>
+          <td>接纳人数</td>
+          <td>数值类型</td>
+          <td>28</td>
+          <td>&nbsp;</td>
+        </tr>
+      </table>
+      <br>
+      　　<span class="pt9-black">班级必修课表(classcourse)：包含所有班级的必修课信息，定义如下：</span><br>
+      <br>
+      <table width="80%" border="1" cellspacing="0" cellpadding="0" bordercolorlight="#004080" bordercolordark="#ffffff" class="pt9-black" align="center">
+        <tr bgcolor="#BFDFFF" align="center"> 
+          <td bgcolor="#BFDFFF">域名</td>
+          <td>含义</td>
+          <td>数据类型</td>
+          <td>例子</td>
+          <td>备注</td>
+        </tr>
+        <tr align="center"> 
+          <td>CLASSNAME</td>
+          <td>班级名称</td>
+          <td>字符类型</td>
+          <td>计71</td>
+          <td>外码</td>
+        </tr>
+        <tr align="center"> 
+          <td>COURSEID</td>
+          <td>课程号</td>
+          <td>字符类型</td>
+          <td>000001</td>
+          <td>外码</td>
+        </tr>
+      </table>
+      <br>
+      　　<span class="pt9-black">学生选课表(studentcourse)：包含所有学生的选课信息，定义如下：</span><br>
+      <br>
+      <table width="80%" border="1" cellspacing="0" cellpadding="0" bordercolorlight="#004080" bordercolordark="#ffffff" class="pt9-black" align="center">
+        <tr bgcolor="#BFDFFF" align="center"> 
+          <td bgcolor="#BFDFFF">域名</td>
+          <td>含义</td>
+          <td>数据类型</td>
+          <td>例子</td>
+          <td>备注</td>
+        </tr>
+        <tr align="center"> 
+          <td>STUDENTID</td>
+          <td>学号</td>
+          <td>字符类型</td>
+          <td>971329</td>
+          <td>外码</td>
+        </tr>
+        <tr align="center"> 
+          <td>COURSEID</td>
+          <td>课程号</td>
+          <td>字符类型</td>
+          <td>000001</td>
+          <td>外码</td>
+        </tr>
+      </table>
+      <br>
+      　　<span class="pt9-black">上课时间表(coursetime)：包含所有课程的上课时间，定义如下：</span><br>
+      <br>
+      <table width="80%" border="1" cellspacing="0" cellpadding="0" bordercolorlight="#004080" bordercolordark="#ffffff" class="pt9-black" align="center">
+        <tr bgcolor="#BFDFFF" align="center"> 
+          <td bgcolor="#BFDFFF">域名</td>
+          <td>含义</td>
+          <td>数据类型</td>
+          <td>例子</td>
+          <td>备注</td>
+        </tr>
+        <tr align="center"> 
+          <td>COURSEID</td>
+          <td>课程号</td>
+          <td>字符类型</td>
+          <td>000001</td>
+          <td>外码</td>
+        </tr>
+        <tr align="center"> 
+          <td>COURSETIME</td>
+          <td>上课时间</td>
+          <td>数值类型</td>
+          <td>21</td>
+          <td>表示星期2第1节</td>
+        </tr>
+      </table>
+      <br>
+      　　<span class="pt9-black">COURSETIME是一个整数，整除10的商表示星期几上课，余数表示当天的第几节课。</span><br>
+      <span class="pt9-black">　　用户账号表(user)：包含所有用户的账号和口令信息，定义如下：</span> <br>
+      <br>
+      <table width="80%" border="1" cellspacing="0" cellpadding="0" bordercolorlight="#004080" bordercolordark="#ffffff" class="pt9-black" align="center">
+        <tr bgcolor="#BFDFFF" align="center"> 
+          <td bgcolor="#BFDFFF">域名</td>
+          <td>含义</td>
+          <td>数据类型</td>
+          <td>例子</td>
+          <td>备注</td>
+        </tr>
+        <tr align="center"> 
+          <td>USERID</td>
+          <td>用户账号</td>
+          <td>字符类型</td>
+          <td>ADMIN</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr align="center"> 
+          <td>USERPASSWD</td>
+          <td>用户密码</td>
+          <td>字符类型</td>
+          <td>ADMIN</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr align="center"> 
+          <td>USERAUTH</td>
+          <td>用户权限</td>
+          <td>数值类型</td>
+          <td>0</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr align="center"> 
+          <td>STUDENTID</td>
+          <td>用户学号</td>
+          <td>字符类型</td>
+          <td>971329</td>
+          <td>&nbsp;</td>
+        </tr>
+      </table>
+      <br>
+      　　USERAUTH用0，1表示用户权限，0表示管理员，1表示普通用户。其中普通用户的STUDENTID为学生的学号。<br>
+      <br>
+      　<span class="biaoti_1">3．实现数据完整性：</span>　<br>
+      　　通过各种约束，缺省，规则和触发器实现数据的完整性。由于教务系统的重要性，和各个数据之间的复杂相关性，保证数据的完整性显得更为重要。不能让用户随意的删除，修改数据。<br>
+      　（1） CHECK约束保证最大限选学分要大于最小限选学分。<br>
+      　（2） 各种外码约束保证数据的完整性，不能随意删除。外码的设置在上面数据库建表时已经提到。<br>
+      　（3） 主码约束保证实体的完整性，主码的设置在上面数据库建表时也已经提到了。<br>
+      　（4） 创建规则保证学生的年龄在18岁到35岁之间（出生日期在1965-1-1到1982-12-31日之间），不会输入错误数据。<br>
+      　（5） 创建触发器，保证在添加学生信息的时候，自动将该班级的必修课添加到选课表中。 <br>
+      以上只是该教务系统中实现数据完整的部分方法。实际上要考虑的还有很多方面，实现手法也是多种多样。在此留给学生自己思考。<br>
+      <br>
+      　<span class="biaoti_1">4. 数据库的安装</span><br>
+      　　<font color="#5a5aad">安装SQL SERVER2000，作为数据库服务器，并用ODBC设置SQL SERVER的数据源。</font><br>
+      <!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

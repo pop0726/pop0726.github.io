@@ -1,0 +1,39 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body text="#000000" bgproperties=fixed background="../../../../image/moban/15.gif">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td class="text" align="left"> 
+            <p>��<span class="part">1、关系模式是基于强实体集导出的</span><br>
+              ��由于对应的关系模式由强实体集的所有属性构成，因而强实体集的主码就是导出关系模式的主码。<br>
+              ��<span class="part">2、关系模式是基于弱实体集导出的</span><br>
+              ��由于与弱实体集对应的表或关系模式包括弱实体集的属性、弱实体集所依赖的强实体集的主码，因此导出关系模式的主码由强实体集的主码和弱实体集的分辨符共同组成。<br>
+              ��<span class="part">3、关系模式是基于联系集导出的</span><br>
+              ��由于对应的关系模式由相关实体集的主码和联系集本身的属性共同构成，因而相关实体集的主码共同构成该关系模式的超码，如果该联系集是：<br>
+              ��<span class="part">①</span>�多对多的，则此超码就是主码；<br>
+              ��<span class="part">②</span>�多对一或一对多的，则&quot;多&quot;方实体集的主码就是相应关系模式的主码；<br>
+              ��<span class="part">③</span>�一对一的，则任意一实体集的主码都是相应关系模式的侯选码。<br>
+              ��<span class="part">4、关系模式是基于表的合并（复合表）</span><br>
+              ��在<u>第二章的2.9.4小节</u>中我们曾经讲到过从A到B的全部参与的、多对一联系集对应的表可以合并到&quot;多&quot;方实体集A对应的表中(加上了B的主码)，因此&quot;多&quot;方实体集A的主码构成合并后的关系模式的主码。<br>
+              ��<span class="part">5、关系模式是基于多值属性导出的</span><br>
+              ��多值属性M可以表示为由以M作为属性的实体集或联系集的主码和保存单个M值的列C共同构成的一张表。因此相应实体集或联系集的主码与属性C共同构成多值模式的主码。<br>
+              ��从上面表的合并中可以看出，关系模式的属性中可以包含另一关系模式的主码，这样的属性称为外码，即我们常说的Foreign Key，具体示例如下：<br>
+              Account-schema = (branch-name, account-number, balance)<br>
+              Branch-schema = (branch-name, branch-city, assets)<br>
+              其中关系模式Account-schema中的属性branch-name就是外码，因为它是关系模式Branch-schema的主码。<br>
+              ��</p>
+            </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

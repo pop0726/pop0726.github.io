@@ -1,0 +1,40 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgproperties=fixed bgcolor="#FFFFFF" background="../../../../image/moban/15.gif">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" height="8">
+        <tr> 
+          <td class="text" align="center"> 
+            <div align="left">��<span class="part">1、散列索引的结构</span><span class="text"><br>
+              ��散列不仅可以用于文件中记录的组织，还可以用于索引结构的创建。散列索引是指将索引结构中的搜索码及相应指针组织成散列文件的形式。因此，散列索引的构造如下：将散列函数作用于搜索码以确定对应的存储桶，然后将此搜索码及相应的指针存入此存储桶（或溢出桶），而指针指向数据文件中的记录。<br>
+              ��</span><span class="part">2、举例</span><span class="text"><br>
+              ��</span><span class="part">图8-5-1</span><span class="text">是为索引顺序文件account上的搜索码account-number建立的一个辅助散列索引。散列函数h是帐号各位数字之和后模7。该散列索引共有7个桶，每个桶的大小为2。图8-5-1：散列索引结构示意<br>
+              </span></div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="center"><img src="../../../../image/chapter/08/8-4-2.gif" width="419" height="144"><br>
+            <span class="part">图8-5-1：散列索引结构示意 </span></td>
+        </tr>
+        <tr>
+          <td class="text" align="center">
+            <div align="left"><span class="text">��</span><span class="part">3、小结</span><span class="text"><br>
+              ��⑴�术语散列文件是指用来组织和存储文件中记录的散列文件结构。严格地说，术语散列索引是指将文件上的辅助索引按照散列文件的结构进行组织。不要将二者混淆；<br>
+              ��⑵�一个文件的主索引结构不应该是散列文件；<br>
+              ��⑶�如果一个文件自身是按散列组织的，就可以认为该散列文件已经有了一个索引，一般不必再在其上另外建立独立的索引结构；<br>
+              ��⑷�散列索引一般只用来组织文件上的辅助索引。</span><span class="menu"><br>
+              ��</span></div>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

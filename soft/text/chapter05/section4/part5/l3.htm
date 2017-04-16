@@ -1,0 +1,133 @@
+<html>
+<head>
+<title>l1</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center" height="8">
+        <tr> 
+          <td class="text"> 
+            <p><br>
+              ��为用等价类划分的方法得到上述规格说明所规定的要求，本着前述的划分原则，建立输入等价类表如<span class="part">表5.2</span>所示:<br>
+              <img src="../../../../images/tubiao/bg.gif" width="25" height="21" alt="表格"> 
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td class="text" align="center"> <span class="part">表5.2 等价类表</span><br>
+            <table border="1" bordercolor="#993399" cellspacing="0" cellpadding="0" width="367" height="18">
+              <tr> 
+                <td width="78" valign="top" bordercolor="#993399"> 
+                  <p class="text" align="center" style="text-align:center;line-height:17.0pt;
+  vertical-align:bottom">输入条件</p>
+                </td>
+                <td width="96" valign="top" bordercolor="#993399"> 
+                  <p class="text" align="center" style="text-align:center;line-height:17.0pt;
+  vertical-align:bottom">有效等价类 </p>
+                </td>
+                <td width="185" valign="top" bordercolor="#993399"> 
+                  <p class="text" align="center" style="text-align:center;line-height:17.0pt;
+  vertical-align:bottom">无效等价类 </p>
+                </td>
+              </tr>
+              <tr bordercolor="#993399"> 
+                <td width="78" valign="top"> 
+                  <p class="text" align="center" style="text-align:center;line-height:17.0pt;
+  vertical-align:bottom">标识符个数</p>
+                </td>
+                <td width="96" valign="top"> 
+                  <p class="text" style="line-height:17.0pt;vertical-align:
+  bottom">1个(1),多个(2)</p>
+                </td>
+                <td width="185" valign="top"> 
+                  <p style="line-height:17.0pt;vertical-align:
+  bottom"> 0<span class="text">个(3) </span></p>
+                </td>
+              </tr>
+              <tr bordercolor="#993399"> 
+                <td width="78" valign="top"> 
+                  <p class="text" align="center" style="text-align:center;line-height:17.0pt;
+  vertical-align:bottom">标识符字符数</p>
+                </td>
+                <td width="96" valign="top"> 
+                  <p class="text" style="line-height:17.0pt;vertical-align:
+  bottom">1 ~ 8个(4)</p>
+                </td>
+                <td width="185" valign="top"> 
+                  <p class="text" style="line-height:17.0pt;vertical-align:
+  bottom"> 0个(5),&gt; 8个(6),&gt; 80个(7) </p>
+                </td>
+              </tr>
+              <tr bordercolor="#993399"> 
+                <td width="78" valign="top" height="15"> 
+                  <p class="text" align="center" style="text-align:center;line-height:17.0pt;
+  vertical-align:bottom">标识符组成</p>
+                </td>
+                <td width="96" valign="top" height="15"> 
+                  <p class="text" style="line-height:17.0pt;vertical-align:
+  bottom">字母(8),数字(9)</p>
+                </td>
+                <td width="185" valign="top" height="15"> 
+                  <p class="text" style="line-height:17.0pt;vertical-align:
+  bottom">非字母数字字符(10),保留字(11) </p>
+                </td>
+              </tr>
+              <tr bordercolor="#993399"> 
+                <td width="78" valign="top"> 
+                  <p class="text" align="center" style="text-align:center;line-height:17.0pt;
+  vertical-align:bottom">第一个字符</p>
+                </td>
+                <td width="96" valign="top"> 
+                  <p class="text" style="line-height:17.0pt;vertical-align:
+  bottom">字母(12)</p>
+                </td>
+                <td width="185" valign="top"> 
+                  <p class="text" style="line-height:17.0pt;vertical-align:
+  bottom">非字母(13) </p>
+                </td>
+              </tr>
+              <tr bordercolor="#993399"> 
+                <td width="78" valign="top"> 
+                  <p class="text" align="center" style="text-align:center;line-height:17.0pt;
+  vertical-align:bottom">标识符使用</p>
+                </td>
+                <td width="96" valign="top"> 
+                  <p class="text" style="line-height:17.0pt;vertical-align:
+  bottom">先说明后使用(14)</p>
+                </td>
+                <td width="185" valign="top"> 
+                  <p class="text" style="line-height:17.0pt;vertical-align:
+  bottom">未说明已使用(15) </p>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td class="text">��下面选取了9个测试用例，它们覆盖了所有的等价类。<br>
+            ��① VAR x，T1234567：REAL； ｝ (1)，(2)，(4)，(8)，(9)，(12)，(14)<br>
+            ��� BEGIN x:=3.414； T1234567:=2.732；......<br>
+            ��② VAR ：REAL； ｝ (3)<br>
+            ��③ VAR x，：REAL; ｝ (5)<br>
+            ��④ VAR T12345678：REAL； ｝ (6)<br>
+            ��⑤ VAR T12345......：REAL； ｝ (7)<br>
+            ����多于80个字符 <br>
+            ��⑥ VAR T$：CHAR； ｝ (10)<br>
+            ��⑦ VAR GOTO：INTEGER； ｝ (11)<br>
+            ��⑧ VAR 2T：REAL； ｝ (13)<br>
+            ��⑨ VAR PAR：REAL； ｝ (15)<br>
+            ����BEGIN ......<br>
+            �����PAP:=SIN（3.14*0.8）/6；<br>
+            ��</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

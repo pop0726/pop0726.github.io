@@ -1,0 +1,44 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgproperties=fixed bgcolor="#FFFFFF" background="../../../../image/moban/15.gif">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" height="8">
+        <tr> 
+          <td class="text" align="left"><span class="part">1、文件扫描</span><br>
+            ��⑴�线性搜索算法A1：<br>
+            ��由于每个数据块均被扫描，因此算法代价为：E<font size="-5">A1</font>=b<font size="-5">r</font>。该算法的效率虽然低，但可用于任何文件，且不管该文件上是否有索引。<br>
+            ��⑵�二分法搜索算法A2：<br>
+            ��假设文件按照某一属性A排序，而选择条件是该属性A上的等值比较，因此可以用二分法针对文件的数据块进行扫描。算法的代价为：<br>
+            ��<img src="../../../../image/title/09/16.gif" width="209" height="20"><br>
+            注意：<font size="2">log</font><font size="-5">2</font>(<font size="2">b</font><font size="-5">r</font>)是找到符合条件的第一个数据块的代价；SC(A,r)是满足选择条件的记录数；- 
+            1是因为有一块已被检索到，如<span class="part">图9-4-1</span>所示的注释：<br>
+          </td>
+        </tr>
+        <tr>
+          <td class="text" align="left">
+            <div align="center" class="part">图9-4-1：二分法搜索算法代价EA2的说明<br>
+              <img src="../../../../image/chapter/09/9-4-1.gif" width="420" height="113"> 
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="text" align="left"><span class="part">2、索引扫描</span><br>
+            ��使用索引扫描文件时要考虑到访问索引的代价。<br>
+            ��⑴�在建立主索引的码属性上的等值比较算法A3：由于选择条件是码属性上的等值比较，因此利用在码属性上建立的主索引最多只能查找到一条记录，算法代价为：E<font size="-5">A3</font>=HT<font size="-5">i</font>+1；<br>
+            ��⑵�在建立主索引的非码属性上的等值比较算法A4：<br>
+            ��由于选择条件是非码属性A上的等值比较，因此利用在非码属性A上建立的主索引可以查找到多条记录，算法代价为：<br>
+            ��<img src="../../../../image/title/09/17.gif" width="137" height="20">，<br>
+            这里SC(A,r)是满足选择条件的记录数。</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

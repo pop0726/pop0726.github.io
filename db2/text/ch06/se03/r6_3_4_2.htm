@@ -1,0 +1,119 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" --> 　<span class="biaoti_1">2 编辑和修改数据</span>　<br>
+      　　Recordset对象有一些基础特性，如属性、集合和方法等。例如，在打开Recordset之前需要指定游标类型、游标位置和加锁类型。游标打开之后，用户可以增加新记录、编辑和删除数据或者简单导航记录集。当然还有众多其他特性，如排序、查找和索引Recordset。我们主要介绍对数据的编辑和修改操作方法，其他的属性和方法读者可以查看相关的文献。<br>
+      　(1) AddNew方法<br>
+      　　使用ADO在SQL Server 中编辑数据十分简单。为在表中添加新记录，只须使用Recordset对象的AddNew方法，如程序清单6.14所示。在调用该方法之后，就能设置字段值，然后调用Update方法以保存修改的结果。<br>
+      　（13）程序清单6.14 向表中添加一条新记录<br>
+      　　<font color="#5a5aad">'---创建Connection对象</font><br>
+      　　　set objConn = Server.CreateObject (&quot; ADODB.Connection&quot;)<br>
+      　　<font color="#5a5aad">'---创建Command对象</font><br>
+      　　　set objCmd = Server.CreateObject (&quot; ADODB.Command&quot;)<br>
+      　　<font color="#5a5aad">'---创建Recordset对象</font><br>
+      　　　set objRS = Server.CreateObject(&quot;ADODB.Recordset&quot; )<br>
+      　　<font color="#5a5aad">'----通过连接字符串：Server的OLE DB提供者（SQLOLEDB）使用没有密码的用户名&quot;sa&quot;，<br>
+      　　'---创建对名为misserver的服务器的连接，访问名为pubs的数据库</font><br>
+      　　　objConn.Open &quot;Provider=SQLOLEDB.1;User ID=sa;&quot; &amp; _<br>
+      　　　&quot;Password=;Initial Catalog=pubs;Data Source=misserver&quot;<br>
+      　　　set objCmd.ActiveConnection = objConn<br>
+      　　<font color="#5a5aad">'--- 创建连接参数</font><br>
+      　　　objCmd.CreateParameter(&quot;percentage&quot;, adInteger, adParamInput,,50)<br>
+      　　　objCmd.CommandText = &quot;authors&quot;<br>
+      　　<font color="#5a5aad">'---设置锁类型</font><br>
+      　　　objRS.Open objCmd, , adOpenStatic, adLockOptimistic<br>
+      　　<font color="#5a5aad">'-- 添加新记录，填写数据并更新</font><br>
+      　　　objRS.AddNew<br>
+      　　　objRS(&quot;au_id&quot;) = &quot;123-45-6789&quot;<br>
+      　　　objRS(&quot;au_lname&quot;) = &quot;Papa&quot;<br>
+      　　　objRS(&quot;au_fname&quot;) = &quot;Colleen&quot;<br>
+      　　　objRS(&quot;phone&quot;) = &quot;919 555-1234&quot;<br>
+      　　　objRS(&quot;address&quot;) = &quot;1 Lois Lane&quot;<br>
+      　　　objRS(&quot;city&quot;) = &quot;Metropolis&quot;<br>
+      　　　objRS(&quot;state&quot;) = &quot;NY&quot;<br>
+      　　　objRS(&quot;zip&quot;) = &quot;12345&quot;<br>
+      　　　objRS(&quot;contract&quot;) = False<br>
+      　　<font color="#5a5aad">'-- 添加的新记录写入数据库</font><br>
+      　　　objRS.Update 
+      <p>　(2) Update方法<br>
+        　　更新数据值只须简单地到希望修改的记录和字段，设置新值后使用Update方法保存即可。和其他数据访问工具不同，ADO不需要开发者执行Edit方法以开始编辑记录。只要用户改变一个字段的值，ADO便认识到开发者正在编辑，于是隐含有编辑指令。程序清单6.15显示如何使用ADO编辑数据。<br>
+        　（14） 程序清单6.15 在表中编辑现有记录<br>
+        　　　set objConn = Server.CreateObject(&quot;ADODB.Connection&quot;)<br>
+        　　　set objCmd = Server.CreateObject(&quot;ADODB.Command&quot;)<br>
+        　　　set objRS = Server.CreateObject(&quot;ADODB.Recordset&quot;)<br>
+        　　　objConn.Open &quot;Provider=SQLOLEDB.1;User ID=sa;&quot; &amp; _<br>
+        　　　&quot;Password=;Initial Catalog=pubs;Data Source=misserver&quot;<br>
+        　　　set objCmd.ActiveConnection = objConn<br>
+        　　　objCmd.CommandText = &quot;SELECT * FROM authors WHERE au_lname = 'Papa' 
+        &quot;<br>
+        　　　objRS.Open objCmd, , adOpenStatic, adLockOptimistic<br>
+        　　<font color="#5a5aad">'---编辑数据</font><br>
+        　　　objRS(&quot;phone&quot;) = &quot;919 555-5000&quot;<br>
+        　　　objRS.Update<br>
+        　　程序的其它注解同前面.</p>
+      <p>　(3) Delete方法<br>
+        　　从表中删除记录更为简单，所需做的只是找到希望删除的记录然后调用Delete方法。程序清单6.16显示Delete方法的使用。<br>
+        　(15) 程序清单6.16 从表中删除现有记录<br>
+        　　　set objConn = Server.CreateObject(&quot;ADODB.Connection&quot;)<br>
+        　　　set objCmd = Server.CreateObject(&quot;ADODB.Command&quot;)<br>
+        　　　set objRS = Server.CreateObject(&quot;ADODB.Recordset&quot; )<br>
+        　　　objConn.Open &quot;Provider=SQLOLEDB.1;User ID=sa;&quot; &amp; _<br>
+        　　　&quot;Password=;Initial Catalog=pubs;Data Source=misserver&quot;<br>
+        　　　set objCmd.ActiveConnection = objConn<br>
+        　　　objCmd.CommandText = &quot;SELECT * FROM authors WHERE au_lname = 'Papa' 
+        &quot;<br>
+        　　　objRS.Open objCmd, , adOpenStatic, adLockOptimistic<br>
+        　　　objRS.Delete<br>
+        　　<font color="#5a5aad">注释：程序的其它注解同前面</font></p>
+      　（4）Find方法<br>
+      　　ADO2.0的另一个新特性是查找指定记录。为此使用新的Find方法查找指定记录，Find方法的语法格式为：<br>
+      　　　recordset.Find criteria, skipRows, searchDirection, start<br>
+      　　<font color="#5a5aad">其中：<br>
+      　・ criteria指定查找的行，是一个字符串表达式，基本上是SQL WHERE 短语去掉WHERE关键字。<br>
+      　・ start参数指出记录集的一个书签行作为查找的开始。<br>
+      　・ skipRows参数指定和开始点相关的行开始查找。默认为当前行，即0。换句话说，skipRows是start参数的偏移。<br>
+      　・ searchDirection指出查找的方向：向前或向后。</font><br>
+      　　程序清单6.17显示Find方法如何使用选择条件查找�&quot;NC&quot;洲的作者。<br>
+      　(16)程序清单6.17 查找指定记录<br>
+      　　　set objConn = Server.CreateObject(&quot;ADODB.Connection&quot;)<br>
+      　　　set objCmd = Server.CreateObject(&quot;ADODB.Command&quot;)<br>
+      　　　set objRS = Server.CreateObject(&quot;ADODB.Recordset&quot; )<br>
+      　　　objConn.Open &quot;Provider=SQLOLEDB.1;User ID=sa;&quot; &amp; _<br>
+      　　　&quot;Password=;Initial Catalog=pubs;Data Source=misserver&quot;<br>
+      　　　strSQL = &quot;SELECT * FROM authors&quot;<br>
+      　　　objRS.CursorLocation = adUseClient<br>
+      　　　objRS.Open strSQL, objConn, adOpenStatic<br>
+      　　<font color="#5a5aad">'---查找字段State值为&quot;NC&quot;的记录</font><br>
+      　　　objRS.Find &quot;state = 'NC'&quot;<br>
+      　　<font color="#5a5aad">如果有数行符合条件，可以重新使用Find方法和参数，只需改变skipRows参数。简单地改变值为1 
+      ，它就开始从当前行之后查找</font>。<br>
+      <!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

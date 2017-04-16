@@ -1,0 +1,74 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgproperties=fixed bgcolor="#FFFFFF" background="../../../../image/moban/15.gif">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" height="61">
+        <tr> 
+          <td class="text" align="left" height="2"> ��<span class="part">1、问题的提出</span><br>
+            ��一个查询用SQL语句可以有多种表达方式，而每个SQL语句又可以翻译成多个等价的关系代数表达式。例如：<br>
+            select balance from account<br>
+            where balance &lt; 2500<br>
+            可以翻译成下面两个关系代数表达式：<br>
+            <img src="../../../../image/title/09/02.gif" width="156" height="35"> 
+            <br>
+            而每个表达式中的关系运算又可以用不同的算法和索引去实现。因此，查询优化器的任务就是要找出上述表达式中代价最小的计算给定查询的处理过程(processing)。<br>
+            <br>
+            ��<span class="part">2、执行计划</span><br>
+            ��如<span class="part">图9-1-3</span>所示，查询优化器以关系代数表达式作为输入，输出的是一个查询执行计划。那么，什么是查询执行计划呢？<br>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left" height="2"> 
+            <div align="center"><span class="part">图9-1-3：查询优化器 </span><br>
+              <img src="../../../../image/chapter/09/9-1-3.gif" width="236" height="248"> 
+            </div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left" height="2"> ��要计算一个查询，不仅要提供关系代数表达式，还要对该表达式加上注释。这些注释用于说明如何具体实施每个操作。例如，可以说明某个关系运算所采用的算法或将要使用的一个或多个特定的索引。这些加上了有关&quot;如何执行&quot;的注释的关系代数运算称为执行原语，而用于计算一个查询的原语序列称为查询执行计划或查询计算计划。<br>
+            ��所谓的查询优化就是为给定查询选择最有效的查询执行计划的过程，如<span class="part">图9-1-4</span>所示，这涉及到两个方面的内容：<br>
+            ��<span class="part">⑴</span>�一方面是在关系代数级进行优化，要做的是力图找出与给定关系代数表达式等价、但执行效率更高的一个表达式；<br>
+            ��<span class="part">⑵</span>�另一方面涉及到查询语句处理的详细策略的选择。例如，确定执行运算所采用的具体算法和要使用的特定索引等等。<br>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left" height="1"> 
+            <div align="center"><span class="part">图9-1-4：查询执行计划示意</span> <br>
+              <img src="../../../../image/chapter/09/9-1-4.gif" width="239" height="168"></div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left" height="1"> 
+            <div align="center"><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="400" height="400">
+                <param name=movie value="../../../../swf/F9_1.swf">
+                <param name=quality value=high>
+                <param name="wmode" value="transparent">
+                <embed src="../../../../swf/F9_1.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="32" height="32" wmode="transparent">
+                </embed> 
+              </object></div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left" height="1"> ��<span class="part">3、查询优化器</span><br>
+            ��为了能够在诸多查询执行计划中作出选择，优化器必须估计每个查询执行计划的代价。这要用到有关关系的统计信息，如<span class="part">图9-1-5</span>所示。至于如何估计查询执行计划的代价，这是本章的主要内容，下面将会有详细的介绍。<br>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left" height="2"> 
+            <div align="center"><span class="part">图9-1-5：查询优化器与统计数据</span> <br>
+              <img src="../../../../image/chapter/09/9-1-5.gif" width="236" height="248"> 
+            </div>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" bgproperties=fixed background="../../../../image/moban/14.gif">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" height="256">
+        <tr> 
+          <td class="text"> 
+            <p><span class="section"> 8.2 顺序索引<br>
+              <br>
+              ��</span>顺序索引的作用主要用于能迅速地按顺序或随机地访问文件中的记录。顺序索引的结构是按顺序存储搜索码的值，并将搜索码与包含该搜索码的记录关联起来；<br>
+              ��一般来说，一个文件可以有多个索引，分别对应于不同的搜索码。如果包含记录的文件按照某个搜索码指定的顺序物理存储，那么该搜索码对应的索引就称为<u>主索引</u>，也叫簇集索引。与此相反，搜索码顺序与文件中记录的物理顺序不同的那些索引称为<u>辅助索引</u>或非簇集索引。<span class="section"><br>
+              ��</span><span class="menu">使用索引存取元组时，簇集的作用依赖于满足选择条件的元组的个数。对于一次只取回一个元组的选择来说（如，在一个候选关键字上的等值选择），非簇集索引与簇集索引是一样的。随着所选择的元组个数的增加，非簇集索引的代价甚至比扫描整个关系的代价增长得还要快。顺序扫描关系每一个页只存取一次，而使用非簇集索引每一个页可能被存取多次。如果采用阻塞I/O（blocked 
+              I/O），顺序扫描关系会比非簇集索引更好（当然，阻塞I/O也会加速使用簇集索引的存取）。</span><span class="section"><br>
+              <br>
+              <br>
+              </span><span class="zhishidian">8.2.1　索引顺序文件</span></p>
+            <p>��如果文件按照某个搜索码的顺序物理存储，称这种在某个搜索码上有主索引的文件为索引顺序文件，如<span class="part">图8-2-1</span>所示。<br>
+              ��</p>
+            </td>
+        </tr>
+      </table>
+    <div align="center"></div>
+    </td>
+  </tr>
+</table>
+<p class="explaination">&nbsp;</p>
+</body>
+</html>

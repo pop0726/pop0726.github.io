@@ -1,0 +1,30 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body text="#000000" bgproperties=fixed background="../../../../image/moban/15.gif">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%"> 
+<tr> <td align="center" valign="top"> <table width="92%" border="0" cellspacing="0" cellpadding="0"> 
+<tr> <td class="text" align="left"> <p><span class="part">1、解锁与死锁问题</span><br> 
+��如果对数据项进行读写之后立即解锁，容易造成数据库的不一致，那么是否把解锁的时机往后推到事务的末尾就万事大吉了呢？<span class="part">图11-1-4</span>给我们展示了不立即解锁又可能造成的死锁问题。但是死锁还是要比造成数据库不一致要好，因为死锁可以通过DBMS回滚某事务加以解决，而数据库的不一致，则必须通过程序员或DBA执行一个补偿事务才可以恢复数据库的一致性（参阅<u>第十章&quot;事务&quot;的10.2.1小节</u>）。<br> 
+</p></td></tr> <tr> <td class="text" align="left"> <div align="center" class="part">图11-1-4：一个死锁的调度<br> 
+<img src="../../../../image/chapter/11/11-1-4.gif" width="317" height="460"> </div></td></tr> 
+<tr> <td class="text" align="left">为什么<span class="part">图11-1-4</span>中的调度会产生死锁呢？因为事务T<font size="-5">3</font>一开始就申请了数据项B上的排他锁，接着事务T<font size="-5">4</font>申请了数据项A上的共享锁；在事务T<font size="-5">4</font>申请数据项B上的共享锁时，由于事务T<font size="-5">3</font>持有数据项B上的排他锁，因此事务T<font size="-5">4</font>不能立即得到该锁，只能等待事务T3释放锁；接下来事务T3申请数据项A上的排他锁，由于此时事务T<font size="-5">4</font>持有数据项A上的共享锁，因此事务T<font size="-5">3</font>不能立即得到该锁，只能等待事务T<font size="-5">4</font>释放锁。这就造成了两个事务互相等待的死锁现象。</td></tr> 
+<tr> <td class="text" align="left"> <div align="center"><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="400" height="400"> 
+<param name=movie value="../../../../swf/F11-1.swf"> <param name=quality value=high> 
+<param name="wmode" value="transparent"> <embed src="../../../../swf/F11-1.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="32" height="32" wmode="transparent"> 
+</embed> </object></div></td></tr> <tr> <td class="text" align="left"><span class="part">2、饿死问题</span><br> 
+��在基本的封锁协议中，锁的授予条件是：当事务申请对某数据项加某类型锁，并且没有其他事务在该数据项上加有与该事务所申请的锁不相容的锁时，则并发控制管理器可以授予锁。但这种宽松的锁授予条件容易产生另外一个我们俗称为饿死的问题，如<span class="part">图11-1-5</span>所示：<br> 
+</td></tr> <tr> <td class="text" align="left"> <div align="center" class="part">图11-1-5：具有饿死现象的调度<br> 
+<img src="../../../../image/chapter/11/11-1-5.gif" width="420" height="222"> </div></td></tr> 
+<tr> <td class="text" align="left"><span class="part">图11-1-5</span>中，首先是事务T<font size="-5">6</font>申请数据项Q上的共享锁，紧接着事务T<font size="-5">5</font>申请数据项Q上的排他锁，因与事务T<font size="-5">6</font>持有的共享锁冲突，因此事务T<font size="-5">5</font>只能等待事务T6释放锁；而在事务T<font size="-5">6</font>释放锁之前，事务T<font size="-5">7</font>又成功申请到数据项Q上的共享锁，因此事务T<font size="-5">5</font>又不得不等待事务T<font size="-5">7</font>释放锁。这样一直持续下去，事务T<font size="-5">5</font>将永远只能处于等待状态，不能得到锁。这种现象就是所谓的饿死问题。</td></tr> 
+<tr> <td class="text" align="left"> <div align="center"><img src="../../../../swf/f11_2_a.jpg" width="400" height="400"><br> 
+<img src="../../../../swf/f11_2_b.jpg" width="400" height="400"> <br> <img src="../../../../swf/f11_2_c.jpg" width="400" height="400"> 
+<br> <img src="../../../../swf/f11_2_d.jpg" width="400" height="400"> <br> <img src="../../../../swf/f11_2_e.jpg" width="400" height="400"> 
+<br> </div></td></tr> <tr> <td class="text" align="left"> ��综上所述，我们必须重新考虑基本的封锁协议中并发控制管理器授权加锁的条件：当事务T<font size="-5">i</font>申请对数据项Q加M型锁时，授权加锁的条件是：<br> 
+��①�不存在在数据项Q上持有与M型锁冲突的锁的其他事务；<br> ��②�不存在等待对数据项Q加锁且先于Ti申请加锁的其他事务。</td></tr> </table></td></tr> 
+</table>
+</body>
+</html>

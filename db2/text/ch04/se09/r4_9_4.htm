@@ -1,0 +1,114 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url('../../../img/text/bg.jpg');
+background-repeat: no-repeat;
+background-attachment: fixed; background-position-y:50%
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">　</td>
+    <td>　</td>
+    <td width="10">　</td>
+  </tr>
+  <tr>
+    <td width="10">　</td>
+    <td> <!-- #BeginEditable "1" --> 　<span class="biaoti_1">1 存储过程的概念</span><br>
+      　● 存储过程是存放在服务器上的预先定义与编译好的SQL语句的命名集合，是一个独立的数据库对象。<br>
+      　● 存储过程在第一次执行时进行语法检查和编译。编译好的版本存储在过程高速缓存中用于后续调用，执行速度快。<br>
+      　● 存储过程由应用程序激活，而不是由系统自动执行。<br>
+      　● 存储过程可以由应用程序多次激活，提高重复任务的执行性能。<br>
+      　● 存储过程可以接受输入参数和返回值。<br>
+      　　存储过程的创建和处理过程如图4-27。<br>
+      　　<font color="#5a5aad">创建后先进行语法分析，语法正确的存储过程存入到系统表sysobjects和syscomments中。第一次执行时先进行优化和编译，编译后的执行计划放在过程高速缓存中，以备后续过程调用。所以，存储过程在第一次执行以后，通常不再需要进行语法分析、优化和编译，以后的过程调用只须把查询计划从高速缓存中调出执行即可。</font><br>
+      <br>
+      　　<span class="tubiaoti">图4-27 存储过程的处理流程</span><br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td valign="top" align="center"><br>
+            <img src="../../../img/text/ch04/d3.gif" width="373" height="158"></td>
+        </tr>
+      </table>
+      <br>
+      　　综合存储过程特点如下：(1) 存储过程作为一个程序逻辑处理单元，使多个应用程序可以共享应用程序的处理逻辑单元，所有的客户机程序可以使用同一个存储过程进行各种操作，从而确保数据访问和操作的一致性，也提高了应用程序的可维护性。<br>
+      　(2) 由于存储过程在第一次执行之后，就驻存在高速缓存存储器中，因此可以提高系统的执行效率。<br>
+      　(3) 存储过程提供了一种安全机制。如果用户被授予执行存储过程的权限，那么既使该用户没有执行访问在该存储过程中所参考的表或者视图的权限，该用户也可以完全执行该存储过程。<br>
+      　(4) 减少了网络的流量负载。由于存储过程是存放在服务器端的，因此客户端要执行存储过程时，只需要传送一条命令即可，如果不使用存储过程，则需要传送许多条SQL语句。 
+      <br>
+      　(5) 因为存储过程提供该前端应用程序共享的处理逻辑，若要改变业务规则或策略，只需改变存储过程和参数，不用修改应用程序。<br>
+      　　　<span class="biaoti_1">2 存储过程的创建<br>
+      </span><span class="pt9-black">　　创建存储过程的语句如下：<br>
+      　　　CREATE PROCEDURE〈过程名〉（参数表）<br>
+      　　　AS <br>
+      　　　SQL语句<br>
+      　　　SQL Server创建存储过程的语句格式:CREATE PRO[CEDURE] [owner.]procedure_name[；number] 
+      <br>
+      　　[(parameter1),…, [parameter255 ] ] ] <br>
+      　　[{FOR REPLICATION} | {WITH RECOMPILE} <br>
+      　　[{[WITH] | [,] } ENCRYPTION ] ]<br>
+      　　　AS <br>
+    　　　[FOR REPLICATION]<br>
+      　　　sql_statements<br>
+      　　<font color="#5a5aad">参数说明：oprocedure_name:新建存储过程名；<br>
+      　　onumber：区分同名的存储过程，如proc;1,proc;2。<br>
+      　● 参数格式：@参数名 数据类型[=缺省值] [output]。<br>
+      　● output：该参数为返回参数。oFOR REPLICATION ：说明所建立的存储过程用于SQL Server的数据复制。<br>
+      　● WITH RECOMPILE：说明所建立的存储过程不在高速缓存中保存，每次执行重新编译。<br>
+      　● ENCRYPTION：对存储在syscomments系统表中的存储过程定义文本进行加密，避免他人查看或修改。<br>
+      　● sql_statements：定义存储过程的具体作用的SQL语句，可以包含任意多的SQL语句。sql语句中不能使用CREATE（VIEW、TRIGER、DEFAULT、RULE、PROCEDURE等）语句，同时要慎重使用其他的CREATE、DROP等语句。<br>
+      </font><br>
+      </span> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td valign="top" width="35"><img src="../../../img/text/liti.gif" width="35" height="36" alt="例题"></td>
+          <td class="pt9-black"><br>
+            　例1,创建一个不带参数的存储过程，列出图书借阅表中当前逾期的所有图书，定义存储过程：CREATE PROCEDURE overdate_books 
+            <br>
+            　　AS <br>
+            　　SELECT * FROM loan_books <br>
+            &nbsp;&nbsp;&nbsp; WHERE due_date &lt; GETDATE()</td>
+        </tr>
+      </table>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+        <tr> 
+          <td valign="top" width="35"><img src="../../../img/text/liti.gif" width="35" height="36" alt="例题"></td>
+          <td><br>
+            　例如2，显示指定出版社的指定类型的图书 ,从用户读取需要的参数放入局部变量。<br>
+            　　CREATE PROCEDURE publis_proc1<br>
+            　　(@pub_name varchar(40),@type char(20))<br>
+            　　AS SELECT pub_name,type,title<br>
+            　　FROM titles, publishers<br>
+            　　WHERE titles.pub_id=publishers.pub_id<br>
+            　　AND pub_name = @pub_name<br>
+            　　AND type = @type </td>
+        </tr>
+        <tr> 
+          <td valign="top" width="35"><img src="../../../img/text/liti.gif" width="35" height="36" alt="例题"></td>
+          <td><br>
+            　例如3，为参数设置缺省值，返回指定类型的图书的数量和平均价格。缺省值放入局部变量。<br>
+            　　CREATE PROCEDURE publis_proc2<br>
+            　　(@count int OUTPUT,@avg_price money OUTPUT @type char(20)='business' 
+            )AS<br>
+            　　SELECT @count=COUNT(*),@avg_price=AVG(price)<br>
+            　　FROM titles<br>
+            　　WHERE type = @type </td>
+        </tr>
+      </table>
+      <span class="pt9-black"><br>
+      </span><!-- #EndEditable --></td>
+    <td width="10">　</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

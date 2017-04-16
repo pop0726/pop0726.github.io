@@ -1,0 +1,38 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgproperties=fixed bgcolor="#FFFFFF" background="../../../../image/moban/15.gif">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" height="61">
+        <tr> 
+          <td class="text" align="left"> ��<span class="part">1、外模式亦称子模式或用户模式，是数据库用户看到的数据视图。</span>外模式的设计一般采用E-R模型，设计的结果是一系列的E-R图。<br>
+            ��<span class="part">2、模式亦称逻辑模式，是数据库中全体数据的逻辑结构和特性的描述，是所有用户的公共数据视图。</span>模式的设计一般采用关系模型，设计的结果就是一系列的关系模式。<br>
+            <br>
+            ��<span class="menu">对数据库性能调整的一个方面就是在高层设计中调整模式的设计。在所采用的范式的约束下，对关系进行垂直划分是可能的。例如，考虑关系account，它的模式为：<br>
+            ��account(branch-name, account-number, balance)<br>
+            其中account-number是码。在所采用的范式（BCNF和第三范式）的约束下，我们可以将account关系划分为两个关系，划分如下：<br>
+            ��account-branch(account-number, branch-name)<br>
+            ���account-balance(account-number, balance)<br>
+            由于account-number是码，这两种表示在逻辑上是等价的，但它们的性能特征却不同。提高性能的另一个技巧就是存储非规范化的关系，并不是说一切都规范化了，一切就都OK了！<br>
+            <br>
+            ��</span><span class="part">3、内模式亦称物理模式或存储模式，是数据库全体数据的内部表示或者低层描述，用来定义数据的存储方式和物理结构，</span>例如：<br>
+            ��①�记录是顺序存储还是按照Ｂ<font size="-5">+</font>树结构存储，或是按照Hash方法存储；<br>
+            ��②�索引的组织方式是什么；<br>
+            ��③�数据是否压缩存储、是否加密；<br>
+            ��④�存储数据的记录结构的规定等等。<br>
+            <br>
+            ��<span class="menu">在设计完模式和外模式之后，也就是说，按照一定的完整性约束集合生成了一组关系和视图之后，那么就必须通过物理数据库设计，即内模式设计来解决性能问题。<br>
+            <br>
+            ��</span></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,312 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+</head>
+<body background="../../../image/moban/15.gif" bgproperties=fixed>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="354">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" height="205">
+        <tr> 
+          <td class="text"> 
+            <p align="center" class="zhishidian">第七章　存储结构和文件结构--概念</p>
+          </td>
+        </tr>
+        <tr> 
+          <td class="part">7.1 物理存储介质</td>
+        </tr>
+        <tr> 
+          <td class="text"> 
+            <div align="center"><span style="font-size:9.0pt;font-family:宋体;Times New Roman&quot;" class="part">表<span lang="EN-US">7-1</span></span> 
+              <table border="1" cellspacing="0" cellpadding="0" class="text" bordercolor="#000000">
+                <tr> 
+                  <td width="132" valign="top"> 
+                    <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">概念</span></b></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">解释</span></b></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top" align="center"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">磁道</span></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">磁盘片的表面被逻辑地划分为磁道。</span></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top" align="center"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">扇区</span></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">磁道被逻辑地划分为扇区，扇区是从磁盘读出和写入信息的最小单位，通常大小为<span lang="EN-US">512字节。 
+                      </span></span></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top" align="center"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">存取时间</span></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">从发出读写请求到数据开始传输之间的时间，一般来说，存取时间等于寻道时间加上旋转等待时间。</span></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top" align="center"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">数据传输率</span></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">从磁盘获得数据或者向磁盘存储数据的速率。</span></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top" align="center"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">物理块（块）</span></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">一个盘片的一条磁道内几个连续的扇区构成的序列，称为物理块，也简称为块。</span></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top" align="center"> 
+                    <p class="MsoNormal"><span lang="EN-US" style="font-family:宋体;Times New Roman&quot;">RAID 
+                      </span></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">当初是<span lang="EN-US">Redundant 
+                      Arrays of Inexpensive Disks的缩写，中文称为“廉价磁盘冗余阵列”；现在为了更高的可靠性和更高的数据传输率，RAID是Redundant 
+                      Arrays of Independent Disks的缩写，中文称为“独立磁盘冗余阵列”。 </span></span></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top" align="center"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">磁盘镜像</span></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">实现数据冗余时复制的每一个磁盘，称为磁盘镜像，也称为磁盘影像。</span></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top" align="center"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">比特级拆分</span></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">数据拆分的最简单形式是将每个字节按比特分开，存储到多个磁盘上。</span></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top" align="center"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">块级拆分</span></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">文件的块被拆分存储到多个磁盘上，如果有<span lang="EN-US">n个磁盘，则文件的第i块存储到第(i 
+                      mod n) + 1个磁盘上。 </span></span></p>
+                  </td>
+                </tr>
+              </table></div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="part">7.2 文件组织</td>
+        </tr>
+        <tr> 
+          <td class="text" height="12"> 
+            <div align="center"><span style="font-size:9.0pt;font-family:宋体;Times New Roman&quot;"><span class="part">表<span lang="EN-US">7-2</span></span></span> 
+              <table border="1" cellspacing="0" cellpadding="0" bordercolor="#000000" class="text">
+                <tr> 
+                  <td width="132" valign="top"> 
+                    <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">概念</span></b></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">解释</span></b></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top" align="center"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">定长记录</span></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">数据文件中长度固定不变的记录。</span></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top" align="center"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">变长记录</span></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">数据文件中长度可变的记录。</span></p>
+                  </td>
+                </tr>
+              </table></div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text"><span lang="EN-US" style="font-size:9.0pt;font-family:宋体;
+Times New Roman&quot;" class="part">7.3 文件中记录的组织</span></td>
+        </tr>
+        <tr> 
+          <td class="text"> 
+            <div align="center"><span style="font-size:9.0pt;font-family:宋体;Times New Roman&quot;" class="part">表<span lang="EN-US">7-3 
+              </span></span> 
+              <table border="1" cellspacing="0" cellpadding="0" class="text" bordercolor="#000000">
+                <tr> 
+                  <td width="132" valign="top"> 
+                    <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">概念</span></b></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">解释</span></b></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top"> 
+                    <p class="MsoNormal" align="center"><span style="font-family:宋体;Times New Roman&quot;">堆文件组织</span></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">堆文件组织的含义是说：一条记录可以放在文件中的任何地方，只要那个地方有空间存放这条记录。</span></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top"> 
+                    <p class="MsoNormal" align="center"><span style="font-family:宋体;Times New Roman&quot;">搜索码</span></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;;
+  Times New Roman&quot;">搜索码是用于在文件中查找记录的属性或属性集。</span><span lang="EN-US" style="font-family:宋体;Times New Roman&quot;"> 
+                      </span></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top"> 
+                    <p class="MsoNormal" align="center"><span style="font-family:宋体;Times New Roman&quot;">顺序文件组织</span></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">在这种组织方式中，逻辑上文件中的记录是按照搜索码值的顺序物理存储的。</span></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top"> 
+                    <p class="MsoNormal" align="center"><span style="font-family:宋体;Times New Roman&quot;">散列文件组织</span></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">在这种组织方式中，对文件中每个记录的同一属性或属性集需要计算一个散列<span lang="EN-US">(Hash)函数，根据散列函数的结果确定该记录应该存放的位置（物理块）。 
+                      </span></span></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top"> 
+                    <p class="MsoNormal" align="center"><span style="font-family:宋体;Times New Roman&quot;">簇集键</span></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">簇集键是某个属性或属性集，根据它们的值来确定文件中记录的集中存放。</span></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top"> 
+                    <p class="MsoNormal" align="center"><span style="font-family:宋体;Times New Roman&quot;">簇集文件组织</span></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">簇集文件组织就是把有关关系的记录按簇集键值集中在一个物理块内或物理上相邻的区域内存放，以提高某些数据访问的速度。</span></p>
+                  </td>
+                </tr>
+              </table></div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text"><span lang="EN-US" style="font-size:9.0pt;font-family:宋体;
+Times New Roman&quot;"><span class="part">7.4 数据字典的存储</span></span></td>
+        </tr>
+        <tr> 
+          <td class="text"> 
+            <div align="center"><span style="font-size:9.0pt;font-family:宋体;Times New Roman&quot;" class="part">表<span lang="EN-US">7-4 
+              </span></span> 
+              <table border="1" cellspacing="0" cellpadding="0" class="text" bordercolor="#000000">
+                <tr> 
+                  <td width="132" valign="top"> 
+                    <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">概念</span></b></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">解释</span></b></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top" align="center"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">数据字典</span></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">参见第一章“引言――概念”的表<span lang="EN-US">1-8。 
+                      </span></span></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top" align="center"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">元数据</span></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">元数据是关于数据的数据。</span></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top" align="center"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">关系</span></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">参见第二章“实体<span lang="EN-US">-联系模型――概念”的表2-9。 
+                      </span></span></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top" align="center"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">属性</span></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">参见第三章“关系模型――概念”的表<span lang="EN-US">3-1。 
+                      </span></span></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top" align="center"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">域</span></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">参见第三章“关系模型――概念”的表<span lang="EN-US">3-1。 
+                      </span></span></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top" align="center"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">视图</span></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">参见第三章“关系模型――概念”的表<span lang="EN-US">3-6。 
+                      </span></span></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top" align="center"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">统计数据</span></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">参见第一章“引言――概念”的表<span lang="EN-US">1-8。 
+                      </span></span></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top" align="center"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">索引</span></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">参见第一章“引言――概念”的表<span lang="EN-US">1-8。 
+                      </span></span></p>
+                  </td>
+                </tr>
+              </table></div>
+          </td>
+        </tr>
+      </table></td>
+  </tr>
+</table>
+</body>
+</html>

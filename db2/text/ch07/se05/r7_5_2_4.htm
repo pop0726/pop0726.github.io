@@ -1,0 +1,78 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" --><font color="#cc0000">管理应用程序角色的两种方法：<br>
+      ��（1） 使用系统存储过程 sp_addapprole，sp_dropapprole可以建立和撤消应用程序角色后。SQL Server数据库应用程序可以调用系统存储过程sp_setapprole激活应用程序角色。sp_setapprole的语法格式为：<br>
+      ��sp_setapprole [@rolename=] 'role'<br>
+      ��[@password=] {Encrypt N 'password' } | 'password'<br>
+      ��[, [@encrypt =] 'encrypt_style']<br>
+      ��例1：激活一个已创建的应用程序角色'Query'，密码为abcd。<br>
+      ��sp_setapprole 'Query', 'abcd'<br>
+      ��例2：假定系统中有普通用户yuan，pubs数据库安全管理员执行以下T-SQL语句建立应用程序角色JobQuery，密码123，并允许JobQuery查询pubs数据库中的jobs表，程序如下：<br>
+      ��USE pubs<br>
+      ��GO<br>
+      ��sp_addapprole 'JobQuery', '123' <br>
+      ��GO<br>
+      ��GRANT SELECT ON jobs TO JobQuery <span class="explaination">允许JobQuery查询pubs</span><br>
+      ��DENY SELECT ON jobs TO yuan <span class="explaination">不允许yuan查询表jobs</span><br>
+      ��GO<br>
+      ��这时用户yuan不能在Query Analyzer中使用T-SQL语句查询pubs数据库中的jobs表，如执行SELECT * FROM jobs将得到错误信息。<br>
+      ��但如果yuan在应用程序中执行系统存储过程sp_setapprole，激活JobQuery应用程序角色后，就可以使用JobQuery应用程序角色所具有的许可查询jobs表，即下面的语句能够成功执行：<br>
+      ��USE pubs<br>
+      ��GO<br>
+      ��sp_setapprole 'JobQuery', '123'<br>
+      ��GO<br>
+      ��SELECT * FROM jobs<br>
+      ��GO<br>
+      ��（2） 用Enterprise Manager管理<br>
+      ��●　展开服务器下相应的数据库节点；<br>
+      ��●　选择&quot;角色&quot;，按右键，选择&quot;添加新的数据库角色&quot;，显示如图片7-11对话框。在对话框中选择&quot;应用程序角色&quot;，输入角色名称如lsy2，并给定密码，按确定。可以在图片7-12中看到应用程序角色lsy2。</font><br>
+      <br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" height="50">
+        <tr> 
+          <td class="tubiaoti">　　图片7-11</td>
+        </tr>
+        <tr> 
+          <td align="center"><br>
+            <img src="../../../img/text/ch07/34.gif" width="335" height="233"></td>
+        </tr>
+        <tr>
+          <td class="tubiaoti">　　图片7-12</td>
+        </tr>
+        <tr> 
+          <td align="center" class="pt9-black"><br>
+            <img src="../../../img/text/ch07/35.gif" width="350" height="236"> 
+          </td>
+        </tr>
+      </table>
+      <br>
+      <!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

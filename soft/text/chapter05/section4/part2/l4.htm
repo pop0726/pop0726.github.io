@@ -1,0 +1,41 @@
+<html>
+<head>
+<title>l1</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center" height="8">
+        <tr> 
+          <td class="text"> 
+            <p><br>
+              <img src="../../../../images/tubiao/lt.gif" width="26" height="25" alt="例题"></p>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text">��例如，对于<span class="part">图5.13(a)</span> 所给例子中的各判断，若<img src="../../../../images/images/chapter05/t1t2.gif" width="97" height="20" align="absbottom">及<img src="../../../../images/images/chapter05/t2.gif" width="46" height="18" align="absbottom"> 
+            <img src="../../../../images/images/chapter05/t3.gif" width="48" height="19" align="absbottom">的含意如前所述，则只需设计以下两个测试用例便可覆盖图中的8个条件取值以及4个判断分支。<br>
+            <img src="../../../../images/tubiao/ts.gif" width="25" height="16" alt="图示"> 
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" height="2"> 
+            <div align="center"><img src="../../../../images/images/chapter05/cs3.gif" width="436" height="92"></div>
+          </td>
+        </tr>
+        <tr>
+          <td class="text">��判定－条件覆盖也有缺陷。从表面上来看，它测试了所有条件的取值。但是事实并非如此。因为往往某些条件掩盖了另一些条件。对于条件表达式(A＞1）and（B＝0）来说，若（A＞1）的测试结果为真，则还要测试（B＝0），才能决定表达式的值；而若（A＞1）的测试结果为假，可以立刻确定表达式的结果为假。这时，往往就不再测试（B＝0）的取值了。因此，条件（B＝0）就没有检查。同样，对于条件表达式（A＝2）or（X＞1）来说，若（A＝2）的测试结果为真，就可以立即确定表达式的结果为真。这时，条件（X＞1）就没有检查。因此，采用判定－条件覆盖，逻辑表达式中的错误不一定能够查得出来。<br>
+            ��为了能够防止某些条件掩盖了另一些条件，必须将逻辑表达式分解为单个条件，转换成如<span class="part">图5.13(b)</span> 
+            所示的单一条件的嵌套条件结构，这样可以针对每一条件和判定设计测试用例，防止测试中对某些条件的漏测。<br>
+            ��</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgproperties=fixed bgcolor="#FFFFFF" background="../../../../image/moban/15.gif">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" height="11">
+        <tr> 
+          <td class="text" align="left" height="50"> 
+            <p class="text">��<span class="part">1、用索引还是散列？</span><br>
+              ��在实际的数据库系统设计中，到底是用索引还是散列要充分考虑以下几个问题：<br>
+              ��<span class="part">⑴</span>�索引或散列的周期性重组代价如何？<br>
+              ��<span class="part">⑵</span>�在文件中插入和删除记录的频率如何？<br>
+              ��<span class="part">⑶</span>�为了优化平均访问时间而导致最坏情况下的访问时间的做法是否可取？<br>
+              ��<span class="part">⑷</span>�能够有效支持的查询类型是哪些？<br>
+              �<span class="part">�2、对查询类型的支持</span><br>
+              ��<span class="part">⑴</span>�我们先看一个散列适合的查询：select A<font size="-5">1</font>, 
+              A<font size="-5">2</font>, … , A<font size="-5">n</font> from r 
+              where A<font size="-5">i</font> = c对于这个查询来说：<br>
+              ��①�顺序索引查找所需要的时间与关系r中Ai值的个数的对数成正比；但在散列结构中，平均查找时间是一个与数据库大小无关的常数，因此这是一个适合用散列的查询；<br>
+              ��②�使用索引时，最坏情况下的查找时间和关系r中Ai值的个数的对数成正比；而散列在最坏情况下可能需要搜索所有记录(散列函数将所有的搜索码值都映射到同一个存储桶中)，但这种情况发生的可能性极小。<br>
+              ��<span class="part">⑵</span>�我们再来看一个索引适合的查询：<br>
+              select A<font size="-5">1</font>, A<font size="-5">2</font>, … , 
+              A<font size="-5">n</font> from r where A<font size="-5">i</font> 
+              &gt;= c1 AND A<font size="-5">i</font> &lt;= c2对于这个查询来说：<br>
+              �①�使用索引时，首先查找值c1所在的块或桶，然后顺着索引中的指针链（顺序索引中的搜索码链表或B+树索引中的叶结点的Pn指针链）继续查找，直到查找到值c2为止；<br>
+              �②�如果使用散列，由于散列函数的随机性，将不得不读取所有的存储桶。因此这是一个适合用索引的查询。<br>
+              ��</p>
+            </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

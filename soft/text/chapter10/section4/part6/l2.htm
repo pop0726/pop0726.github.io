@@ -1,0 +1,57 @@
+<html>
+<head>
+<title>l1</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center" height="8">
+        <tr> 
+          <td class="text"><br>
+            <span class="section">1、集中管理档案，安全授权机制</span><br>
+            <br>
+            ��版本管理的操作是将开发组的档案集中存放在服务器上，经系统管理员授权给各个用户。用户通过登入（check in）和检出（check 
+            out）的方式访问服务器上的文件，未经授权的用户则无法访问服务器上的文件。如<span class="part">图10.19</span>所示。<br>
+            <br>
+            <img src="../../../../images/tubiao/ts.gif" width="25" height="16" alt="图示"> 
+          </td>
+        </tr>
+        <tr>
+          <td class="text">
+            <div align="center"><img src="../../../../images/images/chapter10/10_19.gif" width="224" height="187"><br>
+              <span class="part">图10.19 档案的登入 <br>
+              </span></div>
+          </td>
+        </tr>
+        <tr>
+          <td class="text"><span class="section">2、软件版本升级管理</span><br>
+            <br>
+            ��每次登入时，在服务器上都会生成新的版本，软件版本的管理采取增量存储的方式。任何版本都可以随时检出编辑，同一应用的不同版本可以像树枝一样向上增长。<br>
+            <br>
+            <span class="section">3、加锁功能</span><br>
+            <br>
+            ��为了在文件更新时保护文件，避免不同的用户更改同一文件时发生冲突。某一文件一旦被登入，锁即被解除，该文件可被其他用户使用。在更新一个文件之前锁定它，避免变更没有锁定的项目源文件。<br>
+            <br>
+            <span class="section">4、提供不同版本源程序的比较：</span>在文件登入和检出时，需要注意检入和检出的使用。<br>
+            <br>
+            ��<span class="part">(1)</span> 当某个时刻需要修改某个小缺陷或特征，应只检出完成工作必需的最少文件；<br>
+            <br>
+            ��<span class="part">(2)</span> 当需要对文件变更时，应登入它并加锁。这样可保留对每个变更的记录；<br>
+            <br>
+            ��<span class="part">(3)</span> 应避免长时间地锁定文件。如果需要长时间工作于某个文件，最好能创建一个分支，并在分支上做工作。这样别人可以地做缺省的&quot;小&quot;修改以更改较小的缺陷。稍后可通过合并，把所有操作结果集成在一起。<br>
+            <br>
+            ��<span class="part">(4)</span> 如果需要做较大的变更，可有两种选择：<br>
+            ��<span class="part">・</span> 将需要的所有文件检出并加锁，然后正常处理；<br>
+            ��<span class="part">・</span>为需要修改的版本创建分支，把变更与主干&quot;脱离&quot;，然后把结果合并回去。<br>
+            ��</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

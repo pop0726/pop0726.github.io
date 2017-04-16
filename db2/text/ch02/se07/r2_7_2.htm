@@ -1,0 +1,81 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" --> 　　用面向对象模型描述大学人员数据库如图2-20所示。学校的成员包括学生和工作人员，不管他们在学校中的作用，他们都具有学校中人的特性，如姓名、年龄、性别、地址等，同时还有适合于他们本身的特殊的特性。一个本科生除具有符合大学生的特性，还有只适合于本科生的特殊的特性。研究生也是如此。<br>
+      　　下面是学校成员的类层次定义。由定义中可以看到，人与学生和教员、以及学生与本科生和研究生之间的关系就是超类与子类的关系。本科生除了具有大学生的特性以外，不包含自己特殊的特性，但每个本科生的状态约束值必须是本科生&quot;undergrad&quot;。而研究生不是学生对象的简单子集，因为研究生除了学生的特性外，还有他们自己的独有的特性，如导师等。本科生类和研究生类组成的对象是学生类对象集合的子集。人、教师、学生、本科生和研究生的描述如下。<br>
+      <br>
+      　　<span class="tubiaoti">图2-24 大学成员层次结构</span><br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td align="center"><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="400" height="300">
+              <param name=movie value="../../../swf/ch2/2-20.swf">
+              <param name=quality value=high>
+              <param name="wmode" value="transparent">
+              <embed src="../../../swf/ch2/2-20.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="400" height="300" wmode="transparent">
+              </embed> 
+            </object></td>
+        </tr>
+      </table>
+      <font color="#993300">CLASS person(人); <br>
+      　　name: string; <br>
+      　　sex: [M,F]; <br>
+      　　age: integer; <br>
+      　　address: string; <br>
+      　　spouse： person; <br>
+      ENDCLASS </font> <font color="#993300"> 　CLASS teacher(教员); <br>
+      　　IS_A person; <br>
+      　　status: string; <br>
+      　　salary: real; <br>
+      　CONSTRAINT<br>
+      　　status='teacher';<br>
+      　ENDCLASS <br>
+      　CLASS student(学生); <br>
+      　　　IS_A person; <br>
+      　　　status: string; <br>
+      　　　degree:integer;<br>
+      　　　record:[grade:integer,course:string]; <br>
+      　　CONSTAINT <br>
+      　　　status='undergrad','postgrad' ;<br>
+      　　METHOD <br>
+      　　　averge-grade(record, student); <br>
+      　ENDCLASS<br>
+      　CLASS undergrad(本科生);<br>
+      　　　IS_A student ;<br>
+      　CONSTAINT<br>
+      　　　status='undergrad';<br>
+      　ENDCLASS<br>
+      　　　CLASS postgrad(研究生);<br>
+      　　　IS_A student;<br>
+      　　　divisor: teacher;<br>
+      　CONSTAINT<br>
+      　　　status='postgrad';<br>
+      ENDCLASS</font><!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

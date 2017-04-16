@@ -1,0 +1,84 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" -->　<span class="biaoti_1">5.数字数据类型： </span><br>
+      　　<font color="#cc0000">包括decimal（p,s）和numeric(p,s)两种数据类型。<br>
+      　　在这两种数据类型中可以精确指定小数点两边的总位数。（精度，precision简写为p）和小数点右边的位数（刻度，scale简写为s）。<br>
+      　・ p（精度）：<br>
+      　　指定小数点左边和右边可以存储的十进制数字的最大个数，即整数部分最大的取值范围从-10exp(p)+1到10exp(p)-1，而实际情况取值范围从-10exp(p-s)+1到10exp(p-s)-1。精度必须是从1到最大精度之间的值。最大精度为38。缺省值为18.<br>
+      　・ s（小数位数）：<br>
+      　　指定小数点右边可以存储的十进制数字的最大个数。小数位数必须是从 0 到 p 之间的值，因而 0 &lt;= s &lt;= p。缺省值为0。<br>
+      　　Numeric型数据的存储空间随精度的不同而不同。如表4-2所示。</font><br>
+      <br>
+      　　<span class="tubiaoti">表 4-2 <br>
+      <br>
+      </span> 
+      <table width="80%" border="1" cellspacing="0" cellpadding="0" class="pt9-black" bordercolorlight="#004080" bordercolordark="#ffffff" align="center">
+        <tr align="center" bgcolor="#BFDFFF"> 
+          <td>精度(p)</td>
+          <td>存储字节数</td>
+        </tr>
+        <tr align="center"> 
+          <td height="18">1-9</td>
+          <td height="18">5</td>
+        </tr>
+        <tr align="center"> 
+          <td>10-19</td>
+          <td>9</td>
+        </tr>
+        <tr align="center"> 
+          <td>20-28</td>
+          <td>13</td>
+        </tr>
+        <tr align="center"> 
+          <td>29-38</td>
+          <td>17</td>
+        </tr>
+      </table>
+      <br>
+      　　<font color="#cc0000">例如：定义numeric（9，7），则整数部分取值范围从-10exp(9-7)+1到10exp(9-7)-1,即-99到99。小数部分为七位。<br>
+      　　在实际插入数据的时候，当整数部分超过取值范围的时候，则无法插入数据。而小数部分超过相应的位数，则将超出的尾数进行四舍五入。在进行四舍五入运算后，如果转化的整数部分超过取值范围，一样无法插入，这一点应当注意。</font><br>
+      <span class="biaoti_1"><br>
+      　6. 二进制数据类型：<br>
+      </span><span class="pt9-black"> 　　<font color="#cc0000">二进制数据类型是用十六进制来表示的数据，SQL 
+      Server中使用固定长度的binary和可变长度的varbinary来存储二进制数据。<br>
+      　　binary (n) ：固定长度的n个字节二进制数据。N必须从1到8,000。存储空间大小为 n+4 字节。<br>
+      　　varbinary（n）：<br>
+      　　n个字节变长二进制数据。n必须从1到8,000。存储空间大小为实际输入数据长度+4个字节，而不是n个字节。输入的数据长度可能为0字节。<br>
+      　　在进行插入数据的时候注意，对binary的数据插入的时候，数据总是先从右到左进行计算，然后在多余的字节上进行填充，所以在插入的位数为奇数的时候，首先在数字前面加0，然后再在后面补0。<br>
+      　　例如：设置binary(5),插入0Xaabbccdd，则实际插入显示为0Xaabbccdd00（在后面补0）。而插入0Xabbccddee，则实际插入显示0X0abbccddee。（先在数字前面加0）<br>
+      　　还有，插入数据后显示的数字和实际插入的数字看来不一样，但在数据库中存储的值和实际插入的数字是一样的。例如刚刚上面插入0Xaabbccdd，而显示插入0Xaabbccdd00，实际上数据库中存放的是0Xaabbccdd，而不是真正的0Xaabbccdd00。</font></span><font color="#cc0000"><span class="biaoti_1"><br>
+      </span></font><span class="biaoti_1"><br>
+      　7. 其他数据类型 <br>
+      </span><span class="pt9-black"> 　　<font color="#cc0000">其余的数据类型，包括money,smallmoney的货币数据类型；为了方便存储和使用文本、图像等大型数据的text,ntext,image数据类型。以及可以存储除了text,ntext,image之外所有数据类型的sql-variant数据类型；还有table数据类型，一般应用于编程环境，就像一个临时的表格，储存数据库里面的结果数据集；用户也可以根据自己的需要定制用户自定义数据类型。<br>
+      　　</font></span><br>
+      <!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

@@ -1,0 +1,65 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" --><span class="biaoti_1">　1. SQL Server数据库备份的设备类型</span><br>
+      <br>
+      　　SQL Server数据库备份的设备类型包括磁盘备份设备、磁带备份设备和命名管道备份设备。<br>
+      ��（1）�磁盘备份设备：<br>
+      ��<span class="explaination">磁盘备份设备是指磁盘存储介质上的文件，一般按照普通的操作系统文件进行管理。磁盘备份设备可以定义在数据库服务器的本地磁盘，也可以定义在网络中的远程磁盘上。</span><br>
+      ��（2）�磁带设备<br>
+      ��<span class="explaination">磁带设备和磁盘设备的使用一样，但是也有一些区别。第一，磁带设备必须直接物理连接在运行SQL 
+      Server的数据库上，第二，磁带设备不能通过网络进行远程备份。</span><br>
+      ��（3）命名管道设备<br>
+      ��<span class="explaination">命名管道备份设备为使用第三方的备份软件和设备提供了灵活、强大的通道。当用户使用命名管道设备进行备份和恢复的时候，需要在BACKUP和RESTORE语句中给出客户端应用程序中使用的命名管道的名字。 
+      </span> 
+      <p><span class="biaoti_1">　２. 物理设备和逻辑设备</span><br>
+        ��SQL Server使用逻辑设备或物理设备两种方式来标识备份设备。<br>
+        ��物理备份设备主要用来供操作系统对备份设备进行引用和管理，如：C:\Backups\Accounting\Full.bak，是实际的操作系统的文件名称。<br>
+        ��逻辑备份设备是物理备份设备的别名，通常比物理备份设备更能简单、有效的描述备份设备的名称。如：Accounting_Backup。使用逻辑备份设备名的好处在于可以用一种相对简单的方式实现对物理设备的引用。例如：一个物理备份设备的名称为C:\Backups\Account\Full.bak，而使用逻辑备份设备可以缩写为Account_Backup。<br>
+        ��在执行数据库备份或恢复操作过程中，用户可以使用逻辑备份设备名也可以使用物理备份设备名。使用物理设备或逻辑设备备份数据库的SQL语句分别如下：<br>
+        ��<span class="explaination">例1，备份数据库accounting到逻辑设备Accounting_Backup的语句如下：<br>
+        </span><span class="pt9-black">��BACKUP DATABASE accounting TO Accounting_Backup</span><br>
+        �<span class="explaination">�例2，备份数据库accounting到物理设备C:\Backups\Accounting\Full.bak如下：<br>
+        </span><span class="pt9-black">��BACKUP DATABASE accounting TO DISK = 
+        'C:\Backups\Accounting\Full.Bak'</span></p>
+      <p><span class="biaoti_1">　3.数据库备份策略与规划</span><br>
+        ��在制定备份策略之前，考虑的内容包括：<br>
+        ��（1） 备份内容：<span class="explaination">除了用户数据库之外，几个重要的系统数据库如master,msdb，model等要注意备份；</span><br>
+        ��（2） 备份频率：<span class="explaination">一般数据库主文件可以一周一次，事务日志文件每天备份一次；</span><br>
+        ��（3） 备份数据的存储介质。<br>
+        ��针对不同数据库的实际情况，SQL Server提出了三种主要的备份策略：只备份数据库；备份数据库和事务日志；增量备份。</p>
+      <span class="biaoti_1">　4. 只备份数据库 </span><br>
+      ��<span class="explaination">根据关系数据库特点，如果只备份数据库而不备份事务日志，则当数据库出现意外以后，用户只能把数据库恢复到上一次备份操作结束的状态。自从上次备份结束到出现意外时所有对数据库的修改会全部丢失。</span><br>
+      只备份数据库的特点在于：<br>
+      ��● 操作和规划简单，在恢复时只需一步就可以将数据库恢复到以前的状态；<br>
+      ��● 当数据库出现意外以后，用户最多能够把数据库恢复到上一次备份操作结束时的状态，上次备份结束以后的所有修改将会丢失；<br>
+      ��● 一般只用在数据重要性不是太高，或是数据更新缓慢的数据库系统中。<!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

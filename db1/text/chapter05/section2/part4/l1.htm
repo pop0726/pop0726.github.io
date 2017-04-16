@@ -1,0 +1,43 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgproperties=fixed bgcolor="#FFFFFF" background="../../../../image/moban/15.gif">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td class="text" align="left">��⑴ create table语句的primary key子句中包含一组构成主码的属性，<br>
+            例如：<br>
+            create table <i>branch</i>(<i>branch-name</i> char(15),<br>
+            �������<i>branch-city</i> char(30), <i>assets</i> float, <br>
+            �������primary key (<i>branch-name</i>), check(<i>assets</i>&gt;=0))<br>
+            ��⑵�create table语句的foreign key子句中包含一组构成外码的属性及被该外码所参照的关系，例如：<br>
+            create table <i>account</i>(<i>branch-name</i> char(15), <br>
+            �������<i>account-number char</i>(10), <i>balance</i> float, <br>
+            �������primary key (<i>account-number</i>), <br>
+            �������foreign key (<i>branch-name</i>) references <i>branch</i>, 
+            <br>
+            �������check (<i>balance</i>&gt;=10))<br>
+            ��在SQL中当参照完整性约束被破坏时：<br>
+            ��①�拒绝执行破坏参照完整性的操作；或者是<br>
+            ��②�在SQL-92的foreign key子句中指明进行级联删除或级联更新。<br>
+            例如：<br>
+            create table <i>account</i> (………… <br>
+            ��������foreign key (<i>branch-name</i>) references <i>branch</i> 
+            <br>
+            ��������on delete cascade <br>
+            ��������on update cascade,<br>
+            �������������…………)<br>
+            上面语句的含义是：当对关系<i>branch</i>进行更新而导致参照完整性遭到破坏时，就要对关系<i>account</i>进行相应的级联更新!<br>
+            ��</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

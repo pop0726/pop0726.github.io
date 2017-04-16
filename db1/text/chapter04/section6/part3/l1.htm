@@ -1,0 +1,34 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgproperties=fixed bgcolor="#FFFFFF" background="../../../../image/moban/15.gif">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td class="text" align="left" height="2">��⑴�测试一个子查询的结果是否有元组，即测试其是否为空关系。使用关键词exists和not 
+            exists，例如：<br>
+            select <i>customer-name</i> from <i>borrower</i> as <i>B</i><br>
+            where exists (select * from <i>depositor</i> as D <br>
+            �������where <i>D.customer-name</i> = <i>B.customer-name</i>)<br>
+            ��⑵�测试一个子查询的结果是否有重复元组。使用关键词unique和not unique，例如，找出在Perryridge分支机构中只有一个帐户的所有客户姓名：<br>
+            select <i>T.customer-name</i> from <i>depositor as T</i><br>
+            where unique (select <i>R.customer-name</i> <br>
+            �������from account, <i>depositor</i> as <i>R </i><br>
+            �������where R.customer-name = T.<i>customer-name</i> and<br>
+            ����������R.account-number����������= <br>
+            <i>account.account-number</i> <br>
+            ��������and <i>account.branch-name</i> = &quot;Perryridge&quot;)�<br>
+            <br>
+            ��<span class="menu">嵌套子查询是SQL中比较复杂的内容，特别是当嵌套的层次比较多的时候。所以在设计嵌套子查询的时候，嵌套的层次关系一定要考虑的比较清楚。</span></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

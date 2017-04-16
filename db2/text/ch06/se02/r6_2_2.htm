@@ -1,0 +1,96 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" -->
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td align="center"><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="400" height="300">
+              <param name=movie value="../../../swf/ch6/6-12.swf">
+              <param name=quality value=high>
+              <param name="wmode" value="transparent">
+              <embed src="../../../swf/ch6/6-12.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="400" height="300" wmode="transparent">
+              </embed> 
+            </object></td>
+        </tr>
+      </table>
+      <br>
+      　具体地说， ODBC体系结构四个部分的主要功能如下：<br>
+      <br>
+      　<span class="biaoti_1">1. 应用程序：</span> <br>
+      　　应用程序负责调用ODBC函数，提交SQL语句，处理从数据库返回的结果数据。因此应用程序的主要功能包括：<br>
+      　・ 请求与指定数据源的连接；<br>
+      　・ 发送和提交对数据源的SQL请求语句；<br>
+      　・ 定义存储SQL执行结果的数据区和格式；<br>
+      　・ 请求结果，并报告给用户；<br>
+      　・ 对事务进行控制，提交或重新运行；<br>
+      　・ 处理错误；<br>
+      　・ 终止与数据塬的连接。<br>
+      　　<font color="#5a5aad">客户端(client)的应用程序代码，生成SQL命令请求服务器方执行。它可能是和用户交互的客户端应用程序，或者是在其操作中需要数据库服务的服务器进程，但是对于服务器而言它们是无区别的。数据库服务器当然就是执行SQL 
+      语句的数据库管理系统。在两者之间便是ODBC，以其两个构件在客户端和服务器间进行连接和解释。</font><br>
+      <br>
+      　<span class="biaoti_1">2 数据库驱动程序管理器ODBC.DLL</span> <br>
+      　　驱动程序管理器(driver manager)是ODBC的交通引导者。是用来管理应用程序和数据库驱动程序之间数据访问和通信的管理程序，是共享的程序库管理器。它的主要作用是用来装载ODBC驱动程序、管理数据源、检查ODBC调用参数的合法性等，因此驱动程序管理器的主要功能包括：<br>
+      　・ 把应用程序的调用分配给数据库驱动程序；<br>
+      　・ 根据需要，通过Windows的注册信息或ODBC.INI文件装载或卸载驱动程序；<br>
+      　・ 处理ODBC的初始化调用，检查状态；<br>
+      　・ 提供ODBC调用参数的有效性检查；<br>
+      　・ 管理应用和数据源之间的连接。<br>
+      　　<font color="#5a5aad">驱动程序管理器是一个动态连接库ODBC.DLL，当一个应用程序请求对其数据源的连接，驱动程序管理器读取该数据源的描述，定位并加载适当的驱动程序，管理应用程序和驱动程序的连接，还为调试提供有限的跟踪手段。驱动程序管理器以动态链接库(ODBC.DLL)形式将数据库驱动程序加载在客户端。</font><br>
+      　　<font color="#cc0000">驱动程序管理器是一个Windows下的应用程序，在Windows 95/NT下的文件名为ODBCAD32.EXE，Windows 
+      3.x下为 ODBCAD.EXE，它们分别对应于控制面板中的32bitODBC图标和ODBC图标。本节主要介绍Windows95/NT环境下的32位ODBC应用程序开发。如果在控制面板中没有32bit 
+      ODBC图标，则说明还没有安装ODBC驱动程序管理器。该软件可以从Microsoft Visual C++、Microsoft Visual Basic、Microsoft 
+      Developer Network Level II、Microsoft SQL Workstation等软件中获得。目前，Microsoft公司所提供的最新ODBC 
+      SDK软件版本为3.52。<br>
+      </font><br>
+      　<span class="biaoti_1">3 数据库驱动程序：</span> <br>
+      　　各个不同的数据库驱动程序是由各个不同的数据库厂商开发的满足ODBC规范的API接口函数库，并以动态连接库的形式提供。每个数据库管理系统DBMS都有一个驱动程序动态连接库，处理ODBC函数和数据源的交互。当应用程序调用ODBC的数据库连结接口函数（如SQLConnect、SQLDriverConnect或SQLBrowseConnect）时，驱动程序管理器装载它们指定的驱动程序，主要完成的功能包括：<br>
+      　・ 建立与数据源的连接；<br>
+      　・ 将SQL请求提交到数据源，执行SQL语句；<br>
+      　・ 根据应用程序要求转化数据格式；<br>
+      　・ 将结果返回应用程序；<br>
+      　・ 将错误格式化为标准代码返回给用户应用程序；<br>
+      　　<font color="#5a5aad">驱动程序是一个动态程序库，它实现一些必要的ODBC函数，使应用系统能与DBMS通讯。驱动程序与一个特定的DBMS互相配合。<br>
+      　　数据库驱动程序(database driver)通常由数据库厂商提供，实现必须的解释和通信所需要的功能，将ODBC支持的SQL语法翻译成服务器专用的SQL，将查询交付服务器执行，并接收返回的结果和状态信息。与厂商相关的函数，比如SQL 
+      Server的Tabular Data Stream通信协议或者Oracle的SQL*Net，都作为驱动程序构件实现。数据库驱动程序还可在客户端进程空间以DLL 
+      形式实现，并能调用客户端应用程序所不知道的其他进程或库。</font><br>
+      　　<font color="#cc0000">不同类型的数据库管理系统提供的ODBC驱动程序都是以各种DLL形式存放在Windows的系统System目录下，用户在分发应用系统时，一定要安装相应的数据库驱动程序。</font><br>
+      <br>
+      　<span class="biaoti_1">4 数据源：<br>
+      　</span><span class="pt9-black"> 数据源由DBMS、相关的操作系统和网络平台共同组成。数据源是ODBC.INI文件内基本的信息单位，数据源包含的主要信息如下：<br>
+      　・ 数据源的名称。<br>
+      　・ 数据源的描述，可有可无。<br>
+      　・ 数据库管理系统的类型。<br>
+      　・ 数据库文件存放的路径。<br>
+      　・ 该数据库管理系统的驱动程序。<br>
+      　・ 数据库文件的后缀格式。<br>
+      　・ 其它。<font color="#5a5aad">数据源不是数据库系统，而是用于表达一种与驱动程序和DBMS的特殊连接。数据库通常具有缺省的连接属性，象用户名、服务器名、以及它所连接的数据库名等，可以把它看作一个别名，代表一个与具体数据库和数据集合的特殊连接。</font></span><br>
+      <!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

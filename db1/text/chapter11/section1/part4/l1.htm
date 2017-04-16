@@ -1,0 +1,53 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgproperties=fixed bgcolor="#FFFFFF" background="../../../../image/moban/15.gif">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" height="309">
+        <tr> 
+          <td class="text" align="left"> 
+            <p class="part">1、两阶段封锁协议的定义<span class="text"><br>
+              ��能真正保证调度可串行化的封锁协议是两阶段封锁协议，该协议要求每个事务分两个阶段提出加锁和解锁申请：<br>
+              ��<u>-�增长阶段：</u>事务可以获得锁，但不能释放锁；<br>
+              ��<u>-�缩减阶段：</u>事务可以释放锁，但不能获得新锁。如</span>图11-1-6<span class="text">所示，对于一个事务而言，刚开始事务处于增长阶段，它可以根据需要获得锁；一旦该事务开始释放锁，它就进入了缩减阶段，就不能再发出加锁请求。</span><br>
+            </p>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left"> 
+            <div align="center"><span class="part">图11-1-6：两阶段封锁示意</span><br>
+              <img src="../../../../image/chapter/11/11-1-6.gif" width="391" height="261"> 
+            </div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left">值得注意的是：事务的第一个解锁语句unlock被执行的时刻就是该事物缩减阶段的开始。<br>
+            <br>
+            <span class="part">2、两阶段封锁协议的优缺点</span><br>
+            ��⑴�在前面11.1.3小节介绍饿死问题的时候，指出了并发控制管理器给事务授予锁的条件，使得某一个事务不会一直处于等待状态；<br>
+            ��⑵�而两阶段封锁协议很好地解决了解锁问题，它指出了事务释放锁的时机，使得解锁指令不必非得出现在事务的末尾，从而大大增加了事务之间的并发度，如<span class="part">图11-1-7</span>所示<br>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left"> 
+            <div align="center"><span class="part">图11-1-7：事务的解锁时机</span> <br>
+              <img src="../../../../image/chapter/11/11-1-7.gif" width="190" height="428"></div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left">��⑶�但两阶段封锁协议仍然没有解决死锁问题，在调度中可能还会有死锁发生，例如前面11.1.3小节的<span class="part">图11-1-4</span>中事务T<font size="-5">3</font>与T<font size="-5">4</font>的调度符合两阶段封锁协议的要求，但还是有死锁问题。<br>
+            <br>
+            <span class="part">3、封锁点</span><br>
+            ��对于任何一个事务而言，在调度中该事务获得其最后一个锁（由DBMS的并发控制管理器负责授予）的时刻称为事务的封锁点。调度中多个事务可以根据它们的封锁点进行排序。实际上，这样的一个顺序就是事务的一个可串行化次序。</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

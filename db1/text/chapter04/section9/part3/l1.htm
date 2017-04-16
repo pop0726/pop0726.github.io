@@ -1,0 +1,38 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgproperties=fixed bgcolor="#FFFFFF" background="../../../../image/moban/15.gif">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" height="157">
+        <tr> 
+          <td class="text" align="left" height="2"> 
+            <p><span class="part">1、更新语句</span><br>
+              update <i>account</i> set balance = balance*1.05<br>
+              <span class="part">2、更新顺序</span><br>
+              首先找到关系中所有应该被更新的元组，然后才去执行更新，否则就会产生逻辑上的错误。例如：<br>
+              update account set <i>balance</i> = <i>balance*</i>1.05<br>
+              where <i>balance</i> &gt; (select avg(<i>balance</i>) from <i>account</i>)<br>
+              用关系代数表达更新就是<img src="../../../../image/chapter/04/02.gif" width="212" height="16">（参阅第三章&quot;关系模型&quot;的3.5.3小节），因此，在这里特别要注意元组被处理的顺序！<br>
+              <span class="part">3、视图更新</span><br>
+              一般禁止在视图上进行增、删、改的修改操作。当且仅当视图定义在实际关系数据库的单个关系上时，视图更新才可能被允许！例如，下面的视图涉及多个关系，而且视图属性的值来自聚集运算，因此通过该视图去修改关系account和关系loan是不可能的！<br>
+              Create view <i>account-loan</i> as <br>
+              ��(select <i>branch-name</i>, sum(<i>balance</i>) <br>
+              ��from <i>account</i> group by <i>branch-name</i>) as a(BN,SUM-A) 
+              <br>
+              �full outer join <br>
+              ��(select <i>branch-name</i>, sum(<i>amount</i>) <br>
+              ��from<i> loan</i> group by<i> branch-name</i>) as l(BN,SUM-L)<br>
+              �using (BN)</p>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../../css/text.css" type="text/css">
+<script language="JavaScript">
+<!--
+function JustSoPicWindow(imageName,imageWidth,imageHeight,alt,bgcolor,hugger) {
+
+// by E Michael Brandt of ValleyWebDesigns.com - Please leave this comment intact.
+
+	alt=alt+"  ** Click window to close **"
+	if (bgcolor=="") {
+		bgcolor="#FFFFFF";
+	}
+	var adj=10
+	var w = screen.width;
+	var h = screen.height;
+	var byFactor=1;
+
+    if(w<740){
+      var lift=0.90;
+    }
+    if(w>=740 & w<835){
+      var lift=0.91;
+    }
+    if(w>=835){
+      var lift=0.93;
+    }
+
+	if (imageWidth>w){	
+		byFactor = w / imageWidth;			
+		imageWidth = w;
+		imageHeight = imageHeight * byFactor;
+	}
+	if (imageHeight>h-adj){
+		byFactor = h / imageHeight;
+		imageWidth = (imageWidth * byFactor);
+		imageHeight = h; 
+	}
+	   
+	var scrWidth = w-adj;
+	var scrHeight = (h*lift)-adj;
+
+	if (imageHeight>scrHeight){
+		imageHeight=imageHeight*lift;
+		imageWidth=imageWidth*lift;
+	}
+
+	var posLeft=0
+	var posTop=0
+	
+	if (hugger=="hug image") {
+		posTop = (scrHeight-imageHeight)/2;
+		posLeft = ((w-imageWidth)/2);
+		scrHeight = imageHeight-adj;
+		scrWidth = imageWidth-adj;
+ 	}
+	
+	imageHeight=imageHeight-adj;
+	imageWidth=imageWidth-adj;
+
+	newWindow = window.open("","newWindow","width="+scrWidth+",height="+scrHeight+",left="+posLeft+",top="+posTop);
+	newWindow.document.open();
+	newWindow.document.write('<html><title>'+alt+'</title><body leftmargin="0" topmargin="0" marginheight="0" marginwidth="0" bgcolor='+bgcolor+' onBlur="self.close()" onClick="self.close()">');  
+	newWindow.document.write('<table width='+imageWidth+' border="0" cellspacing="0" cellpadding="0" align="center" height='+scrHeight+' ><tr><td>');
+	newWindow.document.write('<img src='+imageName+' width='+imageWidth+' height='+imageHeight+' alt=\"Click\&nbsp\;screen\&nbsp\;to\&nbsp\;close.\" >'); 
+	newWindow.document.write('</td></tr></table></body></html>');
+	newWindow.document.close();
+	newWindow.focus();
+}
+//-->
+</script>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td colspan="2"> ��<span class="text">事件可以作为普通数据加工的输入数据流，控制也可以接收普通的输入数据流。<br>
+            　</span></td>
+        </tr>
+        <tr> 
+          <td class="text" width="25" valign="top"><img src="../../../../../images/tubiao/ts.gif" width="25" height="20" alt="图示"></td>
+          <td class="text">
+            <div align="center"><a href="javascript:;" onClick="JustSoPicWindow('../../../../../images/images/chapter02/2_19.gif','507','240','1_19','#FFFFFF','hug image')"><img src="../../../../../images/images/chapter02/2_19s.gif" width="316" height="150" border="0" alt="点击放大"></a><br>
+              <span class="part">图2.19 使用Ward &amp; Mellor符号的数据流和控制流 <br>
+              　</span></div>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,821 @@
+<HTML>
+<HEAD>
+<TITLE>软件工程 </TITLE>
+<SCRIPT language=JavaScript>
+/*-------------------------------------------填空题---------------------------------------------*/
+function getKeyWord(form){
+var mykeys=new Array();
+mykeys[0]="软件项目管理";mykeys[1]="软件工程活动";mykeys[2]="状态捕获";mykeys[3]="方案综合";mykeys[4]="目标";mykeys[5]="范围";mykeys[6]="目标";mykeys[7]="质量";mykeys[8]="生产率";mykeys[9]="基线";mykeys[10]="正确性";mykeys[11]="完整性";mykeys[12]="完整性";mykeys[13]="接口";mykeys[14]="资源";mykeys[15]="资源";mykeys[16]="分解";mykeys[17]="静态单变量";mykeys[18]="可行";mykeys[19]="可能性";mykeys[20]="结果";mykeys[21]="最高";mykeys[22]="人员的能力";mykeys[23]="编码与单元测试";mykeys[24]="落实责任";mykeys[25]="接口";mykeys[26]="责权";mykeys[27]="统计分析";mykeys[28]="商业风险";
+
+var answer=new Array();
+for(var I=0;I<mykeys.length;I++) answer[I]="";
+
+var every=form.elements;
+for(var I=0;I<every.length;I++)
+{
+if(every[I].type=="text")
+{
+ if(every[I].value!==null)
+ {var item=parseInt(every[I].name.substr(0))
+  answer[item-1]+=every[I].value;
+  }
+ }
+}
+var newcount="<html><head><title>谢谢您!</title></head><body><center><h2><font color=red>您的测试结果</font></h2></center>";
+var totalscore=0;
+for(var I=0;I<answer.length;I++)
+{var re=/</g;
+var rd=/>/g;
+var re=/\\/g;
+answer[I]=answer[I].replace(re,"&#92;");
+answer[I]=answer[I].replace(re,"&lt;");
+answer[I]=answer[I].replace(rd,"&gt;");
+	if(answer[I].toUpperCase()==mykeys[I].toUpperCase())
+	{
+		var rstr="<font size=2>第"+(I+1)+"个空答案正确!</font><br>";
+		newcount+=rstr;
+		totalscore+=1/29*100;
+	}else
+	{
+		var rstr="<font size=2>第"+(I+1)+"个空答案错误!正确答案为"+mykeys[I]+"</font><br>";
+		newcount+=rstr;
+	}
+
+}
+
+newcount+="<br>您的总成绩为:";
+newcount+=Math.ceil(totalscore);
+newcount+="分";
+newwin=window.open("","","height=400,width=400,scrollbars=yes,resizable=no");
+newwin.document.write(newcount);
+}
+/*-------------选择提----------------------------------------------------------------*/
+function getresultcheck(form)
+{var mykeys=new Array();
+mykeys[0]="B";mykeys[1]="D";mykeys[2]="C";mykeys[3]="A";mykeys[4]="B";mykeys[5]="A";mykeys[6]="D";mykeys[7]="C";mykeys[8]="A";mykeys[9]="C";mykeys[10]="B";mykeys[11]="B";mykeys[12]="A";mykeys[13]="D";mykeys[14]="B";mykeys[15]="B";mykeys[16]="C";mykeys[17]="A";mykeys[18]="D";mykeys[19]="B";mykeys[20]="A";mykeys[21]="C";mykeys[22]="B";mykeys[23]="B";
+
+
+var answer=new Array();
+for(var I=0;I<mykeys.length;I++) answer[I]="";
+
+var every=form.elements;
+//var lastname="";
+for(var I=0;I<every.length;I++)
+{
+	if(every[I].type=="radio")
+	{
+		/*alert("checkbox:name->"+every[I].name+"value->"+every[I].value);*/
+		if(every[I].checked)
+		{	
+			//var item=parseInt(every[I].name.charAt(1));
+			var item=parseInt(every[I].name.substr(0));/*返回由字符串转换得到的整数*/
+			/*substr返回一个从指定位置开始的指定长度的子字符串。*/
+			answer[item-1]+=every[I].value;
+		}
+	}				
+}
+
+var newcount="<html><head><title>谢谢您!</title></head><body><center><h2><font color=red>您的测试结果</font></h2></center>";
+var totalscore=0;
+for(var I=0;I<answer.length;I++)
+{
+	if(answer[I].toUpperCase()==mykeys[I].toUpperCase())
+	{
+		var rstr="<font size=2>第"+(I+1)+"题答案正确!</font><br>";
+		newcount+=rstr;
+		totalscore+=1/24*100;//每题分数
+	}else
+	{
+		var rstr="<font size=2>第"+(I+1)+"题答案错误!正确答案为"+mykeys[I]+"</font><br>";
+		newcount+=rstr;
+	}
+
+}
+
+newcount+="<br>您的总成绩为:";
+newcount+=Math.ceil(totalscore);
+newcount+="分";
+newwin=window.open("","","height=400,width=400,scrollbars=yes,resizable=no");
+newwin.document.write(newcount);}
+/*--------------------------------判断题----------------------------------------------------*/
+
+function getresultpanduan(form)
+{var mykeys=new Array();
+
+
+
+var answer=new Array();
+for(var I=0;I<mykeys.length;I++) answer[I]="";
+
+var every=form.elements;
+//var lastname="";
+for(var I=0;I<every.length;I++)
+{
+	if(every[I].type=="checkbox")
+	{
+		/*alert("checkbox:name->"+every[I].name+"value->"+every[I].value);*/
+		if(every[I].checked)
+		{	
+			//var item=parseInt(every[I].name.charAt(1));
+			var item=parseInt(every[I].name.substr(0));/*返回由字符串转换得到的整数*/
+			/*substr返回一个从指定位置开始的指定长度的子字符串。*/
+			answer[item-1]+=every[I].value;
+		}
+	}				
+}
+
+var newcount="<html><head><title>谢谢您!</title></head><body><center><h2><font color=red>您的测试结果</font></h2></center>";
+var totalscore=0;
+for(var I=0;I<answer.length;I++)
+{
+	if(answer[I].toUpperCase()==mykeys[I].toUpperCase())
+	{
+		var rstr="<font size=2>第"+(I+1)+"题 您答对了!</font><br>";
+		newcount+=rstr;
+		totalscore+=1/0*100;//每题分数
+	}else
+	{
+		var rstr="<font size=2>第"+(I+1)+"题 您答错了!</font><br>";
+		newcount+=rstr;
+	}
+
+}
+
+newcount+="<br>您的总成绩为:";
+newcount+=Math.ceil(totalscore);
+newcount+="分";
+newwin=window.open("","","height=400,width=400,scrollbars=yes,resizable=no");
+newwin.document.write(newcount);
+}
+/*--------------------------------简答题----------------------------------------------------*/
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+</SCRIPT>
+<style type="text/css"><!--
+-->
+</style>
+<link rel="stylesheet" href="../../../../../css/text.css" type="text/css">
+</HEAD>
+<BODY text=black bgColor=#FFFFFF topMargin=10 marginheight="10">
+<DIV class=p2 align=center></DIV>
+<FORM >
+  <P class="section">一、填空题</P>
+  <P>&nbsp;<span class="text">1、要成功地完成软件开发工作的一个主要的决定性因素是 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=1>
+    。<BR>
+    &nbsp;2、软件过程是软件生存期中的一系列相关 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=2>
+    集合。<BR>
+    &nbsp;3、所有的软件开发都可以看成是一个问题循环解决过程，其中包括4个截然不同的阶段： 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=3>
+    、问题定义、技术开发和&nbsp; 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=4>
+    。<BR>
+    &nbsp;4、在制定软件项目计划之前，必须先明确项目的&nbsp; 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=5>
+    和&nbsp; 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=6>
+    。项目的 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=7>
+    标明了软件项目的目的但不涉及如何去达到这些目的。<BR>
+    &nbsp;5、对软件进行度量，是为了表明软件产品的&nbsp; 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=8>
+    ，弄清软件开发人员的 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=9>
+    ，建立项目估算的&nbsp; 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=10>
+    ，帮助调整对新的工具和附加培训的要求。<BR>
+    &nbsp;6、软件质量的事后度量包括&nbsp; 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=11>
+    、可维护性、 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=12>
+    和可使用性。其中， 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=13>
+    包括危险性和安全性。<BR>
+    &nbsp;7、软件范围包括功能、性能、限制、 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=14>
+    和可靠性。<BR>
+    &nbsp;8、软件项目计划的第二个任务是对完成该软件项目所需的&nbsp; 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=15>
+    进行估算。 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=16>
+    包括人与工具。<BR>
+    &nbsp;9、对于一个大型的软件项目，要进行一系列的估算处理。主要靠&nbsp; 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=17>
+    和类推的手段进行。<BR>
+    &nbsp;10、基本COCOMO模型是一个&nbsp; 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=18>
+    模型，它用一个已估算出的源代码行数（LOC）为自变量的（经验）函数来计算软件开发工作量。<BR>
+    &nbsp;11、成本－效益分析的目的，是从经济角度评价开发一个新的软件项目是否 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=19>
+    。<BR>
+    &nbsp;12、风险估计从两个方面估价风险。一是估计一个风险发生的&nbsp; 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=20>
+    。一是估价与风险相关的问题出现后将会产生的&nbsp; 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=21>
+    。<BR>
+    &nbsp;13、一个软件任务由一个人单独开发，生产率&nbsp; 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=22>
+    。<BR>
+    &nbsp;14、在与软件成本相关的影响因素中， 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=23>
+    是最大影响因素。<BR>
+    &nbsp;15、软件开发所需的人力随开发的进展逐渐增加，在&nbsp;&nbsp; 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=24>
+    阶段达到高峰，以后又逐渐减少。<BR>
+    &nbsp;16、在建立项目组织时应注意的原则有三：① 尽早&nbsp; 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=25>
+    ，指定专人负责；② 减少&nbsp; 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=26>
+    ，要有合理的人员分工、好的组织结构、有效的通信，减少不必要的生产率的损失；③&nbsp; 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=27>
+    均衡。<BR>
+    &nbsp;17、风险出现概率可以使用从过去项目、直觉或其它信息收集来的度量数据进行&nbsp;&nbsp; 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=28>
+    估算出来。<BR>
+    &nbsp;18、用各种不同的方法对风险进行分类是可能的。从宏观上来看，可将风险分为项目风险、技术风险和&nbsp; 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=29>
+    。</span><BR>
+    <BR>
+    <INPUT id=A type=reset value=清�空>
+    <INPUT id=A onclick=getKeyWord(this.form) type=button value=提�交>
+  </P>
+  <P class="section">二、选择题</P>
+  <P>&nbsp;<span class="text">1、所有的软件开发都可以看成是一个问题_____过程。<BR>
+    <INPUT id=c1 type=radio value=A name=1>
+    A. 顺序解决&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=1>
+    B. 循环解决<BR>
+    <INPUT id=c1 type=radio value=C name=1>
+    C. 分类解决&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=1>
+    D. 分组解决<BR>
+    <BR>
+    &nbsp;2、软件项目管理所涉及的范围覆盖了整个软件_____。<BR>
+    <INPUT id=c1 type=radio value=A name=2>
+    A. 开发过程&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=2>
+    B. 运行与维护过程<BR>
+    <INPUT id=c1 type=radio value=C name=2>
+    C. 定义过程&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=2>
+    D. 生存期<BR>
+    <BR>
+    &nbsp;3、为使软件开发获得成功，一个关键问题是必须对软件范围、风险、资源、任务、里程碑、成本，进度等做到心中有数，而_____可以提供这些信息。<BR>
+    <INPUT id=c1 type=radio value=A name=3>
+    A. 计算机辅助工程&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=3>
+    B. 软件开发工具<BR>
+    <INPUT id=c1 type=radio value=C name=3>
+    C. 软件项目管理&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=3>
+    D. 软件估算<BR>
+    <BR>
+    &nbsp;4、软件范围标明了软件要实现的基本功能，并尽量以____的方式界定这些功能。<BR>
+    <INPUT id=c1 type=radio value=A name=4>
+    A. 定量&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=4>
+    B. 规范<BR>
+    <INPUT id=c1 type=radio value=C name=4>
+    C. 统一&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=4>
+    D. 定性<BR>
+    <BR>
+    &nbsp;5、只要事先建立特定的度量规程，很容易做到_____开发软件所需要的成本和工作量、产生的代码行数等。<BR>
+    <INPUT id=c1 type=radio value=A name=5>
+    A. 间接度量&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=5>
+    B. 直接度量<BR>
+    <INPUT id=c1 type=radio value=C name=5>
+    C. 间接估算&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=5>
+    D. 直接估算<BR>
+    <BR>
+    &nbsp;6、为了计算特征点，可以像计算功能点那样，对信息域值进行计数和加权。此外，需要对一个新的软件特征____进行计数。<BR>
+    <INPUT id=c1 type=radio value=A name=6>
+    A. 算法&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=6>
+    B. 计算误差<BR>
+    <INPUT id=c1 type=radio value=C name=6>
+    C. 程序复杂性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=6>
+    D. 效率<BR>
+    <BR>
+    &nbsp;7、对于软件的____，有一种简单的面向时间的度量，叫做平均变更等待时间MTTC（Mean Time To Change)。 这个时间包括开始分析变更要求、设计合适的修改、实现变更并测试它、以及把这种变更发送给所有的用户。<BR>
+    <INPUT id=c1 type=radio value=A name=7>
+    A. 可靠性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=7>
+    B. 可修改性<BR>
+    <INPUT id=c1 type=radio value=C name=7>
+    C. 可测试性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=7>
+    D. 可维护性<BR>
+    <BR>
+    &nbsp;8、软件的完整性是度量一个系统抗拒对它的____攻击(事故的和人为的)的能力。<BR>
+    <INPUT id=c1 type=radio value=A name=8>
+    A. 可靠性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=8>
+    B. 正确性<BR>
+    <INPUT id=c1 type=radio value=C name=8>
+    C. 安全性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=8>
+    D. 容错性<BR>
+    <BR>
+    &nbsp;9、对每一种软件资源，应说明4个特性：资源的描述，资源的有效性说明，资源在何时开始需要，使用资源的持续时间。最后两个特性统称为____。<BR>
+    <INPUT id=c1 type=radio value=A name=9>
+    A. 时间窗口&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=9>
+    B. 时间安排<BR>
+    <INPUT id=c1 type=radio value=C name=9>
+    C. 日程安排&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=9>
+    D. 资源定义<BR>
+    <BR>
+    &nbsp;10、业务系统计划工具借助特定的____建立一个组织的战略信息需求的模型，导出特定的信息系统。<BR>
+    <INPUT id=c1 type=radio value=A name=10>
+    A. 过程性语言&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=10>
+    B. 形式化语言<BR>
+    <INPUT id=c1 type=radio value=C name=10>
+    C. 元语言&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=10>
+    D. 伪码<BR>
+    <BR>
+    &nbsp;11、软件开发成本主要是指软件开发过程中所花费的_____及相应的代价。<BR>
+    <INPUT id=c1 type=radio value=A name=11>
+    A. 劳动力&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=11>
+    B. 工作量<BR>
+    <INPUT id=c1 type=radio value=C name=11>
+    C. 资源&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=11>
+    D. 持续时间<BR>
+    <BR>
+    &nbsp;12、自顶向下估算软件成本的方法主要是从项目的整体出发进行____，即根据已完成项目的总成本(或总工作量)，来推算待开发软件的总成本(或总工作量)，然后按比例将它分配到各开发任务单元中去。<BR>
+    <INPUT id=c1 type=radio value=A name=12>
+    A. 分解&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=12>
+    B. 类推<BR>
+    <INPUT id=c1 type=radio value=C name=12>
+    C. 推导&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=12>
+    D. 评估<BR>
+    <BR>
+    &nbsp;13、自底向上估算软件成本的方法主要是把待开发软件____，直到每一个子任务都已经明确所需要的开发工作量，然后把它们加起来，得到软件开发的总工作量。<BR>
+    <INPUT id=c1 type=radio value=A name=13>
+    A. 分解&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=13>
+    B. 类推<BR>
+    <INPUT id=c1 type=radio value=C name=13>
+    C. 推导&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=13>
+    D. 评估<BR>
+    <BR>
+    &nbsp;14、Putnam提出的模型，是一种_____模型。它是假定在软件开发的整个生存期中工作量有特定的分布。<BR>
+    <INPUT id=c1 type=radio value=A name=14>
+    A. 模块化成本&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=14>
+    B. 结构化成本<BR>
+    <INPUT id=c1 type=radio value=C name=14>
+    C. 动态单变量成本&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=14>
+    D. 动态多变量成本<BR>
+    <BR>
+    &nbsp;15、Boehm提出的_____估算模型是一种精确、易于使用的成本估算方法。<BR>
+    <INPUT id=c1 type=radio value=A name=15>
+    A. 模块化成本&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=15>
+    B. 结构化成本<BR>
+    <INPUT id=c1 type=radio value=C name=15>
+    C. 动态单变量成本&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=15>
+    D. 动态多变量成本<BR>
+    <BR>
+    &nbsp;16、系统的经济效益_____因使用新系统而增加的收入加上使用新系统可以节省的运行费用。<BR>
+    <INPUT id=c1 type=radio value=A name=16>
+    A. 大于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=16>
+    B. 等于<BR>
+    <INPUT id=c1 type=radio value=C name=16>
+    C. 小于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=16>
+    D. 不等于<BR>
+    <BR>
+    &nbsp;17、项目复杂性、规模和结构的不确定性构成______(估算)风险因素。<BR>
+    <INPUT id=c1 type=radio value=A name=17>
+    A. 技术&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=17>
+    B. 经济<BR>
+    <INPUT id=c1 type=radio value=C name=17>
+    C. 项目&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=17>
+    D. 商业<BR>
+    <BR>
+    &nbsp;&nbsp;18、识别风险的一种最好的方法就是利用一组____来帮助人们了解在项目和技术方面有哪些风险。因此，Boehm建议使用一个“风险项目检查表”。<BR>
+    <INPUT id=c1 type=radio value=A name=18>
+    A. 提问&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=18>
+    B. 项目<BR>
+    <INPUT id=c1 type=radio value=C name=18>
+    C. 脚本&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=18>
+    D. 场景<BR>
+    <BR>
+    &nbsp;19、在做风险评价时常采用的一个非常有效的方法就是定义____。<BR>
+    <INPUT id=c1 type=radio value=A name=19>
+    A. 风险评价标准&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=19>
+    B. 风险影响因子<BR>
+    <INPUT id=c1 type=radio value=C name=19>
+    C. 风险调整因素&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=19>
+    D. 风险参照水准<BR>
+    <BR>
+    &nbsp;20、Pareto的80／20规则用到软件风险上表明，所有可能导致项目失败的80％ 的潜在因素能够通过____的已识别风险来说明。<BR>
+    <INPUT id=c1 type=radio value=A name=20>
+    A. 30%&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=20>
+    B. 20%<BR>
+    <INPUT id=c1 type=radio value=C name=20>
+    C. 50%&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=20>
+    D. 25%<BR>
+    <BR>
+    &nbsp;21、当几个人共同承担软件开发项目中的某一任务时，人与人之间必须通过交流来解决各自承担任务之间的___问题，即所谓通信问题。<BR>
+    <INPUT id=c1 type=radio value=A name=21>
+    A. 接口&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=21>
+    B. 衔接<BR>
+    <INPUT id=c1 type=radio value=C name=21>
+    C. 调用&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=21>
+    D. 控制<BR>
+    <BR>
+    &nbsp;22、假设一个人单独开发软件，生产率是5000行／人年。若4个人组成一个小组共同开发这个软件，在每条通信路径上耗费的工作量是250行／人年。则组中每人的生产率降低为_____ 
+    ：<BR>
+    <INPUT id=c1 type=radio value=A name=22>
+    A. 4200&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=22>
+    B. 4350<BR>
+    <INPUT id=c1 type=radio value=C name=22>
+    C. 4675&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=22>
+    D. 4375<BR>
+    <BR>
+    &nbsp;23、PERT技术叫做&nbsp;_____技术，它是采用网络图来描述一个项目的任务网络，安排开发进度，制定软件开发计划的最常用的方法。<BR>
+    <INPUT id=c1 type=radio value=A name=23>
+    A. 日程安排&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=23>
+    B. 计划评审<BR>
+    <INPUT id=c1 type=radio value=C name=23>
+    C. 关键路径&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=23>
+    D. 因果图<BR>
+    <BR>
+    &nbsp;24、在进度压力下赶任务，其成果往往是以_____产品的质量为代价的。<BR>
+    <INPUT id=c1 type=radio value=A name=24>
+    A. 浪费&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=24>
+    B. 牺牲<BR>
+    <INPUT id=c1 type=radio value=C name=24>
+    C. 抵押&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=24>
+    D. 维持</span><BR>
+    <BR>
+    <INPUT id=A type=reset value=重�置>
+    <INPUT id=A onclick=getresultcheck(this.form) type=button value=提�交>
+  </P>
+  <P>三、选择填空题</P>
+  <P>&nbsp;<span class="text">1、从供选择的答案中选出与下列有关软件过程叙述相对应的正确答案，将其编号填入到相应的括弧（&nbsp;&nbsp; 
+    ）内。<BR>
+    &nbsp;软件过程是软件(&nbsp; A&nbsp; )中的一系列相关软件工程(&nbsp; B&nbsp; )的集合。每一个软件过程又是由一组(&nbsp; 
+    C&nbsp; )、项目(&nbsp; D&nbsp; )、软件工程产品和交付物以及质量保证(SQA)点等组成。一个软件过程可以用右图的形式来表示。首先建立一个(&nbsp; 
+    E&nbsp; )过程框架，其中定义了少量可适用于所有软件项目的框架(&nbsp; B&nbsp; )，再给出各个框架(&nbsp; B&nbsp; 
+    )的任务集合，最后是保护伞活动，如软件质量保证、软件配置管理以及测量等。软件过程模型的选择基于项目和应用的特点、采用的(&nbsp; F&nbsp; 
+    )和工具、要求的控制和需交付的产品。</span><BR>
+    <IMG alt="" hspace=0 src="image/01.gif" align=baseline border=0 width="238" height="197"><BR>
+    <span class="text">供选择的答案：<BR>
+    A～F.�① 工程&nbsp;&nbsp; &nbsp;&nbsp;② 公共&nbsp;&nbsp;&nbsp;③ 活动&nbsp; &nbsp;&nbsp;④ 
+    生存期<BR>
+    ��� ⑤ 方法 &nbsp;&nbsp;&nbsp;⑥ 工作任务&nbsp;&nbsp;⑦ 功能&nbsp;&nbsp;&nbsp;⑧ 里程碑</span></P>
+  <P> <span class="text"> 
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    </span></P>
+  <P class="text">&nbsp;2、从供选择的答案中选出与下列有关软件项目管理叙述相对应的正确答案，将其编号填入到相应的括弧（&nbsp;&nbsp; 
+    ）内。<BR>
+    �由于软件工程有如下的特点，使软件管理比其它工程的管理更为困难。软件产品(&nbsp; A&nbsp; )。(&nbsp; B&nbsp; )标准的过程。大型软件项目往往是(&nbsp; 
+    C&nbsp; )项目。(&nbsp; D&nbsp; )的作用是为有效地定量地进行管理，把握软件工程过程的实际情况和它所产生的产品质量。在制定计划时，应当对人力、项目持续时间、成本作出(&nbsp; 
+    E&nbsp; )；(&nbsp; H&nbsp; )实际上就是贯穿于软件工程过程中一系列风险管理步骤。最后，每一个软件项目都要制定一个(&nbsp; 
+    F&nbsp; )，一旦(&nbsp; G&nbsp; )制定出来，就可以开始着手(&nbsp; H&nbsp; )。<BR>
+    供选择的答案：<BR>
+    A～C.�① 可见的&nbsp;&nbsp;&nbsp; &nbsp;② 不可见的 &nbsp;&nbsp;③ “一次性”&nbsp; &nbsp;④ 
+    “多次”<BR>
+    ��� ⑤ 存在&nbsp; &nbsp;&nbsp;&nbsp;⑥ 不存在<BR>
+    D～H.�① 进度安排&nbsp; &nbsp;② 度量 &nbsp;&nbsp;&nbsp;③ 风险分析&nbsp; &nbsp;④ 估算<BR>
+    ��� ⑤ 追踪和控制 &nbsp;&nbsp;⑥ 开发计划</P>
+  <P> <span class="text"> 
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    <BR>
+    <BR>
+    3、从供选择的答案中选出与下列有关软件度量叙述相对应的正确答案，将其编号填入到相应的括弧（&nbsp;&nbsp; ）内。<BR>
+    �软件的度量包括(&nbsp; A&nbsp; )和(&nbsp; B&nbsp; )。软件产品的(&nbsp; A&nbsp; )包括产生的代码行数、执行速度等。软件产品的(&nbsp; 
+    B&nbsp; )则包括若干质量特性。我们还可进一步将软件度量如右图所示那样分类。软件(&nbsp; C&nbsp; )度量主要关注软件工程过程的结果；(&nbsp; 
+    D&nbsp; )度量则指明了软件适应明确和不明确的用户要求到什么程度；(&nbsp; E&nbsp; )度量主要关注软件的一些特性而不是软件开发的全过程。从图中还可看到另一种分类方法：面向(&nbsp; 
+    F&nbsp; )的度量用于收集与直接度量有关软件工程输出的信息和质量信息。面向(&nbsp; G&nbsp; )的度量提供直接度量的尺度。面向(&nbsp; 
+    H&nbsp; )的度量则收集有关人们开发软件所用方式的信息和人们理解有关工具和方法的效率的信息。<BR>
+    <IMG alt="" hspace=0 src="image/02.gif" align=baseline border=0 width="251" height="155"></span></P>
+  <P class="text">供选择的答案：<BR>
+    A～B.�① 直接度量&nbsp;&nbsp; &nbsp;② 尺度度量 &nbsp;③ 二元度量&nbsp; &nbsp;④ 间接度量<BR>
+    C～E.�① 质量&nbsp;&nbsp; &nbsp;&nbsp;② 技术&nbsp;&nbsp;&nbsp;③ 成本 &nbsp;&nbsp;④ 
+    生产率<BR>
+    F～H.�① 过程&nbsp;&nbsp; &nbsp;&nbsp;② 对象&nbsp;&nbsp;&nbsp;③ 人&nbsp; &nbsp;&nbsp;&nbsp;④ 
+    存取<BR>
+    ��� ⑤ 规模 &nbsp;&nbsp;&nbsp;⑥ 进程&nbsp;&nbsp;&nbsp;⑦ 功能&nbsp;&nbsp;&nbsp;⑧ 数据</P>
+  <P> <span class="text"> 
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    </span></P>
+  <P class="text">&nbsp;4、从供选择的答案中选出与下列有关软件估算叙述相对应的正确答案，将其编号填入到相应的括弧（&nbsp;&nbsp; 
+    ）内。<BR>
+    �估算资源、成本和进度时需要经验、有用的历史信息、足够的定量数据和作定量度量的勇气。通常估算本身带有(&nbsp; A&nbsp; )。项目的复杂性越高，规模越大，开发工作量(&nbsp; 
+    B&nbsp; )，估算的(&nbsp; A&nbsp; )就(&nbsp; C&nbsp; )。项目的结构化程度提高，进行精确估算的能力就能(&nbsp; 
+    D&nbsp; )，而风险将(&nbsp; E&nbsp; )。有用的历史信息(&nbsp; F&nbsp; )，总的风险会减少。<BR>
+    供选择的答案：<BR>
+    A.�� ① 风范（范型）&nbsp;&nbsp; &nbsp;② 风格&nbsp;&nbsp;&nbsp;③ 风险&nbsp;&nbsp; &nbsp;&nbsp;④ 
+    度量<BR>
+    B～F.�① 增加&nbsp; &nbsp;&nbsp;② 越多&nbsp;&nbsp;&nbsp;③ 降低&nbsp; &nbsp;&nbsp;④ 
+    不变<BR>
+    ��� ⑤ 越少&nbsp;&nbsp;&nbsp;⑥ 越高&nbsp;&nbsp;&nbsp;⑦ 越大</P>
+  <P> <span class="text"> 
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    </span></P>
+  <P class="text">&nbsp;5、从供选择的答案中选出与下列有关软件估算叙述相对应的正确答案，将其编号填入到相应的括弧（&nbsp;&nbsp; 
+    ）内。<BR>
+    &nbsp;�在软件项目估算时，将代码行LOC和功能点FP数据在两个方面使用：一是作为一个估算变量，度量软件每一个(&nbsp; A&nbsp; )的大小；一是联合使用从过去的项目中收集到的(&nbsp; 
+    B&nbsp; )和其它估算变量，进行成本和(&nbsp; C&nbsp; )估算。LOC和FP是两种不同的估算技术，但两者有许多共同的特征，只是LOC和FP技术对于分解所需要的(&nbsp; 
+    D&nbsp; )不同。当用(&nbsp; E&nbsp; )作为估算变量时，功能分解是绝对必要且应达到很详细的程度，而用(&nbsp; F&nbsp; 
+    )作为估算变量时，分解程度可以不很详细。(&nbsp; E&nbsp; )是直接估算，(&nbsp; F&nbsp; )是间接估算。若计划人员对每个功能分别按最佳的、可能的、悲观的三种情况给出LOC或FP估计值，记作a, 
+    m, b，则LOC或FP 的期望值E的公式为(&nbsp; G&nbsp; )，m是加权的最可能的估计值，遵循(&nbsp; H&nbsp; )。<BR>
+    供选择的答案：<BR>
+    A～C．�① 模块&nbsp;&nbsp; &nbsp;&nbsp;② 软件项目&nbsp;&nbsp;③ 分量&nbsp; &nbsp;&nbsp;④ 
+    持续时间<BR>
+    ����⑤ 工作量&nbsp;&nbsp;⑥ 进度&nbsp;&nbsp;&nbsp;⑦ 基线数据&nbsp;&nbsp;⑧ 改进数据&nbsp;<BR>
+    D．�� ① 详细程度&nbsp;&nbsp;② 分解要求&nbsp;&nbsp;③ 改进过程&nbsp;&nbsp;④ 使用方法<BR>
+    E,F．� ① FP&nbsp;&nbsp;&nbsp;② LOC<BR>
+    G.���① E = (a+m+b)/3 &nbsp;&nbsp;&nbsp;② E = (a+4m+b)/6<BR>
+    ����③ E = (2a+3m+4b)/3&nbsp;&nbsp;④ <IMG alt="" hspace=0 src="image/19.gif" align=baseline border=0 width="94" height="17"><BR>
+    H.���① χ概率&nbsp;&nbsp; ② γ概率&nbsp;&nbsp;③ β概率&nbsp;&nbsp;&nbsp;④ 泊松</P>
+  <P> <span class="text"> 
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    </span></P>
+  <P class="text">&nbsp;6、从供选择的答案中选出与下列有关软件估算叙述相对应的正确答案，将其编号填入到相应的括弧（&nbsp;&nbsp; 
+    ）内。<BR>
+    �在考虑各种软件开发资源时，(&nbsp; A&nbsp; )是最重要的资源。如果把软件开发所需的资源画成一个金字塔形：在塔的上层是最基本的资源(&nbsp; 
+    A&nbsp; )，在底部为(&nbsp; B&nbsp; )。(&nbsp; B&nbsp; )包括硬件资源和软件资源。(&nbsp; C&nbsp; 
+    )、(&nbsp; D&nbsp; )和其它硬件设备属于硬件资源。IPSE工具属于软件资源中的(&nbsp; E&nbsp; )。为了提高软件的生产率和软件产品的质量，可建立(&nbsp; 
+    F&nbsp; )。<BR>
+    供选择的答案：<BR>
+    A, B.�① 方法&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;② 人力&nbsp;&nbsp;&nbsp;&nbsp;③ 工具<BR>
+    ��� ④ 上下文环境<BR>
+    C, D.�① 虚拟机 &nbsp;&nbsp;&nbsp;② 目标机&nbsp;&nbsp;&nbsp;③ 自动机<BR>
+    ��� ④ 宿主机<BR>
+    E, F.�① 维护工具&nbsp;&nbsp;&nbsp;② 分析设计工具&nbsp;&nbsp;③ 支持工具<BR>
+    ��� ④ 编程工具&nbsp;&nbsp;&nbsp; &nbsp;⑤ 可复用构件库&nbsp;&nbsp;⑥ 框架工具<BR>
+    ��� ⑦ 原型化模拟工具</P>
+  <P> <span class="text"> 
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    <BR>
+    <BR>
+    7、从供选择的答案中选出与下列有关软件成本估算叙述相对应的正确答案，将其编号填入到相应的括弧（&nbsp;&nbsp; ）内。<BR>
+    &nbsp; �定义一个人参加劳动时间的长短为(&nbsp; A&nbsp; )，其度量单位为PM(人月)或PY(人年)。而定义完成一个软件项目(或软件任务)所需的(&nbsp; 
+    A&nbsp; )为(&nbsp; B&nbsp; )，其度量单位是人月／项目(任务)，记作PM(人月)。进一步地，定义单位(&nbsp; A&nbsp; 
+    )所能完成的软件(&nbsp; C&nbsp; )的数量为软件(&nbsp; D&nbsp; )，其度量单位为LOC／PM。它表明一般指(&nbsp; 
+    E&nbsp; )的一个平均值。例如，一个软件的开发工作量如下表所示。该软件共有源代码2900行，其中， 500行用于测试，2400行是执行(&nbsp; 
+    F&nbsp; )的源代码。则劳动生产率是(&nbsp; G&nbsp; ) (LOC／PM)。<BR>
+    <IMG alt="" hspace=0 src="image/04.gif" align=baseline border=0 width="295" height="88"><BR>
+    <BR>
+    供选择的答案：<BR>
+    A, B, D.�① 生产率&nbsp;&nbsp;② 工作量 &nbsp;&nbsp;③ 成本&nbsp;&nbsp;&nbsp;④ 劳动量<BR>
+    E.����① 开发全过程&nbsp;② 某开发阶段&nbsp;③ 软件生存期&nbsp;④ 某开发任务<BR>
+    F, C.�� ① 软件&nbsp; &nbsp;&nbsp;② 程序&nbsp; &nbsp;&nbsp;③ 进程&nbsp;&nbsp;&nbsp;④ 
+    产品<BR>
+    G.����① 520&nbsp; &nbsp;&nbsp;② 120&nbsp;&nbsp;&nbsp;③ 320&nbsp;&nbsp;&nbsp;④ 
+    240</span></P>
+  <P> <span class="text"> 
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    <BR>
+    <BR>
+    8、从供选择的答案中选出与下列有关软件成本估算叙述相对应的正确答案，将其编号填入到相应的括弧（&nbsp;&nbsp; ）内。<BR>
+    �对于一个大型的软件项目，由于项目的复杂性，需要进行一系列的估算处理。主要按(&nbsp; A&nbsp; )和(&nbsp; B&nbsp; )手段进行。估算的方法分为三类：从项目的整体出发，进行(&nbsp; 
+    B&nbsp; )的方法称为(&nbsp; C&nbsp; )估算法。把待开发的软件细分，直到每一个子任务都已经明确所需要的开发工作量，然后把它们加起来，得到软件开发总工作量的方法称为(&nbsp; 
+    D&nbsp; )估算法。而把待开发的软件项目与过去已完成的软件项目做类比，区分出类似部分和不同部分分别处理的方法称为(&nbsp; E&nbsp; 
+    )估算法。(&nbsp; F&nbsp; )是由多位专家进行成本估算的方法。 <BR>
+    供选择的答案：<BR>
+    A,B.� ① 类推&nbsp;&nbsp;&nbsp;② 类比&nbsp;&nbsp;&nbsp;③ 分解&nbsp; &nbsp;&nbsp;④ 
+    综合<BR>
+    C～F.�① 差别&nbsp;&nbsp;&nbsp;② 自顶向下&nbsp;&nbsp;③ 自底向上&nbsp;&nbsp;④ 专家判定技术<BR>
+    ��� ⑤ 循序渐进&nbsp;&nbsp;⑥ 比较</span></P>
+  <P> <span class="text"> 
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    </span></P>
+  <P class="text">&nbsp;9、从供选择的答案中选出与下列有关软件成本估算叙述相对应的正确答案，将其编号填入到相应的括弧（&nbsp;&nbsp; 
+    ）内。<BR>
+    �Putnam模型是一种(&nbsp; A&nbsp; )模型。需要建立一条连续的(&nbsp; B&nbsp; )，称为Rayleigh-Norden曲线。可以由此导出一个(&nbsp; 
+    C&nbsp; )，把已交付的源代码(源语句)行数与工作量和开发时间联系起来。请选择合适的答案完成下面大型软件项目的开发工作量分布图。<BR>
+    <BR>
+    <a href="#"><IMG alt="点击放大" hspace=0 src="image/05b.gif" align=baseline border=0 width="300" height="199" onClick="MM_openBrWindow('5b.htm','','width=450,height=291')"></a><BR>
+    &nbsp;<BR>
+    供选择的答案：<BR>
+    A.� ① 单值 &nbsp;&nbsp;&nbsp;② 多值 &nbsp;&nbsp;&nbsp;③ 静态多变量<BR>
+    �� ④ 动态多变量&nbsp;&nbsp;⑤ 静态单变量<BR>
+    B, C.① 软件方程&nbsp;&nbsp;&nbsp;② 函数曲线&nbsp;&nbsp;&nbsp;③ 资源需求曲线<BR>
+    �� ④ 工作量分布 <BR>
+    D～H.① 安装 &nbsp;&nbsp;&nbsp;② 系统定义 &nbsp;&nbsp;③ 测试与确认<BR>
+    �� ④ 设计与编码&nbsp;&nbsp; &nbsp;⑤ 功能设计�M规格说明</P>
+  <P> <span class="text"> 
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    </span></P>
+  <P class="text">&nbsp;10、从供选择的答案中选出与下列有关软件成本估算叙述相对应的正确答案，将其编号填入到相应的括弧（&nbsp;&nbsp; 
+    ）内。<BR>
+    &nbsp;一个规模为10KDSI的商用微机远程通信的嵌入型软件，使用中间COCOMO模型进行软件成本估算。程序的名义工作量MM = (&nbsp; 
+    A&nbsp; )；程序实际工作量MM = (&nbsp; B&nbsp; )；开发所用的时间TDEV = (&nbsp; C&nbsp; )；如果软件开发人员的工资都按每月6000美元计算，则该软件项目的开发人员的工资总额 
+    = (&nbsp; D&nbsp; )。<BR>
+    <BR>
+    ��表1 中间COCOMO模型的名义工作量与进度公式<BR>
+    <IMG alt="" hspace=0 src="image/07.gif" align=baseline border=0 width="333" height="97"><BR>
+    <BR>
+    ��表2 影响工作量的因素fi 的取值<BR>
+    <IMG alt="" hspace=0 src="image/08.gif" align=baseline border=0 width="349" height="409"></P>
+  <P class="text">供选择的答案：<BR>
+    A,B. ① 45.8&nbsp;&nbsp;&nbsp;② 51.5&nbsp;&nbsp;&nbsp;③ 44.38&nbsp;&nbsp;&nbsp;④ 
+    54.2<BR>
+    C.� ① 8.9月&nbsp;&nbsp;&nbsp;② 9.8月&nbsp;&nbsp;③ 7.8月&nbsp;&nbsp;④ 10.9月<BR>
+    D. �① 26.4万美元&nbsp;② 36万美元&nbsp;③ 20.96万美元&nbsp;④ 30.9万美元</P>
+  <P> <span class="text"> 
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    <BR>
+    <BR>
+    11、从供选择的答案中选出与下列有关软件成本-效益分析叙述相对应的正确答案，将其编号填入到相应的括弧（&nbsp;&nbsp; ）内。<BR>
+    &nbsp;�假设开发某个计算机应用系统的投资额为3000元，该计算机应用系统投入使用后，每年可以节约1000元，5年内可能节约5000元。3000元是现在投资的钱，5000元是5年内节省的钱，两者不能简单地比较。<BR>
+    &nbsp;假定年利率为12%，利用计算货币现在价值的公式，可以算出该计算机应用系统投入使用后每年预计节省的金额的现在价值。<BR>
+    <BR>
+    <IMG alt="" hspace=0 src="image/11.gif" align=baseline border=0></span></P>
+  <P class="text">&nbsp;则该系统的纯收入是(&nbsp; A&nbsp; )，投资回收期是(&nbsp; B&nbsp; )，投资回收率为(&nbsp; 
+    C&nbsp; )。<BR>
+    供选择的答案：<BR>
+    A.�① 512.3元&nbsp;&nbsp; &nbsp;② 729.28元&nbsp;&nbsp;③ 602.4元&nbsp; &nbsp;④ 
+    612.27元<BR>
+    B.�① 2. 4年&nbsp;&nbsp; &nbsp;② 3.93年&nbsp;&nbsp;③ 4.25年&nbsp; &nbsp;&nbsp;④ 
+    2.78元<BR>
+    C.�① 25%&nbsp;&nbsp; &nbsp;&nbsp;② 30%&nbsp;&nbsp;&nbsp;③ 20%&nbsp; &nbsp;&nbsp;④ 
+    15%</P>
+  <P> <span class="text"> 
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    <BR>
+    <BR>
+    &nbsp;12、从供选择的答案中选出与下列有关软件风险分析叙述相对应的正确答案，将其编号填入到相应的括弧（&nbsp;&nbsp; ）内。<BR>
+    &nbsp;�在特定情况下，是否必须进行风险分析，是对项目开发的形势进行(&nbsp; A&nbsp; )后确定的。(&nbsp; A&nbsp; 
+    )可以按如下步骤进行：明确项目的目标、总策略、具体策略和为完成所标识的目标而使用的方法和资源；保证该目标是(&nbsp; B&nbsp; )，项目成功的标准也是(&nbsp; 
+    B&nbsp; )；考虑采用某些条目作为项目成功的(&nbsp; C&nbsp; )；根据估计的结果来确定是否要进行风险分析。<BR>
+    &nbsp;�一般来说，风险分析的方法要依赖于特定问题的需求和有关部门所关心的方面。具体分3步进行。第一步识别潜在的风险项，首先进行(&nbsp; 
+    D&nbsp; )过程；第二步估计每个风险的大小及其出现的可能性，选择一种(&nbsp; E&nbsp; )，它可以估计各种风险项的值；第三步进行风险评估。风险评估也有三个步骤：确定(&nbsp; 
+    F&nbsp; )，确定(&nbsp; G&nbsp; )，把风险与“参照风险”做比较。<BR>
+    供选择的答案：<BR>
+    A.�① 风险管理&nbsp;&nbsp;② 风险估计&nbsp;&nbsp; ③ 风险评价&nbsp;&nbsp;&nbsp; ④ 风险测试<BR>
+    B.�① 可度量的&nbsp;&nbsp;② 不可度量的&nbsp; ③ 准确的&nbsp;&nbsp;&nbsp;&nbsp; ④ 不确定的<BR>
+    C.�① 规范&nbsp;&nbsp;&nbsp;② 标准&nbsp;&nbsp;&nbsp; ③ 过程模型&nbsp;&nbsp;&nbsp; ④ 
+    设计要求<BR>
+    D,E.① 信息分类&nbsp;② 信息收集&nbsp;&nbsp; ③ 度量尺度&nbsp;&nbsp;&nbsp; ④ 标准<BR>
+    ��⑤ 度量工具&nbsp;&nbsp;⑥ 信息获取<BR>
+    F,G.① 风险的范围&nbsp;&nbsp;&nbsp;② 风险的特性&nbsp; &nbsp;&nbsp;③ 风险的级别<BR>
+    ��④ 风险的评价标准&nbsp;&nbsp;⑤ 风险的排除策略</span></P>
+  <P> <span class="text"> 
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    <BR>
+    <BR>
+    &nbsp;13、从供选择的答案中选出与下列有关软件风险分析叙述相对应的正确答案，将其编号填入到相应的括弧（&nbsp;&nbsp; ）内。<BR>
+    &nbsp;�风险分析实际上是4个不同的活动，按顺序依次为(&nbsp; A&nbsp; )、(&nbsp; B&nbsp; )、风险评价和(&nbsp; 
+    C&nbsp; )。在风险评价时，应当建立一个三元组：[ ri, li, xi ]，ri是风险描述，li是(&nbsp; D&nbsp; )，而xi是风险的影响。一个对风险评价很有用的技术是定义(&nbsp; 
+    E&nbsp; )。(&nbsp; F&nbsp; )、(&nbsp; G&nbsp; )、(&nbsp; H&nbsp; )是三种典型的(&nbsp; 
+    E&nbsp; )。在做风险分析的上下文环境中一个(&nbsp; E&nbsp; )就存在一个单独的点，叫做参照点或(&nbsp; I&nbsp; 
+    )。在这个点上要公正底给出判断。实际上，参照点能在图上表示成一条平滑的曲线的情况很少，多数情况它是一个(&nbsp; J&nbsp; )。<BR>
+    供选择的答案：<BR>
+    A～C.�① 风险驾驭和监控&nbsp;② 风险识别&nbsp;&nbsp;③ 风险估计&nbsp;&nbsp;④ 风险消除<BR>
+    D.�� ① 风险的大小&nbsp;&nbsp;② 风险的概率&nbsp;③ 风险的时间&nbsp;④ 风险的范围<BR>
+    E.�� ① 风险参照水准&nbsp;② 风险度量&nbsp;&nbsp;③ 风险监控&nbsp;&nbsp;④ 风险工具<BR>
+    F～H.�① 生产率&nbsp;&nbsp;② 功能&nbsp;&nbsp;&nbsp;③ 成本&nbsp;&nbsp;&nbsp;④ 进度<BR>
+    ��� ⑤ 范围&nbsp;&nbsp;&nbsp;⑥ 性能<BR>
+    I, J.�① 凹点&nbsp;&nbsp;&nbsp;② 崩溃点&nbsp;&nbsp;③ 终点&nbsp;&nbsp;&nbsp;④ 区域<BR>
+    ��� ⑤ 拐点&nbsp;&nbsp;&nbsp;⑥ 原点</span></P>
+  <P> <span class="text"> 
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    <BR>
+    <BR>
+    &nbsp;14、从供选择的答案中选出与下列有关软件进度管理叙述相对应的正确答案，将其编号填入到相应的括弧（&nbsp;&nbsp; ）内。<BR>
+    &nbsp;任何软件项目都必须做好项目管理工作，最常使用的进度管理工具是(&nbsp; A&nbsp; )，当某一开发项目的进度有可能拖延时，应该(&nbsp; 
+    B&nbsp; )。对于一个典型的软件开发项目，各开发阶段需投入的工作量的百分比大致是(&nbsp; C&nbsp; )。各阶段所需不同层次的技术人员大致是(&nbsp; 
+    D&nbsp; )，而管理人员在各阶段所需数量也不同，相对而言大致是(&nbsp; E&nbsp; )。<BR>
+    供选择的答案：<BR>
+    A.�① 数据流图&nbsp;&nbsp; &nbsp;② 程序结构图&nbsp;&nbsp; &nbsp;③ 因果图&nbsp;&nbsp; &nbsp;&nbsp;④ 
+    PERT图<BR>
+    B.�① 增加新的开发人员&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    &nbsp;② 分析拖期原因加以补救<BR>
+    ��③ 从别的小组抽调人员临时帮忙&nbsp; &nbsp;④ 推迟预定完成时间<BR>
+    <BR>
+    <IMG alt="" hspace=0 src="image/15.gif" align=baseline border=0 width="340" height="306"></span></P>
+  <P class="text">&nbsp; 
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+  </P>
+  <P class="text"><BR>
+    &nbsp;<BR>
+    &nbsp;15、从供选择的答案中选出与下列有关软件进度管理叙述相对应的正确答案，将其编号填入到相应的括弧（&nbsp;&nbsp; ）内。<BR>
+    �对于一个小型的软件开发项目，一个人就可以完成需求分析、设计、编码和测试工作。但随着软件项目规模增大，需要有多人共同参与同一软件项目的工作。当几个人共同承担软件开发项目中的某一任务时，人与人之间必须通过交流来解决各自承担任务之间的(&nbsp; 
+    A&nbsp; )问题，即通信问题。通信需花费时间和代价，会引起软件错误(&nbsp; B&nbsp; )，(&nbsp; C&nbsp; )软件生产率。如果一个软件开发小组有n个人，每两人之间都需要通信，则共有(&nbsp; 
+    D&nbsp; )条通信路径。假设一个人单独开发软件，生产率是5000行／人年，且在每条通信路径上耗费的工作量是250行／人年。若4个人组成一个小组共同开发这个软件，则小组中每个人的软件生产率为(&nbsp; 
+    E&nbsp; )。若小组有6名成员，则小组中每个成员的软件生产率为(&nbsp; F&nbsp; )。因此，有人提出，软件开发小组的规模不能太大，人数不能太多，一般在(&nbsp; 
+    G&nbsp; )人左右为宜。<BR>
+    供选择的答案：<BR>
+    A.� ① 分配&nbsp;&nbsp; &nbsp;&nbsp;② 管理&nbsp;&nbsp;&nbsp; ③ 接口&nbsp;&nbsp; &nbsp;&nbsp; 
+    &nbsp;④ 协作<BR>
+    B,C. ① 降低&nbsp;&nbsp; &nbsp;&nbsp;② 增加&nbsp;&nbsp;&nbsp; ③ 不变<BR>
+    D.� ① n(n+1)/2&nbsp;&nbsp; &nbsp;② n(n-1)/2&nbsp;&nbsp; ③ n(n-1)(n-2)/6&nbsp;&nbsp;&nbsp; 
+    &nbsp;④ n2/2<BR>
+    E,F. ① 4875&nbsp;&nbsp; &nbsp;&nbsp;② 4375&nbsp;&nbsp;&nbsp; ③ 4625&nbsp;&nbsp;&nbsp;&nbsp; 
+    &nbsp;&nbsp;④ 5735<BR>
+    G.� ① 8～15&nbsp;&nbsp; &nbsp;② 1～2&nbsp;&nbsp;&nbsp; ③ 2～5&nbsp;&nbsp;&nbsp;&nbsp; 
+    &nbsp;&nbsp;④ 2～8</P>
+  <P> <span class="text"> 
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    <BR>
+    <BR>
+    &nbsp;16、从供选择的答案中选出与下列有关软件进度管理叙述相对应的正确答案，将其编号填入到相应的括弧（&nbsp;&nbsp; ）内。<BR>
+    &nbsp;软件项目的进度管理有许多方法，但(&nbsp; A&nbsp; )不是常用的进度控制图示方法。在几种进度控制图示方法中，(&nbsp; 
+    B&nbsp; )难以表达多个子任务之间的逻辑关系，使用(&nbsp; C&nbsp; )不仅能表达子任务之间的逻辑关系，而且可以找出关键子任务。在(&nbsp; 
+    C&nbsp; )中，用带箭头的边表示(&nbsp; D&nbsp; )，用圆圈结点表示(&nbsp; E&nbsp; )，它标明(&nbsp; D&nbsp; 
+    )的(&nbsp; F&nbsp; )。<BR>
+    供选择的答案：<BR>
+    A～C.�① 甘特图&nbsp;&nbsp;&nbsp; ② IPO&nbsp;&nbsp;&nbsp; ③ PERT&nbsp;&nbsp;&nbsp; 
+    ④ 时标网状图<BR>
+    D～F.�① 数据流&nbsp;&nbsp;&nbsp; ② 控制流&nbsp;&nbsp; &nbsp;&nbsp; ③ 事件&nbsp;&nbsp;&nbsp; 
+    ④ 处理<BR>
+    ��� ⑤ 起点或终点&nbsp;&nbsp; ⑥ 任务</span></P>
+  <P> <span class="text"> 
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    <BR>
+    <BR>
+    &nbsp;17、从供选择的答案中选出与下列有关软件项目管理叙述相对应的正确答案，将其编号填入到相应的括弧（&nbsp;&nbsp; ）内。<BR>
+    �软件项目管理的主要职能包括：(&nbsp; A&nbsp; )，建立组织，配备人员，(&nbsp; B&nbsp; )和(&nbsp; C&nbsp; 
+    )。由于软件项目的特有性质，使得项目管理存在一定困难。第一、(&nbsp; D&nbsp; )，软件工程过程充满了大量高强度的脑力劳动；第二、(&nbsp; 
+    E&nbsp; )，在特定机型上，利用特定的硬件配置，由特定的系统软件和支撑软件支持，形成了特定的开发环境；第三、(&nbsp; F&nbsp; )，软件项目经历的各个阶段都深透了大量的手工劳动，远未达到自动化的程度；第四、(&nbsp; 
+    G&nbsp; )，用户要经过专门的培训，才能掌握操作步骤，且需要配备专职维护人员进行售后服务；第五、(&nbsp; H&nbsp; )，为高质量地完成软件项目，充分发掘人员的智力才能和创造精神。<BR>
+    �在总结和分析足够数量失误的软件项目之后可知，造成软件失误的原因大多与(&nbsp; I&nbsp; )工作有关。在软件项目开始执行时，执行的过程中及项目进行的最后阶段都会遇到种种问题。<BR>
+    供选择的答案：<BR>
+    A～C.�① 编码&nbsp;&nbsp;&nbsp;② 制定计划&nbsp;&nbsp;③ 开发&nbsp;&nbsp;&nbsp;④ 指导<BR>
+    ��� ⑤ 测试&nbsp;&nbsp;&nbsp;⑥ 检验<BR>
+    D～H.�① 软件工作渗透了人的因素&nbsp;&nbsp;② 智力密集，可见性差<BR>
+    ��� ③ 单件生产&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;④ 使用方法繁琐，维护困难<BR>
+    &nbsp;&nbsp;��� ⑤ 劳动密集，自动化程度低<BR>
+    I.�� ① 设计&nbsp;&nbsp;&nbsp;② 维护&nbsp;&nbsp;&nbsp;③ 测试&nbsp;&nbsp;&nbsp;④ 管理<BR>
+    ��� ⑤ 实践&nbsp;&nbsp;&nbsp;⑥ 指导&nbsp;&nbsp;&nbsp;⑦ 审核&nbsp;&nbsp;&nbsp;⑧ 分析</span></P>
+  <P> <span class="text"> 
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    </span></P>
+  <P class="text">&nbsp;18、从供选择的答案中选出与下列有关软件项目组织叙述相对应的正确答案，将其编号填入到相应的括弧（&nbsp;&nbsp; 
+    ）内。<BR>
+    �软件项目组织的原则是(&nbsp; A&nbsp; )、(&nbsp; B&nbsp; )和(&nbsp; C&nbsp; )。一般有(&nbsp; 
+    D&nbsp; )、(&nbsp; E&nbsp; )、(&nbsp; F&nbsp; )三种组织结构的模式。(&nbsp; F&nbsp; )实际上是(&nbsp; 
+    D&nbsp; )和(&nbsp; E&nbsp; )两种模式的复合。(&nbsp; E&nbsp; )这种模式在小组之间的联系形成的接口较多，但便于软件人员熟悉小组的工作，进而成为这方面的专家。<BR>
+    供选择的答案：<BR>
+    A～C.�① 推迟责任的落实&nbsp;② 尽早落实责任&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;③ 减少接口<BR>
+    ��� ④ 增加联系&nbsp;&nbsp;&nbsp;⑤ 责权分离&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;⑥ 责权均衡<BR>
+    D～F.�① 矩阵形模式&nbsp;&nbsp;② 主程序员小组模式 &nbsp;③ 按课题划分的模式<BR>
+    ��� ④ 按职能划分的模式&nbsp;⑤ 民主制小组模式&nbsp; </P>
+  <P> <span class="text"> 
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    </span></P>
+  <P class="text">&nbsp;19、从供选择的答案中选出与下列有关软件开发小组叙述相对应的正确答案，将其编号填入到相应的括弧（&nbsp;&nbsp; 
+    ）内。<BR>
+    &nbsp;软件开发小组的目的是发挥集体的力量进行软件研制。因此，小组从培养(&nbsp; A&nbsp; )的观点出发进行程序设计消除软件的(&nbsp; 
+    B&nbsp; )的性质。通常，程序设计小组的组织形式有三种，如下图所示的a属于(&nbsp; C&nbsp; )，b属于(&nbsp; D&nbsp; 
+    )，c属于(&nbsp; E&nbsp; )。<BR>
+    <BR>
+    <IMG alt="" hspace=0 src="image/18.gif" align=baseline border=0 width="380" height="137"><BR>
+    <BR>
+    供选择的答案：<BR>
+    A, B.�① “局部”&nbsp;&nbsp;② “全局”&nbsp;&nbsp;③ “集体”&nbsp;&nbsp; ④ “个人”<BR>
+    C～E.�① 层次式小组&nbsp;② 民主制小组&nbsp;③ 主程序员制小组</P>
+  <P> <span class="text"> 
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    </span></P>
+  <P class="text">四、问答题</P>
+  <P class="text">&nbsp;一个32KDSI的声音输入系统是一个输入原型，或是一个可行性表演模型。所需可靠性非常低，因为它不打算投入生产性使用。把此模型看做半独立型软件。试问该软件的名义工作量和实际工作量。</P>
+  <P> <span class="text"> 
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    </span><BR>
+    &nbsp;</P>
+  <input type=button name=Button value=答�案 onClick="MM_openBrWindow('tanchu.htm','','width=471,height=390')">
+  <br>
+  <br>
+</form>
+</BODY>
+</HTML>

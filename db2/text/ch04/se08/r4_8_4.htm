@@ -1,0 +1,77 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url('../../../img/text/bg.jpg');
+background-repeat: no-repeat;
+background-attachment: fixed; background-position-y:50%
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">　</td>
+    <td>　</td>
+    <td width="10">　</td>
+  </tr>
+  <tr>
+    <td width="10">　</td>
+    <td> <!-- #BeginEditable "1" -->　<font color="#CC0000">1. 定义游标定义</font><br>
+      　　游标语句的核心是定义了一个游标标识名，并把游标标识名和一个查询语句关联起来。DECLARE语句用于声明游标，它通过SELECT查询定义游标存储的数据集合。语句格式为：<br>
+      　　DECLARE 游标名称 [INSENSITIVE] [SCROLL]<br>
+      　　CURSOR FOR select语句<br>
+      　　[FOR{READ ONLY|UPDATE[OF 列名字表]}]<br>
+      　参数说明：<br>
+      　　INSENSITIVE选项：说明所定义的游标使用SELECT语句查询结果的拷贝，对游标的操作都基于该拷贝进行。因此，这期间对游标基本表的数据修改不能反映到游标中。这种游标也不允许通过它修改基本表的数据。<br>
+      　　SCROLL选项：指定该游标可用所有的游标数据定位方法提取数据，游标定位方法包括PRIOR、FIRST、LAST、ABSOLUTE n 和RELATIVE 
+      n 选项。<br>
+      　　Select语句：为标准的SELECT查询语句，其查询结果为游标的数据集合，构成游标数据集合的一个或多个表称作游标的基表。<br>
+      　　在游标声明语句中，有下列条件之一时，系统自动把游标定义为INSENSITIVE游标：<br>
+      　　SELECT语句中使用了DISTINCT、UNION、 GROUP BY或HAVING等关键字；<br>
+      　　任一个游标基表中不存在唯一索引。<br>
+      　　其他<br>
+      　　READ ONLY选项：说明定义只读游标。<br>
+      　　UPDATE [OF 列名字表]选项：定义游标可修改的列。如果使用OF 列名字表选项，说明只允许修改所指定的列，否则，所有列均可修改。 <br>
+      　　例如，查询教师名字和所教的课程名，定义游标TCURSOR的语句如下 ：<br>
+      　　DECLARE TCURSOR CURSOR FOR <br>
+      　　SELECT tname, cname <br>
+      　　FROM teacher ,couse<br>
+      　　WHERE teacher.tno = couse.tno
+      <p><font color="#CC0000">2. 打开游标</font><br>
+        　　打开游标语句执行游标定义中的查询语句，查询结果存放在游标缓冲区中。并使游标指针指向游标区中的第一个元组，作为游标的缺省访问位置。查询结果的内容取决与查询语句的设置和查询条件。<br>
+        　　打开游标的语句格式：<br>
+        　　EXEC SQL OPEN 〈游标名〉<br>
+        　　如果打开的游标为INSENSITIVE游标，在打开时将产生一个临时表，将定义的游标数据集合从其基表中拷贝过来。 <br>
+        　　SQL Server中,游标打开后，可以从全局变量@@CURSOR_ROWS中读取游标结果集合中的行数。<br>
+        　　例1：打开前面所创建的查询教师姓名和所教课名称的游标。<br>
+        　　OPEN tcursor<br>
+        　　例2：显示游标结果集合中数据行数<br>
+        　　SELECT 数据行数 = @@CURSOR_ROWS</p>
+      <p><font color="#CC0000">3. 读游标区中的当前元组</font><br>
+        　　读游标区数据语句是读取游标区中当前元组的值，并将各分量依次赋给指定的共享主变量。FETCH语句用于读取游标中的数据，语句格式为：<br>
+        　　FETCH [[NEXT|PRIOR|FIRST|LAST| ABSOLUTE n| RELATIVE n] <br>
+        　　FROM ] 游标名<br>
+        　　[INTO @变量1, @变量2, ….]<br>
+        　　其中：<br>
+        　　NEXT：说明读取游标中的下一行，第一次对游标实行读取操作时，NEXT返回结果集合中的第一行。<br>
+        　　PRIOR、FIRST、LAST、ABSOLUTE n 和RELATIVE n 选项只适用于SCROLL游标。它们分别说明读取游标中的上一行、第一行、最后一行、第n 
+        行和相对于当前位置的第n 行。n 为负值时，ABSOLUTE n 和RELATIVE n 说明读取从游标结果集合中的最后一行或当前行倒数n行的数据。<br>
+        　　INTO子句 说明将读取的数据存放到指定的局部变量中，每一个变量的数据类型应与游标所返回的数据类型严格匹配，否则将产生错误。 <br>
+        　　如果游标区的元组已经读完，那么系统状态变量SQLSTATE的值被设为02000，意为&quot;no tuple found&quot;。<br>
+        　　例如，读取tcursor中当前位置后的第二行数据<br>
+        　　FETCH RELATIVE 2 FROM tcursor<br>
+      </p>
+      <!-- #EndEditable --></td>
+    <td width="10">　</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

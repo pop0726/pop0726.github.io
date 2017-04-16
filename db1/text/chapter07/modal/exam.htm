@@ -1,0 +1,228 @@
+<html>
+<head>
+<title>Java期末考试题</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="css/text.css" type="text/css">
+<script language="JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+</head>
+<script language="JavaScript">
+function getresultcheck(form)
+{var mykeys=new Array();
+//  mykeys[0]="B";
+//czp-select-answer
+var answer=new Array();
+for(var I=0;I<mykeys.length;I++) answer[I]="";
+
+var every=form.elements;
+
+<!--czp-select-count-->
+for(var I=0;I<every.length;I++)
+{
+	if(every[I].type=="radio")
+	{
+		
+		if(every[I].checked)
+		{	
+	
+			var item=parseInt(every[I].name.substr(0));
+		
+			answer[item-1]+=every[I].value;
+		}
+	}				
+}
+
+var newcount="<html><head><title>谢谢您!</title></head><body><center><h2><font color=red>您的测试结果</font></h2></center>";
+var totalscore=0;
+for(var I=0;I<answer.length;I++)
+{
+	if(answer[I]==mykeys[I])
+	{
+		var rstr="<font size=2>第"+(I+1)+"题答案正确!</font><br>";
+		newcount+=rstr;
+		totalscore+=1/(answer.length)*100;//每题分数
+	}else
+	{
+		var rstr="<font size=2>第"+(I+1)+"题答案错误!正确答案为"+mykeys[I]+"</font><br>";
+		newcount+=rstr;
+	}
+
+}
+
+newcount+="<br>您的总成绩为:";
+newcount+=Math.ceil(totalscore);
+newcount+="分";
+newwin=window.open("","","height=200,width=300,scrollbars=yes,resizable=no");
+newwin.document.write(newcount);}
+
+
+
+function getresultcheck1(form)
+{var mykeys=new Array();
+//  mykeys[0]="B";
+//czp-mulselect-answer
+var answer=new Array();
+for(var I=0;I<mykeys.length;I++) answer[I]="";
+
+var every=form.elements;
+
+<!--czp-mulselect-count-->
+for(var I=0;I<every.length;I++)
+{
+	if(every[I].type=="checkbox")
+	{
+		
+		if(every[I].checked)
+		{	
+	
+			var item=parseInt(every[I].name.substr(0));
+		
+			answer[item-1]+=every[I].value;
+		}
+	}				
+}
+
+var newcount="<html><head><title>谢谢您!</title></head><body><center><h2><font color=red>您的测试结果</font></h2></center>";
+var totalscore=0;
+for(var I=0;I<answer.length;I++)
+{
+	if(answer[I]==mykeys[I])
+	{
+		var rstr="<font size=2>第"+(I+1)+"题答案正确!</font><br>";
+		newcount+=rstr;
+		totalscore+=1/(answer.length)*100;//每题分数
+	}else
+	{
+		var rstr="<font size=2>第"+(I+1)+"题答案错误!正确答案为"+mykeys[I]+"</font><br>";
+		newcount+=rstr;
+	}
+
+}
+
+newcount+="<br>您的总成绩为:";
+newcount+=Math.ceil(totalscore);
+newcount+="分";
+newwin=window.open("","","height=200,width=300,scrollbars=yes,resizable=no");
+newwin.document.write(newcount);}
+
+
+
+
+
+
+
+
+
+
+
+
+function check(){
+var mykeys=new Array();
+//czp-tiankong-answer
+//mykeys[0]="B";
+var answer=new Array();
+for(var I=0;I<mykeys.length;I++) answer[I]="";
+
+var every=zfl.elements;
+for(var I=0;I<every.length;I++)
+{
+if(every[I].type=="text")
+{
+ if(every[I].value!==null)
+ {
+ //var item=parseInt(every[I].name.substr(1))
+//  answer[item-1]+=every[I].value;
+  answer[I]+=every[I].value;
+  }
+ }
+}
+
+
+var newcount="<html><head><title>谢谢您!</title></head><body><center><h2><font face=\"隶书\" size=\"5\" color=\"#000099\">您的测试结果</font></h2></center>";
+var totalscore=0;
+for(var i=0;i<answer.length;i++)
+{
+	if(answer[i]==mykeys[i])
+	{
+		var rstr="<font face=\"宋体\" size=2>第"+(i+1)+"个空答案正确!</font><br>";
+		newcount+=rstr;
+		totalscore+=1/(answer.length)*100;
+	}else
+	{
+		var rstr="<font face=\"宋体\" size=2>第"+(i+1)+"个空答案错误!正确答案为"+mykeys[i]+"</font><br>";
+		newcount+=rstr;
+	}
+
+}
+
+newcount+="<br><font face=\"宋体\" size=3><b>您的总成绩为:</b></font><font face=\"宋体\" size=3 color=red>";
+newcount+=Math.ceil(totalscore);
+newcount+="分</font><br>";
+newwin=window.open("","","height=400,width=400,scrollbars=yes,resizable=no");
+newwin.document.write(newcount);
+}
+
+</script>
+<body bgcolor="#FFFFFF" text="#000000" topmargin=0 background="../../../image/moban/15.gif" bgproperties=fixed>
+
+<center>
+  <br>
+  <span class="section">第七章　存储结构和文件结构――习题</span><br>
+  <br>
+  <table width="95%" border="0" cellspacing="0" cellpadding="0">
+    <tr> 
+      <td valign="top" class=text><form><b> 问答题</b><br>
+        <br>
+        <span class="explaination"> 问答第1题：</span> 列出你日常使用的计算机上用到的物理存储介质，给出每种介质上数据存取速度的排序。<br>
+        <textarea name=jianda cols=50 rows=5></textarea>
+        <br>
+        <br>
+        <br>
+        <span class="explaination">问答第2题：</span> 在实际应用中，如何正确地选择RAID的级别？<br>
+        <textarea name=jianda cols=50 rows=5></textarea>
+        <br>
+        <br>
+        <br>
+        <span class="explaination">问答第3题：</span> 考虑从下图的文件中删除记录5。比较下列实现删除的技术的相对优点。<br>
+        <img src="../../../image/shiti/24.jpg" width="253" height="168"><br>
+        　　 1、 移动记录6到记录5所占用的空间，然后移动记录7到记录6所占用的空间； <br>
+        　　 2、 移动记录7到记录5所占用的空间； <br>
+        　　 3、 标记记录5被删除，不移动任何记录。 <br>
+        <textarea name=jianda cols=50 rows=5></textarea>
+        <br>
+        <br>
+        <br>
+        <span class="explaination">问答第4题：</span> 给出经过下面每一步后图中文件结构的变化。 <br>
+        <img src="../../../image/shiti/25.jpg" width="289" height="213"><br>
+        　　1、 插入(Brighton, A-323, 1600) <br>
+        　　2、 删除记录2 <br>
+        　　3、 插入(Brighton, A-626, 2000) <br>
+        <textarea name=jianda cols=50 rows=5></textarea>
+        <br>
+        <br>
+        <br>
+        <span class="explaination">问答第5题：</span> 顺序文件组织是如何处理记录的删除与插入的？<br>
+        <textarea name=jianda cols=50 rows=5></textarea>
+        <br>
+        <br>
+        <br>
+        <span class="explaination">问答第6题：</span> 为什么要慎用簇集文件组织？<br>
+        <textarea name=jianda cols=50 rows=5></textarea>
+        <br>
+        <br>
+        <br>
+        <!--czp-wenda-timu-->
+        <br> <input type=button name=Button value=答案 案 onClick="MM_openBrWindow('text/examination/exam01_pop2.htm','','width=471,height=384')" class=pbox> 
+        <input type='reset' name='Submit3' value='重置' class=pbox> <br>
+		</form>
+        　　 </td>
+  </tr>
+</table></center>
+
+</body>
+</html>

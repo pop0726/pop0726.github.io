@@ -1,0 +1,95 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" --> <span class="biaoti_1"> 　1．批处理的过程</span><br>
+      ��批是一组SQL语句的集合，一个批以批处理结束符号GO结束。<br>
+      ��一个批处理中的语句被一次提交给SQL Server，SQL Server将这些语句编译为一个执行单元，称作SQL Server执行计划。<br>
+      ��GO不是SQL语句。它是在某些客户端工具中使用的符号，客户端工具将它解释为：最后一个GO上面的所有内容都应该一起发送到服务器来执行。<br>
+      ��例如，下面例子中的注释符号并没有起到预先的目的。原因是客户端工具并没有解释任何SQL语句，它只是将语句分解成多个批，按批发送到服务器去处理。<br>
+      ��SELECT * FROM authors<br>
+      ��<span class="explaination">/*���������/下面/*和*/之间的语句都希望注释掉/<br>
+          　　GO<br>
+      ��SELECT * FROM sales<br>
+      ��GO<br>
+      ��SELECT * FROM publishers<br>
+      ��GO<br>
+      ��*/</span><br>
+      ��SELECT * FROM titles<br>
+      ��GO<br>
+      ��如果在一个包含批处理结束符GO命令的SQL语句集合中，要想注释一些语句，应该在每个GO的前面使用另外一种注释标记符：如两个短划线 (也可以用其它字符代替两个短划线)。上例中的应改为：<br>
+      ��SELECT * FROM authors<br>
+      ��<span class="explaination">/*���������/下面/*和*/之间的语句都希望注释掉/<br>
+　　--GO<br>
+      ��SELECT * FROM sales<br>
+      ��--GO<br>
+      ��SELECT * FROM publishers<br>
+      ��--GO</span><br>
+　　*/</span><br>
+      ��SELECT * FROM titles<br>
+      ��GO<br>
+      ��在执行批处理时，如果其中任一个SQL语句存在语法错误，SQL Server将取消批中所有语句的执行。例如，由下列两个语句组成的批：<br>
+      ��SELECT * FROM sales<br>
+      ��SELECT * FRO titleauthor<br>
+      ��GO<br>
+      ��在上例中，第一个语句是正确的，第二个语句存在语法错误，但由于这两个语句是在一个批中，第一个语句不会被执行，执行这个批的结果是返回一个错误信息。<br>
+      <br>
+      　<span class="biaoti">2．建立批时应注意的事项</span><br>
+      ��(1) CREATE VIEW、CREATE RULE、CREATE DEFAULT、CREATE TRIGGER、CREATE PROCEDURE语句应在批中单独提交，它们不能与其它SQL语句一起构成一个批。<br>
+      ��(2) 使用ALTER TABLE语句修改表结构后，不能在同一个批中参照新定义列。<br>
+      ��(3) EXEC[UTE]语句为批中第一个语句时，EXEC[UTE]关键字可以省略。否则，必须使用该关键字。<br>
+      <br>
+      <span class="biaoti">　3．批和事务的区别</span><br>
+      ��（1） 批是一个客户端的基本概念，它控制多个语句如何发送到SQL Server以便立即处理，而事务是一个服务器端的概念，是SQL Server执行SQL语句的基本工作单元。<br>
+      ��（2） 批语句的组合发生在编译时刻，而事务中语句的组合发生在执行时刻。在编译时，如果批中某个语句存在语法错误，SQL Server将取消这个批中所有语句的执行。在执行时刻，如果事务中某个数据修改操作违犯约束、规则、触发器等条件时，SQL 
+      Server将回滚整个事务。<br>　　(3)在一个批中可以包含多个事务，在一个事务中也可以包含多个批。<br>　　例1，下面的例子是一个事务，它由四个批处理组成：<br>
+      ��<span class="explaination">BEGIN TRANINSERT <br>
+　　INSERT authors VALUES (...)<br>
+      ��GO<br>
+      ��SELECT * FROM authors<br>
+      ��GO<br>
+      ��UPDATE publishers SET pub_id = (...)<br>
+      ��GO<br>
+      ��SELECT * FROM publishers<br>
+      ��GO<br>
+      ��COMMIT TRAN</span><br>
+      ��例2，下面的例子是一个批处理，它由两个事务组成：<br>
+      ��<span class="explaination">BEGIN TRANINSERT 
+ <br>
+　　INSERT authors VALUES (...)<br>
+      ��SELECT * FROM authors<br>
+      ��COMMIT TRAN<br>
+      ��BEGIN TRAN <br>
+      ��UPDATE publishers SET pub_id = ...<br>
+      ��INSERT publishers VALUES (...)<br>
+      ��COMMIT TRAN</span><br>
+      ��GO<br>
+      <!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

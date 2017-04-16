@@ -1,0 +1,30 @@
+<html>
+<head>
+<title>l1</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center" height="18">
+        <tr> 
+          <td class="text">��<br>
+            ��Halstead度量是目前最好的度量方法。 但它也有缺点：<br>
+            ��<span class="part">・</span> 没有区别自己编的程序与别人编的程序。这是与实际经验相违背的。这时应将外部调用乘上一个大于1的的常数Kf（应在1～5之间，它与文档资料的清晰度有关）。<br>
+            ��<span class="part">・</span> 没有考虑非执行语句。补救办法：在统计n<font size="1">1</font>、n<font size="1">2</font>、N1、N2时，可以把非执行语句中出现的运算对象，运算符统计在内。<br>
+            ��<span class="part">・</span> 在允许混合运算的语言中，每种运算符必须与它的运算对象相关。如果一种语言有整型、实型、双精度型三种不同类型的运算对象，则任何一种基本算术运算符（＋、－、×、／）实际上代表了 
+            种运算符。如果语言中有4种不同类型的算术运算对象， 那么每一种基本算术运算符实际上代表了 种运算符。 在计算时应考虑这种因数据类型而引起差异的情况。<br>
+            ��<span class="part">・</span> 没有注意调用的深度。Halstead公式应当对调用子程序的不同深度区别对待。在计算嵌套调用的运算符和运算对象时，应乘上一个调用深度因子。这样可以增大嵌套调用时的错误预测率。<br>
+            ��<span class="part">・</span> 没有把不同类型的运算对象，运算符与不同的错误发生率联系起来，而是把它们同等看待。例如，对简单IF语句与WHILE语句就没有区别。实际上，WHILE语句复杂得多，错误发生率也相应地高一些。<br>
+            ��<span class="part">・</span> 忽视了嵌套结构（嵌套的循环语句、嵌套IF语句、括号结构等）。一般地，运算符的嵌套序列，总比具有相同数量的运算符和运算对象的非嵌套序列要复杂得多。解决的办法是对嵌套结果乘上一个嵌套因子。<br>
+            ��</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

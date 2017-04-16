@@ -1,0 +1,611 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+</head>
+<body background="../../../image/moban/15.gif" bgproperties=fixed>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="354">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" height="205">
+        <tr> 
+          <td class="text"> 
+            <p align="center" class="zhishidian">第一章　引言--概念</p>
+          </td>
+        </tr>
+        <tr> 
+          <td class="part">1.1　数据库管理系统的产生</td>
+        </tr>
+        <tr> 
+          <td class="text"> 
+            <div align="center"><span style="font-size:9.0pt;font-family:宋体;Times New Roman&quot;" class="part">表<span lang="EN-US">1-1</span></span> 
+              <table border="1" cellspacing="0" cellpadding="0" bordercolor="#000000" class="text">
+                <tr> 
+                  <td width="139" valign="top"> 
+                    <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-size:9.0pt;font-family:宋体;Times New Roman&quot;">概念<span lang="EN-US"> 
+                      </span></span></b></p>
+                  </td>
+                  <td width="429" valign="top"> 
+                    <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-size:9.0pt;font-family:宋体;Times New Roman&quot;">解释<span lang="EN-US"> 
+                      </span></span></b></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="139" valign="top" align="center"> 
+                    <p class="MsoNormal"><span style="font-size:9.0pt;  font-family:宋体;Times New Roman&quot;">数据库管理员<span lang="EN-US"> 
+                      </span></span></p>
+                  </td>
+                  <td width="429" valign="top"> 
+                    <p class="MsoNormal"><span style="font-size:9.0pt;  font-family:宋体;Times New Roman&quot;">英文原文是<span lang="EN-US">Database 
+                      Administrator，一般缩写为DBA。它是数据库用户中的一个特殊的用户，负责对DBMS进行集中的管理与控制，包括对普通用户进行访问控制。</span></span></p>
+                  </td>
+                </tr>
+              </table>
+              </div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="part">1.2　数据视图</td>
+        </tr>
+        <tr> 
+          <td class="text"> 
+            <div align="center"><span class="part">表1-2</span> 
+              <table border="1" cellspacing="0" cellpadding="0" class="text" bordercolor="#000000">
+                <tr> 
+                  <td width="139" valign="top"> 
+                    <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-size:9.0pt;font-family:宋体;Times New Roman&quot;">概念</span></b></p>
+                  </td>
+                  <td width="430" valign="top"> 
+                    <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-size:9.0pt;font-family:宋体;Times New Roman&quot;">解释<span lang="EN-US"> 
+                      </span></span></b></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="139" valign="top" align="center"> 
+                    <p class="MsoNormal"><span style="font-size:9.0pt;  font-family:宋体;Times New Roman&quot;">数据抽象<span lang="EN-US"> 
+                      </span></span></p>
+                  </td>
+                  <td width="430" valign="top"> 
+                    <p class="MsoNormal"><span style="font-size:9.0pt;  font-family:宋体;Times New Roman&quot;;color:black">就是隐藏关于数据存储和维护的某些细节，而为用户提供数据在不同层次上的</span><span style="font-size:9.0pt;font-family:宋体;Times New Roman&quot;">抽象视图。<span lang="EN-US"> 
+                      </span></span></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="139" valign="top" align="center"> 
+                    <p class="MsoNormal"><span style="font-size:9.0pt;  font-family:宋体;Times New Roman&quot;">物理层抽象</span></p>
+                  </td>
+                  <td width="430" valign="top"> 
+                    <p class="MsoNormal"><span style="font-size:9.0pt;  font-family:宋体;Times New Roman&quot;;color:black">最低层次的抽象，描述数据实际上是</span><span style="font-size:9.0pt;font-family:宋体;Times New Roman&quot;">如何<span style="color:black">存储的。物理层详细描述复杂的低层数据结构，是开发<span lang="EN-US">DBMS的数据库供应商应该研究的事情。</span></span></span></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="139" valign="top" align="center"> 
+                    <p class="MsoNormal"><span style="font-size:9.0pt;  font-family:宋体;Times New Roman&quot;">逻辑层抽象</span></p>
+                  </td>
+                  <td width="430" valign="top"> 
+                    <p class="MsoNormal"><span style="font-size:9.0pt;  font-family:宋体;Times New Roman&quot;;color:black">比物理层稍高层次的抽象，描述数据库中存储</span><span style="font-size:9.0pt;font-family:宋体;Times New Roman&quot;">什么<span style="color:black">数据以及这些数据间存在什么关系。逻辑层抽象是由数据库管理员和数据库应用开发人员使用的，他们必须确定数据库中应该保存哪些信息。<span lang="EN-US"> 
+                      </span></span></span></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="139" valign="top" align="center"> 
+                    <p class="MsoNormal"><span style="font-size:9.0pt;  font-family:宋体;Times New Roman&quot;">视图层抽象</span></p>
+                  </td>
+                  <td width="430" valign="top"> 
+                    <p class="MsoNormal"><span style="font-size:9.0pt;  font-family:宋体;Times New Roman&quot;;Times New Roman&quot;">最高层次的抽象，但只描述整个数据库的某个部分。系统可以为同一数据库提供多个视图，而视图又保证了数据的安全性。</span><span lang="EN-US" style="font-size:9.0pt;font-family:宋体;
+  Times New Roman&quot;;color:black"> </span></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="139" valign="top" align="center"> 
+                    <p class="MsoNormal"><span style="font-size:9.0pt;  font-family:宋体;Times New Roman&quot;">数据库实例</span></p>
+                  </td>
+                  <td width="430" valign="top"> 
+                    <p class="MsoNormal"><span style="font-size:9.0pt;  font-family:宋体;Times New Roman&quot;;color:black">数据库中的数据会随时发生变化，特定时刻存储在数据库中的信息的集合称作数据库的一个</span><span style="font-size:9.0pt;font-family:宋体;Times New Roman&quot;">实例<span style="color:black">。</span><span lang="EN-US"> 
+                      </span></span></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="139" valign="top" align="center"> 
+                    <p class="MsoNormal"><span style="font-size:9.0pt;  font-family:宋体;Times New Roman&quot;">数据库模式</span></p>
+                  </td>
+                  <td width="430" valign="top"> 
+                    <p class="MsoNormal"><span style="font-size:9.0pt;  font-family:宋体;Times New Roman&quot;;color:black">数据库的总体设计称作数据库</span><span style="font-size:9.0pt;font-family:宋体;Times New Roman&quot;">模式。<span style="color:black">一般来说，数据库模式不会频繁地发生变化。</span><span lang="EN-US"> 
+                      </span></span></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="139" valign="top" align="center"> 
+                    <p class="MsoNormal"><span style="font-size:9.0pt;  font-family:宋体;Times New Roman&quot;">物理模式（内模式）</span></p>
+                  </td>
+                  <td width="430" valign="top"> 
+                    <p class="MsoNormal"><span style="font-size:9.0pt;  font-family:宋体;Times New Roman&quot;;color:black">是指数据库在物理层的模式。<span lang="EN-US"> 
+                      </span></span></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="139" valign="top" align="center"> 
+                    <p class="MsoNormal"><span style="font-size:9.0pt;  font-family:宋体;Times New Roman&quot;">逻辑模式（模式）</span></p>
+                  </td>
+                  <td width="430" valign="top"> 
+                    <p class="MsoNormal"><span style="font-size:9.0pt;  font-family:宋体;Times New Roman&quot;;color:black">是指数据库在逻辑层的模式。<span lang="EN-US"> 
+                      </span></span></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="139" valign="top" align="center"> 
+                    <p class="MsoNormal"><span style="font-size:9.0pt;  font-family:宋体;Times New Roman&quot;">子模式（外模式）</span></p>
+                  </td>
+                  <td width="430" valign="top"> 
+                    <p class="MsoNormal"><span style="font-size:9.0pt;  font-family:宋体;Times New Roman&quot;;color:black">是指数据库在视图层的模式。<span lang="EN-US"> 
+                      </span></span></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="139" valign="top" align="center"> 
+                    <p class="MsoNormal"><span style="font-size:9.0pt;  font-family:宋体;Times New Roman&quot;">数据独立性</span></p>
+                  </td>
+                  <td width="430" valign="top"> 
+                    <p class="MsoNormal"><span style="font-size:9.0pt;  font-family:宋体;Times New Roman&quot;;Times New Roman&quot;">在某个层次上修改模式定义而不影响位于其上层模式的能力叫做数据独立性。</span><span lang="EN-US" style="font-size:9.0pt;font-family:宋体;Times New Roman&quot;"> 
+                      </span></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="139" valign="top" align="center"> 
+                    <p class="MsoNormal"><span style="font-size:9.0pt;  font-family:宋体;Times New Roman&quot;">物理数据独立性</span></p>
+                  </td>
+                  <td width="430" valign="top"> 
+                    <p class="MsoNormal"><span style="font-size:9.0pt;  font-family:宋体;Times New Roman&quot;;Times New Roman&quot;">是指修改数据库的物理模式而不必重写应用程序的能力。</span><span lang="EN-US" style="font-size:9.0pt;font-family:宋体;Times New Roman&quot;"> 
+                      </span></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="139" valign="top" align="center"> 
+                    <p class="MsoNormal"><span style="font-size:9.0pt;  font-family:宋体;Times New Roman&quot;">逻辑数据独立性</span></p>
+                  </td>
+                  <td width="430" valign="top"> 
+                    <p class="MsoNormal"><span style="font-size:9.0pt;  font-family:宋体;Times New Roman&quot;">是指修改数据库的逻辑模式而不必重写应用程序的能力。<span lang="EN-US"> 
+                      </span></span></p>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text"><span lang="EN-US" style="font-size:9.0pt;font-family:宋体;
+Times New Roman&quot;" class="part">1.3　数据模型<span style="color:black"> </span></span></td>
+        </tr>
+        <tr> 
+          <td class="text"> 
+            <div align="center"><span class="part">表1-3 
+              </span>
+              <table border="1" cellspacing="0" cellpadding="0" class="text" bordercolor="#000000">
+                <tr> 
+                  <td width="139" valign="top"> 
+                    <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-size:9.0pt;font-family:宋体;Times New Roman&quot;">概念<span lang="EN-US"> 
+                      </span></span></b></p>
+                  </td>
+                  <td width="429" valign="top"> 
+                    <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-size:9.0pt;font-family:宋体;Times New Roman&quot;">解释<span lang="EN-US"> 
+                      </span></span></b></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="139" valign="top" align="center"> 
+                    <p class="MsoNormal"><span style="font-size:9.0pt;  font-family:宋体;Times New Roman&quot;">数据模型<span lang="EN-US"> 
+                      </span></span></p>
+                  </td>
+                  <td width="429" valign="top"> 
+                    <p class="MsoNormal"><span style="font-size:9.0pt;  font-family:宋体;Times New Roman&quot;">是描述数据、数据之间的联系、数据语义，以及一致性约束的概念工具的集合。<span lang="EN-US"> 
+                      </span></span></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="139" valign="top" align="center"> 
+                    <p class="MsoNormal"><span style="font-size:9.0pt;  font-family:宋体;Times New Roman&quot;">实体<span lang="EN-US">-联系模型 
+                      </span></span></p>
+                  </td>
+                  <td width="429" valign="top"> 
+                    <p class="MsoNormal"><span style="font-size:9.0pt;  font-family:宋体;Times New Roman&quot;">也简称为<span lang="EN-US">E-R模型，它是这样认识现实世界的：现实世界是由一组称作实体的基本对象以及这些对象间的联系构成的。 
+                      </span></span></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="139" valign="top" align="center"> 
+                    <p class="MsoNormal"><span style="font-size:9.0pt;  font-family:宋体;Times New Roman&quot;">实体<span lang="EN-US"> 
+                      </span></span></p>
+                  </td>
+                  <td width="429" valign="top"> 
+                    <p class="MsoNormal"><span style="font-size:9.0pt;  font-family:宋体;Times New Roman&quot;">实体是现实世界中可区别于其他对象的一个“事件”或一个“物体”。例如每个人是一个实体，每个银行帐户也是一个实体。<span lang="EN-US"> 
+                      </span></span></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="139" valign="top" align="center"> 
+                    <p class="MsoNormal"><span style="font-size:9.0pt;  font-family:宋体;Times New Roman&quot;">联系<span lang="EN-US"> 
+                      </span></span></p>
+                  </td>
+                  <td width="429" valign="top"> 
+                    <p class="MsoNormal"><span style="font-size:9.0pt;  font-family:宋体;Times New Roman&quot;">联系是实体间的相互关联。例如存款者联系将一个客户和他的帐户关联。<span lang="EN-US"> 
+                      </span></span></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="139" valign="top" align="center"> 
+                    <p class="MsoNormal"><span style="font-size:9.0pt;  font-family:宋体;Times New Roman&quot;">实体集<span lang="EN-US"> 
+                      </span></span></p>
+                  </td>
+                  <td width="429" valign="top"> 
+                    <p class="MsoNormal"><span style="font-size:9.0pt;  font-family:宋体;Times New Roman&quot;">同一类型的所有实体的集合称作实体集。<span lang="EN-US"> 
+                      </span></span></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="139" valign="top" align="center"> 
+                    <p class="MsoNormal"><span style="font-size:9.0pt;  font-family:宋体;Times New Roman&quot;">联系集<span lang="EN-US"> 
+                      </span></span></p>
+                  </td>
+                  <td width="429" valign="top"> 
+                    <p class="MsoNormal"><span style="font-size:9.0pt;  font-family:宋体;Times New Roman&quot;">同一类型的所有联系的集合称作联系集。<span lang="EN-US"> 
+                      </span></span></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="139" valign="top" align="center"> 
+                    <p class="MsoNormal"><span style="font-size:9.0pt;  font-family:宋体;Times New Roman&quot;">映射基数<span lang="EN-US"> 
+                      </span></span></p>
+                  </td>
+                  <td width="429" valign="top"> 
+                    <p class="MsoNormal"><span style="font-size:9.0pt;  font-family:宋体;Times New Roman&quot;">表示一个实体集中的实体通过某联系集能与另一实体集中的实体进行关联的实体数目。<span lang="EN-US"> 
+                      </span></span></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="139" valign="top" align="center"> 
+                    <p class="MsoNormal"><span style="font-size:9.0pt;  font-family:宋体;Times New Roman&quot;">关系模型<span lang="EN-US"> 
+                      </span></span></p>
+                  </td>
+                  <td width="429" valign="top"> 
+                    <p class="MsoNormal"><span style="font-size:9.0pt;  font-family:宋体;Times New Roman&quot;">是指用表的集合来表示数据和数据间的联系。每个表有多个列，每列有唯一的列名。<span lang="EN-US"> 
+                      </span></span></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="139" valign="top" align="center"> 
+                    <p class="MsoNormal"><span style="font-size:9.0pt;  font-family:宋体;Times New Roman&quot;">网状模型<span lang="EN-US"> 
+                      </span></span></p>
+                  </td>
+                  <td width="429" valign="top"> 
+                    <p class="MsoNormal"><span style="font-size:9.0pt;  font-family:宋体;Times New Roman&quot;">是指数据用记录（与<span lang="EN-US">Pascal语言中的记录含义相同）的集合来表示，数据间的联系用链接（可看作指针）来表示。数据库中的记录可被组织成任意图的集合。 
+                      </span></span></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="139" valign="top" align="center"> 
+                    <p class="MsoNormal"><span style="font-size:9.0pt;  font-family:宋体;Times New Roman&quot;;Times New Roman&quot;">层次模型</span><span lang="EN-US" style="font-size:9.0pt;
+  font-family:宋体;Times New Roman&quot;"> </span></p>
+                  </td>
+                  <td width="429" valign="top"> 
+                    <p class="MsoNormal"><span style="font-size:9.0pt;  font-family:宋体;Times New Roman&quot;;Times New Roman&quot;">与网状模型类似，分别用记录和链接来表示数据和数据间的联系。层次模型中的记录只能组织成树的集合而不能是任意图的集合。</span><span lang="EN-US" style="font-size:9.0pt;font-family:宋体;
+  Times New Roman&quot;"> </span></p>
+                  </td>
+                </tr>
+              </table></div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text"><span lang="EN-US" style="font-size:9.0pt;font-family:宋体;
+Times New Roman&quot;"><span class="part">1.4　数据库语言</span></span></td>
+        </tr>
+        <tr> 
+          <td class="text"> 
+            <div align="center"><span class="part">表<span lang="EN-US">1-4</span></span> 
+              <table border="1" cellspacing="0" cellpadding="0" bordercolor="#000000" class="text">
+                <tr> 
+                  <td width="139" valign="top"> 
+                    <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-size:9.0pt;font-family:宋体;Times New Roman&quot;">概念<span lang="EN-US"> 
+                      </span></span></b></p>
+                  </td>
+                  <td width="429" valign="top"> 
+                    <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-size:9.0pt;font-family:宋体;Times New Roman&quot;">解释<span lang="EN-US"> 
+                      </span></span></b></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="139" valign="top" align="center"> 
+                    <p class="MsoNormal"><span style="font-size:9.0pt;  font-family:宋体;Times New Roman&quot;">数据定义语言<span lang="EN-US"> 
+                      </span></span></p>
+                  </td>
+                  <td width="429" valign="top"> 
+                    <p class="MsoNormal"><span style="font-size:9.0pt;  font-family:宋体;Times New Roman&quot;;Times New Roman&quot;">英文原文是</span><span lang="EN-US" style="font-size:9.0pt;
+  font-family:宋体;Times New Roman&quot;">Data Definition Language，一般缩写为DDL。</span><span style="font-size:9.0pt;font-family:宋体;Times New Roman&quot;;Times New Roman&quot;">一种用于定义数据库模式、数据</span><span style="font-size:9.0pt;
+  font-family:宋体;Times New Roman&quot;">的存储结构和访问方式的一种特殊语言。<span lang="EN-US"> 
+                      </span></span></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="139" valign="top" align="center"> 
+                    <p class="MsoNormal"><span style="font-size:9.0pt;  font-family:宋体;Times New Roman&quot;;Times New Roman&quot;">数据操纵</span><span lang="EN-US" style="font-size:9.0pt;
+  font-family:宋体;Times New Roman&quot;"> </span></p>
+                  </td>
+                  <td width="429" valign="top"> 
+                    <p class="MsoNormal"><span style="font-size:9.0pt;  font-family:宋体;Times New Roman&quot;;Times New Roman&quot;">是指对存储在数据库中的信息进行检索、向数据库中插入新的信息、从数据库中删除信息以及修改存储在数据库中的信息。</span><span lang="EN-US" style="font-size:9.0pt;font-family:宋体;
+  Times New Roman&quot;"> </span></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="139" valign="top" align="center"> 
+                    <p class="MsoNormal"><span style="font-size:9.0pt;  font-family:宋体;Times New Roman&quot;">数据操纵语言</span><span lang="EN-US" style="font-size:9.0pt;"> 
+                      </span></p>
+                  </td>
+                  <td width="429" valign="top"> 
+                    <p class="MsoNormal"><span style="font-size:9.0pt;  font-family:宋体;Times New Roman&quot;">英文原文是<span lang="EN-US">Data 
+                      Manipulation Language，一般缩写为DML。</span></span><span style="font-size:9.0pt;font-family:宋体;Times New Roman&quot;;Times New Roman&quot;">一种用于表达数据库的查询和更新的特殊语言。</span><span lang="EN-US" style="font-size:9.0pt;"> 
+                      </span></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="139" valign="top" align="center"> 
+                    <p class="MsoNormal"><span style="font-size:9.0pt;  font-family:宋体;Times New Roman&quot;">数据查询语言<span lang="EN-US"> 
+                      </span></span></p>
+                  </td>
+                  <td width="429" valign="top"> 
+                    <p class="MsoNormal"><span style="font-size:9.0pt;  font-family:宋体;Times New Roman&quot;">查询是用来对信息进行检索的语句，<span lang="EN-US">DML中涉及信息检索的那一部分称作查询语言。但在实际当中不严格区分查询语言和数据操纵语言，有时就简单地称为数据查询语言。 
+                      </span></span></p>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text"><span lang="EN-US" style="font-size:9.0pt;font-family:宋体;
+Times New Roman&quot;" class="part">1.5　事务管理<span style="color:black"> </span></span></td>
+        </tr>
+        <tr> 
+          <td class="text"> 
+            <div align="center"><span style="font-size:9.0pt;font-family:宋体;Times New Roman&quot;" class="part">表<span lang="EN-US">1-5 
+              </span></span> 
+              <table border="1" cellspacing="0" cellpadding="0" bordercolor="#000000" class="text">
+                <tr> 
+                  <td width="139" valign="top"> 
+                    <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-size:9.0pt;font-family:宋体;Times New Roman&quot;">概念<span lang="EN-US"> 
+                      </span></span></b></p>
+                  </td>
+                  <td width="429" valign="top"> 
+                    <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-size:9.0pt;font-family:宋体;Times New Roman&quot;">解释<span lang="EN-US"> 
+                      </span></span></b></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="139" valign="top" align="center"> 
+                    <p class="MsoNormal"><span style="font-size:9.0pt;  font-family:宋体;Times New Roman&quot;;Times New Roman&quot;">事务</span><span lang="EN-US" style="font-size:9.0pt;
+  font-family:宋体;Times New Roman&quot;"> </span></p>
+                  </td>
+                  <td width="429" valign="top"> 
+                    <p class="MsoNormal"><span style="font-size:9.0pt;  font-family:宋体;Times New Roman&quot;;Times New Roman&quot;">是数据库应用中完成单一逻辑功能的操作集合，是一个既具原子性又具一致性的逻辑执行单元。</span><span lang="EN-US" style="font-size:9.0pt;font-family:宋体;
+  Times New Roman&quot;"> </span></p>
+                  </td>
+                </tr>
+              </table>
+              </div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text"><span lang="EN-US" style="font-size:9.0pt;font-family:宋体;
+Times New Roman&quot;" class="part">1.6　存储管理<span style="color:black"> </span></span></td>
+        </tr>
+        <tr> 
+          <td class="text"> 
+            <div align="center"><span style="font-size:9.0pt;font-family:宋体;Times New Roman&quot;" class="part">表<span lang="EN-US">1-6 
+              </span></span> 
+              <table border="1" cellspacing="0" cellpadding="0" bordercolor="#000000" class="text">
+                <tr> 
+                  <td width="139" valign="top"> 
+                    <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-size:9.0pt;font-family:宋体;Times New Roman&quot;">概念<span lang="EN-US"> 
+                      </span></span></b></p>
+                  </td>
+                  <td width="429" valign="top"> 
+                    <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-size:9.0pt;font-family:宋体;Times New Roman&quot;">解释<span lang="EN-US"> 
+                      </span></span></b></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="139" valign="top" align="center"> 
+                    <p class="MsoNormal"><span style="font-size:9.0pt;  font-family:宋体;Times New Roman&quot;">存储管理器<span lang="EN-US"> 
+                      </span></span></p>
+                  </td>
+                  <td width="429" valign="top"> 
+                    <p class="MsoNormal"><span style="font-size:9.0pt;  font-family:宋体;Times New Roman&quot;">是为存储在数据库中的低层数据与应用程序及向系统提交的查询之间提供接口的程序模块。存储管理器负责数据库管理系统中数据的存储、检索和更新。<span lang="EN-US"> 
+                      </span></span></p>
+                  </td>
+                </tr>
+              </table>
+              </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="text" height="14"><span lang="EN-US" style="font-size:9.0pt;font-family:宋体;
+Times New Roman&quot;" class="part">1.7　数据库用户<span style="color:black"></span></span><span lang="EN-US" style="font-size:9.0pt;font-family:宋体;
+Times New Roman&quot;"><span style="color:black"> </span></span></td>
+        </tr>
+        <tr>
+          <td class="text">
+            <div align="center"><span style="font-size:9.0pt;font-family:宋体;Times New Roman&quot;" class="part">表<span lang="EN-US">1-7 
+              </span></span> 
+              <table border="1" cellspacing="0" cellpadding="0" bordercolor="#000000" class="text">
+                <tr> 
+                  <td width="139" valign="top"> 
+                    <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-size:9.0pt;font-family:宋体;Times New Roman&quot;">概念<span lang="EN-US"> 
+                      </span></span></b></p>
+                  </td>
+                  <td width="429" valign="top"> 
+                    <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-size:9.0pt;font-family:宋体;Times New Roman&quot;">解释<span lang="EN-US"> 
+                      </span></span></b></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="139" valign="top" align="center"> 
+                    <p class="MsoNormal"><span style="font-size:9.0pt;  font-family:宋体;Times New Roman&quot;">数据库管理员<span lang="EN-US"> 
+                      </span></span></p>
+                  </td>
+                  <td width="429" valign="top"> 
+                    <p class="MsoNormal"><span style="font-size:9.0pt;  font-family:宋体;Times New Roman&quot;">英文原文是<span lang="EN-US">Database 
+                      Administrator，一般缩写为DBA。它是数据库用户中的一个特殊的用户，负责对DBMS进行集中的管理与控制，包括对普通用户进行访问控制。 
+                      </span></span></p>
+                  </td>
+                </tr>
+              </table>
+              </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="text"><span lang="EN-US" style="font-size:9.0pt;font-family:宋体;
+Times New Roman&quot;" class="part">1.8　数据库管理系统的总体结构<span style="color:black"> 
+            </span></span></td>
+        </tr>
+        <tr> 
+          <td class="text" align="center"> 
+            <div align="center"></div>
+            <div align="center" class="part">表<span lang="EN-US">1-8</span></div>
+          <table border="1" cellspacing="0" cellpadding="0" bordercolor="#000000" class="text">
+              <tr> 
+                <td width="139" valign="top"> 
+                  <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-size:9.0pt;font-family:宋体;Times New Roman&quot;">概念<span lang="EN-US"> 
+                    </span></span></b></p>
+                </td>
+                <td width="429" valign="top"> 
+                  <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-size:9.0pt;font-family:宋体;Times New Roman&quot;">解释<span lang="EN-US"> 
+                    </span></span></b></p>
+                </td>
+              </tr>
+              <tr> 
+                <td width="139" valign="top" align="center"> 
+                  <p class="MsoNormal"><span lang="EN-US" style="font-size:9.0pt;font-family:宋体;Times New Roman&quot;">DML编译器 
+                    </span></p>
+                </td>
+                <td width="429" valign="top"> 
+                  <p class="MsoNormal"><span style="font-size:9.0pt;  font-family:宋体;Times New Roman&quot;">负责将查询语言中<span lang="EN-US">DML语句翻译成查询计算引擎能理解的低级指令。另外，DML编译器力图将用户请求转换成一个等价的但效率更高的形式，以找到执行查询的更好策略。 
+                    </span></span></p>
+                </td>
+              </tr>
+              <tr> 
+                <td width="139" valign="top" align="center"> 
+                  <p class="MsoNormal"><span style="font-size:9.0pt;  font-family:宋体;Times New Roman&quot;">嵌入式<span lang="EN-US">DML预编译器 
+                    </span></span></p>
+                </td>
+                <td width="429" valign="top"> 
+                  <p class="MsoNormal"><span style="font-size:9.0pt;  font-family:宋体;Times New Roman&quot;">将嵌入在宿主语言中的<span lang="EN-US">DML语句转化成宿主语言中普通的过程调用语句。 
+                    </span></span></p>
+                </td>
+              </tr>
+              <tr> 
+                <td width="139" valign="top" align="center"> 
+                  <p class="MsoNormal"><span lang="EN-US" style="font-size:9.0pt;font-family:宋体;Times New Roman&quot;">DDL解释器 
+                    </span></p>
+                </td>
+                <td width="429" valign="top"> 
+                  <p class="MsoNormal"><span style="font-size:9.0pt;  font-family:宋体;Times New Roman&quot;">负责解释用户的<span lang="EN-US">DDL语句并将其记录到包含元数据的一系列系统表中。 
+                    </span></span></p>
+                </td>
+              </tr>
+              <tr> 
+                <td width="139" valign="top" align="center"> 
+                  <p class="MsoNormal"><span style="font-size:9.0pt;  font-family:宋体;Times New Roman&quot;">查询计算引擎<span lang="EN-US"> 
+                    </span></span></p>
+                </td>
+                <td width="429" valign="top"> 
+                  <p class="MsoNormal"><span style="font-size:9.0pt;  font-family:宋体;Times New Roman&quot;">负责具体执行由<span lang="EN-US">DML编译器产生的低级指令。 
+                    </span></span></p>
+                </td>
+              </tr>
+              <tr> 
+                <td width="139" valign="top" align="center"> 
+                  <p class="MsoNormal"><span style="font-size:9.0pt;  font-family:宋体;Times New Roman&quot;">权限及完整性管理器<span lang="EN-US"> 
+                    </span></span></p>
+                </td>
+                <td width="429" valign="top"> 
+                  <p class="MsoNormal"><span style="font-size:9.0pt;  font-family:宋体;Times New Roman&quot;">检查是否满足完整性约束，检查试图访问数据的用户的权限。<span lang="EN-US"> 
+                    </span></span></p>
+                </td>
+              </tr>
+              <tr> 
+                <td width="139" valign="top" align="center"> 
+                  <p class="MsoNormal"><span style="font-size:9.0pt;  font-family:宋体;Times New Roman&quot;">事务管理器<span lang="EN-US"> 
+                    </span></span></p>
+                </td>
+                <td width="429" valign="top"> 
+                  <p class="MsoNormal"><span style="font-size:9.0pt;  font-family:宋体;Times New Roman&quot;;Times New Roman&quot;">对事务的执行进行管理，保证即使系统发生了故障，数据库也是一致的（正确的）。</span><span lang="EN-US" style="font-size:9.0pt;font-family:宋体;
+  Times New Roman&quot;"> </span></p>
+                </td>
+              </tr>
+              <tr> 
+                <td width="139" valign="top" align="center"> 
+                  <p class="MsoNormal"><span style="font-size:9.0pt;  font-family:宋体;Times New Roman&quot;">文件管理器<span lang="EN-US"> 
+                    </span></span></p>
+                </td>
+                <td width="429" valign="top"> 
+                  <p class="MsoNormal"><span style="font-size:9.0pt;  font-family:宋体;Times New Roman&quot;;Times New Roman&quot;">管理磁盘空间的分配；管理用于表示数据库所存储信息的数据结构。</span><span lang="EN-US" style="font-size:9.0pt;font-family:宋体;Times New Roman&quot;"> 
+                    </span></p>
+                </td>
+              </tr>
+              <tr> 
+                <td width="139" valign="top" align="center"> 
+                  <p class="MsoNormal"><span style="font-size:9.0pt;  font-family:宋体;Times New Roman&quot;">缓冲区管理器<span lang="EN-US"> 
+                    </span></span></p>
+                </td>
+                <td width="429" valign="top"> 
+                  <p class="MsoNormal"><span style="font-size:9.0pt;  font-family:宋体;Times New Roman&quot;;Times New Roman&quot;">负责将数据从磁盘上取到内存中来，并决定哪些数据应被缓冲存储在内存里。</span><span lang="EN-US" style="font-size:9.0pt;font-family:宋体;Times New Roman&quot;"> 
+                    </span></p>
+                </td>
+              </tr>
+              <tr> 
+                <td width="139" valign="top" align="center"> 
+                  <p class="MsoNormal"><span style="font-size:9.0pt;  font-family:宋体;Times New Roman&quot;">数据文件<span lang="EN-US"> 
+                    </span></span></p>
+                </td>
+                <td width="429" valign="top"> 
+                  <p class="MsoNormal"><span style="font-size:9.0pt;  font-family:宋体;Times New Roman&quot;">存储数据库中数据的文件。<span lang="EN-US"> 
+                    </span></span></p>
+                </td>
+              </tr>
+              <tr> 
+                <td width="139" valign="top" align="center"> 
+                  <p class="MsoNormal"><span style="font-size:9.0pt;  font-family:宋体;Times New Roman&quot;">数据字典<span lang="EN-US"> 
+                    </span></span></p>
+                </td>
+                <td width="429" valign="top"> 
+                  <p class="MsoNormal"><span style="font-size:9.0pt;  font-family:宋体;Times New Roman&quot;;Times New Roman&quot;">存储关于数据库结构的元数据的系统表。</span><span lang="EN-US" style="font-size:9.0pt;font-family:宋体;Times New Roman&quot;"> 
+                    </span></p>
+                </td>
+              </tr>
+              <tr> 
+                <td width="139" valign="top" align="center"> 
+                  <p class="MsoNormal"><span style="font-size:9.0pt;  font-family:宋体;Times New Roman&quot;">索引<span lang="EN-US"> 
+                    </span></span></p>
+                </td>
+                <td width="429" valign="top"> 
+                  <p class="MsoNormal"><span style="font-size:9.0pt;  font-family:宋体;Times New Roman&quot;">是指数据库中数据的存取路径，提供对数据项的快速访问。<span lang="EN-US"> 
+                    </span></span></p>
+                </td>
+              </tr>
+              <tr> 
+                <td width="139" valign="top" align="center"> 
+                  <p class="MsoNormal"><span style="font-size:9.0pt;  font-family:宋体;Times New Roman&quot;">统计数据<span lang="EN-US"> 
+                    </span></span></p>
+                </td>
+                <td width="429" valign="top"> 
+                  <p class="MsoNormal"><span style="font-size:9.0pt;  font-family:宋体;Times New Roman&quot;;Times New Roman&quot;">是关于数据库中数据的各种统计信息，这些信息被查询处理器用来选择高效的执行查询的方法。</span><span lang="EN-US" style="font-size:9.0pt;font-family:宋体;
+  Times New Roman&quot;"> </span></p>
+                </td>
+              </tr>
+            </table>
+            </td>
+        </tr>
+      </table></td>
+  </tr>
+</table>
+</body>
+</html>

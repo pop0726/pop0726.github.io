@@ -1,0 +1,192 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" --> 　<span class="biaoti_1">3. 继承性</span><br>
+      <br>
+      　　面向对象的数据库模式通常有许多类，同时又有许多类是相似的。例如，学校人员数据库，本科生和研究生，他们的多数属性是相同的，本科生和研究生也有自己特殊的属性。我们把他们共同的属性放在一个类中描述，例如学生类，他们各自特殊的属性分别单独描述，但是他们要继承学生类的描述，从而减少冗余的描述。这样，具有共性的类称为概括的超类，包含特化的类称为超类的特化的子类。<br>
+      类继承主要在两个方面： <br>
+      　　● 继承实例变量:一个类通过继承超类的实例变量继承超类的结构描述。<br>
+      　　● 继承方法:一个类通过继承超类的行为特性继承超类的操作方法。 <br>
+      <br>
+      　　<font color="5a5aad">子类要继承超类的行为(操作方法等)和表示(实例变量或属性等)。继承行为意味着多个软件模块(不同的类对象)之间编码共享。继承表示意味着多种数据对象之间结构共享。</font><br>
+      <br>
+      　　继承也提供了组织信息的自然机制，它把对象分类组织到已定义的继承层次中。<br>
+      <br>
+      　　<font color="5a5aad">继承除了具有强有力地组织信息的工具之外，最重要的作用是编码的结构的共享和编码的重用性。</font><br>
+      　　<b><br>
+      　　（1）继承的IS_A关系</b><br>
+      　　继承的思想是支持对象类之间的IS_A关系。IS_A关系的表示如图8-3。图中说明了三种可选择的表示方法。其(a)是最精确地表示，箭头清楚地指明上下文的意思。图中的箭头表示特性继承的方向。在箭尾一级的对象不仅有自己的特殊特性，而且还具有它上面对象的特性。在箭头部位的对象具有它下面每个对象的共同特性。<br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td align="center"><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="300" height="220">
+              <param name=movie value="../../../swf/ch8/3.swf">
+              <param name=quality value=high>
+              <param name="wmode" value="transparent">
+              <embed src="../../../swf/ch8/3.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="300" height="220" wmode="transparent">
+              </embed> 
+            </object></td>
+        </tr>
+      </table>
+      <br>
+      　　<font color="5a5aad">在面向对象的系统中，继承是与两个对象类之间的IS_A关系相关联的。除实例之间的子集关系外，继承是IS_A关系的第二个方面：子类的一个实例继承超类的所有特性，即结构特性和操作特性，其中包括超类从它自己的祖先继承下来的所有特性。子类的实例除了从超类继承下来的特性外，还必须有自己定义的特性。<br>
+      </font> 　　<b>（2）类层次结构</b><br>
+      　　对象按类分组，通过类层次构造复杂对象。在类层次中，一对结点之间的一条边表示IS_A关系。其中低层次的结点是较高层次结点的特化，而较高层次的结点是较层次结点的概括。对类层次中的一对类结点，较高层次的类称为超级类(Super_class)，而较低层次的类称为超级类的子类(sub_class)。所以，超类与子类的关系就是概括与特殊的关系。<br>
+      <br>
+      　　一个类可以有多个子类，该类的特性为所有子类共享和复用。一个类也可以有多个直接的超类，该类要继承它的所有超类的特性，即多重继承。<br>
+      <br>
+      　　同时，超类和子类的关系是相对的。一个类可以是某些类的超类，同时又是另一些类的子类。动画说明包括单继承和多继承的类层次。所有的类都继承根类C0的特性。 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td align="center"><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="230" height="190">
+              <param name=movie value="../../../swf/ch8/4.swf">
+              <param name=quality value=high>
+              <param name="wmode" value="transparent">
+              <embed src="../../../swf/ch8/4.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="230" height="190" wmode="transparent">
+              </embed> 
+            </object></td>
+        </tr>
+      </table>
+      <br>
+      　　子类继承超类的所有特性(属性、约束和方法)，子类还可以有自己的特殊特性。<br>
+      <br>
+      　　<font color="5a5aad">由上面的例子可以看到，通过类继承和类层次结构子类可共享超类的结构和方法，同时也简化了子类的描述。如果单独地定义每个类，会有如下两个缺点:<br>
+      <br>
+      　　● 缺少再使用性。教员类应当使用人类的定义，因为教员具有人的共性。<br>
+      　　● 缺少灵活性。由于定义了多个无关的类人、学生和教员，而教职员描述中定义的配偶是&quot;人&quot;，就不可能是一个教员，这是不合理的。实际上教员类是人类的子集，而且教员就是(IS_A)人。<br>
+      </font> 　　<b>（3） 概括和特化</b><br>
+      　　继承是与概括和特化相关联的。大多数现有的面向对象的系统允许开发人员通过特化现有的应用模块类来扩展应用程序。如图8-5 所示，带斜线的方框表示现有的类，空白框表示通过继承现有类的结构和方法而产生的新类。<br>
+      <br>
+      　　特化是由顶级的超类开始类层次，通过产生子类向下扩展类层次。特化一个现存的类可以通过增加实例变量、约束现有的实例变量、增加方法、取代现有的方法等来实现。如动画所示。<br>
+      　<br>
+      　　概括是特化的补充，用由底向上的方法产生现有子类的概括超类。在层次顶部的新类是从底部现存类中提取公共的实例变量和方法而产生的。 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td align="center" valign="middle"><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="400" height="170">
+              <param name=movie value="../../../swf/ch8/5.swf">
+              <param name=quality value=high>
+              <param name="wmode" value="transparent">
+              <embed src="../../../swf/ch8/5.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="400" height="170" wmode="transparent">
+              </embed> 
+            </object><br>
+            <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="300" height="280">
+              <param name=movie value="../../../swf/ch8/5-a.swf">
+              <param name=quality value=high>
+              <param name="wmode" value="transparent">
+              <embed src="../../../swf/ch8/5-a.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="300" height="280" wmode="transparent">
+              </embed> 
+            </object></td>
+        </tr>
+      </table>
+      <br>
+      　　<b>(4) 单继承和多重继承</b><br>
+      　　在单继承中，类继承层次是一棵树，每个子类有且仅有一个直接的超类。在类的多重继承层次中，一个类可有多个直接的超类，形成一个有向无环图。允许一个类继承多个直接超类的机制称为多重继承。<br>
+      　<br>
+      　　在单继承中，每个类最多直接继承一个超类的特性，实际导致一种树结构。因此，从继承层次的根到任何一个类只存在一条唯一的线性路径，是单继承的层次结构。<br>
+      　<br>
+      　　树型结构的单继承特性，保证由直接继承的类中选择的操作方法是唯一的。 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td align="center"><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="400" height="240">
+              <param name=movie value="../../../swf/ch8/6.swf">
+              <param name=quality value=high>
+              <param name="wmode" value="transparent">
+              <embed src="../../../swf/ch8/6.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="400" height="240" wmode="transparent">
+              </embed> 
+            </object></td>
+        </tr>
+      </table>
+      <br>
+      　　多继承放松了一个类最多只有一个超类的要求，允许一个类有多个超类。子类要继承多个超类的属性和方法。如图8-6b)所示，类C3同时继承类C1和C2的特性。<br>
+      <br>
+      　　在多继承层次中，子类的实例变量集合是它的直接超类的实例变量和该子类定义的另外的实例变量的联合。子类中的方法是它的直接超类的操作方法和该子类定义的操作方法的联合。<br>
+      <br>
+      　　多重继承层次中，一个类可有多个直接的超类，形成有向无环图。如图5-6b)。多继承中从继承层的顶部到每个子类可以有多条路径。因此，子类由超类继承的实例变量和操作方法可能有重名冲突。<br>
+      <br>
+      　　使用多重继承，超类实例变量和方法的联合(UNION)形成子类的实例变量和操作方法。<br>
+      　　类 C 的实例变量可定义为:<br>
+      　　类 C 的实例变量＝(局部于C 的实例变量) U (Ci 的实例变量)<br>
+      　　其中Ci 是C 的第 i 个直接前趋超类，i=1,2,…n。<br>
+      　　<br>
+      　　类似地，类 C的操作方法可定义为:<br>
+      　　类 C 的操作方法 ＝ (局部于 C 的操作方法) U (Ci 的操作方法)<br>
+      <br>
+      　　<font color="5a5aad">联合(UNION)多个直接超类的实例变量和操作方法时，最主要的问题是多个直接超类可能有相同名字但有完全不同语义的实例变量和操作方法。<br>
+      　　因此，要有处理冲突方法的策略。每个支持多重继承的面向对象语言，在它的实现中都提供有微小差别的策略和方法。<br>
+      　　在多继承中，类层次仍然有一个共同的根，但不再保证从根到每一个给定的类沿着IS_A关系有唯一的一条路径。通常，多继承的类层次结构形成有向无环图。例如，图8-6的例子中，C3继承C0有两条不同的路径。即C0的特性传播到C3是沿着两条不同的继承路径：一条经过C1，另一条经过C2。当对C3类的实例调用一个操作时,在多继承系统中可能出现二义性。例如，在C1和C2中都定义了操作OP，对C3的一个实例要调用的操作OP是执行在C1上定义的呢？还是执行在C2上定义的操作呢？<br>
+      　　又例如，在C0中定义了一个操作OP0，C3要继承OP0两次：沿着C1的继承和沿着C2的继承。这不再是二义性问题，这是重定义的问题。在C1中对OP0的重定义或在C2中对OP0的重定义可能会引起冲突，因此对C3的操作方法OP0不能唯一地确定OP0的操作版本。</font><br>
+      <br>
+      　　<b>(5) 多继承中解决同名冲突的方法</b><br>
+      　　 在面向对象的系统中，对多继承必需提供几种解决实例变量和操作方法冲突的策略。下面给出解决冲突的几种方法：<br>
+      　　　① 用户指定<br>
+      　　用户指定子类中使用哪个超类的操作方法，实际上是利用用户指定超类中同名操作方法的优先级别。例如，C有n个超类C1，C2，…，Cn，这n个超类在C的超类列表中的排列次序为C1，…，Cn。排在前面的其优先级别高于排这后面的，类C定义中，C的超类说明如下：<br>
+　　CLASS C<br>
+　　　SUPERCLASS C<sub>1</sub>,C<sub>2</sub>,…,Cm-1,Cm,…Cn;<br>
+　　　…<br>
+　　　ENDCLASS<br>
+　　当C有n个超类时，要确定C使用的操作方法OP是哪个超类的编码，可用如下策略：<br>
+      <br>
+      　　● 先确定该操作方法OP在 C本身定义中是否有定义，如果本身有定义，使用自己定义的操作方法，自己的定义优先级别最高。<br>
+      　　● 如果C本身定义中没有定义操作方法OP,按超类表中的顺序逐个检查它的超类定义。<br>
+      　　　<font color="5a5aad">◇ 先检查由C1开始的有向无环图DAG，看它是否包含着一个OP的定义，即检查C1或C1的祖先是否包含OP的定义。C1的祖先按着C1定义中超类子句说明的顺序进行访问。<br>
+      　　……...<br>
+      　　　◇ 最后检查由Cn开始的DAG，步骤如同检查C1，看Cn是否包含着一个OP的定义。<br>
+      由上面的检查算法所找到的第一个OP的实现作为系统运行时可选的执行编码。实际上是用户指定了继承的优先次序。</font><br>
+      <br>
+      　　② 显式地强制重命名。<br>
+      　　这要求C从C1，…，Cn继承的所有特性必须有不同的名字。假如不能满足这个要求，不必修改它们的定义，而是对那些在C内可能会产生多义性的继承特性进行重新命名。重新命名所继承的特性需要修改超类子句的说明。假如有m个超类需要重新命名同名的继承特性，在超类的说明子句进行重新命名。下面的例子说明，类C需要使用在第m个超类定义的操作方法OP，超类说明做如下修改：<br>
+      　　CLASS C<br>
+      　　SUPERCLASSES C1(renames OP TO OP1)，<br>
+      　　………..，<br>
+      　　　　　　　Cm-1(renames OP TO OPm-1),<br>
+      　　　　　　　Cm，……….,Cn；<br>
+      　　…………..<br>
+      　　ENDCLASS；<br>
+      <br>
+      　　<font color="5a5aad">其中假定C的OP操作可以从m个不同的超类C1，…，Cm继承下来。为了使用第m个超类的方法，有m-1个操作方法要重新命名。</font><br>
+      <br>
+      　　③ 重新改进编码<br>
+      　　从图8-6的例子中可看到，超类C1和C2有共同的超类C0，在C3内的操作方法OP有两种可能：<br>
+      　　● OP操作是由C0定义的，至少在C1或C2中重新改进过。<br>
+      　　● OP操作不是在C0中定义的，它是在C1或C2中定义的。<br>
+      <br>
+      　　上述两种情况在执行时都有二义性问题。解决的方法有三种可能：<br>
+      　　● 在C3中重新定义OP的编码实现，使用自己的定义。<br>
+      　　● 在C3内改进的OP编码与C1中的相同。<br>
+      　　● 在C3内改进的OP编码与C2中的相同。 
+      <p> 　　<b>(6) 继承的优点</b><br>
+        　　● 它为组织信息提供了一种自然的模型。<br>
+        　　● 它允许共享编码，从而减少系统的开销。<br>
+        　　● 允许在现有层次的底部定义新类而不必从头开始描述，提高了类层次的灵活性和可扩展性。<br>
+        　　● 构造多种视图。多继承比单继承有更多优点。甚至单个数据库实例可被处理为两个或三个无关的语义视图。每个不同的语义视图的功能是从不同的超类中继承下来的。例如，对一个管子有几何描述和商业产品的描述，提供了两种无关的语义描述视图。<br>
+        　　几何描述: 长度、半径、厚度等。<br>
+        　　商品描述： 材料、出售价格、生产造价、生产日期、生产厂家等。</p>
+      <!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

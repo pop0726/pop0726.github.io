@@ -1,0 +1,54 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgproperties=fixed bgcolor="#FFFFFF" background="../../../../image/moban/15.gif">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" height="157">
+        <tr> 
+          <td class="text" align="left" height="3"> 
+            <p><span class="part">��1、问题的提出</span><br>
+              ��外连接运算是自然连接运算的扩展，它可以处理缺失信息。假设银行中全时员工的信息如下，如<span class="part">图3-4-2</span>所示：<br>
+              employee(employee-name, street, city)<br>
+              ft-works(employee-name, branch-name, salary)<br>
+            </p>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left"> 
+            <div align="center"><span class="part">图3-4-2：关系employee和关系ft-works 
+              </span><br>
+              <img src="../../../../image/chapter/03/3-4-2(1).gif" width="420" height="141"><br>
+              <img src="../../../../image/chapter/03/3-4-2(2).gif" width="420" height="141"> 
+            </div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left">��考虑关系employee和ft-works，假设现在想得到一个包含全时员工的所有信息(包括姓名、街道、城市、所在分支机构和工资)的关系，自然会想到自然连接。但是自然连接的结果如<span class="part">图3-4-3</span>所示，丢掉了Smith和Gates的所有信息。原因就是在有关连接的关系中缺少这两个人的部分信息。<br>
+          </td>
+        </tr>
+        <tr>
+          <td class="text" align="left">
+            <div align="center"><span class="part">图3-4-3：关系employee和ft-works的自然连接结果 
+              </span><br>
+              <img src="../../../../image/chapter/03/3-4-3.gif" width="420" height="82"> 
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="text" align="left">��使用外连接运算可以避免这样的信息丢失。外连接运算有三种形式：<br>
+            ��①左外连接，用符号�＠幢硎荆�<br>
+            ��②右外连接，用符号�だ幢硎荆�<br>
+            ��③全外连接，用符号�⒗幢硎尽�<br>
+            ��所有的外连接运算都要首先计算自然连接运算，然后再在连接结果中加上额外的元组。下面我们就要看一看这些额外的元组是如何加上去的。</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

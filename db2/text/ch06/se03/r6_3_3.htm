@@ -1,0 +1,80 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" --> 
+      <p> 　　与Connection对象类似，Command对象也用来执行SQL语句和返回一个Recordset，如程序清单6.10。然而，使用Command对象的最大优点在于它能传送参数出入存储过程。不仅返回一个return值，SQL 
+        Server的存储过程还可以有input、output和inputoutput参数。使用ADO的Command对象，就可使用SQL Server存储对象的所有类型参数。<br>
+        　(9) 程序清单 6.10： 从Command对象返回一个Recordset<br>
+        　　<font color="#5a5aad">'---创建Connection对象</font><br>
+        　　　set objConn = Server.CreateObject (&quot; ADODB.Connection&quot;)<br>
+        　　<font color="#5a5aad">'---创建Command对象</font><br>
+        　　　set objCmd = Server.CreateObject ( &quot; ADODB.Command&quot; )<br>
+        　　<font color="#5a5aad">'---创建Recordset对象</font><br>
+        　　　set objRS = Server.CreateObject ( &quot;ADODB.Recordset &quot; )<br>
+        　　<font color="#5a5aad">'---通过存储在Application中连接字符串打开连接</font><br>
+        　　　objConn.Open Application(&quot;ConnString&quot;)<br>
+        　　<font color="#5a5aad">'---设置Command对象的ActiveConnection 属性将其与Command对象关联。</font><br>
+        　　　set objCmd.ActiveConnection = objConn<br>
+        　　　strSQL = &quot;SELECT * FROM titles&quot;<br>
+        　　　set objRS = objCmd.Execute(strSQL)</p>
+      　　　<font color="#cc0000">程序清单6.11显示使用ADO如何从存储过程ByRoyalty中获取记录集。该存储过程获取版税大于某百分数的作者数据集。通过传值给percentage参数来指定百分数。<br>
+      　(10) 程序清单6.11: 执行带参数的存储过程 <br>
+      　　　set objConn = Server.CreateObject ( &quot; ADODB.Connection &quot; )<br>
+      　　　set objCmd = Server.CreateObject ( &quot; ADODB.Command&quot; )<br>
+      　　　set objRS = Server.CreateObject ( &quot;ADODB.Recordset &quot; )<br>
+      　　　objConn.Open Application(&quot;ConnString&quot;)<br>
+      　　　set objCmd.ActiveConnection = objConn</font><br>
+      　<font color="#5a5aad">　'---指定Command对象将执行的存储过程名</font><br>
+      　　　<font color="#cc0000">objCmd.CommandText = &quot;ByRoyalty&quot;<br>
+      　　　objCmd.CommandType = adCmdStoredProc</font><br>
+      　　<font color="#5a5aad">'---指定存储过程参数的值</font><br>
+      　　　<font color="#cc0000">objCmd.Parameters.Append <br>
+      　　　objCmd.CreateParameter(&quot;percentage&quot;, adInteger, adParamInput,,50)<br>
+      　　　set objRS = objCmd.Execute<br>
+      　　注解：其它注释见前面程序清单6.12<br>
+      　　让我们将程序清单中的代码拆开以便检查各部分工作。首先，代码创建三个所需对象：<br>
+      　　Connection对象与数据库通讯，Command对象执行存储过程，Recordset对象获取返回的记录集。然后打开Connection对象，并通过设置Command对象的ActiveConnection 
+      属性将其与Command对象关联。<br>
+      　　在准备代码完成之后，设置CommandText属性以指定Command对象将执行的存储过程名。因为Command对象可以执行SQL语句、打开表和执行存储过程，所以需要告诉它做什么。为此在本例中，设置CommandType属性为adCmdStoredProc 
+      。<br>
+      　　现在指定存储过程参数的值。但在此之前，需要考虑到Command对象的Parameters集仍为空。有两条途径填充Parameters集：使用Refresh方法使代码变小。但是，Refresh方法将负担交给数据提供者以检查参数个数、名称、数据类型、大小和方向(即Input、Output、InputOutput或Return)。让数据提供者做这些的问题在于需要大量资源。<br>
+      　　使用Refresh方法的替代方法是一个一个地创建参数并手工地将其加入Parameters集。这条途径必须指定参数名、数据类型、大小、方向和值(如果它是Input或InputOutput参数)。这看来可能有许多工作，但它提高了程序性能。Command.CreateParameter方法的语法：<br>
+      　　Set objParm = ObjCmd.CreateParameter(param_name,datatype, direction, size, 
+      value)<br>
+      　　其中：<br>
+      　・ param_name是SQL Server所知的参数名；<br>
+      　・ datatype是参数要求的数据类型；<br>
+      　・ Direction是四个值之一：adParamInput、adParamOutput、adParamInputOutput或adParamReturnalue；<br>
+      　・ size指明基于字符的数据类型长度；<br>
+      　・ value是为Input或InputOutput参数传入的值。<br>
+      　　在参数创建并存入objParm 变量之后，就可使用Append方法加入到Parameters集。不要忘了在设置好Command对象的属性和参数之后，即可从Command对象的Execute方法获得一个Recordset对象。</font><br>
+      <!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

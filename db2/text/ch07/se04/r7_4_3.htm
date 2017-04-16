@@ -1,0 +1,92 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" -->　<span class="biaoti_1">1. 事务提交</span><br>
+      　　数据库恢复，从事务观点来看，要把数据库恢复到一个事务&quot;执行前&quot;的状态或&quot;执行完&quot;的状态。原则上讲，解决的方法很简单，在一个事务执行期间，对数据库的所有改变都做成临时的，而且只能在事务结束时才做成永久的，即提交到数据库，此时的动作称为事务提交。<br>
+      ��(1) 事务的前映像：事务执行之前的老数据称该事务的前映像。<br>
+      ��(2) 事务的后映像：事务执行之后新数据称该事务的后映像。<br>
+      下面给出实现事务提交的几种技术方案。<br>
+      ��(1) 提供足够大的内存空间，在主存中保存对数据库的所有改变，事务提交时才写到外部存储中。<br>
+      ��(2) 把对数据库的所有改变先写到外存的另外部分中，事务提交时再转换到数据库中。<br>
+      ��(3) 在外存储器中开辟单独空间保存被改变数据的老状态，把更新的数据写入外存储器中存放老数据的地方。<br>
+      ��(4) 在主存中保存对数据库的所有改变，在事务提交后的某段时间再写到外存数据库中去。<br>
+      <br>
+      <span class="biaoti_1">　2. 数据库转储(备份) </span><br>
+      ��由于介质故障总会丢失永久性数据，要想有效地恢复这些数据，必须定期地把整个数据库做备份，转储到磁带上或其它磁盘介质上，可以脱机保存，这个过程称为数据库转储或数据库备份。当数据库发生故障遭到破坏时，利用数据库备份恢复数据库到转储时的完整状态。但将数据库备份重新装入只能恢复到数据库转储时的状态，必须重新运行自转储之后执行完的所有更新事务。 
+      <br>
+      ��转储是数据库恢复采取的最基本技术。转储分为静态转储和动态转储。<br>
+      <br>
+      <span class="biaoti_2">��● 静态转储</span><br>
+      ��静态转储通常选择数据库正处于完整性状态的适当时机，即在没有更新事务执行时，把整个数据库转储到其它介质上。<br>
+      ��
+      　　<span class="tubiaoti">图7-16 介质故障和数据库转储</span><br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td align="center"><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="400" height="290">
+              <param name=movie value="../../../swf/ch7/11.swf">
+              <param name=quality value=high>
+              <param name="wmode" value="transparent">
+              <embed src="../../../swf/ch7/11.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="400" height="290" wmode="transparent">
+              </embed> 
+            </object> </td>
+        </tr>
+      </table>
+      ��<span class="explaination">图7-16说明数据库静态转储的典型过程。图中表示有四个事务：p1、p2、p3和p4及一个转储。在 
+      p3 和 p4执行期间发生介质故障。实线段表示事务执行的时间。适当安排它们避免因交叉挂起，每个事务无需跨越整个时间。</span><br>
+      ��由于介质故障丢失了数据，在有记录日志时，静态转储数据库恢复比较简单，对于在故障发生时没有完成的事务因为没有提交，重构数据库时不用考虑。因此，利用静态备份和日志重构数据库分两步完成：<br>
+      ��(1) 把转储的后备映像拷贝到新介质中，恢复转储时的数据库状态。自动地恢复了事务p1的影响。<br>
+      ��(2) 重新运行在转储之后开始并在介质故障之前完成的事务。就是说p2事务必须重做，这只需要把日志文件中该事务的后映像拷贝到新介质上来完成。<br>
+      ��<span class="explaination">静态转储是在系统中无运行事务时进行转储操作。即转储操作开始的时候，数据库处于一致性状态，而转储期间不允许对数据库有任何存取、修改活动。<br>
+      ��静态转储简单，但转储过程必须等待正在运行的用户事务结束才能进行，同样，新的事务必须等待转储结束才能执行。显然这会降低数据库的可用性。</span><br>
+      <span class="biaoti_2">��●</span> <span class="biaoti_2">动态转储<br>
+      <br>
+      　　</span><span class="tubiaoti">图7-17 动态转储</span><span class="biaoti_2"><br>
+      </span> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td align="center"><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="400" height="290">
+              <param name=movie value="../../../swf/ch7/12.swf">
+              <param name=quality value=high>
+              <param name="wmode" value="transparent">
+              <embed src="../../../swf/ch7/12.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="400" height="290" wmode="transparent">
+              </embed> 
+            </object> </td>
+        </tr>
+      </table>
+      ��动态转储是综合考虑三种失效情况，允许在转储期间进行更新操作，实现在任何时刻都可转储数据库。当然不能避免数据库不一致状态的转储。因此，必许把转储期间的各种数据库状态都记录到日志文件中，通过数据库备份和日志文件共同恢复数据库的一致性状态。这时重构数据库的步骤与静态转储略有不同。假定图7-17中 
+      p2、p3和p4正在运行时做转储；p2提交、p3和p4还在运行时发生故障。利用动态备份和日志重构数据库的步骤为：<br>
+      ��(1) 恢复转储时的数据库状态。<br>
+      ��(2) 重做在转储之后但在介质故障之前完成的所有事务，通过拷贝它们的后映像来实现。仍然要重做 p2 事务。 <br>
+      ��(3) Undo在转储之前开始而在介质故障之前还没有完成的所有事务。通常拷贝事务前映像实现Undo。图7-17 中，Undo的事务是 p3 
+      和 p4。假如p4 是只读事务，对数据库不产生实际影响，可以不Undo。<br>
+      ��<span class="explaination">动态转储可以克服静态转储的确定时间，不用等待正在运行的用户事务结束，也不会影响新事务的运行。但是转储结束时备份的数据不能保证正确有效。为此，必须把转储期间事务对数据库的修改活动记录下来，存储到日志文件中。这样，备份数据库和日志文件一起就可以把数据库恢复到某一时刻的正确状态。</span><br>
+      <!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

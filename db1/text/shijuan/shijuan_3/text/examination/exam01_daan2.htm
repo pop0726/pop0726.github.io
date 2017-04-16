@@ -1,0 +1,55 @@
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" background="../../../../../image/pop/r2_c3.gif">
+<center><table width="95%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+      <td class=text> <p class="section">《数据库系统概论》考试试卷答案三</p>
+        <p><span class="explaination">问答第1题</span><br>
+          �� 1d、2f、3i、4g、5j、6b、7e、8a、9c、10h<br>
+          <br>
+          <span class="explaination">问答第2题答案：</span> <br>
+          �� 1、 <img src="../../../../../image/shiti/07.gif" width="298" height="80" align="texttop"><br>
+          �� 2、 根据除运算的定义，关键是要说明，如果结果的关系模式R-S的关系中有元组t，则t与s(S)中的每一个元组<font size="2">t</font><font size="-5">s</font>的结对就是r(R)中的元组<font size="2">t</font><font size="-4">r</font>。首先我们假设∏<font size="-5">R-S</font><font size="2">(r)</font>中的每一个元组都有可能在结果关系中出现，那么∏<font size="-3">R-S</font>(r)×s的每一个元组就都应该在r(R)中。问题是∏<font size="-5">R-S</font>(r)－s的元组不可能都在r(R)中，那么那些不出现在r(R)中的元组就是(∏<font size="-5">R-S</font>(r)×s)-∏<font size="-5">R-S,S</font><font size="2">(r)</font>。也就是说∏<font size="-2">R-S</font>((∏<font size="-3">R-S</font>(r)×s)-∏<font size="-2">R-S</font><font size="-4">,S</font><font size="2">(r)</font>)是所有不应该在结果关系中出现的元组，我们把这些元组从关系∏<font size="-4">R-S</font><font size="2">(r)</font>去掉之后，剩下的所有元组与s(S)中每一个元组的结对都应该在r(R)中出现。即∏<font size="-2">R-S</font><font size="2">(r)</font>-∏<font size="-5">R-S</font>((∏<font size="-5">R-S</font><font size="2">(r)</font>×s)-∏<font size="-5">R-S,S<font size="2">(</font></font><font size="2">r)</font>)的结果符合除运算的定义。 
+          <br>
+          <br>
+          <span class="explaination">问答第3题答案： </span><br>
+          �� 1、 不一样。串行调度与冲突可串行化调度描述的是不同的事情。串行调度由来自各个事务的指令序列组成，其中属于同一事务的指令在调度中紧挨在一起。对于有n个事务的事务组，共有n!个可能的串行调度方案。而冲突可串行化调度是指如果调度S（任意的一个调度，不一定是串行调度）可以经过一系列非冲突指令的交换变成一个串行调度S'，则称S是冲突可串行化的调度。<br>
+          �� 2、 不一定。一般来说，简单地为每个关系运算选择一个代价最小的算法，整个表达式的代价也可能最小。但这样做往往是事与愿违，例如，索引嵌套循环连接并不是实现连接运算代价最小的算法，但是它可以提供把结果流水地传给下一个运算的机会！而采用流水线计算方法有可能使整个关系代数表达式的代价最小。因此，查询优化是需要一定的策略的，DBMS中的查询优化方法包括基于代价的优化和启发式优化方法。<br>
+          �� <br>
+          <span class="explaination">问答第4题答案：</span> <br>
+          �� 1、 如果在同一个SQL语句中同时存在where子句和having子句，那么首先应该用where子句中的条件进行选择，满足where条件的记录通过group 
+          by子句形成分组；然后在每个分组上应用having子句，不符合having条件的分组将被抛弃掉！having子句主要是针对分组进行条件限制。having子句中的条件只有在形成分组后才起作用，因此可以在having子句中使用聚集函数。 
+          <br>
+          �� 2、 select d.customer-name, avg(balance) as AVG <br>
+          ���� from depositor d, account a, customer cwhere <br>
+          ������ d.account-number = a.account-number and d.<br>
+          ������ customer-name = c.customer-name and customer-city="Rye"group 
+          by d.customer-name <br>
+          ������ having count(distinct d.account-number) >= 2 <br>
+          <br>
+          <span class="explaination">问答第5题答案：</span>首先要给出该调度的优先图：<br>
+          <img src="../../../../../image/shiti/08.gif" width="217" height="164"> 
+          <br>
+          调度的优先图中存在有向环，因此该调度不是冲突可串行化的。<br>
+          <br>
+          <br>
+          <span class="explaination">问答第6题答案：</span> 在封锁协议中，冲突的事务可以按事务提交的顺序串行化。如下图所示：<br>
+          <img src="../../../../../image/shiti/09.gif" width="142" height="90"><br>
+          根据两阶段封锁协议授权加锁的条件，我们不难知道：<br>
+          �� 1）�事务T<font size="-3">i</font>在发出最后一个锁申请之后还没有获得锁之前一直处于等待状态，等待事务T<font size="-4">j</font>释放锁；<br>
+          �� 2）�事务在获得最后一个锁之后才会全部执行完事务，因为事务再也不会申请锁，因而也就不会处于等待状态。 而根据强两阶段封锁协议，事务T<font size="-5">j</font>持有的所有锁都必须在事务提交之后才能释放。也就是说事务T<font size="-6">j</font>（它不会再申请任何锁，而且在提交之前也不会释放任何锁）一定会比事务T<font size="-5">i</font>先提交，只有在T<font size="-5">j</font>提交之后才会释放锁，T<font size="-5">i</font>才有可能获得锁继而提交。事务的这种并发执行的提交的结果与事务T<font size="-5">j</font>先执行而事务T<font size="-4">i</font>后执行的效果一样。因此，在强两阶段封锁协议中，冲突的事务可以按事务提交的顺序串性化。 
+          <br>
+          <!--czp-wenda-daan-->
+        </p>
+      </td>
+  </tr>
+</table>
+  </center>
+
+</body>
+</html>

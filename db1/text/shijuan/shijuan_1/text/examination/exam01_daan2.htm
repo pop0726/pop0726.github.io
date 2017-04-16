@@ -1,0 +1,53 @@
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" background="../../../../../image/pop/r2_c3.gif">
+<center><table width="95%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+      <td valign="top" class=text> <p class="section">《数据库系统概论》考试试卷答案一</p>
+        <p><span class="explaination">问答第1题</span><span class="explaination">答案：</span><br>
+          ��1c、2b、3i、4a、5g、6d、7f、8j、9h、10e<br>
+          <br>
+          <span class="explaination">问答第2题答案：</span><br>
+          1、�1) (∏<font size="-2">customer-name</font><font size="2">(depositor))</font> 
+          ∩ (∏<font size="-2">customer-name</font>(borrower))（６分）<br>
+          �� 2) ∏customer-name<font size="2">(depositor �� borrower)</font>（６分）<br>
+          <br>
+          2、 ∏<font size="-2">customer-name</font>(<font size="5">σ</font><font size="-2">customer-city=branch-city</font><font size="2">(((customer��depositor)��account)��branch)) 
+          <br>
+          </font><br>
+          <span class="explaination">问答第3题答案：</span><br>
+          �� 1、 因为视图是虚关系，对视图的修改最终要转换成对产生视图的数据库中基本关系的修改。而这种转化比较困难，且有时是不可行的！例如，如果产生视图的SQL语句中有连接、笛卡儿积和聚集运算（SUM、AVG等）等，则不可能通过视图对基本关系进行修改，因此一般的DBMS不允许在视图这种虚关系上进行数据的插入、删除和更新操作。 
+          <br>
+          �� 2、 不是。因为主索引从概念上主要是指索引结构中的搜索码的顺序与数据文件中的记录存储的物理顺序一致的索引，而建立在主码上的索引未必满足这个一致性要求。<br>
+          <br>
+          <span class="explaination">问答第4题答案：</span> <br>
+          �� 1、 select borrower.loan-number, branch-name <br>
+          ���� from borrower, loan <br>
+          ���� where borrower.loan-number=loan.loan-number <br>
+          ���� group by borrower.loan-number <br>
+          ���� having count(distinct customer-name)>=2 <br>
+          �� 2、 select count(*) <br>
+          ���� from (select distinct * from r) as result（name, sex）<br>
+          �� <br>
+          <span class="explaination">问答第5题答案：</span>首先要给出该调度的优先图： 调度的优先图中没有有向环，因此该调度是冲突可串行化的。可串行化的顺序是T<font size="-2">1</font>、T<font size="-2">2</font>、T<font size="-2">3</font>、T<font size="-2">4</font>、T<font size="-2">5</font>；或T<font size="-2">1</font>、T<font size="-2">2</font>、T<font size="-2">4</font>、T<font size="-2">3</font>、T<font size="-2">5</font>；<br>
+          <br>
+          <span class="explaination">问答第6题答案：</span> 在封锁协议中，每一对冲突事务的可串行化次序是由执行时第一个两者都申请但互相冲突的锁决定的，如下图所示，lock-S(A)与lock-X(A)首先冲突。<br>
+          <img src="../../../../../image/shiti/02.gif" width="142" height="90"><br>
+          根据两阶段封锁协议授权加锁的条件，我们不难知道： <br>
+          �� 1、事务在发出一个锁申请之后还没有获得锁之前一直处于等待状态，等待别的事务释放锁； <br>
+          �� 2、事务在获得最后一个锁之后才会全部执行完事务，因为事务再也不会申请锁，因而也就不会处于等待状态。<br>
+          �� 而根据强两阶段封锁协议，事务持有的所有锁都必须在事务提交之后才能释放。也就是说冲突事务中首先获得锁的事务（在提交之前不会释放锁）肯定先提交，而这种提交的先后顺序就是事务的一个可串性化顺序。因此，第一个两者都申请但互相冲突的锁决定了调度中事务的可串性化次序。<br>
+          <!--czp-wenda-daan-->
+        </p>
+      </td>
+  </tr>
+</table>
+  </center>
+
+</body>
+</html>

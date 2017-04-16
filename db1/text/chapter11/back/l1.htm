@@ -1,0 +1,40 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+</head>
+<body background="../../../image/moban/15.gif" bgproperties=fixed>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" height="140">
+        <tr> 
+          <td class="text"> 
+            <p>��<font color="#000000">●</font>�1、本章讲述的并发控制协议主要有：<br>
+              ��<span class="part">-�封锁协议：</span>冲突的事务中必须有一个要等待，容易产生死锁；<br>
+              ��<span class="part">-�树形协议：</span>需要访问数据的额外信息，可以较早地释放锁，不会产生死锁；<br>
+              ��<span class="part">-�时间戳排序协议：</span>冲突的事务中必须有一个要回滚，不会产生死锁；<br>
+              ��<span class="part">-�多粒度机制：</span>封锁粒度为库、表；页、块等；<br>
+              ��<span class="part">-�多版本机制：</span>保留数据项的旧值作为副本。<br>
+              ��<font color="#000000">●</font>�2、两阶段封锁协议(包括严格两阶段封锁协议)保证调度可根据事务的封锁点串行化；而强两阶段协议的本质是事务在提交之后才能释放锁，调度可以根据事务提交的顺序串行化；<br>
+              ��<font color="#000000">●</font>�3、时间戳排序协议保证调度按照事务进入系统的时间(先后顺序)串行化；而托马斯写规则是对时间戳排序协议的改进，它的实质是通过删除事务发出的过时write操作来保证调度的视图可串行化；<br>
+              ��<font color="#000000">●</font>�4、死锁处理，主要思路是回滚事务：-死锁预防，主要是利用时间戳机制保证系统不会进入死锁状态：<br>
+              ��<span class="part">①</span>�等待-死亡机制<br>
+              ��<span class="part">②</span>�受伤-等待机制-死锁检测与恢复，允许系统进入死锁状态：<br>
+              ����①�死锁检测：利用等待图<br>
+              ����②死锁恢复：选择代价最小的事务回滚，但并非彻底回滚。<br>
+              ��<font color="#000000">●</font>�5、在实际的商用DBMS中，并发控制协议主要采用带有锁转换的严格或强两阶段封锁协议，而利用事务的时间戳来处理封锁协议中容易出现的死锁现象；<br>
+              ��<font color="#000000">●</font>�6、插入和删除：<br>
+              ��<span class="part">-�两阶段封锁协议：</span>像write操作一样加排他锁；<br>
+              ��<span class="part">-�时间戳排序协议：</span>像处理write操作一样来处理delete和insert操作；<br>
+              ��<font color="#000000">●</font>�7、并发控制机制主要是为了保证DBMS中事务的隔离性。在事务的并发执行中，如果一个调度中的事务之间没有冲突，那么并发控制机制的作用就没有发挥出来。并发控制机制主要是用来解决调度中并发事务之间的冲突和级联回滚，使得事务并发执行的效果与其串行执行的效果完全相同。这就是为什么我们会看到有些协议会尽可能地让冲突的事务按照某种顺序来串行执行。这在强两阶段封锁协议和时间戳排序协议里体现得很明显。<br>
+              ��</p>
+            </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

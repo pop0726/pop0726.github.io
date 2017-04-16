@@ -1,0 +1,81 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" --> 　 <span class="biaoti_1">3 采用E-R方法的概念模型设计步骤</span>　<br>
+      　　概念结构设计的第一步就是对需求分析阶段收集到的数据进行分类、组织（聚集），形成实体、实体的属性，标识实体的码，确定实体之间的联系类型（1：1，1：N，M：N），设计分E-R图。<br>
+      　　采用E-R方法进行概念设计，可分为三步进行： <br>
+      　(1) 局部E-R模式设计；<br>
+      　(2) 全局E-R模式设计；<br>
+      　(3) 全局E-R模式的优化和评审。 　(1) 局部E-R模式设计；<br>
+      　　局部E-R模式设计的过程如图5-17所示。<br>
+      <br>
+      　　<span class="tubiaoti">图5-17</span> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td align="center"><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="300" height="420">
+              <param name=movie value="../../../swf/ch5/5-19.swf">
+              <param name=quality value=high>
+              <param name="wmode" value="transparent">
+              <embed src="../../../swf/ch5/5-19.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="300" height="420" wmode="transparent">
+              </embed> 
+            </object></td>
+        </tr>
+      </table>
+      <br>
+      　　设计分E-R模式的具体做法是：<br>
+      　・ 先选择某个局部应用，根据某个系统的具体情况，在多层的数据流图中选择一个适当层次的数据流图，作为设计分析E-R图的出发点。<br>
+      　　<font color="#5a5aad">由于高层的数据流图只能反映系统的概貌，而中层的数据流图能较好的反映系统中各局部应用的子系统组成，因此人们往往以中层数据流图作为设计分E-R图的依据。</font><br>
+      　・ 逐一设计分E-R图<br>
+      　　选择好局部应用之后，就要对每个局部应用逐一设计分E-R图，亦称局部E-R图。<br>
+      　　在前面选好的某一层次的数据流图中，每个局部应用都对应了一组数据流图，局部应用涉及的数据都已经收集在数据字典中了。现在就是要将这些数据从数据字典中抽取出来，参照数据流图，标定局部应用中的实体、实体的属性、标识实体的码，确定实体之间的联系及其类型。<br>
+      　　<font color="#5a5aad">事实上，在现实世界中具体的应用环境常常对实体和属性已经作了大体的自然的划分。在数据字典中，&quot;数据结构&quot;、&quot;数据流&quot;和&quot;数据存储&quot;都是若干属性有意义的聚合，就体现了这种划分。可以先从这些内容出发定义E-R图，然后再进行必要的调整。在调整中遵循的一条原则是：</font><br>
+      　　为了简化E-R图的处置，现实世界的事物能作为属性对待的，尽量作为属性对待。<br>
+      　　<font color="#5a5aad">注释：实体与属性之间并没有形式上可以截然划分的界限，但可以给出两条准则：<br>
+      　（1）作为&quot;属性&quot;，不能再具有需要描述的性质。&quot;属性&quot;必须是不可分的数据项，不能包含其他属性。<br>
+      　（2）&quot;属性&quot;不能与其他实体具有联系，即E-R图中所表示的联系是实体之间的联系。 </font> 　(2) 全局E-R模式设计<br>
+      　　各子系统的分E-R图设计好以后，下一步就是要将所有的分E-R图综合成一个系统的总E-R图。全局E-R模式的集成过程如图5-18所示。<br>
+      <br>
+      　　<span class="tubiaoti">图5-18</span> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td align="center"><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="300" height="420">
+              <param name=movie value="../../../swf/ch5/5-20.swf">
+              <param name=quality value=high>
+              <param name="wmode" value="transparent">
+              <embed src="../../../swf/ch5/5-20.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="300" height="420" wmode="transparent">
+              </embed> 
+            </object></td>
+        </tr>
+      </table>
+      <br>
+      　(3) 全局E-R模式的优化和评审：进行相关实体类型的合并，以减少实体类型的个数；消除实体中的冗余属性；消除冗余的联系类型。<br>
+      <!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

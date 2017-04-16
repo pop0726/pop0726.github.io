@@ -1,0 +1,233 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" --> 　　<span class="tubiaoti">图 5－1</span><br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td align="center"><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="400" height="300">
+              <param name=movie value="../../../swf/ch5/5-2.swf">
+              <param name=quality value=high>
+              <param name="wmode" value="transparent">
+              <embed src="../../../swf/ch5/5-2.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="400" height="300" wmode="transparent">
+              </embed> 
+            </object></td>
+        </tr>
+      </table>
+      <br>
+      　<span class="biaoti_1">1． 第一范式（1NF）<br>
+      </span><span class="pt9-black">　　第一范式规定关系的每一个分量必须是一个不可分的数据项。<br>
+      　　非第一范式的例子如表5-5，可以转换为第一范式如表5-6。</span> <br>
+      <br>
+      　　<span class="tubiaoti">表5-5</span><br>
+      <br>
+      <table width="60%" border="1" cellspacing="0" cellpadding="0"bordercolorlight="#004080" bordercolordark="#ffffff" class="pt9-black" align="center">
+        <tr align="center"> 
+          <td rowspan="2">导师</td>
+          <td rowspan="2">专业</td>
+          <td>研究生</td>
+        </tr>
+        <tr align="center" > 
+          <td>第一个研究生　第二个研究生</td>
+        </tr>
+      </table>
+      <br>
+      <span class="tubiaoti">　　表5-6 </span><br>
+      <br>
+      <table width="60%" border="1" cellspacing="0" cellpadding="0"bordercolorlight="#004080" bordercolordark="#ffffff" class="pt9-black" align="center">
+        <tr align="center"> 
+          <td>导师</td>
+          <td>专业</td>
+          <td>第一个研究生　第二个研究生</td>
+        </tr>
+      </table>
+      <span class="pt9-black"><br>
+      　　几乎所有的商用关系DBMS都要求关系为第一范式，现在流行的关系数据库语言，如SQL，也都只支持第一范式。<br>
+      　　如果关系仅仅满足第一范式的条件是不够的，可能会存在更新异常。为了消除这些异常，需要进行关系的规范化。<br>
+      　　下面是满足第一范式的(不好的)关系模式的例子。例如：设有一关系模式R(S#，C#，G，TN，D)，其中(S#)为学号，C#为课程号，G为成绩，TN为任课教师姓名，D为教师所在系名，这些数据具有下列语义：<br>
+      　(1) 学号是一个学生的标识，课程号是一门课程的标识。<br>
+      　(2) 一位学生所修的每门课程都有一个成绩。<br>
+      　(3) 每门课程只有一位任课教师，但一位教师可以教多门课。 <br>
+      　(4) 教师中没有重名，每位教师只属于一个系。<br>
+      　　下面是一个具体关系实例的数据，如表5-7：<br>
+      </span> <br>
+      <span class="biaoti_2"> 　　</span><span class="tubiaoti">表5-7</span><br>
+      <br>
+      <table width="80%" border="1" cellspacing="0" cellpadding="0"bordercolorlight="#004080" bordercolordark="#ffffff" class="pt9-black" align="center">
+        <tr align="center"> 
+          <td bgcolor="#fefbe2">学号<br>
+            S#</td>
+          <td bgcolor="#fefbe2">课程号<br>
+            C#</td>
+          <td bgcolor="#fefbe2">成绩<br>
+            G</td>
+          <td bgcolor="#fefbe2">教师<br>
+            TN</td>
+          <td bgcolor="#fefbe2">系名<br>
+            D </td>
+        </tr>
+        <tr align="center"> 
+          <td>s1</td>
+          <td>c1</td>
+          <td>g1</td>
+          <td>t1</td>
+          <td>d1</td>
+        </tr>
+        <tr align="center"> 
+          <td bgcolor="#BFDFFF">s1</td>
+          <td bgcolor="#BFDFFF">c2</td>
+          <td bgcolor="#BFDFFF">g2</td>
+          <td bgcolor="#BFDFFF">t2</td>
+          <td bgcolor="#BFDFFF">d2</td>
+        </tr>
+        <tr align="center"> 
+          <td height="13">s2</td>
+          <td height="13">c1</td>
+          <td height="13">g3</td>
+          <td height="13">t1</td>
+          <td height="13">d1</td>
+        </tr>
+        <tr align="center" bgcolor="#BFDFFF"> 
+          <td>s2</td>
+          <td>c2</td>
+          <td>g4</td>
+          <td>t2</td>
+          <td>d2</td>
+        </tr>
+        <tr align="center" bgcolor="#BFDFFF"> 
+          <td>s3</td>
+          <td>c2</td>
+          <td>g5</td>
+          <td>t2</td>
+          <td>d2</td>
+        </tr>
+        <tr align="center" bgcolor="#BFDFFF"> 
+          <td>s3</td>
+          <td>c3</td>
+          <td>g6</td>
+          <td>t2</td>
+          <td>d2</td>
+        </tr>
+      </table>
+      <span class="pt9-black"><br>
+      　　虽然上述的关系模式只有四个属性，但它是一个不好的关系模式，因为该模式在使用过程中有以下几个问题：<br>
+      　(1) 数据冗余。例如，教师所在系名对选该教师所开课的所有学生都重复输入一次。 <br>
+      　(2) 插入异常。由于关系的主键{S#, C#} 不能为空值，如果一个教师不教课，则这位教师的姓名及所属的系名就不能插入表中。<br>
+      　(3) 删除异常。如果所有学生都退选某一门课，则有关该门课的其它数据(任课教师名及所在系名)也将被删除。<br>
+      　(4) 修改异常。如果改变一门课的任课教师，则需要修改表中选修该门课程的多行记录，如果部分修改，部分不修改，则会导致数据的不一致。<br>
+      　　<font color="#5a5aad">上述关系模式只所以是一个不好的关系模式，是因为模式中存在部分函数依赖和传递函数依赖。消除这些部分函数依赖和传递函数依赖，就可以得到一个比较好的关系模式。</font><br>
+      　　根据上述示例说明的语义，找出有下面的函数依赖集合F：<br>
+      　　　F ＝ { {S#, C#}→ G，C#→TN，TN → D}</span> <br>
+      <br>
+      　　<span class="tubiaoti">图 5－2</span><br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td align="center"><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="320" height="180">
+              <param name=movie value="../../../swf/ch5/5-3.swf">
+              <param name=quality value=high>
+              <param name="wmode" value="transparent">
+              <embed src="../../../swf/ch5/5-3.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="320" height="180" wmode="transparent">
+              </embed> 
+            </object></td>
+        </tr>
+      </table>
+      <span class="pt9-black"><br>
+      　　针对函数依赖集合，运用关系数据库设计理论，可以对上述关系进行分解，得到3个关系模式如下：<br>
+      　　　SCG(S#, C#, G)<br>
+      　　　CTN(C#, TN)<br>
+      　　　TND(TN, D)<br>
+      　　<font color="#5a5aad">上述3个关系可以消除数据冗余，插入异常，删除异常和修改异常等现象。是一个比较好的关系模式。把原来一个关系表的数据分解为三个关系表存放。</font><br>
+      　　具体的关系实例的数据如表5-8，5-9，5-10：<br>
+      </span> <br>
+      　　<span class="tubiaoti">表5-8</span><br>
+      <table width="80%" border="1" cellspacing="0" cellpadding="0"bordercolorlight="#004080" bordercolordark="#ffffff" class="pt9-black" align="center">
+        <tr align="center"> 
+          <td>S#</td>
+          <td>C#</td>
+          <td>G</td>
+        </tr>
+        <tr align="center"> 
+          <td>s1<br>
+            s1<br>
+            s2<br>
+            s2<br>
+            s3<br>
+            s3</td>
+          <td>c1<br>
+            c2<br>
+            c1<br>
+            c2<br>
+            c2<br>
+            c3</td>
+          <td>g1<br>
+            g2<br>
+            g3<br>
+            g4<br>
+            g5<br>
+            g6</td>
+        </tr>
+      </table>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td align="center"><span class="tubiaoti">表5-8</span> 
+            <table width="80%" border="1" cellspacing="0" cellpadding="0"bordercolorlight="#004080" bordercolordark="#ffffff" class="pt9-black">
+              <tr align="center"> 
+                <td>C#</td>
+                <td>TN</td>
+              </tr>
+              <tr align="center"> 
+                <td>c1<br>
+                  c2<br>
+                  c3</td>
+                <td>t1<br>
+                  t2<br>
+                  t2</td>
+              </tr>
+            </table>
+          </td>
+          <td align="center"><span class="tubiaoti">表5-8 </span> 
+            <table width="80%" border="1" cellspacing="0" cellpadding="0"bordercolorlight="#004080" bordercolordark="#ffffff" class="pt9-black">
+              <tr align="center"> 
+                <td>TN</td>
+                <td>D</td>
+              </tr>
+              <tr align="center"> 
+                <td>t1<br>
+                  t2</td>
+                <td>d1<br>
+                  d2</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <span class="pt9-black"><br>
+      　　<font color="#5a5aad">对于上述示例，是满足第一范式的关系模式，但它不是一个好的关系模式，存在数据冗余和操作异常现象。通过分析模式属性间的函数依赖关系，把一个模式分解为三个关系模式后，消除了数据冗余和操作异常。对于任一给定的模式，如何判断是一个好的还是不好的关系模式呢？又如何把一个不好的关系模式分解转换为好的关系模式呢？这就是在下面要讨论的问题，对关系模式中X→Y的函数依赖关系，给出不同程度的限制，得到满足不同范式要求的模式。</font></span><!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

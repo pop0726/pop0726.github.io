@@ -1,0 +1,36 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgproperties=fixed bgcolor="#FFFFFF" background="../../../../image/moban/15.gif">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" height="8">
+        <tr> 
+          <td class="text" align="left"><span class="menu">��</span><span class="part">1、断言的概念</span><br>
+             ��所谓断言就是一个谓词，它表达了我们希望数据库总能满足的一个条件。域约束和参照完整性约束是断言的特殊形式。<br>
+            ��<span class="part">2、SQL-92中断言的定义形式</span><br>
+            ��create assertion &lt;断言名&gt; check &lt;谓词&gt;<br>
+            ��<span class="part">3、断言的利弊</span><br>
+            ��①�一方面能够保证数据库的一致性；<br>
+            ��②�另一方面，检测和维护断言需要很大的开销，系统效率降的很低。一般不主张使用断言！<br>
+            例如，在银行企业数据库中规定：每个分支机构的贷款金额的总和必须少于该支行帐户余额的总和。用断言描述如下：<br>
+            create assertion <i>sum-constraint</i> check <br>
+            �(not exists (select * from <i>branch</i> <br>
+            ��where (select sum(<i>amount</i>) from <i>loan</i> <br>
+            �����where <i>loan.branch-name</i> = <i>branch.branch-name</i>) <br>
+            ����&gt;= (select sum(balance) from account <br>
+            ������where <i>account.branch-name</i> = <i>branch.branch-name</i>)<br>
+            ���������) <br>
+            ��)<br>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" -->　<span class="biaoti_1">1. 连接数据源 </span><br>
+      　 　ADO通过连接对象Connection建立与数据库和数据源的连接，图6-25说明ASP连接SQL Server数据库和其他数据源的流程。<br>
+      <br>
+      　　<span class="tubiaoti">图6-25 ADO与数据库和数据源的连接流程图</span><br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td align="center"><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="400" height="300">
+              <param name=movie value="../../../swf/ch6/6-22.swf">
+              <param name=quality value=high>
+              <param name="wmode" value="transparent">
+              <embed src="../../../swf/ch6/6-22.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="400" height="300" wmode="transparent">
+              </embed> 
+            </object> </td>
+        </tr>
+      </table>
+      　　<font color="#5a5aad">ASP调用连接对象Connection连接SQL Server数据库或其他数据源，这些工作通常在IIS服务器或Visual 
+      InterDev Client 上执行。如果连接SQL Server数据库，可以直接通过SQL Server数据库的OLE DB 提供者，或者是通过ODBC访问SQL 
+      Server数据库的OLE DB 提供者实现连接。对于其他的数据源，只能使用相应的数据源的OLE DB 提供者进行连接。</font> 
+      <p>　　下面给出SQL Server数据库连接和执行SQL命令的程序示例。<br>
+        　　在ADO 2.0之前，用户需要使用ODBC数据源连接到SQL Server。可以使用ODBC Data Source Administrator创建的数据源名，如程序清单6.2，或使用无DSN(DSN-less)连接字符串，如程序清单6.3。无论哪种，都是使用ODBC连接到SQL 
+        Server。</p>
+      　(1) 程序清单6.2，通过DSN 连接SQL Server。<br>
+      　　　&lt; %<br>
+      　　　<font color="#5a5aad">'---创建ADO的连接对象Connection</font><br>
+      　　set objConn = Server.CreateObject(&quot;ADODB.Connection &quot; ) <br>
+      　　　<font color="#5a5aad">'---使用数据源pubs打开连接</font><br>
+      　　　objConn.Open &quot;pubs&quot;<br>
+      　　　　%&gt;<br>
+      　(2) 程序清单6.3，<font color="#5a5aad">使用ODBC的OLE DB提供者，即通过ODBC(无DSN)连接字符串连接SQL 
+      Server。</font><br>
+      　　&lt; %<br>
+      　　<font color="#5a5aad">'---创建ADO的连接对象Connection</font><br>
+      　　　set objConn = Server.CreateObject(&quot;ADODB.Connection &quot; )<br>
+      　　<font color="#5a5aad">'---使用连接字符串：SQL Server数据库，使用没有密码的用户名&quot;sa&quot;，</font><br>
+      　　<font color="#5a5aad">'---创建对象名为misserver的服务器的连接，访问名为pubs的数据库</font><br>
+      　　objConn.Open &quot;Driver={SQL Server}; Server=misserver; &quot; &amp; 
+      &quot; <br>
+      　　　Uid=sa;Pwd=;Database=pubs &quot; <br>
+      　　　　% &gt;<br>
+      　　在ODBC 中，如果用户希望从ASP连接到SQL Server，必须通过ODBC，再通过SQL Server 的ODBC驱动程序，然后到达SQL 
+      Server，如图6-26。但是，使用ODBC的OLE DB提供者，就必须通过OLE DB到ODBC的OLE DB提供者，再通过ODBC到达SQL 
+      Server的ODBC驱动程序，最后连接到SQL Server，如图6-27。<br>
+      <br>
+      　　<span class="tubiaoti">图6-27 通过ODBC的OLE DB提供者访问SQL Server</span><br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td align="center"><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="400" height="300">
+              <param name=movie value="../../../swf/ch6/6-23.swf">
+              <param name=quality value=high>
+              <param name="wmode" value="transparent">
+              <embed src="../../../swf/ch6/6-23.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="400" height="300" wmode="transparent">
+              </embed> 
+            </object> </td>
+        </tr>
+      </table>
+      <br>
+      　　使用ADO2.0和Microsoft Data Access Components(MDAC)，有一些新的OLE DB提供者，其中包括SQL 
+      Server的OLE DB提供者。使用新的SQL Server的OLE DB提供者，即可直接通过OLE DB访问SQL Server，而不必再通过ODBC 
+      。程序清单6.4显示如何通过ADO 2.0中的OLE DB 提供者访问SQL Server。<br>
+      　(3) 程序清单6.4：通过OLE DB 连接字符串连接SQL Server<br>
+      　　&lt; %<br>
+      　　<font color="#5a5aad">'--- 创建Connection对象</font><br>
+      　　　set objConn = Server.CreateObject(&quot;ADODB.Connection&quot;)<br>
+      　　<font color="#5a5aad">'----通过连接字符串：Server的OLE DB提供者（SQLOLEDB）使用没有密码的用户名&quot;sa&quot;，<br>
+      　　'---创建对名为misserver的服务器的连接，访问名为pubs的数据库</font><br>
+      　　　objConn.Open &quot;Provider=SQLOLEDB.1;User ID=sa;Password=;&quot; &amp;_&quot;<br>
+      　　　Initial Catalog=pubs;Data Source=misserver&quot;<br>
+      　　　% &gt;<br>
+      　　当然，如果不希望把这条长参数传送到Connection.Open方法，可以将连接字符串存储在global.asa文件的Application 
+      对象中:<br>
+      　　Application(&quot;ConnString&quot;) = &quot;Provider=SQLOLEDB.1;User ID=sa;&quot; 
+      &amp; _&quot; Password=;Initial Catalog=pubs;Data Source=misserver&quot;<br>
+      　　在存储连接字符串到Application对象变量之后，就可简单使用它们打开连接，如程序清单6.5所示。<br>
+      　(4) 程序清单6.5:使用Application对象打开连接<br>
+      　　<font color="#5a5aad">'---创建Connection对象</font><br>
+      　　　Set objConn = Server.CreateObject(&quot;ADODB.Connection&quot;)<br>
+      　　<font color="#5a5aad">'---通过存储在Application中连接字符串打开连接</font><br>
+      　　　ObjConn.Open Application(&quot;ConnString&quot;) <br>
+      　　<font color="#5a5aad">上面讲解了ADO连接SQL Server数据库的四种连接数据库的方式：<br>
+      　・ 通过ODBC数据源连接；<br>
+      　・ 通过ODBC的无数据源连接字符串连接；<br>
+      　・ 通过OLE DB提供者连接字符串连接；<br>
+      　・ 通过OLE DB的提供者字符串放入Application对象打开连接。<br>
+      　　用户可根据自己的需要和配置选用合适的连接方式</font><br>
+      　　Connection对象除用来管理ADO的各种连接方式外，还可执行以下的管理任务：执行数据库事务、使用连接池、执行SQL语句等，下面给于简单介绍。<br>
+      <!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

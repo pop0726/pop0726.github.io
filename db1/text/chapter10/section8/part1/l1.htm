@@ -1,0 +1,33 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgproperties=fixed bgcolor="#FFFFFF" background="../../../../image/moban/15.gif">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" height="57">
+        <tr> 
+          <td class="text" align="left"> 
+            <p><span class="part">事务的开始：</span><br>
+              begin tran[saction][…]<br>
+              <span class="part">事务的结束：</span><br>
+              commit [transaction][…]--事务的提交<br>
+              rollback [transaction][…]--事务的回滚<br>
+              ��SQL-92中的每个事务具有三个特性：<span class="part">访问模式、诊断大小</span>和<span class="part">隔离等级</span>。诊断大小决定需要记录的错误情况的数目，这里我们不详细讨论事务的这一特性。<br>
+              ��如果事务的访问模式是READ ONLY(只读的)，那么就不允许事务修改数据库。这样INSERT、DELETE、UPDATE和CREATE等命令都不能执行。如果我们必须执行上面的这些命令，那么访问模式必须设成READ 
+              WRITE(可读写的)。对于READ ONLY访问模式的事务，只需要获得共享锁即可，因而可以增加并发度。<br>
+              ��隔离等级控制事务可暴露给其他并发执行的事务的程度。通过选择隔离等级，事务将未提交的更新暴露给其他事务会带来额外的开销，但用户可以获得更高程度的并发执行。在SQL-92中隔离等级共有<u>READ 
+              UNCOMMITTED(读未提交)</u>、<u>READ COMMITTED(读已提交)</u>、<u>REPEATABLE 
+              READ(可重复读)</u>和<u>SERIALIZABLE(可串行化)</u>四种。有关这四种隔离等级可以参阅SQL-92的标准文本。<i><br>
+              ��</i></p>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

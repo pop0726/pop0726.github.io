@@ -1,0 +1,58 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" -->　<span class="biaoti_1">7. SQL Server的事务处理和检查点</span><br>
+      ��
+      ��
+    SQL Server的检查点机制是自动把已完成的事务从高速缓存区写入磁盘数据库的一种方法。SQL Server提供有两种方法建立检查点：SQL 
+      Server自动执行的检查点；或由数据库所有者或DBA调用CHECKPOINT强制执行的检查点。因为事务日志记录所有更新事务，在电源掉电，系统软件故障，在客户提出或事务撤销请求的事件下，SQL 
+      Server可以自动恢复数据库。<br>
+      ��图7-21说明SQL Server的事务提交、恢复和检查点发生的过程。图中有5个事务，事务1、2、3在检查点之前开始，事务4、5在检查点之后开始。事务1、2、4在系统故障之前提交，事务3和5在系统故障时未提交。故障处理完后，系统自动恢复数据库的过程如下：<br>
+      ��● 事务1在检查点之前提交；已写入外存数据库不用恢复；<br>
+      ��● 事务2和事务4在检查点后提交；修改的数据没有写入外存数据库，因此需要重做Redo；事务3和事务5在系统故障时尚未提交；要撤消Undo。<br>
+      ��
+      可以注意一下，每当SQL Server突然发生瘫痪时，重新启动通常需要花费较长的时间。这是由于SQL Server需要前后滚动事务到最后一个检查点。当SQL 
+      Server执行完该项工作之后，数据库恢复到最后一个检查点时所记录的一致性状态。</span><br>
+      <br>
+      　　<span class="tubiaoti">图7-21 SQL Server的事务提交和恢复</span><br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" height="57">
+        <tr> 
+          <td align="center" height="95"><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="400" height="300">
+              <param name=movie value="../../../swf/ch7/16.swf">
+              <param name=quality value=high>
+              <param name="wmode" value="transparent">
+              <embed src="../../../swf/ch7/16.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="400" height="300" wmode="transparent">
+              </embed> 
+            </object></td>
+        </tr>
+      </table>
+      <!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

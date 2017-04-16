@@ -1,0 +1,70 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" --> <span class="biaoti_1">　1．�加锁(LOCK)：</span><br>
+      ��当一个事务访问数据库中的某个数据单元时，要先对被访问的数据单元加锁。假如要访问的数据单元还没有设置其他锁，该事务就获得对数据的访问权，否则，该事务必须等待直到其他事务释放对该数据的锁。<br>
+      ��解锁(UNLOCK)：进程访问结束后释放锁。
+<br>　　两种基本类型的锁<br>
+      ��<span class="biaoti_2">●　共享锁(S锁，Shared lock) ：</span>只用于并发的只读数据操作。任何试图修改某数据的事务，如果该数据上有了共享锁，那么该事务就会被阻塞，直到所有的共享锁被释放。<br>
+      ��<span class="biaoti_2">●　独占锁(X锁，eXclusive lock) ：</span>任何写操作均要使用独占锁。独占锁被授予已经准备好进行数据修改的事务，确保其它事务不能访问该独占锁锁定的数据。<br>
+      　　如果一个数据单元已经有了一个共享锁，只能对它再附加共享锁。假如它有了一个独占锁，不能再对它附加任何锁。<br>
+      ��图7-10为封锁类型相容矩阵，最左边一列表示事务T1已经获得的数据对象上的加锁类型，其中横线表示没有加锁。最上面一行表示另一事务T2对同一个数据对象发出的加锁请求。T2的加锁请求能否被满足用矩阵中的Yes和No表示。YES=相容的请求 
+      NO＝不相容的请求<br>
+      <br>
+      　　<span class="tubiaoti">图7-10</span><br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td> 
+            <div align="center" class="pt9-black"><br>
+              <img src="../../../img/text/ch07/10.gif" width="392" height="153"></div>
+          </td>
+        </tr>
+      </table>
+      ��<span class="explaination">当一个进程希望访问数据库中的某个数据单元时，要先对被访问的数据单元加锁(LOCK)。假如要访问的数据单元还没有设置其他锁，该进程就获得访问权，否则，该进程必须等待直到释放其他的锁(UNLOCK)。为了使只读进程能并行工作，通常设置两种类型的锁:共享锁和独占锁。共享锁只用于并发的读数据，其他情况均要使用独占锁。实际上，这种类型的同步仍然是很悲观和保守的，放置一个锁的目的是预料会发生交叉冲突，同时要伴随有管理锁的开锁。<br>
+      ��共享锁（Share Locks）简称为读锁，如果事务T1对数据对象A加上共享锁，则事务T1可以读数据A，但是不能对A进行修改。其它事务T2,T3也可以对A再加共享锁，但是不能加独占锁，直到T1释放A上的共享锁为止。这样保证了其它事务可以读A，但在T1释放A上的共享锁之前不能对A做任何修改。<br>
+      ��独占锁（Exclusive Locks）简称为写锁。如果事务T1对数据对象A加上独占锁，只允许T1读取和修改A数据，其它任何事务都不能对A加任何的锁，直到T1释放A上的锁。 
+      </span> 
+      <p><span class="biaoti_1">　2. 两段式锁协议的实施</span><br>
+        ��所谓&quot;两段式协议&quot;名字的来源出于如下事实：一个进程分为两个阶段，在第一个阶段，该进程放置的锁的数目稳定的增长，全是加锁；第二个阶段只能释放锁，而且是一起释放。<br>
+        ��为了确保在任何情况下数据库的完整性，设置和管理锁必须遵守的两段式协议的内容：<br>
+        ��<span class="explaination">(1)</span> 一个数据单元在第一次被访问之前必须对它加锁。<br>
+        ��<span class="explaination">(2)</span> 如果一个数据单元已经有了一个共享锁，只能对它再附加共享锁。假如它有了一个独占锁，不能再对它附加任何锁。<br>
+        ��<span class="explaination">(3)</span> 由一个进程设置的所有锁，只能在该进程结束时释放，而且要一起释放。<br>
+        ��<span class="explaination">从事务的角度观察交叉问题，由于事务是一致性的单位，在事务执行前后要保证数据库的一致性。如多个事务交叉执行，当一个事务的中间结果为其他事务可见时，这种交叉就必然出现问题。所以事务可看作是一个&quot;同步单位&quot;。这种观点引起把两段式协议的实施留给 
+        DBMS。DBMS通过拦截从事务来的所有数据库操作满足两段式协议的第一条要求。第二条本来就由 DBMS 完成，第三条在事务结束时实现。</span><br>
+        <br>
+        <span class="biaoti_1">　3. 封锁策略</span><br>
+        ��当事务操作的数据单元涉及到比较大的范围时，例如一个复杂的对象，它引用了许多子对象，或是一个关系中的几个元组等，该数据单元就是一种树型结构或有向无环图结构，在这种情况下，封锁的策略有两种:<br>
+        ��<span class="explaination">(1) </span>封锁一个数据单元意味着封锁了它的所有后代单元。这种策略实现起来很困难。因为一个单元的后代单元可能又是其他单元的后代，因此，在封锁该数据单元的同时要找出它的所有后代单元，同时给予加锁。释放时要同时释放。<br>
+        ��<span class="explaination">(2) </span>封锁一个数据单元，只封锁该单元本身，并不涉及它的后代。这种方法实现简单，但要采用一些其他手段保证数据的完整性。例如，当某数据单元是其他多个数据单元的组成部分时，容易引起冲突。<br>
+        ��在分层封锁中，封锁了上层节点就意味着用上层节点的封锁模式封锁了所有内层节点。例如，假如有事务T1要对某元组加S锁，而事务T2已对该元组所在的关系加了X锁，从而隐含地用X锁封锁了该元组，这就造成矛盾。</p>
+      <!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

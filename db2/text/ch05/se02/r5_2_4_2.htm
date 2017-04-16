@@ -1,0 +1,137 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" --> <span class="pt9-black">　</span><span class="biaoti_1">2.第二范式(2NF)</span><span class="pt9-black">　<br>
+      　　如果关系模式R满足第一范式，且它的任何一个非主属性都完全函数依赖于任一个候选码，则R满足第二范式（简记为2NF）。<br>
+      </span> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td width="35" valign="top"><img src="../../../img/text/liti.gif" width="35" height="36" alt="例题"></td>
+          <td class="pt9-black">　例5：是1NF但不是2NF的关系模式。设有关系模式如下：<br>
+            　　REPROT(S#, C#, TITLE, LNAME, ROOM#, MARKS), 其中S#是学号，C#是课程号，TITLE为课程名，LNAME是教师名，ROOM#是教室号，MARKS是分数。<br>
+            　关系中的一个元组&lt;s, c, t, l, r, m&gt;表示学生s在课程c中的得分为m，课程名为t, 由教师 l 讲授，其教室编号为r。 
+            <br>
+            　若每门课只由一位教师讲授，每位教师可讲授多门课程，但只有一个教室，即只在一个教室中讲课，则REPORT的函数依赖如下：<br>
+            　　(S#, C#) →MARKS<br>
+            　　C#→TITLE<br>
+            　　C#→LNAME<br>
+            　　LNAME→ROOM#</td>
+        </tr>
+      </table>
+      <span class="pt9-black"><br>
+      　　</span><span class="tubiaoti">图 5－3</span><span class="pt9-black"><br>
+      </span> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td align="center" class="pt9-black"><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="320" height="180">
+              <param name=movie value="../../../swf/ch5/5-4.swf">
+              <param name=quality value=high>
+              <param name="wmode" value="transparent">
+              <embed src="../../../swf/ch5/5-4.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="320" height="180" wmode="transparent">
+              </embed> 
+            </object></td>
+        </tr>
+      </table>
+      <span class="pt9-black"><br>
+      　　关系模式REPROT(S#, C#, TITLE, LNAME, ROOM#, MARKS)的码是(S#, C#)，非主属性TITLE，LNAME 
+      和 ROOM# 对码是部分函数依赖，并存在传递函数依赖C#→LNAME，LNAME→ROOM#。REPORT属于1NF，不属于2NF。<br>
+      　　为了消除部分函数依赖，将REPORT关系模式分解为REPORT1和COURSE这二个关系模式：<br>
+      　　　REPORT1(S#, C#, MARKS) <br>
+      　　　函数依赖是(S#, C#) →MARKS<br>
+      　　　COURSE(C#, TITLE, LNAME, ROOM#)<br>
+      　　　函数依赖是C#→TITLE, C#→LNAME, <br>
+      　　　LNAME→ROOM#。<br>
+      　　REPORT1和COURSE都消除了对码的部分函数依赖，因此都属于2NF。一<font color="#5a5aad">个关系模式仅仅满足2NF仍是不够的，如在关系模式COURSE 
+      (C#, TITLE, LNAME, ROOM#)中，仍存在着插入，删除和修改异常问题：</font><br>
+      　・ 新来的教师，还没有分配授课之前，教师的姓名及教室编号都不能加到关系中；<br>
+      　・ 如果要修改某个教师的教室编号，必须修改与教师授课相对应的各元组中的教室编号，因为一位教师可能会教多门课。<br>
+      　　存在上述这些问题的原因是关系模式COURSE中存在传递函数依赖，所以要把关系模式COURSE向第三范式转化，除去非主属性对码的传递函数依赖。<br>
+      <br>
+      　</span><span class="biaoti_1">3.第三范式(3NF)</span><span class="pt9-black">　<br>
+      　　如果关系模式R满足 2NF，并且它的任何一个非主属性都不传递依赖于任何候选码，则称R是第三范式 (3NF), 记作R<img src="../../../img/text/ch05/14.gif" width="7" height="11">3NF。<br>
+      　　在上面的例5中，关系模式：<br>
+      　　　COURSE(C#, TITLE, LNAME, ROOM#)<br>
+      　　其中存在非主属性ROOM#对码的传递依赖，即：<br>
+      　　　C#→LNAME, LNAME→ROOM# ，<br>
+      　　因此COURSE不属于3NF。<br>
+      　　将COURSE分解为：<br>
+      　　　COURSE1(C#, TITLE, LNAME) 和 <br>
+      　　　LECTURE(LNAME, ROOM#), <br>
+      　　则关系模式COURSE1和LECTURE中都没有传递函数依赖，因此 COURSE1 和 LECTURE 都属于3NF。<br>
+      　　至此，关系模式REPORT分解为下列3个属于3NF的一组关系模式： <br>
+      　　　REPORT1 (S#, C#, MARKS)<br>
+      　　　COURSE1 (C#, TITLE, LNAME) <br>
+      　　　LECTURE (LNAME, ROOM#)<br>
+      　　和关系模式REPORT相比，这些关系模式是对现实世界更加精确的描述。把这3个关系进行连接，总能重构初始的关系。<br>
+      </span> 　<span class="biaoti_1">4.BCNF范式</span><br>
+      　　BCNF (Boyce Codd Normal Form) 是由Boyce 和 Codd 提出的，通常认为BCNF是3NF的修正，有时也称为扩充的第三范式。<br>
+      　　<b>定义：</b>关系模式R∈1NF，若X→Y，且Y<img src="../../../img/text/ch05/15.gif" width="11" height="12" align="absmiddle">X 
+      时，X必含有候选码，则R∈BCNF。<br>
+      　　<font color="#5a5aad">也就是说，在关系模式R中，若R的每一个决定因素都包含候选码，则R∈BCNF。</font><br>
+      　　由BCNF的定义可知，一个满足BCNF的关系模式有如下特性：<br>
+      　　● 每个非主属性对每个码都是完全函数依赖； <br>
+      　　● 所有的主属性对每一个不包含它的码，也是完全函数依赖；<br>
+      　　● 没有任何属性完全函数依赖于非码的任何一组属性。<br>
+      　　● 若R∈BCNF，则R∈3NF。若R∈3NF，则R不一定于BCNF。<br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+        <tr> 
+          <td width="34" valign="top"><img src="../../../img/text/liti.gif" width="35" height="36" alt="例题"></td>
+          <td width="725">　例6：一个是3NF但不是BCNF的关系模式。<br>
+            　设有关系模式STJ(S, T, J)，S表示学生，T表示教师，J表示课程。每一教师只教一门课，每门课有若干教师，某一学生选定某门课，就对应一个固定的教师，由语义可得到如下的函数依赖关系：<br>
+            　　(S, J) →T; (S, T) →J; T→J, 即<br>
+            　　-学生，所选课程决定授课教师；<br>
+            　　-学生，授课教师决定所选课程；<br>
+            　　-教师决定所授课程；</td>
+        </tr>
+      </table>
+      　　函数依赖的图形表示如图5-4所示。<br>
+      <br>
+      　　<span class="tubiaoti">图5-4 STJ的函数依赖</span><br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td align="center"><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="400" height="150">
+              <param name=movie value="../../../swf/ch5/5-5.swf">
+              <param name=quality value=high>
+              <param name="wmode" value="transparent">
+              <embed src="../../../swf/ch5/5-5.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="400" height="150" wmode="transparent">
+              </embed> 
+            </object></td>
+        </tr>
+      </table>
+      　　由图中可以看到：<br>
+      　・ （S，J）和（S，T）都是候选码；S，T，J都是主属性。<br>
+      　・ STJ<img src="../../../img/text/ch05/14.gif" width="7" height="11">3NF，因为没有任何非主属性对候选码的传递函数依赖或部分函数依赖。<br>
+      　・ STJ<img src="../../../img/text/ch05/16.gif" width="8" height="12" align="top">BCNF，因为T是决定因素，但T不包含码。<br>
+      　・ 对于不是BCNF的关系模式，仍然存在不合适的地方。<br>
+      　　例如，在例6中，当课程已设置，并已确定教师，但还没有学生选课，则教师和课程的信息就不能加入到数据库中。<br>
+      　　非BCNF的关系模式可以通过分解成为BCNF，例如STJ可以分解为ST(S, T)和TJ(T, J), 则ST和TJ都是属于BCNF范式。<font color="#5a5aad">BCNF是3NF的进一步规范化，即限制条件更为严格。3NF中，对于Y是非主属性的非平凡函数依赖X→Y，允许有X不包含码的情况。而在BCNF中，不管Y是主属性还是非主属性，只要X不包含码，就不允许有X→Y这样的非平凡函数依赖。因此，若R∈BCNF，则必有R∈3NF。然而，BCNF又是概念上更加简单的一种范式，判断一个关系模式是否属于BCNF，只要考察每个非平凡函数依赖X→Y的决定因素X是否包含码就行了。</font><br>
+      　　3NF和BCNF是在函数依赖的条件下对模式分解所能达到的分离程度的限度。一个关系数据库中的所有关系模式如果都属于BCNF，这在函数依赖范畴内，就已经实现了彻底的分离，达到了最高的规范化程度，并消除了插入异常和删除异常。3NF的不彻底性表现在可能存在主属性对码的部分函数依赖和传递依赖。<!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

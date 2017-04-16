@@ -1,0 +1,36 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgproperties=fixed bgcolor="#FFFFFF" background="../../../../image/moban/15.gif">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td class="text" align="left">��例如：<br>
+            select <i>branch-name</i> from <i>branch</i><br>
+            where <i>assets</i> &gt;some (select <i>assets</i><br>
+            ����������from <i>branch</i> <br>
+            ����������where <i>branch-city</i> = &quot;Brooklyn&quot;)<br>
+            在SQL-92中：<br>
+            ��⑴�&quot;至少比一个…&quot;的集合比较运算符还有：&lt;some、&lt;=some、&gt;some、&gt;=some、=some和&lt;&gt;some。在这里=some等价于in；<br>
+            ��⑵�&quot;比所有都…&quot;的集合比较运算符有：&lt;all、&lt;=all、&gt;all、&gt;=all、=all和&lt;&gt;all。在这里 
+            &lt;&gt;all 等价于not in。<br>
+            例如，找出平均余额最高的分支机构名称可以用SQL表示如下：<br>
+            select <i>branch-name</i> from <i>account</i><br>
+            group by <i>branch-name</i><br>
+            having avg(<i>balance</i>) &gt;=all (select avg(<i>balance</i>) <br>
+            �������������from <i>account</i><br>
+            �������������group by <i>branch-name</i>)<br>
+            需要说明的是在SQL中聚集函数是不能嵌套的，即max(avg(…))是非法的表达式！<span class="menu"><br>
+            ��</span></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

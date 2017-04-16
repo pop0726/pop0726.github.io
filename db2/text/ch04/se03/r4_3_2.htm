@@ -1,0 +1,124 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" --><span class="pt9-black">　</span><span class="biaoti_1">1． 
+      索引的创建：</span><span class="pt9-black"><br>
+      　　在SQL Server中，可以用企业管理器或用SQL语句完成索引的创建。<br>
+      　(1) 使用企业管理器创建索引：<br>
+      　　在设计表格的时候，选择列的快捷菜单&quot;属性&quot;，切换到&quot;属性&quot;页对表格的索引进行添加。如图4-19，在表student1为列sno中添加簇集索引IX_TABLE1。<br>
+      <br>
+      　　</span><span class="tubiaoti">图4-19</span><span class="pt9-black"><br>
+      </span> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td align="center" class="pt9-black"><br>
+            <img src="../../../img/text/ch04/c1.gif" width="347" height="250"></td>
+        </tr>
+      </table>
+      <span class="pt9-black"><br>
+      　(2) 使用SQL语句创建索引<br>
+      　　语法格式如下：<br>
+      　　　CREATE [UNIQUE] [CLUSTER|NONCLUSTERED] INDEX index_name <br>
+      　　　ON table_name（column_name[ASC/DISC] <br>
+      　　　[，column_name[ASC/DISC]]….]）<br>
+      　　<font color="#5a5aad">参数说明：<br>
+      　　　UNIQUE：表示创建的索引是唯一索引，每个索引只对应一个元组值。<br>
+      　　　CLUSTERED:表示创建的索引是簇集索引。<br>
+      　　　NONCLUSTERED:表示创建的索引是非簇集索引。<br>
+      　　　Index_name：创建的索引名。<br>
+      　　　Table_name：创建索引所在的表名。<br>
+      　　　Column_name：创建索引使用的列名。由ntext、text或image数据类型组成的列不能指定为索引列。<br>
+      　　　ASC|DESC：确定具体某个索引列的升序或降序排列。默认设置为ASC。</font></span> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+        <tr> 
+          <td width="35" valign="top"><img src="../../../img/text/liti.gif" width="35" height="36" alt="例题"></td>
+          <td>　例1，为TEACHER表建立唯一索引tnamex，升序排列。不管教师是否有重名，每个索引值只对应一个教师名字。<br>
+            　　CREATE UNIQUE INDEX tnamex ON TEACHER（tname）</td>
+        </tr>
+        <tr> 
+          <td valign="top"><img src="../../../img/text/liti.gif" width="35" height="36" alt="例题"></td>
+          <td><br>
+            　例2，在SC表上按学号sno建立聚集索引scinx。 <br>
+            　　CREATE CLUSTER INDEX scinx ON SC（sno）<br>
+            　<font color="#5a5aad">在选课表中建立聚集索引scinx之后，同一个学生的所有选课成绩记录物理地排在一起。所以，查询某个学生的学习成绩或打印某个学生的成绩单速度就比较快。如表4-3。</font></td>
+        </tr>
+      </table>
+      <br>
+      　　<span class="tubiaoti">表4-3</span><br>
+      <span class="pt9-black"> </span> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td align="center" class="pt9-black"><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="250" height="400">
+              <param name=movie value="../../../swf/ch4/4-1.swf">
+              <param name=quality value=high>
+              <param name="wmode" value="transparent">
+              <embed src="../../../swf/ch4/4-1.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="250" height="400" wmode="transparent">
+              </embed> 
+            </object></td>
+        </tr>
+        <tr> 
+          <td><span class="pt9-black"><img src="../../../img/text/liti.gif" width="35" height="36" alt="例题" align="absmiddle"> 
+            例3：为student表建立索引，NONCLUSTERED为隐含值，可以省略。<br>
+            　　　 CREATE NONCLUSTERED INDEX stu_index ON student(sname)</span> </td>
+        </tr>
+      </table>
+      <p>　(3) 在两个或更多属性上建立索引：<br>
+        　　假如查询经常涉及到多个列值的检索条件，可在一个关系表上建立多个属性的索引，提高查询效率。否则会降低查询效率。<br>
+        　　例如，选课关系sc，主码(sno, cno)，经常查询某学号的同学选修某课程的成绩。为两个属性建立索引的语句如下：<br>
+        　　　CREATE INDEX Scidx ON sc(sno, cno)；</p>
+      <p>　(4) 使用索引的原则：<br>
+        　　　要不要建索引以及如何建索引，当属于内模式的概念，这是数据库设计中一个很重要的问题。设计人员要仔细考虑实际应用中修改与查询的频率，权衡建索引的利弊。例如，若一关系的经常性操作是数据的修改，则不宜建索引。但有些修改语句可能包含着查询操作。<br>
+        　　一般来说，建索引有几项参考原则：<br>
+        　● 值得建索引：记录有一定规模，而查询只局限于少数记录。<br>
+        　● 索引用得上：索引列在where子句中应频繁使用。先装数据，后建索引：对于大多数基本表，总是有一批初始数据需要装入。该原则是说，建立关系后，先将这些初始数据装入基表，然后再建索引，这样可加快初始数据的录入。如果建表时就建索引，那么在输入初始数据时，每插入一个记录都要维护一次索引。当然，索引早建晚建都是允许的。 
+        <br>
+        　● 在下列三种情况下，有必要建立簇索引：<br>
+        　(1)查询语句中采用该字段作为排序列<br>
+        　　例如，我们经常执行下列语句：<br>
+        　　　SELECT * FROM authors ORDER BY au_id<br>
+        　　这时候有必要考虑在该表格上建立以au_id为关键字的簇索引。<br>
+        　　　CRATE CLUSTERED INDEX au_index On authors (au_id)</p>
+      <p>　(2)需要返回局部范围的大量数据<br>
+        　　例如，我们要做如下的查询：<br>
+        　　　SELECT * FROM authors<br>
+        　　　WHERE zip BETWEEN 94618 AND 96214<br>
+        　　这时就有必要在zip列上建立簇索引。<br>
+        　　　CRATE CLUSTERED INDEX zip_index On authors (zip)</p>
+      　(3)表格中某字段内容的重复性比较大例如，student表中dno(系号)一列有大量重复数据，当在dno列上建立了簇索引后，下面的连接查询速度会加快。<br>
+      　　　SELECT * FROM student,dept<br>
+      　　　WHERE student.dno=dept.dno<br>
+      　　对以上情况，建立簇索引会提高访问数据库的效率。建立簇索引的语句如下：<br>
+      　　　CRATE CLUSTERED INDEX dept_index On student(dep_id)<br>
+      　　<font color="#5a5aad">注意：当在同一表格中建立簇索引和非簇索引时，先建立簇索引后建非簇索引比较好。因为如先建非簇索引的话，当建立簇索引时，SQL 
+      Server会自动将非簇索引删除，然后重新建立非簇索引。每个表仅可以有一个簇索引，最多可以有249个非簇索引。它们均允许以一个或多个字段作为索引关键字(Index 
+      Key)，但最多只能有16个字段。<br>
+      　　SQL Server只对那些能加快数据查询速度的索引才能被选用。如果利用索引检索还不如顺序扫描速度快，SQL Server仍用扫描方法检索数据。建立不能被采用的索引只会增加系统的负担，降低检索速度。因此，可利用性是建立索引的首要条件。</font><!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

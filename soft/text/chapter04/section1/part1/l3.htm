@@ -1,0 +1,53 @@
+<html>
+<head>
+<title>l3</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td class="text" colspan="2">��<br>
+            <img src="../../../../images/tubiao/cxd.gif" width="25" height="20" alt="程序段"></td>
+        </tr>
+        <tr> 
+          <td class="text" height="79" colspan="2"> 　　F<font size="1">0</font> 
+            = F(a)； F<font size="1">1 </font>= F(b)；<br>
+            <span class="part">　　if</span> ( F0*F1 &lt;= 0 ) {<br>
+            ��　X<font size="1">0</font> = a； X<font size="1">1</font> = b；<br>
+            ��　<span class="part">for</span> (i = 1；i &lt;= n；i++) {<br>
+            ���　Xm = (X<font size="1">0</font>+X<font size="1">1</font>)/2；<br>
+            ���　Fm = F（Xm)；<br>
+            ���<span class="part">　if </span>( abs(Fm) &lt; eps || abs(X<font size="1">1</font>－X<font size="1">0</font>) 
+            &lt; eps )<br>
+            ����<span class="part">　goto</span> finish；<br>
+            ����<span class="part">　if</span> (F<font size="1">0</font>*Fm＞0) 
+            { X<font size="1">0</font> = Xm；F<font size="1">0</font> = Fm；} <br>
+            ����<span class="part">　else</span> X<font size="1">1</font> = X；<br>
+            　　　　}<br>
+            　　　finish：printf（&quot;\n The root of this equation is %d\n&quot;，Xm）；<br>
+            　　}<br>
+            　</td>
+        </tr>
+        <tr> 
+          <td class="text" width="25" valign="top"> <img src="../../../../images/tubiao/ts.gif" width="25" height="20" alt="图示"></td>
+          <td class="text"> 
+            <div align="center"><img src="../../../../images/images/chapter04/4_2.gif" width="176" height="102"><br>
+              <span class="part">图4.2 函数F(x) 曲线 </span></div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" colspan="2"><br>
+            �� 这类循环结构出现了两个循环出口。一个是for循环的正常出口：当循环控制变量i超出了循环终值n时退出循环；另一个是for循环的非正常出口：当某种条件满足时，从循环中间某处转出循环，执行循环后面的语句。它不满足结构化的要求。做为对照，再看下面的两个程序段(程序段2和程序段3)。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

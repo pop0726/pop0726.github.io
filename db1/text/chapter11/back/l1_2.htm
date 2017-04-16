@@ -1,0 +1,327 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+</head>
+<body background="../../../image/moban/15.gif" bgproperties=fixed>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="354">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td class="text"> 
+            <p align="center" class="zhishidian">第十一章　并发控制--概念</p>
+          </td>
+        </tr>
+        <tr> 
+          <td class="part">11.1 封锁协议</td>
+        </tr>
+        <tr> 
+          <td class="text"> 
+            <div align="center"><span style="font-size:9.0pt;font-family:宋体;Times New Roman&quot;" class="part">表<span lang="EN-US">11-1</span></span> 
+              <table border="1" cellspacing="0" cellpadding="0" class="text" bordercolor="#000000">
+                <tr> 
+                  <td width="132" valign="top"> 
+                    <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">概念</span></b></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">解释</span></b></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top" align="center"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">共享锁</span></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">如果事务<span lang="EN-US">T获得了数据项Q上的共享锁(记为S)，则T可读Q但不能写Q。 
+                      </span></span></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top" align="center"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">排他锁</span></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">如果事务<span lang="EN-US">T获得了数据项Q上的排他锁(记为X)，则T既可读Q又可写Q。 
+                      </span></span></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top" align="center"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">锁相容</span></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">令<span lang="EN-US">A与B代表任意类型的锁。假设事务T<sub>i</sub>请求对数据项Q加A类型锁，而事务T<sub>j</sub>(T<sub>i</sub>≠T<sub>j</sub>)当前在数据项Q上拥有B类型锁。尽管数据项Q上存在B类型锁，但如果事务T<sub>i</sub>可以立即获得数据项Q上的A类型锁，则称A类型锁与B类型锁相容。 
+                      </span></span></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top" align="center"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">锁相容矩阵</span></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">锁相容一般用矩阵来表示，称为锁相容矩阵。只有其值为<span lang="EN-US">TRUE的两类锁才相容。 
+                      </span></span></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top" align="center"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">死锁</span></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">调度中所有的事务因为持有锁和申请锁而导致大家都处于等待状态，无法继续执行。</span></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top" align="center"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">饿死</span></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">调度中一个事务总是不能在某个数据项上加上锁，因此该事务也就永远不能取得进展。</span></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top" align="center"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">两阶段封锁协议</span></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">该协议要求每个事务分两个阶段提出加锁和解锁申请：<span lang="EN-US"> 
+                      </span></span></p>
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">�C增长阶段：事务可以获得锁，但不能释放锁；<span lang="EN-US"> 
+                      </span></span></p>
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">�C缩减阶段：事务可以释放锁，但不能获得新锁。<span lang="EN-US"> 
+                      </span></span></p>
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">对于一个事务而言，刚开始事务处于增长阶段，它可以根据需要获得锁；一旦该事务开始释放锁，它就进入了缩减阶段，就不能再发出加锁请求。</span></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top" align="center"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">封锁点</span></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">对于任何一个事务而言，在调度中该事务获得其最后一个锁的时刻称为事务的封锁点。</span></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top" align="center"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">严格两阶段封锁协议</span></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">除了要求封锁是两阶段之外，还要求事务持有的所有排他锁必须在事务提交之后方可释放。</span></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top" align="center"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">强两阶段封锁协议</span></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">除了要求封锁是两阶段之外，还要求事务在提交之前不得释放任何锁。</span></p>
+                  </td>
+                </tr>
+              </table></div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="part">11.2 树形协议</td>
+        </tr>
+        <tr> 
+          <td class="text"> 
+            <div align="center"><span style="font-size:9.0pt;font-family:宋体;Times New Roman&quot;"><span class="part">表<span lang="EN-US">11-2</span></span></span> 
+              <table border="1" cellspacing="0" cellpadding="0" bordercolor="#000000" class="text">
+                <tr> 
+                  <td width="132" valign="top"> 
+                    <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">概念</span></b></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">解释</span></b></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top">&nbsp; </td>
+                  <td width="420" valign="top">&nbsp; </td>
+                </tr>
+              </table></div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text"><span lang="EN-US" style="font-size:9.0pt;font-family:宋体;
+Times New Roman&quot;" class="part">11.3 时间戳排序协议</span></td>
+        </tr>
+        <tr> 
+          <td class="text" height="2"> 
+            <div align="center"><span style="font-size:9.0pt;font-family:宋体;Times New Roman&quot;" class="part">表<span lang="EN-US">11-3 
+              </span></span> 
+              <table border="1" cellspacing="0" cellpadding="0" bordercolor="#000000" class="text">
+                <tr> 
+                  <td width="132" valign="top"> 
+                    <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">概念</span></b></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">解释</span></b></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top" align="center"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">时间戳</span></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">就是一个时间标志，该时间标志是在事务<span lang="EN-US">T开始执行前由DBMS的并发控制管理器赋予的，记为TS(T)。 
+                      </span></span></p>
+                  </td>
+                </tr>
+              </table></div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text"><span lang="EN-US" style="font-size:9.0pt;font-family:宋体;
+Times New Roman&quot;"><span class="part">11.4 有效性检查协议</span></span></td>
+        </tr>
+        <tr> 
+          <td class="text" height="2"> 
+            <div align="center"><span style="font-size:9.0pt;font-family:宋体;Times New Roman&quot;" class="part">表<span lang="EN-US">11-4 
+              </span></span> 
+              <table border="1" cellspacing="0" cellpadding="0" class="text" bordercolor="#000000">
+                <tr> 
+                  <td width="132" valign="top"> 
+                    <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">概念</span></b></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">解释</span></b></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top">&nbsp; </td>
+                  <td width="420" valign="top">&nbsp; </td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text"><span lang="EN-US" style="font-size:9.0pt;font-family:宋体;
+Times New Roman&quot;" class="part">11.5 多粒度机制</span></td>
+        </tr>
+        <tr> 
+          <td class="text"> 
+            <div align="center"><span style="font-size:9.0pt;font-family:宋体;Times New Roman&quot;" class="part">表1<span lang="EN-US">1-5 
+              </span></span> 
+              <table border="1" cellspacing="0" cellpadding="0" class="text" bordercolor="#000000">
+                <tr> 
+                  <td width="132" valign="top"> 
+                    <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">概念</span></b></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">解释</span></b></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top">&nbsp; </td>
+                  <td width="420" valign="top">&nbsp; </td>
+                </tr>
+              </table></div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text"><span lang="EN-US" style="font-size:9.0pt;font-family:宋体;
+Times New Roman&quot;" class="part">11.6 多版本机制</span></td>
+        </tr>
+        <tr> 
+          <td class="text"> 
+            <div align="center"><span style="font-size:9.0pt;font-family:宋体;Times New Roman&quot;" class="part">表<span lang="EN-US">11-6 
+              </span></span> 
+              <table border="1" cellspacing="0" cellpadding="0" class="text" bordercolor="#000000">
+                <tr> 
+                  <td width="132" valign="top"> 
+                    <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">概念</span></b></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">解释</span></b></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top">&nbsp; </td>
+                  <td width="420" valign="top">&nbsp; </td>
+                </tr>
+              </table></div>
+          </td>
+        </tr>
+        <tr>
+          <td class="text" height="14"><span lang="EN-US" style="font-size:9.0pt;font-family:宋体;
+Times New Roman&quot;" class="part">11.7 死锁处理<span style="color:black"></span></span><span lang="EN-US" style="font-size:9.0pt;font-family:宋体;
+Times New Roman&quot;"><span style="color:black"> </span></span></td>
+        </tr>
+        <tr>
+          <td class="text">
+            <div align="center"><span style="font-size:9.0pt;font-family:宋体;Times New Roman&quot;" class="part">表<span lang="EN-US">11-7 
+              </span></span> 
+              <table border="1" cellspacing="0" cellpadding="0" bordercolor="#000000" class="text">
+                <tr> 
+                  <td width="132" valign="top"> 
+                    <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">概念</span></b></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">解释</span></b></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top" align="center"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">死锁</span></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">参见前面的表<span lang="EN-US">11-1。 
+                      </span></span></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top" align="center"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">等待<span lang="EN-US">-死亡机制 
+                      </span></span></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">这种机制基于非抢占技术。当事务<span lang="EN-US">T<sub>i</sub>申请的数据项当前被T<sub>j</sub>持有，仅当TS(T<sub>i</sub>)&lt;TS(T<sub>j</sub>)时，允许T<sub>i</sub>等待。否则，T<sub>i</sub>回滚。 
+                      </span></span></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="132" valign="top" align="center"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">受伤<span lang="EN-US">-等待机制 
+                      </span></span></p>
+                  </td>
+                  <td width="420" valign="top"> 
+                    <p class="MsoNormal"><span style="font-family:宋体;Times New Roman&quot;">这种机制基于抢占技术，是等待<span lang="EN-US">-死亡机制的相反机制。当事务T<sub>i</sub>申请的数据项当前被T<sub>j</sub>持有，仅当TS(T<sub>i</sub>)&gt;TS(T<sub>j</sub>)时，允许T<sub>i</sub>等待。否则，T<sub>i</sub>抢占T<sub>j</sub>持有的数据项，而T<sub>j</sub>回滚。 
+                      </span></span></p>
+                  </td>
+                </tr>
+              </table></div>
+          </td>
+        </tr>
+        <tr>
+          <td class="text"><span lang="EN-US" style="font-size:9.0pt;font-family:宋体;
+Times New Roman&quot;" class="part">11.8 插入与删除</span></td>
+        </tr>
+        <tr> 
+          <td class="text" align="center"> 
+            <div align="center"></div>
+            <div align="center" class="part">表<span lang="EN-US">11-8</span></div>
+          <table border="1" cellspacing="0" cellpadding="0" class="text" bordercolor="#000000">
+              <tr> 
+                <td width="132" valign="top"> 
+                  <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">概念</span></b></p>
+                </td>
+                <td width="420" valign="top"> 
+                  <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-family:宋体;Times New Roman&quot;">解释</span></b></p>
+                </td>
+              </tr>
+              <tr> 
+                <td width="132" valign="top">&nbsp; </td>
+                <td width="420" valign="top">&nbsp; </td>
+              </tr>
+            </table>
+            </td>
+        </tr>
+      </table></td>
+  </tr>
+</table>
+</body>
+</html>

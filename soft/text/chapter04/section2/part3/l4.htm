@@ -1,0 +1,67 @@
+<html>
+<head>
+<title>l1</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td class="text" colspan="3"> ��<br>
+            ��同时如果能保持程序的可读性，则不必用GOTO语句。下面举一例说明。看<span class="part">图4.5</span>给出的流程图。</td>
+        </tr>
+        <tr> 
+          <td class="text" valign="top" colspan="2" rowspan="3"> <img src="../../../../images/tubiao/cxd.gif" width="25" height="20" alt="程序段"><br>
+            <span class="part">��if ( X &lt; Y ) goto L1;<br>
+            　　if ( Y &lt; Z ) goto L2;<br>
+            　　SMALL = Z; <br>
+            　　goto L4;<br>
+            　　L1: if ( X &lt; Z ) goto L3;<br>
+            　　SMALL = Z;<br>
+            　　goto L4; <br>
+            　　L2: SMALL = Y;<br>
+            　　goto L4; <br>
+            　　L3: SMALL = X; <br>
+            ��L4: </span><br>
+          </td>
+          <td class="text" width="40%" valign="top" height="13"> 
+            <div align="right"><img src="../../../../images/tubiao/ts.gif" width="25" height="20" alt="图示"></div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" width="40%" valign="bottom" align="center" height="41"> 
+            <div align="center"><img src="../../../../images/images/chapter04/4_5.gif" width="212" height="143"></div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" width="40%" valign="top" align="center" height="2"> 
+            <div align="center" class="part"> 图4.5 求X，Y，Z中最小者</div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" colspan="3"> ��这个程序包括了6个GOTO语句，看起来很不好理解。仔细分析可知道它是想让SMALL取X，Y，Z中的最小值。这样做完全是不必要的。为求最小值，程序只需编写成：</td>
+        </tr>
+        <tr> 
+          <td class="text" width="18%"> 
+            <div align="center"></div>
+          </td>
+          <td class="text" width="42%"><span class="part">SMALL = X;<br>
+            if ( Y &lt; SMALL ) SMALL = Y;<br>
+            if ( Z &lt; SMALL ) SMALL = Z;</span><br>
+          </td>
+          <td class="part" width="40%">&nbsp; </td>
+        </tr>
+        <tr> 
+          <td class="text" colspan="3">��所以程序应当简单，不必过于深奥，避免使用GOTO语句绕来绕去。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

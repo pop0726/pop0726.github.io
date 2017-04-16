@@ -1,0 +1,37 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+</head>
+<body background="../../../image/moban/15.gif" bgproperties=fixed>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" height="290">
+        <tr> 
+          <td class="text"> 
+            <p>��<font color="#000000">●</font>�1、索引的目的是为了快速地在文件中定位记录：<br>
+              ��⑴�为能够按搜索码顺序快速检索记录，我们用指针把记录链接起来，这就是所谓的搜索码链表；<br>
+              ��⑵�为能够快速地随机访问记录，我们引入了索引结构。<br>
+              ��<font color="#000000">●</font>�2、基本的索引有两种：<br>
+              ��⑴�顺序索引：分为稠密索引和稀疏索引<br>
+              ��⑵�散列索引<br>
+              ��<font color="#000000">●</font>�3、主索引：如果搜索码顺序与记录的物理顺序一致，那么在这个搜索码上建立的索引就是主索引。主索引也叫簇集索引；<br>
+              ��<font color="#000000">●</font>�4、多级索引：像对待任何其他顺序文件那样来对待索引结构，即在主索引上再构造一个稀疏索引，以避免要访问的索引结构过于庞大而影响性能；<br>
+              ��<font color="#000000">●</font>�5、辅助索引：搜索码顺序与记录的物理顺序不一致的索引，也叫非簇集索引。辅助索引必须是稠密索引；<br>
+              ��<font color="#000000">●</font>�6、索引顺序文件组织的主要缺陷是：随着数据文件的增大，索引的性能会下降，为此提出了B+树索引：<br>
+              ��⑴�B+树是平衡树，即从树根到树叶的所有路径长度相等；<br>
+              ��⑵�B+树的查找简单有效，但插入和删除较为复杂，且浪费空间。<br>
+              ��<font color="#000000">●</font>�7、B+树文件组织：B+树结构不仅可以用做文件的索引，同时还可以用来组织文件中的记录。在B+树文件组织中，B+树叶结点中存储的是记录，而不是指向记录的指针；<br>
+              ��<font color="#000000">●</font>�8、散列文件：利用一个散列函数，将记录均匀地、随机地分布到多个存储桶中；<br>
+              ��<font color="#000000">●</font>�9、散列索引：将索引记录（索引项）中的搜索码及其相应的指针组织成散列文件结构。散列索引只能是辅助索引。<br>
+              ��</p>
+            </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

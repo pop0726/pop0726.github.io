@@ -1,0 +1,33 @@
+<html>
+<head>
+<title>l1</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center" height="8">
+        <tr> 
+          <td class="text"> 
+            <p><br>
+              ��<span class="part">自顶向下增殖方式的缺点是需要建立桩模块。</span>要使桩模块能够模拟实际子模块的功能将是十分困难的。同时涉及复杂算法和真正输入／输出的模块一般在底层，它们是最容易出问题的模块，到组装和测试的后期才遇到这些模块，一旦发现问题，导致过多的回归测试。而自顶向下增殖方式的优点是能够较早地发现在主要控制方面的问题。<span class="part">自底向上增殖方式的缺点是&quot;程序一直未能做为一个实体存在，直到最后一个模块加上去后才形成一个实体&quot;。</span>就是说，在自底向上组装和测试的过程中，对主要的控制直到最后才接触到。但这种方式的优点是不需要桩模块，而建立驱动模块一般比建立桩模块容易，同时由于涉及到复杂算法和真正输入／输出的模块最先得到组装和测试，可以把最容易出问题的部分在早期解决。此外自底向上增殖的方式可以实施多个模块的并行测试。<br>
+              　　有鉴于此，通常是把以上两种方式结合起来进行组装和测试。<br>
+              ��<span class="part">①</span> 衍变的自顶向下的增殖测试<br>
+              ��它的基本思想是强化对输入／输出模块和引入新算法模块的测试，并自底向上组装成为功能相当完整且相对独立的子系统，然后由主模块开始自顶向下进行增殖测试。 
+              <br>
+              ��<span class="part">②</span> 自底向上-自顶向下的增殖测试<br>
+              ��它首先对含读操作的子系统自底向上直至根结点模块进行组装和测试，然后对含写操作的子系统做自顶向下的组装与测试。 <br>
+              ��<span class="part">③</span> 回归测试<br>
+              ��这种方式采取自顶向下的方式测试被修改的模块及其子模块，然后将这一部分视为子系统，再自底向上测试，以检查该子系统与其上级模块的接口是否适配。<br>
+              ��</p>
+            </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

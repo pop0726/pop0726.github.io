@@ -1,0 +1,238 @@
+<html>
+<head>
+<title>Java期末考试题</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="css/text.css" type="text/css">
+<script language="JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+</head>
+<script language="JavaScript">
+function getresultcheck(form)
+{var mykeys=new Array();
+//  mykeys[0]="B";
+//czp-select-answer
+var answer=new Array();
+for(var I=0;I<mykeys.length;I++) answer[I]="";
+
+var every=form.elements;
+
+<!--czp-select-count-->
+for(var I=0;I<every.length;I++)
+{
+	if(every[I].type=="radio")
+	{
+		
+		if(every[I].checked)
+		{	
+	
+			var item=parseInt(every[I].name.substr(0));
+		
+			answer[item-1]+=every[I].value;
+		}
+	}				
+}
+
+var newcount="<html><head><title>谢谢您!</title></head><body><center><h2><font color=red>您的测试结果</font></h2></center>";
+var totalscore=0;
+for(var I=0;I<answer.length;I++)
+{
+	if(answer[I]==mykeys[I])
+	{
+		var rstr="<font size=2>第"+(I+1)+"题答案正确!</font><br>";
+		newcount+=rstr;
+		totalscore+=1/(answer.length)*100;//每题分数
+	}else
+	{
+		var rstr="<font size=2>第"+(I+1)+"题答案错误!正确答案为"+mykeys[I]+"</font><br>";
+		newcount+=rstr;
+	}
+
+}
+
+newcount+="<br>您的总成绩为:";
+newcount+=Math.ceil(totalscore);
+newcount+="分";
+newwin=window.open("","","height=200,width=300,scrollbars=yes,resizable=no");
+newwin.document.write(newcount);}
+
+
+
+function getresultcheck1(form)
+{var mykeys=new Array();
+//  mykeys[0]="B";
+//czp-mulselect-answer
+var answer=new Array();
+for(var I=0;I<mykeys.length;I++) answer[I]="";
+
+var every=form.elements;
+
+<!--czp-mulselect-count-->
+for(var I=0;I<every.length;I++)
+{
+	if(every[I].type=="checkbox")
+	{
+		
+		if(every[I].checked)
+		{	
+	
+			var item=parseInt(every[I].name.substr(0));
+		
+			answer[item-1]+=every[I].value;
+		}
+	}				
+}
+
+var newcount="<html><head><title>谢谢您!</title></head><body><center><h2><font color=red>您的测试结果</font></h2></center>";
+var totalscore=0;
+for(var I=0;I<answer.length;I++)
+{
+	if(answer[I]==mykeys[I])
+	{
+		var rstr="<font size=2>第"+(I+1)+"题答案正确!</font><br>";
+		newcount+=rstr;
+		totalscore+=1/(answer.length)*100;//每题分数
+	}else
+	{
+		var rstr="<font size=2>第"+(I+1)+"题答案错误!正确答案为"+mykeys[I]+"</font><br>";
+		newcount+=rstr;
+	}
+
+}
+
+newcount+="<br>您的总成绩为:";
+newcount+=Math.ceil(totalscore);
+newcount+="分";
+newwin=window.open("","","height=200,width=300,scrollbars=yes,resizable=no");
+newwin.document.write(newcount);}
+
+
+
+
+
+
+
+
+
+
+
+
+function check(){
+var mykeys=new Array();
+//czp-tiankong-answer
+//mykeys[0]="B";
+var answer=new Array();
+for(var I=0;I<mykeys.length;I++) answer[I]="";
+
+var every=zfl.elements;
+for(var I=0;I<every.length;I++)
+{
+if(every[I].type=="text")
+{
+ if(every[I].value!==null)
+ {
+ //var item=parseInt(every[I].name.substr(1))
+//  answer[item-1]+=every[I].value;
+  answer[I]+=every[I].value;
+  }
+ }
+}
+
+
+var newcount="<html><head><title>谢谢您!</title></head><body><center><h2><font face=\"隶书\" size=\"5\" color=\"#000099\">您的测试结果</font></h2></center>";
+var totalscore=0;
+for(var i=0;i<answer.length;i++)
+{
+	if(answer[i]==mykeys[i])
+	{
+		var rstr="<font face=\"宋体\" size=2>第"+(i+1)+"个空答案正确!</font><br>";
+		newcount+=rstr;
+		totalscore+=1/(answer.length)*100;
+	}else
+	{
+		var rstr="<font face=\"宋体\" size=2>第"+(i+1)+"个空答案错误!正确答案为"+mykeys[i]+"</font><br>";
+		newcount+=rstr;
+	}
+
+}
+
+newcount+="<br><font face=\"宋体\" size=3><b>您的总成绩为:</b></font><font face=\"宋体\" size=3 color=red>";
+newcount+=Math.ceil(totalscore);
+newcount+="分</font><br>";
+newwin=window.open("","","height=400,width=400,scrollbars=yes,resizable=no");
+newwin.document.write(newcount);
+}
+
+</script>
+<body bgcolor="#FFFFFF" text="#000000" topmargin=0 background="../../../image/moban/15.gif" bgproperties=fixed>
+
+<center>
+  <span class="section"><br>
+  第九章　查询处理――习题</span><br>
+  <br>
+  <table width="95%" border="0" cellspacing="0" cellpadding="0">
+    <tr> 
+      <td class=text><form><b>问答题</b><br>
+        <br>
+        <span class="explaination">问答第1题： </span>查询处理中什么时候进行优化？<br>
+        <textarea name=jianda cols=50 rows=5></textarea>
+        <br>
+        <br>
+        <br>
+        <span class="explaination">问答第2题：</span>对于下面的表达式对，给出关系实例说明表达式不等价。 <br>
+        <img src="../../../image/shiti/30.jpg" width="233" height="40"> <br>
+        <textarea name=jianda cols=50 rows=5></textarea>
+        <br>
+        <br>
+        <br>
+        <span class="explaination">问答第3题：</span>基于讲课所用的银行企业数据库的关系模式，考虑下面的SQL语句： 
+        <br>
+        　　 select T.branch-name <br>
+        　　 from branch T, branch S <br>
+        　　 where T.assets > S.assets and S.branch-city = "Brooklyn" <br>
+        　　 写出一个与此等价的、高效的关系代数表达式。 <br>
+        <textarea name=jianda cols=50 rows=5></textarea>
+        <br>
+        <br>
+        <br>
+        <span class="explaination">问答第4题：</span>考虑关系r1(A, B, C)、r2(C, D, E)、r3(E, 
+        F)，它们的主码分别为A、C、E。假设r1有1000个元组，r2有1500个元组，r3有750个元组。估计r1��r2��r3的大小，给出一个有效地计算这个连接的策略，并说明原因。<br>
+        <textarea name=jianda cols=50 rows=5></textarea>
+        <br>
+        <br>
+        <br>
+        <span class="explaination">问答第5题：</span>设关系r1(A, B, C)、r2(C, D, E)有如下特性：r1有20000个元组，r2有45000个元组，一块中可容纳25条r1的元组，或30条r2的元组。使用嵌套循环连接算法计算r1��r2，估计该算法所需要的块存取数。<br>
+        <textarea name=jianda cols=50 rows=5></textarea>
+        <br>
+        <br>
+        <br>
+        <span class="explaination">问答第6题：</span>有两个关系r与s，其中关系s足够小，能够完全放在内存里。现在要对r和s做q连接运算，采用嵌套循环连接算法。请分析以下表达式的磁盘访问代价： 
+        ⑴r��<img src="../../../image/shiti/36.gif" width="5" height="20" align="absmiddle">s 
+        ⑵s��<img src="../../../image/shiti/36.gif" width="5" height="20" align="absmiddle">r 
+        <br>
+        <textarea name=jianda cols=50 rows=5></textarea>
+        <br>
+        <br>
+        <br>
+        <span class="explaination">问答第7题：</span>有两个关系r与s，其中关系s相对于关系r来说比较小，并且关系r和s在连接条件q的属性上建有高度相同的B<SUP>+</SUP>树索引。现在要对r和s做连接运算，采用索引嵌套循环连接算法。请问以下表达式的磁盘访问代价哪一个大？<br>
+        　　 ⑴r��<img src="../../../image/shiti/36.gif" width="5" height="20" align="absmiddle">s 
+        <br>
+        　　 ⑵s��<img src="../../../image/shiti/36.gif" width="5" height="20" align="absmiddle">r 
+        <br>
+        <textarea name=jianda cols=50 rows=5></textarea>
+        <br>
+        <br>
+        <!--czp-wenda-timu-->
+        <br> <input type=button name=Button value=答案 案 onClick="MM_openBrWindow('text/examination/exam01_pop2.htm','','width=471,height=384')" class=pbox> 
+        <input type='reset' name='Submit3' value='重置' class=pbox> <br>        
+        </form>
+      </td>
+  </tr>
+</table></center>
+
+</body>
+</html>

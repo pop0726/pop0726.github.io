@@ -1,0 +1,78 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" -->　　WHERE子句中参与比较的表达式还可以是由SELECT-FROM-WHERE结构组成的查询块，称为子查询或嵌套查询。连接条件本身可能是一个递归的 
+      SQL 查询，而且可以嵌套多层。格式如下： <br>
+      　　　SELECT … FROM …<br>
+      　　　WHERE … =<br>
+      　　(SELECT … FROM … WHERE … )<br>
+      　　<font color="#5a5aad">子查询的结果可以是单个数据值，元组的属性值，或一个新的关系表。子查询有多个返回值时，用比较符：<br>
+      　　● (IN或NOT IN)R ：是或不是R中的一个值<br>
+      　　● (&lt;&gt;，&gt;，&lt; )ALL R: 指'不等''大于'或'小于'R中的所有值。<br>
+      　　● (=，&gt;，&lt; )ANY R: 指至少'等于''大于'或'小于'R中的一个值。</font><br>
+      <br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+        <tr> 
+          <td valign="top" width="35"><img src="../../../img/text/liti.gif" width="35" height="36" alt="例题"></td>
+          <td>　例1，列出与李楷同班的同学的全部信息:<br>
+            　　SELECT *<br>
+            　　FROM STUDENT<br>
+            　　WHERE sclass =（ SELECT sclass<br>
+            　　FROM STUDENT<br>
+            　　WHERE sname=&quot;李楷&quot;）；<br>
+            　输出结果如下：<br>
+            　　sno sname ssex sage sclass <br>
+            　　J20001 李 楷 m 19 JS2001 <br>
+            　　J20002 张 会 f 20 JS2001 <br>
+            　　J20003 王 者 m 20 JS2001<br>
+          </td>
+        </tr>
+        <tr> 
+          <td valign="top" width="35"><img src="../../../img/text/liti.gif" width="35" height="36" alt="例题"></td>
+          <td>　例2，查找高于职工平均工资的职工信息：<br>
+            　　SELECT *<br>
+            　　FROM emptable<br>
+            　　WHERE salary &gt;（ SELECT AVG(salary)<br>
+            　　FROM emptable）；</td>
+        </tr>
+        <tr> 
+          <td valign="top" width="35"><img src="../../../img/text/liti.gif" width="35" height="36" alt="例题"></td>
+          <td><br>
+            　例3．查询本学期选课超过8门的学生人数,没有成绩的选课表示本学期正在选修的课程。 <br>
+            　　SELECT COUNT(*)<br>
+            　　FROM student<br>
+            　　WHERE sno IN 注：选课&gt;8的学号集 （ SELECT sno 选课的学号 FROM sc <br>
+            　　WHERE grade IS NULL<br>
+            　　GROUP BY sno 注：按学号分组 HAVING COUNT(*) &gt; 8）；</td>
+        </tr>
+      </table>
+      <!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

@@ -1,0 +1,100 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgproperties=fixed bgcolor="#FFFFFF" background="../../../../image/moban/15.gif">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" height="157">
+        <tr> 
+          <td class="text" align="left" height="2"> <img src="../../../../image/tubiao/lt.gif" width="35" height="35" alt="示例"></td>
+        </tr>
+        <tr> 
+          <td class="text" align="left" height="2"><span class="part">1、示例1</span><br>
+            ��并发调度3如<span class="part">图10-9-1</span>所示：</td>
+        </tr>
+        <tr> 
+          <td class="text" align="left" height="2"> 
+            <div align="center"><span class="part">图10-9-1：并发调度3</span><br>
+              <img src="../../../../image/chapter/10/10-9-1.gif" width="409" height="430"> 
+            </div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left" height="2">它的优先图构造如下：</td>
+        </tr>
+        <tr> 
+          <td class="text" align="left" height="2"> 
+            <div align="center" class="part">图10-9-2：并发调度3的优先图<br>
+              <img src="../../../../image/chapter/10/10-9-2.gif" width="298" height="174"> 
+            </div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left" height="2">因此调度3等价于串行调度&lt;T1,T2&gt;。<br>
+            <br>
+            <span class="part">2、示例2</span><br>
+            ��调度11如<span class="part">图10-9-3</span>所示：</td>
+        </tr>
+        <tr> 
+          <td class="text" align="left" height="2"> 
+            <div align="center" class="part">图10-9-3：调度11<br>
+              <img src="../../../../image/chapter/10/10-9-3.gif" width="420" height="174"> 
+            </div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left" height="2">它的优先图构造如下：</td>
+        </tr>
+        <tr> 
+          <td class="text" align="left" height="2"> 
+            <div align="center" class="part">图10-9-4：调度11的优先图<br>
+              <img src="../../../../image/chapter/10/10-9-4.gif" width="286" height="265"> 
+            </div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left" height="2">因此调度11等价于串行调度&lt;T11,T12,T13&gt;。<br>
+            <br>
+            <span class="part">3、示例3</span><br>
+            ��并发调度8如<span class="part">图10-9-5</span>所示：</td>
+        </tr>
+        <tr> 
+          <td class="text" align="left" height="2"> 
+            <div align="center"><span class="part">图10-9-5：调度8 </span><br>
+              <img src="../../../../image/chapter/10/10-9-5.gif" width="420" height="195"> 
+            </div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left" height="1">它的优先图构造如下：</td>
+        </tr>
+        <tr>
+          <td class="text" align="left" height="1">
+            <div align="center" class="part">图10-9-6：调度8的优先图<br>
+              <img src="../../../../image/chapter/10/10-9-6.gif" width="322" height="249"> 
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="text" align="left" height="2">因为存在有向环，所以调度8不是冲突可串行化的。<br>
+            <br>
+            <span class="part">4、示例</span><br>
+            ��4假设并发调度12的优先图如<span class="part">图10-9-7</span>所示，由于图中不存在有向环，因此它是冲突可串行化的。根据图可以确定在串行调度中Ti排在最前，T<font size="-5">m</font>排在最后。因此调度12等价于串行调度：&lt;T<font size="-5">i</font>,T<font size="-5">j</font>,T<font size="-5">k</font>,T<font size="-5">m</font>&gt;或&lt;T<font size="-5">i</font>,T<font size="-5">k</font>,T<font size="-5">j</font>,T<font size="-5">m</font>&gt;。</td>
+        </tr>
+        <tr>
+          <td class="text" align="left" height="2">
+            <div align="center" class="part">图10-9-7：调度12的优先图<br>
+              <img src="../../../../image/chapter/10/10-9-7.gif" width="234" height="255"> 
+            </div>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

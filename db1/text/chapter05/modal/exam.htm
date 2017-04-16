@@ -1,0 +1,246 @@
+<html>
+<head>
+<title>Java期末考试题</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="css/text.css" type="text/css">
+<script language="JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+</head>
+<script language="JavaScript">
+function getresultcheck(form)
+{var mykeys=new Array();
+//  mykeys[0]="B";
+//czp-select-answer
+var answer=new Array();
+for(var I=0;I<mykeys.length;I++) answer[I]="";
+
+var every=form.elements;
+
+<!--czp-select-count-->
+for(var I=0;I<every.length;I++)
+{
+	if(every[I].type=="radio")
+	{
+		
+		if(every[I].checked)
+		{	
+	
+			var item=parseInt(every[I].name.substr(0));
+		
+			answer[item-1]+=every[I].value;
+		}
+	}				
+}
+
+var newcount="<html><head><title>谢谢您!</title></head><body><center><h2><font color=red>您的测试结果</font></h2></center>";
+var totalscore=0;
+for(var I=0;I<answer.length;I++)
+{
+	if(answer[I]==mykeys[I])
+	{
+		var rstr="<font size=2>第"+(I+1)+"题答案正确!</font><br>";
+		newcount+=rstr;
+		totalscore+=1/(answer.length)*100;//每题分数
+	}else
+	{
+		var rstr="<font size=2>第"+(I+1)+"题答案错误!正确答案为"+mykeys[I]+"</font><br>";
+		newcount+=rstr;
+	}
+
+}
+
+newcount+="<br>您的总成绩为:";
+newcount+=Math.ceil(totalscore);
+newcount+="分";
+newwin=window.open("","","height=200,width=300,scrollbars=yes,resizable=no");
+newwin.document.write(newcount);}
+
+
+
+function getresultcheck1(form)
+{var mykeys=new Array();
+//  mykeys[0]="B";
+//czp-mulselect-answer
+var answer=new Array();
+for(var I=0;I<mykeys.length;I++) answer[I]="";
+
+var every=form.elements;
+
+<!--czp-mulselect-count-->
+for(var I=0;I<every.length;I++)
+{
+	if(every[I].type=="checkbox")
+	{
+		
+		if(every[I].checked)
+		{	
+	
+			var item=parseInt(every[I].name.substr(0));
+		
+			answer[item-1]+=every[I].value;
+		}
+	}				
+}
+
+var newcount="<html><head><title>谢谢您!</title></head><body><center><h2><font color=red>您的测试结果</font></h2></center>";
+var totalscore=0;
+for(var I=0;I<answer.length;I++)
+{
+	if(answer[I]==mykeys[I])
+	{
+		var rstr="<font size=2>第"+(I+1)+"题答案正确!</font><br>";
+		newcount+=rstr;
+		totalscore+=1/(answer.length)*100;//每题分数
+	}else
+	{
+		var rstr="<font size=2>第"+(I+1)+"题答案错误!正确答案为"+mykeys[I]+"</font><br>";
+		newcount+=rstr;
+	}
+
+}
+
+newcount+="<br>您的总成绩为:";
+newcount+=Math.ceil(totalscore);
+newcount+="分";
+newwin=window.open("","","height=200,width=300,scrollbars=yes,resizable=no");
+newwin.document.write(newcount);}
+
+
+
+
+
+
+
+
+
+
+
+
+function check(){
+var mykeys=new Array();
+//czp-tiankong-answer
+//mykeys[0]="B";
+var answer=new Array();
+for(var I=0;I<mykeys.length;I++) answer[I]="";
+
+var every=zfl.elements;
+for(var I=0;I<every.length;I++)
+{
+if(every[I].type=="text")
+{
+ if(every[I].value!==null)
+ {
+ //var item=parseInt(every[I].name.substr(1))
+//  answer[item-1]+=every[I].value;
+  answer[I]+=every[I].value;
+  }
+ }
+}
+
+
+var newcount="<html><head><title>谢谢您!</title></head><body><center><h2><font face=\"隶书\" size=\"5\" color=\"#000099\">您的测试结果</font></h2></center>";
+var totalscore=0;
+for(var i=0;i<answer.length;i++)
+{
+	if(answer[i]==mykeys[i])
+	{
+		var rstr="<font face=\"宋体\" size=2>第"+(i+1)+"个空答案正确!</font><br>";
+		newcount+=rstr;
+		totalscore+=1/(answer.length)*100;
+	}else
+	{
+		var rstr="<font face=\"宋体\" size=2>第"+(i+1)+"个空答案错误!正确答案为"+mykeys[i]+"</font><br>";
+		newcount+=rstr;
+	}
+
+}
+
+newcount+="<br><font face=\"宋体\" size=3><b>您的总成绩为:</b></font><font face=\"宋体\" size=3 color=red>";
+newcount+=Math.ceil(totalscore);
+newcount+="分</font><br>";
+newwin=window.open("","","height=400,width=400,scrollbars=yes,resizable=no");
+newwin.document.write(newcount);
+}
+
+</script>
+<body bgcolor="#FFFFFF" text="#000000" topmargin=0 background="../../../image/moban/15.gif" bgproperties=fixed>
+
+<center>
+  <br>
+  <span class="section">第五章　完整性约束与模式分解――习题</span><br>
+  <br>
+  <table width="95%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+      <td valign="top" class=text> 
+        <form>
+          <b> 问答题</b><br>
+          <br>
+          <span class="explaination">问答第1题：</span> 考虑如下关系数据库：<br>
+          　　 employee (person-name, street, city) <br>
+          　　 works (person-name, company-name, salary) <br>
+          　　 company (company-name, city) <br>
+          　　 manages (person-name, manager-name) <br>
+          　　 给出该数据库的SQL DDL定义。指出其应具有的参照完整性约束，并将它们在DDL中表示出来。 <br>
+          <textarea name=jianda cols=50 rows=5></textarea>
+          <br>
+          <br>
+          <br>
+          <span class="explaination">问答第2题：</span> 考虑视图branch-cust，其定义如下(基于本章示例所用的关系模式和关系)： 
+          <br>
+          　　 create view branch-cust as <br>
+          　　　　　 select branch-name, customer-name <br>
+          　　　　　 from depositor, account <br>
+          　　　　　 where depositor.account-number = account.account-number <br>
+          　　 假设这一视图被实体化，也就是说，这一视图被计算并存储。请利用触发器来维护这一视图，即在depositor或account上进行插入和删除时要保持视图最新，维护数据库的一致性。不必考虑更新的情况。 
+          <br>
+          <textarea name=jianda cols=50 rows=5></textarea>
+          <br>
+          <br>
+          <br>
+          <span class="explaination">问答第3题： </span>给出下图中的关系所满足的所有函数依赖。<br>
+          <img src="../../../image/shiti/18.jpg" width="127" height="107"> <br>
+          <textarea name=jianda cols=50 rows=5></textarea>
+          <br>
+          <br>
+          <br>
+          <span class="explaination">问答第4题：</span> 给定关系模式R=(A,B,C,G,H,I)及函数依赖集：<br>
+          　　A→B <br>
+          　　A→C <br>
+          　　CG→H <br>
+          　　CG→I <br>
+          　　B→H <br>
+          根据Armstrong公理证明以下函数依赖成立： <br>
+          　　 ⑴A→H；<br>
+          　　 ⑵CG→HI；<br>
+          　　 ⑶AG→I。 <br>
+          <textarea name=jianda cols=50 rows=5></textarea>
+          <br>
+          <br>
+          <br>
+          <span class="explaination">问答第5题： </span>假设我们将模式R =（A，B，C，D，E）分解为模式（A，B，C）和模式（A，D，E）。如果有如下函数依赖集F： 
+          <br>
+          　　 A→BC <br>
+          　　 CD→E <br>
+          　　 B→D <br>
+          　　 E→A <br>
+          证明该分解是无损连接分解。 <br>
+          <textarea name=jianda cols=50 rows=5></textarea>
+          <br>
+          <br>
+          <input type=button name=Button value=答案 案 onClick="MM_openBrWindow('text/examination/exam01_pop2.htm','','width=471,height=384')" class=pbox>
+          <input type='reset' name='Submit3' value='重置' class=pbox>
+          <br>
+          　　 <br>
+        </form>
+    
+        </td>
+  </tr>
+</table></center>
+
+</body>
+</html>

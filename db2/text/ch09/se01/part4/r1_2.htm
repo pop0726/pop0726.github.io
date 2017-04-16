@@ -1,0 +1,65 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" --><span class="biaoti_1">　(3) P视图、S视图、D视图</span><br>
+      <br>
+      　定义P视图的语句如下所示：<br>
+      <br>
+      　　CREATE VIEW P (产品标识符, 销售总额) AS<br>
+      　　SELECT 产品标识符, SUM(销售总额) AS 销售总额<br>
+      　　FORM PS<br>
+      　　GROUP BY 产品标识符<br>
+      <br>
+      　　S视图、D视图可以类似地定义。P按PS实视图定义是为了节省计算量。 
+      <p><span class="biaoti_1">　(4) ALL视图</span><br>
+        <br>
+        　　CREATE VIEW ALL (销售总额) AS<br>
+        　　SELECT SUM(销售总额) AS 销售总额<br>
+        　　FORM P<br>
+        <br>
+        　　ALL视图表示不分组，则该视图的销售总额相当于事实表中所有行的销售金额之和。<br>
+        　　ALL视图也可由S视图或D视图计算。
+      </p>
+      <p align="center"><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="400" height="350">
+          <param name=movie value="../../../../swf/ch9/7.swf">
+          <param name=quality value=high>
+          <param name="wmode" value="transparent">
+          <embed src="../../../../swf/ch9/7.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="400" height="350" wmode="transparent">
+          </embed> 
+        </object><br>
+      
+      <p><br>
+        <font color="5a5aad">　说明：<br>
+        　　在上例中，事实表共有三维，即{P, S, D}。该集合的每个子集对应一个实视图。例如{P, S, D}对应 PSD 实视图，{P, S}对应PS 
+        实视图，{D}对应 D， 对应 ALL等。<br>
+        　　上例的事实表共有八个基本实视图，这八个实视图并不是完全独立的，相互间有依赖关系，即有些实视图可从其它实视图导出，如动画所示。</font>
+      <!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

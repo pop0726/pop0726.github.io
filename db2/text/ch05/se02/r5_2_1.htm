@@ -1,0 +1,69 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url('../../../img/text/bg.jpg');
+background-repeat: no-repeat;
+background-attachment: fixed; background-position-y:50%
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">　</td>
+    <td>　</td>
+    <td width="10">　</td>
+  </tr>
+  <tr>
+    <td width="10">　</td>
+    <td> <!-- #BeginEditable "1" --> <span class="biaoti_1">　1． 函数依赖定义<br>
+      </span><span class="pt9-black">　　设关系模式R（U），属性集合U={A1，A2，…，An}，X，Y为属性集合U的子集，如果对于关系模式R(U)的任一可能的关系r，r中的任意两个元组u、v，若有u[X]=v[X]，就有u[Y]=v[Y]，则称X函数决定Y，或称Y函数依赖于X。用符号X→Y表示。其中X为决定因素，Y为被决定因素。<br>
+      　　<font color="#5a5aad">若对于R（U）的任意一个可能的关系r，r中不可能存在两个元组在X上的属性值性等，而在Y上的属性值不等。</font><br>
+      　(1) 函数依赖是语义范畴的概念，只能根据语义来确定一个函数依赖关系。<br>
+      　(2) 函数依赖X→Y的定义要求关系模式R的任何可能的关系r中的元组都满足函数依赖条件。<br>
+      <br>
+      　　<font color="#5a5aad">例如：有学生关系模式R(SNO, SNAME, SSEX)，即学号SNO，学生姓名SNAME，学生性别SSEX三个属性。由于在现实世界中，我们规定一个学校中学生的学号是学生的唯一标识，任何一个学生，他的学号一经确定，他的名字和性别就唯一的确定了。这就是我们为每个学生分配一个唯一学号的现实语义。对于这个关系模式，在学生关系中，有可能在某个特定的时刻，关系中只有两个学生，一个男生和一个女生，他们的性别不同，他们的学号和姓名也不相同，但是我们不能就此判断SSEX→SNO或者SSEX→SNAME。因为学生关系中通常有很多学生，有多个男生和多个女生，他们虽然有相同的性别，却有不同的学号和姓名。也有可能有相同的姓名，而有不同的学号和性别。甚至可能有相同的姓名和性别，而只有不同的学号。这样SSEX→SNO,SSEX→SNAME,SNAME→SSEX,SNAME→SNO的函数依赖关系就都不能成立了。</font><br>
+      　(3)函数依赖的术语<br>
+      　● X→Y, 但是<img src="../../../img/text/ch05/01.gif" width="25" height="14" align="top">，则称X→Y为非平凡的函数依赖。正常讨论的都是非平凡的函数依赖。<br>
+      　● X→Y，但是<img src="../../../img/text/ch05/02.gif" width="27" height="14" align="top">，则称X→Y为平凡的函数依赖。<br>
+      　● 若X→Y，则X称作决定因素（Determinant）<br>
+      　● 若X→Y，Y→X，称作X<->Y。<br>
+      　● 若Y不函数依赖于X，称作<img src="../../../img/text/ch05/03.gif" width="25" height="12" align="top">。<br>
+      　　<font color="#5a5aad">属性之间函数依赖示例如下，有学生关系模式<br>
+      　　STUDENT（SNO，SNAME，AGE，SEX，CLASS，SDEP，CNO，CNAME，GRADE，SCORE）<br>
+      　　属性集合：<br>
+      　　U={SNO，SNAME，AGE，SEX，CLASS，DEP，CNO，CNAME，GRADE，SCORE}<br>
+      　　属性之间函数依赖如下：<br>
+      　　　F={ SNO→SNAME，SNO→AGE，SNO→SEX， SNO→CLASS，SNO→SDEP，<br>
+      　　　CLASS→SDEP， CNO→CNAME，CNO→SCORE，SNO&amp;CNO→GRADE }</font><br>
+      </span>其中，SNAME→SNO函数依赖并不成立。用符号SNAME<img src="../../../img/text/ch05/t2.gif" width="12" height="13" align="middle">SNO表示。<span class="pt9-black"><br>
+      　</span><span class="biaoti_1">2．完全函数依赖定义</span> <br>
+      　　在关系模式R（U）中，设X、Y是关系模式R（U）中不同的属性子集，若存在 X→Y，且不存在 X的任何真子集X'，使得 X'→Y，则称Y完全函数依赖 
+      ( full functional dependency ) 于X，记作：<br>
+      　　　　<img src="../../../img/text/ch05/04.gif" width="42" height="37"><br>
+      　<font color="#5a5aad">　例如，（SNO， CNO）<img src="../../../img/text/ch05/05.gif" width="14" height="17" align="top"> 
+      GRADE 是完全函数依赖。一个学生的成绩GRADE完全函数依赖于学生的学号和课程号（SNO,CNO），因为只有学生的学号和他所选的课程的课程号确定之后，该生这门课的成绩才是唯一的，所以，GRADE完全函数依赖于（SNO，CNO）。因为在关键字属性集合，（SNO， 
+      CNO）中，任何一个属性SNO或 CNO都不能决定某个学生选修某门课程的成绩。一个学号对应多门选课记录，一个课程号有多个学生选课。</font><br>
+      <br>
+      　<span class="biaoti_1">3．部分函数依赖定义</span>　<br>
+      　　在关系模式R（U）中，X、Y是关系模式R（U）中不同的属性子集，若X→Y成立，如果X中存在任何真子集X'，而且有X'→Y也成立，则称Y对X是部分函数依赖，记作：<br>
+      　　　　<img src="../../../img/text/ch05/06.gif" width="34" height="29"><br>
+      　　例如：关系模式学生STUDENT(U,F)中，<br>
+      　　F={ SNO→SNAME，SNO→AGE，SNO→SEX，SNO→CLASS，SNO→DEP，CLASS→SDEP，CNO→CNAME，CNO→SCORE，SNO&amp;CNO→GRADE}<br>
+      　　假如我们允许学生可以有重名，则学生的名字只依赖于学生的学号，与学生所学课程号无关，所以学生的名字对于（SNO,CNO）为部分函数依赖。<br>
+      　　<br>
+      　　<br>
+      <!-- #EndEditable --></td>
+    <td width="10">　</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

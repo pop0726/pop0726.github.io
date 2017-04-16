@@ -1,0 +1,533 @@
+<HTML>
+<HEAD>
+<TITLE>软件工程 </TITLE>
+<SCRIPT language=JavaScript>
+/*-------------------------------------------填空题---------------------------------------------*/
+function getKeyWord(form){
+var mykeys=new Array();
+mykeys[0]="逻辑模型";mykeys[1]="物理模型";mykeys[2]="设计规格说明书";mykeys[3]="模块";mykeys[4]="模块";mykeys[5]="层次结构";mykeys[6]="数据存储文件";mykeys[7]="概念设计";mykeys[8]="逻辑设计";mykeys[9]="物理设计";mykeys[10]="需求分析";mykeys[11]="概要设计";mykeys[12]="详细设计";mykeys[13]="逻辑";mykeys[14]="接口";mykeys[15]="低";mykeys[16]="作用";mykeys[17]="控制";mykeys[18]="靠近";mykeys[19]="合并";mykeys[20]="传递";mykeys[21]="数据公用区";mykeys[22]="分析";mykeys[23]="重复的功能";
+
+var answer=new Array();
+for(var I=0;I<mykeys.length;I++) answer[I]="";
+
+var every=form.elements;
+for(var I=0;I<every.length;I++)
+{
+if(every[I].type=="text")
+{
+ if(every[I].value!==null)
+ {var item=parseInt(every[I].name.substr(0))
+  answer[item-1]+=every[I].value;
+  }
+ }
+}
+var newcount="<html><head><title>谢谢您!</title></head><body><center><h2><font color=red>您的测试结果</font></h2></center>";
+var totalscore=0;
+for(var I=0;I<answer.length;I++)
+{var re=/</g;
+var rd=/>/g;
+var re=/\\/g;
+answer[I]=answer[I].replace(re,"&#92;");
+answer[I]=answer[I].replace(re,"&lt;");
+answer[I]=answer[I].replace(rd,"&gt;");
+	if(answer[I]==mykeys[I])
+	{
+		var rstr="<font size=2>第"+(I+1)+"个空答案正确!</font><br>";
+		newcount+=rstr;
+		totalscore+=1/24*100;
+	}else
+	{
+		var rstr="<font size=2>第"+(I+1)+"个空答案错误!正确答案为"+mykeys[I]+"</font><br>";
+		newcount+=rstr;
+	}
+
+}
+
+newcount+="<br>您的总成绩为:";
+newcount+=Math.ceil(totalscore);
+newcount+="分";
+newwin=window.open("","","height=400,width=400,scrollbars=yes,resizable=no");
+newwin.document.write(newcount);
+}
+/*-------------选择提----------------------------------------------------------------*/
+function getresultcheck(form)
+{var mykeys=new Array();
+mykeys[0]="C";mykeys[1]="B";mykeys[2]="D";mykeys[3]="C";mykeys[4]="A";mykeys[5]="C";mykeys[6]="D";mykeys[7]="A";mykeys[8]="A";mykeys[9]="C";mykeys[10]="C";mykeys[11]="C";mykeys[12]="D";mykeys[13]="C";mykeys[14]="D";
+
+
+var answer=new Array();
+for(var I=0;I<mykeys.length;I++) answer[I]="";
+
+var every=form.elements;
+//var lastname="";
+for(var I=0;I<every.length;I++)
+{
+	if(every[I].type=="radio")
+	{
+		/*alert("checkbox:name->"+every[I].name+"value->"+every[I].value);*/
+		if(every[I].checked)
+		{	
+			//var item=parseInt(every[I].name.charAt(1));
+			var item=parseInt(every[I].name.substr(0));/*返回由字符串转换得到的整数*/
+			/*substr返回一个从指定位置开始的指定长度的子字符串。*/
+			answer[item-1]+=every[I].value;
+		}
+	}				
+}
+
+var newcount="<html><head><title>谢谢您!</title></head><body><center><h2><font color=red>您的测试结果</font></h2></center>";
+var totalscore=0;
+for(var I=0;I<answer.length;I++)
+{
+	if(answer[I].toUpperCase()==mykeys[I].toUpperCase())
+	{
+		var rstr="<font size=2>第"+(I+1)+"题答案正确!</font><br>";
+		newcount+=rstr;
+		totalscore+=1/15*100;//每题分数
+	}else
+	{
+		var rstr="<font size=2>第"+(I+1)+"题答案错误!正确答案为"+mykeys[I]+"</font><br>";
+		newcount+=rstr;
+	}
+
+}
+
+newcount+="<br>您的总成绩为:";
+newcount+=Math.ceil(totalscore);
+newcount+="分";
+newwin=window.open("","","height=400,width=400,scrollbars=yes,resizable=no");
+newwin.document.write(newcount);}
+/*--------------------------------判断题----------------------------------------------------*/
+
+function getresultpanduan(form)
+{var mykeys=new Array();
+
+
+
+var answer=new Array();
+for(var I=0;I<mykeys.length;I++) answer[I]="";
+
+var every=form.elements;
+//var lastname="";
+for(var I=0;I<every.length;I++)
+{
+	if(every[I].type=="checkbox")
+	{
+		/*alert("checkbox:name->"+every[I].name+"value->"+every[I].value);*/
+		if(every[I].checked)
+		{	
+			//var item=parseInt(every[I].name.charAt(1));
+			var item=parseInt(every[I].name.substr(0));/*返回由字符串转换得到的整数*/
+			/*substr返回一个从指定位置开始的指定长度的子字符串。*/
+			answer[item-1]+=every[I].value;
+		}
+	}				
+}
+
+var newcount="<html><head><title>谢谢您!</title></head><body><center><h2><font color=red>您的测试结果</font></h2></center>";
+var totalscore=0;
+for(var I=0;I<answer.length;I++)
+{
+	if(answer[I].toUpperCase()==mykeys[I].toUpperCase())
+	{
+		var rstr="<font size=2>第"+(I+1)+"题 您答对了!</font><br>";
+		newcount+=rstr;
+		totalscore+=1/0*100;//每题分数
+	}else
+	{
+		var rstr="<font size=2>第"+(I+1)+"题 您答错了!</font><br>";
+		newcount+=rstr;
+	}
+
+}
+
+newcount+="<br>您的总成绩为:";
+newcount+=Math.ceil(totalscore);
+newcount+="分";
+newwin=window.open("","","height=400,width=400,scrollbars=yes,resizable=no");
+newwin.document.write(newcount);
+}
+/*--------------------------------简答题----------------------------------------------------*/
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+</SCRIPT>
+<style type="text/css"><!--
+-->
+</style>
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</HEAD>
+<BODY text=black bgColor=#FFFFFF topMargin=10 marginheight="10">
+<DIV class=p2 align=center></DIV>
+<FORM >
+  <P><span class="section">一、填空</span><span class="text"><BR>
+    &nbsp;1、软件设计是要把描述软件“做什么”的&nbsp; 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=1>
+    转换为描述“怎么做”的 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=2>
+    ，即着手实现软件的需求，并将设计结果记入软件 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=3>
+    文档中。<BR>
+    &nbsp;2、软件程序系统结构的设计是以&nbsp; 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=4>
+    为基础的。以需求分析的结果为依据，从实现的角度进一步划分为 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=5>
+    ，并组成模块的 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=6>
+    。<BR>
+    &nbsp;3、数据库的设计指&nbsp; 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=7>
+    的设计，主要进行 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=8>
+    、&nbsp;&nbsp; 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=9>
+    、 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=10>
+    的设计。<BR>
+    &nbsp;4、在数据处理系统的功能分析与设计过程中同时要进行数据分析和数据设计，数据库的概念设计和逻辑设计分别对应于系统开发的 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=11>
+    与&nbsp; 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=12>
+    ，而数据库的物理设计与模块的 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=13>
+    相对应。<BR>
+    &nbsp;5、在软件的系统结构中，，模块是可组合、可分解和可更换的单元。模块的基本属性包括功能、 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=14>
+    、 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=15>
+    和状态。<BR>
+    &nbsp;6、模块内聚与耦合是模块独立性的两个定性标准。在划分模块时，应尽可能作到&nbsp;&nbsp; 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=16>
+    内聚、 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=17>
+    耦合。<BR>
+    &nbsp;7、一个模块的 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=18>
+    范围应在其 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=19>
+    范围之内，且判定所在的模块应与受其影响的模块在层次上尽可能 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=20>
+    。<BR>
+    &nbsp;8、如果模块之间耦合性太高，每个模块内功能不复杂，可将它们&nbsp; 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=21>
+    ，以减少信息的 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=22>
+    和 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=23>
+    的引用。若有多个相关的模块，应对它们的功能进行 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=24>
+    ，消去 
+    <INPUT id=c1 style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #003399; BORDER-TOP-COLOR: black; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: black" maxLength=15 size=15 name=25>
+    。</span><BR>
+    <BR>
+    &nbsp;
+    <INPUT id=A type=reset value=清�空>
+    &nbsp;
+    <INPUT id=A onclick=getKeyWord(this.form) type=button value=提�交>
+    <BR>
+    <BR>
+    <span class="section">二、单项选择题</span></P>
+  <P>&nbsp;<span class="text">1、结构化设计方法(SD)与结构化分析方法(SA)一样，遵循(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    )的模型，采用自顶向下，逐步细化的技术。通常SD方法继续SA的工作，根据数据流图设计程序的结构。<BR>
+    <INPUT id=c1 type=radio value=A name=1>
+    A. 实体-关系<BR>
+    <INPUT id=c1 type=radio value=B name=1>
+    B. 快速原型<BR>
+    <INPUT id=c1 type=radio value=C name=1>
+    C. 抽象&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=1>
+    D. 瀑布</span></P>
+  <P class="text">&nbsp;2、结构化设计在软件开发中用于(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )。<BR>
+    <INPUT id=c1 type=radio value=A name=2>
+    A. 测试设计<BR>
+    <INPUT id=c1 type=radio value=B name=2>
+    B. 概要设计<BR>
+    <INPUT id=c1 type=radio value=C name=2>
+    C. 程序设计<BR>
+    <INPUT id=c1 type=radio value=D name=2>
+    D. 详细设计</P>
+  <P class="text">&nbsp;3、(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )把已确定的软件需求转换成特定形式的软件表示，使其得以实现。<BR>
+    <INPUT id=c1 type=radio value=A name=3>
+    A. 系统设计<BR>
+    <INPUT id=c1 type=radio value=B name=3>
+    B. 逻辑设计<BR>
+    <INPUT id=c1 type=radio value=C name=3>
+    C. 详细设计<BR>
+    <INPUT id=c1 type=radio value=D name=3>
+    D. 软件设计</P>
+  <P class="text">&nbsp;4、在进行软件模块结构设计时应当遵循的最主要的准则是(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    )。<BR>
+    <INPUT id=c1 type=radio value=A name=4>
+    A. 抽象&nbsp;<BR>
+    <INPUT id=c1 type=radio value=B name=4>
+    B. 模块化<BR>
+    <INPUT id=c1 type=radio value=C name=4>
+    C. 模块独立<BR>
+    <INPUT id=c1 type=radio value=D name=4>
+    D. 信息隐蔽</P>
+  <P class="text">&nbsp;5、(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )是数据说明、可执行语句等程序对象的集合，它是单独命名的并可通过名字访问。<BR>
+    <INPUT id=c1 type=radio value=A name=5>
+    A. 模块<BR>
+    <INPUT id=c1 type=radio value=B name=5>
+    B. 复合语句<BR>
+    <INPUT id=c1 type=radio value=C name=5>
+    C. 程序块<BR>
+    <INPUT id=c1 type=radio value=D name=5>
+    D. 数据块<BR>
+    &nbsp;<BR>
+    &nbsp;6、模块(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )，则说明模块的独立性越强。<BR>
+    <INPUT id=c1 type=radio value=A name=6>
+    A. 耦合越强<BR>
+    <INPUT id=c1 type=radio value=B name=6>
+    B. 扇入数越高<BR>
+    <INPUT id=c1 type=radio value=C name=6>
+    C. 耦合越弱&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=6>
+    D. 扇入数越低</P>
+  <P class="text">&nbsp;7、模块之间的信息可以做“控制信息”用，也可以作为(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    )用。<BR>
+    <INPUT id=c1 type=radio value=A name=7>
+    A. 控制流<BR>
+    <INPUT id=c1 type=radio value=B name=7>
+    B. 数据结构<BR>
+    <INPUT id=c1 type=radio value=C name=7>
+    C. 控制结构<BR>
+    <INPUT id=c1 type=radio value=D name=7>
+    D. 数据</P>
+  <P class="text">&nbsp;8、(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )数据处理问题的工作过程大致分为三步：即取得数据、变换数据和输出数据。<BR>
+    <INPUT id=c1 type=radio value=A name=8>
+    A. 变换型<BR>
+    <INPUT id=c1 type=radio value=B name=8>
+    B. 事务型<BR>
+    <INPUT id=c1 type=radio value=C name=8>
+    C. 演化型&nbsp;<BR>
+    <INPUT id=c1 type=radio value=D name=8>
+    D. 结构化<BR>
+    &nbsp;<BR>
+    &nbsp;9、在多层系统结构图中，其模块的层次数称为结构图的(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )。<BR>
+    <INPUT id=c1 type=radio value=A name=9>
+    A. 深度<BR>
+    <INPUT id=c1 type=radio value=B name=9>
+    B. 宽度<BR>
+    <INPUT id=c1 type=radio value=C name=9>
+    C. 控制域<BR>
+    <INPUT id=c1 type=radio value=D name=9>
+    D. 粒度</P>
+  <P class="text">&nbsp;10、(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )着重反映的是模块间的隶属关系，即模块间的调用关系和层次关系。<BR>
+    <INPUT id=c1 type=radio value=A name=10>
+    A. 程序流程图<BR>
+    <INPUT id=c1 type=radio value=B name=10>
+    B. 数据流图<BR>
+    <INPUT id=c1 type=radio value=C name=10>
+    C. 系统结构图<BR>
+    <INPUT id=c1 type=radio value=D name=10>
+    D. 实体关系图</P>
+  <P class="text">&nbsp;11、(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )是指把一些关系密切的软件元素物理地放置到彼此靠近的位置。<BR>
+    <INPUT id=c1 type=radio value=A name=11>
+    A. 信息隐蔽<BR>
+    <INPUT id=c1 type=radio value=B name=11>
+    B. 内聚<BR>
+    <INPUT id=c1 type=radio value=C name=11>
+    C. 局部化<BR>
+    <INPUT id=c1 type=radio value=D name=11>
+    D. 模块独立</P>
+  <P class="text">&nbsp;12、块间联系和块内联系是评价程序结构质量的重要标准。联系的方式、共用信息的作用、共用信息的数量和界面的(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    )等因素决定了块间联系的大小。<BR>
+    <INPUT id=c1 type=radio value=A name=12>
+    A. 友好性<BR>
+    <INPUT id=c1 type=radio value=B name=12>
+    B. 健壮性<BR>
+    <INPUT id=c1 type=radio value=C name=12>
+    C. 清晰性<BR>
+    <INPUT id=c1 type=radio value=D name=12>
+    D. 安全性</P>
+  <P class="text">&nbsp;13、为了提高模块的独立性，模块之间最好是(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )。<BR>
+    <INPUT id=c1 type=radio value=A name=13>
+    A. 公共耦合<BR>
+    <INPUT id=c1 type=radio value=B name=13>
+    B. 控制耦合<BR>
+    <INPUT id=c1 type=radio value=C name=13>
+    C. 内容耦合<BR>
+    <INPUT id=c1 type=radio value=D name=13>
+    D. 数据耦合</P>
+  <P><span class="text">&nbsp;14、为了提高模块的独立性，模块内部最好是 (&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    )。<BR>
+    <INPUT id=c1 type=radio value=A name=14>
+    A. 逻辑内聚<BR>
+    <INPUT id=c1 type=radio value=B name=14>
+    B. 时间内聚<BR>
+    <INPUT id=c1 type=radio value=C name=14>
+    C. 功能内聚<BR>
+    <INPUT id=c1 type=radio value=D name=14>
+    D. 通信内聚<BR>
+    <BR>
+    15、从下列有关系统结构图的叙述中选出正确的叙述。<BR>
+    <INPUT id=c1 type=radio value=A name=15>
+    A. 系统结构图中反映的是程序中数据流的情况。<BR>
+    <INPUT id=c1 type=radio value=B name=15>
+    B. 系统结构图是精确表达程序结构的图形表示法。因此，有时也可将系统结构当作程序流程图使用?<BR>
+    <INPUT id=c1 type=radio value=C name=15>
+    C. 一个模块的多个下属模块在系统结构图中所处的左右位置是无关紧要的。<BR>
+    <INPUT id=c1 type=radio value=D name=15>
+    D. 在系统结构图中，上级模块与其下属模块之间的调用关系用有向线段表示。这时，使用斜的线段和水平、垂直的线段具有相同的含义。</span><BR>
+    <BR>
+    &nbsp; 
+    <INPUT id=A type=reset value=重�置>
+    &nbsp; 
+    <INPUT id=A onclick=getresultcheck(this.form) type=button value=提�交>
+    <BR>
+    <BR>
+    <span class="section">三、选择填空 </span></P>
+  <P class="text">1、软件的开发工作经过需求分析阶段，进入(&nbsp; A&nbsp; )以后，就开始着手解决“怎么做”的问题。常用的软件设计方法有(&nbsp; 
+    B&nbsp; )、(&nbsp; C&nbsp; )、(&nbsp; D&nbsp; )和(&nbsp; E&nbsp; )等方法。<BR>
+    供选择的答案：<BR>
+    A～B．① 程序设计&nbsp;② 设计阶段&nbsp;&nbsp;③ 总体设计&nbsp;&nbsp;④ 定义阶段<BR>
+    ���⑤ SD方法&nbsp;⑥ SP方法<BR>
+    C.��① Jackson方法&nbsp;② 瀑布法&nbsp;&nbsp;③ 快速原型法&nbsp;④ 回溯法<BR>
+    D～E. ① LCP（Wanier）方法&nbsp;② 递归法&nbsp;&nbsp;③ Parnas方法<BR>
+    &nbsp;④ 自下而上修正&nbsp;⑤ 逐步求精法&nbsp;⑥ 检测校正法</P>
+  <P>
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    &nbsp;</P>
+  <P class="text">2、请将下述有关模块独立性的各种模块之间的耦合，按其耦合度从低到高排列起来。<BR>
+    ① 内容耦合&nbsp;&nbsp;② 控制耦合&nbsp;&nbsp;③ 非直接耦合&nbsp;④ 标记耦合<BR>
+    ⑤ 数据耦合&nbsp;&nbsp;⑥ 外部耦合&nbsp;&nbsp;⑦ 公共耦合</P>
+  <P>
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    &nbsp;</P>
+  <P class="text">3、请将下述有关模块独立性的各种模块内聚，按其内聚度（强度）从高到低排列起来。<BR>
+    ① 巧合内聚&nbsp;&nbsp;② 时间内聚&nbsp;&nbsp;③ 功能内聚&nbsp;④ 通信内聚<BR>
+    ⑤ 逻辑内聚&nbsp;&nbsp;⑥ 信息内聚&nbsp;&nbsp;⑦ 过程内聚</P>
+  <P>
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    &nbsp;</P>
+  <P class="text">4、从供选择的答案中选出正确的答案填入下列叙述中的(&nbsp;&nbsp;&nbsp;&nbsp; )内。<BR>
+    模块内聚性用于衡量模块内部各成份之间彼此结合的紧密程度。<BR>
+    �(1) 一组语句在程序中多处出现，为了节省内存空间把这些语句放在一个模块中，该模块的内聚性是(&nbsp; A&nbsp; )的。<BR>
+    �(2) 将几个逻辑上相似的成分放在同一个模块中，通过模块入口处的一个判断决定执行哪一个功能。该模块的内聚性是(&nbsp; B&nbsp; )的。<BR>
+    �(3) 模块中所有成分引用共同的数据，该模块的内聚性是(&nbsp; C&nbsp; )的。<BR>
+    �(4) 模块内的某成份的输出是另一些成份的输入，该模块的内聚性是(&nbsp; D&nbsp; )的。<BR>
+    �(5) 模块中所有成份结合起来完全一项任务，该模块的内聚性是(&nbsp; E&nbsp; )的。它具有简明的外部界面，由它构成的软件易于理解、测试和维护。<BR>
+    供选择的答案：<BR>
+    A～E：&nbsp;① 功能内聚&nbsp;&nbsp; ② 信息内聚 &nbsp;③ 通信内聚&nbsp;&nbsp; ④ 过程内聚<BR>
+    ��� ⑤ 巧合内聚&nbsp;&nbsp; ⑥ 时间内聚 &nbsp;⑦ 逻辑内聚</P>
+  <P>
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    &nbsp;</P>
+  <P class="text">5、从供选择的答案中选出正确的答案填入下面的(&nbsp;&nbsp;&nbsp;&nbsp; )中。<BR>
+    �块间联系和块内联系是评价程序模块结构质量的重要标准。联系的方式、共用信息的作用、共用信息的数量和接口的(&nbsp; A&nbsp; )等因素决定了块间联系的大小。在块内联系中，(&nbsp; 
+    B&nbsp; )的块内联系最强。<BR>
+    �SD方法的总的原则是使每个模块执行(&nbsp; C&nbsp; )功能，模块间传送(&nbsp; D&nbsp; )参数，模块通过(&nbsp; 
+    E&nbsp; )语句调用其它模块，而且模块间传送的参数应尽量(&nbsp; F&nbsp; )。<BR>
+    �此外，SD方法还提出了判定的作用范围和模块的控制范围等概念。SD方法认为，(&nbsp; G&nbsp; )应该是(&nbsp; H&nbsp; 
+    )的子集。<BR>
+    供选择的答案：<BR>
+    A：&nbsp;① 友好性 &nbsp;&nbsp; ② 健壮性 &nbsp;③ 简单性 &nbsp;&nbsp; ④ 安全性<BR>
+    B：&nbsp;① 巧合内聚&nbsp;&nbsp; ② 功能内聚 &nbsp;③ 通信内聚&nbsp;&nbsp; ④ 信息内聚<BR>
+    C：&nbsp;① 一个 &nbsp;&nbsp; ② 多个<BR>
+    D：&nbsp;① 数据型 &nbsp;&nbsp; ② 控制型 &nbsp;③ 混合型<BR>
+    E：&nbsp;① 直接引用&nbsp;&nbsp; ② 标准调用 &nbsp;③ 中断 &nbsp;&nbsp; ④ 宏调用<BR>
+    F：&nbsp;① 少 &nbsp;&nbsp;&nbsp; ② 多<BR>
+    G～H：① 作用范围 &nbsp; ② 控制范围</P>
+  <P>
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    &nbsp;</P>
+  <P class="text">6、从供选择的答案中选出应该填入下列关于软件设计的叙述的(&nbsp;&nbsp;&nbsp; )内的正确答案。<BR>
+    �在众多的设计方法中，SD方法是最受人注意的，也是最广泛应用的一种，这种方法可以同分析阶段的(&nbsp; A&nbsp; )方法及编程阶段的(&nbsp; 
+    B&nbsp; )方法前后衔接，SD方法是考虑如何建立一个结构良好的程序结构，它提出了评价模块结构质量的两个具体标准――块间联系和块内联系。SD方法的最终目标是(&nbsp; 
+    C&nbsp; )，用于表示模块间调用关系的图叫(&nbsp; D&nbsp; )。<BR>
+    �另一种比较著名的设计方法是以信息隐蔽为原则划分模块，这种方法叫(&nbsp; E&nbsp; )方法。<BR>
+    供选择的答案：<BR>
+    A～B：① Jackson &nbsp;② SA &nbsp;&nbsp;③ SC &nbsp;&nbsp;④ Parnas&nbsp; ⑤ SP<BR>
+    C：&nbsp;① 块间联系大，块内联系大&nbsp;&nbsp;② 块间联系大，块内联系小<BR>
+    ��③ 块间联系小，块内联系大&nbsp;&nbsp;④ 块间联系小，块内联系小<BR>
+    D：&nbsp;① PAD &nbsp;&nbsp;② HCP &nbsp;&nbsp;③ SC &nbsp;&nbsp;④ SADT&nbsp;&nbsp;⑤ 
+    HIPO &nbsp;&nbsp;⑥ NS<BR>
+    E：&nbsp;① Jackson &nbsp;② Parnas &nbsp;③ Turing &nbsp;④ Wirth &nbsp;&nbsp;⑤ 
+    Dijkstra</P>
+  <P>
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    <BR>
+    &nbsp;<BR>
+    <span class="text">7、从供选择的答案中选出应该填入下列关于软件详细设计的叙述的(&nbsp;&nbsp;&nbsp; )内的正确答案。<BR>
+    �软件详细设计工具可分为三类，即：图示工具、设计语言和表格工具。图示工具中，(&nbsp; A&nbsp; )简单而应用广泛、(&nbsp; B&nbsp; 
+    )表示法中，每一个处理过程用一个盒子表示，盒子可以嵌套。(&nbsp; C&nbsp; )可以纵横延伸，图形的空间效果好。<BR>
+    (&nbsp; D&nbsp; ) 是一种设计和描述程序的语言，它是一种面向(&nbsp; E&nbsp; )的语言。<BR>
+    供选择的答案：<BR>
+    A～C：① NS图 &nbsp;② 流程图 &nbsp; ③ HIPO图 &nbsp;④ PAD图<BR>
+    D：&nbsp;① C &nbsp;&nbsp;② PDL&nbsp;&nbsp; ③ RPOLOG &nbsp;④ PASCAL<BR>
+    E：&nbsp;① 人 &nbsp;&nbsp;② 机器&nbsp;&nbsp; ③ 数据结构 &nbsp;④ 对象</span></P>
+  <P>
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    &nbsp;</P>
+  <P class="text">8、Jackson结构化程序设计方法(JSP)是英国人M. Jackson提出的，它是一种面向(&nbsp;&nbsp; 
+    A&nbsp;&nbsp; )的设计方法，主要适用于规模适中的(&nbsp;&nbsp; B&nbsp;&nbsp; )系统的开发，其基本步骤依次为(&nbsp;&nbsp; 
+    C&nbsp;&nbsp; )、&nbsp;&nbsp; ( D )&nbsp;&nbsp; 、(&nbsp;&nbsp; E )&nbsp;&nbsp; 
+    。<BR>
+    供选择的答案：<BR>
+    A：① 对象&nbsp;&nbsp;&nbsp; ② 数据流&nbsp;&nbsp;③ 数据结构&nbsp;&nbsp;&nbsp; ④ 控制结构 
+    <BR>
+    B：① 数据处理&nbsp;&nbsp; ② 文字处理&nbsp;③ 实时控制&nbsp;&nbsp;&nbsp; ④ 科学计算<BR>
+    C～E：① 建立数据结构&nbsp;&nbsp;&nbsp;② 列出基本操作&nbsp;&nbsp; ③ 建立程序结构<BR>
+    ���④ 建立控制结构&nbsp;&nbsp;&nbsp;⑤ 建立对象</P>
+  <P>
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    &nbsp;</P>
+  <P><span class="text">9、从供选择的答案中选出应该填入下列关于软件设计的叙述的(&nbsp;&nbsp;&nbsp; )内的正确答案。<BR>
+    &nbsp;�在完成软件概要设计，并编写出相关文档之后，应当组织对概要设计工作的评审。评审的内容包括：<BR>
+    �分析该软件的系统结构、子系统结构，确认该软件设计是否覆盖了所有已确定的软件需求，软件每一成份是否可(&nbsp; A&nbsp; )到某一项需求。分析软件各部分之间的联系，确认该软件的内部接口与外部接口是否已经明确定义。模块是否满足(&nbsp; 
+    B&nbsp; )和(&nbsp; C&nbsp; )的要求。模块(&nbsp; D&nbsp; )是否在其(&nbsp; E&nbsp; )之内。<BR>
+    供选择的答案<BR>
+    A：&nbsp;① 覆盖&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ② 演化&nbsp;&nbsp;&nbsp;&nbsp; ③ 
+    追溯&nbsp; ④ 等同&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ⑤ 连接 <BR>
+    B：&nbsp;① 多功能&nbsp;&nbsp;&nbsp; ② 高内聚&nbsp;&nbsp; ③ 高耦合&nbsp;&nbsp; ④ 高效率&nbsp;&nbsp;&nbsp;&nbsp; 
+    ⑤ 可读性<BR>
+    C： ① 多入口&nbsp;&nbsp;&nbsp; ② 低内聚&nbsp;&nbsp; ③ 低耦合&nbsp;&nbsp; ④ 低复杂度&nbsp;&nbsp; 
+    ⑤ 低强度<BR>
+    D～E：① 作用范围&nbsp;&nbsp; ② 高内聚&nbsp;&nbsp; ③ 低内聚&nbsp;&nbsp; ④ 取值范围&nbsp;&nbsp; 
+    ⑤ 控制范围</span><BR>
+    <BR>
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    <BR>
+    <BR>
+    <span class="section"> 四、问答题</span></P>
+  <P class="text">1、逐步求精、分层过程与抽象等概念之间的相互关系如何？</P>
+  <P>
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    &nbsp;</P>
+  <P><span class="text">2、完成良好的软件设计应遵循哪些原则？</span><BR>
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+  </P>
+  <P><span class="text">3、如何理解模块独立性？用什么指标来衡量模块独立性？</span><BR>
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    <BR>
+  </P>
+  <P class="text">4、模块独立性与信息隐蔽（反映模块化有效程度的属性）有何关系？</P>
+  <P>
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    &nbsp;</P>
+  <P class="text">5、模块的内聚性程度与该模块在分层结构中的位置有关系吗？说明你的论据。</P>
+  <P>
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    &nbsp;</P>
+  <P class="text">6、耦合性的概念和软件的可移植性有什么关系？请举例说明你的论述。</P>
+  <P>
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    &nbsp;</P>
+  <P class="text">7、递归模块（即自己调用自己的模块）的概念如何能够与本章所介绍的设计原理与方法相适应？</P>
+  <P>
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    &nbsp;</P>
+  <P><span class="text">8、举例说明你对概要设计与详细设计的理解。有不需要概要设计的情况吗?</span><BR>
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+  </P>
+  <P><span class="text">9、如何用PDL语言来实施逐步求精的设计原理?</span><BR>
+    <TEXTAREA id=c1 rows=10 cols=40></TEXTAREA>
+    <BR>
+  </P>
+  <input type=button name=Button value=答�案 onClick="MM_openBrWindow('tanchu.htm','','width=471,height=384')">
+  <br>
+  <br>
+</form>
+</BODY>
+</HTML>

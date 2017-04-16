@@ -1,0 +1,38 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgproperties=fixed bgcolor="#FFFFFF" background="../../../../image/moban/15.gif">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td class="text" align="left">��用create table语句定义SQL关系：<br>
+            <font size="2">create table <i>r</i> (<i>A</i><font size="-5">1</font><i> 
+            D</i><font size="-5">1</font> [null | not null],<br>
+            ��������<i>A</i><font size="-5">2</font> <i>D</i><font size="-5">2</font> 
+            [null | not null],<br>
+            ��������……,<br>
+            ��������<i>A</i><font size="-5">n</font> <i>D</i><font size="-5">n</font> 
+            [null | not null]</font>,<br>
+            ��������&lt;<font size="2">integrity-constraint1</font>&gt;, ……, &lt;<font size="3">integrity-constraint</font><font size="-6">k</font>&gt;)<br>
+            允许的完整性约束可以是primary key (<i><font size="2">A<font size="-5">j1</font>,…,A<font size="-5">jm</font></font></i>)和check(<i>P</i>)等等，在这里指定为关系主码的属性必须非空且唯一。例如：<br>
+            create table branch <br>
+            ������(<i>branch-name</i> �char(15) not null, <br>
+            ������branch-city � varchar(30), <br>
+            ������<i>assets</i> ����int, <br>
+            ������primary key �(<i>branch-name</i>), <br>
+            ������check (<i>assets</i> &gt;= 0))<br>
+            当然check约束还可以是其他形式，例如：<br>
+            check (branch-name in (select branch-name from branch))<br>
+            这一点我们还会在<u>第五章&quot;完整性约束与关系数据库设计&quot;的5.1节</u>讲述。需要注意的是：<span class="menu">获得任何好处都是要付出代价的！check在保证完整性的同时会降低整个系统的效率。</span></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" --><b><font color="#cc0000">-�e err_file</font></b><font color="#cc0000"><br>
+      ��指定错误文件的完整路径，此错误文件用于存储 bcp 无法从文件传输到数据库的所有行。来自 bcp 的错误信息将发送到用户工作站。如果未使用此选项，则不创建错误文件。<br>
+      <br>
+      <b>-�F first_row</b><br>
+      ��指定要大容量复制的第一行的序数。默认值是 1，表示在指定数据文件的第一行。<br>
+      <br>
+      <b>-�L last_row</b><br>
+      ��指定要大容量复制的最后一行的序数。默认值是 0，表示指定数据文件中的最后一行。<br>
+      <br>
+      <b>-�b batch_size</b><br>
+      ��指定所复制的每批数据中的行数。每个批处理作为一个事务复制至服务器。SQL Server 提交或回滚（在失败时）每个批处理的事务。默认情况下，指定的数据文件中的所有数据都作为一批复制。请不要与 
+      -h &quot;ROWS_PER_BATCH = bb&quot; 选项一起使用。<br>
+      <br>
+      <b>-�n</b><br>
+      ��使用数据的本机（数据库）数据类型执行大容量复制操作。此选项不提示输入每一字段，它将使用本机值。<br>
+      <br>
+      <b>-�c</b><br>
+      ��使用字符数据类型执行大容量复制操作。此选项不提示输入每一字段；它使用 char 作为存储类型，不带前缀，\t（制表符）作为字段分隔符，\n（换行符）作为行终止符。<br>
+      <br>
+      <b>-�w</b><br>
+      ��使用 Unicode 字符执行大容量复制操作。此选项不提示输入每一字段；它使用 nchar 作为存储类型，不带前缀，\t（制表符）作为字段分隔符，\n（换行符）作为行终止符。不能在 
+      SQL Server 6.5 版或更早版本中使用。<br>
+      <br>
+      <b>-�N</b><br>
+      ��对非字符数据使用数据的本机（数据库）数据类型和对字符数据使用 Unicode 字符类型执行大容量复制操作。这是可替代 -w 选项的性能更高的选项，其目的是使用数据文件将数据从一个 
+      SQL Server 传输到另一个 SQL Server 中。它不提示输入每一字段。在需要传输包含 ANSI 扩展字符的数据以及想利用本机模式的性能时，可以使用这一选项。不能在 
+      SQL Server 6.5 版或更早版本中使用 -N 选项。<br>
+      <br>
+      <b>-�V (60 | 65 | 70)</b><br>
+      ��使用 SQL Server 早期版本中的数据类型执行大容量复制操作。此选项与字符 (-c) 或本机 (-n) 格式一起使用。此选项并不提示输入每一字段，它使用默认值。例如，若要将 
+      SQL Server 6.5 中的 bcp 实用工具所支持（但 ODBC 不再支持）的日期格式大容量复制到 SQL Server 2000，可使用 
+      -V 65 参数。<br>
+      <br>
+      ��将数据从 SQL Server 大容量复制到数据文件时，即使指定了 -V，bcp 实用工具也不会为任何 datetime 或 smalldatetime 
+      数据生成 SQL Server 6.0 或 SQL Server 6.5 的日期格式。日期将始终以 ODBC 格式写入。另外，由于 SQL Server 
+      6.5 版或更早版本不支持可为空的 bit 数据，因此 bit 列中的空值写为值 0。<br>
+      <br>
+      <b>-�6</b><br>
+      ��使用 SQL Server 6.0 或 SQL Server 6.5 数据类型执行大容量复制操作。仅为保持向后兼容性。改为使用 -V 选项。<br>
+      <br>
+      <b>-�q</b><br>
+      ��在 bcp 实用工具和 SQL Server 实例的连接中执行 SET QUOTED_IDENTIFIERS ON 语句。使用该选项指定包含空格或引号的数据库、所有者、表或视图的名称。将由三部分组成的整个表名或视图名引在双引号 
+      (&quot; &quot;) 中。<br>
+      <br>
+      <b>-�C code_page</b><br>
+      �仅为保持向后兼容性。作为代替，请在格式文件或交互式 bcp 中为每一列指定一个排序规则名。<br>
+      <br>
+      <b>-�t field_term</b><br>
+      ��指定字段终止符。默认的字段终止符是 \t（制表符）。使用此参数替代默认字段终止符。<br>
+      <br>
+      <b>-�r row_term</b><br>
+      ��指定行终止符。默认的行终止符是 \n（换行符）。使用此参数替代默认行终止符。</font><br>
+      <!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

@@ -1,0 +1,62 @@
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" background="../../../../../image/pop/r2_c3.gif">
+<center><table width="95%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+      <td class=text> 
+        <p><b> 问答题答案</b></p>
+        <p><span class="explaination">问答第1题</span><br>
+          　　a. select count(distinct o.ss) <br>
+          　　　 from accident a, log l, owns o <br>
+          　　　 where a.date = l.date and a.driver = l.driver and l.license = o.license 
+          and <br>
+          　　　 format(a.date, "YYYY") = '1989' <br>
+          　　 b. select count(distinct l.date, l.driver) <br>
+          　　　 from person p, owns o, log l <br>
+          　　　 where p.ss = o.ss and o.license = l.license and p.name = 'John Smith' 
+          <br>
+          　　 c. insert into person values ('110108', 'Feng JH', 'Tsinghua University') 
+          <br>
+          　　 d. delete from car <br>
+          　　　　 where car.license in (select c.license <br>
+          　　　　 from person as p, owns as o, car as c <br>
+          　　　　 where p.ss = o.ss and o.license = c.license and <br>
+          　　　　　　　 p.name = 'John Smith' and c.model = 'Mazda') <br>
+          　　 e. insert into log <br>
+          　　　　 select c.license, '1990.10.21', 'Dog' <br>
+          　　　　 from person as p, owns as o, car as c <br>
+          　　　　 where p.ss = o.ss and o.license = c.license and <br>
+          　　　　　　　 p.name = 'Jones' and c.model = 'Toyota' <br>
+          　　　 　insert into accident values ('1990.10.21', 'Dog', 1000) <br>
+          <br>
+          <span class="explaination">问答第2题</span><br>
+          　　 a. select distinct A from r <br>
+          　　 b. select * from r where B=17 <br>
+          　　 c. select r.*, s.* from r, s <br>
+          　　 d. select r.A, s.F from r, s where r.C = s.D <br>
+          <br>
+          <span class="explaination">问答第3题</span><br>
+          　　 select distinct T.branch-name <br>
+          　　 from branch as T, branch as S <br>
+          　　 where T.assets > S.assets and S.branch-city = "Brookly" <br>
+          <br>
+          <span class="explaination">问答第4题</span><br>
+          <img src="../../../../../image/shiti/16.gif" width="364" height="88"> 
+          <br>
+          <br>
+          <span class="explaination">问答第5题</span><br>
+          　　本题没有标准答案。<br>
+          <!--czp-wenda-daan-->
+        </p>
+      </td>
+  </tr>
+</table>
+  </center>
+
+</body>
+</html>

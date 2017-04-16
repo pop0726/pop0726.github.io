@@ -1,0 +1,64 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" -->　　SQL Server的安全机制可以划分为4个等级，如下图所示：<br>
+      <br>
+      　　<span class="tubiaoti">图7-22 SQL Server的安全等级</span><br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td> 
+            <div align="center" class="pt9-black"><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="400" height="300">
+                <param name=movie value="../../../swf/ch7/17.swf">
+                <param name=quality value=high>
+                <param name="wmode" value="transparent">
+                <embed src="../../../swf/ch7/17.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="400" height="300" wmode="transparent">
+                </embed> 
+              </object> </div>
+          </td>
+        </tr>
+      </table>
+      <br>
+      <span class="biaoti_2">　(1) 客户机操作系统的安全性</span><br>
+      ��在用户使用客户机通过网络对SQL Server服务器进行访问的时候，用户首先要获得客户机的操作系统使用权，即首先要能登录到客户机上。<br>
+      操作系统安全性是操作系统管理员的任务，由于SQL Server采用了集成Windows NT网络安全性的机制，所以使得操作系统安全性的地位得到了提高，但同时加大了管理数据库系统安全性和灵活性的难度。<br>
+      <br>
+      <span class="biaoti_2">　(2) SQL Server 的登录安全</span><br>
+      ��SQL Server的登录安全机制建立在控制数据库服务器登录帐号和密码的基础上。SQL Server采用了标准SQL Server登录和集成Windows 
+      NT登录两种方式。无论使用那种方式，用户在登录时提供的登录帐号和密码，决定了用户能否获得SQL Server的访问权。<br>
+      <br>
+      <span class="biaoti_2">　(3) 数据库的使用安全</span><br>
+      ��在用户通过SQL Server登录安全性检验之后，用户会面对第三次安全性检验。在建立用户登录帐号信息时，SQL Server会提示用户选择默认的数据库。以后用户每次连接上数据库服务器的时候，都会自动转到默认的数据库上。<br>
+      默认的情况下，数据库拥有者（db_owner）可以访问该数据库的对象，可以分配访问权给别的用户，以便让别的用户也有针对该数据库的访问权利。<br>
+      <br>
+      <span class="biaoti_2">　(4) 数据库对象的使用安全</span><br>
+      ��这是核查用户权限的最后一个安全等级。在创建数据库对象的时候，SQL Server将自动把该数据库对象的拥有权赋予该对象创建者。对象的拥有者可以实现该对象的完全控制。当一个非数据库拥有者想访问数据库中的对象时，必须由数据库的拥有者赋予该用户对指定对象的特定操作权限。<br>
+      <!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

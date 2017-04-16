@@ -1,0 +1,66 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" -->　<span class="biaoti_1">3. 日志和日志文件</span><br>
+      <br>
+      　　<span class="tubiaoti">图7-18</span><br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td align="center"><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="400" height="290">
+              <param name=movie value="../../../swf/ch7/13.swf">
+              <param name=quality value=high>
+              <param name="wmode" value="transparent">
+              <embed src="../../../swf/ch7/13.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="400" height="290" wmode="transparent">
+              </embed> 
+            </object> </td>
+        </tr>
+      </table>
+      �<span class="pt9-black">�日志文件是用来记录对数据库更新活动的文件。日志记录了每个事务对数据库更新的全部情况。所有事务的更新日志都放在同一个日志文件中。日志文件和转储磁介质都看作是不可侵犯的永久性资源，它们是数据库赖以恢复的基础。因此，日志文件应该存放在与数据库不同的介质中，避免因磁盘损坏两者都丢失。如果因为条件限制必须存放在同一介质中，应该比较频繁地备份日志文件到其他介质上，甚至采用多备份技术。<br>
+      不同的DBMS日志文件的结构不同，但日志记录的基本内容应当包括：<br>
+      ��● 事务标识；<br>
+      ��● 事务运行的关键时间，如开始时间、提交时间等；<br>
+      ��● 对数据库的更新操作类型(增加、删除、修改)和操作对象；<br>
+      ��● 更新事务的前映像和后映像内容。</span><span class="biaoti_2"><br>
+      <br>
+      ��</span><span class="explaination">DBMS对数据库的每个更新操作(增加、删除、修改)作为一个日志记录写到日志文件中，并严格按照事务执行的时间顺序登记。从而，依据日志文件可以实现把数据库返绕到以前某年某日某时刻的一致性状态。日志的积累非常占用资源空间。但是对于恢复数据库来说，只是在最近备份数据库以后的日志记录才有价值。因此，日志文件需要随着数据库备份，经常进行截断。</span><span class="biaoti_2"><br>
+      <br>
+      ��</span><span class="pt9-black">利用日志文件恢复数据库的过程是顺序扫描日志文件，区分在故障时完成的事务和尚未完成的事务，作如下处理：<br>
+      ��(1) 重做(Redo)在故障时已完成的所有事务，可通过拷贝它们的后映像来实现。<br>
+      ��(2) 撤消(Undo)在故障时尚未完成的所有事务，可通过拷贝事务的前映像实现。<br>
+      ��DBMS通常利用数据库转储和日志文件共同有效地恢复数据库。</span><span class="biaoti_2"><br>
+      <br>
+      �</span><span class="explaination">�对于不同的数据库系统，采用的日志文件格式也不一样。主要有以记录为单位的日志文件和以数据块为单位的日志文件。<br>
+      对于以记录为单位的日志文件，其中需要登记包括事务的开始、结束和事务的更新操作。这些都是日志文件中的一个日志记录。<br>
+      对于以数据块为单位的日志文件，日志记录的内容包括事务标识和被更新的数据块。由于将更新前整个块和更新后整个块都放进日志文件中，操作类型等就不用放入日志对象中了。<br>
+      ��日志文件在数据库恢复中有很重要的作用。可以用来进行事务故障恢复和系统故障恢复，并协助备份进行介质故障恢复。<br>
+      ��在事务故障恢复和系统故障恢复时必须用日志文件；在动态转储时必须建立日志文件，利用备份和日志文件综合起来才能恢复数据库，不产生数据库不一致的现象。在静态转储的时候，也可以建立日志文件。当数据库毁坏的时候，可以重新装入转储的后备映象恢复到转储结束的正确状态，然后利用日志文件，把已经完成的事务进行REDO处理，把未完成的事务进行UNDO处理，这样不必重新运行已完成的事务程序就可已恢复到故障前某一时刻的正确状态。</span><br>
+      <!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

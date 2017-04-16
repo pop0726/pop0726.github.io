@@ -1,0 +1,84 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url('../../../img/text/bg.jpg');
+background-repeat: no-repeat;
+background-attachment: fixed; background-position-y:50%
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">　</td>
+    <td>　</td>
+    <td width="10">　</td>
+  </tr>
+  <tr>
+    <td width="10">　</td>
+    <td> <!-- #BeginEditable "1" --><span class="pt9-black">　　被授予的权限可以由DBA或权限授予者使用REVOKE把授予用户的权限收回。<br>
+      　　撤销权限的语句格式：<br>
+      　　　REVOKE [GRANT OPTION FOR ]<br>
+      　　权限 ON 操作对象<br>
+      　　　FROM {用户1[，用户2]…|PUBLIC}<br>
+      　　　[ CASCADE ]<br>
+      参数说明：<br>
+      　　GRANT OPTION FOR :撤消用户授予其他用户权限的特权，仍保留用户自己的访问权限。<br>
+      　　CASCADE :撤消用户的权限及GRANT OPTION特权。<br>
+      <font color="#CC0000">1. 撤消语句权限</font><br>
+      　　撤消语句权限如下描述：<br>
+      　　　REVOKE { ALL | 权限1 [ ,...n ] } <br>
+      　　　FROM {用户1[，用户2]…..|PUBLIC}<br>
+      <img src="../../../img/text/liti.gif" width="35" height="36" alt="例题">例1，撤消授予用户帐户Mary, 
+      John的产生表和产生缺省对象的权限，如下描述：<br>
+      　　　REVOKE CREATE TABLE, CREATE DEFAULT <br>
+      　　　FROM Mary, John <br>
+      　　例2，撤消授予用户Joe 和 Corporate\BobJ 的产生表的权限，如下描述：<br>
+      　　　REVOKE CREATE TABLE<br>
+      　　　FROM Joe,[Corporate\BobJ]<br>
+      <img src="../../../img/text/liti.gif" width="35" height="36" alt="例题">例3：撤销用户张力在pubs上创建表、视图的权限，如下描述：<br>
+      　　USE pubs<br>
+      　　GO<br>
+      　　REVOKE CREATE VIEW, CREATE TABLE<br>
+      　　FROM 张力<br>
+      <font color="#CC0000">2. 撤消对象权限</font><br>
+      　　撤消对象权限如下描述：<br>
+      　　REVOKE [ GRANT OPTION FOR ]<br>
+      　　{ ALL | 对象权限1[ ,...n ] }<br>
+      　　{ <br>
+      　　[( column [ ,...n ] )] ON {table |view }<br>
+      　　|ON{ table|view } [( column [ ,...n ])]<br>
+      　　|ON{stored_procedure|extended_procedure }<br>
+      　　|ON{ user_defined_function }<br>
+      　　} <br>
+      　　FROM {用户1[，用户2]…..|PUBLIC} [ CASCADE ] <br>
+      <img src="../../../img/text/liti.gif" width="35" height="36" alt="例题">例1，撤消王红对表 
+      couse的访问权时，必须同时撤消他的GRANT OPTION特权，如下描述：<br>
+      　　REVOKE SELECT <br>
+      　　ON couse <br>
+      　　FROM 王红 <br>
+      　　WITH CASCADE ;<br>
+      <img src="../../../img/text/liti.gif" width="35" height="36" alt="例题">例2，只撤消王红的GRANT 
+      OPTION特权，同时仍保留王红对表 couse的访问权，如下描述：REVOKE 　　　　GRANT OPTION FOR SELECT <br>
+      　　ON couse <br>
+      　　FROM 王红;<br>
+      　　注意：系统撤消了王红对表 couse的访问权，同时也要撤消李力（王红授予的）对表 couse的访问权。撤消会级连发生。<br>
+      <img src="../../../img/text/liti.gif" width="35" height="36" alt="例题">例3：撤销用户'张力'对表dept的INSERT，UPDATE权限，如下描述：<br>
+      　　EVOKE INSERT，UPDATE<br>
+      　　ON dept<br>
+      　　FROM 张力<br>
+      <br>
+      </span> <!-- #EndEditable --></td>
+    <td width="10">　</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

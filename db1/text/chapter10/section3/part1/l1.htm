@@ -1,0 +1,46 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgproperties=fixed bgcolor="#FFFFFF" background="../../../../image/moban/15.gif">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td class="text" align="left"> 
+            <p><span class="part">1、问题的提出</span><br>
+              ��在DBMS中，事务管理器和恢复管理器提供对事务原子性和持久性实现的支持。这是一个非常复杂的过程，我们以一个简单但效率极低的方案为例，理解DBMS中实现事务原子性和持久性的原理。这个方案就是影子数据库(Shadow-Database)方案，它的前提条件是：<br>
+              ��-�某一时刻DBMS中只有一个活动事务；<br>
+              ��-�要处理的数据库只是磁盘上的一个文件；<br>
+              ��-�磁盘上有一个称为db-pointer的指针指向该文件。<br>
+              <br>
+              <span class="part">2、影子数据库方案</span><br>
+              ��在影子数据库方案中，欲更新数据库的事务首先创建数据库的一个完整拷贝，所有的更新都在新建的拷贝上进行，而原始数据库(称为影子拷贝)则原封不动。如果任何时候DBMS中的事务不得不中止，则新拷贝简单地被删除，原始数据库不受任何影响；如果事务执行完成，则它的提交过程如下：首先操作系统确保数据库新拷贝上的所有页已被写到磁盘上(在Unix系统中，flush命令用来达到这个目的)。在刷新完成后，db-pointer指针被修改为指向数据库的新拷贝，而影子拷贝则被删除。<br>
+              ��如<span class="part">图10-3-1</span>所示，在影子数据库方案中，只有当修改后的db-pointer指针写到磁盘上后，事务才算是提交了。因此无论是在db-pointer指针修改之前或之后发生故障，都能保证事务的原子性和持久性。现在问题的核心变成了db-pointer指针写操作的原子性！而磁盘系统提供扇区或块更新的原子性。<br>
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td class="text" align="left">
+            <div align="center" class="part">图10-3-1：影子数据库方案<br>
+              <img src="../../../../image/chapter/10/10-3-1.gif" width="420" height="127"> 
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="text" align="left"> <span class="part">3、与文本编辑的比较</span><br>
+            ��整个文本编辑的过程也可以看成是一个事务，事务的更新操作就是读文件和写文件。开始编辑文本之前都要复制旧文件的一个副本，不存盘退出就相当于中止事务，存盘退出就相当于提交事务。提交的过程就相当于执行文件重命名命令，而文件重命名是文件系统上的原子操作。<br>
+            <br>
+            ��总之，影子数据库方案的致命缺陷是效率极低，一个事务的执行要求复制整个数据库，而且该方案不允许事务并发执行。但DBMS中其他高效的实现方案其原理与此相似！<br>
+            <span class="menu"><br>
+            ��影子数据库方案的效率非常低，但是它提供了一个基本思路，要保存用于恢复的数据，就得在事务提交之前，在永久存储设备上保存在事务执行之前的所有数据。保留备份有两种方式，一种是全部备份，就像影子数据库一样；还有就是部分备份，只是对相关的数据进行备份。目前使用的方法一般都是后者，即部分备份。</span></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

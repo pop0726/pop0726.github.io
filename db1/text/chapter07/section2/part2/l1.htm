@@ -1,0 +1,98 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgproperties=fixed bgcolor="#FFFFFF" background="../../../../image/moban/15.gif">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" height="8">
+        <tr> 
+          <td class="text" height="17">��<span class="part">1、字节流表示法</span><br>
+            ��变长记录在文件中的存储方法之一就是采用字节流表示法：即在每个记录的末尾都附加一个特殊的记录终止符号(┴)，或者是在每个记录的开头存储该记录的长度，这样就可以把每个记录作为一个连续的字节流来存储，如<span class="part">图7-2-5</span>所示。</td>
+        </tr>
+        <tr> 
+          <td class="text" height="2"> 
+            <div align="center"><span class="part">图7-2-5：变长记录的字节流表示</span> <br>
+              <img src="../../../../image/chapter/07/7-2-5.gif" width="420" height="132"> 
+            </div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" height="2">��对于<span class="part">图7-2-5</span>来说，值得注意的有以下两点：<br>
+            ��⑴�要想重新使用被删除记录曾经占用的空间十分困难，很容易导致磁盘碎片；<br>
+            ��⑵�如果一个记录变长了，该记录就必须移动；如果一个记录变短了，就造成磁盘碎片。而移动记录的代价很高。<br>
+            <br>
+            ��<span class="part">2、分槽的页结构</span><br>
+            ��分槽的页结构是基本字节流表示方法的一种改进形式，普遍用于物理块内部的记录组织，如<span class="part">图7-2-6</span>所示，分槽的页结构由三部分组成：<br>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" height="64"> 
+            <div align="center" class="part">图7-2-6：分槽的页结构<br>
+              �<img src="../../../../image/chapter/07/7-2-6.gif" width="420" height="100"></div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text">��⑴�块头部分：块头部分记录了有关这一块的详细信息，包括块中记录个数、块中空闲空间的末尾地址以及描述块中每个记录的大小和位置的数组；<br>
+            ��⑵�块尾部分：实际记录从块的尾部开始连续分配存储空间；<br>
+            ��⑶�块中部分：块中空闲空间是连续的，处在块头数组的最后一个条目和块尾记录的第一个条目之间，用于为新插入的记录分配空间。<br>
+            ��对于分槽的页结构，如何实现记录的插入和删除呢？通常可以采用以下维护策略：<br>
+            ��⑴�删除一条记录：该记录所占用的空间被释放，同时块中在被删记录之前的记录都要移动。因此块头的相关部分都要进行修改，而空闲空间还是集中在块中间；<br>
+            ��⑵�插入一条记录：在块中空闲空间的尾部给这条记录分配空间，同时修改块头的相关部分；<br>
+            ��⑶�记录的增长和缩短：该条记录的末尾地址不变，而在此记录之前的记录都要移动，同时修改块头的相关部分。由于块的大小是有限制的，因此块内能存储的记录个数有限，这样移动记录的代价就不会太高。<br>
+            ��<br>
+            ��<span class="menu">其实在SQL Server 7.0中，数据库的数据文件的存储结构就是分槽的页结构。在SQL 
+            Server 7.0中，数据文件里每个数据页的大小是8K，其中页头的96个字节用于存储页的结构信息等，而记录从96个字节之后开始存放。每个记录的第一个字节在页中位置（相对于页的第一个字节）就是这条记录的偏移量，它从页的尾部开始存放。也就是说，数据都存储在页的中间。同时页尾部的记录偏移量的存放顺序说明了该记录按某个搜索码存放的逻辑顺序。<br>
+            ��<br>
+            ��</span><span class="part">3、定长表示法</span><br>
+            ��变长记录的定长表示法是用一个或多个定长记录来表示一个变长记录的方法。由于所采用的策略不同，变长记录的定长表示法又分为以下几种情况。<br>
+            ��⑴�保留空间法：假设所有的变长记录都不会超过某个长度，就为每个记录都分配这样长度的空间，具体情况如<span class="part">图7-2-7</span>所示：<br>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text"> 
+            <div align="center"><span class="part">图7-2-7：保留空间法示意图 </span><br>
+              <img src="../../../../image/chapter/07/7-2-7.gif" width="420" height="138"></div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text">对于保留空间法来说，值得注意的是：首先假设是不合理的，既然是变长记录，记录的长度就捉摸不定，我们又如何估计出所有记录的最大长度呢？其次这样的做法浪费了大量的存储空间，在实际应用中不可取；<br>
+            ��⑵�指针法：用一系列通过指针链接起来的定长记录来表示一个变长记录，如<span class="part">图7-2-8</span>所示：<br>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text"> 
+            <div align="center"><span class="part">图7-2-8：指针法示意图 </span><br>
+              <img src="../../../../image/chapter/07/7-2-8.gif" width="420" height="272"> 
+            </div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text">��<span class="menu">变长记录的指针链接法与表示定长记录类似，在这里变长记录变成了一个链表，和保留空间法相比浪费的空间量较少，但引入了额外的结构，即指针列；<br>
+            <br>
+            ��</span>⑶�锚块-溢出块表示法：这是指针法的变形。在文件中使用两种不同类型的物理块：锚块和溢出块。其中锚块是包含链表中第一个记录的块；而溢出块是包含链表中除第一个记录以外的其他记录的块。具体情形如<span class="part">图7-2-9</span>所示：<br>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text"> 
+            <div align="center"><span class="part">图7-2-9：锚块-溢出块表示法示意图</span> 
+              <br>
+              <img src="../../../../image/chapter/07/7-2-9.gif" width="420" height="310"> 
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="text">在锚块-溢出块表示法中文件里包含不同的块，而每个块中的记录都是定长的，所谓的变长记录被表示成将不同块中的记录用指针链接起来的一个链表。<br>
+            <br>
+            ��<span class="menu">本节主要介绍了几种不同的数据结构，这些数据结构使我们能够快速地存取数据。各种数据结构适合于不同类型的数据存取。数据结构的最终选择依赖于系统的使用和特定机器的物理特性。<br>
+            ��对于如何将数据库映射到文件，不同的数据库产品的做法是不一样的，例如在MS ACCESS等小型的数据库中，一般是将整个数据库映射到一个文件上，例如，*.mdb文件；而SQL 
+            Server则将数据库中的数据分门别类地存储在不同的文件里，这些文件所用的存储空间由计算机的操作系统统一分配，但文件的管理是由DBMS的文件管理器负责的。</span></td>
+        </tr>
+      </table></td>
+  </tr>
+</table>
+</body>
+</html>

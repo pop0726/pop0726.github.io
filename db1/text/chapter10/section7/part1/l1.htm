@@ -1,0 +1,28 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgproperties=fixed bgcolor="#FFFFFF" background="../../../../image/moban/15.gif">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td class="text" align="left" height="2"> 
+            <p><span class="part">1、事务隔离性的目的</span><br>
+              ��就是要确保事务并发执行后的系统状态与这些事务按某种次序串行执行后的状态是等价的；<br>
+              <span class="part">2、隔离性的实现</span><br>
+              ��从前面的讨论可以知道冲突或视图可串行化的且无级联的调度可以保证事务隔离性的实现；<br>
+              <span class="part">3、并发控制机制</span><br>
+              ��DBMS中并发控制管理器的并发控制机制就是用来保证只产生冲突或视图可串行化且无级联的事务调度。对于并发控制机制，我们在下一章会给出全面的介绍，本节我们首先看一个用于产生串行调度的机制，来理解DBMS中并发控制的作用。用一个简单的例子来说明，考虑如下机制：一个事务在它开始前获得整个数据库的锁，在它提交之后又释放这个锁。当一个事务持有锁时，其他事务就不允许获得这个锁(独享锁或排他锁)，因此必须等待释放锁。由于采用了封锁策略，一次只能执行一个事务，所以只会产生串行调度。<br>
+              ��</p>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgproperties=fixed bgcolor="#FFFFFF" background="../../../../image/moban/15.gif" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="92%" border="0" cellspacing="0" cellpadding="0" height="57" align="center">
+  <tr> 
+    <td class="text" align="left"> 
+      <p>��在SQL中定义视图的SQL语句如下：<br>
+        ��create view v as &lt;查询表达式&gt;<br>
+        例如：<br>
+        create view <i>all-customer</i> as <br>
+        ��(select <i>branch-name, customer-name</i> <br>
+        ��from <i>depositor d, account a </i><br>
+        ��where <i>d.account-number</i> = <i>a.account-number</i>) <br>
+        union <br>
+        ��(select <i>branch-name</i>, <i>customer-name</i> <br>
+        ��from <i>borrower b, loan l</i><br>
+        ��where <i>b.loan-number</i> = <i>l.loan-number</i>)<br>
+        在定义视图时可以显式地指定视图中的属性名，例如：<br>
+        create view <i>branch-total-loan </i>(<i>branch-name, total-loan</i>) 
+        as<br>
+        ��select <i>branch-name</i>, sum(<i>amount</i>) <br>
+        ��from <i>loan</i> <br>
+        ��group by <i>branch-name<br>
+        </i></p>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

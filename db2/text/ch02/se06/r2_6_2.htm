@@ -1,0 +1,163 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" -->
+      <p>　　关系模型中的所有的关系都必须是规范化的, 最基本的要求是符合第一范式INF( First Normal Form )，就是说，从 DBMS 
+        的观点看，所有的属性值都是原子型的、不可再分的最小数据单位。例如，学生入学日期的表示，只能在 DBMS 外面划分为年、月、日，DBMS 把日期看作一个单位，不可再分的数据单元，不能单独根据年或月进行检索。<br>
+        　　关系的概念虽然看起来很简单，要设计一个好的关系模式、没有冗余的关系模式,并不容易。由于关系数据库理论支持关系的规范化设计过程，在设计关系模式时,要根据实际要求尽量规范化。<br>
+        　　一个关系数据库中包含许多关系模式。每个关系有一个唯一的关系名称，每个关系内的属性有唯一的属性名。通常属性名与其相关的属性值的集合(域)同时出现。<br>
+        　　关系数据模型是最成熟的数据模型，最广泛应用的数据模型。关系模型的记录之间以属性作为连接的纽带，使信息之间的关系不必在应用开始之前就完全固定下来，可以按一定的规则在对数据库操纵时形成新的联系，这是对层次和网状数据模型表达能力的一次飞跃。<br>
+        　　关系数据模型中，实体类型用关系表表示；实体类型之间的1：1和1：N的联系可以用关系表表示，也可以用属性来表示；实体类型之间的M：N的联系必须用关系表表示。<br>
+        　　在关系数据模型中，通过外部关键字可以直接表达实体之间一对多和多对多的联系，不需要任何转换或中间环节。 </p>
+      <p>　　例如，学生和课程之间多对多的联系，如图2-23，通过三个关系自然地表达出来，其中带有下划线的属性组是对应关系的主码属性。<br>
+        　　　　学生S(学号,姓名,性别,年龄,班级)<br>
+        　　　　课程C(课程编号,课程名,学分，开课系，教师编号)<br>
+        　　　　选课SC(学号 ，课程编号,成绩)</p>
+      <p class="tubiaoti">图2-23 学生与课程的联系</p>
+      <p align="center"><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="400" height="300">
+          <param name=movie value="../../../swf/ch2/2-19.swf">
+          <param name=quality value=high>
+          <param name="wmode" value="transparent">
+          <embed src="../../../swf/ch2/2-19.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="400" height="300" wmode="transparent">
+          </embed> 
+        </object></p>
+      <p>对于三个关系构成的关系表如 表2-5，2-6，2-7。在选课表中，主码是由学号和课程号的组合共同组成。<br>
+        　　<span class="tubiaoti">表2-5 学生</span> <br>
+      </p>
+      <table width="80%" border="1" cellspacing="0" cellpadding="0" bordercolorlight="#004080" bordercolordark="#ffffff" class="pt9-black" align="center">
+        <tr align="center" bgcolor="#BFDFFF"> 
+          <td>学号</td>
+          <td>姓名</td>
+          <td>性别</td>
+          <td>年龄</td>
+          <td>入学日期</td>
+          <td>班级</td>
+        </tr>
+        <tr align="center"> 
+          <td>J20001</td>
+          <td>李 楷</td>
+          <td>m<br>
+          </td>
+          <td>19</td>
+          <td>19980906<br>
+          </td>
+          <td>JS2001</td>
+        </tr>
+        <tr align="center"> 
+          <td>J20002</td>
+          <td>张 会</td>
+          <td>f</td>
+          <td>20</td>
+          <td>19980907</td>
+          <td>JS2001</td>
+        </tr>
+        <tr align="center"> 
+          <td>J20003</td>
+          <td>王 者</td>
+          <td>m</td>
+          <td>20</td>
+          <td>19980906</td>
+          <td>JS2001</td>
+        </tr>
+        <tr align="center"> 
+          <td>D20001</td>
+          <td>赵 良</td>
+          <td>m</td>
+          <td>18</td>
+          <td>19980901</td>
+          <td>DZ2001</td>
+        </tr>
+      </table>
+      <br>
+      <span class="tubiaoti">　　表2-6 课程couse</span><br>
+      <br>
+      <table width="80%" border="1" cellspacing="0" cellpadding="0" bordercolorlight="#004080" bordercolordark="#ffffff" class="pt9-black" align="center">
+        <tr align="center" bgcolor="#BFDFFF"> 
+          <td width="22%">课程编号cno</td>
+          <td width="24%"> 课程名称cname <br>
+          </td>
+          <td width="25%">学分credit</td>
+          <td width="16%">开课系deptno</td>
+          <td width="13%">开课教师tno</td>
+        </tr>
+        <tr align="center"> 
+          <td width="22%">G001</td>
+          <td width="24%">程序语言</td>
+          <td width="25%">5</td>
+          <td width="16%">CS</td>
+          <td width="13%">T001</td>
+        </tr>
+        <tr align="center"> 
+          <td width="22%">G002</td>
+          <td width="24%">数据结构</td>
+          <td width="25%">6</td>
+          <td width="16%"> CS</td>
+          <td width="13%">T020</td>
+        </tr>
+        <tr align="center"> 
+          <td width="22%">E001</td>
+          <td width="24%">信号处理</td>
+          <td width="25%">5</td>
+          <td width="16%">EE</td>
+          <td width="13%">T012</td>
+        </tr>
+      </table>
+      <p class="tubiaoti">　　表2-7 选课SC</p>
+      <table width="80%" border="1" cellspacing="0" cellpadding="0" bordercolorlight="#004080" bordercolordark="#ffffff" class="pt9-black" align="center">
+        <tr align="center" bgcolor="#BFDFFF"> 
+          <td width="22%">课程编号cno</td>
+          <td width="24%"> 学号</td>
+          <td>成绩 </td>
+        </tr>
+        <tr align="center"> 
+          <td width="22%">G001</td>
+          <td width="24%">J20001</td>
+          <td>78</td>
+        </tr>
+        <tr align="center"> 
+          <td width="22%">G002</td>
+          <td width="24%">J20002</td>
+          <td>85</td>
+        </tr>
+        <tr align="center"> 
+          <td width="22%">E001</td>
+          <td width="24%">J20003</td>
+          <td>86</td>
+        </tr>
+        <tr align="center"> 
+          <td width="22%">E001</td>
+          <td width="24%">D20001</td>
+          <td>88 
+        </tr>
+      </table>
+      <p>&nbsp;</p>
+      <!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

@@ -1,0 +1,62 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" --><span class="biaoti_1"> 　3．访问许可确认</span><br>
+      ��用户通过安全认证后，即可连接到SQL Server服务器，这时，可向SQL Server发送T-SQL语句，但这些语句能否成功执行，还取决于数据库中用户的访问权限的许可设置。<br>
+      ��<span class="explaination">用户在实现安全登录之后，检验用户的下一个安全等级是数据库访问权限。数据库的访问权限是通过映射数据库的用户和登录帐户之间的关系来实现。</span><br>
+      安全帐户认证和访问权限确认的区别：<br>
+      ��安全帐户认证决定用户能否向SQL Server发送命令，而访问权限确认则决定用户能否在数据库中执行T-SQL语句。<br>
+      ��用户登录到SQL Server服务器后，角色和用户的权限决定了它们对数据库所能执行的操作。<br>
+      ��（1） 角色<span class="biaoti_2"> </span><br>
+      ��角色是数据库管理系统为方便管理而设置的权限管理单位。角色中的成员继承角色所拥有的访问许可权限。角色类似于Windows NT中用户组的概念。<br>
+      ��SQL Server中的角色分标准角色和应用程序角色二种，标准角色又分为固定角色、用户自定义角色和public角色，其中固定角色还可分为固定服务器角色和固定数据库角色。角色分类如下：<br>
+      　　　<img src="../../../img/text/ch07/33.gif" width="338" height="168"><br>
+      �<span class="pt9-black">�</span>● 固定角色：<br>
+      ��固定角色是SQL Server预先定义的角色，SQL Server将一些特殊的许可赋 给固定角色，用户只能加入这些固定角色才能获得这些特殊权限。<br>
+      �<span class="explaination">�固定角色所拥有的权限涉及到服务器配置、以及服务器和数据库的访问控制等。根据固定角色所作用的级别不同，可将它们划分为固定服务器角色和固定数据库角色。</span>主要的固定角色包括：<br>
+      ��sysadmin：能够在服务器上执行所有操作，其权限覆盖其它各种固定服务器角色所具有的权限。Windows NT的Administrators组中的成员自动成为固定服务器角色sysadmin中的成员。<br>
+      ��db_owner：数据库最高权限角色，能够执行所有其它数据库角色可以执行的操作和数据库维护、配置工作。 <br>
+      ��● 用户自定义角色：<br>
+      ��在SQL Server中，服务器角色不可创建，但sysadmin、db_owner等固定角色中的成员可以创建自定义的数据库角色。管理用户自定义角色的��两种方法：第一是使用系统存储过程sp_addrole添加新的角色或使用sp_droprole删除原来的角色。第二是用Enterprise 
+      Manager添加或删除角色。<br>
+      ��● public角色：<br>
+      ��public 角色是一个特殊的数据库角色，每个数据库均具有这一角色，包括 master、msdb、tempdb、model 和所有用户数据库。数据库的所 
+      ��有用户自动属于public角色，并且不能从public角色中删除。与固定角色一样，public角色也不能被用户删除。它捕获数据库中用户的所有默认权限。<br>
+      ��<font color="#cc0000">● 应用程序角色：</font><br>
+      ��<font color="#cc0000">应用程序角色是SQL Server中另一种访问控制实现方法，它不是根据用户，而是根据用户所运行的应用程序决定当前连接能否访问数据库对象。使用应用程序角色的原因有：<br>
+      ��(1) 限制访问数据所使用的应用程序，提高系统的安全性。<br>
+      ��(2) 提高SQL Server服务器的性能。例如，在某些特殊情况下，一个表格的容量非常大，质量太差的SQL语句将严重影响服务器的性能,可以拒绝使用。<br>
+      ��应用程序角色与标准角色相比，二者之间存在以下差别：<br>
+      ��(1) 应用程序角色不含任何成员，而标准角色拥有自己的成员； <br>
+      ��(2) 默认时，应用程序角色是无效的，需要应用程序使用系统存储过程sp_setapprole并提供密码来激活它才能起作用；而标准角色一直保持有效。<br>
+      ��(3) 应用程序激活应用程序角色后，应用程序角色所拥有的访问许可才起作用，这时，它屏蔽掉标准角色中的访问许可设置。</font><br>
+      <!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

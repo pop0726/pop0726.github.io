@@ -1,0 +1,127 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" -->
+<p><span class="biaoti_1">5. SQL Server中的规则对象</span> <br>
+        　　规则对象的作用与CHECK约束相同，它检查用户为其所关联列或所绑定的用户定义数据类型列的输入可接受值的有效性。<br>
+        　● 一个规则定义可以出现在WHERE子句的表达式中；<br>
+        　● 每个列或每个用户定义数据类型只能绑定一个规则；<br>
+        　● 一个规则可以关联到一列或几列。<br>
+        　　<font color="#5a5aad">规则对象和</font>CHECK<font color="#5a5aad">约束有些类似，但两者存在一些区别，</font>CHECK<font color="#5a5aad">约束是在用CREATE 
+        TABLE 或 ALTER TABLE语句定义表结构时定义，它与表定义存储在一起，所以，在删除表时，</font>CHECK<font color="#5a5aad">约束被自动删除。而规则对象则需要使用CREATE 
+        RULE语句定义，它作为一种数据库对象单独存储，所以它可以被多次应用于不同列或用户定义的数据类型。在删除表时不能删除规则对象，而需要使用DROP 
+        RULE语句删除。 </font></p>
+      <p>　　◆创建规则对象<br>
+        　　◆应用规则对象<br>
+        　　◆ 解除和删除规则对象</p>
+      <p>　(1) 创建规则对象<br>
+        　　在T_SQL中，创建规则对象的语句格式：<br>
+        　　CREATE RULE [owner.] rule_name <br>
+        　　AS condition_expression<br>
+        　　<font color="#5a5aad">其中:<br>
+        　　rule_name ：规则名称。<br>
+        　　condition_expression：规则定义的条件。condition_expression表达式可以与所有有效的WHERE子句所指定的条件相同。它用一个局部变量代表INSERT语句或UPDATE语句所输入的数值。<br>
+        　　AS子句的变量名必须以@开头,而且要与所关联的列名或用户定义数据类型相同。</font></p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+        <tr> 
+          <td width="35" valign="top"><img src="../../../img/text/liti.gif" width="35" height="36" alt="例题"></td>
+          <td><br>
+            　例1, 下面语句所创建的规则限制用户输入的学生年龄在指定的范围为大于等于14岁而小于等于35岁。如下定义：<br>
+            　　CREATE RULE S_age_rule <br>
+            　　AS &gt;= 14 @sage &lt;= 35</td>
+        </tr>
+        <tr> 
+          <td width="35" valign="top"><img src="../../../img/text/liti.gif" width="35" height="36" alt="例题"></td>
+          <td><br>
+            　例2，下面语句所创建的规则限制用户输入的字符串只能在指定的列表条目中，即学生的课程必须是在集合（'网络','数据库','编译原理','操作系统','软件工程'，'JAVA'）中，@s_course为存放课程的局部变量。定义如下：CREATE 
+            RULE S_course_rule <br>
+            　　AS <br>
+            　　@s_course IN('网络','数据库','编译原理','操作系统','软件工程'，'JAVA')</td>
+        </tr>
+      </table>
+      　　<br>
+      　(2) 绑定和应用规则对象<br>
+      　　创建规则对象后，必须使用系统存储过程sp_bindrule把规则对象绑定到一个列或用户定义的数据类型才能起作用。语句格式：<br>
+      　　sp_bindrule rulename , objname [, futureonly]<br>
+      　　<font color="#5a5aad">rulename：是规则名称<br>
+      　　objname：是规则所关联的表的列名或用户定义的数据类型名称. 如果Objname的格式为'表名.列名'说明是列名，否则视为用户定义的数据类型名。<br>
+      　　futureonly：只用于用户定义数据类型。且只对未来的值起作用，不影响已经存在的值。<br>
+      </font><br>
+      　　例如，以正确的课程集合值绑定学生课程列。<br>
+      　　sp_bindrule S_course_rule 'C.course'<br>
+      　(3) 解除和删除规则对象<br>
+      　　要删除规则对象时，必须先解除规则对象与指定列或用户定义数据类型之间的关联。当一个规则对象与多个列或多个用户定义的数据类型相关联时，要逐一用sp_unbindrule 
+      解除。解除规则与相应对象关联的格式：<br>
+      　　sp_unbindrule objname [, futureonly] <br>
+      　　<font color="#5a5aad">futureonly：只用于用解除与户定义数据类型相关 联的规则。且只对未来的值起作用，不影响 
+      已存在的数据类型列与规则之间的关联值。<br>
+      　　Objname: 相关联的列名或用户定义的数据类型名。</font><br>
+      <br>
+      　　例如， 解除学生课程C.course列与课程规则S_course_rule的关联。<br>
+      　　　sp_unbindrule 'C.course' <br>
+      　● 删除规则对象的语句格式：<br>
+      　　　DROP RULE [owner.] rule_name <br>
+      　　　一个DROP 语句可以同时删除多个规则对象。<br>
+      <br>
+      　　例如，删除课程规则S_course_rule的语句如下：DROP RULE S_course_rule<br>
+      　　数据完整性方法的比较如图4-27 <br>
+      <br>
+      <br>
+      　　<span class="tubiaoti">图4-27 数据完整性方法的比较</span><br>
+      <br>
+      <table width="80%" border="1" cellspacing="0" cellpadding="0" class="pt9-black" bordercolorlight="#004080" bordercolordark="#ffffff" align="center">
+        <tr align="center" bgcolor="#BFDFFF"> 
+          <td bgcolor="#BFDFFF">数据完整性方法</td>
+          <td>功能</td>
+          <td>开支</td>
+          <td>事务之前或者之后</td>
+        </tr>
+        <tr align="center"> 
+          <td height="18">约束</td>
+          <td height="18">中</td>
+          <td height="18">低</td>
+          <td height="18">之前</td>
+        </tr>
+        <tr align="center"> 
+          <td>触发器</td>
+          <td>高</td>
+          <td>高</td>
+          <td>之后/之后</td>
+        </tr>
+        <tr align="center"> 
+          <td>缺省和规则对象</td>
+          <td>低</td>
+          <td>中</td>
+          <td>之前</td>
+        </tr>
+      </table>
+      <!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

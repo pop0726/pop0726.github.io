@@ -1,0 +1,110 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" -->下图7-25中汇总了SQL、Server中数据转移的方法。<br>
+      <br>
+      <span class="pt9-black"> 　　</span><span class="tubiaoti">图7-25</span><br>
+      <br>
+      <table width="80%" border="0" cellspacing="1" cellpadding="0" bgcolor="#000000" class="pt9-black" align="center">
+        <tr bgcolor="#FFFFFF"> 
+          <td>&nbsp;</td>
+          <td bgcolor="#F5F5CB" align="center">工具和方法</td>
+          <td bgcolor="#F5F5CB" align="center">描述</td>
+        </tr>
+        <tr bgcolor="#FFFFFF"> 
+          <td>√</td>
+          <td bgcolor="#D3E4ED">DTS 导入导出向导</td>
+          <td bgcolor="#D3E4ED">允许用户交互创建DTS包，用来导入、导出和转换数据。</td>
+        </tr>
+        <tr bgcolor="#FFFFFF"> 
+          <td>&nbsp;</td>
+          <td>DTS Package Designer</td>
+          <td>允许有经验的数据库系统管理员导入、导出、转换数据和定义复杂的工作流程。</td>
+        </tr>
+        <tr bgcolor="#FFFFFF"> 
+          <td>√</td>
+          <td bgcolor="#D3E4ED">Bcp实用程序</td>
+          <td bgcolor="#D3E4ED">命令行实用程序，在SQL Server和ASCII文件之间导入导出。</td>
+        </tr>
+        <tr bgcolor="#FFFFFF"> 
+          <td>&nbsp;</td>
+          <td>T-SQL语句</td>
+          <td>SELECT INTO 和 INSERT SELECT 语句、BULK INSERT语句</td>
+        </tr>
+        <tr bgcolor="#FFFFFF"> 
+          <td>√</td>
+          <td bgcolor="#D3E4ED">备份和恢复</td>
+          <td bgcolor="#D3E4ED">允许完整地恢复和转移数据库</td>
+        </tr>
+        <tr bgcolor="#FFFFFF"> 
+          <td>&nbsp;</td>
+          <td>sp_attach_db</td>
+          <td>把数据库增加到服务器上</td>
+        </tr>
+        <tr bgcolor="#FFFFFF"> 
+          <td>√</td>
+          <td bgcolor="#D3E4ED">复制</td>
+          <td bgcolor="#D3E4ED">把数据分布到地理位置不同的服务器上</td>
+        </tr>
+      </table>
+      <span class="explaination"><b class="biaoti_1">1、SQL Server数据转移服务DTS</b><br>
+      <font color="#cc0000">��DTS (Data Transformation Service) 是SQL Server提供的数据转换服务。DTS可以在不同数据库之间移动数据结构、数据、触发器、规则、默认、约束和用户定义的数据类型。但是只有数据结构和数据才可以在不同种类的数据源之间进行传送。<br>
+      ��(1)数据转换服务(DTS)由三个组件组成：<br>
+      ��●　DTS导入向导和DTS导出向导；<br>
+      ��●　DTS Package Designer：有经验的用户可以使用DTS Package Designer在多机种数据环境中转换数据和定义复杂的数据工作流，可以简化创建数据仓库的过程；<br>
+      ��●　DTS 编程接口：用于创建自定义的应用程序。</font></span> 
+      <p><font color="#cc0000">��DTS导入向导 (DTS Import Wizard)可以把别的数据源中数据导入SQL Server，并实现数据格式的转化。<br>
+        ��DTS导出向导 (DTS Export Wizard)可以把SQL Server中的数据导出到别的数据源，并实现数据格式的转换。</font></p>
+      <font color="#cc0000">��<b class="biaoti_1">2、 BCP实用程序 </b><br>　　批拷贝程序bcp可以按用户定义的数据格式将SQL 
+      Server数据库中的数据拷贝到操作系统文件，或是按操作系统文件拷贝到SQL Server数据库，以便于不同应用程序之间的数据交换。<br>
+      ��例如，可以使用bcp将SQL Server数据库中的数据按一定格式拷贝到文本文件中，然后调用Microsoft Excel等电子表格软件对数据进行分析。也可以将其它应用程序中的数据按一定格式输出到文本文件中，然后再使用bcp实用程序将这些数据拷贝到SQL 
+      Server数据库中。bcp是一个命令行实用程序。bcp只是用来管理数据，不能管理数据库中的表，也不能管理操作系统中的文件。<br>
+      ��在从操作系统数据文件中向数据库表中导入数据时，在数据库中该表必须存在，其相应的列应该与数据文件中的数据对应。如果数据库中没有相应的表，那么不能使用bcp向数据库中导入数据。为了使用bcp，必须对系统中的表有相应的访问权限：为了从表中把数据拷贝出去，必须有对该表的 
+      SELECT 许可权；为了把数据从系统外部的操作系统文件中拷贝进数据库的表中，必须具有对该表的INSERT 许可权。<br>
+      ��导入数据操作是动态操作。动态操作的含义是既使有用户正在使用数据库中的数据时，也可以执行数据导入操作。<br>
+      ��导出数据的操作是静态操作。静态操作的含义是当导出数据时，不允许有其他用户对数据库进行操作。<br>
+      ��在执行块拷贝时，规则和触发器被忽略了，因此会影响数据库数据的完整性。为了解决这种数据完整性问题，应该把数据从操作系统文件导入到数据库表中的操作分解成两步来做。第一步，把数据从操作系统文件导入到中间表中；第二步，把数据从中间表中传入到目的表中。如图7-26中，中间表的结构与目的表的结构完全一样，但没有相应的规则和触发器。<br>
+      <br>
+      　　<span class="tubiaoti">图7-26</span><br>
+      </font> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" height="155">
+        <tr> 
+          <td align="center"> <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="400" height="400">
+              <param name=movie value="../../../swf/ch7/19.swf">
+              <param name=quality value=high>
+              <param name="wmode" value="transparent">
+              <embed src="../../../swf/ch7/19.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="400" height="400" wmode="transparent">
+              </embed> 
+            </object> </td>
+        </tr>
+      </table>
+      <!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

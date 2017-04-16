@@ -1,0 +1,70 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" --><span class="biaoti_1">　1 SQL Server的数据库类型：</span>　<br>
+      　　SQL Server的数据存储空间可分为若干个&quot;小&quot;数据库，以便于管理和提高存取效率。SQL Server有两类数据库：<br>
+      　　・ 系统数据库：<font color="#5a5aad">存放SQL Server的整体信息。SQL Server使用系统数据库操作和管理系统。</font><br>
+      　　・ 用户数据库：<font color="#5a5aad">是用户创建的数据库。一个SQL Server可以管理一个或多个用户数据库。 </font><br>
+      　　SQL Server的数据如图<br>
+      <br>
+      　　<span class="tubiaoti">图 1-23</span><br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td align="center"><img src="../../../img/text/ch01/b10.gif" width="451" height="234"></td>
+        </tr>
+      </table>
+      <br>
+      <span class="biaoti_1">　2 系统数据库</span>　　<br>
+      　　安装SQL Server时，系统自动地创建4个系统数据库：master、model、tempdb、 msdb数据库。<br>
+      　　(1) master数据库<br>
+      　　<font color="#5a5aad">master数据库用来存放系统级的信息，如保存本地及远程用户帐号、与本地服务器有交互的远程服务器、进程、可配置的环境变量、系统错误信息、分配给各数据库的存储空间、系统上可用的磁带和磁盘、活动锁等。</font><br>
+      　　(2) model数据库<br>
+      　　<font color="#5a5aad">model数据库为用户数据库提供了样板和原型，包含了每一用户数据库所需要的系统表，它能够被更改成为创建新的数据库的定制结构，对model所作的每一个改动都在新数据库中产生影响。对model数据库的变动有： 
+      <br>
+      ・ 加入用户数据类型、约束、规则、缺省值。<br>
+      ・ 加入能访问SQL Server上所有数据库的用户<br>
+      ・ 在model中建立缺省特权，尤其是针对guest帐户。<br>
+      ・ 在model数据库中设置数据库配置选项。</font><br>
+      　　(3) msdb数据库 <br>
+      　　<font color="#5a5aad">支持SQL Server Agent。msdb数据库中的表sysdbmainplan _history保存了系统维护的工作信息，并且为调度信息提供一个存储区。</font><br>
+      　　(4) tempdb数据库<br>
+      　　<font color="#5a5aad">tempdb数据库是SQL Server上数据库使用的共享工作空间，为临时表和其它临时工作存储需要提供了一个存储区。</font><br>
+      　　(5) Distribution数据库<br>
+      　　在为复制活动配置SQL Server时，系统自动安装Distribution数据库。存储复制活动中的历史记录和事务数据。<br>
+      <br>
+      <span class="biaoti_1">　3 用户数据库</span>　<br>
+      　(6) pubs和Northwind数据库：<br>
+      　　<font color="#5a5aad">pubs和Northwind数据库是作为培训工作提供的实例数据库，属于用户数据库。一般来说，当培训工具使用完后，要重新安装它，以便恢复其原貌。</font><br>
+      　(7) 用户数据库<br>
+      　　<font color="#5a5aad">作为数据库拥有者（DBO）的用户自己创建的数据库。他拥有对数据库的所有访问权限。<br>
+      　　在实际使用时，一般使用pubs和Northwind数据库或者用户自己建立的数据库进行SQL语句练习。</font><br>
+      <!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

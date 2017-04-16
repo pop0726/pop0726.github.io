@@ -1,0 +1,79 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" -->　　如果业务规则依赖于数据库的数据，瘦客户机实现减少网络流量。<br>
+      　　这种方法的主要不足是存储过程缺乏灵活性。一般的开发工具和编程语言提供比SQL语句强得多的编程能力，而数据库开发人员可以充分地利用这些语言功能。 
+      　(3) 多层(multi tier)客户/服务器实现<br>
+      　　最简单的多层实现就是三层实现。在这种实现中，业务服务作为一个单独进程运行。该进程可配置为在数据服务所处的同一台服务器上或者在另一台不同的服务器上。 
+      <br>
+      　　这种实现的关键特点是数据服务、业务服务和表达服务能作为分离的三个进程运行于不同的计算机上。三层实现如图6-7所示。<br>
+      <br>
+      　　<span class="tubiaoti">图6-7 三层结构的实现</span><br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td align="center"><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="400" height="260">
+              <param name=movie value="../../../swf/ch6/6-6.swf">
+              <param name=quality value=high>
+              <param name="wmode" value="transparent">
+              <embed src="../../../swf/ch6/6-6.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="400" height="260" wmode="transparent">
+              </embed> 
+            </object> </td>
+        </tr>
+      </table>
+      　(4)浏览器(Browser)/服务器结构（B/S）结构<br>
+      　　<font color="#5a5aad">数据库应用程序的一个重要方面是对数据的访问，但是在网络面世以前，许多数据库系统提供的对数据库操作方式，或者是字符方式的查询界面，或者是编程实现的图形界面，它们都需要在客户端安装客户端软件，同时应用程序不能跨平台运行，软件的移植和更新是一项很大的工作。</font><br>
+      　　Internet的发展使上述问题得到了解决。传统的客户机/服务器（C/S）结构变成了浏览器/服务器（B/S）结构，如图6-8所示。Web技术将表达服务划分为浏览器客户机和Web服务器。提高客户机数目导致使用类似Microsoft 
+      Transaction Server(MTS)的工具，它被设计用来使用COM对象提高中间层的灵活性。划分表达服务或增加COM构件到中间层，结果是使物理实现增加了层次。<br>
+      　　<font color="#5a5aad">这一途径的好处在于多层系统更具有规模性和灵活性。源程序代码驻留在Wer服务器上，客户端使用系统自带的浏览器即可工作。如果业务规则占用过多计算机资源，从数据服务中分离出中间层并在单独的计算机上运行代码可能更好些。但是，这一解决方案增加了网络流量，并且当流量过于密集时系统会慢下来。</font><br>
+      <br>
+      　　<span class="tubiaoti">图6-8 浏览器/服务器</span><br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td align="center"><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="400" height="300">
+              <param name=movie value="../../../swf/ch6/6-7.swf">
+              <param name=quality value=high>
+              <param name="wmode" value="transparent">
+              <embed src="../../../swf/ch6/6-7.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="400" height="300" wmode="transparent">
+              </embed> 
+            </object> </td>
+        </tr>
+      </table>
+      <br>
+      　(5) 选择物理实现<br>
+      　在对三层模型的物理实现作出决定之前，用户必须深入考虑系统的一些特性：<br>
+      　<b>・ 数据量：</b><font color="#5a5aad">如果数据库庞大，就应该分离出数据服务，并运行在一台单独的计算机上(或多台计算机上)。<br>
+      　</font><b>・ 业务规则的复杂程度：</b><font color="#5a5aad">如果业务规则过于复杂或者将会增加，那么分离出业务规则放入一个进程或COM对象集可能会好些。<br>
+      　</font><b>・ 代码可重用性：</b><font color="#5a5aad">如果用户想在不同的前端使用业务规则，分离它们到COM 
+      对象集是个好主意。<br>
+      　</font><b>・ 维护问题：</b><font color="#5a5aad">如果系统中有许多客户机，那么瘦客户机程序的维护和支持要便宜些。<br>
+      　</font><b>・ 网络流量：</b><font color="#5a5aad">在分布式系统，特别在基于Internet的系统，流量问题很重要。如果业务规则是数据驱动的，它们应当放在离数据服务尽可能近的地方。</font><br>
+      <!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

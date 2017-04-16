@@ -1,0 +1,50 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgproperties=fixed bgcolor="#FFFFFF" background="../../../../image/moban/15.gif">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" height="157">
+        <tr> 
+          <td class="text" align="left" height="51"> 
+            <p>��<span class="part">1、group by子句</span><br>
+              ��group by子句根据一个或多个属性的值来对元组进行分组，如<span class="part">图4-4-1</span>所示。聚集函数可以作用在不同的分组上，例如：select 
+              branch-name, sum(balance) as Summaryfrom accountgroup by branch-name<br>
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td class="text" align="left">
+            <div align="center"><span class="part">图4-4-1：关系account </span><br>
+              <img src="../../../../image/chapter/04/4-4-1.gif" width="420" height="226"> 
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="text" align="left">��<span class="part">2、having子句</span><br>
+            ��having子句主要是针对分组进行条件限制。having子句中的谓词只有在形成分组后才起作用，因此可以在having子句中使用聚集函数。通常，having子句只用在有group 
+            by子句的SQL语句中，用来去掉不符合指定条件(即having子句中的谓词)的分组。例如：<br>
+            select <i>branch-name,</i> sum(<i>balance</i>) as Summary<br>
+            from <i>account</i><br>
+            group by <i>branch-name</i><br>
+            having avg(<i>balance</i>) &gt; 1200<br>
+            ��如果在同一个查询中同时存在where子句和having子句，那么首先应该用where子句中的谓词进行选择；满足where谓词的元组通过group 
+            by子句形成分组；然后在每个分组上使用having子句，不符合having谓词的分组将被抛弃掉！例如，找出居住在Harrison市且在银行中至少有三个帐户的客户的平均余额：<br>
+            select d.<i>customer-name</i>, avg(<i>balance</i>) as Average-Balance<br>
+            from <i>depositor d</i>, <i>account a</i>, <i>customer c<br>
+            </i>where <i>d.account-number</i> = <i>a.account-number </i>and <br>
+            ���<i>d.customer-name</i> = <i>c.customer-name</i> and <br>
+            ���<i>customer-city </i>= &quot;Harrison&quot;<br>
+            group by <i>d.customer-name<br>
+            </i>having count(distinct<i> d.account-number</i>) &gt;= 3</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body  bgcolor="#FFFFFF" bgproperties=fixed background="../../../../image/moban/15.gif">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" height="80">
+        <tr> 
+          <td class="text" align="left" height="83"> 
+            <p>��<span class="menu">中止的事务是可以回滚的，通过回滚恢复数据库，保持数据库的一致性，这是DBMS的责任。已提交的事务是不能回滚的，必须由程序员或DBA手工执行一个&quot;补偿事务&quot;才能撤消提交的事务对数据库的影响。那么事务在执行过程中发生故障的话，又是如何恢复的呢？<br>
+              ��事务故障是指事务在运行至正常中止点前被中止，这时恢复子系统应利用日志文件撤消（UNDO）此事务对数据库已做的修改。事务故障的恢复是由系统自动完成的，对用户是透明的。系统的恢复步骤是：<br>
+              ��1、 反向扫描文件日志（即从最后向前扫描日志文件），查找该事务的更新操作。<br>
+              ��2、 对该事务的更新操作执行逆操作。即将日志记录�&quot;更新前的值&quot;写入数据库。这样，如果记录中是插入操作，则相当于做删除操作；若记录中是删除操作，则做插入操作；若是修改操作，则相当于用修改前的值代替修改后的值。<br>
+              ��3、 继续反向扫描日志文件，查找该事务的其他更新操作，并做和2一样的同样处理。<br>
+              ��4、 如此处理下去，直至读到此事务的开始标记，事务的故障恢复就完成了。</span></p>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

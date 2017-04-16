@@ -1,0 +1,59 @@
+<html>
+<head>
+<title>l1</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center" height="8">
+        <tr> 
+          <td class="text"> 
+            <p><br>
+              MTTF估算公式（Shooman模型）是 </p>
+          </td>
+        </tr>
+        <tr>
+          <td class="text">
+            <div align="center"><img src="../../../../images/images/chapter05/gongshi1.gif" width="200" height="45"></div>
+          </td>
+        </tr>
+        <tr>
+          <td class="text">其中，<span class="part">K </span>是一个经验常数，美国一些统计数字表明，K的典型值是200；<br>
+            ���<span class="part">ET </span>是测试之前程序中原有的故障总数；<br>
+            ���<span class="part">IT</span> 是程序长度（机器指令条数或简单汇编语句条数）；<br>
+            ���<span class="part">t</span>是测试（包括排错）的时间；<br>
+            ���<span class="part">EC (t)</span> 是在0～t期间内检出并排除的故障总数。<br>
+            公式的基本假定是：<br>
+            ��<span class="part">・</span> 单位(程序)长度中的故障数ET�MIT近似为常数，它不因测试与调试而改变。<br>
+            ��<span class="part">・</span> 故障检出率正比于程序中残留故障数，而MTTF与程序中残留故障数成反比；<br>
+            ��<span class="part">・</span> 故障不可能完全检出，但一经检出立即得到改正。<br>
+            下面对此问题做一分析：<br>
+            ��设Ec (τ) 是0～τ时间内检出并排除的故障总数，τ是测试时间(月)，则在同一段时间0～τ内的单条指令累积规范化排除故障数曲线εc 
+            (τ) 为：<br>
+            �����εc (τ) = Ec (τ)�MIT</td>
+        </tr>
+        <tr>
+          <td class="text">这条曲线在开始呈递增趋势，然后逐渐和缓，最后趋近于一水平的渐近线ET�MIT。<br>
+            ��利用公式的基本假定：故障检出率（排错率）正比于程序中残留故障数及残留故障数必须大于零，经过推导得：</td>
+        </tr>
+        <tr>
+          <td class="text">
+            <div align="center"><img src="../../../../images/images/chapter05/gongshi2.gif" width="140" height="47"></div>
+          </td>
+        </tr>
+        <tr>
+          <td class="text">这就是故障累积的S型曲线模型，参看<span class="part">图5.28</span>。</td>
+        </tr>
+        <tr>
+          <td class="text">&nbsp;</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgproperties=fixed bgcolor="#FFFFFF" background="../../../../image/moban/15.gif">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td class="text" align="left"> 
+            <p><b>��</b>1、B+树索引的总体结构<br>
+              ��①�B<sup>+</sup>树索引是一个多级索引，但是其结构不同于多级顺序索引；<br>
+              ��②�B<sup>+</sup>树索引采用平衡树结构，即每个叶结点到根的路径长度都相同；<br>
+              ��③�每个非叶结点有<img src="../../../../image/title/08/02.gif" width="29" height="14">到n个子女，n对特定的树是固定的；<br>
+              ��④�B<sup>+</sup>树的所有结点结构都相同，它最多包含n-1个搜索码值K<font size="-5">1</font>、K<font size="-5">2</font>、…、K<font size="-5">n-1</font>，以及n个指针P<font size="-5">1</font>、P<font size="-5">2</font>、…、P<font size="-5">n</font>，每个结点中的搜索码值按次序存放，即如果i&lt;j，那么Ki&lt;Kj，如<span class="part">图8-3-1</span>所示。<br>
+            </p>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left"> 
+            <div align="center"><span class="part">图8-3-1：B<sup>+</sup>树的结点结构 
+              </span><br>
+              <img src="../../../../image/chapter/08/8-3-1.gif" width="420" height="34"> 
+            </div>
+          </td>
+        </tr>
+        <tr> 
+          <td align="left" class="text">��<span class="part">2、B<sup>+</sup>树索引的叶结点</span><br>
+            ��①�指针Pi(i=1,2,…,n-1)指向具有搜索码值Ki的一个文件记录或一个指针（存储）桶，桶中的每个指针指向具有搜索码值Ki的一个文件记录。指针桶只在文件不按搜索码顺序物理存储时才使用。指针Pn具有特殊的作用；<br>
+            ��②�每个叶结点最多可有n-1个搜索码值，最少也要有<img src="../../../../image/title/08/04.gif" width="60" height="20" align="absmiddle">个搜索码值。各个叶结点中搜索码值的范围互不相交。要使B+树索引成为稠密索引，数据文件中的各搜索码值都必须出现在某个叶结点中且只能出现一次；<br>
+            ��③�由于各叶结点按照所含的搜索码值有一个线性顺序，所以就可以利用各个叶结点的指针Pn将叶结点按搜索码顺序链接在一起。这种排序能够高效地对文件进行顺序处理，而B<sup>+</sup>树索引的其他结构能够高效地对文件进行随机处理，如<span class="part">图8-3-2</span>所示。<br>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left"> 
+            <div align="center"><span class="part">图8-3-2：B+树索引的叶结点结构示例</span> 
+              <br>
+              <img src="../../../../image/chapter/08/8-3-2.gif" width="420" height="160"> 
+            </div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left">��<span class="part">3、B<sup>+</sup>树索引的非叶结点</span><br>
+            ��①�B<sup>+</sup>树索引的非叶结点形成叶结点上的一个多级（稀疏）索引；<br>
+            ��②�非叶结点的结构和叶结点的结构相同，即含有能够存储n-1个搜索码值和n个指针的存储单元的数据结构。只不过非叶结点中的所有指针都指向树中的结点；<br>
+            ��③�如果一个非叶结点有m个指针，则<img src="../../../../image/title/08/02.gif" width="29" height="14">≤m≤n。若m&lt;n，则非叶结点中指针Pm之后的所有空闲空间作为预留空间，与叶结点的区别在于结点的最后一个指针Pm和Pn的位置与指向不同，如<span class="part">图8-3-3</span>所示；<br>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left"> 
+            <div align="center"><span class="part">图8-3-3：B+树索引的非叶结点结构 </span><br>
+              <img src="../../../../image/chapter/08/8-3-3.gif" width="420" height="80"> 
+            </div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left">��④�在一个含有m个指针的非叶结点中，指针P<font size="-5">i</font>(i=2,…,m-1)指向一棵子树，该子树的所有结点的搜索码值大于等于K<font size="-5">i-1</font>而小于K<font size="-5">i</font>。指针Pm指向子树中所含搜索码值大于等于K<font size="-5">m-1</font>的那一部分，而指针P<font size="-5">1</font>指向子树中所含搜索码值小于K<font size="-5">1</font>的那一部分，如<span class="part">图8-3-4</span>所示。<br>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left"> 
+            <div align="center" class="part">图8-3-4：B<sup>+</sup>树索引的非叶结点中指针Pi的指向<br>
+              <img src="../../../../image/chapter/08/8-3-4.gif" width="420" height="106"> 
+            </div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left">��<span class="part">4、B<sup>+</sup>树索引的根结点</span><br>
+            ��①�根结点的结构也与叶结点相同；<br>
+            ��②�根结点包含的指针数可以小于<img src="../../../../image/title/08/02.gif" width="29" height="14">。但是，除非整棵树只有一个结点，否则根结点必须至少包含两个指针。<span class="part">图8-3-5</span>给出一个B<sup>+</sup>树结构的示意图。��<br>
+          </td>
+        </tr>
+        <tr>
+          <td class="text" align="left">
+            <div align="center"><span class="part">图8-3-5：account关系的B<sup>+</sup>树索引结构 
+              </span><br><img src="../../../../image/chapter/08/8-3-5.gif" width="420" height="134"><br></div>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url('../../../img/text/bg.jpg');
+background-repeat: no-repeat;
+background-attachment: fixed; background-position-y:50%
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">　</td>
+    <td>　</td>
+    <td width="10">　</td>
+  </tr>
+  <tr>
+    <td width="10">　</td>
+    <td> <!-- #BeginEditable "1" -->　<span class="biaoti_1">1． 全局变量和局部变量<br>
+      </span><span class="pt9-black">　　SQL Server 中分为全局变量和局部变量:<br>
+      　● 全局变量前有两个@@符号：由系统定义和维护，存放SQL Server完成工作的状态，SQL Server中提供了30多个全局变量。例如，<br>
+      　　@@SERVERNAME: 记录服务器的名称；<br>
+      　　@@VERSION: 存放已安装的SQL Server 的版本号；<br>
+      　　@@FETCH_STATUS: 存放FETCH命令执行的状态：成功=0；失败=-1；丢失=-2。<br>
+      　　使用SELECT和系统存储过程sp_monitor可显示全局变量的当前值。<br>
+    　● 局部变量前只有一个@符号：<br>
+      　　局部变量用DECLARE语句声明，它只能在声明该变量的批语句和过程体内使用。例如：<br>
+      　　DECLARE @var1 int,@var2 char(20)<br>
+      　　局部变量由SELECT语句赋值。例如，<br>
+      　● SELECT @var1=100,@var2='计算机'<br>
+      　● SELECT @var1,@var2 显示当前值<br>
+      　● 由FETCH INTO或SELECT INTO 子句赋值<br>
+      <br>
+      　</span><span class="biaoti_1">2． 流程控制语句</span> <br>
+      　　T-SQL主要的流程控制语句包括：<br>
+    　　GO：批处理命令的结束标志；<br>
+      　　IF ELSE ：条件选择语句；<br>
+      　　BEGIN ... END ：定义语句块；<br>
+      　　GOTO ：无条件转移语句；<br>
+      　　WHILE ：循环语句；<br>
+      　　BREAK ：循环跳出语句；<br>
+      　　CONTINUE ：继续执行循环语句<br>
+      　　WAITFOR : 设置语句执行的延迟时间；<br>
+      　　RETURN ： 从查询或存储过程无条件跳出；<br>
+      　　CASE 表达式 ：按表达式返回条件分别处理。<br>
+      <!-- #EndEditable --></td>
+    <td width="10">　</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

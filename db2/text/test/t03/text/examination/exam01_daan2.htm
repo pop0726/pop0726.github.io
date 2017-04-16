@@ -1,0 +1,119 @@
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" background="../../../../../img/pop/bg.gif">
+<center><table width="95%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+      <td class=pt9-black> <b>问答题答案</b> <br>
+        <br>
+        <b>问答第1题</b><br>
+        物理中心数据库结构、分布式数据库结构、客户/服务器组织结构<br>
+        <br>
+        <b>问答第2题</b><br>
+        改变类结点的定义、改变类层次结构<br>
+        <br>
+        <br>
+        <b>问答第3题</b><br>
+        实体完整性，域完整性，引用完整性。<br>
+        <br>
+        <b>问答第4题</b><br>
+        原子性、一致性、分离性、持久性<br>
+        <br>
+        <b>问答第5题</b><br>
+        只备份数据库、备份数据库和日志文件、增量备份。<br>
+        <br>
+        <b>问答第6题</b><br>
+        (1) 需求分析阶段 (2)概念设计阶段 (3)逻辑设计阶段 (4)物理设计阶段 <br>
+        <br>
+        <b>问答第7题</b><br>
+        事务标识； 事务运行的关键时间，如开始时间、提交时间等； 对数据库的更新操作类型(增加、删除、修改)和操作对象； 更新事务的前映像和后映像内容。 
+        <br>
+        <br>
+        <b>问答第8题</b><br>
+        (1) 数据库安全性指： 数据库的安全性是为了防止对数据库数据的恶意破坏和非法存取。<br>
+        (2) DBMS保证数据库安全性的措施： DBMS提供安全认证登录和授权访问数据库对象。<br>
+        (3) 数据库完整性指： 数据库的完整性是指数据库数据的正确性和相容性。<br>
+        (4) DBMS保证数据库完整性的措施： DBMS提供实体完整性、域完整性和引用完整性约束。<br>
+        (5) 数据库DB： 数据库是长期储存在计算机内的、有组织的、可共享的数据集合。<br>
+        (6) 数据库管理系统DBMS： DBMS是对数据库中的数据进行存储和管理的软件系统，是一套系统软件。<br>
+        <br>
+        <b>问答第9题</b><br>
+        (1) 点到点的集成方式：每两个CAx应用程序之间都有一对前后处理器用于交换数据。<br>
+        (2) BUS总线集成方式：每个CAx应用程序只须与标准数据格式之间有一对前后处理器交换数据。 <br>
+        (3) 共享数据库集成方式：所有的CAx应用程序模块都采用统一的模型结构，共享同一个产品数据库。 <br>
+        <br>
+        <b>问答第10题</b><br>
+        <table width="100%" border="1" cellspacing="1" cellpadding="1" class="pt9-black">
+          <tr>
+            <td>
+              <div align="center"><b>操作型数据</b></div>
+            </td>
+            <td>
+              <div align="center"><b>分析型数据</b></div>
+            </td>
+          </tr>
+          <tr>
+            <td>细节的</td>
+            <td>综合的</td>
+          </tr>
+          <tr>
+            <td>事务驱动</td>
+            <td>分析驱动</td>
+          </tr>
+          <tr>
+            <td>一次操作数据量少</td>
+            <td>一次操作数据量多</td>
+          </tr>
+          <tr>
+            <td>面向日常业务操作应用</td>
+            <td>面向分析决策，支持管理需求</td>
+          </tr>
+          <tr>
+            <td>数据可更新</td>
+            <td>数据不可更新</td>
+          </tr>
+        </table>
+        <br>
+        <br>
+        <b>问答第11题</b><br>
+        (1)、R最高属于2NF范式。 理由：关系模式R(U,F)的主码是(A,B)，非主属性存在对码的传递函数依赖AB->C, C ->D, D->E。 
+        <br>
+        <br>
+        (2)、R不属于第三范式， 理由：关系模式R(U,F)的主码是(A,B)，非主属性存在对码的传递函数依赖AB->C, C ->D, D->E。 
+        <br>
+        分解为符合第三范式的关系模式集合如下： 
+        R1(A,B,C) R2(C,D) R3(D,E) <br>
+        <br>
+        <b>问答第12题</b><br>
+        <img src="../../../../../img/text/test/003.gif" width="426" height="297"><br>
+        * 实体关系表，红色为主码：<br>
+        (1) 供应商表：(<font color="#FF0000">供应商号</font>，供应商名，……………) 
+        <p>(2) 零件表：(<font color="#FF0000">零件号</font>，零件名，……………)</p>
+        <p>(3) 仓库表：(<font color="#FF0000">仓库号</font>，仓库名，管理员号，…………)</p>
+        <p>(4) 仓库管理员表：(<font color="#FF0000">仓库号</font>，仓库名，管理员号，…………)</p>
+        <p>* 两个多对多的联系转换为两个关系表：<br>
+          (1) 供应表：(<font color="#FF0000">供应商号，零件号</font>，供应量，……………)</p>
+        <p>(2) 存放表：(<font color="#FF0000">仓库号，零件号</font>，存放量，……………)</p>
+        <p>* 定义一个视图，该视图的列信息包括零件名称以及零件所在仓库名称，SQL语句如下：</p>
+        <p>CREATE VIEW part <br>
+          AS<br>
+          SELECT 零件名，仓库名<br>
+          FROM 零件表, 仓库表，存放表<br>
+          WHERE 零件表.零件号 = 存放表.零件号<br>
+          AND 仓库表.仓库号 = 存放表.仓库号
+        <p><b>问答第13题</b><br>
+          <img src="../../../t01/text/examination/s2.gif" width="285" height="325"> 
+          <br>
+          　 
+      </td>
+  </tr>
+</table>
+  </center>
+
+</body>
+</html>

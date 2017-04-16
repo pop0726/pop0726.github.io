@@ -1,0 +1,66 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body  bgcolor="#FFFFFF" bgproperties=fixed background="../../../../image/moban/15.gif">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" height="8">
+        <tr> 
+          <td class="text" align="left" height="2"> 
+            <p>&nbsp;</p>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left"> 
+            <div align="center"><span class="part">图8-2-1：索引顺序文件的结构</span><br>
+              <img src="../../../../image/chapter/08/8-2-1.gif" width="420" height="178"> 
+            </div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left"> �<span class="menu">�注意索引顺序中的&quot;顺序&quot;的两个误解：<br>
+            ��1. 不是指在存储介质上是顺序存放的，而是指按照某个值顺序排列的逻辑结构（例如，数据结构中的&quot;表&quot;），索引在存储介质上可能是按顺序存放的，也可能不是；<br>
+            ��2. 在搜索时并不是&quot;从前往后，点一个名喊一声道&quot;，而是要根据对于当前的搜索码该表是有序还是无序的分别采用顺序或随机的搜索方法。<br>
+            <br>
+            ��</span><span class="part">1、顺序索引的分类</span><br>
+            ��顺序索引有两类：分别是稠密索引和稀疏索引。<br>
+            ��<u>⑴�稠密索引：</u>对应文件中搜索码的每一个值都有一个索引记录（或索引项）。索引记录包括搜索码值和指向具有该搜索码值的第一个数据记录的指针，如<span class="part">图8-2-2</span>所示。<br>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left"> 
+            <div align="center" class="part">图8-2-2：稠密索引<br>
+              <img src="../../../../image/chapter/08/8-2-2.gif" width="420" height="158"> 
+            </div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left">��<u>⑵�稀疏索引：</u>与稠密索引相反，稀疏索引只为搜索码的某些值建立索引记录。但和稠密索引一样，每个索引记录也包括搜索码值和指向具有该搜索码值的第一个数据记录的指针，如<span class="part">图8-2-3</span>所示。<br>
+          </td>
+        </tr>
+        <tr>
+          <td class="text" align="left">
+            <div align="center"><span class="part">图8-2-3：稀疏索引结构 </span><br>
+              <img src="../../../../image/chapter/08/8-2-3.gif" width="420" height="161"> 
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="text" align="left">��与稠密索引的每一个搜索码都有一个索引记录不同，稀疏索引只为部分搜索码建立了索引项。如果我们根据搜索码查找数据文件中的记录，而这个搜索码恰恰没有在稀疏索引的索引记录中，那么我们如何利用该稀疏索引进行查询呢？这个问题请大家参考<span class="part">图8-2-3</span>，以查找银行分支机构名称为Perryridge的记录为例，说明如何利用稀疏索引进行查询。<br>
+            <br>
+            ��<span class="menu">如何利用稀疏索引根据搜索码的特定值进行查询呢？首先要在稀疏索引中找到小于特定值的最大搜索码的索引项所在的位置，然后根据索引项中的记录指针找到文件中的记录。由于是稀疏索引，找到的记录不一定是我们需要的，因此还要根据顺序文件的搜索码链表（记录在逻辑上按照搜索码顺序链接起来形成的）去查找我们需要的记录即可。<br>
+            <br>
+            ��</span><span class="part">2、顺序索引的比较与建立</span><br>
+            ��除了我们上面讲到的稠密索引和稀疏索引的不同之处以外，利用稠密索引通常可以比稀疏索引能够更快地定位一个记录的位置；再一点，与稠密索引相比，稀疏索引占用空间较小，插入和删除时维护的开销也小。<br>
+            ��那么在实践当中如何正确地建立稀疏索引呢？因为处理数据库查询的开销主要是由把数据块从磁盘上取到主存的时间来决定。一旦将数据块放入主存，扫描整个数据块的时间是可以忽略的。因此可以考虑为每个块建一个索引项的稀疏索引，使用这样的稀疏索引，可以定位包含所要查找记录的块。</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

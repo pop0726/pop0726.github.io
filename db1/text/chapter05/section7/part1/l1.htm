@@ -1,0 +1,38 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgproperties=fixed bgcolor="#FFFFFF" background="../../../../image/moban/15.gif">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td class="text" align="left" height="2"> 
+            <p>��<span class="part">1、设计目标</span><br>
+              ��关系数据库的设计目标就是要生成一组关系模式，它既不必存储不必要的冗余信息，又可以方便地获取信息（即不丢失信息）；<br>
+              ��<span class="part">2、设计方法</span><br>
+              ��关系数据库的设计方法之一就是通过模式分解设计满足适当范式要求的关系模式。<br>
+              ��<span class="part">3、设计中易犯的错误</span><br>
+              ��①�信息冗余；（适当冗余）<br>
+              ��②信息丢失。<br>
+              例如，有如下的关系模式：<br>
+              <i>Lending-schema = (branch-name, branch-city, assets, customer-name, 
+              loan-number, amount)</i><br>
+              Lending-schema模式中的信息是冗余的，例如，对于从同一个银行分支机构发出去的贷款来说，属性assets等都是冗余的。信息冗余的后果是：<br>
+              ��①�浪费存储空间；<br>
+              ��②�使数据库修改复杂化，容易造成数据不一致。<br>
+              从另外一个角度讲，Lending-schema模式中的信息有丢失，例如以下两种情况：<br>
+              ��①�除非该分支机构至少有一笔贷款，否则即使该分支机构已经存在，它的任何信息也都不会出现在相应的关系里；<br>
+              ��②�更为糟糕的是，当一个分支机构的所有贷款都被偿还之后，你将不得不删除掉该分支机构的有关信息。<br>
+              ��</p>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

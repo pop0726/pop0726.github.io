@@ -1,0 +1,103 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url('../../../img/text/bg.jpg');
+background-repeat: no-repeat;
+background-attachment: fixed; background-position-y:50%
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">　</td>
+    <td>　</td>
+    <td width="10">　</td>
+  </tr>
+  <tr>
+    <td width="10">　</td>
+    <td> <!-- #BeginEditable "1" -->　　DBMS大都采用自主存取控制保证数据库数据的安全性。通过授权(authority)使不同的用户对不同的数据对象有不同的存取权限。SQL 
+      Server中的权限分为语句权限和对象权限。<br>
+      &nbsp;&nbsp;
+      授予权限(GRANT)是指允许具有特定权限的用户有选择地、动态地把某些权限授予其他用户，必要时还可以收回这些权限。<br>
+      　　授予用户权限的语句格式如下：<br>
+      &nbsp;&nbsp;&nbsp;
+      GRANT 权限表 ON 操作对象<br>
+      　　TO {用户1[，用户2]…..|PUBLIC} <br>
+      　　[ WITH GRANT OPTION ] <br>
+      　　参数说明:<br>
+      　　ALL: 指定对象的所有权限授予用户。<br>
+      　　PUBLIC: 将指定的权限授予所有用户。<br>
+      　　WITH GRANT OPTION：它使得被授权的用户具有授权权限，即被授权的用户有权力将得到的指定权限再授予其他用户。<br>
+      <font color="#CC0000">1. 语句权限</font><br>
+      　　语句权限也称数据库级权限，主要是系统特权或DBA的权限。DBA或数据库的拥有者可以把某些SQL语句的执行命令授予其他用户，这种权限称为语句权限。语句权限包括：<br>
+      　　CREATE DATABASE、 CREATE DEFAULT、 CREATE FUNCTION、CREATE PROCEDURE、CREATE 
+      RULE、CREATE TABLE、CREATE VIEW、BACKUP DATABASE、BACKUP LOG <br>
+      　　授予语句权限的格式如下：<br>
+      　　GRANT { ALL | 语句权限1 [ ,...n ] } <br>
+      　　TO 用户1 [ ,...n ]<br>
+      <img src="../../../img/text/liti.gif" width="35" height="36" alt="例题">例1，下面的示例给用户 
+      Mary 和 John 以及 Windows NT 组 Corporate\BobJ 授予产生数据库和表的语句权限，如下描述：<br>
+      　　GRANT CREATE DATABASE, CREATE TABLE <br>
+      　　TO Mary, John, [Corporate\BobJ] <br>
+      <img src="../../../img/text/liti.gif" width="35" height="36" alt="例题">例2，将在数据库pubs上创建表、视图的权限授予用户'张力'<br>
+      USE pubs<br>
+      GO<br>
+      GRANT CREATE VIEW , CREATE TABLE TO 张力<br>
+      <font color="#CC0000">2. 对象权限</font><br>
+      　　对象权限是指数据库对象创建以后，通常只有创建它的拥有者才可以访问该对象。拥有者可以把对象的访问权限授予其他的合法的数据库用户，其他用户才能访问该数据库对象，这种权限称为对象权限。<br>
+      　　对象权限是指对表、视图、用户定义函数和存储过程等的操作权限。<br>
+      　　当在表或视图上授予对象权限时，对象权限列表可以包括下列这些权限中的一个或多个操作：SELECT、INSERT、DELETE、 UPDATE 、REFENENCES 
+      或 ALL。<br>
+      &nbsp;&nbsp;&nbsp;
+      在存储过程上授予的对象权限只可以包括执行存储过程权限 EXECUTE。<br>
+      &nbsp;&nbsp;&nbsp;
+      在标量值函数上授予的对象权限可以包括 EXECUTE 和 REFERENCES。<br>
+      &nbsp;&nbsp;&nbsp;
+      授予对象权限的语句格式如下：<br>
+      　　GRANT { ALL |对象权限1 [ ,...n ] }<br>
+      　　{ <br>
+      　　[ ( column [ ,...n ] ) ] ON { table | view }<br>
+      　　| ON { table | view } [ ( column [ ,...n ] ) ]<br>
+      　　| ON { stored_procedure | extended_procedure }<br>
+      　　| ON { user_defined_function }<br>
+     　　 } <br>
+      　　TO 用户1 [ ,...n ]<br>
+      　　[ WITH GRANT OPTION ] <br>
+      <img src="../../../img/text/liti.gif" width="35" height="36" alt="例题">例1，把对表student的所有操作权授予用户'张力'，如下描述： 
+      <br>
+      GRANT ALL ON student TO 张力;<br>
+      <img src="../../../img/text/liti.gif" width="35" height="36" alt="例题">例2，只把对表 
+      couse 的只读访问权授予用户'王红'，同时允许王红把此权限授予其他人： <br>
+      GRANT SELECT ON couse TO 王红<br>
+      WITH GRANT OPTION ;<br>
+      <img src="../../../img/text/liti.gif" width="35" height="36" alt="例题">例3，王红可再把此权限授予他人，如李立，李立无权将他得到的权限再授予其他人。 
+      <br>
+      GRANT SELECT ON couse TO 李立<br>
+      <img src="../../../img/text/liti.gif" width="35" height="36" alt="例题">例4，下例显示权限的优先顺序。首先给public 
+      角色授予 SELECT 权限。然后，将特定的权限授予用户 Mary、John 和 Tom。于是这些用户就有了对 authors 表的所有权限，如下描述： 
+      <br>
+      　　USE pubs<br>
+      　　GO <br>
+      　　GRANT SELECT ON authors TO public<br>
+      　　GO<br>
+      　　GRANT INSERT, UPDATE, DELETE ON authors TO Mary, John, Tom<br>
+      　　GO <br>
+      　　在数据库内部，SQL Server提供了权限作为访问权设置的最后一道关卡。当数据库对象刚刚创建完成，只有拥有者可以访问该数据库对象。任何其他用户想访问该对象必须首先获得拥有者赋予他们的权限。拥有者可以授权给指定的数据库用户，这种权限被称为对象权限。<br>
+      <img src="../../../img/text/liti.gif" width="35" height="36" alt="例题">例5，将对表dept的INSERT,UPDATE,DELETE权限授予用户'张力'，如下描述：<br>
+      　　GRANT INSERT, UPDATE, DELETE　ON dept TO 张力<br>
+      　　权限只能授予本数据库的用户，或者获准访问本数据库的其他数据库的用户。如果将权限授予了public角色，则所有数据库里面的所有用户都将默认为获得了该项权限。如果将权限授予了guest用户，则所有可以连接上服务器的用户都默认获得了该项权限。<br>
+      <!-- #EndEditable --></td>
+    <td width="10">　</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

@@ -1,0 +1,23 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgproperties=fixed bgcolor="#FFFFFF" background="../../../../image/moban/15.gif">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" height="44">
+        <tr> 
+          <td class="text" align="left"><span class="menu">��</span>事务的串行执行虽然实现简单，但效率不高，没有充分利用计算机的磁盘I/O和CPU的特性。以下理由足以使我们考虑事务的并发执行：<br>
+            ��<span class="part">⑴�提高系统的吞吐量：</span>一个事务由很多步骤组成，其中有些步骤涉及磁盘I/O，有些涉及CPU处理。计算机中CPU处理和磁盘I/O可以同时进行，利用二者的并行性，可以并发地执行多个事务：即一个事务在进行I/O操作的同时另一个事务在CPU上运行。这样系统的吞吐量--即单位时间内执行的事务数--就增加了，同时CPU和磁盘的利用率也提高了；<br>
+            ��<span class="part">⑵�减少事务的平均响应时间：</span>系统中运行着各种各样的事务，一些较长，一些较短。如果事务串行执行，那么短事务就不得不等待在它前面的长事务的漫长执行，从而导致难以预测的时间延迟！如果事务并发执行，就可以减少这种时间延迟，同时减少事务的平均响应时间--即一个事务从开始执行到完成所需要的平均时间。<br>
+            ��</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

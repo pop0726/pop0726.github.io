@@ -1,0 +1,68 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgproperties=fixed bgcolor="#FFFFFF" background="../../../../image/moban/15.gif">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" height="8">
+        <tr> 
+          <td height="2"><span class="text"> ��<span class="zhishidian">8.3.2　B<sup>+</sup>树索引的缺点</span><br>
+            ��虽然B+树的&quot;平衡&quot;(Balance)特征保证了B+树索引具有良好的查找、插入和修改的性能，但B</span><sup class="text">+</sup><span class="text">树索引也有以下缺陷：<br>
+            ��⑴�B</span><sup class="text">+</sup><span class="text">树索引结构会增加文件插入和删除处理的空间开销；<br>
+            ��⑵�B</span><sup class="text">+</sup><span class="text">树索引结构在极端情况下，结点（B</span><sup class="text">+</sup><span class="text">树索引的所有结点都有相同的结构）可以是半空的<img src="../../../../image/title/08/02.gif" width="29" height="14">到n，目的是为了保证性能)，这也将造成空间浪费。<br>
+            <br>
+            ��<span class="zhishidian">8.3.3　B<sup>+</sup>树上的查询</span><br>
+            ��如何利用B</span><sup class="text">+</sup><span class="text">树处理查询呢？我们首先给出利用B</span><sup class="text">+</sup><span class="text">树进行查询的普遍规则，然后再给出一个示例。假设要找出搜索码值为K的所有记录：<br>
+            ��⑴�首先检查根结点，找到大于K的最小搜索码值，假设是K<font size="-5">i</font>，然后沿着指针P<font size="-5">i</font>走道另一个结点；<br>
+            ��⑵�如果K&lt;K<font size="-5">1</font>，那么沿着指针P<font size="-5">1</font>走至另一个结点；<br>
+            ��⑶�如果以上两个条件都不符合且K≥K<font size="-5">m-1</font>，其中m是该结点的指针数，则沿着指针Pm走至另一个结点。以上三步的示意如下<span class="part">图8-3-6</span>所示；<br>
+            </span></td>
+        </tr>
+        <tr> 
+          <td class="text"> 
+            <div align="center" class="part"><img src="../../../../image/chapter/08/8-3-6.gif" width="420" height="77"><br>
+              图8-3-6：利用B<sup>+</sup>树进行查询要处理的三类指针</div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text">��⑷�对新到达的结点，重复以上步骤，最终到达一个叶结点。下<span class="part">图8-3-7</span>给出的是在account文件中查找branch-name为Perryridge的所有记录的过程（图中绿颜色箭头表示的过程）：<br>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text"> 
+            <div align="center" class="part"><img src="../../../../image/chapter/08/8-3-7.gif" width="420" height="158"><br>
+              图8-3-7：B<sup>+</sup>树上查询的示例<br>
+            </div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text">��<span class="zhishidian">8.3.4　B</span><span class="text"><span class="zhishidian"><sup>+</sup></span></span><span class="zhishidian">树的更新</span><br>
+            ��B<sup>+</sup>树的更新是一件很烦琐的事情，好在这一小节的内容已经在《数据结构》课程中讲过，希望大家认真复习一下学过的知识。<br>
+            <br>
+            ��<span class="zhishidian">8.3.5　B</span><span class="text"><span class="zhishidian"><sup>+</sup></span></span><span class="zhishidian">树文件组织</span><br>
+            ��<u>B<sup>+</sup>树文件组织</u>通过在叶结点层次来组织包含真实记录的物理块来解决索引顺序文件组织中随着文件的增大而性能下降的缺点。在B<sup>+</sup>树文件组织中，B<sup>+</sup>树结构不仅用做索引，同时也是文件中记录的组织者，树叶结点中存储的是记录（如<span class="part">图8-3-8</span>下面的叶结点所示）而不是指向记录的指针（如<span class="part">图8-3-8</span>上面的叶结点所示）。<br>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text">
+            <div align="center" class="part"><img src="../../../../image/chapter/08/8-3-8.gif" width="389" height="96"><br>
+              图8-3-8：B<sup>+</sup>树索引的叶结点和B<sup>+</sup>树文件组织的叶结点</div>
+          </td>
+        </tr>
+        <tr>
+          <td class="text">��<span class="menu">树结构的索引对范围检索是理想的，对等值检索的支持也很有效。B</span><sup class="menu">+</sup><span class="menu">树是动态的高度平衡的索引结构，它适于多变的数据特征。它主要解决了顺序索引随着数据文件的增大而性能下降和由于数据不断更新而带来的文件重组的问题。<br>
+            ��在SQL Server 7.0中采用标准的B树结构作为索引结构，而且它支持簇集的和非簇集的索引。在这种结构中，索引页一般分为三级：根级、中间级和叶级。对于簇集索引来说，它的叶级页就包含真正的数据页。对于非簇集索引来说，有以下两种情况：<br>
+            ��1、 如果数据文件上还有一个簇集索引，则非簇集索引的叶级页对应的就是相应簇集索引的搜索码值。要找到真正的记录，还必须根据叶级页的搜索码值再去查找簇集索引来得到真正的数据页；<br>
+            ��2、 如果数据文件上没有簇集索引，那么非簇集索引的叶级页对应的就是相应记录的行定位器，其格式是：File#: Page#: Slot#。<br>
+            ��</span></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

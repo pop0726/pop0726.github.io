@@ -1,0 +1,44 @@
+<html>
+<head>
+<title>l1</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center" height="8">
+        <tr> 
+          <td class="text"><br>
+            ��每个对象可用一组信息来唯一地标识它，这组信息包括：<br>
+            <br>
+            ����<span class="part">（名字、描述、一组&quot;资源&quot;、&quot;实现&quot;）</span><br>
+            <br>
+            ��对象的名字是一个字符串，它明确地标识对象。对象描述是一个表项，它包括：对象所表示的配置项类型（如文档、程序、数据）、项目标识、变更和／或版本信息。资源是&quot;由对象所提供的、处理的、引用的或其他所需要的一些实体&quot;。例如，数据类型，特定函数，甚至变量名都可以看做是对象资源。而&quot;实现&quot;对于一个基本对象来说，是指向&quot;文本单元&quot;的指针，而对于复合对象来说，则为NULL（空）。<br>
+            <br>
+            ��配置对象的标识还必须考虑在命名对象之间存在的联系。一个对象可以是一个复合对象的一个组成部分，用联系 &lt;part of&gt; 
+            进行标识。这个联系定义了对象的层次。例如，使用记号：<br>
+            �����E-R diagram 1.4 &lt;part of&gt; data model;<br>
+            �����data model &lt;part of&gt; Design Specification;<br>
+            <br>
+            ��就可以建立SCI的一个层次。<br>
+            <br>
+            ��在对象层次中，对象间的联系不仅存在于层次树的路径中，而且可跨越对象层次的分支相互关联。例如，数据模型与数据流图是相互关联的，而且它又与一个特定等价类的测试用例组相互关联。这些交叉的结构联系可用如下方式表达：<br>
+            <br>
+            　　 　data model &lt;interrelated&gt; data flow model;<br>
+            　　　 data model &lt;interrelated&gt; test case class m;<br>
+            <br>
+            ��第一句描述了两个复合对象之间的相互联系，第二句描述了一个复合对象（data model）与一个基本对象（test case class 
+            m）之间的相互联系。<br>
+            <br>
+            ��配置对象间的相互联系可以使用模块互连语言（Model Interconnection Language，MIL）来表达。MIL描述了配置对象中的相互依赖，可自动构造系统的任意版本。<br>
+            ��</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

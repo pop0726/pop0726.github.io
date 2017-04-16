@@ -1,0 +1,82 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" -->　<span class="biaoti_1">4. SQL中表达式使用的聚合函数 
+      </span><br>
+      　(1) SQL允许对列值进行统计，也可以按给定的条件对关系元组进行分组，再对每个组进行统计操作。<br>
+      　◆ COUNT([DISTINCT�OALL ]&lt;列名&gt;)：统计某个列中值的个数（计数）<br>
+      　◆ COUNT(([DISTINCT�OALL]*)：统计满足条件的元组个数。<br>
+      　◆ SUM([DISTINCT�OALL]&lt;列名&gt;)：对某个列的值求和<br>
+      　◆ MIN ([DISTINCT�OALL]&lt;列名&gt;)：求某个列的最小值<br>
+      　◆ MAX ([DISTINCT�OALL]&lt;列名&gt;)：求某个列的最大值<br>
+      　◆ AVG ([DISTINCT�OALL]&lt;列名&gt;)：求某个列的平均值<br>
+      　　<font color="#5a5aad">其中：<br>
+      　　DISTINCT：表示计算时要取消指定列中的重复值。<br>
+      　　ALL： 指所有的值。缺省为ALL</font><br>
+      .<br>
+      　(2) 使用聚合函数查询，统计某个列中值的个数<br>
+      　　例如1，查询学生的总人数，<br>
+      　　　SELECT COUNT(*)<br>
+      　　　FROM student；<br>
+      　　例如2，查询选修了课程的学生总人数，<br>
+      　　　SELECT COUNT(DISTINCT sno)<br>
+      　　　FROM sc； 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+        <tr> 
+          <td width="35" valign="top"><img src="../../../img/text/liti.gif" width="35" height="36" alt="例题"></td>
+          <td>　例2<br>
+            　　　<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="320" height="240">
+              <param name=movie value="../../../swf/ch4/4-6.swf">
+              <param name=quality value=high>
+              <param name="wmode" value="transparent">
+              <embed src="../../../swf/ch4/4-6.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="320" height="240" wmode="transparent">
+              </embed> 
+            </object><br>
+            　<font color="#5a5aad">只有出现在GROUP By子句中的属性才能与聚合操作并列出现在SELECT子句中。</font></td>
+        </tr>
+      </table>
+      <b><br>
+      <span class="pt9-black">　　(3) 使用聚合函数查询，求列的最大最小值<br>
+      </span></b> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td valign="top" width="35"><img src="../../../img/text/liti.gif" width="35" height="36" alt="例题"></td>
+          <td><b><span class="pt9-black">　例1<br>
+            　　　<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="320" height="200">
+              <param name=movie value="../../../swf/ch4/4-7.swf">
+              <param name=quality value=high>
+              <param name="wmode" value="transparent">
+              <embed src="../../../swf/ch4/4-7.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="320" height="200" wmode="transparent">
+              </embed> 
+            </object></span></b></td>
+        </tr>
+      </table><!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

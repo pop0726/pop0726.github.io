@@ -1,0 +1,112 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgproperties=fixed bgcolor="#FFFFFF" background="../../../../image/moban/15.gif">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" height="305">
+        <tr> 
+          <td class="text" align="left" height="2">&nbsp; </td>
+        </tr>
+        <tr> 
+          <td class="text" align="center"><span class="part">图3-1-3：关系模型与程序设计语言中数据类型的类比</span><br>
+            <br>
+            <img src="../../../../image/chapter/03/3-1-3.gif" width="420" height="261"> 
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left"> 
+            <p>��Account-schema = (branch-name, account-number, balance)而用account(Account-schema)表示account是Account-schema上的关系。在这里，关系account就相当于关系模式Account-schema的一个变量。所谓的数据库模式就是指类似Account-schema的定义。<br>
+              ��作为一个例子，先看一看关系branch，它的关系模式为：<br>
+              Branch-schema = (branch-name, branch-city, assets)，关系branch的具体内容如<span class="part">图3-1-4</span>所示：</p>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left"> 
+            <div align="center"><span class="part">图3-1-4：关系branch(Branch-schema) 
+              </span><br>
+              <img src="../../../../image/chapter/03/3-1-4.gif" width="420" height="241"> 
+            </div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left">值得注意的是，属性branch-name既在模式Branch-schema中出现，又在Account-schema中出现。这样的重复非常重要，实际上，在关系模式中使用相同的属性正是将不同关系的元组联系起来的一种方法。<br>
+            ��为了今后讲课方便，我们把与银行有关的其他关系介绍如下，并且给出每个关系的具体内容。首先是关系<br>
+            customer(Customer-schema)：<br>
+            Customer-schema = (customer-name, customer-street, customer-city)<br>
+            需要说明的是：为了举例方便，这里假设属性customer-name是主码，而不像前面那样使用social-security属性。</td>
+        </tr>
+        <tr> 
+          <td class="text" align="left" height="179"> 
+            <div align="center"><span class="part">图3-1-5：关系customer(Customer-schema) 
+              </span><br>
+              <img src="../../../../image/chapter/03/3-1-5.gif" width="420" height="251"> 
+            </div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left">关系depositor(Depositor-schema)：<br>
+            Depositor-schema = (customer-name, account-number)</td>
+        </tr>
+        <tr> 
+          <td class="text" align="left"> 
+            <div align="center"><span class="part">图3-1-6：关系depositor(Depositor-schema)</span><br>
+              <img src="../../../../image/chapter/03/3-1-6.gif" width="420" height="210"> 
+            </div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left">关系loan(Loan-schema)：<br>
+            Loan-schema = (branch-name, loan-number, amount)</td>
+        </tr>
+        <tr> 
+          <td class="text" align="left"> 
+            <div align="center"><span class="part">图3-1-7：关系loan(Loan-schema) 
+              </span><br>
+              <img src="../../../../image/chapter/03/3-1-7.gif" width="417" height="262"> 
+            </div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left">关系borrower(Borrower-schema)：<br>
+            Borrower-schema = (customer-name, loan-number)</td>
+        </tr>
+        <tr>
+          <td class="text" align="left">
+            <div align="center"><span class="part">图3-1-8：关系borrower(Borrower-schema) 
+              </span><br>
+              <img src="../../../../image/chapter/03/3-1-8.gif" width="391" height="264"> 
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="text" align="left">��总之，根据<span class="part">图3-1-1</span>和在<u>第二章的2.9节</u>讲述的基于E-R图将E-R模式转换为表的规则，我们得到了如下的关系模式：<br>
+            Customer-schema = (customer-name, customer-street, customer-city)<br>
+            Account-schema = (branch-name, account-number, balance)<br>
+            Depositor-schema = (customer-name, account-number)<br>
+            Branch-schema = (branch-name, branch-city, assets)<br>
+            Loan-schema = (branch-name, loan-number, amount)<br>
+            Borrower-schema = (customer-name, loan-number)<br>
+          </td>
+        </tr>
+        <tr>
+          <td class="text" align="left">
+            <div align="center"><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="400" height="400">
+                <param name=movie value="../../../../swf/F3_1.swf">
+                <param name=quality value=high>
+                <param name="wmode" value="transparent">
+                <embed src="../../../../swf/F3_1.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="32" height="32" wmode="transparent">
+                </embed> 
+              </object></div>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgproperties=fixed bgcolor="#FFFFFF" background="../../../../image/moban/15.gif">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td class="text" align="left"> 
+            <p>��作为一个例子，看一看实体集loan和实体集payment，后者记载同某笔贷款相联系的所有付款信息：payment实体集通过属性payment-number、payment-date和payment-amount来描述。在这两个实体集间建立一个联系集loan-payment，该联系集从loan到payment是一对多的。每个payment实体必须同一个loan实体相联系。如果一个loan实体被删除，那么所有与之相联系的payment实体也必须删除。相反，从数据库中删除payment实体却可以不影响任何一个loan实体。因此，实体集payment的实体存在依赖于实体集loan中的实体。<br>
+              ��如果实体集E中的每个实体都参与到联系集R的至少一个联系中，称实体集E<b>全部参与</b>联系集R。相反，如果实体集E中只有部分实体参与到联系集R的至少一个联系中，称实体集E<b>部分参与</b>联系集R。全部参与同存在依赖紧密相关。例如，由于每个payment实体必须通过loan-payment联系集中的联系同某个loan实体相联系，因而实体集payment全部参与联系集loan-payment。<br>
+              <br>
+              <span class="menu">��鸟无头不飞，人无头不走（否则就是无头僵尸），同样的，一些实体离开了另外一些实体就无法存在，这就是我们所说的存在依赖。被依附的实体称为支配实体，依附于别的实体的实体称为从属实体。</span></p>
+          </td>
+        </tr>
+        <tr>
+          <td class="text" align="left">
+            <div align="center"><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="400" height="400">
+                <param name=movie value="../../../../swf/F2_4.swf">
+                <param name=quality value=high>
+                <param name="wmode" value="transparent">
+                <embed src="../../../../swf/F2_4.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="32" height="32" wmode="transparent">
+                </embed> 
+              </object></div>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgproperties=fixed bgcolor="#FFFFFF" background="../../../../image/moban/15.gif">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td class="text" align="left"> 
+            <p>��假设primary-key(Ei)代表构成实体集Ei主码的属性集合(在这里，假设所有主码的属性名是唯一的)。不管联系集R有没有自己的属性，对于R的每一个联系(e1,e2,…,en)来说，都可以用如下的属性集合来描述它：<br>
+              ��<span class="part">primary-key(E1)∪primary-key(E2)∪…∪primary-key(En)</span><br>
+              因此，上述属性集合就构成了联系集R的一个超码。<br>
+              ��联系集的主码结构依赖于它的映射基数。在多对多的联系集中，它的主码是由参与联系集的所有实体集的主码构成；在一对多(包括多对一)的联系集中，它的主码是由&quot;多&quot;的那一方的实体集主码构成；而对于一对一的联系集，可以使用参与联系集的任何一个实体集的主码作为联系集的主码。如<span class="part">图2-4-1</span>所示，假设customer和account之间的联系集depositor是&quot;一对多&quot;的，则account的主码就是depositor的主码，因为，一个帐号只能对应一个客户。如果联系集depositor是&quot;多对多&quot;的，则depositor的主码就是由customer的主码和account的主码共同构成。<br>
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td class="text" align="left">
+            <div align="center" class="part">图2-4-1：联系集的主码<br>
+              <img src="../../../../image/chapter/02/2-4-1.gif" width="420" height="121"> 
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="text" align="left">��<span class="menu">毫无疑问，我们也要区分联系集中的不同联系。实体集有主码，那么联系集有没有码呢？有，答案是肯定的。联系集的码是借用该联系集所涉及的实体集的主码来区分联系集中的联系的，也就是说当实体集的主码确定了以后，联系集的码也就确定了。而联系集的主码结构与联系集的映射基数密切相关。</span></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

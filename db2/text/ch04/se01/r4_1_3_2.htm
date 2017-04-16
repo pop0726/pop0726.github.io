@@ -1,0 +1,56 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" --><span class="pt9-black">　</span><span class="biaoti_1">3.日期/时间类型</span><span class="pt9-black"><br>
+      　　<font color="#cc0000">日期和时间数据类型由有效的日期或时间组成。例如，有效日期和时间数据既包括&quot;4/01/98 
+      12:15:00:00:00 PM&quot;，也包括&quot;1:28:29:15:01 AM 8/17/98&quot;。在 Microsoft 
+      SQL Server 2000 中，日期和时间数据使用 datetime 和 smalldatetime 数据类型存储。<br>
+      　・ 使用datetime数据类型存储从1753年1月1日至9999年12月31日的日期（每个数值要求8个字节的存储空间）。<br>
+      　　SQL Server用两个4字节的整数内部存储datetime数据类型的值。第一个4字节存储base date（即1900年1月1日）之前或之后的天数。基础日期是系统参考日期。不允许早于1753年1月1日的datetime值。另外一个4字节存储以午夜后毫秒数所代表的每天的时间。精确度为百分之三秒。即使用datetime的数据的尾数总会被调整为靠近尾数的000、003或007。<br>
+      　　例如：01/01/98 23:59:59.999 会被调整为1998-01-02 00:00:00.000<br>
+      　・ 使用 smalldatetime 数据类型存储从 1900 年 1 月 1 日至 2079 年 6 月 6 日的日期（每个数值要求 4 个字节的存储空间）。<br>
+      　　smalldatetime数据类型存储日期和每天的时间，但精确度低于datetime。SQL Server将 smalldatetime的值存储为两个2字节的整数。第一个2字节存储1900年1月1日后的天数。另外一个2字节存储午夜后的分钟数。日期范围从1900年1月1日到2079年6月6日，精确到分钟。29.998秒或更低的smalldatetime值向下舍入为最接近的分钟，29.999秒或更高的 
+      smalldatetime值向上舍入为最接近的分钟。例如12:35:29.998会变为12:35，而12:35:29.999会变为12:36。</font><br>
+      </span><span class="biaoti_2"><br>
+      </span><span class="biaoti_1">　4.字符数据类型：<br>
+      </span><span class="pt9-black"> 　　<font color="#cc0000">大多数情况下存储结构会用字符类型定义。因为字符类型比其它数据类型可以存储更广泛的符号，它可以用来存储字母符号、数字符号、以及各种特殊字符。<br>
+      　・ CHAR(n) ：n个字节，具体值由n决定。<br>
+      　　CHAR类型存储的每一个字符占用一个字节，括号内的n指明了要存储长度为n个字节的固定长度且非Unicode的字符数据。n必须是一个介于1和8,000之间的数值。存储大小为n个字节。如果实际输入不足n个字节，SQL 
+      Server会自动在后面添加空格来填满设定的空间。<br>
+      　・ NCHAR(n) ：2n个字节。具体值由n决定。<br>
+      　　nchar(n)包含 n 个字符的固定长度Unicode字符数据。n 的值必须介于 1 与 4,000 之间。存储大小为 n 字节的两倍。由于unicode采用两个字节表示一个字符，所以存储相同长度的字符，nchar所占的空间是char(n)的两倍。<br>
+      　・ varchar(n)：最大为n个字节。<br>
+      　　最大长度为 n 个字节的可变长度且非 Unicode 的字符数据。n 必须是一个介于 1 和 8,000 之间的数值。存储大小为输入数据的字节的实际长度，而不是 
+      n 个字节。所输入的数据字符长度可以为零。一般情况下，使用varchar(n)可以节省不少使用空间。<br>
+      　・ Nvarchar(n)：最大为2n个字节。<br>
+      　　包含 n 个字符的可变长度 Unicode 字符数据。n 的值必须介于 1 与 4,000 之间。字节的存储大小是所输入字符个数n的两倍。所输入的数据字符长度可以为零。</font></span><br>
+      <!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

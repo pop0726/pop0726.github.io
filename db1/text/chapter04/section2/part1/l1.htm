@@ -1,0 +1,53 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body  bgcolor="#FFFFFF" bgproperties=fixed background="../../../../image/moban/15.gif">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" height="80">
+        <tr> 
+          <td class="text" align="left"> 
+            <p><span class="part">1、select子句</span><br>
+              ��SQL查询语句的结果也是一个关系，例如：<br>
+              ��Select <i>branch-name</i> from <i>loan</i><br>
+              找出了关系loan中所有分支机构的名称。<br>
+              ��关系代数中基于关系是一个集合这样的数学概念，因此，重复的元组不会在关系中出现。但在实践当中，要删除查询结果中的重复元组是相当费时的！所以在商用数据库产品中，允许在关系和SQL表达式的结果中出现重复元组。对于select子句，还需要特别注意以下事情：<br>
+              ��⑴�是否要去除结果中的重复元组可以选用all和distinct选项，例如：<br>
+              select [all | distinct] <i>branch-name</i> from <i>loan</i><br>
+              其中all表示保留所有重复元组，而distinct表示要去掉重复元组；<br>
+              ��⑵�可以用*代替关系中的所有属性，如loan.*或*：<br>
+              select * from<i> loan</i><br>
+              ��⑶�select子句中还可以出现算术表达式，这与关系代数中的广义投影运算对应：<br>
+              select <i>branch-name</i>, <i>loan-number, amount*100 </i>from <i>loan</i><br>
+              <br>
+              <span class="part">2、where子句先</span><br>
+              ��从一个例子开始，例如：<br>
+              select <i>loan-number</i> from <i>loan</i><br>
+              where <i>branch-name</i> = &quot;Perryridge&quot; and <i>amount</i>&gt;1200<br>
+              这个SQL语句的含义是什么呢？请大家自己思考。<br>
+              ��需要注意的是where子句中的逻辑运算符使用and、or和not，而不是∧、∨和?。比较运算符有&lt;、&lt;=、&gt;、&gt;=、=和&lt;&gt;。<br>
+              <br>
+              <span class="part">3、from子句</span><br>
+              ��from子句本身定义了子句中关系的笛卡尔积。由于自然连接是用笛卡尔积、选择和投影来定义的，因此为自然连接写SQL表达式还是相对简单的。例如：<br>
+              关系代数表达式：Π<font size="-5">customer-name, loan-number</font>(<i>borrower��loan</i>)对应的SQL表达式如下所示：<br>
+              select <i>customer-name</i>,<i> borrower.loan-number</i><br>
+              from <i>borrower, loan</i><br>
+              where <i>borrower.loan-number = loan.loan-number<br>
+              </i><br>
+              <span class="part">4、order by子句</span><br>
+              ��用order by子句对查询的结果进行排序，具体的语法格式如下：order by 属性名 [asc | desc][,属性名 
+              [asc | desc], ...]例如：<br>
+              select * from <i>loan</i><br>
+              order by <i>amount</i> desc, <i>loan-number</i></p>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

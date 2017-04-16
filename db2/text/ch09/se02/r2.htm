@@ -1,0 +1,60 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" --> 
+      <p><span class="biaoti_1">　1. ROLAP的特点：</span><br>
+        　　在ROLAP中，可以根据应用的需要有选择地定义一批实视图，作为表存于关系数据库中。 <br>
+        　　ROLAP监视数据仓库的数据访问情况，对实视图进行动态调整。DBA也可进行人工干预。<br>
+        　　实视图在ROLAP中对用户是透明的，用户可像查询关系数据库一样查询数据仓库。<br>
+        <br>
+        <span class="biaoti_1">　2. MOLAP的特点：</span><br>
+        　　在MOLAP中，不但把多维实视图在概念上看成一个超立方体，而且在物理上把多维实视图组成一个多维数据库，而不像ROLAP那样，以表的形式存储实视图。<br>
+        <br>
+        　　在MOLAP中，维的属性值被映射成多维数组的下标值或下标的范围，而总结数据作为多维数组的值存储在数据的单元中。维可以看作为自变量，总结数据称为因变量。自变量相当于关系中的主关键字，由多个维组成，总结数据是由自变量的值决定的。 
+        <br>
+        <br>
+        　　ROLAP在节省存储空间、灵活性、与关系数据库保持一致等方面有明显的优势；MOLAP则在性能和管理的简便性方面有其优点。虽然MOLAP的查询速度比较快，但是在实现时也有下面3方面的限制：<br>
+        　(1) 用多维数组实现多维实视图，需要很大的存储空间。在实际的数据仓库中，每维的属性值个数可达数万，乃至更多。例如几万种产品、几万个连锁店等。而实际的维数可能多达几十乃至几百。耗费的存储空间相当可观，由此带来加载、维护等问题。<br>
+        　(2) 在多维数组中，很可能有些单元是空白的，例如节假日商店不营业；某些产品在某些地区不销售等 <br>
+        　(3) MOLAP与关系数据库系统从存储结构到查询语言都有相当大的差别，不可能在RDBMS的基础上实现。<br>
+        <br>
+        <span class="biaoti_1">　3. HOLAP的特点：</span><br>
+        　　以HOLAP格式存储的立方体，要比以MOLAP格式存储的立方体小，在查询总结数据时，又比ROLAP快。<br>
+        　　HOLAP存储格式一般比较适合于需要对总结数据的查询有较快的响应时间，同时基数据的量又比较大的场合。</p>
+      <p align="center"><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="400" height="200">
+          <param name=movie value="../../../swf/ch9/9.swf">
+          <param name=quality value=high>
+          <param name="wmode" value="transparent">
+          <embed src="../../../swf/ch9/9.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="400" height="200" wmode="transparent">
+          </embed> 
+        </object></p>
+      <!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

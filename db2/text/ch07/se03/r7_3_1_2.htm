@@ -1,0 +1,76 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" --><span class="biaoti_1">　2 读脏数据 </span><br>
+      <br>
+      　　如图7-8所示，事务T1和T2并发执行，产生读脏数据的情况。<br>
+      ��<span class="explaination">在图7-8中，T1对某元组t的两个属性x，y进行更新，T2并发地读取 t[x]和t[y]，x在更新之前读，y在更新之后读，这样所读得的值既不反映 
+      t 更新前的状态，也不反映 t更新后的状态，是不一致的数据。不一致的数据是错误的数据，称为脏数据。</span><br>
+      <br>
+      　　<span class="tubiaoti">图7-8 读脏数据</span><br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td> 
+            <div align="center"><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="400" height="320">
+                <param name=movie value="../../../swf/ch7/7.swf">
+                <param name=quality value=high>
+                <param name="wmode" value="transparent">
+                <embed src="../../../swf/ch7/7.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="400" height="320" wmode="transparent">
+                </embed> 
+              </object> </div>
+          </td>
+        </tr>
+      </table>
+      ��可能会读到脏数据的另一种情况：当T2计算某种聚集函数(例如AVG)时，要用到多个元组的某一属性值(例如工资属性值)，如果T1并发地修改工资值，则 
+      T2 在计算平均工资时，有些可能是使用了修改前的工资值，有些可能是使用了修改后的工资值，这也是一种不一致性的情况。<br>
+      ��读脏数据问题是由于一个事务读另一个更新事务尚未提交的数据所引起的，这称为&quot;读－写冲突&quot;。<br>
+      <br>
+      <br>
+      <span class="biaoti_1">3�读值不可复现</span><br>
+      ��如图7-9所示，事务T1和T2并发执行，产生读值不可复现的情况。<br>
+      <br>
+      　　<span class="tubiaoti">图7-9 产生读值不可复现</span><br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td align="center"> <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="400" height="300">
+              <param name=movie value="../../../swf/ch7/8.swf">
+              <param name=quality value=high>
+              <param name="wmode" value="transparent">
+              <embed src="../../../swf/ch7/8.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="400" height="300" wmode="transparent">
+              </embed> 
+            </object> </td>
+        </tr>
+      </table>
+      ��在图7-9中，T1两次读x值，本来T1两次读出的x值应该是一样的，但如果在两次读之间，另一个与T1并发执行的事务T2修改了x，则T1两次读出的x值可能就不同。读值不可复现也是由&quot;读－写冲突&quot;所引起的。<br>
+      ��显然，只有两个读进程并发执行不会引起麻烦，完全可以并行执行，这称情况为读-读情况。<br>
+      ��并发控制的任务就是避免访问冲突所引起的数据不一致。数据库管理系统一般都提供并发控制机制。即采用对资源加锁的方法控制用户并发操作。<br>
+      <!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

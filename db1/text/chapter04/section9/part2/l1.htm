@@ -1,0 +1,45 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgproperties=fixed bgcolor="#FFFFFF" background="../../../../image/moban/15.gif">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" height="157">
+        <tr> 
+          <td class="text" align="left" height="2"> 
+            <p><span class="part">1、插入一个常量元组</span><br>
+              insert into account values (&quot;Perryridge&quot;, &quot;A-973&quot;, 
+              1200)<br>
+              在这里需要注意的是：<br>
+              ��①插入元组的属性值必须在相应的属性域中；<br>
+              ��②插入元组的分量个数也必须是正确的；<br>
+              ��③元组值的排列顺序必须和有关关系模式中的属性相对应，否则应该明确指明关系中属性的顺序，例如：<br>
+              insert into<br>
+              <i>account(account-number, branch-name, balance)</i><br>
+              values (&quot;A-973&quot;, &quot;Perryridge&quot;, 1200)<br>
+              <br>
+              <span class="part">2、插入一组元组</span><br>
+              insert into account <br>
+              ���select <i>branch-name, loan-number</i>, 200 <br>
+              ���from <i>loan</i> <br>
+              ���where <i>branch-name</i> = &quot;Perryridge&quot;<br>
+              在这里select语句首先被执行，然后才执行插入操作，否则就会插入无数元组，例如：<br>
+              insert into <i>account</i> select * from <i>account</i><br>
+              用关系代数表达插入就是rr∪E（参阅第三章&quot;关系模型&quot;的3.5.2小节），因此，在这里特别要注意元组被处理的顺序！<br>
+              <br>
+              <span class="part">3、在常量元组中使用空值null：</span><br>
+              insert into account values (<i>null</i>, &quot;A-401&quot;, 1200)<br>
+              关于空值<i>null</i>的使用在后面的4.11.1小节中还会有更详细的说明。<br>
+            </p>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

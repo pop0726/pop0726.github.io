@@ -1,0 +1,57 @@
+<html><!-- #BeginTemplate "/Templates/r.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css"><STYLE TYPE="text/css">
+<!--
+BODY {background-image:  url(../../../img/text/bg.jpg);
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../img/text/bg.jpg" > 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pt9-black">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td> <!-- #BeginEditable "1" --><span class="pt9-black">　　(4) 使用聚合函数查询，查询结果分组<br>
+      </span>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td valign="top" width="35"><img src="../../../img/text/liti.gif" width="35" height="36" alt="例题"></td>
+          <td><font size="+7"><b><font size="+7"><b><font color="#FF0000"><span class="pt9-black">　例2<br>
+            　　<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="320" height="280">
+              <param name=movie value="../../../swf/ch4/4-8.swf">
+              <param name=quality value=high>
+              <param name="wmode" value="transparent">
+              <embed src="../../../swf/ch4/4-8.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="320" height="280" wmode="transparent">
+              </embed> 
+            </object></span></font></b></font></b></font></td>
+        </tr>
+      </table>
+      <font size="+7"><b><font color="#FF0000"></font><font size="+7"><b><font color="#FF0000"><br>
+      </font></b></font><font color="#FF0000"><span class="pt9-black">　　(5) 聚合查询示例，对列的值进行求和<br>
+      　　例如，查询学分不到20分的学生的学号和学分总数。<br>
+      　　　SELECT 学号，SUM(credit)<br>
+      　　　FROM SC，COURSE<br>
+      　　　WHERE grade &gt;= 60 AND grade NOT NULL<br>
+      　　　AND SC.cno = COURSE.cno <br>
+      　　　GROUP BY 学号<br>
+      　　　HAVING SUM(credit) &lt; 20<br>
+      </span> </font></b></font><!-- #EndEditable --></td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

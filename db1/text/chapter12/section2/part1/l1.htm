@@ -1,0 +1,35 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body  bgcolor="#FFFFFF" bgproperties=fixed background="../../../../image/moban/15.gif">
+<table width="100%" border="0" cellspacing="0" cellpadding="0"> <tr> <td align="center" valign="top"> 
+<table width="92%" border="0" cellspacing="0" cellpadding="0" height="18"> <tr> 
+<td class="text" height="89"> <p><span class="part">1、C/S系统的硬件结构</span><br> ��客户/服务器系统的硬件结构一般如<span class="part">图12-2-1</span>所示：<br> 
+</p></td></tr> <tr> <td class="text" height="2" valign="top"> <div align="center" class="part">图12-2-1：C/S系统的硬件结构<br> 
+<img src="../../../../image/chapter/12/12-2-1.gif" width="450" height="170"> </div></td></tr> 
+<tr> <td class="text" height="62"> 这样的硬件结构可以出现在局域网（LAN--Local Area Network）中，也可以出现在广域网（WAN--Wide 
+Area Network）中。<br> <br> <span class="part">2、DBMS的功能分解</span><br> ��DBMS的能分解如<span class="part">图12-2-2</span>所示：<br> 
+</td></tr> <tr> <td class="text" height="87"> <div align="center"><span class="part">图7-2-2：删除记录2之后的文件</span><br> 
+<img src="../../../../image/chapter/07/7-2-2.gif" width="320" height="312"> </div></td></tr> 
+<tr> <td class="text" height="1">��⑵�删除一条记录时，将文件的最后一条记录移动到被删记录的位置即可；而插入一条记录则始终在文件的尾部进行。<span class="part">图7-2-3</span>显示的是删除<span class="part">图7-2-1</span>中的记录2之后的文件情况。<br> 
+</td></tr> <tr> <td class="text" height="2"> <div align="center"><span class="part">图12-2-2：DBMS的能分解</span><br> 
+<img src="../../../../image/chapter/12/12-2-2.gif" width="420" height="197"> </div></td></tr> 
+<tr> <td class="text" height="2">��⑶�删除一条记录时，并不着急移动记录，而是将其空间加入空闲记录列表；当要插入记录时，就使用空闲记录列表中的记录空间，如果没有空闲空间就插入到文件的尾部，<span class="part">图7-2-4</span>显示了具有空闲记录列表的account记录文件。<br> 
+</td></tr> <tr> <td class="text" height="2"> <div align="center"><span class="part">图7-2-4：具有空闲记录列表的account记录文件 
+</span><br> <img src="../../../../image/chapter/07/7-2-4.gif" width="353" height="270"> 
+</div></td></tr> <tr> <td class="text" height="2">它的前端即客户端由SQL用户界面、表格生成工具、报表生成工具和图形化界面组成。它的后端即服务器端，也就是SQL引擎，由DBMS的存取结构、查询计算与优化、事务处理、并发控制和故障恢复等组成。客户端和服务器端的接口可以是访问数据库的标准语言SQL，也可以是访问服务器端的应用编程接口API（Application 
+Programming Interface）。<br> <br> <span class="part">3、DBMS服务器</span><br> ��在C/S体系结构下，DBMS的服务器分为事务服务器和数据服务器两类。事务服务器也称作查询服务器。它提供一个接口，使得客户可以发出执行一动作的请求，服务器响应客户的请求，执行该动作，并将结果返回给用户；数据服务器可以使客户向服务器发出请求，以文件或页面等为单位访问数据。<br> 
+��⑴�事务服务器客户将事务送给服务器，由服务器来执行事务并把结果返回给客户，由客户负责数据的显示。客户和服务器之间的接口已有一些标准，如开放数据库互连，即ODBC标准。它是一个应用编程接口(API)，凡使用这种接口的任何客户都可以与提供ODBC接口的任何DBMS服务器连接。<br> 
+��⑵�数据服务器数据服务器的工作方式就像文件服务器一样：提供文件系统界面，使客户能够创建、读取、更新、删除文件。它主要用于局域网中，客户与服务器之间高速连接。通常的做法是：将数据送到客户端，在客户端进行所有的处理，然后再把数据传回服务器。在这种结构下需要将DBMS后端的所有功能都放到客户端。<br> 
+<br> <span class="part">4、海量存储系统</span><br> ��数据服务器的实质是用一台功能强大的计算机来存储数据，而把DBMS的功能都集中在同样是功能强大的客户端。随着实际应用的数据量越来越大，如证券交易数据、移动电话通信数据、地理信息系统的地理数据等，数据服务器的应用也越来越广泛。而且随着计算机存储技术的发展，大容量的存储设备和存储技术已经十分成熟，存储上述大量数据的系统也称为海量存储系统。目前海量存储系统都采用存储区域网络（SAN--Storage 
+Area Network）的结构，它的一般结构如<span class="part">图12-2-3</span>所示：<br> </td></tr> <tr> 
+<td class="text" height="2"> <div align="center" class="part">图12-2-3：SAN的典型结构示意图<br> 
+<img src="../../../../image/chapter/12/12-2-3.gif" width="420" height="181"> </div></td></tr> 
+<tr> <td class="text" height="1">在<span class="part">图12-2-3</span>中，将存储海量数据的磁盘阵列与DBMS服务器在物理上隔离开来，它们之间通过高速的光交换机通信，因而也就不存在什么通信瓶颈的问题。而作为备份设备的磁带库一般不能与光交换机直接连接，它还必须通过一个桥接器才能把光交换机的光接口和磁带库的SCSI接口连通。这样把大量数据集中在像磁盘阵列这样的存储设备上集中管理的方案越来越被人们认可，目前许多因特网数据中心IDC（Internet 
+Data Center）都采用这样的存储方案。</td></tr> <tr> <td class="text" height="1"> <div align="center"><img src="../../../../swf/f12_2.jpg" width="400" height="400"></div></td></tr> 
+</table></td></tr> </table>
+</body>
+</html>

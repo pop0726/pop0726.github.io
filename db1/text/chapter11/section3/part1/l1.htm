@@ -1,0 +1,44 @@
+<html>
+<head>
+<title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body  bgcolor="#FFFFFF" bgproperties=fixed background="../../../../image/moban/15.gif">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" height="80">
+        <tr> 
+          <td class="text" align="left"> 
+            <p>&nbsp;</p>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left"> 
+            <div align="center" class="part">图11-3-1：调度中事务的可串行化次序与锁的关系<br>
+              <img src="../../../../image/chapter/11/11-3-1.gif" width="269" height="277"> 
+            </div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" align="left"> <span class="part">1、基本概念</span><br>
+            ��⑴�对于系统中的每个事务T，把一个唯一固定的时间戳和事务T联系起来。时间戳就是一个时间标志，该时间标志是在事务T开始执行前由DBMS的并发控制管理器赋予的，记为TS(T)。<br>
+            ��⑵�时间戳有大小（先后）之分：若事务T<font size="-5">i</font>先于事务Tj进入系统，那么：TS(T<font size="-5">i</font>) 
+            &lt; TS(T<font size="-5">j</font>)。<br>
+            <span class="part">2、实现方式</span><br>
+            ��⑴�使用系统时钟值作为时间戳：事务进入系统时的时钟值就是该事务的时间戳；<br>
+            ��⑵�使用逻辑计数器：即该事务进入系统时的计数器值。每赋予一个时间戳，计数器就自动增加一次。<br>
+            3、两个重要的时间戳<br>
+            ��在时间戳机制中，每个数据项Q需要和以下两个重要的时间戳相关联：<br>
+            ��⑴�W-TS(Q)：表示当前已成功执行write(Q)的所有事务的最大时间戳；<br>
+            ��⑵�R-TS(Q)：表示当前已成功执行read(Q)的所有事务的最大时间戳。<br>
+            每当有新的read(Q)或write(Q)指令成功执行，这两个时间戳就被更新。<br>
+            ��事务的时间戳决定了调度中事务串行化的顺序，即，若TS(T<font size="-5">i</font>)&lt;TS(T<font size="-5">j</font>)，则DBMS必须保证所产生的调度等价于T<font size="-5">i</font>出现在T<font size="-5">j</font>之前的某个串行调度。</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>
