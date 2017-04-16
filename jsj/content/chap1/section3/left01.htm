@@ -1,0 +1,72 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第一章 计算机系统结构的基本概念</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><span class="pt9-black"><br>
+            </span><span class="section">1.3　系统结构的评价标准</span></p>
+          <p align="left"><span class="pt9-black">　　评价一个计算机系统结构好坏的标准是什么？我们可以用速度、程序和数据的容量、功耗、体积、编程的难易程度、成本等指标来评价。其中最重要的是性能和成本这两个指标。</span></p>
+          <p align="left"><span class="pt9-black"><b class="part">1．3．1性能</b></span></p>
+          <p align="left" class="pt9-black"><b>1. 主要标准</b><br>
+            　　时间是衡量计算机性能的标准。同样的工作量，花费时间越少的速度就越快。程序的执行时间以秒数记，所以越少的时间代表着越好的性能。<br>
+            　　对于时间，我们常常指的是响应时间，也就是完成一个任务的全部时间，包括磁盘访问时间、存储器访问时间，I/O访问时间等等。然而，在多道程序时，CPU在一个程序处于I/O等待时会转去执行另外一个程序，所以这样就会减少响应时间。<br>
+            　　CPU时间指的是CPU计算的时间，它不包括I/O等待时间，它还分为用户CPU时间和系统CPU时间，前者是CPU花费在用户程序上的时间，后者为花费在操作系统上的时间，CPU的性能指的就是用户CPU时间。<br>
+            　　衡量机器性能的唯一固定而且可靠的标准就是真正执行程序的时间，而其他各种替代标准可能导致错误的结论，而使设计失败。下面介绍几种较流行的替代标准及其不足。<br>
+            <br>
+            　　<b>（1）MIPS （Million Instructions Per Second)</b><br>
+            　　它表示每秒百万指令条数。对于一个给定的程序，MIPS 定义为：<br>
+            　　　　<img src="images/gsh3_1.gif" width="192" height="36"><br>
+            　　程序的执行时间为： <br>
+            　　　　<img src="images/gsh3_2.gif" width="90" height="31"><br>
+            　　既然MIPS是单位时间内的执行次数，所以愈快的机器其MIPS愈高，这一点是比较容易理解的，尤其是对于用户来说。<br>
+            　　但是MIPS有三个方面的缺陷：<br>
+            　　1）MIPS依赖于指令集，所以用MIPS来比较指令集不同的机器的性能好坏是很不准确的。<br>
+            　　2）在同一台机器上，MIPS因程序不同而变化，有时是很大的。<br>
+            　　3）MIPS可能与性能相反！<br>
+            　　最后一种情况的典型例子就是具有可选硬件浮点运算部件的机器。因为浮点运算远慢于整数运算，所以很多机器提供了可选的硬件浮点运算部件，但是软件实现浮点运算的MIPS高，然而硬件实现浮点运算的时间少，这时MIPS与机器性能恰好相反。类似的情况在具有优化功能的编译器中也可发现。<br>
+            <br>
+            　　<b>（2）MFLOPS(Million Floating Point Operations Per Second)</b><br>
+            　　另一种替代标准是MFLOPS即每秒百万次浮点操作次数。<br>
+            　　　　<img src="images/gsh3_3.gif" width="184" height="35"> <br>
+            　　显然，MFLOPS取决于机器和程序两个方面。所以MFLOPS 仅仅只能用来衡量机器浮点操作的性能，而不能体现机器的整体性能。例如编译程序，不管机器的性能有多好，它的MFLOPS不会太高。<br>
+            　　然而，因为MFLOPS是基于操作而非指令的，所以它可以用来比较两种不同的机器。因为同一程序在不同的机器上执行的指令可能不同，但是执行的浮点运算却是完全相同的。然而MFLOPS也并非可靠，因为不同机器上浮点运算集却不同，例如CRAY-2没有除法指令，而Motorola 
+            68882 却有。另外MFLOPS还依赖于操作类型。例如100%的浮点加要远快于100%的浮点除。单个程序的MFLOPS值并不能反映机器的性能。所以MFLOPS也不是一个十分有用的替代标准。<br>
+            <br>
+            　　<b>（3）用基准测试程序来测试评价机器的性能</b><br>
+            　　只有每天都在使用计算机的用户才是真正的最佳评论机器性能的人。为了评价一个新系统的性能，他只要在该系统上运行由许多程序及操作系统命令组成的任务，然后比较它的执行时间就可以了。然而，很少有人能有条件这样做。他们只能靠别的手段来评价机器的性能。希望这些方法能够给出他们使用的机器的性能参数。在这种情形下有四种级别的程序可用。下面按其评价准确性递减的顺序分别予以列出：<br>
+            　　1）实际的应用程序方法-运行例如C编译程序、 Tex 正文处理软件、CAD工具Spice等等。<br>
+            　　2）核心程序方法-人们已做出很多的尝试，从实际的程序中抽取少量关键循环程序段，并用它们来评价机器的性能。Livermore Loops和Linpack就是最好的例子。与实际程序不同，任何用户都不会去真正运行这些核心程序。它们的存在只是用来评价性能。<br>
+            　　3）玩具基准测试程序-玩具基准测试程序通常只有10-100行而且运行结果是可以预知的。例如Sieve of Erastosthenes, 
+            Puzzle 和Quicksort等程序，因为小而且容易键入并且适用于任何机器而受到欢迎。<br>
+            <br>
+            　　<b>（4）综合基准测试程序-它类似于核心程序，但它考虑了各种操作和各种程序的比例，Whetstone和Dhrystone 是典型代表。</b>与核心程序相似，没有任何用户真正运行综合基准测试程序，因为它们都不会出得用户能使用的任何东西。实际上综合基准测试程序比起核心程序来与实际应用的差别更大，因为核心程序是从实际的程序中抽象出来的而综合基准测试程序是为了体现平均执行而人为编制的。<br>
+            <br>
+          </p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

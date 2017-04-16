@@ -1,0 +1,32 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+          <td class="explaination"><br>
+            　　交换式集线器的交换方式有以下两种：<br>
+            <span class="point">　1）存储转发交换</span><br>
+            　　采用这种方式时，集线器就像一个分组结点交换机。它从一个输入端口收下一个帧，暂存后即根据其目的地址转发到适当的输出端口。<br>
+            <br>
+            <span class="point">　2）直通（cut-through）交换</span><br>
+            　　这种方式利用了目的地址处于MAC帧的最前面这一特点。直通交换不必将整个数据帧先缓存后再进行处理，而是在接收数据帧的同时就立即按数据帧的目的地址决定该帧的转发端口，这就使得转发速度大大提高。由于在这种交换式集线器的内部采用了基于硬件的交叉矩阵，其交换时延仅为30μs左右。对于多媒体应用，直通式交换是一种很好的方法。直通交换的一个缺点是它不检查CRC就直接将帧转发出去，因此有可能也将一些无效帧转发给其他的站。在某些情况下，仍需要采用基于软件的存储转发方式进行交换，例如，当需要进行线路速率匹配、协议转换或差错检测时。现在有的厂商已生产出能支持两种交换方式的交换式集线器。<br>
+            <br>
+            　　交换式集线器存在的其他问题是：<br>
+            <span class="point">　1）</span>目前还没有制定一个统一的管理交换式集线器的标准。网络管理员必须使用多个管理控制台才能监控不同厂商生产的交换式集线器。<br>
+            <span class="point">　2）</span>绝大多数交换式集线器在分析交换流量方面都很欠缺。网络管理员需要为每个端口配备测试工具。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

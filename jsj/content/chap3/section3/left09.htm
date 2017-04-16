@@ -1,0 +1,45 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第三章 存储系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black"><b class="part">3.3.3 Cache替换算法及其实现</b><br>
+            <br>
+            　　在把主存地址变换成Cache地址的过程中，如果发现Cache块失效，则需要从主存中调入一个新块到Cache中。而来自主存中的这个新块往往可以装入到Cache中的多个块中。当可以装入这个新块的几个Cache块都已经被装满时，就要使用Cache替换算法，从那些块中找出一个不常用的块，把它调回到主存中原来存放它的那个地方去，腾出一个块来存放从主存中来的这个新块。<br>
+            　　直接映象及变换方式实际上不需要替换算法，这是因为主存中的一块只能装入到Cache的唯一一块中。如果Cache的这一块是空的，则可以装入，如果Cache的这一块已经被占用，唯一的办法就是把它替换出去。<br>
+            　　在全相联映象及变换方式中，由于主存中的一块可以装入到Cache中任意一块的位置上，因此，它的替换算法最复杂。<br>
+            　　在组相联映象变换方式中，需要从Cache同一组内的几个块中选择一块替换出去。<br>
+            　　在虚拟存储器中，介绍了五种页面替换算法。其中只有最久没有使用算法（LRU）比较好。由于虚拟存储器中的页面替换算法主要是用软件实现的，而且虚拟存储器都采用全相联映象方式。而在Cache中，由于Cache的访问速度很高，替换算法必须全部用硬件实现，而且Cache中一般不采用全相联映象方式。因此，Cache中的块替换算法与虚拟存储器中的页面替换算法虽然有一些相同的地方，但也有许多不同的地方。 
+            <br>
+            　　Cache替换算法中最简单的是随机法。例如，在PDP-11/70的Cache采用组相联映象方式，每组只有两块。当发生块冲突时，使用一个2态的随机数发生器，从组内的两块中任意选择一块替换出去。<br>
+            　　随机法的优点是实现起来非常容易，因此，在有些小型微型计算机中被采用。它的缺点是既没有利用程序的局部性特点，也没有利用历史上的块地址流分布情况，因此，它的效果往往不好。<br>
+            　　下面，介绍四种Cache替换算法。其中，轮换法实际上是一种先进先出（FIFO）算法，另外三种实际上都属LRU算法，只是它们的实现方法各不相同。由于Cache的块替换算法与它的实现方法紧密相关，因此，把算法及该算法的实现方法放在一起介绍。</p>
+          <p align="left" class="pt9-black">&nbsp;</p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

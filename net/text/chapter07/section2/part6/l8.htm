@@ -1,0 +1,31 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+          <td class="explaination"><br>
+            　　TCP发送一个数据包，并记录下发送的时间。当应答到来时， TCP从当前时间减去记录的发送时间来为连接产生往返延迟的一个新估计。在多次发送数据报和接收确认后， 
+            TCP就产生了一系列的往返的估计，于是就利用下面公式产生一个加权平均值：<br>
+            　　<span class="point">平均往返延迟T=α*（旧的往返延迟）+（1-α）*（新的往返延迟）<br>
+            </span><br>
+            　　上式中，0≤α&lt;1。若α很接近于1，表示新算出的往返时延T和原来的值相比变化不大，而新的往返时延样本的影响不大（T值更新较慢）。若选择α接近于0，则表示加权计算的往返延迟T受新的往返时延样本的影响较大（T值更新较快）。典型的α值为7/8。<br>
+            <br>
+            　　除了加权平均值，TCP还保留了一个变化量的估计，利用平均值和变化量估计的一个线性组合作为重发的等待时间。<br>
+            <br>
+            　　事实证明，TCP自适应重发工作得很好。在延迟因包的突发而增加时，变化量有助于TCP快速作出反应。当延迟由临时突发恢复到一个较低的值时，加权平均值有助于TCP重新设置重发定时器。当延迟保持常量时，TCP调整重发定时比往返延迟的平均值稍大一点。当延迟开始变化时，TCP把重发定时调整到比平均值稍大的值以适应峰值。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

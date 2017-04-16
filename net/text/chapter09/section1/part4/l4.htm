@@ -1,0 +1,73 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td class="explaination" width="25" valign="top"><br>
+            <img src="../../../../image/tub/bg.gif" width="25" height="20" alt="表格"> 
+          </td>
+          <td class="explaination">
+            <div align="center"><br>
+              <span class="point">表9.1 VC和VP的用途<br>
+              </span>
+              <table width="380" border="0" cellspacing="1" cellpadding="0" bgcolor="#000099">
+                <tr bgcolor="#FFFFFF"> 
+                  <td class="text" width="76"> 
+                    <div align="center"></div>
+                  </td>
+                  <td class="part" width="161"> 
+                    <div align="center">VC</div>
+                  </td>
+                  <td class="part" width="139"> 
+                    <div align="center">VP</div>
+                  </td>
+                </tr>
+                <tr bgcolor="#FFFFFF"> 
+                  <td class="point" width="76"> 
+                    <div align="center">用户到用户</div>
+                  </td>
+                  <td class="text" width="161">　传送用户数据、信令<br>
+                  </td>
+                  <td class="text" width="139">　局间互连</td>
+                </tr>
+                <tr bgcolor="#FFFFFF"> 
+                  <td class="point" width="76"> 
+                    <div align="center">用户到网络</div>
+                  </td>
+                  <td class="text" width="161">　访问与本地连接相关的功能</td>
+                  <td class="text" width="139">　连接交换机或服务器</td>
+                </tr>
+                <tr bgcolor="#FFFFFF"> 
+                  <td class="point" width="76"> 
+                    <div align="center">网络到网络</div>
+                  </td>
+                  <td class="text" width="161">　网络流量管理、路由信息</td>
+                  <td class="text" width="139">　预定义网络流量的路径</td>
+                </tr>
+              </table>
+              <span class="point"> </span></div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="explaination" colspan="2"><br>
+            　　应该指出，VCI和VPI只是本地编号，不具有全局的含义。因此，不同VP中的VC可以具有相同的VCI值，不同的物理链路上的VP也可以具有相同的VPI值。<br>
+            <br>
+            　　虚路径和虚电路都是单向的，不过在建立连接时，可以同时建立起一对正向和反向的通道，形成一个双工信道。两个方向上的VPI和VCI值是不一样的，其带宽也可以是不相同的。因为，在许多情况下（如视频点播VOD等应用），需要下载的图象信号量远远大于上行的控制信号。<br>
+            <br>
+            　　虚电路和虚路径可以是点到点的，也可以是点到多点的（multicast）。这是为了满足视频会议等应用而设计的。在这种情况下，可以把某个人的信号发送给每一个成员，而且比采用点到点方式时要求的带宽小，发送方的负载也小。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

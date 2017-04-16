@@ -1,0 +1,84 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFCF4" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="94%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+          <td class="text"><br>
+            <span class="section">第四章 OSI下三层协议</span><br>
+            <br>
+            <span class="part">4.1 物理层 </span> 
+            <p><span class="point">　RS232-C：</span><br>
+              　　是由美国电子工业协会EIA制定的一个终端DTE与Modem(DCE)间的物理层接口标准。<br>
+              <br>
+              <span class="point">　DTE：</span><br>
+              　　DTE(Data Terminal Equipment)是数据终端设备，也就是具有一定数据处理能力以及发送和接收数据能力的设备及其通信控制器。<br>
+              <br>
+              <span class="point">　DCE：</span><br>
+              　　DCE(Data Circuit-Terminating Equipment)是数据电路端接设备，指自动呼叫设备，调制解调器(Modem)以及其它一些中间装置的集合。</p>
+            <p class="part">4.2 数据链路层</p>
+            <p><span class="point">　帧：</span><br>
+              　　帧是具有一定长度和格式的信息块，一般由一些字段和标志组成。<br>
+              <br>
+              <span class="point">　比特填充：</span><br>
+              　　为了避免在两个标志字段之间的比特串中碰巧出现了和标志字段一样的组合，从而造成被误认为是帧边界的错误，可以采用比特填充法。具体做法是：在发送端，在加标志字段之前，先对比特串扫描，若发现5个连续的1，立即在其后加一个0。在接收端收到帧后，去掉头尾的标志字段，对比特串进行扫描，当发现5个连续的1时，立即删除其后的0，这样就还原成原来的比特流了。<br>
+              <br>
+              <span class="point">　透明传输：</span><br>
+              　　透明传输就是不管所传数据是什么样的比特组合，都应当能够在链路上传送而不会使接收方误认为是控制信息。<br>
+              <br>
+              <span class="point">　链路：</span><br>
+              　　链路就是一条无源的点到点的物理线路段，中间没有任何其他的交换节点。<br>
+              <br>
+              <span class="point">　数据链路：</span><br>
+              　　数据链路是链路的硬件加上实现数据传输规程的软件。<br>
+              <br>
+              <span class="point">　HDLC：</span><br>
+              　　HDLC(High-level Data Link Control)是一个面向位的数据链路层协议。<br>
+              <br>
+              <span class="point">　滑动窗口：</span><br>
+              　　滑动窗口是数据链路层的流量控制协议，主要是通过发送窗口和接收窗口来限制发送方和接收方所能发送和接收的分组数量达到流量控制的目的。</p>
+            <p class="part">4.3 网络层协议与X.25协议</p>
+            <p><span class="point">　虚电路：</span><br>
+              　　分组交换的一种方式，数据传输前，需要建立一条由发送方到接收方的虚电路，所有分组将沿着这条虚电路转发，数据传输完后要进行虚电路拆除。<br>
+              <br>
+              <span class="point">　数据报：</span><br>
+              　　分组交换的一种方式，所有分组独立转发，与先前传送的分组无关。<br>
+              <br>
+              <span class="point">　路由：</span><br>
+              　　路由选择是网络层功能的一部分，负责确定所收到的分组应传送的外出路线。即在具有许多节点的广域网里，应通过哪条通路才能将数据从源主机传到所要通信的目的主机。<br>
+              <br>
+              <span class="point">　RIP：</span><br>
+              　　RIP(Routing Information Protocol)是一种采用距离向量路由算法的协议。<br>
+              <br>
+              <span class="point">　距离向量路由选择：</span><br>
+              　　一种自适应路由算法，路由器通过向邻居扩散它所知道的路由使得所有路由器找到到达其他路由器的最短路径。<br>
+              <br>
+              <span class="point">　链路状态路由选择：</span><br>
+              　　一种自适应路由算法，所有路由器在整个网络扩散它的邻居信息，路由器根据这些信息构造出整个网络的拓扑结构，再根据一定的算法算出最短路径。<br>
+              <br>
+              <span class="point">　拥塞控制：</span><br>
+              　　当到达通信子网中某一部分的分组数高于一定的阈值，使得该部分网络来不及处理这些分组时，就会使这部分以至整个网络的性能下降，这种情况称为拥塞。拥塞控制就是研究如何避免和解决拥塞。 
+              <br>
+              <br>
+              <span class="point">　流量控制：</span><br>
+              　　流量控制是保证发送方不会以高于接收方能承受的速率传输数据，一般采用接收方向发送方发送反馈信息的方式进行控制。<br>
+              <br>
+              <span class="point">　X.25：</span><br>
+              　　X.25是一个公共分组交换网采用的标准访问协议，它定义了DTE和DCE通信时下三层的交换信息的格式和意义。<br>
+              　</p>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>
+

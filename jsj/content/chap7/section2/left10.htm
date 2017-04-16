@@ -1,0 +1,43 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第七章 互连网络</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="left"> 
+          <p class="pt9-black">(2)自适应寻径<br>
+            　　采用自适应寻径要特别注意避免死锁。虚拟通道的概念使实现自适应寻径更经济和更灵活。图7.34说明怎样利用虚拟通道达到这一目的。在网格连接网络中，同一维的所有连接都使用虚拟通道。<br>
+            　　图7.34是一个用X-Y寻径的网格网络，在Y维上用了2对虚拟通道。图7.34c中的虚拟网络可以用来避免消息在向西传输出现的死锁，因为所有向东的X通道都没有使用。同样，图7.34d中的虚拟网络使用另一组X方向虚拟通道来支持只向东的传输。在不同的时刻使用两个虚拟网络，这样死锁就可以自动避免。</p>
+          <p align="center"><img src="images/tu7_34.jpg" width="382" height="436"></p>
+          <p align="left"><span class="pt9-black">　　图7.35是在X维和Y维方向各有两条虚拟通道的网格形网络。这些虚拟通道可以用来生成4个虚拟网络。西-北方向通信应该使用图7.35b所示的虚拟网络。类似地，其它方向的通信可以构造另外三个虚拟网络。注意，任何一个虚拟网络都不会出现环路。因此，在这些网络上实现X-Y寻径方法时，完全可以避免死锁。<br>
+            　　如果相邻结点之间的两对通道都是物理通道，那么4个虚拟网络中任何两个都可以同时使用而不会产生冲突。如果相邻结点之间双虚拟通道只能共享一对物理通道，那么只有(b)和(c)或(c)和(d)可以同时使用。其它组合如(b)和(c)，或(b)和(d)，或(c)和(e)，或(d)和(e)都不能同时存在，因为缺少通道。<br>
+            　　显然，网络的通道数增加，寻径的自适应性也将增加。然而，成本的增加将很可观，因此要避免使用过多的资源。</span></p>
+          <p align="center"><span class="pt9-black"><img src="images/tu7_35.jpg" width="561" height="431"><br>
+            </span><br>
+          </p>
+        </div>
+        </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" background="../../../../image/htmls/right_r5_c3.gif" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="88%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td class="text"> 
+            <p><br>
+              <span class="section">六、TCP与UDP</span><br>
+              <br>
+              <span class="part">　8．三次握手</span><br>
+              <br>
+              　　为确保连接的建立和终止都是可靠的， TCP使用三次握手（3-way handshake）的方式，其中交换了三个消息（在三次握手当中，连接的每一端发送的SYN消息中包含一个初始的窗口通告）。科学家们已证明三次握手是在包丢失、重复和延迟的情况下确保非模糊协定的充要条件。TCP使用同步段（synchronization 
+              segment，SYN segment）来描述用于创建一个连接的三次握手中的消息，用结束段（FIN segment，FIN是finish的简写）来描述用于关闭一个连接的三次握手中的消息。动画说明了用于关闭一个连接的三次握手。<br>
+              <br>
+              　　像其他消息一样，TCP重发丢失的SYN或FIN段。另外，握手确保TCP不会打开或关闭一个连接，直到两端达到一致。创建一个连接的三次握手中要求每一端产生一个随机3 
+              2位序列号。如果在计算机重新启动之后，一个应用尝试建立一个新的TCP连接，TCP就选择一个新的随机数。<br>
+              <br>
+              　　因为每一个新的连接用的是一个新的随机序列号，一对应用程序就能通过TCP进行通信，关闭连接，然后建立一个新连接，而又不受老连接的重复或延迟包的影响。用于关闭一个连接的三次握手。每一方向的确认用于保证所有的数据在连接终止之前已全部到达。<br>
+              　 </p>
+            </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

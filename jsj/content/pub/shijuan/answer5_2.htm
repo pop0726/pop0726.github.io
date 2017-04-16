@@ -1,0 +1,27 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="95%" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td class="pt9-black"><b>[解答]</b><br>
+      （1） CPI旧＝(0.43×1＋0.21×2＋0.12×2+0.24×2)=1.57<br>
+      （2） 原算逻指令中的25％变成了寄存器 存储器型指令，所以算逻指令(寄存器 寄存器型)少了(0.25×0.43)M 条，Load指令少了(0.25×0.43)M 
+      条，而(0.25×0.43)M 条的新指令为寄存器 存储器型指令。指令总数少了(0.25×43%)M条。设执行算逻指令(寄存器 寄存器型) 、 
+      Load指令、算逻指令(寄存器 存储器型) 、 Store指令和转移指令的周期总数分别为C1，C2，C3，C4，C5，所以:<br>
+      C1=(0.43-(0.25×0.43))M×1=0.3225M<br>
+      C2=(0.21-(0.25×0.43))M×2=0.205M<br>
+      C3=(0.25×0.43)M×2=0.215M<br>
+      C4=0.12M×2=0.24M<br>
+      C5=0.24×3M=0.72M<br>
+      新指令总数N=（1-(0.25×0.43)）M=0.8925M<br>
+      CPI新=（C1+C2+C3+C4+C5）/ N=1.7025M/0.8925M=1.908 <br>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

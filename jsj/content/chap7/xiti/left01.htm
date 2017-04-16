@@ -1,0 +1,72 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第七章 互连网络</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="left"> 
+          <p class="part">习题</p>
+          <p class="pt9-black"><b>7.1</b>解释下列术语<br>
+            互连网络 互连函数 静态网络 动态网络 结点度 网络直径 等分宽度 共享介质网络 非阻塞网络 直接网络 间接网络 混合型网络 消息、包、片 
+            存储转发寻径 虫蚀寻径 线路开关寻径 虚拟直通寻径 虚拟通道 缓冲区死锁 通道死锁 单播 选播 广播 会议 通道流量 网络通信时延</p>
+          <p class="pt9-black"><b>7.2 </b>画出16台处理器仿Illiac IV的模式进行互连的互连结构图，列出PE<font size="1">0</font>分别只经一步、二步和三步传送就能将信息传送到的各处理器号。</p>
+          <p><span class="pt9-black"><b>7.3 </b>设16个处理器编号分别为0、1、…、15，要用单级互连网络。当互连函数分别为</span></p>
+          <p><span class="pt9-black"><img src="images/1.gif" width="119" height="96"><br>
+            </span></p>
+          <p class="pt9-black">时，第13号处理器各与哪一个处理器相连？</p>
+          <p class="pt9-black"><b>7.4</b> 当编号分别为0、1、2、…、F的16个处理器之间，要求按下列配对通信：<br>
+            (B、1)，(8、2)，(7、D)，(6、C)，<br>
+            (E、4)，(A，0)，(9、3)，(5、F)。<br>
+            试选择所用互连网络类型、控制方式，并画出该互连网络的拓扑结构和各级交换开关状态图。</p>
+          <p class="pt9-black"><b>7.5</b> 画出编号分别为0、1、…、F共16个处理器之间实现多级立方体互连的互连网络，当采用级控制信号为1100（从右至左分别控制第0级至第3级）时，9号处理器连向哪个处理器？</p>
+          <p class="pt9-black"><b>7.6 </b>对于采用级控制的三级立方体网络，当第i级（0￡i￡2）为直连状态时，不能实现哪些结点之间的通信？为什么？反之当第i级为交换状态呢？</p>
+          <p class="pt9-black"><b>7.7 </b>假定8×8矩阵A＝(a<font size="1">ij</font>)，顺序存放在存贮器的64个单元中，用什么样的单级互连网络可实现对该矩阵的转置交换？总共需要传送多少步？</p>
+          <p class="pt9-black"><b>7.8 </b>假定有128个处理器，采用PM2I多级网络完成某种变换，若i=2的一级损坏，今拟用Cubei网络代替损坏的这一级，试说明最多要几级？</p>
+          <p class="pt9-black"><b>7.9 </b>用单级立方体网络模仿N＝16的单级PM2I(i=0)，网络，最差情况下要用几次单级循环传送？<br>
+          </p>
+          <p class="pt9-black"><b>7.10 </b>试拟定用混洗交换网络来模拟立方体单级网络的算法，并求出模拟步数的上、下限值。</p>
+          <p class="pt9-black"><b>7.11 </b>分别使用立方体单级网络和混洗交换单级网络将一个PE的数据播送到所有<img src="images/2.gif" width="15" height="16" align="left">个PE中去，问各需要循环传送多少步？其中假设混洗交换单级网络每步只能进行混洗或交换中的一种变换，立方体单级网络第i步完成Cubei的变换传送。</p>
+          <p class="pt9-black"><b>7.12 </b>并行处理机有16个处理器，要实现相当于先4组4元交换，然后是两组8元交换，再次是一组16元交换的交换函数功能，请写出此时各处理器之间所实现之互连函数的一般式，画出相应多级网络拓扑结构图，标出各级交换开关的状态。</p>
+          <p class="pt9-black"><b>7.13</b> 给出N＝8的蝶式交换如图7.38所示。<br>
+            (1) 写出互连函数关系式；<br>
+            (2) 如采用omega网络需几次通过才能完成此交换；<br>
+            (3) 列出omega网络实现此交换的控制状态图。</p>
+          <p align="center"><img src="images/tu7_38.jpg" width="105" height="156"></p>
+          <p class="pt9-black"><b>7.14 </b>具有N＝<img src="images/2.gif" width="15" height="16" align="absmiddle">个输入端的omega网络，采用单元控制，<br>
+            (1) N个输入总共应可有多少种不同的排列；<br>
+            (2) 该omega网络通过一次可以实现的置换总共可有多少种是不同的；<br>
+            (3) 若N＝8，计算出一次通过能实现的置换数占全部排列的百分比。</p>
+          <p class="pt9-black"><b>7.15</b> 画出N＝8的立方体全排列多级网络，标出采用单元控制实现<img src="images/3.gif" width="150" height="15" align="absmiddle"><img src="images/4.gif" width="158" height="15" align="absmiddle">的同时传送时的各交换开关状态；说明为什么不会发生阻塞？</p>
+          <p class="pt9-black"><b>7.16 </b>分别画出4×9的一级交叉开关以及用两级2×3的交叉开关组成的4×9的Delta网络，比较一下交叉开关设备量的多少。</p>
+          <p class="pt9-black"><b>7.17</b> 画出用4×4交叉开关组成一个3级的16×16交叉开关网络，其设备量比单级16×16的交叉开关节省多少设备？举例说明在输入和输出之间存在着较多的冗余路径。</p>
+          <p class="pt9-black"><b>7.18 </b>说明4×4交叉开关组成的两级16×16交叉开关网络虽节省了设备，但它是一个阻塞式网络。<br>
+          </p>
+          <p class="pt9-black"><br>
+          </p>
+          <p>&nbsp; </p>
+        </div>
+        </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

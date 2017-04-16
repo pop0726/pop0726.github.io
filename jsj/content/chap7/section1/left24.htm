@@ -1,0 +1,51 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第七章 互连网络</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black">　　互连网络也可以如图7.24那样分类。</p>
+          <p align="center" class="pt9-black"><img src="iamges/tu7_24.jpg" width="566" height="407"></p>
+          <p align="left" class="pt9-black">　　(1)共享介质网络 这种网络包含总线形和环形两类，它们在同一时间都只允许一个设备进行存取。其中总线包括底板总线、争用总线（以太网Ethernet）和令牌总线（ARCnet）。底板总线又包括单总线（SGI 
+            POWERpath-2,DEC LSB）和双总线（SUN XDBus）。主要的环形有FDDI环和IBM令牌环。<br>
+            　　(2)非阻塞网络 这种网络可以被认为是逻辑的交叉开关网络。除非存在不同的输入端口同时向同一个输出端口发送消息，否则消息通信将不会阻塞。有许多方法可以用来设计无阻塞网络，从物理的交叉开关设计到空分的总线设计。由于交叉开关的硬件复杂性以N的平方上升，所以其造价最为昂贵，但是，交叉开关的带宽和寻径性能最好，又由于设计的空间复杂性，因此无阻塞网络主要用于构筑小规模的高性能的互连网络，一般从4个端口到32端口。这些小规模的无阻塞网络还可以用作构筑更大规模的无阻塞网络的基本部件。<br>
+            　　无阻塞网络包括2维网格的交换开关网络（Cray X/Y-MP, DEC GIGAswitch， Myrinet）、共享存储器网络（CNET 
+            Prelude）、空分总线（Fore ATMASX-100）和Clos网络。<br>
+            　　(3)直接网络 是指网络中的处理器是点到点是连接的，也被称作静态网络，或称作基于寻径器的网络，因为所有的结点都有一个寻径器用来处理结点间的消息通信。一般地，相邻的两结点通过一对相反方向的单向通道连接。也可以用一个双向的通道连接，如果是采用这种方案的话，必须有一个仲裁协议来决定使用通道的哪一侧。每一个寻径器都有一些内部的输入、输出通道与本地的处理器相连接，还有一些外部的输入、输出通道与相邻的结点相连。正是这些外部的通道决定了互连网络的拓扑结构。网格、环形网和超立方体是典型的直接网络的拓扑结构。 
+            <br>
+            　　直接网络可以分为三类：网格、环形网和超立方体。其中网格分为2维网格（Intel Paragon）和3维网络（MIT J maching）。环形网分为双向的环形网和单向的环形网，其中双向的环形网有2维的（Intel/CMU 
+            iWARP）和3维的（Cray T3D）。KSR的第一层环采用单向的一维环形网。采用超立方体的典型的机器有Intel iPSC和nCUBE。<br>
+            　　(4)间接网络 也称为基于开关的网络，是另一类适于大规模互连网络的网络拓扑结构。这类网络中结点不是通过直接相连的通道进行消息通信，而是通过网络的开关机构进行的。每一个结点有一个网络适配器连接到网络的开关上。这些互连方式决定了网络的拓扑。大多数网络采用的是各种规则的多级互连网络的拓扑结构。<br>
+            　　间接网络可以分为规则拓扑和不规则拓扑，其中规则的拓扑结构又可以分为单向的多级网络（NEC Cenju-3）、双向的多级网络（IBM 
+            SP，TMC CM-5，Meiko CS-2）和单向的环（KSR-2-level ring, Conver Exemplar）。<br>
+            　　(5)混合网络 指一个互连网络中混合了多种以上的网络。例如，一个互连网络有一个超立方体的主干网络，同时每个结点是一个网格网络。在Convex 
+            Exemplar中，每个结点是8个处理器的交叉开关网络，而这些结点用4个重复的单向环相连。<br>
+          </p>
+          <p align="left" class="pt9-black">　</p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

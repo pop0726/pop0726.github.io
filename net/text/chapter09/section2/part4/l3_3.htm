@@ -1,0 +1,38 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td class="explaination" colspan="2"> 
+            <p><br>
+              <span class="point">　(3) 应用层</span><br>
+              <br>
+              　　V5接口的第三层协议是面向消息的协议，支持PSTN协议、控制协议（公共控制和用户端口控制）、链路控制协议、BCC协议和保护协议（后三个协议仅用于V5.2接口）。<br>
+              <br>
+              　　PSTN协议比其他的V5协议要复杂一些，它的作用是呼叫建立/释放控制。提供在AN侧用户端口和交接机LE之间的线路状态变化信息（连接、断开、线路环境等）。<br>
+              <br>
+              　　控制协议分别用于V5接口的AN侧和LE侧，控制协议包括两种规程：端口控制和公共控制。前者用于ISDN/PSTN用户端口状态的监视和控制；后者用于物理层维护和系统故障后的重新配置控制，包括重新启动PSTN协议、检查V5接口标识和配置以及由当前配置到新配置的转换同步等。 
+              <br>
+              <br>
+              　　链路控制协议对称地应用于AN和LE侧，其主要作用是允许请求方检查链路两侧的匹配性，通过检查每一条链路两端的ID（身份标识），对每一条2048kbit/s链路的第一层链路状态和相关链路的身份进行核实。链路控制协议通过发送链路阻塞请求使阻塞造成的影响降低到最小。当遇到高优先级的请求时可以将拥塞业务转移到其他链路上，对于低优先级的请求可以结束呼叫。<br>
+              <br>
+              　　BCC协议用于控制用户端口与V5．2接口端承载通路的时隙分配。这种基于呼叫的动态分配由交换机LE控制。具体过程是由LE向AN发送请求建立命令，该命令用于给用户端V5分配时隙，然后由AN返回接受或拒绝建立的信息。BCC协议在呼叫建立时分配承载通路，呼叫结束时释放连接。同时，BCC协议允许检查V5.2承载通路的分配和连接情况，提供AN内部故障报告和由AN检测出的BCC协议错误信息，向LE通知有关AN内部影响承载通路连接的故障。V5.2接口还支持LE和AN内的个永久连接，以支持半永久租用线业务。<br>
+              <br>
+              　　保护协议用于保证在设备故障或链路故障情况下的通信信道的安全，该协议用在V5.2接口存在多个2048kbit/s链路的情况下。为保证消息的可靠性传送，保护协议将物理通道分为主、备用两部分，每组有主备两条链路，消息同时在两条链路上传送。当一条2048kbit/s链路出现故障时，选择等级最高的备用通道，以保证消息可靠无误的传输。<br>
+              　</p>
+            </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

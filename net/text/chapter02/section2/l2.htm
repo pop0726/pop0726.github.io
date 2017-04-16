@@ -1,0 +1,32 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+          <td class="explaination"><br>
+            <span class="point">　・物理层：</span><br>
+            　　提供相邻设备间的比特流传输。它是利用物理通信介质，为上一层（数据链路层）提供一个物理连接,通过物理连接透明地传输比特流。<br>
+            　　所谓透明传输指经实际电路后传送的比特流没有变化，任意组合的比特流都可以在这个电路上传输，物理层并不知道比特的含义。 物理层要考虑的是如何发送&quot;0&quot;和&quot;1&quot;，以及接收端如何识别。<br>
+            <br>
+            <span class="point">　・数据链路层：</span><br>
+            　　负责在两个相邻的节点间的线路上无差错的传送以帧为单位的数据，每一帧包括一定的数据和必要的控制信息，在接收点接收到数据出错时要通知发送方重发，直到这一帧无误得到达接收节点。数据链路层就是把一条有可能出错的实际链路变成让网络层看来好像不出错的链路。<br>
+            <br>
+            <span class="point">　・网络层：</span><br>
+            　　网络中通信的两个计算机之间可能要经过许多个节点和链路，还可能经过几个通信子网。网络层数据的传送单位是分组(packet)，网络层的任务就是要选择合适的路由，使发送站的运输层发下来的分组能够正确无误的按照地址找到目的站并交付目的站的运输层，这就是网络层的寻址功能。<br>
+            　　对于广播信道构成的通信子网,路由问题很简单，因此这种子网的网络层非常简单，甚至没有。对于通信子网来说，最多只到网络层。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

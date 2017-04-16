@@ -1,0 +1,35 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+          <td><span class="text"><br>
+            　　设信息比特为b1-b8，校验比特为b9，则</span><br>
+            　　　<span class="point">奇校验方程式：</span><br>
+            <span class="text">　　　　b1�b2�b3�b4�b5�b6�b7�b8�b9＝1</span><br>
+            　　　<span class="point">偶校验方程式：</span><br>
+            <span class="text">　　　　b1�b2�b3�b4�b5�b6�b7�b8�b9＝0<br>
+            <br>
+            　　校验比特的逻辑表达式为</span><br>
+            　　　<span class="point">奇校验比特：<br>
+            </span><span class="text">　　　　b9＝b1�b2�b3�b4�b5�b6�b7�b8</span><br>
+            　　　<span class="point">偶校验比特：<br>
+            </span><span class="text">　　　　b9＝b1�b2�b3�b4�b5�b6�b7�b8<br>
+            <br>
+            　　例如，需发送的数据为10110101，在奇校验中，需要在末尾加0，变为101101010；在偶校验中，需要在末尾加1，变为101101011。这样，若在传输过程中有1比特出错，即由1变为0或由0变为1，接收方将通过码字中1的个数判断（只能检测奇数个比特出错，不能检测偶数个比特出错）。<br>
+            　</span></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

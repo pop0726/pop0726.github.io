@@ -1,0 +1,145 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第二章 指令系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p class="pt9-black"><img src="images/tu2_17.jpg" width="522" height="396"><br>
+            <b> 图2.17 重叠寄存器窗口技术</b></p>
+          <p><b><span class="pt9-black">表2.13 寄存器窗口技术的效果</span></b><br>
+          </p>
+          <table width="85%" border="1" cellpadding="1" cellspacing="1" bgcolor="#C1EAD6">
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center">程序名称</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">调用次数</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">最大调用深度</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">RISC II溢出次数</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">RISC II访存次数</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">VAX-11访存次数</div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center">Quicksort</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">111K(0.7％)</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">10</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">64</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">4K(0.8％)</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">696K(50％)</div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center">Puzzle</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">43K(8.0％)</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">20</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">124</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">8K(1.0％)</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">444K(28％)</div>
+              </td>
+            </tr>
+          </table>
+          <p align="left" class="pt9-black">　　表2.14是RISC II处理机与几种CISC处理机的每次过程调用的开销比较。从表中可以看出，在执行时间、执行指令条数、访问存储器次数等方面，采用重叠寄存器窗口技术都是十分<span class="pt9-black">有效的。</span></p>
+          <p align="center" class="pt9-black"><b>表2.14 过程调用所需开销的比较</b><br>
+          </p>
+          <table width="85%" border="1" cellpadding="1" cellspacing="1" bgcolor="#C1EAD6">
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center">机 器</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">执行指令条数</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">执行时间(微秒)</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">访问存储器次数</div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center">VAX-11<br>
+                  PDP-11<br>
+                  MC68000<br>
+                  RISC II </div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">5<br>
+                  19<br>
+                  9<br>
+                  　6 </div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">26<br>
+                  22<br>
+                  19<br>
+                  　2 </div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">10<br>
+                  15<br>
+                  12<br>
+                  　0.2 </div>
+              </td>
+            </tr>
+          </table>
+          <p align="left" class="pt9-black">&nbsp; </p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

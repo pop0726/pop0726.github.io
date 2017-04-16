@@ -1,0 +1,57 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第二章 指令系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><span class="pt9-black"><br>
+            </span></p>
+          <p align="left" class="pt9-black">　　一个浮点数N可以用如下方式表示：<br>
+            　　　　<img src="iamges/gsh1_6.gif" width="86" height="22"> <br>
+            　　一种浮点数据表示方式需要有6个参数来定义。<br>
+            <br>
+            <b>两个数值：</b><br>
+            　　m：尾数的值，包括尾数采用的码制（原码或补码）和数制（小数或整数）；<br>
+            　　e：阶码的值，一般用移码（又称偏码、增码、译码、余码等）或补码、整数表示；<br>
+            <br>
+            <b>两个基：</b><br>
+            　　<img src="iamges/gsh1_7.gif" width="15" height="20" align="absbottom">：尾数的基，通常有2进制、4进制、8进制、16进制和10进制等几种；<br>
+            　　<img src="iamges/gsh1_8.gif" width="13" height="20" align="absbottom">：阶码的基，在目前见到的所有浮点数据表示方式中，re均为2。<br>
+            <br>
+            <b>两个字长：</b><br>
+            　　p：尾数的长度，要特别注意：这里的p不是指尾数的二进制位数，当rm＝16时，每4个二进制位表示一位尾数；<br>
+            　　q：阶码的长度，由于阶码的基值通常为2，因此，在一般情况下，q就是阶码部分的二进制位数。<br>
+            　　<font color="#990000"><b>要注意：这里给出的p和q均不包括符号位，如没有特别说明，本书中见到的所有p和q也都不包括符号位。</b></font><br>
+            　　一种浮点数表示方式见图2.1所示。把尾数符号放在最高位的原因是为了判别正、负方便，也有一些浮点数表示方式把尾数符号与尾数放在一起的。</p>
+          <p class="pt9-black" align="center"><img src="iamges/tu2_1.jpg" width="484" height="101"></p>
+          <p align="left"><span class="pt9-black">　　由于在计算机系统中数据是要用物理存储部件存放的，因此，总是希望尽量减少数据的存储量。对于浮点数表示方式，主要是缩短数据的字长。在通用计算机系统中，数据的字长一般定义为字节的整倍数。所以，浮点数表示方式要研究的关键问题是：在数据字长已经确定的前提下，研究各种浮点数表示方式的表数范围、表数精度、表数效率及它们之间的关系等，并且企图寻找到一种具有最大表数范围、最高表数精度和最优表数效率的浮点数表示方式。 
+            <br>
+            　　上述6个参数中只有3个参数是浮点数表示方式要研究的主要对象，它们是：尾数基值rm、阶码字长q和尾数字长p，而另外3个参数与浮点数的表数范围、表数精度和表数效率基本无关。阶码基值re通常取为2，在目前见到的计算机系统中已经成为定论，因为在以二进制为基本计算单位的计算机系统中，阶码采用其它进位制没有任何好处。阶码的数值e通常采用整数、移码表示，只有极少数机器中采用补码表示。尾数的数值m在多数计算机中用纯小数表示，只有少数机器采用整数表示，而尾数的码制通常有原码和补码两种。</span></p>
+          <p align="left">&nbsp;</p>
+          </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

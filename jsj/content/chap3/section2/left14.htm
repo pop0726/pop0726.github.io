@@ -1,0 +1,52 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第三章 存储系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><span class="pt9-black">　　<b>例3.2：</b>一个循环程序，依次使用P1，P2，P3，P4四个页面，分配给这个程序的主存页面数为3个。FIFO、LRU和OPT三种页面替换算法对主存页面的调度情况如图3.24所示。OPT算法命中3次，而FIFO和LRU算法一次也没有命中。在FIFO和LRU算法中，总是发生下次就要使用的页面本次被替换出去了。这就是&quot;颠簸&quot;现象。</span></p>
+          <p align="center"><span class="pt9-black"><b><img src="images/tu3_24.gif" width="482" height="259"><br>
+            图3.24 页面调度中的颠簸现象 </b></span></p>
+          <p align="left"><span class="pt9-black">　　一般来说，对于一个循环程序，当分配给它的页面数小于程序所需要的页面数数时，有可能发生&quot;颠簸&quot;现象。这时，无论是FIFO算法，还是LRU算法，它们的命中率都明显地低于OPT算法。<br>
+            　　对于例3.2，只要再多分配给它一个页面，三种算法的命中率都能达到最大值。因此，命中率不仅与页地址流有关，而且也与分配给程序的主存页面数等有关。一般来说，分配给程序的主存页面数越多，虚页装入到主存到中的机会也就越多，因此命中率也可能越高，至少不应该下降，通常把满足这种关系的页面替换算法称为堆栈型替换算法。<br>
+            　　这里所说的堆栈型替换算法不是指某一种算法，而是指一类算法，更不是指采用先进先出或先进后出方式工作的堆栈本身。那么，什么是堆栈型替换算法呢？它定义如下： 
+            <br>
+            　　对任意一个程序的页地址流作两次主存页面数分配，分别分配m个和n个主存页面，并且有m≤n。如果在任何时刻t，主存页面数集合Bt都满足关系：Bt（m）í 
+            Bt（n），<br>
+            　　则这类算法称为堆栈型替换算法。<br>
+            　　简单地说，堆栈型算法的基本思想是：随着分配给程序的主存页面数增加，主存的命中率也提高，至少不下降。<br>
+            　　对于LFU算法和LRU算法，由于在主存中保留的是最近使用过的页面。如果先给某一个程序分配n个主存页面，那么在t时刻，这n个主存页面都是最近使用过的页面。如果再给这个程序多分配一个主存页面，那么在t时刻，这n＋1个主存页面也都是最近使用过的页面。因此，在这n＋1个主存页面中必然包含了前面的n个主存页面。所以，LFU算法和LRU算法都是堆栈型算法。很显然，OPT算法也是堆栈型算法。那么，FIFO算法是不是堆栈型算法呢？请看图3.25的情况。</span></p>
+          <p align="center" class="pt9-black"><b><img src="images/tu3_5F25.gif" width="471" height="204"><br>
+            图3.25 FIFO算法在主存页面数增加时命中率反而下降</b></p>
+          <p align="left" class="pt9-black">　　在图3.25中，对于同一个页地址流，当分配给这个程序的主存页面数从3页增加到4页时，命中率反而从3次下降到2次。因此，FIFO算法不是堆栈型算法。<br>
+            　　由于堆栈型替换算法的命中率随分配个该程序的主存页面增加而单调上升，因此，在多道程序系统中，可以采用一种被称为页面失效频率法（PFF：Page 
+            Fault Freguency)的动态页面调度方法。具体做法是：根据各道程序在实际运行过程中页面失效率的情况，由操作系统动态调整分配给每道程序的主存页面数。当一道程序的命中率低于某个限定值时就增加分配给该道程序的主存页面数，以提高它的命中率。而当命中率高于某个限定值时就减少分配给该道程序的主存页面数，把节省出来的主存页面分配给其它程序。从而使整个系统的总的命中率和主存利用率都得到提高。<br>
+          </p>
+          <p align="left">&nbsp;</p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

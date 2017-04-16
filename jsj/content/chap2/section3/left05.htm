@@ -1,0 +1,285 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第二章 指令系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><span class="pt9-black"><br>
+            <b class="part">2.3.3 扩展编码法</b><br>
+            <br>
+            　　采用Huffman编码法能够使操作码得平均长度最短，信息的冗余量最小。然而，这种编码方法所形成得操作码很不规整。在上面这个例子中，7条指令就有6种不同长度得操作码。这样，既不利于硬件的译码，也不利于软件的编译。另外，它也很难与地址码配合，形成有规则长度的指令编码。<br>
+            　　在许多处理机中，采用了一种新的折中的方法，称为扩展编码法。这种方法是由固定长操作码与Huffman编码法相结合形成的。<br>
+            　　对于上一节中那个有7条指令的模型机的例子，如果采用扩展编码法编排操作码，可以有多种方法。举两个例子，如果要求把操作码最长不得超过5位，则可以采用1-2-3-5扩展编码法。如果要求把操作码最长不得超过4位，则可以采用2-4等长扩展编码法。编码结果如表2.6所示。<br>
+            　　采用1-2-3-5扩展编码法的操作码最短平均长度为：<br>
+            　　H＝0.45×1＋0.30×2＋0.15×3＋（0.05＋0.03＋0.01＋0.01）×5<br>
+            　　＝2.00<br>
+            　　信息冗余量为：<br>
+            　　　　<img src="images/gsh3_18.gif" width="99" height="30"><br>
+            　　采用2-4等长扩展编码法的操作码最短平均长度为：<br>
+            　　H＝（0.45＋0.30＋0.15）×2＋（0.05＋0.03＋0.01＋0.01）×4<br>
+            　　 ＝2.20<br>
+            　　信息冗余量为：<br>
+            　　　　<img src="images/gsh3_19.gif" width="105" height="30"></span></p>
+          <p align="center"><span class="pt9-black"><b>表2.6 模型机的操作码扩展编码法</b><br>
+            </span></p>
+          <table width="85%" border="1" cellspacing="1" bgcolor="#FFFFFF">
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center">指令序号</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">出现的概率</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">1-2-3-5扩展编码</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">2-4等长扩展编码</div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center"><img src="images/gsh3_6.gif" width="17" height="13"></div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">0.45</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">0</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">0 1</div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center"><img src="images/gsh3_7.gif" width="14" height="14"></div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">0.30</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">10</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">0 1</div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center"><img src="images/gsh3_8.gif" width="14" height="13"></div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">0.15</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">110</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">1 0</div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center"><img src="images/gsh3_9.gif" width="16" height="14"></div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">0.05</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">1110</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">1 1 0 0</div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black" height="20"> 
+                <div align="center"><img src="images/gsh3_10.gif" width="14" height="13"></div>
+              </td>
+              <td class="pt9-black" height="20"> 
+                <div align="center">0.03</div>
+              </td>
+              <td class="pt9-black" height="20"> 
+                <div align="center">11110</div>
+              </td>
+              <td class="pt9-black" height="20"> 
+                <div align="center">1 1 0 1</div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center"><img src="images/gsh3_11.gif" width="16" height="15"></div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">0.01</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">111110</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">1 1 1 0</div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center"><img src="images/gsh3_12.gif" width="15" height="11"></div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">0.01</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">111111</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">1 1 1 1</div>
+              </td>
+            </tr>
+          </table>
+          <p align="left" class="pt9-black">　　为了便于实现分级译码，一般采用等长扩展法，例如，操作码按4位、8位、12位，每次加长4位的扩展方法，记作4-8-12扩展法，还有3-6-9扩展法等。当然，也可以根据具体需要，采用每次扩展的位数不等的不等长扩展法。<br>
+            　　对于等长扩展法，因为采用不同的扩展标志还可以有多种不同的扩展方法。例如，对于4-8-12扩展法，有采用保留一个码点标志的15/15/15……扩展法，采用每次保留一个标志位的8/64/512……扩展法等。当然，也可以根据不同的需要，在操作码长度扩展过程中，每次采用不同的扩展标志。<br>
+            　　对于4-8-12等长扩展法中的15/15/15……扩展法和8/64/512……扩展法，操作码的具体编码方法如图2.11所示。<br>
+            　　在设计操作码时，具体采用哪种扩展编码方法，要根据所设计系统中各种指令出现的概论分布情况来决定。例如，某系统中，有15种指令出现的概论值比较大，另15种次之，其余指令出现的概论值很小，这时可采用15/15/15……扩展编码法。如果有8种指令出现的概论值比较大，另64种指令出现的概论值次之，可采用8/64/512……扩展编码法。总之，无论采用哪一种扩展编码方法，衡量的标准是要看这种编码方法的操作码平均长度是否最短，或信息的冗余量是否最小。<br>
+            　　另外，也可以根据所设计计算机系统的具体情况，采用不等长扩展编码方法，例如，采用4-6-10扩展编码法，根据所设计系统中各种指令出现的概论分布情况，可以有很多种编码方法，举例如表2.7所示。</p>
+          <p><img src="images/gsh3_20.gif" width="388" height="215">　　　　</p>
+          <p align="center"><b class="pt9-black">表2.7 4-6-10不等长扩展编码法举例</b><br>
+          </p>
+          <table width="80%" border="1" bordercolor="#666666" bgcolor="#FFCCCC" cellspacing="1" align="center">
+            <tr> 
+              <td rowspan="2" width="16%" class="pt9-black"> 
+                <div align="center"><br>
+                  编码方法<br>
+                </div>
+              </td>
+              <td colspan="3" class="pt9-black"> 
+                <div align="center">各种不同长度操作码的指令种类</div>
+              </td>
+              <td rowspan="2" class="pt9-black"> 
+                <div align="center">总的指令种类</div>
+              </td>
+            </tr>
+            <tr> 
+              <td width="14%" height="19" class="pt9-black"> 
+                <div align="center">4位操作码</div>
+              </td>
+              <td width="18%" height="19" class="pt9-black"> 
+                <div align="center">6位操作码</div>
+              </td>
+              <td width="24%" height="19" class="pt9-black"> 
+                <div align="center">10位操作码</div>
+              </td>
+            </tr>
+            <tr> 
+              <td width="16%" height="20" class="pt9-black"> 
+                <div align="center">15/3/16</div>
+              </td>
+              <td width="14%" height="20" class="pt9-black"> 
+                <div align="center">15 </div>
+              </td>
+              <td width="18%" height="20" class="pt9-black"> 
+                <div align="center">3</div>
+              </td>
+              <td width="24%" height="20" class="pt9-black"> 
+                <div align="center">16</div>
+              </td>
+              <td width="28%" height="20" class="pt9-black"> 
+                <div align="center">34</div>
+              </td>
+            </tr>
+            <tr> 
+              <td width="16%" class="pt9-black"> 
+                <div align="center">8/31/16</div>
+              </td>
+              <td width="14%" class="pt9-black"> 
+                <div align="center">8</div>
+              </td>
+              <td width="18%" class="pt9-black"> 
+                <div align="center">31</div>
+              </td>
+              <td width="24%" class="pt9-black"> 
+                <div align="center">16</div>
+              </td>
+              <td width="28%" class="pt9-black"> 
+                <div align="center">55</div>
+              </td>
+            </tr>
+            <tr> 
+              <td width="16%" class="pt9-black"> 
+                <div align="center">8/30/32</div>
+              </td>
+              <td width="14%" class="pt9-black"> 
+                <div align="center">8</div>
+              </td>
+              <td width="18%" class="pt9-black"> 
+                <div align="center">30</div>
+              </td>
+              <td width="24%" class="pt9-black"> 
+                <div align="center">32</div>
+              </td>
+              <td width="28%" class="pt9-black"> 
+                <div align="center">70</div>
+              </td>
+            </tr>
+            <tr> 
+              <td width="16%" class="pt9-black"> 
+                <div align="center">8/16/256</div>
+              </td>
+              <td width="14%" class="pt9-black"> 
+                <div align="center">8</div>
+              </td>
+              <td width="18%" class="pt9-black"> 
+                <div align="center">16</div>
+              </td>
+              <td width="24%" class="pt9-black"> 
+                <div align="center">256</div>
+              </td>
+              <td width="28%" class="pt9-black"> 
+                <div align="center">280</div>
+              </td>
+            </tr>
+            <tr> 
+              <td width="16%" class="pt9-black"> 
+                <div align="center">4/32/256</div>
+              </td>
+              <td width="14%" class="pt9-black"> 
+                <div align="center">4</div>
+              </td>
+              <td width="18%" class="pt9-black"> 
+                <div align="center">32</div>
+              </td>
+              <td width="24%" class="pt9-black"> 
+                <div align="center">256</div>
+              </td>
+              <td width="28%" class="pt9-black"> 
+                <div align="center">292</div>
+              </td>
+            </tr>
+          </table>
+          <p align="left">&nbsp; </p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

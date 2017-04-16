@@ -1,0 +1,40 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td class="explaination" colspan="2" valign="top"><br>
+            　　SNMP的这些功能通过轮询操作来实现，即SNMP管理进程定时向被管理设备周期性地发送轮询信息。上述时间间隔可通过SNMP的管理信息库MIB来建立。轮询的好处是：第一，可使系统相对简单。第二，能限制通过网络所产生的管理信息的通信量。但轮询管理协议不够灵活，而且所能管理的设备数目不能太多。轮询系统的开销也较大。如轮询频繁而并未得到有用的报告，则通信线路和计算机的cpu周期就被浪费了。<br>
+            <br>
+            　　但SNMP不是完全的轮询协议，它允许不经过询问就能发送某些信息；这种信息称为trap，即陷井，表示它能够捕捉事件。trap和一般的中断不同。使用一般的中断时，被管对象将中断信息发给网控中心，网控中心再对其作出反应。但中断使计算机的CPU承担可观的负担。因为每次中断都使用CPU周期。但这种信息的参数是受限制的。<br>
+            <br>
+            　　这样，使用轮询（至少是周期性地）以维持对网络资源的实时监视，同时也采用trap机制报告特殊事件，使得SNMP成为一种有效的网络管理协议。<br>
+            <br>
+            　　<span class="point">图10.6</span>中，从协议的层次结构表示了SNMP的位置。<br>
+            　</td>
+        </tr>
+        <tr> 
+          <td class="explaination" width="25" valign="top"> 
+            <div align="center"><img src="../../../../image/tub/ts.gif" width="25" height="20" alt="图示"></div>
+          </td>
+          <td class="explaination"> 
+            <div align="center"><img src="../../../../image/pic/chapter10/10_6.gif" width="415" height="287"><br>
+              <span class="point"><br>
+              图10.6 SNMP在TCP/IP中的位置</span><br>
+              　　</div>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

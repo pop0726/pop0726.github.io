@@ -1,0 +1,54 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第七章 互连网络</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="left"> 
+          <p><span class="part">7.2.4. 选播和广播寻径算法</span><br>
+            <br>
+            <span class="pt9-black">　　多计算机网络中会出现四种通信模式：<br>
+            　　（1） 单播（unicast）模式对应于一对一的通信情况，即一个源结点发送消息到一个目的结点。<br>
+            　　（2）选播（multicast）模式对应于一到多的通信情况，即一个源结点发送同一个消息到多个目的结点。<br>
+            　　（3）广播（broadcast）模式对应于一到全体的通信情况，即一个源结点发送同一个消息到全部结点。<br>
+            　　（4）会议（conference）模式对应于多到多的通信情况。<br>
+            　　前一节讨论的是单播模式，下面来分析一下实现选播、广播或会议通信模式的要求。当然，所有的各种模式都可以顺序地多次使用单播来实现，或者如果不会发生源冲突的话，甚至也可以同时用多个单播来实现。实现这些多目的模式必须使用特殊的硬件或寻径方法。 
+            <br>
+            　　通道流量（channel traffic）和通信时延（communication latency）是描述效率常用的两个参数。通道流量可用传输有关消息所使用的通道数来表示。通信时延则用包的最长传输时间来表示。<br>
+            　　优化的寻径网络应能以最小流量和最小时延实现有关通信模式。然而，这两个参数并不是毫不相关的。达到最小流量同时不一定能达到最小时延，相反的情况也是如此。<br>
+            　　这与所使用的交换技术有关，在存储转发网络中时延是最重要的问题，而在虫蚀寻径网络中流量对效率的影响则更大。 <br>
+            　　下面讨论网络连接计算机中的选播和广播。<br>
+            　　图7.36是在3×3网格上实现的选播寻径。源结点用S表示，传送一个包到标号Di的5个目的结点。这里，i=1,2,…,5。目的结点为5个的选播可以用5次单播来实现，如图7.36a所示。X-Y寻径的流量需要用1＋3＋4＋3＋2＝13条通道，到D3的路径最长，所以时延是4。<br>
+            　　选播还可以用下述方法实现，即在一个中间结点上复制所传送的包，然后把该包的多个拷贝送到目的结点，这样可以大大地减少通道流量。<br>
+            　　图7.36b和7.36c给出了两种选播寻径模式，流量分别为7和6。在虫蚀寻径网络中，用图7.36c的选播寻径模式比较好。在存储转发网络中，则用图7.36b的寻径模式比较好，而且时延较短。<br>
+            　　使用一棵4层的生成树可以把一个包从结点S广播到所有的网格结点，如图7.36d所示。到达树第i层上结点的时延为i。这种广播树产生的时延和流量都最小。</span></p>
+          <p align="center"><img src="images/tu7_36.jpg" width="507" height="349"><br>
+            <br>
+          </p>
+          </div>
+        <p align="left" class="pt9-black">　</p>
+        </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,355 @@
+<HTML>
+<HEAD>
+<title>计算机网络体系结构</title>
+<SCRIPT language=JavaScript>
+<!--
+/*-------------------------------------------填空题---------------------------------------------*/
+function getKeyWord(form){
+var mykeys=new Array();
+
+
+var answer=new Array();
+for(var I=0;I<mykeys.length;I++) answer[I]="";
+
+var every=form.elements;
+for(var I=0;I<every.length;I++)
+{
+if(every[I].type=="text")
+{
+ if(every[I].value!==null)
+ {var item=parseInt(every[I].name.substr(1))
+  answer[item-1]+=every[I].value;
+  }
+ }
+}
+var newcount="<html><head><title>谢谢您!</title></head><body><center><h2><font color=red>您的测试结果</font></h2></center>";
+var totalscore=0;
+for(var I=0;I<answer.length;I++)
+{
+	if(answer[I].toUpperCase()==mykeys[I].toUpperCase())
+	{
+		var rstr="<font size=2>第"+(I+1)+"个空答案正确!</font><br>";
+		newcount+=rstr;
+		totalscore+=1/0*100;
+	}else
+	{
+		var rstr="<font size=2>第"+(I+1)+"个空答案错误!正确答案为"+mykeys[I]+"</font><br>";
+		newcount+=rstr;
+	}
+
+}
+
+newcount+="<br>您的总成绩为:";
+newcount+=Math.ceil(totalscore);
+newcount+="分";
+newwin=window.open("","","height=400,width=400,scrollbars=yes,resizable=no");
+newwin.document.write(newcount);
+}
+/*-------------选择提----------------------------------------------------------------*/
+function getresultcheck(form)
+{var mykeys=new Array();
+
+
+
+var answer=new Array();
+for(var I=0;I<mykeys.length;I++) answer[I]="";
+
+var every=form.elements;
+//var lastname="";
+for(var I=0;I<every.length;I++)
+{
+	if(every[I].type=="radio")
+	{
+		/*alert("checkbox:name->"+every[I].name+"value->"+every[I].value);*/
+		if(every[I].checked)
+		{	
+			//var item=parseInt(every[I].name.charAt(1));
+			var item=parseInt(every[I].name.substr(0));/*返回由字符串转换得到的整数*/
+			/*substr返回一个从指定位置开始的指定长度的子字符串。*/
+			answer[item-1]+=every[I].value;
+		}
+	}				
+}
+
+var newcount="<html><head><title>谢谢您!</title></head><body><center><h2><font color=red>您的测试结果</font></h2></center>";
+var totalscore=0;
+for(var I=0;I<answer.length;I++)
+{
+	if(answer[I]==mykeys[I])
+	{
+		var rstr="<font size=2>第"+(I+1)+"题答案正确!</font><br>";
+		newcount+=rstr;
+		totalscore+=1/0*100;//每题分数
+	}else
+	{
+		var rstr="<font size=2>第"+(I+1)+"题答案错误!正确答案为"+mykeys[I]+"</font><br>";
+		newcount+=rstr;
+	}
+
+}
+
+newcount+="<br>您的总成绩为:";
+newcount+=Math.ceil(totalscore);
+newcount+="分";
+newwin=window.open("","","height=400,width=400,scrollbars=yes,resizable=no");
+newwin.document.write(newcount);}
+/*--------------------------------判断题----------------------------------------------------*/
+
+function getresultpanduan(form)
+{var mykeys=new Array();
+
+
+
+var answer=new Array();
+for(var I=0;I<mykeys.length;I++) answer[I]="";
+
+var every=form.elements;
+//var lastname="";
+for(var I=0;I<every.length;I++)
+{
+	if(every[I].type=="checkbox")
+	{
+		/*alert("checkbox:name->"+every[I].name+"value->"+every[I].value);*/
+		if(every[I].checked)
+		{	
+			//var item=parseInt(every[I].name.charAt(1));
+			var item=parseInt(every[I].name.substr(0));/*返回由字符串转换得到的整数*/
+			/*substr返回一个从指定位置开始的指定长度的子字符串。*/
+			answer[item-1]+=every[I].value;
+		}
+	}				
+}
+
+var newcount="<html><head><title>谢谢您!</title></head><body><center><h2><font color=red>您的测试结果</font></h2></center>";
+var totalscore=0;
+for(var I=0;I<answer.length;I++)
+{
+	if(answer[I]==mykeys[I])
+	{
+		var rstr="<font size=2>第"+(I+1)+"题 您答对了!</font><br>";
+		newcount+=rstr;
+		totalscore+=1/0*100;//每题分数
+	}else
+	{
+		var rstr="<font size=2>第"+(I+1)+"题 您答错了!</font><br>";
+		newcount+=rstr;
+	}
+
+}
+
+newcount+="<br>您的总成绩为:";
+newcount+=Math.ceil(totalscore);
+newcount+="分";
+newwin=window.open("","","height=400,width=400,scrollbars=yes,resizable=no");
+newwin.document.write(newcount);
+}
+/*--------------------------------简答题----------------------------------------------------*/
+
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</SCRIPT>
+<style type="text/css">
+<!--
+.unnamed1 {  font-family: "宋体"; font-size: 10pt}
+-->
+</style>
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+</HEAD>
+
+<BODY text=black bgColor=white leftMargin=0 topMargin=10 marginheight="10" 
+marginwidth="0">
+ <DIV class=p2 align=center></DIV> 
+      <FORM >
+  <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center">
+    <tr>
+      <td>
+        <p class="unnamed1"><br>
+          <span class="section">［课后习题］</span><br>
+          <br>
+          　1.ISO规定的网络管理五个基本功能是什么？<br>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td> 
+              <div align="center"> 
+                <textarea name=textarea cols=50 rows=12></textarea>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <p class="unnamed1"> <br>
+          　2.SNMP的体系结构包括哪几部分？<br>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td> 
+              <div align="center"> 
+                <textarea name=textarea2 cols=50 rows=12></textarea>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <p class="unnamed1"><br>
+          　3.SNMP定义了哪几种协议数据单元？<br>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td> 
+              <div align="center"> 
+                <textarea name=textarea3 cols=50 rows=12></textarea>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <p class="unnamed1"><br>
+          　4.SNMP主要有什么缺点?<br>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td> 
+              <div align="center"> 
+                <textarea name=textarea4 cols=50 rows=12></textarea>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <p class="unnamed1"><br>
+          　5.RMON是什么？<br>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td> 
+              <div align="center"> 
+                <textarea name=textarea5 cols=50 rows=12></textarea>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <p class="unnamed1"><br>
+          　6.计算机网络主要面临哪此安全威胁？<br>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td> 
+              <div align="center"> 
+                <textarea name=textarea6 cols=50 rows=12></textarea>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <p class="unnamed1"><br>
+          　7.Internet网络安全策略可分为哪几个层次？<br>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td> 
+              <div align="center"> 
+                <textarea name=textarea7 cols=50 rows=12></textarea>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <p class="unnamed1"><br>
+          　8.用图示来说明一般数据加密模型。<br>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td> 
+              <div align="center"> 
+                <textarea name=textarea8 cols=50 rows=12></textarea>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <p class="unnamed1"><br>
+          　9.什么是常规密钥密码体制？<br>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td> 
+              <div align="center"> 
+                <textarea name=textarea9 cols=50 rows=12></textarea>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <p class="unnamed1"><br>
+          　10.简述DES的加密过程。<br>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td> 
+              <div align="center"> 
+                <textarea name=textarea10 cols=50 rows=12></textarea>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <p class="unnamed1"><br>
+          　11.公开密钥密码体制有什么特点？<br>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td> 
+              <div align="center"> 
+                <textarea name=textarea11 cols=50 rows=12></textarea>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <p class="unnamed1"><br>
+          　12.试述RSA的加密过程。<br>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td> 
+              <div align="center"> 
+                <textarea name=textarea12 cols=50 rows=12></textarea>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <p class="unnamed1"><br>
+          　13.试述数据签名的过程。<br>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td> 
+              <div align="center"> 
+                <textarea name=textarea13 cols=50 rows=12></textarea>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <p class="unnamed1"><br>
+          　14.构成防火墙的基本组件有哪些？<br>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td> 
+              <div align="center"> 
+                <textarea name=textarea14 cols=50 rows=12></textarea>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <p class="unnamed1"><br>
+          　15.什么是IP级防火墙和应用级防火墙？<br>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td> 
+              <div align="center"> 
+                <textarea name=textarea15 cols=50 rows=12></textarea>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <p class="unnamed1"><br>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td> 
+              <div align="center"> 
+                <input type='reset' name='Submit3' value='重来'>
+                　 
+                <input type=button name=Button value=答案 onClick="MM_openBrWindow('answer.htm','计算机网络','scrollbars=yes,width=470,height=390')">
+              </div>
+            </td>
+          </tr>
+        </table>
+        <p class="unnamed1"> <br>
+          <br>
+          <br>
+      </td>
+    </tr>
+  </table>
+  <p class="unnamed1">&nbsp;
+</form>
+</BODY></HTML>

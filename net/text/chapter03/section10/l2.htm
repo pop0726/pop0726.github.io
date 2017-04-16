@@ -1,0 +1,25 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+          <td class="explaination"><br>
+            　　在报文交换中，每一个报文由传输的数据和报头组成，报头中有源地址和目标地址。节点根据报头中的目标地址为报文进行路径选择。并且对收发的报文进行相应的处理，如差错检查和纠错、调节输入/输出速度进行数据速率转换、进行流量控制，甚至可以进行编码方式的转换等，所以报文交换是在两个节点间的一段链路上逐段传输，不需要在两个主机间建立多个节点组成的电路通道。<br>
+            <br>
+            　　与电路交换相比，报文交换方式不要求交换网为通信双方预先建立一条专用的数据通路，因此就不存在建立电路和拆除电路的过程，如<span class="point">动画</span>所示，如果主机4要求发送一个报文给主机E，主机A首先将报文发送到节点4；节点4根据报文附加的目标地址选择节点5（或7）为转发达个报文的下-个节点；节点5（或7）接收并存储所收到的报文，当输出线路有空时，把该报文转发到它所选择的下一个节点6；节点6收到报文后交给主机E，完成报文传输。报文交换中每个节点都对报文进行&quot;存储转发&quot;，报文数据在交换网中是按接力方式发送的。通信双方事先并不知道报文所要经过的传输路径，并且各个节点不被特定报文所独占。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

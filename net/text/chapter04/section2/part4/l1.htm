@@ -1,0 +1,38 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td class="explaination" colspan="2"><br>
+            　　在非平衡配置中，每条链路有一个主站（primary station）控制整个链路的工作。主站发出的帧叫做命令（command）。受控的各站叫做次站或从站（secondary 
+            station）。次站发出的帧叫做响应（response）。可以是点对点工作，也可以多点工作。在平衡配置中，链路两端的两个站都是复合站（combined 
+            station）。复合站同时具有主站和次站的功能，因此每个战都可以发出命令和响应。它只能点对点工作。<br>
+            <br>
+            　　对于非平衡配置，可以有两种数据传输方式。最常用的是正常响应方式NRM（Normal Response Mode），其特点是只有主站才能发起向次站的数据传输，而次站只有在主站向它发起命令帧进行轮询（poll）时才能以响应帧的形式回答主站。另一种是异步响应模式ARM（Asynchronous 
+            Response Mode）。这种方式允许次站发起向主站的数据传输。即次站不需要等待主站发过来的命令，而是可以主动向主站发送响应帧。但是，主站仍负责整个系统的初始化、链路的建立和释放，以及差错恢复等。<br>
+            <br>
+            　　对于平衡配置，只有异步平衡方式ABM（Asynchronous Balanced Mode），其特点是每个复合站都可以平等地发起数据传输，而不需要得到对方复合站的允许。<br>
+            　</td>
+        </tr>
+        <tr> 
+          <td  width="25" valign="top"><img src="../../../../image/tub/ts.gif" width="25" height="20" alt="图示"></td>
+          <td>
+            <div align="center" class="point"><img src="../../../../image/pic/chapter04/4_8.gif" width="400" height="281"><br>
+              图 4.8<br>
+              　　</div>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

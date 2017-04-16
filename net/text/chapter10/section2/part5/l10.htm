@@ -1,0 +1,40 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+          <td class="explaination"><br>
+            <span class="point">　(1)应用代理服务器（Application Gateway Proxy）</span><br>
+            <br>
+            　　在网络应用层提供授权检查及代理服务。当外部某台主机试图访问受保护网络时，必须先在防火墙上经过身份认证。通过身份认证后，防火墙运行一个专门为该网络设计的程序，把外部主机与内部主机连接。在这个过程中，防火墙可以限制用户访问的主机、访问时间及访问的方式。同样，受保护网络内部用户访问外部网时也需先登录到防火墙上，通过验证后，才可访问。<br>
+            <br>
+            　　应用网关代理的优点是既可以隐藏内部IP地址，也可以给单个用户授权，即使攻击者盗用了一个合法的IP地址，也通不过严格的身份认证。因此应用网关比报文过滤具有更高的安全性。但是这种认证使得应用网关不透明，用户每次连接都要受到认证，这给用户带来许多不便。这种代理技术需要为每个应用写专门的程序。 
+            <br>
+            <br>
+            <span class="point">　(2)回路级代理服务器</span><br>
+            <br>
+            　　即通常意义的代理服务器，它适用于多个协议，但不能解释应用协议，需要通过其他方式来获得信息，所以，回路级代理服务器通常要求修改用户程序。<br>
+            <br>
+            　　套接字服务器（Sockets Server）就是回路级代理服务器。套接字(Sockets)是一种网络应用层的国际标准。当受保护网络客户机需要与外部网交互信息时，在防火墙上的套接字服务器检查客户的User 
+            ID、IP源地址和IP目的地址，经过确认后，套接字服务器才与外部的服务器建立连接。对用户来说，受保护网与外部网的信息交换是透明的，感觉不到防火墙的存在，那是因为网络用户不需要登录到防火墙上。但是客户端的应用软件必须支持 
+            &quot;Socketsified API&quot;，受保护网络用户访问公共网所使用的IP地址也都是防火墙的IP地址。<br>
+            <br>
+            <span class="point">　(3)代管服务器</span><br>
+            <br>
+            　　代管服务器技术是把不安全的服务如FTP、Telnet等放到防火墙上，使它同时充当服务器，对外部的请求作出回答。与应用层代理实现相比，代管服务器技术不必为每种服务专门写程序。而且，受保护网内部用户想对外部网访问时，也需先登录到防火墙上，再向外提出请求，这样从外部网向内就只能看到防火墙，从而隐藏了内部地址，提高了安全性。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第二章 指令系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><span class="pt9-black"><br>
+            <b class="part">2.5.5 RISC优化编译技术</b><br>
+            <br>
+            　　RISC思想在采用硬件技术提高处理机性能的同时，也十分重视软件的优化编译技术。可以说，RISC是硬件和软件相结合的产物。离开来优化编译技术的支持，RISC处理机的性能就不可能得到充分的发挥。<br>
+            　　RISC的硬件设计为优化编译程序的设计带来了许多方便的地方，同时也造成一些困难。主要方面有：<br>
+            <br>
+            <b>RISC对优化编译程序带来的方便主要有：</b><br>
+            <br>
+            　　1、由于RISC的指令系统比较简单，而且对称、均匀，优化编译程序不必为具有类似功能的指令做复杂的指令选择工作。<br>
+            　　2、RISC的寻址方式简单，只有LOAD和STORE指令能够访问存储器，其它指令均在通用寄存器之间进行操作。因此，可以简化优化编译器在选择寻址方式过程种要做的工作，省去了是否要生成访问存储器指令的选择工作。 
+            <br>
+            　　3、因为大多数指令都能在一个周期内执行完成，为优化编译器调整指令序列提供了极大的方便。<br>
+            <br>
+            <b>RISC对优化编译器造成的困难主要有：</b><br>
+            <br>
+            　　1、优化编译器必须选择哪些变量放在通用寄存器中，哪些变量放在主存储器中，必须精心安排每一个寄存器的用法，以便充分发挥每一个通用寄存器的效率，尽量减少访问主存储器的次数。<br>
+            　　2、优化编译器要做数据和控制相关性分析，要调整指令的执行序列。并与硬件相配合实现指令延迟技术和指令取消技术等个。<br>
+            　　3、要设计复杂的子程序库，因为在CISC中的一条指令在RISC中要用一段子程序来实现。所以，RISC的子程序库通常要比CISC的子程序库大得多。<br>
+            </span></p>
+          <p align="left"><span class="pt9-black">　</span></p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

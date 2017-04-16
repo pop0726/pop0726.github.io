@@ -1,0 +1,51 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第二章 指令系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><span class="pt9-black"><br>
+            　　实际上，操作码不可能达到最短长度，这是因为操作码的位数必须是2的整倍数。然而，我们可以利用Huffman算法，通过构造Huffman树对操作码进行编码。上面这个例子的具体编码过程如图2.10所示。</span></p>
+          <p align="center"><img src="images/tu2_10.gif" width="340" height="171"></p>
+          <p align="left"><span class="pt9-black">　　利用Huffman树进行操作码编码的方法，又称为最小概率合并法。对于上面这个例子，具体的编码方法是：首先，把所有7条指令按照操作码在程序中出现的概率值，自左向右从排列好，每条指令是一各结点；然后，选取两个概率最小的结点合并成一个概率值是二者之和的新结点，并把这个新结点插入到其它还没有合并的结点中间；再在新的结点集合中选取两个概率最小的结点进行合并，如此继续进行下去，直至全部结点都合并完毕，最后得到一个根结点，根结点的概率值为1。<br>
+            　　从图中可以看到，每个结点都有两个分支，分别用一位代码&quot;0&quot;和&quot;1&quot;表示。如果要得到某一条指令的操作码编码，可以从根结点开始，沿尖头所指方向，到达属于该指令的概率结点，把沿线所经过的代码组合起来得到这条指令的操作码编码。例如，要想得到概率值为0.15的指令的操作码编码，可以从概率值为1.00的根结点开始，沿尖头向右上方，到达概率值为0.55结点，于是得到第一位操作码&quot;1&quot;，继续向右上方，到达概率值为0.25结点，得到第二位操作码，也是&quot;1&quot;，最后沿向上的尖头，到达概率值为0.15的结点，得到最后一位操作码&quot;0&quot;，把所经过的代码组合起来得到概率值为0.15这条指令的操作码编码为&quot;110&quot;。<br>
+            　　应当指出，采用上述方法形成的操作码编码并不是唯一的，只要将任意一个二叉结点上�&quot;0&quot;和&quot;1&quot;交换，就可以得到一组新的操作码编码。然而，无论怎样交换，操作码的平均长度是唯一的。<br>
+            　　采用Huffman编码法所得到的操作码的平均长度为：<br>
+            　　　　<img src="images/gsh3_14.gif" width="90" height="45"> <br>
+            　　Pi表示第i种操作码在程序中出现的概率，Li表示第i种操作码的二进制位数，一共有n种操作码。<br>
+            　　把具体数值代入，得到：<br>
+            　　　　<img src="images/gsh3_16.gif" width="85" height="44" align="absmiddle">＝0.45×1＋0.30×2＋0.15×3＋0.05×4<br>
+            　　　　　　　　　　　　＋0.03×5＋0.01×6＋0.01×6<br>
+            　　　　　　　　　　　＝1.97（位）<br>
+            　　这种编码方法的信息冗余量很小，仅为：<br>
+            </span>　　　<img src="images/gsh3_17.gif" width="133" height="42"><br>
+            <span class="pt9-black">　　与采用3位固定长操作码的信息冗余量35％相比要小得多。</span><br>
+          </p>
+          <p align="left"><span class="pt9-black">　</span></p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第五章 标量处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black">　　下面，通过一个具体的例子来说明在程序执行过程中，是如何通过数据重定向来避免数据相关的。一个简单的程序如下：<br>
+            　　　k： LOAD F1, A<br>
+            　　　k+1： FADD F1, F2<br>
+            　　　k+2： FMUL F1, F3<br>
+            　　　k+3： STORE F1, B<br>
+            　　程序中的F1、F2、F3是浮点通用寄存器，A和B是主存储器的单元。程序执行过程中数据流程如图5.45(a)所示，图中的长方形表示数据存储单元，圆形表示运算部件，带有箭头的线表示数据传送路径。<br>
+            　　根据上面介绍的数据重定向原理，为了处理写读数据相关，专门设置了A→FADD、FADD→FMUL、FMUL→B三条专用路径，同时，撤消了F1→FADD和F1→FMUL的路径。另外，为了处理写写数据相关，撤消了A→F1、FADD→F1的数据传送路径，如图5.45(b)所示。</p>
+          <p align="center" class="pt9-black"><img src="images/tu5_45.gif" width="441" height="359"><br>
+            <b>图5.45 数据重定向原理</b> </p>
+          <p align="left"><span class="pt9-black">　　在流水线处理机中，经常有多条流水线，每条流水线有多个流水段，能够同时执行多条指令。如果为每一种困难出现的数据相关都建立专门的数据路径，那么，不仅相关路径的数量很多，而且控制逻辑也相当复杂。为了处理流水线中可能出现的多种数据相关，人们提出了多种解决数据相关的算法。</span></p>
+          <p align="left"><span class="pt9-black"><br>
+            </span> </p>
+          </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

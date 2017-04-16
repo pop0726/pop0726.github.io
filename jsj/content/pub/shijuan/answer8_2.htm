@@ -1,0 +1,26 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="95%" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td class="pt9-black"><b>[解答]</b><br>
+      (1)． 该程序段中每条指令所需的周期数如下所示：<br>
+      　　　Load R1,B(I)　　　　4<br>
+      　　　Load R2,C(I) 　　　　4<br>
+      　　　Multiply R1,R2　　　8<br>
+      　　　Load R3,A(I)　　　　4<br>
+      　　　Add R3,R1 　　　　　2<br>
+      　　　Store D(I),R3　　　4<br>
+      运行一遍这六条指令，共需要（忽略其它延迟时间）4＋4＋8＋4＋2＋4＝26个周期。<br>
+      (2)． 在一台SISD单处理计算机上依次重复执行上述代码段64遍所需的CPU周期数为26×64 = 1664<br>
+      (3)． 在一台有64个PE的SIMD机，以6条同步向量指令直接对64组向量数据执行上述向量操作，那么只需要执行一遍，所需CPU周期数为26。SIMD计算机和SISD计算机相比，加速比 
+      为1664/26 = 64。</td>
+  </tr>
+</table>
+</body>
+</html>

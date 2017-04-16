@@ -1,0 +1,32 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+          <td class="explaination"><br>
+            <span class="point">・SAP地址：</span><br>
+            　　即进程在站中的地址，由LLC帧负责传送。<br>
+            <br>
+            　　由此可见，局域网中的寻址要分两步走，第一步是用MAC帧的地址信息找到网络中的某一个站，第二步是用LLC帧的地址信息找到该站中的某个SAP。这样，从站A发出的连接请求帧的源地址和目的地址分别表示为A(1)和C(1)，其中A和C都是MAC地址，括号中的数字则是相应站中LLC层上的SAP地址。<br>
+            <br>
+            　　当站C同意建立连接时，就向站A返回一个接受连接的帧，从此以后，所有由站A的进程x发往站C的帧，都包括源地址A(1)和目的地址C(1)。凡是发给地址C(1)的帧，若其源地址不是A(1)，都将被过滤掉（拒收）。同样，凡不是由地址C(1)发给A(1)的帧也被过滤掉。<br>
+            <br>
+            　　现在如果站A上还有一个进程y和SAP2连接上，并且要和站B的SAP1交换数据。这时，从A(2)到B(1)也可以建立一条连接。同理，进程z还可以从地址B(2)与A(3)建立连接。可见，多个SAP是可以复用一条数据链路的。<br>
+            <br>
+            　　正是因为有了SAP的概念，才使得LLC层具有复用功能。当一个LLC层有很多的服务访问点时，不同的用户使用不同的SAP就可以请求不同的服务。例如，某些用户通过某些SAP使用互联网协议IP，另外一些用户使用IPX协议，还有的可以使用CLNS，这些不同类型的用户同时使用同一站的LLC服务，在一个局域网上互不干扰地同时工作着。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

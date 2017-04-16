@@ -1,0 +1,48 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第四章 输入输出系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black">　　图4.18是一种典型的采用输入输出处理机的计算机结构。一台输入输出处理机可以管理多台设备控制器，设备控制器与输入输出处理机之间采用标准的接口相连接。一台设备控制器可以管理多台同类型的输入输出设备。在一些高性能计算机中，CPU、I/O处理机与主存之间要采用交叉开关网络来连接。</p>
+          <p align="center" class="pt9-black"><img src="images/tu4.18.jpg" width="449" height="214"></p>
+          <p align="left"><span class="pt9-black">　　输入输出处理机与通道处理机的主要差别是：输入输出处理机除了能够完成通道处理机的全部功能之外，一般的输入输出处理机还具有如下功能：<br>
+            　　1、码制转换。例如，ASCII码与EBCDIC码之间的转换，ASCII码与BCD码之间的转换，BCD码与二进制数之间的转换等。<br>
+            　　2、数据校验和校正。由于外围设备的可靠性要比主机低，因此，在许多外围设备中都有相当复杂的校验和校正功能。在外围存储设备，如磁盘存储器和磁带存储器等中，一般采用硬件实现校验和校正，而在数据传输过程中的校验与校正一般要在输入输出处理机中通过程序来实现。<br>
+            　　3、故障处理。在通道处理机中，当外围设备或通道处理机本身出现故障时，要通过中断方式报告CPU，由CPU来进行处理。而在输入输出处理机中，由于设置有算术逻辑指令和程序控制指令等，可以自己处理故障。<br>
+            　　4、文件管理。文件管理是一件相当烦琐的工作，输入输出处理机可以代替CPU完成文件管理的大部分工作。在有些计算机系统中，甚至专门设置有文件处理机。<br>
+            　　5、诊断和显示系统状态。通过定时运行诊断程序，可以诊断外围设备和输入输出处理机是否正常。<br>
+            　　6、处理人机对话。处理人机对话一般要通过反复调用管理程序来实现，有时把这种管理程序成为监控程序。在设置有输入输出处理机的计算机系统中，一般把处理人机对话的管理程序放在输入输出处理机上执行。<br>
+            　　7、网络或远程终端可以直接连接到输入输出处理机上，由输入输出处理机完成远程用户服务工作。<br>
+            　　除了以上工作之外，输入输出处理机还可以根据需要完成分配给它的其它任务，如数据库和知识库的管理工作等<br>
+            　　输入输出处理机之所以能够完成上述这些通道处理机所不能完成的工作，其中的关键是输入输出处理机除了具有数据的输入输出功能之外，还具有运算功能和程序控制等功能，即，不仅能够执行输入输出指令，还能够执行算术逻辑指令和程序控制指令等，就象一个一般的处理机那样。<br>
+            　　总之，输入输出处理机通常是一台独立的处理机，具有一定的运算功能，可以承担一般的外围处理机的输入输出、控制操作和运算处理等任务。另外，由于输入输出处理机具有自己的存储器，因此，不必通过主存储器就能完成与外围设备的数据交换，这样，可以进一步提高整个计算机系统的性能。<br>
+            <br>
+            </span></p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

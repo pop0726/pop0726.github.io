@@ -1,0 +1,41 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+          <td class="explaination"><br>
+            　　设收到的码字为：<br>
+            　　　<img src="../../../image/pic/chapter03/gongshi/8/06.gif" width="119" height="23"><br>
+            <br>
+            　　则收、发码字之差为：<br>
+            　　　<img src="../../../image/pic/chapter03/gongshi/8/07.gif" width="88" height="17">(3-8)<br>
+            <br>
+            　　称E为错误图样，<br>
+            　　　<img src="../../../image/pic/chapter03/gongshi/8/08.gif" width="123" height="23"><br>
+            　　　<img src="../../../image/pic/chapter03/gongshi/8/09.gif" width="140" height="62"><br>
+            <br>
+            　　<font size="2">e</font><font size="1">i</font>=0，表示i位无错。<font size="2">e</font><font size="1">i</font>=1，则表示I位有错。利用E可到处校正子S为：<br>
+            　　　<img src="../../../image/pic/chapter03/gongshi/8/10.gif" width="90" height="22">　(3-9)<br>
+            <br>
+            　　当E取不同的错误图样时，可得各个对应的校正子。当然，E可取的错误类型应限制在该编码的纠错能力之内，否则将得到多个相同的S，失去应用价值。<br>
+            <br>
+            　　为了进行纠错，接收端对收码字R进行下述运算，有<br>
+            　　　<img src="../../../image/pic/chapter03/gongshi/8/11.gif" width="257" height="58">(3-10)<br>
+            <br>
+            　　收端将S'与事先算得的S进行比较，即可确定E。根据式(3-9)和模2加法规则，有C＝R+E。其中，C即为R的译码输出，并纠正了R中的误码。至此已从数学上证明了纠错编码的可实现性。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

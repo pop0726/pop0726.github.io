@@ -1,0 +1,30 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" background="../../../../../image/htmls/right_r5_c3.gif" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="88%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+          <td class="text"><br>
+            <span class="section">三、连接管理</span><br>
+            <br>
+            <span class="part">　2.释放连接</span><br>
+            <br>
+            　　连接的释放要比建立更容易些。尽管如此，仍有很多不引人注意的细节问题。前面曾提到过，终止连接有两种方式：非对称释放和对称释放。非对称释放是电话系统动作方式：当一方挂机后，连接即告中断。对称释放将连接按照两个独立的单向连接来处理，要求每一方分别释放连接。<br>
+            <br>
+            　　非对称释放很突然，因而可能会导致丢失数据。请看<span class="point">动画</span>中所示的释放连接（DR）情形。当连接建立后，主机1发送了一个数据TPDU并正确抵达主机2，接着，主机1发送了另一个数据TPDU，这次很不幸，主机2在收到第二个TPDU之前先发出了DISCONNECT（释放连接请求），结果是连接被释放，数据被丢失。 
+            <br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

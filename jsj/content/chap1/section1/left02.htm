@@ -1,0 +1,49 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第一章 计算机系统结构的基本概念</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><span class="pt9-black"><br>
+            </span></p>
+          <p align="left" class="pt9-black"> 　　图1.1中的第0级机器由硬件实现，第1级机器由微程序（固件）实现，第2级至第6级机器由软件实现。我们称由软件实现的机器为虚拟机器，以区别于由硬件或固件实现的实际机器。<br>
+            　　第0级和第1级是具体实现机器指定功能的中央控制部分。它根据各种指令操作所需要的控制时序，配备一套微指令，编写出微程序，控制信息在各寄存器之间的传送，这就是第1级机器。实现这些微指令本身的控制时序只需要很少的逻辑线路，可采用硬联逻辑实现，它就是第0级机器，是机器的硬件内核。<br>
+            　　第2级是传统机器语言机器。这级的机器语言是该机的指令系统。机器语言程序员用这级指令系统编写的程序由第1级的微程序进行解释。<br>
+            　　第3级是操作系统机器。这级的机器语言中的多数指令是传统机器的指令，如算术运算，逻辑运算和移位等指令。此外，这一级还提供操作系统级指令，例如打开文件、读/写文件、关闭文件等指令。用这一级语言编写的程序，即那些与第2级指令相同的指令直接由微程序实现。操作系统级指令部分由操作系统进行解释。操作系统是运行在第2级上的解释程序。<br>
+            　　第4级是汇编语言机器。这级的机器语言是汇编语言。用汇编语言编写的程序首先翻译成第3级或第2级语言，然后再由相应的机器进行解释。完成翻译的程序叫做汇编程序。<br>
+            　　第5级是高级语言机器。这级的机器语言就是各种高级语言。用这些语言所编写的程序一般是由编译程序翻译到第4级或第3级上的语言，个别的高级语言也用解释的<br>
+            方法实现。<br>
+            　　第6级是应用语言机器。这级的机器语言是应用语言。这种语言使非计算机专业人员也能直接使用计算机，只需在用户终端用键盘或其它方式发出服务请求就能进入第6级的信息处理系统。<br>
+          </p>
+          <p align="center"><img src="images/tu1_2.jpg" width="273" height="115"><br>
+            <span class="pt9-black"><b>图1.2　机器的作用和组成</b> </span></p>
+          <p align="left"><span class="pt9-black">　　从学科领域来划分，大致可以认为第0至第1级是计算机组织与结构讨论的范围，第3至第5级是系统软件，第6级是应用软件。但是，严格说起来又不尽然，它们之间仍有交叉。例如，第0级要求一定的数字逻辑基础；第2级涉及汇编语言程序设计的内容；第3级与计算机系统结构密切相关。在特殊的计算机系统中，有些级别可能不存在。<br>
+            　　把计算机系统按功能划分成多级层次结构，首先有利于正确地理解计算机系统的工作，明确软件、硬件和固件在计算机系统中的地位和作用。其次有利于理解各种语言的实质及其实现。最后还有利于探索虚拟机新的实现方法，设计新的计算机系统。</span></p>
+          <p align="left">&nbsp;</p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

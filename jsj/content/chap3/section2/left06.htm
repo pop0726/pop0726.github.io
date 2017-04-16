@@ -1,0 +1,43 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第三章 存储系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><b><span class="part">3.2.4 页式虚拟存储器</span></b><span class="pt9-black"><b><br>
+            <br>
+            </b>　　页式虚拟存储器把虚拟地址空间划分成一个个固定大小的块，每块称为一页（Page），把主存储器的地址空间也按虚拟地址空间同样的大小划分为页。页是一种逻辑上的划分，它可以由系统管理软件任意指定。然而，由于磁盘存储器的物理块大小是0.5KB，为了与外部存储器，特别是磁盘存储器相配合,因此，虚拟存储器中页的大小通常指定为0.5KB的整倍数。目前一般计算机系统中，一页的大小通常为1KB至16KB。<br>
+            　　在虚拟存储器中，虚拟地址空间中的页称为虚页，主存地址空间的页称为实页。这样，把一个在虚拟地址空间中编写的用户程序映象到主存实地址空间时，只需要建立从虚页号到实页号的地址变换即可，从而可以大大缩短地址的长度，既节省了硬件，又能加快地址变换的速度。<br>
+            　　页式虚拟存储器的地址映象方法如图3.16所示。一个在虚拟地址空间中编写的用户程序共有3页，其中最后一页没有满，要浪费掉一部分。页表共有4行，每行与用户程序的一页对应。如果页表中第一个字段给出的页号是连续的，则这一个字段可以省掉，只要根据页表中的主存页号就能把该用户程序的每一页唯一地映象到主存储器的确定位置中。</span></p>
+          <p align="center"><b class="pt9-black"><img src="images/tu3_16.gif" width="426" height="247"><br>
+            图3.16 页式虚拟存储器的地址映象 </b></p>
+          <p align="left"><span class="pt9-black">　　与段式虚拟存储器相比，由于每一页的长度是固定的，因此，不需要象段式虚拟存储器中的段长度这一字段，另外，主存地址这一字段只需要指出主存储器的页号，与段式虚拟存储器中的主存地址必须指出整个主存地址长度相比要节省很多。<br>
+            <b><br>
+            </b></span></p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第五章 标量处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black"><span class="section">5.5 超流水线处理机</span><br>
+            <br>
+            　　在一般标量流水线处理机中，通常把一条指令的执行过程分解为&quot;取指令&quot;、&quot;译码&quot;、&quot;执行&quot;和&quot;写回结果&quot;4个流水段。如果把其中的每个流水段再细分，例如，再分解为两个延迟时间更短的流水段，则一条指令的执行过程就要经过8个流水段，这样，在一个时钟周期内就能够&quot;取指令&quot;两条，&quot;译码&quot;、&quot;执行&quot;和&quot;写结果&quot;各两条指令。这种在一个时钟周期内能够分时发射多条指令的处理机称为超流水线处理机。另外，也可以把指令流水线的段数大于或等于8的流水线处理机称为超流水线处理机。<br>
+            　　超流水线处理机与上一节中介绍的超标量处理机不同，超标量处理机是通过重复设置多�&quot;取指令&quot;部件，设置多个&quot;译码&quot;、&quot;执行&quot;和&quot;写结果&quot;部件，并让这些功能部件同时工作来提高指令的执行速度，实际上是以增加硬件资源为代价来换取处理机性能的；而超流水线处理机则不同，它只需要增加少量硬件，是通过各部分硬件的充分重叠工作来来提高处理机性能的。从流水线的时空图上看，超标量处理机采用的是空间并行性，而超流水线处理机采用的是时间并行性。<br>
+            <br>
+            <b class="part">5.5.1 指令执行时序</b><br>
+            <br>
+            　　一台并行度ILP为n的超流水线处理机，它在一个时钟周期内能够发射n条指令；但这n条指令不是同时发射的，每隔1/n个时钟周期发射一条指令；因此，实际上超流水线处理机的流水线周期为1/n个时钟周期。一台每个时钟周期分时发射3条指令的超流水线处理机的指令执行时空图如图5.56所示。</p>
+          <p align="center" class="pt9-black"><img src="images/tu5_56.gif" width="532" height="171"><br>
+            图5.56 超流水线处理机的指令执行时空图</p>
+          <p align="left"><span class="pt9-black">　　图5.56只是超流水线处理机原理上的指令执行时空图。实际上，流水段还要进一步细分，一个流水段要细分为多个流水级，每一个流水级也都有名称。在分解流水段时要根据实际情况，有些流水段分解的流水级数可多些。例如，图5.56中的&quot;译码（ID）&quot;流水段，可以再细分为&quot;译码&quot;流水级、&quot;取第一个操作数&quot;流水级和&quot;取第二个操作数&quot;流水级等。有些流水段分解的流水级数可少些，也的流水段可以不再细分，如&quot;写结果&quot;流水段一般不再细分。 
+            <br>
+            </span> </p>
+          <p align="left" class="pt9-black">&nbsp;</p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第五章 标量处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><span class="pt9-black"><b class="part">5.5.2 典型处理机结构</b><br>
+            <br>
+            　　在早期生产的计算机中，巨型计算机CRAY-1和大型计算机CDC-7600属于超流水线处理机，其指令级并行度n＝3。在目前大量使用的微处理器中，只有SGI公司的MIPS（Microprocessor 
+            without Interlocked Piped Stages）系列处理机属于超流水线处理机。MIPS是除Intel公司的X86系列微处理器之外，生产量最大的一种微处理器。MIPS系列的微处理器主要有R2000、R3000、R4000、R5000和R10000等几种,其中，R4000是典型的超流水线处理机。下面以R4000为例，说明超流水线处理机的基本结构和工作原理，图5.57是R4000微处理器的结构框图。<br>
+            　　R4000芯片内有两个Cache，指令Cache和数据Cache的容量各8K字节，每个Cache的数据宽度为64位。由于每个时钟周期可以访问Cache两次，因此，在一个时钟周期内可以从指令Cache中读出两条指令，从数据Cache中读出或写入两个数据。<br>
+            　　整数部件是R4000的核心处理部件，它主要包括一个32个32位的通用寄存器堆，一个算术逻辑部件,一个专用的乘法/除法部件。整数部件负责取指令，整数操作的译码和执行，LOAD与STORE操作的执行等。通用寄存器堆用作标量整数操作和地址计算，寄存器堆有两个输出端口和一个输入端口，它还设置有专用的数据通路，可以对每一个寄存器读和写两次。整数部件包括一个整数加法器和一个逻辑部件，负责执行算术运算操作，地址运算和所有的移位操作。乘法/除法部件能够执行32位带符号和不带符号的乘法或除法操作，它可以与整数部件并行执行指令。<br>
+            　　浮点部件包括一个浮点通用寄存器堆和一个执行部件。浮点通用寄存器堆由16个64位的通用寄存器组成，它也可以设置成32个32位的浮点寄存器。浮点执行部件由浮点乘法部件、浮点除法部件和浮点加法/转换/求平方根部件等三个独立的部件组成，这三个浮点部件可以并行工作。浮点操作主要包括浮点加、减、乘、除和求平方根、定点与浮点格式的转换、浮点格式之间的转换、浮点数比较等15种。浮点控制寄存器用来设置浮点协处理器的状态和控制信息，主要用于诊断软件、异常事故处理、状态保存与恢复、舍入方式的控制等。<br>
+            　　R4000的指令流水线有8级，流水线操作如图5.58所示。R4000采用超流水线结构，取指令和访问数据都要跨越两个流水级。实际上，每个时钟周期包含两个流水级，处理器取第一条指令（IF）和取第二条指令（IS）两个流水级都要访问指令Cache，这两个流水级为一个时钟周期。在寄存器流水级（RF）的开始，指令已经读到了指令寄存器中，因此可以进行译码，并且访问寄存器堆。另外，由于指令Cache是采用直接映象方式的，因此，从指令Cache中读出的区号要与访问存储器的物理地址进行比较。如果相等，表示指令Cache命中。<br>
+            </span><br>
+          </p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td class="explaination" colspan="2"><br>
+            <span class="point">　1) 响应（ACK）：</span><br>
+            　　若一个站点接收到只发送给它的一个帧，这个站点在等待SIPS后就发出一个ACK帧。这样做可以取得以下两个效果；首先，因为MAC没有使用冲突检测，发生冲突的可能性要比CSMA/CD大，MAC层的ACK提高了从冲突中恢复的效率；其次，如果一个LLC 
+            PDU要分成多个MAC帧进行发送，那么用SIFS可以提高传输的效率。例如，一个站点要发送多个帧，每次只能发送一个帧。接收方等待一个SlFS后就发出ACK。当源站接收到ACK，等待SIFS后就可以发出序列中的下一帧。于是一个站一旦争到通道，它将继续控制这个通道直到发送完全部LLC 
+            PDU形成的帧。<br>
+            　</td>
+        </tr>
+        <tr> 
+          <td class="explaination" width="25" valign="top"><img src="../../../../../image/tub/ts.gif" width="25" height="20" alt="图示"></td>
+          <td class="explaination">
+            <div align="center"><img src="../../../../../image/pic/chapter09/9_32_a.gif" width="373" height="141"><br>
+              <span class="point"><br>
+              图9.31(a) IEEE802.11 MAC定时基本访问方法</span></div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="explaination" colspan="2"><br>
+            <span class="point">　2) 发送清除（CTS）：</span><br>
+            　　一个站点如果发送一个小的请求发送（RTS）帧就可保证它的数据帧的发送成功。目的站如果准备好接收就应立即用CTS帧响应。所有其他的站点接收到这个RTS就推迟使用介质，直到观察到一个响应CTS或者发生了超时。<br>
+            <br>
+            <span class="point">　3) 查询响应：</span><br>
+            　　将在下面讨论。PIFS由中央控制器用于发送查询帧，使它领先于一般争用通信。但是用SIFS发送的帧领先于PCF查询帧，DIFS用于所有普通的异步通信。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

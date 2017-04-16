@@ -1,0 +1,25 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+          <td class="explaination"><br>
+            　　为了使得以太网和IEEE802.3两种帧能兼容，即都能在网上正常发送和接收，怎样处理TYPE和L是关键之一，解决的办法是：认为该段中的值大于最大帧长度（即1518D），则表示为类型段，该段的值仅来说明继后的DATA是何种网络层协议的分组，也就是认为该帧为以太网帧，按以太网帧结构来处理；反之则认为是IEEE802.3帧结构，IEEE802.3帧结构来处理。实际的做法为：取值1536D（既0600H）作为界限，大于或等于0600H，认为是以太网帧，此段按类型处理。例IP为0800H，XNS为0600及IPX为8137H。反之，认为是IEEE802.3帧，该段为长度值。<br>
+            <br>
+            　　两种帧结构另外的区别是：以太网帧的DA段上只有最高位才有定义，区分单址还是多址。而IEEE802.3帧却最高两位有定义，次高位&quot;0&quot;表示全局管理地址，&quot;1&quot;表示局部管理地址。一般来说地址总是全局管理，因此该位总设置为&quot;0&quot;。对于广播地址来说，两种帧结构中DA的次高位均设置为&quot;1&quot;。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

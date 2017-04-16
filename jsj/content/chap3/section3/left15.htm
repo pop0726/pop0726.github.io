@@ -1,0 +1,50 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第三章 存储系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="left"> 
+          <p class="pt9-black"><span class="part">3.3.4 Cache系统的加速比</span><br>
+            <br>
+            　　在计算机系统中设置Cache的一个主要目的是为了提高存储系统的速度，因此，人们最关心的一个问题就是Cache系统的加速比。<br>
+            　　假设Cache的访问周期为<img src="images/gsh3_24.gif" width="18" height="17" align="absmiddle">，主存储器的访问周期Tm，则Cache系统的加速比<img src="images/gsh3_5F25.gif" width="20" height="16" align="absmiddle">（Speedup）可以定义为：<br>
+            　　　<img src="images/gsh3_26.gif" width="253" height="39" align="absmiddle">　　　　　（3.5）<br>
+            　　加速比越高，说明Cache系统的等效访问速度与Cache的速度越接近。<br>
+            　　从这个关系式看到，Cache系统的加速比<img src="images/gsh3_5F25.gif" width="20" height="16" align="absmiddle">是命中率H和主存周期Tm与Cache周期<img src="images/gsh3_24.gif" width="18" height="17" align="absmiddle">比值的函数。在Cache系统中，主存储器的访问周期Tm和Cache的访问周期<img src="images/gsh3_24.gif" width="18" height="17" align="absmiddle">由于受所用器件的限制通常是一定。因此，要提高Cache系统的加速比<img src="images/gsh3_5F25.gif" width="20" height="16" align="absmiddle">最好的途径是提高命中率H。<br>
+            　　从（3.5）的关系中可以看出，加速比<img src="images/gsh3_5F25.gif" width="20" height="16" align="absmiddle">与Cache命中率的关系是：当H＝0.5时，加速比<img src="images/gsh3_5F25.gif" width="20" height="16" align="absmiddle">的期望值为2。当H＝0.75时，加速比<img src="images/gsh3_5F25.gif" width="20" height="16" align="absmiddle">的期望值为4。当H＝0.9时，加速比<img src="images/gsh3_5F25.gif" width="20" height="16" align="absmiddle">的期望值达到10。当H＝1时，加速比<img src="images/gsh3_5F25.gif" width="20" height="16" align="absmiddle">达到最大值 
+            。<br>
+            　　加速比<img src="images/gsh3_5F25.gif" width="20" height="16" align="absmiddle">与Cache命中率H的关系如图3.40所示。由于命中率H的值一般都大于0.9，能达到0.99以上，因此，从上面的关系中可以看出，实际上Cache的加速比<img src="images/gsh3_5F25.gif" width="20" height="16" align="absmiddle">能够接近于它的最大值 
+            。</p>
+          <p align="center" class="pt9-black"><img src="images/tu3_5F40.gif" width="292" height="187"><br>
+            <b>图3.40 Cache的加速比<img src="images/gsh3_5F25.gif" width="20" height="16" align="absmiddle">与命中率H的关系 
+            </b> </p>
+          <p align="left"><span class="pt9-black">　　Cache的命中率H主要与如下几个因素有关：程序在执行过程中的地址流分布情况；当发生Cache块失效时，所采用的替换算法；Cache的容量；在组相联映象方式中，块的大小和分组的数目；所采用的Cache预取算法等。其中，地址流的分布情况是由程序本身决定的，系统设计人员一般无能为力。块替换算法，已经在上一节中已经介绍过。Cache预取算法将在下面的另外一节中专门介绍。以下，对影响Cache命中率的另外几个因素作简单的分析。<br>
+            </span> </p>
+          <p>&nbsp;</p>
+        </div>
+        </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

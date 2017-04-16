@@ -1,0 +1,42 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第七章 互连网络</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="left"> 
+          <p class="pt9-black"><span class="part">7.2.2.死锁和虚拟通道</span><br>
+            <br>
+            　　虫蚀寻径多计算机网络的通信通道实际上由许多源和目的对共享。从共享物理通道可以引出虚拟通道的概念。这一节我们将介绍这一概念并讨论它在避免死锁方面的应用。<br>
+            　　<b>1虚拟通道</b> 虚拟通道是两个结点间的逻辑链，它由源结点的片缓冲区、结点间的物理通道以及接收结点的片缓冲区组成。图7.28说明了四条虚拟通道共享一条物理通道的概念。</p>
+          <p align="center" class="pt9-black"><img src="images/tu7_28.jpg" width="382" height="390"></p>
+          <p align="left"><span class="pt9-black">　　源结点和接收结点各有4个片缓冲区。当物理通道分配给某对缓冲区时，这一对的源缓冲区和接收缓冲区形成了一条虚拟通道。<br>
+            　　换句话说，物理通道由所有的虚拟通道分时地共享。除了有关的缓冲区和通道之外，还必须用某些通道状态（如R/A信号）来表示不同的虚拟通道。源缓冲区存放等待使用通道的片。接收缓冲区存放由通道刚刚传送过来的片。通道（电缆或光纤）是它们之间的通信媒介。<br>
+            <br>
+            </span></p>
+        </div>
+        </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+          <td class="explaination"><br>
+            　　可以采取一种措施来避免这种问题的发生，即禁止发送方在做完N次尝试后放弃连接而让它一直继续下去，直到已收到了一个应答。然而，如果另一方采用超时而释放连接的方法，那么，发送方将会永远处于发送DR状态，因为它不可能再收到应答信息了(对方已经释放连接了)。如果我们禁止接收方采用超时中断连接的方法，那么该协议对图5.22(b)所示的情况便会束手无策。<br>
+            <br>
+            　　一种消除半接通连接的方法是，如果在一段时间内没有收到任何TPDU，连接便自动释放。这样，如果一方已经释放了连接，那么另一方将检测不到对方的活动因而也断开连接。当然，如果引进这一规则，就需要为每个传输实体设置一个定时器，每当收到一个TPDU时都要使定时器停止并重新启动。如果该定时器超时，就发送一个伪TPDU，目的只是不让对方释放连接。另一方面，如果采用自动释放连接的规则，并且在一个处与空闲状态的连接上连续丢失了很多的伪TPDU，那么连接的双方将会先后释放连接。<br>
+            <br>
+            　　对这个问题本书不再作进一步说明了，但现在应该清楚，释放一个连接并非像初看起来那么简单。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

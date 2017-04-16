@@ -1,0 +1,53 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+          <td> 
+            <p><br>
+              <span class="part">・残留差错率(Residual Error Rate)：</span><br>
+              <span class="explaination"><br>
+              　　反映网络连接质量，网络实体不可检测；或漏检差错率。残留差错是网络层未改正的差错且不通知运输层。</span><br>
+              <br>
+              <span class="point">　(1) 所有传送的网络服务数据单元（NSDU）的分类（4类）：N<font size="1">k</font></span><br>
+              <span class="text">　　　成功传送（Successfully Transferred）的NSDU：N<font size="1">s</font><br>
+              　　　错误（Incorrect）的NSDU：N<font size="1">e</font><br>
+              　　　丢失的（Lost）NSDU：N<font size="1">l</font><br>
+              　　　重复（Extra）的NSDU：N<font size="1">x</font><br>
+              </span> </p>
+            <p><span class="point">　(2) 定义：</span><br>
+              <span class="text">　　在测量时间内，在网络连接上传送的所有错误的、丢失的和重复的NSDU与所传送的全部NSDU之比。</span><br>
+              <br>
+              <span class="point">　(3) 公式：</span><br>
+              　　　<img src="../../../image/pic/chapter05/1.gif" width="122" height="43">;<br>
+              <br>
+              <span class="part">・可报告差错率：</span><br>
+              <br>
+              <span class="text">　　指在可检测的差错中不可恢复的差错所占的比例。<br>
+              </span><br>
+              <span class="point">　(1) 残留差错（Residual Error）：</span><br>
+              <span class="text">　　网络实体不可检测的差错；反映差错检测能力；<br>
+              </span><br>
+              <span class="point">　(2)</span> <span class="point">可报告差错（Signalled 
+              Error）：</span><br>
+              <span class="text">　　网络实体可检测，但不可恢复的差错；反映差错恢复能力。<br>
+              </span><br>
+              <span class="point">　　①</span> <span class="text">检测到有不可恢复差错的NSDU时，网络实体并不递交运输实体，而是报告运输实体对它进行恢复；通知运输层的网络连接释放（release）或网络连接恢复（reset）。</span><br>
+              <span class="point">　　② </span><span class="text">可报告差错率低，表示网络实体的差错恢复能力强。</span><br>
+              　</p>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

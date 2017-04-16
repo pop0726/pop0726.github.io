@@ -1,0 +1,37 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td width="25" valign="top"><br>
+            <img src="../../../../../image/tub/ts.gif" width="25" height="20" alt="图示"></td>
+          <td> 
+            <div align="center">　<br>
+              <img src="../../../../../image/pic/chapter04/4_2_4_2.gif" width="323" height="44"><br>
+              <span class="point">图 4.9</span><br>
+              　</div>
+          </td>
+        </tr>
+        <tr> 
+          <td colspan="2"><span class="point">・01111110：</span><br>
+            <span class="text">　　标志字段，用于确定帧的起始和结束，以进行帧同步和准确识别长度可变的帧。<br>
+            　　在两个标志字段之间的比特串中，如果碰巧出现了和标志字段一样的组合，就会被误认为是帧边界。为了避免这种错误，HDLC采用</span><span class="point">比特填充法</span><span class="text">使一个帧中两个标志字段之间不会出现6个连续的1。具体做法是：在发送端，在加标志字段之前，先对比特串扫描，若发现5个连续的1，立即在其后加一个0。在接收端收到帧后，去掉头尾的标志字段，对比特串进行扫描，当发现5个连续的1时，立即删除其后的0，这样就还原成原来的比特流了。</span><br>
+            <br>
+            <span class="point">・地址：</span><br>
+            <span class="text">　　该字段始终存放的是响应站的地址。在使用非平衡方式传送数据时，地址字段总是填入次站的地址。在平衡方式时，地址字段总是填入响应站的地址。因此，该字段也可用来区分命令和应答。若发送的帧的地址字段中的地址不是自己，则是命令帧；若是自己，则是响应帧。全1是广播地址，全0是无效地址。<br>
+            　</span></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

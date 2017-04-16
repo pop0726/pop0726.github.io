@@ -1,0 +1,51 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第五章 标量处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><span class="part">5.4.4 资源冲突</span><br>
+            <br>
+            <span class="pt9-black">　　在超标量处理机中，通常设置有多个独立的操作部件。常见的操作部件有定点算术逻辑部件ALU，浮点加法部件FADD，乘除法部件MDU，图形处理部件GPU，取数存数部件LSU等。由于操作部件的数目通常多于每个时钟周期发射的指令条数，因此，这些操作部件可以采用流水线结构，也可以不采用流水线结构。如果采用流水线结构，发生资源冲突的可能性很小，相反，如果不采用流水线结构，发生资源冲突的可能性就大。<br>
+            　　下面是一个由4条指令组成的程序：<br>
+            　　　<img src="images/gsh4_2.gif" width="13" height="17" align="absmiddle">：FADD 
+            R0, R1 ；R0←（R0）＋（R1）<br>
+            　　　<img src="images/gsh4_3.gif" width="14" height="17" align="absmiddle">：FMUL 
+            R2, R3 ；R2←（R2）×（R3）<br>
+            　　　<img src="images/gsh4_7.gif" width="13" height="16" align="absmiddle">：FADD 
+            R4, R5 ；R4←（R4）＋（R5）<br>
+            　　　<img src="images/gsh4_6.gif" width="13" height="16" align="absmiddle">：FMUL 
+            R6, R7 ；R6←（R6）＋（R7）<br>
+            　　如果在一台每个时钟周期发射两条指令的双流水线超标量处理机上执行。有一个独立的浮点加法部件FADD和一个独立的浮点乘法部件FMUL。假设完成一次浮点加法需要3个时钟周期，完成一次浮点乘法需要4个时钟周期。若浮点加法器和浮点乘法器这两个操作部件都不采用流水线结构，则要发生资源冲突，流水线的时空图如图5.54所示。</span></p>
+          <p align="center"><img src="images/tu5_54.gif" width="535" height="163"><br>
+            <b class="pt9-black">图5.54 双流水线超标量处理机，操作部件不采用流水线的时空图 </b></p>
+          <p align="left"><span class="pt9-black">　　从图5.54中可以看到，由于浮点加法器没有采用流水线结构，指令<img src="images/gsh4_7.gif" width="13" height="16" align="absmiddle">必须等到指令<img src="images/gsh4_2.gif" width="13" height="17" align="absmiddle">的浮点加法操作完成之后才能发射到浮点加法部件中去；因此，它在译码完成之后要等待两个时钟周期。同样，指令<img src="images/gsh4_6.gif" width="13" height="16" align="absmiddle">也必须等待三个时钟周期，到指令<img src="images/gsh4_3.gif" width="14" height="17" align="absmiddle">的浮点乘法操作完成之后才能发射到浮点乘法部件中去。在图5.54中，共有5个空闲的时钟周期，做完4条指令总共用了11个时钟周期。<br>
+            </span><br>
+          </p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

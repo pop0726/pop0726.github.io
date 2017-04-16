@@ -1,0 +1,81 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第八章 并行处理机和多处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black">2) 设计新的通信协议，降低通信延迟<br>
+            　　高速网络性能的提高，往往是指其峰值带宽。与传统以太网比，高速网的峰值带宽有了很大程度的提高，从10 Mb/s增长到100 Mb/s、640 
+            Mb/s，甚至1Gb/s。但是峰值带宽都是在大数据包传输时得到的，对小数据包来说，其性能又如何？通过对实际系统的测试，发现结果不尽人意。表8.3是对10Mb/s 
+            以太网和640 Mb/s Myrinet一个字节数据包往返延迟时间的测试结果（在Sparc 20工作站上）：<br>
+          </p>
+          <p align="center"><b class="pt9-black">表8.3. 以太网与Myrinet网络延迟时间</b><br>
+          </p>
+          <table width="70%" border="1" cellspacing="3" cellpadding="1" bgcolor="#FFFFFF">
+            <tr> 
+              <td class="pt9-black" width="30%"> 
+                <div align="center">网络类型</div>
+              </td>
+              <td class="pt9-black" width="37%"> 
+                <div align="center">TCP往返延迟(<img src="images/gsh2_22.gif" width="24" height="13" align="absmiddle">)</div>
+              </td>
+              <td class="pt9-black" width="33%"> 
+                <div align="center">UDP往返延迟(<img src="images/gsh2_22.gif" width="24" height="13" align="absmiddle">)</div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black" width="30%"> 
+                <div align="center">以太网</div>
+              </td>
+              <td class="pt9-black" width="37%"> 
+                <div align="center">1438</div>
+              </td>
+              <td class="pt9-black" width="33%"> 
+                <div align="center">1146</div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black" width="30%"> 
+                <div align="center">Myrinet</div>
+              </td>
+              <td class="pt9-black" width="37%"> 
+                <div align="center">1506</div>
+              </td>
+              <td class="pt9-black" width="33%"> 
+                <div align="center">1370</div>
+              </td>
+            </tr>
+          </table>
+          <p align="left"><span class="pt9-black">　　Myrinet的通信延迟反而比以太网还大。可见，高速网络在传输小数据包时的性能并不理想，而小数据包下网络系统性能的好坏，对并行计算有很大影响，因为用户设计的并行算法经常需要进行小数据量的数据交换，而且并行计算环境，如PVM，在运行时也需发送很多数据量很小的控制消息进行系统运行情况的监护。对其它方面的应用而言，小数据包的传输延迟也起到举足轻重的作用。例如，UC 
+            Berkeley通过对NFS数据包的跟踪发现，95%的数据包的大小不超过192字节，数据包的平均大小是382字节。因此减小高速网络小数据包传输的延迟时间是提高网络系统性能的重要方法之一。 
+            <br>
+            　　为了获得高带宽、低延迟的网络通信，必须对传统的通信协议作较大的修改，以克服传统协议的弊病，使高速网络的优越性能得以充分展现。<br>
+            </span><br>
+          </p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

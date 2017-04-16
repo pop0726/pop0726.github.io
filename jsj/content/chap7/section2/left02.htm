@@ -1,0 +1,51 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第七章 互连网络</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black"><b>2四种寻径方式</b><br>
+            　　消息寻径方式可以分为两大类：线路交换和包交换。其中包交换又包括：存储转发寻径、虚拟直通寻径和虫蚀寻径等。下面逐一进行讨论。<br>
+            　　(1)线路交换(circuit switch) 在线路交换这种寻径方式下，在传递一个消息之前，先建立一条从源结点到目的结点的物理通路，然后再传递消息。如图7.26a所示。<br>
+            　　其传输时延用公式表示为<img src="images/gsh2_1.gif" width="133" height="15" align="absmiddle">，<img src="images/gsh2_2.gif" width="18" height="17" align="absmiddle">为建立路径所需的小信息包的长度，L为信息包的长度，D为经过的结点数，B为带宽（以下同）。<br>
+            　　在并行计算机中的频繁的小信息包通信的这种方式下，由于在传递一个消息之前，需要频繁地建立从源结点到目的结点的物理通路，开销将会很大，这种寻径方式与以下的几种包交换(packet 
+            switch)的寻径方式相比这是一个很大的缺点。包交换的寻径方式以其较高的传输带宽和较低的平均传输时延，更适合于具有动态和突发特性的MPP数据传送。<br>
+            　　(2)存储转发寻径(store and forward) 在存储转发网络中包是信息流的基本单位。每个结点有一个包缓冲区。包从源结点经过一系列中间结点到达目的结点。<br>
+            　　当一个包到达一个中间结点时，它首先被存入缓冲区。当所要求的输出通道和接收结点的包缓冲区可使用时，然后再将它传送给下一个结点。如图7.26b所示。<br>
+            　　存储转发网络的时延与源和目的地之间的距离（段数）成正比。第一代多计算机系统采用这种寻径方式。其时延用公式表示为T＝(L/B)×D+L/B=(D+1)×L/B。<br>
+            　　可以看到，存储转发寻径有两个很大的缺点：<br>
+            　　*包缓冲区大，不利于VLSI的实现<br>
+            　　*时延大，与结点距离成正比<br>
+            　　(3)虚拟直通(virtual cut through) 目前有一些多计算机系统采用的是虚拟直通的寻径方式。虚拟直通的寻径方式的思想是，为了减少时延，没有必要等到整个消息全部缓冲后再作路由选择，只要接收到用作寻径的消息头部即可判断。<br>
+            　　其通信时延用公式表示为<img src="images/gsh2_3.gif" width="195" height="17" align="absmiddle">,<img src="images/gsh2_4.gif" width="15" height="16" align="absmiddle">是消息的寻径头部的长度。一般来说，<img src="images/gsh2_5.gif" width="65" height="16" align="absmiddle">，所以公式可以近似为T＝L/B，可以看到此时通信时延与结点数无关，这相对于存储转发的寻径方式来说是一个非常大的改进。<br>
+            　　然而，当出现寻径阻塞时，虚拟直通方式只有将整个消息全部存储在寻径结点中，直到寻径通道不阻塞时才能将消息发出，这就需要每个寻径结点都有足够的缓冲区来存储可能出现的最大的信息包，在这一点上，虚拟直通方式与存储转发的寻径方式是一样的，同样不利于VLSI的实现。因此，虚拟直通方式在最坏的情况下与存储转发方式的通信时延是一样的。由此出现了下面将要讨论的新的寻径方式虫蚀寻径方式，它改进了以上提到的缺点。</p>
+          <p align="center" class="pt9-black"><img src="images/tu7_26.jpg" width="584" height="738"><br>
+          </p>
+          <p align="left" class="pt9-black">　</p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

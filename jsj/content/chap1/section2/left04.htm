@@ -1,0 +1,59 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第一章 计算机系统结构的基本概念</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><span class="pt9-black"><br>
+            　　下面通过例子来说明上述CPU性能公式。<br>
+            <br>
+            　　<b>例1.3</b> 如果FP操作的比例为25%，FP操作的平均CPI=4.0，其它指令的平均CPI为1.33，FPSQR操作的比例为2%， 
+            FPSQR的CPI为20。假设有两种设计方案，公别把FPSQR操作的CPI和所有FP操作的CPI减为2。试利用CPU性能公式比较这两种设计方案哪一个更好。<br>
+            　　解：首先我们观察只改变CPI而时钟频率和指令条数保持不变的情况。没有采取提高措施之前原系统的CPI为：<br>
+            　　　　　<img src="images/gsh2_16.gif" width="180" height="46"><br>
+            　　　　　　　　　　<img src="images/gsh2_17.gif" width="177" height="20"> <br>
+            　　　　　　　　　　<img src="images/gsh2_18.gif" width="37" height="16"> <br>
+            　　采用方案1（使FPSQR操作的CPI为2）后，整个系统的CPI为：<br>
+            　　　　<img src="images/gsh2_19.gif" width="351" height="27"> <br>
+            　　　　　　　　　<img src="images/gsh2_20.gif" width="148" height="44"><br>
+            　　同样方法可以计算出采用方案2（提高所有FP指令处理速度的措施）后，整个系统的CPI为：<br>
+            　　　　<img src="images/gsh2_21.gif" width="324" height="27"> <br>
+            　　　　　　　　　<img src="images/gsh2_22.gif" width="156" height="44"> <br>
+            　　我们也可以根据以下公式计算出CPI方案2<br>
+            　　　　<img src="images/gsh2_23.gif" width="292" height="27"> <br>
+            <font size="3">　　　　　　　= 1.5</font><br>
+            　　显然，提高所有FP指令处理速度的方案要比提高FPSQR处理速度的方案要好。<br>
+            　　方案2的加速比为：<br>
+            　　　　<img src="images/gsh2_24.gif" width="197" height="52"></span><font size="3"><br>
+            　　　　　　　　<img src="images/gsh2_5F25.gif" width="195" height="52"> <br>
+            　　　　　　　　<img src="images/gsh2_26.gif" width="79" height="51"> <br>
+            　　　　　　　　<img src="images/gsh2_27.gif" width="36" height="41"> <br>
+            　　　　　　　　= 1.33 </font></p>
+          <p align="left">&nbsp; </p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第五章 标量处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><span class="part">5.1.2 流水线的表示方法</span><br>
+            <br>
+            <span class="pt9-black">　　上面介绍的指令重叠执行方式实际上就是指令流水线。指令流水线是多条指令并行执行的一种实现技术。目前，流水线已经成为高速处理机中采用的一项关键技术。<br>
+            　　流水线就像工厂中的装配线那样。在汽车装配线上，一辆汽车的装配过程分为很多个阶段，每一个段完成汽车生产的一部分。在流水线中的每一个阶段与其他任何一个阶段能够并行进行，但是每个阶段装配的不是同一辆汽车。在计算机的流水线中，流水线的每一个阶段完成一条指令的一部分，不同阶段并行完成流水线中不同指令的不同部分。流水线的每一个阶段称为一个流水节拍、流水步、流水步骤、流水阶段、流水线阶段、功能段、流水流水段、流水段、流水级等。一个流水阶段与另一个流水阶段相连接形成流水线。指令从流水线的一端进入，经过流水线的处理，从另一端流出。<br>
+            　　流水线的表示方法通常有三种：连接图、时空图和预约表。本节介绍前两种表示方法，在非线性流水线中介绍预约表表示方法。<br>
+            　　图5.3是一种指令流水线的连接图表示方法，一条指令的执行过程分为4个流水段。目前，大部分处理机的指令流水线在3至12段之间。指令流水线为8段或大于8段的处理机称为超流水线处理机。</span></p>
+          <p align="center"><img src="images/tu5_3.jpg" width="400" height="87"></p>
+          <p align="left" class="pt9-black">　　有些复杂的指令在执行阶段也采用流水线方式工作，这种流水线称为操作流水线，或功能部件流水线。例如，一个浮点加法的执行过程可以采用3至6个流水段。图5.4是一个浮点加法器的4段流水线，它将浮点加法的执行过程分解为求阶差、对阶、尾数加和规格化4个子过程，每一个子过程可以在各自独立的功能部件上完成。</p>
+          <p align="center"><img src="images/tu5_4.jpg" width="375" height="72"></p>
+          <p align="left" class="pt9-black">　　在图5.4中，如果各个部件的执行时间均相等，即<img src="images/gsh1_14.gif" width="177" height="18" align="absmiddle">。虽然执行一次浮点加法的时间仍然需要4△t，然而，由于4个部件同时工作，每隔一个△t就能够完成一次浮点加法，输出一个运算结果。因此，采用4级流水线的浮点加法器，处理机执行浮点加法的速度能够提高3倍。<br>
+            　　描述流水线的工作过程，最常用的方法是采用&quot;时空图&quot;。例如，图5.4所示的浮点加法器流水线，采用时空图表示如图5.5所示。<br>
+            　　在时空图中，横坐标表示时间，也就是输入到流水线中的各个任务在流水线中所经过的时间。当流水线中的各个流水段的执行时间都相等时，横坐标被分割成相等长度的时间段。纵坐标表示空间，即流水线的每一个流水段。 
+          </p>
+          <p align="center"><img src="images/tu5_5.jpg" width="500" height="191"></p>
+          <p align="left"><span class="pt9-black">　　从图5.5的流水线时空图中，能够很清楚地看出各个任务在流水线的各段中流动过程。从横坐标方向看，流水线中的各个功能部件在逐个连续地完成自己的任务，例如，求阶差流水段在完成任务&quot;1&quot;之后，紧接着做任务&quot;2&quot;、任务&quot;3&quot;……，同样，对阶部件在完成任务&quot;1&quot;之后，接着做任务&quot;2&quot;、任务&quot;3&quot;等。从纵坐标方向看，在同一个时间段内有多个功能段在同时工作；例如，在<img src="images/gsh1_2.gif" width="37" height="14" align="absmiddle">这一个时间段内，规格化部件在做第1个加法的规格化，尾数加部件在做第2个加法的尾数加，对阶部件在做第3个加法的对阶，求阶差部件在做第4个加法的求阶差。浮点加法器的4个独立的流水段同时工作，分别做4个浮点加法的不同阶段。</span><br>
+            <br>
+          </p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

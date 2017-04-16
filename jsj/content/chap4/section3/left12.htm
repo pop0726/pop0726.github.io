@@ -1,0 +1,55 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第四章 输入输出系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><span class="part">4.3.5 通道的流量分析</span><span class="pt9-black"><br>
+            <br>
+            　　通道流量又称为通道吞吐率，通道数据传输率等，它是指一个通道在数据传送期间，单位时间内能够传送的最大数据量，一般用字节个数来表示。一个通道在满负荷工作状态下的流量称为通道最大流量。通道最大流量主要与通道的工作方式（是指字节多路通道、选择通道和数组多路通道）、在数据传送期内通道选择一次设备所用的时间<img src="iamges/gsh3_1.gif" width="16" height="16" align="absmiddle">和传送一个字节所用的时间<img src="iamges/gsh3_3.gif" width="17" height="17" align="absmiddle">等因素有关。<br>
+            　　根据通道流量的定义和上一节中的（4.1）、（4.2）和（4.3）式，可以得到三种通道的最大流量计算公式如下：<br>
+            　　　　<img src="iamges/gsh3_9.gif" width="269" height="39" align="absmiddle"> 
+            字节／秒 　　　（4.4）<br>
+            　　　　<img src="iamges/gsh3_10.gif" width="282" height="42" align="absmiddle">字节／秒　　　（4.5）<br>
+            　　　　<img src="iamges/gsh3_11.gif" width="284" height="43" align="absmiddle"> 
+            字节／秒 　　（4.6）<br>
+            　　根据字节多路通道的工作原理可知，它的实际流量是连接在这个通道上的所有设备的数据传输率之和，即：</span><br>
+            　　　<img src="iamges/gsh3_12.gif" width="104" height="47"><br>
+            <span class="pt9-black">　　对于选择通道和数组多路通道，在一段时间内，一个通道只能为一台设备传送数据，而且，这时的通道流量就等于这台设备的数据传输率。因此，这两种通道的实际流量就是连接在这个通道上的所有设备中数据流量最大的那一个：<br>
+            　　　　<img src="iamges/gsh3_13.gif" width="123" height="40"> <br>
+            　　　　<img src="iamges/gsh3_14.gif" width="126" height="39"> <br>
+            　　为了保证通道能够正常工作，不丢失数据，通道实际流量应该不大于通道最大流量，即应该满足下列不等式关系：<br>
+            　　　　　<img src="iamges/gsh3_15.gif" width="126" height="18" align="absmiddle"><br>
+            　　　　　<img src="iamges/gsh3_16.gif" width="141" height="18" align="absmiddle"><br>
+            　　　　　<img src="iamges/gsh3_17.gif" width="135" height="18" align="absmiddle"><br>
+            　　两边的差值越小，通道的利用率就越高。当两边相等时，通道处于满负荷工作状态。在实际设计最大通道流量时，应留有一定的余量。例如，对于字节多路通道，通道的最大流量应略大于所有连接在这个通道上的设备的流量之和。如果一个字节多路通道的最大流量正好等于连接在这个通道上的所有设备的流量之和，当所有设备的数据传送请求集中出现时，有可能要丢失数据。这种情况可以从下面的例子中看到。 
+            <br>
+            <br>
+            </span></p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

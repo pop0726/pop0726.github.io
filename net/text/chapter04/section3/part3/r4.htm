@@ -1,0 +1,37 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" background="../../../../image/htmls/right_r5_c3.gif" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="88%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+          <td height="203"><br>
+            <span class="section">一、路由算法</span><br>
+            <br>
+            <span class="part">　3.非自适应路由选择算法</span><br>
+            <br>
+            <span class="point">　・分散通信量法</span><br>
+            <br>
+            <span class="text">　　这种方法是事先在每个节点的内存中设置一个路由表，但此路由表中给出几个可供采用的输出链路，并且对每条链路赋予一个概率。当一个分组到达该节点时，此节点即产生一个从0.00到0.99的随机数，然后按此随机数的大小，查表找出相应的输出链路。与固定路由相比，这种方法可使网内的通信量更加平衡，因而可得到较小的平均分组时延。<br>
+            </span><br>
+            <span class="point">　・随机走动法</span><br>
+            <br>
+            <span class="text">　　这种方法又称为随机徘徊，其特点是当分组到达某个节点时就随机地选择一条链路作为转发的路由。在非自适应的路由选择算法中，若可能发生节点或链路的故障，那么随机走动法已被证明是非常有效的，它使得路由算法具有较好的稳健性。<br>
+            </span><br>
+            <span class="point">　・扩散法</span><br>
+            <br>
+            <span class="text">　　这种方法是当某个节点收到一个不是给它的分组时，就向所有与此节点相连的链路（除收到该分组的链路）转发出去。当网络通信量很小时，扩散法可使分组的延迟最小。<br>
+            　</span></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

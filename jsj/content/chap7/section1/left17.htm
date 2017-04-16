@@ -1,0 +1,318 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第七章 互连网络</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black">　　表7.1汇总了静态互连网络的重要特性。大多数网络的结点度都小于4，这是比较理想的。全连接网络和星形网络的结点度都太高。超立方体的结点度随<img src="iamges/gsh1_63.gif" width="36" height="17" align="absmiddle">值增大而增大，当N值很大时其结点度也太高。<br>
+            　　网络直径的变化范围很大。但随着硬件寻径技术不断革新(虫蚀寻径)，直径已不是一个严重问题，因为任意两结点间的通信延迟在高度流水线操作下几乎是固定不变的。链路数会影响网络价格，等分宽度将影响网络的带宽。<br>
+            　　对称性会影响可扩展性和寻径效率。客观地说，网络的总价格随d和l增大而上升。直径小仍然是一种优点。但是，结点间的平均距离可能是一种更好的量度指标。等分宽度可以用较宽的通道宽度来扩大。根据以上分析，环、网格、环网k元n-立方体和CCC都具备一定的条件用以建造未来的MPP系统。</p>
+          <p align="center" class="pt9-black"><b>表7.1静态网络特性一览表<br>
+            </b> </p>
+          <table width="90%" border="1" cellspacing="1" cellpadding="1">
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center">网络类型</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">结点度d</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">网络直径D</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">链路数l</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">等分带宽B</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">对称性</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">网络规格评注</div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center">线性阵列</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">2</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">N-1</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">N-1</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">1</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">非</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">N个结点</div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center">环形</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">2</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center"><img src="iamges/gsh1_64.gif" width="37" height="16" align="absmiddle"></div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">N</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">2</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">是</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">N个结点</div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center">全连接</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">N-1</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">1</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">N(N-1)/2</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center"><img src="iamges/gsh1_68.gif" width="41" height="17"></div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">是</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">N个结点</div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center">二叉树</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">3</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">2(h-1)</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">N-1</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">1</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">非</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">树高<img src="iamges/gsh1_70.gif" width="64" height="17" align="absmiddle"></div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center">星形</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">N-1</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">2</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">N-1</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center"><img src="iamges/gsh1_64.gif" width="37" height="16"></div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">非</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">N个结点</div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center">2D网格</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">4</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">2(r-1)</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">2N-2r</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">r</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">非</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">r×r网络<img src="iamges/gsh1_71.gif" width="38" height="17" align="absmiddle"></div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center">Illiac网</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">4</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">r-1</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">2N</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">2r</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">非</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">与 <img src="iamges/gsh1_71.gif" width="38" height="17" align="absmiddle">的带弦环等效</div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center">2D环网</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">4</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center"><img src="iamges/gsh1_65.gif" width="39" height="16"></div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">2N</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">2r</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">是</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">r×r 环网 <img src="iamges/gsh1_71.gif" width="38" height="17" align="absmiddle"></div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center">超立方体</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">n</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">n</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">nN/2</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">N/2</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">是</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">N个结点<img src="iamges/gsh1_72.gif" width="56" height="17" align="absmiddle">(维数)</div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center">CCC</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">3</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center"><img src="iamges/gsh1_66.gif" width="66" height="12"></div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">3N/2</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">N/(2k)</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">是</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center"><img src="iamges/gsh1_73.gif" width="60" height="13" align="absmiddle"> 
+                  结点环长<img src="iamges/gsh1_74.gif" width="24" height="16" align="absmiddle"></div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center">k元n-立方体</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">2n</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center"><img src="iamges/gsh1_67.gif" width="39" height="19" align="absmiddle"></div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">nN</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center"><img src="iamges/gsh1_69.gif" width="33" height="12"></div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">是</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center"><img src="iamges/gsh1_75.gif" width="40" height="16" align="absmiddle">个结点</div>
+              </td>
+            </tr>
+          </table>
+          <p align="left" class="pt9-black">&nbsp;</p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

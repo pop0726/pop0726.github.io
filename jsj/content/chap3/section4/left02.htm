@@ -1,0 +1,44 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第三章 存储系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><b><span class="pt9-black">2、一个存储系统组织方式</span></b><br>
+            <br>
+            <span class="pt9-black">　　把Cache、主存和磁盘三个存储器组织在一起构成一个&quot;Cache－主存－磁盘&quot;存储系统，这种组织方式称为虚拟地址Cache。结构框图如图3.45所示。</span></p>
+          <p align="center"><img src="images/tu3_45.jpg" width="311" height="89"></p>
+          <p align="left"><span class="pt9-black">　　当CPU要访问存储器时，把虚拟地址直接送往存储管理部件MMU和Cache。Cache能够直接接受虚拟地址的访问，把CPU所需要的数据或指令找出来。如果Cache发生块失效，则用经过MMU变换得到的主存物理地址访问主存储器，把读出的一块数据或指令装入到Cache中。同时，也把CPU所需要的数据或指令送入CPU。如Intel公司的i860等处理机采用这种组织方式。<br>
+            <br>
+            <b>3、全Cache存储系统<br>
+            </b></span><span class="pt9-black"><br>
+            　　全Cache存储系统是最近才出现的一种新的存储器组织方式，它没有主存储器，只用Cache和磁盘（实际上只是磁盘中的一部分）构成&quot;Cache-磁盘&quot;存储系统。</span><br>
+            <br>
+          </p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

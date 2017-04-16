@@ -1,0 +1,92 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第八章 并行处理机和多处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black">　　表8.1列出了三种SIMD计算机。这些系统的PE数从DAP 610的4096到MasPar 
+            MP-1的16 384和CM-2的65536。CM-2与DAP610都是细粒度、位片式SIMD计算机。PE都带有浮点加速器。<br>
+            MP-1的每个PE装有1位逻辑单元、4位整数ALU、64位尾数部件和16位指数部件。所以，MP-1是中粒度SIMD机。由于每个PE比较简单，故可将几个PE 
+            做在一个芯片上。MP-1的每个芯片有32个PE，每个PE有40个32位寄存器。32个PE用X-Net网络互相连接，这是一种对角线双级链路扩展的4-邻网。<br>
+            　　CM-2在一个芯片上将16个PE连成网格网络，每个16-PE网的芯片安置在12维超立方体的顶角上。这样，<img src="images/gsh1_2.gif" width="109" height="17" align="absmiddle"> 
+            PE组成了整个SIMD阵列。<br>
+            　　DAP 610则在一个芯片上实现了一个64-PE的网格网络，再由这些芯片上小网格互相连接组成一个大网格(64×64)。目前，Fortran 
+            90、C的各种修订文本、Lisp和其它同步程序设计语言都已研制成功，可为SIMD机编制程序用。</p>
+          <p class="pt9-black"><b>表8.1 典型SIMD计算机<br>
+            </b> </p>
+          <table width="90%" border="1" cellpadding="1" cellspacing="1" bgcolor="#FFFFFF">
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center" class="pt9-black">系统型号</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center" class="pt9-black">SIMD计算机系统结构和性能</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center" class="pt9-black">语言、编译器和软件支持</div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="left" class="pt9-black">MasPar计算机公司MP-1系列</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="left" class="pt9-black">可用的配置为1024至16384台处理机，达26000MIPS或1.3Gflops。每个PE是RISC处理机，带16K字节本地存储器。X-Net网格加一个多级交叉开关互连网。</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="left" class="pt9-black">Fortran77、MasPar Fortran(MPF)和MasPar并行应用语言；X-窗口UNIX/OS，符号调试程序，可视化和动画片制作器。</div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="left" class="pt9-black">Thinking Machines公司CM-2</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="left" class="pt9-black">多至65536PE位片阵列排成10维超立方体，每个顶点为4×4网格，每个PE最多有1M位存储器，32PE的模块之间共享FPU选件，峰值速度28Gflops和持续速度5.6Gflops。</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="left" class="pt9-black">由VAX，Sun或Symbolics 360主机驱动，PARIS支持的Lisp编译器、Fortran90、<img src="images/gsh1_3.gif" width="14" height="13" align="absmiddle">和<img src="images/gsh1_4.gif" width="28" height="17" align="absmiddle">。</div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="left" class="pt9-black">Active Memory Technology DAP 
+                  600 系列</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="left" class="pt9-black">1K位/PE方形网格互连成4096PE的细粒、位片SIMD阵列，正交4-邻位链接，20GIPS和560Mflops峰值性能。</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="left" class="pt9-black">由主机VAX/VMS或UNIX Fortran-plus 
+                  或DAP上APAL提供，主机的Fortran77或C。与Fortran90标准有关的Fortran-plus。</div>
+              </td>
+            </tr>
+          </table>
+          <p align="left">&nbsp;</p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

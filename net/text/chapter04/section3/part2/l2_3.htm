@@ -1,0 +1,83 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td valign="top" colspan="2"><br>
+            <span class="part">虚电路和数据报的比较</span>：<br>
+            　</td>
+        </tr>
+        <tr> 
+          <td class="explaination" valign="top" width="25"><img src="../../../../image/tub/bg.gif" width="25" height="20" alt="表格"></td>
+          <td class="explaination" valign="top">
+            <div align="center" class="point">表 4.2<br>
+              <table width="420" border="0" cellspacing="1" cellpadding="0" bgcolor="#000099">
+                <tr bgcolor="#FFFFFF"> 
+                  <td class="text" width="70">&nbsp;</td>
+                  <td class="part" width="172">　数据报子网</td>
+                  <td class="part" width="174">　虚电路子网</td>
+                </tr>
+                <tr bgcolor="#FFFFFF"> 
+                  <td class="point" width="70">　延时</td>
+                  <td class="text" width="172">　分组传输延时</td>
+                  <td class="text" width="174">　电路建立，分组传输延时</td>
+                </tr>
+                <tr bgcolor="#FFFFFF"> 
+                  <td class="point" width="70">　路由选择</td>
+                  <td class="text" width="172">　每个分组单独选择路由</td>
+                  <td class="text" width="174">　建立虚电路时选择路由，以<br>
+                    　后所有分组都使用该路由</td>
+                </tr>
+                <tr bgcolor="#FFFFFF"> 
+                  <td class="point" width="70">　状态信息</td>
+                  <td class="text" width="172">　子网无需保存状态信息</td>
+                  <td class="text" width="174">　每个节点要保存一张虚电路表</td>
+                </tr>
+                <tr bgcolor="#FFFFFF"> 
+                  <td class="point" width="70">　地址</td>
+                  <td class="text" width="172">　每个分组包括源和目的的<br>
+                    　完整地址</td>
+                  <td class="text" width="174">　每个分组含有一个短的虚电<br>
+                    　路号</td>
+                </tr>
+                <tr bgcolor="#FFFFFF"> 
+                  <td class="point" width="70">　节点失败<br>
+                    　的影响</td>
+                  <td class="text" width="172">　除了在崩溃时正在该节点处理<br>
+                    　的分组都丢失外，无其他影响</td>
+                  <td class="text" width="174">　所有经过失效节点的虚电路<br>
+                    　都要被终止</td>
+                </tr>
+                <tr bgcolor="#FFFFFF"> 
+                  <td class="point" width="70">　拥塞控制</td>
+                  <td class="text" width="172">　难</td>
+                  <td class="text" width="174">　如果有足够的缓冲区分配给已<br>
+                    　经建立的虚电路，则容易控制</td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="explaination" colspan="2"><br>
+            　　如果两个端系统间要长时间进行数据传输，特别是在交互式应用中每次传输的数据很短的情况下，使用虚电路方式更加合适些，它免去了数据报方式中每个分组必须包括地址信息而带来的不合适的额外开销，但是每个节点必须维持一张虚电路的表格。<br>
+            <br>
+            　　数据报方式则免去了呼叫建立阶段，它传输少数几个分组时的速度比使用虚电路要简便灵活得多。每个数据报可以临时根据网路中的流量情况来选取路由，不像虚电路中每个分组都必须按照连接建立时的路径传送。每个节点没有额外开销，只是每个分组在每个节点都要进行路由选择，会影响分组传输延迟。<br>
+            <br>
+            　　由于数据报不保证按顺序交付，也不保证丢失和不重复，因此需要主机承担端到端的差错控制。在使用虚电路的情况下，网络应保证分组按顺序交付，而且不丢失、不重复；当采用数据报服务时，端到端的流量控制由主机来负责。当采用虚电路服务时，端到端的流量控制由网络负责。另外，因为每个数据报分组独立进行路由选择，当节点发生故障时，后续的数据报分组就可另选路由，因而提高了可靠性。在使用虚电路时，节点发生故障就必须重新建立另一条虚电路。数据报服务还很适合于将一个分组发送到多个地址（即广播或组播）。虚电路要比数据报更容易进行拥塞控制。这是因为，在虚电路建立好后，可以预约所需的网络资源，当分组到来时，所需的带宽和路由器的缓冲区已经预留好了，可以立即转发。而对于数据报，避免拥塞则更困难些。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

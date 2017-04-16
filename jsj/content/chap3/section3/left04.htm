@@ -1,0 +1,42 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第三章 存储系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black">　　采用全相联映象方式的地址变换过程如图3.30所示。主存块号与Cache块号的映象关系存放在用高速存储器实现的目录表中。目录表的每一个存储单元由三部分组成，主存块号、Cache块号及一个有效位。<br>
+            　　在程序执行过程中，当访问Cache时，用主存地址中的块号B与目录表中的主存块号字段进行相联比较。如果发现有相等的，表示要访问的数据已经装到Cache中了，这种情况称为Cache命中。这时，只要把目录表中与主存块号字段在同一个存储单元中的Cache块号读出来，并把它与主存地址中的块内地址w直接拼接起来，就得到Cache地址。用这个Cache地址去访问Cache，把读出来的一个字送往CPU就完成了访问过程。如果在相联比较中没有发现相等的，表示要访问的那个块还没有装入到Cache中，这种情况称为Cache没有命中，或称为Cache失效。这时，要去访问主存储器，把从主存储器中读出来的一个字送往CPU。同时，把包括被访问字在内的一块都从主存储器中读出来装到Cache中，另外，还要修改目录表中的主存块号字段，把当前的主存块号B写到目录表的这个存储单元中。<br>
+            　　有效位是用来标记目录表中的各个存储单元是否有效的。如果有效位为&quot;1&quot;，表示目录表中由主存块号B与Cache块号b建立的映象关系是有效的。实际上也表示在Cache的第b块中存放数据是主存第B块中数据的正确副本。如果有效位为&quot;0&quot;，表示目录表中的主存块号B与Cache块号b之间的映象关系是无效的，或者说它们之间根本没有什么关系，Cache的第b块中存放数据也不是主存第B块中数据的正确副本。因此，在访问目录表时，也要看有效位的状态。在Cache失效时，也要对有效位的状态进行管理。</p>
+          <p align="center" class="pt9-black"><img src="images/tu3_30.gif" width="370" height="256"><br>
+            <b>图3.30 全相联地址变换</b></p>
+          <p align="left" class="pt9-black">　　采用全相联映象和变换方式最突出的优点是块的冲突率比较小，Cache的利用率也最高。但是，需要一个相联访问速度很快，容量为Cb的相联存储器，其代价很高。而且，相联比较所花费的时间将影响Cache的访问速度。<br>
+            　　在虚拟存储器中，一般都采用全相联映象方式，这是因为当发生主存页面失效时，必须进入异常故障处理，由软件完成地址变换，即把多用户虚地址变换成主存实地址，并从磁盘存储器中调入一个页面装入到主存储器中。由于磁盘存储器的寻址是由机械动作来完成的，相对速度很慢。因此，在一般多用户和多任务系统中，当发生主存页面失效时，通过任务切换，切换到一个程序已经装入到主存储器中的任务中去执行。由于这些原因，在虚拟存储器中，采用全相联映象方式是必然的。<br>
+            <br>
+          </p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

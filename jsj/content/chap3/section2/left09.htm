@@ -1,0 +1,49 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第三章 存储系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><span class="pt9-black"><b><br>
+            </b></span><b><span class="part">3.2.6 加快内部地址变换的方法</span></b><span class="pt9-black"><b><br>
+            <br>
+            </b>　　在虚拟存储器中，如果不采取有效的措施，访问主存储器的速度将要降低几倍。这不符合存储系统的要求，因为在存储系统中，要求系统的访问速度接近于速度最高的那个存储器。造成虚拟存储器速度降低的主要原因是：在段式或页式虚拟存储器中，要访问主存储器必须先查段表或页表，在段页式虚拟存储器中，既要查段表也要查页表。如果段表和页表都在主存储器中，那么，包括访问主存储器本身这一次在内，主存储器的访问速度将要降低2至3倍。<br>
+            　　要想使虚拟存储器的速度接近主存储器的速度。或者说，要想使虚拟存储器能够真正实用，必须加快查表的速度。<br>
+            　　由于程序在执行过程中具有局部性的特点，因此，对页表的访问并不是随机的，在一段时间内，只是局限在少数几个存储字内。根据这一特点，可以把经常访问的页面地址存放在一个小容量的高速存储器中，称为&quot;快表&quot;，当快表中查不到时，再从存放在主存储器中的页表中查找实页号。与快表相对应，存放在主存储器中的页表称为慢表。慢表是一个全表，快表只是慢表的一个副本，而且只存放了慢表中很少的一部分。<br>
+            　　实际上，快表与慢表也构成了一个由两级存储器组成的存储系统。与虚拟存储器和Cache存储器类似。在这个快慢表的存储系统中，访问速度接近于快表的速度，存储容量是慢表的容量。 
+            <br>
+            　　快表在英文资料中称为TLB（Translation Lookaside Buffer），有些中文资料中翻译成地址变换后行缓冲器，或地址转换后备缓冲存储器等。<br>
+            　　由快慢表构成的虚拟存储器的地址变换过程如图3.20所示。用多用户虚页号同时去查快表和慢表。由于快表的查表速度要比慢表快得多。如果在快表中查到与多用户虚地址相等的存储字，就立即终止慢表的查表过程，并读出该存储字中的实页号p送入到主存储器的地址寄存器中。如果在快表中没有查到，就到存放在主存储器中的慢表中去找。如果在慢表中查到了，则把查到的实页号p送入主存储器的地址寄存器，同时，也把这个实页号连同多用户虚地址等信息送入快表中。这时，若快表已满，则要采用某种替换算法，替换掉其中一个不常用的存储字。</span></p>
+          <p align="center"><span class="pt9-black"><img src="images/tu3_20.gif" width="500" height="291"><br>
+            <b>图3.20 采用快慢表的地址变换过程 </b></span></p>
+          <p align="left"><span class="pt9-black">　　由于快表的查表速度非常快，与主存储器的一个存储周期相比几乎可以忽略不计。因此，只要快表的命中率很高，那么，虚拟存储器的访问速度就能与主存储器的工作速度很接近。<br>
+            　　在采用快慢表结构的虚拟存储器中，要提高快表的命中率，最直接的办法是增加快表的容量。快表的容量越大，命中率就越高。但是，由于快表是按相联方式访问的，当快表的容量增加时，它的查表速度就会降低。那么，能不能让快表不采用相联方式访问，而采用普通的按地址来访问呢？<br>
+            <br>
+            <b> </b></span></p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

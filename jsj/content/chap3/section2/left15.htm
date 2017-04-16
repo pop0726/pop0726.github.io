@@ -1,0 +1,54 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第三章 存储系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><b><span class="part">3.2.8 提高主存命中率的方法</span></b><span class="pt9-black"><b><br>
+            <br>
+            </b>　　从前面的分析中可以看出，要提高虚拟存储器的等效访问速度，提高主存的命中率是一个非常关键的因素。通常，影响主存命中率的主要因素有如下几个：<br>
+            　　(1) 程序在执行过程中的页地址流分布情况；<br>
+            　　(2) 所采用的页面替换算法；<br>
+            　　(3) 页面大小；<br>
+            　　(4) 主存储器的容量；<br>
+            　　(5) 所采用的页面调度方法。<br>
+            　　在这些因素中，页地址流的分布情况是由程序本身决定的，系统设计人员一般无能为力。页面替换算法，在上一节中已经介绍过。目前，多数机器都采用LRU算法，它是一种堆栈型算法，在当前看来，已经是一种比较好的算法了。以下，对影响主存命中率的另外三个因素作简单的分析。<br>
+            <br>
+            <b>1、页面大小的选择</b><br>
+            <br>
+            　　页面大小与主存命中率的关系不是线性的，它还与主存储器的存储容量和程序的页地址流分布情况等多种因素有关。在图3.26中给出页面大小Sp、主存容量S与命中率H的关系曲线。</span></p>
+          <p align="center"><span class="pt9-black"><b><img src="images/tu3_26.gif" width="302" height="185"><br>
+            图3.26 页面大小与主存命中率的关系</b></span></p>
+          <p align="left" class="pt9-black">　　从图3.26中可以看出，在分配给程序的主存容量S一定的情况下，当页面大小Sp比较小的时侯，命中率H随页面大小Sp的增大而逐渐提高。当页面大小增加的某个值时，命中率达到最大。然后，随着页面大小的增加，命中率反而降低。另外，从两条曲线的比较中可以看出，当分配给程序的主存容量S增大时，命中率能普遍提高，关于命中率与主存容量的关系，在下面的一小节中还要介绍。<br>
+            　　图3.26的曲线关系可以这样来解释：在程序执行过程中，假设At和At+1是两次相邻的访问主存储器的逻辑地址，d＝｜At－At+1｜。如果ｄ＜Sp，那么，随着Sp的增大，At和At+1在同一个页面内的可能性就会增加，即Ｈ随着Sp的增大而提高。如果ｄ＞Sp，那么，At和At+1一定不在同一个页面内。随着Sp的增大，在分配给该程序的主存容量一定的情况下，主存的页面数就要减少，页面的替换将更加频繁。这样，At和At+1两个地址所在的页面都在主存储器中的可能性就会减少，即Ｈ随着Sp的增大而降低。当Sp比较小的时候，前一种情况是主要的，因此，Ｈ随着Sp的增大而提高。当Sp达到某一个最大值之后，后一种情况成为主要的，因此，Ｈ随着Sp的增大而降低。<br>
+            　　在设计一个虚拟存储器时，页面大小的选择一般要通过对典型程序的模拟实验来确定。早期的许多计算机系统，页面大小一般为1KB。目前，大多数机器的页面大小都取4KB、8KB，或16KB。<br>
+            　　另外，当页面大小增大时，由于每个程序或程序段的最后一个页面一般是装不满的，由此造成的浪费也要增加。相反，当页面大小减小时，页表（指慢表）在主存储器中所占的比例将增加。这两种情况都要降低主存储器的利用率。因此，页面大小的选择要综合考虑多方面的因素。 
+          </p>
+          <p align="left"><span class="pt9-black"></span></p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

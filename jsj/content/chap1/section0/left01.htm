@@ -1,0 +1,48 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="97%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第一章 计算机系统结构的基本概念</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black"><br>
+            <span class="pt9-black"> 　　自第一台电子计算机问世已经半个世纪了，它已经历了五次更新换代。第一代计算机（1945－1954）将电子管和继电器存储器用绝缘导线互连在一起，由单个CPU构成，CPU用程序计数器和累加器顺序完成定点运算，采用机器语言或汇编语言，用CPU程序控制I/O。代表性系统有由John 
+            von Neumann, Arthur Burks和Herman Goldstine 于1946年在普林斯顿研制成功的IAS计算机、由宾夕法尼亚大学莫尔学院于1950年制成的ENIAC、由IBM于1953年制造的IBM701计算机。第二代计算机（1955－1964）采用分立式晶体三极管、二极管和铁氧体的磁芯，用印刷电路将它们互连起来。采用了变址寄存器、浮点运算、多路存储器和I/O处理机。采用有编译程序的高级语言、子程序库、批处理监控程序。代表性系统有1959年制成的Univac 
+            LARC、60年代的CDC1604和1962年制成的IBM7030。第三代计算机（1965－1974）采用小规模或中规模集成电路和多层印刷电路。微程序控制在这一代开始普及。采用了流水线、高速缓存和先行处理机。软件方面采用多道程序设计和分时操作系统。代表性系统有IBM/360-370系列、CDC6600/7600系列、Texas仪表公司的ASC和Digital 
+            Equipment公司的PDP-8系列。第四代计算机（1974-1991）采用大规模或超大规模集成电路和半导体存储器，出现了用共享存储器、分布存储器或向量硬件选择的不同结构的并行计算机，开发了用于并行处理的多处理操作系统、专用语言和编译器，同时产生了用于并行处理或分布处理的软件工具和环境。代表性系统有VAX9000、CrayX-MP、IBM/3090VF、BBNTC-2000等。第五代计算机（1991－现在）采用VLSI工艺更加完善的高密度、高速度处理机和存储器芯片。它的最重要特点是进行大规模并行处理，采用可扩展的和容许时延的系统结构。代表性系统有Fujitsu的VPP500、Cray 
+            Research的MPP、Thinking Machines公司的CM-5、Intel超级计算机系统Paragon、SGI的Origin 
+            2000和Sun公司的10000服务器。前三代中，每一代持续大约十年，第四代的时间跨度约为十五年。现在进入第五代。我们可以看到，换代的标志主要有两个：第一是计算机的器件。器件发生了根本的变化，经电子管、晶体管发展到集成电路，而集成电路又由小规模、中规模，到大规模和超大规模的阶段。器件的更新，其速度、功能、可靠性的不断提高和成本的不断降低，是计算机发展的物质基础。因此，器件的换代是计算机换代的最突出的标志。第二是系统结构的特点。系统结构不断改进，许多重要概念不断提出并且得到实现。例如变址寄存器概念、通用寄存器概念、浮点数据表示概念、程序中断概念、输入输出通道概念、间接寻址概念、虚拟存储器概念、cache存储器概念、系列化概念、微程序设计技术等。很明显，如果用大规模集成电路实现早期的计算机系统结构，人们并不会认为它是第四代计算机。因为第四代计算机在系统结构上较之早期的计算机已经有很大的改进和发展。因此，系统结构方面的特点同样是计算机换代的重要标志。	
+            </span></p>
+          <p align="left" class="pt9-black"><span class="pt9-black">　　回顾计算机的发展历史，可以看出，计算机系统性能的不断提高主要靠器件的变革和系统结构的改进。恩斯洛（P.H.Enslow）曾经比较了1065－1975这十年间，器件延迟时间和计算机指令时间的关系。结果表明，这十年间器件延迟时间降低至原来的十分之一，但计算机的指令时间却以高至100倍的速度递减。这种情况在计算机近年来的发展中变得更加明显。如何最合理地利用新器件，最大限度地发挥其潜力，设计并构成综合性能指标最佳的计算机系统，单纯依靠器件变革是不能解决的，还要靠计算机系统结构上的改进。</span></p>
+          <p align="left"><span class="pt9-black">　　这一章主要介绍什么是计算机系统结构？计算机系统结构和技术有什么关系？计算机系统结构的评价标准是什么？高性能计算机系统的技术是什么？<br> 　　本章的重点是：<br>
+            　　　<b>1.计算机系统层次结构，系统结构定义，计算机组成定义，计算机实现定义，系统结构、组成与实现的三者关系;<br>
+            　　　2.透明性，局部性原理，MIPS定义，MFLOPS定义;<br>
+            　　　3.Amdahl定律;<br>
+            　　　4.CPU性能公式。 </b></span></p>
+          <p align="left">&nbsp; </p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第六章　向量处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black"><span class="section">6.4向量处理机实例</span><br>
+            <br>
+            <span class="part">6.4.1向量处理机的历史与现状</span><br>
+            <br>
+            　　这一节将介绍由美国和日本制造的向量处理机，包括Cray系列、CDC/ETA系列、Fujitsu VP 系列，NEC SX系列和Hitachi 
+            820 系列、如表6.2所示。</p>
+          <p align="center" class="pt9-black"><b>表6.2美国和日本制造的向量处理机</b></p>
+          <table width="90%" border="1" cellspacing="1" cellpadding="1" bgcolor="#FFFFD9">
+            <tr> 
+              <td width="18%" class="pt9-black"> 
+                <div align="center">系统型号</div>
+              </td>
+              <td width="45%" class="pt9-black"> 
+                <div align="center">最大配置、时钟周期、操作系统/编译系统</div>
+              </td>
+              <td width="37%" class="pt9-black"> 
+                <div align="center">特色和要点</div>
+              </td>
+            </tr>
+            <tr> 
+              <td width="18%" class="pt9-black">Cray IS</td>
+              <td width="45%" class="pt9-black">有10条流水线的单处理机12.5ns,COS/CF7 2.1</td>
+              <td width="37%" class="pt9-black">第一台基于ECL的超级计算机，1976年问世</td>
+            </tr>
+            <tr> 
+              <td width="18%" class="pt9-black">Cray 2S/4－256</td>
+              <td width="45%" class="pt9-black">256M字存储器的4台处理机，4.lns, COS或UNIX/CF77 
+                3.0</td>
+              <td width="37%" class="pt9-black">16K字的本地存储器，移植了UNIXV，1985问世</td>
+            </tr>
+            <tr> 
+              <td width="18%" class="pt9-black">Cray X-MP 416</td>
+              <td width="45%" class="pt9-black">16M字存储器的4台处理机，128M字SSD，8.5ns, 
+                COS CF77 5.0</td>
+              <td width="37%" class="pt9-black">使用共享寄存器组用于IPC，1983年问世</td>
+            </tr>
+            <tr> 
+              <td width="18%" class="pt9-black">Cray Y-MP 832</td>
+              <td width="45%" class="pt9-black">128M字存储器的8台处理机，6ns,CF77 5.0</td>
+              <td width="37%" class="pt9-black">X－MP的改进型，1988年问世</td>
+            </tr>
+            <tr> 
+              <td width="18%" class="pt9-black">Cray Y-MP C-90</td>
+              <td width="45%" class="pt9-black">每台处理机2条向量流水线，16台处理机，4.2ns， UNICOS/CF77 
+                5.0</td>
+              <td width="37%" class="pt9-black">最大的Cray机器，1991年问世</td>
+            </tr>
+            <tr> 
+              <td width="18%" class="pt9-black">CDC Cyber 205</td>
+              <td width="45%" class="pt9-black">有4条流水线的单处理机，20ns,虚拟OS/FTN200</td>
+              <td width="37%" class="pt9-black">存储器到存储器系统结构，1982年问世</td>
+            </tr>
+            <tr> 
+              <td width="18%" class="pt9-black">ETA 10E</td>
+              <td width="45%" class="pt9-black">单处理机，10.5ns，ETAV/FTN 200</td>
+              <td width="37%" class="pt9-black">Cyber 205的后继型号，1985年问世</td>
+            </tr>
+            <tr> 
+              <td width="18%" class="pt9-black">NEC SX-X/44</td>
+              <td width="45%" class="pt9-black">每台处理机4组流水线，4台处理机，2.9ns, F77SX</td>
+              <td width="37%" class="pt9-black">1991年问世</td>
+            </tr>
+            <tr> 
+              <td width="18%" class="pt9-black">Fujitsu VP2600/10</td>
+              <td width="45%" class="pt9-black">5条流水线的单处理机和双标量处理机，3.2ns,MSP. EX/F77 
+                EX/VP</td>
+              <td width="37%" class="pt9-black">使用可重构微向量寄存器和屏蔽，1991年问世</td>
+            </tr>
+            <tr> 
+              <td width="18%" class="pt9-black">Hitachi 820/80</td>
+              <td width="45%" class="pt9-black">512M字节存储器，18个流水线功能部件的单处理，4ns,FORT 
+                77/HAP V23-OC</td>
+              <td width="37%" class="pt9-black">64个I/O通道，最大传输速率为288M字节/秒，1988年问世</td>
+            </tr>
+          </table>
+          <p align="left"><span class="pt9-black">　　Cray系列 Cray 1是1975年问世的，它的改进型Cray 
+            1S是1979年生产的。它是第一台基于ECL、时钟周期为12.5ns的向量计算机。高度流水线和向量处理是这些机器的主要特点。<br>
+            　　Cray 1S的10个流水线功能部件可以同时运行，它的计算能力相当于10台IBM 3033或10台CDC Cyber 7600。最初生产的Cray 
+            1使用Cray 操作系统（COS），配有Fortran 77编译器（CF 77 2.1版），只允许单用户进行批处理。<br>
+            　　1983年Cray X-MP系列采用了多处理机配置。用1－4个Cray 1 CPU和共享存储器进行开发。X－MP的最主要特征是采用共享寄存器组，加快了处理机之间的通信而不必通过共享存储器实现。<br>
+            　　除了128兆字节的共享存储器外，X－MP系统还有1G字节的固存(solid-state storage, SSD)作为扩展的共享存储器，时钟周期也缩短到8.5ns。 
+            当4台处理机同时使用8条向量流水线进行加和乘时，X－MP－416的峰值速度可达840Mflops.<br>
+            　　继Cray X-MP之后于1988年生产了Cray Y-MP,单个系统最多有8台处理机，时钟周期为6ns，共享存储器的容量为256兆字节。<br>
+            　　1990年生产了Cray Y-MP C－90，它是一个集成系统，有16台处理机，时钟周期为4.2ns。<br>
+            　　1985年推出了Cray 2S。该系统最多有4台处理机，有2G字节的共享存储器，超流水线时钟为4.1ns。Cray 2的主要贡献是使超级计算机的批处理COS改变到多用户UNIX系统V。目前大多数Cray向量计算机上的UNICOS操作系统是由UNIX/V和Berkeley 
+            4..3BSD演变而来的。<br>
+            　　Cyber/ETA系列 CDC公司于1973年推出了第一台向量计算机STAR－100，以后于1982年生产了Cyber 205。Cyber 
+            205在单处理机配置时最多有4条向量流水线，时钟周期为20ns.<br>
+            　　与Cray和其它向量计算机中采用寄存器到寄存器的系统结构不同，Cyber 205及其后继的ETA 10采用存储器到存储器的系统结构。它的向量指令比较长，其中包含了存储器地址。<br>
+            　　最大的ETA 10由8个CPU和共享存储器以及18台I/O处理机组成。ETA 10的目标峰值速度是10Gflops。Cyber和ETA系列机已不再生产，但仍在几个超级计算机中心使用。</span><br>
+          </p>
+          <p align="center" class="pt9-black">&nbsp; </p>
+          </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

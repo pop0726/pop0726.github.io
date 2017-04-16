@@ -1,0 +1,54 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第六章　向量处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black"><b>2.可扩展性随处理机数目的增加而提高</b><br>
+            <br>
+            　　可扩展性的最简单的定义是在确定的应用背景下，向量处理机系统性能要随处理机数目的增加而线性地提高。可扩展性的三个目标是：<br>
+            　　＊规模可扩展性 一台规模可扩展的计算机应设计成其资源部件个数从小到大可扩展，这里所说的部件包括处理单元、存储器等。我们不能单为了达到规模可扩展而不考虑价格、效率。客观地说，没有一种计算机是真正可以线性关系扩展的。<br>
+            　　＊换代可扩展性 由于微处理机每用三年就要过时，所以换代可扩展性和规模扩展性一样重要。不仅象制造处理机与存储器芯片的CMOS电路和组装技术等硬件技术应该是可扩展的，而且那些要求与新硬件系统兼容和可移值的软件/算法也应该是可扩展的。<br>
+            　　＊问题可扩展性 问题规模是指数据集规模。一台问题可扩展的计算机应在问题规模增大时仍能很好地运行，而且问题规模扩展到相当大时计算机仍能高效地运行。<br>
+            <br>
+            <b>3.增加存储器系统的容量和性能</b><br>
+            <br>
+            　　过去和当前向量处理计算机的主存储器和扩充存储器容量大小如图6.12所示。大规模存储器系统必须为标量处理提供低时延、为向量处理提供高频宽、为解决大型复杂问题提供大容量和高吞吐率的性能。<br>
+            　　为了实现以上目标，存储器必须采用高效的层次结构。典型的层次结构由数据文件或磁盘、动态RAM的扩充存储器、静态RAM的快速共享存储器以及用RAM阵列实现的高速缓存/局部存储器组成。<br>
+            　　在未来的10年中，主存储器容量可望达到32G字节，并且可以扩充到4倍之大。它将与向量处理计算机系统结构的增长相匹配。</p>
+          <p align="center" class="pt9-black"><img src="images/tu6_12.jpg" width="447" height="492"></p>
+          <p align="left" class="pt9-black"><b>4.提供高性能的I/O和易访问的网络</b><br>
+            <br>
+            　　由于向量处理机每换一代它的速度至少要增加3－5倍，因此能够处理的问题规模也相应地增加了，对I/O频宽的要求也要提高。图6.11c表示当前和过去向量处理计算机系统所支持的I/O频宽。<br>
+            　　I/O是指大型机和外围设备或网络之间的数据传输。老一代向量处理计算机的I/O频宽总不能很好地与计算性能相匹配。Cray公司采用两种不同方法实现I/O处理机的系统结构。采用第一种方法的例子是Cray 
+            Y-MP I/O子系统，它的I/O处理机非常灵活，而且可以执行相当复杂的处理工作。Cray 2采用第二种方法，用一台简单的前端处理机控制通道，完成由大型机操作系统执行的I/O管理。<br>
+            　　在未来5至10年中，与高速磁盘阵列网络连接的向量处理计算机要求I/O传输率能高于50G字节/秒。向量处理计算机对高速连网能力的支持将变成I/O系统结构的主要组成部分。<br>
+            <br>
+          </p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

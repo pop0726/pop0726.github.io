@@ -1,0 +1,49 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第六章　向量处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black"><span class="part">6.4.2 Cray Y-MP，C-90</span><br>
+            <br>
+            　　下面将介绍Cray公司的Y－MP，C－90的系统结构。<br>
+            　　Cray Y-MP 816 Y-MP 8系统结构框图如图6.20所示。系统可以配置1台、2台、4台和8台处理机。Y－MP的8个CPU共享中央存储器、I/O子系统、处理机通信子系统和实时钟。<br>
+            　　中央存储器分成256 个交叉访问的存储体。通过每个CPU对4个存储器端口的交叉访问可以实现对存储器的重叠存取。CPU的时钟周期为6ns。<br>
+            　　中央存储器的容量可以是16兆字、32兆字、64兆字和128兆字，最大可达1G字节。固态存储器的容量可以32兆字到512兆字，最大可达4G字节。<br>
+            　　4个存储器访问端口允许每个CPU同时执行两个标量和向量取操作、一个存储操作和一个独立的I/O操作。这些并行的存储器访问也采用流水线方式，使得向量读和向量写可以同时进行。<br>
+            　　系统内部有分解冲突的硬件，使存储器冲突引起的延迟减到最小。为了保护数据，在中央存储器及其输入和输出数据通道中都采用了单错校正/双错测（SECDED）逻辑。<br>
+            　　CPU的计算系统由14个功能部件组成，分为向量、标量、地址和控制四个子系统，如图6.20所示。向量和标量指令可以并行地执行。所有算术运算都是寄存器到寄存器类型。向量指令可以使用14个中的8个功能部件。<br>
+            　　系统使用了大量地址寄存器、标量寄存器、向量寄存器、中间寄存器和临时寄存器。通过对寄存器及多条存储器和算术/逻辑流水线的使用，可以实现功能流水线灵活的链接。浮点和整数算术运算都是64位。大型指令高速缓存可同时存放512条16位的指令。<br>
+            　　主机中的处理机之间通信系统包括用于快速同步目的的共享寄存器群，每个群由共享地址寄存器、共享标量寄存器和信号灯寄存器组成。CPU之间向量数据通信是通过共享存储器实现的。<br>
+            　　实时钟由64位计数器组成，每个时钟周期计数器加1。由于时钟与程序执行同步，所以它可以用来准确地计算时间。<br>
+            　　I/O子系统支持三类通道，传输速率分别为6兆字节/秒，100兆字节/秒和1G字节/秒。IOS和SSD是高速数据传输设备，通过8个高速缓存支持主机的处理工作。</p>
+          <p align="center" class="pt9-black"><img src="iamges/tu6_20.jpg" width="678" height="584"><br>
+          </p>
+          <p align="left" class="pt9-black">　</p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

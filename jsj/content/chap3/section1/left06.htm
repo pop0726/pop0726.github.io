@@ -1,0 +1,49 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第三章 存储系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><span class="pt9-black"><br>
+            <b class="part">3.1.3 频带平衡</b><br>
+            <br>
+            　　前面提到，现代计算机是以存储器为中心工作的，一般计算机中的存储器有4个访问源。当然，这里所指的存储器可以广义地来理解，它不仅指主存储器（内存），也包括其它存储器。由此可以看出，存储器的速度能不能跟得上系统的需要，是影响整个计算机系统性能的极为关键的问题，这就是存储器的频带平衡问题。<br>
+            　　使计算机系统中各级存储器的频带达到平衡，是系统结构设计者的一项重要工作。下面，先通过一个具体的例子来说明存储器的频带是如何计算的。<br>
+            　　假设有一台速度为1GIPC（每秒钟执行10亿条指令）的计算机，这在目前这是很普通的机器。那么，主存储器的频带宽度计算如下：<br>
+            　　CPU取指令：1000MW/s（假设每条指令的长度为一个字）。<br>
+            　　CPU取操作数和保存运算结果：2000MW/s（平均每条指令访问两个操作数）。<br>
+            　　各种输入输出设备访问存储器：50MW/s。<br>
+            　　三项相加，要求主存储器的频带宽度不低于3050MW/s。如果存储器的字长为一个字，则要求存储器的访问周期不大于0.33ns。与目前主存储器的实际工作速度相比，两者相差100倍以上。<br>
+            　　一般来说，有三条途径可以解决主存储器的频带平衡问题。<br>
+            　　1、多个存储器并行工作，并且用并行访问和交叉访问等方法提高存储器的访问速度。具体方法将在下一节中介绍。<br>
+            　　2、设置各种缓冲存储器，有关原理将在第五章中介绍。<br>
+            　　3、采用存储系统。特别是Cache存储系统，这是目前计算机系统中提高存储器速度最有效的一种方法。一般计算机中都有两级Cache存储器，其中第一级在CPU芯片内部，速度很快，容量比较小，另一级在主板上，容量比较大，速度稍低些。<br>
+            </span></p>
+          <p align="left"><span class="pt9-black">　</span></p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

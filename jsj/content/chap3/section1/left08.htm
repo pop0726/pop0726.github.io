@@ -1,0 +1,54 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第三章 存储系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><span class="pt9-black"><b><br>
+            </b></span><b><span class="part">3.1.5 交叉访问存储器</span></b></p>
+          <p align="left" class="pt9-black">　　交叉访问存储器通常有两种工作方式，一种是地址码高位交叉，另一种是地址码低位交叉。其中，只有低位交叉存储器能够有效地解决访问冲突问题。以下主要介绍低位交叉存储器，但由于高位交叉存储器目前使用得非常普遍，因此作简单介绍。<br>
+            <br>
+            　　<b>1、高位交叉访问存储器</b><br>
+            　　高位交叉访问存储器的工作原理如图3.7所示。地址码的低位部分是各个存储体的体内地址，高位部分用来区分存储体的体号。<br>
+            　　目前，大部分计算机系统中的主存储器都采用模块化结构，用户可根据自己的不同需要随时很方便地改变主存储器的容量。例如，市场上可以买到32MB、64MB、……、的主存储器模块。用两个64MB的模块可以构成128MB的主存储器，用4个32MB的模块也能构成128MB的主存储器等。这种模块化的主存储器通常都采用高位交叉方式。<br>
+            　　假设有一个采用高位交叉方式工作的主存储器及组成这个主存储器的各个存储体的参数如下：<br>
+            　　m：每个存储体的容量，通常用地址码的低log2 m位作为存储体的体内地址。<br>
+            　　n：组成存储器的存储体个数，通常用地址码的高log2 n位作为译码器的输入，而这个译码器的n个输出作为各个存储体的使能输入，只有被译码器选中的那个存储体才能进行读写操作。<br>
+            　　j：各个存储体的体内地址，j＝0，1，2，...，m-1。<br>
+            　　k：组成主存储器的各个存储体的体号，k＝0，1，2，...，n-1。<br>
+            　　则这个存储器的地址A的计算公式为：A＝m×k＋j。<br>
+            　　如果已知存储器的地址为A，可以计算出这个地址的存储体体号和体内地址：<br>
+            　　存储器的体内地址Aj的计算公式：Aj＝A mod m。<br>
+            　　存储器的体号<img src="images/gsh1_13.gif" width="16" height="15" align="absmiddle">的计算公式：<img src="images/gsh1_14.gif" width="52" height="35" align="absmiddle"> 
+            。 </p>
+          <p align="center" class="pt9-black"><img src="images/tu3_7.jpg" width="437" height="250"><br>
+            <b>图3.7 高位交叉访问存储器的结构 </b></p>
+          <p align="left" class="pt9-black">　　采用高位交叉方式时，要求每个存储模块都有各自独立的控制部件，包括地址寄存器、地址译码器、驱动电路、放大电路、读写控制电路、数据寄存器等，在有些存储器模块中还有校验及校正电路、高速缓冲存储部件等。由于每个存储模块均可以独立工作，因此，高位交叉访问存储器已经具备了并行工作的条件。然而，由于程序的连续性和局部性，在程序执行过程中被访问的指令序列和数据绝大多数都分布在同一个存储模块中，因此，通常只有一个存储模块在不停地忙碌，其它存储模块是空闲的。只有当指令序列跨越两个存储模块时，这两个存储模块才是并行工作的。</p>
+          <p align="left" class="pt9-black">&nbsp;</p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第五章 标量处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black"><span class="part">5.1.4 流水线的性能分析</span><br>
+            <br>
+            　　衡量流水线性能的主要指标有吞吐率、加速比和效率。另外，在流水线设计中，如何选择流水线的最佳段数也是一个非常重要的问题。因此，本节首先对影响流水线性能的吞吐率、加速比和效率等三个主要指标进行分析，然后介绍流水线最佳段数的选择方法，最后举例说明流水线的性能分析方法。</p>
+          <p align="left"><span class="pt9-black"><b>1、吞吐率</b><br>
+            　　流水线的吞吐率（TP：Though Put rate）是指在单位时间内流水线所完成的任务数量或输出的结果数量。<br>
+            　　　<img src="images/gsh1_3.gif" width="63" height="34" align="absmiddle">　　　　　　　　　　　　（5.5）<br>
+            　　式中，n为任务数，<img src="images/gsh1_4.gif" width="16" height="18" align="absmiddle">是处理完成n个任务所用的时间。（5.5）式是计算流水线吞吐率的最基本公式。以下讨论满足某种特殊情况的流水线吞吐率。<br>
+            　　如图5.7所示，在流水线各段的执行时间均相等，输入到流水线中的任务是连续的理想情况下，一条k段线性流水线能够在k＋n－1个时钟周期内完成n个任务。</span></p>
+          <p align="center"><img src="images/tu5_7.jpg" width="437" height="231"></p>
+          <p align="left"><span class="pt9-black">　　可以从两个方面来分析流水线完成n个任务所需要的总时间。一种方法是从流水线的输出端看，用k个时钟周期输出第一个任务，其余n－1时钟周期，每个周期输出一个任务，即用n－1个时钟周期输出n－1个任务。另一种分析方法是从流水线的输入端看，用n个时钟周期向流水线输入n个任务，另外还要用k－1个时钟周期作为流水线的排空时间。因此，流水线完成n个连续任务需要的总时间为：<br>
+            　　　　<img src="images/gsh1_5.gif" width="126" height="17" align="absmiddle">　　　　　　　　（5.6）<br>
+            　　其中，<img src="images/gsh1_6.gif" width="25" height="16" align="absmiddle">为时钟周期。<br>
+            　　把（5.6）关系式代入（5.5）式中，得到流水线各段时间均相等，输入连续n个任务的一条k段线性流水线的实际吞吐率为：<br>
+            　　　　<img src="images/gsh1_7.gif" width="109" height="36" align="absmiddle">　　　　　　　　　（5.7）</span><br>
+            <span class="pt9-black"> 　　这种情况下的最大吞吐率为：<br>
+            　　　　<img src="images/gsh1_8.gif" width="183" height="33" align="absmiddle">（5.8）<br>
+            　　最大吞吐率与实际吞吐率的关系是：<br>
+            　　　　<img src="images/gsh1_9.gif" width="119" height="30" align="absmiddle">（5.9）<br>
+            　　从（5.9）式中可以看出，流水线的实际吞吐率要小于最大吞吐率，它除了与时钟周期Dt有关之外，还与流水线的段数k、输入到流水线中的任务数n等有关。只有当n&gt;&gt;k时，才有TP≈TPmax。<br>
+            </span><br>
+          </p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

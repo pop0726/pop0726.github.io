@@ -1,0 +1,110 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFCF4" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+          <td><span class="text"><br>
+            <span class="point">　1.</span></span><a href="#01" class="point">现在人们使用的基本上是TCP/IP协议簇，学习ISO/OSI体系结构还有什么意义？</a><span class="text"><span class="point"><br>
+            　2.</span><a href="#02" class="point">传统上，网络分为局域网、城域网和广域网，这种分类方式是否还有意义？</a><span class="point"><br>
+            　3.</span><a href="#03" class="point">ISO/OSI与IEEE802体系结构的关系是什么？</a><span class="point"><br>
+            　4.</span><a href="#04" class="point">CRC校验码中，生成多项式是如何确定的，校验码又是如何计算的？</a><span class="point"><br>
+            　5.</span><a href="#05" class="point">基带传输与频带传输的区别在哪里？</a><span class="point"><br>
+            　6.</span><a href="#06" class="point">X.25协议的内容有哪些？目前应用情况如何？</a><span class="point"><br>
+            　7.</span><a href="#07" class="point">帧中继与x.25的区别有哪些？</a><span class="point"><br>
+            　8.</span><a href="#08" class="point">在网络体系结构中服务访问点SAP是一个重要而抽象的概念,能简单解释一下吗？</a><span class="point"><br>
+            　9.</span><a href="#09" class="point">千兆以太网遵循了同样的</a></span><a href="#09" class="point"><span class="point">以太网标准，原理</span></a><span class="text"><a href="#09" class="point">是什么？</a><span class="point"><br>
+            　10.</span><a href="#10" class="point">IP协议的要掌握的主要内容是什么？</a><span class="point"><br>
+            　11.</span><a href="#11" class="point">Ipv6的主要改进有那些？</a><span class="point"><br>
+            　12.</span><a href="#12" class="point">OSI的应用层协议与Internet应用的关系是什么？</a><span class="point"><br>
+            　13.</span><a href="#13" class="point">会话层和表示层在Internet中如何体现？</a><span class="point"><br>
+            　14.</span></span><a href="#14" class="point">在实际应用中为什么没有很清楚的互联设备的分类？</a><span class="text"><span class="point"><br>
+            　15.</span><a href="#15" class="point">ASN.1表示与编码比较难以理解，如何掌握？</a><span class="point"><br>
+            　16.</span><a href="#16" class="point">网络安全技术主要内容有那些？</a><span class="point"><br>
+            　17.</span><a href="#17" class="point">网络管理的内容如何掌握？</a><span class="point"><br>
+            　18.</span></span><a href="#18" class="point">IP协议中，子网掩码的作用是什么，如何根据IP地址和掩码计算一台机器地址？</a><span class="text"><span class="point"><br>
+            　19.</span><a href="#19" class="point">在浏览器上，如果所在网络的DNS服务器停机了，为什么知道IP地址仍然可以访问该站点？</a><span class="point"><br>
+            　20.</span><a href="#20" class="point">windows下，有什么办法可以知道网络是否通？</a><br>
+            <br>
+            <br>
+            <span class="point"><a name="01"></a>　1.现在人们使用的基本上是TCP/IP协议簇，学习ISO/OSI体系结构还有什么意义？ 
+            </span><br>
+            <span class="point">　　</span>TCP/IP是事实上的工业标准，但从全面系统的掌握计算机网络的知识来讲，应该理解OSI的体系结构，然后将理解的基本原理与实际使用的网络协议相结合，才能够很好的掌握一些概念和原理。<br>
+            <span class="point"><br>
+            <a name="02"></a>　2.传统上，网络分为局域网、城域网和广域网，这种分类方式是否还有意义？<br>
+            　　</span>目前网络的迅速发展使的城域网和广域网的界限越来越模糊，尤其是光纤网络的发展和一些网络新技术的应用，除局域网外，人们一般只讲互联网这一概念。<br>
+            <span class="point"><br>
+            <a name="03"></a>　3.ISO/OSI与IEEE802体系结构的关系是什么？ <br>
+            　　</span>IEEE802协议只涉及到网络的最低2层，它是根据局域网的特点，即拓扑结构、传输媒体和访问控制方式而制定的协议标准，而ISO/OSI的低2层协议，开始主要考虑的是点到点的接入方式，如x.25，帧中继等，以后才制定了相应的局域网协议，与IEEE802协议基本一致。<br>
+            <span class="point"><br>
+            <a name="04"></a>　4.CRC校验码中，生成多项式是如何确定的，校验码又是如何计算的？ <br>
+            　　</span>生成多项式一般是通信双方在某一协议中确定好的，校验码不是真正去做除法运算，而是有一个移位发生器，根据要校验的比特流自动产生校验码。<br>
+            <span class="point"><br>
+            <a name="05"></a>　5.基带传输与频带传输的区别在哪里？<br>
+            　　</span>基带信号是用来直接传输数字信号的，不经过调制，因为数字波形有无限的频宽，每次只能传输一路，占用所有带宽。而频带传输是将数字信号调制成在某个频率段传输的模拟信号，可以通过频分多路复用传输。<br>
+            <span class="point"><br>
+            <a name="06"></a>　6.X.25协议的内容有哪些？目前应用情况如何？<br>
+            　　</span>X.25协议是包括了下3层的一个协议，物理层是x.21，数据链路层是LAPB，网络层叫做x.25分组层。目前x.25的应用已经很少了，原因是有了更快的技术，如帧中继（FR），数字数据网（DDN）。<br>
+            <span class="point"><br>
+            <a name="07"></a>　7.帧中继与x.25的区别有哪些？ <br>
+            　　</span>由于现在的传输线路采用了光缆，信号在线路上的误码率极低，就可以去掉X.25分组交换中的纠错功能，数据在处理节点中的传输速率提高，这就是帧中继的优势。帧中继只有2层的处理，内部功能大大简化。<br>
+            <span class="point"><br>
+            <a name="08"></a>　8.在网络体系结构中服务访问点SAP是一个重要而抽象的概念,能简单解释一下吗？<br>
+            　　</span>SAP是上一层的一个实体访问下一层实体提供服务的接口，通过 SAP，下层的实体可以找到是上一层的某个对应实体，两层之间可以有多个SAP。一个常用的例子是TCP/IP 
+            中的socket，TCP之上不同的socket 对应不同的应用服务。<br>
+            <span class="point"><br>
+            <a name="09"></a>　9.千兆以太网遵循了同样的以太网标准，原理是什么？<br>
+            　　</span>这是由于以太网的传送速率与媒体的长度有一定的关系，若要提高网络的传输速率（向网上发送的速度），在发送的数据帧长度不变的情况下，网上检测碰撞的时间必然减少，（时间＝长度/发送速率＝传播延迟＋其他延迟），就要求传播延迟要小，即媒体长度要减少，所以提高传输速度就要以减少传输媒体的长度为代价的。<br>
+            <span class="point"><br>
+            <a name="10"></a>　10.IP协议的要掌握的主要内容是什么？<br>
+            　　</span>(1) IP数据单元中各项的意义，(2) IP的寻址过程（路由及如何从IP转换成物理地址传到目的主机），(3) IP报的分段与重装 
+            。<br>
+            <span class="point"><br>
+            <a name="11"></a>　11.Ipv6的主要改进有那些？<br>
+            　　</span>可以从IPV6的数据报格式看出，除地址空间增加以外，地址空间的编排有了变化，同时增加了QOS保证、安全机制。<br>
+            <span class="point"><br>
+            <a name="12"></a>　12.OSI的应用层协议与Internet应用的关系是什么？<br>
+            　　</span>OSI的应用层从抽象的角度描述了可能的网络应用，并抽象出公共服务元素CASE和特殊访问服务元素SASE，而Internet是根据实际应用，制定了一些应用协议，Internet开始的大部分应用在OSI体系结构中都有描述，如email、ftp、telnet等对应着OSI的MHS、FTAM和VTP，只是Internet的应用更简化了。<br>
+            <span class="point"><br>
+            <a name="13"></a>　13.会话层和表示层在Internet中如何体现？<br>
+            　　</span>会话层功能在Internet中没有单独提，实际上是在应用程序中体现了，不同的应用实现的方式不同，而表示层的思想主要体现在网络的加密传输上。<br>
+            <span class="point"><br>
+            <a name="14"></a>　14.在实际应用中为什么没有很清楚的互联设备的分类？<br>
+            　　</span>现在的联网设备中，除了看到的没有交换功能的HUB完成中继器功能外，基本上是用交换机或路由器实现的。具有多种协议端口的交换机完成了协议的转换功能，链接一个局域网络中不同协议的设备。而支持多协议的路由器完成了报文在不同网络上的转发。实际上现在的交换机和路由器的功能已经包括了网桥和路由器以及网关的功能。<br>
+            <span class="point"><br>
+            <a name="15"></a>　15.ASN.1表示与编码比较难以理解，如何掌握？<br>
+            　　</span>一个值用ASN.1来表示是比较复杂的，这是因为要考虑到通用性和完整性，因此要对该值的属性进行描述，但值的编码是有规律的，只要按照编码规则将每一位添上适当的数即可。<br>
+            <span class="point"><br>
+            <a name="16"></a>　16.网络安全技术主要内容有那些？<br>
+            　　</span>可以从几个层次掌握网络安全的内容，信息加密，有各种加密算法；身份鉴别和数字签名；访问控制；防火墙技术。<br>
+            <span class="point"><br>
+            <a name="17"></a>　17.网络管理的内容如何掌握？<br>
+            　　</span>目前的网络管理体系可以分成3类：OSI的 CMIS/CMIP、IAB的SNMP和IETF的RMON。网络管理的内容一般按OSI定义的5大功能。而常用的主要是SNMP网管协议。<br>
+            <br>
+            <span class="point"><a name="18"></a>　18.IP协议中，子网掩码的作用是什么，如何根据IP地址和掩码计算一台机器地址？</span><br>
+            <span class="point">　　</span>由于Ipv4地址的分类划分，一方面32位的IP地址已经不够用，同时网络地址与主机地址的划分使得分配的一个网络内的主机地址用不完，造成浪费。因此可以通过掩码（mask）的方法，将网络划分成几个子网，在掩码中用一串1表示网络地址，0表示主机地址。计算时，先看掩码的1和0的划分，找到IP中的主机地址和网络地址。如 
+            IP=166.111.69.246 mask＝255.255.248.0 (11111111.11111111.11111000.0000000) 
+            本来是一个B类地址，网络号是166.111 主机是69.248，但根据掩码的解释，地址166.111.69.246中网络地址不是前16位，而是前21位，因此网络地址是166.111.(01000***).(********) 
+            即166.111.64.0，主机地址是后11位，即5.248。<br>
+            <span class="point"><br>
+            <a name="19"></a>　19.在浏览器上，如果所在网络的DNS服务器停机了，为什么知道IP地址仍然可以访问该站点？<br>
+            　　</span>这要从DNS的原理谈起，DNS 的作用就是将用字母数字表示的名字转换成名字对应的IP地址，这样人们就不用去记住难以记住的数字。当DNS服务器不工作时，若知道对方的机器IP地址，在浏览器中敲入IP，就不需DNS转换，照样可以访问到该机器。<br>
+            <span class="point"><br>
+            <a name="20"></a>　20.windows下，有什么办法可以知道网络是否通？<br>
+            　　</span>最简单的方法是运行命令行命令 ping 后跟对方IP地址。还有一个命令tracert<i> 对方IP</i>，可以知道从自己的机器到对方的机器所走的路由情况。<br>
+            　</span></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>
+

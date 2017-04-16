@@ -1,0 +1,46 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第五章 标量处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black"><span class="part">5.1.3 流水线的特点</span><br>
+            <br>
+            　　从上面的分析中可以看到，在处理机中采用流水线方式与采用传统的串行方式相比，具有如下特点：<br>
+            　　1、在流水线的每一个功能部件的后面都要有一个缓冲寄存器，或称为锁存器、闸门寄存器等，它的作用是保存本流水段的执行结果，如图5.6所示。采用锁存器的主要原因是流水线中每一个流水段的延迟时间通常不可能绝对相等，再加上电路的延迟时间及时钟等都存在偏移，因此，在流水段与流水段之间传送任务时，必须通过锁存器。</p>
+          <p align="center" class="pt9-black"><img src="images/tu5_6.jpg" width="481" height="106"></p>
+          <p align="left"><span class="pt9-black">　　从图5.6看出，在指令流水线中加入锁存器之后，每条指令的实际执行时间增加了。因此，采用流水线技术的目的是通过多条指令并行执行使整个程序的执行时间缩短，然而程序中的任何一条指令的执行时间并没有缩短。<br>
+            　　由于流水线没有真正减少每条指令的执行时间，这就限制了流水线的深度。一旦时钟周期很小，以至于与时钟偏移和锁存器的附加开销相当时，流水线就失去了作用，因为在一个时钟周期内没有足够时间用于有效工作了。<br>
+            　　2、流水线中各段的时间应尽量相等，否则将引起&quot;堵塞&quot;、&quot;断流&quot;等。流水线的时钟周期不能快于最慢的流水段，执行时间长的一个流水段将成为整个流水线的&quot;瓶颈&quot;，这时，流水线中的各个功能部件将不能充分发挥作用。因此，在流水线设计中，当遇到&quot;瓶颈&quot;时，必须采取办法解决。<br>
+            　　3、只有连续不断地提供同种任务才能充分发挥流水线的效率。例如，要使浮点加法器流水线充分发挥作用，需要连续提供浮点加法运算。然而，由于程序本身的原因和程序设计过程中人为的原因，如数据相关等，不可能连续为浮点加法器提供同一种操作。因此，在采用流水线方式工作的处理机中，特别是当流水线的级数较多时，要在软件和硬件设计等多方面尽量为流水线提供连续的任务，以提高流水线的效率。<br>
+            　　4、流水线需要有&quot;装入时间&quot;和&quot;排空时间&quot;。只有流水线完全充满时，整个流水线的效率才能得到充分发挥。<br>
+            　　在流水线处理机的设计过程中，要充分注意上述问题，以设计出高效率的流水线。在流水线处理机上设计程序时，也必须注意流水线的上述特点，以充分发挥流水线处理机的高效率。<br>
+            <br>
+            </span></p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

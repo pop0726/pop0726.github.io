@@ -1,0 +1,62 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td colspan="2"><br>
+            <span class="point">(3) 远程操作服务元素：（ROSE, Remote Operations Service 
+            Element）</span><br>
+            <span class="text"><br>
+            　　在计算机网络通信中，除了传送大块数据单元外，还要出现一问一答方式的通信，比如事务处理就属此列。在分布式环境下，这种方式的通信称为远程操作RO（Remote 
+            Operation）。在应用层设置远程操作服务元素ROSE就是为实现一问一答方式的通信，也就是一个用户向另一用户发出一个请求，然后收到一个请求的结果。即请求/响应方式的通信。ROSE的国际标准是ISO9027-1（服务定义，与ITU-T 
+            x.219兼容），ISO9072-2（协议规范，与ITU-T x.229兼容）。<br>
+            <br>
+            　　ROSE把远程操作分为两种方式：<br>
+            　　① 同步方式--ROSE在收到第一个操作的回答之前不再发出第二个操作请求。<br>
+            　　② 异步方式--ROSE发出多个请求，远程操作不受前期操作响应的制约。<br>
+            </span><br>
+            <span class="point">(4) 委托、并行和恢复：（CCR, Commitment Concurrency Recovery）</span><br>
+            <span class="text"><br>
+            　　委托、并发和恢复（CCR）应用服务元素的作用是提供与特定应用有关的多个联系活动的协调功能，即使在系统发生多次崩溃的情况下也能可靠地协调多个部分之间的相互作用，为分布式处理提供了一个安全和高效的环境。在分布式环境中，对数据库等系统进行更新操作的同时要求保持和维护数据的完整性和一致性，使之不受系统和通信设备失效的影响，也就是说，受到影响的系统都能保证数据的一致性状态，这时就必须使用CCR。<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="25" height="20" align="middle">
+              <param name=movie value="6322-2.swf">
+              <param name=quality value=high>
+              <embed src="6322-2.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="25" height="20" align="middle">
+              </embed> 
+            </object><br>
+            <br>
+            　　CASE如下图所示：</span></td>
+        </tr>
+        <tr> 
+          <td width="25" valign="top"><img src="../../../../image/tub/ts.gif" width="25" height="20" alt="图示"></td>
+          <td>
+            <div align="center"><img src="../../../../image/pic/chapter06/case2.gif" width="407" height="138"><br>
+              <span class="point">图6.7 CASE结构</span></div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="explaination" colspan="2"> <br>
+            　　其中CASE的上层即为SASE。<br>
+            <br>
+            　　在图中：<br>
+            　　　RDA　 远程数据库访问<br>
+            　　　DTMA　文档传送和操作<br>
+            　　　TP 　 业务处理<br>
+            　　　VT 　 虚拟终端<br>
+            　　　FTAM　文件传送 访问和管理<br>
+            　　　JTM　 作业传送和操作<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

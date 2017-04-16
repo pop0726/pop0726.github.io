@@ -1,0 +1,59 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第四章 输入输出系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="left"> 
+          <p class="pt9-black"><b>4.6</b> 某处理机有D<font size="1">1</font>、D<font size="1">2</font>、D<font size="1">3</font>和D4共4个中断源，各中断源的硬件中断优先级从高到低为D<font size="1">1</font>、D<font size="1">2</font>、D<font size="1">3</font>、D<font size="1">4</font>，每个中断源有4位中断屏蔽码，其中，&quot;1&quot;表示该中断源被屏蔽，&quot;0&quot;表示该中断源开放。假设从处理机响应中断源的中断服务请求到运行中断服务程序中第一次开中断所用的时间为10ns，其它中断服务时间为100ns。处理机在0时刻开始响应中断请求，这时4个中断源都已经申请中断服务。<br>
+            (1)要求处理机响应中断服务请求的次序从高到低为D<font size="1">1</font>、D<font size="1">2</font>、D<font size="1">3</font>、D<font size="1">4</font>，而处理机为各中断源服务的先后次序为D<font size="1">2</font>、D<font size="1">4</font>、D<font size="1">3</font>、D<font size="1">1</font>，设计各中断源的中断屏蔽码，并计算处理机开始响应各中断源的中断请求和为各中断源完成中断服务的时刻。<br>
+            (2)要求处理机响应中断服务请求的次序从高到低为D<font size="1">1</font>、D<font size="1">3</font>、D<font size="1">4</font>、D<font size="1">2</font>，而处理机为各中断源服务的先后次序为D<font size="1">2</font>、D<font size="1">4</font>、D<font size="1">3</font>、D<font size="1">1</font>，设计各中断源的中断屏蔽码，并计算处理机开始响应各中断源的中断请求和为各中断源完成中断服务的时刻。<br>
+            <br>
+            <b>4.7 </b>一个字节多路通道连接有5台设备，它们的数据传输率如下表：</p>
+          <p class="pt9-black"><img src="images/3.gif" width="521" height="65"></p>
+          <p class="pt9-black">(1) 计算这个字节多路通道的实际工作流量。<br>
+            (2) 为了使通道能够正常工作，请设计通道的最大流量和工作周期。<br>
+            (3) 当这个字节多路通道工作在最大流量时，5台设备都在0时刻同时向通道发出第一次传送数据的请求，并在以后的时间里按照各自的数据传输速率连续工作。画出通道分时为各台设备服务的时间关系图，并计算这个字节多路通道处理完各台设备的第一次数据服务请求的时刻。<br>
+            <br>
+            <b>4.8 </b>一个字节多路通道连接有4台外围设备，每台设备发出输入输出服务请求的时间间隔、它们的服务优先级和发出第一次服务请求的时刻如下表：</p>
+          <p class="pt9-black"><img src="images/4.gif" width="513" height="84"></p>
+          <p class="pt9-black">(1) 计算这个字节多路通道的实际流量和工作周期。<br>
+            (2) 在数据传送期间，如果通道选择一次设备的时间为3微妙，传送一个字节的时间为2微妙，画出这个字节多路通道响应各设备请求和为设备服务的时间关系图。<br>
+            (3) 从(2)的时间关系图中，计算通道处理完成各设备第一次服务请求的时刻。<br>
+            (4) 从(2)画出的时间关系图中看，这个字节多路通道能否正常工作（不丢失数据）？为什么？<br>
+            (5) 在设计一个字节多路通道的工作流量时，可以采用哪些措施来保证通道能够正常工作（不丢失数据）？<br>
+            <br>
+            <b>4.9</b> 一台计算机系统有一个选择通道，两个数组多路通道，一个字节多路通道带有3个子通道。各通道的工作速度如下表：</p>
+          <p class="pt9-black"><img src="images/5.gif" width="535" height="193"></p>
+          <p class="pt9-black">(1) 分别计算各通道和子通道的实际流量和工作周期。<br>
+            (2) 如果这台计算机系统的速度为1GIPS，指令和数据的字长都是32位。指令Cache的命中率为99％，数据Cache的命中率为95％。假设平均每执行一条指令需要读或写一个操作数，这些操作数大部分来自通用寄存器，只有20％来自存储系统。主存储器的字长为32位，请设计主存储器的访问周期和数据传输率。<br>
+            <br>
+            <br>
+            <br>
+          </p>
+          </div>
+        </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

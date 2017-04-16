@@ -1,0 +1,36 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+          <td class="explaination"><br>
+            <span class="point">・载波监听多路访问CSMA</span><br>
+            <br>
+            　　CSMA（Carrior Sense Multipte Access）协议是-种带有监听的多路访问系统，是对ALOHA协议的改进。CSMA被通俗地称为&quot;先听后讲&quot;，其工作原理是：每个站在发送数据前先要监听信道上是否有载波，即是否有别的站在传输数据。如果介质空闲，就可发送；如果介质忙，就暂不发送而回避一段时间，这样大大减少了冲突。根据监听到介质状态后采取的回避策略可将CSMA分为3种：<br>
+            <br>
+            <span class="point">　① 坚持型CSMA</span><br>
+            　　又称1-坚持CSMA，当某站要送数据时，先监听信道，若信道忙，就坚持监听，直到信道空闲为止，当空闲时立即发送一帧。若两个站同时监听到信道空闲，立即发送，必定冲突，即冲突概率为1，故称之为1-坚持型。假如有冲突发生，则等待一段时间后再监听信道。<br>
+            <br>
+            <span class="point">　② 非坚持型CSMA</span><br>
+            　　当某站监听到信道忙状态时，不再坚持监听，而是随机后延一段时间再来监听。其缺点是很可能在再次监听之前信道已空闲了，从而产生浪费。<br>
+            <br>
+            <span class="point">　③ P坚持型CSMA</span><br>
+            　　这种方式适合于时隙信道，当某站准备发送信息时，它首先监听信道，若空闲，便以概率P传送信息，而以概率（1-P）推迟发送。如果该站监听到信道为忙，就等到下一个时隙再重复上述过程。P坚持型CSMA可以算是1－坚持型CSMA和非坚持型CSMA的折衷，这两者算是P－坚持算法的特例，即P分别等于1和0时的情形。<br>
+            <br>
+            　　对于P坚持型CSMA，如何选择P值，需要考虑如何避免在重负载情况下系统处于不稳定状态。假如当介质忙时，有N个站有数据等待发送，则当前的发送完成时，有NP个站企图发送，如果选择P过大，使NP＞1，则冲突不可避免。最坏的情况是，随着冲突概率的不断增大，吞吐率会降为0。所以必须选择P值使NP＜1。如果尸值选得过于小，则通道利用率会大大降低。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

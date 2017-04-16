@@ -1,0 +1,43 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第三章 存储系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><span class="pt9-black">　　下面，用一个典型的页地址流来评价FIFO、LRU和OPT三种页面替换算法的性能。其中，最主要的是命中率。<b><br>
+            <br>
+            </b>　　<b>例3.1：</b>一个程序共有5个页面组成，分别为P1～P5。程序执行过程中的页地址流（即程序执行中依次用到的页面）为：P1，P2，P1，P5，P5，P1，P3，P4，P3，P4。假设分配给这个程序的主存储器共有3个页面。图3.23表示FIFO、LRU和OPT三种页面替换算法对这3页主存的使用情况，包括调入、替换和命中等。图中，用&quot;*&quot;号标记下次将要被替换掉的页面。<br>
+            　　在上面介绍的5种页面替换算法中，随机算法的命中率比较低，一般仅用于必须用硬件实现，而且对命中率要求不太高的场合。LFU算法由于其实现起来特别困难，目前很少被采用。在虚拟存储器中，实际上有可能被采用的页面替换算法只有FIFO和LRU两种。</span></p>
+          <p align="center"><span class="pt9-black"><b><img src="images/tu3_23.gif" width="482" height="259"><br>
+            图3.23 三种页面替换算法对同一个页地址流的调度过程</b></span></p>
+          <p align="left"><span class="pt9-black">　　从图3.23中可以看出，FIFO算法的命中率最低，LRU算法的命中率与OPT算法很接近。这一结论具有普遍意义。因此，在实际使用中，LRU算法是一种比较好的算法。目前，许多机器的虚拟存储器都采用LRU算法。<br>
+            　　在页面调度中，有一个特别需要注意的问题，即所谓的&quot;颠簸&quot;（Thrashing）现象。看下面的有个例子。<br>
+            <b><br>
+            </b></span></p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

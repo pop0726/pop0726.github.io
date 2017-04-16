@@ -1,0 +1,140 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第五章 标量处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black">　　Alpha 21064芯片内有两个Cache，一个指令Cache和一个数据Cache。两个Cache的容量都是8k字节，由于都采用直接映象方式；因此，每个Cache中都包含有一个区号字段。另外，由于采用动态转移预测技术，在指令Cache中，每个数据块（32个字节）包含有一个8位的转移历史字段。<br>
+            　　Alpha 21064处理机的指令流水线结构如图8.67所示，共有三条指令流水线，每个流水线周期可以发射两条指令。整数操作和地址计算为7个流水级，浮点操作为10个流水级。流水线都由中央控制部件IBOX控制，三条指令流水线的前四个流水级，即取指令IF、交换双发射指令SWAP、指令译码I0和访问寄存器堆I1都在中央控制部件IBOX中执行，而流水线的后几个流水级分别在整数执行部件EBIX、地址部件ABOX和浮点执行部件FBOX中执行完成。在所有的指令执行部件EBOX、IBOX、ABOX和FBOX中都设置由专用数据通路，因此，在流水线执行过程中，能够直接把本条指令的操作结果作为下一条指令的操作数使用，而不必先写到寄存器堆中，然后再读出来。</p>
+          <span class="pt9-black">(0)　　　　 　　　　(1)　　　　　　　 　(2)　　 　　　　　　(3)　　　 　　　　(4)　 
+          　　 　　　　(5)　　　　　　　　(6)</span><br>
+          <table width="85%" border="1" cellpadding="1" cellspacing="1" bgcolor="#F4F9CE">
+            <tr> 
+              <td width="12%" class="pt9-black"> 
+                <div align="center">IF</div>
+              </td>
+              <td width="12%" class="pt9-black"> 
+                <div align="center">SWAP</div>
+              </td>
+              <td width="12%" class="pt9-black"> 
+                <div align="center">I0</div>
+              </td>
+              <td width="12%" class="pt9-black"> 
+                <div align="center">I1</div>
+              </td>
+              <td width="12%" class="pt9-black"> 
+                <div align="center">A1</div>
+              </td>
+              <td width="12%" class="pt9-black"> 
+                <div align="center">A2</div>
+              </td>
+              <td width="12%" class="pt9-black"> 
+                <div align="center">WR</div>
+              </td>
+            </tr>
+          </table>
+          <span class="pt9-black">IF：取指令；SWAP：交换双发射指令和转移预测；I0：指令译码；I1：访问通用寄存器堆和发射校验；<br>
+          A1：IBOX计算新PC值；A2：查指令快表；WR：写整数寄存器堆，指令Cache命中/不命中检测。</span><br>
+          <b><span class="pt9-black">(a) 整数操作流水线</span></b> <br>
+          <span class="pt9-black">(0)　　　　 　　　　(1)　　　　　　　 　(2)　　 　　　　　　(3)　　　 　　　　(4)　 
+          　　 　　　　(5)　　　　　　　　(6)</span><br>
+          <table width="85%" border="1" cellpadding="1" cellspacing="1" bgcolor="#F4F9CE">
+            <tr> 
+              <td width="12%" class="pt9-black"> 
+                <div align="center">IF</div>
+              </td>
+              <td width="12%" class="pt9-black"> 
+                <div align="center">SWAP</div>
+              </td>
+              <td width="12%" class="pt9-black"> 
+                <div align="center">I0</div>
+              </td>
+              <td width="12%" class="pt9-black"> 
+                <div align="center">I1</div>
+              </td>
+              <td width="12%" class="pt9-black"> 
+                <div align="center">AC</div>
+              </td>
+              <td width="12%" class="pt9-black"> 
+                <div align="center">TB</div>
+              </td>
+              <td width="12%" class="pt9-black"> 
+                <div align="center">HM</div>
+              </td>
+            </tr>
+          </table>
+          <span class="pt9-black">AC：ABOX计算有效数据地址；TB：查数据快表；HM：写读数缓冲栈，数据Cache命中/不命中检测。<br>
+          <b>(b) 访问存储器流水线</b></span><br>
+          <span class="pt9-black">(0)　　　　　(1)　　　　　(2)　　　　　(3)　　　　　　(4)　　　　　　(5)　　　　　(6)　　　　　(7)　　　　　(8)　　　　　(9)</span><br>
+          <table width="85%" border="1" cellpadding="1" cellspacing="1" bgcolor="#F4F9CE">
+            <tr> 
+              <td class="pt9-black" width="9%"> 
+                <div align="center">IF</div>
+              </td>
+              <td class="pt9-black" width="9%"> 
+                <div align="center">SWAP</div>
+              </td>
+              <td class="pt9-black" width="9%"> 
+                <div align="center">I0</div>
+              </td>
+              <td class="pt9-black" width="9%"> 
+                <div align="center">I1</div>
+              </td>
+              <td class="pt9-black" width="9%"> 
+                <div align="center">F1</div>
+              </td>
+              <td class="pt9-black" width="9%"> 
+                <div align="center">F2</div>
+              </td>
+              <td class="pt9-black" width="9%"> 
+                <div align="center">F3</div>
+              </td>
+              <td class="pt9-black" width="9%"> 
+                <div align="center">FR</div>
+              </td>
+              <td class="pt9-black" width="9%"> 
+                <div align="center">FS</div>
+              </td>
+              <td class="pt9-black" width="9%"> 
+                <div align="center">FWR</div>
+              </td>
+            </tr>
+          </table>
+          <p><span class="pt9-black">F1－F5：浮点计算流水线；FWR：写回浮点寄存器堆。<br>
+            <b>(c) 浮点操作流水线<br>
+            图5.62 Alpha 21064处理机的指令流水线</b></span></p>
+          <p align="left"><span class="pt9-black">　　每一条指令流水线实际上是把一条指令的执行过程分成了两部分。一部分是四个流水级的静态流水线，在中央控制部件IBOX中执行，另一部分是动态流水线。对于整数操作部件EBOX和地址部件ABOX动态流水线为三个流水级，对于浮点操作部件FBOX动态流水线为6个流水级。<br>
+            　　由于资源冲突、数据相关或控制相关等原因，指令在静态流水线中可以停留若干个流水线周期。当指令进入动态流水线之后句必须一直往前流动，不允许停留。因此，每一条指令必须在静态流水线中，即在中央控制部件IBOX中完成全部的资源冲突检测，数据相关性和控制相关性分析，在指令从静态流水线发射到动态流水线时，指令整个执行过程所要求的资源、数据相关性和控制相关性都应该是没有问题的。 
+            <br>
+            　　从图5.62中可以看到，Alpha 21064处理机的三条指令流水线的平均级数为8级，而且，每个时钟周期能够发射两条指令。按照一般的定义，每个时钟周期发射多条指令的处理机为超标量处理机，指令流水线的级数为8级或多于8级的处理机为超流水线处理机，因此，Alpha 
+            21064处理机应该是超标量超流水线处理机。</span><br>
+            <span class="pt9-black"><br>
+            </span> </p>
+          <p align="left" class="pt9-black">　</p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

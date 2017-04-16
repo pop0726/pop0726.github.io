@@ -1,0 +1,49 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第八章 并行处理机和多处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><span class="pt9-black">　　(1) PVM<br>
+            　　PVM(Parallel Virtual Machine)的开发最早开始于1989年夏天,它的开发队伍包括美国橡树岭国家实验室(ORNL)、Tennessee大学、Emory大学以及CMU等单位,并得到美国能源部、国家科学基金以及田纳西州的资助。PVM是一套并行计算工具软件，支持多种体系结构的计算机，像工作站、并行机以及向量机等，这些机器通过网络连起来，给用户提供一个功能强大的分布存储计算机系统。PVM支持C、C++和Fortran语言，由于它是免费的，因此使用范围非常广泛。<br>
+            　　PVM支持用户采用消息传递方式编写并行程序，编程模型可以是SPMD或MPMD, 计算以任务(task)为单位，一个任务通常就是一个unix进程，每个任务都有一个taskid来标识(不同于进程号)。PVM支持在虚拟机中自动加载任务运行,任务间可以相互通讯以及同步.在PVM系统中，一个任务被加载到哪个结点上去运行，一般来说，对用户是透明的(PVM允许用户指定任务被加载的结点)，这样就方便了用户编写并行程序。<br>
+            　　PVM支持应用程序、机器以及网络级的异构性,允许应用任务选择最适合于它做计算的结点去运行. 如果两台机器的数据表示格式不同, PVM在内部会自动解决数据转化的问题, 
+            PVM允许虚拟机采用多种不同的网络进行互连.<br>
+            　　PVM系统中,各机器间的通讯基于TCP/IP,同时它也支持多处理机内部结点的通信直接利用多处理机本身提供的通讯函数,例如, Intel 
+            Paragon内部结点可直接利用NX消息通讯库进行通讯.<br>
+            　　PVM的特点可以总结为：<br>
+            　　1) PVM系统支持多用户及多任务运行，多个用户可将系统配置成相互重叠的虚拟机，每个用户可同时执行多个应用程序。<br>
+            　　2) 系统提供了一组便于使用的通信原语，可实现一个任务向其它任务发消息，向多个任务发消息，以及阻塞和无阻塞收发消息等功能，用户编程与网络接口分离。系统还实现了通信缓冲区的动态管理机制，每个消息所需的缓冲区由PVM运行时动态申请，消息长度只受结点上可用存储空间的限制。<br>
+            　　3) PVM支持进程组，可以把一些进程组成一个group，一个进程可属于多个进程组，而且可以在执行时动态改变。<br>
+            　　4) 支持异构计算机联网构成并行虚拟计算机系统。<br>
+            　　5) 具有容错功能，当发现一个结点出故障时，PVM会自动将之从虚拟机中删除。<br>
+            　　PVM系统由两部分组成，第一部分是pvmd，它是一个daemon进程，驻留在构成虚拟机的每一台机器上，主要负责PVM系统的配置、用户任务的内部管理以及任务之间的通信等功能。第二部分是PVM用户接口libpvm3.a，它包含了所有用户可使用的PVM库函数，像消息通讯、任务创建等，用户程序在编译时必须连接该库。<br>
+            <br>
+            </span></p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

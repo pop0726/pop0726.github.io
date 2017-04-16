@@ -1,0 +1,48 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第五章 标量处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><span class="pt9-black">　　当有多条指令要在处理机中执行时，可以有多种执行方式：<br>
+            <b>　　1、顺序执行方式。</b>指令的执行过程如图5.2(a)所示。采用顺序执行方式执行n条指令所用的时间为：<br>
+            　　　　　<img src="images/gsh1_1.gif" width="218" height="48" align="absmiddle">　　　　（5.1）<br>
+            　　如果取指令、分析指令和执行指令的时间都相等，每段的时间都为t，则执行n条指令所用的时间为：<br>
+            　　　　　<b>T＝3nt 　　</b>　　　　　　　　　　　　　　　　　（5.2）<br>
+            　　采用顺序执行方式的优点是控制简单，节省设备。主要缺点有两个，一是处理机执行指令的速度慢。只有当上一条指令全部执行完之后，下一条指令才能够开始执行，即在任何时刻，处理机中只有一条指令在执行。二是功能部件的利用率很低。例如，在取指令和分析指令时，主存储器是忙碌的，但指令执行部件是空闲的，同样，在执行指令时，指令执行部件是忙碌的，但主存储器和指令分析部件等经常是空闲的。因此，顺序执行方式并不能充分发挥各个功能部件的作用，实际上是一种浪费。</span></p>
+          <p align="center"><img src="images/tu5_2.jpg" width="474" height="289"></p>
+          <p align="left"><span class="pt9-black">　　<b>2、一次重叠执行方式。</b>如5.2(b)图所示，把执行第k条指令与取第k+1条指令同时进行。如果执行一条指令的三个阶段的时间均相等，则执行n条指令所用的时间为：<br>
+            　　　　　<b>T＝(1＋2n）t 　</b>　　　　　　　　　　（5.3）<br>
+            　　采用一次重叠执行方式的优点主要有两个，一是程序的执行时间缩短了近一倍，二是功能部件的利用明显提高。主存储器可以基本上处于忙碌状态，其它功能部件的利用率也得到提高。缺点是需要增加一些硬件，控制过程也要复杂一些。例如，为了能够在执行第k条指令的同时，分析第k+1条指令，必须再增加一个指令寄存器。用原来的指令寄存器存放当前正在执行的第k条指令，而新增加的一个指令寄存器存放新取出来的第k+1条指令。<br>
+            　　<b>3、二次重叠执行方式。</b>为了进一步提高指令的执行速度，可以把取第k+1条指令提前到与分析第k条指令同时进行，同样，分析第k+1条指令与执行第k条指令同时进行，如图5.2(c)所示。如果执行一条指令的三阶段的时间均相等，则执行n条指令所用的时间为：<br>
+            　　　　<b>　T＝(2＋n）t 　</b>　　　　　　　　　　　（5.4）<br>
+            　　采用二次重叠执行方式能够使指令的执行时间缩短近两倍，这是一种理想的指令执行方式。在正常情况下，处理机中同时有三条指令在执行。</span><br>
+            <br>
+          </p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

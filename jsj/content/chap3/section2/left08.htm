@@ -1,0 +1,49 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第三章 存储系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black"><b><br>
+            <span class="part">3.2.5 段页式虚拟存储器</span><br>
+            <br>
+            </b>　　为了同时能够获得段式虚拟存储器在程序模块化方面的优点和页式虚拟存储器在管理主存和辅存物理空间方面的优点，把两种虚拟存储器结合起来就成为段页式虚拟存储器。其基本思想是对用户原来编写程序的虚拟存储空间采用分段的方法管理，而对主存储器的物理空间采用分页的方法管理。<br>
+            　　段页式虚拟存储器一方面具有段式虚拟存储器的主要优点。例如，用户程序可以模块化编写，程序段的共享和信息的保护都比较方便，程序可以在执行时再动态链接等。另一方面也具有页式虚拟存储器的主要优点，例如，主存储器的利用率比较高，对辅助存储器（磁盘存储器）的管理比较容易等。<br>
+            　　在段页式虚拟存储器中，用户仍然按照逻辑的程序段来编写程序，但每一个程序段又被分成若干个固定大小的页。如图3.18所示，一个用户程序由三个独立的程序段组成。0号程序段的长度为12KB，由于页的长度是4KB，因此，正好分成3页。1号程序段的长度为10KB，也分成3页，其中最后一页有2KB是浪费的。2号程序段的长度为5KB，分成2页，其中后面一页浪费3KB。</p>
+          <p align="center"><img src="images/tu3_18.gif" width="432" height="254"><br>
+            <b><span class="pt9-black">图3.18 段页式虚拟存储器的地址映象</span></b></p>
+          <p align="left" class="pt9-black">　　一个用户程序的三个程序段通过一张段表来控制，与段式虚拟存储器一样，每个程序段在段表中占一行。在段表中给出该程序段的页表长度和页表的起始地址，根据这两个参数就能找到这个程序段的页表。页表的长度就是这个程序段的页数，页表中给出这个程序段的每一页在主存储器中的实页号。这样就完成了用户程序的虚拟空间到主存实地址空间的映象。<br>
+            　　在虚拟存储空间到主存物理空间的映象过程中，是以页为单位进行的。与段式虚拟存储器不同的地方是：用户程序中每一页不能被映象到主存储器的任意开始位置上，只能映象到主存储器的一个整页的位置中。这种映象方法可以缩短页表的存储容量，加快地址映象和变换的速度，因为主存实地址只需要把页表中的实页号和虚拟地址中的页内偏移拼接起来即可，不必进行任何运算。<br>
+            　　在段页式虚拟存储器中，一个多用户虚地址由四部分组成：用户号U、段号S、虚页号P和页内偏移D，如图3.19所示。在程序运行过程中，要把用户程序中的虚拟地址变换成主存实地址，必须分两步来进行。先查段表，得到该程序段的页表起始地址和页表长度，再通过查页表找到要访问的主存实页号，最后把实页号p与页内偏移d拼接得到主存的实地址。<br>
+            　　在许多大中型计算机中，如IBM370/168、Multics、Amdahl470V/6等都采用这种段页式虚拟存储器。<br>
+            　　从图3.19中看到，在段页式虚拟存储器中，要从主存储器中访问一个数据（取指令、读操作数或写结果），需要查两次表，一次是页表，另一次是段表。如果段表和页表都在主存储器中，则要访问主存储器三次。对于段式虚拟存储器和页式虚拟存储器也要访问主存储器两次。因此，要想使虚拟存储器的速度接近主存储器的速度。或者说，要想使虚拟存储器能够真正实用，必须加快查表的速度。</p>
+          <p align="center" class="pt9-black"><img src="images/tu3_19.gif" width="503" height="312"><br>
+            <b>图3.19 段页式虚拟存储器的地址变换</b> </p>
+          <p align="center" class="pt9-black">&nbsp;</p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

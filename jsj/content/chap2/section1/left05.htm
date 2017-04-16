@@ -1,0 +1,57 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第二章 指令系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><span class="pt9-black"><br>
+            <b>2 表数精度</b></span></p>
+          <p align="left" class="pt9-black">　　表数精度也称为表数误差。浮点数存在表数误差的根本原因是由于浮点数的不连续性造成的，因为任何一种浮点数表示方式的字长总是有限的，例如32位，则这种浮点数表示方式所能够表示的浮点数的个数最多是<img src="iamges/gsh1_24.gif" width="17" height="14" align="absbottom">个（大约43亿个），而数学中的实数是连续的，它有无穷多个，因此，一种浮点数表示方式能表示的浮点数的个数只是实数中很少的一部分，是它的一个子集，以下称为浮点数集。<br>
+            　　浮点数表数误差产生的直接原因有两个，一个原因是两个浮点数a和b都在某种浮点数表示方式的浮点数集内，而a与b的运算（如＋、－、×、÷等）结果却可能不在这个浮点数集内（不是溢出），因此必须用这个浮点集内与它最接近的某个浮点数来表示(称为舍入)。另一个原因是在将数据从10进制转化为2进制、4进制或16进制时可能产生误差。<br>
+            　　在一般情况下，随着尾数基值rm的增大，规格化后的2进制尾数中的前置&quot;0&quot;的个数也就越多。只有在尾数基值<img src="iamges/gsh1_22.gif" width="14" height="13" align="absbottom">＝2时，才能保证在规格化后的尾数中不出现前置&quot;0&quot;，从而获得最高的表数精度。<br>
+            　　规格化浮点数的表数精度主要与尾数基值<img src="iamges/gsh1_22.gif" width="14" height="13" align="absbottom">和尾数长度p有关。在一般情况下，认为规格化尾数最后1位的可信度只有一半，因为这一位通常是由舍入得到的，因此，规格化浮点数的表数精度可以表示如下：<br>
+            　　　　<img src="iamges/gsh1_5F25.gif" width="159" height="50"> 
+            　　　　　　　　（2.6）<br>
+            <br>
+            　　当<img src="iamges/gsh1_22.gif" width="14" height="13" align="absbottom">＝2时，有： 
+            <br>
+            　　　　<img src="iamges/gsh1_26.gif" width="187" height="43">　　　　　　（2.7）<br>
+            　　当<img src="iamges/gsh1_22.gif" width="14" height="13" align="absbottom">＞2时，为了便于与2进制进行比较，我们用<img src="iamges/gsh1_27.gif" width="14" height="19" align="absbottom">表示2进制的尾数字长，于是有如下关系：<br>
+            　　　　<img src="iamges/gsh1_28.gif" width="140" height="31"><br>
+            　　代入(2.6)式，有：<br>
+            　　　　<img src="iamges/gsh1_29.gif" width="178" height="26" align="absmiddle">　　　　　　（2.8）<br>
+            <br>
+            　　把(2.8)与(2.7)进行比较，可以得出结论：当浮点数的尾数长度（指2进制位数）相同时，尾数基值<img src="iamges/gsh1_22.gif" width="14" height="13" align="absbottom">取2具有最高的表数精度。当尾数基值<img src="iamges/gsh1_22.gif" width="14" height="13" align="absbottom">＞2时，浮点数的表数精度与<img src="iamges/gsh1_22.gif" width="14" height="13" align="absbottom">＝2相比将损失<img src="iamges/gsh1_30.gif" width="81" height="25" align="absmiddle"> 
+            倍，即相当于尾数减少了<img src="iamges/gsh1_31.gif" width="105" height="27" align="absmiddle">个2进制位。<br>
+            　　实际上，得出上述结论是很显然的，因为，当尾数基值<img src="iamges/gsh1_22.gif" width="14" height="13" align="absbottom">＝2时，规格化浮点数的尾数肯定没有前置0，全部尾数都是有效位，而当尾数基值<img src="iamges/gsh1_22.gif" width="14" height="13" align="absbottom">＞2时，规格化浮点数的尾数最多可能有<img src="iamges/gsh1_31.gif" width="105" height="27" align="absmiddle"> 
+            个前置0，所以，浮点数的表数精度与<img src="iamges/gsh1_22.gif" width="14" height="13" align="absmiddle">＝2相比将损失 
+            <img src="iamges/gsh1_30.gif" width="81" height="25" align="absmiddle">倍。例如，当尾数基值<img src="iamges/gsh1_22.gif" width="14" height="13" align="absmiddle">＝16时，规格化浮点数的尾数可能有3个前置0，因此其表数精度与<img src="iamges/gsh1_22.gif" width="14" height="13" align="absmiddle">＝2时相比将损失<img src="iamges/gsh1_32.gif" width="13" height="15" align="absmiddle">倍，即相当于尾数减少了3个2进制位。<br>
+          </p>
+          <p align="left"><span class="pt9-black">　</span></p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

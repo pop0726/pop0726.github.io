@@ -1,0 +1,418 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../../css/text01.css" type="text/css">
+<script language="JavaScript"></script>
+<script language="JavaScript" src="../scripts/behActions.js"></script>
+<script language="JavaScript" src="../scripts/behCourseBuilder.js"></script>
+<script language="JavaScript" src="../scripts/interactionClass.js"></script>
+<script language="JavaScript" src="../scripts/elemIbtnClass.js"></script>
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF" onLoad="MM_initInteractions()">
+<div align="center">
+  <table width="100%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="51"> 
+        <table width="80%" border="0" cellspacing="0" cellpadding="0" align="center">
+          <tr> 
+            <td class="pt9-black"> 
+              <div align="center"><a href="../chap1/leftdayiku1.htm"><font color="#666666">第一章</font></a></div>
+            </td>
+            <td class="pt9-black"><img src="../images/dot.gif" width="3" height="11"></td>
+            <td class="pt9-black"> 
+              <div align="center"><a href="../chap2/leftdayiku2.htm"><font color="#666666">第二章</font></a></div>
+            </td>
+            <td class="pt9-black"><img src="../images/dot.gif" width="3" height="11"></td>
+            <td class="pt9-black"> 
+              <div align="center"><a href="leftdayiku3.htm"><font color="#666666">第三章</font></a></div>
+            </td>
+            <td class="pt9-black"><img src="../images/dot.gif" width="3" height="11"></td>
+            <td class="pt9-black"> 
+              <div align="center"><a href="../chap4/leftdayiku4.htm"><font color="#666666">第四章</font></a></div>
+            </td>
+            <td class="pt9-black"><img src="../images/dot.gif" width="3" height="11"></td>
+            <td class="pt9-black"> 
+              <div align="center"><a href="../chap5/leftdayiku5.htm"><font color="#666666">第五章</font></a></div>
+            </td>
+            <td class="pt9-black"><img src="../images/dot.gif" width="3" height="11"></td>
+            <td class="pt9-black"> 
+              <div align="center"><a href="../chap6/leftdayiku6.htm"><font color="#666666">第六章</font></a></div>
+            </td>
+            <td class="pt9-black"><img src="../images/dot.gif" width="3" height="11"></td>
+            <td class="pt9-black"> 
+              <div align="center"><a href="../chap7/leftdayiku7.htm"><font color="#666666">第七章</font></a></div>
+            </td>
+            <td class="pt9-black"><img src="../images/dot.gif" width="3" height="11"></td>
+            <td class="pt9-black"> 
+              <div align="center"><a href="../chap8/leftdayiku8.htm"><font color="#666666">第八章</font></a></div>
+            </td>
+          </tr>
+        </table>
+      　　　　　　　　　　　　　　　　　　　
+        <div align="center" class="part">第三章 存储系统</div>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="left"> 
+          <p class="pt9-black"><b>一、多选题</b></p>
+          <interaction name="MultCh_ImageChkboxes01" object="G01" template="010_Multiple Choice/060_MultCh_ImageChkboxes_04.agt" includesrc="interactionClass.js,elemIbtnClass.js"> 
+          <div name="G01Layer"> <span name="G01question" class="pt9-black"><b>1、在计算机系统中设置虚拟存储器和Cache的主要目的各是什么？试列举出这两种存储系统在具体实现时至少4个方面的差别。</b><br>
+            </span> 
+            <form name="G01choices">
+              <span name="G01choice1" class="pt9-black"> <a name="G01choice1Inp" href="#"
+      onClick="G01.e['choice1'].update('onclick');return false"
+      onMouseOver="G01.e['choice1'].update('onmouseover');"
+      onMouseOut="G01.e['choice1'].update('onmouseout');"
+      onMouseDown="G01.e['choice1'].update('onmousedown');"> <img name="G01choice1Btn" src="../images/buttons/checkbox_red.gif" border=0 align="absbottom"></a> 
+              写直达策略直接将数据写入主存储器。写回策略产生延迟直到把块替换为止，才将数据写入主存储器。<br>
+              </span> <span name="G01unnamed1" class="pt9-black"> <a name="G01unnamed1Inp" href="#"
+      onClick="G01.e['unnamed1'].update('onclick');return false"
+      onMouseOver="G01.e['unnamed1'].update('onmouseover');"
+      onMouseOut="G01.e['unnamed1'].update('onmouseout');"
+      onMouseDown="G01.e['unnamed1'].update('onmousedown');"> <img name="G01unnamed1Btn" src="../images/buttons/checkbox_red.gif" border=0 align="absbottom"></a> 
+              可写的共享数据不存放在高速缓存中，这称为共享数据是不可存放在高速缓存中，只有指令和私有数据可以存放在本地高速缓存中。<br>
+              </span> <span name="G01choice2" class="pt9-black"> <a name="G01choice2Inp" href="#"
+      onClick="G01.e['choice2'].update('onclick');return false"
+      onMouseOver="G01.e['choice2'].update('onmouseover');"
+      onMouseOut="G01.e['choice2'].update('onmouseout');"
+      onMouseDown="G01.e['choice2'].update('onmousedown');"> <img name="G01choice2Btn" src="../images/buttons/checkbox_red.gif" border=0 align="absbottom"></a> 
+              私用高速缓存为处理机所独有。共享高速缓存为各处理机所共享，有利于彻底解决高速缓存的一致性。<br>
+              </span> <span name="G01choice3" class="pt9-black"> <a name="G01choice3Inp" href="#"
+      onClick="G01.e['choice3'].update('onclick');return false"
+      onMouseOver="G01.e['choice3'].update('onmouseover');"
+      onMouseOut="G01.e['choice3'].update('onmouseout');"
+      onMouseDown="G01.e['choice3'].update('onmousedown');"> <img name="G01choice3Btn" src="../images/buttons/checkbox_red.gif" border=0 align="absbottom"></a> 
+              多个进程可能会使用同一个虚拟地址范围，如果两个或多个进程访问高速缓存同一个物理单元时，那么这种别名问题可能会造成混乱，解决别名问题的一种办法是每当发生别名使用时，将整个高速缓存冲洗一遍。<br>
+              </span> <span name="G01choice4" class="pt9-black"> <a name="G01choice4Inp" href="#"
+      onClick="G01.e['choice4'].update('onclick');return false"
+      onMouseOver="G01.e['choice4'].update('onmouseover');"
+      onMouseOut="G01.e['choice4'].update('onmouseout');"
+      onMouseDown="G01.e['choice4'].update('onmousedown');"> <img name="G01choice4Btn" src="../images/buttons/checkbox_red.gif" border=0 align="absbottom"></a> 
+              高速缓存的命中率将以不同的方式受到高速缓存容量与块大小的影响。在组联想高速缓存中，组数的影响也是明显的。</span><span name="G01choice4"><br>
+              </span> 
+            </form>
+            <form name="G01controls">
+              <p> 
+                <input name="G01judge" type="submit" value="提交" onClick="MM_judgeInt('G01')">
+                <input name="G01reset" type="button" value="重置" onClick="MM_resetInt('G01','reset')">
+              </p>
+              <p class="pt9-black"><b>二、简答题</b></p>
+            </form>
+          </div>
+          <script language="JavaScript">
+<!--
+  // Copyright 1998,1999 Macromedia, Inc. All rights reserved.
+  function newG01() {
+    G01 = new MM_interaction('G01',0,1,1,null,0,0,0,'','','c','',0);
+    G01.add('ibtn','choice1',0,1,1,0,1,'sdhSDH');
+    G01.add('ibtn','unnamed1',0,1,1,0,1,'sdhSDH');
+    G01.add('ibtn','choice2',0,1,1,0,1,'sdhSDH');
+    G01.add('ibtn','choice3',0,1,1,0,1,'sdhSDH');
+    G01.add('ibtn','choice4',0,1,1,0,1,'sdhSDH');
+    G01.init();
+    G01.am('segm','Segment: Check Time_',1,1);
+    G01.am('cond','Time At Limit_','G01.timeAtLimit == true',0);
+    G01.am('actn','Popup Message','MM_popupMsg(\'You are out of time\')','pm');
+    G01.am('actn','Set Interaction Properties: Disable Interaction','MM_setIntProps(\'G01.setDisabled(true);\')','sp');
+    G01.am('end');
+    G01.am('segm','Segment: Correctness_',1,0);
+    G01.am('cond','Correct_01','G01.correct == true',0);
+    G01.am('actn','Popup Message','MM_popupMsg(\'       正确\')','');
+    G01.am('end');
+    G01.am('cond','Incorrect_','G01.correct == (false)',0);
+    G01.am('actn','Popup Message','MM_popupMsg(\'       错误\')','');
+    G01.am('end');
+    G01.am('cond','Unknown Response_','G01.knownResponse == false',0);
+    G01.am('actn','Popup Message','MM_popupMsg(\'  请重新输入\')','');
+    G01.am('end');
+    G01.am('segm','Segment: Check Tries_',1,1);
+    G01.am('cond','Tries At Limit_','G01.triesAtLimit == true',0);
+    G01.am('actn','Popup Message','MM_popupMsg(\'You are out of tries\')','pm');
+    G01.am('actn','Set Interaction Properties: Disable Interaction','MM_setIntProps(\'G01.setDisabled(true);\')','sp');
+    G01.am('end');
+  }
+  if (window.newG01 == null) window.newG01 = newG01;
+  if (!window.MM_initIntFns) window.MM_initIntFns = ''; window.MM_initIntFns += 'newG01();';
+//-->
+</script>
+          <cbi-select object="G01"></interaction> <br>
+          <form name="form7" method="post" action="">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td colspan="3"> 
+                  <p class="pt9-black">1、由三个访问速度、存储容量和每位价格都不相同的存储器构成一个存储系统，其中M1靠近CPU。回答下列问题： 
+                  </p>
+                  <p><span class="pt9-black"><img src="../images/chap3_1.gif" width="324" height="59"> 
+                    <br>
+                    （1） 给出这个三级存储系统的等效访问时间T，等效存储容量S和等效每位价格C的表 达式。<br>
+                    （2） 什么条件下，整个存储系统的每位平均价格接近于C3</span><b><span class="pt9-black"><br>
+                    </span></b> </p>
+                </td>
+              </tr>
+              <tr> 
+                <td width="3%">&nbsp;</td>
+                <td width="47%"> 
+                  <textarea name="textfield" rows="5" cols="70"></textarea>
+                  <input type="hidden" name="hiddenField">
+                </td>
+                <td width="50%">&nbsp;</td>
+              </tr>
+              <tr> 
+                <td width="3%" rowspan="2">&nbsp;</td>
+                <td width="47%"> 
+                  <div align="center"> 　　 </div>
+                </td>
+                <td width="50%" rowspan="2">&nbsp;</td>
+              </tr>
+              <tr>
+                <td width="47%"> 
+                  <div align="center"> 
+                    <input type="reset" name="Submit2" value="重置">
+                    <input type="button" name="Button" value="答案" onClick="MM_openBrWindow('01.htm','','width=450,height=250')">
+                    　　 </div>
+                </td>
+              </tr>
+            </table>
+          </form>
+          <form name="form6" method="post" action="">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td colspan="3"> 
+                  <p class="pt9-black">2、一个虚拟存储系统最多有64个用户，每个用户程序最大不超过8192页，每页4KB，主存储器的容量为64MB。为了加快地址变换过程，采用快慢表结构，快表的容量为64个存储字，快表地址经散列函数变换得到。为避免散列冲突，需要一个相等比较器。<br>
+                    （1）给出虚拟地址的格式，标出各字段的名称和长度。<br>
+                    （2）给出主存地址的格式，标出各字段的名称和长度。<br>
+                    （3）散列变换部件的输入位数和输出位数各为多少？<br>
+                    （4）相等比较器的位数是多少？<br>
+                    （5）给出快表每个存储字的格式，标出各字段的名称和长度。 </p>
+                </td>
+              </tr>
+              <tr> 
+                <td width="3%">&nbsp;</td>
+                <td width="47%"> 
+                  <textarea name="textarea" rows="5" cols="70"></textarea>
+                  <input type="hidden" name="hiddenField2">
+                </td>
+                <td width="50%">&nbsp;</td>
+              </tr>
+              <tr> 
+                <td width="3%" rowspan="2">&nbsp;</td>
+                <td width="47%"> 
+                  <div align="center"> 　　 </div>
+                </td>
+                <td width="50%" rowspan="2">&nbsp;</td>
+              </tr>
+              <tr>
+                <td width="47%"> 
+                  <div align="center">
+                    <input type="reset" name="Submit22" value="重置">
+                    <input type="button" name="Submit3" value="答案" onClick="MM_openBrWindow('02.htm','','width=380,height=350')">
+                    　　 </div>
+                </td>
+              </tr>
+            </table>
+          </form>
+          <form name="form5" method="post" action="">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td colspan="3"> 
+                  <p class="pt9-black">3、试比较四种高速缓存组织的优缺点：<br>
+                    （1）直接映射高速缓存<br>
+                    （2）全联想高速缓存<br>
+                    （3）组联想高速缓存<br>
+                    （4）区段映射高速缓存</p>
+                </td>
+              </tr>
+              <tr> 
+                <td width="3%">&nbsp;</td>
+                <td width="47%"> 
+                  <textarea name="textarea2" rows="5" cols="70"></textarea>
+                  <input type="hidden" name="hiddenField22">
+                </td>
+                <td width="50%">&nbsp;</td>
+              </tr>
+              <tr> 
+                <td width="3%" rowspan="2">&nbsp;</td>
+                <td width="47%"> 
+                  <div align="center"> 　　 </div>
+                </td>
+                <td width="50%" rowspan="2">&nbsp;</td>
+              </tr>
+              <tr>
+                <td width="47%"> 
+                  <div align="center"> 
+                    <input type="reset" name="Submit222" value="重置">
+                    <input type="button" name="Submit32" value="答案" onClick="MM_openBrWindow('03.htm','','width=380,height=350')">
+                    　　 </div>
+                </td>
+              </tr>
+            </table>
+          </form>
+          <br>
+          <form name="form1" method="post" action="">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td colspan="3"> 
+                  <p class="pt9-black">4、对于一个采用组相联映象方式和FIFO替换算法的Cache，发现它的等效访问时间太长，为此，提出如下改进建议：<br>
+                    （1）增大主存的容量。<br>
+                    （2）提高主存的速度。<br>
+                    （3）增大Cache的容量。<br>
+                    （4）提高Cache的速度。<br>
+                    （5）Cache的总容量和组大小不变，增大块的大小。<br>
+                    （6）Cache的总容量和块大小不变，增大组的大小。<br>
+                    （7）Cache的总容量和块大小不变，增加组数。<br>
+                    （8）替换算法由FIFO改为LFU。<br>
+                    请分析以上改进建议对等效访问时间有何影响，其影响的程度如何？</p>
+                </td>
+              </tr>
+              <tr> 
+                <td width="3%">&nbsp;</td>
+                <td width="47%"> 
+                  <textarea name="textarea3" rows="3" cols="70"></textarea>
+                  <input type="hidden" name="hiddenField222">
+                </td>
+                <td width="50%">&nbsp;</td>
+              </tr>
+              <tr> 
+                <td width="3%" rowspan="2">&nbsp;</td>
+                <td width="47%"> 
+                  <div align="center"> 　　 </div>
+                </td>
+                <td width="50%" rowspan="2">&nbsp;</td>
+              </tr>
+              <tr>
+                <td width="47%"> 
+                  <div align="center"> 
+                    <input type="reset" name="Submit2222" value="重置">
+                    <input type="button" name="Submit322" value="答案" onClick="MM_openBrWindow('04.htm','','width=350,height=200')">
+                    　　 </div>
+                </td>
+              </tr>
+            </table>
+          </form>
+          <b class="pt9-black">三、计算</b><br>
+          <form name="form2" method="post" action="">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td colspan="3"> 
+                  <p class="pt9-black">1、设有一个两层的存储器层次结构：M<font size="1">1</font>和M<font size="1">2</font>。M<font size="1">1</font>的命中率用h表示，并分别令c<font size="1">1</font>和c2为每千字节的成本，<font size="3">s</font><font size="1">1</font>和<font size="3">s</font><font size="1">2</font>为存储器容量，<font size="3">t</font><font size="1">1</font>和<font size="3">t</font><font size="1">2</font>为存取时间。<br>
+                    （1）在什么条件下，整个存储器系统的平均成本会接近于<font size="3">c</font><font size="1">2</font>？<br>
+                    （2）该层次结构的存储器有效存取时间<font size="3">t</font>a是多少？<br>
+                    （3）令两层存储器的速度比r=t<font size="1">2</font>/t<font size="1">1</font>，并令E=t<font size="1">1</font>/ta为存储系统的存取效率。试以<br>
+                    r和命中率h来表示E。<br>
+                    （4）请分别画出r=5、20和100时，E和h的关系图。<br>
+                    （5）如果r=100，为使E&gt;0.95，要求的命中率h是多少？<br>
+                  </p>
+                </td>
+              </tr>
+              <tr> 
+                <td width="3%">&nbsp;</td>
+                <td width="47%"> 
+                  <textarea name="textarea4" rows="3" cols="70"></textarea>
+                  <input type="hidden" name="hiddenField2222">
+                </td>
+                <td width="50%">&nbsp;</td>
+              </tr>
+              <tr> 
+                <td width="3%" rowspan="2">&nbsp;</td>
+                <td width="47%"> 
+                  <div align="center"> 　　 </div>
+                </td>
+                <td width="50%" rowspan="2">&nbsp;</td>
+              </tr>
+              <tr>
+                <td width="47%"> 
+                  <div align="center"> 
+                    <input type="reset" name="Submit4" value="重置">
+                    <input type="button" name="Submit3222" value="答案" onClick="MM_openBrWindow('05.htm','','width=350,height=280')">
+                    　　 </div>
+                </td>
+              </tr>
+            </table>
+          </form>
+          <br>
+          <form name="form3" method="post" action="">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td colspan="3"> 
+                  <p class="pt9-black">2、一个程序由5个虚页组成，采用LFU替换算法，在程序执行过程中依次访问的页地址流如下：P<font size="1">4</font>，P<font size="1">5</font>，P<font size="1">3</font>，P<font size="1">2</font>，P<font size="1">5</font>，P<font size="1">1</font>，P<font size="1">3</font>，P<font size="1">2</font>，P<font size="1">3</font>，P<font size="1">5</font>，P<font size="1">1</font>，P<font size="1">3</font><br>
+                    （1）可能的最高页命中率是多少？<br>
+                    （2）至少要分配给该程序多少个主存页面才能获得最高的命中率？<br>
+                    如果在程序执行过程中每访问一个页面，平均要对该页面内的存储单元访问<br>
+                    1024次，求访问存储单元的命中率。</p>
+                </td>
+              </tr>
+              <tr> 
+                <td width="3%">&nbsp;</td>
+                <td width="47%"> 
+                  <textarea name="textarea5" rows="2" cols="70"></textarea>
+                  <input type="hidden" name="hiddenField2223">
+                </td>
+                <td width="50%">&nbsp;</td>
+              </tr>
+              <tr> 
+                <td width="3%" rowspan="2">&nbsp;</td>
+                <td width="47%"> 
+                  <div align="center"> 　　 </div>
+                </td>
+                <td width="50%" rowspan="2">&nbsp;</td>
+              </tr>
+              <tr>
+                <td width="47%"> 
+                  <div align="center"> 
+                    <input type="reset" name="Submit5" value="重置">
+                    <input type="button" name="Submit3223" value="答案" onClick="MM_openBrWindow('06.htm','','width=300,height=200')">
+                    　　 </div>
+                </td>
+              </tr>
+            </table>
+          </form>
+          <p>&nbsp;</p>
+          <form name="form4" method="post" action="">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td colspan="3"> 
+                  <p class="pt9-black">3、一个两层存储系统有8个磁盘上的虚拟页面已经被映射到主存储器的4个页面框架（PF）中。某程序产生以下的页面踪迹：<br>
+                    1，0，2，2，1，7，6，0，1，2，0，3，0，4，5，1，5，2，4，5，6，7，6，7，2，4，2，7，3，3，2，3<br>
+                    （1） 上述页面踪迹，采用LRU替换策略，计算在主存储器中的命中率。<br>
+                    （2） 采用环形FIFO页面替换策略，计算在主存储器中的命中率。<br>
+                  </p>
+                </td>
+              </tr>
+              <tr> 
+                <td width="3%">&nbsp;</td>
+                <td width="47%"> 
+                  <textarea name="textarea6" rows="2" cols="70"></textarea>
+                  <input type="hidden" name="hiddenField2224">
+                </td>
+                <td width="50%">&nbsp;</td>
+              </tr>
+              <tr> 
+                <td width="3%" rowspan="2">&nbsp;</td>
+                <td width="47%"> 
+                  <div align="center"> 　　 </div>
+                </td>
+                <td width="50%" rowspan="2">&nbsp;</td>
+              </tr>
+              <tr>
+                <td width="47%"> 
+                  <div align="center">
+                    <input type="reset" name="Submit22222" value="重置">
+                    <input type="button" name="Submit3224" value="答案" onClick="MM_openBrWindow('07.htm','','width=200,height=150')">
+                    　　 </div>
+                </td>
+              </tr>
+            </table>
+          </form>
+          
+        </div>
+        </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

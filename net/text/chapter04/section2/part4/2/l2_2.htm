@@ -1,0 +1,33 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td colspan="2"><br>
+            <span class="part">监控帧(Supervisory)：</span><br>
+            <span class="text"><br>
+            　　用于监控链路的常规操作。其控制字段的前1、2比特为&quot;10&quot;，第3、4比特为TYPE字段，有四种编码，分别用来表示四种不同含义和作用的监控帧：RR帧，REJ帧，RNR帧和SREJ帧。监控帧中的N(R)字段也是接收帧序号，但它的具体含义随TYPE字段值的不同而不同。</span><br>
+            <br>
+            　　<span class="point">RR(Receive Ready)帧</span><span class="text">，又称接收就绪帧。其TYPE字段值为00，是对发送方的肯定应答。该帧中的N(R)是接收方等待接收的下一帧号，表示接收方已正确接收编号在N(R)之前的所有帧，请求发送方发送N(S)＝N(R)的帧。<br>
+            </span><br>
+            　　<span class="point">REJ(REJect)帧</span><span class="text">，又称否定应答帧。其TYPE字段值为10。在接收到失序帧后，用它来请求发送方重发编号为N(R)的帧，同时确认编号直到N(R)-1的所有信息已正确收到。<br>
+            </span><br>
+            　　<span class="point">RNR(Receive Not Ready)帧</span><span class="text">，又称接收器未就绪帧。其TYPE字段值为01。用来表示接收方处于繁忙状态，暂时无力接收信息帧。发送站收到这类应答帧后，即暂停发送信息帧。直至收到RR帧或REJ帧再恢复发送。N(R)值代表它之前的所有帧已收妥。<br>
+            </span><br>
+            　　<span class="point">SREJ(Select REJect)帧</span><span class="text">，又称选择拒绝接收帧。其TYPE字段值为11。接收站用此帧通知发送站仅重发编号为N(R)的信息帧。<br>
+            　</span></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

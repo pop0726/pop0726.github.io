@@ -1,0 +1,54 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第一章 计算机系统结构的基本概念</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black"><br>
+            <b>3. CPU性能公式</b></p>
+          <p align="left" class="pt9-black">　　在前面我们利用 Amdahl定律比较两种改进FPSQR操作的效果时，需要知道FPSQR硬件方法和改进FP操作的时间，有时候要直接测出这些时间比较困难。这里我们介绍CPU性能公式方法，即把CPU的执行时间分解成三个独立的部分。如果我们能知道某种方案对这三部分是如何影响的，那么就能知道采用这种方案时整个系统的性能了。<br>
+            　　我们知道大多数计算机的时钟速度是固定的，它的运行周期称为时钟周期。时钟可以用时钟周期的长度（如2ns）或其频率（如500MHZ）来表示。一个程序所花的CPU时间可以用两种方式来表示：<br>
+            　　<img src="images/gsh2_10.gif" width="157" height="33"><br>
+            　　或CPU时间=CPU时钟周期数*时钟周期长<br>
+            　　除了用时钟周期数来表示一个程序的执行时间外，还可以用指令的条数（IC）来表示一个程序的执行时间。如果我们知道了执行的指令条数和所用的时钟周期数目，就可以算出每条指令的平均时钟周期数CPI：<br>
+            　　<img src="images/gsh2_11.gif" width="137" height="33"><br>
+            　　代换可得： CPU时间=IC* CPI *时钟周期长度<br>
+            　　<img src="images/gsh2_12.gif" width="111" height="32"><br>
+            　　上式表明，CPU的性能取决于三个要素：①时钟频率；②每条令所花的时钟周期数；③指令条数IC。<br>
+            　　时钟频率-取决于硬件技术和组织<br>
+            　　CPI-取决于系统结构组织和指令集<br>
+            　　指令数目-取决于系统结构的指令集和编译技术<br>
+            　　有些时候，在CPU的设计中要用到下面一个计算CPU时钟周期总数的方法：<br>
+            　　<img src="images/gsh2_13.gif" width="181" height="34"><br>
+            　　其中Ii表示i指令在程序中执行的次数，CPIi表示i指令所需的平均时钟周期数，这个式子可用来表示CPU时间为：<br>
+            　　<img src="images/gsh2_14.gif" width="211" height="36" align="absmiddle">其中n为指令种类数。CPI表示为：<br>
+            　　<img src="images/gsh2_15.gif" width="199" height="50"><br>
+            　　其中，Ii/IC表示i指令在程序中所占的比例。 </p>
+          <p align="left" class="pt9-black">&nbsp;</p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

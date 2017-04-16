@@ -1,0 +1,60 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第一章 计算机系统结构的基本概念</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><span class="pt9-black"><b>例1.4 </b>　　假设有两台机器，它们对条件转移指令的处理采用不同的方法，<img src="images/gsh2_28.gif" width="38" height="20" align="absbottom">采用一条比较指令来设置相应的条件码，由紧随其后的一条转移指令对此条件码进行测试，以确定是否进行转移。显然实现一次条件转移要执行比较和测试两条指令。<img src="images/gsh2_29.gif" width="35" height="20" align="absbottom">采用比较功能和判别是否实现转移功能合在一条指令的方法，这样实现一条件转移就只需一条指令就可以完成。假设这两台机器的指令系统中，执行条件转移指令需2个时钟周期，而其它指令只需1个时钟周期。又假设在<img src="images/gsh2_28.gif" width="38" height="20" align="absbottom">上，条件转移指令占总执行指令条数的20%。由于每条转移指令都需要一条比较指令，所以比较指令也将占20%。由于<img src="images/gsh2_29.gif" width="35" height="20" align="absbottom">在转移指令中包含了比较功能，因此它的时钟周期就比<img src="images/gsh2_28.gif" width="38" height="20" align="absbottom">要慢25%。现在要问，采用不同转移指令方案的CPUA<img src="images/gsh2_28.gif" width="38" height="20" align="absbottom">和CPUB<img src="images/gsh2_29.gif" width="35" height="20" align="absbottom">，那个工作速度会更快些？<br>
+            <br>
+            解：由上述假设可计算出<img src="images/gsh2_30.gif" width="31" height="20" align="absbottom">=0.2×2+0.8×1=1.2，<img src="images/gsh2_31.gif" width="69" height="20" align="absbottom">×1.2×时钟周期长度<img src="images/gsh2_A.gif" width="8" height="20" align="absbottom">。<img src="images/gsh2_29.gif" width="35" height="20" align="absbottom">由于没有比较指令，使转移指令由原来占20%上升为20%÷80%=25%，它需2个时钟周期，而其余的75%指令只需1个时钟周期，所以<img src="images/gsh2_32.gif" width="31" height="20" align="absbottom"> 
+            = 0.25×2+0.75×1=1.25。由于<img src="images/gsh2_29.gif" width="35" height="20" align="absbottom">中没有比较指令，因此<img src="images/gsh2_33.gif" width="23" height="20" align="absbottom"> 
+            = 0.8×<img src="images/gsh2_34.gif" width="22" height="20" align="absbottom">。另外，时钟周期长度<img src="images/gsh2_B.gif" width="8" height="20" align="absbottom"> 
+            = 1.25时钟周期长度<img src="images/gsh2_A.gif" width="8" height="20" align="absbottom">，所以，<img src="images/gsh2_36.gif" width="37" height="20" align="absbottom"> 
+            = <img src="images/gsh2_33.gif" width="23" height="20" align="absbottom">×<img src="images/gsh2_37.gif" width="31" height="20" align="absbottom">×时钟周期长度<img src="images/gsh2_B.gif" width="8" height="20" align="absbottom"> 
+            = 0.8 ICA×1.25×1.25时钟周期长度<img src="images/gsh2_A.gif" width="8" height="20" align="absbottom"> 
+            = 1.25 <img src="images/gsh2_38.gif" width="24" height="20" align="absbottom">×时钟周期长度<img src="images/gsh2_A.gif" width="8" height="20" align="absbottom">。可见<img src="images/gsh2_35.gif" width="39" height="20" align="absbottom">比<img src="images/gsh2_36.gif" width="37" height="20" align="absbottom">小，所以<img src="images/gsh2_28.gif" width="38" height="20" align="absbottom">比<img src="images/gsh2_29.gif" width="35" height="20" align="absbottom">运行得更快些。<br>
+            <br>
+            例1.4. 在例1.3中，如果<img src="images/gsh2_29.gif" width="35" height="20" align="absbottom">的时钟周期只比<img src="images/gsh2_28.gif" width="38" height="20" align="absbottom">的慢10%，那么哪一个CPU会工作得更快些？<br>
+            解：<br>
+            　　<img src="images/gsh2_35.gif" width="39" height="20" align="absbottom">= 
+            1.2<img src="images/gsh2_38.gif" width="24" height="20" align="absbottom"> 
+            ×时钟周期长度<img src="images/gsh2_A.gif" width="8" height="20" align="absbottom"><br>
+            　　因时钟周期长度<img src="images/gsh2_B.gif" width="8" height="20" align="absbottom"> 
+            = 1.10时钟周期长度<img src="images/gsh2_A.gif" width="8" height="20" align="absbottom">，所以<br>
+            　　<img src="images/gsh2_36.gif" width="37" height="20" align="absbottom">= 
+            0.8 <img src="images/gsh2_38.gif" width="24" height="20" align="absbottom">×1.25×1.10时钟周期长度<img src="images/gsh2_A.gif" width="8" height="20" align="absbottom"><br>
+            　　　　　= 1.10 <img src="images/gsh2_38.gif" width="24" height="20" align="absbottom">×时钟周期长度<img src="images/gsh2_A.gif" width="8" height="20" align="absbottom"><br>
+            　　由于<img src="images/gsh2_29.gif" width="35" height="20" align="absbottom">所需时间较少，所以<img src="images/gsh2_29.gif" width="35" height="20" align="absbottom">比<img src="images/gsh2_28.gif" width="38" height="20" align="absbottom">运行得更快些。<br>
+            <br>
+            <b>4. 访问的局部性原理</b><br>
+            　　程序往往重复使用它刚刚使用过的数据和指令。实验表明，一个程序用90%的执行时间去执行仅占10%的程序代码。局部性的实质是：根据程序的最近情况，可以较精确地预测出最近的将来将要用到哪些指令和数据。局部性分时间上的局部性和空间上的局部性两种。时间上的局部性是指最近访问过的代码是不久将被访问的代码。空间上的局部性是指那些地址上相邻近的代码可能会被一起访问。存储器体系的构成就是以访问的局部性原理为基础的。<br>
+            <br>
+            <br>
+            </span> </p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

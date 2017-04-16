@@ -1,0 +1,43 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第三章 存储系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="left"> 
+          <p><span class="part">3.3.6 Cache的预取算法</span><br>
+            <br>
+            <span class="pt9-black">　　前面曾经提到，在一般情况下，预取能够大幅度提高Cache的命中率。具体地说，预取算法有如下几种：<br>
+            　　1、按需取。在一般Cache中采用的基本预取方法是按需取。即在出现Cache不命中时，把包括所要访问的字在内的一个块取到Cache中来。由于程序的局部性原理，只要Cache有适当的容量，块的大小选择得合适，就能获得一定的Cache命中率。<br>
+            　　2、恒预取。当CPU访问存储器时，无论Cache是否命中，都把紧接着访问字所在块的下一个块从主存取到Cache中。<br>
+            　　3、不命中预取。当CPU访问存储器时，如果Cache不命中，在把包括访问字在内的一块取到Cache中之后，还要把紧接着的下一块也取到Cache中。<br>
+            　　应当注意，采用预取方法并不是在任何情况下都能提高命中率的，它与许多因素有关。例如，块大小的影响。如果块大小很小，则预取的效果不大。如果块容量过大，一方面可能取进了许多没有用的数据。另一方面，由于块大小很大，Cache的块数必然减少。根据前面的结论，由于块数减少，Cache的命中率会降低。<br>
+            　　由于预取，必然增加Cache与主存之间的通信量，其中还要包括把被替换块写到主存中的通信量。因此，在考虑预取算法的效果时，不仅要看到命中率的提高，也要看到Cache与主存之间通信量的增加，要综合起来进行考虑。<br>
+            　　从模拟实验的结果看，采用恒预取能使Cache的不命中率降低75～85％，而采用不命中预取能使Cache的不命中率降低30～40％，但是，恒预取所增加的Cache与主存之间的通信量要比不命中预取大很多。</span></p>
+          <p>&nbsp; </p>
+        </div>
+        </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

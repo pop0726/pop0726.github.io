@@ -1,0 +1,41 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第八章 并行处理机和多处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black">(3) 采用Write-Back策略的Cache<br>
+            　　与采用Write-Through策略的Cache相比，采用Write-Back策略的Cache的状态要复杂一些。在采用Write-Through策略的Cache中的有效状态在这里被进一步细分为两种：读－写（Read-Write）状态和只读（Read-Only）状态。只读状态表示整个系统中不止一个数据块拷贝是正确的，例如一个在Cache中，另一个在存储器中。读写状态表示数据块至少被修改过一次，存储器中相应数据块还没有被修改，即在整个系统中只有一个数据块拷贝是正确的。图8.17说明使用Write-Back策略的Cache中数据块状态的转换：</p>
+          <p align="center" class="pt9-black"><img src="images/tu8_17.jpg" width="346" height="277"></p>
+          <p align="left"><span class="pt9-black">　　图中R1、Rr、W1、Wr的含意和图8.16相同。<br>
+            　　从状态图中可以看出，在系统中不可能同时存在多于一个的存有相同数据的读－写状态的数据块。如果一个Cache中的某一个数据块处于读－写状态，则其他的Cache中就不可能存在有效（读－写或只读）的存有相同数据的数据块。对于只读的数据块，本地的和远程的（其他处理机的）读操作都是安全的（不改变当前的状态）。本地的写操作将引起其状态转移为读写状态，远程的写操作将使之变为无效。对于读－写状态的数据块，本地的读、写操作都是安全的，而远程的读操作将引起写回动作，并且将数据块正确的内容传递给读操作的远程处理机的Cache，然后两个Cache的状态都转移至只读状态。远程的写操作的情况与之类似，只是在传递数据块之后，远程的处理机将对数据块进行写操作，远程处理机Cache的状态转移至读－写状态，而本地的Cache将转移至无效状态。<br>
+            　　对于从无效状态向读－写和只读状态的转移则简单地取决于引起转移的操作是本地读还是本地写（其他操作不会引起从无效状态向其他状态的转移），如果操作是本地读，则转移至只读状态；如果操作是本地写，则转移至读－写状态，同时使其他Cache中相应数据块的状态转移为无效状态。</span><br>
+            <br>
+          </p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

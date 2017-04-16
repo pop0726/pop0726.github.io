@@ -1,0 +1,38 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+          <td class="explaination"><br>
+            <span class="point">　(4)IP隧道（IP Tunnels）</span><br>
+            <br>
+            　　如果一个大公司的两个子公司相隔较远，通过Internet通信。这种情况下，可以采用IP Tunnels来防止Internet上的黑客截取信息，从而在Internet上形成一个虚拟的企业网。<br>
+            <br>
+            <span class="point">　(5)网络地址转换器（NAT Network Address Translate）</span><br>
+            <br>
+            　　当受保护网连到Internet上时，受保护网用户若要访问Internet，必须使用一个合法的IP地址。但由于合法Internet 
+            IP地址有限，而且受保护网络往往有自己的一套IP地址规划（非正式IP地址）。网络地址转换器就是在防火墙上装一个合法IP地址集。当内部某一用户要访问Internet时，防火墙动态地从地址集中选一个未分配的地址分配给该用户，该用户即可使用这个合法地址进行通信。同时，对于内部的某些服务器如Web服务器，网络地址转换器允许为其分配一个固定的合法地址。外部网络的用户就可通过防火墙来访问内部的服务器。这种技术既缓解了少量的IP地址和大量的主机之间的矛盾，又对外隐藏了内部主机的IP地址，提高了安全性。<br>
+            <br>
+            <span class="point">　(6)隔离域名服务器（Split Domain Name Server）</span><br>
+            <br>
+            　　这种技术是通过防火墙将受保护网络的域名服务器与外部网的域名服务器隔离，使外部网的域名服务器只能看到防火墙的IP地址，无法了解受保护网络的具体情况，这样可以保证受保护网络的IP地址不被外部网络知悉。<br>
+            <br>
+            <span class="point">　(7)邮件技术（Mail Forwarding）</span><br>
+            <br>
+            　　当防火墙采用上面所提到的几种技术使得外部网络只知道防火墙的IP地址和域名时，从外部网络发来的邮件，就只能送到防火墙上。这时防火墙对邮件进行检查，只有当发送邮件的源主机是被允许通过的，防火墙才对邮件的目的地址进行转换，送到内部的邮件服务器，由其进行转发。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

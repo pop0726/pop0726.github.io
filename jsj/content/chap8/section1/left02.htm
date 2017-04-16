@@ -1,0 +1,57 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第八章 并行处理机和多处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black"><span class="section">8.1并行处理机结构和实例</span><br>
+            <br>
+            　　下面讨论并行处理机的模型、基本结构和具体实例。</p>
+          <p align="left"><span class="part">8.1.1并行处理计算机模型</span><span class="pt9-black"><br>
+            <br>
+            　　在第一章我们给出过单指令流多数据流SIMD计算机的抽象模型。它在同一个控制部件管理下，有多个处理单元。所有处理单元均收到从控制部件广播来的同一条指令，但操作对象是不同的数据。下面我们介绍SIMD计算机的操作模型。<br>
+            　　H.J.Siegel提出了SIMD计算机的操作模型，如图8.1所示。</span></p>
+          <p align="center"><span class="pt9-black"><img src="images/tu8_1.png" width="500" height="297"></span></p>
+          <p align="left" class="pt9-black">　　SIMD计算机的操作模型可用五元组表示：<br>
+            　　　<img src="images/gsh1_1.gif" width="108" height="16"><br>
+            　　式中：<br>
+            　　(1) N为机器的处理单元(PE)数。例如，IlliacIV有64个PE。而连接机(Connection Machine)CM-2采用65536个PE。<br>
+            　　(2) C为由控制部件(CU)直接执行的指令集，包括标量和程序流控制指令。<br>
+            　　(3) I为由CU广播至所有PE进行并行执行的指令集，它包括算术运算、逻辑运算、数据寻径、屏蔽以及其它由每个活动的PE对它的数据所执行的局部操作。<br>
+            　　(4) M为屏蔽方案集，其中每种屏蔽将PE集划分为允许操作和禁止操作两种子集。<br>
+            　　(5) R是数据寻径功能集，说明互连网络中PE间通信所需要的各种设置模式。<br>
+            我们可以用上述五元组描述一台具体的SIMD机器，如MasPar MP-1计算机的操作特性如下：<br>
+            　　(1) MP-1是一种SIMD机器，其PE数N＝1024至16384。PE数目与机器配置有关。<br>
+            　　(2) CU执行标量指令，将译码后的向量指令广播到PE阵列，并控制PE间的通信。<br>
+            　　(3) 每个PE都是基于寄存器的加载/存储RISC处理机，能执行不同数据量的整数运算和标准浮点运算。PE从CU接受指令。<br>
+            　　(4) 屏蔽方案设在每个PE中，并由CU连续监控，它能在运行时动态地使每个PE处于置位或复位状态。<br>
+            　　(5) MP-1有一个X-Net网格网络和一个全局多级交叉开关寻径器，以实现CU-PE之间、X-Net的8个近邻之间和全局寻径器的通信。<br>
+          </p>
+          <p align="left" class="pt9-black">&nbsp;</p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第五章 标量处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black">　　下面通过具体例子介绍一般流水线的性能分析方法。<br>
+            <b>　　例5.1</b>、线性流水线，输入任务是不连续的情况，计算流水线的吞吐率、加速比和效率。用图5.4所示的一条4段浮点加法器流水线计算8个浮点数的和：<br>
+            　　　　Z＝A＋B＋C＋D＋E＋F＋G＋H 　　　　　　（5.25）<br>
+            　　解：由于存在数据相关，要在A＋B的运算结果在第4个时钟周期末尾产生之后，在第5个时钟周期才能继续开始做加C的运算。这样，在每两个加法运算之间，每个功能部件都要空闲3个时钟周期。这时候，实际上与不采用流水线的顺序执行方式完全一样。<br>
+            　　把（5.25）作一个简单的变换，得到：<br>
+            　　　　Z＝[（A＋B）＋（C＋D）]＋[（E＋F）＋（G＋H）]　　　　（5.26）<br>
+            　　小括号内的4个加法操作之间，由于没有数据相关，可以连续输入到流水线中。只要前两个加法的结果出来之后，第一个中括号内的加法就可以开始进行。8个浮点数求和的流水线时空图如图5.11所示。</p>
+          <p align="center" class="pt9-black"><img src="images/tu5_11.jpg" width="464" height="217"></p>
+          <p align="left"><span class="pt9-black">　　从流水线的时空图中可以很清楚地看到，7个浮点加法共用了15个时钟周期。假设每一个流水段的延迟时间均为<img src="images/gsh1_6.gif" width="22" height="13" align="absmiddle">，则有<img src="images/gsh1_4.gif" width="16" height="18" align="absmiddle">＝15 
+            <img src="images/gsh1_6.gif" width="22" height="13" align="absmiddle">，n＝7。那么，流水线的吞吐率TP为：<br>
+            　　　<img src="images/gsh1_38.gif" width="167" height="34"> <br>
+            　　流水线的加速比S为：<br>
+            　　　<img src="images/gsh1_39.gif" width="154" height="35"> <br>
+            　　流水线的效率E为：<br>
+            　　　<img src="images/gsh1_5F40.gif" width="175" height="33"> </span></p>
+          <p align="left">&nbsp;</p>
+          </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

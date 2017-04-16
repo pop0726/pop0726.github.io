@@ -1,0 +1,37 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td class="explaination" width="25" valign="top"><br>
+            <img src="../../../../image/tub/ts.gif" width="25" height="20" alt="图示"></td>
+          <td class="explaination">
+            <div align="center"><br>
+              <img src="../../../../image/pic/chapter07/7_14.gif" width="345" height="134"><br>
+              <br>
+              <span class="point">图7.11 ICMP报文封装</span></div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="explaination" colspan="2"><br>
+            　　上图为当一个ICMP报文被发送时发生的两层封装。ICMP报文被封装在一个数据报中，而数据报又被封装在帧中，然后在网上传输。<br>
+            <br>
+            　　每一个ICMP报文的产生总是对应于一个数据报。要么这个数据报遇到了问题（例如路由器发现数据报中指出的目的地没法到达），要么这个数据报携带着一个ICMP请求报文，对此路由器要产生一个应答。无论哪种情况，路由器都将一个ICMP报文送回给产生数据报的主机。将一个消息发回给一台源主机是非常简单的，因为每一数据报在头部中都含有它的源主机的IP地址。一个路由器从输入的数据报的头部中取出源地址，然后放到携带ICMP报文的数据报的头部中的目的地（destination）域中。<br>
+            <br>
+            　　携带ICMP报文的数据报并没有什么特别优先权-它们象其他数据报一样转发。如果携带ICMP差错报文的数据报又出了错，不再有差错报文被发送。原因很简单，设计者想要避免互联网中被携带差错报文的差错报文拥塞。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

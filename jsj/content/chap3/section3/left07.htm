@@ -1,0 +1,43 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第三章 存储系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black"><b>3、组相联映象及其变换</b><br>
+            <br>
+            　　组相联方式是目前在Cache中用得比较多的一种地址映象和变换方式，实际上，它是介于全相联和直接相联之间的一种折中方案。<br>
+            　　组相联映象方式也采用与全相联映象方式和直接相联映象方式相同的方法把主存和Cache按同样大小划分成块。所不同的地方是：组相联映象方式还把主存和Cache按同样大小划分成组，每一组都由相同的块数组成，如图3.34所示。</p>
+          <p align="center"><img src="images/tu3_34.gif" width="479" height="458"><br>
+            <span class="pt9-black"><b>图3.34 组相联映象方式 </b></span></p>
+          <p align="left"><span class="pt9-black">　　由于主存储器的容量要比Cache的容量大得多，因此，主存的组数要比Cache的组数多。从主存的组到Cache的组之间采用直接映象方式。在主存中的一组与Cache中的一组之间建立了直接映象关系之后，在两个对应的组内部采用全相联映象方式。在图3.34中，只画出了组间的直接映象关系。在有直接映象关系的任意一个主存的组与相应的Cache的组之间是全相联映象关系。例如，主存的组0直接映象到Cache的组0，则主存中的块0可以映象到Cache中的块0、块1、……、块-1中的任意一块中。在图3.34中，<img src="images/gsh3_6.gif" width="18" height="15" align="absmiddle">一组的块数，<img src="images/gsh3_7.gif" width="15" height="18" align="absmiddle">是Cache的组数。另外，与直接映象方式一样，Me是主存的区数，<img src="images/gsh3_8.gif" width="18" height="14" align="absmiddle">为Cache的块数，<img src="images/gsh3_3.gif" width="20" height="12" align="absmiddle">为主存的块数。<br>
+            　　为了实现主存块号到Cache块号的变换，需要一个由高速小容量存储器做成的块表存储器。块表存储器在块内采用相联方式访问，在块之间采用按地址方式访问。块表的容量与Cache的块数相等，字长为主存地址中的区号E、组内块号B与Cache地址中的组内块号b的长度之和，另外再加一个有效位及其它控制字段等。<br>
+            </span><br>
+          </p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

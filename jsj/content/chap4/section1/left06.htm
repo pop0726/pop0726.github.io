@@ -1,0 +1,48 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第四章 输入输出系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><span class="pt9-black"><b>方式2：中断输入输出方式</b><br>
+            <br>
+            　　采用中断输入输出方式能够完全克服程序控制输入输出方式中处理机与外围设备之间不能并行工作的缺点。<br>
+            　　为了实现中断输入输出方式，外围设备和CPU都必须增加相应的功能。在外围设备方面，要改变被动地等待CPU来为它服务的工作方式。当输入设备已经把数据准备就绪，或者输出设备已经空闲时，要主动向CPU发出服务的请求。在CPU方面，每当执行完成一条指令后都要测试有没有外围设备的中断服务请求，如果发现有外围设备的中断服务请求，则要暂时停止当前正在执行的程序，先去为外围设备服务，等服务完成后再继续执行原来的程序。<br>
+            　　中断输入输出方式的定义是：当出现来自系统外部，机器内部，甚至处理机本身的任何例外的，或者虽然是事先安排的，但出现在现行程序的什么地方是事先不知道的事件时，CPU暂停执行现行程序，转去处理这些事件，等处理完成后再返回来继续执行原先的程序。<br>
+            <br>
+            <b>中断输入输出方式的特点是：</b><br>
+            　　1、CPU与外围设备能够并行工作。<br>
+            　　2、能够处理例外事件。例如，电源掉电、非法指令、地址越界、数据溢出、数据校验错、页面失效等。<br>
+            　　3、数据的输入和输出都要经过CPU，要在程序的控制下完成从输入设备中读入数据到主存储器，或者把主存储器中的数据输出到输出设备中去。因此，中断输入输出方式与程序控制输入输出方式一样具有灵活性好的特点。<br>
+            　　4、一般用于连接低速外围设备。这是因为每输入或输出一个数据都必须执行一段程序才能完成。<br>
+            　　其中，后两个特点与程序控制输入输出方式相同。<br>
+            　　在现代计算机系统中，中断输入输出方式的作用已经远远超出了为外围设备服务的范畴，成为现代计算机系统中非常重要的一个组成部分。如图4.1中，处理机与外部世界的联系大都是通过中断输入输出方式来实现的。<br>
+            </span></p>
+          <p align="left">&nbsp;</p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

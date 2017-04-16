@@ -1,0 +1,31 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+          <td class="explaination"><br>
+            <span class="point">(2) 虚电路传输分组交换</span><br>
+            <br>
+            　　所谓虚电路就是两个用户的终端设备在开始互相发送和接收数据之前需要通过通信网络建立逻辑上的连接，一旦这种连接建立，直至用户不需要发送和接收数据时清除这种连接。<br>
+            <br>
+            　　其主要的特点是：所有分组都必须沿着事先建立的虚电路传输，存在一个虚呼叫建立阶段和拆除阶段（清除阶段）。与电路交换相比，并不意味着实体间存在象电路交换方式那样的专用线路，而是选定了特定路径进行传输，分组所途经的所有节点都对这些分组进行存储/转发，这是与电路交换的实质上的区别。<br>
+            <br>
+            　　这种方法的优点是：对了数据量较大的通信传输率高，分组传输时延短，且不容易产生数据分组丢失；缺点是对网络依赖性大。数据报方式是将一个数据分组当作一份独立的报文看待，每一个数据分组都含有源地址和目标地址信息，交换节点须为每一个数据分组独立地寻找路径，因此一份报文包含的不同分组可能沿着不同的路径到达终点，而在网络终点需要重新排序。数据报的优点是对于短报文数据通信传输效率比较高，对网络故障的适应能力强，缺点是时延大。<br>
+            <br>
+            　　总之，分组经过通信网络到达终点有两种方法：虚电路（Virtual Circuit）和数据报（datagram）。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

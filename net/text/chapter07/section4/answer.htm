@@ -1,0 +1,137 @@
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<span class="section">课后习题答案：</span><br>
+<br>
+<span class="point">　1．解答：</span><br>
+<span class="text"> 　　电子邮件E-Mail，文件传输FTP，远程登录Telnet，电子公告版BBS，信息浏览Gopher，高级超文本浏览WWW，自动标题搜索Archie，自动搜索WAIS，域名服务等。<br>
+<br>
+</span><span class="point">　2．解答：</span><span class="text"><br>
+　TCP/IP主要分为如下几层：<br>
+　</span><span class="point">（1）网络接口层</span><span class="text"><br>
+　　与OSI/RM的物理层、数据链路层以及网络层的一部分相对应。网络接口层的作用是传输经IP层处理过的信息，并提供一个主机与实际网络的接口，而具体的接口关系则可以由实际网络的类型所决定。<br>
+　</span><span class="point">（2）IP层</span><span class="text"><br>
+　　IP层是TCP/IP模型的关键部分。它的功能是使主机可以把IP数据报（datagram）发往任何网络，并使数据报独立地传向目标（中途可能经由不同的网络）。这些分组到达的顺序和发送的顺序可能不同，因此当需要按顺序发送和接收时，高层必须对分组排序。分组路由和拥塞控制是IP层的主要设计问题，其功能与OSI网络层功能很近似。<br>
+　</span><span class="point">（3）传输层</span><span class="text"><br>
+　　传输层为应用程序提供端到端通信功能，这与OSI/RM中的传输层相似。该层协议处理IP层没有处理的通信问题，保证通信连接的可靠性，能够自动适应网络的各种变化。<br>
+　</span><span class="point">（4）应用层</span><span class="text"><br>
+　　位于传输层之上的应用层包含所有的高层协议，为用户提供所需要的各种服务。主要的服务有：远程登录（Telnet）、文件传输（FTP）、电子邮件（SMTP）、Web服务（HTTP）、域名系统（DNS）等。这里值得指出，TCP/IP模型中的应用层与OSI/RM中的应用层有较大的差别，它不仅包括了会话层及上面三层的所有功能，而且还包括了应用进程本身在内。因此，TCP/IP模型的简洁性和实用性就体现在它不仅把网络层以下的部分留给了实际网络，而且将高层部分和应用进程结合在一起，形成了统一的应用层。<br>
+<br>
+</span><span class="point">　3．解答：</span><span class="text"><br>
+　在分类编址方式中,有5类地址,分别是：<br>
+　　A类地址，有8位网络号，网络号的开头1位是0，后面是24位主机地址。因此一个A类地址的网络可以有2<sup><font size=1>24</font></sup>-2个主机<br>
+　　B类地址，有16位网络号，网络号的开始2位是10，后面是16位主机号，因此一个B类网络可有2<sup><font size=1>16</font></sup>-2个主机。<br>
+　　C类地址，有24位网络号，网络号的开始3位是110，后面是8位主机号，因此一个C类网络可有256-2=254个主机。<br>
+　　D类地址，地址的开始4位是1110，这是组播地址。<br>
+　　E类地址，以1111开头，这类地址保留为以后用。<br>
+<br>
+</span><span class="point">　4．解答：</span><span class="text"><br>
+　　不会。因为当一个路由器收到一个帧后，首先将其帧头尾剥去，得到IP数据报，在将该数据报转发到下一个网络时，再给它封装上帧头帧尾，然后转发之。因此，一个IP数据报只可能被封装一层帧头尾。<br>
+<br>
+</span><span class="point">　5．解答：</span><span class="text"><br>
+　　每一种网络都规定了一帧所能携带的最大数据量（Maximum Transmission Unit，MTU）。网络硬件不能接受或传输数据量大于MTU的帧。因而一个数据报必须小于或等于一个网络的MTU。在一个Internet中，包含各种异构的网络，它们的MTU各不相同，因此会导致IP数据报在从源到目的的发送过程中经过MTU小于数据报的网络，因而无法通过的问题。为了解决这样的问题，人们提出了将IP数据报进行分段的方法，以使其能够通过MTU较小的网络。<br>
+<br>
+</span><span class="point">　6．解答：</span><span class="text"><br>
+　　每个段与原数据包具有同样的格式，只是头部的稍有不同：<br>
+　　在分段的数据报中，标志（identification）域中有一位标识该数据报是一个段。段的头部中的其他域中包含有其他一些信息，以便用来重组这些段，重新生成原始数据报。另外，头部的段偏移（fragment 
+offset）域指出该段在原始数据报中的位置。<br>
+<br>
+</span><span class="point">　7．解答：</span><span class="text"><br>
+　　只有最终目的主机才会对段进行重组。<br>
+　　这样可以：<br>
+　　1减少路由器中状态信息的数量。当转发一个数据报时，路由器不需要知道它是不是一个段。2允许路径动态地变化。如果一个中间路由器要重组段，则所有的段都须到达这个路由器才行，这样效率会很低。<br>
+　　将重组放在最终目的，可以让不同的段经过不同的网络分别到达目的主机，可以使网络保持较优的效率。<br>
+<br>
+</span><span class="point">　8．解答：</span><span class="text"><br>
+　　通过在IP数据报头部标志（flag）位中DF位置1来通知后面的路由，不得将此数据报分段，如果无法传送则丢弃并报告。<br>
+<br>
+</span><span class="point">　9．解答：</span><span class="text"><br>
+　　ICMP利用IP来传送报文。<br>
+<br>
+</span><span class="point">　10．解答：</span><span class="text"><br>
+　　这是ICMP的一个常用应用。其方法是：首先源主机发出一个前往目的主机的生存时间为1的数据报。在该数据报到达第一个路由器后，如果需要转发，该路由器对其进行转发，由于数据报的生存时间为1，路由器在将生存时间减1后，发现其值为0，则丢弃该数据报，然后向源主机发送一个ICMP超时报文，从而源主机获得到第一个路由器的有关信息。这时，源主机再发送一个生存时间为2的数据报，类似于上面情况，在到达第二个路由器时，会返回一个ICMP报文，依次类推，就可以得到从源到目的主机路径上的所有路由器的信息。<br>
+<br>
+</span><span class="point">　11．解答：</span><span class="text"><br>
+　　16个字节，这样IP地址可以扩展到5*10<sup><font size=1>28</font></sup>个。<br>
+<br>
+</span><span class="point">　12．解答：</span><span class="text"><br>
+　　端口是一个16个bit的标识，用来对运输层表示其上的应用程序。<br>
+<br>
+</span><span class="point">　13．解答：</span><span class="text"><br>
+　　IP电话采用的是UDP协议。之所以使用UDP主要有以下几方面考虑：UDP不需要建立连接，通信成本小；话音通信对正确性要求不高但对时延要求较高。这样的需求比较适合于UDP协议。</span><br>
+<br>
+<span class="point">　14．解答：</span><br>
+<span class="text">　</span><span class="point">・</span><span class="text">面向连接（ 
+Connection Orientation）。TCP提供的是面向连接的服务，即希望发送数据的一方必须首先请求一个到目的地的连接，然后使用这一连接来传输数据。<br>
+　</span><span class="point">・</span><span class="text">点对点通信（Point-To-Point Communication）。即只有连接的源和目的之间可以通信，不支持组播和广播。<br>
+　</span><span class="point">・</span><span class="text">完全可靠性（Complete Reliability）。TCP确保通过一个连接发送的数据按发送时一样正确地送到，且不会发生数据丢失或乱序。<br>
+　</span><span class="point">・</span><span class="text">全双工通信（Full Duplex Communication）。一个TCP连接允许数据在任何一个方向流动，并允许任何一个应用程序在任何时刻发送数据。TCP能够在两个方向上缓冲输入和输出的数据，这就使得一个应用在发送数据后，可以在数据传输的时候继续自己的计算工作。<br>
+　</span><span class="point">・</span><span class="text">流接口（Stream Interface）。TCP提供了一个流接口，一个应用利用它可以发送一个连续的字节流穿过连接。也就是说，TCP并不提供记录式的表示法，也不确保数据传递到接收端应用时会与发送端应用有同样尺寸的段。<br>
+　</span><span class="point">・</span><span class="text">可靠的连接建立（ Reliable Connection 
+Startup）。TCP要求当两个应用创建一个连接时，两端必须遵从新的连接。前一次连接所用的重复的包是非法的，也不会影响新的连接。<br>
+　</span><span class="point">・</span><span class="text">友好的连接终止（Graceful Connection 
+Shutdown）。一个应用程序能打开一个连接，发送任意数量的数据，然后请求终止连接。TCP确保在关闭连接之前传递的所有数据的可靠性。</span><br>
+<br>
+<span class="point">　15．解答：</span><br>
+<span class="text"> 　　TCP在发送一个数据包后，即启动一个重传定时器，同时将该包的放入一个重传队列中。如果收到该包的确认信息，即取消该定时器。否则，如果在定时器到时后仍未收到确认信息，则认为该包已经丢失，于是从重传队列中取出该包，再启动一次发送（同样要启动定时器）。</span><br>
+<br>
+<span class="point">　16．解答：</span><br>
+<span class="text"> 　　　平均往返延迟T=α*（旧的往返延迟）+（1-α）*（新的往返延迟）<br>
+　　上式中，0≤α<1。若α很接近于1，表示新算出的往返时延T和原来的值相比变化不大，而新的往返时延样本的影响不大（T值更新较慢）。若选择α接近于0，则表示加权计算的往返延迟T受新的往返时延样本的影响较大（T值更新较快）。典型的α值为7／8。</span><br>
+<br>
+<span class="point">　17．解答：</span><br>
+<span class="text"> 　　慢启动（slow-start），加速递减（multiplicative decrease）和拥塞避免（congestion 
+avoidance）。使用这些技术的―个前提就是：由于通信线路带来的误码而使得分组丢失的概率很小（远小于1％）。因此，只要出现分组丢失或迟延过长而引起超时重发，就意味着在网络中的某个地方比现了拥塞。<br>
+　(1) 当一个连接初始化时，将拥塞窗口置为1。将慢启功的门限窗口置为64。<br>
+　(2) 发送端的发送窗口不能超过拥塞窗口和通知窗口中的最小值。现在假定接收端不进行流量控制。<br>
+　(3) 发送端若收到了对所有发出的报文段的确认。就在下一次发送时将拥塞窗口加倍。这时拥塞窗口从1开始，按指数规律增长。<br>
+　(4) 当增长到门限窗口值时，就每次只将拥塞窗门加1，使拥塞窗口按线性规律增长。<br>
+　(5) 如果出现超时，则将拥塞窗口置为1，同时将门限窗口减少为发生拥塞时窗口的一半，再开始增加拥塞窗口。<br>
+　(6) 由上，“慢启功”指每出现一次超时，拥塞窗口都降低到l，使报文段慢慢注人到网络中。“加速递减”是指每出现一次超时，就将门限窗口值减半。若超时频繁出现，则门限窗口减小的速率是很快的。“拥塞避免”是指当拥塞窗口增大到门限窗口值时，就将拥塞窗口指数增长速度降低为线性增长，避免网络再次出现拥塞。</span><br>
+<br>
+<span class="point">　18．解答：</span><br>
+<span class="text"> 　　是期望收到对方下次发送的数据的第一个字节的序号，也就是期望收到的下一个报文段的头部中的发送序号。<br>
+</span><br>
+<span class="point">　19．解答：</span><br>
+<span class="text"> 　　在TCP/IP系统中，电子邮件地址规定为：<br>
+　　　用户邮箱名@邮箱所在邮件服务器的域名<br>
+　　上式中，符号“@”读作“at”，表示“在”的意思。用户邮箱名又称为用户名，是用户自己确定的自己邮箱的标识。在一个邮件服务器上，每个邮箱标识必须唯一。同时，每个邮件服务器的域名在Internet上是唯一的，由此可以保证在Internet上每个电子邮箱地址都是唯一的。此外，邮件在传送过程中，各MTA只使用电子邮件地址中“@”以后的部分，只有到达目的邮件服务器后，目的邮件服务器才根据用户邮箱名将邮件送往用户邮箱。</span><br>
+<br>
+<span class="point">　20．解答：</span><br>
+<span class="text"> 　　主要由2部分组成：用户代理UA（User Agent）和报文传送代理MTA（Message Transfer Agent）。用户代理使得用户能够使用友好的接口来收发邮件。报文传送代理运行于后台，将邮件通过网络发送给目的主机，从网络接收邮件。<br>
+</span><br>
+<span class="point">　21．解答：</span><br>
+<span class="text"> 　FTP工作进程如下：<br>
+　(1) 开熟知端口（21），等待Client 发连接请求，客户端可以用任意一个分配的本地端口号与服务器的的21端口联系，我们在前面讲过，一个端口（SAP）可以建立多个连接。这个进程称为主进程。<br>
+　(2) 客户请求到来时，服务器启动从属进程来处理客户端发来的请求。<br>
+　(3) 主进程返回，继续等待接收客户端发来的请求，与从进程并行工作。<br>
+　　在客户和服务器的文件传送过程中，有两个进程：控制进程和数据传送进程，同时工作。<br>
+　　控制进程负责建立传送FTP命令控制连接，这些命令使服务器知道要传送什么文件。控制进程即前面的子进程，客户端在向服务器发出连接请求时，还要告诉服务器自己的另一个端口号码，用于建立数据传送。<br>
+　　数据进程用来建立数据连接，传送每个文件。服务器用自己的传送数据熟知端口（20）与客户端建立数据传送连接。</span><br>
+<br>
+<span class="point">　22．解答：</span><br>
+<span class="text"> 　　远程登录协议Telnet是一个简单的远程终端协议，用户用Telnet可通过TCP登录到远地的一个主机上。Telnet 
+将用户的击健传到远地主机,也将远地主机的输出通过TCP连接返回到用户屏幕，使用户感觉到象是键盘和屏幕直接连到主机上一样。<br>
+　　计算机之间的操作由于其异构性，命令之间存在差异，如文本中一行的结束，有的系统用ASCII码的回车（CR），有的系统使用换行（LF），还有的系统使用回车+换行（CR-LF）。再如，有的系统中断程序是用control-c，有的用ESCAPE健。为此，需要在两个不同的系统间进行转换，就定义了一种中间格式，称为网络虚拟终端NVT（network 
+virtual terminal），客户端把来自用户终端的按键和命令序列转换成NVT格式，并发送到服务器，服务器端把收到的数据和命令从NVT格式转换为服务器端的格式，反之也一样。<br>
+</span><br>
+<span class="point">　23．解答：</span><br>
+<span class="text"> 　</span><span class="point">WWW</span><span class="text"> 
+<br>
+　　WWW（World Wide Web）是一个大规模、联机式的信息储藏所，用户可以通过一个被称作为浏览器（browser）的交互式应用程序来查找、浏览信息。<br>
+　</span><span class="point">URL</span><span class="text"><br>
+　　通用资源标识符，是一种语法格式，用来组织描述Internet上远程项的各种信息。该语法把信息编码成一个字符串。URL的一般形式为：<br>
+　　protocol://computer_name:port/document_name<br>
+　　其中protocal是访问文档所采用的协议名，computer_name是文档所在计算机的域名，port是可选的协议端口号（由于可选端口号很少使用，在以下的讨论中我们将忽略此项），document_name是在指定计算机上的文档名。<br>
+　</span><span class="point">HTTP</span><span class="text"><br>
+　　HTTP是超文本传输协议，是面向事务的应用层协议。它是WWW上能够可靠地交换文件（包括文本、声音和图像等）的重要基础。<br>
+</span><span class="point">　HTML</span><span class="text"><br>
+　　每一个包含超媒体文档的网页都采用一个标准的表示方式。该标准被称为超文本标记语言（HyperTextMarkupLanguage，HTML），它允许作者给出一个通用的向导行来显示并说明网页的内容。<br>
+　</span><span class="point">浏览器</span><span class="text"><br>
+　　一种交互式应用程序，用来浏览、查看信息。<br>
+　</span><span class="point">超文本</span><span class="text"><br>
+　　在超文本系统中，信息被作为一个文档集而存储起来。除了基本的信息外，文档还能含有指向集合中其他文档的指针。每个指针都与一个可选项相关联，用户可以选择该项并沿着指针到达相关的文档。<br>
+　</span><span class="point">页面</span><span class="text"><br>
+　　在一个窗口上显示出的WWW文档被称为页面。</span><br>
+<br>
+<span class="point">　24．解答：</span><br>
+<span class="text">　　企业内部网</span>

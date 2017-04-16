@@ -1,0 +1,43 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第六章　向量处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black">　　图6．7是实现这种思想的方框图。它与70年代中期制造的巨型机CDCSTAR的结构相似。图中一条输入数据通路和结果数据通路分别加了可变延迟。其延迟时间可根据输入向量和结果向量的第一个元素的位置来设置。这样，在经过初始化阶段后，流水线将以全速运行。然而，如果向量较短，而延迟时间较长，则会严重影响系统的性能。 
+            指令译码器根据向量的起始地址和流水结构运算器执行的具体操作的吞吐率设置延迟的大小。地址生成器形成指令执行过程中要存取的数据的地址。</p>
+          <p align="center" class="pt9-black"><img src="images/tu6_07.jpg" width="407" height="311"></p>
+          <p align="left" class="pt9-black">　　图6．7中的算术运算子系统的功能可以选择。CDCSTAR不能重叠地进行两种或多种向量运算，因此不同的向量操作可以共享共同的运算部件。例如，浮点加和浮点乘就可以使用同一个硬件进行阶码相加、移位以及尾数相加。<br>
+            　　CDCSTAR能在一条流水线中进行两个单精度运算或一个双精度运算。如果用单位时间内输出的结果数目来表示输出率，那么单精度的输出率是双精度输出率的两倍。然而，无论是单精度还是双精度，每个单位时间内输出的物理位数是相同的。<br>
+            　　图6．7中的可变延迟的成本可能较高，而且建立时间也较长。即使成本无关紧要，建立时间却至关重要。<br>
+            　　一种能很快地建立某一特定的延迟的方法是使用多抽头的延迟线。数据流由输入端输入，抽头控制器选择某个输出端作为延迟线的输出，如图6．8所示。延迟线有Ｎ个输出端，而网络的实际输出由输出控制决定。Ｄ模块是单位延迟器。延迟量译码器产生的抽头选择信号控制抽头输出。</p>
+          <p align="center" class="pt9-black"><img src="images/tu6_08.jpg" width="462" height="246"><br>
+            <br>
+          </p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

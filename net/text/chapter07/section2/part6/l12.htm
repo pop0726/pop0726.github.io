@@ -1,0 +1,48 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td class="explaination" valign="top"><br>
+            <img src="../../../../image/tub/ts.gif" width="25" height="20" alt="图示"> 
+            <div align="center" class="point"><br>
+              <img src="../../../../image/pic/chapter07/7_23.gif" width="439" height="223"> 
+              <br>
+              图7.18 TCP包格式</div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="explaination"><br>
+            　　其头部固定部分各字段的意义如下：<br>
+            <br>
+            <span class="point">・源端口和目的端口 </span><br>
+            　　各占2个字节。前面已讲过，端口是传输层与高层的服务接口。16bit的端口值加上32bit的IP地址，构成了相当于传输层服务访问点TSAP的地址（共48位）。这些端口可用来将若干高层协议向下复用。<br>
+            <br>
+            <span class="point">・发送序号 </span><br>
+            　　4字节，是本报文段所发送的数据部分第一个字节的序号。在TCP传送的数据流中，每一个字节都有一个序号。例如，在-个报文段中，序号为300，而报文中的数据共100字节。那么在下一个报文段中，其序号就是400。因此TCP是面向数据流的。<br>
+            <span class="point"><br>
+            ・确认序号 </span><br>
+            　　4字节，是期望收到对方下次发送的数据的第一个字节的序号，也就是期望收到的下一个报文段的头部中的发送序号。<br>
+            　　由序号字段有32队长，可对4GB（即4千兆字节）的数据进行编号。这样就可保证当序号重复使用时，旧序号的数据早已在网络中消失了。<br>
+            <br>
+            <span class="point">・数据偏移 </span><br>
+            　　4bit，它指出数据开始的地方离TCP报文段的起始处有多远。这实际上就是TCP报文段头部的长度。由于头部长度不固定（因头部中的选项字段长度是不确定的），因此数据偏移字段是必要的。但应注意，&quot;数据偏移&quot;的单位是32bit字，而不是字节或比特。<br>
+            <br>
+            <span class="point">・保留字段</span><br>
+            　　6bit，保留供今后使用，但目前应置为0。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

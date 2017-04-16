@@ -1,0 +1,172 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第二章 指令系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><span class="pt9-black"><b class="part">2.3.2 Huffman编码法</b></span></p>
+          <p align="left" class="pt9-black">　　操作码的表示方法通常有三种：固定长度操作码、Huffman编码法和扩展编码法。<br>
+            　　一般处理机的指令条数通常为几十条至几百条，用一个字节（8位）表示，非常规整，硬件译码也很简单。IBM公司生产的许多大中型计算机，许多RISC（精简指令系统计算机）体系结构都采用这种编码方法。<br>
+            　　固定长操作码的主要缺点是：浪费了许多信息量，即操作码的总长度增加了，从表2.4中可以看到，操作码的总长度要增加40％左右。<br>
+            　　Huffman编码法是1992年由Huffman首先提出的一种编码方法，开始主要用于电报报文的编码。如26个英文字母中，e、t等的使用频率最高，用短码表示；q、x等的使用频率很低，用长码表示。这样，可以缩短整个报文的长度，减少报文的传送时间。Huffman编码法也可以用在其它许多地方，如存储空间压缩、时间压缩等。<br>
+            　　要采用Huffman编码法表示操作码，必须先知道各种指令在程序中出现的概率，这通常可以通过对已有典型程序进行统计得到。<br>
+            　　根据Huffman编码法的原理，操作码的最短长度可以通过如下公式计算：<br>
+            　　　　　　<img src="images/gsh3_1.gif" width="135" height="44"> <br>
+            　　<img src="images/gsh3_2.gif" width="18" height="18" align="absmiddle"> 
+            表示第i种操作码在程序中出现的概率，一共有n种操作码。<br>
+            　　如果采用固定长操作码，n种操作码共需要 <img src="images/gsh3_3.gif" width="53" height="25" align="absmiddle">个二进制位，因此，固定长度操作码的信息冗余量为：<br>
+            　　　　　<img src="images/gsh3_4.gif" width="160" height="69"> <br>
+            　　下面，我们通过一个例子来说明采用Huffman编码法来优化操作码的具体做法，并计算操作码的平均长度和信息冗余量。<br>
+            　　假设一台模型计算机共有7种不同的操作码。如果采用固定长度操作码表示，需要3位操作码。如果采用Huffman编码法，首先要知道各种操作码在程序中出现的概率，如表2.5所示。操作码的最短长度为：<br>
+            　　　　　<img src="images/gsh3_5.gif" width="128" height="43"> <br>
+            　　把表2.5中的数据代入上面的公式，得到操作码的最短长度：<br>
+            　　　H＝0.45×1.152＋0.30×1.737＋0.15×2.737＋0.05×4.322<br>
+            　　　　　＋0.03×5.059＋0.01×6.644＋0.01×6.644<br>
+            　　　＝1.95</p>
+          <p align="center" class="pt9-black"><b>表2.5 模型机的操作码Huffman编码法</b><br>
+          </p>
+          <table width="85%" border="1" cellspacing="1" bgcolor="#FFFFFF">
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center">指令序号</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">出现的概率</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">Huffman编码</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">操作码长度</div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center"><img src="images/gsh3_6.gif" width="17" height="13"></div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">0.45</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">0</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">1位</div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center"><img src="images/gsh3_7.gif" width="14" height="14"></div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">0.30</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">10</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">2位</div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center"><img src="images/gsh3_8.gif" width="14" height="13"></div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">0.15</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">110</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">3位</div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center"><img src="images/gsh3_9.gif" width="16" height="14"></div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">0.05</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">1110</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">4位</div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center"><img src="images/gsh3_10.gif" width="14" height="13"></div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">0.03</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">11110</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">5位</div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center"><img src="images/gsh3_11.gif" width="16" height="15"></div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">0.01</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">111110</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">6位</div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center"><img src="images/gsh3_12.gif" width="15" height="11"></div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">0.01</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">111111</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">6位</div>
+              </td>
+            </tr>
+          </table>
+          <p align="left" class="pt9-black"> 　　如果采用3位固定长操作码，信息的冗余量为35％。<br>
+            　　　　　<img src="images/gsh3_13.gif" width="220" height="43"> <br>
+          </p>
+          <p align="left"><span class="pt9-black">　</span></p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

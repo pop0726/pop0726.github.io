@@ -1,0 +1,43 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第八章 并行处理机和多处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black">　　1. 概述<br>
+            　　SMP称为共享存储型多处理机(Shared Memory mulptiProcessors), 也称为对称型多处理机（Symmetry 
+            MultiProcessors)。<br>
+            　　共享存储型多处理机有三种模型：均匀存储器存取（Uniform-Memory-Access，简称UMA）模型、非均匀存储器存取（Nonuniform-Memory-Access，简称NUMA）模型和只用高速缓存的存储器结构（Cache-Only 
+            Memory Architecture，简称COMA）模型，这些模型的区别在于存储器和外围资源如何共享或分布。<br>
+            　　UMA多处理机模型如图8.23所示。图中，物理存储器被所有处理机均匀共享。所有处理机对所有存储字具有相同的存取时间，这就是为什么称它为均匀存储器存取的原因。每台处理机可以有私用高速缓存,外围设备也以一定形式共享。</p>
+          <p align="center" class="pt9-black"><img src="images/tu8_23.jpg" width="228" height="217"></p>
+          <p align="left" class="pt9-black"> 　　NUMA多处理机模型如图8.24所示，其访问时间随存储字的位置不同而变化。其共享存储器物理上是分布在所有处理机的本地存储器上。所有本地存储器的集合组成了全局地址空间，可被所有的处理机访问。处理机访问本地存储器是比较快的，但访问属于另一台处理机的远程存储器则比较慢，因为通过互连网络会产生附加时延。</p>
+          <p align="center"><span class="pt9-black"><img src="images/tu8_24.jpg" width="285" height="266"><br>
+            </span> </p>
+          </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

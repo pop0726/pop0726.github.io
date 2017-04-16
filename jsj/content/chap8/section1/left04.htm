@@ -1,0 +1,47 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第八章 并行处理机和多处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black"><span class="part">8.1.2. 并行处理机的基本结构</span><br>
+            <br>
+            　　下面介绍两种SIMD计算机的基本结构。</p>
+          <p align="left" class="pt9-black"><b>1 分布式存储器结构</b></p>
+          <p align="left" class="pt9-black">　　分布式存储器结构的SIMD计算机如图8.2所示。它包含重复设置的多个同样的处理单元PE，通过数据寻径网络以一定方式互相连接。每个PE有各自的本地存储器LM。在统一的阵列控制部件作用下，实现并行操作。程序和数据通过主机装入控制存储器。由于通过控制部件的是单指令流，所以指令的执行顺序还是和单处理机一样，基本上是串行处理。<br>
+            　　指令是送到控制部件进行译码。如果是标量操作或控制操作，则将直接由与控制部件相连的标量处理机执行。如果是向量操作，则将它广播到所有PE并行地执行。<br>
+            　　划分后的数据集合通过向量数据总线分布到所有PE的本地存储器。PE通过数据寻径网络互连。数据寻径网络执行PE间的通信，如移数、置换和其它寻径操作。控制部件通过执行程序来控制数据寻径网络。PE的同步由控制部件的硬件实现。<br>
+            　　换句话说，所有PE在同一个周期执行同一条指令。然而可以用屏蔽逻辑来决定任何一个PE在给定的指令周期执行或不执行指令。IlliacIV是这种结构的SIMD机器，它由64个有本地存储器的PE组成、PE间通过8×8环绕连接网格实现互连。<br>
+            　　目前构造的SIMD机器几乎都是基于分布式存储器模型的系统。各种SIMD机器的主要差别在于进行PE之间互相通信的数据寻径网络不同。4-邻连接网格结构在过去是最受欢迎的一种。除了IlliacIV 
+            外，Coodyear MPP和AMT DAP610也是用两维网格实现的。CM-2实现的嵌在网格中的超立方体和MasPar-MP-1实现的X-Net 
+            加多级交叉开关的寻径器都是由网格演变而来的。</p>
+          <p align="center"><span class="pt9-black"><img src="images/tu8_2.jpg" width="490" height="329"></span><br>
+          </p>
+          <p align="left">&nbsp;</p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td class="explaination" colspan="2"><br>
+            　　为了理解4B/5B码是如何获得同步的，需要知道实际上存在一个第二级编码，这就是将4B/5B码流中的每一码元作为一个二进值对待，并采用一种称作不归零反相（NRZI）或不归零-传号（NRZ-M）的编码技术进行编码。在这种码中，二进制&quot;1&quot;用1bit间隔起始处的跃变来表示，二进制&quot;0&quot;则以无跃变来表示，除此就不存在别的跃变。NRZI的优点是它采用了差分编码。在差分编码中，信号是通过比较相邻信号码元的极性，而不是根据其绝对值来进行译码的。这样做的好处是，由于在存在噪声和失真的情况下，检测跃变要比检测绝对值是否超过一门限值更为可靠。这有助于信号从光信号转换到电信号以后的最终译码。<br>
+            　　<br>
+            　　4B/5B编码属于组编码，即是如何用&quot;0&quot;&quot;1&quot;的组合来表达一个数据值；而NRZI的编码技术属于位编码，即是如何使用电平的高低或跃变来表达&quot;0&quot;&quot;1&quot;。4B/5B编码需要与NRZI等的位编码技术结合使用。<br>
+            <br>
+            　　FDDI的编码方案可概括如下：<br>
+            <span class="point">　① </span>不采用简单的强度调制编码。出为当遇到一串&quot;1&quot;或&quot;0&quot;时将不存在跃变提供同步信息。<br>
+            <span class="point">　② </span>选用4B/5B码而不用曼彻斯特编码。这是因为前者更为有效。<br>
+            <span class="point">　③ </span>将4B/5B码进一步编成NRZI码。这样可使所得到的差分码有利于改善接收的可靠性。<br>
+            <span class="point">　④ </span>选择用于16个4bit数据码组编码有的特定码型是基于这样一个保证：在一行中不出现多于3个&quot;0&quot;的情况，从而能提供适当的同步信息。在32种可能的5bit码型中，为了表示输入数据，只需用到16种，其余的-些码型或者宣布为无效，或者用作控制符号而赋予特殊意义。譬如，有两个这样的码型，它们只用帧首定界符，并永远以成对方式出现。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+          <td><span class="text"><br>
+            　　从停等协议的流程图可知发送方和接收方唯一的联系是发送方必须等到收到接收方的确认才能继续往下走，否则只能循环等待。<br>
+            <br>
+            　　收发双方各设置一个1比特的本地状态变量，对状态变量需要注意几点：</span><br>
+            　<span class="point">① </span><span class="text">发送端每发一帧数据，都要将发送状态变量的值写到数据帧的发送序号上，但只有收到一个确认帧ACK后，才更新发送状态变量一次和发送新的数据帧；</span><br>
+            　<span class="point">② </span><span class="text">在接收端每接收一个数据帧，就要将数据帧上的发送序号和本地的接收状态变量进行比较，若二者相等，则为新的数据帧，否则为重复帧；</span><span class="point"><br>
+            </span>　<span class="point">③</span> <span class="text">当收到无差错的新的数据帧时，接收端除将其交主机外，还需将接收状态变量更新一次；</span><br>
+            　<span class="point">④ </span><span class="text">接收端若收到一个无差错的重复帧，则丢弃之，且接收状态变量不变，但要向发送端发一个确认帧ACK。<br>
+            <br>
+            　　发送端在发完数据帧时，必须在其发送缓冲区中保留数据帧的副本，以供出现差错时进行重发，只有收到对方发来的确认帧ACK后，方可清除副本。<br>
+            　</span></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+          <td class="explaination"><br>
+            　　现在实用的数字签名机制一般利用公开密钥算法实现。具体的实现方式如下所述。<br>
+            <br>
+            　　当A方打算发一条消息x给B方并签名时，首先用他的秘密密钥K<font size="1">d</font>对x加密，得到签名 <img src="../../../../image/pic/chapter10/15.gif" width="70" height="19" align="absbottom">，然后发送有序信息对(x,y)。B方收到(x,y)后，用A方的公开密钥K<font size="1">e</font>对y解密，得到 
+            <img src="../../../../image/pic/chapter10/16.gif" width="73" height="21" align="absbottom">。x'与x完全相同的条件是：<br>
+            <br>
+            <span class="point">　　・</span>信息对(x,y)在传输过程中无任何变化，x或y的任何变化都会使 <img src="../../../../image/pic/chapter10/17.gif" width="39" height="14" align="texttop">。<br>
+            <span class="point">　　・</span>y确实是用Kd对x加密得到的，Kd的任何变化都会使 <img src="../../../../image/pic/chapter10/17.gif" width="39" height="14" align="texttop">。<br>
+            <br>
+            　　因此，只要 <img src="../../../../image/pic/chapter10/18.gif" width="39" height="15" align="absmiddle">，就可以确定三件事：<br>
+            <span class="point">　　・</span>消息x确实由A方发来。<br>
+            <span class="point">　　・</span>签名y确实由A方生成。<br>
+            <span class="point">　　・</span>B方收到的消息是完整的。<br>
+            <br>
+            　　由于只有A方知道他的秘密密钥K<font size="1">d</font>，所以通过上述签名和验证可以防止下面两种情况： <br>
+            <span class="point">　　・</span>A方否认他曾经发送消息x，或者否认B方收到的消息属实。因为只有他能生成y，而y与x是对应的。<br>
+            <span class="point">　　・</span>B方伪造消息。因为他得不到K<font size="1">d</font>，无法证明与伪造消息对应的签名是A方生成的。<br>
+            <br>
+            　　为了防止B方事后否认收到消息x，A方可以要求B方提供收信回执，如&quot;B从A处得到x&quot;一段文字，并且要求B方用他的秘密密钥对这段文字签名，以防抵赖。<br>
+            <br>
+            　　综上所述，数字签名可以验证消息的完整性，有效地对抗冒充、抵赖等威胁。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

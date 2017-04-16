@@ -1,0 +1,70 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第二章 指令系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><span class="pt9-black"><b class="part">2.2.4 间接寻址与变址寻址</b><br>
+            <br>
+            　　对于数组运算，通常要用一个循环程序对数组中的各个元素进行操作，这时必须通过修改操作数的地址才能实现。间接寻址方式与变址寻址方式的设计目标都是为了解决操作数地址的修改问题。它们都能做到，在程序设计过程中能够对操作数的地址进行修改，而不必去修改程序中的指令本身。<br>
+            　　原则上，在一台计算机系统中，仅需设置间址寻址方式与变址寻址方式中的任何一种即可，如在IBM公司生产的大中型计算机系统中，只有变址寻址方式，没有间址寻址方式。在许多小型及微型计算机系统中，只有间址寻址方式，没有变址寻址方式。也有一些计算机系统，间址寻址方式和变址寻址方式两种都有。 
+            <br>
+            　　那么，就会提出这样一个问题：在设计一台计算机系统时，如何选取间址寻址方式与变址寻址方式？下面，我们通过一个简单的例子，分析这两种寻址方式的区别及各自的优点及缺点。<br>
+            <br>
+            <b>例2.3：</b>一个由N个元素组成的数组，已经存放在主存储器的连续存储单元中，现要把它搬到主存储器的另一个连续的存储单元中，源数组的起始地址为AS，目标数组的起始地址是AD，不必考虑可能出现的存储单元的重叠问题。为了编程简单，采用一般的两地址指令编写程序。<br>
+            　　首先，用间接寻址方式编写程序如下：<br>
+            　　START: MOVE ASR, ASI ；保存源数组的起始地址，为了程序具有在入性<br>
+            　　MOVE ADR, ADI ；保存目标数组的起始地址<br>
+            　　MOVE NUM, CNT ；保存数据的个数<br>
+            　　LOOP: MOVE @ASI, @ADI ；用间址寻址方式传送数据<br>
+            　　INC ASI ；源数组的地址增量<br>
+            　　INC ADI ；目标数组的地址增量<br>
+            　　DEC CNT ；个数减1<br>
+            　　BGT LOOP ；测试N个数据是否传送完<br>
+            　　HALT ；停机<br>
+            　　ASR: AS ；源数组的起始地址<br>
+            　　ADR: AD ；目标数组的起始地址<br>
+            　　NUM: N ；需要传送的数据个数<br>
+            　　ASI: 0 ；当前正在传送的源数组地址<br>
+            　　ADI: 0 ；当前正在传送的源数组地址<br>
+            　　CNT: 0 ；剩余数据的个数<br>
+            　　为了程序具有再入性，前3条指令是必须的，数据存放单元要分别重复设置一份也是必须的。<br>
+            　　然后，用变址寻址方式编写程序如下：<br>
+            　　START: MOVE AS, X ；把源数组的起始地址送入变址寄存器<br>
+            　　MOVE NUM, CNT ；保存数据个数，为了程序具有再入性<br>
+            　　LOOP: MOVE (X), AD-AS(X) ；AD-AS为地址偏移量，在汇编时计算<br>
+            　　INC X ；增量变址寄存器<br>
+            　　DEC CNT ；个数减1<br>
+            　　BGT LOOP ；测试N个数据是否传送完成<br>
+            　　HALT ；停机<br>
+            　　NUM: N ；需要传送的数据个数<br>
+            　　CNT: 0 ；剩余数据的个数<br>
+            </span></p>
+          <p align="left"><span class="pt9-black">　</span></p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

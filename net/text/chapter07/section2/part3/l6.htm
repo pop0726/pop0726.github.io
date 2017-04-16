@@ -1,0 +1,40 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td class="explaination" colspan="2" valign="top"><br>
+            　　每个段与原数据包具有同样的格式，只是头部的稍有不同：<br>
+            　　标志（identification）域中有一位标识了一个数据报是一个段还是一个完整的数据报（数据报头格式见前）。段的头部中的其他域中包含有其他一些信息，以便用来重组这些段，重新生成原始数据报。另外，头部的段偏移（fragment 
+            offset）域指出该段在原始数据报中的位置。<br>
+            <br>
+            　　在对一个数据报分段时，路由器使用相应网络的MTU和数据报头部尺寸来计算每段所能携带的最大数据量以及所需段的个数，然后生成这些段。路由器先为每一段生成一个原数据报头部的副本作为段的头部，然后单独修改其中的一些域，例如路由器会设置标志（identification）域中的相应位以指示这些数据报含的是一个段。最后，路由器从原数据报中复制相应的数据到每个段中，并开始传送。下图表明了这一过程。<br>
+            　</td>
+        </tr>
+        <tr> 
+          <td class="explaination" width="25" valign="top"><img src="../../../../image/tub/ts.gif" width="25" height="20" alt="图示"></td>
+          <td class="explaination">
+            <div align="center"><img src="../../../../image/pic/chapter07/7_12.gif" width="387" height="92"><br>
+              <br>
+              <span class="point">图7.10 数据报分段</span></div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="explaination" colspan="2"><br>
+            　　上图中，该IP数据报被分成三段。每段携带着原始数据报的一部分数据，并有类似于原始数据报的IP头部。每个段尺寸小于它所经网络的MTU。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td class="explaination" colspan="2"><br>
+            　　求监督码元多项式<img src="../../../image/pic/chapter03/gongshi/8/25.gif" width="26" height="14" align="absmiddle">的过程由下式确定，<br>
+            　　　<img src="../../../image/pic/chapter03/gongshi/8/16.gif" width="229" height="24">　(3-15)<br>
+            <br>
+            　　其中，<img src="../../../image/pic/chapter03/gongshi/8/26.gif" width="7" height="10" align="absmiddle">为监督位的位数。上式的含义是可以用信息码元多项式m(x)乘<img src="../../../image/pic/chapter03/gongshi/8/27.gif" width="10" height="12" align="absbottom">，然后用g(x)除，就求得余式<img src="../../../image/pic/chapter03/gongshi/8/25.gif" width="26" height="14" align="absmiddle">，即为监督位多项式<img src="../../../image/pic/chapter03/gongshi/8/25.gif" width="26" height="14" align="absmiddle">。由<img src="../../../image/pic/chapter03/gongshi/8/25.gif" width="26" height="14" align="absmiddle">可求得监督位<img src="../../../image/pic/chapter03/gongshi/8/26.gif" width="7" height="10" align="absmiddle">。由此可以求得编码后得到的码字多项式为：<br>
+            　　　<img src="../../../image/pic/chapter03/gongshi/8/17.gif" width="199" height="23">　(3-16)<br>
+            <br>
+            　　<img src="../../../image/pic/chapter03/gongshi/8/27.gif" width="10" height="12" align="absbottom">乘m(x)相当于将信息码字左移<img src="../../../image/pic/chapter03/gongshi/8/26.gif" width="7" height="10" align="absmiddle">位，若m＝[1010]，<img src="../../../image/pic/chapter03/gongshi/8/26.gif" width="7" height="10" align="absmiddle">=3，令m3=<img src="../../../image/pic/chapter03/gongshi/8/27.gif" width="10" height="12" align="absbottom">m(x)，则m3＝[1010000]。右边的3位可用于加上监督码元<img src="../../../image/pic/chapter03/gongshi/8/26.gif" width="7" height="10" align="absmiddle"> 
+            。这种信息码元在前，监督码元在后的形式一股称为系统码。<br>
+            <br>
+            　　由于在<img src="../../../image/pic/chapter03/gongshi/8/27.gif" width="10" height="12" align="absbottom">・m(x)的基础上加上<img src="../../../image/pic/chapter03/gongshi/8/27.gif" width="10" height="12" align="absbottom">m(x)/g(x)的余式<img src="../../../image/pic/chapter03/gongshi/8/25.gif" width="26" height="14" align="absmiddle">，显然c(x)应该能被g(x)整除。收端利用此性质可以判定收码多项式R(x)的正确性，若传输过程中无错码，有R(x)＝C(x)，R(x)能被整除。若R(x)有错码，则R(x)＝c(x)+E(x)，E(x)可称为错误图样多项式。由E(x)可定义校正子多项式，常称为伴随式S(x)＝E(x)/g(x)。在纠错能力范围内，S(x)和E(x)有一一对应的关系。利用下式可实现纠错， 
+            <br>
+            <br>
+            　　　<img src="../../../image/pic/chapter03/gongshi/8/18.gif" width="240" height="113">　(3-17)<br>
+            <br>
+            　　求得S'(x)以后与S(x)比较，可确定E(x)，并进行纠错。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

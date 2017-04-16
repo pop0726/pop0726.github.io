@@ -1,0 +1,49 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第八章 并行处理机和多处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black">(4)写一次(Write-Once) 协议<br>
+            　　Write-Back和Write-Through两种策略都有其弱点，所以，1983年James Goodman提出了Write-Once的Cache一致性协议。它适用于基于总线的多处理机系统，这种方法把Write-Back和Write-Through两种策略的优点结合在一起，其特点是：为了减少总线流量，Cache的第一次写采取Write-Through策略，而后的写则采取Write-Back策略，此时，整个系统只有一份正确的拷贝。<br>
+            　　为了区分是否第一次写，协议把&quot;读－写&quot;状态分为两个状态：&quot;保留（Reserved）&quot;和&quot;重写(Dirty)&quot;，现在Cache中数据块的状态就成了4种：<br>
+            　　*&quot;有效&quot;(Valid, 相当于Write-Back里的&quot;只读&quot;)：从存储器读入的并与存储器拷贝一致的Cache数据块。<br>
+            　　*&quot;无效&quot;(Invalid)：在Cache中找不到或Cache中的数据块内容已&quot;过时&quot;。<br>
+            　　*&quot;保留&quot;(Reserved)：数据从存储器读入Cache后只被写过一次，Cache中的拷贝与存储器中的拷贝是一致的，并且它是正确的拷贝。<br>
+            　　*&quot;重写&quot;(Dirty)：Cache中的数据块不只一次被写过，它是唯一正确的数据块，此时存储器中的数据块也不是正确的数据块。<br>
+            　　图8.18是Write-Once协议的状态图。</p>
+          <p align="center" class="pt9-black"><img src="images/tu8_18.jpg" width="333" height="272"></p>
+          <p align="left" class="pt9-black">　　图8.18中，Rl、Rr、Wl、Wr分别表示本地读、远程读、本地写、远程写。<br>
+            　　下面具体地描述Write-Once协议是怎样保持Cache一致性的。我们就CPU对Cache的不同命令来叙述Cache的状态变换。<br>
+            　　* CPU读Cache：当处理机启动总线读操作时，有两种可能性。一种可能性是在Cache中存在有效的（有效、保留或重写的）数据块时，CPU直接读取数据，Cache状态不变。另一种可能性就是Cache中不存在有效的数据块，即数据块处于无效状态。此时将触发读缺失（Read-Miss）事件，系统设法将有效的数据块调入Cache。具体的过程如下：首先判断系统中是否存在处于有效、保留或重写状态的相应数据块，如果存在，则将其调入本地Cache；在相应数据块处于重写状态时，还要同时禁止存储器操作。如果系统中不存在处于有效、保留或重写状态的相应数据块，则说明存储器中的数据块是正确的拷贝（也是唯一的拷贝），这时直接从存储器中读入就可以了。无论哪种情况，读入后Cache中的相应数据块将进入&quot;有效&quot;状态。<br>
+            　　* CPU写Cache：处理机启动总线写操作时，与总线读操作相似，也有两种可能。或者命中，或者不命中。当写命中时，将引起Cache状态的转移。具体地说，当Cache状态处于&quot;有效&quot;状态时，将采用Write-Through策略，把写入Cache的内容同时写入存储器，并将Cache的状态转移为&quot;保留&quot;，同时将其他Cache的相应数据块状态置为&quot;无效&quot;；当Cache处于&quot;保留&quot;或&quot;重写&quot;态时，使用Write-Back策略，Cache的状态转移至&quot;重写&quot;态（此时其他的存有相同内容的Cache一定是处于&quot;无效&quot;态，所以这些Cache无需再进行状态转移）。当写不命中时，触发写缺失（Write-Miss）事件，系统首先将正确的数据块调入Cache（调入的方法同读缺失），然后写Cache,因为是第一次写，所以使用Write-Through策略，同时写存储器。此时状态是这样转移的:将本地Cache的状态置为&quot;保留&quot;，同时将其他Cache的相应数据块状态置为&quot;无效&quot;。<br>
+            　　Write-Once协议也有其不利的一面。由于当主存储器的内容无效时。读缺失引起的总线读操作必须禁止主存储器的操作（以免造成总线冲突），而大多数总线不支持这种操作。　　Write-Once协议最大的好处就是由于第一次写和以后的各次写操作分别采用了Write-Through和Write-Back策略，减少了无效操作，提高了总线的效率。<br>
+            　　除了上面提到的这些协议之外，监听总线协议还包括Futurebus+等协议。这里就不一一说明了。下面我们将讨论基于目录的协议。</p>
+          <p align="left" class="pt9-black">&nbsp;</p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+          <td class="explaination"><br>
+            　　每个节点把它的路由表定期向它的相邻节点传递。当节点收到一条更新消息后，它将对每个目的地的路由和度量值进行检查。如果发现一条更好的路由，或发现一条新的路由，则更新本节点的路由表。<br>
+            <br>
+            　　路由器很容易测知它到每一个邻居的距离。如果使用跳数度量距离，则是1；若是队列长度，路由器可以简单计算每个队列；如果是延迟，路由器可以直接发出一个ECHO分组，它只要求接收者打上时间戳立即返回，就可测得结果。<br>
+            <br>
+            　　作为一个例子，设用延迟来度量距离，路由器知道到达每一个邻居的延迟。每隔Tms各个路由器发向它的每个邻居发一张表，表中有到达各个目的地的估计延迟。它也接收每个邻居发来的相似的表。假想某路由器收到邻居x发来的表，其中有一项标明由路由器x到路由器i的估计延迟为x<font size="1">i</font>。若该路由器知道自己到邻居x的延迟为m 
+            ms，它也就能知道由自己通过x到达i将花去m+x<font size="1">i</font>的时间。通过与每一个邻居交换信息并计算，每个路由器可以找出到达各目标节点花费的最短时间及所用的线路。这样，老的路由表就不再使用了，被新的路由表取代。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

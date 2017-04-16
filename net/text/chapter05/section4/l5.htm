@@ -1,0 +1,35 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td class="explaination" colspan="2"> <br>
+            　　被UNIX主机用于因特网上的一种该方案的简化形式如图5.8所示，称为初始连接协议（initial connection protocol）。该方案不再让每个可能存在的服务器去侦听一个众所周知的TSAP地址，而是让每台希望向远端用户提供服务的机器运行一个特殊的进程服务器（process 
+            server），它充当载荷较轻的服务器的代理。它同时侦听一系列端口，等待TCP连接请求。需要某种服务的用户通过执行CONNECT请求开始，然后设定他们所需服务的TSAP地址（TCP端口）。如果没有服务器在等待它的到来，它将会连接到进程服务器上，如图5.8(a)所示。<br>
+            <br>
+            　　当进程服务器收到传入的请求后，便装入用户请求的服务器，并将已经建立的与用户的连接转交给它。于是新的服务器便开始执行用户请求的任务，而进程服务器则又回去侦听新的用户连接请求，如图5.8(b)所示。<br>
+            　</td>
+        </tr>
+        <tr> 
+          <td class="explaination" width="25" valign="top"><img src="../../../image/tub/ts.gif" width="25" height="20" alt="图示"></td>
+          <td class="explaination">
+            <div align="center"><img src="../../../image/pic/chapter05/5_8.gif" width="430" height="295"><br>
+              <span class="point"><br>
+              图5.8 主机1的用户进程与主机2的定时服务器建立连接</span><br>
+              　　</div>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

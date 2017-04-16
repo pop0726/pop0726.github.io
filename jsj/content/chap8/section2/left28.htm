@@ -1,0 +1,42 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第八章 并行处理机和多处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><span class="pt9-black"> 　　* 在用户空间实现通信协议<br>
+            　　为了减少操作系统的额外开销，一个重要的方法是在用户空间实现一个用户态的协议层，使得此协议层能够旁路操作系统的影响，直接对网络硬件设备进行操作，这样就可减少数据拷贝次数，提高通信效率；把协议实现放在用户空间的另一优点是可以减少操作系统调用的时间开销，而且通讯协议能够与用户的实际应用密切结合，可减少协议不必要的冗余，同时也不有损它的灵活性。不过，把通信协议放在用户空间实现，必须解决好两个问题：一个是多进程复用网络的问题；另一个是在没用核心参与的情况下，如何管理有限网络资源的问题。只有这样，用户态通信协议才能得以有效地实现。 
+            <br>
+            　　* 精简通信协议<br>
+            　　前面的分析说明，通信的开销很大程度上是由于协议层次多、数据拷贝频繁引起的，另外，通用的网络接口和协议为满足各种用户的需求，增加了很多与数据传输无关的服务，这些服务也带来了额外的开销。而在并行机群系统中，有些功能是不必要的，完全可以进行精简，以降低通信开销。所谓精简，它包括两部分内容：一部分是功能的精简，就是删除不必要和冗余的功能；第二部分是协议层次的精简，合并各层的功能，使得通信协议变为一层，以达到减少数据拷贝次数的目的。比如，在操作系统Solaris 
+            2.4中，通信协议由网络驱动程序、数据链路层（DLPI）、IP层、TCP层和Socket接口组成，由于数据链路层DLPI已经提供了不保证数据包无差错传送的基本数据通信功能，因此可以在它基础上实现一个保证数据可靠传送的模块以取代复杂的TCP/IP协议层和Socket接口，这样新的通信协议不论从结构上看，还是从功能上分析，都比原有的协议要简单得多。精简协议的结构如图8.27所示：</span></p>
+          <p><img src="images/tu8_27.jpg" width="379" height="340"></p>
+          <p align="left"><span class="pt9-black"><br>
+            </span></p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+          <td class="explaination"> <br>
+            　　现在我们假定用户已经成功地找到欲建立连接的TSAP地址。另一个有趣的问题是：本地传输实体如何知道那个TSAP被放置在哪台机器上?进一步说，传输实体怎么知道哪个网络层地址用来与管理TSAP请求的远程传输实体建立网络连接呢?<br>
+            <br>
+            　　答案依赖于TSAP地址的结构。一种可能的结构是TSAP地址为层次型地址（hierarchial addresses）。层次型地址是由-系列字段组成，这些字段将地址空间划分为不相交的分区。例如，一个完全通用的TSAP地址可能有如下的结构：<br>
+            　　地址 = &lt;星系&gt;&lt;恒星&gt;&lt;行星&gt;&lt;国家&gt;&lt;网络&gt;&lt;主机&gt;&lt;端口&gt;<br>
+            <br>
+            　　使用这一方案，可以十分简单明了地确定任何已知范围内的TSAP。同理，如果一个TSAP地址是一个NSAP地址和一个端口（表明本地TSAP之一的局部标识符）的组合，那么当给出了一个传输实体要连接的TSAP地址时，它使用TSAP中包含的NSAP地址以到达适当的远端传输实体。作为层次型地址的一个简单例子，考察电话号码19076543210。该号码可以按1-907-654-3210来分析。其中，1为国家代码（美国+加拿大），907为地区代码（阿拉斯加），654为阿拉斯加的一个分局，而3210则是该分局中的&quot;端口&quot;（用户专用线）之一。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第六章　向量处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left">　　<span class="pt9-black">图6．5在运算流水线的输入端和输出端增加了缓冲器以便消除争用存储器的现象。例如，假定所有的向量都从模块0开始存放，向量运算的时序如图6．6所示，向量操作无冲突地进行。图中向量A的输入缓冲器延迟两个时钟周期，输出缓冲器延迟四个时钟周期。</span></p>
+          <p align="center"><img src="images/tu6_05.jpg" width="334" height="145"></p>
+          <p align="left">　　<span class="pt9-black">从图6．6可以看到，先启动读A向量，然后再启动读B向量。由于在流水结构加法器的A向量输入端加了一个缓冲器，使得A向量延迟两个时钟周期才能进入流水结构加法器，所以向量Ａ和Ｂ的对应元素同时到达流水结构加法器。在时钟周期7结束时第一个结果出现在流水线的输出端，在接着的四个时钟周期模块0处于读取a8和b8的状态。向量A读出后经过两个时钟周期延迟才进入流水结。向量A读出后经过两个时钟周期延迟才进入流水结。<br>
+            　　因此，输出缓冲器将每个输出值延迟四个时钟周期之后再送往存储器系统。这样，第一个结果在时钟周期12时写入主存。整个向量运算过程比图6．4所示的时序延长了6个时钟周期。不过，在第一次延迟之后，产生结果和写入存储器的速度是每个时钟周期一个，这与图6．4一样。这种在运算器的输入和输出端加缓冲器以消除争用存储器现象的方法，本质上与在流水线内部加缓冲器以消除内部冲突的思想是一致的。 
+            </span></p>
+          <p align="center"><img src="images/tu6_06.jpg" width="557" height="370"></p>
+          <p align="center">&nbsp; </p>
+          </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

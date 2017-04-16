@@ -1,0 +1,59 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第四章 输入输出系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><span class="pt9-black"><b>例4.3：</b>一个字节多路通道连接<img src="iamges/gsh3_18.gif" width="14" height="13" align="absmiddle">、<img src="iamges/gsh3_19.gif" width="17" height="18" align="absmiddle">、<img src="iamges/gsh3_20.gif" width="20" height="16" align="absmiddle">、<img src="iamges/gsh3_21.gif" width="17" height="16" align="absmiddle">、<img src="iamges/gsh3_22.gif" width="23" height="17" align="absmiddle">共5台设备，这些设备分别每10微妙、30微妙、30微妙、50微妙和75微妙向通道发出一次数据传送的服务请求，请回答下列问题。<br>
+            　　1、计算这个字节多路通道的实际流量和工作周期。<br>
+            　　2、如果设计字节多路通道的最大流量正好等于通道实际流量，并假设数据传输率高的设备，通道响应它的数据传送请求的优先级也高。5台设备在0时刻同时向通道发出第一次传送数据的请求，并在以后的时间里按照各自的数据传输率连续工作。画出通道分时为各台设备服务的时间关系图，并计算这个字节多路通道处理完各台设备的第一次数据传送请求的时刻。<br>
+            　　3、从时间关系图上发现什么问题？如何解决这个问题？<br>
+            　　这个字节多路通道的实际流量为：</span><br>
+            　　<img src="iamges/gsh3_23.gif" width="387" height="39"><br>
+            <span class="pt9-black">　　通道的工作周期为：<br>
+            　　　<img src="iamges/gsh3_24.gif" width="94" height="40" align="absmiddle">微秒／秒<br>
+            　　包括通道选择设备的时间<img src="iamges/gsh3_1.gif" width="16" height="16" align="absmiddle">和为设备传送一个字节所用的时间<img src="iamges/gsh3_3.gif" width="17" height="17" align="absmiddle">。<br>
+            　　5台设备向通道请求传送数据和通道为它们服务的时间关系如图4.17所示，向上的箭头表示设备的数据传送请求，有阴影的长方形表示通道响应设备的请求并为设备服务所用的时间间隔，包括通道选择设备的时间和为设备传送一个字节所用的时间，这两部分的时间之和为5微秒。<br>
+            　　在图4.17中，5台设备在0时刻同时向字节多路通道发出第一次传送数据的请求，通道处理完各设备这个第一次请求的时间如下：<br>
+            　　处理完设备<img src="iamges/gsh3_18.gif" width="14" height="13" align="absmiddle">的第一次请求的时刻为5微秒；<br>
+            　　处理完设备<img src="iamges/gsh3_19.gif" width="17" height="18" align="absmiddle">的第一次请求的时刻为10微秒；<br>
+            　　处理完设备<img src="iamges/gsh3_20.gif" width="20" height="16" align="absmiddle">的第一次请求的时刻为20微秒；<br>
+            　　处理完设备<img src="iamges/gsh3_21.gif" width="17" height="16" align="absmiddle">的第一次请求的时刻为30微秒。</span></p>
+          <p align="center"><span class="pt9-black"><img src="iamges/tu4.17.jpg" width="378" height="255"></span></p>
+          <p align="left"><span class="pt9-black">　　设备<img src="iamges/gsh3_22.gif" width="23" height="17" align="absmiddle">的第一次请求没有得到通道的响应，直到第85微秒通道才开始响应设备<img src="iamges/gsh3_22.gif" width="23" height="17" align="absmiddle">的服务请求，这时，设备已经发出了两个传送数据的服务请求，因此，第一次传送的数据有可能要丢失。<br>
+            　　当字节多路通道的最大流量与连接在这个通道上的所有设备的数据流量之和非常接近时，虽然能够从宏观上保证通道流量平衡，不会丢失数据，但是，由于传输速度高的设备频繁发出服务请求，并且优先得到通道的响应，某些低速设备可能在比较长一段时间内得不到通道得响应，如图4.17中得设备<img src="iamges/gsh3_22.gif" width="23" height="17" align="absmiddle">。<br>
+            　　只要仔细分析图4.17中时间关系不难发现，如果对所有设备的请求时间间隔取最小公倍数，那么，在这一段时间内通道的流量时平衡的，即所有设备的每一次服务请求都能够得　　到通道的响应，但是，在任意一台设备的任意两次时间传送请求之间并不能保证都能得到通道的响应。<br>
+            <br>
+            　　根据上面的分析，为了保证字节多路通道能够正常工作，即不丢失数据，可以采取下列几种方法：<br>
+            　　第一种方法，增加通道的最大流量，保证连接在通道上的所有设备的数据传送请求能够及时得到通道的响应。<br>
+            　　第二种方法，动态改变设备的优先级。例如，在图4.17中，只要在30至70微秒之间临时提高设备D5的优先级，那么，设备D5的第一次数据传送请求就能及时得到通道的响应，其它设备的数据传送请求也能正常得到通道的响应。当然，也可以采用临时降低设备优先级的办法，其效果是相同的。<br>
+            　　第三种方法，增加一定数量的数据缓冲器，特别是对优先级比较低的设备。例如，在图4.17中，只要为设备D5增加一个数据缓冲寄存器，那么，它的第一次数据传送请求可以在第85微秒处得到通道的响应，第二次数据传送请求可以在第145微秒处得到通道的响应。所有设备的数据都不会丢失。<br>
+            <br>
+            </span></p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

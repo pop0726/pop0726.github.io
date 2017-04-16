@@ -1,0 +1,77 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第二章 指令系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="left"> 
+          <p class="pt9-black"><b>2.10 </b>一个处理机共有10条指令，各指令在程序中出现的概率如下表：</p>
+          <p class="pt9-black"><img src="images/11.gif" width="535" height="257"></p>
+          <p class="pt9-black">1) 计算这10条指令的操作码最短长度。<br>
+            (2) 采用Huffman编码法编写这10条指令的操作码，并计算操作码的平均长度及信息冗余量，把得到的操作码编码和计算的结果填入上面的表中。<br>
+            (3) 采用2/8扩展编码法编写这10条指令的操作码，并计算操作码的平均长度和信息冗余量，把得到的操作码编码和计算的结果填入上面的表中。<br>
+            (4) 采用3/7扩展编码法编写这10条指令的操作码，并计算操作码的平均长度和信息冗余量，把得到的操作码编码和计算的结果填入上面的表中。<br>
+            <br>
+            <b>2.11</b> 一台模型机共有7条指令，各指令的使用频度分别为35%，25%，20%，10%，5%，3%，2%，有8个通用数据寄存器，2个变址寄存器。<br>
+            (1) 要求操作码的平均长度最短，请设计操作码的编码，并计算所设计操作码的平均长度。<br>
+            (2) 设计8位字长的寄存器-寄存器型指令3条，16位字长的寄存器-存储器型变址寻址方式指令4条，变址范围不小于正、负127。请设计指令格式，并给出各字段的长度和操作码的编码。<br>
+            <br>
+            <b>2.12</b> 某处理机的指令字长为16位，有双地址指令、单地址指令和零地址指令三类，并假设每个地址字段的长度均为6位。<br>
+            (1) 如果双地址指令有15条，单地址指令和零地址指令的条数基本相同，问单地址指令和零地址指令各有多少条？并且为这三类指令分配操作码。<br>
+            (2) 如果要求三类指令的比例大致为1:9:9，问双地址指令、单地址指令和零地址指令各有多少条？并且为这三类指令分配操作码。<br>
+            <br>
+            <b>2.13</b> 在一般RISC处理机中，平均每个周期执行的指令条数小于1。为了进一步提高处理机的速度，请设计两种不同的方案，使处理机平均每个周期执行的指令条数大于1，并分析所设计方案的硬件和软件代价。<br>
+            <br>
+            <b>2.14 </b>下面一小段程序的功能是在主存A、B、C三个单元中找出最大的一个数送入主存MAX单元中。在某RISC处理机中，每条指令的执行过程分为&quot;取指令&quot;和&quot;执行&quot;两个阶段，并采用两级流水线。<br>
+            　START:　LOAD R1, A ；取主存A单元中的数据到R1寄存器<br>
+            　　　　　LOAD R2, B ；取主存B单元中的数据到R2寄存器<br>
+            　　　　　LOAD R3, C ；取主存C单元中的数据到R3寄存器<br>
+            　　　　　CMP R1, R2 ；比较(R1)与(R2)，即(A)－(B)<br>
+            　　　　　BGE NEXT1 ；如果(A)＞(B)，转向NEXT1，否则继续执行<br>
+            　　　　　MOVE R2, R1 ；(B)→R1<br>
+            　NEXT1: CMP R1, R3 ；(A)－(C)<br>
+            　　　　　BGE NEXT2 ；如果(A)＞(C)，转向NEXT2，否则继续执行<br>
+            　　　　　MOVE R3, R1 ；(C)→R1<br>
+            　NEXT2: STORE R1, MAX ；保存(R1)到主存MAX单元<br>
+            (1) 如果在处理机中采用了指令取消技术，问上面这个程序的执行结果是否正确？从中得到什么启示？<br>
+            (2) 如果在处理机中采用了延迟转移技术，请对上面的指令序列进行适当的调整。在确保程序语义正确的前提下，尽可能缩短程序的执行时间。<br>
+            <br>
+            <b>2.15</b> 下面是一个数据块搬家程序。在RISC处理机中，为了提高指令流水线的执行效率，通常要采用指令取消技术。<br>
+            　START: MOVE AS, R1 ；把源数组的起始地址送入变址寄存器R1<br>
+            　　　　MOVE NUM, R2 ；把传送的数据个数送入R2<br>
+            　LOOP: MOVE (R1), AD-AS(R1) ；AD-AS为地址偏移量，在程序汇编过程中计算<br>
+            　　　　INC R1 ；增量变址寄存器<br>
+            　　　　DEC R2 ；剩余数据个数减1<br>
+            　　　　BGT LOOP ；测试N个数据是否传送完成<br>
+            　　　　HALT ；停机<br>
+            　NUM: N ；需要传送的数据总数<br>
+            (1) 如果一条指令的执行过程分解为&quot;取指令&quot;和&quot;分析&quot;两个阶段，并采用两级流水线。为了采用指令取消技术，请修改上面的程序。<br>
+            (2) 如果N＝100，采用指令取消技术后，在程序执行过程中，能够节省多少个指令周期？<br>
+            (3) 如果把一条指令的执行过程分解为&quot;取指令&quot;、&quot;分析&quot;（包括译码和取操作数等）和&quot;执行&quot;（包括运算和写回结果等）三个阶段，并采用三级流水线。仍然要采用指令取消技术，请修改上面的程序。</p>
+          <p class="pt9-black">&nbsp;</p>
+          </div>
+        </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

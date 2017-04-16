@@ -1,0 +1,29 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+          <td class="explaination"><br>
+            　　例如，代码1011011对应的多项式为x<sup><font size="1">6</font></sup>+x<sup><font size="1">4</font></sup>+x3+x+1，而多项式x<sup><font size="1">5</font></sup>+x<sup><font size="1">4</font></sup>+x<sup><font size="1">2</font></sup>+x对应的代码为110110。<br>
+            <br>
+            　　首先，发送方和接收方必须事先约定一个生成多项式G(x)，该生成多项式的最高比特和最低比特必须为1。设要发送的信息为K(x)，加在信息比特后面的校验比特为R(x)，因此循环码的编码过程就是由K(x)和G(x)求R(x)的过程。<br>
+            <br>
+            　　接收方收到带有校验码的数据T(x)时用G(x)去除T(x)，若为0，表示没有出错。因此发送方生成R(x)的方法是用G(x)去除x<sup><font size="1">r</font></sup>*K(x)得到的余数就是R(x)(r为余数的比特数)。<br>
+            <br>
+            　　例如，信息比特1010001：K(x)=x<sup><font size="1">6</font></sup>+x<sup><font size="1">4</font></sup>+1；生成多项式G(x)=x<sup><font size="1">4</font></sup>+x<sup><font size="1">2</font></sup>+x+1(10111)，取r=4，则用10111去除x<sup><font size="1">4</font></sup>*K(x)(10100010000)，余数为1101，即为冗余校验码。T(x)=10100011101。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

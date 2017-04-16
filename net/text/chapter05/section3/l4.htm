@@ -1,0 +1,108 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td class="explaination" valign="top"><br>
+            <img src="../../../image/tub/bg.gif" width="25" height="20" alt="表格"> 
+            <br>
+            <div align="center"><span class="point">表5.2</span><br>
+              <table width="460" border="0" cellspacing="1" cellpadding="0" bgcolor="#000099">
+                <tr bgcolor="#FFFFFF"> 
+                  <td width="28" class="part"> 
+                    <div align="center">阶段</div>
+                  </td>
+                  <td width="36" class="part"> 
+                    <div align="center">服务</div>
+                  </td>
+                  <td width="174" class="part"> 
+                    <div align="center">原语</div>
+                  </td>
+                  <td width="217" class="part"> 
+                    <div align="center">参数</div>
+                  </td>
+                </tr>
+                <tr bgcolor="#FFFFFF"> 
+                  <td rowspan="2" class="point" width="28"> 
+                    <div align="center">TC<br>
+                      建<br>
+                      立</div>
+                  </td>
+                  <td rowspan="2" class="text" width="36">TC建立</td>
+                  <td width="174" class="text">　T-CONNECT.request <br>
+                    　T-CONNECT.indication</td>
+                  <td width="217" class="text">　Called address 被叫地址<br>
+                    　Calling address 主叫地址<br>
+                    　Expedited data option 加速数据选择<br>
+                    　Quality of Service 服务质量<br>
+                    　TS-User data 用户数据</td>
+                </tr>
+                <tr bgcolor="#FFFFFF"> 
+                  <td width="174" class="text">　T-CONNECT.response <br>
+                    　T-CONNECT.confirm</td>
+                  <td width="217" class="text">　Responding address 响应地址<br>
+                    　Expedited data option 加速数据选择<br>
+                    　Quality of Service 服务质量<br>
+                    　TS-User data 用户数据</td>
+                </tr>
+                <tr bgcolor="#FFFFFF"> 
+                  <td rowspan="2" class="point" width="28"> 
+                    <div align="center">数据传送</div>
+                  </td>
+                  <td width="36" class="text">正常数据传送</td>
+                  <td width="174" class="text">　T-DATA.request<br>
+                    　T-DATA.indication</td>
+                  <td width="217" class="text">　TS-User data 用户数据</td>
+                </tr>
+                <tr bgcolor="#FFFFFF"> 
+                  <td width="36" class="text">加速数据传送</td>
+                  <td width="174" class="text">　T-EXPEDITED-DATA.request<br>
+                    　T-EXPEDITED-DATA.indication</td>
+                  <td width="217" class="text">　TS-User data 用户数据</td>
+                </tr>
+                <tr bgcolor="#FFFFFF"> 
+                  <td rowspan="2" class="point" width="28"> 
+                    <div align="center">TC<br>
+                      释放</div>
+                  </td>
+                  <td rowspan="2" class="text" width="36">TC释放</td>
+                  <td width="174" class="text">　T-DISCONNECT.request</td>
+                  <td width="217" class="text">　TS-User data 用户数据</td>
+                </tr>
+                <tr bgcolor="#FFFFFF"> 
+                  <td width="174" class="text">　T-DISCONNECT.indication</td>
+                  <td width="217" class="text">　Disconnect reason 释放原因<br>
+                    　TS-User data 用户数据</td>
+                </tr>
+                <tr bgcolor="#FFFFFF"> 
+                  <td width="28" class="point"> 
+                    <div align="center">无连接数据传送</div>
+                  </td>
+                  <td width="36" class="text">普通数据传送</td>
+                  <td width="174" class="text">　T-UNITDATA.request<br>
+                    　T-UNITDATA.indication</td>
+                  <td width="217" class="text">　Called address 被叫地址<br>
+                    　Calling address 主叫地址<br>
+                    　Quality of Service 服务质量<br>
+                    　TS-User data 用户数据</td>
+                </tr>
+              </table>
+              <br>
+              <br>
+              　　　</div>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="95%" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td class="pt9-black"><b>[解答]</b><br>
+      　　要完成上面的矩阵乘法，我们可以计算需要完成的各种操作的数量（假定A和B都是8×8的矩阵。C语言代码如下：<br>
+      <b>　　int k;<br>
+      　　for(int i=0;i&lt;8;i++)<br>
+      　　　　　for(int j=0;j&lt;8;j++)<br>
+      　　　　　{<br>
+      　　　　　　　sum=0;<br>
+      　　　　　　　for(k=0;k&lt;8;k++)<br>
+      　　　　　　　{<br>
+      　　　　　　　　　sum+=A[i][k]×B[k][j]<br>
+      　　　　　　　}<br>
+      　　　　　　　C[i][j]=sum;<br>
+      　　　　　}</b><br>
+      　　需要完成的乘法数目为8×8×8=512次；<br>
+      　　需要完成的加法数目为8×8×7=448次；<br>
+      　　下面我们分析处理机的结构会给性能带来什么样的影响。<br>
+      　　（3） 顺序执行时，每个乘法和加法指令都需要5个时钟周期（取指令、指令分析、指令执行）；所以所需要的时间为：<br>
+      　　<img src="shijuangongshi/025_1.gif" width="294" height="21"><br>
+      　　（4） 单流水线标量处理机，采用两功能静态流水线时；因为有足够的缓冲寄存器，所以我们可以首先把所有的乘法计算完，并通过调度使加法流水线不出现停顿，所以所需要的时间为：<br>
+      <img src="shijuangongshi/025_2.gif" width="557" height="26" align="absmiddle"></td>
+  </tr>
+</table>
+</body>
+</html>

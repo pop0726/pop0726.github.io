@@ -1,0 +1,52 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第八章 并行处理机和多处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black">2 全映射目录<br>
+            　　用全映射目录协议实现的目录项中有N个处理机位和一个重写位。处理机位表示相应处理机对应的Cache块的状态（存在或不存在）。如果重写位为&quot;1&quot;而且有一个且只有一个处理机位为&quot;1&quot;，则意味着该处理机可以对该块进行写操作。<br>
+            　　Cache的每个数据块有两个状态位。一位表示数据块是否有效，另一位表示有效块是否允许写。Cache一致性协议必须保证目录的状态位与Cache数据块的状态位一致。<br>
+            　　图8.19是全映射目录的三种状态。</p>
+          <p align="center" class="pt9-black"><img src="images/tu8_19.jpg" width="388" height="322"></p>
+          <p align="left"><span class="pt9-black">　　图8.19是一个拥有三个CPU的并行系统的Cache状态。第一个图表示全系统中所有Cache都没有单元X的拷贝。当三个处理机都对X有过读请求之后，目录就进入第二种状态。三个处理机位都被置&quot;1&quot;，表示三个Cache中都有X的拷贝，。第三种状态表示P3处理机获得了对X的写权力之后的状态。<br>
+            　　从第二种状态转移至第三种状态的过程比较复杂。可以用下面的步骤说明：<br>
+            　　当<img src="images/gsh2_20.gif" width="17" height="17" align="absmiddle">要求写单元X时：<br>
+            　　（1）<img src="images/gsh2_21.gif" width="15" height="14" align="absmiddle">发现包含X单元的块是有效的，但是不允许写。<br>
+            　　（2）<img src="images/gsh2_21.gif" width="15" height="14" align="absmiddle">向包含X单元的存储器模块发写请求，并暂停<img src="images/gsh2_20.gif" width="17" height="17" align="absmiddle">的工作。<br>
+            　　（3）该存储器模块发无效请求至<img src="images/gsh2_16.gif" width="14" height="13" align="absmiddle">和<img src="images/gsh2_17.gif" width="14" height="14" align="absmiddle">。<br>
+            　　（4）<img src="images/gsh2_16.gif" width="14" height="13" align="absmiddle">和<img src="images/gsh2_17.gif" width="14" height="14" align="absmiddle">接到无效请求后，将对应块置为无效态，并发回答信号给存储器模块。<br>
+            　　（5）存储器模块接到<img src="images/gsh2_16.gif" width="14" height="13" align="absmiddle">和<img src="images/gsh2_17.gif" width="14" height="14" align="absmiddle">的回答信号后，置重写位为&quot;1&quot;，清除指向<img src="images/gsh2_16.gif" width="14" height="13" align="absmiddle">和<img src="images/gsh2_17.gif" width="14" height="14" align="absmiddle">的指针，发允许写信号到<img src="images/gsh2_21.gif" width="15" height="14" align="absmiddle">。<br>
+            　　（6）<img src="images/gsh2_21.gif" width="15" height="14" align="absmiddle">接到允许写信号，更新Cache状态，激活<img src="images/gsh2_20.gif" width="17" height="17" align="absmiddle"><br>
+            　　至此，全部过程结束，<img src="images/gsh2_20.gif" width="17" height="17" align="absmiddle">就可以写X单元了。在<img src="images/gsh2_20.gif" width="17" height="17" align="absmiddle">完成写操作之前存储器系统一直等待回答信号。<br>
+            　　全映射目录协议的效率比较高，但是其开销与处理机数目的平方成正比（目录的项数与处理机数目成正比，项的大小又与处理机数目成正比，所以其开销等于目录的项数乘以项的大小，即与处理机数目的平方成正比）。由于其过多的存储器开销，所以不具有扩展性。 
+            <br>
+            <br>
+            </span></p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第六章　向量处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black"><span class="section">6.5 向量处理机的性能评价</span><br>
+            <br>
+            　　衡量向量处理机的性能主要是向量指令的处理时间<img src="images/gsh5_1.gif" width="22" height="18" align="absmiddle">、向量长度为无穷大时的向量处理机的最大性能<img src="images/gsh5_2.gif" width="23" height="14" align="absmiddle">、半性能向量长度<img src="images/gsh5_3.gif" width="24" height="15" align="absmiddle">和向量方式的工作速度优于标量串行方式工作时所需的向量长度临界值<img src="images/gsh5_4.gif" width="15" height="13" align="absmiddle">等。下面讨论这些参数。<br>
+            <br>
+            　<b>　1. 向量指令的处理时间<img src="images/gsh5_1.gif" width="22" height="18" align="absmiddle"></b><br>
+            　　在向量处理机上，执行一条向量长度为n的向量指令的时间<img src="images/gsh5_1.gif" width="22" height="18" align="absmiddle">可表示为：<br>
+            　　　<img src="images/gsh5_5.gif" width="120" height="16" align="absmiddle"><br>
+            　　其中，<img src="images/gsh5_6.gif" width="16" height="15" align="absmiddle">为向量流水线的建立时间，它包括向量起始地址的设置、计数器加1，条件转移指令执行等。<img src="images/gsh5_7.gif" width="20" height="16" align="absmiddle">为向量流水线的流过时间，它是一条指令从开始译码到流过流水线得到第一个结果元素的时间。<img src="images/gsh5_8.gif" width="18" height="16" align="absmiddle">为流水线&quot;瓶颈&quot;段的执行时间。<br>
+            　　如果不存在&quot;瓶颈&quot;，每段的执行时间等于一个时钟周期，则上式也可以写成：<br>
+            　　　<img src="images/gsh5_9.gif" width="105" height="17" align="absmiddle"><br>
+            　　其中，s为向量流水线建立时间所需的时钟周期数。e为向量流水线流过时间所需的时钟周期数。n为向量长度。t为时钟周期。<br>
+            　　下面我们考虑一组向量操作的执行时间。一组向量操作的执行时间主要取决于下面三个因素：向量的长度、向量操作之间是否存在流水功能部件的冲突和数据的相关性。我们把几条能在一个时钟周期内一起开始执行的向量指令称为一个编队。同一个编队中的向量指令一定不存在流水功能部件的冲突和数据的相关性。如果存在这种冲突和相关，需把它们分在不同的编队之中。 
+            <br>
+            　　<b>例6.4</b> 下面一组向量操作能分成几个编队？假设每种流水功能部件只有一个。<br>
+            　　　LV V1，Rx ； 取向量x<br>
+            　　　MULTSV V2, F0, V1 ； 向量和标量相乘<br>
+            　　　LV V3，Ry ； 取向量Y<br>
+            　　　ADDV V4, V2, V3 ； 加法<br>
+            　　　SV Ry, V4 ； 存结果<br>
+            　　解：第一条指令VL为第一个编队。MULTSV指令因为与第一条LV指令相关，所以它们不能在同一个编队中。MULTSV指令和第二条LV指令之间不存在功能部件冲突和数据相关，所以这两条指令为第二个编队。ADDV指令与第二条LV指令数据相关，所以ADD为第三个编队。SV指令与ADDV指令数据相关，所以它为第四个编队。所以这一组向量操作划分为以下四个编队： 
+            <br>
+            　　　1. VL<br>
+            　　　2. MULTSV LV<br>
+            　　　3. ADDV<br>
+            　　　4. SV<br>
+            　　一个编队的执行时间记为<img src="images/gsh5_10.gif" width="34" height="15" align="absmiddle">，它与向量长度无关。因此，一组由m个编队组成的向量操作的执行时间为m个<img src="images/gsh5_10.gif" width="34" height="15" align="absmiddle">。如果向量长度为n，则整个程序的向量操作的执行时间为m×n个时钟周期。上述例子中，因为整个程序分为4个编队，所以要花费4个<img src="images/gsh5_10.gif" width="34" height="15" align="absmiddle">。另外该例子每个结果需要2个浮点运算操作。<br>
+            　　除了上述向量操作的真正执行时间外，还需要考虑向量的启动时间<img src="images/gsh5_11.gif" width="28" height="18" align="absmiddle">，<img src="images/gsh5_11.gif" width="28" height="18" align="absmiddle">是向量操作流水线的延迟，它等于流水功能部件的流水段数，也即流水线的深度。它和上述的向量流水线的流过时间几乎相等。<br>
+            <br>
+          </p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第三章 存储系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black">　　为了提高Cache的访问速度，可以把图3.32中的区号存储器与Cache合并成一个存储器，如图3.33所示。这样，用主存地址中的块号B访问Cache，把区号和这一块的所有数据同时都读出来。由于Cache中一块的字数很少（1至16个），通过一个多路选择器，在块内地址的控制下，把所需要的那个字选出来送往CPU。如果Cache没有命中，处理方法与图3.33中的相似。</p>
+          <p align="center" class="pt9-black"><img src="images/tu3_33.gif" width="411" height="326"><br>
+            <b>图3.33 快速度的直接相联地址变换</b></p>
+          <p align="left" class="pt9-black">　　图3.33所示的Cache，它的访问速度要比图3.32的快得多，多路选择器的实现也比较容易。在前面介绍的并行和交叉访问存储器中，从多个存储体中读出的数据也采用多路选择器输出。两个多路选择器是完全相同的。<br>
+            　　直接映象方法的优点是硬件实现很简单，不需要采用相联访问的存储器，访问速度也比较快。实际上，采用直接相联方式的Cache不需要进行地址变换，因为主存地址的低位部分就是Cache的地址。<br>
+            　　直接映象方式的主要缺点是块的冲突率比较高。当主存中的两个或两个以上块都映象到Cache的同一块中，而这些块又都是当前的常用块时，Cache的命中率会很低。这时，即使Cache中还有很多空闲的块，也帮不上忙。<br>
+            　　在IBM370/158等计算机中采用直接映象方式。<br>
+            <br>
+          </p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

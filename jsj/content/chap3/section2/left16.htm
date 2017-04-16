@@ -1,0 +1,47 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第三章 存储系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><span class="pt9-black"><b>2 主存容量<br>
+            <br>
+            </b>　　主存命中率H随着分配给该程序的主存容量S的增加而单调上升，如图3.27所示。在S比较小的时候，H提高得非常快。随着S的逐渐增加，H提高的速度逐渐降低。当S增加到某一个值之后，H几乎不再提高。</span></p>
+          <p align="center"><span class="pt9-black"><b><img src="images/tu3_27.gif" width="304" height="194"><br>
+            图3.27 主存命中H率与主存容量S的关系 </b></span></p>
+          <p align="left"><span class="pt9-black">　　在页面替换算法中有这样一个结论，对于堆栈型算法，命中率随着分配给程序的页面数的增加而提高。当分配给程序的主存容量增加时，如果页面大小是一定的，那么，页面数就会增加，因此，命中率也将提高。如果不是堆栈型算法，命中率虽然不会单调上升，在局部可能有下降，但总的趋势还是上升的。<br>
+            　　从图3.27中可以得到这样一个启发，在为一道程序分配主存空间时，对主存命中率的要求不能过分。当主存容量增加到某一个值之后，命中率的提高非常慢。这时，主存储器中不活跃部分所占的比例很大，主存资源的利用率就会很低。<br>
+            　　实际上，操作系统在为程序分配主存空间时，是以页为单位分配的。因此，图3.27所示的不应该是一条平滑的曲线，而是台阶型的。在分配给程序的主存容量比较小的时候，台阶非常陡，随着主存容量的增加，台阶越来越平缓。</span></p>
+          <p align="left"><span class="pt9-black"><b>3 页面调度方式<br>
+            <br>
+            </b>　　目前，大多数机器采用请求页式调度方式。这种方式虽然具有主存利用率高，只要主存储器还剩余有一个页面，程序就能调入到主存储器中开始运行等优点，但是，在程序执行过程中经常要发生页面失效，而且处理页面失效需要比较长的时间。特别在程序刚开始运行时，页面失效很频繁。从前面的图3.23中也可以看出，无论采用什么样的页面替换算法，在程序开始执行时的一段时间内，都在不断地调入页面，主存命中率很低。只有当调入的页面数比较多时，命中率才开始上升。因此，就产生了另外一种调度方式，即预取式调度方式。<br>
+            　　预取式调度方式根据程序的局部性特点，在程序被挂起之后又重新开始运行之前，先把上次停止运行前一段时间内用到的页面先调入到主存储器，然后才开始运行程序。这样，在程序一开始运行时，主存储器中就已经装入了一定数量的页面。从而可以避免在程序刚开始运行时，频繁发生页面失效的情况。当然，这种调度策略也不一定总是有效的。如果调入的页面在程序开始运行后用不上，那么，它不仅在调入这些页面的过程中浪费了时间，而且还占用了主存资源。<br>
+            <br>
+            </span></p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

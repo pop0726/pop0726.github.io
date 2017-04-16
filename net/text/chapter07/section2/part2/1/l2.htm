@@ -1,0 +1,39 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td class="explaination" valign="top"><br>
+            <img src="../../../../../image/tub/ts.gif" width="25" height="20" alt="图示"> 
+            <div align="center"><br>
+              <img src="../../../../../image/pic/chapter07/7_5.gif" width="435" height="237"> 
+              <br>
+              <span class="point">图7.5 IP包头格式</span></div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="explaination"><br>
+            <span class="point">・版本（version）：</span><br>
+            　　说明数据报属于哪一个协议版本，以便可以在运行不同版本协议的机器之间进行版本转换。 IPv4和IPv6即在此标示，当该域值为4时，表示IPv4。<br>
+            <br>
+            <span class="point">・IHL：</span><br>
+            　　说明包头的长度（单位：32字节），最小为5，最大为15。故头部最长为60字节，即可选部分最大为40字节。该域值变化1，表示包头长度变化32个字节。此外，对于有些可选项，例如记录分组已经走过路由的源路由选项，40字节就显得太短了。<br>
+            <br>
+            <span class="point">・服务类型（type of service）：</span><br>
+            　　允许主机告诉子网它需要什么类型的服务，可能是可靠程度和传输速率的各种组合。例如，对数字话音要求快速传递；而对文件传输无差错比快速更重要。该域中，左起3位为优先级（precedence）字段，从0（正常）到7（网络控制分组）。后跟3个标识（flag）位分别表示延迟、吞吐量和可靠性，它们允许主机指明在以上三项指标中它最关心什么。最后两位没有定义。理论上，这些字段允许路由器在吞吐量大而时延长的卫星链路和吞吐量小而时延短的租用线路之间进行选择。实际上，目前的路由器都不支持服务质量字段。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

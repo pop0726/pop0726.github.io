@@ -1,0 +1,51 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第二章 指令系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><span class="pt9-black">　　假设有X和Y两种不同类型的处理机，X处理机的数据不带标志符，其指令字长和数据字长均为32位。Y处理机的数据带有标志符，每个数据的字长增加至35位，其中有3位是标志符，其指令字长减少至30位。如果一条指令平均要访问两个操作数（因为有许多指令，如加、减、乘、除等运算型指令要访问两个源操作数、一个目的操作数共三个操作数，有的指令，如移位、增1、减1等指令要访问一个源操作数、一个目的操作数共两个操作数，也有的指令只访问一个操作数，有的指令不访问操作数），每个存放在存储器中的操作数平均要被访问R次。现有一个程序，它的指令条数为I，下面分别计算在这两种不同类型的处理机中程序所占用的存储空间。</span></p>
+          <p align="left" class="pt9-black">　　X处理机，程序所占用的存储空间总和为：<img src="iamges/gsh1_91.gif" width="119" height="38" align="absmiddle"><br>
+            　　Y处理机，程序所占用的存储空间总和为：<img src="iamges/gsh1_92.gif" width="115" height="37" align="absmiddle"> 
+            <br>
+            　　为了便于比较，计算Y处理机与X处理机的程序所占用存储空间的比值：<br>
+            　　　　　　<img src="iamges/gsh1_93.gif" width="199" height="75"> 
+            <br>
+            　　当R＞3时，有<img src="iamges/gsh1_94.gif" width="41" height="29" align="absmiddle"> 
+            ，在实际应用中经常是R＞10，即对于同样的程序，在Y处理机中所占用的存储空间比在X处理机中所占用的存储空间要小。</p>
+          <p align="center" class="pt9-black"><img src="iamges/tu2_7.gif" width="185" height="266"><br>
+            <b>图2.7 带标志符和不带标志符两种情况下程序所占存储空间比较 </b></p>
+          <p align="left" class="pt9-black"><br>
+            　　实际上，也可以用图2.7来说明这个问题，这个图表示在带标志符和不带标志符两种情况下程序所占用存储空间的比较。图中两个实线框分别表示在不采用标志符的情况下，指令和数据分别占用的存储空间的大小，并且假设这时的指令字长和数据字长是相等的。当数据带有标志符时，数据字长要加长，而指令字长将缩短。图中左上方阴影部分的面积表示因指令字长的缩短，程序减少的存储空间，左下方阴影部分的面积表示因数据字长加长，数据增加的存储空间。由于在一般程序中指令条数比数据条数要多，因此左上方阴影部分的高度必然大于左下方阴影部分的高度，因此，即使指令字长缩短的位数少于数据字长加长的位数，只要设计合理，很有可能使左上方阴影部分的面积大于左下方阴影部分的面积，从而，当数据带有标志符时，整个程序（包括指令和数据）所占用的总的存储空间很可能反而减少。<br>
+            　　在采用标志符的数据表示法中，数据类型的一致性检查和转换（如一个浮点数加一个定点数，首先要把定点数转换成浮点数之后才能做加法运算）等都用硬件来实现，从而缩短了目标程序的长度，也就节省了程序所占用的存储空间。例如。在IBM 
+            370系列机中执行A＝A＋B运算，若A、B都是十进制数，只需要一条指令，共6个字节，在IBM 370/145机上的执行时间是13微秒，若A与B中有一个是定点二进制数，由于要进行数据类型的一致性检查和转换，在PL/I语言中的编译结果为13条指令，共64个字节，在IBM 
+            370/145机上的执行时间是408微秒，两者相比，存储空间节省5倍，运算速度快30多倍。事实上，这种数据类型的一致行检查和转换在高级语言的优化编译器中经常要反复使用，有时在一个程序中就用到成百上千次，如果每次都直接展开要占用大量的存储空间，如果改用子程序调查又会加长程序的运行时间。在采用标志符数据表示法的机器中，通常只要在控制存储器（ROM）中增加一小段微程序即可。 
+          </p>
+          <p align="left" class="pt9-black">　</p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

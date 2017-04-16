@@ -1,0 +1,65 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第六章　向量处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black"><b>2. 最大性能<img src="images/gsh5_17.gif" width="25" height="14" align="absmiddle"></b><br>
+            　　<img src="images/gsh5_17.gif" width="25" height="14" align="absmiddle">表示当向量长度为无穷大时的向量流水线的最大性能。常在评价峰值性能时使用，单位为MFLOPS。<br>
+            　　它可表示为： <img src="images/gsh5_18.gif" width="212" height="37" align="absmiddle"><br>
+            　　因为分子的值与n无关，所以<br>
+            　　　<img src="images/gsh5_19.gif" width="378" height="54" align="absmiddle"><br>
+            　　对于例6.7，假设时钟频率为200MHZ,因为每个循环只有2次浮点运算操作，所以 <br>
+            　　　<img src="images/gsh5_20.gif" width="295" height="52" align="absmiddle"></p>
+          <p align="left" class="pt9-black"><b>3.半性能向量长度<img src="images/gsh5_21.gif" width="26" height="14" align="absmiddle"></b><br>
+            　　它是为达到一半R￥值所需的向量长度。它是评价向量流水线建立时间对性能影响的参数。它表示为建立流水线而导致的性能损失。若向量长度n=<img src="images/gsh5_21.gif" width="26" height="14" align="absmiddle">，则表明整个向量流水处理时间中只有一半时间是在做有效操作，而鼍一半是浪费掉的。通常希望向量流水线有较小的<img src="images/gsh5_21.gif" width="26" height="14" align="absmiddle">。实际测试表示，Cray 
+            1 的<img src="images/gsh5_21.gif" width="26" height="14" align="absmiddle">=10～20,CYBER 
+            205的<img src="images/gsh5_21.gif" width="26" height="14" align="absmiddle">为100，表示Cray 
+            1的流水线建立时间比CYBER 205的要小很多。<br>
+            　　现在我们计算在200MHZ时钟频率的向量处理机上执行DAXPY程序程序的<img src="images/gsh5_21.gif" width="26" height="14" align="absmiddle">。由MFLOPS定义可知 
+            <br>
+            　　因为<img src="images/gsh5_17.gif" width="25" height="14" align="absmiddle">=100MFLOPS,所以<img src="images/gsh5_22.gif" width="119" height="40" align="absmiddle"> 
+            即<br>
+            　　　<img src="images/gsh5_23.gif" width="89" height="18" align="absmiddle">, 
+            设<img src="images/gsh5_26.gif" width="44" height="13" align="absmiddle">，所以<img src="images/gsh5_24.gif" width="98" height="17" align="absmiddle"><br>
+            　　可得1×64＋3×<img src="images/gsh5_23.gif" width="89" height="18" align="absmiddle">=8×<img src="images/gsh5_21.gif" width="26" height="14" align="absmiddle"><br>
+            　　　<img src="images/gsh5_5F25.gif" width="55" height="17" align="absmiddle"> 
+            <br>
+            　　　<img src="images/gsh5_21.gif" width="26" height="14" align="absmiddle">=12.8<br>
+            　　所以<img src="images/gsh5_21.gif" width="26" height="14" align="absmiddle">＝13。<br>
+            <br>
+            <b>4.</b><img src="images/gsh5_27.gif" width="16" height="12" align="absmiddle"><br>
+            　　它表示向量流水方式的工作速度优于标量串行方式工作时所需的向量长度临界值。该参数既衡量建立时间，也衡量标量、向量速度比对性能的影响。<br>
+            　　下面计算上述例子的<img src="images/gsh5_27.gif" width="16" height="12" align="absmiddle"> 
+            。我们知道<img src="images/gsh5_27.gif" width="16" height="12" align="absmiddle">&lt;64。如果标量方式工作，那么一个循环的执行时间大约为10＋12＋12＋7＋6＋12＝59个时钟周期，这里10是建立循环的开销，其它为取数、乘、加、存数等流水线的开销。如果按向量方式工作，则执行时间为Tn&lt;64=64+3×n时钟周期。因此，64＋3 
+            <img src="images/gsh5_27.gif" width="16" height="12" align="absmiddle">=59<img src="images/gsh5_27.gif" width="16" height="12" align="absmiddle">, 
+            <img src="images/gsh5_27.gif" width="16" height="12" align="absmiddle">=<img src="images/gsh5_28.gif" width="21" height="26" align="absmiddle"> 
+            <img src="images/gsh5_27.gif" width="16" height="12" align="absmiddle">=2。</p>
+          <p align="left" class="pt9-black">&nbsp;</p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

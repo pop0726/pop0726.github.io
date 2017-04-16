@@ -1,0 +1,49 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td class="explaination"><br>
+            <span class="point">・帧检验序列（FCS） </span><br>
+            　　是一个32bit的循环冗余检验序列，该序列基于FC，DA，SA和信息字段。<br>
+            <br>
+            <span class="point">・帧尾定界符（ED） </span><br>
+            　　包括指明帧结束的一些非数据符号。它同时也包含表中的指定含义的I和E比特。<br>
+            <br>
+            <span class="point">・帧状态（FS） </span><br>
+            　　包括下表中指定含义的A和C比特。由于A和C在FCS的范围以外，因此重复它们一次，以提供冗余检验来检测错误的位置。<br>
+            　<br>
+            <img src="../../../../image/tub/ts.gif" width="25" height="20" alt="图示"> 
+          </td>
+        </tr>
+        <tr> 
+          <td class="explaination" valign="top"> 
+            <div align="center"><img src="../../../../image/pic/chapter08/8_13.gif" width="426" height="240"><br>
+              <br>
+              <span class="point">图8.13 IEEE802.5 MAC帧的控制比特</span></div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="explaination"><br>
+            <span class="point">・地址字段</span><br>
+            　　地址字段的源地址字段中的第一比特总是&quot;0&quot;。目的地址字段中第一比特置成&quot;0&quot;，表示一个单地址，置成&quot;1&quot;则表示是一组地址。全&quot;1&quot;的组地址是对环上所有工作的站的广播地址。所有其他的组地址都是指定某一逻辑用户群，它们是在配置时或由某个高层约定来定义的。<br>
+            　　对于48bit的地址字段，将其源和目的地址字段中的第二个比特置成&quot;0&quot;，表示是一全局管理地址，置成&quot;l&quot;则表示是-局部管理地址。这些地址的性质则不属本标准的范围。全局管理地址可以用来对通过多个网络的每一个站分配一个唯一的地址，并且由IEEE标准机构代表国际标准化组织（ISO）来进行管理。<br>
+            <br>
+            <span class="point">・MAC帧信息字段</span><br>
+            　　在某些MAC帧中，信息字段被用于携带有关特定控制用的控制信息。控制信息作为维护环路使用。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

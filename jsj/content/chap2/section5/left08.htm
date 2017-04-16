@@ -1,0 +1,49 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第二章 指令系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><span class="pt9-black"><b>3、重叠寄存器窗口技术</b><br>
+            <br>
+            　　RISC的指令系统比较简单，CISC中的一条复杂指令，在RISC中通常要用一段子程序来实现。因此，RISC程序中的CALL和RETURN指令要比CISC程序中的多。<br>
+            　　在执行CALL指令时，必须把硬件现场（主要包括程序计数器和处理机状态字）和程序本身的软件现场（主要指在子程序中要使用的通用寄存器等）保存到主存储器中。另外，还要把执行子程序所需要的参数从主程序传送过去。在执行RETURN指令时，要做相反的工作，最后把运算结果传送回主程序。因此，执行CALL和RETURN指令时，访问存储器的信息量非常大。据统计，在PASCAL语言和C语言中分别有15％和12％的CALL和RETURN操作，而它们访问存储器的信息量却占整个访存信息量的44％和45％。<br>
+            　　为了使CALL和RETURN操作尽量少访问存储器，美国加洲大学伯克利分校的F, Baskett提出重叠寄存器窗口（Overlapping 
+            Register Window）技术。并且首先在RISC I上应用，在RISC II上，寄存器的数量增加到138个。目前，重叠寄存器窗口技术已经成为RISC的一种基本技术。<br>
+            　　重叠寄存器窗口的基本思想是：在处理机中设置一个数量比较大的寄存器堆，并把它划分成很多个窗口。每个过程使用其中相邻的三个窗口和一个公共的窗口，而在这些窗口中有一个窗口是与前一个过程共用，还有一个窗口是与下一个过程共用的。与前一过程共用的窗口可以用来存放前一过程传送给本过程的参数，同时也存放本过程传送给前一过程的计算结果。同样，与下一过程共用窗口可以用来存放本过程传送给下一过程的参数和存放下一过程传送给本过程的计算结果。 
+            <br>
+            　　图2.17是RISC II中采用的重叠寄存器窗口。共有138个寄存器，分成17个窗口，其中，有一个由10个寄存器组成的窗口是全局窗口，能被所有过程访问。另外有8个窗口，每个窗口各10个寄存器，分别作为8个过程的局部寄存器。还有8个窗口，每个窗口各有6个寄存器，是相邻两个过程公用的，称为重叠寄存器窗口。每个过程均可以访问32个寄存器，其中，有10个是所有过程公用的全局寄存器，有10个是只供本过程使用的局部寄存器，有6个是与上一过程公用的寄存器，还有6个是与下一过程公用的寄存器。<br>
+            　　只要调用的深度不超过规定的层数（如8层），重叠寄存器窗口技术可以减少大量的访存操作。当调用层数超过规定层数时，称为寄存器溢出，这时，可以在主存中开辟一个堆栈，把超过规定层数的寄存器中的内容压入堆栈中。<br>
+            　　在SUN公司的SPARC处理机中，以及后来的Super SPARC和Utra SPARC处理机中，还把最后一个过程的公用寄存器与第一个过程的公用寄存器重叠起来，形成一个循环圈。在调用层数很多时，可以循环使用。 
+            <br>
+            　　F, Baskett等人使用Quicksort和Puzzle两个程序对寄存器窗口技术的有效性进行了测试。Quicksort程序的特点是过程调用的次数在整个程序中所占的比例比较大，但调用的深度不大，而Puzzle程序正好相反。RISC 
+            II与VAX-11两种机器的比较结果如表2.13所示，RISC II的访存次数主要是寄存器窗口溢出引起的，而VAX--11访存次数是为了保持和恢复通用寄存器中内容而引起的。从表中看出，RISC 
+            II寄存器溢出的次数很少，只占千分之一左右,影响也不大。由于采用了寄存器窗口技术，由程序调用引起的访问存储器次数只占程序总访存次数的1％左右。</span></p>
+          <p align="left">&nbsp;</p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,262 @@
+<HTML>
+<HEAD>
+<title>计算机网络体系结构</title>
+<SCRIPT language=JavaScript>
+<!--
+/*-------------------------------------------填空题---------------------------------------------*/
+function getKeyWord(form){
+var mykeys=new Array();
+
+
+var answer=new Array();
+for(var I=0;I<mykeys.length;I++) answer[I]="";
+
+var every=form.elements;
+for(var I=0;I<every.length;I++)
+{
+if(every[I].type=="text")
+{
+ if(every[I].value!==null)
+ {var item=parseInt(every[I].name.substr(0))
+  answer[item-1]+=every[I].value;
+  }
+ }
+}
+var newcount="<html><head><title>谢谢您!</title></head><body><center><h2><font color=red>您的测试结果</font></h2></center>";
+var totalscore=0;
+for(var I=0;I<answer.length;I++)
+{var re=/</g;
+var rd=/>/g;
+var re=/\\/g;
+answer[I]=answer[I].replace(re,"&#92;");
+answer[I]=answer[I].replace(re,"&lt;");
+answer[I]=answer[I].replace(rd,"&gt;");
+	if(answer[I].toUpperCase()==mykeys[I].toUpperCase())
+	{
+		var rstr="<font size=2>第"+(I+1)+"个空答案正确!</font><br>";
+		newcount+=rstr;
+		totalscore+=1/0*100;
+	}else
+	{
+		var rstr="<font size=2>第"+(I+1)+"个空答案错误!正确答案为"+mykeys[I]+"</font><br>";
+		newcount+=rstr;
+	}
+
+}
+
+newcount+="<br>您的总成绩为:";
+newcount+=Math.ceil(totalscore);
+newcount+="分";
+newwin=window.open("","","height=400,width=400,scrollbars=yes,resizable=no");
+newwin.document.write(newcount);
+}
+/*-------------选择提----------------------------------------------------------------*/
+function getresultcheck(form)
+{var mykeys=new Array();
+
+
+
+var answer=new Array();
+for(var I=0;I<mykeys.length;I++) answer[I]="";
+
+var every=form.elements;
+//var lastname="";
+for(var I=0;I<every.length;I++)
+{
+	if(every[I].type=="radio")
+	{
+		/*alert("checkbox:name->"+every[I].name+"value->"+every[I].value);*/
+		if(every[I].checked)
+		{	
+			//var item=parseInt(every[I].name.charAt(1));
+			var item=parseInt(every[I].name.substr(0));/*返回由字符串转换得到的整数*/
+			/*substr返回一个从指定位置开始的指定长度的子字符串。*/
+			answer[item-1]+=every[I].value;
+		}
+	}				
+}
+
+var newcount="<html><head><title>谢谢您!</title></head><body><center><h2><font color=red>您的测试结果</font></h2></center>";
+var totalscore=0;
+for(var I=0;I<answer.length;I++)
+{
+	if(answer[I].toUpperCase()==mykeys[I].toUpperCase())
+	{
+		var rstr="<font size=2>第"+(I+1)+"题答案正确!</font><br>";
+		newcount+=rstr;
+		totalscore+=1/0*100;//每题分数
+	}else
+	{
+		var rstr="<font size=2>第"+(I+1)+"题答案错误!正确答案为"+mykeys[I]+"</font><br>";
+		newcount+=rstr;
+	}
+
+}
+
+newcount+="<br>您的总成绩为:";
+newcount+=Math.ceil(totalscore);
+newcount+="分";
+newwin=window.open("","","height=400,width=400,scrollbars=yes,resizable=no");
+newwin.document.write(newcount);}
+/*--------------------------------判断题----------------------------------------------------*/
+
+function getresultpanduan(form)
+{var mykeys=new Array();
+
+
+
+var answer=new Array();
+for(var I=0;I<mykeys.length;I++) answer[I]="";
+
+var every=form.elements;
+//var lastname="";
+for(var I=0;I<every.length;I++)
+{
+	if(every[I].type=="checkbox")
+	{
+		/*alert("checkbox:name->"+every[I].name+"value->"+every[I].value);*/
+		if(every[I].checked)
+		{	
+			//var item=parseInt(every[I].name.charAt(1));
+			var item=parseInt(every[I].name.substr(0));/*返回由字符串转换得到的整数*/
+			/*substr返回一个从指定位置开始的指定长度的子字符串。*/
+			answer[item-1]+=every[I].value;
+		}
+	}				
+}
+
+var newcount="<html><head><title>谢谢您!</title></head><body><center><h2><font color=red>您的测试结果</font></h2></center>";
+var totalscore=0;
+for(var I=0;I<answer.length;I++)
+{
+	if(answer[I].toUpperCase()==mykeys[I].toUpperCase())
+	{
+		var rstr="<font size=2>第"+(I+1)+"题 您答对了!</font><br>";
+		newcount+=rstr;
+		totalscore+=1/0*100;//每题分数
+	}else
+	{
+		var rstr="<font size=2>第"+(I+1)+"题 您答错了!</font><br>";
+		newcount+=rstr;
+	}
+
+}
+
+newcount+="<br>您的总成绩为:";
+newcount+=Math.ceil(totalscore);
+newcount+="分";
+newwin=window.open("","","height=400,width=400,scrollbars=yes,resizable=no");
+newwin.document.write(newcount);
+}
+/*--------------------------------简答题----------------------------------------------------*/
+
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</SCRIPT>
+<style type="text/css">
+<!--
+.unnamed1 {  font-family: "宋体"; font-size: 10pt}
+-->
+</style>
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+</HEAD>
+
+<BODY text=black bgColor=white leftMargin=0 topMargin=10 marginheight="10" 
+marginwidth="0">
+ <DIV class=p2 align=center></DIV> 
+      <FORM >
+  <span class="section">　[课后习题]</span> <br>
+  <BR>
+<p class="unnamed1">  
+<table width="96%" border="0" cellspacing="0" cellpadding="0" align="center">
+    <tr>
+      <td class="unnamed1">1．简述运输层在OSI模型中所处的地位。<br>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td> 
+              <div align="center">
+                <textarea cols=50 id=c1 rows=12 name="textarea"></textarea>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <br>
+        <br>
+        2．简述运输层的基本功能。<br>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td> 
+              <div align="center"> 
+                <textarea cols=50 id=c1 rows=12 name="textarea3"></textarea>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <br>
+        <br>
+        3．简述网络服务分类。划分的依据是什么？<br>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td> 
+              <div align="center"> 
+                <textarea cols=50 id=c1 rows=12 name="textarea4"></textarea>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <br>
+        <br>
+        4．OSI模型规定了哪几种运输协议类？各提供怎样的功能？<br>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td> 
+              <div align="center"> 
+                <textarea cols=50 id=c1 rows=12 name="textarea5"></textarea>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <br>
+        <br>
+        5．简述运输服务的特性。<br>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td> 
+              <div align="center"> 
+                <textarea cols=50 id=c1 rows=12 name="textarea6"></textarea>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <br>
+        <br>
+        6．运输层的连接和数据链路层的连接有什么区别？<br>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td> 
+              <div align="center"> 
+                <textarea cols=50 id=c1 rows=12 name="textarea2"></textarea>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <br>
+        <br>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td>
+              <div align="center">
+                <input id=A type=reset value=重来 name="reset">
+                <input type=button name=Button value=答案 onClick="MM_openBrWindow('answer.htm','','scrollbars=yes,width=470,height=390')">
+              </div>
+            </td>
+          </tr>
+        </table>
+        <br>
+        <br>
+      </td>
+    </tr>
+  </table>
+</form></BODY></HTML>

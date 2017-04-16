@@ -1,0 +1,42 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第五章 标量处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><span class="part">5.6.2 典型处理机结构</span><br>
+            <br>
+            <span class="pt9-black">　　目前，在主要微处理器中只有DEC公司的Alpha处理机采用了超标量超流水线结构。Alpha 
+            21064处理机的结构如图5.61所示，它主要由四个部件和两个Cache组成。四个部件是整数执行部件EBOX、浮点执行部件FBOX、地址部件ABOX和中央控制部件IBOX。ABOX包括地址发生器、存储管理部件、读数缓冲栈和写数缓冲栈。IBOX负责取指令、指令译码、指令发射、流水线控制、程序计数器PC的计算等。<br>
+            　　中央控制部件IBOX可以同时从指令Cache中读入两条指令，同时对读入的两条指令进行译码，并且对这两条指令作资源冲突检测，进行数据相关性和控制相关性分析。如果资源和相关性允许，IBOX就把两条指令同时发射给EBOX、ABOX和FBOX三个指令执行部件中的两个。</span></p>
+          <p align="center"><img src="images/tu5_61.jpg" width="527" height="453"><br>
+            <br>
+          </p>
+          <p align="left" class="pt9-black">　</p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第八章 并行处理机和多处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black"><b>2. 阵列控制器</b><br>
+            　　阵列控制器CU实际上是一台小型控制计算机。它除了对阵列的处理单元实行控制以外，还能利用本身的内部资源执行一整套指令，用以完成标量操作，在时间上与各PE的数组操作重叠起来。因此，控制器的功能有以下五个方面：<br>
+            　　(1) 对指令流进行控制和译码，包括执行一整套标量操作指令；<br>
+            　　(2) 向各处理单元发出执行数组操作指令所需的控制信号；<br>
+            　　(3) 产生和向所有处理单元广播公共的地址部分；<br>
+            　　(4) 产生和向所有处理单元广播公共的数据；<br>
+            　　(5) 接收和处理由各PE(计算出错时)、系统I/O操作以及B6700所产生的陷阱中断信号。<br>
+            　　IlliacIV阵列控制器CU与处理单元阵列之间的信息联系如图8.5所示，一共有以下四条信息通路：<br>
+            　　1) CU总线 处理单元存储器PEM经过CU总线把指令和数据送往阵列控制器，以8个64位字为一信息块。这里指令是指分布存放在阵列存储器中用户程序的指令；而数据可以是处理所需的公共数据，先将它们送到CU，再利用CU的广播功能送到各处理单元。<br>
+            　　2) 公共数据总线CDB (Common Data Bus) 这是64位总线，用作向64个处理单元同时广播公共数据的通路。例如，作为公共乘数的常数就不必在64个PEM中重复存放，可以由CU的某一个寄存器送往各处理单元；此外，指令的操作数和地址部分也要经过CDB送来。<br>
+            　　3) 模式位线( mode bit line) 每一个单元都可以经过模式位线把它的模式寄存器(mode register)状态送到CU中来，送来的信息中也包括该处理单元的&quot;活动&quot;状态位。只有那些处于&quot;活动&quot;状态的处理单元才执行单指令流所规定的公共操作。从64个处理单元送往CU的模式位在CU的累加寄存器中拼成一个模式字，以便在CU内部执行一定的测试指令，对这模式字进行测试，并根据测试结果控制要求的程序转移动作。<br>
+            　　4) 指令控制线 处理单元微操作控制信号和处理单元存储器地址、读/写控制信号都经过约200根指令控制线由CU送到阵列处理单元PE和存储器逻辑部件MLU中来。<br>
+          </p>
+          <p align="left" class="pt9-black">&nbsp;</p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

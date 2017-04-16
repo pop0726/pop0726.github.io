@@ -1,0 +1,49 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第三章 存储系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><span class="pt9-black"><b><br>
+            </b></span><b><span class="part">3.2.3 段式虚拟存储器</span></b><span class="pt9-black"><b><br>
+            <br>
+            </b>　　程序员在编写程序时，一般按照程序的内容和函数关系把程序分成段，每段都有自己的名字，并且希望能够按照名称或序号来访问程序段。采用段式虚拟存储器能够比较好地满足程序员的这些要求。<br>
+            　　程序段可以是主程序，也可以是各种子程序，还可以是数据块、数组、表格、向量等。每个程序段都从0地址开始，长度可长可短，甚至可以在程序执行时动态地改变程序段的长度。<br>
+            　　每一道程序（或一个用户、一个进程等）由一张段表控制，每个程序段在段表中占一行。段表的内容主要包括段号、段长和起始地址等三个字段。如果段号是连续的，则这一字段可以省掉，只要根据起始地址和段长，就能够把该程序段唯一地映象到主存储器的确定位置中。另外，根据需要还可以在段表中增加其它信息，如指出该程序段的访问方式（可读可写、只读、某些用户可写、只能执行等）、是否已经装入主存的标志、是否被修改过的标志等。 
+            <br>
+            　　图3.14是段式虚拟存储器的地址映象方法。一个由4个程序段组成的程序，在一张段表的控制下，把这4段程序分别映象到主存储器的各个不同区域中。每一个程序段可以映象到主存储器的任意位置，可以连续存放，也可以不连续存放，可以顺序存放，也可以前后到置等。</span></p>
+          <p align="center"><img src="images/tu3_14.gif" width="494" height="275"><br>
+            <b class="pt9-black">图3.14 段式虚拟存储器的地址映象 </b></p>
+          <p align="left" class="pt9-black">　　使用地址映象方法，可以把在虚拟地址空间中编写的程序装入到了主存储器中。但在在程序实际执行时，还要把多用户虚地址变换成主存实地址，有了主存实地址才能访问已经装在主存储器中的用户程序和数据，地址变换过程如图3.15所示。一个多用户虚地址由三部分组成，用户号U（或程序号）、段号S和段内偏移D。在CPU内通常有一个段表基址寄存器堆，每道程序使用其中的一个基址寄存器。因此，可以通过多用户虚地址中的用户号直接找到与这道程序相对应的基址寄存器。通常，段表是放在主存储器中的，从这个基址寄存器中可以直接读出段表的起始地址，把这个起始地址与多用户虚地址中段号相加就能得到这个程序段的段表地址。访问这个段表地址，就能得到有关该程序段的全部信息。如果装入位给出的信息表示要访问的这个程序段已经在主存储器中，这时，只要把段表中给出的该程序段的起始地址与多用户虚地址中的段内偏移D相加就能得到主存实地址。</p>
+          <p align="center" class="pt9-black"><b><img src="images/tu3_15.gif" width="522" height="260"><br>
+            图3.15 段式虚拟存储器的地址变换 </b></p>
+          <p align="left" class="pt9-black">　　段表中的段长和访问方式是用来保护程序段的。可以根据程序段的起始地址和段长计算出本次访问主存储器的地址是否越界。访问方式可以指出本程序段是否需要保护和保护的级别。例如，对于子程序段，通常只能执行，不能改写；对于一些常数段或数据库中的数据段，一般用户程序只能读，不能改写，不能执行；对于有些需要保密的表格等，一般用户应禁止访问等。<br>
+            　　如果装入位给出的信息表示要访问的这个程序段不在主存储器中，则段表中的起始地址和访问方式字段等均无用。这时，可以把它们用来存放该程序段在磁盘存储器中的起始地址等信息。使用磁盘存储器的起始地址和段长就可以从磁盘存储器中把该程序段读到主存储器中来。</p>
+          <p align="left" class="pt9-black">&nbsp;</p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

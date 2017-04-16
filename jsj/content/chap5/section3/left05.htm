@@ -1,0 +1,44 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第五章 标量处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><span class="part">5.3.3 数据重定向</span><br>
+            <br>
+            <span class="pt9-black">　　在流水线中建立专用路径的方法主要有两种。<br>
+            　　1、 对于写读数据相关，如图5.44(a)所示。先A→B，然后B→C；等效于A→B→C。新增加了一条从A到C的专用路径，撤消原来从B到C的路径。经过这样的改变之后，就可以避免写读数据相关，或者缩短发生写读数据相关的时间。</span></p>
+          <p align="center"><span class="pt9-black"><img src="images/tu5_44.jpg" width="383" height="331"></span></p>
+          <p align="left"><span class="pt9-black">　　2、对于写写数据相关，如图5.44(b)所示，先A→B，然后C→B。经过数据重定向，改为C→B'。在以后再引用变量B时，改为引用变量B'。这种重定位方法，可以用硬件实现，也可以用软件实现。在编译器中，把这种方法称为变量重命名。<br>
+            　　3、对于读写数据相关，如图5.44(c)所示，先B→A，然后C→B。经过数据重定向，改为B'→A和C→B。与写写数据相关类似，读写数据相关可以用硬件实现，也可以用软件实现。<br>
+            　　所有三种数据相关，在重定向之前，j只能在i之后执行，而重定向之后，对于写读相关，j与i可以同时执行，就是专用数据通路法。对于写写相关和读写相关，j与i无先后时间顺序要求。 
+            <br>
+            <br>
+            </span> </p>
+          </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

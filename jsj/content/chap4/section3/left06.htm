@@ -1,0 +1,47 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第四章 输入输出系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black"><b>1、字节多路通道</b><br>
+            <br>
+            　　字节多路通道（Byte Multiplexor Channel）是一种简单的共享通道，主要为多台低速或中速的外围设备服务。字节多路通道采用分时方式工作，依靠它与CPU之间的高速数据通路分时为多台设备服务。<br>
+            　　字节多路通道可以有不同的工作方式。如果连接在通道上的各个设备轮流占用一个很短的时间片（通常小于100微秒）传输一个字节，或者说，不同的设备在它所分得的时间片内与通道在逻辑上建立不同的传输连接，则称为字节交叉方式（Byte-interleave 
+            Mode）。如果允许一个设备一次占用通道比较长得时间传输一组数据，或者说，设备与通道的连接可以根据需要维持到一组数据全部传送完成，则称为成组方式（Block 
+            Mode）。两种工作方式之间的转换可以自动进行，它通过一个超时机制来进行控制。如果在超时机制预置的时间内，数据仍没有传送完毕，则自动转入成组方式工作，否则，继续采用字节交叉方式工作。<br>
+            　　字节多路通道的组织结构如图4.12所示。它包含有多个子通道，每个子通道连接一个设备控制器。由于子通道的数目可以很多，例如，IBM 
+            370系列机的一个字节多路通道可以支持多达256个子通道。如果每个通道都有自己的一套硬件，必然造成总的设备量非常庞大，甚至达到不能容忍程度，因此，目前的做法是：控制部分是公共的，由所有子通道共享，而寄存器部分每个子通道都有自己独立的一套。为了节省硬件，可以在主存储器中开辟出一个固定的区域来充当。对主存储器固定单元的访问速度完全能够满足低速和中速外围设备的要求。 
+            <br>
+            　　每个子通道最少需要有一个字节缓冲寄存器，一个状态/控制寄存器以及指明固定地址的少量硬件。与各个子通道有关的参数，如主存数据缓冲区地址、交换字节个数等都存放在主存固定单元中。当通道在逻辑上与某一台设备连接时，就从主存相应的单元中把有关参数取出来，根据主存数据缓冲区地址访问主存储器，读出或写入一个字节，并将交换字节个数减1，将主存数据缓冲区地址增量至下一个数据的地址。在这些工作都完成之后，就将通道与该设备在逻辑上断开。</p>
+          <p align="center"><img src="iamges/tu4.12.jpg" width="266" height="297"> 
+            <br>
+          </p>
+          <p align="left" class="pt9-black">　</p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

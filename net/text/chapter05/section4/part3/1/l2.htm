@@ -1,0 +1,27 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+          <td class="explaination"><br>
+            　　另一种可能的解决方法是给每个连接分配一个连接标识符，即一个随连接建立而递增的顺序号，该标识符由请求连接方选择，并放进包括连接请求在内的每个TPDU中。当每个连接被释放后，各传输实体可以更新一张表，列出所有过时的连接对（对等的传输实体，连接标识符）。每当收到一个连接请求时，便检查这张表，看该连接是否属于以前所释放的连接。<br>
+            <br>
+            　　不幸的是，这种方案有一些基本的缺陷：它要求每个传送实体长时间保持一定量的历史信息。如果某台机器由于崩溃而丢失了它存储的信息，那么它便无法再获知哪些连接标识符是用过的。<br>
+            <br>
+            　　因而我们需要采取一种不同的方法。我们必须设计出一种机制来删除那些仍在网中&quot;徘徊&quot;的过时的分组，不让它们永远存留在子网中。如果我们能够确保任何一个分组在子网中的存留时间都不超过某个已知的时间．那么问题在某种程度上就变得较易处理了。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

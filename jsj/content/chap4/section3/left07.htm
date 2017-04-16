@@ -1,0 +1,42 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第四章 输入输出系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black"><b>2、选择通道</b><br>
+            <br>
+            　　高速外围设备，如磁盘存储器等需要很高的数据传输率，因此不能字节多路通道那样的控制方式。高速外围设备必须设置专门的通道在一段时间内单独为一台外围设备服务，但在不同的时间内仍可以选择不同的设备。一旦选中某一设备，通道就进入&quot;忙&quot;状态，直到该设备的数据传输工作全部结束为止，这就是选择通道（Selector 
+            Channel）。选择通道可以认为是只有一个以成组方式工作的子通道，只有一套完整的硬件，它逐个为几台物理上连接的高速外围设备服务。<br>
+            　　选择通道的硬件组成如图4.13所示，它主要包含5个寄存器：数据缓冲寄存器、设备地址寄存器、主存地址计数器、交换字节数计数器和设备状态/控制寄存器等，另外，还有格式变换部件和通道控制部分等。</p>
+          <p align="center" class="pt9-black"><img src="iamges/tu4.13.jpg" width="412" height="242"></p>
+          <p align="left"><span class="pt9-black">　　因为外围设备与通道控制器之间通常是以字节为单位传送数据的，而通道与主存储器之间要以字为单位传送数据，一个字的长度一般为32位或64位。数据格式变换部件完成字到字节的拆卸及字节到字的装配。<br>
+            </span> </p>
+          <p align="left" class="pt9-black">&nbsp;</p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,462 @@
+<HTML>
+<HEAD>
+<title>计算机网络体系结构</title>
+<SCRIPT language=JavaScript>
+<!--
+/*-------------------------------------------填空题---------------------------------------------*/
+function getKeyWord(form){
+var mykeys=new Array();
+mykeys[0]="时分复用";mykeys[1]="空分复用";mykeys[2]="频分复用";mykeys[3]="波分复用";mykeys[4]="码分复用";mykeys[5]="资源子网";mykeys[6]="通信子网";mykeys[7]="距离向量";mykeys[8]="链路状态";mykeys[9]="53";mykeys[10]="48";mykeys[11]="拓扑结构";mykeys[12]="传输介质";mykeys[13]="访问控制方式";
+
+var answer=new Array();
+for(var I=0;I<mykeys.length;I++) answer[I]="";
+
+var every=form.elements;
+for(var I=0;I<every.length;I++)
+{
+if(every[I].type=="text")
+{
+ if(every[I].value!==null)
+ {var item=parseInt(every[I].name.substr(1))
+  answer[item-1]+=every[I].value;
+  }
+ }
+}
+var newcount="<html><head><title>谢谢您!</title></head><body><center><h2><font color=red>您的测试结果</font></h2></center>";
+var totalscore=0;
+for(var I=0;I<answer.length;I++)
+{
+	if(answer[I].toUpperCase()==mykeys[I].toUpperCase())
+	{
+		var rstr="<font size=2>第"+(I+1)+"个空答案正确!</font><br>";
+		newcount+=rstr;
+		totalscore+=1/14*100;
+	}else
+	{
+		var rstr="<font size=2>第"+(I+1)+"个空答案错误!正确答案为"+mykeys[I]+"</font><br>";
+		newcount+=rstr;
+	}
+
+}
+
+newcount+="<br>您的总成绩为:";
+newcount+=Math.ceil(totalscore);
+newcount+="分";
+newwin=window.open("","","height=400,width=400,scrollbars=yes,resizable=no");
+newwin.document.write(newcount);
+}
+/*-------------选择提----------------------------------------------------------------*/
+function getresultcheck(form)
+{var mykeys=new Array();
+mykeys[0]="a";mykeys[1]="c";mykeys[2]="a";mykeys[3]="b";mykeys[4]="d";mykeys[5]="d";mykeys[6]="d";mykeys[7]="d";mykeys[8]="d";mykeys[9]="a";
+
+
+var answer=new Array();
+for(var I=0;I<mykeys.length;I++) answer[I]="";
+
+var every=form.elements;
+//var lastname="";
+for(var I=0;I<every.length;I++)
+{
+	if(every[I].type=="radio")
+	{
+		/*alert("checkbox:name->"+every[I].name+"value->"+every[I].value);*/
+		if(every[I].checked)
+		{	
+			//var item=parseInt(every[I].name.charAt(1));
+			var item=parseInt(every[I].name.substr(0));/*返回由字符串转换得到的整数*/
+			/*substr返回一个从指定位置开始的指定长度的子字符串。*/
+			answer[item-1]+=every[I].value;
+		}
+	}				
+}
+
+var newcount="<html><head><title>谢谢您!</title></head><body><center><h2><font color=red>您的测试结果</font></h2></center>";
+var totalscore=0;
+for(var I=0;I<answer.length;I++)
+{
+	if(answer[I]==mykeys[I])
+	{
+		var rstr="<font size=2>第"+(I+1)+"题答案正确!</font><br>";
+		newcount+=rstr;
+		totalscore+=1/10*100;//每题分数
+	}else
+	{
+		var rstr="<font size=2>第"+(I+1)+"题答案错误!正确答案为"+mykeys[I]+"</font><br>";
+		newcount+=rstr;
+	}
+
+}
+
+newcount+="<br>您的总成绩为:";
+newcount+=Math.ceil(totalscore);
+newcount+="分";
+newwin=window.open("","","height=400,width=400,scrollbars=yes,resizable=no");
+newwin.document.write(newcount);}
+/*--------------------------------判断题----------------------------------------------------*/
+
+function getresultpanduan(form)
+{var mykeys=new Array();
+
+
+
+var answer=new Array();
+for(var I=0;I<mykeys.length;I++) answer[I]="";
+
+var every=form.elements;
+//var lastname="";
+for(var I=0;I<every.length;I++)
+{
+	if(every[I].type=="checkbox")
+	{
+		/*alert("checkbox:name->"+every[I].name+"value->"+every[I].value);*/
+		if(every[I].checked)
+		{	
+			//var item=parseInt(every[I].name.charAt(1));
+			var item=parseInt(every[I].name.substr(0));/*返回由字符串转换得到的整数*/
+			/*substr返回一个从指定位置开始的指定长度的子字符串。*/
+			answer[item-1]+=every[I].value;
+		}
+	}				
+}
+
+var newcount="<html><head><title>谢谢您!</title></head><body><center><h2><font color=red>您的测试结果</font></h2></center>";
+var totalscore=0;
+for(var I=0;I<answer.length;I++)
+{
+	if(answer[I]==mykeys[I])
+	{
+		var rstr="<font size=2>第"+(I+1)+"题 您答对了!</font><br>";
+		newcount+=rstr;
+		totalscore+=1/0*100;//每题分数
+	}else
+	{
+		var rstr="<font size=2>第"+(I+1)+"题 您答错了!</font><br>";
+		newcount+=rstr;
+	}
+
+}
+
+newcount+="<br>您的总成绩为:";
+newcount+=Math.ceil(totalscore);
+newcount+="分";
+newwin=window.open("","","height=400,width=400,scrollbars=yes,resizable=no");
+newwin.document.write(newcount);
+}
+/*--------------------------------简答题----------------------------------------------------*/
+
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</SCRIPT>
+<style type="text/css">
+<!--
+.unnamed1 {  font-family: "宋体"; font-size: 10pt}
+-->
+</style>
+<link rel="stylesheet" href="../../css/text.css" type="text/css">
+</HEAD>
+
+<BODY text=black bgColor=white leftMargin=0 topMargin=10 marginheight="10" 
+marginwidth="0">
+ <DIV class=p2 align=center></DIV> 
+      <FORM >
+  <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center">
+    <tr>
+      <td> 
+        <p class="unnamed1"><br>
+          <br>
+          <span class="section"> 　一、选择题：</span><br>
+          <br>
+          　1.OSI模型的任何给定层都会给报文加上一个报头______。<br>
+          　 
+          <input type=radio  name=1 value=a>
+          A.对<br>
+          　 
+          <input type=radio  name=1 value=b>
+          B.错<br>
+          <br>
+          　2.调制解调器的作用是______。<br>
+          　 
+          <input type=radio  name=2 value=a>
+          A.传送数字信号<br>
+          　 
+          <input type=radio  name=2 value=b>
+          B.传送模拟信号<br>
+          　 
+          <input type=radio  name=2 value=c>
+          C.进行数字和模拟信号转换<br>
+          　 
+          <input type=radio  name=2 value=d>
+          D.防止信号衰减<br>
+          <br>
+          　3.SDLC、HDLC和LLC都是在OSI模型的哪一层上操作的协议？<br>
+          　 
+          <input type=radio  name=3 value=a>
+          A.数据链路层<br>
+          　 
+          <input type=radio  name=3 value=b>
+          B.网络层<br>
+          　 
+          <input type=radio  name=3 value=c>
+          C.会话层<br>
+          　 
+          <input type=radio  name=3 value=d>
+          D.表示层<br>
+          <br>
+          　4.运输层的功能是______。<br>
+          　 
+          <input type=radio  name=4 value=a>
+          A.移动数据通过多个网络<br>
+          　 
+          <input type=radio  name=4 value=b>
+          B.保证可靠的数据传送<br>
+          　 
+          <input type=radio  name=4 value=c>
+          C.为一个应用向另一个应用携带数据<br>
+          　 
+          <input type=radio  name=4 value=d>
+          D.以上都不是<br>
+          <br>
+          　5.会话层的功能是______。<br>
+          　 
+          <input type=radio  name=5 value=a>
+          A.将数据转换成物理层可以理解的一串1和0<br>
+          　 
+          <input type=radio  name=5 value=b>
+          B.将数据转换成发送和接收计算机都能理解的语言<br>
+          　 
+          <input type=radio  name=5 value=c>
+          C.将数据以一种可靠的方式移动通过网络<br>
+          　 
+          <input type=radio  name=5 value=d>
+          D.维持网络应用之间的对话<br>
+          <br>
+          　6.邮件服务和目录服务是通过______层提供给用户的。<br>
+          　 
+          <input type=radio  name=6 value=a>
+          A.数据链路层<br>
+          　 
+          <input type=radio  name=6 value=b>
+          B.网络层<br>
+          　 
+          <input type=radio  name=6 value=c>
+          C.会话层<br>
+          　 
+          <input type=radio  name=6 value=d>
+          D.应用层<br>
+          <br>
+          　7.X.25 协议属OSI______层上的操作。<br>
+          　 
+          <input type=radio  name=7 value=a>
+          A.物理<br>
+          　 
+          <input type=radio  name=7 value=b>
+          B.数据链路<br>
+          　 
+          <input type=radio  name=7 value=c>
+          C.网络<br>
+          　 
+          <input type=radio  name=7 value=d>
+          D.以上全是<br>
+          <br>
+          　8.因为ATM ______即信元沿同一条路径走,信元一般不会失序。<br>
+          　 
+          <input type=radio  name=8 value=a>
+          A.是异步的<br>
+          　 
+          <input type=radio  name=8 value=b>
+          B.是多路复用的<br>
+          　 
+          <input type=radio  name=8 value=c>
+          C.是一个网络<br>
+          　 
+          <input type=radio  name=8 value=d>
+          D.用虚电路<br>
+          <br>
+          　9.100Base-X 与1000Base-T4 的区别是______。<br>
+          　 
+          <input type=radio  name=9 value=a>
+          A.数据传输率<br>
+          　 
+          <input type=radio  name=9 value=b>
+          B.拓扑结构<br>
+          　 
+          <input type=radio  name=9 value=c>
+          C.帧格式<br>
+          　 
+          <input type=radio  name=9 value=d>
+          D.工作站和HUB之间的电缆数目<br>
+          <br>
+          　10.局域网功能的两个方面是______。<br>
+          　 
+          <input type=radio  name=10 value=a>
+          A.避免冲突和冲突检测<br>
+          　 
+          <input type=radio  name=10 value=b>
+          B.避免冲突和令牌传递<br>
+          　 
+          <input type=radio  name=10 value=c>
+          C.分布检测和重发<br>
+          　 
+          <input type=radio  name=10 value=d>
+          D.令牌传递和分布检测<br>
+          <br>
+          　　 
+          <input type='reset' name='Submit3' value='重来'>
+          <input onClick=getresultcheck(this.form) type=button value=提交 name="button">
+          <br>
+          <br>
+          <br>
+          <span class="section">　二、填空题：</span><br>
+          <br>
+          　1.常用的多路复用方式有 
+          <input type=text size=10 name=m1 style='border-color: black black #000000; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 1px; border-left-width: 0px'>
+          ， 
+          <input type=text size=10 name=m2 style='border-color: black black #000000; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 1px; border-left-width: 0px'>
+          ， 
+          <input type=text size=10 name=m3 style='border-color: black black #000000; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 1px; border-left-width: 0px'>
+          ， 
+          <input type=text size=10 name=m4 style='border-color: black black #000000; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 1px; border-left-width: 0px'>
+          ， 
+          <input type=text size=10 name=m5 style='border-color: black black #000000; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 1px; border-left-width: 0px'>
+          等。<br>
+          <br>
+          　2.一个网络可分为两个子网，即 
+          <input type=text size=10 name=m6 style='border-color: black black #000000; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 1px; border-left-width: 0px'>
+          和 
+          <input type=text size=10 name=m7 style='border-color: black black #000000; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 1px; border-left-width: 0px'>
+          子网。<br>
+          <br>
+          　3.RIP协议是一个基于 
+          <input type=text size=10 name=m8 style='border-color: black black #000000; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 1px; border-left-width: 0px'>
+          的路由协议，OSPF协议也称为 
+          <input type=text size=10 name=m9 style='border-color: black black #000000; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 1px; border-left-width: 0px'>
+          协议。<br>
+          <br>
+          　4.ATM的信元总长是 
+          <input type=text size=10 name=m10 style='border-color: black black #000000; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 1px; border-left-width: 0px'>
+          个字节，信息段是 
+          <input type=text size=10 name=m11 style='border-color: black black #000000; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 1px; border-left-width: 0px'>
+          个字节。<br>
+          <br>
+          　5.影响局域网络的3个主要因素是 
+          <input type=text size=10 name=m12 style='border-color: black black #000000; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 1px; border-left-width: 0px'>
+          ， 
+          <input type=text size=10 name=m13 style='border-color: black black #000000; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 1px; border-left-width: 0px'>
+          和 
+          <input type=text size=10 name=m14 style='border-color: black black #000000; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 1px; border-left-width: 0px'>
+          。<br>
+          <br>
+          　　 
+          <input type='reset' name='Submit3' value='重来'>
+          <input type=button name=Button value=提交 onClick=getKeyWord(this.form)>
+          <br>
+          <br>
+          <br>
+          <span class="section">　三、简答题：</span><br>
+          <br>
+          　1.HDLC为数据链路层的通信规程中，（a）一帧的信息字段I=1101011011 地址字段为A=10001000,控制字段为C=00111011,生成多项式为G(x)= 
+          x<sup><font size=1>4</font></sup>+x+1,求出CRC校验码。（b）设有一原始数据码为0110111110010111111010，试问在传输线路上的数据码是什么？在接收端接收到的数据码又是什么？<br>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td> 
+              <div align="center"> 
+                <textarea name=textarea cols=50 rows=12></textarea>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <p class="unnamed1"> <br>
+          <br>
+          　2.什么是（N）－PDU，（N）－SDU？相互有什么关系？<br>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td> 
+              <div align="center"> 
+                <textarea name=textarea2 cols=50 rows=12></textarea>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <p class="unnamed1"><br>
+          <br>
+          　3.试描述防火墙分为哪几种类型？各有什么优缺点？<br>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td> 
+              <div align="center"> 
+                <textarea name=textarea3 cols=50 rows=12></textarea>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <p class="unnamed1"><br>
+          <br>
+          　4.假设一个网桥连接2个802.5（TOKEN RING）LAN，如下图所示，在左边的网络中的一个站点要向右边网络的一个站点发送一帧数据。网桥在向右边的网络转发了帧的拷贝后，请问它是将地址识别位和数据拷贝位置位以表示收到这帧，然后将帧发送到左边网络的下一个站呢还是不做这些操作就像是该帧丢失了一样呢？<br>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td> 
+              <div align="center"><img src="../../image/pic/test/3.gif"><br>
+                <textarea name=textarea4 cols=50 rows=12></textarea>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <p class="unnamed1"><br>
+          <br>
+          　5.快速以太网的出现，在提高传输率的同时，帧的最小长度没有改变，那么其传输速率的提高是以什么为代价的？<br>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td> 
+              <div align="center"> 
+                <textarea name=textarea5 cols=50 rows=12></textarea>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <p class="unnamed1"><br>
+          <br>
+          　6.解释URL的含义,并给出几个不同的实例说明具体的URL表现形式。<br>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td> 
+              <div align="center"> 
+                <textarea name=textarea6 cols=50 rows=12></textarea>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <p class="unnamed1"><br>
+          <br>
+          　7.在以太网的帧格式中，为什么有一个填充字段，填充字段的长度最小值是多少？最小值在什么情况下出现？以太网的帧长度最小是多少？为什么要有最小值？<br>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td> 
+              <div align="center"> 
+                <textarea name=textarea7 cols=50 rows=12></textarea>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <p class="unnamed1"><br>
+          <br>
+        
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td> 
+              <div align="center"> 
+                <input type='reset' name='Submit32' value='重来'>
+                　 
+                <input type=button name=Button2 value=答案 onClick="MM_openBrWindow('answer2.htm','计算机网络','scrollbars=yes,width=470,height=390')">
+              </div>
+            </td>
+          </tr>
+        </table>
+        
+      </td>
+    </tr>
+  </table>
+  <p class="unnamed1">&nbsp;
+</form></BODY></HTML>

@@ -1,0 +1,231 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第三章 存储系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><span class="pt9-black"><b class="part">3.1.2 存储器的层次结构</b><br>
+            <br>
+            　　在同一台计算机中，有各种工作速度，存储容量，访问方式，用途等均不相同的存储器，这些存储器构成一个层次结构，如图3.5所示。从上到下，各种存储器的存储容量越来越大，每位的价格越来越便宜，但存储周期越来越长。</span></p>
+          <p align="center"><span class="pt9-black"><img src="images/tu3_5.jpg" width="340" height="327"></span></p>
+          <p align="left"><span class="pt9-black"><br>
+            　　通用寄存器堆、指令和数据缓冲栈、一级Cache是在CPU芯片内部的，它们的工作速度比较高。从二级Cache以下，是在CPU外部的，工作速度逐级明显降低。如果用i表示层数，则有工作速度：Ti＜Ti+1；存储容量：Si＜Si+1；价格：Ci＞Ci+1；<br>
+            　　因为存放在各种存储器中的程序和数据，最终都要送到CPU中进行处理，CPU的速度很高，因此，希望各层次存储器的工作速度尽量靠近上面，存储容量和价格靠近下面。<br>
+            　　各级存储器的主要性能指标见表3.1所示。这些指标仅供参考，因为随着时间的推移，有些指标在不断变化。</span></p>
+          <p align="center"><span class="pt9-black"><b>表3.1 各种存储器的主要性能特性</b><br>
+            </span></p>
+          <table width="90%" border="1" cellpadding="1" cellspacing="1" bgcolor="#FFFFCC">
+            <tr> 
+              <td height="24" class="pt9-black"> 
+                <div align="center">存储器层次</div>
+              </td>
+              <td height="24" class="pt9-black"> 
+                <div align="center">通用寄存器</div>
+              </td>
+              <td height="24" class="pt9-black"> 
+                <div align="center">缓冲栈</div>
+              </td>
+              <td height="24" class="pt9-black"> 
+                <div align="center">Cache</div>
+              </td>
+              <td height="24" class="pt9-black"> 
+                <div align="center">主存储器</div>
+              </td>
+              <td height="24" class="pt9-black"> 
+                <div align="center">磁盘存储器</div>
+              </td>
+              <td height="24" class="pt9-black"> 
+                <div align="center">脱机存储器</div>
+              </td>
+            </tr>
+            <tr> 
+              <td height="22" class="pt9-black"> 
+                <div align="center">存储周期</div>
+              </td>
+              <td height="22" class="pt9-black"> 
+                <div align="center">&lt;10ns</div>
+              </td>
+              <td height="22" class="pt9-black"> 
+                <div align="center">&lt;10ns</div>
+              </td>
+              <td height="22" class="pt9-black"> 
+                <div align="center">10～60ns</div>
+              </td>
+              <td height="22" class="pt9-black"> 
+                <div align="center">60～300ns</div>
+              </td>
+              <td height="22" class="pt9-black"> 
+                <div align="center">10～30ms</div>
+              </td>
+              <td height="22" class="pt9-black"> 
+                <div align="center">2～20min</div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center">存储容量</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">&lt;512B</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">&lt;512B</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">8KB～2MB</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">32MB～1GB</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">1GB～1TB</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">5GB～10TB</div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center">价格($C/KB)</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">1200</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">80</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">3.2</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">0.36</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">0.01</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">0.0001</div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center">访问方式</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">直接译码</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">先进先出</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">相联访问</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">随机访问</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">块访问</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">文件组</div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center">材料工艺</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">ECL</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">ECL</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">SRAM</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">DRAM</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">磁表面</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">磁、光等</div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center">分配管理</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">编译器分配</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">硬件调度</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">硬件调度</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">操作系统</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">系统/用户</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">系统/用户</div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center">带宽(MB/S)</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">400～8000</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">400～1200</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">200～800</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">80～160</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">10～100</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">0.2～0.6</div>
+              </td>
+            </tr>
+          </table>
+          <p align="left" class="pt9-black">　　1955年，IBM公司推出的第一台大型计算机IBM704，CPU和主存储器的工作周期均为12微秒，两者恰好能匹配工作。到了40多年后的今天，CPU的工作速度提高了4个数量级以上，而主存储器的工作速度仅提高两个数量级，两者根本不能匹配工作。因此，计算机系统结构的设计者们必须面对这一现实，找出解决的方法。以下将介绍解决这一问题的一些主要方法。</p>
+          <p align="left"><span class="pt9-black"> </span></p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

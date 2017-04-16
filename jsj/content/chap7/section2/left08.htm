@@ -1,0 +1,47 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第七章 互连网络</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="left"> 
+          <p class="pt9-black"><b>2 确定寻径和自适应寻径</b><br>
+            　　下面讨论如何找出一条从源结点到目的结点的路径来传送消息。寻径可以分为确定和自适应两类。采用确定寻径时，通信路径完全由源和目的地址确定。换句话说，寻找的路径是预先唯一确定的，与网络的状况无关。自适应寻径与网络的状况有关，可能会有几条路径。这两种寻径都需要无死锁算法。<br>
+            　　(1)确定寻径<br>
+            　　下面给出两种基于维序概念的确定寻径算法。<br>
+            　　维序寻径是一种按照多维网络维序的特定顺序来选择后继通道。在二维网格网络中称为X-Y寻径，首先沿着X维方向确定路径，然后沿着Y维方向选择路径。在超立体（或n立方体）网络中，采用最初由Sullivan和Bashkow（1977）提出的称为E立方体寻径（E-cube 
+            routing）方法。<br>
+            　　＊二维网格网络的X-Y寻径 假定从任意源结点<img src="images/gsh2_10.gif" width="52" height="15" align="absmiddle">到任意目的结点<img src="images/gsh2_11.gif" width="52" height="18" align="absmiddle"> 
+            ，寻径从s开始，首先沿X方向前进一直到d所在的第<img src="images/gsh2_12.gif" width="15" height="11" align="absmiddle">列为止，然后沿Y方向前进直到d。<br>
+            　　与东-北、东-南、西-北及西-南的路径方向相对应，X-Y寻径共有四种模式。图7.32是二维网格连接多计算机的X-Y寻径的例子。图中有4个（源，目的）对，可用以说明二维网格的四种寻径模式。</p>
+          <p align="center"><span class="pt9-black"><img src="images/tu7_32.jpg" width="706" height="729"></span></p>
+          <p align="left" class="pt9-black">　　从结点(2,1)到结点(7,6)需要一条东-北路径。从结点(0,7)到结点(4,2)要建立一条东-南路径。从结点(5,4)到结点(2,0)需要一条西-南路径。从结点(6,3)到结点(1,5)需要一条西-北方向路径。如果总是先沿X维方向寻径，然后再沿Y维方向寻径，寻径就不会出现死锁或循环等待现象。<br>
+            　　按照维序，可以很容易地将X-Y寻径扩充到n维网络。以三维网格为例，可以类似地说明X-Y-Z寻径方法。X-Y方式不会产生死锁寻径，可用于存储转发或虫蚀寻径网络，在源和目的结点之间形成一条距离最短的路径，然而对于环网网络，采用维序寻径方法不能得到最短路径。为了减少网络流量或其它原因，不会产生死锁的非最短寻径算法有时会使包通过的路径较长。</p>
+          <p align="left" class="pt9-black">&nbsp;</p>
+        </div>
+        <p align="left" class="pt9-black">　</p>
+        </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

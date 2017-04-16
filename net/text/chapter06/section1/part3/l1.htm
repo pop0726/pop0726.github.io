@@ -1,0 +1,144 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td> <br>
+            <img src="../../../../image/tub/bg.gif" width="25" height="20" alt="表格"></td>
+        </tr>
+        <tr>
+          <td> 
+            <div align="center"><span class="point">表6.5 会话层12个功能单元</span><br>
+            </div>
+            <table width="430" border="0" cellspacing="1" cellpadding="0" bgcolor="#000099" align="center">
+              <tr bgcolor="#FFFFFF"> 
+                <td class="part" width="170"> 
+                  <div align="center">功能单元</div>
+                </td>
+                <td class="part" width="99"> 
+                  <div align="center">会话服务</div>
+                </td>
+                <td class="part" width="157"> 
+                  <div align="center">主要功能</div>
+                </td>
+              </tr>
+              <tr bgcolor="#FFFFFF"> 
+                <td class="text" width="170"> 　核心功能单元(非协商式)<br>
+                  　Kernel(non-negotiable)</td>
+                <td class="text" width="99">　会话连接<br>
+                  　正常数据传送<br>
+                  　有序释放<br>
+                  　U-废弃<br>
+                  　P-废弃 </td>
+                <td class="text" width="157"> 　会话连接建立、数据传送、<br>
+                  　会话连接释放。</td>
+              </tr>
+              <tr bgcolor="#FFFFFF"> 
+                <td class="text" width="170">　协商式释放功能单元<br>
+                  　(Negotiated Release) </td>
+                <td class="text" width="99">　有序释放<br>
+                  　令牌出让<br>
+                  　令牌请求 </td>
+                <td class="text" width="157"> 　利用释放令牌拒绝会话连<br>
+                  　接释放指示，以继续使用<br>
+                  　该会话连接。</td>
+              </tr>
+              <tr bgcolor="#FFFFFF"> 
+                <td class="text" width="170">　半双工功能单元<br>
+                  　(Half-duplex) </td>
+                <td class="text" width="99">　令牌出让<br>
+                  　令牌请求 </td>
+                <td class="text" width="157"> 　持有数据令牌的一方可发<br>
+                  　送正常数据。</td>
+              </tr>
+              <tr bgcolor="#FFFFFF"> 
+                <td class="text" width="170">　全双工功能单元<br>
+                  　(Duplex) </td>
+                <td class="text" width="99">　无附加服务 </td>
+                <td class="text" width="157"> 　双方可同时发送正常数据。</td>
+              </tr>
+              <tr bgcolor="#FFFFFF"> 
+                <td class="text" width="170">　加速数据功能单元<br>
+                  　(Expedited data) </td>
+                <td class="text" width="99">　加速数据传送 </td>
+                <td class="text" width="157"> 　可优先传送加速数据，加<br>
+                  　速数据肯定比后续的正常<br>
+                  　数据先到达对方。</td>
+              </tr>
+              <tr bgcolor="#FFFFFF"> 
+                <td class="text" width="170">　特权数据功能单元<br>
+                  　(Typed data) </td>
+                <td class="text" width="99"> 　特权数据传送</td>
+                <td class="text" width="157"> 　提供与数据令牌无关的数<br>
+                  　据传送功能。</td>
+              </tr>
+              <tr bgcolor="#FFFFFF"> 
+                <td class="text" width="170"> 　能力数据交换功能单元<br>
+                  　(Capability data exchange)</td>
+                <td class="text" width="99">　能力数据传送 </td>
+                <td class="text" width="157"> 　在活动之间提供数据传送<br>
+                  　功能。</td>
+              </tr>
+              <tr bgcolor="#FFFFFF"> 
+                <td class="text" width="170"> 　次同步功能单元<br>
+                  　(Minor synchronize)</td>
+                <td class="text" width="99">　次同步点<br>
+                  　令牌出让<br>
+                  　令牌请求 </td>
+                <td class="text" width="157"> 　提供次同步点插入功能。</td>
+              </tr>
+              <tr bgcolor="#FFFFFF"> 
+                <td class="text" width="170">　主同步功能单元<br>
+                  　(Major Synchronize) </td>
+                <td class="text" width="99"> 　主同步点<br>
+                  　令牌出让<br>
+                  　令牌请求</td>
+                <td class="text" width="157"> 　提供主同步点插入功能。</td>
+              </tr>
+              <tr bgcolor="#FFFFFF"> 
+                <td class="text" width="170">　重新同步功能单元<br>
+                  　(Resynchronize) </td>
+                <td class="text" width="99">　重新同步 </td>
+                <td class="text" width="157"> 　提供重新设定同步点和重<br>
+                  　新分配令牌的功能。</td>
+              </tr>
+              <tr bgcolor="#FFFFFF"> 
+                <td class="text" width="170">　异常报告功能单元<br>
+                  　(Exceptions) </td>
+                <td class="text" width="99">　P-异常报告<br>
+                  　U-异常报告 </td>
+                <td class="text" width="157"> 　服务提供者向用户报告差<br>
+                  　错信息。</td>
+              </tr>
+              <tr bgcolor="#FFFFFF"> 
+                <td class="text" width="170"> 　活动管理功能单元<br>
+                  　(Activity Management)</td>
+                <td class="text" width="99">　活动开始<br>
+                  　活动恢复<br>
+                  　活动中断<br>
+                  　活动丢弃<br>
+                  　活动结束<br>
+                  　令牌出让<br>
+                  　令牌请求<br>
+                  　控制出让 </td>
+                <td class="text" width="157"> 　提供活动的开始、结束、<br>
+                  　中断、恢复和丢弃功能。</td>
+              </tr>
+            </table>
+            <br>
+            　　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

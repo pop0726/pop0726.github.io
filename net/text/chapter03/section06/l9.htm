@@ -1,0 +1,27 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td class="explaination" colspan="2"><br>
+            　　首先，这里假定所有的芯片在时间上都是同步的，但在实际中，这是不可能的。在实际应用中，发送方发送-个足够长的已知接收方可以锁定的芯片序列，使发送方和接收方同步。其他的所有传送（非同步的）都被认为是随机噪声。只要非同步传送不是太多的话，基本的解码算法的工作效果仍然相当好。关于芯片序列叠加以至成为噪声，有一大套理论（Pickholtz等1982）。大家可以推断出：芯片序列越长，正确地从噪声中探测到的可能性就越大，要获得额外的安全性，比特序列可以采用纠错码，但芯片序列却从不使用纠错码。<br>
+            <br>
+            　　上述讨论隐含了一个假定，这就是接收方从所有站点收到的功率都是同一等级的。CDMA适用的无线网系统，通常由一个基站和许多距离不等的移动站点构成。基站接收到的功率取决于发送方的远近。于是CDMA中采取了一种效果良好的试探法。每个移动站点根据它从基站收到的功率大小进行发送。收到基站信号较弱的移动站点会使用比收到较强信号时更大的功率进行发送。另外，基站也可以明确地命令移动站点增强或减小发送功率。<br>
+            <br>
+            　　另外，这里还假定接收方知道谁是发送方。理论上说，只要计算能力足够，接收方就可以同时并行地对所有站点进行解码。但是说起来容易做起来难，现实中很难实现。另外，CDMA还有许多其他复杂的因素在这里还未曾涉及。尽管如此，CDMA仍是无线移动通信中迅速发展的一种比较巧妙的方法。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

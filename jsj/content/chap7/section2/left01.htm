@@ -1,0 +1,51 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第七章 互连网络</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black"><span class="section">7.2.消息传递机制</span><br>
+            <br>
+            　　消息传递机制的研究在互连网络的研究中占有非常重要的地位。在多计算机系统中通过互连网络进行消息传递需要专门的硬件和软件的支持。在这一节将研究各种寻径方法，并分析它们的通信时延问题。我们还要引入虚拟通道的概念，考察消息传递网络产生死锁的各种情况，说明怎样用虚拟通道来避免死锁。<br>
+            　　为了实现无死锁的消息寻径，人们提出了确定的和自适应两种寻径算法。我们先来讨论确定的维序寻径方法，例如用于超立方体的E立方体寻径和用于二维网格的X-Y寻径即属于这一类方法。然后再讨论虚拟通道或虚拟子网的自适应算法。<br>
+            　　需要说明的是，拓扑结构的选择不是与寻径策略毫无关系。例如，拓扑结构在很大程度上决定了各类不同寻径方案的可用性及是否可以采用自适应寻径。上面两个问题影响着一些关键的网络特性，如可容错性和可模块化等，因此我们对不同的拓扑结构考虑的寻径策略是不一样的。<br>
+            <br>
+            <span class="part">7.2.1消息寻径方式</span><br>
+            <br>
+            　　消息格式的改进使两代多计算机的寻径由存储转发方式演进为虫蚀方式，下面首先介绍消息的格式。接着再讨论在通信路径上相继的寻径器之间的异步流水握手协议。最后还要对时延进行分析，说明现有的寻径方式在时间上的差别。<br>
+            　<b>　1消息格式</b> 消息寻径中的信息单位如图7.25所示。消息是结点间通信的逻辑单位，它常常由任意数目的长度固定的包组成，因此它的长度是可变的。</p>
+          <p align="center" class="pt9-black"><img src="images/tu7_5F25.jpg" width="409" height="152"></p>
+          <p align="left" class="pt9-black">　　包是包含寻径目的地址的基本单位。由于不同的包可能异步地到达目的结点，因此每个包需要一个序号，以便把传递的消息重新装配起来。<br>
+            　　可以进一步把包分成一些固定长度的数据片。寻径信息（目的地址）和序号形成头片，其余的片是数据片。<br>
+            　　在采用存储转发寻径方式的多计算机系统中，包是信息传送的最小单位。在采用虫蚀寻径网络的多计算机中，包可以进一步分成片。片的长度往往受网络大小的影响。256个结点的网络需要片长为8位。<br>
+            　　包的长度取决于寻径方式和网络的实现方法。典型的包的长度为64－512位。序号可能占用1－2个片，取决于消息的长度。包和片的大小还与通道频宽、寻径器设计以及网络流量密度等有关。 
+            <br>
+            <br>
+          </p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

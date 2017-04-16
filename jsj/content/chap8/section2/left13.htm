@@ -1,0 +1,44 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第八章 并行处理机和多处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black"><b>3 基于目录的协议</b></p>
+          <p align="left" class="pt9-black">　　当某台处理机采用Write-Invalid协议正在更新一个变量同时其他处理机也试图读该变量的时候，则会发生读缺失并可能导致总线流量大大增加。另外，Write-Update协议更新远程Cache中的数据，但这些数据可能永远也不会使用。这些问题严重限制了采用总线来构造大型多处理机系统。<br>
+            　　由于在多级网络上实现广播功能的代价很大，所以监听协议就无法使用，把使其它Cache数据块无效的一致性命令只发给存放相应数据块的Cache是一个很好的解决办法。这样就产生了基于目录的协议。<br>
+            <br>
+            1 目录结构及使用<br>
+            <br>
+            　　在多级网络中，用Cache目录存放有关Cache拷贝驻留在哪里的信息，从而支持Cache一致性。各种基于目录协议的不同之处主要在于目录如何维护和存放什么信息。Cache目录的方案有集中式和分布式两种，它们的主要区别就在于其Cache目录（即Cache地址表）的存放形式。无论Cache目录采用集中方式还是分布方式来存放，其内容都是大量的指针，用以指明块拷贝的地址。每个目录项还有一个重写位，用以指明是否有一个Cache允许把有关的数据写入。<br>
+            　　不同目录协议的区别在于目录的结构不同。根据目录的结构，可以把目录协议分成三类：全映射（Full-Map）目录、有限(Limited)目录和链式(Chained)目录。全映射目录存放与全局存储器中每个块有关的数据。这样，系统中的每个Cache可以同时存储任何数据块的拷贝。而在有限目录中，无论系统的规模多大，它的每个目录项的指针数是固定的，所以每个数据块能够装入Cache的数是有限的。链式目录的特点是把目录分布到全部的Cache中，其余部分与全映射相同。<br>
+            　　目录的使用实际上很简单：在一个CPU对Cache进行了写操作的时候，系统根据Cache目录的内容将所有其他存有相同内容的Cache拷贝无效，并置重写位为&quot;重写&quot;。在CPU对Cache进行读操作的情况下，如果重写未置位，则说明该内容未经重写，此时若Cache读缺失，则从主存储器中或拥有正确内容的Cache中读入块并修改目录就可以了。如果读命中，那么直接读就可以了。<br>
+          </p>
+          <p align="left" class="pt9-black">&nbsp;</p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

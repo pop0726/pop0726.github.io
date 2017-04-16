@@ -1,0 +1,49 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第五章 标量处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><span class="part">5.4.5 超标量处理机性能</span><span class="pt9-black"><br>
+            <br>
+            　　为了便于比较，把单流水线普通标量处理机的指令级并行度记作(1,1)，超标量处理机的指令级并行度记作(m,1)，超流水线处理机的指令级并行度记作(1,n)，而超标量超流水线处理机的指令级并行度记作(m,n)。<br>
+            　　在理想情况下，N条指令在单流水线普通标量处理机上的执行时间为：<br>
+            　　　<img src="images/gsh4_10.gif" width="152" height="16" align="absmiddle"> 
+            （5.29）<br>
+            　　其中，k是流水线的级数，<img src="images/gsh4_11.gif" width="17" height="16" align="absmiddle">是一个时钟周期的时间长度。<br>
+            　　如果把相同的N条指令在一台每个时钟周期发射m条指令的超标量处理机上执行，所需要的时间为：<br>
+            　　　<img src="images/gsh4_12.gif" width="175" height="34" align="absmiddle"><br>
+            　　其中，第一项是第一批m条指令同时通过m条指令流水线所需要的执行时间，而第二项是执行其余N－m条指令所需要的时间，这时，每一个时钟周期有m条指令分别通过m条指令流水线。<br>
+            　　因此，超标量处理机相对于单流水线普通标量处理机的加速比为：<br>
+            　　　<img src="images/gsh4_13.gif" width="197" height="39" align="absmiddle"><br>
+            　　当N→∞时，在没有资源冲突，没有数据相关和控制相关的理想情况下，超标量处理机的加速比的最大值为：<br>
+            　　　</span><img src="images/gsh4_14.gif" width="101" height="17" align="absmiddle"><br>
+          </p>
+          <p align="left" class="pt9-black">　</p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

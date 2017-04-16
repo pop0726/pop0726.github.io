@@ -1,0 +1,57 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="25"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第八章 并行处理机和多处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black">(4) EXPRESS<br>
+            <br>
+            　　Express系统是美国Parasoft公司推出的能在不同的硬件环境上运行的并行程序设计环境, 它的前身是Caltech的Crystalline操作系统. 
+            Express系统强调并行程序设计的高层问题, 它将许多与机器有关的细节问题都隐藏在Express函数中, 目的在于更进一步为用户提供方便的并行程序开发环境. 
+            Express支持C和Fortran两种程序设计语言。<br>
+            　　Express支持Host-Node与Cubix两种编程模型, 每个模型对应于不同的并行程序库. 在Host-Node模型中, 
+            用户首先编写在Host上运行的控制程序, 然后再编写在结点上运行的结点程序. 控制程序负责控制各结点程序的运行, 同时完成回收数据及I/O等工作.<br>
+            　　Cubix编程模型由Cubix并行程序库提供支持, 在这种方式下, 应用程序完全分散在各结点上, 在Host上由一通用的I/O 
+            Server来完成各结点程序间的协调及I/O服务工作, 各结点可自由通讯, 无须中央控制.<br>
+            　　Express提供了多种处理机间的通讯原语, 除了通常的同步/异步通讯外, 同时还提供了广播以及多重接收等功能函数, 这些方式同时也适用于I/O服务.<br>
+            　　在分配结点上, Express可以对应用程序到并行计算机的映射提供帮助; 对于Cubix方式, 其结点分配是自动完成的, 对Host-Node方式的映射, 
+            用户可以指定从哪个结点开始分配, 也可以完全由系统自动完成分配.<br>
+            　　对于系统的网络拓扑结构, Express支持多种处理机间不同的连接方式, 以适应不同的实际应用, 但这一配置是静态的, 须在应用程序运行之前进行配置.<br>
+            　　Express可以对系统及用户应用程序的运行作动态监控, 它还提供了并行调试工具NDB, 可以帮助用户跟踪多道并行程序的执行以及它们之间的通讯.<br>
+            　　另外, 为了进行性能评测, Express还提供了三种性能分析工具(对于Host-Node模式):<br>
+            　　　.ctool: 系统性能数据统计分析, 包括<br>
+            　　　　　　1) 计算时间, 并行处理器结点间的通讯时间, 执行输入/输出的时间;<br>
+            　　　　　　2) 通讯系统遇到的出错次数;<br>
+            　　　　　　3) 调用通讯函数的总次数.<br>
+            　　　.etool: 系统事件统计分析<br>
+            　　　.xtool: 系统并行子任务执行行为统计分析.<br>
+            　　Express除了对以上传统的基于消息传递并行程序设计环境各方面作了许多工作以外, 还对并行I/O, 动态负载平衡等方面提供了支持。 
+          </p>
+          <p align="left" class="pt9-black">&nbsp; </p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

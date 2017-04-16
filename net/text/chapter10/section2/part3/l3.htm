@@ -1,0 +1,38 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+          <td class="explaination"><br>
+            　　算法的部分理论基于数学中的数论，特别是著名的费马定理和欧拉定理这里不予讨论，仅举例介绍一下RSA算法的步骤。<br>
+            <br>
+            <span class="point">　1）</span>为字母制定一个简单的编码，例如1到26分别对应于A到Z。<br>
+            <br>
+            <span class="point">　2）</span>选择n，n为两个大的素数（除自身和1外，素数无因子）p和q的乘积。实际中，大的素数包括200或更多的位数。然而，为节省空间和精力，我们使用n=p×q=11×7=77。<br>
+            <br>
+            <span class="point">　3）</span>找出一个数字k，k与(p-1)×(q-1)互为素数（若两数除1外无公因子，则互为素数）。本例中，我们选择k=7，与(p-1)×(q-1)=10×6=60互为素数。数字k就是加密密钥。你可能会问，我们总能找到有这种性质的数字k 
+            吗？答案是肯定的。数论中一个著名结果证明了它。<br>
+            <br>
+            <span class="point">　4）</span>将信息分成很多部分。一般地讲，为避免重复，每部分都包含很多字母。然而，在本例中，每部分只包含一个字母。若信息是&quot;HELLO&quot;，则为H、E、L、L和O。<br>
+            <br>
+            <span class="point">　5）</span>对每部分，将所有字母的二进制编码串接起来，并将比特串解释为整数。我们这里每部分只有一个字母。所以，整数为8、5、12、12和15（最初与字母对应的数字）。<br>
+            <br>
+            <span class="point">　6）</span>将每个数字增大到它的k次方而加密。使用模n运算。本例中，这要求如下运算：<br>
+            <img src="../../../../image/pic/chapter10/4.gif" width="58" height="17" align="absmiddle">，<img src="../../../../image/pic/chapter10/5.gif" width="61" height="17" align="absmiddle">，<img src="../../../../image/pic/chapter10/6.gif" width="62" height="15" align="absmiddle">，<img src="../../../../image/pic/chapter10/6.gif" width="62" height="15" align="absmiddle">，<img src="../../../../image/pic/chapter10/7.gif" width="65" height="16" align="absmiddle"> 
+            结果就是加密信息。这里，计算结果分别为57、47、12、12和71。注意这里两个12表示重复字母。这是每部分只有一个字母的结果。若每部分包含多个字母，类似的重复就可避免。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

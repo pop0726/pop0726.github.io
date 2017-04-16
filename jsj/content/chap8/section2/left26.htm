@@ -1,0 +1,52 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第八章 并行处理机和多处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><span class="pt9-black">(2) 提高通信系统性能的方法措施<br>
+            <br>
+            　　1) 采用新型高速网络，提高网络带宽<br>
+            　　为了提高机群系统的网络带宽，必须采用新型的高速网络来取代10Mb/s以太网。由于多媒体应用、实时网络系统、大规模并行计算等应用对高速网络的需求，推动了网络技术的飞速发展，目前出现了多种新型的高速网络，如快速以太网、ATM、Myrinet。这些高速网络从所采用的技术上分，可分成两类：共享介质类型和基于开关类型。共享介质类型的高速网络主要有快速以太网和FDDI；基于开关的高速网络主要有ATM和Myrinet。下面对其中三种网络的性能分别进行介绍。<br>
+            <br>
+            　　*快速以太网<br>
+            　　快速以太网是在10Mb/s普通以太网的基础上发展起来的一种高速网络，其通信带宽是100Mb/s，比原来的以太网在速度上提高了十倍，但由于它原封不动地采用现有的载波侦听技术（CSMA/CD），使得它具有两个主要缺点：一是所有的设备共享100Mb/s带宽；二是实际带宽小于100Mb/s，特别是当系统负载较重的情况下，网络性能下降的幅度比较大。不过随着开关网络技术的发展，产生了基于开关网络的快速以太网，能够较大幅度提高整个系统的聚合带宽。另外，快速以太网技术发展得很快，现在有多家公司正在研制1Gb/s以上的快速以太网，预计明年年底将推出商业产品，而且这种产品将使用一种新的介质访问技术来取代现在的CSMA/CD方式，因此它的性能有可能得以较大的提高。<br>
+            <br>
+            　　*ATM<br>
+            　　ATM是以53字节长的信元(Cell)为单位进行传输的新型通信网络。它在端与端之间采用&quot;虚电路连接&quot;机制，而在网络中则采用高速分组交换技术。从理论上讲，ATM不受速度限制，可以在任何速率下操作，具有较好的实时性和灵活性，尤其适用于视频、声音等多媒体数据的实时传输。但由于信元报头开销较大，降低了ATM的通信带宽。另外，ATM的机制还不完善，缺乏流量控制，容易出现阻塞，可能会使实际吞吐率变得更低。目前ATM主要有三类标准产品：25Mb/s、100 
+            Mb/s和155Mb/s的网卡和相应的交换器模块。622Mb/s产品也即将由某些厂家如Bay、Cisco推出。<br>
+            <br>
+            　　*Myrinet<br>
+            　　Myrinet是由Myricom公司研制的一种高速网络，由于它采用了多项在MPP中使用的技术，如交换技术、Cut-through路由技术、8位并行数据通道等，使得它具有极高的通信带宽。其物理链路提供了一对640Mb/s的数据通道，据最新的资料得知，它的物理链路速度又提高了一倍，单向达到了1.28Gb/s，双向总带宽则为2.56Gb/s，这样高的带宽是普通以太网、快速以太网、ATM等无法比拟的。虽然这只是最底层的物理通信带宽，即使考虑到上层软件的开销，其性能也具有相当的吸引力。Myricom提供的数据说，在SPARC-2，20MHz 
+            SBus上，Myrinet的API（8KB大小的数据包）能达到250Mb/s的带宽。<br>
+            <br>
+            　　综合以上的性能分析可看出，这些新型网络的传输速度是传统以太网的十倍或更高。由于高速网络的运用，使得影响通信系统性能的瓶颈已从过去的网络硬件转移到网络通信软件上，因为虽然高速网络降低了网络的传输延迟，但并没有减少通信协议的处理开销。由于通信协议处理开销过大，在很大程度上阻碍了高速网实际性能的提高。我们通过对Myrinet的研究就可说明这一点。Myrinet的物理链路带宽为640Mb/s，而在TCP/IP协议层测到的带宽仅只有42Mb/s。可见，上层通信协议的开销使得高速网络的高性能得不到充分的发挥。<br>
+            <br>
+            </span></p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

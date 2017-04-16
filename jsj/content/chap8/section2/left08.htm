@@ -1,0 +1,47 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第八章 并行处理机和多处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black">　　(2) 进程迁移引起的数据不一致性<br>
+            　　与共享数据时类似，进程迁移也可能引起数据的不一致性，图8.13说明进程迁移是怎样造成不一致性的。</p>
+          <p align="center" class="pt9-black"><img src="images/tu8_13.jpg" width="536" height="200"></p>
+          <p align="left" class="pt9-black">　　<img src="images/gsh2_14.gif" width="15" height="14" align="absmiddle">中有共享数据X的拷贝，而P2中没有该共享数据，<img src="images/gsh2_14.gif" width="15" height="14" align="absmiddle">进程对X进行了修改，如果采用了写回策略，暂时没有对内存中的数据进行修改，由于某种原因该进程迁移到了<img src="images/gsh2_15.gif" width="15" height="13" align="absmiddle">上运行，修改过的X'仍在<img src="images/gsh2_14.gif" width="15" height="14" align="absmiddle">的<img src="images/gsh2_15.gif" width="15" height="13" align="absmiddle">中，<img src="images/gsh2_15.gif" width="15" height="13" align="absmiddle">运行时从内存中读取得到X，但是这个读到的X是&quot;过时&quot;的。<br>
+            　　或者<img src="images/gsh2_14.gif" width="15" height="14" align="absmiddle">和<img src="images/gsh2_15.gif" width="15" height="13" align="absmiddle">中都有共享数据X的拷贝，<img src="images/gsh2_15.gif" width="15" height="13" align="absmiddle">修改了X，并采用写通过策略，所以同时内存中的X也修改成了X'，由于某种原因该进程迁移到P1上，但这时<img src="images/gsh2_14.gif" width="15" height="14" align="absmiddle">的<img src="images/gsh2_16.gif" width="14" height="13" align="absmiddle">中仍然是X。<br>
+            由于以上两种原因，都造成了Cache的不一致性。<br>
+            　　(3)I/O传输造成的数据不一致性<br>
+            　　图8.14说明I/O传输是怎样造成数据不一致性的。<br>
+            　　绕过Cache的I/O操作也会产生不一致性问题。假设在<img src="images/gsh2_14.gif" width="15" height="14" align="absmiddle">处理机和<img src="images/gsh2_15.gif" width="15" height="13" align="absmiddle">处理机的本地高速缓存<img src="images/gsh2_16.gif" width="14" height="13" align="absmiddle">和<img src="images/gsh2_17.gif" width="14" height="14" align="absmiddle">中有某一个数据X的拷贝，当I/O处理机将一个新的数据X'写入内存中时，这样就导致了内存和Cache之间的数据不一致性；或者假设C1和C2中都有X的拷贝，但是P1处理机在运行过程中修改了X的值，使之变为X'，又假设P1采用写回策略，这样P1中C1的内容和内存中的内容是不一致的，这时候I/O处理机来了一个读X的请求，内存就直接把X的值传给了I/O部件，显然这个X是&quot;过时&quot;的。以上两种原因造成了Cache的不一致性。<br>
+            　　一种解决I/O操作引起的不一致性问题的方法是把I/O处理机（<img src="images/gsh2_18.gif" width="27" height="14" align="absmiddle">和<img src="images/gsh2_19.gif" width="30" height="14" align="absmiddle">）分别连接到私有高速缓存<img src="images/gsh2_16.gif" width="14" height="13" align="absmiddle">和<img src="images/gsh2_17.gif" width="14" height="14" align="absmiddle">上，采用这种方法后，I/O处理机就能和CPU共享高速缓存了，只要能够保证各Cache之间以及Cache和内存之间的数据一致性，就能够保证I/O操作的一致性。</p>
+          <p align="center" class="pt9-black"><img src="images/tu8_14.jpg" width="528" height="225"></p>
+          <p align="left" class="pt9-black">　　为了解决Cache不一致性问题，提出了两类解决Cache不一致性问题的协议机制：监听协议和基于目录的协议。它们适合于不同的系统结构。下面就这两类协议进行讨论。<br>
+            <br>
+          </p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

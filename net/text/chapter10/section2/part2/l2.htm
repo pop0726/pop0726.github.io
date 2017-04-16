@@ -1,0 +1,34 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+          <td class="explaination"><br>
+            <span class="point">　　替代密码</span>（substitution cipher）的原理可用一个例子来说明。例如，将字母a，b，c，d…，w，x，y，z的自然顺序保持不变，但使之与D，E，F，G，…，X，A，B，C分别对应（即相差3个）。若明文为caesar 
+            cipher，则对就的密文为FDHVDU FLSKHU（此时密钥为3）。由于英文字母中各字母的频度早已有人进行过统计，所以根据字母频度表可以很容易对这种替代密码进行破译。目前，替代密码只是复杂的编码过程中的一个中间步骤。<br>
+            <br>
+            　　<span class="point">转换密码</span>（transposition cipher）则是按照某一规则重新排列消息中的字符的顺序。例如，以CIPHER这个字为规则。我们注意到，在此密钥中的英文字母顺序，C为第1，E为第2，……，R为第6.于是得出密钥的顺序为145326。这就表示在形成密文时，首先读取第1列的字符，然后读取第5列、第4列、第2列、第3列和第6列。明文也以6个字符为一组写在密钥下，如：<br>
+            <br>
+            　　　密钥　CIPHER<br>
+            　　　顺序　145326（注：此顺序与密钥等价，但不如密钥便于记忆。）<br>
+            　　　明文　attack<br>
+            　　　　　　begins<br>
+            　　　　　　at two（注：明文的意思是&quot;二时开始进攻&quot;。）<br>
+            <br>
+            　　这样得出密文为abacnwaittettg kso。接收者按密钥中的字母顺序按列写下按行读出，即得明文。这种密码很容易破译，同样是作为加密过程中的中间步骤。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

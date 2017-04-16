@@ -1,0 +1,42 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第八章 并行处理机和多处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black">3 有限目录<br>
+            <br>
+            　　有限目录协议可以解决目录过大的问题。将一个数据块在Cache中的拷贝数做一定的限制，则目录的大小将与处理机数目（存储器大小）与处理机数目对2的对数之积（O(Nlog2N)）成正比（而不象全映射目录中与其平方成正比）。<br>
+            　　有限目录协议的状态与全映射目录协议十分相似。唯一的区别就在于多于允许数目的Cache同时要求某一个数据的拷贝的时候。图8.20表明这时的做法。</p>
+          <p align="center" class="pt9-black"><img src="images/tu8_20.jpg" width="388" height="171"></p>
+          <p align="left"><span class="pt9-black">　　当<img src="images/gsh2_14.gif" width="15" height="14" align="absmiddle">和<img src="images/gsh2_15.gif" width="15" height="13" align="absmiddle">的Cache中都有X的拷贝时，若<img src="images/gsh2_20.gif" width="17" height="17" align="absmiddle">请求X的拷贝，则存储器系统必须在<img src="images/gsh2_16.gif" width="14" height="13" align="absmiddle">和<img src="images/gsh2_17.gif" width="14" height="14" align="absmiddle">中选择一个使之无效。这种指针替换过程称为驱逐。由于多处理机系统中的处理机具有局部性（即在任何给定的时间间隔内，只有一小部分的处理机访问某个给定的存储器数据），所以有限目录足以应付这个小的处理机组了。<br>
+            　　由于存在驱逐的问题， 象Cache的替换需要有Cache替换策略以确定哪部分Cache内容需要被替换掉一样，有限目录的驱逐也需要一个驱逐策略来决定哪个指针将被驱逐。这个驱逐策略的好坏对系统的性能将具有很大的影响。幸运的是，驱逐策略与Cache替换策略在很多方面是相同的，所以在Cache替换策略方面的许多研究成果可以被直接用在驱逐策略的设计中。<br>
+            　　由于在有限目录中，目录指针需要对处理机的二进制表示进行编码，所以每个指针占log2N位存储器，其中N是处理机的数目。这就是目录所占的空间与Nlog2N成正比的原因。</span></p>
+          <p align="left">&nbsp;</p>
+          </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

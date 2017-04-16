@@ -1,0 +1,46 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第三章 存储系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><b><span class="part">3.3.2 地址映象与变换方法</span></b><span class="pt9-black"><b><br>
+            <br>
+            </b>　　在Cache中，地址映象是指把主存地址空间映象到Cache地址空间，具体地说，就是把存放在主存中的程序按照某种规则装入到Cache中，并建立主存地址与Cache地址之间的对应关系。而地址变换则是指当程序已经装入到Cache之后，在实际运行过程中，把主存地址如何变换成Cache地址。<br>
+            　　地址的映象和变换是紧密相关的，采用什么样的地址映象方法，就必然有与这种映象方法相对应的地址变换方法，因此，必须把它们放在一起介绍。<br>
+            　　无论采用什么样的地址映象方式和地址变换方式，都要把主存和Cache划分成同样大小的存储单位，每个存储单位称&quot;块&quot;。在进行地址映象和地址变换过程中，都以块为单位进行调度。<br>
+            　　在选取地址映象方法时，要考虑多方面的因素。如地址变换的硬件是否容易实现，地址变换的速度是否快，这种映象方法的主存空间利用率是否高，以及在把主存中的一块装入到Cache中时，发生块冲突的概率如何等。<br>
+            　　根据所采用的地址映象方法和地址变换方法的不同，有多种不同类型的Cache。<br>
+            <br>
+            <b>1 全相联映象及其变换</b><br>
+            　　全相联映象方式是指主存中的任意一块可以映象到Cache中的任意一块中，如图3.29所示。如果Cache的块数为<img src="images/gsh3_2.gif" width="13" height="16" align="absmiddle">，主存的块数为<img src="images/gsh3_3.gif" width="20" height="12" align="absmiddle">，则主存与Cache之间的映象关系共有<img src="images/gsh3_4.gif" width="44" height="14" align="absmiddle">种。如果采用目录表来存放这种映象关系，则目录表的容量为<img src="images/gsh3_2.gif" width="13" height="16" align="absmiddle">，字长为Cache地址中的块号长度与主存地址中的块号长度之和再加一个有效位。</span></p>
+          <p align="center"><span class="pt9-black"><img src="images/tu3_29.gif" width="337" height="211"><br>
+            <b>图3.29 全相联映象方式 </b></span></p>
+          <p align="left">&nbsp;</p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

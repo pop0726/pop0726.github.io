@@ -1,0 +1,49 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第四章 输入输出系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><span class="part">4.4.3 输入输出处理机的特点</span><span class="pt9-black"><br>
+            <br>
+            　　在高性能计算机系统中，为了能够使CPU摆脱繁重的输入输出任务，充分发挥高性能的CPU的运算功能，从70年代后期开始，首先在CDC公司研制的6600大型计算机系统中采用输入输出处理机方式。<br>
+            　　下面以CYBER170巨型计算机的输入输出处理机为例来说明输入输出处理机的特点。CYBER170输入输出处理机的结构如图4.19所示。<br>
+            　　10台输入输出处理机PPU0～PPU9通过主存-输入输出处理机总线分时共享主存储器，并且通过输入输出交叉开关网络（I/O Crossbar 
+            Switching）共享12个输入输出通道。每个PPU有一个容量为4K×13位（其中一位为奇偶校验位）的局部存储器。系统的监控程序常驻在PPU0的局部存储器中，控制台显示程序常驻在PPU1的局部存储器中。另外，各PPU的局部存储器中均装有自己的常驻程序。<br>
+            　　中央处理机不能直接与外围设备打交道，当用户程序需要进行输入输出操作时，由中央处理机发出请求调用输入输出处理机，然后由输入输出处理机管理外围设备完成全部输入输出工作。<br>
+            　　每台PPU都有相同的指令系统，共有66条指令，包括算术逻辑指令、访问存储器指令，输入输出指令及程序控制指令等。指令格式有12位的短指令和24位的长指令两种，如图4.20所示。OP为操作码，D为设备地址，M为存储器地址。 
+            <br>
+            　　每个PPU有4个寄存器，A为累加寄存器，用于保存操作数、主存地址、输入输出字节数等，它也是PPU与其它部件之间进行通信的接口寄存器。P寄存器为程序计数器。Q寄存器为多功能寄存器，用于保存直接地址、间接地址、通道号或转移计数值等。K寄存器为指令寄存器，用来保存指令操作码和指令执行周期。</span></p>
+          <p align="center"><img src="images/tu4.19.jpg" width="563" height="316"></p>
+          <p align="center"><img src="images/tu4.20.jpg" width="410" height="125"></p>
+          <p align="left"><span class="pt9-black">　　图4.19中的通道与上一节中介绍的通道处理机有本质的不同，这里的通道仅仅是数据通路，或者理解为一种简单的接口。通道主要由一个双向的通道寄存器和两个触发器组成，其中一个是通道的&quot;忙/闲&quot;触发器，另一个是&quot;满/空&quot;触发器。当PPU要与外围设备交换数据时，先将设备号放在A累加器中，并将通道的&quot;忙/闲&quot;触发器和&quot;满/空&quot;触发器都置&quot;1&quot;，发出选择设备的信号。当设备收到该信号后，给PPU发一个回答信号，再将两个触发器清&quot;0&quot;，然后PPU把命令放在A累加器中，并启动设备。在数据传送期间，在A累加器中存放传输字节的个数。每当有一个数据通过通道时，就将&quot;满/空&quot;触发器置&quot;1&quot;，数据被取走后，&quot;满/空&quot;触发器清&quot;0&quot;，同时将A累加器中的字节个数减&quot;1&quot;。重复以上过程，直至A累加器中字节个数为&quot;0&quot;，整个数据传送过程全部结束，这时可以断开通道。<br>
+            　　随着微处理机的迅速发展，微处理机的价格已经远远低于外围设备的价格，而且，微处理机具有一套完整的指令系统，能够分担中央处理机的许多工作，大大减轻中央处理机的负担，提高整个计算机系统的工作效率。因此，采用微处理机作为输入输出处理机，可以构成一个由中央处理机、输入输出处理机、主存储器、通道、设备控制器和各种外围设备相互独立的计算机系统，并且，能够根据需要通过程序动态地、灵活多变地控制它们之间的连接。<br>
+            </span><br>
+          </p>
+          </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

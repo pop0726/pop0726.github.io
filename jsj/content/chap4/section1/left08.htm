@@ -1,0 +1,64 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第四章 输入输出系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><span class="pt9-black"><b>DMA方式的工作流程如下：</b><br>
+            　　对于输入设备：从输入介质上读一个字节或字到DMA控制器中的数据缓冲寄存器BD中，如果输入设备是面向字符的，则要把读入的字符装配成字。<br>
+            　　若一个字还没有装配满，则返回到上面；若校验出错，则发中断申请；若一个字已经装配满，则将BD中的数据送入主存数据寄存器。<br>
+            　　把主存地址寄存器BA（在DMA控制器中）中的地址送入主存地址寄存器，并且将BA中的地址增值至下一个字地址。<br>
+            　　把DMA控制器内的数据交换个数计数器BC中的内容减&quot;1&quot;。<br>
+            　　若BC中的内容为&quot;0&quot;，则整个DMA过程全部结束，否则返回到最上面继续进行。<br>
+            　　对于输出设备：把主存地址寄存器BA（在DMA控制器中）中的地址送入主存地址寄存器，并启动主存储器，同时将BA中的地址增值至下一个字地址。<br>
+            　　将主存储器数据寄存器中的数据送入DMA控制器的数据缓冲寄存器BD中。如果输出设备是面向字符的，则要把BD中的数据拆卸字符。<br>
+            　　把BD中数据逐个字符（对于面向字符的设备）或整个字写到输出介质上。<br>
+            　　把DMA控制器内的数据交换个数计数器BC中的内容减&quot;1&quot;。<br>
+            　　若BC中的内容为&quot;0&quot;，则整个DMA过程全部结束，否则返回到最上面继续进行。<br>
+            <b><br>
+            目前使用的DMA方式实际上有如下三种：</b><br>
+            <br>
+            <b>　　1、周期窃取方式</b><br>
+            　　在每一条指令执行结束时，CPU测试有没有DMA服务申请，如果有，则CPU进入一个DMA周期。在DMA周期中借用CPU完成上面所列出的DMA工作流程。包括数据和主存地址的传送，交换个数计数器中的内容减&quot;1&quot;，主存地址的增值及一些测试判断等。<br>
+            　　采用周期窃取方式时，主存储器可以不与外围设备直接相连接，而只与CPU连接，即仍然可以采用如图4.3那样的连接方式，因为外围设备与主存储器的数据交换与程序控制输入输出方式和中断输入输出方式一样都是要经过CPU的。<br>
+            　　周期窃取方式与程序控制输入输出方式和中断输入输出方式的不同处主要在：它不需要使用程序来完成数据的输入或输出，只是借用了一个CPU的周期来完成DMA流程。因此，其工作速度是很快的。<br>
+            　　周期窃取方式的优点是硬件结构很简单，比较容易实现。缺点是在数据输入或输出过程种实际上占用了CPU的时间。<br>
+            <br>
+            <b>　　2、直接存取方式</b><br>
+            　　这是一种真正的DMA方式。DMA控制器的数据传送申请不是发向CPU，而是直接发往主存储器。在得到主存储器的响应之后，整个DMA工作流程全部在DMA控制器中用硬件完成。<br>
+            　　直接存取方式的优点与缺点正好与周期窃取方式相反。目前的多数计算机系统均采用直接存取方式工作。<br>
+            <br>
+            <b>　　3、数据块传送方式</b><br>
+            　　在设备控制器中设置一个比较大的数据缓冲存储器，一般要能够存放下一个数据块，如在软磁盘存储器中通常设置512个字节的数据缓冲存储器。与设备介质之间的数据交换在数据缓冲存储器中进行。设备控制器与主存储器之间的数据交换以数据块为单位，并采用程序中断方式进行。 
+            <br>
+            　　数据块传送方式实际上并不是DMA方式，只是它在每次中断输入输出过程中是以数据块为单位获得或发送数据的，这一点与上面两种DMA方式相同，因此，通常也把这种输入输出方式归入DMA方式。<br>
+            　　采用数据块传送方式的外围设备还有行式打印机，激光打印机，卡片阅读机，部分绘图仪等。</span><br>
+            <br>
+          </p>
+          </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第六章　向量处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="left"> 
+          <p class="pt9-black"><span class="part">习题</span><br>
+            <br>
+            <b>6.1</b>解释下列术语<br>
+            向量流水处理 分段开采 链接技术 向量和标量的平衡点 向量循环 向量递归 向量流水线流过时间 半性能向量长度 最大性能<br>
+            <br>
+            <b>6.2</b>叙述向量流水处理的主要特点，它与标量流水相比有何不同之处？<br>
+            <br>
+            <b>6.3</b>向量流水机的工作方式可分为哪两大类？它们的主要特点是什么?<br>
+            <br>
+            <b>6.4</b>向量的加工方法有哪几种？各有什么特点？试从加工速度、需用中间变量等方面加以比较。<br>
+            <br>
+            <b>6.5</b>以计算Ai=Bi×Ci i=1.2.…为例，估算一下采用向量方式比采用标量方式其速度提高多少？假定存贮器能供得上所需的指令和数据，其存贮周期为A 
+            ns，指令部件可以每拍流出一条分析好的指令，操作部件都采用流水方式，乘和加流水线的功能部件时间都为4个时钟周期，忽略置向量参数的时间。<br>
+            <br>
+            <b>6.6</b>在CRAY 1机上，V为向量寄存器，设向量长度均为32，s为标量寄存器，所用浮点功能执行部件的执行时间分别为：加法需6拍，相乘需7拍,从存储器读数需6拍，求倒数近似值需14拍，打入寄存器及启动功能部件（包括存储器）各需1拍。问下列各指令组中的哪些指令可以链接？哪些指令可以并行执行？试说明其原因并分别计算出各指令组全部完成所需的拍数。</p>
+          <p class="pt9-black"><img src="images/2.gif" width="248" height="123"><br>
+            <img src="images/3.gif" width="256" height="151"> 
+          </p>
+          <p class="pt9-black"><b>6.7</b>在CRAY 1机上，按链接方式执行下述4条向量指令（括号中给出相应功能部件时间），如果向量寄存器和功能部件之间的数据传送需1拍，试求此链接流水线的流过时间为多少拍？如果向量长度为64，则需多少拍能得到全部结果。</p>
+          <p class="pt9-black"><img src="images/4.gif" width="264" height="70"></p>
+          <p class="pt9-black"><b>6.8</b>某机有16个向量寄存器，其中V0～V5中分别存放有向量A、B、C、D、E、F，向量长度均为8，向量各元素均为浮点数；处理部件采用二个单功能流水线，加法功能部件时间为2拍，乘法功能部件时间为3拍。采用类似CRAY 
+            1的链接技术，先计算（A＋B）*C，在流水线不停流的情况下，接着计算（D＋E）*F<br>
+            1)求此链接流水线的流过时间为多少拍？（设寄存器入、出各需1拍）<br>
+            2)假如每拍时间为50ns，完成这些计算并把结果存进相应寄存器，此处理部件的实际吞吐率为多少MFLOPS？<br>
+            <br>
+            <b>6.9</b> 在CRAY 1上计算Z＝A*（B＋C），设A、B、C都为长度为128的向量，并已存放在相应的向量寄存器中，都利用浮点功能部件和链接技术，求完成该计算任务所需的最短时间为多少拍？其实际吞吐率各为多少MFLOPS？<br>
+            <br>
+            <b>6.10</b>若某个向量机其向量方式的执行速率Rv＝10MFLOPS，标量方式的执行速率Rs＝1MFLOPS,设a是程序中可向量化的百分比。要求：<br>
+            (1)推导该向量机的平均执行速率Ra的公式<br>
+            (2)画出在(0，1)范围内，Ra与<img src="images/7.gif" width="12" height="14" align="absmiddle">的关系图<br>
+            (3)为使平均执行速率Ra＝7.5MFLOPS，则a应取何值。<br>
+            (4)假定Rs＝1MFLOPS，<img src="images/7.gif" width="12" height="14" align="absmiddle">＝0.7，则为使 
+            Ra＝2MFLOPS，Rv应取何值。<br>
+            <br>
+            <b>6.11</b>在一个向量流水机中，假设向量操作速度为标量操作速度的10倍，给定一个原先用标量代码写的程序，为了使执行该程序的加速比分别达到2、4和6，则该程序中有多少百分比的代码可向量化？<br>
+            提示：运用Amdahl定律<br>
+            <br>
+            <b>6.12</b>在题6.11中，若该程序中有15％的代码是不能向量化的，例如顺序的I/O操作。对于剩下的代码部分，重复问题6.11要求达到同样的3个加速比2、4和6，则该程序中有多少百分比的代码可向量化？<br>
+            <br>
+          </p>
+          </div>
+        </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

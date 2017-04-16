@@ -1,0 +1,39 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第五章 标量处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><span class="pt9-black">　　R4000处理机采用顺序发射乱序完成的方式控制指令流水线。如果同时从指令Cache读入IBOX的两条指令中，由于资源冲突或数据相关等原因，第一条指令能够发射，而第二条指令不能发射，则中央控制部件IBOX只发射第一条指令。如果第一条指令不能发射，这时，即使第二条指令可以发射，IBOX也不发射第二条指令，而是让流水线暂停，一直等到第一条指令可以发射时，再启动流水线。<br>
+            　　在指令Cache中有一个转移历史表，它与中央控制部件IBOX中的转移预测逻辑一起实现条件转移的动态预测。在指令Cache的每个存储单元中设置有一个&quot;转移历史位&quot;，在执行转移指令时，把转移发生或不发生的情况记录在这个&quot;转移历史位&quot;中，当下次再执行到这条指令时，根据&quot;转移历史位&quot;中记录的信息预测是否发生。当一条转移指令第一次被执行时，它还没有转移历史的记录；这时，转移预测是根据指令本身的偏移字段的符号来决定的。如果偏移字段的符号是负的，则预测转移发生，否则预测转移不发生。当偏移字段的符号是负时，表示要向后转移，通常是转移到一个循环的开始；由于一个循环程序的循环次数一般都大于1，因此，转移发生的概率比较大。<br>
+            　　整数执行部件EBOX内有一个由32个64位寄存器组成的顶点寄存器堆，这个寄存器堆有四个读出端口和两个写入端口，它可以同时把两个源操作数或结果送到整数操作部件及地址部件ABOX中。操作部件的数据宽度为64位，包括加法器、桶式移位器、逻辑部件和整数乘法器等。在EBOX内还有多条专用数据通路，可以把运算结果直接送到执行部件，而不必先写到寄存器中。<br>
+            　　浮点执行部件FBOX采用流水线结构，它有两套浮点操作指令，一套是针对DEC浮点数格式的，而另一套是针对IEEE754浮点数格式的，共有36条浮点操作指令。FBOX内有一个32×64位的浮点寄存器堆，这个寄存器堆有三个输出端口和两个输入端口。另外，还有一个用户可以访问的控制寄存器FPCR；FPCR包含有舍入控制、陷阱允许和异常事故标志信息等。除了除法指令之外，FBOX每个流水线周期可以接受一条指令，执行指令的延迟时间是6个流水线周期。在FBOX内也设置有专用数据通路，当有数据相关时，可以通过专用数据通路把运算结构直接写到执行部件中。</span><br>
+          </p>
+          <p align="left" class="pt9-black">　</p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

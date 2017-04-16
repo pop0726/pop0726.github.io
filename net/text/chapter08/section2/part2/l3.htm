@@ -1,0 +1,27 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+          <td class="explaination"><br>
+            　　<span class="point">不确认的无连接服务</span>就是数据报服务。数据报不需要确认，实现起来最简单，因而在局域网中得到了最广泛的应用。这时，端到端的差错控制和流量控制由高层（通常是运输层）协议来提供。这种服务可用于点对点通信、对所有用户发送信息的广播和只向部分用户发送信息的多播。我们不必担心这种不要确认的服务将会很不可靠。这是因为局域网的传输差错率比广域网的低很多，所以在链路层不要确认信息并不会引起多大麻烦。对于广播通信和多播通信，若要求收到数据的用户都必须发回确认信息，那么或者在大家同时发送确认信息时将会产生多次的冲突，或者为了使这些确认信息在不同的时间发送而产生了许多的额外开销。因此这种不确认的无连接服务特别适合于广播和多播通信。例如，向网络中的用户定期广播实时时钟或有关网络管理的一些信息，这些都没有必要让用户们及时发回确认信息。此外，周期性地采集网络中的一些数据也特别适合于这种不确认的无连接服务。<br>
+            <br>
+            　　<span class="point">面向连接服务</span>相当于虚电路。它的开销较大，因为每次通信都要经过连接建立、数据传送和连接断开这三个阶段。但是当主机是个很简单的终端时，由于没有复杂的高层软件，因此必须依靠LLC子层来提供端到端的控制。这就需要面向连接服务。采用这种方式时，用户和LLC子层商定的某些特性在连接断开以前一直有效。因此这种方式特别适合于传送很长的数据文件。<br>
+            <br>
+            　　<span class="point">带确认的无连接服务</span>用于传送某些非常重要且时间性也很强的信息，如在一个过程控制或自动化工厂的环境中的告警信息或控制信号。这时如不要确认则不够可靠，但若先建立连接则又嫌太慢。因此就不必先建立连接而是直接发送数据。这种服务也就是&quot;可靠的数据报&quot;。带确认的无连接服务只用在令牌总线网中。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

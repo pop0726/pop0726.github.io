@@ -1,0 +1,47 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第二章 指令系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><span class="pt9-black"><b>4、指令流调整技术</b><br>
+            <br>
+            　　为了使RISC处理机中的指令流水线高效率地工作，尽量不断流。优化编译器必须分析程序的数据流和控制流，当发现指令流有断流可能时，要调整指令序列。对有些可以通过变量重新命名来消除的有数据相关，要尽量消除。这样，可以提高流水线的执行效率，缩短程序的执行时间。<br>
+            　　例如，有图2.18(a)这样一个简单的指令序列，由于存在R3寄存器的数据相关，第二条指令必须等第一条指令执行完后才能开始执行，后续的指令也是这样。如果执行一条指令需要两个机器周期，那么，每两条指令之间都要浪费一个周期。<br>
+            　　图2.18(b)是通过优化编译器调整后的指令序列。在两条乘法指令中用R0寄存器代替原来的R3寄存器，消除了两条乘法指令与两条加法指令之间的数据相关，并且重新调整指令序列。调整后的指令序列比原指令序列的执行速度快一倍。</span></p>
+          <p align="center"><span class="pt9-black"><img src="images/tu2_18.gif" width="437" height="104"></span></p>
+          <p align="left"><span class="pt9-black">　　调整指令序列，消除数据相关，提高流水线的工作效率还有很多种方法。在第五章流水线工作原理等章节还要详细介绍。<br>
+            <b><br>
+            5、逻辑实现以硬件为主固件为辅</b><br>
+            <br>
+            　　指令系统用微程序实现的主要优点是：便于实现复杂指令，便于修改指令系统，增加了机器的灵活性和适应性。主要缺点是：执行速度低。RISC要求主要指令能在单周期内执行完成，采用微程序技术是不可能做到的。因此，RISC必须主要采用硬联逻辑来实现指令系统。对于那些必须的复杂指令，也可用固件（微程序技术）实现。因此，目前商用的RISC处理机在实现指令系统时，一般都采用以硬件为主固件为辅的方法。<br>
+            <br>
+            </span></p>
+          <p align="left"><span class="pt9-black">　</span></p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

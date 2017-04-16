@@ -1,0 +1,28 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+          <td class="explaination"><br>
+            　　如果接收方应用程序读数据的速度能够与数据到达的速度一样快，接收方将在每一确认中发送一个正的窗口通告。然而，如果发送方操作的速度快于接收方（由于CPU更快），接收到的数据最终将充满接收方的缓冲区，导致接收方通告一个零窗口（zero 
+            window）。发送方收到一个零窗口通告时，必须停止发送，直到接收方重新通告一个正的窗口。 
+            <p> 　　动画解释了窗口通告。其中一系列的消息说明了TCP的流控过程。其中最大段的尺寸是1000字节。<br>
+              　<br>
+              　　发送方可能传送足够多的数据，以至于充满了当前通告的窗口。在动画中，发送方使用段的最大尺寸是1000字节，传输开始于接收方通告的一个2500字节的初始窗口。发送方立刻传输三段，其中两段含1000字节的数据，一段包含500字节。在每段到达时，接收方产生一个确认，其中的窗口也减去了到达的数据的尺寸。<br>
+              　</p>
+            </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

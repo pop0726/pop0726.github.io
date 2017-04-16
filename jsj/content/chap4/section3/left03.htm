@@ -1,0 +1,43 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第四章 输入输出系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black"><span class="part">4.3.2 通道的工作过程</span><br>
+            <br>
+            　　在一般用户程序中，通过调用通道来完成一次数据输入输出的过程如图4.9所示，CPU执行用户程序和管理程序，通道处理机执行通道程序的时间关系如图4.10所示，主要过程分为如下三步进行：<br>
+            　　1、在用户程序中使用访管指令进入管理程序，由CPU通过管理程序组织一个通道程序，并启动通道。<br>
+            　　在多任务或多用户系统中，输入输出指令属于特权指令，一般用户程序不允许使用这些指令。如果在用户程序中要进行输入输出操作，必须通过一条请求输入输出的广义指令进入操作系统，通过调用操作系统的管理程序来使用外围设备。<br>
+            　　广义指令由一条访管指令和若干个参数组成，如图4.9中表示的那样。访管指令的地址码部分实际上就是这条访管指令要调用的管理程序入口地址。当用户程序执行到要求进行输入输出操作的访管指令时，产生自愿访管中断请求。CPU响应这个中断请求后，转向管理程序入口。</p>
+          <p align="center" class="pt9-black"><img src="iamges/tu4_9.gif" width="453" height="385"><br>
+            <b>图4.9 通道完成一次数据传输的主要过程 </b></p>
+          <p align="left" class="pt9-black">　　管理程序根据广义指令提供的参数，如设备号、交换长度和主存起始地址等信息来编制通道程序。通道程序编制好后，存放在主存储器中与这个通道相对应的通道程序缓冲区中。另外，在管理程序中还要把通道程序的入口地址置入主存储器的通道地址单元。在管理程序的最后，用一条启动输入输出设备指令来启动通道开始工作。<br>
+            　</p>
+          </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

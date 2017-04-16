@@ -1,0 +1,47 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第四章 输入输出系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black"><b>方式3：直接存储器访问（DMA）方式</b><br>
+            <br>
+            　　直接存储器访问方式又称为DMA（Direct Memory Access）方式，这种输入输出方式主要用来连接高速外围设备。例如，磁盘存储器，磁带存储器等。<br>
+            　　目前，一般高速活动头磁盘存储器的数据传输速度为每秒30兆字节以上。对于这类高速外围设备，不能采用程序控制输入输出方式，也不能采用中断输入输出方式，必须在外围设备与主存储器之间建立直接数据通路。DMA方式的数据传送过程如图4.5所示。因此，支持DMA方式的计算机系统必须采用以主存储器为中心的结构。</p>
+          <p align="center" class="pt9-black"><img src="images/tu4.5.jpg" width="415" height="109"></p>
+          <p align="left"><span class="pt9-black"><b>DMA方式具有如下特点：</b><br>
+            <br>
+            　　1、主存储器既可以被CPU访问，也可以被外围设备访问。在主存储器中通常要有一个存储管理部件来为各种访问主存储器的申请排队，一般计算机系统把外围设备的访问申请安排在最高优先级。<br>
+            　　2、由于在外围设备与主存储器之间传送数据不需要执行程序，也不动用CPU中的数据寄存器和指令计数器等。因此，不需要做保存现场和恢复现场等工作，从而使DMA方式的工作速度大大加快。<br>
+            　　3、在DMA控制器中，除了需要设置数据缓冲寄存器、设备状态寄存器或控制寄存器之外，还要设置主存储器地址寄存器，设备地址寄存器和数据交换个数计数器。外围设备与主存储器之间的整个数据交换过程全部要在硬件控制下完成。另外，由于外围设备一般是以字节为单位传送的，而主存储器是以字为单位访问的，因此，在DMA控制器中还要有从字节装配成字和从字拆卸成字节的硬件。<br>
+            　　4、在DMA方式开始之前要对DMA控制器进行初始化，包括向DMA控制器传送主存缓冲区首地址、设备地址、交换的数据块的长度等，并启动设备开始工作。在DMA方式结束之后，要向CPU申请中断，在中断服务程序中对主存储器中数据缓冲区进行后处理。如果需要继续传送数据的话，要再次对DMA控制器进行初始化。<br>
+            　　5、在DMA方式中，CPU不仅能够与外围设备并行工作，而且整个数据的传送过程不需要CPU的干预。如果主存储器的频带宽度足够的话，外围设备的工作可以丝毫不影响CPU运行它自身的程序。<br>
+            <br>
+            </span></p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

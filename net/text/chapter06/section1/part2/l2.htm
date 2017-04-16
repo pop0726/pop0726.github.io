@@ -1,0 +1,32 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+          <td><span class="explaination"><br>
+            　　同步点可分为两类：<br>
+            </span><br>
+            <span class="point">　・主（major）同步点：</span><br>
+            <span class="explaination">　　将一次会话活动划分为若干个对话单元，用来标志一个对话单元的开始与结束，两个次同步点之间可设立若干个次同步点；<br>
+            </span><br>
+            <span class="point">　・次（minor）同步点：</span><br>
+            <span class="explaination">　　将对话单元内容分页，其页间分割点即为次同步点。<br>
+            <br>
+            　　当一次会话出现问题时，将会话的状态复位到前面的同步点，从那里再继续进行。每个同步点有一个序号.次同步点可不要求确认，主同步点需要确认，主同步点前后的数据要严格区分。主同步点必须被确认，在发生错误时，会话状态仅仅可以回复到前一个主同步点，而次同步点不需要确认，可以回退到一个或多个次同步点重新发送数据。 
+            <br>
+            　</span></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

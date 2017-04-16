@@ -1,0 +1,41 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td class="explaination" width="25" valign="top"><br>
+            <img src="../../../image/tub/ts.gif" width="25" height="20" alt="图示"></td>
+          <td class="explaination"> 
+            <div align="center"><br>
+              <img src="../../../image/pic/chapter03/gongshi/2/06.gif" width="244" height="121"> 
+              <br>
+              <span class="point">图3.9(d) 站点C的信号复原</span></div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="explaination" colspan="2"><br>
+            　　下面解释一下上述方法的原理。假设站点A，站点C均发送1，站点B发送0，接收方收到的总和为S = A + -B + C，计算：<br>
+            　　S・C ＝ (A + -B + C) ・C＝A・C + -B・C + C・C = 0 + 0 + 1 ＝ 1<br>
+            <br>
+            　　式中的前两项消失，因为所有的芯片序列都经过仔细地挑选，确保它们两两正交，就像式(4-5)所表示的那样，现在，你肯定已清楚，为什么要给芯片序列强加上这个条件。<br>
+            <br>
+            　　可以用另一种方式考虑一下这种情况，想像3个芯片序列是分开的，并没有进行累加。接收方分别与每一个完成内标积计算后进行累加。由于正交特性，除了C・C之外，其余的内标积全为0。累加后计算内标积和计算内标积后冉累加，实际上是一回事。 
+            <br>
+            <br>
+            　　为了使解码过程更具体一些，考虑一下图3.9(d)中的6个例子。假设接收方想从S<font size="1">1</font>-S<font size="1">6</font>的6个序列中还原出站点C发送的信号。它分别计算接收到的S与C向量两两相乘的积，再取结果的l/8（因为m=8），即为站点C所发送的比特值。如图所示，每个时刻的信号均被还原，如同讲法语的情况一样。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td class="explaination" colspan="2"><br>
+            　　使用nrt-VBR的应用同样要求数据及时传输到目的端，但是它可以容许一定的时延抖动。例如，在查看包含图象的多媒体邮件时，一般等到数据传输到本地之后才显示，所以传输的延迟不会明显影响应用的效果。两种VBR的发送速率本身是变化的，用户会确定一个最小的带宽要求，在保证满足用户最基本需求的条件下，VBR允许在一定范围内超过带宽设置的基本值发送数据，所以在处理突发性业务方面，VBR比CBR更有效、更经济。<br>
+            <br>
+            　　ABR业务适用于对吞吐量和时延要求不确定、对信元丢失率要求不高的应用，信元发送速率可以根据网络的要求而变化。用户根据ATM网络的反馈信息，在定义好的最大值和最小值之间调整信息发送速率。ABR也是这五种业务中ATM唯一为其提供反馈的业务类型。<br>
+            <br>
+            　　UBR业务最适合非紧急应用，或是对业务质量没有特定要求的应用。这类应用对时延、时延变化和误码要求都不高，信源可以发送不连续的突发数据。UBR不规定每个连接的带宽，对每个连接的信元丢失率和信元传送时延也不作定量的承诺。如果网络有足够的带宽，网络会尽量发送UBR的数据。如果发生拥塞，则UBR的数据首先被丢弃，并且不对发送者反馈信息要求它放慢发送速度。<br>
+            <br>
+            　　在ATM网络中，将这些业务类型的应用数据放到信元中的功能是由ATM适配层（AAL）完成的。AAL层包括五个子层（AAL1-AAL5），不同的适配子层与ATM所支持的不同业务相一致。AAL1支持固定比特率（CBR）业务；AAL2支持对时间敏感的可变比特率（VBR）业务；AAL3/4支持面向连接的突发性业务和数据业务；AAL5支持突发的LAN数据业务。AAL层还可以将面向连接的ATM与无连接的数据综合在一起，使ATM用户能进行广播和点到多点通信。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

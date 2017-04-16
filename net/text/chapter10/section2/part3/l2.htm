@@ -1,0 +1,47 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td class="explaination" colspan="2"><br>
+            　　公开密钥算法的特点如下：<br>
+            <span class="point">　（1）</span>发送者用加密密钥PK对明文X加密后，在接收者用解密密钥SK解密，即可恢复出明文，公式为：<br>
+            　　　D<font size="1">sk</font>(E<font size="1">pk</font>(X))=X<br>
+            　　解密密钥是专用的秘密密钥，对其他人都保密。此外，加密和解密的运算可以对调，即：<br>
+            　　　E<font size="1">pk</font>(D<font size="1">sk</font>(X))=X<br>
+            <br>
+            <span class="point">　（2）</span>加密密钥是公开的，但不能用它来解密，即<br>
+            　　　D<font size="1">pk</font>(E<font size="1">pk</font>(X))!=X<br>
+            <br>
+            <span class="point">　（3）</span>在计算机上可以容易地产生成对的PK和SK。<br>
+            <br>
+            <span class="point">　（4）</span>从已知的PK实际上不可能推导出SK，即从PK到SK是&quot;计算上不可能的&quot;。<br>
+            <br>
+            <span class="point">　（5）</span>加密和解密算法都是公开。<br>
+            <br>
+            　　如下<span class="point">图10.15</span>所示。<br>
+            　</td>
+        </tr>
+        <tr> 
+          <td class="explaination" width="25" valign="top"><img src="../../../../image/tub/ts.gif" width="25" height="20" alt="图示"></td>
+          <td class="explaination" width="706"> 
+            <div align="center"><img src="../../../../image/pic/chapter10/10_15.gif" width="398" height="191"><br>
+              <span class="point"><br>
+              图10.15 公开密钥密码算法</span><br>
+              　　</div>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

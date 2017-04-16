@@ -1,0 +1,48 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第六章　向量处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black"><span class="part">6.2.2　寄存器－寄存器结构</span><br>
+            <br>
+            　　前面我们已指出使主存有较高带宽的另一种方法是由一级或多级中间存储器形成一个层次结构的存储器系统，其中带宽最高的这一级存储器安排在距处理器最近的位置。当处理器需要向量时，把向量从主存送到速度最快的这一级存储器。中间几级存储器起着把数据送往最快速存储器时或使用后送回主存储器时中间存储的作用。即寄存器－寄存器结构。<br>
+            　　Cray��1系统是美国Cray公司于1976年提供的产品。它是一台运算速度达亿次／秒以上的巨型机。速度这么高的一个原因是它采用了层次结构的存储器系统。简化的Cray��1的框图如图6.10所示。主存与流水结构运算器之间有一级或两级的中间存储器。对于向量运算来说，中间存储器是V寄存器，它是向量寄存器，它由8个64个分量的寄存器组成，每个分量为一个64位寄存器。向量指令能对向量寄存器的分量进行连续的重复处理。执行向量指令时，流水结构运算器在一个时钟周期内从两个V寄存器得到一对操作数，完成某种操作后用一个时钟周期的时间把结果送入另一个V寄存器。主存储器与V寄存器之间的数据传送以成组传送的方式进行。向量流水线是从向量寄存器而不是从主存储器取数据。同样，从流水线输出的结果向量也是送回向量寄存器。 
+          </p>
+          <p align="center" class="pt9-black"><img src="images/tu6_10.jpg" width="540" height="233"></p>
+          <p align="left" class="pt9-black">　　对于标量运算来说，有两级中间存储器。速度很快的一级是8个64位的S寄存器，它是标量寄存器。它们直接与标量运算流水线相连，为标量运算和逻辑运算提供源寄存器和结果寄存器。<br>
+            　　另一级速度稍慢一些但仍具很高速的中间存储器是T寄存器。它由64个标量寄存器组成，每个寄存器字长64位。主存储器与T寄存器之间以成组传送的方式进行数据传送。由T寄存器组成的标量存储器的作用与Cache存储器相同，都是为了保存那些在高速的标量存储器中装不下的数据。这些数据有可能暂时不用，但应该保存在离处理器较近的地方以备将来使用，而不应该在两次使用之间又将其送回较远的主存中去。同样，新的数据也可以在被运算器使用之前就预取到中间标量存储器中。 
+            <br>
+            　　与Cache存储器不同的是这些中间存储器不是自动管理的，而是由程序员或编译程序来管理，通过一般的指令将数据装入或移出中间存储器。<br>
+            　　这种中间存储器与Cache存储器相比的一大优点是速度快。因为流水结构运算器通过寄存器寻址方式访问中间存储器，而访问Cache存储器必须查Cache表，这需要较长的时间。因此，Cache存储器的一个周期要完成地址比较操作和通常的读操作。而Cray1中的中间存储器则无需花时间去进行类似的Cache地址比较操作。<br>
+            　　Cray1系统还有8个24位的A寄存器，它主要用作访问存储器的地址寄存器和变址寄存器，还可用来提供移位的计数值和循环控制值。64个24位的B寄存器用作A寄存器的中间存储器，它可以存放需要重复访问的数据。例如循环计数值这时，这些数据就不需要在A寄存器或在存储器中保留。主存储器与B寄存器之间的数据传送以成组传送的方式进行。这样，B寄存器组就相当于A寄存器组的Cache存储器。不过对B寄存器的所有操作都是由程序指令直接控制，而不象Cache存储器那样是自动控制的。 
+          </p>
+          <p align="left" class="pt9-black"><br>
+          </p>
+          </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

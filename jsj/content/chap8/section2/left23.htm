@@ -1,0 +1,144 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第八章 并行处理机和多处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><span class="pt9-black">(3) 机群系统的关键技术<br>
+            　　对于并行处理系统，人们希望要有较高的结点运算速度，系统的加速比性能接近线性增长，并行应用程序的开发要高效、方便。目前，机群系统大多采用商用高性能工作站或高档PC，结点的运算速度问题不是很突出，因而主要的研究方面是在提高系统的并行效率、使系统的使用更为方便上，包括建立高效的通信系统，有效地管理全局资源和提供友好的并行应用程序开发环境等。<br>
+            　　1) 高效的通信系统<br>
+            　　机群系统一般使用通用局域网连接，目前常用的局域网技术大体可以分成两类，一类是共享介质网络，最常见是10Mbps或100Mbps的Ethernet；另一类是开关网络， 
+            比如155Mbps/622Mbps的ATM，640Mbps/1.28Gbps的Myrinet和100Mbps的交换式Ethernet。 
+            对于共享介质网络，由于其聚合网络频带与单独链路频带是一样的，其性能会随网络负载的增加而下降，特别是对于某些负载比较集中的应用程序，这种影响会更明显，但是售价便宜，组成系统也相对容易，是组成中低档机群系统的一种较好的选择。而开关网络则相反，其聚合网络频带比单独的链路频率带要高得多，理论上讲是N倍；除开关的交换延迟影响外，性能不会随网络负载的增加而降底很多，开关网络的另一个优点是其可扩展性较好，由于Wormhole、Cut-through等交换技术的发展，交换延迟已经很低，与发送／接收端的开销相比要小得多。比如，Myrinet开关的一次交换延迟小于1us，一个中等规模的机群系统（16-32台）的点-点的往返延迟仅有几十微秒。但是交换开关及相应接口卡的售价要高得多，组成机群系统的价格相对也比较高，对系统的普及会有一定影响，参见表8.2。</span></p>
+          <p class="pt9-black"><b>表8.2. 几种常用局域网的性能／价格情况</b></p>
+          <table width="85%" border="1" cellpadding="1" cellspacing="1" bgcolor="#FFFFD0" class="pt9-black">
+            <tr> 
+              <td> 
+                <div align="center" class="pt9-black">类型</div>
+              </td>
+              <td> 
+                <div align="center" class="pt9-black">速度</div>
+              </td>
+              <td> 
+                <div align="center" class="pt9-black">TCP/IP往返延迟(ms)</div>
+              </td>
+              <td> 
+                <div align="center" class="pt9-black">集线器／交换机(千元)</div>
+              </td>
+              <td> 
+                <div align="center" class="pt9-black">接口价格(千元)</div>
+              </td>
+              <td> 
+                <div align="center" class="pt9-black">实现灵活性</div>
+              </td>
+            </tr>
+            <tr> 
+              <td> 
+                <div align="center" class="pt9-black">Ethernet</div>
+              </td>
+              <td> 
+                <div align="center" class="pt9-black">10Mbps</div>
+              </td>
+              <td> 
+                <div align="center" class="pt9-black">1438</div>
+              </td>
+              <td> 
+                <div align="center" class="pt9-black">4/-</div>
+              </td>
+              <td> 
+                <div align="center" class="pt9-black">1</div>
+              </td>
+              <td> 
+                <div align="center" class="pt9-black">差</div>
+              </td>
+            </tr>
+            <tr> 
+              <td> 
+                <div align="center" class="pt9-black">Fast Ethernet</div>
+              </td>
+              <td> 
+                <div align="center" class="pt9-black">100Mbps</div>
+              </td>
+              <td> 
+                <div align="center" class="pt9-black">1347</div>
+              </td>
+              <td> 
+                <div align="center" class="pt9-black">15/85</div>
+              </td>
+              <td> 
+                <div align="center" class="pt9-black">1.5</div>
+              </td>
+              <td> 
+                <div align="center" class="pt9-black">差</div>
+              </td>
+            </tr>
+            <tr> 
+              <td> 
+                <div align="center" class="pt9-black">ATM</div>
+              </td>
+              <td> 
+                <div align="center" class="pt9-black">155/622Mbps</div>
+              </td>
+              <td> 
+                <div align="center" class="pt9-black">1285</div>
+              </td>
+              <td> 
+                <div align="center" class="pt9-black">-/210</div>
+              </td>
+              <td> 
+                <div align="center" class="pt9-black">15</div>
+              </td>
+              <td> 
+                <div align="center" class="pt9-black">一般</div>
+              </td>
+            </tr>
+            <tr> 
+              <td> 
+                <div align="center" class="pt9-black">Myrinet</div>
+              </td>
+              <td> 
+                <div align="center" class="pt9-black">640/1280Mbps</div>
+              </td>
+              <td> 
+                <div align="center" class="pt9-black">1506</div>
+              </td>
+              <td> 
+                <div align="center" class="pt9-black">-/20</div>
+              </td>
+              <td> 
+                <div align="center" class="pt9-black">12</div>
+              </td>
+              <td> 
+                <div align="center" class="pt9-black">好</div>
+              </td>
+            </tr>
+          </table>
+          <p align="left" class="pt9-black">　　在不考虑网络负载的情况下，一般使用点-点的应用程序可见带宽和往返延迟来衡量通信系统的性能。应用程序可见带宽说明了网络的长消息包的传输性能，虽然由于网络技术的飞速发展，网络的物理链路越来越快，但是应用程序的可见带宽比起链路速度来要小得多，主要原因有网卡接口的硬件限制，协议处理开销和操作系统开销。例如，Myrinet的物理链路是双向的640Mbps，而在TCP/IP协议上点-点的应用程序可见带宽只有38Mbps。往返延迟是1字节或0字节数据消息包的往返传输时间，它说明了网络短消息包的传输性能。新的网络技术大幅度地提高了传输速度，但往返延迟没有太大变化。从表1可以看出，快速以太网、ATM和Myrinet在TCP/IP上的往返延迟与10Mbps的延迟相差不多。目前，通信系统的研究方向主要在减小往返延迟和提高链路带宽的利用率上，实现方法有精简协议处理，开发新的通信机制和减少系统开销。</p>
+          <p align="left" class="pt9-black">&nbsp;</p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

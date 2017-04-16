@@ -1,0 +1,43 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第八章 并行处理机和多处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><b><span class="pt9-black">3 输入输出系统</span></b><span class="pt9-black"><br>
+            　　Illiac IV输入/输出系统由磁盘文件系统DFS、I/O分系统和B6700组成，而I/O分系统又由输入输出开关IOS、控制描述字控制器CDC和输入输出缓冲存储器BIOM三个部分组成。<br>
+            　　磁盘文件系统DFS是两套大容量并行读写磁盘系统及其相应的控制器。每套有13台磁盘机，总容量为<img src="images/gsh1_19.gif" width="18" height="16" align="absmiddle">位；每台磁盘机有128道，每道一个磁头，并行读写，数据宽度为256位，最大传输率为502×<img src="images/gsh1_15.gif" width="20" height="14" align="absmiddle">位/秒；平均等待时间为19.6毫秒。如果两个通道同时发送或接收数据，则数据宽度为512位，最大传输率可达<img src="images/gsh1_19.gif" width="18" height="16" align="absmiddle">位/秒。<br>
+            　　I/O分系统包括三部分，即输入/输出开关IOS、控制描述字控制器CDC和输入/输出缓冲存储器BIOM。IOS的功能有二：一是作为名副其实的开关，用以把DFS或可能连上的实时装置转接到阵列存储器，进行大批数据的I/O传送；二是作为DFS和PEM之间的缓冲，以平衡两边不同的数据宽度。CDC的功能是对阵列控制器的I/O请求进行管理。这时，CDC将使B6700管理计算机中断，由它设法响应I/O请求，并通过CDC给CU送回相应的响应代码，在CU中设置好必要的控制状态字。然后，CDC促使B6700启动PEM的加载过程，由DFS向PEM送入程序和数据。在PEM加载完毕后，又由CDC向CU传送控制信号，使它开始执行Illiac 
+            IV的程序。至于BIOM，它处在DFS和B6700之间，是为了取得二者之间传送频带的匹配。原来B6700存储器经CPU输送数据的频带是80×106位/秒，而DFS输送数据的频带是500×106位/秒，二者之间相比超过6倍之多，因此，必须设立BIOM作为B6700和DFS之间的缓冲。它把B6700的48位字变换为Illiac 
+            IV的64位字，同时以两个字共128位的数据宽度输送给DFS。实际上，BIOM是用4个PE存储器做成的，总容量为8192×64位。<br>
+            　　B6700管理计算机的基本组成部分是：单中央处理器(另一CPU可选)；32K字内存(可扩充至512K字)；经过多路开关控制的一大批外围设备(包括一台容量为1012位的激光外存储器以及ARPA网络接口)。B6700的作用是管理全部系统资源，完成用户程序的编译或汇编，为Illiac 
+            IV 进行作业调度、存储分配、产生入/出控制描述字送至CDC、处理中断，以及提供操作系统所具备的其它服务等。 <br>
+            </span></p>
+          <p align="left" class="pt9-black">&nbsp;</p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

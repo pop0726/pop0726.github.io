@@ -1,0 +1,40 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td class="explaination" width="25" valign="top"><br>
+            <img src="../../../../image/tub/ts.gif" width="25" height="20" alt="图示"></td>
+          <td class="explaination">
+            <div align="center" class="point"><br>
+              <img src="../../../../image/pic/chapter07/7_22.gif" width="398" height="236"><br>
+              图7.17 拥塞控制</div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="explaination" colspan="2"><br>
+            　　下面结合上图来讨论拥塞控制的实现步骤。<br>
+            <br>
+            <span class="point">　(1)</span> 当一个连接初始化时，将拥塞窗口置为1（1就表示窗口允许发送1个报文段，实际上窗口的单位是字节。这里讨论原理，不用字节这个单位）。将慢启动的门限窗口置为64（实际上应置为65535字节。此处假定1个报文段为64字节）。<br>
+            <br>
+            <span class="point">　(2)</span> 发送端的发送窗口不能超过拥塞窗口和通知窗口中的最小值。现在假定接收端不进行流量控制。<br>
+            <br>
+            <span class="point">　(3)</span> 发送端若收到了对所有发出的报文段的确认。就在下一次发送时将拥塞窗口加倍。图中横坐标是传输次数。&quot;传输一次&quot;的定义是：发送端将发送窗口中的报文段全部发完，并且收到了所有的对这些报文的确认。拥塞窗口从1开始，按指数规律增长。假定当拥塞窗口增长到32时出现了超时。于是将32的一半，即16，作为新的门限窗口值，同时拥塞窗口再次变为1。就是图中的起点。<br>
+            <br>
+            <span class="point">　(4)</span> 拥塞窗口从1开始，按指数规律增长。但当增长到门限窗口值16时，就每次只将拥塞窗门加1，使拥塞窗口按线性规律增长。图中假定，当拥塞窗口增长到24时，网络又出现超时。这时门限窗口变为32，拥塞窗口又降到1。当按指数规律增长到12时，改为每次加l。从以上讨论可看出．&quot;慢启动&quot;是指每出现一次超时，拥塞窗口都降低到l，使报文段慢慢注人到网络中。&quot;加速递减&quot;是指每出现一次超时，就将门限窗口值减半。若超时频繁出现，则门限窗口减小的速率是很快的。&quot;拥塞避免&quot;是指当拥塞窗口增大到门限窗口值时，就将拥塞窗口指数增长速度降低为线性增长，避免网络再次出现拥塞。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

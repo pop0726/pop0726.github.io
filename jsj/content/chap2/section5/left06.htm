@@ -1,0 +1,67 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第二章 指令系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><span class="pt9-black"><br>
+            <b class="part">2.5.4 RISC的关键技术</b><br>
+            <br>
+            　　RISC要达到很高的性能，必须有相应的技术支持。目前，在RISC处理机中采用主要技术有如下几种：<br>
+            <br>
+            <b>1、延时转移技术</b><br>
+            <br>
+            　　在RISC处理机中，指令一般采用流水线方式工作。取指令和执行指令并行进行。如果取指令和执行指令各需要一个周期，那么，在正常情况下，每一个周期就能执行完一条指令。然而，在遇到转移指令时，流水线就可能断流。如图2.14(a)所示的一个简单程序，当执行JMP 
+            NEXT2指令时，由于转移的目的地址要在指令执行完成后才能产生，这时，下一条指令已经取出来了，因此，必须把已经取出来了的指令3作废，并按照转移地址重新取出正确的指令，如图2.14(b)所示。如果已经取出来了的指令3不作废，而继续执行，那么，整个程序的语义就可能发生错误。有两种办法可以作废指令3，一种是用硬件来作废指令3，即控制指令3的执行结果不写入目的寄存器。另一种办法是通过软件在转移指令后面加入一条空操作指令（NOP）。但是，无论采用那一种办法，都要浪费一个周期。<br>
+            　　如果把JMP NEXT2这条指令提前执行，情况就完全不同了。如图2.15(a)所示，把第一和第二条指令交换位置。程序在流水线中执行的情况如图2.15(b)所示。这时，流水线没有断流情况发生，程序语义也正确。<br>
+            　　从图2.15中看，也可以认为是在转移指令之后插入了一条有效的指令，而转移指令好象被延迟执行了，因此，把这种技术称为延迟转移技术。 
+            <br>
+            　　采用指令延迟转移技术时，指令序列的调整由编译器自动进行，一般不需要人来干预，但是，如果要在目标程序一级调试程序，这种已经被调整过了的程序将很难看懂，很容易引起人们的误解。</span></p>
+          <p align="center"><img src="images/tu2_14.gif" width="484" height="140"></p>
+          <p align="center"><img src="images/tu2_15.gif" width="465" height="147"></p>
+          <p align="left" class="pt9-black">　　很容易会提出这样一个问题：如果是条件转移指令时，还能不能采用延迟转移技术呢？我们来看下面的程序：<br>
+            　　1： 　MOVE R1, R2<br>
+            　　2： 　CMP R3, R4 ；　　　　(R3)与(R4)比较<br>
+            　　3： 　BEQ EXIT ；　　　　　如果(R3)＝(R4)则转移到NEXT<br>
+            　　4：　ADD R4, R5<br>
+            　　　　　………<br>
+            　　N： 　NEXT: MOVE R4, A<br>
+            　　重新调整一下程序的指令序列，把原来的第一条指令插入到条件转移指令之后。得到一个新的程序：<br>
+            　　1： CMP R3, R4 ；　　　　　(R3)与(R4)比较<br>
+            　　2： BEQ EXIT ；　　　　　　如果(R3)＝(R4)则转移到NEXT<br>
+            　　3： MOVE R1, R2 ；　　　　　插入一条指令,但不能有数据相关,不能改变条件吗<br>
+            　　4： ADD R4, R5<br>
+            　　　　　………<br>
+            　　N： NEXT: MOVE R4, A<br>
+            　　以上程序在执行时流水线就不会有断流情况发生。然而，必须注意：调整指令序列时一定不能改变原来程序的数据相关关系，即被移动指令中的所有数据存储单元与移动过程中所经过的指令的所有数据存储单元之间不能有数据的读-写、写-读和写-写相关。另外，还要求，被移动的指令不要破坏机器的条件码，至少不要影响后面的条件码测试指令所要条件码。<br>
+            　　如果找不到符号上述条件的指令来调整程序中指令序列，那么，编译程序必须在条件转移指令后面插入一条空操作指令。如果指令的执行过程分为多个流水段，则要插入多条空操作指令。 
+            <br>
+          </p>
+          <p align="left"><span class="pt9-black">　</span></p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

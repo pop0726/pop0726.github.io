@@ -1,0 +1,29 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td class="explaination" colspan="2"><br>
+            <span class="point">　・同步时分复用：</span><br>
+            　　同步时分复用采用固定时间片分配方式，即将传输信号的时间按特定长度连续地划分成特定时间段，再将每一时间段划分成等长度的多个时隙（时间片），每个叫隙以固定的方式分配给各路数字信号．各路数字信号在每一时间段都顺序分配到一个时隙。通常，与复用器相连接的是低速设备（如终端），复用器将低速设备送来的在时间上连续的低速率数据经过提高传输速率，将其压缩到对应时隙，使其变为在时间上间断的高速时分数据，以达到多路低速设备复用高速链路的目的。所以与复用器相连的低速设备数目及速率受复用群反复用传输速率的限制。<br>
+            　　由于在同步时分复用方式中，时隙预先分配且固定不变，无论时间片拥有者是否传输数据都占有一定时隙，形成了时隙浪费，其时隙的利用率很低，为了克服STDM的缺点，引入了异步时分复用（ATDM）技术。<br>
+            <br>
+            <span class="point">　・异步时分复用：</span><br>
+            　　异步时分复用技术又被称为统计时分复用（statistical time division multiplexing）或智能时分复用（ITDM），它能动态地按需分配时隙，避免每个时间段中出现空闲时隙。<br>
+            　　ATDM就是只有某一路用户有数据要发送时才把时隙分配给它。当用户暂停发送数据时不给它分配线路资源（时隙）。线路的空闲时隙可用于其他用户的数据传输。所以每个用户的传输速率可以高于平均速率（即通过多占时隙），最高可达到线路总的传输能力（即占有所有的时隙）。如线路总的传输能力为28.8Kbps，3个用户公用此线路，在同步时分复用方式中，则每个用户的最高速率为9600bps，而在ATDM方式时，每个用户的最高速率可达28.8Kbps。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

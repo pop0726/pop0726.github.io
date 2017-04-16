@@ -1,0 +1,34 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" background="../../../../image/htmls/right_r5_c3.gif" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="88%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td class="text"> 
+            <p><br>
+              <span class="section">六、TCP与UDP</span><br>
+            </p>
+            <p><span class="part">　2．UDP</span><br>
+              　</p>
+          </td>
+        </tr>
+        <tr> 
+          <td class="text" valign="top">　　这里简单介绍一下UDP检验和的基本计算方法。<br>
+            <br>
+            　　首先，UDP数据报的长度可以为奇数字节，但是检验和算法是把若干个16 bit字相加。解决方法是必要时在最后增加填充0，这只是为了检验和的计算（也就是说，可能增加的填充字节不被传送）。<br>
+            　　其次，UDP数据报和TCP段都包含一个12字节长的伪头部，它是为了计算检验和而设置的。伪头部包含IP头部一些字段。其目的是让UDP两次检查数据是否已经正确到达目的地（例如，IP没有接受地址不是本主机的数据报，以及IP没有把应传给另一高层的数据报传给UDP）。伪头部既不向下传送，也不向上递交。伪头部格式如左图所示。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

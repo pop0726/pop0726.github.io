@@ -1,0 +1,30 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td class="explaination" valign="top"><br>
+            　　64位的明文X进行初始转换IP后得出X<font size="1">0</font>，其左半边32位和右半边32位分别记为L<font size="1">0</font>和R<font size="1">0</font>，然后再经过16次迭代。如果用X<font size="1">i</font>表示第I次迭代结果，同时令L<font size="1">i</font>和R<font size="1">i</font>分别X<font size="1">i</font>的左半边和右半边，则从上图可以看出：<br>
+            　　　<img src="../../../../image/pic/chapter10/3.gif" width="142" height="59"><br>
+            <p>　　式中I=1，2，…，16，而K<font size="1">i</font>是48位密钥，从原来的64位密钥经过若干次变换而得出。上面公式即为DES加密议程。每次迭代要进行函数f的变换、模2加运算以及左右半边交换。在最后一次迭代之后，左右半边没有交换。这是为了使算法既能加密又能解密。最后一次变换是IP的逆变换IP-1，其输入是R<font size="1">16</font>L<font size="1">16</font>。Y即为输出的密文。<br>
+              <br>
+              　　DES加密中起关键作用的是函数f。它是一个复杂的变换，其具体细节不在这里详述。<br>
+              <br>
+              　　解密过程和加密相似，但生成16个密钥的顺序正好相反。<br>
+              　</p>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

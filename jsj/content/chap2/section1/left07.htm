@@ -1,0 +1,68 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第二章 指令系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><span class="pt9-black"><br>
+            <b class="part">2.1.3 浮点数尾数基值的选择</b></span></p>
+          <p align="left"><span class="pt9-black">　　从上一节的分析中看到，浮点数的表数范围、表数精度和表数效率三个主要性质都与尾数的基值<img src="iamges/gsh1_22.gif" width="14" height="13" align="absbottom">有关。因此，本节专门介绍在设计一种浮点数表示方式时，尾数基值<img src="iamges/gsh1_22.gif" width="14" height="13" align="absbottom">应当如何选择。<br>
+            　　实际上，在表示浮点数的6个参数中，只有尾数基值<img src="iamges/gsh1_22.gif" width="14" height="13" align="absbottom">、尾数长度p和阶码长度q这三个参数与浮点数的表数范围、表数精度和表数效率三个主要性质有关。另外，在通用计算机中，浮点数的总字长通常是确定的，目前多为32或64个二进制位，而在总字长中，除了尾数符号和阶码符号各个占去一个二进制位之外，其余就是尾数长度p与阶码长度q之和。所以，设计一种浮点数表示方式的关键是要解决两个问题，一是在浮点数的总字长（主要是尾数长度p与阶码长度q之和）给定的情况下，如何选择尾数基值<img src="iamges/gsh1_22.gif" width="14" height="13" align="absbottom">，使浮点数的表数范围最大、表数精度和表数效率最高；二是在尾数基值<img src="iamges/gsh1_22.gif" width="14" height="13" align="absbottom">确定之后，如何根据表数范围和表数精度的要求具有确定尾数长度p与阶码长度q；本节主要介绍前一个问题，下一节介绍后一个问题。<br>
+            　　从(2.5)中看到，浮点数的表数范围主要与阶码长度q和尾数基值<img src="iamges/gsh1_22.gif" width="14" height="13" align="absbottom">有关，从(2.6)中看到，表数精度主要与尾数长度p和尾数基值<img src="iamges/gsh1_22.gif" width="14" height="13" align="absbottom">有关。我们假设有两种浮点数表示方式F1和F2，它们二进制字长相同，尾数都用原码或补码、小数表示，阶码都用移码、整数表示，阶码的基均为2，而尾数的基不同。<br>
+            　　浮点数表示方式F1：尾数基值<img src="iamges/gsh1_44.gif" width="17" height="12" align="absbottom">＝2，尾数长度p1，阶码长度q1，二进制字长：L1＝p1＋q1＋2。</span><br>
+            <span class="pt9-black">　　浮点数表示方式F2：尾数基值<img src="iamges/gsh1_45.gif" width="17" height="14" align="absbottom">＝2k(k为正整数)，尾数长度p2，阶码长度q2，二进制字长：L2＝k 
+            p2＋q2＋2。<br>
+            　　由F1与F2的二进制字长相同，即L1＝L2，得：<br>
+            　　　　p1＋q1＝k p2＋q2　　　　　　　　（2.10）<br>
+            　　下面，首先介绍浮点数字长和表数范围一定时，尾数基值<img src="iamges/gsh1_22.gif" width="14" height="13" align="absbottom">与表是精度的关系。<br>
+            　　由上一节的(2.5)知道：F1的表数范围是：<br>
+            　　　　<img src="iamges/gsh1_46.gif" width="85" height="26">，<br>
+            　　同样，F2的表数范围是：<br>
+            　　　　<img src="iamges/gsh1_47.gif" width="115" height="28" align="absmiddle">，即： 
+            <img src="iamges/gsh1_48.gif" width="105" height="24" align="absmiddle"><br>
+            　　因为F1与F2的表数范围相同，所以F1与F2的阶码应当相等：<br>
+            　　　　<img src="iamges/gsh1_49.gif" width="96" height="23"><br>
+            　　两边分别取以2为底的对数，得到：<br>
+            　　　　<img src="iamges/gsh1_50.gif" width="114" height="22" align="absmiddle">　　　　　　（2.11）<br>
+            　　把(2.11)式代入(2.10)式，得到：<br>
+            　　　　<img src="iamges/gsh1_51.gif" width="133" height="20" align="absmiddle">（2.12）<br>
+            　　由上一节的(2.6)知道：F1的表数精度是：<br>
+            　　　　<img src="iamges/gsh1_52.gif" width="107" height="36" align="absmiddle"> 
+            　　　　　　（2.13）<br>
+            　　把(2.12)代入(2.13)得到：<br>
+            　　　　<img src="iamges/gsh1_53.gif" width="138" height="35"> <br>
+            　　F1的表数精度是：<br>
+            　　　　<img src="iamges/gsh1_54.gif" width="119" height="30"> <br>
+            　　为了考察F1与F2的表数精度之间的关系，取它们的比值：<br>
+            　　　　<img src="iamges/gsh1_55.gif" width="132" height="34" align="absmiddle"> 
+            　　　　（2.14）<br>
+            　　从(2.14)式中可以看出，只有k＝1（表示尾数基值<img src="iamges/gsh1_22.gif" width="14" height="13" align="absbottom">＝2）或k＝2（表示尾数基值<img src="iamges/gsh1_22.gif" width="14" height="13" align="absbottom">＝4）时，比值T＝1，当k取其它任何值时，比值T都大与1（T＞1表示F2的精度低于F1）。<br>
+            　　因此，可以得出结论：在浮点数的字长和表数范围一定时，尾数基值<img src="iamges/gsh1_22.gif" width="14" height="13" align="absbottom">取2或4具有最高的表数精度。</span></p>
+          <p align="left">&nbsp;</p>
+          </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

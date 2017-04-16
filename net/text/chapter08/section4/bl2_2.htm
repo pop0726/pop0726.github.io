@@ -1,0 +1,356 @@
+<HTML>
+<HEAD>
+<title>计算机网络体系结构</title>
+<SCRIPT language=JavaScript>
+<!--
+/*-------------------------------------------填空题---------------------------------------------*/
+function getKeyWord(form){
+var mykeys=new Array();
+
+
+var answer=new Array();
+for(var I=0;I<mykeys.length;I++) answer[I]="";
+
+var every=form.elements;
+for(var I=0;I<every.length;I++)
+{
+if(every[I].type=="text")
+{
+ if(every[I].value!==null)
+ {var item=parseInt(every[I].name.substr(1))
+  answer[item-1]+=every[I].value;
+  }
+ }
+}
+var newcount="<html><head><title>谢谢您!</title></head><body><center><h2><font color=red>您的测试结果</font></h2></center>";
+var totalscore=0;
+for(var I=0;I<answer.length;I++)
+{
+	if(answer[I].toUpperCase()==mykeys[I].toUpperCase())
+	{
+		var rstr="<font size=2>第"+(I+1)+"个空答案正确!</font><br>";
+		newcount+=rstr;
+		totalscore+=1/0*100;
+	}else
+	{
+		var rstr="<font size=2>第"+(I+1)+"个空答案错误!正确答案为"+mykeys[I]+"</font><br>";
+		newcount+=rstr;
+	}
+
+}
+
+newcount+="<br>您的总成绩为:";
+newcount+=Math.ceil(totalscore);
+newcount+="分";
+newwin=window.open("","","height=400,width=400,scrollbars=yes,resizable=no");
+newwin.document.write(newcount);
+}
+/*-------------选择提----------------------------------------------------------------*/
+function getresultcheck(form)
+{var mykeys=new Array();
+
+
+
+var answer=new Array();
+for(var I=0;I<mykeys.length;I++) answer[I]="";
+
+var every=form.elements;
+//var lastname="";
+for(var I=0;I<every.length;I++)
+{
+	if(every[I].type=="radio")
+	{
+		/*alert("checkbox:name->"+every[I].name+"value->"+every[I].value);*/
+		if(every[I].checked)
+		{	
+			//var item=parseInt(every[I].name.charAt(1));
+			var item=parseInt(every[I].name.substr(0));/*返回由字符串转换得到的整数*/
+			/*substr返回一个从指定位置开始的指定长度的子字符串。*/
+			answer[item-1]+=every[I].value;
+		}
+	}				
+}
+
+var newcount="<html><head><title>谢谢您!</title></head><body><center><h2><font color=red>您的测试结果</font></h2></center>";
+var totalscore=0;
+for(var I=0;I<answer.length;I++)
+{
+	if(answer[I]==mykeys[I])
+	{
+		var rstr="<font size=2>第"+(I+1)+"题答案正确!</font><br>";
+		newcount+=rstr;
+		totalscore+=1/0*100;//每题分数
+	}else
+	{
+		var rstr="<font size=2>第"+(I+1)+"题答案错误!正确答案为"+mykeys[I]+"</font><br>";
+		newcount+=rstr;
+	}
+
+}
+
+newcount+="<br>您的总成绩为:";
+newcount+=Math.ceil(totalscore);
+newcount+="分";
+newwin=window.open("","","height=400,width=400,scrollbars=yes,resizable=no");
+newwin.document.write(newcount);}
+/*--------------------------------判断题----------------------------------------------------*/
+
+function getresultpanduan(form)
+{var mykeys=new Array();
+
+
+
+var answer=new Array();
+for(var I=0;I<mykeys.length;I++) answer[I]="";
+
+var every=form.elements;
+//var lastname="";
+for(var I=0;I<every.length;I++)
+{
+	if(every[I].type=="checkbox")
+	{
+		/*alert("checkbox:name->"+every[I].name+"value->"+every[I].value);*/
+		if(every[I].checked)
+		{	
+			//var item=parseInt(every[I].name.charAt(1));
+			var item=parseInt(every[I].name.substr(0));/*返回由字符串转换得到的整数*/
+			/*substr返回一个从指定位置开始的指定长度的子字符串。*/
+			answer[item-1]+=every[I].value;
+		}
+	}				
+}
+
+var newcount="<html><head><title>谢谢您!</title></head><body><center><h2><font color=red>您的测试结果</font></h2></center>";
+var totalscore=0;
+for(var I=0;I<answer.length;I++)
+{
+	if(answer[I]==mykeys[I])
+	{
+		var rstr="<font size=2>第"+(I+1)+"题 您答对了!</font><br>";
+		newcount+=rstr;
+		totalscore+=1/0*100;//每题分数
+	}else
+	{
+		var rstr="<font size=2>第"+(I+1)+"题 您答错了!</font><br>";
+		newcount+=rstr;
+	}
+
+}
+
+newcount+="<br>您的总成绩为:";
+newcount+=Math.ceil(totalscore);
+newcount+="分";
+newwin=window.open("","","height=400,width=400,scrollbars=yes,resizable=no");
+newwin.document.write(newcount);
+}
+/*--------------------------------简答题----------------------------------------------------*/
+
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</SCRIPT>
+<style type="text/css">
+<!--
+.unnamed1 {  font-family: "宋体"; font-size: 10pt}
+-->
+</style>
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+</HEAD>
+
+<BODY text=black bgColor=white leftMargin=0 topMargin=10 marginheight="10" 
+marginwidth="0">
+ <DIV class=p2 align=center></DIV> 
+      <FORM >
+  <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center">
+    <tr>
+      <td> <span class="section">　[课后习题]</span><br>
+        <br>
+        <span class="text">　1．简述局域网的基本特点。</span><br>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td> 
+              <div align="center"> 
+                <textarea name=textarea cols=50 rows=12></textarea>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <br>
+        <span class="text">　2．描述局域网IEEE802参考模型。</span><br>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td> 
+              <div align="center"> 
+                <textarea name=textarea2 cols=50 rows=12></textarea>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <br>
+        <span class="text">　3．局域网为什么要设置介质访问控制（MAC）子层？<br>
+        </span> 
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td> 
+              <div align="center"> 
+                <textarea name=textarea3 cols=50 rows=12></textarea>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <br>
+        <span class="text">　4．列出局域网的几种拓扑结构，并说明各自特点。<br>
+        </span> 
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td> 
+              <div align="center"> 
+                <textarea name=textarea4 cols=50 rows=12></textarea>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <br>
+        <span class="text">　5．LLC子层是如何向高层提供服务的?LLC是如何实现多条逻辑信道数据帧“复用”传输控制功能的？</span><br>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td> 
+              <div align="center"> 
+                <textarea name=textarea5 cols=50 rows=12></textarea>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <br>
+        <span class="text">　6．纯ALOHA与时隙ALOHA在轻负载下，哪一种性能更好？请说明原因。</span><br>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td> 
+              <div align="center"> 
+                <textarea name=textarea6 cols=50 rows=12></textarea>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <br>
+        <span class="text">　7．简述CSMA/CD的二进制指数退避算法。</span><br>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td> 
+              <div align="center"> 
+                <textarea name=textarea7 cols=50 rows=12></textarea>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <br>
+        <span class="text">　8．设令牌环网的数据传输速率为5Mbps，传播时延为5μs/km，求1bit的时延相当于多长的线路？</span><br>
+        <span class="text"> </span> 
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td> 
+              <div align="center"> 
+                <textarea name=textarea8 cols=50 rows=12></textarea>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <span class="text"><br>
+        　9．比较IEEE802.3与Ethernet的不同点。</span><br>
+        <span class="text"> </span> 
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td> 
+              <div align="center"> 
+                <textarea name=textarea9 cols=50 rows=12></textarea>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <span class="text"><br>
+        　10．列举10BASE的几种技术，并比较其特点。</span><br>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td> 
+              <div align="center"> 
+                <textarea name=textarea10 cols=50 rows=12></textarea>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <br>
+        <span class="text">　11．描述802.5令牌环网的优先机制。</span><br>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td> 
+              <div align="center"> 
+                <textarea name=textarea11 cols=50 rows=12></textarea>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <br>
+        <span class="text">　12．Novell Netware的逻辑结构有哪几部分组成?并说明各部分作用。</span><br>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td> 
+              <div align="center"> 
+                <textarea name=textarea12 cols=50 rows=12></textarea>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <br>
+        <span class="text">　13．简述FDDI令牌环和基本的令牌环的区别在什么地方？</span><br>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td> 
+              <div align="center"> 
+                <textarea name=textarea13 cols=50 rows=12></textarea>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <br>
+        <span class="text">　14．局域网交换方式的种类及其特点？</span><br>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td> 
+              <div align="center"> 
+                <textarea name=textarea14 cols=50 rows=12></textarea>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <br>
+        <span class="text">　15．列举局域网的互联设备。并说明各自的功能。</span><br>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td> 
+              <div align="center"> 
+                <textarea name=textarea15 cols=50 rows=12></textarea>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <br>
+        <br>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td> 
+              <div align="center"> 
+                <input type='reset' name='Submit3' value='重来'>
+                　 
+                <input type=button name=Button value=答案 onClick="MM_openBrWindow('answer.htm','计算机网络','scrollbars=yes,width=470,height=390')">
+              </div>
+            </td>
+          </tr>
+        </table>
+        <br>
+        <br>
+      </td>
+    </tr>
+  </table>
+</form>
+</BODY></HTML>

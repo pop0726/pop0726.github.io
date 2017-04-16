@@ -1,0 +1,39 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+          <td class="explaination"><br>
+            <span class="point">・帧首定界符（SD） </span><br>
+            　　指出令牌或帧的开始。组成SD的编码模型总是能够与数据区别开的。它的编码如下：JK0JK000，其中J和K是非数据符号。非数据符号的实际形式取决于介质上信号的编码。<br>
+            <br>
+            <span class="point">・访问控制（AC） </span><br>
+            　　包含被用于优先机制中的优先级和预留比特以及监控比特，后者被应用于环维护机制中。这一字段还包括令牌比特，该比特指出这是一个令牌还是一个帧。如果它是一个令牌，则其唯一的附加字段是ED（这将在以后述及）。<br>
+            <br>
+            <span class="point">・帧控制（FC） </span><br>
+            　　它指出该帧是一个LLC的数据帧（FF＝01），还是-个MAC控制帧（FF＝00）。在后者情况时，控制比特（ZZZZZZ）指出的是MAC帧的类型。<br>
+            <br>
+            <span class="point">・目的地址（DA） </span><br>
+            　　说明该帧想要发往的站（或一些站）。目的地址可以是一个唯一的MAC地址（单个站），也可以是一组地址（一组站）或是一个全地址（环所有的站）。选择16bit，还是48bit的地址由实现来决定，此决定对某个特定LAN上所有的站都必须是一致的。<br>
+            <br>
+            <span class="point">・源地址（SA） </span><br>
+            　　规定了发送该帧的站。SA地址的位数必须与DA的位数相等。<br>
+            <br>
+            <span class="point">・信息 </span><br>
+            　　包括LLC数据或与MAC协议的控制操作有关的信息。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

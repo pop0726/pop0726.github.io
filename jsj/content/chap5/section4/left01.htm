@@ -1,0 +1,131 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第五章 标量处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><span class="section">5.4 超标量处理机</span><br>
+            <br>
+            <span class="pt9-black">　　下面将介绍三种高性能的指令级并行处理机，即超标量处理机（superscalar 
+            processor）、超流水线处理机（superpipelinig processor）和超标量超流水线处理机（superpipelined 
+            superscalar processor）的基本原理、典型结构、采用的关键技术和它们的主要性能等。<br>
+            　　如果以一台k段流水线的普通标量处理机为基准，超标量处理机、超流水线处理机和超标量超流水线处理机的主要性能比较如表5.2所示。</span></p>
+          <p><span class="pt9-black"><b>表5.2 四种不同类型处理机的性能比较</b><br>
+            </span></p>
+          <table width="85%" border="1" cellpadding="1" cellspacing="1" bgcolor="#F7F7D2">
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center">机器类型</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">k段流水线基准标量处理机</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">m度超标量处理机</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">n度超流水线处理机</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">(m,n)度超标量超流水线处理机</div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center">机器流水线周期</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">1个时钟周期</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">1</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">1／n</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">1／n</div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center">同时发射指令条数</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">1条</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">m</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">1</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">m</div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center">指令发射等待时间</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">1个时钟周期</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">1</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">1／n</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">1／n</div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center">指令级并行度ILP</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">1</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">m</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">n</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">m×n</div>
+              </td>
+            </tr>
+          </table>
+          <p align="left" class="pt9-black">　　在表5.2中，基准标量处理机是一台普通的单流水线处理机。为了便于进行比较，把基准标量处理机的机器流水线周期和指令发射等待时间都假设为1个时钟周期，同时发射的指令条数为一条，它的指令级并行度ILP（Instruction 
+            Level Parallelism）假设为1。另外三种指令级并行处理机，即并行度为m的超标量处理机，并行度为n的超流水线处理机，以及并行度为（m，n）的超标量超流水线处理机，它们的性能都相对于基准标量处理机进行比较。</p>
+          <p>&nbsp; </p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

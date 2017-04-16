@@ -1,0 +1,65 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第一章 计算机系统结构的基本概念</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="750"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black"><br>
+            <span class="section">1.2 计算机系统设计技术</span></p>
+          <p align="left" class="pt9-black"><b class="part">1.2.1 计算机系统设计的定量原理</b></p>
+          <p align="left"><span class="pt9-black">　　下面介绍计算机系统设计中经常用的几个定量原理。<br>
+            <br>
+            　　<b>1. 加快经常性事件的速度（Make the common case fast）</b><br>
+            　　这是计算机设计中最重要也最广泛采用的设计准则。使经常性事件的处理速度加快能明显提高整个系统的性能。一般说来，经常性事件的处理比较简单，因此比不经常出现的事件处理起来要快。例如，在CPU中两个数进行相加运算时，相加结果可能出现溢出现象，也可能无溢出发生，显然经常出现的事件是不发生溢出的情况，而溢出是偶然发生的事件。因此，在设计时应优化不发生溢出的情况，使这个经常性事件的处理速度尽可能快，而对溢出处理则不必过多考虑优化。因为发生溢出的概率很小，即使发生了，处理得慢一些也不会对系统性能产生很大的影响。<br>
+            　　在计算机设计中经常会遇到上述这种情况。那么，如何确定经常性事件以及如果加快了对它的处理，整个系统的性能能获得多大的提高？这就是下面介绍的Amdahl定律要解决的问题。<br>
+            <br>
+            　　<b>2. Amdahl定律</b><br>
+            　　Amdahl定律告诉我们：系统中某一部件由于采用某种更快的执行方式后整个系统性能的提高与这种执行方式的使用频率或占总执行时间的比例有关。 
+            Amdahl定律定义了由于采用特殊的方法所能获得的加速比的大小。<br>
+            <br>
+            　　　<img src="images/gsh2_1.gif" width="206" height="37"> <br>
+            　　　　　</span><span class="pt9-black">　<img src="images/gsh2_2.gif" width="225" height="34"><br>
+            <br>
+            　　Amdahl定律中，加速比与两个因素有关：一个是计算机执行某个任务的总时间中可被改进部分的时间所占的百分比，即 <img src="images/gsh2_3.gif" width="149" height="31" align="absmiddle">，记为Fe，它总小于1。另一个是改进部分采用改进措施后比没有采用改进措施前性能提高倍数，即 
+            <img src="images/gsh2_4.gif" width="145" height="35" align="absmiddle">，记为Se，它总大于1。</span><br>
+            <span class="pt9-black">　　我们可以得出如下结论：<br>
+            <br>
+            　　(1). 改进后整个任务的执行时间为：<br>
+            　　　　<img src="images/gsh2_5.gif" width="149" height="41"><br>
+            　　　　其中To为改进前的整个任务的执行时间。<br>
+            <br>
+            　　(2). 改进后整个系统的加速比为<br>
+            　　　　<img src="images/gsh2_6.gif" width="163" height="61"><br>
+            　　上面式子中(1-Fe)表示不可改进部分，显然当Fe为o，即没有可改进部分时，Sn为1，所以性能的提高幅度受改进部分所占比例的限制。当 
+            <img src="images/gsh2_7.gif" width="133" height="32" align="absmiddle">，因此，可获取性能改善极限值受Fe值的约束。 
+            </span></p>
+          <p align="left"><span class="pt9-black"><br>
+            <br>
+            </span> </p>
+          </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

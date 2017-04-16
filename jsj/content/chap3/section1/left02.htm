@@ -1,0 +1,52 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第三章 存储系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><span class="pt9-black"><b><br>
+            </b></span><b><span class="part">3.1.1 存储系统的定义</span></b><span class="pt9-black"><br>
+            <br>
+            　　在一台计算机中，通常有多种用途不同的存储器，如主存储器（或称内存）、Cache、通用寄存器、磁盘存储器、各种缓冲存储器、磁带和光盘存储器等。从构成存储器的材料上看，有ECL、TTL、MOS、静态存储器SRAM、动态存储器DRAM，还有磁表面存储器和光存储器等。从存储器的访问方式看，有直接译码、先进先出、随机访问、相联访问，也有块交换、文件交换等。<br>
+            　　是否在一台计算机中，有了各种用途不同，组成材料不同，工作方式也不同的多个存储器之后，就构成了一个存储系统呢？答案是否定的。那么，究竟什么是存储系统呢？<br>
+            　　两个或两个以上速度、容量和价格各不相同的存储器用硬件、软件、或软件与硬件相结合的方法连接起来成为一个系统。这个系统对应用程序员透明，并且，从应用程序员看它是一个存储器，这个存储器的速度接近速度最快的那个存储器，存储容量与容量最大的那个存储器相等或接近，单位容量的价格接近最便宜的那个存储器。<br>
+            　　图3.1是一个典型的存储系统，它由n个存储器连接起来组成，这n个存储器的速度、容量和价格各不相同。从外部看，可以把它看作一个存储器，这个存储器的速度近似等于所有存储器中存储周期最小的那个，容量与所有存储器中容量最大的那个相等或接近，价格近似等于所有存储器种价格最便宜的那个。 
+            </span></p>
+          <p align="center"><img src="images/tu3_1.gif" width="356" height="147"></p>
+          <p align="left" class="pt9-black">　　Cache存储系统全部用硬件来调度，因此，它不仅对应用程序员是透明的，而且对系统程序员也是透明的，它的组成原理如图3.2所示。</p>
+          <p align="center"><img src="images/tu3_2.jpg" width="439" height="209"></p>
+          <p align="left" class="pt9-black">　　目前，Cache一般用高速静态存储器（SRAM）实现，速度很高，容量在几十KB至几MB之间，价格比较贵。主存储器一般用动态存储器（DRAM）实现，速度比Cache慢10～100倍，容量在几十MB至几GB，价格与Cache相比要便宜很多。Cache与主存储器组成存储系统之后，由于数据在Cache中的命中率很高，访问主存储器的绝大多数数据都能在Cache中访问到，因此，这个存储系统的存储周期与Cache非常接近。对系统程序员来说，因为只能看到主存储器，根本看不到Cache（对程序员透明），因此，存储系统的容量实际上就是主存储器的容量。另外，尽管Cache的价格比较贵，但是，由于它在整个Cache存储系统中所占的比例很小，因此，存储系统单位容量的价格仍然与主存储器很接近。<br>
+            　　虚拟存储系统由主存储器与联机的外部存储器（目前一般为磁盘存储器）构成，采用硬件与软件相结合的方法来调度，如图3.3所示。由于虚拟存储系统需要通过操作系统的来调度，因此，对系统程序员是不透明的，但对应用程序员是透明的。<br>
+            　　虚拟存储系统的访问速度与主存储器很接近，存储容量是一个很大的虚拟地址空间，这个地址空间的大小比主存储器的实际容量要大得多，也就是说，应用程序员可以在一个比主存储器的实际容量大得多的地址空间内编程。目前，许多计算机的虚拟地址空间为4GB。由于磁盘存储器每位的价格要比主存储器便宜许多，因此，整个存储系统的平均价格仍然接近于磁盘存储器。<br>
+            　　表示存储系统的性能有三个主要参数：容量S，速度T和价格C，组成这个存储系统的每个存储器也有同样的三个参数，下面分析这些参数之间的关系。<br>
+            　　为了分析方便，采用如图3.4所示的由两个存储器M1和M2组成的存储系统。两个存储器的容量、速度和价格分别为S1，C1，T1和S2，C2，T2，存储系统的容量、速度和价格分别为S，C和T。</p>
+          <p align="center"><span class="pt9-black"><img src="images/tu3_4.jpg" width="266" height="96"></span><br>
+          </p>
+          <p align="left"><span class="pt9-black">　</span></p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

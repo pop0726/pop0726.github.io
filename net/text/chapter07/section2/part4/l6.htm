@@ -1,0 +1,31 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+          <td class="explaination"><br>
+            　　在一些应用中，如果发送方选择了一个较小的数据报尺寸，就可以避免分段。例如，一个文件传输应用可能在数据报中发送任意大小的数据，如果应用选择了一个小于或等于沿去往目的地路径上的最小网络MTU，则路径上的路由器就不需要对数据报进行分段。<br>
+            <br>
+            　　从技术上讲，从源到目的地的一条路径上的最小的MTU叫路径MTU（path MTU）。当然，如果路由器发生变化（即路径发送了变化），则路径MTU也可能变化。然而，对于Internet的很多部分，路由基本能保持几天或几个星期不变。在这种情况下，一台计算机了解路径MTU就非常有意义，因为这时产生的数据报就能足够的小了。 
+            <br>
+            <br>
+            　　ICMP通过一个&quot;不允许&quot;分段的数据报（被称为&quot;探测报文&quot;）来进行路径MTU的发现过程。通过在该报文的头部中DF域置位来实现。当收到该报文的路由器发现数据报必须被分段时，就检测该数据报头部中的DF位。如果这一位为1，路由器就不能分段，因而就发送一个ICMP要求分段报文给源主机，并丢弃数据报。<br>
+            <br>
+            　　为了确定路径的MTU，主机上的IP软件发送一系列的探测报文，如果一个探测报文数据报比路径上的某一个网络的MTU大，连在此网上的路由器会丢弃探测报文数据报并发回一个要求分段ICMP报文给源主机。当然，主机在收到这一差错报文后就会发送另一个较小的探测报文，如此重复，直到某一探测报文成功。就象跟踪路由程序一样，主机必须准备好重发没响应的探测报文。 
+            <br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

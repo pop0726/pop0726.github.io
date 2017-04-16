@@ -1,0 +1,49 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td colspan="2"><br>
+            <span class="point">・数据分组</span><br>
+            <span class="explaination">　　分组格式如</span><span class="text">图4.16</span><span class="explaination">。</span><br>
+            　</td>
+        </tr>
+        <tr> 
+          <td width="25" valign="top"><img src="../../../../../image/tub/ts.gif" width="25" height="20" alt="图示"></td>
+          <td height="16" width="694">
+            <div align="center"><img src="../../../../../image/pic/chapter04/4_16.gif" width="345" height="241"><br>
+              <span class="point">图 4.16</span></div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="explaination" colspan="2"><br>
+            　　GFI中的Q字段用来区分本层数据分组，识别是否为有效数据，通过将此比特置&quot;1&quot;，表明该数据分组含有运输层及较高层传来的控制信息。若Q＝0，为用户数据包。<br>
+            <br>
+            　　数据分组的捎带字段及序号字段分别为接收分组顺序号和发送分组顺序号，各占3比特，用于滑动窗口机制的流量控制与差错控制。其中接收分组顺序号，用以捎带应答信息，实现载答功能，其具体含义由D比特决定。<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="25" height="20" align="top">
+              <param name=movie value="43432-3.swf">
+              <param name=quality value=high>
+              <embed src="43432-3.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="25" height="20" align="top">
+              </embed> 
+            </object><br>
+            <br>
+            　　数据分组的模字段若为&quot;01&quot;值，则分组序号以8为模；若为&quot;10&quot;值，则分组序号以128为模。这时需要附加字节来扩充包头。<br>
+            <br>
+            　　待续字段M(More)指明一组相关联的分组。在长报文中，除了最后一个分组，每个分组的待续比特都置为&quot;1&quot;。当M＝0时，表示该分组是本报文的最后一个分组。借助M比特，可防止子网将不同报文的数据装在一个分组中。<br>
+            <br>
+            　　数据字段的长度受到最大分组长度的影响。x.25推荐的最大分组长度为128字节，但也允许选择16、32、64、256、512或1024字节。通信双方可在建立虚电路时，协商分组最大长度。选用大于128字节的最大分组长度是基于效率因素，而选用128字节以下的最大分组长度是为了保护缓冲区空间很小的终端，使之免于接收长分组。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

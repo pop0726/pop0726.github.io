@@ -1,0 +1,51 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第三章 存储系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><span class="pt9-black"><b><br>
+            </b></span><b><span class="part">3.1.4 并行访问存储器</span></b><span class="pt9-black"><br>
+            <br>
+            　　设置多个独立的存储器，让它们并行工作，在一个存储周期内可以访问到多个数据，这是提高存储器速度最直接的方法。<br>
+            　　要在一个存储周期内访问到多个数据，最直接的办法是增加存储器的字长。例如，一般存储器在一个存储周期内只能访问到一个字。如图3.6(a)所示，一个存储容量为m字×w位的存储器，每个存储周期只能访问到w位（一个字）。现在把存储器的字方向增加n倍，成为n×w位，为了保持总的存储容量不变，可以把存储器的地址数相应减少n倍，成为m/n个地址。这样，在一个存储周期内就能访问到n个字，如图3.6(b)所示。<br>
+            　　把地址码分成两个部分，其中一部分仍作为存储器的地址去访问存储器（因为存储器的字数减少了，因此访问存储器的地址码可以缩短），而另一部分则去控制一个多路选择器，从同时读出的n个数据中选择一个数据输出。<br>
+            　　并行访问存储器的主要优点是实现非常简单、容易。主要缺点是访问的冲突大。</span></p>
+          <p align="center"><img src="images/tu3_6.jpg" width="381" height="213"></p>
+          <p align="left"><span class="pt9-black">　　并行访问存储器的冲突主要来自如下几个方面：<br>
+            　　1、取指令冲突。在遇到转移指令，而且转移成功时，同一个存储周期中读出的n条指令，在转移指令后面的几条指令将无用。<br>
+            　　2、读操作数冲突。一次同时读出的n个操作数，不一定都有用。换一种说法，需要的多个操作数不一定正好都存放在同一个存储字中。<br>
+            　　3、写数据冲突。这种并行访问的存储器，必须凑齐了n个数之后才能一起写入存储器。如果只写一个字，必须先把属于同一个存储字的n个数据都读到数据寄存器中，然后在地址码的控制下修该其中的一个字，最后再把整个存储字写回存储器中。<br>
+            　　4、读写冲突。当要读出的一个字和要写入存储器的一个字处在同一个存储字内时，无法在一个存储周期内完成。<br>
+            　　这4种冲突中，第1种冲突的概率比较小，因为，程序在大多数情况下是顺序执行的。第2种冲突的概率比较大，因为操作数的随机性比程序要大。第3和第4种冲突，解决起来有一定困难，需要专门进行控制。<br>
+            　　分析发生这些冲突的原因，从存储器本身看，主要是因为地址寄存器和控制逻辑只有一套。如果在图3.6(b)中有n个独立的地址寄存器和n套读写控制逻辑，那么，上述第3和第4种冲突就自然解决了，第1和第2种冲突也有所缓解。<br>
+            <br>
+            </span></p>
+          <p align="left"><span class="pt9-black">　</span></p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

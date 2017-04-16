@@ -1,0 +1,43 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+          <td><br>
+            <span class="point">(1) 联系控制服务元素：（ACSE, Association Control Service 
+            Element）</span><br>
+            <span class="text"><br>
+            　　ACSE是应用层中最基本的服务元素，它负责在对等应用实体AE中建立应用联系。还提供中断应用联系、释放应用联系等功能。它是利用表示层服务实现的。ACSE的国际标准是ISO8649（服务定义，与ITU-T 
+            x.217兼容），ISO8650（协议规范，与ITU-T x.227兼容）。这里的联系和其他层的&quot;连接&quot;不尽相同。应用层不对任何更高层服务（应用层是最高层），应用服务元素只给应用层的一部分--用户元素UE提供服务，因此这里用&quot;联系&quot;而不用&quot;连接&quot;。<br>
+            </span><br>
+            <span class="point">(2) 可靠传送服务元素：（RTSE, Reliable Transfer Service 
+            Element）</span><br>
+            <span class="text"><br>
+            　　对等应用实体AE之间的通信是由表示层提供服务的，当应用层信息传输的可靠性要求比较高时，ACSE并不能给予保证。比如高层的会话层、表示层出现故障造成连接中断时，就有可能造成信息丢失、重复、次序颠倒等错误，而且当信息传送失败时，发送方也得不到及时的通知，为了防止这种情况发生，在应用层设置了另一种应用服务元素即可靠传送服务元素RTSE。RTSE的设置并不是要解决低层出现过的分组丢失和分组出错的问题，而是让系统能够从会话层、表示层等高层连接的故障与端系统崩溃中恢复过来。<br>
+            <br>
+            　　RTSE保证在对等应用实体间的可靠信息传送。在设置了RTSE的应用层，RTSE代替ACSE与应用进程直接建立应用联系，RTSE可直接在PSAP映射表示连接。但是这并不排斥RTSE通过ACSE后在PSAP映射表示连接。<br>
+            <br>
+            　　可靠传送服务元素RTSE的国际标推是ISO9066-1（服务定义，与ITU-T x.218兼容），ISO9066-2（协议规范，与ITU-T 
+            x.228兼容）。<br>
+            <br>
+            　　RTSE有多种差错处理和恢复方法。根据差错的情况RTSE将启动不同的差错处理和恢复过程。<br>
+            <br>
+            ・当出现重复传送时，发送方RTSE放弃所进行的活动，但向本地用户报告传送成功。<br>
+            ・当RTSE因差错无法传送APDU时，就放弃所进行的活动，且通知本地用户传送失败。<br>
+            ・当差错较轻时，RTSE中断当前的活动，并经适当时间再恢复该活动。当差错严重时，RTSE中止应用联系，在再次建立联系后恢复被中断的活动。中止应用联系后，要向本地用户报告。差错处理和恢复过程必然放弃当前正在进行的活动。<br>
+            　</span></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

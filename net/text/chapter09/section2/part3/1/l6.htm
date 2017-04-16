@@ -1,0 +1,36 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td class="explaination" colspan="2"><br>
+            　　考虑下面一个极端的例子，在一个无线LAN中，含有对时间敏感的通信的站都由点协调器控制，而其他通信则用CSMA争用访问。点协调器可以用循环的方式向所有的查询站点发出查询帧。当发出一个查询后，被查询的站点用SIFS响应。若点协调器接收到一个响应，它用PIFS发出另一个查询帧。若在预期的返回时间内没有接收到响应，点协调器就重复发出查询帧。如果点协调器不断地发送查询就会锁住所有的异步通信。为避免出现这种情况，定义了一种称为超级帧（superframe）的时间间隔。在此间隔的前面部分，点协调器用循环的方式向所有查询站点发出查询。然后点协调器把超级帧剩下时间空出来，作为异步访问的争用时期。 
+            <br>
+            <br>
+            　　超级帧的使用如<span class="point">图9.31(b)</span>所示。在超级帧的开始，点协调器可以在一段时间内任意控制对介质的访问和发送查询。由于响应站发出的帧是可以变化的，所以这段时间是可以变化的。超级帧剩下的时间用于争用访问。在超级帧的末尾，点协调器用PIFS争用介质。若此时介质是空闲的，点协调器就可以立即访问介质，紧接着就是一个完全的超级帧周期。但是，在超级帧的末尾，若点协调器要等待介质空闲才能获得访问权，其结果是在下一个周期中，超级帧的实际时间被缩短了。<br>
+            　</td>
+        </tr>
+        <tr> 
+          <td class="explaination" width="25" valign="top"><img src="../../../../../image/tub/ts.gif" width="25" height="20" alt="图示"></td>
+          <td class="explaination">
+            <div align="center"><br>
+              <img src="../../../../../image/pic/chapter09/9_32_b.gif" width="400" height="147"><br>
+              <span class="point"><br>
+              图9.31(b) PCF超级帧结构<br>
+              　　　</span></div>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

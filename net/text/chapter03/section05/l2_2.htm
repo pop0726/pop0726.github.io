@@ -1,0 +1,30 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td class="explaination" colspan="2"><br>
+            <span class="point">(1) 直流分量</span><br>
+            　　单极化编码信号的平均振幅不是零。这引起了一个称为直流分量（频率为0的分量）的因素。当一个信号含有直流分量时，它不能由没有处理直流分量能力的媒体传输，比如微波或变压器。<br>
+            <br>
+            <span class="point">(2) 同步</span><br>
+            　　当一个信号不发生改变时，接收端无法知晓每比特的开始和结束。所以，在单极性编码中的同步问题会在数据流中任意一个具有连续0或1比特的时候发生。数字编码方法采用电压的改变来指示比特位的改变。一个信号发生改变同时也说明了一个比特位结束而下一个比特位开始。但是，在单极性编码中，一串相同的比特，例如7个1比特，以没有电压变化的方式出现，只是一个不间断的，具有7倍于单个比特时延的正电压。当没有信号变化来指明下一个比特的开始时，接收方只能依赖于时间因素。给定一个期望比特率为1000bps，如果接收方检测到一个0.005s长度的正电压，则每0.001s读入一个1，也就是5个1。<br>
+            <br>
+            　　不幸的是，传输延时会使信号时序发生扭曲。举例来说，数据流中的5个1可能被拉长为0.006秒，从而导致接收方多读入了一个1。这个额外的1在被错误解码后可能导致错误。除此之外。接收方的时钟可能不同步，从而导致接收方错误地读入比特流。解决单极性传输的同步控制问题的一个方案是利用一条独立并行的线路来传输时钟脉冲，从而使接收设备可以根据信号对本身时钟进行重向步。但是将使用的传输线路加倍增加了开销，是不经济的。 
+            <br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

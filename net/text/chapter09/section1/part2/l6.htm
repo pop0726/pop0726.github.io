@@ -1,0 +1,65 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td class="explaination" width="25" valign="top"> 
+            <div align="left"><br>
+              <br>
+              <br>
+              <img src="../../../../image/tub/bg.gif" width="25" height="20" alt="表格"><br>
+              <br>
+              <span class="point"><br>
+              </span><br>
+              　　</div>
+          </td>
+          <td class="explaination"><br>
+            他们主要的功能见下表。<br>
+            <br>
+            <table width="340" border="0" cellspacing="1" cellpadding="0" align="center" bgcolor="#000099">
+              <tr bgcolor="#FFFFFF"> 
+                <td class="text" width="50">　<span class="part">层</span> </td>
+                <td class="part" width="287"> 　功能</td>
+              </tr>
+              <tr bgcolor="#FFFFFF"> 
+                <td class="point" width="50">　路径</td>
+                <td class="text" width="287"> 　业务，端到端的错误校正</td>
+              </tr>
+              <tr bgcolor="#FFFFFF"> 
+                <td class="point" width="50" height="17">　线路</td>
+                <td class="text" width="287" height="17">　通过帧和频率对齐进行复用，保护交换，数据链路</td>
+              </tr>
+              <tr bgcolor="#FFFFFF"> 
+                <td class="point" width="50">　段</td>
+                <td class="text" width="287">　成帧，编码，数据链路</td>
+              </tr>
+              <tr bgcolor="#FFFFFF"> 
+                <td class="point" width="50">　光子</td>
+                <td class="text" width="287">　电子信号和光学信号之间的转换</td>
+              </tr>
+            </table>
+            <br>
+            　</td>
+        </tr>
+        <tr> 
+          <td class="explaination" colspan="2">　　从底层到上层，每一层都是在下层提供的业务上构建的。光子层提供某种速率上的光学信号的传输；段层为了位流传输提供了分段和编码；线路层提供了线路维护和保护以及STS-1信号的复用；路径层提供了从业务（DS-3帧，ATM信元，数字语音流）到STS-1 
+            SPEs（同步载荷封装synchronous payload envelope）的映射。SONET路径层实现了承载业务，包括SPE格式端到端的比特流传输。<br>
+            <br>
+            　　举例说明：两个路径层过程正在交换DS-3帧。（45Mbps DS-e信号属于目前的电话信号层次）DS-e帧加上POH的开销，映射成STS-qSPE(同步有效载荷包络)，路径层将它交给线路层。线路层复用路径层不同的有效载荷（除了STS-1 
+            SPE以外包括DS-3信号），再加上LOH（线路层的头部）。除了复用，线路头部还提供了其他的一些功能，比如交换保护。最后段头部在光子层进行传输前进行分段和编码。最后光子层将位流电信号转换成光信号。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

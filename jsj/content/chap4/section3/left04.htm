@@ -1,0 +1,44 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第四章 输入输出系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black">　　CPU执行用户程序、用户程序调用管理程序及通道处理机执行通道程序的时间关系如图4.10所示。</p>
+          <p align="center" class="pt9-black"><img src="iamges/tu4.10.jpg" width="444" height="271"></p>
+          <p align="left" class="pt9-black">　　2、通道处理机执行CPU为它组织的通道程序，完成指定的数据输入输出工作。从图4.10中给出的时间关系可以看出，通道处理机执行通道程序是与CPU执行用户程序并行进行的。<br>
+            　　通道被启动后，CPU就可以退出操作系统的管理程序，返回到用户程序中继续执行原来的程序，而通道开始与设备之间的数据传送。当通道处理机执行完通道程序的最后一条通道指令&quot;断开通道指令&quot;时，通道的数据传输工作就全部结束了。<br>
+            　　3、通道程序结束后向CPU发中断请求。CPU响应这个中断请求后，第二次进入操作系统，调用管理程序对输入输出中断请求进行处理。<br>
+            　　如果是正常结束，管理程序进行必要的登记等工作，如果是故障、错误等异常情况，则进行例外情况处理。然后，CPU返回到用户程序继续执行。<br>
+            　　这样，每完成一次输入输出工作，CPU只需要两次调用管理程序，大大减少了对用户程序的打扰。当系统中由多个通道同时工作时，CPU与多种不同类型，不同工作速度的外围设备可以充分并行工作。<br>
+            　　在通道与设备之间的数据传送过程中，如果在同一个通道中有多台设备同时工作，则要反复重新选择设备，即找出当前要传送数据的那一台设备。对于低速设备，每传送完一字节就要重新选择一次设备，而对于高速设备，通常每传送完一个数据块重新选择一次设备。当然，如果一个通道只管理一台高速设备，那么，完成一次数据传送过程只需要做一次设备选择工作。<br>
+            <br>
+          </p>
+          <p align="left" class="pt9-black">　</p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第七章 互连网络</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="left">
+          <p><span class="pt9-black">　　(4)虫蚀寻径(wormhole) 新型的多计算机系统很多采用的是虫蚀寻径方式，把包进一步分成更小的片。与结点相连的硬件寻径器中有片缓冲区。消息从源结点传送到目的结点要经过一系列寻径器。如图7.26c所示。<br>
+            　　同一个包中所有的片象不可分离的同伴一样以流水方式顺序地传送。包可以看作是一列火车，由火车（头片）和被牵引的车厢（数据片）组成。<br>
+            　　只有头片知道包将发往何处。所有的数据片必须跟着头片。不同的包可以交替地传送，但不同包的片不能交叉，否则它们可能被送到错误的目的地。<br>
+            　　用头片直接开辟一条以输入链路到输出链路的路径的方法来进行操作。每个消息中的片以流水方式在网络中向?quot;蠕动&quot;。每个片相当于虫的一个节，&quot;蠕动&quot;是以节为单位顺序地向前爬行。<br>
+            　　当消息的头片到达一个结点A的寻径器后，寻径器根据头片的寻径消息立即做出路由选择：<br>
+            　　如果所选择的通道空闭且所选择的结点B的片缓冲区可用，那么这个头片就不必等待，直接通过结点A传向下一个结点B。随后的其它数据片跟着相应地向前&quot;蠕动&quot;一步。当消息的尾片向前&quot;蠕动&quot;一步之后，它刚才所占有的结点就被放弃了。<br>
+            　　如果所选择的通道忙或所选择的结点的片缓冲区不可用时，那么这个头片就必须在该结点的片缓冲区中等待，直到上述两者都可用时为止，其它数据片也在原来的结点上等待。此时，被阻塞的消息不从网络中移去，片也不放弃它所占有的结点和通道。 
+            <br>
+            　　为了实现上述的一个包内相继片的异步流水操作,采用如图7.27所示的握手协议。沿着路径，相邻寻径器之间有一根一位的就绪/请求（R/A)线。当接收寻径器（D）就绪时（图7.27a），就可以接收一片，即片缓冲区可用了，R/A线的电平变低。当发送的寻径器（S）就绪时（图7.27b），R/A线的电平变高并通过通道传送片i。当D正在接收片时（图7.27c），R/A线保持高电平。当片i从D的缓冲区移走后（即传送到下一个结点）（图7.27d），重复上述操作过程以便传送片i+1，直到整个包都被接收。</span></p>
+          <p align="center"><span class="pt9-black"><img src="images/tu7_27.jpg" width="697" height="279"></span></p>
+          <p align="left"><span class="pt9-black">　　虫蚀寻径的通信时延用公式表示为<img src="images/gsh2_6.gif" width="276" height="15" align="absmiddle">,<img src="images/gsh2_7.gif" width="15" height="14" align="absmiddle">是片的长度，<img src="images/gsh2_9.gif" width="14" height="16" align="absmiddle">是片经过一个结点所需时间。一般来说，<img src="images/gsh2_8.gif" width="63" height="15" align="absmiddle">，所以公式可以近似为T＝L/B，可以看到此时通信时延也与结点数无关。<br>
+            　　可以看出，虫蚀寻径有以下的优点：<br>
+            　　＊每个结点的缓冲区较小，易于VLSI实现。<br>
+            　　＊较低的网络传输时延。所有的片以流水方式向前传输，采用了时间并行性。而存储转发方式的消息包整个地从一个结点&quot;跳&quot;到另一个结点，通道的使用是串行的，所以它的传输时延基本上正比于消息在网络中传输的距离。虫蚀寻径方式的网络传输时延正比于消息包的长度，传输距离对它的影响很小。<br>
+            　　＊通道共享性好，利用率高，对通道的预约和释放是结合在一起的一个完整的过程，有一段新的通道后将立即放弃用过的一段旧通道。<br>
+            　　＊易于实现选播和广播通信方式。允许寻径器复制消息包的片并把它们从其多个输出通道输出。<br>　　然而虫蚀寻径方式也有缺点，当消息的一个片被阻塞时，整个消息的所有片都将被阻塞在所在结点，占用了结点资源，因此需要采用虚拟通道的方式来避免由此引起的一连串的阻塞。<br>　　虫蚀寻径方式也可以分为无缓冲和有缓冲两类，区别在于缓冲的大小。缓冲大有利于性能的提高，但会增加结点的复杂度。IBM SP2采用的寻径方式就是带缓冲的虫蚀寻径方式，它采用共享的存储区来对输入/输出消息进行缓冲。图7.26是线路开关寻径、存储转发寻径和虫蚀寻径的时空图。
+            </span></p>
+        </div>
+        </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第二章 指令系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><span class="pt9-black">　　归纳起来，CISC指令系统主要存在如下三方面的问题：<br>
+            <br>
+            <b>1、20％与80％规律</b><br>
+            <br>
+            　　CISC中，各种指令的使用频度相差很悬殊，大量的统计数字表明，大约有20％的指令使用频度比较大，占据了80％的处理机时间。换句话说，有80％的指令只在20％的处理机运行时间内才被用到。<br>
+            　　我们在典型的CISC处理机：IBM PC上对Intel 8088处理机的指令系统进行了分析研究。在C语言编译程序和PROLOG解释程序中，各种指令的使用频度和执行时间的分布情况见表2.10所示。其中，指令使用频度是指某一种指令在整个程序存储空间中所占的比例，它是静态的。指令执行时间是指某一种指令在整个程序的运行过程中所占的时间比例，这是动态的。</span></p>
+          <p align="center"><b><span class="pt9-black">表2.10 Intel 8088处理机指令系统使用频度和执行时间统计</span></b><span class="pt9-black"><br>
+            <img src="images/biao2_10.gif" width="513" height="533"> 
+            </span></p>
+          <p align="left"><span class="pt9-black">　　8088处理机的指令种类大约有100种。从表2.10中看到，前11种指令的使用频度，前8种指令的运行时间就已经超过了80％，前20种（20％）指令的使用频度达到91.1％，运行时间达到97.72％，也就是说，其余80％指令的使用频度只有8.9％，只占2.28％的处理机运行时间。<br>
+            　　如果把Intel 8088处理机的所有指令分为：数据传送类指令、算术运算类指令、逻辑运算/位操作类指令、字符串处理类指令、程序控制类指令和处理机控制类指令等6类。我们用7个测试程序进行统计，统计结果见表2.11。从表中发现，只有三类指令的使用频度比较高，均占90％，其余三类指令的使用频度均不到10％。这三类指令是：数据传送类指令、算术运算类指令和程序控制类指令。</span></p>
+          <p align="center"><span class="pt9-black"><b>表2.11 Intel 8088处理机各类指令使用频度统计</b><br>
+            <img src="images/biao2_11.gif" width="502" height="140"> 
+            <br>
+            <br>
+            <br>
+            </span></p>
+          <p align="left"><span class="pt9-black">　</span></p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

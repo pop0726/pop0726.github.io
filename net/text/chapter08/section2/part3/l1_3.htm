@@ -1,0 +1,43 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+          <td class="explaination"><br>
+            <span class="point">・带冲突检测的CSMA：CSMA/CD</span><br>
+            <br>
+            　　CSMA在发送数据之前进行载波监听，所以减少了冲突机会，但由于传播时延的存在，仍然可能冲突。考虑2个站点的模型，其中一个先发送信息，由于传送时延使另-个站点也发现倍道是空闲的，于是也发送信息，结果2个站点的信息在途中冲突，但2个站均不知道，一直要将数据帧余下部分发完，等到有错再重发送。这样明显造成了信道的浪费，加大了通信开销。能否在发送时检测到冲突并在冲突后立即停发？这就是CSMA/CD（Carrior 
+            Sense Multiple Access With Collision Detection）的思想。<br>
+            <br>
+            　　通俗地讲，CSMA/CD就是&quot;先听后讲，边讲边听&quot;，这种边发边监听的功能称为冲突检测。<br>
+            <br>
+            　　源站点在发送数据帧之前，首先监听信道是否忙，如监听到信道上有载波信号，则推迟发送，直到空闲为止，这就是CSMA。对传播时延小的网络，CSMA可降低冲突次数，减少冲突时间，但对传播时延大的网络，CSMA无多大价值。源站点监听到信道空闲后．就发送数据，并边发边监听，若监听到干扰信号，则表示检测到冲突，于是立即停止发送，并发一串阻塞信号增加冲突，以便网中其他站点均可知道冲突，然后准备重发冲突受损的帧。<br>
+            <br>
+            　　如何估算所需的冲突检测时间呢？对基带总线而言，此时用于检测冲突的时间不会超过任意2站之间的最大传输延迟的2倍。在CSMA/CD中，通过检测总线上是否存在信号以实现。<br>
+            <br>
+            　　载波监听，发送站的收发器同时检测冲突，如果收发器电缆上的信号超过收发器本身发送信号的幅度就判断出冲突。<br>
+            在CSMA/CD算法中，一旦检测到冲突，需要等待一段随机时间，然后再次使用CSMA方法传输。延迟时间采用一种称为二进制指数的退避算法实现。其算法过程如下：<br>
+            <span class="point">　① </span>对每个帧，当第一次发生冲突时，设置参数L＝2。<br>
+            <span class="point">　② </span>退避重发时间在1～L个时隙中随机抽取。<br>
+            <span class="point">　③ </span>当帧再次冲突时，L加倍，即L＝2L。<br>
+            <span class="point">　④ </span>退避重发时间仍在1～L个时隙中随机抽取。<br>
+            <span class="point">　⑤ </span>当冲突n次，L＝2<sup><font size="1">n</font></sup>。<br>
+            <span class="point">　⑥ </span>设置一个最大重传次数，超过此值，不再重发，并报告出错。<br>
+            <br>
+            　　此算法的效果是，不冲突或少冲突的帧重发的机会大，冲突多的帧重发的机会小。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

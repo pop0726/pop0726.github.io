@@ -1,0 +1,41 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td class="explaination" width="25" valign="top"><br>
+            <img src="../../../../image/tub/ts.gif" width="25" height="20" alt="图示"></td>
+          <td class="explaination"> 
+            <div align="center"><br>
+              <img src="../../../../image/pic/chapter09/9_19.gif" width="307" height="128"> 
+              <br>
+              <br>
+              <span class="point">图9.18 ATM交换机的功能结构</span></div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="explaination" colspan="2"><span class="point"><br>
+            　・入线处理和出线处理部件</span><br>
+            　　入线处理部件对各条入线上送来的ATM信元进行处理，使这些信元成为适合送交ATM交换单元的形式。而出线处理部件对ATM交换单元送出的信元进行处理，使这些信元成为适合在出线上传输的形式。因为在ATM交换单元中为了提高交换速度，常常是需要一次读入若干比特的并行信号，而在通信线路上传送的往往是串行信号。并且，宽带通信线路一般使用光纤，在光纤上传送的是光信号，而在ATM交换单元中一般只处理电信号，所以必须对信号进行光/电、电/光转换。按照ITU-T的建议，入线处理部件还要根据ATM信元头部中的HEC码，对信元进行同步和对齐操作，才能送入交换单元。<br>
+            <br>
+            <span class="point">　・ATM交换单元</span><br>
+            　　用来完成交换动作的任务，就是把入线上的ATM信元，按照其头部不同的VPI/VCI来识别路由信息，分别送到相应的各条出线上去。<br>
+            <br>
+            <span class="point">　・ATM控制单元</span><br>
+            　　负责对ATM的交换单元进行控制，除了执行建立和拆除虚电路和虚路径的功能之外，它还应能够接收信令信元和运行维护信元，并通过对这些信元的处理来产生合适的控制信号送给交换单元。由于所有的信息在宽带交换网中传递时都是以ATM信元的形式出现，因此当对用户线上送来的一个信令信元作出应答时，或者要对其交换机及终端设备发送命令时，ATM控制单元应有发送和接收ATM信元的能力，以及在内部要有快速进行各种逻辑分析和处理的能力。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

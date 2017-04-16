@@ -1,0 +1,55 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第五章 标量处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black"><b>3、效率</b><br>
+            <br>
+            　　流水线的效率（Efficiency）是指流水线的设备利用率。在时空图上，流水线的效率定义为n个任务占用的时空区与k个流水段总的时空区之比。因此，流水线的效率包含有时间和空间两方面的因素。实际上，n个任务占用的时空区就是顺序执行n个任务所使用的总的时间<img src="images/gsh1_26.gif" width="15" height="16" align="absmiddle">。而用一条k段流水线完成n个任务的总的时空区为k 
+            <img src="images/gsh1_4.gif" width="16" height="18" align="absmiddle">，其中，Tk是流水线完成n个任务所使用的总时间。则一条k段流水线的效率可以表示为：<br>
+            　　<img src="images/gsh1_27.gif" width="217" height="37" align="absmiddle">　　　　　（5.18）<br>
+            　　（5.18）式是计算流水线效率的一般公式。<br>
+            　　如果流水线的各段执行时间均相等，而且输入的n个任务是连续的，则一条k段流水线的效率为：<br>
+            　　<img src="images/gsh1_28.gif" width="194" height="38" align="absmiddle">　　　　　　　（5.19）<br>
+            　　从流水线的时空图中看，（5.19）式的分母部分是完成n个任务所用的时间与k个流水段所围成的总面积，而分子部分是n个任务实际上占用的有效面积。因此，通过时空图来计算流水线的效率非常方便。<br>
+            　　在流水线的各段执行时间均相等，输入给流水线的任务是连续的情况下，流水线的最高效率为：<br>
+            　　<img src="images/gsh1_29.gif" width="152" height="33" align="absmiddle">　　　　　　　　　　（5.20）<br>
+            　　从这个关系式中可以看出，当n&gt;&gt;k时，流水线的效率达到最大值1。这时，流水线的各段均处于忙碌状态。从时空图中看，每一块都是有效的。<br>
+            　　从（5.19）和（5.7）两个关系式中，很容易得出：<br>
+            　　<img src="images/gsh1_30.gif" width="192" height="37" align="absmiddle">　　　　　　　（5.21）<br>
+            　　当时钟周期Dt不变时，流水线的效率与吞吐率成正比。这就是说，为了提高流水线的效率而采取的措施，同时也提高了流水线的吞吐率。<br>
+            　　比较（5.19）和（5.15）两个关系式中，可以得出：<br>
+            　　<img src="images/gsh1_31.gif" width="182" height="31" align="absmiddle">（5.22）<br>
+            　　流水线的效率是流水线实际加速比S与它的最大加速比k之比。只有当流水线的效率达到其最大值，即E＝1时，才能使实际加速比达到最大，即S＝k。<br>
+            　　如果流水线的各段执行时间不相等，参照图5.8和关系式（5.17），可以得出连续执行n个任务时的流水线效率为：<br>
+            　　<img src="images/gsh1_32.gif" width="308" height="85" align="absmiddle">（5.23）<br>
+            <br>
+          </p>
+          </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

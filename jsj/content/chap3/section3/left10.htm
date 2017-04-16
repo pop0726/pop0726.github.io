@@ -1,0 +1,171 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第三章 存储系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black"><b>1、轮换法及其实现</b><br>
+            <br>
+            　　轮换法通常用于组相联映象及地址变换方式中，常见的有两种实现方法。<br>
+            <br>
+            <b>　方法一：每块一个计数器</b><br>
+            <br>
+            　　在上面介绍组相联地址变换方式中，块表内用来表示每一块映象关系的一个存储字由三字段组成，包括主存地址的区号E和块号B、Cache的块号b及一个有效位e。为了实现轮换法，还要再增加设置一个替换计数器字段。计数器字段的长度与Cache地址中的组内块号字段的长度相同。<br>
+            　　替换方法及计数器的管理规则是：被装入或被替换的块，它所属的计数器清为&quot;0&quot;，同组的其它块所属的计数器都加&quot;1&quot;。需要替换时，在同组中选择计数器的值最大的块作为被替换的块。 
+            <br>
+            　　下面举一个例子来说明轮换法是如何实现的。<br>
+            　　Solar-16/65机的Cache采用组相联映象方式。Cache每组的块数为4，因此，每块用一个2位的计数器。刚开始时，同组的4个计数器均为00。装入及替换的过程见表3.4。实际上，是装入还是替换是由有效位决定的，而替换计数器用来指示装入或替换的块号。</p>
+          <p><span class="pt9-black"><b>表3.4 一种轮换法的装入及替换过程</b></span><b><br>
+            </b></p>
+          <table width="85%" border="1" cellpadding="1" cellspacing="1" bgcolor="#FFFFE6">
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center">序列</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">初始值</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">装入块00</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">装入块01</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">装入块10</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">装入块11</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">替换块00</div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center">块00</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">00</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">00</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">01</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">10</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">11</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">00</div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center">块01</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">00</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">01</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">00</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">01</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">10</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">11</div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center">块10</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">00</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">01</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">10</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">00</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">01</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">10</div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center">块11</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">00</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">01</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">10</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">11</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">00</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">01</div>
+              </td>
+            </tr>
+          </table>
+          <p align="left"><span class="pt9-black"><b>方法二：每组一个计数器</b><br>
+            <br>
+            　　分析上面的方法，实际上同组内的所有块是按顺序轮流替换的。为此，只要为每个组设置一个计数器即可。<br>
+            　　替换规则和计数器的管理方法很简单。本组有替换时，计数器加&quot;1&quot;，计数器的值就是要被替换出去的块号。<br>
+            　　例如，NOVA3计算机的Cache采用组相联映象方式。Cache每组的块数为8，每组设置一个3位计数器。在需要替换时，计数器的值加&quot;1&quot;，用计数器的值直接作为被替换块的块号。<br>
+            　　轮换法的优点是实现比较简单。与随机法相比，它能够利用历史上的块地址流情况，把最先装入的块作为被替换的块。但是，与随机法相同，它也没有能够利用程序的局部性特点。因为最先装入cache个块，很可能也是经常要使用的块。因此，它的效果虽然比随机法好，但仍然不理想。<br>
+            <b></b></span> </p>
+          <p align="left">&nbsp;</p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

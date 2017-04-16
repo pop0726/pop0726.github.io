@@ -1,0 +1,55 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第八章 并行处理机和多处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><span class="pt9-black">2) 并行程序设计环境<br>
+            　　随着MPP和机群系统等分布存贮结构并行系统的发展，开发出了PVM，MPI，Express，P4等基于Message Passing方式的并行程序设计环境，它为并行程序的设计和运行提供一个整体系统和各种辅助工具。功能包括提供统一的虚拟机、定义和描述通信原语、管理系统资源、提供可移植的用户编程接口和多种编程语言的支持。目前研制的机群系统大多支持PVM和MPI，除了能适应广泛的硬件平台和编程方便等特点之外，它们都是免费软件，可以方便地进行再开发，有利于系统的推广与应用。正是由于它们都是免费软件，所以在支持语言、容错及工具等方面都不完善，许多研究机构和大学正在做这方面的研究。<br>
+            　　开发并行应用程序要比串行程序困难得多，它要涉及多个处理器之间的数据交换与同步，要解决数据划分、任务分配、程序调试和性能评测等问题，需要相应支持工具，比如并行调试器、性能评测工具、 
+            并行化辅助工具，它们对程序的开发效率与运行效率都有重要作用。目前，提供工具较完善的系统有FAUST, Express, TOPSYS 
+            和 VIDE。<br>
+            <br>
+            3) 多种并行语言的支持<br>
+            　　并行程序设计语言是并行系统应用的基础，已有的机群系统大多支持Fortran、C和 C++, 实现的方法主要是使用原有顺序编译器链接并行函数库，比如PVM，MPI，或者加入预编译，比如Multi-thread 
+            C, MPC++。目前机群系统并行程序设计语言的研究主要在三个方面：(1) 扩展原有顺序语言，提供广泛的并行语言支持，例如，清华大学可扩展机群系统的ADA，MPC++。(2) 
+            提供全新的并行语言，比如Occam。(3) 研究自动化并行编译方法，直接将顺序程序编译成并行代码，目前比较成功的有UIUC 的Polaris, 
+            Stanford的 SUIF和复旦大学的 AFT。<br>
+            <br>
+            4) 全局资源的管理与利用<br>
+            　　有效地管理系统中的所有资源是机群系统的一个重要方面，常用的并行编程环境PVM, MPI等对这方面的支持都比较弱，仅提供统一的虚拟机。主要原因是结点的操作系统是单机系统，不提供全局服务支持，同时也缺少有效的全局共享方法。UC 
+            Berkeley的NOW项目中提出，在一般操作系统（Unix, Linux, Windows NT等）之上建立一个全局Unix: GLUnix来解决机群系统中的所有资源管理，包括组调度、资源分配和并行文件系统。一般认为其中并行文件系统对提高系统的性能潜力最大，即所谓Terabytes 
+            &gt;&gt; Teraflops, 就是说目前限制并行程序性能的因数主要来自I/O瓶颈，提高I/O性能的方法较之提高CPU速度更能增强并行系统的性能。<br>
+            　　由于网络技术的发展，通信延迟越来越小，网络访问比本地磁盘访问要快得多。在155Mbits/s 的ATM 网络上，读取其他结点的内存100MBytes的时间是读取本地磁盘的五分之一。现在的工作站和高档PC 
+            机都配有相当多的内存(32Mbytes ~64MBytes)，整个机群系统的全部内存是一个很大的资源，利用其他结点的空闲内存作为本地结点的虚拟内存和文件缓存，可以节省相当多的访盘时间。据UC 
+            Berkeley的实验统计， 对需要经常访盘的应用程序，使用这种方式可以比使用本地磁盘快5~10倍。<br>
+            　　除了这几个主要方面的研究之外，还有许多特定应用方面的研究，比如，广播、多播等全局操作的高效实现、DSM并行模型的支持、并行I/O的研究等。<br>
+            <br>
+            </span></p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

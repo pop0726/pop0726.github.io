@@ -1,0 +1,44 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第五章 标量处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black"><span class="part">5.5.3 超流水线处理机性能</span><br>
+            <br>
+            　　在一台指令级并行度为(1,n)的超流水线处理机上，执行N条没有数据相关和控制相关的指令所需要的时间为：<br>
+            　　　<img src="images/gsh5_1.gif" width="161" height="35" align="absmiddle"><br>
+            　　其中，k是指令流水线的流水段数，或时钟周期数；而不是流水线级数。在一般超流水线处理机中，指令流水线的级数实际应为k n。上式中的头一项是第一条指令通过指令流水线执行完成所需要的时间，而第二项是执行其余N－1条指令所需要的时间，这时，每一个时钟周期有n条指令要在指令流水线中执行完成，也就是每一个流水线周期执行完成一条指令。<br>
+            　　单流水线普通标量处理机连续执行N条指令所用时间如（5.29）式所示，因此，超流水线处理机相对于单流水线普通标量处理机的加速比为：<br>
+            　　　<img src="images/gsh5_2.gif" width="185" height="37" align="absmiddle"><br>
+            　　当执行的指令条数N→∞时，在没有数据相关和控制相关的理想情况下，超流水线处理机的加速比的最大值为：<br>
+            　　　<img src="images/gsh5_3.gif" width="91" height="17" align="absmiddle"><br>
+          </p>
+          <p align="left" class="pt9-black">&nbsp;</p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

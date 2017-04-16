@@ -1,0 +1,49 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第六章　向量处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black"><b>例6.2</b>若要进行向量运算：D＝A×(B+C),假设向量长度≤64，且B和C已由存储器取至V0和V1，则下面3条向量指令就可完成上述运算：<br>
+            　　　<img src="images/gsh3_6.gif" width="71" height="53"> 
+            <br>
+            　　第一、二条指令因既无向量寄后器使用冲突，也无功能部件使用冲突，所以这两条指令可并行执行。第三条指令与第一、二条指令均存在先写后读的相关冲突，因而可将第三条指令与第一、二条指令链接执行，如图6.17 
+            所示。</p>
+          <p align="center" class="pt9-black"><img src="images/tu6_17.jpg" width="400" height="399"></p>
+          <p align="left" class="pt9-black">　　由于同步的要求，数据进入和流出每个功能部件，包括访存都需要1拍时间。<br>
+            　　假设向量长度为N，若这三条指令全部用串行方法，则执行时间为：<br>
+            　　　[(1+6+1)+N-1]＋[(1+6+1)+N-1]+[(1+7+1)+N-1]=3N+22拍<br>
+            　　若前两条指令并行执行，第三条指令串行执行，则执行时间为：<br>
+            　　　[(1+6+1)+N-1]+[(1+7+1)+N-1]=2N+15拍<br>
+            　　若采用链接技术，则执行时间为：<br>
+            　　　(1+6+1)＋(1+7+1)+(N-1)=17+N-1=N+16拍<br>
+            　　实现链接除了无向量寄存器使用冲突和无功能部件使用冲突外，还有时间上的要求，只有当前一条指令的第一个结果分量送入结果向量寄存器的那一个时钟周期方可链接，若错过该时刻就不能进行链接，只有当前一条向量指令全部执行完毕，释放向量寄存器资源后才能执行后面指令。另外，当一条向量指令的两个源操作数分别是两条先行指令的结果寄存器时，要求先行的两条指令产生运算结果的时间必须相等，即要求有关功能部件的延迟时间相等，如例中的访存和浮点加功能部件延时均为6拍。此外还要求这两条向量指令的向量长度必须相等，否则也不能链接。<br>
+            <br>
+          </p>
+          </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

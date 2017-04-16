@@ -1,0 +1,44 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第五章 标量处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><span class="part">5.4.2 单发射与多发射</span><br>
+            <br>
+            <span class="pt9-black">　　单发射处理机的指令执行时空图如图5.48(a)所示，它在一个时钟周期内只从存储器中取出一条指令，并且只对一条指令进行译码，只执行一条指令，只写一个运算结果。<br>
+            　　在单发射处理机中，取指令部件和指令译码部件只各设置一套，而操作部件可以只设置一个多功能操作部件，也可以设置多个独立的操作部件。例如，定点算术逻辑部件ALU、取数存数部件LSU、浮点加法部件FAD、乘除法部件MDU等。一个有4个操作部件组成的单发射处理机如图5.49(a)所示。单发射处理机在指令一级通常采用流水线结构；而在操作部件中，有的机器采用流水线结构，也有的机器不采用流水线结构。 
+            <br>
+            　　单发射处理机的设计目标是每个时钟周期平均执行一条指令，即它的指令级并行度ILP的期望值1。如果从表5.2中看，相当于m＝1。实际上，它就是一台有k段流水线的普通标量处理机。由于数据相关、条件转移和资源冲突等原因，实际的ILP不可能达到1。通过优化编译器对指令序列进行重组（recorganizer），以及采用软件与硬件相结合的方法处理数据相关、条件转移和资源冲突等，可以使ILP接近于1。但是，单发射处理机的ILP不可能大于1。</span></p>
+          <p align="center" class="pt9-black"><img src="images/tu5_48.gif" width="333" height="404"><br>
+            <b>图5.48 单发射与多发射处理机的指令执行时空图 </b></p>
+          <p align="left" class="pt9-black">　　多发射处理机在一个基本时钟周期内同时从指令Cache中读出多条指令，同时对多条指令进行译码。一个同时发射三条指令的多发射处理机的指令执行时空图如图5.48(b)所示。为了实现在一个时钟周期同时多发射条指令，通常需要有多个取指令部件，多个指令译码部件和多个写结果部件。图6.53(b)是一个同时发射两条指令的多发射处理机的指令流水线。两个取指令部件同时从指令Cache中取出两条指令，两个指令译码部件同时对两条指令进行译码，指令的译码结果分别送往4个操作部件执行。<br>
+            <br>
+          </p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

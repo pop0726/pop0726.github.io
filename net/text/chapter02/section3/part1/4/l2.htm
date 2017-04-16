@@ -1,0 +1,88 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td class="explaination" colspan="2"><br>
+            　　在OSI环境内，分层的标题域中，全局标题可以由该层的标题域名和该层内的局部标题组成。例如，会话层局部标题为abc的实体，它的全局标题则为Sabc。运输层内端点的实体，它的局部标题也可为abc，但其全局标题则为Tabc。因此，会话层和运输层中的实体，它们各目的局部标题相同，但它们在不同的层中，因此而它们在OSI环境中的全局标题则是不相同的。表2.1列出了这些情况。<br>
+            　</td>
+        </tr>
+        <tr> 
+          <td class="explaination" width="25" valign="top"><img src="../../../../../image/tub/bg.gif" width="25" height="20" alt="表格"></td>
+          <td class="explaination">
+            <div align="center"><span class="point">表2.1</span><br>
+              <table width="330" border="0" cellspacing="1" cellpadding="0" bgcolor="#0000CC" height="144">
+                <tr bgcolor="#FFFFFF"> 
+                  <td class="text" width="81"> 
+                    <div align="center">特定层名</div>
+                  </td>
+                  <td class="text" width="63"> 
+                    <div align="center">标题域名</div>
+                  </td>
+                  <td class="text" width="82"> 
+                    <div align="center">局部标题实体</div>
+                  </td>
+                  <td class="text" width="99"> 
+                    <div align="center">相应的全局标题</div>
+                  </td>
+                </tr>
+                <tr bgcolor="#FFFFFF"> 
+                  <td class="text" width="81" valign="top" height="115"> 
+                    <div align="center">Application<br>
+                      Presentation<br>
+                      Session<br>
+                      Transport<br>
+                      Network<br>
+                      Data-link<br>
+                      Physical</div>
+                  </td>
+                  <td class="text" width="63" height="115"> 
+                    <div align="center"> 
+                      <p>A<br>
+                        P<br>
+                        S<br>
+                        T<br>
+                        N<br>
+                        DL<br>
+                        PH</p>
+                    </div>
+                  </td>
+                  <td class="text" width="82" valign="top" height="115"> 
+                    <div align="center">e1, e2<br>
+                      e3<br>
+                      abc<br>
+                      abc<br>
+                      　<br>
+                      　<br>
+                      　</div>
+                  </td>
+                  <td class="text" width="99" valign="top" height="115"> 
+                    <div align="center"> 
+                      <p>Ae1, Ae2<br>
+                        Ae3<br>
+                        Sabc<br>
+                        Tabc<br>
+                        　<br>
+                        　<br>
+                        　</p>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            　</div>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

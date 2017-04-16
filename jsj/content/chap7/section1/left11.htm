@@ -1,0 +1,55 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第七章 互连网络</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black"><span class="part">7.1.4 互连网络的种类</span><br>
+            <br>
+            　　互连网络可分为静态互连网络和动态互连网络两大类。<br>
+            <br>
+            　　<b>1. 静态互连网络</b><br>
+            　　静态互连网络是指在各结点间有专用的连接通路，且在运行中不能改变的网络。在静态互连网络中，每一个开关元件固定地与一个结点相连，建立该结点与邻近结点之间的连接通路，直接实现两结点之间的通信。这种网络比较适合于构造通信模式可预测或可用静态连接实现的计算机。静态互连网络一维的有线性阵列结构；二维的有环形、星形、树形、网格形等；三维的有立方体等；三维以上的有超立方体等。下面我们根据网络参数以及它们对网络通信和可扩展性的影响来介绍静态互连网络的拓扑结构。 
+            <br>
+            　　（1）线性阵列 这是一种一维网络，其中N个结点用N-1条链路连成一行（图7.13a）。内部结点的度为2，端结点的度为1。直径为N-1，N较大时，直径就比较大。等分宽度b=1。线性阵列是最简单的拓扑结构。这种结构不对称，当N很大时，通信效率很低。<br>
+            　　在N很小的情况下，如N＝2，实现线性阵列是相当经济的。由于直径随N线性增大，因此当N比较大时，就不应使用这种方案了。应当指出，线性阵列与总线的区别是很大的，后者是通过切换与其连接的许多结点来实现时分特性的。线性阵列允许不同的源结点和目的结点对并发使用系统的不同部分（通道）。 
+            <br>
+            　　（2）环和带弦环(chordal ring) 环是用一条附加链路将线性阵列的两个端结点连接起来即可得到（图7.13b）。环可以是单向工作，也可以是双向工作。它是对称的，结点度是常数，为2。双向环的直径为N/2，单向环的直径是N。<br>
+            　　IBM令牌环(token ring)的拓扑结构将消息沿环循环传送，直到它们到达有匹配令牌的目的为止。流水线环和包交换环已经在CDC 
+            Cyberplus多处理机和KSR-1计算机系统中实现，用于完成处理机间的通信。<br>
+            　　如果将结点度由2提高至3或4，我们即可得到如图7.13c和7.13d所示的两种带弦环。分别增加一条和两条附加链路也可以得到这两个带弦环。总之，增加的链路愈多，则结点度愈高，网络直径愈小。<br>
+            　　16个结点的环（图7.13b）与两个带弦环（图7.13c和7.13d）相比，网络直径分别由8减至5和3。在极端情况下，图7.13f全连接网(completely 
+            connected network)的结点度为15，直径最短，为1。<br>
+            　　（3）循环移数网络 图7.13e所示的是一个循环移数网络(barrel shifter)，其结点数N=16，它是将环上每个结点到与其距离为2整数幂的结点之间增加一条附加链而构成的。这就是说，如<img src="iamges/gsh1_52.gif" width="119" height="17" align="absmiddle">，网络规模<img src="iamges/gsh1_53.gif" width="33" height="15" align="absmiddle">，则结点i与结点j连接。这种循环移数网络的结点度为d=2n-1，直径D＝n/2。<br>
+            　　显然，循环移数网络的连接特性与结点度较低的任何带弦环相比是有了改进。对N=16的情况，循环移数网络的结点度为7，直径为2。但是它的复杂性仍比全连接网络（图7.13f）低得多。 
+          </p>
+          <p align="center" class="pt9-black"><b><img src="iamges/tu7_13.gif" width="399" height="297"><br>
+            图7.13 线性阵列、度为3和4的带弦环、循环移数网络和全连接网络 </b> <br>
+          </p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

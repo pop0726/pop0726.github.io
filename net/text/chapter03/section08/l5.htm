@@ -1,0 +1,30 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td class="explaination" colspan="2"><br>
+            　　经过编码以后变成六比特编码码字，其中校验位C<font size="1">6</font>应满足下列关系：<br>
+            　　　C<font size="1">1</font> + C<font size="1">2</font> + C<font size="1">3</font> 
+            + C<font size="1">4</font> + C<font size="1">5</font> + C<font size="1">6</font> 
+            ＝ 0(或1) 　(3-12)<br>
+            <br>
+            　　式中的加法是模2加。上式的右边等于零称为偶校验，此时等式的右边含偶数个1；等于1就是奇校验，则含奇数个l。<br>
+            <br>
+            　　在接收端，将收到C<font size="1">1</font>，C<font size="1">2</font>，…，C<font size="1">6</font>比特进行累加，检查其是否符合式(3-12)的关系。如果收到的码组符合奇偶校验关系，则认为传输没有错。应当指出，这里只是说&quot;认为&quot;传输没有错，实际上，它是可能错的。因为，如果偶数位发生错误，则接收端根据奇偶校验关系仍然认为没有错误。奇偶校验码可以发现所有奇数个错误。在上例中，信息位数k＝5，码组位数n=6，所以编码率Rc＝5/6。奇偶校验码的编码率可以做得很高。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第八章 并行处理机和多处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black">(5) Linda<br>
+            　　并行机一般可分为基于共享存储器的多处理机和基于分布存储器的多处理机, 在共享存储多处理机上, 一般采用共享存储的编程方式, 它是对传统串行语言的扩充, 
+            编程较为容易; 在分布存储多处理机上一般采用message-passing方式编写程序, 像上面介绍的几个程序设计环境均属于此类. 
+            Linda与前面介绍的编程环境不同, 虽然它也是运行在分布存储多处理机上, 但它引入了虚拟共享存储概念, 通过在各处理机上实现一个虚拟的共享存储器, 
+            将分布存储多处理机模拟成为基于共享存储器的多处理机, 从而达到支持共享存储编程方式的目的。<br>
+            　　Linda是美国Yale大学与科学计算协会共同研制的用于实现并行程序设计的, 与机器无关的程序环境. Linda通过增加一些函数对传统的程序设计语言进行扩充(如C, 
+            Fortran等), 使其能实现并行程序的设计. 将Linda映射到各计算语言中, 就形成了可进行并行计算的程序语言C-Linda, 
+            Fortran-Linda. Linda可以运行在共享存储多处理机, 分布存储多处理机以及工作站机群系统上.<br>
+            　　Linda的虚拟共享存储器称为元组空间( Tuple Space), 元组空间由一组有序的元组(tuple)组成, 元组的每个域都包含有实际的数据. 
+            元组空间是相联存储器, 元组的标识与选择是通过域值匹配, 而不是通常采用的地址选择方法。<br>
+            　　Linda提供了以下4种对元组的基本操作:<br>
+            　　　. out: 将数据放入元组空间, 整个操作是顺序进行的;<br>
+            　　　. eval: 功能同out, 但它是并行执行的;<br>
+            　　　. in: 从元组空间中选择匹配的数据, 并将数据从元组空间中删除;<br>
+            　　　. rd: 功能同in, 但它不将数据从元组空间中删除.<br>
+            　　当两个进程需要交换数据时, 它们并不是采用message-passing来直接通讯, 而是通过读写Tuple空间来完成(同共享存储多处理机的并行程序设计). 
+            例如: 如果A进程需要向B进程传递数据, 则需要完成以下的操作:<br>
+            　　1) A向Tuple空间写一个数据;<br>
+            　　2) B在Tuple空间中读取需要的数据.<br>
+            　　Linda在编译系统和运行系统上作了很多优化工作, 使用Linda编写的应用程序在效率上能够接近用传统message-passing编写的应用程序。<br>
+            　　Linda系统从其特点与功能上看, 适合于处理一个结点上具有多个处理进程, 进程间具有不明确的数据通讯, 且进程间需要较强的同步机制以及全局通讯的实际应用问题。<br>
+            <br>
+            (6) IPCE<br>
+            　　清华大学计算机系在承担的863项目&quot;可扩展工作站机群系统&quot;中, 构造了一个由8台Power PC工作站, 采用100Mbps以太网连接起来的机群系统, 
+            系统采用PVM作为低层编程环境, 高层以XPVM为基础, 通过对其改进与扩充, 开发了一个高效实用的可视化集成开发环境IPCE。<br>
+            　　IPCE是一组图形界面工具, 它使得程序员可在多机环境下实时地监视和控制同时在不同机器上运行的程序, 它在XPVM的基础上增加了编辑、编译链接装配、各结点资源使用情况显示、并行调试以及地震数据处理接口等功能。另外，IPCE还扩充了XPVM的动态显示图, 
+            增加了显示各任务发送/接收消息的字节数, 各结点发送/接收消息次数以及字节数等状态监视图。总之，IPCE为用户使用并行机提供了方便,。<br>
+          </p>
+          <p align="left" class="pt9-black">&nbsp;</p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

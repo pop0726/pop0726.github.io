@@ -1,0 +1,59 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第八章 并行处理机和多处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black"><b>2 N台处理机系统的基本模型</b></p>
+          <p align="left"><span class="pt9-black"> 　　现在我们讨论有N台处理机系统的基本模型。在这种情况下，我们将<img src="images/gsh2_1.gif" width="16" height="14" align="absmiddle">个任务分配给第ｉ台处理机。等式（8.1）可推广为：</span><br>
+            <span class="pt9-black">　　总处理时间＝ <img src="images/gsh2_2.gif" width="207" height="31" align="top"><br>
+            　　　　　　　＝ <img src="images/gsh2_3.gif" width="211" height="39" align="top">　　　　（8.2）<br>
+            　　从等式（8.2）的第一项求出N台处理机中最大执行时间。第二项计算出Kｉ与<img src="images/gsh2_4.gif" width="52" height="17" align="absmiddle">任务之间两两通信的开销时间。与等式（8.1）相同，第二项是关于K的二次函数。<br>
+            　　如果分析等式（8.1）的理由对等式（8.2）也成立，那么我们可以预计等式（8.2）的最小值仍在某种极端分配情况，而实际情况也的确如此。即或者将所有的任务都集中在一台处理机上，或者将任务平均分配给所有处理机。所谓平均是指如果M是N的倍数，则每台处理机分得M／N个任务，否则除一台处理机外其它处理机分得��M／N个任务，那一台处理机分得剩余的任务。这种分配并不一定使N台处理机都分得任务。例如，有19个任务和6台处理机，分配方法可以是：4台处理机每台分得4个任务，第5台处理机分得3个任务，而第6台处理机什么也没有分到。<br>
+            　　为了说明平均分配能使程序的总处理时间最小，我们假定<img src="images/gsh2_5.gif" width="15" height="12" align="absmiddle">为分配任务中的最大值，根据等式（8.2），可以发现通过对两台任务数小于<img src="images/gsh2_5.gif" width="15" height="12" align="absmiddle">的处理机重新分配，使额外开销降低。假设<img src="images/gsh2_6.gif" width="16" height="14" align="absmiddle"> 
+            ，<img src="images/gsh2_13.gif" width="17" height="15" align="absmiddle">满足<img src="images/gsh2_7.gif" width="86" height="15" align="absmiddle">，我们将第3台处理机的某项任务移到第2台处理机，等式（8.2）的第一项的值保持不变，因为这一移动并不影响最大任务数，而第二项的值减少<img src="images/gsh2_8.gif" width="87" height="14" align="absmiddle">。可见这种分配会有更好的性能。我们可以重复这一过程，直到除一台处理机外，其它处理机上的任务数都小于最大值为止。 
+            <br>
+            　　和等式（8.1）一样，等式（8.2）也有一个决定采用平均分配还是采用集中分配的临界值，并且等式（8.2）和等式（8.1）的两个临界值完全一致，即当R/C＞M/2时采用平均分配方法，当R/C＜M/2时采用集中分配方法。任务均分给N台处理机和任务集中在一台处理机，其总处理时间的差可以由下式表示：<br>
+            　　总处理时间差＝<img src="images/gsh2_9.gif" width="182" height="17" align="absmiddle"> 
+            （8.3）<br>
+            　　式中前三项是平均分配时的总处理时间，后一项是所有任务集中于一台处理机时的总处理时间。为了简单起见，我们假设M为N的倍数。为了计算决定采用平均分配法还是采用集中分配法的临界值，我们使等式（8.3）等于0，约去M后，分别以R和C为系数进行合并，再约去（1－1／N），等式则变为：<br>
+            　　　CM/2－R＝0 （8.4）<br>
+            　　或 R/C＝M/2 （8.5）<br>
+            　　这就说明，如果R/C比临界值M/2大，将任务平均分配给尽可能多的处理机进行处理，能获得最短处理时间。另一方面，如果R/C比临界值M/2小，即使有很多台处理机可供使用，也不可能比用一台处理机处理全部任务来得快。后一种情况需要很大的额外开销。除非额外开销低于总处理时间的某个百分比，否则并行执行不可能得到什么好处。如果本模型能够反映并行算法和并行系统结构，那么控制额外开销是保证并行性成功的绝对条件。<br>
+            　　尽管上面分析的着眼点是性能而不是成本，但R/C比值的大小决定了采用哪种分配方法能使并行系统有价格优势。即使R/C值足够大它能保证高并行性，其性能还会由于式（8.2）中的第二项而降低。并行系统的加速比是一个计算问题在一台处理机上运行时间与在并行系统上运行时间（即式（8.2）的总处理时间）的比值，可近似如下：<br>
+            　　加速比 <img src="images/gsh2_10.gif" width="137" height="54" align="absmiddle"><br>
+            　　　　　　<img src="images/gsh2_11.gif" width="120" height="54">　　<br>
+            　　　　　　<img src="images/gsh2_12.gif" width="106" height="72"> <br>
+            　　如果分母中的第一项远远大于第二项，即M，N较小，R/C较大，那么加速比与N成正比例。如果处理机台数N很大， 则分母主要由第二项决定，那么加速比与R/CM成正比例，而不依赖于处理机的台数了。因此，随着N增大，加速比趋近于一个常数。这时如果再增加处理机，所提高的性能小得可以忽略，只会增加系统的成本。即使随着处理机增加，系统的性能有所改善，与所增加的成本相比也是不值得的。所以处理机的台数不应超过由成本与R/C比值函数所决定的极大值。<br>
+            　　该模型说明了任务粒度与额外开销如何影响多处理机系统的性能。同时也指出了降低额外开销与合理选择粒度的重要性。然而它仅是一个模型，无论如何不能包括所有的实际应用问题。 
+            <br>
+            　　我们发现无论哪种模型，R/C的大小总起着关键作用。从前面的讨论我们已经知道，如果存在最优的解决问题方法，那么极端分配方法是最好的方法，即R/C比值决定使用所有可以使用的处理机或只使用一台处理机。而对某些模型，这种极端分配方法并不一定是最好的方法。这类模型的最佳方法可能是将作业分配给部分处理机而不是全部处理机，因为使用过多的处理机只会降低性能和增加额外开销。在一般情况下，作业并不一定要平均分配才能获得最佳性能。<br>
+            <br>
+            </span></p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

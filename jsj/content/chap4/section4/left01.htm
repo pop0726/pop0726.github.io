@@ -1,0 +1,47 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第四章 输入输出系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><span class="section">4.4 输入输出处理机</span><br>
+            <br>
+            <span class="pt9-black">　　采用输入输出处理机来分担中央处理机的输入输出任务是目前使用很普遍的一种方案。输入输出处理机又称为外围处理机，I/O处理机等，缩写为IOP，或PPU。输入输出处理机主要用在除IBM公司以外的其它计算机公司研制的巨型、大型计算机系统中，甚至在有些中小型及微型计算机系统中也有输入输出处理机。<br>
+            <br>
+            </span><span class="part">4.4.1 输入输出处理机的作用</span><span class="pt9-black"><br>
+            <br>
+            　　通道处理机实际上并不能看成是独立的处理机，因为它的指令（通道指令）系统很简单，只有面向外围设备的控制和数据传送的基本指令，而且没有大容量的存储器。在数据的输入输出过程中，通道处理机还需要由CPU来承担许多工作。在高性能的巨型和大型计算机系统中，如果仍然采用通道处理机方式，存在如下问题：<br>
+            　　1、每调用一次输入输出操作的前处理和后处理仍然要CPU来完成，需要两次用中断方式中断CPU的现行程序，调用操作系统的管理程序为输入输出操作服务。<br>
+            　　2、当外围设备或通道处理机出现异常情况时，通道处理机本身不能处理，要通过中断方式请求CPU来处理。<br>
+            　　3、对所传送数据的格式转换、码制转换、数据块整体的正确性检验等工作仍然要CPU来完成。<br>
+            　　4、文件的管理，设备的管理等操作系统的工作，通道处理机本身无能为力，需要CPU来实现。<br>
+            　　由于上述原因，中央处理机资源往往得不到充分利用，造成很大的浪费。特别是在流水线计算机和向量计算机中，频繁的输入输出工作将使高性能的中央处理机无法充分发挥作用，运算速度严重下降。为此，采用输入输出处理机，使中央处理机进一步摆脱输入输出操作，使两种处理机并行工作，各负其职，各自充分发挥自己的作用，这是巨型、大型计算机系统，及一些输入输出任务比较繁重的计算机系统的必然选择。<br>
+            </span> </p>
+          <p align="left" class="pt9-black">　</p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第七章 互连网络</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="left" class="pt9-black"> 
+          <p><span class="part">7.1.3 互连网络的特性和传输的性能参数</span><br>
+            <b><br>
+            1. 互连网络的特性</b><br>
+            　　网络是用有向边或无向边连接有限个结点的图来表示。下面我们定义几个用于估算复杂性、通信效率和网络价格的参数，即网络特性。<br>
+            　　（1）网络规模 网络中结点数称为网络规模，它表示该网络所能连接的部件多少。<br>
+            　　（2）结点度 与结点相连接的边（即链路或通道）数称为结点度，用d表示。在单向通道情况下，进入结点的通道数叫做入度，而从结点出来的通道数则称为出度。结点度就是二者之和。结点度反映了结点所需要的I/O端口数，也即反映了结点的价格。为了降低价格，应尽可能使它小。为构造可扩展系统，使构件能模块化，要求结点度保持恒定。 
+            <br>
+            　　（3）距离 两结点之间相连的最少边数。<br>
+            　　（4）网络直径 它是网络中任意两个结点之间距离的最大值。它是说明网络通信性能的一个指标。因此从通信的观点来看，网络直径应当尽可能地小。<br>
+            　　（5）等分宽度 当某一网络被切成相等的两半时，沿切口的最小边数（通道）称为通道等分宽度，用b表示。于是线等分宽度就是B=b×w，w为通道宽度（用位表示）。因此，等分宽度是说明沿等分网络最大通信带宽的一个参数。网络的所有其它横截面都应限在等分宽度之内。<br>
+            　　（6）结点间的线长 它是两个结点间的线的长度。它会影响信号的时延、时钟扭斜和对功率的需要。 <br>
+            　　（7）对称性 假若从任何结点看拓扑结构都是一样的话，我们就称此网络为对称网络。对称网络较易实现，编程也较容易。<br>
+            <br>
+            <b>2. 网络的传输性能参数</b><br>
+            　　下面我们以两台计算机互连的最简单的网络为例讨论网络的传输性能参数。图7.11是两台计算机连接的最简单网络。每台计算机有一个FIFO的数据队列。</p>
+          <p align="center"><img src="iamges/tu7_11.jpg" width="315" height="149"></p>
+          <p align="left">　　一台机器发送消息给另一台机器时，发送方的步骤如下：<br>
+            　　（1）应用程序把要发送的数据拷贝到操作系统的缓冲区。<br>
+            　　（2）操作系统根据要发送的数据计算出检查和，并把它加在消息中，同时启动超时计数器。<br>
+            　　（3）操作系统把缓冲区中的数据送到网络接口硬件并通知硬件开始发送消息。<br>
+            　　消息包的接收和上述步骤正好相反。<br>
+            　　（1）系统把数据从网络接口硬件拷贝到操作系统缓冲区。<br>
+            　　（2）系统根据接收到的数据计算出检查和。如果计算出的检查和与发送过来的检查和匹配，则接收方发一个回答信号给发送方。如果不匹配，则删除这个消息，因为发送方在超时计数器超时后会重发这个消息。 
+            <br>
+            　　（3）如果数据通过检查，系统把接收到的数据拷贝到用户地址空间并启动应用程序继续执行。<br>
+            　　发送方接收到回答信号后，可以释放系统缓冲区的消息了。如果发送方的超时计数器已超时，那么它重发消息。<br>
+            　　下面我们给出互连网络传输方面的性能参数：<br>
+            　　（1）频宽（Bandwidth） 它是指消息进入网络后，互连网络传输信息的最大速率。它的单位是兆位/秒，而不用兆字节/秒。<br>
+            　　（2）传输时间（Transmission time） 消息通过网络的时间，它等于消息长度除以频宽。<br>
+            　　（3）&quot;飞行&quot;时间（Time of flight） 消息的第一位信息到达接收方所花费的时间，它包括由于网络中转发或其它硬件所起的时延。<br>
+            　　（4）传输时延（Transport latency） 它等于&quot;飞行&quot;时间和传输时间之和。它是消息在互连网络上所花费的时间，但不包括消息进入网络和到达目的结点后从网络接口硬件取出数据所花费的时间。<br>
+            　　（5）发送方开销（Sender overhead） 处理器把消息放到互连网络的时间，这里包括软件和硬件所花费的时间。<br>
+            　　（6）接收方开销（Receiver overhead） 处理器把到达的消息从互连网络取出来的时间，这里包括软件和硬件所花的时间。<br>
+            　　所以一个消息的总时延可以用下面公式表示：<br>
+            　　<img src="iamges/gsh1_48.gif" width="349" height="35" align="absmiddle"><br>
+            　　这几个性能参数的关系如图7.12所示。</p>
+          <p align="center"><img src="iamges/tu7_12.jpg" width="426" height="256"><br>
+            <br>
+          </p>
+        </div>
+        <p align="left" class="pt9-black">　</p>
+        </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第三章 存储系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="left"> 
+          <p class="pt9-black"><span class="part">习题</span><br>
+            <br>
+            <b>3.1 </b>什么是存储系统？对于一个由两个存储器<img src="images/m1.gif" width="15" height="17" align="absmiddle">和<img src="images/m2.gif" width="14" height="17" align="absmiddle">构成的存储系统，设<img src="images/m1.gif" width="15" height="17" align="absmiddle">的命中率为h，两个存储器的存储容量分别为<img src="images/s1.gif" width="14" height="12" align="absmiddle">和<img src="images/s2.gif" width="16" height="14" align="absmiddle">，访问速度分别为<img src="images/t1.gif" width="15" height="16" align="absmiddle">和<img src="images/t2.gif" width="15" height="17" align="absmiddle">，每千字节的价格分别为<img src="images/c1.gif" width="15" height="14" align="absmiddle">和<img src="images/c2.gif" width="14" height="16" align="absmiddle">。<br>
+            (1) 在什么条件下，整个存储系统的每千字节平均价格会接近于<img src="images/c2.gif" width="14" height="16" align="absmiddle">。<br>
+            (2) 写出这个存储系统的等效访问时间<img src="images/ta.gif" width="16" height="15" align="absmiddle">的表达式。<br>
+            (3) 假设存储系统访问效率<img src="images/1.gif" width="43" height="35" align="absmiddle"> 
+            ，两个存储器的速度<img src="images/2.gif" width="47" height="36" align="absmiddle"> 
+            。试以速度比r和命中率h来表示访问效率e。<br>
+            (4) 如果r＝100，为了使访问效率e＞0.95，要求命中率h是多少。<br>
+            (5) 对于(5)所要求的命中率实际上很难达到。假设实际的命中率只能达到0.96。现采用一种缓冲技术来解决这个问题。当访问M1不命中时，把包括被访问数据在内的一个数据块都从M2取到M1中，并假设被取到M1中的每个数据平均可以被重复访问5次。请设计缓冲深度（即每次从M2取到M1中的数据块的大小）。<br>
+            <br>
+            <b>3.2 </b>由三个访问速度、存储容量和每位价格都不相同的存储器构成一个存储系统，其中，M1靠近CPU。回答下列问题：<br>
+            <img src="images/3.gif" width="356" height="65"> </p>
+          <p class="pt9-black">(1) 写出这个三级存储系统的等效访问时间T，等效存储容量S和等效每位价格C的表达式。<br>
+            (2) 在什么条件下，整个存储系统的每位平均价格接近于C3。<br>
+            <br>
+            <b>3.3</b>在一个Cache存储系统中，Cache的访问周期为10ns，主存储器的访问周期为60ns，每个数据在Cache中平均重复使用4次。当块的大小为1个字时，存储系统的访问效率只有0.5，现在要通过增加块大小，使存储系统的访问效率达到0.94。<br>
+            (1)当存储系统的访问效率为0.5时，计算命中率和等效访问周期。<br>
+            (2)为了使存储系统的访问效率达到0.94，命中率和等效访问周期应该提高到多少？<br>
+            (3)为了使存储系统的访问效率从0.5提高到0.94，块的大小至少增加到几个字？<br>
+            <br>
+            <b>3.4 </b>要求设计一个由Cache和主存构成的两级存储系统，已知Cache的容量有三种选择：64K字节、128K字节和256K字节，它们的命中率分别为0.7、0.9和0.98。主存的容量为4M字节。并设两个存储器的访问时间分别为<img src="images/t1.gif" width="15" height="16" align="absmiddle">和<img src="images/t2.gif" width="15" height="17" align="absmiddle">，每字节的价格分别为<img src="images/c1.gif" width="15" height="14" align="absmiddle">和<img src="images/c2.gif" width="14" height="16" align="absmiddle">。如果<img src="images/c1.gif" width="15" height="14" align="absmiddle">＝20<img src="images/c2.gif" width="14" height="16" align="absmiddle">，为<img src="images/t2.gif" width="15" height="17" align="absmiddle">＝10<img src="images/t1.gif" width="15" height="16" align="absmiddle">。<br>
+            (1) 在<img src="images/t1.gif" width="15" height="16" align="absmiddle">＝20ns的条件下，分别计算三种Cache的等效访问时间。<br>
+            (2) 如果<img src="images/c2.gif" width="14" height="16" align="absmiddle">＝0.2美元／K字节，分别计算三种Cache每字节的平均价格。<br>
+            (3) 根据三种Cache的等效访问时间和每字节的平均价格排列次序。<br>
+            (4) 根据等效访问时间和平均价格的乘积，选择最优的设计。 <br>
+            <br>
+            <b>3.5 </b>对于一个由Cache和主存构成的两级存储系统，已知Cache的容量<img src="images/s1.gif" width="14" height="12" align="absmiddle">＝512字节，主存的容量<img src="images/s2.gif" width="16" height="14" align="absmiddle">未知；Cache的命中率为h＝0.95；Cache的访问时间<img src="images/t1.gif" width="15" height="16" align="absmiddle">＝20ns，主存的访问时间<img src="images/t2.gif" width="15" height="17" align="absmiddle">未知；Cache的价格<img src="images/c1.gif" width="15" height="14" align="absmiddle">＝0.01美元／字节，主存的价格<img src="images/c2.gif" width="14" height="16" align="absmiddle">＝0.5美元／K字节。要求两个存储器的总价格不能超过15000美元。<br>
+            (1) 在不超过预算的范围内，可能得到的主存储器最大容量是多少？<br>
+            (2) 为了使这个两级存储系统的等效访问时间达到40ns，主存储器的访问时间<img src="images/t2.gif" width="15" height="17" align="absmiddle">应该是多少？<br>
+            <br>
+            <b>3.6</b> 假设程序中出现转移指令且转移成功的概率为0.1，设计一个采用低位交叉方式访问的多体存储器，要求每增加一个存储体在一个存储周期中能够访问到的平均指令条数增加0.2条以上，请计算最多的并行存储体的个数。<br>
+            <b>3.7</b> 一台处理机的运算速度为1GIPS，每执行一条指令平均需要取指令一条和读/写数据两个,输入输出系统对存储器的访问可以忽略不计。主存储器采用DRAM芯片，工作周期为150ns，请设计存储系统方案，可以采取哪些措施来匹配存储器与CPU之间的速度差距？每一种措施大概能够弥补多少倍数？<br>
+            <br>
+            <b>3.8</b> 有16个存储器模块，每个模块的容量为4M字节，字长为32位。现在要用这16个存储器模块构成一个主存储器，有如下几种组织方式：<br>
+            方式1：16个存储器模块采用高位交叉方式构成存储器。<br>
+            方式2：16个存储器模块构成并行访问存储器。<br>
+            方式3：16个存储器模块采用低位交叉方式构成存储器。<br>
+            方式4：2路高位交叉8路低位交叉构成存储器。<br>
+            方式5：4路高位交叉4路低位交叉构成存储器。<br>
+            方式6：4路并行访问4路低位交叉构成存储器。<br>
+            (1) 写出各种存储器的地址格式。<br>
+            (2) 比较各种存储器的优缺点。<br>
+            (3) 不考虑访问冲突，计算各种存储器的频带宽度。<br>
+            (4) 画出各种存储器的逻辑示意图。<br>
+            <br>
+            <b>3.9 </b>一个16×16的矩阵，要求在一个存储器周期内实现按行、按列、按对角线和按反对角线的无冲突访问。至少需要多少个存储体？写出矩阵的各元素在各个存储体中存放的位置。<br>
+            <br>
+            <b>3.10 </b>一个页式虚拟存储器的虚存空间大小为4GB，页面大小为4KB，每个页表存储字要占用4个字节。<br>
+            (1) 计算这个页式虚拟存储器需要采用几级页表？<br>
+            (2) 如果要求页表所占总的主存页面数最小，请分配每一级页表的实际存储容量各为多少字节？<br>
+            (3) 页表的哪些部分必须存放在主存中？哪些可以放在辅存中？<br>
+            <br>
+            <b>3.11</b> 在一个采用快、慢表的虚拟存储器中，访问主存的命中率为99.99％，访问快表的命中率为99％，经快表进行地址变换所需要的时间仅是经过查页表进行地址变换时间的十分之一，磁盘存储器的访问速度仅是主存储器速度的万分之一。<br>
+            (1) 计算这个虚拟存储器的等效访问时间。<br>
+            (2) 计算这个虚拟存储器的访问效率。<br>
+            <br>
+          </p>
+          </div>
+        </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

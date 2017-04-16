@@ -1,0 +1,141 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+          <td class="explaination" valign="top"><br>
+            　　NVT的格式定义很简单，所有的通信都使用8bit的字节，在运行时，NVT使用7bit的AS。II码传送数据，而当高位置1 时用作控制命令。ASCII码共有95个可打印字符，（如字母 
+            数字 标点符号）和33个控制字符。所有可打印的字符在NVT中的意义和在ASCII码中一样。但ASCII码的控制字符NVT只使用了其中的几个。如下表：<br>
+            <br>
+            <img src="../../../../image/tub/bg.gif" width="25" height="20" alt="表格"> 
+            <br>
+            <table width="380" border="0" cellspacing="1" cellpadding="0" bgcolor="#000099" align="center">
+              <tr bgcolor="#FFFFFF"> 
+                <td class="part" width="95"> 
+                  <div align="center">ASCII控制码</div>
+                </td>
+                <td class="part" width="96"> 
+                  <div align="center">十进制值</div>
+                </td>
+                <td class="part" width="185"> 
+                  <div align="center">意义</div>
+                </td>
+              </tr>
+              <tr bgcolor="#FFFFFF"> 
+                <td class="text" width="95"> 
+                  <div align="center">NUL</div>
+                </td>
+                <td class="text" width="96"> 
+                  <div align="center">0</div>
+                </td>
+                <td class="text" width="185"> 
+                  <div align="center">无操作</div>
+                </td>
+              </tr>
+              <tr bgcolor="#FFFFFF"> 
+                <td class="text" width="95"> 
+                  <div align="center">BEL</div>
+                </td>
+                <td class="text" width="96"> 
+                  <div align="center">7</div>
+                </td>
+                <td class="text" width="185"> 
+                  <div align="center">声音或可视信号</div>
+                </td>
+              </tr>
+              <tr bgcolor="#FFFFFF"> 
+                <td class="text" width="95"> 
+                  <div align="center">BS</div>
+                </td>
+                <td class="text" width="96"> 
+                  <div align="center">8</div>
+                </td>
+                <td class="text" width="185"> 
+                  <div align="center">左移一个字符</div>
+                </td>
+              </tr>
+              <tr bgcolor="#FFFFFF"> 
+                <td class="text" width="95"> 
+                  <div align="center">HT</div>
+                </td>
+                <td class="text" width="96"> 
+                  <div align="center">9</div>
+                </td>
+                <td class="text" width="185"> 
+                  <div align="center">右移到下一个水平制表符位置</div>
+                </td>
+              </tr>
+              <tr bgcolor="#FFFFFF"> 
+                <td class="text" width="95"> 
+                  <div align="center">LF</div>
+                </td>
+                <td class="text" width="96"> 
+                  <div align="center">10</div>
+                </td>
+                <td class="text" width="185"> 
+                  <div align="center">垂直下移到下一行</div>
+                </td>
+              </tr>
+              <tr bgcolor="#FFFFFF"> 
+                <td class="text" width="95"> 
+                  <div align="center">VT</div>
+                </td>
+                <td class="text" width="96"> 
+                  <div align="center">11</div>
+                </td>
+                <td class="text" width="185"> 
+                  <div align="center">下移到下一个水平制表符位置</div>
+                </td>
+              </tr>
+              <tr bgcolor="#FFFFFF"> 
+                <td class="text" width="95"> 
+                  <div align="center">FF</div>
+                </td>
+                <td class="text" width="96"> 
+                  <div align="center">12</div>
+                </td>
+                <td class="text" width="185"> 
+                  <div align="center">移到下一页的顶部</div>
+                </td>
+              </tr>
+              <tr bgcolor="#FFFFFF"> 
+                <td class="text" width="95"> 
+                  <div align="center">CR</div>
+                </td>
+                <td class="text" width="96"> 
+                  <div align="center">13</div>
+                </td>
+                <td class="text" width="185"> 
+                  <div align="center">移到当前行的左边界</div>
+                </td>
+              </tr>
+              <tr bgcolor="#FFFFFF"> 
+                <td class="text" width="95"> 
+                  <div align="center">其它</div>
+                </td>
+                <td class="text" width="96"> 
+                  <div align="center"></div>
+                </td>
+                <td class="text" width="185"> 
+                  <div align="center">无操作</div>
+                </td>
+              </tr>
+            </table>
+            　<br>
+            　　除了上述的控制符外，Telnet还定义了两个字符的CR-LF为标准的行结束控制符。当用户健入ENTER或RETURN时，Telnet的客户端就将其转换为CR-LF再传输，在服务器一方，再将CR-LF转换成行结束字符。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

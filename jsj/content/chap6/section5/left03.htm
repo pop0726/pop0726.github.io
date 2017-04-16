@@ -1,0 +1,63 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第六章　向量处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black"><b>例6.6</b> 在一台向量处理机上实现A＝B×s操作，其中A和B是长度为200的向量，s是一个标量。向量寄存器长度为64。各功能部件的启动时间和例6.5相同。求总的执行时间。<br>
+            解：因为向量长度超过了向量寄存器的长度，所以要采取分段开采方法。每次循环主要由下面三条向量指令组成：<br>
+            　　LV V1，Rb ；取向量B<br>
+            　　MULTVS V2，V1，Fs ；向量和标量相乘<br>
+            　　SV Ra，V2 ；存向量<br>
+            　　这里假设A和B的最初分别放在Ra和Rb之中,s在Fs中。其它标量指令这里不一一列出了。<br>
+            　　这三条指令由于存在相关性，它们必须分属于3个编队，因此<img src="images/gsh5_10.gif" width="34" height="15" align="absmiddle">=3。根据Tn的计算公式，<br>
+            　　则 <img src="images/gsh5_15.gif" width="28" height="17" align="absmiddle">＝4×(15+Tstart)+200×3<br>
+            　　　　　　= 60＋（4×Tstart）+600<br>
+            　　　　　　＝660＋（4×Tstart）<br>
+            　　其中<img src="images/gsh5_11.gif" width="28" height="18" align="absmiddle">是向量取（LV）的启动时间（12个时钟周期）、向量乘(MULTVS)的启动时间（7个时钟周期）和向量存（SV）的启动时间（12个时钟周期）的和，所以<img src="images/gsh5_11.gif" width="28" height="18" align="absmiddle">=12+7+12=31因此<img src="images/gsh5_15.gif" width="28" height="17" align="absmiddle">=660+4×31=784 
+            一个结果元素的平均执行时间（包括启动开销）为784/200=3.9。<br>
+            　　　下面我们举一个向量指令能够链接的例子。<br>
+            <b>例6.7</b>在某台向量处理机上执行DAXPY(double-precision a× X plus Y)代码，即完成Y＝a×X+Y,其X和Y是向量，最初存放在内存。a是一个标量。它们的向量指令如下：<br>
+            　　LV V1,Rx ; 取向量X<br>
+            　　MULTSV V2, F0, V1 ; 标量和向量相乘<br>
+            　　LV V3,Ry ; 取向量Y<br>
+            　　ADDV V4, V2, V3 ; 相加<br>
+            　　SV Ry V4 ; 存结果<br>
+            　　我们可把上述五条向量指令分成三个编队，并且前两个编队中每两条指令组成一条链。<br>
+            　　LV V1,Rx MULTSV V2, F0, V1 编队1：取数和乘法指令链接<br>
+            　　LV V3,Ry ADDV V4, V2, V3 编队2：取数和加法指令链接<br>
+            　　SV Ry,V4 编队3：把结果存入<br>
+            　　可知<img src="images/gsh5_10.gif" width="34" height="15" align="absmiddle">=3, 
+            <img src="images/gsh5_12.gif" width="28" height="18" align="absmiddle">=15 
+            <img src="images/gsh5_11.gif" width="28" height="18" align="absmiddle">=12+7+12+6+12=49,MVL=64。代入Tn的计算公式，得:<br>
+            　　<img src="images/gsh5_16.gif" width="250" height="143"><br>
+            <br>
+          </p>
+          <p align="left" class="pt9-black">　</p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

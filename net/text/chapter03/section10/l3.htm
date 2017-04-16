@@ -1,0 +1,29 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+          <td class="explaination"><br>
+            　　交换网可采用两种方式：数据报传输分组交换或虚电路传输分组交换进行交换。<br>
+            <br>
+            <span class="point">(1) 数据报传输分组交换</span><br>
+            <br>
+            　　交换网把进网的任一个分组都当作单独的&quot;小报文&quot;来处理，而不管它属于哪个报文的分组，就像报文交换中把一份报文进行单独处理一样。如A站将报文分成3个分组(P1，P2，P3)，按序连续地发送给节点4，节点4每接收一个分组都先存储下来。分别对他们进行单独的路径选择和其他处理过程。例如它可能将报文发送给节点5，P2发送给节点1，P3发往节点5，这种选择主要取决于节点4在处理每一个分组时各链路的负荷情况以及路径选择的原则和策略。由于每个分组都带有地址和分组序列，虽然他们不一定经过同-条路径，但最终都能到达同一目的节点2。这些分组到达目的节点2的顺序也可能被打乱。目的节点2可以负责对分组进行排序和重装，目的站C也可以完成这些排序和组装工作。<br>
+            <br>
+            　　上述这种分组交换方式简称为数据报传输方式，作为基本传输单位的&quot;小报文&quot;被称为数据报（datagram）。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第三章 存储系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><span class="pt9-black">　　如果要在一个按地址访问的存储器中查找一个信息，可以有顺序查找法、对分查找法和散列查找法等。其中，散列（Hashing）查找方法的速度最快。对于快表来说，就是要把多用户虚页号Pv变换成快表地址A。函数关系是：<br>
+            　　　　　Ah＝H（Pv）<br>
+            　　散列函数的种类很多。由于快表中的散列函数必须用硬件来实现，因此，通常采用一些简单的函数关系，如折叠按位加散列函数等。<br>
+            　　由于把一个大的多用户虚页号Pv散列变换成了一个小的快表地址Ah，因此，必然会有很多个多用户虚页号Pv都散列变换到相同的快表地址Ah中，这种现象称为散列冲突。为了避免因散列冲突而发生查快表错误，必须把多用户虚页号也加入到快表中去，并且与主存实页号存放在同一个快表存储字中。另外，还要用一个比较器，把从快表中读出来的多用户虚页号与多用户虚地址中多用户虚页号进行比较。 
+            <br>
+            　　采用散列变换实现快表按地址访问的虚拟存储器如图3.21所示。首先把多用户虚地址中的多用户虚页号Pv（由U和P拼接而形成）送入硬件的散列变换部件，经散列变换后得到快表地址Ah。然后用地址Ah访问快表，读出主存实页号p和多用户虚页号Pv'。把主存实页号p送入主存储器的地址寄存器，与页内偏移d直接拼接形成主存地址，并且用这个地址访问主存储器。同时，把读出的多用户虚页号Pv'与多用户虚地址中多用户虚页号Pv在相等比较器中进行比较。如果比较结果相等，就继续刚才的访问主存储器的操作，否则，立即终止访问主存储器的操作。比较结果不相等表示发生了散列冲突，这时，需要去查存放在 
+            主存储器中的慢表。</span></p>
+          <p align="center"><span class="pt9-black"><img src="images/tu3_21.gif" width="491" height="298"><br>
+            <b>图3.21 采用散列变换实现快表按地址访问 </b></span></p>
+          <p align="left"><span class="pt9-black">　　由于快表是按地址访问的，在保证访问速度的前提下，它的存储容量可以比用相联存储器实现的快表大很多倍。虽然也需要有一次相等比较，但相等比较可以与访问存储器的操作同时进行。因此，这种快表按地址访问的快慢表结构，与上面介绍的采用相联存储器做快表的快慢表结构相比，快表的命中率要高很多，而且查表的速度也很快。<br>
+            <b><br>
+            </b></span></p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

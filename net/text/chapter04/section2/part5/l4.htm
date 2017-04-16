@@ -1,0 +1,33 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+          <td><span class="text"><br>
+            　　设信息比特数为k，校验比特数为r，则校验码的长度或称码长n＝k＋r。r比特冗余代码实际上构成一个有别于有效数据信息的字，称为指误字，用来指示信息传送中发生错误的比特。长度为r的指误字共有2<sup><font size="1">r</font></sup>个状态。其中&quot;全0&quot;状态可用来表示&quot;无错&quot;，余下的2<sup><font size="1">r</font></sup>-1个状态可用来指示哪一比特出错。注意若校验比特本身出错也应能指示出来。这样一来，需要指示出错的比特数就是整个校验码的长度n＝k＋r。若r增加，固然2<sup><font size="1">r</font></sup>-l随之增加，但同时k＋r也增加。这意味着存在一个最小的r值，能够指示出整个校验码中哪一比特出错的全部可能情况。<br>
+            <br>
+            　　所以，为了能检测并纠正一比特错，信息比特数K与校验比特数r必须满足如下的不等式：<br>
+            　　　　k＋r＜2<sup><font size="1">r</font></sup>-1<br>
+            　　上式称为</span><span class="point">海明不等式</span><span class="text">。<br>
+            <br>
+            　　利用海明不等式，若已知信息比特数k，便可计算出需要的校验比特数r；或者，在给定总比特数n的条件下，计算出能够用作信息比特的比特数k。由于二者的关系是一个不等式，因而在一个最小的r值下，允许信息比特数k在一个范围内变化，不等式仍然满足。若k=4，则r&gt;=3。取r=3，则n=7。<br>
+            <br>
+            　　海明校验实质上是一种多重奇偶校验。校验比特的生成方法类似于奇偶校验码，也采用异或运算；与奇偶校验码不同的是，海明码是一种&quot;线性码&quot;，每一校验值的生成只涉及一部分信息值，即校验方程是一种线性模2加的形式。各个信息比特则参加两个或两个以上的校验码生成。这里的所谓&quot;编码&quot;就是在上述条件下如何生成校验比特以及对信息比特和校验比特的排列做出适当的选择。海明码的编码方案有多种。为了使出错时的指误字能够直观地指示出究竟是哪一比特错，可采用以下介绍的方法，这种方法需要对校验比特和信息比特的比特置进行适当的分配。<br>
+            <br>
+            　　设海明码长为n比特，其中信息比特k比特，校验比特r比特。任一信息比特用A<font size="1">i</font>表示，任一校验比特用P<font size="1">i</font>表示，i＝l～n。<br>
+            　</span></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

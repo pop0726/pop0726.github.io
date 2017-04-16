@@ -1,0 +1,61 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第三章 存储系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><span class="pt9-black"><b><br>
+            2、低位交叉访问存储器</b><br>
+            <br>
+            　　低位交叉访问存储器的主要目的是提高存储器访问速度。当然，在提高访问速度的同时，由于增加了存储器模块的数量，也就增加了存储器的容量。<br>
+            　　低位交叉访问存储器的工作原理如图3.8所示，地址码的使用方法与高位交叉方式正好相反，其低位部分是存储体的体号，高位部分是存储体的体内地址。<br>
+            　　假设一个采用低位交叉方式工作的主存储器的组成参数与上面采用高位交叉方式的存储器相同，则这个存储器的地址A的计算公式为：A＝n×j＋k；<br>
+            　　如果已知这个存储器的地址为A，可以计算出对应存储体的体号和它的体内地址：<br>
+            　　存储器的体内地址Aj的计算公式：Aj＝<img src="images/gsh1_15.gif" width="31" height="40" align="absmiddle"> 
+            。</span><b><span class="pt9-black"><br>
+            　</span></b><span class="pt9-black">　存储器的体号Ak的计算公式：<img src="images/gsh1_16.gif" width="85" height="18" align="absmiddle">。</span></p>
+          <p align="center" class="pt9-black"><b><img src="images/tu3_8.gif" width="460" height="236"><br>
+            图3.8 低位交叉访问存储器的结构</b> </p>
+          <p align="left" class="pt9-black">　　下面举一个简单的例子来说明采用低位交叉方式工作的存储器。一个由8个存储体构成的，总存储容量为64的主存储器的地址编写方法如图3.9所示。</p>
+          <p align="center" class="pt9-black"><img src="images/tu3_9.gif" width="330" height="256"><br>
+            <br>
+            <b>图3.9 由8个存储体构成的主存储器的低位交叉编址方式</b> </p>
+          <p align="left" class="pt9-black">　　为了达到提高主存储器速度的目的，在采用低位交叉方式的存储器，在一个存储器周期内，n个存储体必须分时启动。启动的时间如图3.10所示。<br>
+            　　如果每个存储体的访问周期为Tm, 则由n个存储体构成的主存储器，各存储体的启动间隔t为：t＝<img src="images/gsh1_17.gif" width="45" height="44" align="absmiddle"> 
+            。<br>
+            　　从图3.10看到，采用低位交叉方式工作的存储器实际上是一种采用流水线方式工作的并行存储器系统。在连续工作的情况下，保持每个存储体的速度不变，而整个存储器的速度可望提高n倍。</p>
+          <p align="center" class="pt9-black"><img src="images/tu3_10.gif" width="481" height="159"><br>
+          </p>
+          <p align="center" class="pt9-black"><b>图3.10 低位交叉编址主存储器的分时启动 </b></p>
+          <p align="left" class="pt9-black">　　目前的计算机系统一般都存在主存储器速度远远低于CPU速度的问题，在多处理机系统中这个问题尤为突出。除了采用多级高速Cache之外，采用低位交叉方式的主存储器也是一种很好的方法。<br>
+            　　采用低位交叉方式能够大幅度提高主存储器的速度，目前已经在共享主存储器的多处理机系统中得到广泛应用。许多高速的单处理机也采用了低位交叉方式的存储器作为主存储器。<br>
+            　　直观地看，增加存储体个数，能够提高主存储器的速度，但是，主存储器的速度不是随存储体个数的增加而线性提高的。例如，在有的大型计算机中采用32个存储体低位交叉来构成主存储器，但是主存储器的速度只比单个存储体高10倍左右，其根本原因是存在有访问冲突。<br>
+          </p>
+          <p align="left" class="pt9-black"><b><span class="pt9-black">　</span></b></p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

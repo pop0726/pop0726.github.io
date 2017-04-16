@@ -1,0 +1,52 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第三章 存储系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black"> 　　图3.39是一个用硬件实现堆栈法的逻辑图。图中，Cache采用组相联映象及变换方式，每组的块数为4，因此，堆栈有4个存储单元，每个单元2位。堆栈用D型触发器实现，另外还要三个与门。图中，I0I1是本次访问Cache的块号，A0A1、B0B1、C0C1、D0D1是4个堆栈存储单元，它们分别存放最近访问Cache的4个块号，而且，在A0A1中存放的是最近一次访问Cache的块号，然后依次存放，在D0D1中存放的是最久没有被访问过的块号，它的输出信号D0D1中就是下次将要被替换的Cache块号，CP是一个时钟信号，当访问Cache时送来。NA、NB、NC是三个控制信号，NA是指不是A0A1的意思，即本次访问Cache的块号I0I1与A0A1不相等，NA、NB、NC的三个逻辑表达式如下：</p>
+          <p align="center" class="pt9-black"><img src="images/tu3_39.gif" width="362" height="377"> 
+            <br>
+            <b>图3.39 每组4块的堆栈法实现</b></p>
+          <p align="left"><span class="pt9-black">　　<img src="images/gsh3_21.gif" width="163" height="19" align="absmiddle"><br>
+            　　<img src="images/gsh3_22.gif" width="162" height="19" align="absmiddle"><br>
+            　　<img src="images/gsh3_23.gif" width="161" height="18" align="absmiddle"><br>
+            　　在<img src="images/gsh3_19.gif" width="69" height="14" align="absmiddle">这三个信号的控制下，就能够排列保存在堆栈中的Cache块号访问顺序，从上到下按照访问Cache由近至远的顺序排列。<br>
+            　　堆栈法的主要优点有两个。一是它的块失效率比较低，因为它采用了LRU算法。二是它的硬件实现相对比较简单，除了必须的寄存器之外，其它控制逻辑很简单。它的主要缺点是速度比较低，这是因为需要进行相联比较。因此，当每一组的块数比较大时，不宜采用堆栈法。<br>
+            　　堆栈与比较对法所用触发器的比例关系是：<br>
+            </span>　　　　　<img src="images/gsh3_20.gif" width="176" height="37"><br>
+            <span class="pt9-black">　　其中，<img src="images/gsh3_6.gif" width="18" height="15" align="absmiddle">是Cache每一组的块数。在<img src="images/gsh3_6.gif" width="18" height="15" align="absmiddle">比较小时，两者的差别不大，当<img src="images/gsh3_6.gif" width="18" height="15" align="absmiddle">大于8时，堆栈法所用的器件明显少于比较对法。<br>
+            　　综上所述，要Cache的替换算法，主要解决好以下三个问题：<br>
+            　　1、记录每次访问Cache的块号。可以用寄存器，也可以用计数器，或者用其它方法。总之，在实现Cache替换算法时，必须要有时序逻辑。<br>
+            　　2、管理好所记录的Cache块号。例如，排序、计数、清除、置位等。其目的是为找出被替换的块号提高方便。<br>
+            　　3、根据记录和管理的结果，采用时序逻辑判断那个块号是将要被替换出去的块号。轮换法是要找出最早访问的块号，而另外三种方法都要找出最久没有被访问过的块号。 
+            <br>
+            </span></p>
+          <p align="left">&nbsp;</p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

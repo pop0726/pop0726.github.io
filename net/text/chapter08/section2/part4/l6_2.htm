@@ -1,0 +1,36 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+          <td class="explaination"><br>
+            <span class="point">・收发器</span><br>
+            <br>
+            　　在以太网物理结构中，另一重要的功能模块称&quot;收发器&quot;。它处在编码/译码功能模块与介质之间，收发器完成如下功能。<br>
+            <br>
+            <span class="point">　1）往介质发送信号：</span><br>
+            　　经过曼彻斯特编码的帧由收发器发送到介质上。在帧正常发送过程中，收发器以一定的脉冲序列信号告诉MAC子层以说明帧发送正常。<br>
+            <span class="point">　2）自介质接收信号：</span><br>
+            　　把介质上接收来的帧转发到译码功能模块上。通过译码后，传至MAC子层。<br>
+            <br>
+            <span class="point">　3）识别介质是否存在信号：</span><br>
+            　　当发送站的帧准备好要发送时，首先要判断介质是&quot;忙&quot;还是&quot;空闲&quot;，即是否其他站正在发送帧而占用了介质，若&quot;忙&quot;，即介质被其它站占用，则帧发送要等待，直至介质空闲，收发器能识别介质上忙还是空闲，并把识别信号传至MAC子层。注意不同的结构，判断介质是否存在信号的机理是不同的。<br>
+            <br>
+            <span class="point">　4）识别碰撞：</span><br>
+            　　收发器能在帧持续发送过程中而不停地检测介质上是行发生碰撞。若检测到碰撞，则发生碰撞的信号会转告MAC子层。注意不同的结构，检测碰撞的机理是不一样的。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

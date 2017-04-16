@@ -1,0 +1,38 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+          <td class="explaination"><br>
+            　　令牌总线控制也比较复杂，主要有下列管理操作：<br>
+            <span class="point"><br>
+            ・环初始化：</span><br>
+            　　即生成一个顺序访问的次序。网络开始启动时，需要进行逻辑环的初始化，初始化的过程是一个争用的过程，争用的结果只有个站取得令牌，其他的站点用站插入的算法插入。<br>
+            <br>
+            <span class="point">・令牌传递算法：</span><br>
+            　　逻辑环按递减的站地址次序组成，则发完帧的站点将令牌传递给后继站，后继站应立即发送数据或令牌。原先释放令牌的站监听到总线上的信号，便可确认后继站已取得令牌。<br>
+            <br>
+            <span class="point">・站插入算法：</span><br>
+            　　必须周期地给未加入环的站点以机会，将它们插入到逻辑环的适当位置中。如果同时有几个站要求插入．可采用带有响应窗口的争用处理算法。<br>
+            <br>
+            <span class="point">・站退出算法：</span><br>
+            　　可以通过将其前驱站和后继站连在一起的办法，将不活动的站退出逻辑环。并修正逻辑环递减的站地址次序。<br>
+            <br>
+            <span class="point"> ・故障处理：</span><br>
+            　　网络可能出现故障，包括令牌的丢失、重复地址、多个令牌等、网络要对这些故障作出相应处理。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第三章 存储系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><span class="section">3.4 三级存储系统</span><br>
+            <br>
+            <span class="pt9-black">　　在目前的大部分计算机系统中，既有虚拟存储系统，也有Cache存储系统。但是，在程序员看来，不管存储系统的组织多么复杂，只看到一个存储器，而且也只关心一个存储器。这个存储器采用与主存储器完全相同的按地址随机访问的方式工作，它的等效访问速度接近于Cache，等效存储容量是虚拟地址空间。<br>
+            <b><br>
+            </b></span><b><span class="part">3.4.1 存储系统的组织方式</span></b><span class="pt9-black"><br>
+            <br>
+            　　实际上，Cache、主存、磁盘这三个存储器可以分别构成&quot;Cache-主存&quot;和&quot;主存-磁盘&quot;两个存储系统，也可以构成&quot;Cache－主存－磁盘&quot;一个存储系统，或没有主存储器，构成一个&quot;Cache-磁盘&quot;存储系统，即所谓全Cache存储系统。<br>
+            <br>
+            <b>　　1、两个存储系统组织方式</b><br>
+            <br>
+            　　有&quot;Cache-主存&quot;和&quot;主存-磁盘&quot;两个独立的存储系统。这种结构也称为物理地址Cache，图3.44是这种组织方式的结构框图。<br>
+            　　当CPU要访问存储器时，给出一个虚拟地址。由存储管理部件（MMU：Memory Managent Unit）中的地址变换部件把CPU发出的虚拟地址变换成主存物理地址。然后用主存物理地址访问Cache。如果要访问的数据或指令在Cache被找到，则Cache命中，否则，发出Cache块失效，用这个物理地址访问主存储器，取出一块数据或指令装入Cache，同时，也把CPU所需要的数据或指令送往CPU。如Intel公司的i486和DEC公司的VAX 
+            8600等处理机均采用这种两级存储系统。</span></p>
+          <p align="center"><img src="images/tu3_44.jpg" width="449" height="94"></p>
+          <p align="center">&nbsp;</p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

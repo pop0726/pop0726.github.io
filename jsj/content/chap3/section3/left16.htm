@@ -1,0 +1,51 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第三章 存储系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="left"> 
+          <p class="pt9-black"><b>1、Cache命中率与容量的关系</b><br>
+            　　Cache的命中率随它的容量的增加而提高，它们之间的关系曲线如图3.41所示。在Cache容量比较小的时候，命中率的提高得非常快，随着Cache容量的增加，命中率提高的速度逐渐降低。当Cache容量增加到无穷大时，命中率可望达到100％，但是，这在实际上是做不到的。</p>
+          <p align="center" class="pt9-black"><img src="images/tu3_41.gif" width="279" height="194"><br>
+            <b>图3.41 Cache命中率H与它的容量S的关系</b></p>
+          <p align="left" class="pt9-black">　　在一般情况下，图3.41中的关系曲线可以近似地表示为<img src="images/gsh3_27.gif" width="78" height="17" align="absmiddle">。因此，当Cache的容量达到到一定值之后，再增加Cache容量，命中率的提高很少。<br>
+            <br>
+            <b>2、Cache命中率与块大小的关系</b><br>
+            　　在采用组相联映象方式的Cache中，当Cache的容量一定时，块的大小对命中率的影响非常敏感。图3.42表示随着Cache块的由小到大的变化，命中率上升和下降的情况。</p>
+          <p align="center" class="pt9-black"><img src="images/tu3_42.gif" width="338" height="154"><br>
+            <b>图3.42 Cache命中率与块大小的关系</b></p>
+          <p align="left" class="pt9-black">　　开始时，块大小很小，例如只有一个存储单元，这时的命中率H很低。随着块大小的增加，由于程序的空间局部性起作用，同一块中数据的利用率比较高，因此，Cache的命中率增加。这种增加趋势在某一个最佳块大小处达到最大值。在这一点以后，命中率随着块大小的增加反而减小。<br>
+            　　实际上，当块大小非常大时，进入Cache中的许多数据可能根本用不上。而且，随着块大小的增加，程序时间局部性的作用就会逐渐减弱。最后，当块大小等于整个Cache的容量时，命中率将趋近于零。<br>
+            <br>
+            <b>3、Cache命中率与组数的关系</b><br>
+            　　当Cache的容量一定时，在采用组相联映象和变换方式的Cache中，分组的数目对于Cache命中率的影响是很明显的。随着组数的增加，Cache的命中率要降低。当组数不太大时，例如，512组以下，命中率的降低相当少，当组数超过一定数量时，命中率的下降非常快。<br>
+            　由于在组相联映象方式中，组间是采用直接映象方式的，只有组内采用全相联映象方式。当分组的数目增加时，主存中的某一块可以映象到Cache中的块数就将减少，从而导至命中率下降。<br>
+            <br>
+          </p>
+        </div>
+        </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

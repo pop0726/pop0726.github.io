@@ -1,0 +1,36 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+          <td class="explaination"><br>
+            　　接收方接收到加密信息57、47、12、12和71，根据下列步骤解密。<br>
+            <br>
+            <span class="point">　1）</span>找出一个数字k'，使k×k'-1=0 mod(p-1)×(q-1)。这意味着k×k'-1可被(p-1)×(q-1)整除。k'的值就是解密密钥。<br>
+            <br>
+            　　本例中，(p-1)×(q-1)=60，而k'=43即可。也就是，7×43-1=300可被60整除。你可能会再问，k'值总能找到吗？是的！数论中欧拉和费马的著名结论证明了这一点。<br>
+            <br>
+            <span class="point">　2）</span>将从上述第6步中得到的加密数字增大到它的k'次方，并进行模n运算。结果就是第5步中的数字。本例中，要求下列运算：<br>
+            　　　<img src="../../../../image/pic/chapter10/8.gif" width="369" height="19"><br>
+            　　结果为原来的数字：8、5、12、12和15。<br>
+            <br>
+            　　使用前面的表示法，<img src="../../../../image/pic/chapter10/9.gif" width="112" height="20" align="absmiddle"> 
+            和 <img src="../../../../image/pic/chapter10/10.gif" width="116" height="19" align="absmiddle">，所以有<img src="../../../../image/pic/chapter10/11.gif" width="132" height="20" align="absmiddle"> 
+            。只要K和K'按所述选择，则 <img src="../../../../image/pic/chapter10/12.gif" width="85" height="21" align="absmiddle"> 
+            结果为x。对此的验证再次依赖于数论。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

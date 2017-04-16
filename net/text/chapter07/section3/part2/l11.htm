@@ -1,0 +1,28 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+          <td class="explaination"><br>
+            　　为了能够适应那些只读写文件一部分的应用程序，TCP/IP包含了一个文件访问（file access）服务。同文件传输服务不同，文件访问服务允许远程客户只复制或者改变小片段文件而不用复制整个文件。<br>
+            <br>
+            　　TCP/IP使用的文件访问机制被称为网络文件系统（Network File System，NFS）。NFS允许应用程序打开一个远程文件，在文件中移动到一个指定位置，并且在该位置开始读写数据。例如，用NFS在文件中添加数据时，应用程序移动到文件尾并写入数据。NFS客户软件将数据与写数据到文件的请求一起发送到文件存储所在的服务器方。服务器更新文件后返回一个应答信号。只有那些正在被读写的数据在网上传输，少量的数据可以添加在一个大文件中而不用复制整个文件。 
+            <br>
+            <br>
+            　　除了减少带宽需求外，使用NFS的文件访问方案还允许共享文件访问。一个驻留在NFS服务器上的文件可以被多个客户访问。为了防止其他程序干扰文件的更新，NFS允许客户对文件进行加锁。当一个客户完成修改后，它对文件进行解锁，从而允许别的客户进行访问。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

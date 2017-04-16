@@ -1,0 +1,40 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td class="explaination" colspan="2"><br>
+            　　令牌总线介质访问控制是将物理总线上的站点构成一个逻辑环。或者说，在物理上是一个总线网，而在逻辑上却是一个令牌网。每-个站都在一个有序的序列中被指定-个逻辑位置，而序列中最后一个成员又连着第一个成员，每个站都知道在它之前和在它之后的站的标识，如<span class="point">图8.6</span>：<br>
+            　</td>
+        </tr>
+        <tr> 
+          <td class="explaination" width="25" valign="top"><img src="../../../../image/tub/ts.gif" width="25" height="20" alt="图示"></td>
+          <td class="explaination">
+            <div align="center"><img src="../../../../image/pic/chapter08/8_6.gif" width="379" height="179"><br>
+              <br>
+              <span class="point">图8.6 令牌总线结构</span></div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="explaination" colspan="2"><br>
+            　　在<span class="point">图8.6</span>所示的7个站中，站C未工作，剩下的6个站在逻辑上组成了一个令牌网。令牌的传递顺序与站的物理位置无关，在图中是按照A→F→E→B→G→D→A的顺序传递的。<br>
+            <br>
+            　　在正常运行时，当站点做完所做的工作或者时间终了时，它将令牌传递给逻辑序列中的下一个站。从逻辑上看，令牌是按地址的递减顺序传递至下一个站点；但从物理上看，带有目的地址的令牌帧广播到总线上所有站点，当目的站识别出符合它的地址的帧，即把该令牌帧接收。<br>
+            <br>
+            　　只有收到令牌的站点才能将信息帧送到总线上，因此，不像CSMA/CD访问方式那样，令牌总线不可能产生冲突，因而信息帧的长度只需根据要传送的信息长度来确定，也没有最小分组长度要求。而对于CSMA/CD访问控制，为了使最远距离的站点也能检测到冲突，需要在实际的信息长度后加填充位，以满足最小信息长度的要求。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

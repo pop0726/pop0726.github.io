@@ -1,0 +1,45 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第五章 标量处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><span class="part">5.4.3 多流水线调度</span><br>
+            <br>
+            <span class="pt9-black">　　多条流水线的调度问题非常复杂。已经证明，多流水线调度实际上是一个NP完全问题。实现优化调度所需要的代价很大，包括硬件代价和软件代价。通常需要软件和硬件的共同配合才能获得比较好的调度效果。本节只介绍一些基本原理和基本调度方法。<br>
+            　　在有多条流水线同时工作时，指令的发射顺序和完成顺序对提高超标量处理机的性能非常重要。如果指令的发射顺序是按照程序中的指令排列顺序进行的，称为顺序发射（in-order 
+            issue），否则，称为乱序发射（out-order issue）。同样，如果指令的完成顺序必须按照程序中的指令排列顺序进行，称为顺序完成（in-order 
+            completion），否则，称为乱序完成（out-order completion）。<br>
+            　　根据多流水线中指令发射顺序和完成顺序的不同组合，多流水线的调度主要有三种方法，即顺序发射顺序完成，顺序发射乱序完成和乱序发射乱序完成。下面，通过一个具体的程序例子来介绍这三种方法。一个典型程序如下：<br>
+            　　　<img src="images/gsh4_1.gif" width="329" height="108"><br>
+            　　在这个由6条指令组成的程序中，指令I1和指令I2之间有写读数据相关，指令I3和指令I4之间有读写数据相关，而指令I5和指令I6之间除了有写读数据相关之外，还有写写数据相关。另外，在指令I2和指令I4之间，指令I3和指令I6之间有功能部件冲突。因此，在这个由6条指令组成的程序中已经包含了所有可能的数据相关和功能部件冲突，这是一个很有代表型的程序。<br>
+            　　下面，以这个典型程序的执行过程为例，分别介绍在超标量处理机中所采用的三种不同的指令调度方法。<br>
+            </span><br>
+          </p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

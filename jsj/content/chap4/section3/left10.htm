@@ -1,0 +1,42 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第四章 输入输出系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><span class="pt9-black">　　选择通道在一段时间内只能单独为一台高速外围设备服务，当这台设备的数据传送工作全部完成后，通道才能为另一台设备服务。因此，选择通道实际上是逐个为几个物理上连接的几台高速外围设备服务的。<br>
+            　　选择通道的工作过程如图4.15所示，图中所用的参数与上面的字节多路通道相同，另外还有如下参数：<br>
+            　　<img src="iamges/gsh3_5.gif" width="22" height="15" align="absmiddle">：通道传送第i个数据所用的时间，其中有：i＝1,2,…,n。<br>
+            　　<img src="iamges/gsh3_6.gif" width="14" height="13" align="absmiddle">：通道正在为第i台设备服务，其中有：i＝1,2,…,p。</span></p>
+          <p align="center"><span class="pt9-black"><img src="iamges/tu4.15.jpg" width="456" height="126"></span></p>
+          <p align="left"><span class="pt9-black">　　在选择通道中，通道每连接一个外围设备，就把这个设备的n个字节全部传送完成，然后再与另一台设备相连接，因此，在图4.15中，在一个设备寻址时间<img src="iamges/gsh3_1.gif" width="16" height="16" align="absmiddle">之后，有连续n个数据传送时间<img src="iamges/gsh3_3.gif" width="17" height="17" align="absmiddle">。<br>
+            　　当一个选择通道上连接有P台外围设备，每一台外围设备都传送n个字节，总共所需要的时间T计算如下：<br>
+            　　　　　　<img src="iamges/gsh3_7.gif" width="179" height="28" align="absbottom">　　　（4.2）</span></p>
+          <p align="left">&nbsp;</p>
+          </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

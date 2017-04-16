@@ -1,0 +1,235 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第二章 指令系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black"><b class="part">2.3.5 指令格式设计举例</b><br>
+            <br>
+            　　指令的长度有固定长度的和可变长度的两种，有些RISC（精简指令系统计算机）的指令是固定长度的，但是，由于各种不同用途的指令所要表达的信息量差别很大，因此，目前多数计算机系统的指令是可变长度的。<br>
+            　　目前的绝多数计算机系统，指令长度通常取8的倍数，并且要求，当指令长度小于一个存储字时，不要跨越存储字存放，这是因为，如果跨越两个存储字存放，读取一条指令就需要访问两次存储器，从而降低了指令的执行速度。<br>
+            　　操作码长度也有固定长度的和可变长度的两种，下面分别举两个例子。<br>
+            　　IBM370系列计算机的指令长度有16位、32位和48位等几种，所有指令的操作码都是8位固定长度。在操作码中要给出操作种类、数据类型和寻址方式等。主要指令的格式如图2.12所示。<br>
+            　　地址个数采用两地址。有16个通用寄存器，可兼做变址寄存器和基址寄存器使用。如果参加运算的操作数都在通用寄存器中，运算结果也放在通用寄存器中，则为RR型指令，指令字长只需要16位。一个存储字中可以放两条指令。如果参加运算的一个操作数来自主存储器，并采用变址寻址方式，另一个操作数来自通用寄存器，运算结果也放在通用寄存器，则为RX型指令，指令字长32位。正好一个存储字。<br>
+            　　另外，RS型指令可用来在通用寄存器与主存储器之间一次传送多个数据。Rn为起始通用寄存器编号，Rm为结束通用寄存器编号，只要用一条指令就能把通用寄存器中从Rn开始到Rm结束的所有数据都存入相邻的主存单元中，同样，也可以从主存储器的相邻单元读出多个数据到通用寄存器中。在程序调用和中断处理时，用这种指令可以快速保存和恢复程序现场。</p>
+          <p align="center" class="pt9-black"><img src="images/tu2_12.jpg" width="390" height="223"></p>
+          <p align="left" class="pt9-black">　　SI型指令的一个操作数在主存储器中，另一个操作数为立即数。立即数的长度为8位，当然，立即数只能是第二操作数。SS型指令的两个操作数都在主存储器中，并且支持&quot;串&quot;操作。如字符串运算，十进制运算等，也可以用来把长度不超过256个字节的数据块从主存储器的一个区域搬到另一个区域。<br>
+            　　小型计算机PDP-11的指令格式如图2.13所示。其指令长度和操作码长度都是可变的，所采用的寻址方式很有特点。</p>
+          <p align="center" class="pt9-black"><img src="images/tu2_13.jpg" width="369" height="346"></p>
+          <p align="left" class="pt9-black">　　操作码的长度有4位、7位、10位、13位和16位等几种，从4位开始，按等长3位扩展。共有8个通用寄存器，其中也包括程序计数器（R7）和堆栈指针（R6）。寻址方式有8种，见表2.8所示。<br>
+            　　从表2.8中可以看出，每个访问主存储器的地址只需要用6位表示，其中3位是寄存器编号，3位是寻址方式。用6位就能寻址整个主存储器的逻辑地址空间。</p>
+          <p align="center"><span class="pt9-black"><b>表2.8 PDP-11计算机的寻址方式<br>
+            </b> </span> </p>
+          <table width="98%" border="1" cellspacing="1" bgcolor="#CCFFCC">
+            <tr> 
+              <td width="12%" class="pt9-black"> 
+                <div align="center">代码</div>
+              </td>
+              <td width="16%" class="pt9-black"> 
+                <div align="center">名 称</div>
+              </td>
+              <td width="16%" class="pt9-black"> 
+                <div align="center">汇编符号</div>
+              </td>
+              <td width="15%" class="pt9-black"> 
+                <div align="center">有效地址</div>
+              </td>
+              <td width="15%" class="pt9-black"> 
+                <div align="center">R中内容</div>
+              </td>
+              <td width="26%" class="pt9-black"> 
+                <div align="center">说 明</div>
+              </td>
+            </tr>
+            <tr> 
+              <td width="12%" class="pt9-black"> 
+                <div align="center">000</div>
+              </td>
+              <td width="16%" class="pt9-black"> 
+                <div align="center">寄存器寻址</div>
+              </td>
+              <td width="16%" class="pt9-black"> 
+                <div align="center">R</div>
+              </td>
+              <td width="15%" class="pt9-black"> 
+                <div align="center">R</div>
+              </td>
+              <td width="15%" class="pt9-black"> 
+                <div align="center">不变</div>
+              </td>
+              <td width="26%" class="pt9-black"> 
+                <div align="center">R中内容即为操作数</div>
+              </td>
+            </tr>
+            <tr> 
+              <td width="12%" class="pt9-black"> 
+                <div align="center">001</div>
+              </td>
+              <td width="16%" class="pt9-black"> 
+                <div align="center">自增寻址</div>
+              </td>
+              <td width="16%" class="pt9-black"> 
+                <div align="center">(R)+</div>
+              </td>
+              <td width="15%" class="pt9-black"> 
+                <div align="center">(R)</div>
+              </td>
+              <td width="15%" class="pt9-black"> 
+                <div align="center">(R)+d</div>
+              </td>
+              <td width="26%" class="pt9-black"> 
+                <div align="center">字指令d=1,字节指令d=1</div>
+              </td>
+            </tr>
+            <tr> 
+              <td width="12%" class="pt9-black"> 
+                <div align="center">010</div>
+              </td>
+              <td width="16%" class="pt9-black"> 
+                <div align="center">自减寻址</div>
+              </td>
+              <td width="16%" class="pt9-black"> 
+                <div align="center">-(R)</div>
+              </td>
+              <td width="15%" class="pt9-black"> 
+                <div align="center">(R)-d</div>
+              </td>
+              <td width="15%" class="pt9-black"> 
+                <div align="center">(R)-d</div>
+              </td>
+              <td width="26%" class="pt9-black"> 
+                <div align="center">d的取值同上,(R)先减后用</div>
+              </td>
+            </tr>
+            <tr> 
+              <td width="12%" class="pt9-black"> 
+                <div align="center">011</div>
+              </td>
+              <td width="16%" class="pt9-black"> 
+                <div align="center">变址寻址</div>
+              </td>
+              <td width="16%" class="pt9-black"> 
+                <div align="center">A(R)</div>
+              </td>
+              <td width="15%" class="pt9-black"> 
+                <div align="center">(R)+A</div>
+              </td>
+              <td width="15%" class="pt9-black"> 
+                <div align="center">不变</div>
+              </td>
+              <td width="26%" class="pt9-black"> 
+                <div align="center">A为偏移量,16位</div>
+              </td>
+            </tr>
+            <tr> 
+              <td width="12%" class="pt9-black"> 
+                <div align="center">100</div>
+              </td>
+              <td width="16%" class="pt9-black"> 
+                <div align="center">寄存器间址</div>
+              </td>
+              <td width="16%" class="pt9-black"> 
+                <div align="center">(R)</div>
+              </td>
+              <td width="15%" class="pt9-black"> 
+                <div align="center">(R)</div>
+              </td>
+              <td width="15%" class="pt9-black"> 
+                <div align="center">不变</div>
+              </td>
+              <td width="26%" class="pt9-black"> 
+                <div align="center"><font color="#66CC99">.</font></div>
+              </td>
+            </tr>
+            <tr> 
+              <td width="12%" class="pt9-black"> 
+                <div align="center">101</div>
+              </td>
+              <td width="16%" class="pt9-black"> 
+                <div align="center">自增间址</div>
+              </td>
+              <td width="16%" class="pt9-black"> 
+                <div align="center">@(R)+</div>
+              </td>
+              <td width="15%" class="pt9-black"> 
+                <div align="center">((R))</div>
+              </td>
+              <td width="15%" class="pt9-black"> 
+                <div align="center">(R)+d</div>
+              </td>
+              <td width="26%" class="pt9-black"> 
+                <div align="center">d的取值同上</div>
+              </td>
+            </tr>
+            <tr> 
+              <td width="12%" class="pt9-black"> 
+                <div align="center">110</div>
+              </td>
+              <td width="16%" class="pt9-black"> 
+                <div align="center">自减间址</div>
+              </td>
+              <td width="16%" class="pt9-black"> 
+                <div align="center">@-(R)</div>
+              </td>
+              <td width="15%" class="pt9-black"> 
+                <div align="center">((R)-d)</div>
+              </td>
+              <td width="15%" class="pt9-black"> 
+                <div align="center">(R)-d</div>
+              </td>
+              <td width="26%" class="pt9-black"> 
+                <div align="center">d的取值同上</div>
+              </td>
+            </tr>
+            <tr> 
+              <td width="12%" class="pt9-black"> 
+                <div align="center">111</div>
+              </td>
+              <td width="16%" class="pt9-black"> 
+                <div align="center">变址间址</div>
+              </td>
+              <td width="16%" class="pt9-black"> 
+                <div align="center">@A(R)</div>
+              </td>
+              <td width="15%" class="pt9-black"> 
+                <div align="center">((R)+A)</div>
+              </td>
+              <td width="15%" class="pt9-black"> 
+                <div align="center">不变</div>
+              </td>
+              <td width="26%" class="pt9-black"> 
+                <div align="center">d的取值同上,A为偏移量</div>
+              </td>
+            </tr>
+          </table>
+          <p align="left"> <br>
+            <br>
+          </p>
+          <p align="left"><span class="pt9-black">　</span></p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,77 @@
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<body class="text">
+<span class="section">课后习题答案：</span> <br>
+<br>
+<span class="point">　1.解答：</span><br>
+　(1) 容易解决通信的异质性（heterogeneity）问题：<br>
+　　a.上层解决不同种语言的相互翻译（数据的不同表示）<br>
+　　b.下层解决信息传递<br>
+　(2) 使复杂问题简化，高层屏蔽低层细节问题<br>
+　　每层只关心本层的内容,不用知道其他层如何实现。<br>
+　(3) 使设计容易实现<br>
+　　每个层次向上一层提供服务,向下一层请求服务。<br>
+<br>
+<span class="point">　2.解答：</span><br>
+　　在不同的开放系统中，同一层的实体称为对等实体（peer entites）。<br>
+<br>
+<span class="point">　3.解答：</span><br>
+　　（N）层实体利用（N－1）层提供的服务和执行（N）层协议来完成对（N＋1）提供服务。见相应章节动画。<br>
+<br>
+<span class="point">　4.解答：</span><br>
+　　确认服务、非确认服务、仅由服务提供者发起的服务。<br>
+<br>
+<span class="point">　5.解答：</span><br>
+　　(1) 标题与标题域；(2) 地址；(3) 连接端点标识符。<br>
+<br>
+<span class="point">　6.解答：</span><br>
+　　见相应章节动画。<br>
+<br>
+<span class="point">　7.解答：</span><br>
+　　连接建立原语：<br>
+　　　（N） CONNECTION. request<br>
+　　　（N） CONNECTION. indication<br>
+　　　（N） CONNECTION. response<br>
+　　　（N） CONNECTION. confirm<br>
+　　连接释放原语根据不同释放类型如下：<br>
+　　　正常释放：<br>
+　　　　DISCONNECT.request<br>
+　　　　DISCONNECT. Indication<br>
+　　　有序释放：<br>
+　　　　(N) �CRELEASE. Request<br>
+　　　　(N) �CRELEASE. Indication<br>
+　　　　(N) �CRELEASE(accept)response 释放被接受<br>
+　　　　(N) �CRELEASE(accept)confirm<br>
+　　　　(N) �CRELEASE(reject)response 释放被拒绝<br>
+　　　　(N) �CRELEASE(reject)confirm <br>
+　　异常释放：<br>
+　　　(N)服务用户发起释放：<br>
+　　　　(N)-U-ABOUT-request<br>
+　　　　(N)-U-ABOUT-indication<br>
+　　(N)服务提供者发起释放：<br>
+　　　　(N)-P-ABOUT-indication<br>
+<br>
+<span class="point">　8.解答：</span><br>
+　　常规数据传送、加速数据传送和特权数据传传送。<br>
+<br>
+<span class="point">　9.解答：</span><br>
+　复用与解复用：<br>
+　　多个（N）连接被映射成一个（N－1）连接。这时，在发送方，一个（N－1）连接支持多个（N）连接，称为（N）实体的多个（N）连接复用一个（N－1）连接（Multiplexing）。在接收方必须要有一个解复用（de-multiplexing）的过程。复用可以更有效和经济地使用连接。<br>
+　分流与合流：<br>
+　　一个（N）连接被映射成多个（N－1）连接。这时，在发送方，用多个（N－1）连接支持一个（N）连接，（N）实体的这种功能称为分流（Splitting）。在接收方就需要一个叫做合流的过程（recombining）。使用分流和合流功能可以提高可靠性和吞吐量。<br>
+<br>
+<span class="point">　10.解答：</span><br>
+　　简化问题，逐个击破。<br>
+<br>
+<span class="point">　11.解答：</span><br>
+　　网络层的任务就是要选择合适的路由,使发送站的运输层发下来的分组能够正确无误的按照地址找到目的站并交付目的站的运输层。<br>
+<br>
+<span class="point">　12.解答：</span><br>
+　　OSI/RM与IEEE 802定义的局域网协议之间层次对应关系为：局域网的物理层与OSI的物理层相对应；局域网的媒体访问子层MAC和逻辑链路控制层与OSI/RM定义的数据链路层相对应。<br>
+<br>
+<span class="point"> 　13.解答：</span><br>
+　　TCP/IP网络体系结构模型由4层组成。从下到上分别是：<br>
+　　（1）网络接口层：提供IP数据报的发送和接收。<br>
+　　（2）网络层：提供计算机间的分组传输。功能：① 高层数据的分组生成；② 底层数据报的分组组装；③ 处理路由、流控、拥塞等问题。主要包括IP、ICMP、ARP等协议。<br>
+　　（3）传输层：提供应用程序间的通信。功能：① 格式化信息流；② 提供可靠传输。主要包括TCP和UDP协议。<br>
+　　（4）应用层：提供常用的应用程序。 

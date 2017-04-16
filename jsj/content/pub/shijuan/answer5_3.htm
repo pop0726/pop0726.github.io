@@ -1,0 +1,32 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="95%" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td><span class="pt9-black"><b>[解答]</b><br>
+      首先计算所有cache访问都命中时计算机的性能：<br>
+      CPU执行时间＝（CPU时钟周期＋内存停机周期）×时钟周期时长<br>
+      ＝（IC×CPI＋0）×时钟周期时长<br>
+      ＝ IC×2.0×时钟周期时长<br>
+      现在计算考虑cache不命中在内的真实计算机性能，我们先计算内存停机周期：<br>
+      内存停机周期＝IC×每条指令访问内存的次数×不命中率×不命中损失<br>
+      ＝IC×（1＋0.4）×0.02×25<br>
+      ＝IC×0.7<br>
+      其中（1＋0.4）代表每条指令访问一次内存, 而占指令总数40%的store和load访问两次内存, 所以平均每条指令访问访问(1+0.4)次内存。这样总的性能是：<br>
+      CPU执行时间 =（IC×2.0＋IC×0.7）×时钟周期时长<br>
+      = IC×2.7×时钟周期时长<br>
+      性能提高的比是执行时间之比的倒数：<br>
+      cache不命中考虑在内的CPU执行时间/cache访问全部命中的CPU执行时间<br>
+      =2.7×IC×时钟周期时长/2.0×IC×时钟周期时长<br>
+      ＝1.35<br>
+      cache访问全部命中时的速度是有 cache不命中时机器速度的1.35倍。</span><br>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

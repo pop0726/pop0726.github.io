@@ -1,0 +1,47 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+          <td> <br>
+            <span class="point">（1）Type字段用于表示标签（Tag）</span><span class="text">，各位表示如下。</span><br>
+            <br>
+            　<img src="../../../../image/pic/chapter06/asn.gif" width="430" height="45"> 
+            <br>
+            <span class="point"><br>
+            　・D8，D7：</span><span class="text">标签类型<br>
+            　　　Class 　　　　　D8　D7<br>
+            　　　Universal 　　　 0　0<br>
+            　　　Application 　　 0　1<br>
+            　　　Context-specific 1　0<br>
+            　　　Private 　　　　 1　1<br>
+            </span><br>
+            <span class="point">・D6：</span><span class="text">数据类型标志<br>
+            　　0表示基本数据类型，1表示结构数据类型。<br>
+            </span><br>
+            <span class="point">・D5，D1或更多位：</span><span class="text">标签号码<br>
+            　　号码小于31时，用D5到D1；<br>
+            　　号码大于等于31时，用更多位表示，这时D5～D1全为1，标签号码由后面扩展字节表示，扩展字节的最高位（D8）均为1，只有最后一个字节的最高位（D8）为0，表示扩展字段结束，这些字节的剩余7位拼接起来就是标签号码值。以标签[PRIVATE 
+            42]为例子。42的二进制表示是101010，多于五位，因此要用两个八位组编码。编码后的标签的二进制格式为11111111 00101010。<br>
+            </span><br>
+            <span class="point">（2）Length字段表示内容字段（value）的长度</span><br>
+            <span class="text">　　长度小于127时，Length字段占一个字节；长度大于127时，第1个字节的最高位（D8）为1，其余7位为Length字段本身的长度，后续字节为内容字段（value）的长度。长度不确定时，第1个字节的最高位（D8）为1，其余位全0，内容字段使用内容结束标志（2个全0字节）。<br>
+            </span><br>
+            <span class="point">（3）内容字段（value）</span><br>
+            <span class="text">　　如BOOLEAN类型的FALSE为0，TRUE为非0；INTEGER类型的只用补码表示。<br>
+            　</span></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

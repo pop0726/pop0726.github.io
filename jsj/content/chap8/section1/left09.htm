@@ -1,0 +1,41 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第八章 并行处理机和多处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black"><b>Illiac IV阵列</b><br>
+            　　IlliacIV 阵列由64个处理单元、64个处理单元存储器和存储器逻辑部件所组成。这个阵列的64个处理部件<img src="images/gsh1_5.gif" width="62" height="15" align="absmiddle">排列成8×8的方阵，每一个<img src="images/gsh1_6.gif" width="23" height="14" align="absmiddle">只和其东、西、南、北四个近邻<img src="images/gsh1_7.gif" width="38" height="15" align="absmiddle">(mod64)、<img src="images/gsh1_8.gif" width="34" height="16" align="absmiddle">(mod64)、<img src="images/gsh1_9.gif" width="38" height="16" align="absmiddle">(mod64)和<img src="images/gsh1_10.gif" width="30" height="16" align="absmiddle">(mod64)有直接连接。循此规则，南北方向上同一列的PU两端相连成一个环，东西方向向上每一行的东端PU与下一行的西端PU相连，最下面一行的东端PU则与最上面一行的西端PU相连，从而构成一个闭合的螺线形状,如图8.6所示。因此，IlliacIV的阵列结构又称为闭合螺线阵列。这种连接方式既便于一维长向量(多至64个元素)的处理，又便于二维数组运算，以缩短处理单元之间的路径距离。步距不等于±1或±8的任意机间通信可以用软件方法寻找最短路径进行，其最短距离都不会超过7步。例如，从<img src="images/gsh1_11.gif" width="30" height="15" align="absmiddle">到<img src="images/gsh1_12.gif" width="29" height="13" align="absmiddle">的距离以下列路径为最短：<br>
+            　　<img src="images/gsh1_13.gif" width="389" height="17" align="absmiddle"><br>
+            　　普遍言之，n×n个单元组成的阵列中，任意两个处理单元之间的最短距离不会超过(n-1)步。</p>
+          <p align="center" class="pt9-black"><img src="images/tu8_6.jpg" width="438" height="284"></p>
+          <p align="left" class="pt9-black">　　处理单元数组处理的运算部分，它可对64位、32 位和8位操作数进行多种算术和逻辑操作，包括48位、24位或8位定点运算。这等于将64个处理单元的硬件当作64个(64位)、128个(32位)或512个(8位)处理单元发挥作用。并行的加法速度是每秒<img src="images/gsh1_14.gif" width="24" height="13" align="absmiddle">次8位定点加法或150×<img src="images/gsh1_15.gif" width="20" height="14" align="absmiddle">次64位浮点加法。<br>
+          </p>
+          <p align="left" class="pt9-black">&nbsp;</p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

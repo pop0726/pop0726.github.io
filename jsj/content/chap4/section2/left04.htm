@@ -1,0 +1,44 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第四章 输入输出系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black"><span class="part">4.2.2 中断屏蔽</span><br>
+            <br>
+            　　由于中断源的中断优先级是由硬件固定死的，不能由程序员通过软件来改变，因此灵活性比较差。采用中断屏蔽方法可以缓解快速识别中断源和灵活安排中断优先级之间的矛盾。<br>
+            　　一般的方法是为每一个中断源设置一个中断屏蔽位。这些中断屏蔽位可以分布存放在各个中断源中，也可以集中存放在处理机内。另外，处理机要设置专门的指令来管理这些中断屏蔽位。当中断屏蔽位为&quot;1&quot;时，表示对应的中断源不能请求中断服务，为&quot;0&quot;时，对应的中断源可以请求中断服务。<br>
+            <br>
+            　　设置中断屏蔽有如下三个用处：<br>
+            　　1、在中断优先级已经由硬件确定了的情况下，改变中断源的中断服务顺序。实际上，当有多中断源同时请求中断服务时，处理机响应中断请求的顺序是：在没有被屏蔽的中断源中，找出优先级最高的一个中断源先响应。因此，可以通过在一段时间内屏蔽掉较高级中断源的中断请求，让处理机先为较低级的中断源服务，等较低级的中断源的中断服务程序执行完成后，再解除较高级中断源的屏蔽，使处理机为这个较高级中断源服务，从而达到在有多个中断源同时请求中断服务时，处理机先为较低级中断源服务，然后再为较高级中断源服务的目的。 
+            <br>
+            　　2、决定设备是否采用中断方式工作。在前面介绍过，外围设备有三种基本的输入输出方式。通过中断屏蔽，可以让某些外围设备不采用中断方式工作，而采用程序控制方式或DMA方式工作。例如，在向量计算机中，当一个很长向量正在运算时，一般不希望被外围设备频繁地中断。<br>
+            　　3、在多处理机系统中，可以通过中断屏蔽，把对外围设备的输入输出服务工作分配到各个处理机中。</p>
+          <p align="left" class="pt9-black">&nbsp;</p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

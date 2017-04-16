@@ -1,0 +1,42 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+          <td class="explaination"><br>
+            <span class="point">・总长度（total length）：</span><br>
+            　　指头部和正文部分的长度之和，最大为65535字节。（目前允许这一上限，但将来的千兆位网络将要求更长的数据报。）<br>
+            <br>
+            <span class="point">・标识（identification）：</span><br>
+            　　用来让目的主机确定新到达的分段（fragment）属于哪一个数据报。同一数据报的所有分段包含相同的标志值。<br>
+            <br>
+            <span class="point">・�：</span><br>
+            　　该域没有定义。<br>
+            　<br>
+            <span class="point">・DF：</span><br>
+            　　表示不要分段（don't fragment），它命令路由器不要将数据报分段。有关内容将在后面IP的分段与重组中介绍。这里先留个印象就可以了。<br>
+            <br>
+            <span class="point">・MF：</span><br>
+            　　表示还有更多的分段（more fragment）。除了最后一个分段外，所有同一数据报的各分段中该位都要置位。<br>
+            <span class="point"><br>
+            ・分段偏移量（fragment offset）：</span><br>
+            　　告知本分段在当前数据报的位置。除了最后一个分段以外，一个数据报的所有分组必须是8字节的倍数，即8字节为一个基本分段单位。该域有13位，所以每个数据报最多有8192个分段，数据报长度最大可达到65536字节，比总长度域的最大值大1个字节。<br>
+            <br>
+            <span class="point">・生存期TTL（time to live）：</span><br>
+            　　是用来限制分组寿命的计数器，最长生存期为255秒。该域在每条链路上都必须递减。若在某个路由器中排了长时间的队，则要以倍数递减。实际上，它只计算链路上的时间。当该域减为0时，就将这一分组丢弃，并向源主机发送一告警分组。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

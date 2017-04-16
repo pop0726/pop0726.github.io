@@ -1,0 +1,41 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第六章　向量处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black"><span class="part">6.3.2.提高向量处理机性能的常用技术</span><br>
+            <b><br>
+            1.链接技术</b><br>
+            　　在寄存器一寄存器系统结构中，所有的向量操作数在把它们送入流水线之前，都要预先装入向量寄存器中。中间和最后结果（流水线输出）在把它们存入主存储器以前，也要把它们装入向量寄存器中。下面，我们考虑与Cray 
+            1那样的寄存器--寄存器向量处理机有关的资源预定问题。向量指令可分成四类，如图6.13所示。第一类指令从一个或二个向量寄存器取得操作数并把结果回送到另一个向量寄存器中去。第二类向量指令从Si寄存器取得一个标量操作数，又从Vk寄存器取得一个向量操作数，并且把向量结果回送给另一个向量寄存器Vi。第三类以及第四类指令分别是把数据从存储器传送到一个向量寄存器中以及反过来把数据从向量寄存器传送到存储器中。存储器和工作寄存器之间的数据通路可以看成是具有固定时间延迟的数据传送流水线。</p>
+          <p align="center" class="pt9-black"><img src="images/tu6_13.jpg" width="398" height="523"><br>
+            <br>
+          </p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

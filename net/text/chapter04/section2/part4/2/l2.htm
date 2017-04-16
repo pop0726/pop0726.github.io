@@ -1,0 +1,39 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td width="25" valign="top"><br>
+            <img src="../../../../../image/tub/ts.gif" width="25" height="20" alt="图示"></td>
+          <td>
+            <div align="center"><br>
+              <img src="../../../../../image/pic/chapter04/4_11.gif" width="307" height="146"> 
+              <br>
+              <span class="point">图 4.11</span></div>
+          </td>
+        </tr>
+        <tr> 
+          <td colspan="2"><br>
+            <span class="part">信息帧(Information)：</span><br>
+            <span class="text"><br>
+            　　用于传送用户数据。信息帧控制字段的第2、3、4比特为发送帧序号N(S)。它是由发送方在发送该帧前填入的，用来供收发双方检查是否有遗漏或重复帧发生。为减少序号所占用的比特数，发送序号通常采用模8运算，必要时(如使用卫星信道)也可采用模128运算。<br>
+            <br>
+            　　信息帧控制字段的第6、7、8比特为接收帧序号N(R)。它是由接收方填入的，代表了接收方期望接收的下一帧序号。即在该帧发出前，接收方已正确收到序号N(R)之前的所有信息帧，发送方应当向接收方发送N(s)＝N(R)的信息帧。可见N(R)具有应答意义。由N(s)和N(R)编号可看出HDLC适合于全双工通信，它允许在发送信息的同时，捎带应答信息。<br>
+            <br>
+            　　控制字段的P/F比特，在命令帧中称为P比特，在响应帧中称F比特，用来标识通信站之间的&quot;命令-响应&quot;信息对。在HDLC协议中，P＝1为主站询问次站是否有数据要发；F＝1为次站响应主站有数据要发。P与F是成对出现的。次站响应主站询问之后，开始向主站发送信息帧，并置所发信息帧的P/F比特为&quot;0&quot;，直至信息全部发完，才置最后一个信息帧的P/F比特为&quot;1&quot;，通知主站数据发送完毕。信息帧中的P/F比特与监控帧中的P/F比特意义相同。<br>
+            　</span></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

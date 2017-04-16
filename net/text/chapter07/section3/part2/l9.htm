@@ -1,0 +1,25 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+          <td class="explaination"><br>
+            　　用文件结束来终止传输是非常重要的。这是因为它允许在传输过程中改变文件的大小。例如，考虑一下下面的情形：应用程序正在服务器一方写入文件，而此时FTP也在将这个文件的副本传输至客户方。由于文件通过独立的连接来传输，所以服务器不必告诉客户文件的大小。<br>
+            <br>
+            　　相反，服务器打开一个连接，从文件读取数据，然后通过连接发送数据。当到达文件尾时，服务器关闭数据连接，让客户收到一个文件结束条件。由于服务器不必事先告知客户有多少数据，所以在传输中文件能够增长而不会发生问题。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

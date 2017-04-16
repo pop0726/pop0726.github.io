@@ -1,0 +1,41 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" background="../../../../image/htmls/right_r5_c3.gif" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="88%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+          <td class="text"><br>
+            <span class="part">2.层操作要素</span><br>
+            <br>
+            　　对于面向连接的通信中，<span class="point">连接建立</span>、<span class="point">数据传送</span>和<span class="point">连接释放</span>是层操作中三个最主要的公共操作。<br>
+            <br>
+            <span class="point">　(1) 连接建立</span><br>
+            <br>
+            　　（N）对等实体间的（N）连接建立是作为向（N+1）实体提供的一种服务，以便使（N+1）实体之间能交换信息。建立（N）连接要具备左示两个条件：<br>
+            　<span class="point">①</span> 支持该（N）连接的实体之间存在着可用的（N-1）连接；<br>
+            　<span class="point">② </span>对等（N）实体都处于能够执行连接建立的状态。<br>
+            <br>
+            　　如果尚无可用的（N-1）连接，则先要建立（N-1）层对等实体间的（N-1）连接，这时，所要求的条件和上述①、②二条件相同。如此，这两个条件递归调用，直到有可用的连接，或直遇到OSI的物理介质为止。<br>
+            <br>
+            　　（N）连接是一种确认型的服务。其一组原语为：<br>
+            <span class="point">　　　(N〕CONNECTION. request<br>
+            　　　(N〕CONNECTION. indication<br>
+            　　　(N〕CONNECTION. response<br>
+            　　　(N) CONNECTION. confirm</span><br>
+            <br>
+            　　连接建立的演示如左侧<span class="point">动画</span>所示。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

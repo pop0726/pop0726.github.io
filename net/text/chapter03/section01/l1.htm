@@ -1,0 +1,47 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+          <td class="explaination"><br>
+            　<img src="../../../image/pic/chapter03/gongshi/1/01.gif" width="396" height="51">(3-1)<br>
+            <br>
+            　　此处f＝1/T是基频，<font size="2">a</font><font size="1">n</font>和<font size="2">b</font><font size="1">n</font>是正弦和余弦函数的n次谐波（Harmonics）的振幅。这种分解叫做傅立叶级数（fourier 
+            series）。通过傅立叶级数可以重新合成原始函数，即，已知周期T和振幅，通过(3-1)求和能够得到时间函数g(t)。<br>
+            <br>
+            　　可以把一个持续时间有限的数据信号（所有的信号都是如此），想象成它在一遍又一遍地无限重复整个模式（即区间T到2T的模式等同于区间0到T，依此类推）。<br>
+            <br>
+            　　对任何给定的g(t)，通过对(3-1)式两边同乘sin(2πkft)，然后从0到T积分，可得到振幅an，因为：<br>
+            　　<img src="../../../image/pic/chapter03/gongshi/1/02.gif" width="415" height="58"><br>
+            <br>
+            　　和式中只留下<font size="2">a</font><font size="1">n</font>，<font size="2">b</font><font size="1">n</font>消失。类似地，用cos(2πkft)乘(3-1)式两边，然后从0到T积分，可得<font size="2">b</font><font size="1">n</font>。另外，直接对(3-1)式两边积分，即可得c。执行这些运算的结果如下： 
+            <br>
+            　　　<img src="../../../image/pic/chapter03/gongshi/1/03.gif" width="225" height="49"><br>
+            　　　<img src="../../../image/pic/chapter03/gongshi/1/04.gif" width="227" height="103"><br>
+            <br>
+            　　由于正弦量可以写成两个虚指数分量之和，所以傅立叶级数可以表示成指数型级数的形式。 <br>
+            　　　<img src="../../../image/pic/chapter03/gongshi/1/05.gif" width="157" height="52"><br>
+            　　其中，F<font size="1">0</font>=c/2，F<font size="1">n</font>=1/2( <font size="2">a</font><font size="1">n</font>-j<font size="2">b</font><font size="1">n</font> 
+            )，F<font size="1">-n</font>=1/2( <font size="2">a</font><font size="1">n</font>+j<font size="2">b</font><font size="1">n</font> 
+            )，<font size="2">w</font><font size="1">0</font>=2π/T<font size="1">0</font> 
+            。<br>
+            <br>
+            　　根据上面的<font size="2">a</font><font size="1">n</font>，<font size="2">b</font><font size="1">n</font>的计算式，可得，<br>
+            　　　<img src="../../../image/pic/chapter03/gongshi/1/06.gif" width="243" height="55"> 
+            <br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

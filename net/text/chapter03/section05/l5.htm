@@ -1,0 +1,35 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td class="explaination" colspan="2"><br>
+            　　为保证同步，在每个比特中都必须有信号变化。接收端可以利用这些跳变来建立、更新和同步它的时钟。和我们在以上论述中所见一样，NRZ-I编码技术对于连续的比特1实现了这一目标。但是为了在每比特都有信号变化，我们需要多于两个的电压值。一种方案是归零编码（RZ），它使用了三个电平：正电平、负电平和零。在归零编码（RZ）中，信号变化不是发生在比特之间而是发生在比特内。和NRZ-L一样，正电平代表比特1，负电平代表比特0。但是与NRZ-L不同的是，任何比特间隙的中段，信号将归零。一个比特1实际是由正电压到零的跳变代表，而比特0则是由负电压到零的跳变代表，而不仅仅是通过电平正负来表示。图3.6描述了这一概念。<br>
+            <br>
+            　　归零（RZ）编码的主要缺陷在于它每比特位需要两次信号变化从而增加了占用的带宽。但是相对于我们已经研究的三种方式，它是最有效的。<br>
+            <br>
+            　　一个编码良好的数字信号必须携带同步信息。<br>
+            　</td>
+        </tr>
+        <tr> 
+          <td class="explaination" width="25" valign="top"><img src="../../../image/tub/ts.gif" width="25" height="20" alt="图示"></td>
+          <td class="explaination">
+            <div align="center"><img src="../../../image/pic/chapter03/3_6.gif" width="380" height="210"><br>
+              <span class="point">图3.6 归零（RZ）编码</span><br>
+              　　</div>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

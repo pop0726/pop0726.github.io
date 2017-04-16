@@ -1,0 +1,49 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第七章 互连网络</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="left"> 
+          <p><span class="part">7.2.3 流控制策略</span><br>
+            <br>
+            <span class="pt9-black">　　当两个或更多的包在某个结点为竞争缓冲区或通道资源而发生冲突时，必须确定如何解决冲突的策略。这一节将考察各种不会引起拥挤或死锁现象的控制网络流量的策略。下面将以这些策略为基础，讨论为一对一通信设计的确定寻径算法和自适应寻径算法。<br>
+            　　<b>1包冲突的解决</b> 通道流水线上的两个相邻结点之间要传送片时，必须具备三个条件：<br>
+            　　(1)源缓冲区已存有该片；(2)通道已分配好；(3)接收缓冲区准备接收该片。<br>
+            　　当两个包到达同一个结点时，它们可能会请求用同一个接收缓冲区或者要用同一个输出通道。因此必须对两个问题做出仲裁：(1)把通道分配给哪个包？(2)没有分配到通道的包做什么事？结果有四种解决包冲突的方法，如图7.31所示。</span></p>
+          <p align="center" class="pt9-black"><img src="images/tu7_31.jpg" width="493" height="365"></p>
+          <p align="left" class="pt9-black">　　图7.31说明当两个包争用某个中间结点的同一条输出通道时，有四种解决这一冲突的方法。把通道分配给包1，拒绝包2。Kermani和Kleinrock(1979)提出了一种虚拟直通寻径(virtual 
+            cut-through routing)缓冲(buffering)方法。包2被暂时存放在一个包缓冲区。当通道可以使用时再传送包2。这种缓冲方法的好处是不会浪费已经分配的资源，但是需要一个能存放整个包的缓冲区。此外，通信路径上的包缓冲区不应形成如图7.29a所示的循环。由于包缓冲区不可能做在寻径器芯片上，因此要用本地存储器作为包缓冲区，这会引起相当大的存储延迟。虚拟直通方法是存储转发和虫蚀两种寻径方法的折衷。当不发生冲突时，就如同虫蚀寻径方法一样工作。在最坏情况下，效果则与存储转发寻径方法相同。 
+            <br>
+            　　纯粹的虫蚀寻径在出现冲突时就采用阻塞(blocking)策略，如图7.31b所示。第2个包被阻塞不再前进，但是并没有被场弃。图731c所示的是扬弃(discard)策略，它简单地把被阻塞的包扬弃掉。<br>
+            　　第四种策略称为绕道(detour)（见图7.31d）。被阻塞的包被送到一条绕行的通道。阻塞策略的实现成本低，但可能出现分配给阻塞包的资源空闲的情况。扬弃策略可能会出现资源严重浪费，并且需要包重新发送和回答，否则被扬弃的包也许会丢失。现在已很少使用这种策略，因为包的输送率不稳定。BBN 
+            Butterfly网络采用了这种扬弃策略。绕道寻径为包寻径提供了更大的灵活性。然而，绕道可能要用更多的通道资源才能到达目的地。而且绕行的包可能进入一个活锁（livelock）循环，这将浪费网络资源。Connection 
+            Machine和Denelcor HEP采用了这种绕道策略。实际上，某些多计算机网络综合了以上某些流控制策略的优点，采用混合策略。<br>
+            <br>
+          </p>
+        </div>
+        </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

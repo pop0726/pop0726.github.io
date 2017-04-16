@@ -1,0 +1,45 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第五章 标量处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black"><span class="part">5.3.4 Tomasulo动态指令调度方法</span><br>
+            <br>
+            　　Tomasulo动态指令调度方法是由R.M.Tomasulo于1967年首先提出的，并最早在大型计算机IBM 360/91处理机的浮点处理部件中被采用。Tomasulo方法又称为公共数据总线（CDB：Common 
+            Data Bus）法，或令牌法等，它采用乱序流动方式来提高流水线的吞吐率和效率，并通过分散控制的办法处理数据相关。<br>
+            　　在IBM 360/91处理机的浮点处理部件中，有一个浮点加法器和一个浮点乘/除法器，如图5.46所示。浮点加法器为两段流水线，在它的输入端有三个保存站A1、A2和A3，浮点乘/除法器为六段流水线，在它的输入端有两个保存站M1和M2。每个保存站的组成如图中所示，它采用随机访问方式工作，由保存站中的控制部件控制。当任意一个保存站中的两个源操作数都到齐之后，如果对应的浮点操作部件是空闲的，则可以把两个操作数立即送入浮点操作部件中执行。<br>
+            　　IBM 360/91处理机的浮点处理部件采用先行控制方式。在浮点先行操作站中存放的是经过指令分析部件预处理之后的&quot;寄存器-寄存器&quot;型指令，这类指令中的源操作数可能来自浮点通用寄存器，也可能来自浮点先行读数站，运算结果送入公共数据总线CDB，并通过CDB送入浮点通用寄存器、浮点加法器的保存站或浮点乘/除法器的保存站等；最终运算结果一般送入浮点后行写数站，由浮点后行写数站负责写到主存储器中去。<br>
+            　　仍然以上一节中的一小段程序为例。如果在串行执行的处理机中，必须等待上一条指令执行完后，下一条指令才能开始执行。由于浮点加法器和浮点乘法器可以同时工作，如果采用乱序流动方式，在上面的这四条指令中可能发生写读和写写两种数据相关。<br>
+            　　指令k的执行结果，把一个浮点操作数从主存储器中读出，送入浮点先行读数站的（FLB1）中，并在执行指令k+1时通过（FLB1）直接送入到浮点加法器的保存站A1，而不是送到浮点通用寄存器F1中，这就相当于建立了一条从主存储器到浮点加法器的专用数据路径。</p>
+          <p align="center"><span class="pt9-black"><img src="images/tu5_46.gif" width="548" height="576"></span><br>
+            <b class="pt9-black">图5.46 IBM360/91处理机的浮点执行部件 </b></p>
+          <p align="left"><br>
+          </p>
+          </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

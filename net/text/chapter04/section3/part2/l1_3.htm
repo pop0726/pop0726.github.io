@@ -1,0 +1,35 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+          <td><br>
+            <span class="part">3.报文分组交换</span><br>
+            <span class="text"><br>
+            　　在分组交换网中，数据是以分组的形式传输的，如果源端有一个很长的消息要发送，该消息被分成若干个分组，每个分组除了用户数据外还包含一些控制信息，以便能够正确地把该分组通过网络传送给目的节点。<br>
+            <br>
+            　　分组的传送也采用存储--转发的形式，即网络节点根据分组控制信息，把分组送到下一节点，下一节点收到分组后，暂时保存下来并排队等待传输，然后该节点通过分组控制信息选择下一节点。<br>
+            <br>
+            　　分组交换具有以下三个显著的特点：<br>
+            　・节点暂时存储的是一个个分组，而不是整个数据报文。<br>
+            　・分组是暂时存储在节点的内存中，而不是保存在节点的外存中，从而保证了较高的交换速率。<br>
+            　・分组交换采用的是动态分配信道的策略，极大地提高通信线路的利用率。<br>
+            <br>
+            　　分组交换的优点是信道利用率有了很大的提高。在电路交换方式中，信道供某条连接专用，而在分组交换中，信道实际上供所有正在传输的站点共享使用。分组交换也存在一些缺点。例如：分组在各节点存储转发时因排队而造成一定的时延；由于每个分组中必须携带一些控制信息而产生一定的额外开销；分组交换网的管理和控制比较复杂。 
+            <br>
+            　</span></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

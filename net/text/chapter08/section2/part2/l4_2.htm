@@ -1,0 +1,29 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+          <td class="explaination"><br>
+            　　从<span class="point">图8.5</span>可看出，地址字段共两个字节，目的服务访问点DSAP和源服务访问点SSAP都各占一个字节。DSAP字段的最低位（第一个比特）为I/G比特。I(Individual)代表&quot;单个&quot;，而G(Group)代表&quot;组&quot;。当I/G比特为0时，它后面的7bit就代表一个单个目的服务访问点。但当I/G比特为1时，则DSAP代表组地址。组地址规定数据要发往其一特定站的一组服务访问点，它只适合于不确认的无连接服务。全1的组地址为该站所有工作的DSAP。SSAP字段的最低位（第一个比特）为C/R比特。当C/R比特为零时LLC 
+            PDU为命令帧，否则为响应帧。在C/R比特后面的7bit用来表示源服务访问点。因此，DSAP值和SSAP值都各占7bit。<br>
+            <br>
+            　　LLC PDU的控制字段为两个字节（当LLC PDU为信息PDU或监督PDU时）或一个字节（当LLC PDU为无编号PDU时）。信息PDU和监督PDU的控制字段与HDLC的扩展的控制字段的格式一样，其序号按模128进行编号。无编号PDU则与HDLC的情况一样。<br>
+            <br>
+            　　LLC PDU的数据字段长度并无限制，但都应是整数个字节。当MAC帧的长度受限时，由于MAC帧的首部和尾部的长度在不同的局域网中都有明确的规定，因此LLC 
+            PDU的长度实际上也并不是没有限制的。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

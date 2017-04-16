@@ -1,0 +1,40 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第七章 互连网络</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black">　　(6)交叉开关网络 交叉开关网络的带宽和互连特性最好。它可看作是一个单级开关网络。象电话交换机一样，交叉点开关能在对偶（源、目的）之间形成动态连接，每个交叉点开关在对偶间提供一条专用连接通路，开关可根据程序的要求动态地设置&quot;开&quot;或&quot;关&quot;。图7.23所示的是两种交叉开关网络。<br>
+            　　我们可以在处理机和存储模块之间用交叉开关网络构成一个共享存储型多处理机（图7.23），实际上这是一个存储器访问网络。C.mmp多处理机已实现了16×16交叉开关网络，它将16台PDP-11处理机与16个存储模块连在一起，每个存储模块的容量为1M存储单元字。16台处理机最多可同时访问16个存储模块。<br>
+            　　注意，每个存储模块一次只能满足一台处理机的请求。在多个请求同时到达同一存储模块时，交叉开关就必须分解所发生的冲突，每个交叉开关的行为与总线非常相似。但是，每台处理机可能会产生一系列地址要同时访问多个存储模块。因此，在图7.23中每一列只能接通一个交叉点开关。但是，为了支持并行（或交叉）存储器访问，可以同时接通几个交叉点开关。<br>
+            　　还有一种交叉开关网络可用于处理机间通信，如图7.23b所示。Fujitsu公司（1992）制造的向量并行处理机（VPP500）实际上就是采用了这种大型交叉开关网络（224×224）。其中PE为接有存储器的处理机，CP代表控制处理机，用来监控整个系统，包括交叉开关网络的运行。在这种网络中，每一行和每一列只能接通一个交叉点开关。<br>
+            　　处理机间的交叉开关可实现处理机之间的置换连接，但这只是一对一的连接。所以n×n交叉开关网络一次最多可连通n个（源，目的）对，这是与处理机存储器间的交叉开关网络不同的地方。</p>
+          <p align="center" class="pt9-black"><img src="iamges/tu7_23.jpg" width="406" height="685"><br>
+          </p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第五章 标量处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black">　　在流水线中避免发生数据相关的方法可以分为两大类，其中一类是延迟执行，另一类是建立专用路径。当流水线的流水段比较多，或者在一个处理机中有多条流水线时，需要的专用路径的条数很多，专用路径的控制非常复杂；因此，出现了多种设置专用路径的方法。如采用分散控制的公共数据总线法（又称为Tomasulo算法），采用集中控制的CDC记分牌法等。<br>
+            　　延迟执行是避免数据相关最简单的方法。例如，在图5.39中，当检测到指令k与指令k+2有&quot;先写后读&quot;数据相关时，延迟指令k+2的执行，让流水线的流水段<img src="images/gsh3_6.gif" width="15" height="15" align="absmiddle">、<img src="images/gsh3_7.gif" width="17" height="16" align="absmiddle">、<img src="images/gsh3_3.gif" width="19" height="16" align="absmiddle">空转，直到相关被解除之后，指令k+2才继续在流水线中执行。采用延迟执行方法避免数据相关的流水线工作时序如图5.40所示。这种方法的优点是流水线的控制简单，缺点是流水线的吞吐率和效率低。<br>
+            　　建立专用路径的方法如图5.39所示。通过一条从流水段S5到流水段S3的专用路径，当指令k与指令k+2有&quot;先写后读&quot;数据相关时，流水段S5的输出可以通过这条专用路径直接送到流水段<img src="images/gsh3_6.gif" width="15" height="15" align="absmiddle">的输入。在采用顺序流动方式时，建立有这种专用数据路径的流水线工作时序如图5.43所示；与没有建立专用数据路径的图5.40相比，指令k+2可以提前两个时钟周期执行；从而流水线的吞吐率和效率有比较大的提高。由于在一般程序中，这类数据相关发生的概率很大；因此，在流水线中建立专用数据路径已经成为高性能处理机普遍采用的方法。</p>
+          <p align="center" class="pt9-black"><img src="images/tu5_43.jpg" width="474" height="177"></p>
+          <p align="left"><span class="pt9-black"> 　　通过建立专用路径来避免数据相关的基本原理是数据重定向。下面，首先介绍常用的数据重定向的一般原理和基本方法，在此基础上，再介绍一种经典的避免数据相关的Tomasulo算法。</span><br>
+            <br>
+          </p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第五章 标量处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black"><span class="part">5.1.7 非线性流水线的优化调度方法</span><br>
+            <br>
+            　　从图5.20中和图5.21中可以看到，当采用最小启动循环启动非线性流水线，流水线中的许多流水段还有空闲。反映在预约表中还有空白的格子。即使是最繁忙的流水段也还有空闲，因此，按照上一节介绍的调度方法得到的最小启动循环，实际上并不能使非线性流水线充分发挥效率。下面将介绍非线性流水线的优化调度方法，按照这种方法调度非线性流水线，流水线的工作效率最高，即流水线的吞吐率、加速比和效率最好。<br>
+            　　L.E.Shar于1972年提出了流水线最小平均启动距离的限制范围。对于一条静态可重构的流水线，通过预约表可以得到其最小平均启动距离的范围。<br>
+            　　1、最小平均启动距离的下限是预约表中任意一行里&quot;×&quot;的最多个数。实际上也就是同一个任务通过流水线中任意一个流水段的最多次数。<br>
+            　　2、最小平均启动距离应小于或等于状态图中任意一个简单循环的平均启动距离。这一点已经在上一节中被使用。<br>
+            　　3、最小平均启动距离的上限是冲突向量中1的个数再加上1。这个限制在许多情况下是相当宽松的。<br>
+            　　1992年，L.E.Shar又证明了上述限制范围。<br>
+            　　实际上，最有用的是上述第1条。预约表中&quot;×&quot;最多的一行所对应的流水段一定是整个流水线的瓶颈流水段。要使整个流水线充分发挥效率，瓶颈流水段必须不间断工作，不能有空闲。因此，非线性流水线调度的关键是充分使用瓶颈流水段，只要让瓶颈流水段不空闲，则非线性流水线的吞吐率、加速比和效率必然是最好的，按照这种方法调度流水线，流水线的平均启动距离也一定是最小的。<br>
+            　　采用预留算法来调度非线性流水线，可以达到最优调度。具体方法如下：<br>
+            　　1、确定流水线的最小平均启动距离。最小平均启动距离等于预约表中任意一行中&quot;×&quot;的最大个数。<br>
+            　　2、确定最小启动循环。对于同一个最小平均启动距离，可能有多个最小启动循环，其中有一个且只有一个是恒定循环。为了简化流水线的控制逻辑，在一般情况下，可选择这个恒定循环作为最小启动循环。 
+            <br>
+            　　3、结合流水线预约表和连接图，采用预留算法，通过插入非计算延迟流水段实现最小启动循环。<br>
+            <br>
+          </p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

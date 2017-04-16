@@ -1,0 +1,377 @@
+<HTML>
+<HEAD>
+<title>计算机网络体系结构</title>
+<SCRIPT language=JavaScript>
+<!--
+/*-------------------------------------------填空题---------------------------------------------*/
+function getKeyWord(form){
+var mykeys=new Array();
+
+
+var answer=new Array();
+for(var I=0;I<mykeys.length;I++) answer[I]="";
+
+var every=form.elements;
+for(var I=0;I<every.length;I++)
+{
+if(every[I].type=="text")
+{
+ if(every[I].value!==null)
+ {var item=parseInt(every[I].name.substr(1))
+  answer[item-1]+=every[I].value;
+  }
+ }
+}
+var newcount="<html><head><title>谢谢您!</title></head><body><center><h2><font color=red>您的测试结果</font></h2></center>";
+var totalscore=0;
+for(var I=0;I<answer.length;I++)
+{
+	if(answer[I].toUpperCase()==mykeys[I].toUpperCase())
+	{
+		var rstr="<font size=2>第"+(I+1)+"个空答案正确!</font><br>";
+		newcount+=rstr;
+		totalscore+=1/0*100;
+	}else
+	{
+		var rstr="<font size=2>第"+(I+1)+"个空答案错误!正确答案为"+mykeys[I]+"</font><br>";
+		newcount+=rstr;
+	}
+
+}
+
+newcount+="<br>您的总成绩为:";
+newcount+=Math.ceil(totalscore);
+newcount+="分";
+newwin=window.open("","","height=400,width=400,scrollbars=yes,resizable=no");
+newwin.document.write(newcount);
+}
+/*-------------选择提----------------------------------------------------------------*/
+function getresultcheck(form)
+{var mykeys=new Array();
+
+
+
+var answer=new Array();
+for(var I=0;I<mykeys.length;I++) answer[I]="";
+
+var every=form.elements;
+//var lastname="";
+for(var I=0;I<every.length;I++)
+{
+	if(every[I].type=="radio")
+	{
+		/*alert("checkbox:name->"+every[I].name+"value->"+every[I].value);*/
+		if(every[I].checked)
+		{	
+			//var item=parseInt(every[I].name.charAt(1));
+			var item=parseInt(every[I].name.substr(0));/*返回由字符串转换得到的整数*/
+			/*substr返回一个从指定位置开始的指定长度的子字符串。*/
+			answer[item-1]+=every[I].value;
+		}
+	}				
+}
+
+var newcount="<html><head><title>谢谢您!</title></head><body><center><h2><font color=red>您的测试结果</font></h2></center>";
+var totalscore=0;
+for(var I=0;I<answer.length;I++)
+{
+	if(answer[I]==mykeys[I])
+	{
+		var rstr="<font size=2>第"+(I+1)+"题答案正确!</font><br>";
+		newcount+=rstr;
+		totalscore+=1/0*100;//每题分数
+	}else
+	{
+		var rstr="<font size=2>第"+(I+1)+"题答案错误!正确答案为"+mykeys[I]+"</font><br>";
+		newcount+=rstr;
+	}
+
+}
+
+newcount+="<br>您的总成绩为:";
+newcount+=Math.ceil(totalscore);
+newcount+="分";
+newwin=window.open("","","height=400,width=400,scrollbars=yes,resizable=no");
+newwin.document.write(newcount);}
+/*--------------------------------判断题----------------------------------------------------*/
+
+function getresultpanduan(form)
+{var mykeys=new Array();
+
+
+
+var answer=new Array();
+for(var I=0;I<mykeys.length;I++) answer[I]="";
+
+var every=form.elements;
+//var lastname="";
+for(var I=0;I<every.length;I++)
+{
+	if(every[I].type=="checkbox")
+	{
+		/*alert("checkbox:name->"+every[I].name+"value->"+every[I].value);*/
+		if(every[I].checked)
+		{	
+			//var item=parseInt(every[I].name.charAt(1));
+			var item=parseInt(every[I].name.substr(0));/*返回由字符串转换得到的整数*/
+			/*substr返回一个从指定位置开始的指定长度的子字符串。*/
+			answer[item-1]+=every[I].value;
+		}
+	}				
+}
+
+var newcount="<html><head><title>谢谢您!</title></head><body><center><h2><font color=red>您的测试结果</font></h2></center>";
+var totalscore=0;
+for(var I=0;I<answer.length;I++)
+{
+	if(answer[I]==mykeys[I])
+	{
+		var rstr="<font size=2>第"+(I+1)+"题 您答对了!</font><br>";
+		newcount+=rstr;
+		totalscore+=1/0*100;//每题分数
+	}else
+	{
+		var rstr="<font size=2>第"+(I+1)+"题 您答错了!</font><br>";
+		newcount+=rstr;
+	}
+
+}
+
+newcount+="<br>您的总成绩为:";
+newcount+=Math.ceil(totalscore);
+newcount+="分";
+newwin=window.open("","","height=400,width=400,scrollbars=yes,resizable=no");
+newwin.document.write(newcount);
+}
+/*--------------------------------简答题----------------------------------------------------*/
+
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</SCRIPT>
+<style type="text/css">
+<!--
+.unnamed1 {  font-family: "宋体"; font-size: 10pt}
+-->
+</style>
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+</HEAD>
+
+<BODY text=black bgColor=white leftMargin=0 topMargin=10 marginheight="10" 
+marginwidth="0">
+ <DIV class=p2 align=center></DIV> 
+      <FORM >
+  <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center">
+    <tr>
+      <td>
+        <p><span class="section"><br>
+          　[课后习题]</span><br>
+          <br>
+          <span class="text">　1．常用的传输介质有哪些？</span><br>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td> 
+              <div align="center"> 
+                <textarea name=textarea cols=50 rows=12></textarea>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <p class="unnamed1"> <br>
+          　2．比较双绞线和同轴电缆各有何优缺点？<br>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td> 
+              <div align="center"> 
+                <textarea name=textarea2 cols=50 rows=12></textarea>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <p class="unnamed1"><br>
+          　3．物理层主要解决什么问题？<br>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td> 
+              <div align="center"> 
+                <textarea name=textarea3 cols=50 rows=12></textarea>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <p class="unnamed1"><br>
+          　4．物理层接口有哪几个方面的特性？各包含些什么内容？<br>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td> 
+              <div align="center"> 
+                <textarea name=textarea4 cols=50 rows=12></textarea>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <p class="unnamed1"><br>
+          　5．RS-232C的电气特性是什么？<br>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td> 
+              <div align="center"> 
+                <textarea name=textarea5 cols=50 rows=12></textarea>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <p class="unnamed1"><br>
+          　6．数据链路与链路有何区别？<br>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td> 
+              <div align="center"> 
+                <textarea name=textarea6 cols=50 rows=12></textarea>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <p class="unnamed1"><br>
+          　7．对于选择重传协议，发送窗口大小Wt、接收窗口大小Wr和序号比特数n之间的关系是什么？为什么？<br>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td> 
+              <div align="center"> 
+                <textarea name=textarea7 cols=50 rows=12></textarea>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <p class="unnamed1"><br>
+          　8．若信息比特为1100，则相应的海明码为多少？<br>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td> 
+              <div align="center"> 
+                <textarea name=textarea8 cols=50 rows=12></textarea>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <p class="unnamed1"><br>
+          　9．若生成多项式为x<sup><font size=1>3</font></sup>+1，信息比特多项式为x<sup><font size=1>6</font></sup>+x<sup><font size=1>4</font></sup>+1，则循环冗余码的校验码是多少？<br>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td> 
+              <div align="center"> 
+                <textarea name=textarea9 cols=50 rows=12></textarea>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <p class="unnamed1"><br>
+          　10．若某面向比特同步规程的帧数据段中出现0100000111110101111110比特串，问比特填充后的输出是什么？<br>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td> 
+              <div align="center"> 
+                <textarea name=textarea10 cols=50 rows=12></textarea>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <p class="unnamed1"><br>
+          　11．HDLC帧的控制字段中的P/F比特在不同配置下各有何作用？<br>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td> 
+              <div align="center"> 
+                <textarea name=textarea11 cols=50 rows=12></textarea>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <p class="unnamed1"><br>
+          　12．比较虚电路和数据报这两种服务的优缺点。<br>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td> 
+              <div align="center"> 
+                <textarea name=textarea12 cols=50 rows=12></textarea>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <p class="unnamed1"><br>
+          　13．一个理想的路由算法应有哪些特点？<br>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td> 
+              <div align="center"> 
+                <textarea name=textarea13 cols=50 rows=12></textarea>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <p class="unnamed1"><br>
+          　14．路由选择有哪几种策略？各有何优缺点？<br>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td> 
+              <div align="center"> 
+                <textarea name=textarea14 cols=50 rows=12></textarea>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <p class="unnamed1"><br>
+          　15．距离向量算法有何优缺点？<br>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td> 
+              <div align="center"> 
+                <textarea name=textarea15 cols=50 rows=12></textarea>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <p class="unnamed1"><br>
+          　16．为什么说“只要增加一些资源就可以解决网络拥塞的问题”是不正确的？<br>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td> 
+              <div align="center"> 
+                <textarea name=textarea16 cols=50 rows=12></textarea>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <p class="unnamed1"><br>
+          　17．X.25建立连接时分为哪几个阶段？<br>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td> 
+              <div align="center"> 
+                <textarea name=textarea17 cols=50 rows=12></textarea>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <br>
+        <br>
+        <br>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td> 
+              <div align="center"> 
+                <input type='reset' name='Submit3' value='重来'>
+                　 
+                <input type=button name=Button value=答案 onClick="MM_openBrWindow('answer.htm','计算机网络','scrollbars=yes,width=470,height=390')">
+              </div>
+            </td>
+          </tr>
+        </table>
+        <p class="unnamed1"><br>
+      </td>
+    </tr>
+  </table>
+  <p class="unnamed1">&nbsp;
+</form>
+</BODY></HTML>

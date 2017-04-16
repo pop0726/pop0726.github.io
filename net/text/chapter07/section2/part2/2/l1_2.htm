@@ -1,0 +1,36 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td class="explaination"><br>
+            <span class="point">・IP地址分类</span><br>
+            <br>
+            　　IP地址的最初编码是分类的。尽管目前的用法是无类的（是基于子网）,这里，还是按照分类的编址方式来讨论目前的地址结构，而且这种结构偶尔还在用。在分类编址方式中，有5类地址，分别是A类地址，有8位网络号，网络号的开头1位是0，后面是24位主机地址。因此一个A类地址的网络可以有2<sup><font size="1">24</font></sup>-2个主机。之所以要减2是因为：主机地址部分为0时，代表了该主机所在子网的网络号，主机地址部分全部是1是代表广播地址。这两个值都不能代表单个主机地址，因此，要总主机个数上要减去2。B类地址，有16位网络号，网络号的开始2位是10，后面是16位主机号，因此一个B类网络可有2<sup><font size="1">16</font></sup>-2个主机。 
+            C类地址，有24位网络号，网络号的开始3位是110，后面是8位主机号，因此一个C类网络可有256-2=254个主机。D类地址，地址的开始4位是1110，这是组播地址，将在后面讨论。E类地址，以1111开头，这类地址保留为以后用。<br>
+            　<br>
+            <img src="../../../../../image/tub/ts.gif" width="25" height="20" alt="图示"> 
+          </td>
+        </tr>
+        <tr>
+          <td class="explaination">
+            <div align="center"><img src="../../../../../image/pic/chapter07/7_6.gif" width="453" height="200"><br>
+              <span class="point"><br>
+              图7.6 分类别的IP地址<br>
+              　　　</span></div>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

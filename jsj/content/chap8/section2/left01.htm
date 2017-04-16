@@ -1,0 +1,44 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第八章 并行处理机和多处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black"><span class="section">8.2多处理机结构和实例</span><br>
+            <br>
+            　　前几章讨论了如何加快单指令流执行速度的方法。尽管只有一个程序在执行，但前面讨论的各种技术已涉及了开发指令流内部或一条指令内部的并发性问题.<br>
+            　　下面的中心议题是多处理机的结构和性能。将介绍把多台处理机组成高并行度系统的有关技术，并深入分析这类系统的瓶颈和改进性能的方法。</p>
+          <p class="pt9-black" align="left"><span class="part">8.2.1多处理机结构</span><br>
+            <br>
+            　　前面讨论了两类并行度的机器，即流水线机器和连续计算的机器。流水线机器通过几级流水的同时操作来获得高性能。连续计算的机器由多台处理机组成，每台处理机执行相同的程序。上述两种机器都是执行单个程序，对向量或数组进行运算。Flynn将这类并行度称为单指令流多数据流（SIMD）并行度。这种系统结构能高效地执行适合于SIMD的程序，所以这种机器对某些应用问题非常有效。<br>
+            　　为了发挥这类机器的高性能，需要重新改写传统的算法，希望改写后的算法能把指令播送给所有处理机来同时处理大量数据。虽然面向这种机器的程序设计的原理非常困难，但在理想情况下，只要将串行算法中每一内循环用一条能实现全循环的播送指令替代就转换成SIMD算法了。有一类很重要的应用问题非常适合于上述这种模型，这就促使人们去设计和构造这类机器。<br>
+            　　但是，有些大型题目在这种SIMD结构机器上运行不那么有效。原因是这类问题没有对结构化数据进行重复运算的操作，它所要求的操作通常是非结构化并且不可预测。寻址方式通常与数据相关，所以系统结构很难通过预测未来的访问把数据提前装入。<br>
+            　　要想解决这类问题并保持高性能，系统结构设计者只能在多处理机结构中寻找解决的方法。多处理机结构由若干台独立的计算机组成，每台计算机能够独立执行自己的程序。Flynn称这种结构为多指令流多数据流（MIMD）结构。多处理机系统中的处理机之间按某种形式互连，从而实现程序之间的数据交换和同步。</p>
+          <p class="pt9-black" align="left">&nbsp;</p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

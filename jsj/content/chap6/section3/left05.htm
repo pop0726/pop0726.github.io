@@ -1,0 +1,75 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第六章　向量处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black"><b>例6.</b>1 以下四条向量指令序列链接在一起执行一种复合的功能。<br>
+            　　<img src="images/gsh3_1.gif" width="144" height="17" align="absmiddle"> 
+            <br>
+            　　<img src="images/gsh3_2.gif" width="128" height="15" align="absmiddle"> 
+            <br>
+            　　<img src="images/gsh3_3.gif" width="119" height="16" align="absmiddle"> 
+            <br>
+            　　<img src="images/gsh3_4.gif" width="124" height="16" align="absmiddle"> 
+            <br>
+            　　图6.15给出的图解说明表示把存储器读取流水线、向量加流水线、向量移位流水线和向量逻辑流水线链接成一个较长的流水线处理器。寄存器A3的内容决定移位计数值。这一链接操作的时间图表示于图6.16。存储器取数指令是在时间to发出的。每条水平线表示在寄存器V5中一个结果分量的产生。在四条流水线中的时间跨度用粗实线表示（用b,e,h和k作标记）。虚线表示在存储器取数和功能流水线之间或者是在各个向量寄存器当中的传送之间的通过时间（用a,c,d,f,g,i,j和l作标记）。每个时钟周期从存储器取一个操作数送到相串联的流水线中去。第一个结果在时钟周期t23时形成，此后，每个时钟周期就有一个新的结果分量进入V5寄存器。</p>
+          <p align="center" class="pt9-black"><img src="images/tu6_15.jpg" width="332" height="442"></p>
+          <p align="center" class="pt9-black"><b><img src="images/tu6_16.gif" width="500" height="215"><br>
+            </b></p>
+          <table width="98%" border="0">
+            <tr> 
+              <td class="pt9-black" width="51%"> a:存储字到“读功能部件”的通过时间</td>
+              <td class="pt9-black" width="49%">b：存储字经过“读功能部件”的通过时间</td>
+            </tr>
+            <tr> 
+              <td class="pt9-black" width="51%">c：存储字从“读功能部件”到<b>V</b>0分量的通过时间</td>
+              <td class="pt9-black" width="49%">d：V0和V1的操作数到整数加功能部件的通过时间</td>
+            </tr>
+            <tr> 
+              <td class="pt9-black" width="51%">e：整数加功能部件的和的计算时间</td>
+              <td class="pt9-black" width="49%">f：和从整数加功能部件到V2分量的通过时间</td>
+            </tr>
+            <tr> 
+              <td class="pt9-black" width="51%">g：V2中的操作数分量到移位功能部件的传送时间</td>
+              <td class="pt9-black" width="49%">h：移位功能部件执行移位操作的时间</td>
+            </tr>
+            <tr> 
+              <td class="pt9-black" width="51%">i：移了位的和从移位功能部件到V3分量的传送时间</td>
+              <td class="pt9-black" width="49%">j：V3和V4中的操作数分量到逻辑功能部件的传送时间</td>
+            </tr>
+            <tr> 
+              <td class="pt9-black" width="51%">k：逻辑功能部件执行逻辑操作的时间</td>
+              <td class="pt9-black" width="49%">l：最后结果到V5分量的传送时间</td>
+            </tr>
+          </table>
+          <p align="center" class="pt9-black"><b>图6.16 例6.1中的链接时间图 <br>
+            </b><br>
+          </p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

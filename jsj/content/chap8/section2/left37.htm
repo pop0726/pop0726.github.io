@@ -1,0 +1,48 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第八章 并行处理机和多处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><span class="pt9-black">4 机群系统负载平衡技术<br>
+            　　(1) 负载平衡的基本问题<br>
+            　　在并行处理系统中，一个大的任务往往由多个子任务组成。这些子任务被分配到各个处理结点上并行执行，称之为负载。对于由异构处理结点构成的并行系统而言，由于各结点的处理能力不同，相同的负载在其上运行的时间和资源占有率都不同。因此，准确的负载定义应是绝对的负载量与结点处理能力的比值。当整个系统任务较多时，各结点上的负载可能产生不均衡现象，就会降低整个系统的利用率。这就是负载不平衡问题。负载不平衡问题解决得好坏，直接影响到系统性能，因此它就成为并行处理中的一个重要问题。<br>
+            　　为了充分利用高度并行的系统资源，提高整个系统的吞吐率，就需要负载平衡技术的支持。负载平衡技术的核心就是调度算法，即将各个任务比较均衡地分布到不同的处理结点并行计算，从而使各结点的利用率达到最大。<br>
+            　　针对负载平衡系统的一般评价标准包括：<br>
+            　　1) 吞吐率(Throughput)：并行系统上运行的应用程序的响应时间或平均完成时间。这是负载平衡系统最主要的衡量尺度。<br>
+            　　2) 可扩展性(Scalability)：系统规模增大或总负载大小变化时系统的适应能力。<br>
+            　　3) 容错性(Fault-tolerant)：发生处理机故障后任务恢复运行的能力。<br>
+            　　在机群系统上，负载平衡要解决的问题主要有以下几点：<br>
+            　　1) 系统资源使用不均。以CPU资源为例，在并行计算中常常会出现这样的现象，某个结点的CPU处于十分繁忙的状态，而另一些结点却非常空闲。这导致了系统资源的极大浪费和并行效率的下降。在机群系统中，由于现有的并行编程/运行环境负载平衡机制通常十分简单，同时各个结点的体系结构和资源状况互不相同，如何充分利用资源和调度负载就主要成为程序员的责任。但并行程序运行时系统资源状况在动态改变，程序员很难作出准确的并行任务静态调度。因此，必须动态监视系统的资源状况，作出准确的分配决策。 
+            <br>
+            　　2) 机群系统是多用户系统，同时可能有几个用户运行各自的作业。这就要保证前台用户对工作站的优先使用权。而现有并行环境对此考虑不多，以PVM为例，它采用Round 
+            Robin任务分配策略，并行任务依次派生到各个结点上，不管该结点是否被前台用户使用。因此，必须在某前台用户频繁操作时尽量减少分配给该结点的任务。这样做既能使前台用户不会因后台任务太多而无法忍受过长的响应时间，又能充分利用空闲结点的资源。<br>
+            </span><br>
+          </p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

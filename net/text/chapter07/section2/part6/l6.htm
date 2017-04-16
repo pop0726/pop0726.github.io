@@ -1,0 +1,37 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td class="explaination" colspan="2" valign="top"><br>
+            　　TCP使用IP数据报作为载体，每一个TCP包封装在一个IP数据报中通过网络传输。当数据报到达目的主机，IP将数据报的内容传给TCP。请注意，尽管TCP使用IP来携带消息，但IP并不阅读或干预这些消息。因而，TCP只把IP看作一个包通信系统，这一通信系统负责连接作为一个连接的两个端点的主机，而IP只把每个TCP消息看作数据来传输。<br>
+            <br>
+            　　下图包含了一个Internet，其中的两台主机和一个路由器说明了TCP和IP的关系。<br>
+            　　</td>
+        </tr>
+        <tr> 
+          <td class="explaination" width="25" valign="top"><img src="../../../../image/tub/ts.gif" width="25" height="20"></td>
+          <td class="explaination">
+            <div align="center"><img src="../../../../image/pic/chapter07/7_18.gif" width="413" height="200"><br>
+              <span class="point">图7.15 路由器与TCP/IP</span><br>
+              　　</div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="explaination" colspan="2" valign="top"> 　　TCP把IP看作一种允许一台主机上的TCP应用程序和一台远程主机上的TCP应用程序进行消息交换的机制。如上图所示，在一个虚连接的每一端都要有TCP应用程序，但中间的路由器不需要。从TCP的角度来看，整个Internet是一个通信系统，这个系统能够接收和传递消息而不会改变和干预消息的内容。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

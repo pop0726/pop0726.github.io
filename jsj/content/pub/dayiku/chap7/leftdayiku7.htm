@@ -1,0 +1,388 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../../css/text01.css" type="text/css">
+<script language="JavaScript">
+<!--
+
+function kada_AutoResWindow(theURL,winName,width,height) { 
+//1.0 kadazuro kadazuro@kardouz.com
+	if(window.screen){
+		per_ancho=(width/800)*100;//porcentaje screen-ancho
+		per_alto=(height/width)*100;//porcentaje de ancho-alto
+		win_ancho=(screen.width*per_ancho)/100;//ancho de la ventana
+		win_alto=(win_ancho*per_alto)/100;//alto de la ventana
+		x=(screen.width-win_ancho)/2;//centra x
+		y=(screen.height-win_alto)/2;//centra y
+	}else{// si el buscador es 4-- queda todo igual :(
+		x=0;
+		y=0;
+		win_ancho=w;
+		win_alto=y;
+	}
+	features=("top="+y+",left="+x+",width="+win_ancho+",height="+win_alto);
+	window.open(theURL,winName,features);
+}
+//-->
+</script>
+<script language="JavaScript" src="../scripts/behActions.js"></script>
+<script language="JavaScript" src="../scripts/behCourseBuilder.js"></script>
+<script language="JavaScript" src="../scripts/interactionClass.js"></script>
+<script language="JavaScript" src="../scripts/elemInptClass.js"></script>
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF" onLoad="MM_initInteractions()">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="43"> 
+        <table width="80%" border="0" cellspacing="0" cellpadding="0" align="center">
+          <tr> 
+            <td class="pt9-black"> 
+              <div align="center"><a href="../chap1/leftdayiku1.htm"><font color="#666666">第一章</font></a></div>
+            </td>
+            <td class="pt9-black"><img src="../images/dot.gif" width="3" height="11"></td>
+            <td class="pt9-black"> 
+              <div align="center"><a href="../chap2/leftdayiku2.htm"><font color="#666666">第二章</font></a></div>
+            </td>
+            <td class="pt9-black"><img src="../images/dot.gif" width="3" height="11"></td>
+            <td class="pt9-black"> 
+              <div align="center"><a href="../chap3/leftdayiku3.htm"><font color="#666666">第三章</font></a></div>
+            </td>
+            <td class="pt9-black"><img src="../images/dot.gif" width="3" height="11"></td>
+            <td class="pt9-black"> 
+              <div align="center"><a href="../chap4/leftdayiku4.htm"><font color="#666666">第四章</font></a></div>
+            </td>
+            <td class="pt9-black"><img src="../images/dot.gif" width="3" height="11"></td>
+            <td class="pt9-black"> 
+              <div align="center"><a href="../chap5/leftdayiku5.htm"><font color="#666666">第五章</font></a></div>
+            </td>
+            <td class="pt9-black"><img src="../images/dot.gif" width="3" height="11"></td>
+            <td class="pt9-black"> 
+              <div align="center"><a href="../chap6/leftdayiku6.htm"><font color="#666666">第六章</font></a></div>
+            </td>
+            <td class="pt9-black"><img src="../images/dot.gif" width="3" height="11"></td>
+            <td class="pt9-black"> 
+              <div align="center"><a href="leftdayiku7.htm"><font color="#666666">第七章</font></a></div>
+            </td>
+            <td class="pt9-black"><img src="../images/dot.gif" width="3" height="11"></td>
+            <td class="pt9-black"> 
+              <div align="center"><a href="../chap8/leftdayiku8.htm"><font color="#666666">第八章</font></a></div>
+            </td>
+          </tr>
+        </table>
+      　　　　　　　　　　　　　　　　　　　
+        <div align="center" class="part">第七章 互连网络</div>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="100"> 
+        <div align="left"> 
+          <p class="section"><font color="#000000">一、单选题</font></p>
+          <interaction name="MultCh_TrueFalse01" object="G01" template="010_Multiple Choice/010_MultCh_TrueFalse_03.agt" includesrc="interactionClass.js,elemInptClass.js"> 
+          <div name="G01Layer"> <span name="G01question" class="pt9-black"> <b>1. 
+            k元n立方体网络有多少个结点？</b></span><span name="G01question"><br>
+            </span> 
+            <form name="G01Choices">
+              <span name="G01choice1"> 
+              <input name="G01RadioInp" type="radio" onClick="G01.e['choice1'].update()">
+              <span class="pt9-black"> k<sup>n</sup></span><br>
+              </span> <span name="G01choice2"> 
+              <input name="G01RadioInp" type="radio" onClick="G01.e['choice2'].update()">
+              <span class="pt9-black">k<sup>n-1</sup></span><br>
+              </span> 
+            </form>
+            <form name="G01controls">
+            </form>
+          </div>
+          <script language="JavaScript">
+<!--
+  // Copyright 1998,1999 Macromedia, Inc. All rights reserved.
+  function newG01() {
+    G01 = new MM_interaction('G01',1,0,0,null,0,0,0,'','','c','',0);
+    G01.add('inpt','choice1',0,1,1,0);
+    G01.add('inpt','choice2',0,1,0,0);
+    G01.init();
+    G01.am('segm','Segment: Check Time_',1,1);
+    G01.am('cond','Time At Limit_','G01.timeAtLimit == true',0);
+    G01.am('actn','Popup Message','MM_popupMsg(\'You are out of time\')','pm');
+    G01.am('actn','Set Interaction Properties: Disable Interaction','MM_setIntProps(\'G01.setDisabled(true);\')','sp');
+    G01.am('end');
+    G01.am('segm','Segment: Correctness_',1,0);
+    G01.am('cond','Correct_01','G01.correct == true',0);
+    G01.am('actn','Popup Message','MM_popupMsg(\'     正确\')','');
+    G01.am('end');
+    G01.am('cond','Incorrect_01','G01.correct == false',0);
+    G01.am('actn','Popup Message','MM_popupMsg(\'     错误\')','');
+    G01.am('end');
+    G01.am('cond','Unknown Response_','G01.knownResponse == false',0);
+    G01.am('actn','Popup Message','MM_popupMsg(\'   请重新输入\')','');
+    G01.am('end');
+    G01.am('segm','Segment: Check Tries_',1,1);
+    G01.am('cond','Tries At Limit_','G01.triesAtLimit == true',0);
+    G01.am('actn','Popup Message','MM_popupMsg(\'You are out of tries\')','pm');
+    G01.am('actn','Set Interaction Properties: Disable Interaction','MM_setIntProps(\'G01.setDisabled(true);\')','sp');
+    G01.am('end');
+  }
+  if (window.newG01 == null) window.newG01 = newG01;
+  if (!window.MM_initIntFns) window.MM_initIntFns = ''; window.MM_initIntFns += 'newG01();';
+//-->
+</script>
+          <cbi-select object="G01"></interaction> <interaction name="MultCh_TrueFalse02" object="G02" template="010_Multiple Choice/010_MultCh_TrueFalse_03.agt" includesrc="interactionClass.js,elemInptClass.js"> 
+          <div name="G02Layer"> <span name="G01question" class="pt9-black"><b>2. 
+            k元n立方体网络的网络直径为多少？</b></span><span name="G02question"><br>
+            </span> 
+            <form name="G02Choices">
+              <span name="G02choice1"> 
+              <input name="G02RadioInp" type="radio" onClick="G02.e['choice1'].update()">
+              <span class="pt9-black">2n</span><br>
+              </span> <span name="G02choice2"> 
+              <input name="G02RadioInp" type="radio" onClick="G02.e['choice2'].update()">
+              <img src="../images/chap7/1.gif" width="41" height="23" align="absmiddle"> 
+              <br>
+              </span> 
+            </form>
+            <form name="G02controls">
+            </form>
+          </div>
+          <script language="JavaScript">
+<!--
+  // Copyright 1998,1999 Macromedia, Inc. All rights reserved.
+  function newG02() {
+    G02 = new MM_interaction('G02',1,0,0,null,0,0,0,'','','c','',0);
+    G02.add('inpt','choice1',0,1,0,0);
+    G02.add('inpt','choice2',0,1,1,0);
+    G02.init();
+    G02.am('segm','Segment: Check Time_',1,1);
+    G02.am('cond','Time At Limit_','G02.timeAtLimit == true',0);
+    G02.am('actn','Popup Message','MM_popupMsg(\'You are out of time\')','pm');
+    G02.am('actn','Set Interaction Properties: Disable Interaction','MM_setIntProps(\'G02.setDisabled(true);\')','sp');
+    G02.am('end');
+    G02.am('segm','Segment: Correctness_',1,0);
+    G02.am('cond','Correct_01','G02.correct == true',0);
+    G02.am('actn','Popup Message','MM_popupMsg(\'     正确\')','');
+    G02.am('end');
+    G02.am('cond','Incorrect_01','G02.correct == false',0);
+    G02.am('actn','Popup Message','MM_popupMsg(\'     错误\')','');
+    G02.am('end');
+    G02.am('cond','Unknown Response_','G02.knownResponse == false',0);
+    G02.am('actn','Popup Message','MM_popupMsg(\'   请重新输入\')','');
+    G02.am('end');
+    G02.am('segm','Segment: Check Tries_',1,1);
+    G02.am('cond','Tries At Limit_','G02.triesAtLimit == true',0);
+    G02.am('actn','Popup Message','MM_popupMsg(\'You are out of tries\')','pm');
+    G02.am('actn','Set Interaction Properties: Disable Interaction','MM_setIntProps(\'G02.setDisabled(true);\')','sp');
+    G02.am('end');
+  }
+  if (window.newG02 == null) window.newG02 = newG02;
+  if (!window.MM_initIntFns) window.MM_initIntFns = ''; window.MM_initIntFns += 'newG02();';
+//-->
+</script>
+          <cbi-select object="G02"></interaction> <interaction name="MultCh_TrueFalse03" object="G03" template="010_Multiple Choice/010_MultCh_TrueFalse_03.agt" includesrc="interactionClass.js,elemInptClass.js"> 
+          <div name="G03Layer"> <span name="G01question" class="pt9-black"><b>3. 
+            k元n立方体网络的</b></span><span name="G03question" class="pt9-black"><b>等分带宽为多少？</b></span><span name="G03question"><br>
+            </span> 
+            <form name="G03Choices">
+              <span name="G03choice1"> 
+              <input name="G03RadioInp" type="radio" onClick="G03.e['choice1'].update()">
+              <span class="pt9-black">2</span></span><span name="G01choice2"><span class="pt9-black">k<sup>n-1</sup></span></span><span name="G03choice1"><br>
+              </span> <span name="G03choice2"> 
+              <input name="G03RadioInp" type="radio" onClick="G03.e['choice2'].update()">
+              </span><span name="G01choice1"><span class="pt9-black">k<sup>n</sup></span></span><span name="G03choice2"><br>
+              </span> 
+            </form>
+            <form name="G03controls">
+            </form>
+          </div>
+          <script language="JavaScript">
+<!--
+  // Copyright 1998,1999 Macromedia, Inc. All rights reserved.
+  function newG03() {
+    G03 = new MM_interaction('G03',1,0,0,null,0,0,0,'','','c','',0);
+    G03.add('inpt','choice1',0,1,1,0);
+    G03.add('inpt','choice2',0,1,0,0);
+    G03.init();
+    G03.am('segm','Segment: Check Time_',1,1);
+    G03.am('cond','Time At Limit_','G03.timeAtLimit == true',0);
+    G03.am('actn','Popup Message','MM_popupMsg(\'You are out of time\')','pm');
+    G03.am('actn','Set Interaction Properties: Disable Interaction','MM_setIntProps(\'G03.setDisabled(true);\')','sp');
+    G03.am('end');
+    G03.am('segm','Segment: Correctness_',1,0);
+    G03.am('cond','Correct_01','G03.correct == true',0);
+    G03.am('actn','Popup Message','MM_popupMsg(\'     正确\')','');
+    G03.am('end');
+    G03.am('cond','Incorrect_01','G03.correct == false',0);
+    G03.am('actn','Popup Message','MM_popupMsg(\'     错误\')','');
+    G03.am('end');
+    G03.am('cond','Unknown Response_','G03.knownResponse == false',0);
+    G03.am('actn','Popup Message','MM_popupMsg(\'请重新输入\')','');
+    G03.am('end');
+    G03.am('segm','Segment: Check Tries_',1,1);
+    G03.am('cond','Tries At Limit_','G03.triesAtLimit == true',0);
+    G03.am('actn','Popup Message','MM_popupMsg(\'You are out of tries\')','pm');
+    G03.am('actn','Set Interaction Properties: Disable Interaction','MM_setIntProps(\'G03.setDisabled(true);\')','sp');
+    G03.am('end');
+  }
+  if (window.newG03 == null) window.newG03 = newG03;
+  if (!window.MM_initIntFns) window.MM_initIntFns = ''; window.MM_initIntFns += 'newG03();';
+//-->
+</script>
+          <cbi-select object="G03"></interaction> <br>
+          <interaction name="MultCh_TrueFalse04" object="G04" template="010_Multiple Choice/010_MultCh_TrueFalse_03.agt" includesrc="interactionClass.js,elemInptClass.js"> 
+          <div name="G04Layer"><span name="G01question" class="pt9-black"><b>4. 
+            k元n立方体网络的</b></span><span name="G04question" class="pt9-black"><b>结点度为多少？</b></span><span name="G04question"><br>
+            </span> 
+            <form name="G04Choices">
+              <span name="G04choice1"> 
+              <input name="G04RadioInp" type="radio" onClick="G04.e['choice1'].update()">
+              </span><span name="G04choice2"> <span class="pt9-black"> n/2</span></span><span name="G04choice1"><br>
+              </span> <span name="G04choice2"> 
+              <input name="G04RadioInp" type="radio" onClick="G04.e['choice2'].update()">
+              </span><span name="G04choice1"><span class="pt9-black">2n</span></span><span name="G04choice2"><br>
+              </span> 
+            </form>
+            <form name="G04controls">
+            </form>
+          </div>
+          <script language="JavaScript">
+<!--
+  // Copyright 1998,1999 Macromedia, Inc. All rights reserved.
+  function newG04() {
+    G04 = new MM_interaction('G04',1,0,0,null,0,0,0,'','','c','',0);
+    G04.add('inpt','choice1',0,1,0,0);
+    G04.add('inpt','choice2',0,1,1,0);
+    G04.init();
+    G04.am('segm','Segment: Check Time_',1,1);
+    G04.am('cond','Time At Limit_','G04.timeAtLimit == true',0);
+    G04.am('actn','Popup Message','MM_popupMsg(\'You are out of time\')','pm');
+    G04.am('actn','Set Interaction Properties: Disable Interaction','MM_setIntProps(\'G04.setDisabled(true);\')','sp');
+    G04.am('end');
+    G04.am('segm','Segment: Correctness_',1,0);
+    G04.am('cond','Correct_01','G04.correct == true',0);
+    G04.am('actn','Popup Message','MM_popupMsg(\'     正确\')','');
+    G04.am('end');
+    G04.am('cond','Incorrect_01','G04.correct == false',0);
+    G04.am('actn','Popup Message','MM_popupMsg(\'     错误\')','');
+    G04.am('end');
+    G04.am('cond','Unknown Response_','G04.knownResponse == false',0);
+    G04.am('actn','Popup Message','MM_popupMsg(\'请重新输入\')','');
+    G04.am('end');
+    G04.am('segm','Segment: Check Tries_',1,1);
+    G04.am('cond','Tries At Limit_','G04.triesAtLimit == true',0);
+    G04.am('actn','Popup Message','MM_popupMsg(\'You are out of tries\')','pm');
+    G04.am('actn','Set Interaction Properties: Disable Interaction','MM_setIntProps(\'G04.setDisabled(true);\')','sp');
+    G04.am('end');
+  }
+  if (window.newG04 == null) window.newG04 = newG04;
+  if (!window.MM_initIntFns) window.MM_initIntFns = ''; window.MM_initIntFns += 'newG04();';
+//-->
+</script>
+          <cbi-select object="G04"></interaction> <br>
+          <p class="section"><font color="#000000">二、简答题</font></p>
+          <form name="form1" method="post" action="">
+            <table width="379" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td colspan="4" class="pt9-black"><b>1. </b>列出互连网络中的四种寻径方式,并分别给出其传输时延公式。<b> 
+                  </b></td>
+              </tr>
+              <tr> 
+                <td width="1">&nbsp;</td>
+                <td width="16">&nbsp; </td>
+                <td colspan="2"> 
+                  <textarea name="textfield" rows="5" cols="55"></textarea>
+                </td>
+              </tr>
+              <tr> 
+                <td width="1">&nbsp;</td>
+                <td colspan="3">
+                  <div align="center"><br>
+                    <input type="reset" name="Submit2" value="重置">
+                    <input type="button" name="Button" value="答案" onClick="MM_openBrWindow('jianda.htm','','width=400,height=450')">
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </form>
+          <p><br>
+            <br>
+            <span class="section"><font color="#000000">三、计算题</font><br>
+            <b><br>
+            </b></span>1. <span class="pt9-black">设网络频宽10 Mb/s，发送方开销和接收方开销分别等于230us和270us。如果两台机器相距100米，现在要发送一个1000字节的消息的给另一台机器，试计算总时延。如果两机器相距1000公里，那么总时延是多大? 
+            </span></p>
+          <form name="form2" method="post" action="">
+            <table width="562" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td width="18">&nbsp;</td>
+                <td colspan="2"> 
+                  <textarea name="textfield2" cols="70" rows="5"></textarea>
+                </td>
+              </tr>
+              <tr> 
+                <td colspan="3"> 
+                  <div align="center"><br>
+                    <input type="reset" name="Submit4" value="重置">
+                    <input type="button" name="Submit3" value="答案" onClick="MM_openBrWindow('jisuan1.htm','','width=400,height=200')">
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </form>
+          <p>&nbsp; </p>
+          <p class="pt9-black"><b>2. </b>设16个处理器编号分别为0、1、…、15，要用单级互连网络。若互连函数分别为<br>
+            　　(1)Cube3　　(2)PM2+3　　(3)PM2-0　　(4)Shuffie　　(5)Shuffie (Shuffle)<br>
+            　　第13号处理器各与哪一个处理器相连？</p>
+          <form name="form3" method="post" action="">
+            <table width="556" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td width="20">&nbsp;</td>
+                <td colspan="2"> 
+                  <textarea name="textfield3" cols="70" rows="4"></textarea>
+                </td>
+              </tr>
+              <tr> 
+                <td colspan="3"> 
+                  <div align="center"><br>
+                    <input type="reset" name="Submit6" value="重置">
+                    <input type="button" name="Submit5" value="答案" onClick="MM_openBrWindow('jisuan2.htm','','width=300,height=150')">
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </form>
+          <p class="pt9-black"><br>
+            <br>
+            <span class="section"><font color="#000000">四、应用题</font></span><br>
+            <br>
+            1.（1）画出2×2开关构成的16个输入端的Omega网络。<br>
+            　（2）结点1011传送消息给结点0101，同时结点0111传送信息给结点1001，画出完成这一寻径的开关设置。这种情况会出现阻塞吗？<br>
+            　（3）计算这个Omega网络一次通过实现的置换个数，一次通过实现的置换个数占全部置换的百分比为多少？<br>
+            　（4）这个网络实现任意一个置换最多的通过次数是多少？</p>
+          <form name="form4" method="post" action="">
+            <table width="556" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td width="18">&nbsp;</td>
+                <td colspan="2"> 
+                  <textarea name="textfield4" cols="70" rows="4"></textarea>
+                </td>
+              </tr>
+              <tr> 
+                <td colspan="3"> 
+                  <div align="center"><br>
+                    <input type="reset" name="Submit8" value="重置">
+                    <input type="button" name="Submit7" value="答案" onClick="MM_openBrWindow('yingyong.htm','','width=300,height=150')">
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </form>
+          <p class="pt9-black">　</p>
+        </div>
+        </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

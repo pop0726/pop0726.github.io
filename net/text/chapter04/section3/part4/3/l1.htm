@@ -1,0 +1,36 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td width="25" valign="top"><br>
+            <img src="../../../../../image/tub/ts.gif" width="25" height="20" alt="图示"></td>
+          <td>
+            <div align="center"><br>
+              <img src="../../../../../image/pic/chapter04/title.gif" width="240" height="107"><br>
+              <span class="point">图 4.14</span></div>
+          </td>
+        </tr>
+        <tr> 
+          <td colspan="2"><br>
+            <span class="point">・通用格式标识符</span><span class="text">（GFI），由分组头的第一个字节的比特5至比特8组成，它为分组定义了一些通用功能。若是控制分组，则固定为0001；若为数据分组，则分为Q（1bit）、D（1bit）和模（2bit）三个字段。字段含义见下面的数据分组一节。</span><br>
+            <br>
+            <span class="point">・逻辑信道群号和逻辑信道号</span><span class="text">（LCGN+LCN）共12比特，用以区分DTE－DCE接口中许多不同的逻辑子通道。其中LCGN为高4比特，LCN为低8比特，可提供4095个逻辑信道号。无论是控制包还是数据包，其逻辑信道群号与逻辑信道号一起构成12位虚电路编号，除零号虚电路留作它用外，原理上，一个DTE可以提供或接通4095条虚电路。逻辑信道群号和逻辑信道号必须组合使用，各自没有独立含义。</span><br>
+            <br>
+            <span class="point">・分组类型标识符</span><span class="text">区分了各种不同的分组。该字段最低一比特为控制位，在所有的控制包中，控制位为1。在数据包中控制位为0。DTE通过检查这一位，就可以确定新来的包中是包含数据，还是控制信息。<br>
+            　</span></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

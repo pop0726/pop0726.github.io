@@ -1,0 +1,25 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+          <td class="explaination"><br>
+            　　利用单向散列函数和公开密钥算法实现数字签名的过程简述如下：A方打算发送消息x给B方并签名时，先用公开的单向散列函数h()对x进行处理，得到消息摘要z=h(x)，再用他的秘密密钥K<font size="1">d</font>对z进行处理，得到签名 
+            <img src="../../../../image/pic/chapter10/19.gif" width="70" height="18" align="absmiddle">，然后发送有序信息对(x,y)给B方。B方收到(x,y)后，用公开的单向散列函数生成消息摘要z=h(x)，并用A方的公开密钥K<font size="1">e</font>对y脱密，得到 
+            <img src="../../../../image/pic/chapter10/20.gif" width="73" height="20" align="absmiddle">，比较z和z'，从而验证签名和消息的完整性。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

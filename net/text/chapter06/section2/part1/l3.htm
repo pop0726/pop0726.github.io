@@ -1,0 +1,40 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td class="explaination" width="25" valign="top"><br>
+            <img src="../../../../image/tub/lt.gif" width="25" height="25" alt="例题"> 
+          </td>
+          <td class="explaination"><br>
+            　　设有两种不同类型说明的应用协议数据单元APDU-TYPE(1)、APDU-TYPE(2)，它们所使用的抽象语法分别是AS(1)、AS(2)。设对等应用层已知道这些抽象语法，并且发送方表示层已知道了这些抽象语法。现在对等表示层要协商使用什么传送语法。现在我们假定共有三种可供选择的传送语法TS(a)、TS(b)、TS(c)。<br>
+            <br>
+            　　于是，为了协商到底用什么样的传送语法，应用实体在请求下方的表示连接时，可在所采用的抽象语法的后面附上可供选择的几种传送语法，形成：<br>
+            　（1）APDU-TYPE(1)＝AS(1)，[TS(a)或TS(b)]<br>
+            　（2）APDU-TYPE(2)＝AS(2)，[TS(a)或TS(b)]<br>
+            <br>
+            　　表示连接另一端的对等实体在协商时可能给出如下回答：<br>
+            　（1）APDU-TYPE(1)＝AS(1)，TS(a)<br>
+            　（2）APDU-TYPE(2)＝AS(2)，TS(c)<br>
+            <br>
+            　　上面给出的每一对抽象语法和传送语法，就构成了一个表示上下文，共有两个表示上下文，即：<br>
+            　（1）表示上下文1：[AS(1)，TS(a)]<br>
+            　（2）表示上下文2：[AS(2)，TS(c)]<br>
+            <br>
+            　　这两个表示上下文合在一起，就构成了己定义的上下文集DCS。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

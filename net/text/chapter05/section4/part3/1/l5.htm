@@ -1,0 +1,28 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+          <td class="explaination"><br>
+            　　为了避免在系统崩溃后所要求的Ts空闲等待时间，有必要对序号的使用引入一种新的限制。通过一个例子我们会看到这种限制的必要性。设分组的最长生命期为60 
+            s，计时时钟每秒计数一次。如图5.9所示，对于x时刻接通的连接，其初始序号将为x。设想当t＝30s时，发送至5号连接（已经接通）的一个普通的数据TPDU被赋予的序号为80。不妨称其为TPDU 
+            X。在将TPDU X发送出去后。主机即崩溃并且很快重启。在t＝60s的时刻，它开始重新接通0至4号连接。在t＝70s时，它按照连接请求以初始序号70重新接通了5号连接。在接下来的15s内，主机发送出70~80号数据TPDU。于是，当t＝85s时，一个序号为80的新的TPDU以及连接5被送入子网中。不幸的是，此时TPDU 
+            X仍然存在。如果TPDU X能先于新的TPDU 80到达接收方，它便会被接受，但正确的TPDU 80却被作为重复数据而拒收。<br>
+            <br>
+            　　为了避免出现这类问题，我们必须做到在一些序号可用作初始序号之前的时间T内禁止使用它们(即赋予新的TPDU)。时间和序号的非法组合如图5.9(a)中的禁止区域所示。任何连接在发送任何TPDU之前，传输实体都必须读计时值，并进行检查，以确保该TPDU的序号和时间组合不在禁止区域内。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第五章 标量处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><span class="part">5.3.2 乱序流动方式中的数据相关</span><span class="pt9-black"><br>
+            <br>
+            　　在乱序流动方式中，除了有&quot;先写后读&quot;数据相关之外，还可能发生&quot;先读后写&quot;数据相关和&quot;写-写&quot;数据相关。例如，把下面一小段程序输入到流水线中，当指令k+2进入读操作数流水段时，发现指令k与指令k+2之间有&quot;先写后读&quot;数据相关，指令k+2不能继续执行。后续的指令k+3、k+4、……等可以进入读操作流水段先执行，并超越指令k+2进入以后的流水段。由于指令k和指令k+2是乘法指令，执行的时间比较长，指令k+3有可能超越指令k先到达写流水段，把它的执行结果写到了寄存器R3中。于是，当指令k在写流水段执行完成，解除了它与指令k+2之间的&quot;先写后读&quot;数据相关，指令k+2要读寄存器R3；但是，寄存器R3已经被指令k+3修改过了，这就是&quot;先读后写&quot;数据相关。同样，如果指令k+4超越指令k+2先到达写流水段，寄存器R2中的最终结果必然是错误的，这就是&quot;写-写&quot;数据相关。</span><br>
+            　　　<img src="images/gsh3_12.gif" width="225" height="107"> 
+            <br>
+            <span class="pt9-black">　　检测&quot;先写后读&quot;数据相关的方法是在流水线的读操作数流水段设置一个比较器，在读操作数之前，把源操作数地址与已经在流水线中的从读操作数流水段到写结果流水段之间的所有指令的目标地址进行比较，如果发现有一个地址是相等的，则表明发生了&quot;先写后读&quot;数据相关。类似地，检测&quot;先读后写&quot;数据相关和&quot;写-写&quot;数据相关的方法是在流水线的写结果流水段设置比较器，把自己的目标操作数地址分别与已经进入流水线的指令序号比自己小的源操作数地址和目标操作数地址进行比较，如果发现与某一条指令的源操作数地址相等，则说明发生了&quot;先读后写&quot;数据相关，如果发现与某一条指令的目标操作数地址相等，则说明发生�&quot;写-写&quot;数据相关。<br>
+            　　&quot;先写后读&quot;相关又称为数据相关、写读相关、流相关、WR相关、RAW相关等。&quot;先读后写&quot;相关又称为变量名相关、读写相关、反相关、RW相关、WAR相关等。&quot;写-写&quot;相关又称为输出相关、WW相关、WAW相关或写后再写相关等。<br>
+            　　当在流水线中已经检测到有&quot;先写后读&quot;、&quot;先读后写&quot;或&quot;写-写&quot;三种数据相关时，必须采取适当的措施来处理这些相关。<br>
+            　　流水线中的数据相关，在逻辑设计中经常称为&quot;冒险&quot;（hazard）或&quot;竟争&quot;（competition）等，可以用图5.42来形象化地描述它们。</span></p>
+          <p align="center"><span class="pt9-black"><img src="images/tu5_42.gif" width="508" height="231"><br>
+            <b>图5.42 在指令流水线中可能出现的数据相关（指令i先于指令j）</b> </span></p>
+          <p align="left"><span class="pt9-black">　　在图5.42中，按照程序原定的指令执行次序，指令i应该先于指令j执行。如果采用顺序流动方式，则可能发生如图5.42(a)所示的&quot;先写后读&quot;相关。如果由于某种原因，指令的实际执行次序违反了程序原定的次序，在流水线中的指令j超越了指令i，则除了可能发生&quot;先写后读&quot;相关之外，还可能发生如图5.42(c)所示的&quot;先读后写&quot;相关或图5.42(b)所示的&quot;写-写&quot;相关。<br>
+            　　图5.42中的三种数据相关可以用下列关系式来表示。<br>
+            　　对于先写后读(WR)相关 <img src="images/gsh3_13.gif" width="108" height="18" align="absmiddle"><br>
+            　　对于先读后写(RW)相关 <img src="images/gsh3_14.gif" width="109" height="17" align="absmiddle"><br>
+            　　对于写写(WW)相关 <img src="images/gsh3_15.gif" width="114" height="18" align="absmiddle"><br>
+            　　如果这三个关系式之一满足，就可能发生数据相关；但是，这只是发生相关的必要条件，而不是充分条件；也就是说，当可能发生数据相关时，可以采取适当的措施来避免相关。在程序执行过程中，只有避免了数据相关，程序的执行结果才是正确的。<br>
+            <br>
+            </span></p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

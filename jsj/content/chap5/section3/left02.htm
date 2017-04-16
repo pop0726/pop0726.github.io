@@ -1,0 +1,40 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第五章 标量处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black">　　为了充分发挥流水线的效率，在发生数据相关时，要允许没有数据相关的后续指令进入相关指令所占用的流水段，并超越相关的指令继续往前流动，这种控制方式称为乱序流动方式。从一条指令流水线的输出端看，指令流出流水线的顺序与输入端指令输入流水线的顺序是不一样。在流水线的输入端，指令是按照它的地址从小到大顺序进入流水线的；但在流水线的输出端，指令执行完成的顺序可能是混乱的；因此，把流水线的这种控制方式称为乱序（Out 
+            of order）流动方式，也称为错序流动方式、无序流动方式或异步流动方式等。<br>
+            　　仍以上面一小段程序为例。如图5.41所示，如果后续的指令k+3、k+4、……等与指令k+2没有数据相关，在<img src="images/gsh3_8.gif" width="20" height="14" align="absmiddle">、<img src="images/gsh3_9.gif" width="20" height="15" align="absmiddle">、<img src="images/gsh3_10.gif" width="20" height="14" align="absmiddle">时钟周期，可以把指令k+2一直保存在流水段S2中，而让后续的指令k+3、k+4、k+5进入流水段<img src="images/gsh3_5.gif" width="16" height="16" align="absmiddle">执行，并超越指令k+2进入以后的流水段。在时钟周期<img src="images/gsh3_10.gif" width="20" height="14" align="absmiddle">，指令k执行完成，把运算结果写到寄存器R0中。在时钟周期<img src="images/gsh3_11.gif" width="20" height="14" align="absmiddle">，流水段<img src="images/gsh3_5.gif" width="16" height="16" align="absmiddle">可以执行指令k+2，于是，指令k+2可以跟在指令k+5之后继续往前流动。因此，从流水线的输出端看，指令流出流水线的顺序与输入端指令进入流水线的顺序是不一样的。</p>
+          <p align="center" class="pt9-black"><img src="images/tu5_41.jpg" width="485" height="287"></p>
+          <p align="left"><span class="pt9-black">　　实际上，造成流水线乱序流动方式的原因不仅仅是&quot;先写后读&quot;数据相关，有些指令执行的时间短或经过的流水段比较少，它们要越过执行时间长或经过流水段多的指令向前流动。</span><br>
+            <br>
+          </p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

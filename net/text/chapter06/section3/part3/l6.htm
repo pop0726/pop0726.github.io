@@ -1,0 +1,89 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td class="explaination" colspan="2"><br>
+            　　为了投递报文，MTS必须具有传递服务。报文从本地MTA开始发出，向下传递到另一个MTA，直至到达目的地MTA。报文在传递过程中被装在一个&quot;传递信封&quot;内，该传递信封向MTS提供投递信息和跟踪信息。传递信封中包含的主要信息列于下表中。<br>
+            　</td>
+        </tr>
+        <tr> 
+          <td width="25" valign="top"><img src="../../../../image/tub/bg.gif" width="25" height="20"></td>
+          <td valign="top"> 
+            <div align="center"><span class="point">表6.6 MHS的信封上的一些主要字段</span><br>
+              <table width="410" border="0" cellspacing="1" cellpadding="0" bgcolor="#000099">
+                <tr bgcolor="#FFFFFF"> 
+                  <td height="21" width="106"> 
+                    <div align="center" class="part">字段</div>
+                  </td>
+                  <td height="21" width="311"> 
+                    <div align="center" class="part">说明</div>
+                  </td>
+                </tr>
+                <tr bgcolor="#FFFFFF"> 
+                  <td class="text" width="106">　发信人地址<br>
+                    　收信人<br>
+                    　允许更换收信人<br>
+                    　更换的收信人<br>
+                    　报文标识符<br>
+                    　优先级<br>
+                    　发信人请求报告<br>
+                    　MTA报告请求<br>
+                    　推迟投递<br>
+                    　最迟投递<br>
+                    　内容送回<br>
+                    　信息类型<br>
+                    　禁止转换<br>
+                    　禁止丢失性转换<br>
+                    　明确转换<br>
+                    　加密标识符<br>
+                    　内容完整性校验<br>
+                    　发信人签名<br>
+                    　报文机密性标号<br>
+                    　已投递的证明<br>
+                  </td>
+                  <td class="text" width="311">　此报文的发信人的MHS地址<br>
+                    　此报文的收信人的MHS地址<br>
+                    　是否允许更换收信人<br>
+                    　允许更换收信人而又无法投递时的另一个收信人<br>
+                    　识别报文用的标识符<br>
+                    　慢件、正常、急件<br>
+                    　发信人需要在何种情况下得到何种回答报告<br>
+                    　MTA需要何种回答报告（如路由或各MTA的时间戳等）<br>
+                    　不要在此时间之前投递（如不得提前公布的机密消息）<br>
+                    　不要在此时间之后投递（如时间性要求很强的信息）<br>
+                    　无法投递时是否要将内容送回发信人<br>
+                    　电文、传真、数字话音等<br>
+                    　不允许将报文进行转换<br>
+                    　是否允许不完整地转换（如某些外来字符用&quot;？&quot;代替）<br>
+                    　需要转换是明确的<br>
+                    　密钥表的索引<br>
+                    　对内容的校验和<br>
+                    　发信人的数字签名<br>
+                    　秘密、机密、绝密等<br>
+                    　收信人的数字签名</td>
+                </tr>
+              </table>
+            　　　</div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="explaination" colspan="2">　　根据UA提交报文时的说明，当报文投递完成时，MTS将向源发UA返回一个投递报告。同样，若报文无法投递，则返回一个无法投递报告。<br>
+            <br>
+            　　这里需要说明的是关于信息转换的问题。报文有几种可能的形式，如ASCⅡ码电文、模拟传真、数字传真、数字话音、可视图文、用户电报，以及MHS以外的一些其他的系统。如果收信人不能直接接收某一种类型的报文，MTA就试图在投递之前进行必要的类型转换，但并不是所有的转换都是可行的。例如，目前将数字话音的报文转换为ASCⅡ码的报文是很难的事。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+          <td class="explaination"><br>
+            　　IPv6中40字节的头部信息如下图所示，其中的<span class="point">版本（version）</span>字段是代表数字6的二进制数，表示这个分组是Ipv6分组；路由器通过<span class="point">通信量类型（traffic 
+            class）</span>字段来决定分组的重要性和紧急性，这有点像Ipv4中的TOS字段；<span class="point">流量标志（flow 
+            label）</span>字段用来描述分组所属的流量的特性；<span class="point">负荷长度（Payload length）</span>字段表示在报头之后的有多少字节的数据，若是0的话，表示实际的分组长度在Hop 
+            by hop的扩展头中指明（见下）；<span class="point">下一个头部（next header）</span>字段表示跟在这个报头之后的是6个可选扩展头部中的哪一个，如果有可选扩展头，还要指明是UDP还是TCP使用的分组。扩展头部的形式类似于下一个头部（next 
+            header）字段；<span class="point">跳跃限制（HOP limit）</span>字段每经过一个路由器时减1，以防止分组在网络上不停地游荡，当该值为0时，分组被丢弃。HOP的最大值是254，<span class="point">源地址（source 
+            address）</span>和<span class="point">目的地址（destination address）</span>是16个字节长（见RFC 
+            1884），有5*10<sup>28</sup>个地址，对人类来说足够用一段时期了。 <br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

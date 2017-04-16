@@ -1,0 +1,35 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td class="explaination" colspan="2"><br>
+            　　为了解决系统崩溃后机器会丢失全部存储信息的问题。Tomlinson建议为每台主机增设一个计时（time-of-day）时钟。不同主机的时钟不需同步。假定每个时钟都采用二进制计数器形式，在统一的时间间隔内累加计数。而且，计数器内的位数必须等于或大于序列号内的位数。最后，也是更重要的，是假定时钟一直在运转，即使主机停机亦如此。<br>
+            <br>
+            　　基本思想是确保在同一时刻永远不会出现两个编号相同的TPDU。当一个连接建立后，时钟的低k位作为初始序号（也是k位）。这样便不同于数据链路层所介绍的协议，每个连接均以不同的序号开始对其TPDU进行编号，序号空间应该很大，以便当序号再次（循环了一周）出现时，具有相同序号的旧的TPDU早已传送完毕。时间和初始序号之间的线性关系如图5.9所示。<br>
+            　</td>
+        </tr>
+        <tr> 
+          <td class="explaination" width="25" valign="top"><img src="../../../../../image/tub/ts.gif" width="25" height="20" alt="图示"></td>
+          <td class="explaination">
+            <div align="center"><img src="../../../../../image/pic/chapter05/5_18a.gif" width="352" height="334"><br>
+              <img src="../../../../../image/pic/chapter05/5_18b.gif" width="364" height="323"> 
+              <br>
+              <span class="point">图5.9 (a)TPDU不能进入禁止区域 (b)重新同步问题<br>
+              　　</span></div>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

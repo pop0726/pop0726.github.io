@@ -1,0 +1,81 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第六章　向量处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black"><span class="part">6.1.2　向量处理方式</span><br>
+            <br>
+            　　在大型数组的处理中常常包含向量计算，按照数组中各计算相继的次序，我们可以把向量处理方法分为三种类型：<br>
+            　　（１）横向处理方式。向量计算是按行的方式从左至右横向地进行。<br>
+            　　（２）纵向处理方式。向量计算是按列的方式自上而下纵向地进行。<br>
+            　　（３）纵横处理方式。横向处理和纵向处理相结合的方式。<br>
+            　　下面以一个用ＦＯＲＴＲＡＮ语言编写的程序来说明上述三种处理方式：<br>
+            　　　　<img src="images/gsh1_1.gif" width="179" height="17" align="absmiddle"><br>
+            　 <img src="images/gsh1_2.gif" width="203" height="21" align="absmiddle"><br>
+            　　<b>1．横向处理方式</b><br>
+            <br>
+            　　逐个求Ｆi的方式，为此<br>
+            　　先算：<img src="images/gsh1_4.gif" width="173" height="21" align="absmiddle"> 
+            <br>
+            　　再算： <img src="images/gsh1_5.gif" width="182" height="20" align="absmiddle"><br>
+            　　……<br>
+            　　最后算： <img src="images/gsh1_6.gif" width="179" height="22" align="absmiddle"><br>
+            一般计算机就是采用这种方式组成循环程序进行处理的。这种处理方式适用于一般的处理机，即标量处理机，而不适用于向量处理机的并行处理。</p>
+          <p align="left" class="pt9-black">　　<b>2．纵向处理方式</b><br>
+          </p>
+          <div align="left" class="pt9-black">　　设Ａ，Ｄ，Ｅ，Ｆ是长度为Ｎ的向量，<img src="images/gsh1_7.gif" width="109" height="16" align="absmiddle">，<img src="images/gsh1_8.gif" width="118" height="16" align="absmiddle">，<img src="images/gsh1_9.gif" width="107" height="16" align="absmiddle">，<img src="images/gsh1_10.gif" width="103" height="17" align="absmiddle">则上述ＤＯ循环可以写成如下向量运算的形式：<br>
+            　　　　　<img src="images/gsh1_11.gif" width="152" height="15" align="absmiddle"><br>
+            　　纵向处理方式对整个向量按相同的运算处理完之后，再去执行别的运算。为此<br>
+            　　先算　<img src="images/gsh1_12.gif" width="52" height="16" align="absmiddle"><br>
+            　　再算 　<img src="images/gsh1_13.gif" width="60" height="14" align="absmiddle"><br>
+            　　再算 　<img src="images/gsh1_14.gif" width="68" height="16" align="absmiddle"><br>
+            　　再算 　<img src="images/gsh1_15.gif" width="59" height="16" align="absmiddle"><br>
+            　　最后算 <img src="images/gsh1_16.gif" width="69" height="15" align="absmiddle"><br>
+            　　这种处理方式适用于向量处理机。向量长度Ｎ的大小不受限制，无论Ｎ有多大，相同的运算都用一条向量指令完成。向量指令的源向量和目的向量都在内存储器中，运算的中间结果需要送回内存储器保存。因而，对存储器的信息流量要求较高。 
+          </div>
+          <p align="left" class="pt9-black">　　<b>3．纵横处理方式</b><br>
+            <br>
+            　　即把长度为Ｎ的向量分成若干组，每组长度为ｎ，组内按纵向方式处理，依次处理各组。若Ｎ＝Ｋ・ｎ＋ｒ，其中ｒ为余数，也作为一组处理，则共有Ｋ＋１组，其运算过程为：<br>
+            　　先算第１组　　<img src="images/gsh1_17.gif" width="84" height="21" align="absmiddle"> 
+            　<br>
+            　　　　　　　　　<img src="images/gsh1_18.gif" width="96" height="22"> <br>
+            　　　　　　　　　… <br>
+            　　再算第２组 　　<img src="images/gsh1_19.gif" width="115" height="25" align="absmiddle"><br>
+            　　　　　　　　　　<img src="images/gsh1_20.gif" width="128" height="24" align="absmiddle"><br>
+            　　　　　　　　　　<span class="pt9-black">…<br>
+            　　……<br>
+            　　最后算第Ｋ＋１组 <img src="images/gsh1_21.gif" width="123" height="23" align="absmiddle"><br>
+            　　　　　　　　　　　<img src="images/gsh1_22.gif" width="142" height="20" align="absmiddle"><br>
+            　　　　　　　　　　　…<br>
+            　　　　　　　　　　　<img src="images/gsh1_23.gif" width="180" height="21" align="absmiddle"><br>
+            　　纵横处理方式对向量长度Ｎ的大小也不加限制，但它是以ｎ为一组进行分组处理的。在每组运算中，用长度为ｎ的向量寄存器作为运算寄存器并保留中间结果，从而大大减少了访问存储器的次数。这就可以降低对存储器信息流量的要求，也减少访问存储器发生冲突所引起的等待时间，因而提高了处理速度。</span></p>
+          <p align="left" class="pt9-black"><span class="pt9-black"><br>
+            </span> </p>
+          </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

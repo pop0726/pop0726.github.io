@@ -1,0 +1,74 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td class="explaination"><br>
+            <span class="point">・协议（protocol）：</span><br>
+            　　告诉网络层把收到的数据报送给哪一个传输层进程，可能是TCP，也可能是UDP或其他。协议编号在整个Internet中是全局唯一的，定义参考RFC 
+            1700。<br>
+            <br>
+            <span class="point">・头校验和（header checksum）：</span><br>
+            　　只验证IP分组头。每条链路中该域都必须重新计算，因为至少有一个域（生存期域）的值是一直在变化的。前面提到过了，每个路由器都会把收到数据报的TTL值减1。<br>
+            <br>
+            <span class="point">・源地址（source address）和目的地址（destination address）：</span><br>
+            　　指明发送数据报的源和目的的网络号和主机号。<br>
+            <br>
+            <span class="point">・选项（options）：</span><br>
+            　　用来提供一种余地，使协议的后来版本可以包含原有设计中没有的信息，也可以使试验者能尝试他的新想法。选项域的长度是可变的，每个选项都以一个字节表明内容。某些选项还跟有一个字节的选项长度字段，其后是一个或多个数据字节。选项域以4个字节的倍数来安排。目前定义了5种选项，列表如下：<br>
+            　</td>
+        </tr>
+        <tr> 
+          <td class="explaination" valign="top" height="162"><img src="../../../../../image/tub/bg.gif" width="25" height="20" alt="表格"> 
+            <div align="center"> 
+              <table width="410" border="0" cellspacing="1" cellpadding="0" bgcolor="#000099">
+                <tr bgcolor="#FFFFFF"> 
+                  <td class="text" width="173"> 
+                    <div align="center" class="part">选 项</div>
+                  </td>
+                  <td class="text" width="244"> 
+                    <div align="center" class="part">描 述</div>
+                  </td>
+                </tr>
+                <tr bgcolor="#FFFFFF"> 
+                  <td class="text" width="173"> 　安全性（security）</td>
+                  <td class="text" width="244"> 　指明数据报的机密程度</td>
+                </tr>
+                <tr bgcolor="#FFFFFF"> 
+                  <td class="text" width="173">　严格的源路由选择<br>
+                    　（strict source routing） </td>
+                  <td class="text" width="244"> 　给出后跟的完整路由</td>
+                </tr>
+                <tr bgcolor="#FFFFFF"> 
+                  <td class="text" width="173">　松散的源路由选择<br>
+                    　（loose source routing） </td>
+                  <td class="text" width="244"> 　给出一个不能漏掉的路由器列表</td>
+                </tr>
+                <tr bgcolor="#FFFFFF"> 
+                  <td class="text" width="173">　记录路由（record rout） </td>
+                  <td class="text" width="244"> 　是每个路由器都能附上它的IP地址</td>
+                </tr>
+                <tr bgcolor="#FFFFFF"> 
+                  <td class="text" width="173">　时间标记（time stamp） </td>
+                  <td class="text" width="244"> 　是每个路由器都附上它的地址和时间标记</td>
+                </tr>
+              </table>
+              <br>
+              <span class="point">表7.1 IP数据报格式中的选项内容</span><br>
+              　　</div>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

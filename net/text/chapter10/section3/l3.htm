@@ -1,0 +1,36 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+          <td class="explaination"><br>
+            　　PEM（Privacy Enhanced Mail）是Internet的正式邮件加密标准，由4个RFC来描述：<br>
+            <span class="point">　・RFC1421：</span>报文加密与鉴别过程<br>
+            <span class="point">　・RFC1422：</span>基于证书的密钥管理<br>
+            <span class="point">　・RFC1423：</span>PEM算法、工作方式和标识符<br>
+            <span class="point">　・RFC1424：</span>密钥证书和相关服务<br>
+            <br>
+            　　PEM的功能和PGP的差不多。都是对基于RFC822的电子邮件进行加密鉴别。<br>
+            <br>
+            　　报文在使用PEM之前先要经过规范形式的处理（即对空格、制表符、回车、抽象符等的处理）。接着使用MD2或MD5得出报文摘要，与报文拼接在一起后，用DES加密。加密后的报文可再用base64编码，然后发送给收信人。<br>
+            <br>
+            　　和PGP相似，每个报文都使用一次一密的方法进行加密，并且密钥也是放在报文中一起在网络上传送。当然对密钥还必须加密。可以使用RSA或三重DES。<br>
+            <br>
+            　　PEM有比PGP更加完善的密钥管理机制。由证书管理机构（Certificate Authority）发布证书，上面有用户姓名、公开密钥及密钥的使用期限。每个证书有一个唯一的序号。证书还包括用证书管理机构的秘密密钥签了名的MD5散列。这种证书与ITU-T 
+            X.509关于公开密钥证书的建议书以及X.400 的名字体系相符合。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

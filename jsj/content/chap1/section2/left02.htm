@@ -1,0 +1,47 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第一章 计算机系统结构的基本概念</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><span class="pt9-black"><br>
+            　　下面举几个例子来说明Amdahl定律的应用。<br>
+            　　<b>例1.1</b> 假设将某系统的某一部件的处理速度加快到10倍，但该部件的原处理时间仅为整个运行时间的40%，则采用加快措施后能使整个系统的性能提高多少？<br>
+            　　解：由题意可知：Fe=0.4, Se=10，根据Amdahl定律，<br>
+            　　　　　　　　　　<img src="images/gsh2_8.gif" width="184" height="61" align="bottom"> 
+            <br>
+            　　Amdahl定律可以告诉我们一项改进措施可以使整个系统的性能提高多少，同时还能告诉我们为了改进性能价格比，如何合理分配系统的资源。<br>
+            <br>
+            　　<b>例1.2 </b>采用哪种实现技术来求浮点数平方根FPSQR的操作对系统的性能影响较大。假设FPSQR操作占整个测试程序执行时间的20%。一种实现方法是采用FPSQR硬件，使FPSQR操作的速度加快到10倍。另一种实现方法是使所有浮点数据指令的速度加快，使FP指令的速度加快到2倍，还假设FP指令占整个执行时间的50%。请比较这两种设计方案。<br>
+            　　解：分别计算出这两种设计方案所能得到的加速比：<br>
+            　　　　　<img src="images/gsh2_9.gif" width="241" height="125"></span> 
+            <br>
+            <span class="pt9-black">　　可见使所有FP指令的速度提高这一方案更好。</span> </p>
+          <p align="left">&nbsp;</p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

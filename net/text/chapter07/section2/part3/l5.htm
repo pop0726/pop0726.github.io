@@ -1,0 +1,39 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td class="explaination" colspan="2" valign="top"><br>
+            　　在一个Internet中，包含各种异构的网络，它们的MTU各不相同，因此会导致一些问题。特别是由于一个路由器可能连着不同MTU值的多个网络，能从一个网上接收数据报并不意味着一定能在另一个网上发送此数据报。例如，图中，一个路由器连接了两个网络，这两个网络的MTU值分别为1500和1000。 
+            <br>
+            　</td>
+        </tr>
+        <tr> 
+          <td class="explaination" width="25" valign="top"><img src="../../../../image/tub/ts.gif" width="25" height="20" alt="图示"></td>
+          <td class="explaination"> 
+            <div align="center"><img src="../../../../image/pic/chapter07/7_11.gif" width="394" height="74"><br>
+              <br>
+              <span class="point">图7.9 路由器R连接2个不同MTU网段</span> </div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="explaination" colspan="2"><br>
+            　　在图中，主机H2连着MTU值为1000的网络2。因此，H2能传送的数据报的尺寸小于等于1000字节。然而，主机H1连着MTU值为1500的网络1，因此能传送最多到1500字节的数据报。<br>
+            <br>
+            　　如果H1将一个1500字节的数据报发给H2，路由器R收到数据报后却不能在网络2上发送它。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

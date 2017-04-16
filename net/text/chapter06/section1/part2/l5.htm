@@ -1,0 +1,184 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td width="25" valign="top"><br>
+            <img src="../../../../image/tub/bg.gif" width="25" height="20" alt="表格"> 
+          </td>
+          <td>
+            <div align="center"><br>
+              <span class="point">表6.2 数据传送阶段服务原语</span><br>
+              <table width="410" border="0" cellspacing="1" cellpadding="0" bgcolor="#000099">
+                <tr bgcolor="#FFFFFF"> 
+                  <td class="part" width="79"> 
+                    <div align="center">服务</div>
+                  </td>
+                  <td class="part" width="207"> 
+                    <div align="center">原语</div>
+                  </td>
+                  <td class="part" width="120"> 
+                    <div align="center">参数</div>
+                  </td>
+                </tr>
+                <tr bgcolor="#FFFFFF"> 
+                  <td class="point" width="79">　正常数据<br>
+                    　　传送</td>
+                  <td class="text" width="207">　S-DATA.request<br>
+                    　S-DATA.indication</td>
+                  <td class="text" width="120">　用户数据</td>
+                </tr>
+                <tr bgcolor="#FFFFFF"> 
+                  <td class="point" width="79">　加速数据<br>
+                    　　传送</td>
+                  <td class="text" width="207">　S-EXPEDITED-DATA.request<br>
+                    　S-EXPEDITED-DATA.indication</td>
+                  <td class="text" width="120">　用户数据</td>
+                </tr>
+                <tr bgcolor="#FFFFFF"> 
+                  <td class="point" width="79">　特权数据<br>
+                    　　传送</td>
+                  <td class="text" width="207">　S-TYPED-DATA.request<br>
+                    　S-TYPED-DATA.indication</td>
+                  <td class="text" width="120">　用户数据<br>
+                    　(注：特权数据不<br>
+                    　受数据令牌限制)</td>
+                </tr>
+                <tr bgcolor="#FFFFFF"> 
+                  <td class="point" width="79">　能力数据<br>
+                    　　交换</td>
+                  <td class="text" width="207">　S-CAPABILITY-DATA.request<br>
+                    　S-CAPABILITY-DATA.indication<br>
+                    　S-CAPABILITY-DATA. response<br>
+                    　S-CAPABILITY-DATA.confirm</td>
+                  <td class="text" width="120">　用户数据<br>
+                    　(注：用于在活动<br>
+                    　未开始前用户数据<br>
+                    　传送) </td>
+                </tr>
+                <tr bgcolor="#FFFFFF"> 
+                  <td class="point" width="79">　令牌出让</td>
+                  <td class="text" width="207">　S-TOKEN-GIVE.request<br>
+                    　S-TOKEN-GIVE.indication</td>
+                  <td class="text" width="120">　令牌</td>
+                </tr>
+                <tr bgcolor="#FFFFFF"> 
+                  <td class="point" width="79">　令牌请求</td>
+                  <td class="text" width="207">　S-TOKEN-PLEASE.request<br>
+                    　S-TOKEN-PLEASE.indication</td>
+                  <td class="text" width="120">　令牌<br>
+                    　用户数据 </td>
+                </tr>
+                <tr bgcolor="#FFFFFF"> 
+                  <td class="point" width="79">　控制出让</td>
+                  <td class="text" width="207">　S-CONTROL-GIVE.request<br>
+                    　S-CONTROL-GIVE.indication</td>
+                  <td class="text" width="120">　(注：表示当没有<br>
+                    　活动时，重新分配<br>
+                    　令牌)</td>
+                </tr>
+                <tr bgcolor="#FFFFFF"> 
+                  <td class="point" width="79">　次同步点</td>
+                  <td class="text" width="207">　S-SYNC-MINOR.request<br>
+                    　S-SYNC-MINOR.indication<br>
+                    　S-SYNC-MINOR.response<br>
+                    　S-SYNC-MINOR.confirm</td>
+                  <td class="text" width="120">　类型，<br>
+                    　同步点序号，<br>
+                    　用户数据</td>
+                </tr>
+                <tr bgcolor="#FFFFFF"> 
+                  <td class="point" width="79">　主同步点</td>
+                  <td class="text" width="207">　S-SYNC-MAJOR.request<br>
+                    　S-SYNC-MAJOR.indication<br>
+                    　S-SYNC-MAJOR.response<br>
+                    　S-SYNC-MAJOR.confirm</td>
+                  <td class="text" width="120">　同步点序号，<br>
+                    　用户数据</td>
+                </tr>
+                <tr bgcolor="#FFFFFF"> 
+                  <td class="point" width="79">　重新同步</td>
+                  <td class="text" width="207">　S-RESYNCHRONIZE.request<br>
+                    　S-RESYNCHRONIZE.indication<br>
+                    　S-RESYNCHRONIZE.response<br>
+                    　S-RESYNCHRONIZE.confirm</td>
+                  <td class="text" width="120">　重新同步类型，<br>
+                    　同步点序号，<br>
+                    　令牌，<br>
+                    　用户数据</td>
+                </tr>
+                <tr bgcolor="#FFFFFF"> 
+                  <td class="point" width="79">　P-异常报告</td>
+                  <td class="text" width="207">　S-P-EXCEPTION-REPORT.indication</td>
+                  <td class="text" width="120">　原因</td>
+                </tr>
+                <tr bgcolor="#FFFFFF"> 
+                  <td class="point" width="79">　U-异常报告</td>
+                  <td class="text" width="207">　S-U-EXCEPTION-REPORT.request<br>
+                    　S-U-EXCEPTION-REPORT.indication</td>
+                  <td class="text" width="120">　原因<br>
+                    　用户数据 </td>
+                </tr>
+                <tr bgcolor="#FFFFFF"> 
+                  <td class="point" width="79">　活动开始</td>
+                  <td class="text" width="207">　S-ACTIVITY-START.request<br>
+                    　S-ACTIVITY-START.indication<br>
+                  </td>
+                  <td class="text" width="120">　活动标识符，<br>
+                    　用户数据</td>
+                </tr>
+                <tr bgcolor="#FFFFFF"> 
+                  <td class="point" width="79">　活动中断</td>
+                  <td class="text" width="207">　S-ACTIVITY-INTERRUPT.request<br>
+                    　S-ACTIVITY-INTERRUPT.indication<br>
+                    　S-ACTIVITY-INTERRUPT.response<br>
+                    　S-ACTIVITY-INTERRUPT.confirm</td>
+                  <td class="text" width="120">　原因</td>
+                </tr>
+                <tr bgcolor="#FFFFFF"> 
+                  <td class="point" width="79">　活动恢复</td>
+                  <td class="text" width="207">　S-ACTIVITY-RESUME.request<br>
+                    　S-ACTIVITY-RESUME.indication<br>
+                  </td>
+                  <td class="text" width="120">　活动标识符，<br>
+                    　老活动标识符，<br>
+                    　同步点序号，<br>
+                    　老会话连接标识符，<br>
+                    　用户数据</td>
+                </tr>
+                <tr bgcolor="#FFFFFF"> 
+                  <td class="point" width="79">　活动丢弃</td>
+                  <td class="text" width="207">　S-ACTIVITY-DISCARD.request<br>
+                    　S-ACTIVITY-DISCARD.indication<br>
+                    　S-ACTIVITY-DISCARD.response<br>
+                    　S-ACTIVITY-DISCARD.confirm</td>
+                  <td class="text" width="120">　原因</td>
+                </tr>
+                <tr bgcolor="#FFFFFF"> 
+                  <td class="point" width="79">　活动结束</td>
+                  <td class="text" width="207">　S-ACTIVITY-END.request<br>
+                    　S-ACTIVITY-END.indication<br>
+                    　S-ACTIVITY-END.response<br>
+                    　S-ACTIVITY-END.confirm</td>
+                  <td class="text" width="120">　同步点序号，<br>
+                    　用户数据</td>
+                </tr>
+              </table>
+              <br>
+              　　</div>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

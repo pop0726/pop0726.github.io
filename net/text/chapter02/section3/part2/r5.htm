@@ -1,0 +1,33 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" background="../../../../image/htmls/right_r5_c3.gif" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="88%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+          <td class="text"><br>
+            <span class="part">2.层操作要素</span><br>
+            <br>
+            <span class="point">　(3) 传送数据</span><br>
+            <br>
+            　　建立（N）连接后，对接的（N+1）实体间可调用数据传送原语组来传送数据。所传送的数据有常规数据、加速数据、特权数据等几类。<br>
+            <br>
+            <span class="point">　・常规数据传送：</span><br>
+            <br>
+            　　（N+1）实体调用（N）-DATA・request 原语向（N）实体请求发送数据，接收方（N）实体接收发送过来的数据DT（N）PDU，产生相应的（N）服务原语（N）-DATA 
+            indication，送给其相应的（N+1）实体，完成了（N）连接上的数据传送。但在运输层、网络层、数据链路层中，为了保证数据传输的可靠性，接收（N）实体对接受到的数据单元DT（N）PDU是否正确收妥产生确认信息给发方（N）实体。若是正确收到，则发送一个确认数据单元ACK（N）PDU。若接收的DT（N）PDU发生某种错误，则接收方（N）实体不产生（N）-DATA 
+            indication原语，而是对接收的DT（N）PDU产生一个拒收的（N）协议数据单元RJ（N）PDU给发送方（N）实体，并要求重发该DT（N）PDU。如左侧<span class="point">动画</span>所示。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

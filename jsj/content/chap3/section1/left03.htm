@@ -1,0 +1,47 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第三章 存储系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><span class="pt9-black"><b>1、存储容量</b><br>
+            <br>
+            　　由于在计算机的使用者（应用程序员或系统程序员）看来，存储系统的容量要接近M2存储器的容量，因此，可以选择M2存储器进行编址，对于M1存储器可以不编址，或者只在系统内部进行编址。当然，也可以面向计算机的使用者为存储系统另外设计一个抽象的地址空间，在系统内部，再对两个存储器分别进行编址，并且把两个存储器的地址映象到这个抽象的地址空间中。<br>
+            　　对存储系统进行编址的要求是：对计算机的使用者提供尽可能大的地址空间，而且能对这个地址空间进行随机访问。<br>
+            　　例如，对于Cache存储系统，面向系统程序员，选择主存储器进行编址，对Cache在内部采用相联访问方式进行管理。因此，从系统程序员看Cache存储系统，看到是主存储器的地址空间，存储系统的容量就是主存储器的容量。<br>
+            　　对于虚拟存储系统，由于磁盘存储器不是一种能随机访问的存储器，它的地址空间不能直接被一般指令访问，而主存储器的地址空间对于计算机的使用者来说又太小。因此，虚拟存储系统为使用者另外设计了一个虚拟地址空间，它既不是主存储器的地址空间，也不是磁盘存储器的地址空间。这个虚拟地址空间比主存储器的实际地址空间要大得多，而且采用与主存储器同样的随机访问方式。<br>
+            <b><br>
+            2、单位容量的平均价格</b><br>
+            <br>
+            　　整个存储系统的平均单位容量价格可以这样来计算： <br>
+            　　　　　<img src="images/gsh1_1.gif" width="128" height="40"> 
+            <br>
+            　　当S2 》S1时，则有C≈C2。因此，整个存储系统的单位容量价格C接近于比较便宜的M2存储器。 </span></p>
+          <p align="left"><span class="pt9-black">　</span></p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

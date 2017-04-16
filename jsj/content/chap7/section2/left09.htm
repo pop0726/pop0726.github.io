@@ -1,0 +1,43 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第七章 互连网络</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="left"> 
+          <p class="pt9-black">　　＊超立方体网络的E立方体寻径 假设有一<img src="images/gsh2_13.gif" width="40" height="15" align="absmiddle">个结点的n方体。每个结点的二进制编码为<img src="images/gsh2_14.gif" width="102" height="15" align="absmiddle">。这样，源结点为<img src="images/gsh2_15.gif" width="73" height="14" align="absmiddle">，目的结点<img src="images/gsh2_16.gif" width="102" height="17" align="absmiddle">。现在要确定一条从s到d的步数最小的路径。<br>
+            　　将n维表示成i=1,2,…n，其中第i维对应于结点地址中的第i-1位。设<img src="images/gsh2_17.gif" width="87" height="13" align="absmiddle">是路径中的任一结点。路径可以根据以下方法唯一地确定。<br>
+            　　1.计算方向位<img src="images/gsh2_18.gif" width="74" height="14" align="absmiddle">，其中i=1,2,…,n。<br>
+            　　使i=1,u=s，开始以下步骤。<br>
+            　　2.如果<img src="images/gsh2_19.gif" width="25" height="12" align="absmiddle">，则从当前结点u寻径到下一结点<img src="images/gsh2_20.gif" width="45" height="15" align="absmiddle">。如果<img src="images/gsh2_21.gif" width="26" height="14" align="absmiddle">，则跳过这一步。<br>
+            　　3.<img src="images/gsh2_22.gif" width="37" height="13" align="absmiddle">。如果<img src="images/gsh2_23.gif" width="25" height="12" align="absmiddle">，则转第2步，否则退出。<br>
+            　　下面用图7.33中的例子来说明上述E方体寻径算法。例中，n=4,s=0110,d=1101,因此<img src="images/gsh2_24.gif" width="91" height="16" align="absmiddle">。由于<img src="images/gsh2_5F25.gif" width="59" height="13" align="absmiddle">,因此s就寻径到<img src="images/gsh2_26.gif" width="66" height="13" align="absmiddle">。由于<img src="images/gsh2_27.gif" width="57" height="13" align="absmiddle">,因此u＝0111就寻径到<img src="images/gsh2_28.gif" width="73" height="15" align="absmiddle">。由于<img src="images/gsh2_29.gif" width="59" height="13" align="absmiddle">,因此就可跳过维i=3这一步。由于<img src="images/gsh2_30.gif" width="24" height="13" align="absmiddle">,因此u＝0101就寻径到<img src="images/gsh2_31.gif" width="98" height="14" align="absmiddle">。<br>
+            　　所选择的路径在图7.33中用箭头所示。注意，寻径是按照从维1到维4的顺序进行的。如果s和d的第i位相同，则沿维i方向不需要寻径，否则从当前结点沿着这一维方向走到其它结点，重复这一过程直到到达目的结点。<br>
+            　　E立方体寻径也不会产生死锁寻径，也可用于存储转发和虫蚀网络，在源和结点之间形成一条距离最短的路径。 </p>
+          <p align="center"><img src="images/tu7_33.jpg" width="563" height="428"></p>
+        </div>
+        </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

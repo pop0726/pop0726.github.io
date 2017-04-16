@@ -1,0 +1,47 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第二章 指令系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><span class="pt9-black"><br>
+            <b>1 带标志符的数据表示法</b></span></p>
+          <p align="left"><span class="pt9-black">　　美国Burroughs公司在60年代初期生产的B5000大型计算机中，每个数据有一位用来区分是操作数还是描述符；在60年代后期生产的B6500和B7500大型机中，每个数据用三位来标志符区分8种数据类型，如图2.5所示。在70年代生产的R-2试验性计算机中采用了10位标志符，如图2.6所示。</span></p>
+          <p align="center"><img src="iamges/tu2_5.gif" width="340" height="40"></p>
+          <p align="center"><img src="iamges/tu2_6.gif" width="421" height="74"></p>
+          <p align="left"><span class="pt9-black">　　图2.6中的最高两位用来区分是操作数、指令、地址、控制字；两个陷井位可由软件定义四种捕捉方式，为程序员对程序的进行跟踪控制提供方便；一个封写位指定数据是只读的还是可读可写的；四个类型位可以在最前面两个功能位定义的基础上进一步定义数据的类型，例如，如果最前面两位已经定义了是操作数，则四个类型位可进一步定义是二进制、十进制、定点数、浮点数、复数、字符串、单精度、双精度等，如果最前面两位已经定义了是地址，则四个类型位可进一步定义是绝对地址、相对地址、变址地址、未连接的地址等；最后一个是奇偶校验位。<br>
+            　　从上面已经看到，标志符不仅可以用来定义数据类型，还可以用来描述机器中用到的各种有用信息，这就为硬件设计和软件设计提供一种十分有效的手段。 
+            <br>
+            　　标志符通常由高级语言的编译器或其它系统软件来建立，对一般高级语言程序员和计算机用户是透明的。<br>
+            　　在采用标志符数据表示方式的机器中，大家首先担心的一个问题是：每个数据都带有标志符必然要加长数据的字长，从而程序所占用的存储空间将会增加。事实上这种担心是不必要的，因为数据的总存储量虽然加大了，但由于简化了指令系统，指令只需指出操作种类，不需要指出数据类型等，每条指令的字长可以缩短。只要设计合理，整个程序（包括指令和数据）的总存储量有可能反而减少，即使增加也不会增加得太多。 
+            <br>
+            　　在一般程序中，一个存放在存储器中数据通常要被多次访问；也就是说，有多条指令可能要访问同一个数据单元。下面举一个具体的例子来说明数据带有标志符后，整个程序占用存储空间的情况。</span></p>
+          <p align="left"><span class="pt9-black"><br>
+            </span></p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

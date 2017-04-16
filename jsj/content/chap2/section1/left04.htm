@@ -1,0 +1,59 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第二章 指令系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><span class="pt9-black"><b>1 表数范围</b></span></p>
+          <p align="left" class="pt9-black">　　在尾数用原码、纯小数，阶码用移码、整数的浮点数表示方式中，规格化浮点数N的表数范围是：<br>
+            　　　　　<img src="iamges/gsh1_9.gif" width="261" height="26"> 
+            　　　　（2.1）<br>
+            　　例如，p＝23，q＝7，<img src="iamges/gsh1_10.gif" width="56" height="14" align="absbottom"> 
+            尾数用原码、纯小数表示，阶码用移码、整数表示，规格化浮点数N的表数范围是：<br>
+            　　　　　　<img src="iamges/gsh1_11.gif" width="189" height="38"> 
+            <br>
+            　　即为：　<img src="iamges/gsh1_12.gif" width="191" height="25" align="absbottom"> 
+            　　　　　　　　（2.2）<br>
+            　　从式(2.1)中可以看出，规格化浮点数的最大正数值是由尾数的最大正数值与阶码的最大正数值组合而成的，而最小正数值是由尾数的最小正数值与阶码的最小负数值组合而成的。在负数区间，规格化浮点数的最大负数值是由尾数的最大负数值与阶码的最小负数值组合而成的，最小负数值是由尾数的最小负数值与阶码的最大正数值组合而成的，这一点也可以从图2.2所示的数轴上看到。</p>
+          <p align="center" class="pt9-black"><img src="iamges/tu2_2.gif" width="402" height="66"> 
+          </p>
+          <p align="left" class="pt9-black">　　在一般浮点数表示法中，阶码通常要用移码表示的主要原因是：从上面看到的，规格化浮点数的最大负数（-Nmax）和最小正数（Nmin）都与通过阶码的最小负数值有关，而在除移码之外的其它所有码制中，最小负数都不是全0（包括符号位）。如果浮点零与机器零不一致，对软件设计和硬件设计都会造成许多麻烦。<br>
+            　　当尾数用补码表示时，正数区间的表数范围与尾数采用原码时完全相同，而负数区间的表数范围为：<br>
+            　　　　　<img src="iamges/gsh1_15.gif" width="252" height="29"> 　　　　（2.3）<br>
+            　　例如，尾数用补码、纯小数表示，阶码用移码、整数表示，p＝6，q＝6，<img src="iamges/gsh1_16.gif" width="39" height="14" align="absbottom">，<img src="iamges/gsh1_17.gif" width="34" height="13" align="absbottom">，规格化浮点数N在正数区间的表数范围是：<br>
+            　　　　　　<img src="iamges/gsh1_18.gif" width="200" height="36"> 
+            <br>
+            　　即为：　<img src="iamges/gsh1_19.gif" width="173" height="23"> 　　　　　　　　　（2.4）<br>
+            　　在负数区间的表数范围是：<br>
+            　　　　　　<img src="iamges/gsh1_20.gif" width="213" height="36"> 
+            <br>
+            　　从上面的分析中可以看到，在尾数采用纯小数表示的情况下，由于尾数的绝对值只能在<img src="iamges/gsh1_21.gif" width="23" height="15" align="absbottom">到1之间变化，因此，规格化浮点数的表数范围主要与阶码的长度q和尾数的基值<img src="iamges/gsh1_22.gif" width="14" height="13" align="absbottom">有关，这时，能表示的绝对值最大的浮点数可近似为：<br>
+            　　　　　　<img src="iamges/gsh1_23.gif" width="97" height="25"> 　　　　　　　　　　　　　　　（2.5）</p>
+          <p align="left" class="pt9-black">　</p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

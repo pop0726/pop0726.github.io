@@ -1,0 +1,30 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+          <td class="explaination"><br>
+            　　路由跟踪程序（tracerouter）也是ICMP协议的一个常见应用。Traceroute程序被用来发现前往目的节点的路径上的所有路由器。该程序简单地发送一系列的数据报并等待每一个响应：在发送第一个数据报之前，将它的生存时间置为1。第一个路由器收到这一数据报会将生存时间减1，显然就会丢弃这一数据报，并发回一个ICMP超时报文。由于ICMP报文是通过IP数据报传送的，因此路由跟踪可以从中取出IP源地址，也就是去往目的地的路径上的第一个路由器的地址。得到第一个路由器的地址之后，路由跟踪会发送一个生存时间为2的数据报。第一个路由器将计时器减1并转发这一数据报，第二个路由器会丢弃这一数据报并发回一个超时报文。类似的，一旦跟踪路由程序收到距离为2的路由器发来的超时报文，它就发送生存时间为3的数据报，然后是4，等等。<br>
+            <br>
+            　<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="25" height="20">
+              <param name=movie value="7245.swf">
+              <param name=quality value=high>
+              <embed src="7245.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="25" height="20">
+              </embed> 
+            </object><br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

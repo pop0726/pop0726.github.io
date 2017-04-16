@@ -1,0 +1,43 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+          <td class="explaination"><br>
+            　　每当一个DTE要和另一个DTE通信时，首先在它们之间建立一条虚电路。为此，由呼叫方DTE构造一个&quot;呼叫请求分组&quot;发给其DCE，再由子网传送到目标DCE，最后由目标端DCE转送其DTE。如果目标端DTE接收呼叫，就送回一个&quot;呼叫接收分组&quot;，呼叫方DTE收到此&quot;呼叫接收分组&quot;后，它们之间的一条虚电路就建立起来了。这时两个DTE之间以进行全双工通信，利用虚电路交换信息分组。<br>
+            <br>
+            　　一旦一方完成通信，就进入拆除链接阶段，由结束通信一方向对方发送&quot;清除请求组&quot;，对方发回&quot;消除确认分组&quot;作为同意拆线的确认应答，此后该虚电路拆除。<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="25" height="20" align="top">
+              <param name=movie value="4342-2.swf">
+              <param name=quality value=high>
+              <embed src="4342-2.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="25" height="20" align="top">
+              </embed> 
+            </object><br>
+            <br>
+            　　如<span class="point">动画</span>所示。<br>
+            <br>
+            　工作过程如下：<br>
+            　<span class="point">(1) </span>主叫DTE向其DCE发送一个呼叫请求分组。<br>
+            　<span class="point">(2) </span>网络选择合适的路由将呼叫请求分组传送到被叫DCE。<br>
+            　<span class="point">(3) </span>被叫DCE向其DTE发送一个入呼叫分组。入呼叫分组又称呼入分组。<br>
+            　<span class="point">(4) </span>被叫DTE发送呼叫接受分组。<br>
+            　<span class="point">(5) </span>网络按呼叫建立时的路由将呼叫接受分组传到主叫DCE。<br>
+            　<span class="point">(6) </span>主叫DCE向主叫DTE发送呼叫接通分组，表示呼叫建立阶段结束。<br>
+            　<span class="point">(7) </span>在建立的虚电路上进行全双工通信传送数据分组。<br>
+            　<span class="point">(8) </span>主叫（或被叫）DTE发出释放请求分组，然后就收到本地DCE发回的释放证实分组。<br>
+            　<span class="point">(9) </span>被叫（或主叫）DTE收到释放指示分组后，就发给本地DCE一个释放证实分组。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

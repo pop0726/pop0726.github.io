@@ -1,0 +1,30 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td class="explaination" colspan="2"><br>
+            <span class="point">　</span>　在研究码分复用的算法之前，先考虑一下信道访问的鸡尾酒会原理：在一个大房间里，许多对人正在交谈。TDM就是房间里有人依次讲话，一个结束后另一个再接上。FDM就是所有的人分成不同的组，每个组同时进行自己的交谈，但依旧独立。码分复用就是房间里的不同对的人分别用不同的语言进行交谈，讲法语的人只理会法语，其他的就当作噪音不加理会。因此，码分复用的关键就是能够提取出所需的信号，同时将其他的一切当作随机噪声抛弃。<br>
+            <br>
+            　　在CDMA中，每比特时间被分成m个短的时间段，称为芯片（chip）。通常情况下，每比特有64个或128个芯片。但在下面的例子中，为了简化问题，假定每比特有8个芯片。<br>
+            <br>
+            　　每个站点被指定一个唯一的m位的代码或芯片序列（chip sequence）。当发送比特1时，站点就发送其芯片序列，想发送比特0时，站点就发送其芯片序列的补码。除此之外，没有其他任何格式。因此，假如站点A的芯片序列被指定为00011011，发送00011011就表示发送比特1，发送11100100就表示发送比特0。<br>
+            <br>
+            　　只有在带宽增加到m倍的情况下，发送的信息量才能从b b/s增加到mb芯片/s。这使CDMA成为一种扩频方式的通信（假设调制及编码技术不变）。假如l00个站点共用1MHz的带宽，在使用FDM时传输速率为10 
+            k/s（假定1b/比）。以CDMA方式，每个站点使用完整的1MHz的带宽，芯片速率就为1 M片/s 。假如每比特少于100片，那么CDMA中每站的有效带宽就高于FDM，于是信道分配问题也就解决了，这一点下面很快就会看到。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

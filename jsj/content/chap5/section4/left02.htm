@@ -1,0 +1,49 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第五章 标量处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black"><span class="part">5.4.1 基本结构</span><br>
+            <br>
+            　　单流水线处理机只有一条指令流水线，只有一个多功能的操作部件，每个时钟周期&quot;取指令&quot;和&quot;分析&quot;完成一条指令。在许多流水线处理机中，指令流水线的流水段数k＝4；它把一条指令的执行过程主要分解为&quot;取指令&quot;、&quot;分析&quot;、&quot;执行&quot;和&quot;写结果&quot;4个阶段。指令所要执行的功能主要在多功能操作部件中，在&quot;执行&quot;这一流水段完成。多数流水线处理机的多功能操作部件采用流水线结构。有的简单指令，只要一个时钟周期就能够在&quot;执行&quot;流水段中完成，而比较复杂的指令往往需要多个时钟周期。另外，还有条件转移等的影响；因此，一般流水线标量处理机每个时钟周期平均执行指令的条数小于1，即它的指令级并行度ILP＜1。<br>
+            　　超标量、超流水线和超标量超流水线三种处理机在一个时钟周期内可以执行完成多条指令，即它们的指令级并行度ILP都大于1。<br>
+            　　在目前已经实用的微处理机中，大多数属于超标量处理机。例如，Intel公司的i860、i960、Pentium处理机，Motolora公司的MC88110，IBM公司的Power 
+            6000，SUN公司的SuperSPARC等都是超标量处理机。SGI公司的MIPS R4000、R5000、R10000等是超流水线处理机。DEC公司的Alpha处理机是超标量超流水线处理机。<br>
+            　　超标量处理机的典型结构是有多个操作部件，一个或几个比较大的通用寄存器堆，一个或两个高速Cache。先进的超标量处理机一般都包含有三个处理单元，一个是定点处理单元，通常称为中央处理单元（CPU），它由一个或多个整数处理部件组成；第二个是浮点处理单元（FPU），它由浮点加减法部件和浮点乘除法部件等组成；第三个是图形加速部件，也称为图形处理单元（GPU），这是现代处理机中不可缺少的一个部分。先进的超标量处理机通常都设置有大量的通用寄存器。在有的超标量处理机中，CPU和FPU分别使用两个通用寄存器堆。在多数超标量处理机中都设置有两个一级高速Cache，一个是指令Cache，另一个是数据Cache，这种把指令Cache和数据Cache分开的结构被称为哈佛（Harvard）结构。每个高速Cache的容量一般在几K至几十K字节；有的超标量处理机，还把二级Cache也做在处理机芯片内。<br>
+            　　如图5.47所示，是由Motorola公司生产的一种先进超标量处理机MC88110。它有10个操作部件，其中两个整数部件，可以作32位整数运算，其中也包括地址运算等。整数操作是单周期执行，完成一条整数运算指令使用一条4段流水线，包括取指令IF、译码ID、执行EX和写结果WR，每个时钟周期可以完成两条整数指令。浮点运算是80位字长的，包括浮点加、减、乘、除和求浮点平方根等16条指令。浮点加法部件和乘法部件都采用3级流水线，每个时钟周期可以完成一条乘法指令和一条浮点加法指令；而且，对单精度、双精度及扩展双精度指令的执行速度都一样快。两个专用的图形处理部件可以直接对图形的象素进行处理，它与浮点操作部件一起，提供高性能的三维（3D）图形处理能力，共有9条专门的图形处理指令。 
+          </p>
+          <p align="center" class="pt9-black"><img src="images/tu5_47.gif" width="482" height="294"> 
+            <br>
+            <b>图5.47 超标量处理机MC88110的结构</b> </p>
+          <p align="left" class="pt9-black">　　在MC88110超标量处理机内部有两个寄存器堆；其中，整数部件使用通用寄存器堆，它由32个32位的寄存器组成；浮点点部件使用扩展寄存器堆，它由32个80位的寄存器组成。每个寄存器堆有8个端口，分别与8条内部总线相连接，可以同时读出8个操作数提供给各个操作部件使用。另外，在取数／存数部件中，还有一个缓冲深度为4的先行读数栈和一个缓冲深度为3的后行写数栈。<br>
+            　　指令和数据分别存放在两个独立的高速Cache中，指令Cache和数据Cache的容量各为8K字节。两个Cache都采用两路组相联方式工作，因此，每个时钟周期可以提供两个64位的指令和数据。另外，为了减少转移指令对流水线的影响，专门设置有一个转移目标指令Cache。在遇到条件转移指令时，在指令Cache和目标指令Cache中分别存放两路分支上的有关指令；并且，指令分配部件在每个时钟周期分别从指令Cache和目标指令Cache中各取出两条指令来同时进行译码；最后，根据形成的条件码决定把其中一路分支上的指令送到操作部件中去。<br>
+          </p>
+          <p align="left" class="pt9-black">　</p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

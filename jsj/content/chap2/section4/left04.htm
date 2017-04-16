@@ -1,0 +1,52 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第二章 指令系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><span class="pt9-black"><br>
+            <b>4、输入输出指令</b><br>
+            <br>
+            　　输入输出指令通常比较简单，采用单一的直接寻址方式，数据字长一般以字节为单位。主要的输入输出操作有：启动设备、停止设备、测试设备、对设备进行控制及数据的输入或输出操作等。<br>
+            　　在多用户或多任务环境下，输入输出指令属于特权指令。当程序需要进行输入输出操作时，用系统调用进入操作系统，由操作系统对设备统一进行管理。<br>
+            　　有些计算机系统，把输入输出设备与主存储器统一编址，共用同一个零地址空间。在这类计算机系统中，没有专门的输入输出指令，所有能够访问主存储器的指令都能访问输入输出设备。<br>
+            <br>
+            <b>5、处理机控制和调试指令</b><br>
+            <br>
+            　　在一般的计算机系统中，处理机有两个状态：管态和用户态，或称主态和从态。这两个状态需要互相切换，而且，这两个状态下所能使用的指令应该有所区别。例如，一般用户应该严禁使用处理机状态切换、系统资源分配和管理等指令，否则，一个多用户操作系统将无法正常工作。<br>
+            　　在一般通用计算机系统中，按照指令的使用权限，可以把指令分为两大类：一般指令和特权指令。只有系统管理程序能够使用，一般用户程序不能使用的指令称为特权指令。主要包括处理机状态的设置和管理、系统硬件和软件资源的管理、进程的管理等。<br>
+            　　只有在管态下才能够使用机器所提供的全部指令，包括特权指令。在用户态下，只能使用一般指令，不能使用特权指令。有些处理机还设置有更多的状态，如VAX-11处理机有四种状态，每种状态有不同的特权，离内核态越近，所具有的特权就越高，这四种状态分别是：<br>
+            　　内核态（K）：供操作系统的核心使用，运行操作系统内核程序，包括存储器页面管理和调度，输入输出子系统及大部分系统服务。<br>
+            　　执行态（E）：运行部分系统服务程序，包括系统调用，系统的记录和管理等。<br>
+            　　管理态（S）：用于命令解释等服务，运行命令解释程序。<br>
+            　　用户态（U）：用于一般用户服务，运行用户级程序，包括各种实用程序、编译程序和调试程序等。<br>
+            　　调试指令主要用于硬件和软件的调试。硬件调试指令主要有：钥匙位置的读取，开关状态的读取，内部主要寄存器和主存单元的显示等。软件调试指令主要有断点的跟踪，自陷井指令等。<br>
+            </span></p>
+          <p align="left"><span class="pt9-black">　</span></p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

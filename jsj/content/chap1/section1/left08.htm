@@ -1,0 +1,51 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第一章 计算机系统结构的基本概念</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><span class="pt9-black"><br>
+            </span><img src="images/gsh1_6.gif" width="170" height="18"></p>
+          <p align="left">　　<img src="images/gsh1_7.gif" width="194" height="17" align="absbottom"><span class="pt9-black">在1977年根据并行度和流水线提出了另一个分类法。这种分类方法把计算机的硬件结构分成三个层次，并分别考虑它们的可并行-流水处理程度。这三个层次是：<br>
+            　　（１）程序控制部件（PCU）的个数K；<br>
+            　　（２）算术逻辑部件（ALU）或处理部件（PE）的个数d；<br>
+            　　（３）每个算术逻辑部件包含基本逻辑线路（ELC）的套数w。<br>
+            　　这样我们可以把一个计算机系统的结构用如下公式表示：t（系统型号）＝（k，d，w）为了进一步揭示流水线的特殊性，一个计算机系统的结构可用如下公式表示：t（系统型号）＝（k×k′，d×d′，w×w′）式中：k′表示宏流水线中程序控制部件的个数。d′表示指令流水线中算术逻辑部件的个数。w′表示操作流水线中基本逻辑线路的套数。<br>
+            　　例如Cray1有1个CPU，12个相当于ALU或PE的处理部件，可以最多实现８级流水线。字长为64位，可以实现1－14位流水线处理。所以Cray1的系统结构可表示为：<br>
+            　　t（Cray1）＝（1，12×8，64（1-14））<br>
+            　　下面是用这种分类法的例子：<br>
+            　　t（PDP11）＝（1，1，16）<br>
+            　　t（ILLIACⅣ）＝（1，64，64）<br>
+            　　t（STARAN）＝（1，8192，1）<br>
+            　　t（Cmmp）＝（16，1，16）<br>
+            　　t（PEPE）＝（1×3，288，32）<br>
+            　　t（TIASC）＝（1，4，64×8）</span></p>
+          <p align="left"><br>
+          </p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

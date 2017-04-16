@@ -1,0 +1,46 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第五章 标量处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><span class="pt9-black">　　下面通过一个具体的例子来说明非线性流水线的调度方法。<br>
+            　<b>　例5.2：</b>一条有4个流水段的非线性流水线，每个流水段的延迟时间都相等，它的预约表如下：</span></p>
+          <p align="center"><span class="pt9-black"><img src="images/tu5_17.jpg" width="428" height="177"></span></p>
+          <p align="left"><span class="pt9-black">　　(1)写出流水线的禁止向量和初始冲突向量。<br>
+            　　(2)画出调度流水线的状态图。<br>
+            　　(3)求流水线的最小启动循环和最小平均启动距离。<br>
+            　　(4)求平均启动距离最小的恒定循环。<br>
+            　　解：(1)对于图5.17所示的预约表，第1行的第1列与第7列的两个&quot;×&quot;之间的距离为6；第2行的第2列与第6列的两个&quot;×&quot;之间的距离也为4；第3行的第3列与第5列的两个&quot;×&quot;之间的距离为2。因此，禁止向量为（6，4，2）。<br>
+            根据禁止向量很容易得到冲突向量。冲突向量用二进制数表示，其长度是禁止向量中的最大距离。对于图5.17的预约表，冲突向量C＝<img src="images/gsh1_48.gif" width="100" height="18" align="absmiddle">，由于禁止向量是（6，4，2），得到<img src="images/gsh1_49.gif" width="90" height="17" align="absmiddle">，其余位为0，因此，冲突向量为C＝（101010）。<br>
+            　　　(2)由冲突向量构造一张状态图。把上面得到的冲突向量C作为初始冲突向量送入一个6位逻辑右移移位器，当从移位器移出的位为0时，用移位器中的值与初始冲突向量作&quot;按位或&quot;运算，得到一个新的冲突向量；若移位器移出的位为1，不作任何处理；移位器继续右移，如此重复。对于中间形成的每一个新的冲突向量，也要按照这一方法进行处理。在初始冲突向量和所有的新形成的冲突向量之间用带箭头的线连接，表示各种状态之间的转换关系。当新形成的冲突向量出现重复时可以合并到一起。<br>
+            　　　对于图5.17，初始冲突向量为101010，把它逻辑右移2、4、6位时，由于移出去的位是1，表示用这些启动距离向流水线输入新任务，在流水线中会发生流水段的冲突，因此，在状态图中不作任何处理。当逻辑右移的位数为1、3、5和大于等于7时，移出去的位是0，表示用这些启动距离向流水线输入新任务时，在流水线的各个流水段中都不会发生冲突。但是，这里所说的不发生流水段冲突，只能保证输入一个新任务时，在流水线的各个流水段都不发生冲突。在输入这个新任务之后，流水线又将产生新的冲突向量，这时，要根据新产生的冲突向量来判断流水线发生冲突的情况。<br>
+            <br>
+            </span></p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

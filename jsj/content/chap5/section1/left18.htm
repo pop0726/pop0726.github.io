@@ -1,0 +1,41 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第五章 标量处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black">　　当初始冲突向量确定之后，状态图就是唯一的，因此，与一张预约表相对应，只有唯一的一个状态图。但是，由于不同的预约表可能产生相同的初始冲突向量，因而，不同的预约表也可能有相同的状态图。所以，从预约表可以画出状态图，但从状态图不能得到预约表。与图5.17的流水线预约表对应的流水线连接图如图5.19所示。</p>
+          <p align="center" class="pt9-black"><img src="images/tu5_19.jpg" width="490" height="106"></p>
+          <p align="left" class="pt9-black">　　从状态图中可以看到，当启动距离大于或等于7时，流水线的任何一个流水段在任何时钟周期都不会发生冲突；但是，这时流水线的吞吐率、加速比和效率都将很差；因此，非线性流水线调度的任务就是要找出平均启动距离小于7的启动循环，按照这个启动循环向流水线的输入端连续输入新任务，流水线的任何一个流水段在任何时钟周期都不会发生冲突。<br>
+            　　(3)在状态图中可以找到很多不发生流水段冲突的启动循环。实际上，这样的启动循环有无穷多个。因为非线性流水线调度的主要目标的要找出平均启动距离最小的启动循环，因此，在这些无穷多个启动循环中，只要找出简单循环即可。 
+            <br>
+            　　所谓简单循环是指在状态图中各种冲突向量只经过一次的启动循环。在一个状态图中，简单循环的个数一般是有限的。例如，在图5.18中，启动循环（1，7）、（5，7）、（3，5，7）等是简单循环，而（3，5，3，7）和（3，5，5，3，7）等不是简单循环；因为（3，5，3，7）两次经过冲突向量（101111），（3，5，5，3，7）两次经过冲突向量（101011）和（101011）。<br>
+            <br>
+          </p>
+          </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

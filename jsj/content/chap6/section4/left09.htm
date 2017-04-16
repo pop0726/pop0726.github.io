@@ -1,0 +1,48 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第六章　向量处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black">　　向量协处理器FPS-164是当前最典型的向量协处理器。它的结构如图6．26所示。</p>
+          <p align="center" class="pt9-black"><img src="iamges/tu6_26.jpg" width="372" height="227"></p>
+          <p align="left" class="pt9-black">　　从图6.26 可以看到，EPS-164向量协处理器有自己的主存，高速标量运算器和台数可变的流水结构的向量处理器。整个系统通过高速总线与主计算机相连。主机的功能是为向量协处理器提供数据和程序并接收计算结果。向量协处理器设计成专门高速地处理浮点操作，一般的应用问题由主计算机来处理。<br>
+            　　图6.26 中的标量处理器适于作快速的标量操作。它包括乘法器、加法器、两组操作数寄存器（X和Y寄存器组）、一组地址寄存器（A寄存器组）和一组间址寄存器（T寄存器组）。标量处理器向多达15台向量处理器播送指令和数据。图6.27是一台向量处理器的框图。</p>
+          <p align="center" class="pt9-black"><img src="iamges/tu6_27.jpg" width="476" height="296"></p>
+          <p align="left" class="pt9-black">　　向量处理器有两个乘�布硬考�，两组向量寄存器，两组标量寄存器和一个接收标量处理器数据的输入端。每个乘�布硬考�每个周期能输出一个结果。为了最有效地使用向量处理器，要求向量处理器有足够的缓冲空间以减少存取向量数据的次数。因此，向量寄存器的长度为2K个操作数，每个操作数4个字节。一组向量寄存器包含4个这样的向量寄存器。所以，一台向量处理器能容纳2×4×2K＝16K个向量元素。<br>
+            　　每组标量寄存器能容纳4个操作数。确定4个标量操作数的原因是：一个向量最多和4个不同的标量相乘。因为一个向量一旦装入向量处理器后可被使用4次之多，这样就减少了访问主存的次数。因此，为了减少访问存储器的次数，在系统结构设计时，确定标量寄存器的数目和向量寄存器的大小要采取十分审慎的态度。<br>
+            　　相对于标量处理器来说，向量处理器的工作是被动的。标量处理器以单送方式或播送方式发送指令和数据给向量处理器。所谓播送是标量处理器同时向所有向量处理器发送指令和数据。标量处理器还可以有选择地从向量处理器的寄存器中读取数据。<br>
+            　　一般的运算过程是标量处理器先把原始数据按单送方式而不是播送方式装入向量寄存器。然后，标量处理器把标量数据和指令播送到全部向量处理器。向量处理器就同步地运算，但它们处理的数据是各不相同的。<br>
+            　　当标量处理器以单送方式发送数据和指令时，除接收的那台向量处理器外其它处理器都处于空闲状态。因此这种工作方式要尽可能避免使用。由于向量寄存器总共可容纳15×8×2000＝240000个操作数，两个或更多个大型矩阵可以存放在向量处理器中。这样就减少了主存和向量寄存器之间数据交换的次数。<br>
+            　　向量操作可以和标量处理器中的标量操作同时进行，这是提高处理效率的基本方法。<br>
+            　　这种机器特别适合于大规模的数值处理。FPS-164结构的一个优点是它的用户可以根据需求购买他们认为合适台数的向量处理器。而且他们可以使用现有的处理机作为主机，而无需专门去设计或开发主机。 
+            <br>
+            <br>
+          </p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第七章 互连网络</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="left"> 
+          <p class="pt9-black"><b>2 死锁的产生和避免</b><br>
+            　　缓冲区或通道上的循环等待会引起死锁，如图7.29所示。<br>
+            　　图7.29a是存储转发网络中缓冲区死锁。四个消息包占用了四个结点的四个缓冲区，导致循环等待。除非扬弃某个消息包或者某个包的寻径出错，否则死锁不会解除。在图7.29b采用虫蚀寻径的网格形网络中，四个消息沿四条通道同时传送也会产生通道死锁。四个消息的四个片同时占用了四条通道。如果循环中没有一条通道被释放，死锁状态将持续下去。<br>
+            　　那么如何避免死锁呢？图7.30是通道相关图。图中，结点表示通道，带方向的箭头表示通道之间的依赖关系。利用虚拟通道方法可以避免死锁。通过增加两条虚拟通道V3和V4，如图7.30c所示，可以打破死锁循环，增加虚拟通道V3和V4可得到一张修改后的通道相关图，在使用通道C2之后不再使用C3和C4。<br>
+            　　将图7.30b中的环路转变成螺旋线就可以避免死锁。通道多路复用可在片一级进行，如果包长度足够的话，那么也可以在包一级进行。</p>
+          <p align="center"><img src="images/tu7_29.jpg" width="433" height="596"><br>
+            <span class="pt9-black"><br>
+            </span></p>
+          </div>
+        <p align="left" class="pt9-black">　</p>
+        </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

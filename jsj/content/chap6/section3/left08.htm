@@ -1,0 +1,42 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第六章　向量处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black">3.向量递归技术<br>
+            　　在向量操作中，结果通常是不送回到作为源操作数使用的同一个向量寄存器中的。有一类特殊的向量循环，其流水线功能部件的输出可能要回送到它的一个源向量寄存器。换句话说，一个向量寄存器用来同时存放源操作数和结果操作数。在功能流水线上的这种递归操作要求特别小心以避免产生数据阻塞问题。<br>
+            　　Cray机器利用每个向量寄存器的分量计数器实现这一功能。在每个流水线周期，从分量这一角度看，向量寄存器的作用好象移位寄存器。当一个操作数分量移出向量寄存器进入流水线功能部件时，一个结果分量可以在同一周期进入腾空的分量寄存器。分量计数器必须跟踪移位操作，直到结果向量的所有64个分量都装入向量寄存器。<br>
+            　　下面考虑用浮点加法流水线完成递归向量求和<img src="images/gsh3_14.gif" width="75" height="16" align="absmiddle">，其中向量寄存器V1保存要进行递归相加的浮点数，向量寄存器V0同时用作操作数寄存器和结果寄存器。令<img src="images/gsh3_15.gif" width="17" height="14" align="absmiddle">和<img src="images/gsh3_16.gif" width="19" height="15" align="absmiddle">分别是与向量寄存器V1和V2相关的分量计数器。初始时，计数器<img src="images/gsh3_17.gif" width="18" height="14" align="absmiddle">和<img src="images/gsh3_15.gif" width="17" height="14" align="absmiddle">都置成0，V0的第一个分量寄存器<img src="images/gsh3_18.gif" width="24" height="17" align="absmiddle"> 
+            。中的初始值也置成0。通过浮点加法流水线需要6个时钟周期，寄存器和浮点加法流水线需要6个时钟周期，寄存器和浮点加法流水线之间的往返传送各还需要1个时钟周期，因此，一次加法计算总共需要1＋6＋1＝8个时钟周期，如图6.18所示。假定向量长度寄存器的值为64，只作一个向量循环。</p>
+          <p align="center" class="pt9-black"><img src="images/tu6_18.gif" width="412" height="320"></p>
+          <p align="left" class="pt9-black">　　在<img src="images/gsh3_19.gif" width="14" height="13" align="absmiddle">之前，计数器Co一直保持为o。在此期间，<img src="images/gsh3_18.gif" width="24" height="17" align="absmiddle">（为o）不断发送到流水线。但是，计数器<img src="images/gsh3_15.gif" width="17" height="14" align="absmiddle">在每个时钟周期后都加1，所以，在<img src="images/gsh3_5F25.gif" width="13" height="16" align="absmiddle">以后，在随后的64个时钟周期内<img src="images/gsh3_20.gif" width="19" height="15" align="absmiddle">，<img src="images/gsh3_21.gif" width="16" height="16" align="absmiddle">…<img src="images/gsh3_22.gif" width="25" height="15" align="absmiddle">相继发送到流水线。<img src="images/gsh3_19.gif" width="14" height="13" align="absmiddle">以后，每个时钟周期期后<img src="images/gsh3_17.gif" width="18" height="14" align="absmiddle">都要加1。这意味着，在每8个时钟周期内，相继输出的和将与来自V1的一个分量进行递归相加。当计算完成时，V0的分量寄存器将被装入。64个分量被分成8组，每组为8个分量的和。从<img src="images/gsh3_23.gif" width="33" height="15" align="absmiddle">到<img src="images/gsh3_24.gif" width="29" height="15" align="absmiddle"> 
+            为最后一个求和的组，其中每个寄存器保存了V1的8个分量的和，这个组共保存了8个这样的求和值。运算结束后，V0各个分量的内容如下：</p>
+          <p align="left" class="pt9-black">&nbsp;</p>
+          </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

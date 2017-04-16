@@ -1,0 +1,32 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+          <td><br>
+            <span class="point"> ・差错检测和纠错：</span><br>
+            <br>
+            <span class="text">　　为保证发方发出的所有帧都正确、有序地交付给目标机网络层，需要启动确认重传机制，由收方向发方提供有关接收情况的反馈信息。<br>
+            <br>
+            　　如果发方收到肯定确认，则知道此帧已正确到达；若收到否定确认，则意味着需重传此帧。同时，为防止丢失帧所引起的错误，需设置定时器。当发方等待足够的时间还未收到接收方发回的确认帧，则可能是所传帧或者是确认帧丢失，解决的方法是重传此帧(返回N协议和选择重传)。<br>
+            <br>
+            　　多次传送同一帧的危险是收方可能收到重复帧；为防止这种情况发生，可为发出的各帧编号，使收方能够辨别是重复帧还是新帧，从而保证每帧最终交付给目标网络层一次。通常利用检错码（Error-Detecting 
+            Codes）和纠错码（Error-Correcting Codes）来控制传送差错。<br>
+            <br>
+            　　在计算机通信中，一般都要求有极低的比特差错率，因此，广泛地采用了编码技术。有两类编码，一类是检错码，即收方可以检测出收到的帧中有差错，但不知道错在哪；一类是纠错码，即收方收到有差错的数据帧时，能够自动将差错改正过来。<br>
+            　</span></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

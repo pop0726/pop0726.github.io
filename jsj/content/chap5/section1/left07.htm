@@ -1,0 +1,42 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第五章 标量处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><span class="pt9-black">　　解决流水线&quot;瓶颈&quot;问题的方法主要有两种。一种方法是将流水线的&quot;瓶颈&quot;部分再细分。如图5.9所示，把第二个流水段再细分为3个子流水段，分别为<img src="images/gsh1_15.gif" width="26" height="14" align="absmiddle">、<img src="images/gsh1_16.gif" width="25" height="16" align="absmiddle">、<img src="images/gsh1_17.gif" width="26" height="18" align="absmiddle">。这样，每一个流水段及子流水段的延迟时间均为<img src="images/gsh1_6.gif" width="25" height="16" align="absmiddle">。</span></p>
+          <p align="center"><img src="images/tu5_9.jpg" width="488" height="114"></p>
+          <p align="left" class="pt9-black">　　如果由于结构等方面的原因，瓶颈流水段不能再细分时，可以采用如图5.10的方法，通过重复设置瓶颈流水段，让多个瓶颈流水段并行工作。对于图5.9和图5.10两种情况，流水线的最大吞吐率仍然可以达到：<br>
+            　　<img src="images/gsh1_18.gif" width="70" height="34" align="absmiddle">　　　　　　　　　（5.13）<br>
+            　　但是，采用瓶颈流水段重复设置的方法，其控制逻辑比较复杂。例如，图5.10(a)中，从流水段<img src="images/gsh1_19.gif" width="19" height="15" align="absmiddle">到流水段<img src="images/gsh1_20.gif" width="18" height="15" align="absmiddle">的各个并列流水段之间要设置一个数据分配器。从多个并列流水段<img src="images/gsh1_20.gif" width="18" height="15" align="absmiddle">到流水段<img src="images/gsh1_21.gif" width="19" height="14" align="absmiddle">之间要设置数据收集器。数据分配器的任务是：从流水段<img src="images/gsh1_19.gif" width="19" height="15" align="absmiddle">输出的第1个任务分配给流水段<img src="images/gsh1_15.gif" width="26" height="14" align="absmiddle">，输出的第2个任务分配给流水段<img src="images/gsh1_16.gif" width="25" height="16" align="absmiddle">，输出的第3个任务分配给流水段<img src="images/gsh1_17.gif" width="26" height="18" align="absmiddle">，以后依次重复。同样，数据收集器的任务是依次从三个流水段<img src="images/gsh1_15.gif" width="26" height="14" align="absmiddle">、<img src="images/gsh1_16.gif" width="25" height="16" align="absmiddle">和<img src="images/gsh1_17.gif" width="26" height="18" align="absmiddle">收集处理结果，并分时输入到流水段<img src="images/gsh1_21.gif" width="19" height="14" align="absmiddle">中。瓶颈流水段重复设置的流水线时空图如图5.10(b)所示。<br>
+            　　实际上，由于存在有多种原因，使流水线的实际吞吐率要低于最大吞吐率。例如，流水线存在有装入和排空时间，输入的任务往往不是连续的，程序本身存在有数据相关，多功能流水线在完成某一种功能时有的流水段不使用等。必须注意，计算流水线实际吞吐率的基本公式是（5.5）式，其余关系式都是在特殊情况下推导出来的，在使用有关公式时，要特别注意这些公式的使用条件。</p>
+          <p align="center"><img src="images/tu5_10.jpg" width="646" height="372"><br>
+            <br>
+          </p>
+          </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

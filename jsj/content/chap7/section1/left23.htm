@@ -1,0 +1,155 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第七章 互连网络</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black">　　在表7.3中，我们汇总了构成动态网络的总线、多级网络、交叉开关的主要特性。显然，总线的造价最低，但其缺点是每台处理机可用的带宽较窄。<br>
+            　　总线所存在的另一个问题是容易产生故障。有些容错系统，如用于事务处理的Tandem多处理机等，常采用双总线以防止系统产生简单的故障。由于交叉开关的硬件复杂性以<img src="iamges/gsh1_84.gif" width="16" height="14" align="absmiddle">上升，所以其造价最为昂贵。但是，交叉开关的带宽和寻径性能最好。如网络的规模较小，它是一种理想的选择。<br>
+            　　多级网络则是两个极端之间的折衷。它的主要优点在于采用模块结构，因而可扩展性较好。然而，其时延随网络的级数logn而上升。另外，由于增加了连线和开关复杂性，价格也是一种限制因素。 
+          </p>
+          <p align="center" class="pt9-black"><b>表7.3 动态网络特性一览表</b><br>
+          </p>
+          <table width="85%" border="1" cellspacing="1" cellpadding="1">
+            <tr> 
+              <td class="pt9-black" width="24%"> 
+                <div align="center">网络特性</div>
+              </td>
+              <td class="pt9-black" width="26%"> 
+                <div align="center">总线系统</div>
+              </td>
+              <td class="pt9-black" width="28%"> 
+                <div align="center">多级网络</div>
+              </td>
+              <td class="pt9-black" width="22%"> 
+                <div align="center">交叉开关</div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black" width="24%"> 
+                <div align="center">单位数据传送的最小时延</div>
+              </td>
+              <td class="pt9-black" width="26%"> 
+                <div align="center">恒定</div>
+              </td>
+              <td class="pt9-black" width="28%"> 
+                <div align="center"><img src="iamges/gsh1_85.gif" width="52" height="15"></div>
+              </td>
+              <td class="pt9-black" width="22%"> 
+                <div align="center">恒定</div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black" width="24%"> 
+                <div align="center">每台处理机的带宽</div>
+              </td>
+              <td class="pt9-black" width="26%"> 
+                <div align="center">O(w/n)至O(w)</div>
+              </td>
+              <td class="pt9-black" width="28%"> 
+                <div align="center">O(w)至O(nw)</div>
+              </td>
+              <td class="pt9-black" width="22%"> 
+                <div align="center">O(w)至O(nw)</div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black" width="24%"> 
+                <div align="center">连线复杂性</div>
+              </td>
+              <td class="pt9-black" width="26%"> 
+                <div align="center">O(w)</div>
+              </td>
+              <td class="pt9-black" width="28%"> 
+                <div align="center"><img src="iamges/gsh1_86.gif" width="73" height="18"></div>
+              </td>
+              <td class="pt9-black" width="22%"> 
+                <div align="center"><img src="iamges/gsh1_88.gif" width="44" height="16"></div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black" width="24%"> 
+                <div align="center">开关复杂性</div>
+              </td>
+              <td class="pt9-black" width="26%"> 
+                <div align="center">O(n)</div>
+              </td>
+              <td class="pt9-black" width="28%"> 
+                <div align="center"><img src="iamges/gsh1_87.gif" width="60" height="16"></div>
+              </td>
+              <td class="pt9-black" width="22%"> 
+                <div align="center"><img src="iamges/gsh1_89.gif" width="39" height="17"></div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black" width="24%"> 
+                <div align="center">连接特性和寻径性能</div>
+              </td>
+              <td class="pt9-black" width="26%"> 
+                <div align="center">一次只能一对一</div>
+              </td>
+              <td class="pt9-black" width="28%"> 
+                <div align="center">只要网络不阻塞，可实现某些置换和广播</div>
+              </td>
+              <td class="pt9-black" width="22%"> 
+                <div align="center">全置换，一次一个</div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black" width="24%"> 
+                <div align="center">典型计算机</div>
+              </td>
+              <td class="pt9-black" width="26%"> 
+                <div align="center">Symmetry S1,Encore Multimax</div>
+              </td>
+              <td class="pt9-black" width="28%"> 
+                <div align="center">BBNTC－2000IBM RP3</div>
+              </td>
+              <td class="pt9-black" width="22%"> 
+                <div align="center">Cray Y-MP/816Fujitsu VPP 500</div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black" width="24%"> 
+                <div align="center">评注</div>
+              </td>
+              <td class="pt9-black" width="26%"> 
+                <div align="center">总线上假定有n台处理机；<br>
+                  总线宽度为w位</div>
+              </td>
+              <td class="pt9-black" width="28%"> 
+                <div align="center">n×nMIN采用k×k开关，其线宽为w位</div>
+              </td>
+              <td class="pt9-black" width="22%"> 
+                <div align="center">假定n×n交叉开关的线宽为w位</div>
+              </td>
+            </tr>
+          </table>
+          <p align="center" class="pt9-black">&nbsp; </p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

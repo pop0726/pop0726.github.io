@@ -1,0 +1,25 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+          <td class="explaination"><br>
+            　　FDDI令牌环技术建立在采用小的令牌帧的基础上，当所有的站均空闲时，小令牌帧沿着环运行。某个站想要发送时，必须等到检测到有令牌通过时为止。一旦识别出有用的令牌时，站立即将它吸收。当抓获的令牌完全收到后，站就开始发送-个或多个帧。这时环上没有令牌，因而其他想要发送的站必须等待。环上的帧将绕环运行一圈，而后被发送站清除。当发送站完成其帧的发送后，就在环上插入一新的令牌。如果环的比特长度大于站的发送长度，则新的令牌将出现在当前帧的前沿回到发送站并被清除之前。<br>
+            <br>
+            　　FDDI的令牌环和802.5的令牌环有一些区别。首先，一个FDDI站并不是通过改变-个比特来抓住令牌的。因为FDDI的高数据率要求采取这样一种做法是不实际的。其次，在FDDI中，一个站一旦完成其帧的发送后，即使它尚未开始收到它自己发出的帧，也立即送出一新的令牌。对于802.5令牌环，需要接收到自己发出的数据帧后，才能发送新的令牌。同样，这也是由FDDI的高数据率而需要这样做的。令牌的提前发送减少了数据帧传输延迟，使得环上同时可以存在一个以上数据帧，这对于跨度可达200km的FDDI是十分必要的。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

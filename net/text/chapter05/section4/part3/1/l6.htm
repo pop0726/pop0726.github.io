@@ -1,0 +1,25 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+          <td class="explaination"><br>
+            　　很不幸，由于发送数据太快而从曲线下方进入禁止区域并不是陷入困境的唯一情形。从图5.9(b)中可以清楚地看到，当任何数据传输速率低于时钟速率时，实际所用的序号与时间曲线将最终从左侧进入禁止区域。实际所用序号曲线的斜率越大，该曲线进入禁区的时间越晚。正如上面讲过的，传输实体在发送两个TPDU之前必须检查该TPDU是否将进入禁止区域，如果是，则将延迟Ts后再发送该TPDU，或者重新对序号进行同步。<br>
+            <br>
+            　　基于时钟的方法解决了数据TPDU的延迟重发问题，但要使该方法可行，必须首先建立连接。因为控制TPDU也可能被延迟，所以在使双方都接受初始序号这点上可能出现问题。例如，假设连接是由主机1向远端对等主机2发送连接请求TPDU而建立的，该TPDU中包含了主机1建议的初始序号和目的端口号。接收方（主机2）通过回送一个接受连接TPDU来确认该请求。如果连接请求TPDU在传送时丢失而延迟的重复连接请求突然出现在主机2上，那么连接将会被错误地建立。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

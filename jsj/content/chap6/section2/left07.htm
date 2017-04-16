@@ -1,0 +1,43 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第六章　向量处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black">　　实现可变延迟的另一种方法如图6．9所示。这需要一个有N个单元的专用存储器。这个特殊存储器可以同时读某一单元并写另一单元。有两个地址寄存器，一个用于读，另一个用于写。写地址寄存器的初始值是0，当一个数据写入存储器之后，写地址寄存器的内容增1。<br>
+            　　为了得到0-N之间的任意一个延迟值，读地址寄存器的初始值是－d，d是需要延迟的量。读地址寄存器以操作数到达的速度递增，但在读地址寄存器等于0之前没有数据从存储器读出。一旦读地址寄存器等于0后，读出的速度和写入的速度就相同了。因此，输出数据流就比输入数据流延迟了d个单位时间。<br>
+            　　图6．9中的存储器有N个单元，标号为0-N-1。当读地址或写地址的值超过N-1时，就复位为0继续增值，所以存储器的操作就好象一个循环队列。N值的大小只要满足同步所要求的最大延迟即可。向量操作数可以比N长得多，因为延迟存储器在任何时刻都没有必要把整个向量都存起来。<br>
+            　　0延迟的情况很特殊，很容易被检查出来，因为这时读地址和写地址相同。这种情况下输入数据流无需存入缓冲区而直接送往输出端。<br>
+            　　图6．9所示的可变延迟存储器可将输入流延迟0-N个时钟周期。它比多抽头延迟线有几个优越之处：图6．9的可变延迟存储器每个周期最多只有两个地址单元发生状态变化，而多抽头延迟线的每一级都发生变化。 
+            <br>
+            　　延迟量等于读地址和写地址之差。延迟值为\＝0时，输入流通过旁路逻辑（旁路逻辑图中没\＝有画出）直接送往输出端每改变一次状态，物理量电压或电流都随之变化。每次变化总是需要能量，就会产生热和电噪声。与图6．8中延迟器的许多单元在每个时钟周期都发生状态变化的情形相比，图6．9的延迟存储器较少的状态变化可能带来较少的瞬态效应和噪声问题。</p>
+          <p align="center" class="pt9-black"><img src="images/tu6_09.jpg" width="350" height="153"> 
+          </p>
+          <p align="left" class="pt9-black">　</p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

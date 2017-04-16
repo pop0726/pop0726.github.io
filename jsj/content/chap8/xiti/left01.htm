@@ -1,0 +1,53 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第八章 并行处理机和多处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="left"> 
+          <p class="pt9-black"><span class="part">习题</span><br>
+            <br>
+            <b>8.1</b>解释下列术语<br>
+            并行处理机 SIMD计算机 阵列处理机 共享存储多处理机 分布存储多处理机 SMP S2MP MPP 机群系统 虚拟共享存储器 Cache一致性 
+            监听协议 写一次协议 基于目录协议</p>
+          <p class="pt9-black"><b>8.2</b>评述SIMD计算机和向量处理机处理向量的优缺点。</p>
+          <p class="pt9-black"><b>8.3</b>在Illiac IV上实现两个8×8矩阵乘C＝A*B。要求J,K循环并行完成，数据在存储器中不准重复存放，考虑到各次数据传送时间，请设计能使64个处理单元全并行工作的算法。</p>
+          <p class="pt9-black"><b>8.4</b>试设计一在Illiac IV计算机(含64个PE)上完成对8×8三角矩阵A＝(a<font size="1">ij</font>)求逆的SIMD算法，说明实现此算法所需的存储器分配和CU指令。主要的设计要求是使所用的指令步数和数据存储字最少。假设给定矩阵A是非奇异矩阵。可对PE采用屏蔽，使其处活动或不活动状态。还要求每执行一步指令列出有关PE寄存器和PEM的内容。</p>
+          <p><span class="pt9-black"><b>8.5</b>给定一幅n×m图象，其每个图素(象元素)的灰度级在o到b-1范围内。令A[i,j]为图素(i,j)上的灰度级。则在SISD计算机上构造一个直方图的算法如下：</span></p>
+          <p><span class="pt9-black"><img src="images/20.gif" width="264" height="114"></span></p>
+          <p><span class="pt9-black">现在我们要用含p个PE的SIMD机来构造这个直方图，假定n、m&gt;&gt;p，n、m和p(p=2y)都是2的幂，n/p＝k是一整数。每个PEM存放k行图象数据，即PEM<font size="1">0</font>存放行1和行k,等等。存储格式如下图所示，图中每个PEM内从a至a+b-1存储单元存放的是局部直方图。构造直方图的方法是先在每个PE中形成局部直方图，再将这些局部直方图连起来构成全局直方图。<br>
+            每个PEi能用一步与它的近邻PEi+1和PEi-1进行通信。请利用表8.5所列的向量指令和标量指令，表中每条指令下面所标的数字即为该指令的执行时间。同时，我们还假定控制器中有五个全局变址寄存器。<br>
+            （a）试用这些指令编写一个程序，在此SIMD机上构造一幅直方图，结果应存入PEM0的存储单元a, a+1, …，a+b-1中。<br>
+            （b）试计算该程序所需总的周期数，以及该程序对SISD机（由CU和一个PE组成）上常规程序的加速比。假定每条标量指令的执行时间与它对应的向量指令的时间一样。注意，在SISD计算机中是没有通信开销的。</span></p>
+          <p align="center"><span class="pt9-black"><b>表8.5 习题8.5所需的向量-标量指令系统实例</b><br>
+            <img src="images/21.gif" width="526" height="394"> <br>
+            <img src="images/22.gif" width="505" height="219"> <br>
+            习题8.5中构造直方图的数据存储 <br>
+            <br>
+            </span> </p>
+        </div>
+        </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

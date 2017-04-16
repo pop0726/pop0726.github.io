@@ -1,0 +1,57 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第六章　向量处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black">2.向量循环或分段开采技术<br>
+            <br>
+            　　当向量的长度大于向量寄存器的长度时，必须把长向量分成长度固定的段。处理长向量的程序结构称为向量循环。这种技术也称为分段开采，一次处理一个向量段。将长向量分段成为循环是由系统硬件和软件控制完成的，程序员看不到这种向量分段为循环的过程，对程序员是透明的。每经过一次循环，便处理长向量的一个段。一般在进入循环以前，根据向量长度计算出循环计数值。下面是一个说明Cray 
+            1实现向量循环的例子。<br>
+            <b>例6.3</b>设A和B是长度为N的向量。考虑以下的循环操作：<br>
+            　　　　DO 10 I＝1,N<br>
+            　　10 A(I)=5.0*B(I)+C<br>
+            　　当N为64或更小时，产生A数组的7条指令序列是：<br>
+            　　<img src="images/gsh3_7.gif" width="46" height="15" align="absmiddle"> 
+            　　　在标量寄存器内设置常数<br>
+            　　<img src="images/gsh3_8.gif" width="37" height="14" align="absmiddle"> 
+            　　　　将常数C装入标量寄存器<br>
+            　　<img src="images/gsh3_9.gif" width="42" height="13" align="absmiddle"> 
+            　　　在VL寄存器内设置向量长度<br>
+            　　<img src="images/gsh3_10.gif" width="36" height="13" align="absmiddle"> 
+            　　　　将B向量读入向量寄存器<br>
+            　　<img src="images/gsh3_11.gif" width="61" height="17" align="absmiddle">　　B数组的每个分量和常数相乘<br>
+            　　<img src="images/gsh3_12.gif" width="69" height="14" align="absmiddle"> 
+            　C和5*B(x) 相加<br>
+            　　<img src="images/gsh3_13.gif" width="45" height="11" align="absmiddle"> 
+            　　　将结果向量存入A数组<br>
+            　　第5条和第6条指令使用了不同的功能部件，又共享中间寄存器，它们可以链接在一起，该链的输出最后存入A数组。<br>
+            　　当N超过64时，就需要向量循环。在进入循环以前，把N除以64，以确定循环计数值。如果有余数，则在第一次循环中首先产生A数组的余数个分量。对于A和B数组的每64个分量的段，循环由第4条到第7条指令组成。</p>
+          <p align="left" class="pt9-black">&nbsp;</p>
+          </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

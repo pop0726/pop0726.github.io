@@ -1,0 +1,70 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第四章 输入输出系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black">　　从某一个中断源发出中断服务请求，到这个中断服务请求全部处理完成所经过的主要过程如图4.6所示。</p>
+          <table width="95%" border="1" cellpadding="1" bgcolor="#FFFFCC">
+            <tr> 
+              <td><span class="pt9-black"> 　　中断处理过程开始<br>
+                　　　　　<img src="images/jiantou.gif" width="18" height="20"> <br>
+                　　</span><span class="pt9-black">● 现行指令执行结束，且没有更紧急的服务请求<br>
+                　　● 关CPU中断，CPU不能再响应其它任何中断源的中断服务请求<br>
+                　　● 保存中断点，指保存程序计数器PC中的内容，在中断服务完成之后返回到原来的程序中去<br>
+                　　◎ 撤消设备的中断服务请求，如果这个中断源的中断请求不撤消的话，那么在CPU开中断后，它必然将再次请求中断服务<br>
+                　　◎ 保存硬件现场，主要指保存处理机状态字PSW及堆栈指针SP等中的内容<br>
+                　　◎ 识别中断源<br>
+                　　◎ 改变设备的屏蔽状态<br>
+                　　● 转向中断服务程序入口，一般还要在中断服务程序中通过软件才能找到具体中断源的中断服务程序入口<br>
+                　　◎ 保存软件现场，主要指保存将要被中断服务程序破坏的通用寄存器中的内容等<br>
+                　　○ 开CPU中断，CPU可以响应其它更高级中断源的中断服务请求，中断源之间可实现中断嵌套<br>
+                　　○ 中断服务<br>
+                　　○ 关CPU中断，CPU不响应任何中断源的中断服务请求。在下一次开CPU中断之前，正在运行的程序不允许被中断<br>
+                　　◎ 恢复软件现场，恢复被中断服务程序破坏的通用寄存器中的内容等<br>
+                　　◎ 恢复屏蔽状态<br>
+                　　◎ 恢复硬件现场，包括恢复处理机状态字PSW及堆栈指针SP等中的内容等，准备返回中断点<br>
+                　　◎ 开CPU中断，如果用硬件实现，这条指令必须延迟执行，要在程序回到中断点之后才能实际打开CPU的中断<br>
+                　　○ 返回到中断点</span><br>
+                　　　　<img src="images/jiantou.gif" width="18" height="20"> <br>
+                <span class="pt9-black">　　中断处理过程全部结束</span></td>
+            </tr>
+          </table>
+          <span class="pt9-black"><b>图4.6 中断处理过程</b></span><br>
+          <p align="left"><span class="pt9-black">　　在图4.6中，每一行开头的标记分别表示：<br>
+            　　● 表示本行的功能一般用硬件来实现。<br>
+            　　○ 表示本行的功能一般用软件来实现。<br>
+            　　◎ 表示本行的功能可以用硬件来实现，也可以用软件来实现。<br>
+            　　在图4.6中给出的中断处理顺序，在不同的计算机系统中可能有所不同。例如，&quot;转向中断服务程序入口&quot;这一功能可以插在从&quot;保存中断点&quot;之后，到第一次&quot;开CPU中断&quot;之间的任何一个地方。具体插在什么地方要看中间的一些功能，如&quot;撤消设备的中断服务请求&quot;、&quot;保存硬件现场&quot;、&quot;识别中断源&quot;、&quot;改变设备的屏蔽状态&quot;和&quot;保存软件现场&quot;等是用硬件来实现，还是用软件来实现。一般要在采用硬件实现的功能全部结束之后，才能执行&quot;转向中断服务程序入口&quot;这一功能。用软件实现的所有功能都在中断服务程序中完成。<br>
+            　　实际上，在图4.6所列的全部功能中，除了&quot;现行指令执行结束&quot;之外，只有&quot;保存中断点&quot;和&quot;转向中断服务程序入口&quot;这两个功能是必须用硬件来实现的。这是因为中断响应发生在现行程序的什么地方是不确定，不能由程序员来安排。另外，第一次&quot;关CPU中断&quot;一般也用硬件来实现，它只要用很简单的组合逻辑就能实现，几乎不需要花费时间。而&quot;保存中断点&quot;和&quot;转向中断服务程序入口&quot;这两个功能，实际上可以隐含地执行一条子程序调用指令来实现。<br>
+            　　同样，也只有&quot;中断服务&quot;和&quot;返回到中断点&quot;这两个功能必须用软件来实现。其中，&quot;返回到中断点&quot;需要执行一条中断返回指令，就象从子程序中返回到主程序那样。至于&quot;中断服务&quot;当然是要用软件来实现的，否则也就不能称为&quot;程序中断方式&quot;了。<br>
+            　　从中断源向处理机发出中断服务请求开始，到处理机实际开始为这个中断源服务时为止，这一段时间称为中断响应时间。如果中断响应时间过长，在实时控制系统中，很可能失去控制的时机或丢失控制信号。在数据采集或数据传输系统中，有可能丢失数据。<br>
+            <br>
+            </span></p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

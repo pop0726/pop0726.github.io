@@ -1,0 +1,51 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第五章 标量处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black"><span class="section">5.3 动态调度技术<br>
+            </span><br>
+            　　主要依靠硬件来动态调整指令的执行顺序可以减少数据相关造成的影响，能够处理在编译时无法确定的某些数据相关，并简化编译器。<br>
+            　　下面，首先介绍指令的乱序执行方式及在乱序执行过程中的数据相关，然后分析几种处理数据相关的方法，最后给出一种典型的指令动态调度算法。<br>
+            <br>
+            <b class="part">5.3.1 顺序流动与乱序流动</b><br>
+            　　在一般情况下，一串连续任务在流水线中是一个接一个地在各个流水段中间流过的。从流水线的输出端看，任务流出流水线的顺序与输入端的任务流入顺序完全相同，这种控制方式称为顺序流动方式。如图5.39所示的一条6段指令流水线，在正常情况下，6个流水段<img src="images/gsh3_2.gif" width="17" height="15" align="absmiddle">、<img src="images/gsh3_3.gif" width="19" height="16" align="absmiddle">、……、<img src="images/gsh3_4.gif" width="19" height="16" align="absmiddle">分别同时执行k、k+1、……、k+5共6条指令，如图5.40中的下面一行。</p>
+          <p align="center" class="pt9-black"><img src="images/tu5_39.jpg" width="414" height="128"></p>
+          <p align="left" class="pt9-black">　　在图5.39中，流水段<img src="images/gsh3_5.gif" width="16" height="16" align="absmiddle">要读操作数，流水段<img src="images/gsh3_2.gif" width="17" height="15" align="absmiddle">写运算结果。现在把如下一段程序输入到这条流水线中：<br>
+            <br>
+            　　　<img src="images/gsh3_1.gif" width="176" height="122"><br>
+            <br>
+            　　其中，指令k与指令k+2之间有&quot;先写后读&quot;数据相关。在时钟周期ti，指令k+2在流水段<img src="images/gsh3_5.gif" width="16" height="16" align="absmiddle">中要读操作数；但是，由于指令k还没有到达流水段<img src="images/gsh3_2.gif" width="17" height="15" align="absmiddle">；因此，指令k+2无法继续执行，要在流水段<img src="images/gsh3_5.gif" width="16" height="16" align="absmiddle">中等待。如图5.40所示，后续的指令k+4、k+5、……等也不能进入流水线。在以后的ti+1、ti+2、ti+3、……时钟周期，流水段<img src="images/gsh3_6.gif" width="15" height="15" align="absmiddle">、<img src="images/gsh3_7.gif" width="17" height="16" align="absmiddle">、<img src="images/gsh3_3.gif" width="19" height="16" align="absmiddle">将逐渐空闲。在时钟周期ti+3，指令k执行完成，把运算结果写到寄存器R0中。从时钟周期ti+4开始，指令又可以在流水线中继续往前流动。然而，三个&quot;空闲段&quot;要在流水线的后四个流水段中流过，直至全部流出流水线。</p>
+          <p></p>
+          <p class="pt9-black"><img src="images/tu5_5F40.jpg" width="485" height="213"> 
+          </p>
+          <p align="left" class="pt9-black">　　从上面的分析及图5.40中可以看出，采用顺序流动方式，在程序中有&quot;先写后读&quot;数据相关时，流水线可能会&quot;断流&quot;，这将降低流水线的吞吐率和效率。</p>
+          <p align="left">&nbsp;</p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

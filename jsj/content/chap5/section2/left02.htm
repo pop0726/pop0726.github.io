@@ -1,0 +1,39 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第五章 标量处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black">　　<b>方法二</b>，设置专用数据通路。在许多处理机中，由于把运算结果写到寄存器堆或写入主存储器需要的时间比较长，运算与写结果必须分为两个时钟周期，因此，在图5.27所示的数据通路中间需要加入锁存器或缓冲寄存器。</p>
+          <p align="center" class="pt9-black"><img src="images/tu5_28.jpg" width="307" height="218"></p>
+          <p align="left"><span class="pt9-black">　　由于在运算型指令中把运算结果写到通用寄存器中的指令很多，占运算型指令的大多数，发生通用寄存器数据相关的概率相当高；因此，在许多处理机中为了减少因为通用寄存器数据相关造成的速度损失，用硬件设置一条专用路径来解决这种数据相关。<br>
+            　　如图5.28所示，在运算器的输出端到锁存器的输入端之间建立一条专用的数据通路。当出现上述两种数据相关时，运算结果在送入通用寄存器堆的同时，还要通过这条专用的数据通路送回到运算器的锁存器中；当然，这时要封锁通用寄存器到锁存器的数据通路。这样，无论出现R1数据相关还是R2数据相关，只要在本条指令执行的末尾，把发生数据相关的操作数送到运算器的锁存器中，则下条指令不必再推后执行，就象没有发生数据相关时一样。<br>
+            <br>
+            </span> </p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

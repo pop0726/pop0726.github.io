@@ -1,0 +1,77 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第五章 标量处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="left"> 
+          <p class="pt9-black"><span class="part">习题</span><br>
+            <br>
+            <b>5.1</b> 指令执行过程采用顺序方式、一次重叠方式和流水线方式，它们的主要差别是什么？各有什么优点和缺点？<br>
+            <br>
+            <b>5.2 </b>假设一条指令的执行过程分为&quot;取指令&quot;、&quot;分析&quot;和&quot;执行&quot;三段，每一段的时间分别为<img src="images/1.gif" width="18" height="16" align="absmiddle">、2<img src="images/1.gif" width="18" height="16" align="absmiddle">和3<img src="images/1.gif" width="18" height="16" align="absmiddle">。在下各种情况下，个别写出连续执行n条指令所需要的时间表达式。<br>
+            (1) 顺序执行方式。<br>
+            (2) 仅&quot;取指令&quot;和&quot;执行&quot;重叠。<br>
+            (3) &quot;取指令&quot;、&quot;分析&quot;和&quot;执行&quot;重叠。<br>
+            <br>
+            <b>5.3 </b>在流水线处理机中，可能有哪几种操作数据相关？这几种相关分别发生在什么情况下？解决操作数相关的基本方法有哪几种？<br>
+            <br>
+            <b>5.4 </b>在流水线处理机中，有独立的加法操作部件和乘法操作部件各一个，加法操作部件为4段流水线，乘法操作部件6段流水线，都在第一段从通用寄存器从读操作数，在最后一段把运算结果写到通用寄存器中。每段的时间长度都相等，都是一个时钟周期。每个时钟周期发出一条指令。问可能发生哪几种操作数相关？写出发生相关的指令序列，分析相关发生的原因，并给出解决相关的具体办法。<br>
+            <br>
+            <b>5.5</b> 在一台单流水线多操作部件的处理机上执行下面的程序，取指令、指令译码各需要一个时钟周期，MOVE、ADD和MUL操作各需要2个、3个和4个时钟周期。每个操作都在第一个时钟周期从通用寄存器中读操作数，在最后一个时钟周期把运算结果写到通用寄存器中。</p>
+          <p class="pt9-black"><img src="images/2.gif" width="383" height="59"></p>
+          <p class="pt9-black">(1) 就程序本身而言，可能有哪几种数据相关？<br>
+            (2) 在程序实际执行过程中，有哪几种数据相关会引起流水线停顿？<br>
+            (3) 画出指令执行过程的流水线时空图，并计算执行完这三条指令共使用了多少个时钟周期。<br>
+            <br>
+            <b>5.6 </b>一条线性流水线有4个流水段组成，每个流水段的延迟时间都相等，都为<img src="images/1.gif" width="18" height="16" align="absmiddle">。开始5个<img src="images/1.gif" width="18" height="16" align="absmiddle">，每间隔一个Dt向流水线输入一个任务，然后停顿2个Dt，如此重复。求流水线的实际吞吐率、加速比和效率。<br>
+            <b>5.7</b> 用一条5个流水段的浮点加法器流水线计算<img src="images/3.gif" width="61" height="49" align="absmiddle"> 
+            。每个流水段的延迟时间均相等，流水线的输出端与输入端之间有直接数据通路，而且设置有足够的缓冲寄存器。要求用尽可能短的时间完成计算，画出流水线时空图，计算流水线的实际吞吐率、加速比和效率。<br>
+            <br>
+            <b>5.8 </b>一条有三个流水段的流水线如下图：</p>
+          <p class="pt9-black"><img src="images/4.gif" width="398" height="72"> 
+          </p>
+          <p class="pt9-black">每个流水段的延迟时间均相等，都为<img src="images/1.gif" width="18" height="16" align="absmiddle">。其中流水段S2的输出要返回到它自己的输入端循环一次。<br>
+            (1) 如果每间隔一个Dt向流水线的输入端连续输入新任务，问这条流水线会发生什么情况？<br>
+            (2) 求这条流水线能够正常工作的最大吞吐率、加速比和效率。<br>
+            (3) 有什么办法能够提高这条流水线的吞吐率，画出新的流水线。<br>
+            <br>
+            <b>5.9 </b>一条有4个流水段的非线性流水线，每个流水段的延迟时间都相等，都为20ns，它的预约表如下：</p>
+          <p class="pt9-black"><img src="images/5.gif" width="405" height="130"></p>
+          <p class="pt9-black">(1) 写出流水线的禁止向量和初始冲突向量。<br>
+            (2) 画出调度流水线的状态图。<br>
+            (3) 求流水线的最小启动循环和最小平均启动距离。<br>
+            (4) 求平均启动距离最小的恒定循环。<br>
+            (5) 求流水线的最大吞吐率。<br>
+            (6) 按照最小启动循环连续输入10个任务，求流水线的实际吞吐率。<br>
+            (7) 画出该流水线各流水段之间的连接图。<br>
+            <br>
+            <br>
+            <br>
+          </p>
+          </div>
+        </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

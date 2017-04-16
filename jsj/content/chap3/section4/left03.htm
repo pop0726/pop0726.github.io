@@ -1,0 +1,43 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第三章 存储系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black"><b class="part">3.4.2 虚拟地址Cache</b><br>
+            <br>
+            　　在既有Cache，又有虚拟存储器的处理机中，如果对Cache的访问仍采用主存实地址，就要把虚拟地址首先变换成主存实地址，然后才能访问Cache，这样必然增加访问Cache所花费的时间，至少要增加一个查主存快表的时间。因此，在许多系统中,采用直接用虚拟地址访问Cache方法。如图3.46所示。</p>
+          <p align="center" class="pt9-black"><img src="images/tu3_46.gif" width="557" height="357"><br>
+            <b>图3.46 一种虚拟地址Cache的地址变换过程 </b></p>
+          <p align="left" class="pt9-black">　　在图3.46中，虚拟存储器采用组相联映象和地址变换方式。为了加快地址变换的速度，使虚拟存储器中的一页恰好就是主存储器的一个区。因此，可以直接用虚拟地址中的区内块号B按地址访问Cache的块表，从块表中读出主存的区号E和对应的Cache块号b，这个区号实际上也就是页号P。在访问Cache块表的同时，用虚拟地址中的虚页号访问快表。<br>
+            　　如果快表命中，就用从块表中读出来的主存区号E与从快表中得到的主存实页号P进行相等比较。若比较结果相等，则Cache命中。这时，把虚拟地址中的区内块号B直接作为Cache地址中的组号g，并从块表相应单元中读出Cache的组内块号b，把虚拟地址中的块内地址W直接作为Cache地址中的块内地址w。用g、b、w三部分拼接就得到的Cache地址，用这个地址访问Cache，读出一个字送往CPU。若Cache不命中，则用主存实页号P拼接上虚拟地址中的区内块号B和块内地址W，得到主存实地址去访问主存储器，把读出的一个字送往CPU。同时把包括这个字在内的一块都从主存储器中读出来装入到Cache中去。如果，这时Cache已经满，还要采用某种Cache替换算法先把不常用的一块替换到主存中去。<br>
+            　　如果快表没有命中，要通过软件去查存放在主存中的慢表。以下的工作过程与页式虚拟存储器或段页式虚拟存储器相同。<br>
+            <br>
+          </p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

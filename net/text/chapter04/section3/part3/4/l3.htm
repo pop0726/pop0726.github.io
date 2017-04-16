@@ -1,0 +1,30 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td class="explaination" colspan="2"><br>
+            　　链路状态路由算法要求每个路由器都有整个网络的拓扑信息。首先，每个路由器在启动后必须了解它所相邻的节点，并且要测量所有节点的状态；其次，它定期把链路状态信息传播给所有其他路由器。链路状态信息中并没有规定有关的路由，只是简单地报告它连接的链路以及链路的花费。当路由器收到一个链路状态信息时，它便更新它所了解的拓扑图。每当拓扑有变化时，就利用Dijkstra算法计算出到所有目的节点的最短路径。<br>
+            <br>
+            　　如何进行链路状态信息的分发是一个非常关键的问题。其基本思想是利用扩散法。为了进行控制，每个分组包含一个序号。路由器每次发送链路状态信息分组时加1。每个路由器记录下它所见过的所有信息对（源路由器，序号）。当一个新的链路状态分组到达时，路由器先查看该分组是否已经收到过。如果重复，则丢弃它；如果是新的，就把它向除了到来链路的其他链路转发。如果一个分组的序号比目前已到达的最大序号小，则被认为已过时而拒绝。<br>
+            <br>
+            　　链路状态路由算法的一个主要优点是：每个路由器根据同样的状态信息独立地作出路由计算。因为链路状态原封不动地在网中传播，故很容易调试以找出问题的所在。因为路由器在本地计算路由，故能够保证其收敛性。传播的链路状态信息只包含了和路由器直接相连的链路信息，它和网络的规模无关。因此，链路状态路由算法的可扩展性比距离向量路由算法要好。 
+            <br>
+            <br>
+            　　典型的链路状态路由算法有OSPF（Open Shortest Path First）。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

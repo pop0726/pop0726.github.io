@@ -1,0 +1,46 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+          <td><span class="point"><br>
+            （1）顺序类型（SEQUENCE）</span><br>
+            <span class="text">　　由一个或多个元素类型组成的有序列表，元素类型可为任何其它类型。它类似于PASCAL的记录。如果出现OPTIONAL或DEFAULT关键字，对应类型的值可省略。<br>
+            <br>
+            <img src="../../../../image/tub/lt.gif" width="25" height="25" alt="例题" align="absmiddle"> 
+            例：<br>
+            　　　ValidSequence ::= SEQUENCE<br>
+            　　　　　　　　　　　{<br>
+            　　　　　　　　　　　　　a INTEGER DEFAULT 3,<br>
+            　　　　　　　　　　　　　s BOOLEAN OPTIONAL,<br>
+            　　　　　　　　　　　　　n INTEGER,<br>
+            　　　　　　　　　　　}<br>
+            　　　Value ValidSequence ::= {<br>
+            　　　　　　　　　　　　　　　　　a 5,<br>
+            　　　　　　　　　　　　　　　　　s TRUE,<br>
+            　　　　　　　　　　　　　　　　　n 20<br>
+            　　　　　　　　　　　　　　　}<br>
+            </span><br>
+            <span class="point">（2）单一顺序类型（SEQUENCE OF）</span><br>
+            <span class="text">　　由一个或多个同一类型元素组成的有序列表，元素类型可为任何其他类型。它可被视为SEQUENCE类型的特例。它类似于PASCAL的数组。<br>
+            <br>
+            <img src="../../../../image/tub/lt.gif" width="25" height="25" alt="例题" align="absmiddle"> 
+            例：<br>
+            　　　Words ::= SEQUENCE OF VisibleString<br>
+            　　　buildWords Words ::= {&quot;applications&quot;,&quot;elements&quot;,&quot;protocols&quot;}<br>
+            　</span></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

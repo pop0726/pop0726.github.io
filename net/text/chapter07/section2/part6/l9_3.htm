@@ -1,0 +1,25 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+          <td class="explaination"><br>
+            　　在这一例子中，前三个段填入缓冲区的速度大于接收端应用程序使用数据的速度，因而，通告的窗口达到零，发送方不能再传送数据。在接收方应用程序用掉了2000字节的数据之后，接收方TCP发送一个额外的确认，其中的窗口通告为2000字节。在计算窗口时，要去掉被确认的数据，因而接收方通告它除了已收到的2500字节之外还能接收2000字节，发送方的反应就是再发送两段。同样接收到每一段时，接收方发送一个确认，其中的窗口被减少1000字节（即，到达的数据量）。<br>
+            <br>
+            　　窗口又一次减到零，发送方也就停止传送数据。最终，接收方应用程序又用掉了一些数据，因而，接收方TCP又传送一个窗口为正的确认。如果发送方仍有数据等待传送，则可以继续传送了。<br>
+              　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

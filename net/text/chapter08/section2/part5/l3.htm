@@ -1,0 +1,30 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td class="explaination" colspan="2"><br>
+            　　一个站若欲发送，要等到有一个令牌经过。令牌由访问控制（AC）字段中的令牌比特置为&quot;0&quot;来表明。该站将这令牌比特置为&quot;1&quot;就抓住了令牌，并将其余的字段（FC、DA、SA、INFO、FCS、ED、FS）都挂在SD和AC字段之后，以形成一个完整的发送帧，同时，被捕获的令牌的ED字段被该站所吸收和丢弃。该站可以连续地发送直到无数据可发或者到令牌保持计时器计满为止。该站可以用将ED字段中的比特置&quot;1&quot;的方法连续地发送多个帧、但最后一帧除外。<br>
+            <br>
+            　　其他站在环上监听，并不断地转发着通过的帧。为了检查、复制或改变一个比特必须有一定的时间，每个站都要对环引进约一比特的时延。每个站都能对通过的帧进行差错检验。如果检验到一个差错就应将比特置位。如果站检测到目的地址是其本身的地址，它就将A比特置成&quot;1&quot;，如果该站有足够的缓存空间，它就复制该帧，并将C比特置成&quot;1&quot;。这样可以使源站能区别三种状况：<br>
+            <span class="point">　　・目的站不存在/未被复制；<br>
+            　　・目的站存在但帧未被复制；<br>
+            　　・帧已被目的站复制。</span><br>
+            <br>
+            　　发出帧的站应该负责将该帧从环上清除。当每个发出去的帧回到源站时，应被吸收掉，并检查帧尾序列中的状态比特（E,A,C）以判定传输的结果。但是，如果报告说有错，MAC协议并不尝试去重传该帧。这是LLC或某些高层协议的职责。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+          <td><br>
+            <span class="point">・链路的建立和释放</span><br>
+            <span class="text">　　假设在非平衡配置中，主站A要和从站B进行通信，A首先发送一个无编号帧给B，在地址字段填写的是B的地址，控制字段M比特的组合为SNRM命令，P/F比特为1表示P轮询（以下用B，SNRM，P表示），从站B收到请求后以无编号帧（B，UA，F）作为响应，数据链路建立完成。信息传输完成后，主站A向从站B发送无编号帧（B，DISC，P）请求释放连接，B向A发送无编号帧（B，UA，F）进行确认，数据链路释放。<br>
+            </span><br>
+            <span class="point">・链路的维持</span><br>
+            <span class="text">　　在此阶段双方发送的是信息帧和监督帧。假设A和B构成的平衡配置进行全双工通信，A站发送信息帧（B，I00，P），I00表示信息帧控制字段N(S)N(R)=00，然后继续发送信息帧（B，I10）（B，I20），这时B站发送的信息帧（A，I00）到达，A站接收该帧后发送信息帧（B，I31，F），表示A发送序号为3的信息，期待接收B的序号为1的信息。这时如果B站发送的信息帧（A，I10，P）到达，A站以监督帧（A，RR2，F）进行响应，表示期望接收B的第2帧，第2帧以前的各帧已经接收。<br>
+            　</span></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

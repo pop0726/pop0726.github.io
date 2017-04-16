@@ -1,0 +1,35 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+          <td class="explaination"><br>
+            <span class="point">（1）抽象语法（Abstract Syntax）</span><br>
+            　　在实际的计算机中，分别用各自的形式（局部语法）来表示信息语义的，OSI环境下，将信息表示标准化，这个标准的语义表示就是抽象语法，即面向各种不同应用，提供统一的抽象语法表示。抽象语法的表示一般使用ASN.1（Abstract 
+            Syntax Notation One）。简单的来说OSI为其应用层定义了一个标准的局部语法描述：&quot;抽象语法标记1&quot;（ASN.1），于是出现了抽象语法的概念，现在一般使用&quot;抽象语法&quot;代替&quot;局部语法&quot;。<br>
+            <br>
+            <span class="point">（2）传送语法（Transfer Syntax）</span><br>
+            　　由应用实体提交来的抽象语法表示的信息要传到对方去，需要对信息进行编码，这就是传送语法。对于同一应用协议的数据单元APDU，互联的各开放系统的应用实体均使用各自定义的局部语法（抽象语法）表示，表示层则对此提供公共语法表示，即形成传送语法。<br>
+            　　传送语法的选择有以下几种方式：<br>
+            　<span class="point">・事先约定：</span>某组应用进程间通信时总是使用一种特定的传送语法。<br>
+            　<span class="point">・在建立表示连接时约定：</span>建立表示连接时通过名字引用来选择一个特殊的传送语法。<br>
+            　<span class="point">・传送形式化的语法描述语言：</span>先传送形式化的语法描述语言，再用它作为传送语法。<br>
+            <br>
+            <span class="point">（3）语法变换</span><br>
+            　　即抽象语法与传送语法按照一定规则相互转换的过程。发送方把自己的抽象语法转换成传送语法，接收方收到数据后，再把传送语法转换为自己的局部语法。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

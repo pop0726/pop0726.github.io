@@ -1,0 +1,34 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="95%" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td> 
+      <p><span class="pt9-black"><b>[解答]</b><br>
+        　　首先需要考虑的是，10个数的的和最少需要做几次加法。我们可以发现，加法的次数是不能减少的：9次；于是我们要尽可能快的完成任务，就只有考虑如何让流水线尽可能充满，这需要消除前后指令之间的相关。由于加法满足交换率和结合率，我们可以调整运算次序如以下的指令序列，我们把中间结果寄存器称为R，源操作数寄存器称为A，最后结果寄存器称为F，并假设源操作数已经在寄存器中，则指令如下：<br>
+        　　　I1： R1←A1+A2<br>
+        　　　I2： R2←A3+A4<br>
+        　　　I3： R3←A5+A6<br>
+        　　　I4： R4←A7+A8<br>
+        　　　I5： R5←A9+A10<br>
+        　　　I6： R6←R1+R2<br>
+        　　　I7： R7←R3+R4<br>
+        　　　I8： R8←R5+R6<br>
+        　　　I9： F←R7+R8<br>
+        　　这并不是唯一可能的计算方法。假设功能段的延迟为Δt。时空图如下，图中的数字是指令号：<br>
+        <img src="shijuangongshi/009.gif" width="684" height="178" align="absmiddle"> 
+        </span><br>
+        <span class="pt9-black">整个计算过程需要21Δt，所以吞吐率为：<img src="shijuangongshi/010.gif" width="120" height="38" align="absmiddle"><br>
+        加速比为：<img src="shijuangongshi/011.gif" width="185" height="43" align="absmiddle"><br>
+        效率为：</span><img src="shijuangongshi/012.gif" width="172" height="52" align="absmiddle"></p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+          <td class="explaination"><br>
+            　　前面说过IP并不保证送达，因而单独的段可能会丢失或不按次序到达。另外，如果一个源主机将多个数据报发给同一个目的地，这些数据报的多个段就可能以任意的次序到达。<br>
+            <br>
+            　　IP软件怎样重组这些乱序的段呢？发送方将一个惟一的标识放进每个输出数据报的标识（identification）域中。当一个路由器对一个数据报分段时，就会将这一标识数复制到每一段中，接收方就可利用收到的段的标识数和IP源地址来确定该段属于那个数据报。另外，段偏移（fragment 
+            offet）域可以告诉接收方各段的次序。<br>
+            <br>
+            　　只有一个数据报的所有的段都收到了，才能重组该数据报。因此有一个相应问题出现：一个数据报的一部分段到达的同时，很可能仍有一些段被延迟或丢失。尽管这时数据报还不能被重组，接收方仍须保留所有已收到的段，以防未到的段可能只是被延迟。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

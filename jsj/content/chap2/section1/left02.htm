@@ -1,0 +1,97 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第二章 指令系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><span class="pt9-black"><b class="part">2.1.2 浮点数据表示</b></span></p>
+          <p align="left" class="pt9-black">　　早期的计算机系统只有定点数据表示，这种计算机的优点是硬件结构比较简单，但有三个明显的缺点。<br>
+            　　第一个缺点是编程困难，程序设计人员必须首先确定机器小数点的位置，并且把所有参与运算的数据的小数点都要对齐到这个位置上，然后机器才能正确进行运算，也就是说，编程人员首先要把参与运算的数据扩大或缩小某一个倍数后送入机器，等运算结果出来后再恢复到正确的数值。<br>
+            　　第二个缺点是表示数的范围小，例如，一台16位字长的计算机所能表示的整数的范围只有：-32768到32767。从另一个角度看，为了能表示两个大小相差很大的数据，需要有很长的机器字长。例如： 
+            <br>
+            　　　太阳的重量大约是： <img src="iamges/gsh1_1.gif" width="57" height="11" align="absmiddle">克，<br>
+            　　　一个电子的重量大约是：<img src="iamges/gsh1_2.gif" width="57" height="15" align="absmiddle">克，<br>
+            　　　两者相差在<img src="iamges/gsh1_3.gif" width="22" height="13" align="absmiddle">以上。<br>
+            　　　若用定点数据表示： <img src="iamges/gsh1_4.gif" width="49" height="14" align="absmiddle">，<br>
+            　　　解得： ｘ＞203位；<br>
+            　　　再加上精度的要求，例如，要求精度不低于10进制7位，<br>
+            　　　则有： <img src="iamges/gsh1_5.gif" width="51" height="16" align="absmiddle">，<br>
+            　　　解得： ｘ＞23位；<br>
+            　　　总共需要： 203＋23＝230位。<br>
+            　　第三个缺点是数据存储单元的利用率往往很低，例如，为了把小数点的位置确定在数据最高位之前，必须把所有参与运算的数据至少都除以这些数据中的最大数，只有这样才能把所有数据都化成纯小数，因而会造成很多数据有大量的前置零，从而浪费了许多数据存储单元。<br>
+            　　为了解决上述三个问题，现代的大部分计算机都引入了浮点数据表示方式。在&quot;汇编语言程序设计&quot;课中，大家已经学习了浮点数的格式及其用法，在&quot;计算机组成原理&quot;课中，已经学习了浮点数的运算方法及运算器的工作原理等，在本书中将重点介绍浮点数据的分析和设计方法。 
+            <br>
+            　　计算机中的浮点数来源于数学中的实数，但两者又有许多本质的不同，它们之间的不同见表2.1所示。</p>
+          <p align="center" class="pt9-black"><b>表2.1 实数与浮点数的比较 </b></p>
+          <table width="75%" border="1" bgcolor="#FFFFCC" cellspacing="1">
+            <tr> 
+              <td width="24%" class="pt9-black"> 
+                <div align="center">两种数据</div>
+              </td>
+              <td width="25%" class="pt9-black"> 
+                <div align="center">表示数的范围</div>
+              </td>
+              <td width="28%" class="pt9-black"> 
+                <div align="center">表示数的精度</div>
+              </td>
+              <td width="23%" class="pt9-black"> 
+                <div align="center">唯一性</div>
+              </td>
+            </tr>
+            <tr> 
+              <td width="24%" class="pt9-black"> 
+                <div align="center">实 数</div>
+              </td>
+              <td width="25%" class="pt9-black"> 
+                <div align="center">无限</div>
+              </td>
+              <td width="28%" class="pt9-black"> 
+                <div align="center">连续</div>
+              </td>
+              <td width="23%" class="pt9-black"> 
+                <div align="center">不冗余</div>
+              </td>
+            </tr>
+            <tr> 
+              <td width="24%" class="pt9-black"> 
+                <div align="center">浮点数</div>
+              </td>
+              <td width="25%" class="pt9-black"> 
+                <div align="center">有限</div>
+              </td>
+              <td width="28%" class="pt9-black"> 
+                <div align="center">不连续</div>
+              </td>
+              <td width="23%" class="pt9-black"> 
+                <div align="center">冗余</div>
+              </td>
+            </tr>
+          </table>
+          <p align="left" class="pt9-black">&nbsp;</p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

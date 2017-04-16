@@ -1,0 +1,48 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第五章 标量处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black"><b>　　2、一般条件转移</b><br>
+            <br>
+            　　条件转移指令有两种，即一般条件转移指令和复合条件转移指令。其中，一般条件转移指令的转移条件来自上一条指令，或更前面的指令。而复合型条件转移指令直接根据本条指令的执行结果决定是否转移。一般条件转移指令的执行时间关系如下：<br>
+            　　　k： …… ；置条件码CC<br>
+            　　　k+1： JMP(CC) L ；如果CC为真转向L，否则继续执行k+2<br>
+            　　　k+2： ……<br>
+            　　　…： ……<br>
+            　　　L： ……<br>
+            　　对于一般条件转移指令，相关最严重的情况发生在条件码是由上一条指令产生的。如图5.30所示，条件码要在&quot;执行k&quot;的末尾才能形成，而&quot;分析k+1&quot;在一开始就要根据这个条件码判断转移条件是否成立。当指令分析器分析到条件转移指令时，必须停下来等待所需要的条件码，直�&quot;执行k&quot;结束时才能形成条件码。指令分析器根据这个条件码才能判断转移是否成功。<br>
+            　　如果转移不成功，尽管指令分析器要停顿一段时间，但是，处理机执行指令的速度损失不大。因为指令分析器在分析完条件转移指令后，可以继续&quot;分析k+2&quot;，指令执行部件在&quot;执行k&quot;之后，只要等待一个周期，就又可以继续&quot;执行k+2&quot;。<br>
+            　　如果转移成功，而且转移的距离比较近，有可能指令L已经被取到了指令缓冲栈中。这时，只要作废指令缓冲栈中从k+3到L-1之间的所有指令。指令分析器在完成&quot;分析k+1&quot;之后，可以接着进行&quot;分析L&quot;。如果转移距离比较远，指令L不在指令缓冲栈中，则要将指令缓冲栈的所有指令全部作废，指令分析器还要再等待至少一个&quot;取指令L&quot;周期之后才能开始&quot;分析L&quot;。在这种情况下，程序的执行过程与串行执行完全一样。</p>
+          <p align="center" class="pt9-black"><img src="images/tu5_30.jpg" width="422" height="193"></p>
+          <p align="left" class="pt9-black">　　从上面的分析中可以看到，转移不成功对流水线的影响不大，而当转移成功时，不仅指令执行过程变成了完全串行，而且要作废已经取到指令缓冲栈中的大量指令，从而白白增加了处理机与主存之间的通信量。因此，要通过软件与硬件的多种手段尽可能降低转移成功的概率和减少因为转移成功对流水线造成的影响。<br>
+          </p>
+          <p align="left" class="pt9-black">&nbsp;</p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

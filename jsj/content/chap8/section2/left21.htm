@@ -1,0 +1,54 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第八章 并行处理机和多处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black"><b>3. 机群系统</b></p>
+          <p align="left" class="pt9-black">　　1 机群系统的组成、特点和关键技术<br>
+            　　(1) 机群系统的组成<br>
+            　　机群系统是利用高速通用网络将一组高性能工作站或高档PC机，按某种结构连接起来，并在并行程序设计以及可视化人机交互集成开发环境支持下，统一调度，协调处理，实现高效并行处理的系统。从结构和结点间的通信方式来看，它属于分布存储系统，主要利用消息传递方式实现各主机之间的通信，由建立在一般操作系统之上的并行编程环境完成系统的资源管理及相互协作，同时也屏蔽工作站及网络的异构性，对程序员和用户来说，机群系统是一个整体的并行系统。机群系统中的主机和网络可以是同构的，也可以是异构的。目前已实现和正在研究中的机群系统大多采用现有商用工作站和通用LAN网络，这样既可以缩短开发周期又可以利用最新的微处理器技术；大多数机群系统的并行编程环境也是建立在一般的Unix操作系统之上，尽量利用商用系统的研究成果，减少系统的开发与维护费用。<br>
+            　　RISC技术、网络技术和并行编程环境的发展使得机群系统这一新的并行处理系统形式正成为当前研究的热点。<br>
+            <br>
+            　　1) 由于RISC技术的发展，使得微处理器的性能不断提高。高档芯片的运算能力平均每年增长30%，而价格在不断下降，直接使用商用工作站或PC机作为运算结点的机群系统在结点性能上能够同处理器的发展保持同步增长。<br>
+            <br>
+            　　2) 网络技术的进步使得松散耦合系统的通信瓶颈逐步得到缓解。网络传输速度的提高，有效地提高了应用程序之间的通信带宽。快速以太网的速率为100Mbps，ATM局域网的带宽达到155Mbps, 
+            622Mbps的产品也已经研制出来。而开关技术的发展则大幅度地降低了传输延迟，使得许多高速局域网能和MPP中的专用互连网络的性能相当。例如，由 
+            MyriCom 公司生产的 Myrinet，提供1.28Gbps的双向链路，已经和专用网络的带宽接近；它的开关延迟每级只有 1ms。采用这种网络的机群系统加上新的协议控制机制，点-点的往返延迟只有十几微秒到几十微秒。UIUC研制的Fast 
+            Messag平均往返延迟只有12ms ，UC Berkeley的Active Message为36ms , 与CM-5的专用网络相当，比Meiko 
+            CS-2的延迟还要小。<br>
+          </p>
+          <div align="left">
+            <p><span class="pt9-black">　　3) 并行编程环境的开发使得新编并行程序或改写串行程序更为容易。并行应用程序的开发和不同系统之间的可移植性一直是传统并行系统能否广泛应用的一个问题。由于机群系统的发展，近年来开发出了多个并行程序开发及运行系统，比如PVM, 
+              MPI，Express， Linda，P4等。 这些系统的适应平台非常广，现在流行的工作站上都可以运行，应用程序在这些系统上的可移植性较好，往往仅需要修改相应的数据交换语句。特别是PVM和MPI，由于其开放性，许多大学和研究机构都有广泛的研究和应用，在这些环境下开发了许多应用程序。<br>
+              　　这些技术的进步使得机群系统这一并行处理的新的结构形式受到广泛的的关注，国外许多大学和计算机公司都在进行这方面的研究和开发工作。 
+              </span></p>
+            <p>&nbsp; </p>
+          </div>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第二章 指令系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><span class="pt9-black"><br>
+            <b>3 表数效率</b></span></p>
+          <p align="left" class="pt9-black">　　通常把尾数最高位为非0的浮点数称为规格化浮点数，只有一个特例，就是机器0，机器0的尾数和阶码都是0，但它也是一个规格化浮点数。<br>
+            　　由于在同一种浮点数表示方式中，规格化浮点数具有最长的尾数有效位数，即能够保证尾数的绝对值为最大，当尾数用小数表示时，其绝对值在1/<img src="iamges/gsh1_22.gif" width="14" height="13" align="absbottom">到1之间，所以，规格化浮点数的表数精度是最高的。<br>
+            　　在采用浮点数表示方式的计算机中，一般规定存放在存储部件中的浮点数，进入运算部件的浮点数，从运算部件中输出的浮点数都必须是规格化浮点数，只有在运算过程中才可能出现非规格化的浮点数。<br>
+            　　在浮点数运算过程中，当出现非规格化浮点数时，必须通过左规格化或右规格化操作来把它变换成规格化浮点数。如果尾数采用小数表示，当出现尾数绝对值小于<img src="iamges/gsh1_33.gif" width="25" height="33" align="absmiddle"> 
+            （尾数的最高位为0）时，要把尾数左移，每次左移 <img src="iamges/gsh1_34.gif" width="70" height="27" align="absmiddle">个二进制位，同时把阶码减1，直到尾数的绝对值大于<img src="iamges/gsh1_33.gif" width="25" height="33" align="absmiddle"> 
+            时为止，当出现尾数绝对值大于1时，要把尾数右移，每次左移 <img src="iamges/gsh1_34.gif" width="70" height="27" align="absmiddle">个二进制位，同时把阶码加1，直到尾数的绝对值小于1时为止。<br>
+            　　由于浮点数表示方式中有可能出现非规格化浮点数，因此，浮点数制是一种冗余数制(Redundant Number System)，这一点，与数学中的实数是不同的。<br>
+            　　为了提高数据的信息利用率，总是希望非规格化浮点数的个数尽可能少，为此，必须研究浮点数表示方式的表数效率问题。 <br>
+            　　浮点数表示方式的表数效率定义为：<br>
+            <br>
+            　　　<img src="iamges/gsh1_35.gif" width="469" height="48"> <br>
+            <br>
+            　　分子中，第一个2表示尾数的正、负数各半，（<img src="iamges/gsh1_22.gif" width="14" height="13" align="absbottom">－1）表示尾数最高位的编码种数，这里去掉了一个0，<img src="iamges/gsh1_36.gif" width="38" height="19" align="absbottom"> 
+            表示尾数除最高位之外其它位的编码种数，第二个2表示由于阶码的符号位使编码种数增加一倍， <img src="iamges/gsh1_37.gif" width="22" height="18" align="absbottom">表示阶码的所有编码种数，分子中的最后一个1表示机器0，因为机器0也属于规格化浮点数；分母中，第一个2表示尾数的正、负数各半， 
+            <img src="iamges/gsh1_38.gif" width="29" height="20" align="absbottom">表示尾数的全部编码种数，第二个2表示由于阶码的符号位使编码种数增加一倍， 
+            <img src="iamges/gsh1_37.gif" width="22" height="18" align="absbottom">表示阶码的所有编码种数。<br>
+            　　上式经过化简，并忽略掉机器0，有：<br>
+            　　　　　　　　　<img src="iamges/gsh1_39.gif" width="99" height="35">　　　　　　　　　　　（2.9）<br>
+            　　从(2.9)中看出，浮点数的表数效率主要与尾数的基值有关。<br>
+            　　当尾数基值为2时，浮点数的表数效率为：<br>
+            　　　　　　　　　<img src="iamges/gsh1_5F40.gif" width="133" height="33"> <br>
+            　　因此，尾数基值取2时，浮点数的信息利用率很低。这时，只有尾数最高一个二进制位为1的浮点数是规格化浮点数，尾数最高一个二进制位为0的浮点数是非规格化浮点数。<br>
+            　　当尾数基值<img src="iamges/gsh1_22.gif" width="14" height="13" align="absbottom">＞2时，浮点数的表数效率与尾数基值<img src="iamges/gsh1_22.gif" width="14" height="13" align="absbottom">＝2时相比提高的倍数可计算如下：<br>
+            　　　　　　　　　<img src="iamges/gsh1_41.gif" width="189" height="42"> <br>
+            　　变化范围在1与2之间，并且随着<img src="iamges/gsh1_22.gif" width="14" height="13" align="absbottom">的增大，这个比值就越接近2。<br>
+            　　例如，当尾数基值<img src="iamges/gsh1_22.gif" width="14" height="13" align="absbottom">＝16时，浮点数的表数效率为：<br>
+            　　　　　　　　　<img src="iamges/gsh1_42.gif" width="143" height="32"><br>
+            　　这是因为当尾数基值<img src="iamges/gsh1_22.gif" width="14" height="13" align="absbottom">＝16时，只要尾数的最高4个二进制位不全为0，所表示的浮点数都是规格化浮点数，只有当最高4个二进制位全为0时，所表示的浮点数才是非规格化浮点数。<br>
+            　　尾数基值<img src="iamges/gsh1_22.gif" width="14" height="13" align="absbottom">＝16与<img src="iamges/gsh1_22.gif" width="14" height="13" align="absbottom">＝2相比，浮点数的表数效率提高了：<br>
+            　　　　　　　　　<img src="iamges/gsh1_43.gif" width="129" height="39" align="absmiddle">倍<br>
+            <br>
+            <br>
+          </p>
+          <p align="left" class="pt9-black">　</p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

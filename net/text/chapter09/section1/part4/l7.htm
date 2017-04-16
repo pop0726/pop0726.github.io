@@ -1,0 +1,40 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td class="explaination" width="25" valign="top"><br>
+            <img src="../../../../image/tub/ts.gif" width="25" height="20" alt="图示"></td>
+          <td class="explaination"> 
+            <div align="center"><br>
+              <img src="../../../../image/pic/chapter09/9_21.gif" width="301" height="279"> 
+              <br>
+              <br>
+              <span class="point">图9.20 ATM参考模型</span></div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="explaination" colspan="2"><br>
+            　　GFC仅在UNI信元头部出现，在经过交换机后，就被扩展成VPI的一部分。在制定标准时，是希望该字段能够用于主机和网络间的流量控制，标识数据的优先级，但实际上没有为它定义任何值。GFC一般为0。<br>
+            <br>
+            　　PT（3比特）定义了信元净荷的类型，此外还包括一些其它的信息。如果PT的最高位为0，则表示信元的净荷部分为用户数据，此时PT的中间一位表示信元是否经过了网络拥塞，而最低位是用户指示信息。AAL5就使用该位的信息来完成其功能。PT的最高位为1时，其低两位不具有上述的含义。此时，PT从100到110的值分别表示一种数据类型，111保留作其它用途。例如，110表示资源管理（RM）信元。数据类型和用户指示信息是由发送端的用户提供的，在传输过程中不能更改，而拥塞信息是网络设置的。<br>
+            <br>
+            　　CLP（1比特）用于标识信元的丢弃优先级。如果CLP为1，则网络处于拥塞时，可以丢弃该信元。CLP为0时，信元的优先级较高，应该为之分配足够的资源，并优先发送。CLP位可以由应用程序设置，也可以由ATM交换机设置。属于CBR业务的信元总是处于高优先级，即CLP都为0。而VBR业务则可以设置一些重要信元的CLP为0，另外一些信元的CLP为1。<br>
+            <br>
+            　　网络设备通过检查信元头部来决定如何处理这个信元以及将此信元送往何处，但不检查信元净荷部分。也就是说，净荷是由数据、话音或图象中的哪一种组成无关重要，它只被看作是384bit（48字节）的一个单位。因此可在单一的网络上同时支持所有数据的传输，这是ATM的突出优点。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

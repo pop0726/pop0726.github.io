@@ -1,0 +1,47 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td class="explaination" colspan="2"><br>
+            　　由于局域网只是一个短距离内的计算机通信网，它并不存在路由选择问题，因而它不涉及网络层，只需考虑最低的两层。然而由于局域网的种类繁多，其介质访问控制方式各不相同，为了使局域网的数据链路层不致于过分复杂，有必要将数据链路层分成两个子层，介质访问控制子层MAC（Medium 
+            Access Control）和逻辑链路控制子层LLC（Logical Link Control）。由此来使得数据链路层更容易实现向上提供的服务与介质、拓扑等因素无关的统一特性。<br>
+            <br>
+            　　IEEE802参考模型及其与OSI参考模型对比关系如<span class="point">图8.1</span>。<br>
+            　</td>
+        </tr>
+        <tr> 
+          <td class="explaination" width="25" valign="top"><img src="../../../../image/tub/ts.gif" width="25" height="20" alt="图示"></td>
+          <td class="explaination"> 
+            <div align="center"><img src="../../../../image/pic/chapter08/8_1.gif" width="396" height="255"><br>
+              <br>
+              <span class="point">图8.1 IEEE802参考模型</span></div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="explaination" colspan="2" height="223"><br>
+            　IEEE802.1标准规定局域网的低三层的功能如下：<br>
+            <span class="point">　・物理层：</span><br>
+            　　与OSI/RM的物理层相对应，但所采用的具体协议标准的内容直接与传输介质有关。<br>
+            <br>
+            <span class="point">　・介质访问控制（MAC）层：</span><br>
+            　　具体管理通信实体接入信道而建立数据链路的控制过程。<br>
+            <br>
+            <span class="point">　・逻辑链路控制（LLC）层：</span><br>
+            　　提供一个或多个服务访问点，以复用的形式建立多点--多点之间的数据通信连接，并包括寻址、差错控制、顺序控制和流量控制等功能。这些功能基本上与HDLC规程一致。此外，在LLC层还提供本属于OSI/RM中网络层提供的两项服务，即无连接的数据报服务和面向连接的虚电路服务。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

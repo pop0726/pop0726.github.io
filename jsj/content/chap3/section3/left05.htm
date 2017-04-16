@@ -1,0 +1,52 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第三章 存储系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black"><b>2、直接映象及其变换</b><br>
+            <br>
+            　　直接映象方式是一种最简单的方法。主存中的一块只能映象到Cache的一个确定块中。假设主存的块号为B，Cache的块号为b，则它们之间的映象关系可以表示为：<br>
+            　　　　b＝B mod　<img src="images/gsh3_2.gif" width="13" height="16" align="absmiddle"><br>
+            　　其中，<img src="images/gsh3_2.gif" width="13" height="16" align="absmiddle">是Cache的块数。<br>
+            　　直接映象方法的映象关系如图3.31所示。把主存按Cache的大小分成区，在一般情况下，主存的容量是Cache容量的整倍数。主存每一个分区内的块数与Cache的总块数正好相等。直接映象方式只能把主存各个区中相对块号相同的那些块映象到Cache中同一块号的那个确定块中。例如，主存的块0只能映象到Cache的块0中，主存的块1只能映象到Cache的块1中。同样，主存区1中的块<img src="images/gsh3_2.gif" width="13" height="16" align="absmiddle">（在区1中的相对块号是0）也只能映象到Cache的块0中。另外，<img src="images/gsh3_3.gif" width="20" height="12" align="absmiddle">是主存的块数，Me是主存的区数。<br>
+            　　根据前面给出的地址映象规则，整个Cache地址与主存地址的低位部分是完全相同的。在图3.32中，主存地址中的块号B与Cache地址中的块号b是完全相同的。同样，主存地址中的字内地址W与Cache地址中的块内地址w也是完全相同的。主存地址比Cache地址长出来的部分称为区号E。<br>
+            　　在程序执行过程中，当要访问Cache时，为了实现主存块号到Cache块号的变换，需要有一个存放主存区号的小容量存储器。这个存储器的容量与Cache的块数相等，字长为主存地址中区号E的长度，另外再加一个有效位。</p>
+          <p align="center" class="pt9-black"><img src="images/tu3_31.gif" width="376" height="333"><br>
+            <b>图3.31 直接相联映象方式</b> </p>
+          <p align="center" class="pt9-black"><img src="images/tu3_32.gif" width="419" height="258"><br>
+            <b>图3.32 直接相联地址变换 </b></p>
+          <p align="left" class="pt9-black">　　直接映象方式的地址变换过程如图3.32所示。首先用主存地址中的块号B去访问区号存储器（按地址访问）。把读出来的区号与主存地址中的区号E进行比较，根据比较结果和与区号在同一存储字中的有效位情况作如下处理：<br>
+            　　如果区号比较结果相等，有效位为&quot;1&quot;，则Cache命中，表示要访问的那一块已经装到Cache中了，这时的Cache地址是正确的。用这个Cache地址去访问Cache，把读出来的数据送往CPU。其它情况均为Cache没有命中，或称为Cache失效，表示要访问的那个块还没有装到Cache中，这时，要去访问主存储器，把读出来的一个字送往CPU。同时，把包括被访问字在内的一块都从主存储器中读出来。 
+            <br>
+            　　如果区号比较结果相等，有效位为&quot;0&quot;，表示Cache中的这一块已经被作废，这时，要把从主存中读出来的新块装到Cache中，并且把有效位置&quot;1&quot;即可。如果区号比较结果不相等，有效位为&quot;0&quot;，表示Cache的这一块是空的。这时，只要把从主存中读出来的新块装到Cache中，并把有效为置&quot;1&quot;即可。另外，还要把主存区号写到区号存储器的相应单元中。<br>
+            　　如果区号比较结果不相等，有效位为&quot;1&quot;，表示原来在Cache中存放的那一块是有用的，这时，必须先把Cache中的这一块写回到主存储器中原来存放它的存储单元中，腾出地方来，才能把从主存中读出的新块装到Cache中。另外，也要把主存区号写到区号存储器的相应单元中。<br>
+            <br>
+          </p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

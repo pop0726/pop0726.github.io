@@ -1,0 +1,62 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第二章 指令系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><span class="pt9-black"><br>
+            </span><span class="section">2.4 指令系统的功能设计</span></p>
+          <p align="left" class="pt9-black">　　如果把计算机系统所要实现的任务分解成一个个基本功能，那么，在这些基本功能中，实际上只有极少数几种基本功能是必须用硬件的指令系统来实现的，而绝大多数基本功能既可以用硬件的指令系统来实现，也可以用软件的一段子程序来实现。<br>
+            　　体系结构设计者在考虑哪些基本功能用指令来实现时，主要考虑的因素有三个：速度、价格和灵活性。用硬件的指令来实现，速度高、价格贵、灵活性差。用软件的子程序来实现，速度低、价格便宜、灵活性好。<br>
+            　　设计指令系统时，在功能方面的基本要求是：指令系统的完整性、规整性、高效率和兼容性。</p>
+          <p align="left"><span class="pt9-black"><b class="part">2.4.1 指令系统的完整性</b><br>
+            <br>
+            　　在设计通用计算机时，指令系统的完整性是必须要考虑的。数据传送类指令、运算类指令、程序控制类指令、输入输出指令、处理机控制和调试指令，这5类指令属于通用计算机系统的基本指令。<br>
+            <b><br>
+            1、数据传送类指令</b><br>
+            <br>
+            　　数据传送指令的种类由如下三个主要因素决定：<br>
+            　　(1)数据存储设备的种类。数据传送指令的目标是要在相同或不同的数据存储设备之间传送数据。计算机系统中可以寻址的主要数据存储设备有：通用寄存器、主存储器、堆栈等三种，这三种存储设备的有效排列有8种可能。对于输入输出设备，虽然它也可能是数据存储设备，但是，输入输出设备具有许多与其它数据存储设备不同的地方，因此，许多计算机系统用专门的输入输出指令对它进行管理。<br>
+            　　(2)数据传送的单位，通常有字、字节、数据块等3种。<br>
+            　　(3)采用的寻址方式，根据机器种类不同，差别很大，一般在4至20种之间。寻址方式可以放在操作码中，如IBM370计算机，也可以放在地址码中。如果把寻址方式放在地址码中，指令的种类就可以减少许多种。<br>
+            　　如果把寻址方式放在地址码中，并且不考虑输入输出设备，则以字为传送单位的指令应该有如下8种：<br>
+            　　通用寄存器<img src="images/youjiantou.gif" width="14" height="12" align="absmiddle">通用寄存器<br>
+            　　通用寄存器<img src="images/youjiantou.gif" width="14" height="12" align="absmiddle">主存储器<br>
+            　　通用寄存器<img src="images/youjiantou.gif" width="14" height="12" align="absmiddle">堆栈<br>
+            　　主存储器<img src="images/youjiantou.gif" width="14" height="12" align="absmiddle">通用寄存器 
+            <br>
+            　　主存储器<img src="images/youjiantou.gif" width="14" height="12" align="absmiddle">主存储器<br>
+            　　主存储器<img src="images/youjiantou.gif" width="14" height="12" align="absmiddle">堆栈<br>
+            　　堆栈<img src="images/youjiantou.gif" width="14" height="12" align="absmiddle">通用寄存器<br>
+            　　堆栈<img src="images/youjiantou.gif" width="14" height="12" align="absmiddle">主存储器<br>
+            　　对于以字节或以数据块为单位的数据传送指令，指令种类可以适当减少。</span><br>
+            <br>
+          </p>
+          <p align="left"><span class="pt9-black">　</span></p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

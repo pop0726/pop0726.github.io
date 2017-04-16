@@ -1,0 +1,41 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td class="explaination" colspan="2"><br>
+            　　下一站转发（next-hopforwarding）这个概念类似于飞机航班表。假定一个从旧金山飞往迈阿密的旅客发现路线有三段：第一段从旧金山到达拉斯，第二段从达拉斯到亚特兰大，第三段从亚特兰大到迈阿密。整个旅行的目的地都一样：迈阿密，然而在每个机场的下一站都不一样。当这个旅客在旧金山时，下一站是达拉斯；当旅客在达拉斯时，下一站是亚特兰大；当在亚特兰大时，下一站是迈阿密。<br>
+            <br>
+            　　下<span class="point">图9.7</span>显示了在包交换网络中的下一站转发技术：<br>
+            　</td>
+        </tr>
+        <tr> 
+          <td class="explaination" width="25" valign="top"><img src="../../../image/tub/ts.gif" width="25" height="20" alt="图示"></td>
+          <td class="explaination">
+            <div align="center"><img src="../../../image/pic/chapter09/9_8a.gif" width="309" height="152"><br>
+              <span class="point">(a)</span><br>
+              <br>
+              <img src="../../../image/pic/chapter09/9_8b.gif" width="134" height="124"><br>
+              <span class="point">(b)</span><br>
+              <span class="point">图9.7 广域网路由</span></div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="explaination" colspan="2"><br>
+            　　如图9.7所示，下一站信息可以制成一张表。表中每一项列出了一个目的地址以及对应的下一站。当向前转发包时，交换机检查包的目的地址，搜索与之相匹配的项，然后将该包发往项中所标出的下一站。图中例表显示了包交换机2是如何转发包的。当它收到目的地址为(3,5)的包后，该交换机把此包发往接口4（包交换机中的软件通常为每个接口指派一个小整数，这个数值在交换机外没有任何意义，也不在包中出现。图中交换机2的接口是从左到右数），这个接口通往交换机3。当包的目的地址为(2,1)时，交换机直接把该包发往计算机E。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

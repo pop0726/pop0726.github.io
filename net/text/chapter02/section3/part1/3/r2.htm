@@ -1,0 +1,31 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" background="../../../../../image/htmls/right_r5_c3.gif" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+          <td class="text"><br>
+            <span class="part">1.基本概念</span><br>
+            <br>
+            <span class="point">　(3) （N）层服务访问点（N）-SAP和（N）服务原语</span><br>
+            <br>
+            　　服务的请求与提供是通过在服务访问点SAP上服务原语（Primitive） 的发送与接收来实现的。这要求（N）-服务用户与（N）-服务提供者跨服务访问点（N）-SAP进行交互，它指出了相应的服务和必须执行的抽象操作。服务原语是一种原子动作，它由服务用户发出也可由服务提供者发起。原语所描述的交互只是一种抽象的交互，并不涉及交互实体在服务访问点N-SAP上如何具体交换信息。从实现的角度看，一个服务要求可能包含着一组原语的调用和在一定的时间内执行一系列的交互。<span class="point">动画</span>给出了&quot;连接建立&quot;服务元素调用相关服务原语的情形：开放系统A的（N+1）实体欲与开放系统B的（N+1）实体建立连接，则A的（N+1）实体通过（N）-SAP发出（N）连接建立请求（N）-CONNECTION-request 
+            原语；（N）实体（即（N）服务提供者）接受此原语，执行相应的（N）协议功能及有关操作，在B的（N）-SAP处向（N+1）实体发出（N+1）连接建立指示（N）CONNECTION-indication 
+            原语，指出A的（N+1）实体欲与其建立（N）连接。若B的（N+1）实体同意建立连接，则通过（N）-SAP向（N）实体发出连接建立响应（N）CONNECTION-response 
+            原语，执行（N）协议功能及相关操作，在A的（N）-SAP处（N）服务提供者向（N+1）实体发出（N）连接建立确认（N）CONNECTION-Confirm 
+            原语，至此，对等实体（N+1）实体间的（N+1）连接建立。这一过程的示意图如动画所示。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

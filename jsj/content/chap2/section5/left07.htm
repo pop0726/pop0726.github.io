@@ -1,0 +1,62 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第二章 指令系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><span class="pt9-black"><b>2、指令取消技术</b><br>
+            <br>
+            　　采用指令延时技术，遇到条件转移指令时，调整指令序列非常困难，在许多情况下找不到可以用来调整的指令。有些RISC处理机采用指令取消技术。<br>
+            　　在使用指令取消技术的处理机中，所有转移指令和数据变换指令都可以决定下面待执行的指令是否应该取消。如果指令被取消，其效果相当于执行了一条空操作指令，不影响程序的运行环境。<br>
+            　　为了提高程序的执行效率，应该尽量少取消指令，以保持指令流水线处于充满状态。因此，可以采用如下规则：如果是向后转移（转移的目标地址小于当前程序计数器PC的值），则在转移不成功时取消下条指令，否则，执行下条指令；如果是向前转移，则正好相反，在转移不成功时执行下条指令，否则，取消下条指令。 
+            <br>
+            　　下面看两个具体的例子。首先是一个向后转移的例子。调整前的程序如图2.16(a)所示，调整前的程序如图2.16(b)所示.</span></p>
+          <p align="center"><span class="pt9-black"><img src="images/tu2_16.gif" width="468" height="169"></span></p>
+          <p align="left"><span class="pt9-black">　　循环体的第一条指令（X X X）经调整后安排在两个位置，第一个位置是在循环体的前面，即在进入循环之前要先执行一次。第二个位置安排在循环体的后面，即在循环的出口条件判断指令COMP的下面。如果转移成功，则执行下面的X 
+            X X指令，然后返回到LOOP；如果转移不成功，则取消下面的X X X指令，接着执行W W W指令。<br>
+            　　由于向后转移时，绝大多数情况下是转移成功的，只有在循环全部结束最后一次，转移才不成功。因此，采用这种指令取消技术能够使指令流水线在绝大多数情况下不断流，保持很高的流水效率。<br>
+            　　对于向前转移的情况，即IF …… THEN控制结构，有如下一个程序：</span></p>
+          <p align="left"><span class="pt9-black">　　　　　<img src="images/gsh5_1.gif" width="77" height="51" align="absmiddle">&quot;IF&quot;部分的程序代码 
+            <br>
+            　　　　　COM R1, R2, THRU<br>
+            　　　　　<img src="images/gsh5_2.gif" width="69" height="52" align="absmiddle"> 
+            &quot;THEN&quot;部分的程序代码<br>
+            　　THRU: <img src="images/gsh5_3.gif" width="41" height="16" align="absmiddle"><br>
+            　　如果COMP指令的转移条件不成立，则下条指令T T T不取消，&quot;THEN&quot;部分的程序代码照常执行；如果转移条件成立，下条指令T 
+            T T的执行被取消，程序执行转向THRU位置，&quot;THEN&quot;部分的程序代码全部不执行。<br>
+            　　由于向前转移成功与不成功的概率通常各为50％，因此，采用正常的指令取消技术就可以了。<br>
+            　　另外，对于条件分支中只有一条指令的情况，可以采用隐含转移技术。例如，为了实现下面的语句：<br>
+            　　　IF （a＜b） THEN b＝b＋1<br>
+            　　用汇编语言可以写成：<br>
+            　　　COMP &gt;=, Ra, Rb ；a与b已经存放在通用寄存器Ra和Rb中<br>
+            　　　INC Rb<br>
+            　　指令COMP比较a与b的大小，若（Ra）&gt;=（Rb），则取消下条指令，否则，执行下条指令。<br>
+            <br>
+            </span></p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+          <td class="explaination"><br>
+            　　MTS由一个以上在逻辑上有联系的报文传输代理（MTA）所组成。MTA是实现存储转发报文功能的实体。从软件的角度看，MTA是一个应用层实体AE。一个MTA可以连接多个MTA或UA，起着中继作用的MTA要负责寻找合适的路由。如果MTA收到其他MTA传来的报文的收信人的UA就连接在本MTA上，则把它提交给该UA。如果收到的报文的收信人的UA没有连接在本MTA上，则需要将该报文发送给下一个MTA。下一个MTA的选择属于报文转发的路由选择问题，不过这里的路由选择是应用层的路由选择，它和网络层的路由选择是不同的概念，所采用的策略也不同。 
+            MTA处理报文是根据信封，它既不关心也不修改报文的内容。用户代理UA处理报文是根据报文的内容中的信头，它也不关心报文的信体部分。报文的信体部分只有用户才能对它进行解释。<br>
+            <br>
+            　　为了提交和投递报文，UA与它的本地MTA交互。各MTA负责相互之间的协调工作，以将报文通过MTS传送到其目的地，而UA负责向MTS提交报文和接收MTS投递的报文。这样的分工是很重要的，然而，如果UA驻留在一台计算机内，而该计算机当用户离开后就被关机，则MTS无法及时向UA投递报文。为此，引入了一个新的实体，称作报文存储（MS）。MS的作用是作为UA与本地MTA之间的中介体。当投递时，MTA将报文放入MS，以后当UA工作时，就从MS中取出报文。另一方面，也可利用MS来提交报文，即UA只需要把报文交给为自己服务的MS后就可以退出执行，由MS负责在MTA有空闲存储空间时把报文提交给它发送，这种情形叫作间接提交。由于MS的引入，减轻了UA与MTS交互的工作，使之能执行更多的用户接口功能；同时也减轻了MTA代替UA存储报文的压力，使之能更多地执行报文传递功能。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

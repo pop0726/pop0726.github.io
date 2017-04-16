@@ -1,0 +1,42 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+          <td class="explaination"><br>
+            <span class="point">・前导码 </span><br>
+            　　包含了7个字节的二进制&quot;1&quot;、&quot;0&quot;间隔的代码，即1010……l0共56位。当帧在介质上传输时，接收方就能建立起位同步，因为在使用曼彻斯特编码情况下，这种&quot;1&quot;、&quot;0&quot;间隔的传输波形为一周期性方波。<br>
+            <br>
+            <span class="point">・帧首定界符（SFD） </span><br>
+            　　它是1字节的10101011二进制序列，此码一过，表示一帧实际开始，以使接收器对实际帧的第一位定位。<br>
+            <br>
+            <span class="point">・目的地址（DA） </span><br>
+            　　它说明了帧企图发往目的站的地址，共6个字节，可以是一个唯一的地址，即单址--代表单个站，一个多址--代表一组站，或一个全地址--代表局域网上所有的站。当目的地址出现多址时，即表示该帧被一组站同时接收，称&quot;组播&quot;（Multicast）。当目的地址出现全地址时，即表示该帧被局域网上所有站同时接收，称&quot;广播&quot;（Broadcast）。以DA的最高位来判断是否单址，若最高位为&quot;0&quot;则表示单址，&quot;1&quot;表示多址或全地址。且全地址还必须是DA为全&quot;1&quot;代码。<br>
+            <br>
+            <span class="point">・源地址（SA） </span><br>
+            　　它说明发送该帧站的地址，与DA一样占6个字节。<br>
+            <br>
+            <span class="point">・类型（TYPE） </span><br>
+            　　共占2个字节。它说明了高层所使用的协议，例如可能是IP协议，也可能是NOVELL的IPX协议。<br>
+            <br>
+            <span class="point">・数据（DATA） </span><br>
+            　　它的范围处在46字节至1500字节之间。注意到46字节最小帧长度是一个限制，目的是要求局域网上所有的站都能检测到该帧，即保证网络正常工作。如果高层协议的分组使数据段小于46个字，则由有关软件把DATA填充到46字节最小长度。<br>
+            <br>
+            <span class="point">・帧检验序列（FCS） </span><br>
+            　　它处在帧尾，共占4字节。是32位冗余检验码（CRC），检验范围除前导码、SFD和FCS以外的所有帧的内容，即从DA开始至DATA完毕的CRC检验结果都反映在FCS中。当发送站发出帧时，边发送，边逐位进行CRC检验。最后形成一个32位CRC检验和填在帧尾FCS位置中一起在介质上传输。接收站接收后，从DA开始同样边接收边逐位进行CRC检验。最后接收站形成的检验和若与帧的检验和相同，则表示介质上传输帧未被破坏。反之，接收站认为帧被破坏。则会通过一定的机制要求发送站重发该帧。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

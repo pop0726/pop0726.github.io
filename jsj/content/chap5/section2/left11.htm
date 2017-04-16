@@ -1,0 +1,61 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第五章 标量处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black"><span class="part">5.2.6 提前形成条件码</span><br>
+            <br>
+            　　从上一节的分析中可以看出，条件转移指令造成流水线吞吐率下降的主要原因是条件码形成得太晚。因此，尽早产生条件码对减少流水线吞吐率和效率的损失非常有效。那么，条件码能否提前产生呢？<br>
+            　　对于一般条件转移指令，转移条件码是由上一条运算型指令产生的。对于大多数情况，可以在运算实际开始之前或者在运算中间就能产生条件码，不必等到运算完成之后。例如，乘法或除法指令，两个源操作数符号相同，结果为正，符号相反，结果为负；两个源操作数中有一个为&quot;0&quot;，则乘积为&quot;0&quot;；被除数为&quot;0&quot;，则商为&quot;0&quot;，除数为&quot;0&quot;，则除法结果溢出；因此，只要比较两个操作数的符号或阶码就能够确定运算结果的正负号、是否&quot;0&quot;、是否溢出等。对于加减法运算，相同符号的两个数相加，结果的符号与其中一个加数的符号相同；两个不同符号的操作数相减，结果的符号与被减数的符号相同；符号不同的两个操作数相加，或者符号相同的两个操作数相减，结果的符号与两个操作数中绝对值较大的那个操作数的符号相同。加减法的溢出、结果是否为&quot;0&quot;等也可以通过一个简单的比较器提前产生。因此，在绝大多数情况下，只要在运算部件的入口处设置一个比较器，通过比较两个操作数的符号或者阶码就能够提前形成结果的正负号、是否&quot;0&quot;、是否溢出等条件码。如果能够在一个时钟之前内就产生条件码，则正好可以提供给下一条条件转移指令使用；这样，流水线就不会&quot;断流&quot;。例如，Amdahl 
+            470V/6计算机在运算部件的入口处设置一个LOCK部件来预判条件码。<br>
+            　　有一种用来控制循环次数的计数转移指令在条件转移指令中占有很大的比例，而且，这种指令要随着循环程序反复执行很多次；因此，在许多流水线处理机中对这种条件转移要做特殊的处理。例如，有下面一段循环程序：<br>
+            　　　　　LOAD R1, NUM ；把循环次数初值装入到寄存器R1中<br>
+            　　LOOP： …… 2 ；循体开始<br>
+            　　　　　……<br>
+            　　　　　…… ；循环体结束<br>
+            　　　　　DEC R1 ；循环次数减&quot;1&quot;<br>
+            　　　　　BNE LOOP ；如果循环未结束，继续执行循环体，否则结束循环<br>
+            　　　　　HELT ；程序结束<br>
+            　　NUM: n ；循环次数<br>
+            　　这段程序中的最后两条指令是一种典型的条件转移指令的组合，条件转移指令所需要的条件码是由上一条指令产生的。对于这种循环程序中的计数转移指令，在本书中已经介绍过两种处理方法。一种是在第二章的&quot;RISC关键技术&quot;中介绍的延迟转移技术；另一种是在本章介绍的分支预测技术。下面，介绍在流水线处理机中采用的另一种方法。<br>
+            　　首先，要由编译程序在对源程序进行编译时发现这种计数转移指令。当程序中出现这种指令组合时，把&quot;DEC R1&quot;指令提前到循环体前面。这样，上面一段循环程序被编译成如下程序：<br>
+            　　　　　LOAD R1, NUM ；把循环次数初值装入到寄存器R1中<br>
+            　　LOOP： LDEC R1 ；这是一条专门的循环次数减&quot;1&quot;指令<br>
+            　　　　　…… ；循体开始<br>
+            　　　　　……<br>
+            　　　　　…… ；循环体结束<br>
+            　　　　　LBNE LOOP ；这是一条专门用来测试循环是否结束的指令<br>
+            　　　　　HELT ；程序结束<br>
+            　　NUM: n ；循环次数<br>
+            　　程序中的&quot;LDEC&quot;和&quot;LBNE&quot;是两条专门用来控制循环次数的指令，它们使用另外一个专门的条件码寄存器<img src="images/gsh2_14.gif" width="27" height="16" align="absmiddle">。<img src="images/gsh2_14.gif" width="27" height="16" align="absmiddle">由&quot;LDEC&quot;循环次数减&quot;1&quot;指令设置，由&quot;LBNE&quot;循环出口测试指令使用；而处于这两条指令中间的属于循环体的指令不能破坏CCL条件码寄存器中的内容。<br>
+            　　采用专门的循环控制指令和专门的条件码寄存器，能够把产生条件码的运算型指令与使用这个条件码的条件转移指令分离开来。只要循环体长度不是很短，循环体中的所有指令再加上两条循环控制指令能够充满流水线，流水线就不会有&quot;断流&quot;情况发生。<br>
+          </p>
+          <p align="left" class="pt9-black">&nbsp;</p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

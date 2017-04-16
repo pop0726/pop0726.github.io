@@ -1,0 +1,101 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第二章 指令系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><span class="pt9-black"><br>
+            <b class="part">2.5.3 减少CPI是RISC思想的精华</b><br>
+            <br>
+            　　读者往往会提出这样一个问题：精简指令系统计算机RISC的指令系统精简了，复杂指令系统计算机CISC的一条指令，在RISC中要用一串指令才能实现，那么，为什么RISC执行程序的速度比CISC还要快呢？<br>
+            　　这里，有一个很简单，也是很重要的公式。任何一个程序在计算机上的执行时间可以用下面的公式来计算：<br>
+            　　　　P＝I・CPI・T 其中：<br>
+            　　P是执行这个程序所使用的总的时间；<br>
+            　　I是这个程序所需执行的总的指令条数；<br>
+            　　CPI是每条指令执行的平均周期数；<br>
+            　　T是一个周期的时间长度。<br>
+            　　表2.12列出了CISC与RISC的三个参数I、CPI和T的比较情况。从这三个参数的比较中可以得出如下结论：</span></p>
+          <p align="center"><span class="pt9-black"><b>表2.12 CISC与RISC的I、CPI和T的比较</b></span></p>
+          <table width="85%" border="1" cellspacing="1" bgcolor="#66CC99">
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center">类 型</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">指令条数 I</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">指令平均周期数 CPI</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">周期时间 T</div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center">CISC</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">1</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">2～15</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">33ns～5ns</div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center">RISC</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">1.3～1.4</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">1.1～1.4</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">10ns～2ns</div>
+              </td>
+            </tr>
+          </table>
+          <p align="left" class="pt9-black">　　1、对于程序所执行的总的指令条数I。<br>
+            　　由于RISC的指令都比较简单，CISC中的一条复杂指令所完成的功能在RISC中可能要用几条指令才能实现。对于同一个源程序，分别编译后生成的动态目标代码，显然RISC的要比CISC的多。但是，由于CISC中复杂指令使用的频度很低，程序中使用的绝大多数指令都是与RISC一样的简单指令，因此，实际上的统计结果表明，RISC的I长度只比CISC的长30％至40％。<br>
+            <br>
+            　　2、对于指令平均执行周期数CPI。由于CISC一般是用微程序实现的，一条指令往往要用好几个周期才能完成，一些复杂指令所要的周期数就更多。根据统计，大多数CISC处理机，指令平均执行周期数CPI在4到6。而RISC的大所数指令都是单周期执行的，它们的CPI应该是1，但是，由于RISC中还有LOAD和STORE指令，也还有少数复杂指令，所以，CPI要略大于1。据报道，SUN公司的SPARC处理机的CPI为1.3到1.4，SGI公司的MIPS处理机的CPI为1.1到1.2。<br>
+            <br>
+            　　3、对于一个周期的时间长度T。由于RISC一般采用硬布线逻辑实现，指令要实现的功能都比较简单，所以，RISC的T通常要比CISC的T小。从报道中也可以看到，目前使用中RISC处理机的工作主频一般要比CISC处理机高。<br>
+            　　从表2.12中可以很快计算出，RISC的速度要比CISC快3倍左右。其中的关键在于RISC的指令平均执行周期数CPI减小了，这正是RISC设计思想的精华。<br>
+            　　减小CPI是多个方面共同努力的结果。在硬件方面，采用硬布线控制逻辑，减少指令和寻址方式的种类，使用固定的指令格式，采用LOAD/STORE结构，指令执行过程中设置多级流水线等，软件方面十分强调优化编译技术的作用。<br>
+            　　当然，RISC设计思想也可以用于CISC中。例如，Intel公司的80x86处理机的指令平均执行周期数在不断缩小，8088的指令平均执行周期数大于20，80286的指令平均执行周期数大约是5.5，到了80386，指令平均执行周期数进一步减小到4左右，而80486处理机的指令平均执行周期数已经接近2。<br>
+            　　目前，微处理器的工作主频已经达到几百MHz，已经接近于所用半导体器件的极限工作主频。因此，将来提高处理机速度的主要技术途径仍然是减少指令平均执行周期数。采用超标量、超流水线、VLIW(超长指令字)体系结构，可以是指令的平均执行周期数小于1，即平均每个周期执行超过1条指令。目前已经商品化的微处理机，其内部大都有4个至8个功能部件并行工作，每个周期可以平均执行2条以上指令。<br>
+          </p>
+          <p align="left">&nbsp;</p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

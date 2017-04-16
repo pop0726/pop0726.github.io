@@ -1,0 +1,211 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第二章 指令系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><span class="pt9-black"><br>
+            <b class="part">2.1.5 自定义数据表示</b></span></p>
+          <p align="left" class="pt9-black">　　目前在大多数计算机中，数据存储单元（如寄存器、主存储器、外存储器等）里存放的都是纯数据，而对这些数据的类型（如定点数、浮点数、复数、字符、字符串、逻辑数、向量等）、进位制（如二进制、十进制、十六进制等）、字长（如字、半字、双字、字节等）、寻址方式（直接寻址、间接寻址、相对寻址、寄存器寻址等）、功能（如地址、数值、控制字、标志等）等的解释要通过指令中的操作码来进行。如IBM 
+            370系列机中，仅算术加法指令就有就有8条，这些指令所用到的操作数的类型、字长、进位制和操作数所采用的寻址方式等均不相同，可参见表2.2。</p>
+          <p align="center" class="pt9-black"><b>表2.2 IBM370系列机中的加法指令</b><br>
+          </p>
+          <table width="85%" border="1" bgcolor="#CCE6CC" cellspacing="1">
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center">指令助记符</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">数据类型</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">字长（位）</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">进位制</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">寻址方式</div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center">AR</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">定点数</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">32</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">2</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">R-R</div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center">ADR</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">浮点数</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">64</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">尾数16，阶码2</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">R-R</div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center">AER</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">浮点数</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">32</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">尾数16，阶码2</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">R-R</div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center">AH</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">定点数</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">16</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">2</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">R-X</div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center">A</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">定点数</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">32</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">2</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">R-X</div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center">AD</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">浮点数</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">64</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">尾数16，阶码2</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">R-X</div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center">AE</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">浮点数</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">32</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">尾数16，阶码2</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">R-X</div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center">AP</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">定点十进制</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">64</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">10</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">S-S</div>
+              </td>
+            </tr>
+          </table>
+          <p align="left" class="pt9-black">　　寻址方式中的R-R表示参加运算的两个数都直接来源于通用寄存器，运算结果也送回通用寄存器，R-X表示参加运算的一个数来源于通用寄存器，另一个数来源于主存储器，而且采用变址寻址方式，运算结果送回通用寄存器，S-S表示参加运算大两个数都来源于主存储器，而且采用直接寻址方式，运算结果也送回主存储器。<br>
+            　　然而，在人们比较习惯的高级语言和其它许多软件中，加法运算操作通常只有一个，而数据的属性必须在数据被引用前给以定义，如：A＝A＋B，编译器要根据前面定义的A和B的数据类型、字长、进位制、寻址方式等生成不同的加法机器指令。<br>
+            　　例如，在C语言中常用的基本数据类型有： <br>
+            　　int 基本整型，即定点数，长度为机器字长；<br>
+            　　short 短整型，长度不长于一倍机器字长；<br>
+            　　long 长整型，长度不短于一倍机器字长；<br>
+            　　unsigned int 无符号整型；<br>
+            　　unsogned short 无符号短整型；<br>
+            　　unsigned long 无符号长整型；<br>
+            　　float 基本实型，即短浮点数，在大多数机器中的字长为32位；<br>
+            　　double 双精度实型，即长浮点数，在大多数机器中的字长为64位；<br>
+            　　char 字符型；<br>
+            　　从这里可以看到，在高级语言与机器语言之间存在着很大的语义差距，这种语义差距通常要靠编译器等系统软件来填补。<br>
+            　　那么，很自然就产生了一个问题，能否在机器语言一级由数据自己定义其属性，从而简化指令系统，简化编译器。 <br>
+            　　早在60年代初期，美国的Burroughs公司就在一些大型计算机中引入自定义数据表示方式和带标志符的数据表示方式，下面，分别介绍这两种数据表示方式。<br>
+          </p>
+          <p align="left"><span class="pt9-black">　</span></p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第六章　向量处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black"><span class="section">6.1　向量处理的基本概念</span><br>
+            <br>
+            <span class="part">6.1.1　什么是向量处理</span><br>
+            <br>
+            　　下面我们通过一个简单的例子来说明向量处理与标量处理的差别。先考察一个用FORTRAN语言编写的程序：<br>
+            　　　 　 　ＤＯ　１００　Ｉ＝１，　Ｎ<br>
+            　　　　　　Ａ（Ｉ）＝Ｂ（Ｉ）＋Ｃ（Ｉ）<br>
+            　　１００ Ｂ（Ｉ）＝２�常粒ǎ桑�１）<br>
+            　　对上述这个程序循环，在一般的机器上可用以下的指令序列来实现：<br>
+            　　　　　　ＩＮＩＴＩＡＬＩＺＥ　Ｉ＝１<br>
+            　　　　１０ ＲＥＡＤ Ｂ（Ｉ）<br>
+            　　　　　　ＲＥＡＤ Ｃ（Ｉ）<br>
+            　　　　　　ＡＤＤ Ｂ（Ｉ）＋Ｃ（Ｉ）<br>
+            　　　　　　ＳＴＯＲＥ Ａ（Ｉ）←Ｂ（Ｉ）＋Ｃ（Ｉ）<br>
+            　　　　　　ＲＥＡＤ Ａ（Ｉ＋１）<br>
+            　　　　　　ＭＵＬＴＩＰＬＹ ２*Ａ（Ｉ＋１）<br>
+            　　　　　　ＳＴＯＲＥＢ（Ｉ）←２*Ａ（Ｉ＋１）<br>
+            　　　　　　ＩＮＣＲＥＭＥＮＴＩ←Ｉ＋１<br>
+            　　　　　　ＩＦ　Ｉ≤Ｎ　ＧＯＴＯ １０<br>
+            　　　　　　ＳＴＯＰ<br>
+            　　这里常量2和数组A、B和C中的每一个元素都称为标量。这一指令序列称为&quot;标量指令序列&quot;，它的执行过程为&quot;标量处理&quot;过程。一般来说，一条标量指令只能处理一个或一对操作数。<br>
+            　　上面的程序循环，在向量计算机中通过向量化编译程序得到下面三条向量指令组成的一个向量指令序列：<br>
+            　　　　　　Ａ（１∶Ｎ）＝Ｂ（１∶Ｎ）＋Ｃ（１∶Ｎ）<br>
+            　　　　　　ＴＥＭＰ（１∶Ｎ）＝Ａ（２∶Ｎ＋１）<br>
+            　　　　　　Ｂ（１∶Ｎ）＝２ * ＴＥＭＰ（１∶Ｎ）<br>
+            　　第一条指令分别取出数组B和数组C的N个元素，并分别相加，然后将N个和存入数组A。第二条指令将取出的数组A的N个元素存入暂存区TEMP的N个单元。第三条指令使暂存区TEMP的N个元素分别乘2，并将N个乘积存入数组B。我们把这N个互相独立的数叫做&quot;向量&quot;，对这样一组数的运算叫做&quot;向量处理&quot;。可以看到，一条向量指令可以处理N个或N对操作数。因此，向量指令的处理效率要比标量指令的处理效率高得多。<br>
+          </p>
+          <p align="left" class="pt9-black"><span class="pt9-black">　</span></p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

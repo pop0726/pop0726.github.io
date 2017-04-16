@@ -1,0 +1,42 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第三章 存储系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><b><span class="part">3.3.1 基本工作原理</span></b><span class="pt9-black"><b><br>
+            <br>
+            </b>　　在Cache存储系统中，把Cache和主存储器都划分成相同大小的块，因此，主存地址由块号B和块内地址W两部分组成。同样，Cache的地址也由块号b和块内地址w组成。Cache的基本工作原理如图3.28所示。</span></p>
+          <p align="center"><span class="pt9-black"><b><img src="images/tu3_28.gif" width="397" height="255"><br>
+            图3.28 Cache工作原理</b></span></p>
+          <p align="left"><span class="pt9-black">　　当CPU要访问Cache时，送来主存地址放入主存地址寄存器。通过主存－Cache地址变换部件把主存地址中的块号B变换成Cache的块号b放入Cache地址寄存器中，并且把主存地址中的块内地址W直接作为Cache的块内地址w装入到Cache地址寄存器中。如果变换成功（称为Cache命中），就用所得到的Cache地址去访问Cache，从Cache中取出数据送往CPU。如果变换不成功，则产生Cache失效信息，并且用主存地址访问主存储器。从主存储器中读出一个字送往CPU。同时，把包括被访问字在内的一整块都从主存储器中读出来，装入到Cache中去。这时，如果Cache已经满，则要采用某种Cache替换算法把不常用一块先调入主存储器中原来存放它的地方。以便腾出空间来存放新调入的块。由于程序具有局部性特点，每次块失效时都把一块（由多个字组成）调入到Cache中，能够提高Cache的命中率。<br>
+            　　通常，Cache的容量比较小，主存储器的容量要比它大得多。那么，Cache中的块与主存储器中的块是按照什么样的规则建立对应关系的呢？在这种对应关系下，主存地址又是如何变换成Cache地址的呢？<br>
+            <b><br>
+            </b></span></p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

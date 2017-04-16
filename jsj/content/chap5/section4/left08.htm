@@ -1,0 +1,43 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第五章 标量处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black"><b>方法二：顺序发射乱序完成</b><br>
+            <br>
+            　　采用顺序发射乱序完成的流水线执行时序如图5.52(a)所示。与图5.52中的顺序发射顺序完成相比，相同的地方是6条指令按照程序中的指令排列顺序分别在流水线1和流水线2中分三个时钟周期发射，所不同的是，指令在流水线中完成的顺序是混乱的。指令的完成顺序与指令在程序中的排列顺序和在流水线中的发射顺序都无关，6条指令的完成顺序在图5.52(b)中给出。</p>
+          <p align="center" class="pt9-black"><img src="images/tu5_52.gif" width="503" height="371"><br>
+            <b>图5.52 顺序发射乱序完成</b> </p>
+          <p align="left"><span class="pt9-black">　　从图5.52(a)中可以看到，只有两个写读数据相关和一个功能部件冲突，需要流水线空闲等待各1个时钟周期。与顺序发射顺序完成调度方法相比，少了5个空闲时钟周期。6条指令总的执行时间为9个时钟周期，与顺序发射顺序完成调度方法相比节省了一个时钟周期。因此，采用顺序发射乱序完成的指令调度方法，流水线的总的执行时间和功能部件的利用率都得到了改善。<br>
+            　　为了进一步缩短程序的执行时间和提高功能部件的利用率，可以采用图5.52所示的先行指令窗口。只要先行指令窗口的大小能够容纳下6条指令，就可以通过硬件在先行指令窗口中对这6条指令进行数据相关性分析和功能部件冲突的判断，根据分析和判断的结果，对指令进行重新排序，得到一种合理的指令发射顺序。根据这种指令发射顺序，执行程序所需要的总的时间最短，处理机中功能部件的利用率最高。 
+            </span><br>
+            <br>
+          </p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

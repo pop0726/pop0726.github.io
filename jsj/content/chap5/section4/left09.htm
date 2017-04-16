@@ -1,0 +1,47 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第五章 标量处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black"><b>方法三：乱序发射乱序完成</b><br>
+            <br>
+            　　在前面介绍的顺序发射顺序完成和顺序发射乱序完成这两种方法中都没有采用先行指令窗口。如果要采用乱序发射的指令调度方法，就必须要使用如图5.52中所示的先行指令窗口。图5.53(a)是采用乱序发射乱序完成指令调度方法时的指令执行时序，图5.53(b)是所有6条指令在流水线中的发射次序。<br>
+            　　由于指令<img src="images/gsh4_2.gif" width="13" height="17" align="absmiddle">与指令<img src="images/gsh4_3.gif" width="14" height="17" align="absmiddle">之间有写读数据相关，通常，指令<img src="images/gsh4_2.gif" width="13" height="17" align="absmiddle">要早些发射，因此，指令<img src="images/gsh4_2.gif" width="13" height="17" align="absmiddle">在第一个时钟周期在流水线1中发射，而指令<img src="images/gsh4_3.gif" width="14" height="17" align="absmiddle">在第二个时钟周期也在流水线1中发射。指令<img src="images/gsh4_7.gif" width="13" height="16" align="absmiddle">与指令<img src="images/gsh4_6.gif" width="13" height="16" align="absmiddle">之间有读写数据相关，没有功能部件冲突，两条指令可以同时发射，这样，读写数据相关也就自然消除了。指令<img src="images/gsh4_7.gif" width="13" height="16" align="absmiddle">在流水线2中发射，而指令<img src="images/gsh4_6.gif" width="13" height="16" align="absmiddle">通过先行指令窗口发射。通常，先行指令窗口除了能够做数据相关性分析和功能部件冲突的检测之外，还应该至少有一套取指令部件和一套指令译码部件。<br>
+            　　指令<img src="images/gsh4_5.gif" width="14" height="16" align="absmiddle">必须在指令<img src="images/gsh4_4.gif" width="12" height="15" align="absmiddle">之前先发射，这是因为指令<img src="images/gsh4_5.gif" width="14" height="16" align="absmiddle">与指令<img src="images/gsh4_4.gif" width="12" height="15" align="absmiddle">之间存在有写读数据相关。因此，在第二个时钟周期，指令<img src="images/gsh4_3.gif" width="14" height="17" align="absmiddle">在流水线1中发射，而指令<img src="images/gsh4_5.gif" width="14" height="16" align="absmiddle">在流水线2中发射。先行指令窗口不发射指令。</p>
+          <p align="center" class="pt9-black"><img src="images/tu5_53.gif" width="558" height="379"><br>
+            <b class="pt9-black">图5.53 乱序发射乱序完成 </b></p>
+          <p align="left"><span class="pt9-black">　　在第三个时钟周期，指令I6在流水线1中发射。<br>
+            　　在采用乱序发射时，指令的完成次序必然也是乱序的，6条指令的完成次序如图5.53(c)所示。<br>
+            　　从图5.53(a)中可以看出，除了流水线的装入和排空之外，已经没有空闲的的时钟周期，因此，功能部件得到了充分利用。6条指令总的执行时间缩短为8个时钟周期，与顺序发射顺序完成调度方法相比节省了两个时钟周期，与顺序发射乱序完成调度方法相比节省了一个时钟周期。<br>
+            　　从程序本身的数据相关性和对功能部件的要求看，采用图5.50所示的超标量处理机结构和图5.53所示的乱序发射乱序完成的指令调度方法，程序总的执行时间已经是最短的，功能部件的利用率也已经达到最高。<br>
+            　　目前，在许多高性能超标量处理机中已经采用了乱序发射乱序完成的指令调度方法。通常设置有一个存储容量为几条指令到十几条指令的比较小的先行指令窗口，一个比较简单的数据相关性分析部件和一个功能部件冲突的检测机构，一般采用计分牌机制来表示数据相关性和功能部件的冲突。另外，通过优化编译器对指令序列进行重组来共同开发程序中指令级并行性。<br>
+            <br>
+            </span> </p>
+          </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

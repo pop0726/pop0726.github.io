@@ -1,0 +1,165 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第六章　向量处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black"><span class="section">6.3.提高向量处理机性能的方法</span><br>
+            <br>
+            <span class="part">6.3.1向量处理机系统结构的设计目标</span><br>
+            <br>
+            　　研制高性能向量处理机要解决以下几个主要问题：<br>
+            <b>　　1.较好地维持向量/标量性能平衡</b><br>
+            　　向量处理机除具有处理向量功能外还需要具有处理标量的功能，但处理这两类计算必须平衡。<br>
+            　　向量平衡点(vector balance point)定义为为了使向量硬件设备和标量硬件设备的利用率相等，一个程序中向量代码所占的百分比。换句话说，我们希望花在向量硬件和标量硬件上的时间相等。这样，资源就不会空闲。<br>
+            　　如果系统在向量模式下能够达到9Mfolps、在标量模式下能够达到1Mfolps的运算速度，假设代码的90％是向量运算，10％是标量运算，这样花在两种模式上的计算时间相等，那么向量平衡点为0.9。<br>
+            　　一个系统执行向量运算和标量运算的时间相等并不一定算是最好。但是应该保持足够高的向量平衡点，以便与用户程序的向量化程度相匹配。<br>
+            　　每台处理机重复设置流水线功能部件可以提高向量运算性能。另一种方法是向量部件采用超流水线技术，其时钟频率是标量流水线操作的两倍或三倍。<br>
+            　　要真正获得所期望的性能则需要较长的向量。可以设想到2000年能做出一种处理机同时运行多个功能部件、峰值速度达到8Gfolps.。<br>
+            　　图6.11a和6.11b是在Cray超级计算机和日本超级计算机上运行livermore Fortran循环时，单处理机的向量运算性能和标量运算性能。所有超级计算机的标量性能沿着图中的虚线上升。<br>
+            　　日本超级计算机的向量性能显然优于Cray公司的机器。其原因之一是采用了高时钟频率，其它原因还有用了更好的编译器及优化支持。 <br>
+            表6.1对7种超级计算机的向量和标量性能做了比较。大多数超级计算机的向量平衡点在90％或更高。向量/标量的比例越高，对目标代码向量化比例的依赖也越大。</p>
+          <p><span class="pt9-black"><b>表6.1各种超级计算机向量和标量的性能</b></span><br>
+          </p>
+          <table width="85%" border="1" cellspacing="1" cellpadding="1" bgcolor="#FFFFD9">
+            <tr> 
+              <td class="pt9-black" height="37" width="12%"> 
+                <div align="center">机器型号</div>
+              </td>
+              <td class="pt9-black" height="37" width="10%"> 
+                <div align="center">Cray<br>
+                  IS</div>
+              </td>
+              <td class="pt9-black" height="37" width="10%"> 
+                <div align="center">Cray<br>
+                  2S</div>
+              </td>
+              <td class="pt9-black" height="37" width="10%"> 
+                <div align="center">Cray<br>
+                  X-MP</div>
+              </td>
+              <td class="pt9-black" height="37" width="11%"> 
+                <div align="center">Cray<br>
+                  Y-MP</div>
+              </td>
+              <td class="pt9-black" width="10%" height="37"> 
+                <div align="center">hitachi<br>
+                  S820</div>
+              </td>
+              <td class="pt9-black" width="10%" height="37"> 
+                <div align="center">NEC<br>
+                  SX2</div>
+              </td>
+              <td class="pt9-black" width="10%" height="37"> 
+                <div align="center">Fujitsu<br>
+                  VP4000</div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black" width="12%"> 
+                <div align="center">向量性能(Mflops)</div>
+              </td>
+              <td class="pt9-black" width="10%"> 
+                <div align="center">85.0</div>
+              </td>
+              <td class="pt9-black" width="10%"> 
+                <div align="center">151.5</div>
+              </td>
+              <td class="pt9-black" width="10%"> 
+                <div align="center">143.3</div>
+              </td>
+              <td class="pt9-black" width="11%"> 
+                <div align="center">201.6</div>
+              </td>
+              <td class="pt9-black" width="10%"> 
+                <div align="center">737.3</div>
+              </td>
+              <td class="pt9-black" width="10%"> 
+                <div align="center">424.2</div>
+              </td>
+              <td class="pt9-black" width="10%"> 
+                <div align="center">207.1</div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black" width="12%"> 
+                <div align="center">标量性能(Mflops)</div>
+              </td>
+              <td class="pt9-black" width="10%"> 
+                <div align="center">9.8</div>
+              </td>
+              <td class="pt9-black" width="10%"> 
+                <div align="center">11.2</div>
+              </td>
+              <td class="pt9-black" width="10%"> 
+                <div align="center">13.1</div>
+              </td>
+              <td class="pt9-black" width="11%"> 
+                <div align="center">17.0</div>
+              </td>
+              <td class="pt9-black" width="10%"> 
+                <div align="center">17.8</div>
+              </td>
+              <td class="pt9-black" width="10%"> 
+                <div align="center">9.5</div>
+              </td>
+              <td class="pt9-black" width="10%"> 
+                <div align="center">6.6</div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black" width="12%"> 
+                <div align="center">向量平衡点</div>
+              </td>
+              <td class="pt9-black" width="10%"> 
+                <div align="center">0.90</div>
+              </td>
+              <td class="pt9-black" width="10%"> 
+                <div align="center">0.93</div>
+              </td>
+              <td class="pt9-black" width="10%"> 
+                <div align="center">0.92</div>
+              </td>
+              <td class="pt9-black" width="11%"> 
+                <div align="center">0.92</div>
+              </td>
+              <td class="pt9-black" width="10%"> 
+                <div align="center">0.98</div>
+              </td>
+              <td class="pt9-black" width="10%"> 
+                <div align="center">0.98</div>
+              </td>
+              <td class="pt9-black" width="10%"> 
+                <div align="center">0.97</div>
+              </td>
+            </tr>
+          </table>
+          <p align="left" class="pt9-black">　　IBM向量机的设计思想与上述方法不同，它维持较低的向量/标量比例，定在3－5的范围之间。这是综合考虑了通用应用问题对标量和向量处理要求的结果。</p>
+          <p align="left" class="pt9-black">&nbsp;</p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

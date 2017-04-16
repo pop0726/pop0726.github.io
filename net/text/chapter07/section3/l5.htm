@@ -1,0 +1,22 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%"> 
+<tr> <td valign="top"> <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center"> 
+<tr> <td class="explaination"><br> 　　域名按树结构组织，顶级域是edu（教育机构），com（商业），gov（美国联邦政府），org（非盈利组织），net（主要为网络商），int（一些Internet组织），mil（美国军队）和标志国家的域名（如 
+fr，gr，cn等）。edu域名服务器有一个指针指向barkeley.edu名字服务器，其他也是类似的情况。因此一个域是这个域名系统的一个子树，edu.cn域名包括了像tsinghua.edu.cn这样的子域，子域中包括了像dream.tsinghua.edu.cn这样的主机名，tsinghua.edu.cn的注册机构被允许分配像cs.tsinghua.edu.cn这样的子域名并被委派可以在它下面分配名字，mail.cs.tsinghua.edu.cn。 
+<p> 　　用户可以使用名字为 mail.cs.tsinghua.edu.cn 的计算机，这个名字包括了机构名字（tsinghua.edu.cn）和计算机名字（mail.cs）。要发送一个信息给用户，你可以分别发送到varaiya@mail.cs.tsinghua.edu.cn和wlr@mail.cs.tsinghua.edu.cn.你不同知道 
+mail.cs.tsinghua.edu.cn.在那里，目录服务将名字转换成地址166.111.68.3，网络层就能找到一条到该机器的路径。<br> <br> 
+　　假设你发一个分组到 mail.cs.tsinghua.edu.cn 本地目录服务发送一个请求&quot;寻找 mail.cs.tsinghua.edu.cn 
+的IP地址&quot;给cn区域名字服务器，该服务器知道edu.cn的域名服务器的地址并将请求转发给它，该服务器知道tsinghua.edu.cn服务器，就将请求转发给它，该服务器知道cs.tsinghua.edu.cn服务器，就将请求转发给它，最后cs.tsinghua.edu.cn 
+知道MAIL是在自己的域内，就返回mail的地址给tsinghua.edu.cn服务器，再转给edu.cn服务器，一直到最后发送到你的计算机上。各服务器都缓存中间的结果，例如 
+EDU.cn 服务器缓存 tsinghua.edu.cn 的地址，如果一个请求的地址已缓存在服务器中，就可以直接回答用不着转发请求，但缓存机制有时间限制以防止过期信息。<br> 
+<br> 　　负责分配名字的Internet公司（ICANN www.icann.org）成立于1998年，负责IP空间分配，协议参数指定，域名系统管理和根服务器系统管理。<br> 
+　</p></td></tr> </table></td></tr> </table>
+</body>
+</html>

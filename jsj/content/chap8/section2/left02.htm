@@ -1,0 +1,38 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第八章 并行处理机和多处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><span class="pt9-black">　　多指令流多数据流结构如图8.10所示。图中每台处理机都有寄存器，运算器，逻辑部件，访问存储器和Ｉ／Ｏ设备的通道。图8.10（ａ）中存储器和Ｉ／Ｏ设备是独立的子系统，为所有处理机共享。图8.10（ｂ）中每台处理机有自己的存储器和Ｉ／Ｏ设备。图8.10的系统有多台处理机，每台处理机能够执行独立的程序，所以属于MIMD类机器。在图8.10所示的系统中，处理机通过互连网络交换数据和实现同步。图8.10（ａ）中的存储器共享是实现信息交换和同步最简单的方法，任何两台处理机可以通过共享存储器的单元实现通信。图8.10（ｂ）这种结构通过点对点的信息交换实现通信。显然，多处理机系统可以采用共享存储器方案或本地存储器方案，或这两种方案的结合。<br>
+            　　图8.10可以看出多处理机在结构原理上区别于并行处理机的主要特点。第一，它有多个控制器，至少有多个指令部件，用以对各个PE实现单独的控制，而又相互协调配合。第二，多处理机的外围设备要能够被多个PE分别调用，因而要通过互连网络转接，而不象并行处理机的外围设备那样统一访问主存储器进行程序和数组的有规则的传送。第三，并行处理机由于主要完成数组向量运算，它的PE和MM之间的数据交往是比较有规则的，存储器访问的地址变换功能下必要求太高，因而互连网络的作用主要放在数据对准上，可以做得比较简单，但是，多处理机由于互连网络必须满足各个PE随机地访问主存储器的要求，所以，连接模式、频带和路径选择等问题都要复杂得多。存储映射部件对每一个PE也是必需的。这是由于，在多处理机系统中存储器的数据和存储空间都要被多个处理机共享，不能允许每一个PE在运行自己的程序段时直接产生物理地址，从而要利用存储映射部件来满足存储器动态分配和处理机共享数据块的需要。<br>
+            　　使用高速多处理机的主要目的是利用多台处理机并发地执行一个作业，使得执行速度比单处理机快。在某些应用场合，使用多处理机的主要目的是高可靠性而不是高性能。如果某台处理机出现故障，那么它的程序可以由系统中其它处理机来执行。这种系统的设计原理和为获得高性能的多处理机设计原理有很大的不同，本书不准备讨论为求高可靠性的多处理机系统。</span></p>
+          <p align="center"><img src="images/tu8_10.jpg" width="512" height="147"></p>
+          <p align="center">&nbsp;</p>
+          </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+          <td><span class="explaination"><br>
+            　　给定带权有向图G＝(V,E)，E中每一条弧(w,v)都有非负的权。指定V中的一个顶点v<font size="1">1</font>作为源点，找从源点v<font size="1">1</font>出发到图中所有其他各顶点的最短路径。Dijkstra提出了一个按路径长度递增的次序产生最短路径的算法。这个算法的描述如下：把图中所有顶点分成两组，第一组是已求出最短路径的顶点集合S。S集合的初态是源点v<font size="1">1</font>；第二组是尚未确定最短路径的顶点集合T（即V－S），T集合的初态是包含除源点之外图中所有的顶点。按路径长度递增的顺序逐个把T集合中的顶点加到S集合中去，直到从源点v<font size="1">1</font>出发可以到达的所有顶点都在S集合中。在这个过程中，总保持从v<font size="1">1</font>到S集合各顶点的最短路径长度都不大于从v<font size="1">1</font>到T集合的任何顶点的最短路径长度。另外，每个顶点对应一个距离，S集合中顶点的距离是从<font size="2">v</font><font size="1">I</font>到此顶点的最短路径长度。T集合中顶点的距离是v<font size="1">1</font>到此顶点的只包括S中顶点为中间顶点的当前最短路径长度。一个具体算法如下：<br>
+            </span><br>
+            　<span class="point">1．</span><span class="explaination">假设用带权的邻接矩阵cost来表示有n个顶点的带权有向图，cost[i][j]表示弧(v<font size="1">i</font>，v<font size="1">j</font>)上的权值。若(v<font size="1">i</font>,v<font size="1">j</font>)不存在，则置cost[i][j]为无穷大。S为已找到从v出发的最短路径的终点的集合，它的初始状态为v。那么，从v出发到图上其余各顶点（终点）v<font size="1">i</font>可能达到的最短路径的长度的初值为dist[i]=cost[v][i]。</span><br>
+            <br>
+            　<span class="point">2．</span><span class="explaination">从T集合中选择w，使得dist[w]＝Min{dist[i]|v<font size="1">i</font>∈V-S}，w就是当前求得的一条从出发的最短路径的终点。从T中删除w，并入S集合，令S＝S∪{w}。<br>
+            </span><br>
+            　<span class="point">3．</span><span class="explaination">修改从v出发到T集合中各顶点的最短路径长度。如果dist[w]+cost[w][i]&lt;dist[i]，则修改dist[i]使dist[i]＝dist[w]+cost[w][i]。<br>
+            </span><br>
+            　<span class="point">4．</span><span class="explaination">重复操作2、3共n-1次。<br>
+            <br>
+            　　此时数组dist记录了从顶点v到图中其余各顶点的最短路径。<br>
+            　</span></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

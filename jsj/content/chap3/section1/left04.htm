@@ -1,0 +1,61 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第三章 存储系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><span class="pt9-black"><br>
+            <b>3、工作速度</b><br>
+            <br>
+            　　存储系统的访问周期与命中率H的关系非常大。命中率可以简单地定义为在M1存储器中访问到的概率，它一般用模拟实验的方法得到。选择一组有代表性的程序，在程序执行过程中分别统计对M1存储器的访问次数<img src="images/gsh1_2.gif" width="16" height="13" align="absmiddle">和对M2存储器的访问次数<img src="images/gsh1_3.gif" width="18" height="13" align="absmiddle">，然后代入下面的（3.1）关系式计算。<br>
+            　　　<img src="images/gsh1_4.gif" width="94" height="40">　　　　　　　　　　　（3.1）<br>
+            　　整个存储系统的访问周期可以用M1和M2两个存储器的访问周期T1、T2和命中率H来表示：<br>
+            　　　<img src="images/gsh1_5.gif" width="169" height="16" align="absmiddle">　　　　 
+            （3.2）<br>
+            　　当命中率H→1时，T→<img src="images/gsh1_6.gif" width="12" height="13" align="absmiddle">，即存储系统的访问周期T接近于速度比较快的M1存储器的访问周期<img src="images/gsh1_6.gif" width="12" height="13" align="absmiddle">。<br>
+            　　为了便于相互进行比较，定义存储系统的访问效率为：<br>
+            　　　<img src="images/gsh1_7.gif" width="54" height="39" align="absmiddle">　　　　　　　　　　　　　　（3.3）<br>
+            　　访问效率越高，说明存储系统的速度与相对比较快的那个存储器的速度就越接近，这正是我们所希望的。把（3.2）代入（3.3）得到：<br>
+            　　　<img src="images/gsh1_8.gif" width="351" height="45"> （3.4）<br>
+            　　从（3.4）关系式看到，存储系统的访问效率主要与命中率和构成存储系统的两级存储器的速度之比有关。因此，可以得出这样的结论：如果要使存储系统的速度与相对比较快的那个存储器的速度接近，有两条途径，一条途径是提高命中率H，另一条途径是构成存储系统的两个存储器的速度不要相差太大。但是，对于虚拟存储系统，由于两级存储器的速度相差特别悬殊，<img src="images/gsh1_9.gif" width="79" height="17" align="absmiddle">。如果要获得比较高的访问效率（如e＝0.9），则需要有极高得命中率H。 
+            <br>
+            　　　<img src="images/gsh1_10.gif" width="159" height="40"> <br>
+            　　计算得H≈0.999999，这么高的命中率如何达到呢？<br>
+            　　磁盘存储器在物理上是以块为单位（512个字节）访问的，在逻辑上通常以1KB至16KB为单位访问。虽然磁盘存储器的寻址时间很长，但当磁头找到要访问的数据块之后，数据的传输速率相当高。因此，当主存储器不命中时，通过操作系统把将要使用的一大批程序和数据都调入主存储器，使得在以后的几十万次以上的对虚拟存储系统的访问都能在主存储器中命中。当然，这要求主存储器的容量比较大，能够一次装入比较多的程序和数据，而且，以前装入的程序和数据要能够比较长时间的保存下来，能够多次使用。这样，尽管两级存储器的速度相差得特别悬殊，一次不命中需要化费比较长的时间来进行调度，然而，由于命中率特别高，整个虚拟存储系统的访问效率还是很高的。 
+            <br>
+            　　对于Cache存储系统。目前CPU与主存储器的速度相差达两个数量级，一次不命中从主存储器中只能读到几个字（少数Cache存储系统为十几个字），如果只用一级Cache，则要求命中率H在0.999左右，这实际上是做不到的。通常要采用两级或三级Cache，并在CPU内部的设置多种缓冲存储器来提高数据的重复利用率。<br>
+            　　实践证明，采用预取技术可以大幅度提高命中率H。具体方法是：在不命中时，当数据从主存储器中取出送往CPU的同时，把主存储器相邻几个单元中的数据都取出来送入Cache中。根据程序的局部性原理，CPU以后再对Cache存储系统访问时，命中率就会提高。不难理解有下面的关系式：<br>
+            　　　<img src="images/gsh1_11.gif" width="108" height="35"> <br>
+            　　其中n为Cache的块大小与数据重复使用次数的乘积，H是原来的命中率，H'是采用预取技术之后的命中率。<br>
+            　　Cache的块大小一般在2至16个字，预取到Cache中的数据的重复利用率通常大于5次。如果Cache的块大小为4个字，数据的重复利用率为5次，Cache存储系统原来的命中率为H＝0.8，则有：n＝4×5＝20，采用预取技术之后，命中率提高到：<br>
+            　　　<img src="images/gsh1_12.gif" width="283" height="41"> <br>
+            　　这时，如果构成Cache存储系统的两级存储器的速度之比为5，则这个Cache存储系统的访问效率e＝0.96。 <br>
+            <br>
+            </span></p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第五章 标量处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><span class="part">5.2.2 控制相关</span><br>
+            <br>
+            <span class="pt9-black">　　控制相关是指因为程序的执行方向可能被改变而引起的相关。可能改变程序执行方向的指令通常有无条件转移、一般条件转移、复合条件转移、子程序调用、中断等。<br>
+            　　有些资料上把上一节中介绍的数据相关称为局部相关，而把本节将要介绍的控制相关称为全局相关。这是因为数据相关影响到的仅仅是本条指令附近的少数几条指令，而控制相关影响的范围要大得多，它可能引起程序执行方向的改变。<br>
+            　　<b>1、无条件转移</b><br>
+            　　一段有无条件转移指令的程序如下：<br>
+            　　　k： ……<br>
+            　　　k+1： JMP L<br>
+            　　　…： ……<br>
+            　　　L： ……<br>
+            　　无条件转移指令一般在指令分析器中就执行完成，形成转移地址L，如图5.29所示。如果转移距离比较远，指令L不在指令缓冲栈中，则要将指令缓冲栈中的所有指令全部作废，指令分析器要等待一个&quot;取指令L&quot;周期之后才能开始&quot;分析L&quot;。如果转移的距离比较近，有可能指令L已经被取到了指令缓冲栈中。这时，只要作废指令缓冲栈中的部分指令，即作废从k+3到L-1之间的所有指令。指令分析器在完成&quot;分析k+1&quot;之后，可以接着进行&quot;分析L&quot;，即指令分析器仍然可以不停顿地连续工作。</span></p>
+          <p align="center" class="pt9-black"><img src="images/tu5_29.jpg" width="320" height="177"></p>
+          <p align="left"><span class="pt9-black">　　在有的处理机中，为了进一步减少无条件转移指令造成的影响，在指令缓冲栈的入口处增设一个专门处理无条件转移指令的指令分析器。这样，取到指令缓冲栈中的指令就都是有用的，不会再发生作废先行缓冲栈中指令的情况。采用这种方法能够减少处理机与主存储器之间的通信量，而且，无条件转移指令对后面的指令分析器和指令执行部件等将不再造成影响，就象程序中没有无条件转移指令一样。<br>
+            <br>
+            </span> </p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

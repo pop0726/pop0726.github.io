@@ -1,0 +1,49 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第五章 标量处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black"><span class="section">5.2 相关性分析技术</span><br>
+            <br>
+            　　程序中的相关（Correlation）是指在相近指令之间存在有某种关系，这种关系可能影响到指令流水线的执行。通常，把相关分为两大类，一类是数据相关，另一类是控制相关。在执行本条指令的过程中，如果用到的指令、操作数、变址偏移量等是前面指令的执行结果，则必须等待前面的指令执行完成，并把结果写到主存或通用寄存器中之后，本条指令才能开始执行，这种相关称为数据相关。控制相关是指由条件分支指令、转子程序指令、中断等引起的相关。<br>
+            <br>
+            <span class="part">5.2.1 数据相关</span><br>
+            <br>
+            　　在寄存器-寄存器型（R-R型）指令和寄存器-存储器型（R-S型）指令的执行过程中可能发生通用数据相关。看下面两条指令：<br>
+            　　　<img src="images/gsh2_1.gif" width="296" height="34" align="absmiddle"> 
+            <br>
+            　　如果发生：<img src="images/gsh2_2.gif" width="126" height="14" align="absmiddle">称为R1数据相关。如果发生：<img src="images/gsh2_3.gif" width="128" height="16" align="absmiddle"><br>
+            　　称为R2数据相关。<br>
+            　　发生数据相关的情况与寄存器本身的结构和所采用的控制时序等也有关系。解决数据相关的方法有如下几种：<br>
+            　　<b>方法一</b>，如果通用寄存器是用D型触发器构成的，而且在通用寄存器到运算器之间不设置缓冲寄存器或锁存器，则不会发生通用寄存器数据相关。如图5.27所示，因为D型触发器允许在同一节拍中实现寄存器之间的循环传送。</p>
+          <p align="center" class="pt9-black"><img src="images/tu5_27.jpg" width="273" height="189"></p>
+          <p align="left"><span class="pt9-black">　　实际上，在一个节拍中就可以完成从通用寄存器中通过两个多路选择分别读两个读操作数到运算器，操作数在运算器完成运算，并把运算结果再写回到通用寄存器中。</span></p>
+          <p align="left">&nbsp;</p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

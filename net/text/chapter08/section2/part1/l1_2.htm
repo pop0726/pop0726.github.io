@@ -1,0 +1,30 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+          <td class="explaination"><br>
+            <span class="part">2．环型拓扑结构：</span><br>
+            <br>
+            　　在环型拓扑结构中，局域网是由一组转发器（repeater，又称中继器）通过点到点链路连接成封闭的环所构成的。因此，每个转发器连通两条链路。转发器是较简单的设备。它能接一条链路上的数据，并以相同的速度（转发器中无需缓冲）将数据逐比特地发送到另一条链路上去，各条链路都是单向的，即数据仅沿一个方向传送，并且所有链路都顺次向一个方向传送。因此，数据是沿一个方向（顺时针或逆时针）绕环运行的。<br>
+            <br>
+            　　每个站在转发器处与网络连接。数据以帧来传送。每一帧包含被发送的数据和一些控制信息，包括所希望到达的目的站地址。对大的数据块，发送站将其分成若干较小的块，并将每一小块用一帧来发送。一个站每当要发送下一帧时，它都要等待到下一个轮次，然后才可发送。由于发送的帧要通过所有其他的站，当此帧经过目的站时，该站就可识别其地址，并在本地缓冲器中复制该帧。此帧将继续环行，直至回到源发站，并在那里被除去。 
+            <br>
+            <br>
+            　　因为多个站共享一个环，为了确定每个站在什么时候可以插入数据包，就要进行控制。通用采用的是某种分布式控制方式，每个站都包含一定的控制发送和接收用的访问逻辑。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

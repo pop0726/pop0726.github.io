@@ -1,0 +1,55 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+          <td class="explaination"><br>
+            <span class="point">・前导码（PA）</span> <br>
+            　　用来使帧与每一站的时钟建立同步。帧的始发站采用16个空闲符号（64bit）的字段作为前导码。后继的转发站可以改变字段的长度，以与时钟要求相一致。空闲符号为一不代表数据的填充用码型。非数据符号的实际形式决定于介质上的信号编码。<br>
+            <br>
+            <span class="point">・帧首定界符（SD） </span><br>
+            　　它指示一帧的开始，而且总是以与数据相区别的信号码型来组成。它的编码为JK，其中J与K均为非数据符号。<br>
+            <br>
+            <span class="point">・帧控制（FC） </span><br>
+            　　它的比特格式为CLFFZZZZ。其中C指明这是一个同步帧或异步帧，L指明采用16bit地址或48bit地址。FF指明该帧是一LLC帧或MAC控制帧。在MAC控制帧中，余下的比特指明MAC帧的型式。<br>
+            <br>
+            <span class="point">・目的地址（DA） </span><br>
+            　　规定了该帧企图发往的站，它可以是一个唯一的物理地址（单个站），也可以是一个多址--组地址（一组站），或是一个广播地址（局域网上所有的站），环上可混合包含16bit地址与48bit地址。<br>
+            <br>
+            <span class="point">・源地址（SA） </span><br>
+            　　规定了发送该帧的站。<br>
+            <br>
+            <span class="point">・信息 </span><br>
+            　　包含LLC数据或与控制操作有关的信息。<br>
+            <br>
+            <span class="point">・帧检验序列（FCS） </span><br>
+            　　是一个32bit的循环冗余检验序列，它的生成基于FC、DA、SA与信息字段。<br>
+            <br>
+            <span class="point">・帧尾定界符（ED） </span><br>
+            　　包括指明帧结束（FS字段除外）的一些非数据符号。对于令牌，这一定界符的长度为8bit（2个非数据T符号），对其他帧则为4bit（1个T符号）。这种差异是为了使帧能有整数个八位位组。<br>
+            <br>
+            <span class="point">・帧状态（FS） </span><br>
+            　　包括检测到差错（E）、地址被识别（A）、帧已被复制（C）等指示，每一种指示由一个符号来表示，其中R表示&quot;断（off）&quot;或&quot;假（false）&quot;，S表示&quot;通（on）&quot;或&quot;真（true）&quot;。FS字段还可包括附加的控制指示符，它们的使用由实现者来定义。如果附加的符号为奇数个，则FS字段将以一个T符号来结点。<br>
+            <br>
+            <span class="point">・地址字段 </span><br>
+            　　地址字段中，在源地址字段，第一个比特恒为&quot;0&quot;。在目的地址字段中，第一个比特为&quot;0&quot;表示单地址；为&quot;1&quot;表示组地址。一个全&quot;1&quot;的组地址是一对LAN上所有工作着的站的广播地址。所有其他的组地址指明一个逻辑用户组，它是在网络构造时加以指定或由高层约定来定义。在48bit地址字段中，源地址和目的地址中的第二个比特置&quot;0&quot;，表示一全局管理地址；置&quot;1&quot;，表示一局部管理地址。这些地址的性质不在标准规定范围之内。可以这样认为，全局管理地址能用于对跨越多个网络的每一个站分配一个唯一的地址，它可由某个合作机构、或者由一个国家的或国际的标准化组织来管理。<br>
+            <br>
+            <span class="point">・帧控制字段 </span><br>
+            　　帧控制字段指明此帧的类型，并包含一些规定操作细节用的比特。即有四种类型：控制帧，LLC帧，为实现者保留的帧和为将来的标准化保留的帧，它们由FF比特所指明。 
+            <br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

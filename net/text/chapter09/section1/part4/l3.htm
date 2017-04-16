@@ -1,0 +1,40 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td class="explaination" colspan="2"><br>
+            　　虚路径和虚电路都是指一个单向的ATM信元传输信道。不过，一条虚路径中包含有多条虚电路，所有这些虚电路有相同的标识符（即VPI）。同样，在一条物理链路中，可以有许多虚路径。一条物理链路中的虚电路，由其VPI和VCI共同确定。物理链路、虚电路和虚路径的关系可以用下<span class="point">图9.17</span>表示。<br>
+            　</td>
+        </tr>
+        <tr> 
+          <td class="explaination" width="25" valign="top"><img src="../../../../image/tub/ts.gif" width="25" height="20" alt="图示"></td>
+          <td class="explaination">
+            <div align="center"><img src="../../../../image/pic/chapter09/9_18.gif" width="320" height="99"><br>
+              <br>
+              <span class="point">图9.17 ATM中物理链路、虚电路和虚路径的关系</span></div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="explaination" colspan="2"><br>
+            　　不同VPI、VCI的信元属于不同的虚连接（Virtual Connect），有不同的逻辑路由和连接。在复用之后，各路由的信元之间没有固定的关系。这样，ATM中就把虚连接分为虚路径和虚电路两个层次，其优点在于：通过预定义虚路径，可以构造虚拟专用网VPN，保证在同一个VPN中的数据的保密性。其次，使用虚路径还可以简化网络管理。<br>
+            <br>
+            　　例如，在主干网上可以预先定义两个节点间的虚路径，为它保留足够的资源。如果用户要建立的虚电路通过该虚路径，则在资源预约时，仅需要在VP的入口点处理连接请求，该VP的中间节点不必处理，这样就可以简化整个网络的连接处理。<br>
+            <br>
+            　　另外，如果一条VP所经过的网络链路出现故障，网络的路由机制可以为该VP找到另外一条路由。此时可以一次性地把属于该VP的所有虚电路都移到新的虚路径上去，并且路由的改变对于每个虚电路是透明的。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第四章 输入输出系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black">　　一般说来，通道的功能应该包括如下几个方面：<br>
+            　　1、接受CPU发来的输入输出指令，根据指令要求选择一台指定的外围设备与通道相连接。<br>
+            　　2、执行CPU为通道组织的通道程序，从主存中取出通道指令，对通道指令进行译码，并根据需要向被选中的设备控制器发出各种操作命令。<br>
+            　　3、给出外围设备的有关地址，即进行读/写操作的数据所在的位置。如，磁盘存储器的拄面号、磁头号、扇区号等。<br>
+            　　4、给出主存缓冲区的首地址，这个缓冲区用来暂时存放从外围设备上输入的数据，或者暂时存放将要输出到外围设备中去的数据。<br>
+            　　5、控制外围设备与主存缓冲区之间数据交换的个数，对交换的数据个数进行计数，并判断数据传送工作是否结束。<br>
+            　　6、指定传送工作结束时要进行的操作。例如，将外围设备的中断请求及通道的中断请求送往CPU等。<br>
+            　　7、检查外围设备的工作状态，是正常或故障。根据需要将设备的状态信息送往主存指定单元保存。<br>
+            　　8、在数据传输过程中完成必要的格式的变换，例如，把字拆卸为字节，或者把字节装配成字等。<br>
+            　　为此，通道应该能够执行一组通道指令，而且还要具有完成上述功能的硬件。通道的主要硬件包括寄存器部分和控制部分，寄存器部分有：数据缓冲寄存器、主存地址计数器、传输字节数计数器、通道命令字寄存器、通道状态字寄存器。控制部分有：分时控制、地址分配、数据传送、数据装配和拆卸等控制逻辑。<br>
+            　　通道对外围设备的控制通过输入输出接口和设备控制器进行，对于各种不同的外围设备，设备控制器的结构和功能也各不相同。然而，通道与设备控制器之间一般采用标准的输入输出进口来连接。通道命令通过标准接口送到设备控制器，设备控制器解释并执行这些通道命令，完成命令指定的操作，并且将各种外围设备产生的不同信号转变成标准接口和通道能够识别的信号。另外，设备控制器还能够记录外围设备的状态，并把状态信息送往通道和中央处理机。 
+            <br>
+          </p>
+          <p align="left" class="pt9-black"><span class="pt9-black">　</span></p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

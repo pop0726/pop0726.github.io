@@ -1,0 +1,44 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td class="explaination" valign="top"><br>
+            　　TCP其提供的服务有七个主要特征：<br>
+            <br>
+            <span class="point">・面向连接（Connection Orientation）</span><br>
+            　　TCP提供的是面向连接的服务，即希望发送数据的一方必须首先请求一个到目的地的连接，然后使用这一连接来传输数据。<br>
+            <br>
+            <span class="point">・点对点通信（Point-To-Point Communication）</span><br>
+            　　即只有连接的源和目的之间可以通信，不支持组播和广播。<br>
+            <br>
+            <span class="point">・完全可靠性（Complete Reliability）</span><br>
+            　　TCP确保通过一个连接发送的数据按发送时一样正确地送到，且不会发生数据丢失或乱序。<br>
+            <br>
+            <span class="point">・全双工通信（Full Duplex Communication）</span><br>
+            　　一个TCP连接允许数据在任何一个方向流动，并允许任何一个应用程序在任何时刻发送数据。TCP能够在两个方向上缓冲输入和输出的数据，这就使得一个应用在发送数据后，可以在数据传输的时候继续自己的计算工作。<br>
+            <br>
+            <span class="point">・流接口（Stream Interface）</span><br>
+            　　TCP提供了一个流接口，一个应用利用它可以发送一个连续的字节流穿过连接。也就是说，TCP并不提供记录式的表示法，也不确保数据传递到接收端应用时会与发送端应用有同样尺寸的段。<br>
+            <br>
+            <span class="point">・可靠的连接建立（ Reliable Connection Startup）</span><br>
+            　　TCP要求当两个应用创建一个连接时，两端必须遵从新的连接。前一次连接所用的重复的包是非法的，也不会影响新的连接。<br>
+            <br>
+            <span class="point">・友好的连接终止（Graceful Connection Shutdown）</span><br>
+            　　一个应用程序能打开一个连接，发送任意数量的数据，然后请求终止连接。TCP确保在关闭连接之前传递的所有数据的可靠性。<br>
+            　　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td class="explaination" colspan="2"><br>
+            　　集中式路由选择策略的最大好处是：各个节点不需要进行路由选择计算，较容易得到更精确的路由最优化。同时还消除了路由不断变来变去的&quot;振荡&quot;现象，而这些问题在网络状态不太明确时最容易发生。集中式路由选择策略还可起到对进入网络的通信量的某种流量控制作用。这一特点使得集中式路由选择策略很有吸引力。例如，美国Tymshare公司的TYMNET，其Ncc不断地监视着全网的负荷。一旦负荷超过门限，网络便拒绝一切呼叫。然而在分布式控制的网络，流量控制是很难实现的。<br>
+            <br>
+            　　但集中式的路由选择策略存在着两个较严重的缺点：一个缺点是在离NCC较近的地方通信量的开销较大。这是因为要周期性地从所有节点收集网络的状态信息的报告，同时还要将路由选择的命令从NCC送到网内的每一个节点；另一个更严重的缺点是可靠性问题。一旦NCC出故障，则整个网络即失去控制。为了解决这一问题，可按不同等级设置若干个NCC（TYMNET中有4个），它们彼此不间断地互相监视着。当高级别的NCC出故障时，比它低一级的NCC马上接替工作。用这种方法花费较大，并且仍会产生一些间题。在军事环境下，NCC显然是个非常容易受到攻击的目标。<br>
+            <br>
+            　　为了克服集中式路由选择的缺点，可以同时综合使用几种路由选择策略。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第六章　向量处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black">　　VPP500 这是Fujitsu公司向量并行处理机（vector 
+            parallel processor）。VPP500的系统结构可以从7个PE扩展到222个PE，提供一个高并行的MIMD多向量系统。1993年9月问世的第一台系统其目标峰值性能是335Gflops。图6.23是VP2000或VPX200为主机、VPP500为后端机的结构示意图。</p>
+          <p align="center" class="pt9-black"><img src="iamges/tu6_23.jpg" width="614" height="308"></p>
+          <p align="left" class="pt9-black">　　每个PE的峰值处理速度为1.6Gflops，用256K个GaAs门和BiCMOS 
+            LSI电路实现。两台控制处理机通过交叉开关网络协调PE的操作。每个PE中的数据传输部件管理PE之间的通信。每个PE各自有容量最大可达256兆字节的静态RAM存储器。系统采用了全局虚拟共享存储器的概念。换句话，物理上分布的所有PE的本地存储器变成一个统一的地址空间。整个系统的主存储器容量最大可达55G字节。<br>
+            　　每个PE有一个标量部件和一个并行操作的向量部件。这些流水线功能部件与VP2000非常相似，但流水线的功能已经做过修改，224×224交叉开关是用于商用MPP系统的最大交叉开关。交叉开关网络是无冲突的，在交叉开关阵列的每列中只有一个交叉点接通。 
+            <br>
+            　　VPP500和它的主机一起运行基于UNIX系统V第4版的UXP/VPP操作系统。该操作系统支持紧耦合的MIMD操作。将Fortran77编译器的优化功能和基于UNIX的操作系统的并行调度功能配合起来则可最大限度地发掘并行向量系统结构的能力。系统采用了IEEE 
+            754浮点标准。<br>
+            　　每个PE的数据传输部件在PE间的单向数据交换速度为400兆字节/秒，双向数据交换速度为800兆字节/秒。该部件将逻辑地址转换成物理地址，以便访问虚拟全局存储器。该部件还配置了专门用于快速栅栏同步的硬件。系统具有可扩展的控制结构。单个控制处理机可以控制多达9个PE。用两台控制处理机就可以协调具有30到222个PE的VPP系统。人们希望系统的性能可随PE数目的增加而增加，峰值速度达到11－335Gflops，存储器的容量为1.8-55兆字节。</p>
+          <p align="left" class="pt9-black">&nbsp;</p>
+          </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第三章 存储系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><span class="pt9-black">　　下面，介绍一个在实际计算机系统中使用的虚拟存储器快表慢结构及地址变换过程。<br>
+            　　图3.22是IMB370/168计算机的页式虚拟存储器，虚拟地址共长36位。其中，页面大小为4K字节，占12位。每个用户（或每道程序）最多允许占用4K个页面，因此，虚页号也占12位。最多允许16G个用户（或16G道程序）同时上机，用户号占24位，但是，实际上在一段时间内同时上机的用户数（或程序道数）一般不超过6个。<br>
+            　　快表按地址访问，快表的地址由多用户虚页号经硬件的散列变换部件压缩后生成。快表地址共6位，因此，快表容量为64个存储字。<br>
+            　　IMB370/168计算机的虚拟存储器采用了两项新的措施。一项是在快表的每一个存储字中存放两对多用户虚页号与主存实页号，并采用两个相等比较器。只要其中有一个比较器的比较结果相等，就认为快表命中，这时，把命中的实页号p送到主存地址寄存器中，与地址寄存器中的页内偏移拼接成主存实地址。只有当两个比较器的比较结果都不相等时，才认为快表没有命中，需要到慢表中去查主存实页号p。查慢表的方法与前面介绍的方法相同。第二项措施是用一个由6个寄存器组成的相联寄存器组把24位的用户号U压缩成3位的ID。把这个ID与虚页号直接拼接起来作为散列变换部件的输入，这样做能够减少散列部件的输入与输出位数的差，从而降低散列冲突。 
+            <br>
+            　　在地址变换开始时，把多用户虚地址中的用户号U与相联寄存器组中的6个用户号U1至U6逐个比较。如果有相等的，就读出对应的3位ID，并把这3位ID与多用户虚地址中的12位虚页号P直接拼接成15位，用这15位作为散列变换部件的输入。这样，在快表中可以同时保留6个用户（或6道程序）的常用页表。在6个用户或程序之内切换时，仍能保持很高的快表命中率。如果用户号U与6个相联寄存器的比较结果都不相等，则表示有6个之外的新用户进入。这时，需要用替换算法把一个不常进入的用户替换出相联寄存器组。只要替换算法好，就能保证经常进入的用户，或系统服务任务被一直保留在相联寄存器组中或很少被替换出去。</span></p>
+          <p align="center"><span class="pt9-black"><b><img src="images/tu3_22.gif" width="457" height="413"><br>
+            图3.22 IBM370/168计算机的虚拟存储器快表结构 </b></span></p>
+          <p align="left"><span class="pt9-black">　　目前，许多计算机系统的虚拟存储器都采用象IBM370/168机器类似的方法。包括相联寄存器组，硬件的散列压缩，快慢表结构和多个相等比较器等。而且，所有这些措施对应用程序员来说都是透明的。<br>
+            <b class="pt9-black"> </b></span></p>
+          <p align="left" class="pt9-black">&nbsp;</p>
+          </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

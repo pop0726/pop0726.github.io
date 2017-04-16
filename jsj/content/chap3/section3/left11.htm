@@ -1,0 +1,47 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第三章 存储系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black"><b>2、LRU算法及其实现</b><br>
+            <br>
+            　　最久没有使用算法（LRU算法）在虚拟存储器中是使用最普遍的一种算法。这种算法选择最久没有被访问的块作为被替换的块，显然，这是一种比较合理的做法。因为到目前为止最久没有被访问的块，很可能也是将来最少访问的块。因此，LRU算法既利用了历史上Cache中块地址流的调度情况，又正确反映了程序的局部性特点。<br>
+            　　为了实现LRU算法，要在块表中为每一块设置一个计数器。计数器的长度与上面介绍的轮换法相同。<br>
+            　　计数器的使用及管理规则是：<br>
+            　　被装入或被替换的块，其对应的计数器清为&quot;0&quot;，同组中其它所有块所属的计数器都加&quot;1&quot;。<br>
+            　　命中的块，其对应的计数器清为&quot;0&quot;。同组中其它所有计数器中，凡是计数器的值小于命中块所属计数器原来值的，都加&quot;1&quot;，其它计数器不变。<br>
+            　　需要替换时，在同组的所有计数器中选择计数值最大（一般为全1）的计数器，它所对应的块就是要被替换的块。<br>
+            　　例如，IBM 370/165机的Cache采用组相联映象方式。每组有4块，为了实现LRU替换算法，在块表中为每一块设置一个2位的计数器。在访问Cache的过程中，块的装入、替换及命中时，计数器的工作情况如表3.5所示。</p>
+          <p align="center" class="pt9-black"><b>表3.5 LRU替换算法的工作情况</b><span class="pt9-black"><br>
+            <img src="images/biao3_5.gif" width="515" height="159"> 
+            </span></p>
+          <p align="left" class="pt9-black">　　LRU算法与前面介绍的两种轮换法相比，它的控制逻辑要复杂些，增加了判断和处理命中的情况。然而，由于它既能够比较正确地利用程序的局部性特点，又能比较充分地利用历史上块地址流的分布情况。因此，LRU算法的命中率是比较高的。在虚拟存储器的页面替换算法中，曾经说明过LRU算法是一种堆栈型算法。随着每一组的块数增加，Cache的命中率能够单调上升。</p>
+          <p align="left" class="pt9-black"><span class="pt9-black">　</span></p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

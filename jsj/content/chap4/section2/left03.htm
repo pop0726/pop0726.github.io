@@ -1,0 +1,49 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第四章 输入输出系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black"><b>影响中断响应时间的因素主要有4个：</b><br>
+            <br>
+            　　1、最长指令执行时间。在一条指令执行期间，一般不允许被中断。在有些计算机系统中，特别是CISC（复杂指令系统计算机）中，有些指令的执行时间很长，甚至执行时间是不确定的。例如，主存储器中的数据块&quot;搬家&quot;指令，数据匹配指令，向量运算指令等。对于这些执行时间特别长的指令，要在指令中间设置允许响应中断的时刻。为了实现这一点，在处理机内也必须采取相应的措施，例如，要增加一指令寄存器，用来保存还没有执行完的指令内容等。<br>
+            　　由于一个中断源的中断请求是随机发出的，可能发生在一条指令执行过程中的任何时刻。因此，考虑最坏情况，就是最长指令的执行时间。<br>
+            <br>
+            　　2、在一条指令执行完成后，处理其它更紧急的任务所用的时间。例如，处理DMA服务请求等。<br>
+            <br>
+            　　3、从第一次&quot;关CPU中断&quot;到第一次&quot;开CPU中断&quot;所经历的时间。这一段期间内要做的事情比较多。从图4.6中看，共7件事情要做，再加上开和关CPU中断本身，则共要做9件事情。<br>
+            　　在整个中断响应时间中，这一段时间往往是最主要的。如果这些要做的事情都用硬件来完成，中断响应时间就可以缩短很多。相反，如果其中的大部分功能都用软件来实现，则中断响应时间就会很长。中断系统的软硬件功能分配，其主要任务就是要决定在这一段内所要做的事情，是用软件实现，还是用硬件实现。 
+            <br>
+            　　4、多个中断源同时请求中断服务时，通过软件找到相关中断源的中断服务程序入口所经历的时间。<br>
+            <br>
+            　　上述四部分时间中，最主要的是第1和第3两部分。其中，第1部分时间是指令系统设计时考虑的问题。在中断系统的设计中，主要考虑第3部分的时间。<br>
+            　　分析从第一次&quot;关CPU中断&quot;到第一次&quot;开CPU中断&quot;之间所要做的7件事情，它们中有5件是既可以用软件来实现，也可以用硬件来实现的。其中，&quot;撤消设备的中断服务请求&quot;只需要用很简单的组合逻辑就能实现，在一般计算机系统中都用硬件直接实现。因此，另外4件事情，哪些功能用硬件实现，哪些功能用软件实现，是中断系统设计者的一个重要任务。 
+          </p>
+          <p align="left" class="pt9-black">&nbsp; </p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

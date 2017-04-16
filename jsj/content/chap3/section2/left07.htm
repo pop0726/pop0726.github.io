@@ -1,0 +1,51 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第三章 存储系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><span class="pt9-black">　　页式虚拟存储器的地址变换过程如图3.17所示。在CPU内部有一个基址寄存器堆，用来存放页表的基地址，每个用户（每道程序）使用其中的一个基址寄存器。通过多用户虚地址中的用户号U可以直接找到与这个用户程序相对应的基址寄存器，从这个基址寄存器中读出页表起始地址。访问这个页表地址，就能得到被访问页的所有信息。把得到的主存页号p与多用户虚地址中的页内偏移D直接拼接起来得到主存实地址A。<br>
+            　　页表中的其它信息，如装入位、修改位、和各种标志信息等的含义和用法与段式虚拟存储器基本相同。</span></p>
+          <p align="center"><span class="pt9-black"><img src="images/tu3_17.gif" width="469" height="262"><br>
+            <b>图3.17 页式虚拟存储器的地址变换 </b></span></p>
+          <p align="left"><span class="pt9-black"><b>　　页式虚拟存储器的主要优点是：</b><br>
+            <br>
+            　　1、主存储器的利用率比较高。每个用户程序只有不到一页（平均为半页）的浪费，与段式虚拟存储器每两个程序段之间都有浪费相比要节省许多。<br>
+            　　2、页表相对比较简单。它需要保存的字段数比较少，一些关键字段的长度要短许多多，因此，节省了页表的存储容量。<br>
+            　　3、地址映象和变换的速度比较快。在地址映象过程中，只要建立用户程序的虚页号与主存储器的实页号之间的对应关系即可，不必使用整个主存的地址长度，也不必考虑每页的长度。在地址变换过程中，主存实地址由主存实页号与多用户虚地址中的页内偏移直接拼接得到，不必经过任何运算，因此，地址变换的速度比较快。 
+            <br>
+            　　4、对辅存（磁盘存储器）的管理比较容易。因为页的大小一般取磁盘存储器物理块大小（512字节）的整倍数。<br>
+            <br>
+            <b>　　页式虚拟存储器的主要缺点有两个：</b><br>
+            <br>
+            　　1、程序的模块化性能不好。由于用户程序被强制按固定大小的页来划分，因此，页式虚拟存储器中的一页通常不能表示一个完整的程序功能。一页可能只是一个程序段中的一部分，也可能在一页中包含了两个或两个以上程序段。<br>
+            　　2、页表很长，需要占用很大的存储空间。通常，虚拟存储器中每一页，在页表中都要占有一个字（4个字节）。假设有一个页式虚拟存储器，它的虚拟存储空间大小为4GB，每一页的大小为1KB，则页表的容量为16MB。<br>
+            <br>
+            </span></p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

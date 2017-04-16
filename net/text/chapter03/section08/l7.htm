@@ -1,0 +1,31 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td class="explaination" colspan="2"><br>
+            　　如果C=[C<font size="1">n-1</font>C<font size="1">n-2</font>……C<font size="1">1</font>C<font size="1">0</font>]是一个码字，则向左循环移一位（用L(C)表示）得L<font size="1">1</font>(C)=[C<font size="1">n-2</font>C<font size="1">n-3</font>……C<font size="1">0</font>C<font size="1">n-1</font>]仍是一个码字。同理，L<font size="1">2</font>(C)=[C<font size="1">n-3</font>C<font size="1">n-4</font>……C<font size="1">0</font>C<font size="1">n-1</font>C<font size="1">n-2</font>]，……，L<font size="1">n-1</font>(C)＝[C<font size="1">0</font>C<font size="1">n-1</font>…C<font size="1">2</font>C<font size="1">1</font>]等都是该码集合中的码字。<br>
+            <br>
+            　　循环码的最大循环周期和码长n相同。它的一个码字可用多项式表示为：<br>
+            　　<img src="../../../image/pic/chapter03/gongshi/8/14.gif" width="370" height="27">　(3-13)<br>
+            <br>
+            　　C(x)称为码多项式。码字C向左循环移i位相当于X<sup><font size="1">i</font></sup>C(x)[模(<font size="2">x</font><sup><font size="1">n</font></sup>-1)]，向右循环移i位相当于x<sup><font size="1">-i</font></sup>C(x)[模(X<sup><font size="1">n</font></sup>-1)]。式(3-4)生成矩阵中的一行g<font size="1">1</font>=[1000101]也可以写成多项式形式，称为生成多项式。<br>
+            　　　<img src="../../../image/pic/chapter03/gongshi/8/15.gif" width="151" height="27">　(3-14)<br>
+            <br>
+            　　一个码字中的信息码元部分和监督码元部分，也可以分别写成信息码元多项式m(x)和监督码元多项式<img src="../../../image/pic/chapter03/gongshi/8/25.gif" width="26" height="14" align="absmiddle">，若m=[C<font size="1">6</font>C<font size="1">5</font>C<font size="1">4</font>C<font size="1">3</font>]=[1010]，则m(x)=x<sup><font size="1">3</font></sup>+x，<img src="../../../image/pic/chapter03/gongshi/8/25.gif" width="26" height="14" align="absmiddle">可以类似的方法得到。此时循环码的编译码均可经码多项式的代数运算求得。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

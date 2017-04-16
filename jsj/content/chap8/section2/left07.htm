@@ -1,0 +1,45 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第八章 并行处理机和多处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black"><span class="part">8.2.4 多处理机的Cache一致性</span><br>
+            <br>
+            　　Cache作为提高系统性能的一种常用手段在并行计算机系统中得到了很多的应用，但是在并行处理机系统中的私有Cache会引起Cache中的内容相互之间以及与共享存储器之间互不相同的问题，这就是本节将要讨论的Cache一致性问题。<br>
+            　　首先讨论Cache一致性问题的由来。然后讨论两种Cache一致性的解决方案，监听协议和基于目录的协议。</p>
+          <p align="left" class="pt9-black"><b>1 问题由来</b></p>
+          <p align="left" class="pt9-black"> 　　加入了Cache，整个存储系统的速度得到很大的提高。但是，相邻层之间和同一层之间可能会出现数据不一致的现象。出现数据不一致性问题的原因有三个：共享可写的数据、进程迁移和I/O传输。下面说明数据不一致现象的由来。<br>
+            　　(1) 共享可写数据引起的不一致性<br>
+            　　只有当使用多个私有Cache时才会发生Cache不一致的问题，图8.12说明数据的不一致是怎样发生的：</p>
+          <p align="center" class="pt9-black"><img src="images/tu8_12.jpg" width="532" height="220"></p>
+          <p align="left"><span class="pt9-black">　　图8.12以拥有两个处理机的系统为例，处理机带有各自的私有Cache，并公用一个共享的主存储器。比如说，在<img src="images/gsh2_14.gif" width="15" height="14" align="absmiddle">和<img src="images/gsh2_15.gif" width="15" height="13" align="absmiddle">的本地高速缓冲存储器<img src="images/gsh2_16.gif" width="14" height="13" align="absmiddle">和<img src="images/gsh2_17.gif" width="14" height="14" align="absmiddle">中分别有内存某个数据X的拷贝，那么当<img src="images/gsh2_14.gif" width="15" height="14" align="absmiddle">把X的值改变成X'之后，如果<img src="images/gsh2_14.gif" width="15" height="14" align="absmiddle">采用写通过策略，即同时修改内存中的值，这时内存中的内容也变为X'，但是<img src="images/gsh2_15.gif" width="15" height="13" align="absmiddle">处理机中的<img src="images/gsh2_17.gif" width="14" height="14" align="absmiddle">的内容还是X。当<img src="images/gsh2_15.gif" width="15" height="13" align="absmiddle">处理机要读X时，它读到的是<img src="images/gsh2_17.gif" width="14" height="14" align="absmiddle">中的内容，这样就导致了<img src="images/gsh2_17.gif" width="14" height="14" align="absmiddle">和内存中的内容的不一致性；如果<img src="images/gsh2_14.gif" width="15" height="14" align="absmiddle">采用写回策略，即不立即修改内存中的的值，这时内存中的内容还是X，当<img src="images/gsh2_15.gif" width="15" height="13" align="absmiddle">处理机要读X时，读到的是X而不是X'，这样就导致了<img src="images/gsh2_16.gif" width="14" height="13" align="absmiddle">和内存中的内容的不一致性。<br>
+            <br>
+            </span></p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" background="../../../../image/htmls/right_r5_c3.gif" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="88%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+          <td class="text"><br>
+            <span class="section">三、IP封装、分段和重组</span><br>
+            <span class="part"><br>
+            　4.重组</span><br>
+            <br>
+            　　在所有的段的基础上重新产生原数据报的过程叫重组（reassembly）。由于每个段都以原数据报头部的一个副本作为开始，因此都有与原数据报同样的目的地址。另外，含有最后一块数据的段在头部设置有一个特别的位，因此，执行重组的接收方能报告是否所有的段都成功地到达。<br>
+            <br>
+            　　需要注意的是，只有最终目的主机才会对段进行重组。例如，考虑动画中的例子。如果主机H1发送一个1500字节的数据报，路由器R1将会把数据报分为两段，转发给路由器R2；R2并不进行段的重组，只是直接转发这些段。最终目的主机H2搜集了这些段之后，将重组它们，以生成原数据报。<br>
+            　　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

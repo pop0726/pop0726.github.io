@@ -1,0 +1,28 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+          <td class="explaination"><br>
+            <span class="point">・编码技术</span><br>
+            <br>
+            　　在MAC子层中形成了帧结构后，要通过物理层发送到介质上，介质上传输帧的二进制代码时必须采用特殊的编码，而不是计算机主体中一般的不归&quot;0&quot;制（NRZ）编码，在10BASEX以太网上采用了曼彻斯特编码（Manchester 
+            Code）（详见第三章）。 <br>
+            <br>
+            　　采用曼彻斯特编码在代码中包括了同步时钟信号。还有一个优点是在使用同轴电缆介质的以太网（10BASE5、10BASE2）上能很方便地检测到发生碰撞的现象。由于该编码的帧在正常发送过程中在介质上形成的平均电平是固定的，这是由于以跳变状态来表示代码所致。每一位的平均电平是一样的，如果跳变的低电平为V1，高电平为V2，则平均电平为（V1+V2）/2。如果在介质上发生了碰撞，则平均电平就会改变，只要超过一个规定的门槛电平，发送站就能检测到碰撞。这种碰撞检测效果使用一船的NRZ编码是无法达到的。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

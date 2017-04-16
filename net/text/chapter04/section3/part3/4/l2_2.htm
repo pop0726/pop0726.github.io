@@ -1,0 +1,30 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td class="explaination" colspan="2"><br>
+            　　为了直观了解好消息的传播之快，见<span class="text">图4.13(a)</span>一个具有5个节点的（线性的）子网，用跳数度量距离，假定开始时A是down状态，并且其它所有路由器都知道这一点，换句话说，各节点到A的距离可用无穷大标记之。当A变为up状态后，其它路由器通过向量交换能知道。为简单起见，我们假定路由器同时相互交换向量，第一次交换，B知道到A的距离为1；其它路由器仍认为到A为无穷大，第二次交换C根据B到A为1推出通过B到达A为2，D、E仍认为到A为无穷大；第三次交换后D认为到A为3，第四次交换后E认为到A为4。很明显，好稍息每次传播一跳。若一个子网长度为N跳，则在N次交换后，每个路由器都知道到A的最新距离及所用线路。<br>
+            <br>
+            　　让我们再看图4.13(b)。开始时，所有路由器都处于up状态，路由器B、C、D和E到A的距离分别为l、2、3和4。假如A或A-B间的线路失效，则从B开始都受到同样的影响。 
+            第一次交换时，B没有得到A的任何消息，但它却从C处获知由C可到达A，且距离为2，由于B到C为l，所以，B得出通过C到达A为3的结果。B不知道由C到A的路径通过了B节点自己。第二次交换后，C根据左右邻居到A均为3，推出C到A为4。依次类推，经过很多次交换。各节点最终将得出到A的距离变成无穷大，这就是计数到无穷问题。由图可看出坏消息的反馈是多么慢。<br>
+            <br>
+            　　为避免这种问题，可采用水平分割算法，它的基本思想是在发送路由更新消息时进行限制。即到x的距离不应在测算到x距离的线路上报告。因此水平分割算法中节点不向相邻节点报告那些从该相邻节点了解到的路由信息。<br>
+            <br>
+            　　典型的距离向量路由算法有<span class="point">RIP</span>（Routing Information Protocol）。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

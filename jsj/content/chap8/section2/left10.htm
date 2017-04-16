@@ -1,0 +1,41 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第八章 并行处理机和多处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black">(2) 采用Write-Through策略的Cache<br>
+            <br>
+            　　在使用Write-Through策略的Cache中，数据块有两种状态，有效和无效。有效表示该数据块内容正确，无效表示该数据块内容已&quot;过时&quot;或不在Cache。这两种状态的转换如图8.16所示。</p>
+          <p align="center" class="pt9-black"><img src="images/tu8_16.jpg" width="380" height="143"></p>
+          <p align="left"><span class="pt9-black">　　图中，Rl、Wl分别表示本地处理机对Cache某数据块的读和写操作，Rr、Wr分别表示其他处理机对其Cache中存有相同内容的数据块的读和写操作。要注意：&quot;有效&quot;、&quot;无效&quot;指的是本地处理机相应数据块的状态，并非整个Cache的状态，但为了叙述方便，下面有些部分把&quot;Cache某个数据块的状态&quot;简述为&quot;Cache的状态&quot;。<br>
+            　　从图中可以看出，在Cache无效时，其他处理机的任何操作都不会影响本地Cache的无效状态。只有在本地处理机读或写了数据块中的某个数据，即对Cache执行了Read或Write命令时，该数据块的状态才会成为&quot;有效&quot;。同样，本地处理机对有效数据块进行的读、写操作，以及其他处理机对存有相同内容的数据块的读操作也都不会影响该数据块的有效状态。只有在其他处理机执行了对存有相同内容的数据块的写操作时，该数据块的状态才会成&quot;无效&quot;。<br>
+            <br>
+            </span></p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+          <td class="explaination"> <br>
+            　　设想一个子网十分拥塞以至于根本不能及时返回&quot;确认&quot;，每个分组由于在规定时限内得不到确认而需要重发二次或三次的情形。假设该子网内部使用数据报，并且每个分组拥有不同的路由。一些分组可能会因为子网内部的线路拥塞．需要很长一段时间才能到达，即它们被存储到子网中，并在很久以后突然出现。<br>
+            <br>
+            　　最坏的可能性是发生下面的情况。一个用户与银行之间建立了一条连接，并发送报文让银行将一笔巨款转至一个不能完全信任的人的账户下，然后便释放连接。不幸的是，此时每个分组均被复制并存放于子网中。当连接已经断开后。所有的复制分组又会从子网中发出并顺序到达目的瑞，请求与银行建立一个新的连接并再次转账，然后释放连接。而银行则无法辨别这些分组是重复的，便假定这是第二次独立的转账业务。于是将巨款再次转移。本节剩下的部分将专门讨论延迟的重复分组问题，特别重点讨论可靠地建立连接的算法，以防止类似于上述灾难性问题的发生。 
+            <br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

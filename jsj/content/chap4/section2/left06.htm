@@ -1,0 +1,40 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第四章 输入输出系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black"><b>第二种方法：改变处理机优先级方法。</b><br>
+            　　中断优先级不仅在处理机响应中断源的中断服务请求时使用，而且为每个中断源的中断服务程序也赋予同样的中断优先级。因为中断服务程序必须在处理机上执行，因此，把这种设置中断屏蔽的方法称为改变处理机优先级方法。<br>
+            　　如果一台处理机共有n个中断源，则在处理机的状态字中需要设置 个中断屏蔽位。这里，不把它称为中断屏蔽码，正好相反，称它为中断优先级。处理机本身的优先级一般设置为最低，例如，设置为&quot;0级&quot;，通常，处理机在运行主程序时，其优先级即为0级。另外，要为每一个中断源分别建立处理机状态字，通常把它们存放在主存储器的一个固定区域中。这些中断源的处理机状态字中同样也有一个中断优先级字段，而且每个中断优先级字段一般都可以由程序员用通过软件来进行修改。<br>
+            　　处理机在响应某一个中断源的中断服务请求后，就把属于这个中断源的处理机状态字作为当前处理机的状态字，这时候处理机的优先级也就有改变了，变成了程序员为这个中断源设置的中断优先级。这时，只有中断优先级高于当前处理机优先级的中断源才能中断当前的中断服务程序。<br>
+            　　正常工作的情况，在各个中断源的处理机状态字中设置的中断优先级应该与这个中断源本身的硬件中断优先级相同。这时，处理机响应中断源的中断服务请求和完成中断服务的过程将严格按照中断源的硬件中断优先级进行。<br>
+            　　如果要改变中断源的中断服务顺序，即在有多个中断源同时请求中断服务时，让某些硬件中断优先级较低的中断源先得到处理机的服务，可以通过修改相关中断源的处理机状态字来实现。下面，举一个简单的例子。</p>
+          <p align="left" class="pt9-black">&nbsp;</p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

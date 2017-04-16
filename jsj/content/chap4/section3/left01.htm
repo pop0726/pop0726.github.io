@@ -1,0 +1,49 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第四章 输入输出系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black"><span class="section">4.3 通道处理机</span><br>
+            <br>
+            　　在大型计算机系统中，外围设备的台数一般比较多，设备的种类、工作方式和工作速度的差别也比较大。为了把对外围设备的管理工作从CPU中分离出来，从IBM 
+            360系列机开始，普遍采用通道处理机技术。目前，在IBM 370系列机等几乎所有的IBM公司研制的计算机系统中都采用了通道处理机技术。在IBM公司研制的微型机和工作站等计算机系统中还采用了微通道技术。<br>
+            <br>
+            <span class="part">4.3.1 通道的作用和功能</span><br>
+            　　在大型计算机系统中，如果仅仅采用前面介绍过的程序控制、中断和DMA这三种基本的输入输出方式来管理外围设备，会引起如下两个问题：<br>
+            　　1、所有外围设备的输入输出工作全部都要由CPU来承担，CPU的输入输出负担很重，不能专心于用户程序的计算。<br>
+            　　低速外围设备，每传送一个字符都要由CPU通过执行一段程序来完成，而高速外围设备虽然使用DMA方式减少了CPU的干预，但初始化等工作仍然需要CPU用程序来完成。在大型计算机系统中，这种输入输出工作对CPU的时间占用实际上是一种浪费。避免这种浪费的方法之一就是设置专门的输入输出处理机来分担全部或大部分的输入输出工作，例如，管理所有低速外围设备的输入输出工作，对DMA接口的初始化工作，控制DMA的数据传送，数据格式的变换，设备状态的检测等。这样，就能进一步提高整个计算机系统功能分散化的程度，充分发挥CPU的计算潜力。<br>
+            　　2、大型计算机系统中的外围设备台数虽然很多，但是一般并不同时工作。如果为每一台设备都配置一个接口，必然是一种浪费。特别是DMA接口，它的硬件代价很高。连接DMA接口的磁盘或磁带存储器等一般并不同时工作。<br>
+            　　采用DMA方式传送数据，提高了输入输出数据的速度，节省了CPU的时间，但这是以对每一台快速外围设备都配备一个专用的DMA控制器作为代价的。在微型和小型计算机系统中，由于快速外围设备的台数很少，所使用的DMA控制器的数量有限。而在大型计算机系统中，快速外围设备的数量显著增加，就存在一个如何让DMA控制器能被多台设备共享的问题，以提高硬件的利用率。<br>
+            　　为了使CPU摆脱繁重的输入输出负担和共享输入输出接口，在大型计算机系统中采用通道处理机是一种比较好的选择。<br>
+            　　通道处理机能够负担外围设备的大部分输入输出工作，包括管理所有按字节传输方式工作的低速和中速外围设备，按数据块传输方式工作的高速外围设备，对DMA接口的初始化，设备故障的检测和处理等。通道处理机虽然不是一台具有完整指令系统的处理机，但是可以把它看作是一台能够执行有限输入输出指令，并且能够被多台外围设备共享的小型DMA专用处理机。<br>
+            　　在一台大型计算机系统中可以有多个通道，一个通道可以连接多个设备控制器，而一个设备控制器又可以管理一台或多台外围设备，这样就形成了一个非常典型的输入输出系统的四级层次结构。 
+          </p>
+          <p align="left" class="pt9-black">&nbsp; </p>
+          </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

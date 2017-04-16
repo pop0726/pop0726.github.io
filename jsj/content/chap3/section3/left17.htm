@@ -1,0 +1,47 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第三章 存储系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="left"> 
+          <p><span class="part">3.3.5 Cache的一致性问题</span><br>
+            <br>
+            <span class="pt9-black">　　由于Cache中保存的只是主存的部分副本，那么，这些副本与主存中的内容是否能保持一致，这是Cache能否可靠工作的一个关键问题。<br>
+            　　由于以下两个原因，在一段时间内，主存某单元中的内容与Cache对应单元中的内容可能不相同。这样，就造成Cache与主存的不一致问题。<br>
+            　　1、如图3.43(a)所示。由于CPU写Cache，把Cache某单元中的内容从X修改成了X'，而主存对应单元中的内容还仍然是X没有改变。<br>
+            　　2、如图3.43(b)所示。由于从输入输出处理机或输入输出设备修改了主存某单元中的内容，把X修改成了X'，而Cache对应单元中的内容还仍然是X没有改变。 
+            <br>
+            　　当第1种情况发生时，如果把包括X在内的主存中的数据输出到设备去，或者在第2种情况发生时，CPU读了Cache中的数据X，都可能造成错误。<br>
+            　　解决Cache与主存的不一致性问题，首先要选择合适的Cache更新算法。主要有两种Cache更新算法，写直达法和写回法。写直达法又称为写通过法WT(Write-through)，写回法又称为抵触修改法WB(Write-Back)。</span></p>
+          <p align="center" class="pt9-black"><img src="images/tu3_43.jpg" width="362" height="194"></p>
+          <p align="left"><span class="pt9-black">　　写回法是指CPU在执行写操作时，被写数据只写入Cache，不写入主存。仅当需要替换时，才把已经修改过的Cache块写回到主存。在采用这种更新算法的Cache块表中，一般有一个&quot;修改位&quot;。当一块中的任何一个单元被修改时，这一块的修改位就被置&quot;1&quot;，否则这一块的修改位仍保持&quot;0&quot;。在需要替换这一块时，如果对应的修该位为&quot;1&quot;，则必须先把这一块写回到主存中去之后，才能再调入新的块。如果修改位为&quot;0&quot;，则这一块不必写回主存，只要用新调入的块覆盖掉这一块即可。<br>
+            　　写直达法是指在CPU在执行写操作时，必须把数据同时写入Cache和主存。这样，在Cache的块表中就不需要什&quot;修改位&quot;。当某一块需要替换时，也不必把这一块写回到主存中去，新调入的块可以立即把这一块覆盖掉。<br>
+            <br>
+            </span> </p>
+          </div>
+        </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

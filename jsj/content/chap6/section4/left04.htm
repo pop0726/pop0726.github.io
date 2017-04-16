@@ -1,0 +1,42 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第六章　向量处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black">　　C-90和机群 C-90对Y-MP系列在技术上和规模上作了进一步改进。表6.2列出了C-90/16258系列结构的特征。系统由16个类似于Y－MP的CPU组成。16台处理机共享主存储的容量高达256兆字（2G字节）。SSD存储器的容量最多达16G字节，可选作第二级主存储器。两条向量流水线和两个功能部件可以并行操作，每个时钟周期能产生4个向量计算结果。这意味着每台处理机有4路并行性，因此16台处理机每个时钟周期最多可以产生64个向量计算结果。<br>
+            　　C－90运行UNICON操作系统，它是UNIX系统V和Berkeley BSD4.3经过扩充而成的。许多主机可以驱动C－90。该系统提供向量化的Fortran 
+            77和C编译器。64路并行性和4.2ns时钟周期相配合，可使系统的峰值性能达到16Gfolps,系统最大I/O频宽为13.6兆字节/秒。<br>
+            　　为了求解大型问题，还可以把多台C－90连成机群结构。如图6.21所示，4个C－90机群通过速度为1000兆字节/秒的通道与SSD组连接。每个C－90机群只能访问自己的主存储器，然而它们共享SSD。换句话说，SSD中的大量数据供4个C－90机群共享。每个机群也可以通过共享信号灯部件与其它机群进行通信。只有同步和控制信息才通过信号灯部件传输。在这个意义上说，C－90机群之间是松散耦合的，但整个系统能提供的最大并行性为256路。</p>
+          <p align="center" class="pt9-black"><img src="iamges/tu6_21.jpg" width="261" height="198"></p>
+          <p align="left" class="pt9-black">　　如果计算能划分得很好并且机群间负载很均衡，那么配置为4个机群的系统时其峰值性能可以达到64Gflops。Cray 
+            Research 实验室在机群结构方面取得了成功的经验。读者可以从Cray的报告中直接查得测试程序的结果。<br>
+            <br>
+          </p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+          <td class="explaination"><br>
+            　　例如，一个应用程序能够通过卫星信道向另一个国家的某台计算机发送数据，与此同时，另一个应用正通过局域网向隔壁房间的某台计算机发送数据。TCP必须准备为任何一个连接中出现的丢失消息进行重发。 
+            <br>
+            <br>
+            　　问题是： TCP在重发之前应该等待多长时间？<br>
+            <br>
+            　　在同一个局域网上的某台计算机发回的确认在几个毫秒内就能到达，若为这种确认等待得过久则使网络处于空闲而无法使吞吐率达到最高。因而，在一个局域网中TCP不应该在重发之前等待过久。然而，对一个长距离的卫星连接来说，几个毫秒的重发等待时间则太短了，因为无用的通信量消耗了网络的带宽并降低了吞吐率。<br>
+            <br>
+            　　TCP面对着一个比区分本地目的地和远程目的地更为复杂的挑战：数据报的突发可能导致网络拥塞，而网络拥塞又会导致传输的延迟大大增加。事实上，从发送一个消息到接收一个确认所需的时间，很可能在毫秒的上下几个数量级之间变化。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

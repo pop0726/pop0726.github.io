@@ -1,0 +1,31 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" background="../../../../../image/htmls/right_r5_c3.gif" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="88%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+          <td class="text"><br>
+            <span class="section">三、连接管理</span><br>
+            <br>
+            <span class="part">　2.释放连接</span><br>
+            <br>
+            　　在实际应用时，人们在解决释放连接问题时往往准备冒比进攻白军问题更大的风险，所以问题并非完全没有希望解决。动画表明了采用三次握手方法进行连接释放的四种情况。这一协议并非绝对无误，但它已令人满意了。<br>
+            <br>
+            　　<span class="point">动画</span>中是正常释放的情形，此时，一个用户发出一个DR（释放连接请求）TPDU，而首先要求释放连接。当该TPDU到达后，接收方也回送个DR 
+            TPDU，并同时启动定时器以防止其DR TPDU丢失。当应答方的DR到达后，最初提出释放连接的一方又回送-个ACK（确认）TPDU，并断开连接。最后，当ACK 
+            TPDU抵达目的地后，接收方也释放连接。释放一个连接意味着传输实体从其记载所有接通的连接的表中删除该连接的有关信息并设法通知该连接的所有者（传输用户）。该操作有别于传输用户调用DISCONNECT原语的情形。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

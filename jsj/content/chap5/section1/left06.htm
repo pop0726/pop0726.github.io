@@ -1,0 +1,44 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第五章 标量处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black">　　当流水线中各段的执行时间不完全相等时，流水线中就存在有&quot;瓶颈&quot;流水段。如图5.8(a)所示，在一条4段流水线中，第2段的执行时间是其它各段执行时间的3倍，即<img src="images/gsh1_10.gif" width="171" height="16" align="absmiddle">。在这种情况下的流水线时空图如图5.8(b)所示，图中的阴影部分表示该段流水线在这一段时间内是空闲的。因此，流水线存在有&quot;瓶颈&quot;流水段情况下的实际吞吐率为：<br>
+            　　　<img src="images/gsh1_11.gif" width="271" height="61" align="absmiddle">　　　　　　（5.10）</p>
+          <p align="center" class="pt9-black"><img src="images/tu5_8.gif" width="485" height="265"><br>
+            <b class="pt9-black">图5.8 各段延迟时间不相等的流水线</b> </p>
+          <p align="left" class="pt9-black">　　分母中的第一部分是流水线完成第一个任务所用时间，第二部分是完成其余n－1个任务所用的时间。<br>
+            　　这时候流水线的最大吞吐率为：<br>
+            　　　<img src="images/gsh1_12.gif" width="207" height="41" align="absmiddle">　　　　　　　　（5.11）<br>
+            　　对于图5.8所示的例子，流水线的最大吞吐率为：<br>
+            　　　　<img src="images/gsh1_13.gif" width="106" height="38" align="absmiddle">　　　　　　　　　　　　　　　（5.12）<br>
+            　　从关系式（5.10）和（5.11）中看到，当流水线中各个流水段的执行时间不完全相等时，流水线的最大吞吐率与实际吞吐率主要是由流水线中执行时间最长的那个流水段决定的，这个流水段就成了整个流水线的&quot;瓶颈&quot;。从图5.8(b)中也可以看到，除了流水线中的&quot;瓶颈&quot;流水段一直处与忙碌状态外，其余各段有许多时间是空闲的，这实际上是一种资源的浪费。</p>
+          <p align="left" class="pt9-black">&nbsp;</p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

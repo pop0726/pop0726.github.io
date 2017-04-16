@@ -1,0 +1,47 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第四章 输入输出系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black"><span class="section">4.2 中断系统</span><br>
+            <br>
+            　　在现代计算机系统中，中断系统已经不仅仅属于输入输出系统。它除了被用来管理各种各样的外围设备之外，在整个计算机系统起着重要的作用。例如，人机联系、故障处理、实时处理、多任务操作系统、分时操作系统、程序的跟踪调试、程序的监测、用户程序与操作系统的联系、多处理机系统中各个处理机之间的相互联系及任务分配等。本节并不介绍中断系统的工作原理，主要介绍在中断系统设计过程中软件与硬件的功能分配及其相关的一些问题。<br>
+            <br>
+            <span class="part">4.2.1 中断系统的软硬件功能分配</span><br>
+            <br>
+            　　从中断源发出中断服务请求，到这个中断服务请求被处理机响应并全部处理完成，其过程是相当复杂的。其中，有些功能必须用硬件来实现，有的功能必须用软件来实现，而中间的大部分功能既可以用硬件实现，也可以用软件实现。因此，在设计一台计算机的中断系统时，如何恰当分配中断系统的软件与硬件功能，是设计好中断系统最关键的一个问题。中断系统中软件与硬件的功能分配主要考虑如下两个因素：<br>
+            　<b>　1、中断响应时间</b><br>
+            　　从某一个中断源发出中断服务请求到处理机响应这个中断源的中断服务请求，并开始执行这个中断源的中断服务程序所用的这一段时间称为中断响应时间。<br>
+            在中断系统中，中断响应时间是一个非常重要的指标。特别是在实时计算机系统中，中断响应时间是整个计算机系统的一个关键性指标。 <br>
+            　<b>　2、灵活性</b><br>
+            　　一般情况下，用硬件实现速度快，但灵活性差。用软件实现正好相反，灵活性好，但速度低。<br>
+            　　上述这两个要求实际上是互相矛盾的。如果要减小中断响应时间，那么，中断处理过程中那些既能用硬件实现，也能用软件实现的功能，要尽量用硬件来实现，但是，这样做就必然失去了灵活性。相反，如果用软件实现的功能多了，灵活性虽然好了，但中断响应时间就必然要增加。</p>
+          <p align="left" class="pt9-black">&nbsp;</p>
+          </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

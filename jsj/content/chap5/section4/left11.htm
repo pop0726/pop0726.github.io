@@ -1,0 +1,43 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第五章 标量处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black">　　如果浮点加法器和浮点乘法器都采用流水线结构，每一个流水段的时间长度都相等。浮点加法器采用3段流水线，浮点乘法器需要4段流水线。在一台双流水线超标量处理机上，4条指令执行的时空图如图5.55所示。</p>
+          <p align="center" class="pt9-black"><img src="images/tu5_55.gif" width="495" height="164"><br>
+            <b>图5.55 双流水线超标量处理机，操作部件采用流水线的时空图 </b></p>
+          <p align="left"><span class="pt9-black">　　从图5.55中可以看到，由于浮点加法部件和浮点乘法部件都采用了流水线结构，指令<img src="images/gsh4_7.gif" width="13" height="16" align="absmiddle">和指令<img src="images/gsh4_6.gif" width="13" height="16" align="absmiddle">可以同时发射。指令I3在译码ID1完成之后可以直接发射到浮点加法部件中去。同样，指令<img src="images/gsh4_6.gif" width="13" height="16" align="absmiddle">在译码ID2完成之后也可以直接发射到浮点乘法部件中去。在图5.55中，除了流水线的装入和排空部分之外，没有任何空闲的时钟周期。做完4条指令总共用了8个时钟周期，与图5.54中的浮点加法器和浮点乘法器没有采用流水线的方法相比，少用了3个时钟周期。<br>
+            　　在超标量处理机中，为了表示资源使用情况和处理资源冲突，要为每一个操作部件设置一个&quot;忙&quot;标志触法器。例如，浮点加法部件FADD的&quot;忙&quot;标志为<img src="images/gsh4_8.gif" width="17" height="15" align="absmiddle">，浮点乘法部件FMUL的标志为<img src="images/gsh4_9.gif" width="22" height="16" align="absmiddle">。当一条指令译码完成之后，在要送到相应的操作部件中去执行时，必须首先通过资源冲突检测部件检测这个操作部件的&quot;忙&quot;标志。例如，若<img src="images/gsh4_8.gif" width="17" height="15" align="absmiddle">＝0，表示浮点加法部件是空闲的，浮点加法操作可以发射到这个部件中去执行。发射完成后，要把<img src="images/gsh4_8.gif" width="17" height="15" align="absmiddle">置成&quot;1&quot;，表示浮点加法部件正在&quot;忙&quot;。当浮点加法操作完成之后，运算结果流出浮点加法部件时，再把<img src="images/gsh4_8.gif" width="17" height="15" align="absmiddle">清为&quot;0&quot;。<br>
+            　　比较图5.54和图5.55可以发现，在一台每个时钟周期发射m条指令的超标量处理机中，对于一个延迟时间为k个时钟周期的操作部件，如果它不采用流水线结构，则使用同一个操作部件的两条指令的序号应该至少相差m×k，否则可能发生资源冲突。如果操作部件采用k个流水段的流水线结构，则使用同一个操作部件的两条指令的序号只需要相差m或m以上，就不会发生资源冲突。因为在超标量处理机中，指令流水线的段数k一般在4至10之间，每个时钟周期发射的指令条数m在2至4之间，取中间值，k＝7，m＝3。因此，为了不发生资源冲突，如果操作部件不采用流水线结构，两条使用同一个功能部件的指令序号必须相差21或21以上。如果操作部件采用流水线结构，两条使用同一个功能部件的指令序号只需要相差3或3以上。从这一分析结果中可以看出，在超标量处理机中，操作部件一般要采用流水线结构。如果由于某种原因，操作部件不能采用流水线结构，则必须设置多个相同种类的操作部件。<br>
+            　　由于超标量处理机在一个时钟周期内能够同时发射多条指令，因此，它对指令序列的要求与上一节中介绍的单流水线的标量处理机不同。在单流水线的标量处理机中，只有连续出现相同操作的指令序列时，流水线才能不&quot;断流&quot;，功能部件的效率才能得到充分发挥。而在超标量处理机中正好相反，超标量处理机希望相同操作的指令不要连续出现，否则会发生资源冲突。它要求相同操作的指令能够相对均匀地分布在程序中。超标量处理机的这种要求正好符合一般标量程序的特点。因此，只要超标量处理机中指令流水线的条数和操作部件的个数等设计合理，一般的标量程序能够在超标量处理机上得到高效率的运行，这正是目前超标量处理机能够得到普及的一个重要原因。 
+            </span><br>
+            <br>
+          </p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

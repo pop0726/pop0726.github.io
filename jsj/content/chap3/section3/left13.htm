@@ -1,0 +1,41 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第三章 存储系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><span class="pt9-black"><b>4、堆栈法</b><br>
+            <br>
+            　　用栈顶至栈底的先后次序来记录Cache同一组内的各个块被访问的先后次序。栈顶是最近被访问过的块，栈底是最久没有被访问过的块。当要替换时，从栈顶压入新的块，很自然，最久没有被访问过的块就从栈的底部被挤出堆栈。如图3.38所示。</span></p>
+          <p align="center"><img src="images/tu3_38.gif" width="338" height="170"><br>
+            <span class="pt9-black"><b>图3.38 堆栈法的工作原理</b></span></p>
+          <p align="left" class="pt9-black">　　堆栈法实际上是一种LRU替换算法，其管理规则为：把本次访问的块号与堆栈中保存的所有块号进行相联比较。如果发现有相等的，则Cache命中，这时，把本次访问的块号从栈顶压入，堆栈内各单元中的块号依次往下移，直至与本次访问的块号相等的那个单元为止，再往下的单元直止栈底都不变。如果没有发现相等的，则Cache块失效，这时，本次访问的块号从栈顶压入，堆栈内各单元的块号依次往下移，直至栈底。栈底单元中的块号被移出堆栈，它就是要被替换的块号。<br>
+            　　因此，在堆栈法中，栈底永远保存着最久没有被访问过的块号，也就是下次要被替换出Cache的块号。<br>
+            　　</p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

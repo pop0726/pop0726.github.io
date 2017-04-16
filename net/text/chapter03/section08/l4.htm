@@ -1,0 +1,39 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td class="explaination" colspan="2"><br>
+            　　给定生成矩阵，即可构成具体的汉明码，下面以(7,4)汉明码为例，讨论编译码器的组成。实际上可以验证上一节所举(7,4)分组码的例子即是一个汉明码，因此，以式作为生成矩阵，可导出编码方程组<br>
+            　　　<img src="../../../image/pic/chapter03/gongshi/8/12.gif" width="161" height="90">　　(3-11)<br>
+            <br>
+            　　根据上式可组成图3.16中的汉明码编码器。实际上这种编码器也可以用查表法实现。对于每一个可能的信息码字，事先算出它的编码码字，然后存入以信息码字为地址的ROM(只读存储器)。信息码字输入后，送至ROM的地址输入端，则可由ROM送出对应的码字监督位C<font size="1">2</font>C<font size="1">1</font>C<font size="1">0</font>，见图3.16(b)。<br>
+            <br>
+            　　上一小节已经在数学上证明译码的可行性。可以利用式(3-10)导出计算S'的方程组，算出S'。其后的译码步骤可参照上一小节的内容进行。这些步骤显然也是可以利用一些数字逻辑电路完成的。<br>
+            <br>
+            　　汉明码的编码率<img src="../../../image/pic/chapter03/gongshi/8/13.gif" width="189" height="48" align="absmiddle"> 
+            ，实际上若n很长，则R<font size="1">c</font>接近1，所以汉明码是一类高效码，但其纠错能力较差。 <br>
+            　</td>
+        </tr>
+        <tr> 
+          <td class="explaination" width="25" valign="top"><img src="../../../image/tub/ts.gif" width="25" height="20" alt="图示"></td>
+          <td class="explaination">
+            <div align="center"><img src="../../../image/pic/chapter03/3_16.gif" width="380" height="180"><br>
+              <span class="point">图3.16 汉明码编码器</span><br>
+              　　</div>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

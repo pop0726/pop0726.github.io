@@ -1,0 +1,118 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第五章 标量处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black">　　状态图5.18中的所有简单循环均包括在表5.1中，共有8个简单循环。在表5.1中，还分别计算出了这些简单循环的平均启动距离。</p>
+          <p align="center" class="pt9-black"><span class="pt9-black"><b>表5.1 
+            所有的简单循环及其平均启动距离</b></span></p>
+          <table width="40%" border="1" cellpadding="1" cellspacing="1" bgcolor="#F9FCD3">
+            <tr> 
+              <td class="pt9-black" height="18"> 
+                <div align="center">简单循环</div>
+              </td>
+              <td class="pt9-black" height="18"> 
+                <div align="center">平均启动距离</div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center">（1，7）</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">4</div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center">（3，5）</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">4</div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center">（5，7）</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">6</div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center">（3，5，7）</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">5</div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center">（5，3，7）</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">5</div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center">（3，5）</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">4</div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center">（5）</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">5</div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center">（7）</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">7</div>
+              </td>
+            </tr>
+          </table>
+          <p align="left"><span class="pt9-black">　　(3)从表5.1中可以很容易找到平均启动距离最小的启动循环，这样的启动循环被称为最小启动循环。在状态图5.18中的最小启动循环是（1，7）或（3，5），其平均启动距离是4。当非线性流水线按照最小启动循环（1，7）工作时，在向流水线输入第1个任务之后，在紧接着的下一个时钟周期向流水线输入第2个任务，然后再相隔7个时钟周期(时钟周期9)，向流水线输入第3个任务，如此重复。按照最小启动循环连续向流水线输入新任务，则流水线的各个流水段在任何时钟周期都不会发生冲突。<br>
+            　　这条非线性流水线按照最小启动循环（3，5）工作时，它的流水线状态图如图5.20所示。按照最小启动循环（1，7）工作时，它的流水线状态图如图5.21所示。</span></p>
+          <p align="center"><img src="images/tu5_20.jpg" width="542" height="193"></p>
+          <p align="center"><img src="images/tu5_21.jpg" width="542" height="193"></p>
+          <p align="left"><span class="pt9-black">　　(4)图5.20和图5.21是不等间隔的流水线调度方法，它的控制比较复杂。为了简化流水线的控制逻辑，也可以采用相等间隔的调度方法，即采用恒定循环来启动流水线。从表5.1中可以看出，启动距离最小的恒定循环是（5）。按照恒定循环（5）工作的流水线预约表如图5.22所示。</span></p>
+          <p align="center"><img src="images/tu5_22.jpg" width="542" height="196"><br>
+          </p>
+          <p align="left" class="pt9-black">　</p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

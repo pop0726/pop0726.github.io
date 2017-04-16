@@ -1,0 +1,46 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第四章 输入输出系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><span class="pt9-black">　　在早期的计算机系统中，一个处理机在一段时间内只能管理一台外围设备。例如，用一台速度为1GIPS的计算机系统管理一台打印机。打印机的工作速度是每秒100个字符。处理机用一条指令就能向打印机传送4个字符。这样，处理机的利用率只有：<br>
+            　　　　<img src="images/gsh1_1.gif" width="100" height="37"> 
+            <br>
+            　　即4千万分之一。<br>
+            　　在现代计算机系统中，每台外围设备都设置有数据缓冲寄存器、状态寄存器（对输入设备）或控制寄存器（对输出设备）。这样，一个处理机就可以管理多台外围设备。<br>
+            　　当一个处理机需要管理多台外围设备，而且这些外围设备又要并行工作时，处理机可以采用轮流循环测试的方法，分时为各台外围设备服务。当然，程序流程不能象图4.2那样，要修改成如图4.4所示。当被测试的一台设备还在忙碌（或者还没有准备好）时，必须立即测试下一台设备。只要处理机对所有设备测试一个循环花费的时间小于最快设备的工作周期，那么，所有外围设备就都能够正确地并行工作。 
+            <br>
+            　　采用程序控制输入输出方式，一个很明显的优点是灵活性很好。例如，可以很容易地改变各台外围设备的优先级。在图4.4中，程序员能够很方便地任意安排各台外围设备的测试顺序，而对各台外围设备的测试顺序实际上就是各台设备的优先级。</span></p>
+          <p align="center"><img src="images/tu4.4.jpg" width="213" height="334"></p>
+          <p align="left"><span class="pt9-black">　　程序控制输入输出方式的一个很大缺点是不能实现处理机与外围设备并行工作。例如，在图4.2中要实现处理机与输入输出设备并行工作，只能在处理机把一个字符送到显示器之后，先运行自己的一段程序，然后再去测试键盘是否有输入字符。由于人敲击键盘的速度相对于处理机的运算速度来说是非常低的，因此可以利用人两次敲击键盘的中间一段时间，处理机运行自己的程序。但是，这种管理方式实现起来很困难，而且也相当危险。主要原因是处理机运行程序的这段时间如何控制？在一般处理机中，定时器必须采用中断方式工作。另外，时间的长短也很难控制，如果这段时间太短，处理机的利用率很低，如果时间过长，超过了两次敲击键盘之间的这段时间，那么，从键盘上输入的前一个字符就将丢失。 
+            </span><br>
+            <br>
+          </p>
+          </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

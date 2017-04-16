@@ -1,0 +1,37 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td class="explaination" colspan="2"><br>
+            　　在异步传输（图3.20）方式中，每次传送一个字符（5-8位），都在每个字符代码前加一起始位，表示该字符代码的开始。在字符和校验码后加一停止位，以示该代码的结束。所以又称起止式同步，起始位编码为&quot;0&quot;，持续一位时间，停止位编码为&quot;1&quot;持续l～2位。当不发送数据时，发送端连续地发送停止码&quot;1&quot;。接收端一旦接收到从1到0信号跳变，便知道要开始新字符的发送，利用这种极性的改变便可启动定时机构，实现同步。<br>
+            　</td>
+        </tr>
+        <tr> 
+          <td class="explaination" width="25" valign="top"><img src="../../../image/tub/ts.gif" width="25" height="20" alt="图示"></td>
+          <td class="explaination">
+            <div align="center"><img src="../../../image/pic/chapter03/3_20.gif" width="380" height="150"><br>
+              <span class="point">图3.20 异步传输</span></div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="explaination" colspan="2"><br>
+            　　当接收到接收停止位，就将定时机构复位，准备接收下一个字符代码。在异步传输中不需要传输时钟脉冲。由于这种方式的字符发送是相互独立的，故称为异步方式。<br>
+            <br>
+            　　异步通信设备易于安装，维护简单且价格便宜；但异步方式由于每一个字符都引入起始和停止位，所以开销大、效率低、速率低，常用于低速传输，如1200b/s或更低的速度。分时终端与计算机的通信一般是异步的。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

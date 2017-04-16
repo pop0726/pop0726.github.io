@@ -1,0 +1,29 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" background="../../../../../image/htmls/right_r5_c3.gif" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="88%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+          <td class="text"><br>
+            <span class="section">三、连接管理</span><br>
+            <br>
+            <span class="part">　1.建立连接</span><br>
+            <br>
+            　　最糟糕的情况是当一个延时的CR（连接请求）和一个对ACC（接受连接）的确认并存于子网中时，见<span class="point">动画</span>。如上例一样，主机2收到了一个延时的CR并做了确认应答。在这里，关键是要认识到主机2已经建议使用y作为从主机2到主机1进行数据传输的初始序号，因为主机2十分清楚当前没有序号y或对y进行确认的TPDU存在。于是，当第二个延时的TPDU到达主机2时，主机2根据它确认的是序号z而不是y知道这也是一个过时的重复TPDU。重要的是要认识到此处不会出现过时的CR，ACC或其他可能引起协议失败的TPDU组合的情况，也不会无故建立无人要求的连接。<br>
+            <br>
+            　　另一种针对延迟的重复TPDU而能可靠地建立连接的方案请参见（Waston，1981）。该方案使用了多个定时器来排除意外的事件。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

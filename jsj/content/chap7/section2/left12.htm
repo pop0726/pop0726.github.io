@@ -1,0 +1,45 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第七章 互连网络</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="left"> 
+          <p><span class="pt9-black">　　下面讨论超立方体计算机上的选播和广播。<br>
+            　　为在n方体上实现广播，可用类似的生成树，时延不超过n就能到达所有结点。图7.37a是一个根结点为0000的4立方体。超立方体广播树的流量最小。<br>
+            　　图7.37b是一棵贪婪选播树，可从结点0101发送包到7个目的结点。这个贪婪选播算法的基本思想是向那些可达到最多剩余目的结点的维方向发送包。<br>
+            　　从源结点S＝0101开始，由维2方向可以到达2个目的结点，由维4方向可以达到5个目的结点。因此，第一层所用的通道是0101<img src="images/gsh2_32.gif" width="14" height="13" align="absmiddle">0111和0101<img src="images/gsh2_32.gif" width="14" height="13" align="absmiddle">1101。<br>
+            　　从结点1101，由维2方向可以到达3个目的结点，由维1方向可以到达4个目的结点。因此，第二层所用的通道是1101<img src="images/gsh2_32.gif" width="14" height="13" align="absmiddle">1111，1101<img src="images/gsh2_32.gif" width="14" height="13" align="absmiddle">1100和0111<img src="images/gsh2_32.gif" width="14" height="13" align="absmiddle">0110。<br>
+            　　同理，第三层所用的通道是1111<img src="images/gsh2_32.gif" width="14" height="13" align="absmiddle">1110，1111<img src="images/gsh2_32.gif" width="14" height="13" align="absmiddle">1011，1100<img src="images/gsh2_32.gif" width="14" height="13" align="absmiddle">1000和0110<img src="images/gsh2_32.gif" width="14" height="13" align="absmiddle">0010。第四层所用的通道是1110<img src="images/gsh2_32.gif" width="14" height="13" align="absmiddle">1010。<br>
+            　　在扩充选播树时，首先应该比较所有各维方向的可达性(reachability)，然后选择某些维使剩余目的结点的集合最小。如果两维之间有连线，那么选择其中任何一维都可以。因此，所生成的树不是唯一的。<br>
+            　　已经证明贪婪选播算法所需的通道数与多次单播或广播树相比要少。在虫蚀寻径网络中，实现选播操作时，每个结点的寻径器应有复制片缓冲区中数据的能力。<br>
+            　　为了与选播树或广播树的增长同步，树中同一层的所有输出通道必须在传输向前推进一层之前处于就绪状态，否则中间结点需要增加缓冲区。</span></p>
+          <p align="center"><span class="pt9-black"><img src="images/tu7_37.jpg" width="508" height="485"><br>
+            <br>
+            </span></p>
+        </div>
+        </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第六章　向量处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black"><b>　　例6.5</b>假设一台向量处理机中功能部件的启动开销为：取数和存数部件为12个时钟周期、乘法部件为7个时钟周期、加法部件为6个时钟周期。请计算出例6.4中每个编队的开始时间、获得第一个结果元素的时间和获得最后一个结果元素的时间。<br>
+            　　解：如果向量长度为n，则每个编队的开始时间、获得第一个结果元素和最后一个结果元素时间如表6.4所示。</p>
+          <p align="center" class="pt9-black"><b>表6.4 编队1～4的开始时间、第一个结果和最后一个结果时间</b><br>
+          </p>
+          <table width="85%" border="1" cellspacing="1" cellpadding="1" bgcolor="#FFFFD7">
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center">编队</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">开始时间</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">第一个结果时间</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">最后一个结果时间</div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center">1.LV</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">0</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">12</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">11+N</div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center">2.MULTSV LV</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">12+n</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">12+n+12</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">24+2n</div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center">3.ADDV </div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">25+2n</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">25+2n+6</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">31+3n</div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center">4.SV</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">32+3n</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">32+3n+12</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">42+4n</div>
+              </td>
+            </tr>
+          </table>
+          <p align="left" class="pt9-black">　　如果向量长度n为64，则得到一个结果元素的平均时间为：4＋(42/64)=4.65个时钟周期。<br>
+            　　＊如果考虑向量长度大于向量寄存器长度时，则需要分段开采。分段开采的开销由执行标量代码的开销<img src="images/gsh5_12.gif" width="28" height="18" align="absmiddle">和每个编队的向量启动开销<img src="images/gsh5_11.gif" width="28" height="18" align="absmiddle">组成。所以向量长度为n的一组向量操作的整个执行时间为：<br>
+            　　　　　<img src="images/gsh5_13.gif" width="261" height="41" align="absmiddle"><br>
+            　　其中MVL是向量寄存器的长度。<img src="images/gsh5_11.gif" width="28" height="18" align="absmiddle">、<img src="images/gsh5_12.gif" width="28" height="18" align="absmiddle">和<img src="images/gsh5_10.gif" width="34" height="15" align="absmiddle">的值与编译系统和处理器有关。寄存器分配和指令的调度既会影响编队的组合也会影响每个编队的启动开销。<br>
+            　　为了简单起见，我们把<img src="images/gsh5_12.gif" width="28" height="18" align="absmiddle">看作是一个常数，Cray 
+            1机器的<img src="images/gsh5_12.gif" width="28" height="18" align="absmiddle">约等于15。</p>
+          <p align="left" class="pt9-black">&nbsp;</p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

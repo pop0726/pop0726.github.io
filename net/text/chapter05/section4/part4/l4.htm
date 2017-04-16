@@ -1,0 +1,33 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td class="explaination" colspan="2"><br>
+            　　在服务器端有三种可能的事件：发送确认(A)；将数据写入到输出进程(W)，和崩溃(C)。这三种事件可能会按照六种不同的排列顺序出现、即：AC(W)，AWC，C(AW)，C(WA)，WAC和WC(A)。其中括号用来表明A或W不能在C后出现(即一旦发生了崩溃，所有进程均告停止) 
+            图5.12显示了客户端和服务器端的所有8种组合方案以及对于每种组合的合法事件排列顺序。注意，对每种方案都存在引起协议失败的一系列事件。例如，如果客户端总是重发数据，尽管AC(w)和c(AW)事件可以正确运行，但AWC事件将会产生一个未经检测的重复TPDU。<br>
+            　</td>
+        </tr>
+        <tr> 
+          <td class="explaination" width="25" valign="top"><img src="../../../../image/tub/ts.gif" width="25" height="20" alt="图示"></td>
+          <td class="explaination">
+            <div align="center"><span class="point"><img src="../../../../image/pic/chapter05/5_24.gif" width="390" height="232"><br>
+              <br>
+              图5.12 客户和服务器所采用的方案的不同组合</span><br>
+              　　</div>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

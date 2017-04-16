@@ -1,0 +1,26 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+          <td class="explaination"><br>
+            　　尽管与FTP相比TFTP的功能要弱得多，但是TFTP具有两个优点。首先， TFTP能够用于那些有UDP而无TCP的环境。其次，TFTP代码所占的内存要比FTP小。尽管这两个优点对于通用计算机来说并不重要，但是对于小型计算机或者特殊用途的硬件设备来说却是非常重要的。<br>
+            <br>
+            　　TFTP对于那些不具备磁盘来存储系统软件的自举硬件设备来说特别有用。所有所需的设备就是一个网络连接和小容量的固化了TFTP、UDP和IP的只读存储器（Read-Only 
+            Memory，ROM）。当接通电源后，设备执行ROM中的代码，在网络上广播一个TFTP请求。网络上的TFTP服务器已被配置成通过发送一个包含可执行二进制程序的文件来响应请求。设备收到文件后，将它载入内存，然后开始运行程序。通过网络自举增加了灵活性并且减小了开销。由于对于每个网络都有一个独立的服务器存在着，所以服务器可以被配置成支持一个为网络而配置的软件版本。开销的减小是因为软件可以被修改而不需要改动硬件。例如，制造商可以发布一个新的软件版本，而毋需改动硬件或者重装一个新的ROM。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

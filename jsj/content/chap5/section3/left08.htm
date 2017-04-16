@@ -1,0 +1,44 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第五章 标量处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black">　　在执行指令k+1时，把浮点通用寄存器（F2）中的内容通过FLR总线送入浮点加法器的保存站A1中，同时把浮点先行读数站（FLB1）中的操作数通过另一条FLB总线也送入浮点加法器的保存站A1中，并启动浮点加法器开始工作。因为浮点加法器的运算结果要送入F1，因此，要把浮点加法器保存站A1的站号&quot;10&quot;装入浮点通用寄存器F1的站号中；另外，要把F1的&quot;忙位&quot;标志置&quot;1&quot;，表示浮点通用寄存器F1中的内容目前不能读出作为源操作数来使用。<br>
+            　　由于浮点加法器要执行两个时钟周期才能出结果，当执行指令k+2时，虽然可以把浮点通用寄存器(F3)中的内容通过FLR总线送入浮点乘/除法器的保存站M1中；但是，执行浮点乘法所需要的另一个操作数还不能从浮点通用寄存器F1中读出；这时，改为把保存在浮点通用寄存器F1中的站号&quot;10&quot;（浮点加法器保存站A1的站号）读出来，并通过控制总线送入到浮点乘/除法器的保存站M1中，并把F1内的站号改为浮点乘/除法器保存站M1的站号&quot;8&quot;，表示F1改从浮点乘/除法器接收运算结果。<br>
+            　　在浮点加法执行完成之后，把运算结果和保存站A1的站号&quot;10&quot;都送上公共数据总线CDB。通过与所有站号中保存的内容进行相等比较，找到浮点乘/除法器的保存站M1；于是，把CDB上的数据送入M1，而不是送入浮点通用寄存器F1；这相当与建立了一条从浮点加法器到浮点乘/除法器的专用数据路径。<br>
+            　　浮点乘/除法器收到CDB上的数据之后就可以开始工作。在6个时钟周期之后，浮点乘法的执行结果连同保存站M1的站号都送上CDB。通过与所有站号进行相等比较，把CDB上的数据送入到浮点通用寄存器F1中。<br>
+            　　在浮点乘/除法器刚刚开始工作时，指令k+3开始执行。由于浮点乘法的最终运算结果还没有出来，因此，就把保存站M1的站号&quot;8&quot;装入后行写数站的站号中。当浮点乘法操作执行结束之后，在把运算结果通过CDB送入浮点通用寄存器F1的同时，也送入浮点后行写数站SDB，由SDB负责把这个结果写到主存储器的B单元中。<br>
+            　　实际上，数据在浮点执行部件中的流动过程就象图5.45(b)那样，与图5.45(a)的串行执行方式相比，程序的执行速度要快得多。<br>
+            　　另一种可以用来动态调度多条流水线的经典方法是CDC计分牌法，由J.E.Thornton于1970年提出。由于这种方法最先在CDC 
+            6600大型计算机系统中被采用，因此，通常称为&quot;CDC计分牌法&quot;。为了控制数据寄存器与操作部件之间的数据传送，在CDC 
+            6600中设置有一个被称为计分牌（scorebord）的集中控制部件。在计分牌中保存有与各个操作部件相联系的寄存器中的数据装载情况。当一个操作部件所要求的数据都已经装载完成之后，计分牌就允许操作部件开始运行。在操作执行完成之后，操作部件通知计分牌释放有关资源。计分牌是一个集中控制部件，它记录了数据寄存器和多个操作部件状态的变化情况，可以通过它来消除或减少某些数据相关，加快程序的执行速度。<br>
+            <br>
+          </p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

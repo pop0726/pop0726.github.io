@@ -1,0 +1,43 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第八章 并行处理机和多处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black">　　处理单元的原理框图如图8.7所示。它有6个可编程序寄存器RGA、RGB、RGR、RGS、RGX和RGM，以及加/乘算术单元AU、逻辑单元LU、移位单元SU和地址加法器ADA等。RGA是累加寄存器，存放第一操作数和操作结果；RGB是操作数寄存器，存放加、减、乘、除等二元操作的第二操作数；RGR是被乘数寄存器兼互连寄存器，经过东、西、南、北四个互连路径之一完成处理单元之间的数据直接交往；RGS是通用寄存器，可被程序用来暂存中间结果。这四个寄存器都是64位的。操作数来自以下四个方面：PE本身的寄存器；阵列存储器；CU的公共数据总线；PE的四个近邻。16位的RGX是变址寄存器，它利用地址加法器ADA修改指令地址，并将形成的有效地址经过存储器地址寄存器MAR输往存储器逻辑部件MLU。最后是8位的模式寄存器RGM，它的E和E1位是&quot;活动&quot;标志位，F和F1位保存运算结果出错(上溢、下溢)标志，G、H、I、J位保存测试结果。RGM经常处于CU的监督之下，一旦出错，就发出CU陷阱中断。模式寄存器的活动标志位E和E1用来控制RGA、RGS和阵列存储器的工作，E还控制RGX。当PE以32位字长运算时，E和E1是互相独立的。活动标志位的设立使对64个处理单元中的每一个处理单元都可以进行单独控制。只有那些处于活动状态的处理单元才执行单指令流规定的共同操作。RGM处于程序员的控制之下，可根据其它几个寄存器的内容置为&quot;活动&quot;或&quot;不活动&quot;状态。例如，有一种指令就能在RGR的内容大于RGA的内容时置该处理单元为&quot;不活动&quot;状态。模式寄存器在阵列处理机中是必不可少的，它对增强阵列处理机的功能和结构灵活性发挥着很大的作用。<br>
+            　　处理单元存储器PEM分属每一个处理单元，各有2048×64位的存储容量和不大于350ns的取数时间。64个PEM联合组成阵列存储器，存放数据和指令。整个阵列存储器可以接受控制器的访问，读出8个字的信息块到它的缓冲器中，也可经过1024位的总线与I/O开关相连；但是每一个处理单元只能访问自己的存储器。分布在各个处理单元存储器中的公共数据，只能在读至控制器后，再经公共数据总线广播到64个处理单元中来。这不但节省了存储空间，而且允许公共数据的存取与其它操作在时间上重叠。这样，阵列存储器就如同一个二维访问存储器：如果把64个PEM看成列，把每一个PEM本身看成行，那么，CU对它是按列访问，PE对它是按行访问。</p>
+          <p align="center" class="pt9-black"><img src="images/tu8_7.jpg" width="450" height="455"></p>
+          <p align="left" class="pt9-black">　　阵列存储器的另一个特点是它的双重变址机构：控制器实现所有处理单元的公共变址，每一个处理单元内部还可以单独变址。最终的操作数有效地址对<img src="images/gsh1_16.gif" width="21" height="14" align="absmiddle">来说由下式决定：<br>
+            　　　<img src="images/gsh1_17.gif" width="109" height="17" align="absmiddle"><br>
+            　　式中，a是指令地址；(b)是CU中央变址寄存器内容；<img src="images/gsh1_18.gif" width="25" height="14" align="absmiddle">是<img src="images/gsh1_16.gif" width="21" height="14" align="absmiddle">局部变址寄存器内容。<br>
+            　　这种安排增加了各处理单元存储器之间数据分配的灵活性，这对于分别处理矩阵的行和列以及其它维数结构是很有效的。<br>
+            　　PE和PEM之间经过存储器逻辑部件MLU相连，它包含存储器信息寄存器和有关控制逻辑线路，实现PEM分别和PE、CU以及I/O之间的信息传送。<br>
+            <br>
+          </p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

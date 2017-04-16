@@ -1,0 +1,77 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第二章 指令系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><span class="pt9-black"><br>
+            　　根据大多数计算机的实际情况，我们假定：浮点数的尾数用原码、小数表示，阶码用移码、整数表示，尾数基值<img src="iamges/gsh1_68.gif" width="11" height="13" align="absbottom">＝2，阶码基值<img src="iamges/gsh1_68.gif" width="11" height="13" align="absbottom">＝2，并根据实际应用要求给出表数范围不小于N（N为能表示的最大的正数），表数精度不低于d，并且要求尾数和阶码都正、负对称。<br>
+            　　由表数范围的要求，得到：　<img src="iamges/gsh1_69.gif" width="78" height="19" align="absmiddle"><br>
+            　　解这个不等式：　　<img src="iamges/gsh1_70.gif" width="115" height="39" align="absmiddle"> 
+            <br>
+            　　得到阶码字长：　　<img src="iamges/gsh1_71.gif" width="144" height="61" align="absmiddle"> 
+            　　　　（2.11）<br>
+            　　根据表数精度的要求，得到：<img src="iamges/gsh1_72.gif" width="103" height="39" align="absmiddle"><br>
+            　　解这个不等式：　　<img src="iamges/gsh1_73.gif" width="70" height="24" align="absmiddle"> 
+            <br>
+            　　得到围数字长：　　<img src="iamges/gsh1_74.gif" width="95" height="44" align="absmiddle"> 
+            　　　　　　　　（2.12）<br>
+            　　由(2.11)和(2.12)两个不等式计算出浮点数的尾数字长p和阶码字长q，再加上一个尾数符号位和一个阶码符号位就构成了一种浮点数格式。应当注意的是在满足这两个不等式的前提下，通常要适当调整尾数字长p和阶码字长q的取值，使浮点数的总字长达到一个合理的数值。<br>
+            　　下面我们举一个具体的例子。<br>
+            　　要求设计一种浮点数格式，其表数范围不小于<img src="iamges/gsh1_75.gif" width="23" height="16" align="absbottom">至<img src="iamges/gsh1_76.gif" width="23" height="13" align="absbottom">，正、负数对称，表数精度不低于<img src="iamges/gsh1_77.gif" width="25" height="12" align="absbottom">。<br>
+            　　根据表数范围的要求，用(2.11)不等式计算：<br>
+            　　　　　<img src="iamges/gsh1_78.gif" width="302" height="66"> <br>
+            　　取阶码字长q＝7。<br>
+            　　根据表数精度的要求，用(2.12)不等式计算：<br>
+            　　　　　<img src="iamges/gsh1_79.gif" width="217" height="43"> <br>
+            　　如果取尾数字长p＝54，则浮点数的总字长为：p＋q＋2＝54＋7＋2＝63，离8的整倍数64还差一位，这一位可以加到尾数字长p中用于提高浮点数的表数精度，也可以加到阶码字长q中用于提高浮点数的表数范围。在这里，暂且把它加到尾数字长p中以提高浮点数的表数精度。这样设计出来的浮点数的格式如图2.4所示，尾数55位。阶码7位，阶码符号和尾数符号各一位。</span></p>
+          <p align="center"><img src="iamges/tu2_4.jpg" width="423" height="97"></p>
+          <p align="left" class="pt9-black">　　在浮点数的尾数用原码、小数表示，阶码用移码、整数表示，尾数基值<img src="iamges/gsh1_68.gif" width="11" height="13" align="absbottom">＝2，阶码基值<img src="iamges/gsh1_68.gif" width="11" height="13" align="absbottom">＝2，阶码字长q＝7，尾数字长p＝55，尾数符号和阶码符号各一位，总字长为64位。图2.4给出的这种浮点数表示方式的各项主要性能如下：<br>
+            　　能表示的最大尾数值：<img src="iamges/gsh1_80.gif" width="122" height="21" align="absmiddle"> 
+            ，即尾数数值部分的所有55个二进制位全部为都1；<br>
+            　　绝对值最小的尾数值：<img src="iamges/gsh1_81.gif" width="40" height="30" align="absmiddle"> 
+            ，尾数数值部分除最高一个二进制位为1之外，其余54个二进制位全部为0；<br>
+            　　能表示的最大阶码：<img src="iamges/gsh1_82.gif" width="131" height="22" align="absmiddle"> 
+            ，包括阶码符号位在内的所有8个二进制位全部为1；<br>
+            　　能表示的最小阶码：<img src="iamges/gsh1_83.gif" width="113" height="17" align="absmiddle"> 
+            ，包括阶码符号位在内的所有8个二进制位全部为0；<br>
+            　　最大正数：<img src="iamges/gsh1_84.gif" width="378" height="28" align="absmiddle">；<br>
+            　　最小正数：<img src="iamges/gsh1_85.gif" width="252" height="41" align="absmiddle"> 
+            ；<br>
+            　　最大负数：<img src="iamges/gsh1_86.gif" width="286" height="42" align="absmiddle"> 
+            ；<br>
+            　　最小负数： <img src="iamges/gsh1_87.gif" width="415" height="30" align="absbottom">；<br>
+            　　表数精度： <img src="iamges/gsh1_88.gif" width="311" height="38" align="absmiddle">；<br>
+            　　浮点零：由于阶码采用移码表示，且正、负数对称，因此，浮点零与机器零相同，即64个二进制位全为0；<br>
+            　　表数效率：<img src="iamges/gsh1_89.gif" width="146" height="38" align="absmiddle"> 
+            ，如果采用隐藏位表数方法，则表数效率能达成最高 ；<br>
+            　　能表示的浮点数个数： <img src="iamges/gsh1_90.gif" width="365" height="26" align="absmiddle"><br>
+          </p>
+          <p align="left"><span class="pt9-black">　</span></p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

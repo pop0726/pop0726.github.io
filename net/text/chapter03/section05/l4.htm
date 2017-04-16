@@ -1,0 +1,36 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td class="explaination" colspan="2"><br>
+            　　在NRZ-I编码方式中，信号电平的一次反转代表比特1。就是说是从正电平到负电平的一次跃迁，而不是电压值本身，来代表一个比特1。0比特由没有电平变化的信号代表。非归零反相编码相对非归零电平编码的优点在于：因为每次遇到比特1都发生电平跃迁，这能提供一种同步机制。一串7个比特1会导致7次电平跃迁。每次跃迁都使接收方能根据信号的实际到达来对本身时钟进行重同步调整。根据统计，连续的比特1出现的几率比连续的比特0出现的几率大，因此对比特1的连续串进行同步就在保持整体消息同步上前进了一大步。一串连续的比特0仍会造成麻烦，但由于连续0串出现不频繁，对于解码来说其妨碍就小了许多。 
+            <br>
+            <br>
+            　　在非归零反相编码（NRZ-I）中。如果遇到比特1，信号电平被反转。<br>
+            <br>
+            　　图3.5表现了对同一串比特，非归零电平编码（NRZ-L）和非归零反相编码（NRZ-I）的结果。在NRZ-L 编码序列中，正负电平有特定的含义：正代表比特1，负代表比特0。在NRZ-I编码序列中，每一间隙的电压值是没有意义的。相反，接收端以检测电平的跳变来作为识别比特1的基础。<br>
+            　</td>
+        </tr>
+        <tr> 
+          <td class="explaination" width="25" valign="top"><img src="../../../image/tub/ts.gif" width="25" height="20" alt="图示"></td>
+          <td class="explaination">
+            <div align="center"><img src="../../../image/pic/chapter03/3_5.gif" width="380" height="260"><br>
+              <span class="point">图3.5 非归零电平编码(NRZ-L)和非归零反相编码(NRZ-I)<br>
+              　　</span></div>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

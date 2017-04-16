@@ -1,0 +1,41 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第五章 标量处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="center"><img src="images/tu5_58.jpg" width="523" height="177"></p>
+          <p align="left"><span class="pt9-black">　　对于非存储器操作指令，如果指令Cache命中，那么，指令可以在指令执行（EX）流水级执行，指令的执行结果可以在EX流水级的末尾得到。<br>
+            　　在正常情况下，MIPS R4000指令流水线工作时序如图5.59所示。一条指令的执行过程经历8个流水线周期。由于一个主时钟周期包含有两个流水线周期，因此，也可以认为每4个主时钟周期执行完一条指令。</span></p>
+          <p align="center"><img src="images/tu5_59.jpg" width="598" height="284"></p>
+          <p align="left"><span class="pt9-black"> 　　从流水线的输入端看，每一个流水线周期启动一条指令。同样，从流水线的输出端看，每一个流水线周期执行完成一条指令。当流水线被充满时，如图5.59中的黑框内所示，有8条指令在同时执行。如果把两个流水线周期看作一个时钟周期，则在一个时钟周期内，R4000处理机分时发射了两条指令。同样，在一个时钟周期内，流水线也执行完成了两条指令，因此，R4000是一种很典型的超流水线处理机。<br>
+            　　在取第一个数据（DF）和取第二个数据（DS）流水级期间，R4000要访问数据Cache。首先，存储器管理部件（MMU）在DF和DS流水级把数据的虚拟地址变换成主存物理地址，然后，在标志检验（TC）流水级从数据Cache中读出数据的区号，并把读出的区号与变换成的主存物理地址进行比较。如果比较结果相等，则数据Cache命中。对于STORE指令，如果命中，只要把数据送到写入缓冲器，由写入缓冲器负责把数据写到数据Cache的指定中去。对于非存储器操作指令，在写回结果（WB）流水级要把指令的最后执行结果写回到通用寄存器堆中。<br>
+            </span><br>
+          </p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第七章 互连网络</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="left"> 
+          <p class="pt9-black"><b>7.19</b> 图7.39是一个<img src="images/5.gif" width="38" height="14" align="absmiddle">的Delta网络。<br>
+            （1）问该网络在任何处理机和任何存贮器模块之间是否都有一个通路？<br>
+            （2）令<img src="images/6.gif" width="40" height="17" align="absmiddle">是二进制编号为<img src="images/7.gif" width="40" height="17" align="absmiddle">的某处理机所要访问的存贮模块号的二进制编码，网络中第0、1、2级的控制信号分别为<img src="images/8.gif" width="65" height="16" align="absmiddle">,其中第i级控制信号<img src="images/9.gif" width="14" height="10" align="absmiddle">为0时，控制成直连，<img src="images/9.gif" width="14" height="10" align="absmiddle">为1时控制成交叉连接。根据某处理机p2p1p0<img src="images/14.gif" width="41" height="17" align="absmiddle">给出的访存模块号<img src="images/10.gif" width="38" height="15" align="absmiddle">，为了将网络通路建立起来，请写出控制信号<img src="images/8.gif" width="65" height="16" align="absmiddle">与<img src="images/12.gif" width="69" height="16" align="absmiddle">及<img src="images/13.gif" width="70" height="15" align="absmiddle">的逻辑关系式。<br>
+            （3）若0号处理机访问2号存贮模块的同时，4号处理机要访问4号存储模块，6号处理机要访问3号存贮模块，问是否发生阻塞？</p>
+          <p class="pt9-black" align="center"><img src="images/tu7_39.jpg" width="404" height="214"><br>
+            <b>图7.39 习题7.19 的图</b></p>
+          <p class="pt9-black"><b>7.20</b> 令<img src="images/15.gif" width="42" height="18" align="absmiddle">矩阵A以行主方式存放在主存储器中，试证明在对A进行m次完全混洗变换后可获得转置矩阵AT。</p>
+          <p class="pt9-black"><b>7.21 </b>（a）Benes二元网是一种重安排和非阻塞多级网络，因为重安排它已有的连接可以在输入和输出间实现全部可能的连接，因而总能给新的输入－输出对建立一条新的通路。</p>
+          <p align="center"><img src="images/tu7_5F40.jpg" width="413" height="266"><b><br>
+            <span class="pt9-black">图7.40 习题7.21 的8×8 Benes网络</span></b></p>
+          <p><span class="pt9-black">试设计一寻径算法在8×8Benes网络上实现下列排列：<br>
+            <img src="images/16.gif" width="225" height="44"> </span></p>
+          <p class="pt9-black">经学过的SIMD多级互连网络按阻塞、重安排和非阻塞三种不同的特征进行分类。</p>
+          <p class="pt9-black"><b>7.22</b> 设N个输入端的Omega网络（N＝<img src="images/17.gif" width="15" height="14" align="absmiddle">），它的每个开关单元都是独立控制的。<br>
+            （a）给定任意一个源－目的（S-D）对，其连接通路可用目的地址唯一控制，现不用目的地址（D）作为寻径标记，而定义<img src="images/18.gif" width="54" height="15" align="absbottom">作为寻径标记。试说明可以单独用T来确定连接通路。用T作为寻径标记的优点是什么？<br>
+            （b）Omega网络能实现（一源到多目的）播送功能，若目的PE数为2的幂，试给出一简单的寻径算法以完成这一功能。</p>
+          <p class="pt9-black"><b>7.23 </b>在下列单级互连网络中，将信息从一个PE播送给所有其它PE要用多少步（N＝2n个PE）？<br>
+            （a）混洗交换网络，每步只能做一次混洗或一次交换，但不能两者混合。<br>
+            （b）立方体网络，每步i(0≤i≤n-1)可实现寻径函数Ci。</p>
+          <p></p>
+          <b><span class="pt9-black">7.24 </span></b><span class="pt9-black">试证明一次通过Omega网络能或不能实现任意的移数排列，所谓移数排列可定义如下：给定N＝<img src="images/2.gif" width="15" height="16" align="absmiddle">个输入端，将数据循环左移或循环右移k(0≤k&lt;N)个距离即为移数排列。 
+          </span> 
+          <p class="pt9-black"><b>7.25 </b>试证明多级Omega网络采用不同大小构造块构造时所具有的下列特性。<br>
+            (a) 一个k×k 开关模块的合法状态(连接)数目等于<img src="images/19.gif" width="17" height="15" align="absmiddle">。<br>
+            (b) 试计算2×2开关模块构造64个输入端的Omega网络一次通过所能实现置换的百分比。<br>
+            (c) 采用8×8开关模块构造64个输入端Omega网络，重复(b)。<br>
+            (d) 采用8×8开关模块构造512个输入端的Omega网络，重复(b)。</p>
+          <p class="pt9-black"><b>7.26</b> (a) 画出2×2开关构成的16个输入端的Omega网络。<br>
+            (b) 结点1011传送消息给结点0101，同时结点0111传送信息给结点1001，画出完成这一寻径的开关设置。这种情况会出现阻塞吗？<br>
+            (c) 试计算这个Omega网络一次通过实现的置换个数，一次通过实现的置换个数占全部置换的百分比为多少？<br>
+            (d) 这个网络实现任意一个置换最多的通过次数是多少？</p>
+          <p class="pt9-black"><b>7.27</b> 试确定下列网格计算机和超立方体多计算机中的最优寻径路径。<br>
+            (a) 假设有一个64个结点的超立方体网络，根据E立方体寻径算法，画出从结点101101发送消息给结点011010的路径，并标出这条路径上的所有中间结点。<br>
+            (b) 在一个8×8网格上，根据下面的条件确定两条优化的选播路径，源结点是(3,5), 10个目的结点是(1,1), (1,2), 
+            (1,6), (2,1), (4,1),(5,5), (5,7), (6,1), (7,1), (7,5)。(i)第一条选播路径应使通道数最少。(ii)第二条选播路径应使从源结点到每个目的结点的距离最短。<br>
+            (c) 假设有一个16个结点的超立方体网络，源结点是(1010)，9个目的结点是(0000)，(0001)，(0011)，(0100)，(0101)，(0111)，(1111)，(1101)，(1001)。根据贪婪算法，尽可能地使用流量较少的通道，确定一条较优的选播路径，使从源结点到所有目的结点的距离最短。</p>
+          <p class="pt9-black">&nbsp;</p>
+          <p><br>
+          </p>
+          </div>
+        </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

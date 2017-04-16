@@ -1,0 +1,61 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第二章 指令系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><span class="pt9-black"><br>
+            <b>3、程序控制指令</b><br>
+            <br>
+            　　程序控制指令主要包括三类，转移指令（包括无条件转移和有条件转移）、程序调用和返回指令、循环控制指令。其中，前两类指令在一般计算机中是必须具备的。最后一类指令用于对循环程序进行优化。<br>
+            　　转移指令中的无条件转移指令通常有两种：一种时是局部无条件转移，采用相对寻址方式，转移范围一般在+127到-128之间；另一种是全局无条件转移，可以在整个寻址空间内转移。<br>
+            　　条件转移指令所依据的转移条件主要有：全零（Z）、正负号（N）、进位（C）、溢出（V）及它们的组合等。主要条件转移指令有：<br>
+            　　BEQ 等于零转移<br>
+            　　BNEQ 不等于零转移 <br>
+            　　BLS 小于转移<br>
+            　　BGT 大于转移<br>
+            　　BLEQ 小于等于转移，或不大于转移<br>
+            　　BGEQ 大于等于转移，或不小于转移<br>
+            　　BLSU 不带符号小于转移<br>
+            　　BGTU 不带符号大于转移<br>
+            　　BLEQU 不带符号小于等于转移，或不带符号不大于转移<br>
+            　　BGEQU 不带符号大于等于转移，或不带符号不小于转移<br>
+            　　BCC 没有进位转移<br>
+            　　BCS 有进位转移<br>
+            　　BVC 没有溢出转移<br>
+            　　BVS 有溢出转移<br>
+            　　第二类程序控制操作是程序调用和返回指令，主要有两条：<br>
+            　　CALL 转入子程序<br>
+            　　RETURN 从子程序返回<br>
+            　　这两条指令本身可以带有条件，当测试条件满足时转入子程序或从子程序返回，也可以不带条件。如果调用和返回指令本身不带条件，则要与条件转移指令联合使用，如果本身带有条件，目标程序就可以简化。<br>
+            　　在执行调用指令时，要保存硬件现场（主要指程序计数器和处理机状态字）和软件程序现场（指在子程序中要使用的通用寄存器等）；当从子程序返回时，再恢复这些现场。在设置有系统堆栈的计算机中，硬件现场和程序现场都可以压入堆栈。如果没有设置堆栈，则要在主存储器中开辟出一块专门的区域或指定专门的通用寄存器等来保存硬件现场。而软件程序现场的保存则由程序员自行决定。<br>
+            　　另外，中断控制指令和自陷指令（或称为过程调用指令）也属于程序调用指令。中断控制指令主要有：开中断、关中断、改变屏蔽状态、从中断程序返回等指令。自陷指令主要用来转入例行子程序，或在程序调试过程中用来设置断点。<br>
+            </span></p>
+          <p align="left"><span class="pt9-black">　</span></p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

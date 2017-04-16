@@ -1,0 +1,51 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第二章 指令系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><span class="pt9-black"><br>
+            <b>2 数据描述符表示法</b><br>
+            <br>
+            　　对于复杂的数据结构，如向量、矩阵、多维数组、记录等，其中有许多连续存放的数据的属性都是相同的，没有必要让每个数据都带有标志符。因此，在表示多维、或结构比较复杂的数据时要使用数据描述符。<br>
+            　　数据描述符与标志符的主要区别是：标志符通常只作用于一个数据，而数据描述符要作用于一组数据。因此，标志符通常与数值一起存放在同一个数据单元中，而数据描述符一般单独存放，独立占据一个存储单元。描述符用来描述一组数据的属性，包括整个数据块的访问地址、长度及其它特征或信息等。<br>
+            　　图2.8给出的是在美国Burroughs公司生产的B-6700机中采用的一种数据描述符表示方法。当最高三位为101时表示该字是一个数据描述符，最高三位为000时表示该字是一个数据。</span></p>
+          <p align="center"><span class="pt9-black"><img src="iamges/tu2_8.gif" width="378" height="97"></span></p>
+          <p align="left"><span class="pt9-black">　　图2.8(b)中的标志位长度共8位，分别表示是否描述的是另一个数据描述符，描述的是单个数据还是数据块，是连续存放还是分段存放，是字还是串，是单精度数据还是双精度数据，是可读可写还是只读。如果被描述的是数据块，则&quot;长度&quot;字段指出这个数据块所包含的数据个数，&quot;地址&quot;字段指出这个数据块的首地址。<br>
+            　　用数据描述符表示方法表示一个3×4矩阵A如图2.9所示。</span></p>
+          <p align="left">　　<img src="iamges/gsh1_95.gif" width="182" height="87">　　　　<img src="iamges/tu2_9.gif" width="240" height="466" align="absmiddle"></p>
+          <p align="left"><span class="pt9-black"><br>
+            　　采用数据描述符可以表示多种结构不同的数据，把几个数据描述符按树形连接起来就能描述一个多维数组。例如，把一个两层的描述符按树型连接就能表示一个二维数组，具体描述方法可参见图2.9。<br>
+            　　一条指令中的一个地址X指向了一个描述符，这个描述符的&quot;标志位&quot;、&quot;长度&quot;和&quot;地址&quot;共同描述一个由三个描述符组成的描述符组，而组成这个描述符组的三个描述符又分别描述了三个数据块，每个数据块都由4个数据组成。采用两重树形结构的描述符能描述一个二维数组，同样，如果三重树形结构就能描述三维组组。<br>
+            　　数据描述符方法为表示向量、矩阵和多维数组等数据结构提供了一种很好的方法，能够用一条指令实现整个向量、矩阵或多维数组的运算。从图2.9中可以看到，采用数据描述符方法形成数据地址的速度比常规机器中采用的变址寻址要快得多，这样，也能简化了编译器的代码生成。<br>
+            　　采用数据描述符表示法的优点与缺点与上一节介绍的标志符数据表示方法相同，它的机器结构可能比标志符数据表示方法更复杂。<br>
+            <br>
+            </span></p>
+          <p align="left"><span class="pt9-black">　</span></p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

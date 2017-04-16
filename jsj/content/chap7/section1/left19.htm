@@ -1,0 +1,78 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第七章 互连网络</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black">　　(2)开关模块 一个a×b开关模块有a个输入和b个输出。一个二元开关则与a=b=2的2×2开关模块相对应。在理论上，a和b不一定要相等，然而实际上a和b经常选为2的整数幂，即a=b=2k, 
+            k31。<br>
+            　　表7.2列出了几种常用的开关模块大小：2×2，4×4和8×8。每个输入可与一个或多个输出相连，但是在输出端必须避免发生冲突。换句话说，一对一和一对多映射是容许的；但不容许有多对一映射，因为输出端将发生冲突。<br>
+            　　在只容许一对一映射（置换）时，我们称这种模块为n×n交叉开关。例如，2×2交叉开关可有两种连接模式：直送和交叉。一般说来，一个n×n交叉开关可实现n！置换。在表7.2中还列出了不同大小开关模块的合法连接模式的数目。</p>
+          <p align="center" class="pt9-black">表7.2开关模块和合法状态<br>
+          </p>
+          <table width="60%" border="1" cellspacing="1" cellpadding="1">
+            <tr> 
+              <td class="pt9-black" width="34%"> 
+                <div align="center">模块大小</div>
+              </td>
+              <td class="pt9-black" width="34%"> 
+                <div align="center">合法状态</div>
+              </td>
+              <td class="pt9-black" width="32%"> 
+                <div align="center">置换连接</div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black" width="34%"> 
+                <div align="center">2×2<br>
+                  4×4<br>
+                  8×8<br>
+                  n×n</div>
+              </td>
+              <td class="pt9-black" width="34%"> 
+                <div align="center">4<br>
+                  256<br>
+                  16 777 216<br>
+                  <img src="iamges/gsh1_77.gif" width="15" height="15" align="absmiddle"> 
+                </div>
+              </td>
+              <td class="pt9-black" width="32%"> 
+                <div align="center">2<br>
+                  24<br>
+                  40 320<br>
+                  n!</div>
+              </td>
+            </tr>
+          </table>
+          <p align="left"><span class="pt9-black">　　(3)多级网络 MIMD和SIMD计算机都使用多级网络。一种通用多级网络如图7.20所示，其中每一级都用了多个a×b开关，相邻各级开关之间都有固定的级间连接。为了在输入和输出之间建立所需的连接，可用动态设置开关的状态来实现。<br>
+            　　各种多级网络的区别就在于所用开关模块、控制方式和级间连接（ISC）模式的不同。最简单的开关模块是2×2开关。控制方式是对各个开关模块进行控制的方式，它可以有3种：级控制---每一级的所有开关只用一个控制信号控制，同时只能处于同一种状态；单元控制---每一个开关都有自己单独的控制信号控制，可各自处于不同的状态；部分级控制---第i级的所有开关分别用i+1个信号控制，<img src="iamges/gsh1_78.gif" width="44" height="12" align="absmiddle">,n为级数。常用的ISC模式包括有均匀洗牌、蝶式、多路洗牌、纵横交叉、立方体连接等。</span></p>
+          <p align="center"><img src="iamges/tu7_20.jpg" width="712" height="300"><br>
+          </p>
+          <p align="center" class="pt9-black">&nbsp;</p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

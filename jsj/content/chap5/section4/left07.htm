@@ -1,0 +1,44 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第五章 标量处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black"><b>方法一：顺序发射顺序完成</b><br>
+            <br>
+            　　图5.51是采用顺序发射顺序完成的指令调度方法时，上面这个典型程序的指令执行时空图。6条指令按照程序中的指令排列顺序从<img src="images/gsh4_2.gif" width="13" height="17" align="absmiddle">、<img src="images/gsh4_3.gif" width="14" height="17" align="absmiddle">、……、<img src="images/gsh4_4.gif" width="12" height="15" align="absmiddle">分别在流水线1和流水线2中分三个时钟周期发射。</p>
+          <p align="center" class="pt9-black"><img src="images/tu5_51.gif" width="550" height="229"><br>
+            <b>图5.51 顺序发射顺序完成的指令流水线时空图 </b></p>
+          <p align="left"><span class="pt9-black">　　由于指令<img src="images/gsh4_2.gif" width="13" height="17" align="absmiddle">与指令<img src="images/gsh4_3.gif" width="14" height="17" align="absmiddle">之间有写读数据相关，指令<img src="images/gsh4_3.gif" width="14" height="17" align="absmiddle">在流水线2中要等待一个时钟周期才能从流水线1中通过专用数据通路得到数据。因此，指令<img src="images/gsh4_3.gif" width="14" height="17" align="absmiddle">在流水线2中译码后要等待一个时钟周期才能进入浮点加法部件中执行，在图中用阴影部分表示。同样，因为指令<img src="images/gsh4_5.gif" width="14" height="16" align="absmiddle">与指令<img src="images/gsh4_4.gif" width="12" height="15" align="absmiddle">之间也有写读数据相关，因此，指令<img src="images/gsh4_4.gif" width="12" height="15" align="absmiddle">也要等待一个时钟周期才能进入乘除法部件中执行。指令<img src="images/gsh4_6.gif" width="13" height="16" align="absmiddle">在译码完成后也要等待一个时钟周期才能进入浮点加法部件中执行，这是因为在指令<img src="images/gsh4_3.gif" width="14" height="17" align="absmiddle">和指令<img src="images/gsh4_6.gif" width="13" height="16" align="absmiddle">都要使用浮点加法器，他们之间有功能部件冲突。<br>
+            　　为了维持顺序完成的要求，后发射的指令必须后进入写结果流水段，因此，指令<img src="images/gsh4_7.gif" width="13" height="16" align="absmiddle">在乘除法部件中执行完成之后要延迟一个时钟周期进入写结果流水段。指令<img src="images/gsh4_3.gif" width="14" height="17" align="absmiddle">在定点算术逻辑部件中执行完成之后要延迟三个时钟周期进入写结果流水段。由于指令<img src="images/gsh4_5.gif" width="14" height="16" align="absmiddle">和指令<img src="images/gsh4_4.gif" width="12" height="15" align="absmiddle">之间有写写数据相关，因此，指令<img src="images/gsh4_4.gif" width="12" height="15" align="absmiddle">的写结果流水段也要延迟一个时钟周期。<br>
+            　　另外，指令<img src="images/gsh4_7.gif" width="13" height="16" align="absmiddle">与指令<img src="images/gsh4_6.gif" width="13" height="16" align="absmiddle">之间虽然有读写数据相关，由于两条指令在同一个时钟周期中发射，这种数据相关自然得到满足。<br>
+            　　从图5.51中可以看到，采用顺序发射顺序完成的调度方法，6条指令共用了10个时钟周期才完成。其中，除了流水线的装入和排空部分之外，还有8个空闲的时钟周期，在图中用阴影部分表示。在这8个空闲的时钟周期中，有5个时钟周期实际上是为了维持顺序完成才插入的。</span><br>
+            <br>
+          </p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

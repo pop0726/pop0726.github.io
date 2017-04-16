@@ -1,0 +1,31 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td class="explaination" colspan="2" valign="top"><br>
+            <span class="point">・窗口 </span><br>
+            　　2字节。窗口段实际上是报文发送方的接收窗口，单位是字节。通过此窗口告诉对方&quot;在未收到我的确认时，你能发送的数据的字节数至多是此窗口的大小。&quot;<br>
+            <br>
+            <span class="point">・检验和 </span><br>
+            　　2字节。检验和字段检验的范围包括头部和数据这两部分。但和用户数据报UDP 样，在计算检验和时，要在TCP报文段的前面加上一个12字节的伪头部。伪头部的格式与前面介绍的UDP数据报的伪头部一样。但应将伪头部的第4个字段中的17改为6（Internet规定TCP的协议号是6），将第5个字段中的UDP长度改为TCP长度。校验和的计算方法与IP数据报头部检验和的计算方法一样，只是还要加上TCP报文的伪头部。接收端收到此报文段后，仍要加上这个伪头部来计算检验和。若使用IPv6，则相应的伪头部也要改变。<br>
+            <span class="point"><br>
+            ・选项 </span><br>
+            　　长度可变。目前的TCP协议只规定 了一种选项，即最长报文段MSS（Maximum Segment Size）。MSS告诉对方的TCP：&quot;我的缓冲区所能接收的报文段的最大长度是MSS&quot;。<br>
+            　　MSS的选择并不简单。当MSS长度减小时，网络的利用率就降低。设想在极端的情况下，当TCP报文段只有一个字节的数据时，在IP层传输的数据报的开销至少有40个字节（包括TCP报文段的头部和IP数据报的首部）。这样，对网络的利用率就个会超过1/41，到了数据链路层还要加上一些开销。但反过来，如果TCP报文段非常长，那么在IP层传输时就可能要分解成多个短数据报片。在目的站要将收到的各个短数据报片装配成原来的TCP报文段。当传输出错时还要进行重传。这些也都会使开销增大。一般认为，MSS应尽可能大些。只要在IP层传输时不需要再分片就行。在连接建立的过程中，双方都将自己能够支持的最大报文长度MSS写入这-字段：在以后的数据传送阶段，MSS取双方提出的较小的那个数值。若主机未填写这项，则MSS的默认值是536字节长的净负荷。因此，所有在Internet上的主机都应能够接受的报文段长度是536+20＝556字节。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

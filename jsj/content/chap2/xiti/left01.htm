@@ -1,0 +1,92 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第二章 指令系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="left"> 
+          <p class="pt9-black"><span class="part">习题</span><br>
+            <br>
+            <b>2.1 </b>数据类型、数据表示和数据结构之间的关系是什么？在设计一个计算机系统时，确定数据表示的原则主要有哪几个？<br>
+            <br>
+            <b>2.2 </b>尾数用补码、小数表示，阶码用移码、整数表示，尾数字长p＝6（不包括符号位），阶码字长q＝6（不包括符号位），尾数基值<font size="3">r</font><font size="1">m</font>＝16，阶码基值<font size="3">r</font><font size="1">e</font>＝2。对于规格化浮点数，用十进制表达式写出下列数据（对于前11项，还要写出16进制编码）：<br>
+            (1) 最大尾数； (2) 最小正尾数；<br>
+            (3) 最小尾数； (4) 最大负尾数；<br>
+            (5) 最大阶码； (6) 最小阶码；<br>
+            (7) 最大正数； (8) 最小正数；<br>
+            (9) 最大负数； (10) 最小负数；<br>
+            (11) 浮点零； (12) 表数精度；<br>
+            (13) 表数效率； (14) 能表示的规格化浮点数个数。<br>
+            <br>
+            <b>2.3 </b>在IEEE 754浮点数国际标准中，32位单精度浮点数和64位双精度浮点数的格式分别如下：<br>
+            <img src="images/1.gif" width="402" height="90"> </p>
+          <p class="pt9-black">对于单精度浮点数，尾数用原码、小数表示，阶码用移-127码表示，即阶码的0～255分别表示阶码的真值为-127～128。尾数用1位符号位、23位小数和1位隐藏的整数共25位表示。尾数的基值和阶码的基值都是2。<br>
+            当0＜e＜255时，表示一个非零的规格化浮点数，数值为：<br>
+            <img src="images/2.gif" width="166" height="28"><br>
+            当e＝255，且m≠0时，表示一个非数NaN（Not-a-Number）。NaN可能是在许多非确定的情况下，如零除以零，求负数的平方根等产生的结果。<br>
+            当e＝255，且m＝0时，表示一个无穷数：<img src="images/4.gif" width="100" height="29" align="absmiddle">。注意＋∞和－∞的表示是不同的。<br>
+            当e＝0，且m≠0时，表示规格化浮点数：<img src="images/5.gif" width="158" height="28" align="absmiddle"> 
+            。<br>
+            当e＝0，且m＝0时，表示浮点数零：<img src="images/6.gif" width="87" height="24" align="absmiddle"> 
+            。注意＋0与－0的表示是不同的。<br>
+            对于64位双精度浮点数，阶码用移-1023码表示，其它规定与单精度浮点数类似。<br>
+            对于32位单精度浮点数和64位双精度浮点数，分别写出：<br>
+            (1)最大正数； (2)最小正数；<br>
+            (3)最大负数； (4)最小负数；<br>
+            (5)表数精度； (6)表数效率；<br>
+            <br>
+            <b>2.4 </b>请证明：在浮点数的字长和表数精度一定时，尾数基值<font size="3">r</font><font size="1">m</font>取2或4，浮点数具有最大的表数范围。<br>
+            <br>
+            <b>2.5 </b>一台计算机系统要求浮点数的精度不低于<img src="images/7.gif" width="36" height="18" align="absmiddle">，表数范围正数不小于<img src="images/8.gif" width="27" height="17" align="absmiddle">，且正、负数对称。尾数用原码，纯小数表示，阶码用移码，整数表示。<br>
+            (1) 设计这种浮点数的格式。<br>
+            (2) 计算(1)所设计浮点数格式实际上能够表示的最大正数、最大负数、表数精度和表数效率。<br>
+            <br>
+            <b>2.6 </b>在同一种处理机内部提供有如下两种浮点数格式：<br>
+            格式一：IBM单精度浮点数标准<br>
+            <img src="images/9.gif" width="537" height="43"> </p>
+          <p class="pt9-black">尾数用原码，小数表示。阶码用移码，整数表示。尾数的基值<font size="3">r</font><font size="1">m</font>＝16，长度为6位，没有隐藏位。阶码的基值<font size="3">r</font><font size="1">e</font>＝2。<br>
+            格式二：IEEE 754单精度浮点数标准<br>
+            <img src="images/10.gif" width="537" height="44"> 
+          </p>
+          <p class="pt9-black">尾数用原码、小数表示，阶码用移-127码表示，即阶码的0～255分别表示阶码的真值为-127～128。尾数用1位符号位、23位小数和1位隐藏的整数共25位表示。尾数的基值和阶码的基值都为2。<br>
+            (1) 把十进制数0.2分别表示成IBM单精度浮点数和IEEE 754单精度浮点数。<br>
+            (2) 现在要把一个IBM单精度浮点数转成同样数值的IEEE 754单精度浮点数，请写出转换规则。<br>
+            (3) 相反，如果要把IEEE 754单精度浮点数转成同样数值的IBM单精度浮点数，写出转换规则。<br>
+            <br>
+            <b>2.7</b> 假设有A和B两种不同类型的处理机，A处理机中的数据不带标志符，其指令字长和数据字长均为32位。B处理机的数据带有标志符，每个数据的字长增加至36位，其中有4位是标志符，它的指令条数由最多256条减少至不到64条。如果每执行一条指令平均要访问两个操作数，每个存放在存储器中的操作数平均要被访问8次。对于一个由1000条指令组成的程序，分别计算这个程序在A处理机和B处理机中所占用的存储空间大小（包括指令和数据），从中得到什么启发？<br>
+            <br>
+            <b>2.8 </b>对于一个字长为64位的存储器，访问这个存储器的地址按字节编址。假设存放在这个存储器中的数据中有20％是独立的字节数据（指与这个字节数据相邻的不是一个字节数据），有30％是独立的16位数据，有20％是独立的32位数据，另外30％是64位数据；并且规定只能从一个存储字的起始位置开始存放数据。<br>
+            (1) 计算这种存储器的存储空间利用率。<br>
+            (2) 给出提高存储空间利用率的方法，画出新方法的逻辑框图，并计算这种方法的存储空间利用率。<br>
+            <br>
+            <b>2.9 </b>分别用变址寻址方式和间址寻址方式编写一个程序，求C＝A＋B，其中，A与B都是由n个元素组成的一维数组。比较两个程序，并回答下列问题：<br>
+            (1) 从程序的复杂程度看，哪一种寻址方式更好？<br>
+            (2) 从硬件实现的代价看，哪一种寻址方式比较容易实现？<br>
+            (3) 从对向量运算的支持看，哪一种寻址方式更好？</p>
+          <p class="pt9-black">&nbsp;</p>
+          </div>
+        </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

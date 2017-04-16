@@ -1,0 +1,152 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第二章 指令系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><span class="pt9-black"><br>
+            <b class="part">2.2.2 零地址空间个数</b></span></p>
+          <p align="left" class="pt9-black">　　在计算机中需要编址的设备主要有运算器中的通用寄存器，主存储器和输入输出设备等三种。堆栈虽然也是一种存储设备，但是它不需要编址。还有一些特殊的寄存器，如变址寄存器、处理机状态字寄存器等，由于它们使用的场合很特殊性，这里不再介绍。<br>
+            　　通用寄存器、主存储器、输入输出设备、堆栈等几种编址设备的工作速度，容量等性能差别很大，所要求的寻址方式和编址方式等也不相同，如表2.3所示。因此，对这几种存储设备的编址有如下几种。</p>
+          <p align="center" class="pt9-black"><b>表2.3 几种编址设备的性能比较<br>
+            </b> </p>
+          <table width="85%" border="1" cellspacing="1" bgcolor="#FFFFDD" class="pt9-black">
+            <tr> 
+              <td> 
+                <div align="center" class="pt9-black">存储设备</div>
+              </td>
+              <td> 
+                <div align="center" class="pt9-black">容量</div>
+              </td>
+              <td> 
+                <div align="center" class="pt9-black">工作速度</div>
+              </td>
+              <td> 
+                <div align="center" class="pt9-black">寻址种类</div>
+              </td>
+              <td> 
+                <div align="center" class="pt9-black">编址方式</div>
+              </td>
+            </tr>
+            <tr> 
+              <td> 
+                <div align="center" class="pt9-black">通用寄存器</div>
+              </td>
+              <td> 
+                <div align="center" class="pt9-black">小</div>
+              </td>
+              <td> 
+                <div align="center" class="pt9-black">很快</div>
+              </td>
+              <td> 
+                <div align="center" class="pt9-black">单一直接寻址</div>
+              </td>
+              <td> 
+                <div align="center" class="pt9-black">单字或双字</div>
+              </td>
+            </tr>
+            <tr> 
+              <td> 
+                <div align="center" class="pt9-black">主存储器</div>
+              </td>
+              <td> 
+                <div align="center" class="pt9-black">大</div>
+              </td>
+              <td> 
+                <div align="center" class="pt9-black">较慢</div>
+              </td>
+              <td> 
+                <div align="center" class="pt9-black">多种寻址方式</div>
+              </td>
+              <td> 
+                <div align="center" class="pt9-black">字、字节或字等</div>
+              </td>
+            </tr>
+            <tr> 
+              <td> 
+                <div align="center" class="pt9-black">输入输出设备</div>
+              </td>
+              <td> 
+                <div align="center" class="pt9-black">较小</div>
+              </td>
+              <td> 
+                <div align="center" class="pt9-black">很慢</div>
+              </td>
+              <td> 
+                <div align="center" class="pt9-black">单一直接寻址</div>
+              </td>
+              <td> 
+                <div align="center" class="pt9-black">多种编址</div>
+              </td>
+            </tr>
+            <tr> 
+              <td> 
+                <div align="center" class="pt9-black">堆栈</div>
+              </td>
+              <td> 
+                <div align="center" class="pt9-black">较小</div>
+              </td>
+              <td> 
+                <div align="center" class="pt9-black">较慢</div>
+              </td>
+              <td> 
+                <div align="center" class="pt9-black">隐含寻址</div>
+              </td>
+              <td> 
+                <div align="center" class="pt9-black">不编址</div>
+              </td>
+            </tr>
+          </table>
+          <p align="left" class="pt9-black">　　<b>1、三个零地址空间。对通用寄存器、主存储器、输入输出设备等三种存储设备分别进行编址。</b><br>
+            　　目前的RISC（复杂指令系统计算机Reduced Instruction Set Computer）处理机通常有32个以上的通用寄存器，在有的处理机中，通用寄存器的数目已经达到几千个。运算器中所需要的源操作数主要来自于通用寄存器，运算结果也写回通用寄存器。<br>
+            　　通用寄存器寻址技术的主要特点是：一般只有单一的直接寻址方式，而且编址的长度与一次访问的长度通常相同，即采用简单的字编址方式。由于通用寄存器的存储容量比主存储器要小得多，因此所要求的地址码长度很短。<br>
+            　　主存储器的寻址技术是最复杂的。由于存储容量大，因此所要求的地址码长度很长。寻址方式也比较复杂，必须有间接寻址或变址寻址等寻址方式。存储器的编址单位（通常是一个字节）与它的访问长度（通常是一个字）一般也不相同。另外，还有一个程序从浮动地址到物理地址的重定位问题。 
+            <br>
+            　　输入输出设备的寻址技术与通用寄存器和主存储器的寻址技术都不相同。由于各种输入输出设备本身的性能差别很大，因此，所要求的编址方式也很不相同，例如，有的设备只需要一个地址码，而有的设备需要几个，甚至十几个地址码，各个被编址的信息的长度也不相同。另外，输入输出设备所要求的寻址方式通常比较单一，一般采用直接寻址方式就可以。 
+            <br>
+            　　由于三种存储设备所采用的寻址技术差别比较大，因此对它们分别进行编址是很自然的。在许多机器中都采用三个零地址空间。<br>
+            　　在采用三个零地址空间的计算机系统中，通常要有三类操作指令，包括三类数据传送指令、运算指令、移位指令和测试指令等。在许多RISC计算机中，为了简化指令系统，一般规定所有的运算、移位和测试等操作只能在通用寄存器中进行，只要访问操作在三类存储设备中都能进行。在许多CISC计算机中，通常所有操作都能在三类存储设备上进行，因此其指令系统比较复杂。<br>
+          </p>
+          <p align="left" class="pt9-black">　　<b>2、两个零地址空间。通用寄存器独立编址，主存储器与输入输出设备统一编址。</b><br>
+            　　一般在地址码的高端划出一部分来用作输入输出设备的地址，例如4KB左右。<br>
+            　　主存储器与输入输出设备统一编址能够简化指令系统，因为在指令系统中不必另外设置输入输出指令，所有能够访问主存储器的指令都能够用来对输入输出进行操作，这是设置两个零地址空间的主要优点。<br>
+            　　把输入输出设备与主存储器统一编址的主要缺点是指令执行过程复杂，执行时间要加长，因为所有访问主存储器的指令都要进行是否访问输入输出设备的判断，而且这种判断必须通过地址译码来进行。<br>
+            　　对于CSIC处理机，除了有专门读、写主存储器的指令外，还有许多运算指令也能访问主存储器，包括一些功能复杂的运算指令。然而，访问输入输出设备的指令通常要求比较简单，其寻址方式一般为单一的直接寻址方式，因此，对于输入输出设备，许多复杂的运算指令根本用不上。<br>
+            　　对于RISC处理机，只有专门的Load、Store指令能够访问主存储器，一般的运算指令不能访问主存储器。所有运算操作都必须在寄存器中进行，即使是很简单的运算操作也要先把操作数读到寄存器中，然后在寄存器中进行运算，最后再把运算结果写回到主存储器中。而访问输入输出设备的指令通常只要求进行简单的操作，其寻址方式也是单一的直接寻址方式，因此，在RISC处理机中，把输入输出设备与主存储器统一编址对于程序设计是不利的。<br>
+            <br>
+            　　<b>3、一个零地址空间，即所有存储设备统一编址。地址的最低端是通用寄存器，最高端是输入输出设备，中间的绝大多数地址分配给主存储器。</b><br>
+            　　采用一个零地址空间的处理机通常有一个存储容量比较大的高速存储器，有多个进程或线程存放在高速存储器中，并且可通过硬件进行进程和线程的且换。<br>
+            　　有一些DSP芯片采用一个零地址空间的编址方式。<br>
+            <br>
+            　　<b>4、隐含编址方式，实际上没有零地址空间</b>。<br>
+            　　在堆栈计算机中，运算指令是不需要地址的，有关设备（包括寄存器、主存储器和输入输出设备等）不需要进行编址。<br>
+            　　Cache存储器等采用联想方式访问的存储器是不需要编址的。<br>
+            　　另外，在一般处理机中，一些特殊的寄存器或寄存器堆，如指令和数据的缓冲站等，是不需要编址的。 </p>
+          <p align="left" class="pt9-black">&nbsp;</p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

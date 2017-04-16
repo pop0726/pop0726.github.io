@@ -1,0 +1,53 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第七章 互连网络</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black"><span class="part">7.1.2 互连函数</span><br>
+            <br>
+            　　为了反映不同互连网络的连接特性，每种互连网络可用一组互连函数来描述。如果将互连网络的N个输入端和N个输出端分别用整数0，1，…，N-1来表示，则互连函数表示相互连接的输出端号和输入端号之间的一一对应关系。或者说，存在互连函数f，在它的作用下，输入i应与输出f(i)相连，<img src="iamges/gsh1_1.gif" width="48" height="16" align="absmiddle">。当互连网络用来实现处理器与处理器之间的数据变换时，互连函数也反映了网络输入数组与输出数组间对应的置换关系或称排列关系。所以互连函数有时也称为置换函数或排列函数。<br>
+            　　表示互连函数通常用两种方法：一种是函数表示法，另一种是输入输出对应表示法。 <br>
+            　　函数表示法用x表示输入端变量，用f(x)表示互连函数。x还常用几位二进制形式来表示，写成<img src="iamges/gsh1_2.gif" width="94" height="13" align="absmiddle">。互连函数则对应地表示为<img src="iamges/gsh1_3.gif" width="94" height="17" align="absmiddle">。例如下面将具体介绍的均匀洗牌函数可表示为<img src="iamges/gsh1_4.gif" width="202" height="18" align="absmiddle">，左端括号内是输入端变量的二进制表达式，<img src="iamges/gsh1_5.gif" width="95" height="16" align="absmiddle">即为均匀洗牌函数，等式右端是该函数的具体表达式。<br>
+            　　输入输出对应表示法把互连函数表示为：<img src="iamges/gsh1_6.gif" width="143" height="45" align="absmiddle"> 
+            这就是说0变换为f(0)，1变换为f(1)，…，N-1变换成f(N-1)。f是互连函数。例如，N＝8均匀洗牌函数的这种表示形式为： 
+            <img src="iamges/gsh1_7.gif" width="173" height="41" align="absmiddle">有时还把互连函数f(x)表示为：<img src="iamges/gsh1_8.gif" width="71" height="17" align="absmiddle">,所谓&quot;循环&quot;表示，则代表对应关系为：<img src="iamges/gsh1_9.gif" width="100" height="17" align="absmiddle">,…,<img src="iamges/gsh1_10.gif" width="67" height="17">称为该循环的长度。<br>
+            　　下面介绍常用的基本互连函数、它们的函数表达式和主要的特征。<br>
+            　　<b>1. 恒等置换</b><br>
+            　　相同编号的输入端与输出端一一对应互连所实现的置换即为恒等置换，其表达式为：<br>
+            　　　<img src="iamges/gsh1_11.gif" width="240" height="21" align="absmiddle"><br>
+            　　其中等式左边括号内的 <img src="iamges/gsh1_12.gif" width="100" height="18" align="absmiddle">和等式右边的<img src="iamges/gsh1_13.gif" width="97" height="16" align="absmiddle"> 
+            均为网络输入端和输出端的二进制地址编号。这种置换完成的变换图形如7.3所示。图的左部为输入端，右部为输出端。<br>
+            　　<b>2. 交换置换</b><br>
+            　　交换置换是实现二进制地址编号中第0位位值不同的输入端和输出端之间的连接。其表达式为：<br>
+            　　<img src="iamges/gsh1_14.gif" width="244" height="24" align="absmiddle"><br>
+            　　它所实现的输入端与输出端的互连图形见图7.4。 </p>
+          <p align="center" class="pt9-black"><img src="iamges/tu7_03.jpg" width="151" height="176">　　　　　　<img src="iamges/tu7_04.jpg" width="181" height="236"></p>
+          <p>&nbsp;</p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

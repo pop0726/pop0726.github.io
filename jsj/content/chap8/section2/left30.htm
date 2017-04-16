@@ -1,0 +1,181 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第八章 并行处理机和多处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><span class="pt9-black">(3) 几种典型系统<br>
+            　　目前国内外许多科研机构都在对机群系统下的通信技术进行深入的研究，如UCB（University of California, Berkeley）提出的NOW计划，Cornell大学研制的U-Net系统，清华大学提出的精简通信协议RCP等，表8.4列举了在机群系统中实现的几种典型的通信子系统。</span></p>
+          <p align="center"><span class="pt9-black"><b>表8.4. 几种典型通信系统</b></span></p>
+          <table width="85%" border="1" cellspacing="1" cellpadding="1">
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center">系统名称</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">网络类型</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">实现技术</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">往返延迟时间(<img src="images/gsh2_22.gif" width="24" height="13">)</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">峰值带宽(Mb/s)</div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center">RCP(清华大学)</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">10Mbps Ethernet</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">精简通信协议</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">950 (TCP为1438)</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">8.98 (TCP为8.92)</div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center">RCP(清华大学)</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">640Mbps Myrinet</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">精简通信协议</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">200 (TCP为1506)</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">120 (TCP为42)</div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center">Fast Socket(UCB)</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">640Mbps Myrinet</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">精简通信协议</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">80</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">96</div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center">FM(UIUC)</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">640Mbps Myrinet</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">Active Message</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">50</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">130</div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center">AM(UCB)</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">640Mbps Myrinet</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">Active Message</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">31.5</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">152</div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center">U-Net(Cornell)</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">155Mbps ATM</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">Active Message</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">65 (TCP为1285)</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">120 (TCP为80)</div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center">HPAM(UCB)</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">100Mbps FDDI</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">Active Message</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">29 (TCP为2000)</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">96 (TCP为43)</div>
+              </td>
+            </tr>
+          </table>
+          <p align="left" class="pt9-black">　　从表中可看出，这六种系统虽然是在不同的网络硬件平台上实现的，但其性能无论是从延迟时间上看，还是从网络带宽上看，均比传统TCP/IP协议有较大幅度的提高，比如清华大学在Myrinet上实现的精简通信协议RCP通信延迟只有200微秒，比TCP的延迟时间降低了6倍，而网络带宽提高了近5倍，达到120Mb/s，这说明通信协议软件处理开销的降低对网络性能的提高有着极其重要的作用。但由于网络速度不同，性能提高的幅度会有所不同，网络速度越高，则提高性能的潜力越大。RCP分别在Ethernet和Myrinet上的延迟时间和峰值带宽数据清晰地说明了这一结论。<br>
+            　　这些系统从实现技术上看，可分为两类，一类是采用精简通信协议的方法，另一类是使用Active Message通信机制。对比这两类系统的性能可知，采用Active 
+            Message通信机制实现的系统的性能比用精简通信协议实现的系统一般来说要好些，例如，UCB在Myrinet上实现的Fast Socket的往返延迟时间为80微秒，而AM系统的往返延迟时间只有31.5微秒，可见，Active 
+            Message通信机制能够更为有效地提高通信系统的性能。<br>
+            　　高性能的工作站、高档微机的使用是提出并行机群系统的前提条件，而高速网络硬件设备的出现，则为机群系统的发展打下了坚实的基础，极大程度地推动了它的使用和推广，新型通信协议的研究又进一步发挥了高速网络的高性能，使得机群系统具有更好的性能和更广的适应性。因此可以预计，随着工作站本身性能的不断提高以及新的通信技术的研究，并行机群系统将会逐渐接近或达到MPP的性能指标，成为目前并行计算领域中的主流技术之一。</p>
+          <p></p>
+          <p align="left">&nbsp; </p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

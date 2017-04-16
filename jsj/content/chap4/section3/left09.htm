@@ -1,0 +1,48 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第四章 输入输出系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><span class="part">4.3.4 通道中的数据传送过程</span><span class="pt9-black"><br>
+            <br>
+            　　一个字节多路通道是分时为多台低速和中速外围设备服务的，在有P台设备同时连接到一个字节多路通道上时，它的数据传送过程如图4.14所示。<br>
+            　　在图4.14中，每一个参数的含义如下：<br>
+            　　<img src="iamges/gsh3_1.gif" width="16" height="16" align="absmiddle">：设备选择时间。从通道响应设备发出数据传送请求开始，到通道实际为这台设备传送数据所需要的时间。<br>
+            　　<img src="iamges/gsh3_3.gif" width="17" height="17" align="absmiddle">：传送一个字节所用的时间，实际上就是通道执行一条通道指令，即数据传送指令所用的时间。<br>
+            　　P：在一个通道上连接的设备台数，且这些设备同时都在工作。<br>
+            　　n：每一个设备传送的字节个数，这里，假设每一台设备传送的字节数都相同，都是n个字节。<br>
+            　　<img src="iamges/gsh3_2.gif" width="22" height="18" align="absmiddle">：连接在通道上的第i台设备传送的第j个数据，其中有：i＝1,2,…,p，j＝1,2,…,n。<br>
+            　　T：通道完成全部数据传送工作所需要的时间。</span></p>
+          <p align="center"><img src="iamges/tu4.14.jpg" width="399" height="133"></p>
+          <p align="left"><span class="pt9-black">　　在字节多路通道中，通道每连接一个外围设备，只传送一个字节，然后又与另一台设备相连接，因此，在图4.14中，设备寻址时间TS和数据传送时间<img src="iamges/gsh3_3.gif" width="17" height="17" align="absmiddle">是间隔进行的。<br>
+            　　当一个字节多路通道上连接有P台外围设备，每一台外围设备都传送n个字节，总共所需要的时间T计算如下：<br>
+            　　　　　　　<img src="iamges/gsh3_4.gif" width="168" height="16"> 　　（4.1）<br>
+            　　</span></p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

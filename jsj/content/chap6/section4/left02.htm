@@ -1,0 +1,117 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第六章　向量处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black">　　日制超级计算机 NEC1991年生产的SX－X系列机宣称峰值速度可达到22Gflops。由Fujitsu公司生产的VP－2000系列的峰值速度达5Gflops。这两种机器的时钟周期分别为2.9ns和3.2ns。<br>
+            　　这些机器的主要特点是采用了共享通信寄存器和可重构的向量寄存器。Hitachi公司的820系列机的峰值速度为3Gflops。日本超级计算机的研制在高速硬件和交互式向量化编译器方面是比较先进的。<br>
+            　　NECSX－X44 NEC宣称这种机器是最快的向量超级计算机（22Gflops峰值速度），它的系统结构如图6.19所示。达到这一性能指标的主要措施之一是使用了基于VLSI和高密度封装技术的2.9ns时钟。<br>
+            　　4台运算处理机通过共享寄存器或通过2G字节的共享存储器进行通信。每台处理机有4组向量流水线，每组包括2条加法/移位流水线和2条乘法/逻辑流水线。因此，类似于C－90，4台处理机可达到64路并行性。<br>
+            　　除了向量部件外，还有高速标量部件，它采用了具有128个标量寄存器的RISC系统结构。指令通过重新排序开发较高的并行性。主存储器为1024路的交叉访问存储器。高达16G字节的扩展存储器的最大传输率为2.75G字节/秒。<br>
+            　　系统最多可以配置4台I/O处理机，每台I/O处理机的数据传输率为1G字节/秒。系统最多可以提供256个通道用于高速网络、图形和外围操作。系统能支持100兆字节/秒的通道工作。</p>
+          <p align="center" class="pt9-black"><img src="iamges/tu6_19.jpg" width="580" height="481"></p>
+          <p align="left" class="pt9-black">　　表6.3概括了目前三种有代表性的多向量处理机的主要特性。</p>
+          <p align="center" class="pt9-black"><b>表6.3当前三种向量计算机系统结构的特性</b><br>
+          </p>
+          <table width="90%" border="1" cellspacing="1" cellpadding="1" bgcolor="#FFFFD7">
+            <tr> 
+              <td class="pt9-black" width="17%"> 
+                <div align="center">机器特性</div>
+              </td>
+              <td class="pt9-black" width="27%"> 
+                <div align="center">CrayY-MP C90/16256</div>
+              </td>
+              <td class="pt9-black" width="30%"> 
+                <div align="center">NEC SX-X系列</div>
+              </td>
+              <td class="pt9-black" width="26%"> 
+                <div align="center">Fujitsu VP-2000系列</div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black" width="17%">处理机台数</td>
+              <td class="pt9-black" width="27%">16个CPU</td>
+              <td class="pt9-black" width="30%">4台运算处理机</td>
+              <td class="pt9-black" width="26%">VP2600/10:1台处理机VP2400/40:2台处理机</td>
+            </tr>
+            <tr> 
+              <td class="pt9-black" width="17%">机器周期时间</td>
+              <td class="pt9-black" width="27%">4.2ns</td>
+              <td class="pt9-black" width="30%">2.9ns</td>
+              <td class="pt9-black" width="26%">3.2ns</td>
+            </tr>
+            <tr> 
+              <td class="pt9-black" width="17%">最大存储器容量</td>
+              <td class="pt9-black" width="27%">256兆字（2G字节）</td>
+              <td class="pt9-black" width="30%">2G字节，1024路交叉访问</td>
+              <td class="pt9-black" width="26%">1或3G字节的SRAM</td>
+            </tr>
+            <tr> 
+              <td class="pt9-black" width="17%">可选的SSD存储器</td>
+              <td class="pt9-black" width="27%">512兆、1024兆或2048兆字（16G字节）</td>
+              <td class="pt9-black" width="30%">16G字节，传输速率为2.75G字节/秒</td>
+              <td class="pt9-black" width="26%">32G字节的扩充存储器</td>
+            </tr>
+            <tr> 
+              <td class="pt9-black" width="17%">处理机系统结构：向量流水线、功能部件和标量部件</td>
+              <td class="pt9-black" width="27%">每个CPU有两条流水线和两个功能部件，每个时钟周期发送64个向量结果</td>
+              <td class="pt9-black" width="30%">每台处理机有4组向量流水线，每组有两条加法/移位流水线和两条乘法/逻辑流水线，一条标量流水线</td>
+              <td class="pt9-black" width="26%">每个向量部件有两条装入/存储流水线和5个流水线功能部件。1－2个向量部件。每个向量部件可以和2个标量部件相连</td>
+            </tr>
+            <tr> 
+              <td class="pt9-black" width="17%">操作系统</td>
+              <td class="pt9-black" width="27%">由UNIX/V和BSD演变而来的UNICOS</td>
+              <td class="pt9-black" width="30%">基于UNIX系统V和4.3BSD的Super-UX</td>
+              <td class="pt9-black" width="26%">UPX/M和用于向量处理的MSP/EX</td>
+            </tr>
+            <tr> 
+              <td class="pt9-black" width="17%">前端机</td>
+              <td class="pt9-black" width="27%">IBM,CDC,DEC,Univac Apollo,Honeywell</td>
+              <td class="pt9-black" width="30%">内部控制处理器和4台I/O处理机</td>
+              <td class="pt9-black" width="26%">与IBM兼容的主机</td>
+            </tr>
+            <tr> 
+              <td class="pt9-black" width="17%">向量化语言/编译器</td>
+              <td class="pt9-black" width="27%">Fortran 77, C, CF77 5.0, Cray 
+                C 3.0版本</td>
+              <td class="pt9-black" width="30%">Fortran 77/SX,向量化器/XS，分析器/SX</td>
+              <td class="pt9-black" width="26%">Fortran 77 EX/VP,有交互式向量化器的C/VP 
+                编译器</td>
+            </tr>
+            <tr> 
+              <td class="pt9-black" width="17%">峰值性能和I/O频宽</td>
+              <td class="pt9-black" width="27%">16Gflops 13.6G字节/秒</td>
+              <td class="pt9-black" width="30%">22Gflops,每台I/O处理机1G字节/秒</td>
+              <td class="pt9-black" width="26%">5Gfolps, 256个通道，2G字节/秒</td>
+            </tr>
+          </table>
+          <p align="center" class="pt9-black"> <br>
+          </p>
+          </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

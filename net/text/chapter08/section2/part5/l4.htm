@@ -1,0 +1,39 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td class="explaination" colspan="2"><br>
+            　　现在我们来描述一下优先级算法。一个具有优先级高于当前帧的优先级的站可以在该帧通过时，在其优先级上预留下一个令牌。在当前发送的站完成其发送时，它就送出一个具有较高的优先级的令牌。具有较低优先级的站不能截住这个令牌，因而令牌就传递到发出请求的站或某个优先级等于或高于该优先级的、有数据要发送的中间站。<br>
+            <br>
+            　　这个将优先级进行提升的站，在所有具有较高优先级的站都发送完后负责将其回降到它以前的等级上。当该站看到一个令牌处于该较高的优先级时，它就可假设不再有较高优先级的信息在等待发送，并在令牌传出前将其降级，下图是一个例子。<br>
+            　</td>
+        </tr>
+        <tr> 
+          <td class="explaination" valign="top"><img src="../../../../image/tub/lt.gif" width="25" height="25" alt="例题"></td>
+          <td class="explaination">　　在下图中，当A已发出一个高优先级的令牌后，任何一个具有高优先级数据的站都可以抓住这令牌。假设除D站外，尚有C站具有高优先级数据要发送，则C将抓住这个令牌，发送其数据帧，并重新发出一个高优先级的令牌。该令牌然后被D抓住。在一个高优先级的令牌到达A时，所有中间介入的具有高优先级数据要发送的站将都已有了发送的机会，所以这该是A将令牌降级的合适时间。<br>
+            　</td>
+        </tr>
+        <tr> 
+          <td class="explaination" width="25" valign="top"><img src="../../../../image/tub/ts.gif" width="25" height="20" alt="图示"></td>
+          <td class="explaination"> 
+            <div align="center"><img src="../../../../image/pic/chapter08/8_14.gif" width="416" height="399"><br>
+              <br>
+              <span class="point">图8.14 令牌环优先级方案</span><br>
+              　　</div>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

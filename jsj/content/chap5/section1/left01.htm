@@ -1,0 +1,45 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center"> 
+  <p class="section">&nbsp;</p>
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第五章 标量处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black"><span class="section">5.1 流水线技术</span><br>
+            <br>
+            　　流水线是把一个重复的过程分解为若干个子过程，每个子过程可以与其它子过程并行进行。由于这种工作方式与工厂中的生产流水线十分相似，因此称为流水线技术。<br>
+            　　流水线技术是一种非常经济，对提高处理机的运算速度非常有效的技术。采用流水线技术只需要增加少量硬件就能够把处理机的运算速度提高几倍，它是许多数处理机中普遍采用的一种并行处理技术。<br>
+            　　在处理机的各个部分几乎都可以采用流水线技术。指令的执行过程可以采用流水线，称为指令流水线。运算器中的操作部件，如浮点加法器、浮点乘法器等可以采用流水线，称为操作部件流水线。访问主存储器部件也可以采用流水线。甚至在处理机之间，机器之间也可以采用流水线。<br>
+            <br>
+            <span class="part">5.1.1 指令的重叠执行</span><br>
+            <br>
+            　　一条指令的执行过程可以分为多个阶段，具体的分法要根据各种处理机的情况而确定。在图5.1中把一条指令的执行过程分为3个阶段。其中，取指令是按照指令计数器的内容访问主存储器，取出一条指令送到指令寄存器。指令分析是指对指令的操作码进行译码，按照给定的寻址方式和地址字段中的内容形成操作数的地址，并用这个地址读取操作数。操作数可能在主存储器中，也可能在寄存器中。指令执行是指根据操作码的要求，完成指令规定的功能，在此期间，要把运算结果写到寄存器或主存储器中。因此，在指令执行过程的三个阶段都可能要访问主存储器。另外，在指令分析或指令执行过程中还要完成指令计数器的更新，为读取下一条指令作好准备。</p>
+          <p align="center"><img src="images/tu5_1.jpg" width="334" height="65"></p>
+          <p align="center">&nbsp;</p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第六章　向量处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left">　<span class="pt9-black">　执行的时序如图6．4所示。其中横轴代表时间，纵轴代表存储器模块和流水线部件的工作情况。假设运算流水线分为四段，那么输入数据进入流水线四个时钟周期之后才产生相应的输出值。数据充满之后，流水线就一直处于忙状态。</span></p>
+          <p align="center"><img src="images/tu6_04.jpg" width="557" height="388"></p>
+          <p align="left">　　<span class="pt9-black">图中相应格内用数字标出的段表示正在工作，该数字表示当前周期正在被处理的向量元素的下标。正在进行读操作的存储器模块用&quot;R&quot;表示，后跟一个字符和一个数字，例如符&quot;RA0&quot;表示正在从该模块读出向量A的下标为0的元素。&quot;W&quot;代表写操作，其后的数字代表写回的向量C的相应元素的下标。<br>
+            　　在此例中，我们特意将向量按上述方式存放在各个存储模块，目的是为了防止发生冲突。为了简化讨论，我们还忽略了模块内各元素的寻址问题，而着重讨论使用哪个模块。在时钟周期0启动读模块0和模块2中向量A、B的第一个元素，这两个元素在时钟周期2被传送到流水线的输入端，在时钟周期5结束时得到相应的输出。在时钟周期1启动模块1和模块3中向量A、B的第二个元素。在以后每个时钟周期，启动读存在有关模块中向量A、B的相应元素。在时钟周期5结束时，第一个输出值出现在流水线上。在时钟周期6，正在读模块5和模块6中向量A的a5和a6元素。在时钟周期7开始时模块5输出a5，在时钟周期8开始时模块6输出a6。在时钟周期6，正在读模块1和模块2中向量B的b5和b6元素。在时钟周期6，模块1，2，3处于空闲状态。在时钟周期6，元素c0写入模块4，在下一个时钟周期元素c1写入模块5。<br>
+            　　在图6．4所示的时序中，运算器和存储器的工作衔接得非常好，在整个操作进行过程中没有任何冲突发生。实际情况并非总和上述理想化的例子一样。<br>
+            　　如果向量的第一个元素不是存放在我们想存放的存储器模块，那么会发生什么情况呢？例如，当输入向量的位置如图6．3所示时，向量加结构决定向量C的第一个元素不能存放在模块0，5，6，7。假如向量Ｃ在程序的其它地方又作为向量D和E的和向量，而D和E在存储器中的存放位置很可能使得向量C的第一个元素不能存放在模块1，2，3，4，这样，我们就会发现C所受的限制太多，以至存储器中无位置可以存放C来实现无冲突的存储器操作。 
+            </span></p>
+          <p align="left">&nbsp; </p>
+          </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

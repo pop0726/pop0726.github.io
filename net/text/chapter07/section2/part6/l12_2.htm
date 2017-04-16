@@ -1,0 +1,43 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td class="explaination" colspan="2" valign="top"><br>
+            　　后面6个比特是说明本报文段性质的控制字段（或称为标志）。各比特的意义如下：<br>
+            <br>
+            <span class="point">・紧急比特URG（URGent） </span><br>
+            　　当URG=1时，表明此报文段应尽快传送（相当于加速数据）、而不要按原来的排队顺序来传送。例如，已经发送了很长的一个程序要在远地的主机上运行。但后来发现有问题，要取消该程序的运行。因此从键盘发出中断信号。这就属于紧急数据。此时要与后面的&quot;紧急指针&quot;（Urgent 
+            Pointer）字段配合使用。紧急指针指出在本报文段中的紧急数据的最后&quot;个字节的序号。紧急指针使接收方可以知道紧急数据共有多长。值得注意的是，即使当窗口大小为零时也可发送紧急数据。 
+            <br>
+            <br>
+            <span class="point">・确认比特A。K </span><br>
+            　　只有当A。K＝1时确认序号字段才有意义。当A。K＝0时，确认序号没有意义。<br>
+            <br>
+            <span class="point">・急迫比特PSH（PuSH） </span><br>
+            　　当PSH＝1时，表明请求远地TCP将本报文段立即传送给其应用层，而不要等到整个缓冲区都填满了后再向上交付。<br>
+            <br>
+            <span class="point">・重建比特RST（ReSeT）</span><br>
+            　　当RST＝1时，表明出现严重差错（如由于主机崩溃或其他原因），必须释放连接，然后再重建运输连接。重建比特还用来拒绝一个非法的报文段或拒绝打开一个连接。<br>
+            <br>
+            <span class="point">・同步比特SYN </span><br>
+            　　在连接建立时使用。当SYN＝1而A。K＝0时，表明这是一个连接请求报文段。对方若同意建立连接，则应在发问的报文段中使SYN＝1和A。K：1。因此，同步比特SYN值为1，就表示这是一个连接请求或连接接受报文，而A。K比特的值用来区分是哪种报文。<br>
+            <br>
+            <span class="point">・终止比特FIN（FINal） </span><br>
+            　　用来释放一个连接，当FIN＝1时，表明欲发送的字节串已经发完，并要求释放运输连接。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

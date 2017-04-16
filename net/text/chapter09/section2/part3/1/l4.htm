@@ -1,0 +1,42 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td class="explaination" colspan="2"><br>
+            　　为了保证上述CSMA算法的顺利和公平，DCF采用了一系列的延迟，相当于一种优先权机制。首先考虑称为帧间空隙（IFS）的简单延迟。讨论时暂且不考虑不同的IFS值对这种机制的影响。利用IFS的CSMA访问控制的操作过程如下：<br>
+            <br>
+            <span class="point">　1)</span> 发送站监听介质。若介质空闲，站点再继续监听等于IFS的一段时间，如果在这段时间内介质仍然是空闲的，则站点可立即发送帧。<br>
+            <br>
+            <span class="point">　2)</span> 若介质忙（无论是发送站一开始就监听到介质忙，还是继续监听到介质忙），站点推迟发送并继续监听介质直到完成当前的传输。<br>
+            <br>
+            <span class="point">　3)</span> 一旦当前的传输已完成，站点要再监听一个IFS。若在此期间介质仍然空闲，然后站点按照二进制指数退避算法退避一段时间后监听介质。如果介质仍然空闲，站点就可以发送帧。 
+            <br>
+            <br>
+            　　在以太网中，利用二进制退避算法来处理重负载的情况。若发送站监听到介质忙，它就退避一段时间后再试。由介质忙引起的退避次数越多，那么退避的时间就会越长。 
+            <p> 　　以上方法在DCF中经过了提炼，用三种不同的IFS值来提供基于优先权的介质访问控制：<br>
+              <span class="point">　・SIFS</span>（短IFS）<br>
+              　　最短的IFS，用于所有的立即响应活动。<br>
+              <br>
+              <span class="point">　・PIFS</span>（点协调功能IFS）<br>
+              　　中等长度的IFS，在PCF机制中的中央控制器发出查询时用。<br>
+              <br>
+              <span class="point">　・DIFS</span>（分布协调功能IFS）<br>
+              　　最长的IFS，作为异步帧争用访问控制中最小的延时。<br>
+              　</p>
+            </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

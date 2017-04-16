@@ -1,0 +1,40 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td class="explaination" valign="top" width="25"><br>
+            <img src="../../../../image/tub/ts.gif" width="25" height="20" alt="图示"><br>
+            　</td>
+          <td class="explaination"> 
+            <div align="center"><br>
+              <img src="../../../../image/pic/chapter09/9_17.gif" width="327" height="37"><br>
+              <br>
+              <span class="point">图9.16 帧中继帧格式</span></div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="explaination" colspan="2" valign="top"> <br>
+            　　地址域包含的是数据链路连接标识符（DLCI），用于标识传输该帧所用的虚拟连接。<br>
+            <br>
+            　　为了对基本的帧信息进行补充，在帧的数据部分可以包含几个局部管理接口（LMI）扩展。<br>
+            <br>
+            　　其中的一个扩展针对的是虚拟连接状态报文，可以在使用PVC（永久虚电路）的时候包含在每一个帧中。该扩展可帮助实现DTE和DCE之间的同步通信，确保在数据被发送之前存在一条完整的连接。<br>
+            <br>
+            　　对于需要进行多点传送的多媒体应用，有一个可选的LMI，通过该LMI可以实现将一个帧传输到多个目的地。该LMI和多媒体路由协议是相容的。另外一个LMI是为全局地址提供的，通过该LMI可以在整个WAN上解析某个地址，就像在一个单一的LAN中那样。例如，通过将名称解析为IP地址、将IP地址解析为名称，计算机名称、域名、Internet名便可以像在LAN上那样进行对待了。第四个LMI用于在WAN上的互连设备之间实现传统的XON/XOFF流控制。<br>
+            　　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

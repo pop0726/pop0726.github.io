@@ -1,0 +1,42 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第八章 并行处理机和多处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black">　　2 监听协议</p>
+          <p align="left" class="pt9-black">　　根据系统结构的不同，解决Cache一致性问题的协议机制主要有两类。在采用基于总线互连结构的系统中，由于系统中每个处理机都能觉察到存储器系统正在进行的活动，在某个活动破坏了Cache的一致性时，Cache控制器将采取相应的动作使有关的拷贝无效或更新。采用这种保持Cache一致性的协议称为监听协议。<br>
+            但是，很多并行系统并不采用基于总线互连的结构，在这些系统中处理机无法对存储器系统的活动进行监听，监听协议也就不再适用。这类系统的Cache一致性问题可以采用基于目录的方法来解决。<br>
+            　　(1) 监听协议概述<br>
+            　　在使用监听协议时，有两种来保持Cache一致性的方法：写无效（Write-Invalidate）策略和更新（Write -Update）策略。写无效策略是在本地Cache的数据块修改时使远程数据块都无效，写更新策略在本地Cache数据块修改时通过总线把新的数据块广播给含该数据块的所有其他Cache。注意，写无效和写更新策略是保持Cache一致性的策略，与Cache采用写回（Write-Back）还是写通过（Write-Through）策略无关。如果Cache采用的写通过策略，在使远程数据块无效或更新其他Cache的同时，还要同时修改共享存储器的内容。<br>
+            　　图8.15说明Write-Invalidate策略和Write-Update策略的区别（以Write-Through方式为例）。</p>
+          <p align="center" class="pt9-black"><img src="images/tu8_15.jpg" width="459" height="184"></p>
+          <p align="left"><span class="pt9-black">　　由于Write-Update策略在本地Cache修改时需要通过总线把修改过的数据块的内容广播给所有含该数据块的其他Cache，增加了总线的负担，所以在一般的应用系统中，极少使用Write-Update策略。大部分系统使用Write-Invalidate策略。鉴于这种情况，在下面的讨论中我们就不再考虑Write-Update策略。</span></p>
+          <p align="left">&nbsp; </p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

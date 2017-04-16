@@ -1,0 +1,33 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+          <td class="explaination"> <br>
+            　　图5.7说明了一个面向连接的子网（如ATM）中NSAP，TSAP，网络连接和传输连接之间的关系。注意，传输实体通常支持多个NSAP。在有些网络中，也可能存在多个NSAP，但对其他网络，每台机器只有一个NSAP（如一个IP地址）。在面向连接的网络层上建立一个传输连接，可能采用的连接方案如下：<br>
+            <br>
+            <span class="point">　1．</span>主机2上的定时器服务进程将自己连到122号TSAP上，等待即将到来的请求。一个进程如何将自己与TSAP相连是属于网络模型以外的问题，它完全依赖于本地的操作系统。例如，可以用LISTEN调用。<br>
+            <br>
+            <span class="point">　2．</span>主机1上的-个应用进程想找出当天的时间，于是发出一个CONNECT请求，将6号TSAP设定为源地址，将122号TSAP设定为目的地址。<br>
+            <br>
+            <span class="point">　3．</span>主机1上的传输实体在其机器上选择一个网络地址（如果它不止一个）并在它们之间建立一个网络连接。对于无连接子网，无须建立该网络层连接.使用该网络连接，主机1的传输实体便能与主机2的传输实体通话了。<br>
+            <br>
+            <span class="point">　4．</span>主机1上的传输实体向主机2上对等端说的第一句话是：&quot;早上好，我想在我的6号TSAP和你的122号TSAP之间建立-个传输连接。你认为如何？&quot;<br>
+            <br>
+            <span class="point">　5．</span>主机2上的传输实体便询问122号TSAP的定时服务器是否愿意接受一个新的连接。如果它同意，传输连接便建立成功。注意，传输连接是从TSAP到TSAP的，而网络连接只是其中的从NSAP到NSAP的部分。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

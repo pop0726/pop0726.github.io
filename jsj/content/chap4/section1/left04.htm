@@ -1,0 +1,50 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第四章 输入输出系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black"><span class="part">4.1.2 基本输入输出方式</span><br>
+            　　对于工作速度、工作方式和工作性质不同的外围设备，通常要采用不同的输入输出方式。目前常用的基本输入输出方式有如下三种：<br>
+            <br>
+            <b>方式1：程序控制输入输出方式</b><br>
+            <br>
+            　　程序控制输入输出方式又称为状态驱动输入输出方式、应答输入输出方式、查询输入输出方式、条件驱动输入输出方式等。图4.2表示从键盘输入一个字符到处理机，再把这个字符输出到显示器上的工作过程。当DONE标志为&quot;1&quot;，表示已经从键盘输入一个字符到设备缓冲寄存器，在这个字符被CPU取走后，DONE标志复位。输出设备的标志READY的设置与输入设备正好相反，当READY标志为&quot;1&quot;时，表示设备缓冲寄存器是空的，正准备接收从CPU送来的数据，在设备缓冲寄存器中已经有数据时，READY标志复位，表示输出设备正在把缓冲寄存器中的数据输出到设备上。</p>
+          <p align="center" class="pt9-black"><img src="images/tu4.2.jpg" width="204" height="323"></p>
+          <p align="left" class="pt9-black">　　<b>程序控制输入输出方式有如下四个特点：</b><br>
+            　　1、何时，对何设备进行输入或输出操作完全受CPU控制。<br>
+            　　2、外围设备与CPU处于异步工作关系。CPU要通过指令对设备进行测试才能知道设备的工作状态，如工作已经结束（或设备空闲，已经准备就绪等），正在忙碌等。<br>
+            　　3、数据的输入和输出都要经过CPU。外围设备每发送或接收一个数据都要由CPU执行相应的指令才能完成，如图4.3所示。<br>
+            　　4、用于连接低速外围设备，如终端、打印机等。<br>
+            　　必须指出，象图4.2那样用一个处理机同时管理两个外部设备的情况只是一种特例，因为键盘输入的速度比显示器的速度要低得多，从而保证从键盘上输入的每个字符能够正确输出到显示器上。如果把两台工作速度相当，或工作速度不确定的设备象图4.2那样连接在一起就有可能丢失信息。 
+          </p>
+          <p align="center" class="pt9-black"><img src="images/tu4.3.jpg" width="404" height="102"> 
+          </p>
+          <p align="left">&nbsp;</p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

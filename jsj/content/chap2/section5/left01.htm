@@ -1,0 +1,181 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第二章 指令系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><span class="pt9-black"><b class="section">2.5 精简指令系统</b><br>
+            <br>
+            　　精简指令系统计算机（RISC）是80年代提出的一种新的设计思想。目前运行中的许多处理机都采用了RISC体系结构。如SUN公司的SPARC、SuperSPARC、UtraSPARC，SGI公司的R4000、R5000、R10000，IBM公司的Power、Power 
+            PC，Intel公司的80860、80960，DEC公司的Alpha，Motorola公司的88100，HP公司的HP3000/930系列、950系列等。另外，在有些典型的CISC处理机中也采用来RISC设计思想，如Intel公司的80486、Pentium等。<br>
+            <br>
+            <b class="part">2.5.1 从CISC到RISC</b><br>
+            <br>
+            　　从计算机出现，特别是1964年，IBM360系列计算机推出之后，人们一直在改进计算机的结构，不断增强指令系统功能。到了70年代，许多典型计算机的指令系统已经非常庞大，指令的功能相当复杂。表2.9列出了当时四种典型计算机的结构特点。</span></p>
+          <p align="center"><span class="pt9-black"><b>表2.9 四种典型CISC处理机的结构特点</b><br>
+            </span></p>
+          <table width="80%" border="1" cellspacing="1" bgcolor="#FFFFCC">
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center">机 型<br>
+                  （生产年代）</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">IBM370/168<br>
+                  （1973）</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">VAX-11<br>
+                  （1978）</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">iAPX 432<br>
+                  （1982）</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">Dorado<br>
+                  （1978）</div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center">指令种类</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">208</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">303</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">222</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">270</div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center">微程序容量</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">420K</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">480K</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">64K</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">136K</div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center">指令长度</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">16-48</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">16-456</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">6-321</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">8-24</div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center">采用的工艺</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">ECL MSI</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">TTL MSI</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">NMOS VLSI</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">ECL MSI</div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center">指令操作类型</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">存储器-存储器<br>
+                  存储器-寄存器<br>
+                  寄存器-寄存器</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">存储器-存储器<br>
+                  存储器-寄存器<br>
+                  寄存器-寄存器</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">面向堆栈<br>
+                  存储器-存储器</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">面向堆栈</div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center">cache容量</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">64KB</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">64KB</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">0</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">64KB</div>
+              </td>
+            </tr>
+          </table>
+          <p align="left"><span class="pt9-black">　　从表2.9中看到，当时计算机的结构已经非常复杂。指令种类很多，寻址方式复杂，有大量的访问主存储器的指令，许多复杂指令的实现不得不借助于微程序，从而造成微出现容量大幅度增加。<br>
+            　　1975年，IBM公司率先组织力量，开始研究指令系统的合理性问题。在John Coche领导下，于1979年研制出一种用于电话交换系统的32位小型计算机IBM 
+            801，它有120条指令，工作速度10MIPS，这是世界上第一台采用RISC思想的计算机系统。1986年，IBM正式推出采用RISC体系结构的工作站IBM 
+            RT PC，并采用了新的虚拟存储技术，主要用来完成CAE、CAD、ADM等方面的任务。<br>
+            　　从1979开始，美国加洲伯克利分校以David Patterson为首的研究小组开展了这方面的研究工作，他们指出CISC存在有多方面的缺点。</span><br>
+          </p>
+          <p align="left"><span class="pt9-black"> </span></p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第四章 输入输出系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black"><b>　</b>　中断屏蔽的实现方法主要有两种：<br>
+            　　<b>第一种方法：每个或每级中断源设置一个中断屏蔽位的方法。</b><br>
+            　　中断屏蔽位可以分布在各个中断源中，也可以集中在处理机中，例如放在处理机的状态字中，IBM 370系列机就采用了这种方法。下面，举一个具体的例子。<br>
+            　　<b>例4.1：</b>有四个中断源<img src="images/gsh2_1.gif" width="14" height="13" align="absmiddle">、<img src="images/gsh2_2.gif" width="17" height="18" align="absmiddle">、<img src="images/gsh2_3.gif" width="20" height="16" align="absmiddle">和<img src="images/gsh2_4.gif" width="17" height="16" align="absmiddle">，它们的中断优先级从高到低分别是1级、2级、3级和4级。这些中断源的正常中断屏蔽码和改变后的中断屏蔽码见表4.1，每个中断源一位，共4位屏蔽码。</p>
+          <p align="center"><span class="pt9-black"><b>表4.1 四个中断源的中断优先级和屏蔽码</b></span><br>
+          </p>
+          <table width="75%" border="1" cellpadding="1" cellspacing="1" bgcolor="#FBF5E3">
+            <tr> 
+              <td height="35" class="pt9-black"> 
+                <div align="center">中断源名称</div>
+              </td>
+              <td height="35" class="pt9-black"> 
+                <div align="center">中断优先级</div>
+              </td>
+              <td height="35" class="pt9-black"> 
+                <div align="center">正常中断屏蔽码<br>
+                  <img src="images/gsh2_1copy.gif" width="14" height="13"> 
+                  <img src="images/gsh2_2copy.gif" width="15" height="14" align="absbottom"> 
+                  <img src="images/gsh2_3%20copy.gif" width="17" height="14" align="absbottom"> 
+                  <img src="images/gsh2_4%20copy.gif" width="15" height="13" align="absbottom"></div>
+              </td>
+              <td height="35" class="pt9-black"> 
+                <div align="center">变后的中断屏蔽码<br>
+                  <img src="images/gsh2_1copy.gif" width="14" height="13"><img src="images/gsh2_2copy.gif" width="15" height="14" align="absbottom"><img src="images/gsh2_3%20copy.gif" width="17" height="14" align="absbottom"><img src="images/gsh2_4%20copy.gif" width="15" height="13" align="absbottom"></div>
+              </td>
+            </tr>
+            <tr> 
+              <td height="17" class="pt9-black"> 
+                <div align="center"><img src="images/gsh2_1copy.gif" width="14" height="13"><br>
+                  <img src="images/gsh2_2copy.gif" width="15" height="14"> 
+                  <br>
+                  <img src="images/gsh2_3%20copy.gif" width="17" height="14"> 
+                  <br>
+                  <img src="images/gsh2_4%20copy.gif" width="15" height="13"> 
+                </div>
+              </td>
+              <td height="17" class="pt9-black"> 
+                <div align="center">1<br>
+                  2<br>
+                  3<br>
+                  　4 </div>
+              </td>
+              <td height="17" class="pt9-black"> 
+                <div align="center">1 1 1 1<br>
+                  0 1 1 1<br>
+                  0 0 1 1<br>
+                  0 0 0 1</div>
+              </td>
+              <td height="17" class="pt9-black"> 
+                <div align="center">1 0 0 0<br>
+                  1 1 0 0<br>
+                  1 1 1 0<br>
+                  1 1 1 1</div>
+              </td>
+            </tr>
+          </table>
+          <p align="left"><span class="pt9-black">　　如果在4个中断源的中断服务程序中都使用正常的中断屏蔽码，处理机的中断服务顺序将严格按照中断源的中断优先级进行。当具有某一个中断优先级的中断源占有处理机，正在执行它的中断服务程序时，只有更高一级中断源的中断服务请求才能中断这个中断服务程序，同一级的和比它低级的所有中断源的中断服务请求都不能中断当前的中断服务程序。<br>
+            如果采用改变后的中断屏蔽码，当D1、D2、D3和D4这4个中断源同时请求中断服务时，处理机实际为各个中断源服务的先后次序就会改变。处理机响应各个中断源的中断服务请求和实际中断服务的先后次序如图4.7所示。<br>
+            　　当处理机正在执行主程序时，中断源D1、D2、D3和D4同时请求中断服务，而且它们都没有被屏蔽。按照中断优先级的高低，处理机必然首先响应中断源D1的中断服务请求。处理机在处理中断源D1的过程中，通过硬件或软件改变中断源的中断屏蔽码，中断源D1被屏蔽，而中断源D2、D3和D4没有被屏蔽。在实际开始执行D1的中断服务之前，要打开处理机的中断（开CPU中断）。这时，要从D2、D3和D4三个没有被屏蔽的中断源中选择一个最高优先级的中断源D2，处理机响应中断源D2的中断请求。按照同样的过程，处理机在响应中断源D4的中断服务请求后，把所有中断源都屏蔽掉，因此，中断源D4的中断服务程序可以全部执行完成。在退出中断服务之前，中断源D4要恢复各个中断源的中断屏蔽状态，然后返回到被它中断的中断源D3的中断服务程序中。就这样，逐级返回，直到返回主程序。</span></p>
+          <p align="center"><img src="images/tu4.7.jpg" width="306" height="281"></p>
+          <p align="left"><span class="pt9-black">　　从图4.7中看到，处理机响应中断源的中断服务请求，其顺序是D1、D2、D3和D4，而实际中断服务的顺序为D4、D3、D2和D1，与中断源的中断优先级正好相反。因此，通过设置中断屏蔽码，可以通过软件，由程序员任意改变中断源的中断服务顺序，这正是我们所希望的中断系统的灵活性。<br>
+            　　在为每个中断源或每级中断源设置一个中断屏蔽位的方法中，中断优先级实际上只在处理机响应中断源的中断服务请求时使用，即在所有请求中断服务的中断源中选择出一个优先级最高的中断源首先为它服务。而处理机在执行中断源的中断服务程序时，并没有优先级的区分。</span></p>
+          <p align="left">&nbsp;</p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

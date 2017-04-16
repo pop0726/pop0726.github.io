@@ -1,0 +1,44 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第八章 并行处理机和多处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black">2 CM-2计算机</p>
+          <p class="pt9-black" align="left">　　Connection Machine 的CM-2是一台细粒度的SIMD计算机，它由数千个位片PE组成。它的峰值处理速度超过10Gflops。它的系统结构如图8.8所示。所有程序从前端开始执行，当需要并行数据操作时，发送微指令到后端处理阵列。定序器(sequencer)分解这些微指令并且把它们广播给阵列中的所有数据处理器(data 
+            processor)。前端机和处理阵列之间有三条交换数据计算结果的通路：广播总线(broadcasting)、全局组合总线(global 
+            combining)和标量存储器总线(scalar memory bus)。广播是通过广播总线把数据或指令同时传送到所有数据处理器。前端机通过全局组合总线对来自各处理器的数据进行求和、最大值、逻辑或等运算。前端机每次通过标量总线从与数据处理器相连的存储器读取32位数据、或者每次将32位数据写入与数据处理器相连的存储器。VAX和Symbolics机都可以用作前端机和主机。<br>
+            　　1.处理阵列 CM-2是一台数据并行计算的后端机。处理阵列包含4K到64K个位片数据处理器(或PE)，所有数据处理器都由定序器控制，如图8.9所示。<br>
+            　　定序器对来自前端机的微指令进行译码，然后把毫微指令广播到阵列中各个处理器。所有处理器可以同时访问它们的存储器，它们以锁步方式执行广播来的指令。<br>
+            　　处理器之间通过寻径、NEWS网格(NEWS gird)或扫描机构(scanning mechanism) 相互交换数据。这些网络也与I/O接口相连。称为数据穹(data 
+            vault)的大容量存储器子系统与I/O相连，它可存储多达60G字节的数据。</p>
+          <p class="pt9-black" align="center"><img src="images/tu8_8.jpg" width="502" height="397"><br>
+          </p>
+          <p align="left">&nbsp;</p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

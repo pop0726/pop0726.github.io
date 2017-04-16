@@ -1,0 +1,49 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第五章 标量处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black"><span class="part">5.2.4 静态分支预测技术</span><br>
+            <br>
+            　　在处理机的硬件和软件设计完成之后，转移预测的方向就已经确定，或者预测为转移不成功，或者预测为转移成功。在程序实际执行过程中，转移预测的方向不能改变。<br>
+            　　静态分支预测可以只用软件实现，也可用硬件来实现，还可以在转移的两个方向上都预取指令。经常采用的静态分支预测技术有如下几种：<br>
+            　　<b>1、软件&quot;猜测法&quot;</b><br>
+            　　从上面的分析中已经看到，当转移不成功时，条件转移指令对流水线的影响比较小。因此，编译器在对源程序进行编译时，为了达到比较好的效果，要尽量降低转移成功出现的概率。<br>
+            　　如图5.33(a)所示的一个源程序，如果在一般编译器中进行编译，编译结果生成的目标程序，其转移成功的概率很高，不成功的只有一次，这种编译结果对流水线的影响非常大。如果在编译器中进行适当的处理，编译成如图5.33(b)所示的结果，转移成功与不成功的概率正好反过来。这种编译结果很适合在流水线中执行。例如，对于一个需要循环执行1000次的程序，其中，999次均转移不成功，只有一次转移成功，因此，条件分支指令对流水线影响很小。如果处理机支持复合型条件转移指令，编译器也可以把源程序编译成如图5.33(c)所示的结果。</p>
+          <p align="center" class="pt9-black"><img src="images/tu5_33.jpg" width="375" height="204"></p>
+          <p align="left"><span class="pt9-black">　　软件&quot;猜测法&quot;的优点是不需要改变硬件结构，只要适当修改编译器就能够大幅度降低条件转移指令的影响。<br>
+            <br>
+            <b>　　2、硬件&quot;猜测法&quot;</b><br>
+            　　如果修改编译器有困难，也可以通过改变硬件来降低转移指令对流水线造成的影响，这就是硬件&quot;猜测法&quot;。<br>
+            　　在指令缓冲栈的人口处增设一个简单的指令分析器，当这个指令分析器检测到转移指令（包括无条件转移指令和条件转移指令）时，就按照猜测的方向预取指令，同时保留当前PC中的内容，以备猜错时恢复原来的程序执行方向。<br>
+            　　当指令执行部件执行完形成条件码的指令之后，判断转移是否成功。如果转移成功，则猜测正确。这种情况下，条件转移或无条件转移指令几乎对流水线不造成影响。如果转移不成功，则猜测错误，这时，要用保存下来的地址恢复程序计数器PC，清除指令缓冲栈，并重新开始取指令。</span><br>
+            <br>
+          </p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

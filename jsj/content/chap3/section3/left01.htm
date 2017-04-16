@@ -1,0 +1,133 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第三章 存储系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><b><span class="section">3.3 高速缓冲存储器（Cache）</span></b><span class="pt9-black"><b><br>
+            <br>
+            </b>　　目前，高性能处理机的工作主频已经达到1GHz，而且普遍采用超标量和超流水线等技术，在一个周期内能并行执行多条指令。然而，这些指令和指令执行过程中所需要的数据都来自主存储器。一般主存储器采用动态存储器（DRAM）实现，其工作速度比处理机慢100倍以上。<br>
+            　　高性能处理机通常有两级Cache，其中，第一级在CPU内部，它的容量比较小，速度很快，第二级在主板上，容量比较大，速度比第一级要低5倍左右。也有部分高性能处理机采用三级Cache，前两级都在CPU内部。本节主要介绍由Cache与主存储器构成的Cache存储系统（以下简称Cache）。<br>
+            　　Cache与上面介绍的虚拟存储器有许多相似的地方。如地址变换方法，替换算法等，但也有许多不同的地方，具体可看表3.2。</span></p>
+          <p align="center"><b><span class="pt9-black">表3.2 Cache与虚拟存储器的主要区别<br>
+            </span></b></p>
+          <table width="85%" border="1" cellpadding="1" cellspacing="1" bgcolor="#FFFFCC">
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center">存储系统</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">Cache</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">虚拟存储器</div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center">要达到的目标</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">提高（主存）速度</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">扩大（主存）容量</div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center">实现方法</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">全部硬件</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">软件为主，硬件为辅</div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center">两级存储器速度比</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">3～10倍</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center"><img src="images/gsh3_1.gif" width="19" height="14" align="absmiddle">倍</div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center">页（块）大小</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">1～16字</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">1KB～16KB</div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center">等效存储容量</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">主存储器</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">虚拟存储器</div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center">透明性</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">对系统和应用程序员</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">仅对应用程序员</div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center">不命中时处理方式</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">等待主存储器</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">任务切换</div>
+              </td>
+            </tr>
+          </table>
+          <p align="left" class="pt9-black">　　因为Cache是全部用硬件来调度，因此，它不仅对应用程序员是透明的，而且对系统程序员也是透明的。在一般情况下，无论是应用程序员还是系统程序员都看不到系统中有Cache存在，更不知道是采用了几级Cache。<br>
+            　　Cache与主存储器之间以块为单位进行数据交换。块的大小通常以在主存储器的一个存储周期中能访问到的数据长度为限。如果主存储器采用并行或低位交叉存取方式，在一个主存周期内可以访问到多个字。例如，IBM370/168计算机的主存储器采用4个存储体低位交叉存取方式，每个存储字的字长是8个字节，因此，每块的大小为32个字节。这样，当Cache不命中时，只要等待一个主存周期，CPU就能得到所需要的数据。</p>
+          <p align="left" class="pt9-black">&nbsp;</p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

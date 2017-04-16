@@ -1,0 +1,47 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第八章 并行处理机和多处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black">4 链式目录<br>
+            <br>
+            　　链式目录的优点在于即不限制共享数据块的拷贝数目，又保持了可扩展性。其主要方法是通过维护一个目录指针链来跟踪共享数据拷贝。<br>
+            　　链式目录有两种实现方法。其中比较简单的一种是单链法，图8.21是单链法的工作原理。</p>
+          <p align="center" class="pt9-black"><img src="images/tu8_21.jpg" width="409" height="179"></p>
+          <p align="left" class="pt9-black">　　假设<img src="images/gsh2_16.gif" width="14" height="13" align="absmiddle">没有单元X的共享拷贝，如果处理机<img src="images/gsh2_14.gif" width="15" height="14" align="absmiddle">要读单元X，则存储器送一份拷贝给<img src="images/gsh2_16.gif" width="14" height="13" align="absmiddle">，同时送给<img src="images/gsh2_16.gif" width="14" height="13" align="absmiddle">一个链结束指针（CT），存储器也保存一个指向<img src="images/gsh2_16.gif" width="14" height="13" align="absmiddle">的指针。之后，当处理机P2读单元X时，存储器送一份拷贝给<img src="images/gsh2_17.gif" width="14" height="14" align="absmiddle">，同时送给<img src="images/gsh2_17.gif" width="14" height="14" align="absmiddle">一个指向<img src="images/gsh2_16.gif" width="14" height="13" align="absmiddle">的指针。存储器则保存一个指向<img src="images/gsh2_17.gif" width="14" height="14" align="absmiddle">的指针。当某一个处理机需要写X时，它必须沿这个目录链发送一个数据无效信息。在有链结束指针的处理机没有回答无效信号之前，存储器模块不给该处理机写允许权。<br>
+            　　与另外两种协议不同，链式目录协议存在一个新的问题。当Cache的数据块需要替换时，需要把该Cache从目录链中&quot;卸&quot;下来。这里就涉及链中某一项的删除问题。有两种解决这个问题的办法：<br>
+            　　1、沿着链发送一个消息，使得Ci+1的指针指向Ci-1，把Ci从链中去掉。这时Ci中存放别的数据块了。<br>
+            　　2、使Ci及在链中位于其后的所有Cache中的单元X无效。<br>
+            　　解决替换问题的另一种方法是使用双向链。即每个Cache目录项都有向前链和向后链两个指针。这样在执行替换时就不再需要遍历整个链。虽然双向链优化了替换操作 
+            ，但是其指针增加了一倍，占用了更多的资源，一致性协议也更复杂了。<br>
+            　　链式目录的复杂程度超过了前两种目录。但是链式目录具有前两种目录所不具有的一个重要特性：可扩展性。其指针的大小以处理机数目的对数关系增长，Cache的每个数据块的指针数目与处理机数目无关。<br>
+            <br>
+          </p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

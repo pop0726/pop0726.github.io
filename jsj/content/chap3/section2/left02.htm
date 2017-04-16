@@ -1,0 +1,43 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第三章 存储系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><span class="pt9-black"><b><br>
+            </b>　　一个用户程序要访问虚拟存储器时，必须给出多用户虚拟地址Av。在操作系统和有关硬件的共同管理下，首先进行内部地址变换。如果变换成功（命中），得到主存实页号p。而多用户虚拟地址中的页内偏移D可以直接作为主存实地址中的页内偏移d，这样，只要把主存实页号p与它的页内偏移d直接拼接起来就得到主存实地址A。于是，就可以用这个主存实地址A去访问主存储器，得到所需要的数据。页式虚拟存储器的工作过程如图3.12所示。</span></p>
+          <p align="center"><span class="pt9-black"><img src="images/tu3_12.gif" width="468" height="396"><br>
+            <br>
+            <b>图3.12 页式虚拟存储器工作原理 </b></span></p>
+          <p align="left"><span class="pt9-black">　　如果内部地址变换失败（未命中），表示要访问的数据不在主存储器中，必须访问磁盘存储器，这时，要进行外部地址变换。外部地址变换主要用软件实现，首先查外页表得到与虚页号P相对应的磁盘存储器的实地址，然后再查主存实页表，看主存储器中是否有空页。如果主存储器中还有空页，只要找到空页号，,把磁盘存储器的实地址和主存储器的实页号送入输入输出处理机（输入输出通道）等，在输入输出处理机的控制下，把要访问数据所在的一整页都从磁盘存储器调入到主存储器。<br>
+            　　如果主存储器中已经没有空页，则要采用某种页面替换算法，先把主存中暂时不用的一页写回到磁盘存储器中原来的位置上，以便腾出空位置来存放新的页。当然，如果要替换出去的那一页从它调入主存储器之后从来没有被修该过，就不需要把它送回磁盘存储器，直接用调入的新页把它覆盖掉即可。<br>
+            　　在进行外部地址变换时，如果没有命中，则表示所需要的页还不在磁盘存储器中。这时，要在操作系统控制下，启动磁带机、光盘存储器等海量存储器，先把与所需要数据相关的文件从海量存储器中调入磁盘存储器。<br>
+            </span></p>
+          <p align="left">&nbsp;</p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

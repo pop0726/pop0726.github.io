@@ -1,0 +1,41 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第八章 并行处理机和多处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black">2. S2MP体系结构<br>
+            <br>
+            　　S2MP代表了新一代提供共享编程模型的并行多处理器系统，它解决了当前小规模共享存储多处理器系统在可扩展性上的瓶颈问题。<br>
+            　　共享存储的多处理器系统，更加接近于传统的编程模式，有效地解决了在并行处理系统上开发并行应用程序困难的问题。SMP是这类系统的典型实现方式，但由于系统采用的互连方式限制了通信带宽和处理器数目的增加，因此系统不可扩展或扩展能力很低。S2MP系统则从性能和扩展能力两方面解决通常基于共享存储的多处理器系统共同存在的问题，引进了复杂的存储子系统，通过硬件cache对系统的共享和私有数据都进行缓存，以达到高性能。而它的扩展能力则通过两个技术手段得到保证，首先是采用了一个高速互连网络，而不是总线，提供随系统规模变化而增加的理想带宽；其次，在这些系统中采用的cache一致性协议不再依赖于snoopy这种广播维护一致性消息的协议，基于目录的cache一致性协议通过维护指向每个存储块的cache缓存的指针实现一致性，这样维护一致性的操作都是对拥有某些存储块的cache缓存的处理器进行的，不会占用系统太多的带宽。图8.26是S2MP系统的体系结构和cache示意。<br>
+            　　S2MP系统实际上是一种NUMA结构，每个结点由处理器和存储器两部分组成，存储器靠近处理器，而不是集中在某个地方，处理器可以访问本地存储器获取数据，NUMA结构可以降低平均访存时延，并且随处理器数目的增加自动增加存储器带宽，也就是说存储带宽是可扩展的。由于在某个结点上访问本地存储器可以和其他结点板上的访存并行进行，系统的总带宽可以随着系统的规模而扩充。<br>
+            　　对存储器进行cache是获得高性能的一个重要因素，在最近的10年内，微处理器的周期从100-200ns降低到了少于4ns，大约降低了25倍。与此同时，DRAM访问时间只是从150-180ns改善至60-80ns，大约为3倍。这个差距只能通过包含不同层次的cache的多层次存储器模型来弥补，获得比较合理的平均访存时间。cache在多处理器系统中对访存的速度改善更加明显，但也更加复杂，因为它们引进了一致性问题。为了实现可扩展性，目前主要的S2MP系统都在每个处理器结点上增加一个目录存储器，通过目录存储器保证cache一致性。目录存储器的每个记录对应主存的一个存储块。状态位对应存储块的缓存状态，可以是uncached/shared/dirty等。每个&quot;存在&quot;位对应一个结点的cache，标志该cache是否有本记录对应存储块的缓存。目录的适用不再需要广播访存消息，为维护一致性付出的开销只出现在那些拥有数据缓存处理器结点上。S2MP系统同时运行页迁移算法，把某个处理器经常使用的数据移动到该结点的本地存储器上，缩短了发出请求的处理器和被请求的数据的距离。这样做的好处是系统的总时延降低了，而存储带宽增加了。</p>
+          <p align="center"><span class="pt9-black"><img src="images/tu8_26.jpg" width="324" height="302"></span><br>
+          </p>
+          </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

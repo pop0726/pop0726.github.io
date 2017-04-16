@@ -1,0 +1,76 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第二章 指令系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black"><br>
+            <b> 2、运算类指令</b></p>
+          <p align="left" class="pt9-black">　　目前，在许多应用领域中，计算机的主要任务还是做运算（包括数据计算和符号处理），因此，运算型指令在整个指令系统中应该占有比较大的比重，如指令种类不少于30％。如果所占比重过小，就会影响整个计算机系统的性能。<br>
+            　　设计运算类指令，主要考虑如下四个因数的组合：<br>
+            　　(1)操作种类。包括加、减、乘、除等常用操作，另外还有比较、移位、检索、转换、匹配、清除、设置等操作，<br>
+            　　(2)数据表示。有定点数、浮点数、逻辑数、十进制数、字符串、向量等。<br>
+            　　(3)数据长度。字、双字、半字、字节、位等。<br>
+            　　(4)数据存储设备。主要有通用寄存器、主存储器和堆栈等三种。<br>
+            <br>
+            　　例如，仅加法指令，且源操作数和运算结果都在通用寄存器中，一般应设置如下几种不同的指令：<br>
+            　　寄存器-寄存器型的定点单字长加法指令，<br>
+            　　寄存器-寄存器型的定点双字长加法指令，<br>
+            　　寄存器-寄存器型的定点半字加法指令，<br>
+            　　寄存器-寄存器型的字节加法指令，<br>
+            　　寄存器-寄存器型的浮点单字长加法指令，<br>
+            　　寄存器-寄存器型的浮点双字长加法指令，<br>
+            　　寄存器-寄存器型的单字长逻辑加法指令，<br>
+            　　寄存器-寄存器型的定点向量加法指令。<br>
+            　　寄存器-寄存器型的浮点向量加法指令。<br>
+            　　对于两地址指令，如果再要考虑数据的存储设备，除了RR型指令之外，还有RS型、SS型、堆栈型等组合，仅加法指令就有几十种之多。 <br>
+            　　因此，在对上述这些因素进行组合时，必须考虑指令的执行时间、使用频度、硬件实现的复杂程度等多方面的情况。分析出哪些指令是必须要设置的，哪些是可有可无的（也可用软件的一段子程序来实现），哪些是不合理是不应该设置的。并经过模拟实验和统计分析，最后确定出合理的运算类指令。<br>
+            <br>
+            　　另外，有两类比较特殊的操作，移位指令和位/串操作指令的设置与一般的运算类指令有所不同。<br>
+            　　对于移位指令，要组合以下三个因素：<br>
+            　　(1)移位方向，有左移(L)和右移(R)两种；<br>
+            　　(2)移位种类，有算术移位(A)、逻辑移位(L)和循环移位(R)三种；<br>
+            　　(3)移位长度，有单字长(S)和双字长(D)两种。<br>
+            　　把以上三个因素进行组合：3×2×2＝12种。因为逻辑左移和算术左移的操作结果完全相同的，从而可以减少两种，所以，移位指令应该有10种，它们分别是：<br>
+            　　SLAS 单字长算术左移<br>
+            　　SRAS 单字长算术右移<br>
+            　　SLLS(SRLS) 单字长逻辑左移，或单字长算术左移<br>
+            　　SLRS 单字长循环左移<br>
+            　　SRRS 单字长循环右移<br>
+            　　SLAD 双字长算术左移<br>
+            　　SRAD 双字长算术右移<br>
+            　　SLLD(SRLD) 双字长逻辑左移，或双字长算术左移<br>
+            　　SLRD 双字长循环左移<br>
+            　　SRRD 双字长循环右移<br>
+            　　移位指令一般应该有两个源操作数，其中，第二源操作数给出移位的位数。<br>
+            　　位操作操作通常有：置位（把一个字或一个字符串中某一位置&quot;1&quot;）、清位、位测试、找位（把一个字或一个字符串中第一个&quot;1&quot;的序号找出来）。<br>
+            　　字符串操作主要有：比较、查找、匹配、转换（如ASCII码与BCD码的转换，ASCII码与EBCDIC码的转换等）。<br>
+          </p>
+          <p align="left"><span class="pt9-black">　</span></p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

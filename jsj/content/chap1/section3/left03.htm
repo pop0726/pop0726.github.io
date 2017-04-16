@@ -1,0 +1,194 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第一章 计算机系统结构的基本概念</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><span class="pt9-black"><br>
+            <b>（2）加权执行时间</b></span></p>
+          <p align="left"><span class="pt9-black">　　怎样的程序混合比例是最合适呢？程序1和2在一个任务中的比重相等吗？如果不是，那么会有两种方法来评价性能。第一种方法是给每 
+            个程序一个比例权因子Wi 。比如某个任务中程序1 占20%而程序2占80%。那么它们的权分别为0.2和0.8。将权因子和执行时间的积相加，这叫做加权算术平均值：　　　<br>
+            　　　　　<img src="images/gsh3_8.gif" width="105" height="45"><br>
+            　　其中的<font color="#000000"><img src="images/gsh3_9.gif" width="21" height="20" align="absbottom">为</font>第i个程序在任务中占的比重，而<img src="images/gsh3_5.gif" width="14" height="20" align="absbottom">是该程序的执行时间。表1.2列出表1.1中数据的加权值。</span></p>
+          <p align="center"><span class="pt9-black">表1.2 加权执行时间　　　　　　　　　　　　　　　　</span></p>
+          <table width="90%" align="center" bgcolor="#66CC99" border="1" cellpadding="1" cellspacing="0">
+            <tr> 
+              <td width="24%" class="pt9-black"> 
+                <div align="center"><font color="#66CC99">.</font></div>
+              </td>
+              <td width="12%" class="pt9-black"> 
+                <div align="center">A</div>
+              </td>
+              <td width="11%" class="pt9-black"> 
+                <div align="center">B</div>
+              </td>
+              <td width="13%" class="pt9-black"> 
+                <div align="center">C</div>
+              </td>
+              <td width="13%" class="pt9-black"> 
+                <div align="center">W(1)</div>
+              </td>
+              <td width="14%" class="pt9-black"> 
+                <div align="center">W(2)</div>
+              </td>
+              <td width="13%" class="pt9-black"> 
+                <div align="center">W(3)</div>
+              </td>
+            </tr>
+            <tr> 
+              <td width="24%" class="pt9-black"> 
+                <div align="center">程序1</div>
+              </td>
+              <td width="12%" class="pt9-black"> 
+                <div align="center">1.00</div>
+              </td>
+              <td width="11%" class="pt9-black"> 
+                <div align="center">10.00</div>
+              </td>
+              <td width="13%" class="pt9-black"> 
+                <div align="center">20.00</div>
+              </td>
+              <td width="13%" class="pt9-black"> 
+                <div align="center">0.50</div>
+              </td>
+              <td width="14%" class="pt9-black"> 
+                <div align="center">0.909</div>
+              </td>
+              <td width="13%" class="pt9-black"> 
+                <div align="center">0.999</div>
+              </td>
+            </tr>
+            <tr> 
+              <td width="24%" class="pt9-black"> 
+                <div align="center">程序２</div>
+              </td>
+              <td width="12%" class="pt9-black"> 
+                <div align="center">1000.00</div>
+              </td>
+              <td width="11%" class="pt9-black"> 
+                <div align="center">10.00</div>
+              </td>
+              <td width="13%" class="pt9-black"> 
+                <div align="center">20.00</div>
+              </td>
+              <td width="13%" class="pt9-black"> 
+                <div align="center">0.50</div>
+              </td>
+              <td width="14%" class="pt9-black"> 
+                <div align="center">0.091</div>
+              </td>
+              <td width="13%" class="pt9-black"> 
+                <div align="center">0.001</div>
+              </td>
+            </tr>
+            <tr> 
+              <td width="24%" class="pt9-black"> 
+                <div align="center">加权算术平均W（1）</div>
+              </td>
+              <td width="12%" class="pt9-black"> 
+                <div align="center">500.50</div>
+              </td>
+              <td width="11%" class="pt9-black"> 
+                <div align="center">55.00</div>
+              </td>
+              <td width="13%" class="pt9-black"> 
+                <div align="center">20.00</div>
+              </td>
+              <td width="13%" class="pt9-black"> 
+                <div align="center"><font color="#66CC99">.</font></div>
+              </td>
+              <td width="14%" class="pt9-black"> 
+                <div align="center"><font color="#66CC99">. </font></div>
+              </td>
+              <td width="13%" class="pt9-black"> 
+                <div align="center"><font color="#66CC99">. </font></div>
+              </td>
+            </tr>
+            <tr> 
+              <td width="24%" class="pt9-black"> 
+                <div align="center">加权算术平均W（２）</div>
+              </td>
+              <td width="12%" class="pt9-black"> 
+                <div align="center">91.82</div>
+              </td>
+              <td width="11%" class="pt9-black"> 
+                <div align="center">18.18</div>
+              </td>
+              <td width="13%" class="pt9-black"> 
+                <div align="center">20.00</div>
+              </td>
+              <td width="13%" class="pt9-black"> 
+                <div align="center"><font color="#66CC99">.</font></div>
+              </td>
+              <td width="14%" class="pt9-black"> 
+                <div align="center"><font color="#66CC99">. </font></div>
+              </td>
+              <td width="13%" class="pt9-black"> 
+                <div align="center"><font color="#66CC99">.</font></div>
+              </td>
+            </tr>
+            <tr> 
+              <td width="24%" height="20" class="pt9-black"> 
+                <div align="center">加权算术平均W（３）</div>
+              </td>
+              <td width="12%" height="20" class="pt9-black"> 
+                <div align="center">2.00</div>
+              </td>
+              <td width="11%" height="20" class="pt9-black"> 
+                <div align="center">10.09</div>
+              </td>
+              <td width="13%" height="20" class="pt9-black"> 
+                <div align="center">20.00</div>
+              </td>
+              <td width="13%" height="20" class="pt9-black"> 
+                <div align="center"><font color="#66CC99">.</font></div>
+              </td>
+              <td width="14%" height="20" class="pt9-black"> 
+                <div align="center"><font color="#66CC99">.</font></div>
+              </td>
+              <td width="13%" height="20" class="pt9-black"> 
+                <div align="center"><font color="#66CC99">.</font></div>
+              </td>
+            </tr>
+          </table>
+          <div align="left"> 
+            <p><br>
+              <span class="pt9-black">　　加权调和平均的定义为<font color="#FF0000"><img src="images/gsh3_10.gif" width="69" height="53" align="absmiddle"> 
+              <font color="#000000">。</font></font>它所体现的性能和加权算术平均相同。<br>
+              　　第二种方法是将一个任务的执行时间标准化为一个参考机器的执行时间。<br>
+              　　参考机器的执行时间称为平均标准化时间，可以用算术平均和几何平均来表示，几何平均公式为：<br>
+              　　　　<img src="images/gsh3_11.gif" width="109" height="51"> <br>
+              </span><span class="pt9-black">　　ETR(Execution Time Ratio)i是程序标准化为参考机器后的时间，几何平均具有如下性质：<img src="images/gsh3_12.gif" width="108" height="44" align="absmiddle">与算术平均相比，由于上述性质，几何平均在反映性能上可以与机器无关，所以算术平均不可用来求平均标准时间。<br>
+              <br>
+              　　因为加权算术平均中的权是在一台给定机器上按比例给定的，所以它不仅要受在任务中使用频度的影响，而且还要受具体机器及输入量的制约，而标准化执行时间的几何平均和程序的执行时间无关的，而且与使用的机器也无关。<br>
+              　　理想的解决方法是根据一个真实任务中程序的执行频度来确定它们的权。假如这点做不到，就进行标准化。另一个问题是输入的非确定性，这个问题的最佳解决方法就是在比较性能时将输入确定化，如果结果也必须向一个特殊机器标准化，那么先根据正确的权值去估价性能然后再标准化。<br>
+              </span> </p>
+            </div>
+          <p align="left"><span class="pt9-black"> </span></p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

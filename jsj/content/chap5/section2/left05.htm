@@ -1,0 +1,46 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第五章 标量处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black"><b>3、复合条件转移</b><br>
+            <br>
+            　　复合型条件转移指令本身就是一条运算型指令，它直接根据本条指令的运算结果决定是否转移。复合型条件转移指令的执行时间关系下：<br>
+            　　　k： OP L ；先执行OP操作，根据执行结果产生的条件码决定是否转向L<br>
+            　　　k+1： ……<br>
+            　　　…： ……<br>
+            　　　L： ……<br>
+            　　复合型条件转移指令不能在指令分析器中执行完成，它必须象其它运算型指令一样在指令执行部件执行，其执行时序如图5.31所示。</p>
+          <p align="center" class="pt9-black"><img src="images/tu5_31.jpg" width="444" height="151"></p>
+          <p align="left"><span class="pt9-black">　　如果转移不成功，只要采取适当的措施，复合型条件转移指令不会对流水线造成任何损失，指令分析器和指令执行部件仍然能够连续工作，这时，复合型条件转移指令就象一条普通的运算型指令一样。<br>
+            　　如果转移成功，复合型条件转移指令对流水线造成的影响比一般条件转移指令还要大。具体影响的程度将在下一节中具体分析。<br>
+            </span><br>
+          </p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

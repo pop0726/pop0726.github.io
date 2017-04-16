@@ -1,0 +1,41 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+          <td class="explaination"><br>
+            　　例如，对信息比特A<font size="1">7</font>，将7转换为111，按权展开得7＝2<sup><font size="1">2</font></sup>十2<sup><font size="1">1</font></sup>十2<sup><font size="1">0</font></sup>。因此A<font size="1">7</font>应由P<font size="1">4</font>，P<font size="1">2</font>，P<font size="1">1</font>进行校验。即A<font size="1">7</font>应在P<font size="1">4</font>，P<font size="1">2</font>，P<font size="1">1</font>的校验方程式中。<br>
+            　　为说明如何编码，设信息比特数为4，则按海明不等式计算得校验比特数为3；又假定进行偶校验，那么根据上述规则便可得以下的校验方程式：<br>
+            　　　　P<font size="1">1</font>�A<font size="1">3</font>�A<font size="1">5</font>�A<font size="1">7</font>＝0<br>
+            　　　　P<font size="1">2</font>�A<font size="1">3</font>�A<font size="1">6</font>�A<font size="1">7</font>＝0<br>
+            　　　　P<font size="1">4</font>�A<font size="1">5</font>�A<font size="1">6</font>�A<font size="1">7</font>＝0<br>
+            <br>
+            　　根据校验方程式可得校验比特的逻辑表达式：<br>
+            　　　　P<font size="1">1</font>＝A<font size="1">3</font>�A<font size="1">5</font>�A<font size="1">7</font><br>
+            　　　　P<font size="1">2</font>＝A<font size="1">3</font>�A<font size="1">6</font>�A<font size="1">7</font><br>
+            　　　　P<font size="1">4</font>＝A<font size="1">5</font>�A<font size="1">6</font>�A<font size="1">7</font><br>
+            <br>
+            　　例如，若信息比特为1010，可算出检验比特为<br>
+            　　　　P<font size="1">1</font>＝A<font size="1">3</font>�A<font size="1">5</font>�A<font size="1">7</font>＝l�0�0＝l<br>
+            　　　　P<font size="1">2</font>＝A<font size="1">3</font>�A<font size="1">6</font>�A<font size="1">7</font>＝1�1�0＝0<br>
+            　　　　P<font size="1">4</font>＝A<font size="1">5</font>�A<font size="1">6</font>�A<font size="1">7</font>＝0�1�0＝l<br>
+            <br>
+            　　于是海明码为P<font size="1">1</font>P<font size="1">2</font>A<font size="1">3</font>P<font size="1">4</font>A<font size="1">5</font>A<font size="1">6</font>A<font size="1">7</font>＝1011010。<br>
+            <br>
+            　　上述海明码的编码效率为4/7。若k＝7，可算得r至少为4，此时编码效率为7/11。信息比特长度越长编码效率越高。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+          <td class="explaination"><br>
+            　　例如，当一台主机创建了一个IP数据报时，主机会产生一个覆盖整个头部的校验和。无论何时收到一个数据报，校验和都被用于验证头部是否无损地到达。为了验证校验和，计算机对接收到的数据报的整个头部（包括校验和头部各域）重新计算校验和。如果IP头部中的某一位在传输过程中被破坏，则计算出的校验和不为零。当改变头部中的域时（例如将生存时间TTL域递减），路由器必须在转发该数据报前，重新计算校验和。如果头部中的惟一变化是生存时间域递减1的话，路由器可以给校验和递增1，而不必重新计算整个校验和，这样能获得更高性能。<br>
+            <br>
+            　　发现校验和错时的处理非常简单：数据报必须立即丢弃，而不作进一步的处理。接收者无法相信数据包头部中的任何域，因为接收者不知道哪一位被改变了。甚至也不能发一个出错消息给发送者，因为包头中的源地址同样也是不可信的。同样，接收者也不能转发被损坏的数据包，因为它也不能相信包头中的目的地址。因此，接收者除了将被损坏的数据包丢弃外别无选择。 
+            <br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

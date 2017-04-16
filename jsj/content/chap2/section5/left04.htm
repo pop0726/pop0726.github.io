@@ -1,0 +1,69 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第二章 指令系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><span class="pt9-black"><b class="part">2.5.2 RISC的定义与特点</b><br>
+            <br>
+            　　RISC是一种计算机体系结构的设计思想，它不是一种产品。RISC是近代计算机体系结构发展史中的一个里程碑。然而，直到现在，RISC还没有一个确切的定义。这里推荐一个由卡内基梅隆（Carnegie 
+            Mellon）大学的教师在一篇论文中提出的关于RISC的定义。尽管这个定义并不完整，但还是明确地勾划出了RISC思想的一些主要特点。<br>
+            <br>
+            <b>　　卡内基梅隆大学是这样论述RISC特点的：</b><br>
+            　　1、大多数指令在单周期内完成。指令系统中的大多数指令只执行一个简单的和基本的功能，这些指令可以比较快地在单个周期内执行完成，并减少指令的译码和解释所需要的开销。<br>
+            　　2、采用LOAD/STORE结构。因为访问存储器指令需要的时间比较长，因此，在指令系统中要尽量减少这类指令，只保留不可再少的LOAD和STORE两种访问存储器的指令。LOAD/STORE结构的另一种理解方法是：凡是在CPU执行部件中所需要的操作数都来自于通用寄存器中，运算结果也只放到通用寄存器中。LOAD/STORE结构也助于实现大多数指令在单周期内完成。<br>
+            　　3、硬布线控制逻辑。硬布线控制逻辑可以使大多数指令在单周期内执行完成，减少了微程序技术中的指令解释开销。<br>
+            　　4、减少指令和寻址方式的种类。这一特点也可以简化控制部件的结构，加快指令的执行速度。<br>
+            　　5、固定的指令格式。该特点可以使指令的译码逻辑电路简化，从而也使控制部件的速度加快。<br>
+            　　6、注重译码的优化。<br>
+            　　这个定义有一定的局限性，不太完整，而且，随着计算机技术的不断发展，RISC思想也在发展中。例如，一些新出现的RISC处理机的控制部件，除了采用硬布线逻辑之外，也采用了微程序技术。有些RISC处理机的指令种类并不太少，或者说，并不比CISC处理机的指令种类少。<br>
+            <br>
+            　<b>　从目前的发展来看，RISC体系结构还应具有如下特点：</b><br>
+            　　1、面向寄存器结构。<br>
+            　　2、十分重视提高流水线的执行效率。要提高RISC处理机的速度，必须采用流水线，而且，要尽量减少断流，提高流水线的效率。 <br>
+            　　3、重视优化编译技术。优化编译技术在提高系统性能中发挥很重要的作用，改变了过去认为提高计算机速度仅仅依靠硬件的传统观点。<br>
+            　　因此，高效率的流水线和优化编译技术是现代RISC系统必须十分注重的两点。这比卡内基梅隆大学的定义更加全面了。<br>
+            　　90年代初，IEEE 的Michael Slater对于RISC的定义做了如下描述：<br>
+            　　RISC处理器所设计的指令系统应使流水线处理能高效率执行，并使优化编译器能生成优化代码。<br>
+            <br>
+            　　<b>1、RISC为使流水线高效率执行，应具有下述特征：</b><br>
+            　　(1) 简单而统一格式的指令译码。<br>
+            　　(2) 大部分指令可以单周期执行完成。<br>
+            　　(3) 只有LOAD和STORE指令可以访问存储器。<br>
+            　　(4) 简单的寻址方式。<br>
+            　　(5) 采用延迟转移技术<br>
+            　　(6) 采用LOAD延迟技术<br>
+            <b><br>
+            　　2、RISC为使优化编译器便于生成优化代码，应具有下述特征：</b><br>
+            　　(1) 三地址指令格式。<br>
+            　　(2) 较多的寄存器。<br>
+            　　(3) 对称的指令格式。<br>
+            </span></p>
+          <p align="left"><span class="pt9-black">　</span></p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

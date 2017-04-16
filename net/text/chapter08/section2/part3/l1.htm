@@ -1,0 +1,27 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+          <td class="explaination"><br>
+            <span class="point">・ALOHA</span><br>
+            <br>
+            　　美国夏威夷大学的纯ALOHA是最早采用争用方式的计算机网络，它最初工作于无线信道。其工作原理很简单：每个站都可发送数据，若发送帧的时间长度内无其他站发送，则发送成功，否则，可能因为每个站同时占用信道产生冲突而使数据帧受损。冲突的结果使冲突双方都检测到数据出错，因而都必须重发。但发生冲突的站不能马上重发，因为这样会继续冲突，而是让各站等待（延缓）一段随机时间再重发。若有冲突，再延缓一段随机时间，直到重发成功为止。由于纯ALOHA的随意性，各站冲突机会很大，导致效率低下，其吞吐量不足18%。<br>
+            <br>
+            　　一种改进的方案称为时隙ALOHA（也称分槽ALOHA）。在这种网络中，信道被划分为等长时间片（时隙）。每个站所发送的数据帧到达目的地的最大时延就等于时间片长度。所有站在时间上同步起来，同时规定，不论帧何时产生，它只能在每个时隙的开始点才可以发送。这样改进后，如果2个站发送的信息产生在不同的时隙，不会冲突。若冲突，它们必是同一时刻开始整帧碰撞，避免了2个帧部分碰撞。这样减少了冲突机会，其信道吞吐量提高到37%。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

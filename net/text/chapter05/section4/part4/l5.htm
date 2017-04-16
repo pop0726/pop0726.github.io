@@ -1,0 +1,25 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td class="explaination" colspan="2"><br>
+            　　使用更一般的术语，这一结果可以重新叙述为：从第N层崩溃中恢复只能由第N+1层来完成，并且只有在第N+1层保留有足够的状态信息的情况下才能完成。正如上面提到的，如果连接的两端均保持了当前的状态信息，传输层可以从网络层的错误中进行恢复。<br>
+            <br>
+            　　这一问题使我们不得不弄清楚所谓的端到端确认的真正含义。原则上，传输协议是端到端的，而不像较低层次那样是链接的。现在考虑用户为了同远端数据库进行事务处理而输入请求信息的情况。假设远程传输实体的编程是先将TPDU传送到其上一层，然后进行确认。即使在该种情况下，在用户的机器上收到一个返回的确认信息并非意味着远端主机运行了足够的时间，并真正对数据库进行了修改。一个真正的端到端的确认意味着工作已经实际完成，未确认则表示尚未完成，但这种真正的端到端的确认可能无法实现。有关这方面的情况，（Salter等，1984）已经进行了更为详细的讨论。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

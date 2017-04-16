@@ -1,0 +1,43 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第五章 标量处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black"><b>3、两个指令缓冲栈</b><br>
+            <br>
+            　　上面介绍的两种&quot;猜测法&quot;都是针对循环程序的。由于控制循环的条件转移指令，其进入循环的概率要比出循环的概率大得多；因此，采用软件或硬件&quot;猜测法&quot;可以使转移指令对流水线的影响减少到很小。然而，在实际的程序中，还有大量的普通条件转移指令；例如，由高级语言中的&quot;IF&quot;语句编译产生的条件转移指令。这种条件转移指令转移成功与不成功的概率一般各为50％。对于这类条件转移指令，无论采用何种猜测法，其效果都是一样的。<br>
+            　　一种比较有效的方法是再增加一个指令目标缓冲栈。当指令分析器分析到条件转移指令时，按照转移成功的方向预取指令到这个指令目标缓冲栈中。原先的指令缓冲栈仍然按照转移不成功的方向继续预取指令。当指令执行部件产生转移条件码时，如果转移不成功，则继续分析原先指令缓冲栈中指令，如果转移成功，则分析新增设的指令目标缓冲栈中的指令。 
+            <br>
+            　　图5.34就是采用两个指令缓冲栈时的条件转移指令执行流程，AIB是新增加的指令目标缓冲栈，IB是原先的指令缓冲栈。<img src="images/gsh2_11.gif" width="24" height="16" align="absmiddle">和<img src="images/gsh2_12.gif" width="26" height="16" align="absmiddle">是两个暂存寄存器，用来保存现行程序计数器PC和先行程序计数器<img src="images/gsh2_13.gif" width="25" height="16" align="absmiddle">中的内容，当转移不成功时，可以用保存在<img src="images/gsh2_11.gif" width="24" height="16" align="absmiddle">和<img src="images/gsh2_12.gif" width="26" height="16" align="absmiddle">中的内容恢复这两个程序计数器。</p>
+          <p align="center" class="pt9-black"><img src="images/tu5_34.jpg" width="441" height="312"></p>
+          <p align="left"><span class="pt9-black">　　IBM 370/165机就采用了两个指令缓冲栈。其中，指令目标缓冲栈AIB的缓冲深度为4。另外，为了简化对两个指令缓冲栈的控制，在转移成功时，交换指令目标缓冲栈AIB和原先的指令缓冲栈IB中内容，使指令分析器仍然从指令缓冲栈IB中的取指令。<br>
+            <br>
+            </span></p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

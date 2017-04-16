@@ -1,0 +1,84 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第二章 指令系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><span class="pt9-black">　　在得出这一结论之后，我们再从另一个角度来分析，在浮点数的字长和表数精度一定时，尾数基值<img src="iamges/gsh1_22.gif" width="14" height="13" align="absbottom">与表数范围之间的关系。<br>
+            　　由F1与F2的表数精度相同得到：<br>
+            　　　　<img src="iamges/gsh1_56.gif" width="140" height="35"> 
+            <br>
+            　　即：<img src="iamges/gsh1_57.gif" width="114" height="20" align="absmiddle"> 
+            　　　　　　　　（2.15）<br>
+            　　把(2.15)代入(2.10)得到：<br>
+            　　　　<img src="iamges/gsh1_58.gif" width="102" height="21" align="absmiddle"> 
+            　　　　　　　　　（2.16）<br>
+            　　再根据(2.5)分别计算F1和F2的表数范围，并把(2.16)式代入：<br>
+            　　F1的表数范围：<br>
+            　　　　<img src="iamges/gsh1_59.gif" width="163" height="28"> 
+            <br>
+            　　F2的表数范围：<br>
+            　　　　<img src="iamges/gsh1_60.gif" width="111" height="31"> 
+            <br>
+            　　先假设F2的表数范围大于F1的表数范围，则应该有F2阶码的最大值要大于F2阶码的最大值：<br>
+            　　　　<img src="iamges/gsh1_61.gif" width="128" height="17"> 
+            <br>
+            　　即： <img src="iamges/gsh1_62.gif" width="67" height="20" align="absmiddle"><br>
+            　　这个不等式在正整数定义域内没有解，也就是说：不存在比F1的表数范围更大的浮点数表示方式，只有当k＝1（表示尾数基值<img src="iamges/gsh1_22.gif" width="14" height="13" align="absbottom">＝2）或k＝2（表示尾数基值<img src="iamges/gsh1_22.gif" width="14" height="13" align="absbottom">＝4）时，F2阶码的最大值等于F2阶码的最大值。<br>
+            　　因此，可以得出另一个结论：在浮点数的字长和表数精度一定时，尾数基值<img src="iamges/gsh1_22.gif" width="14" height="13" align="absbottom">取2或4具有最大的表数范围。<br>
+            　　综合上面两个结论，可以得出一个新的重要推论：在浮点数的字长确定之后，尾数基值<img src="iamges/gsh1_22.gif" width="14" height="13" align="absbottom">取2或4具有最大的表数范围和最高的表数精度。<br>
+            　　这一结论在浮点数表示方式的研究中具有非常重要的作用，下面，举一例子来说明这一结论。<br>
+            　　IBM 370系列计算机的短浮点数表示方式如图2.3(a)所示，尾数基值<img src="iamges/gsh1_22.gif" width="14" height="13" align="absbottom">＝16，尾数字长为16进制6位，即二进制24位，阶码基值<img src="iamges/gsh1_22.gif" width="14" height="13" align="absbottom">＝2，阶码字长6位，尾数用原码、小数表示，阶码用移码、整数表示。<br>
+            　　这种浮点数表示方式的表数精度为：<br>
+            　　　<img src="iamges/gsh1_63.gif" width="158" height="34"> 
+            <br>
+            　　表数范围是：<br>
+            　　　<img src="iamges/gsh1_64.gif" width="143" height="23"> 
+            <br>
+            　　若设计另外一种浮点数表示方式，取尾数基值<img src="iamges/gsh1_22.gif" width="14" height="13" align="absbottom">＝2，并要求与尾数基值rm＝16时有同样的表数精度，则有： 
+            <br>
+            　　　　<img src="iamges/gsh1_65.gif" width="106" height="36"> 
+            <br>
+            　　解得 p＝21，因为总字长仍为32位，所以阶码字长q＝32－21－2＝9位，这种浮点数表示方式如图2.3(b)所示。它的表数范围是：<br>
+            　　　<img src="iamges/gsh1_66.gif" width="137" height="24"> 
+            <br>
+            　　从这个例子看出，在浮点数的总字长和表数精度要求一定的情况下，尾数基值<img src="iamges/gsh1_22.gif" width="14" height="13" align="absbottom">＝2比尾数基值<img src="iamges/gsh1_22.gif" width="14" height="13" align="absbottom">＝16有更大的表数范围。这个结论也可以这样来解释：取尾数基值<img src="iamges/gsh1_22.gif" width="14" height="13" align="absbottom">＝16时的表数精度与尾数基值<img src="iamges/gsh1_22.gif" width="14" height="13" align="absbottom">＝2时的表数精度相比损失了3个二进制位，而为了使尾数基值<img src="iamges/gsh1_22.gif" width="14" height="13" align="absbottom">＝2时的表数范围能够与尾数基值<img src="iamges/gsh1_22.gif" width="14" height="13" align="absbottom">＝16时相同，阶码的字长只要在原来6位的基础上再增加2位，即 
+            <img src="iamges/gsh1_67.gif" width="66" height="18" align="absmiddle">。</span></p>
+          <p align="center"><span class="pt9-black"><img src="iamges/tu2_3.gif" width="402" height="124"></span></p>
+          <p align="left"><span class="pt9-black">　　因此，为了达到与IBM 370系列机同样的表数范围和表数精度，浮点数的总字长只要31个二进制位即可。<br>
+            　　发生上述情况的根本原因是：当浮点数的尾数基值从<img src="iamges/gsh1_22.gif" width="14" height="13" align="absbottom">＝2增大时，表数精度是按尾数字长的指数关系变低，而表数范围却按阶码字长的指数的指数关系变大，因此，为了保持同样的表数精度和表数范围，损失今的尾数字长大于节省的阶码字长，从而造成浮点数的总字长增加。<br>
+            　　上面的结论告诉我们，从浮点数的表数范围和表数精度看，尾数基值<img src="iamges/gsh1_22.gif" width="14" height="13" align="absbottom">取2或4最好，但从(2.10)式中得到，当尾数基值<img src="iamges/gsh1_22.gif" width="14" height="13" align="absbottom">＝2时，表数效率最低，只有50％。为了在尾数基值<img src="iamges/gsh1_22.gif" width="14" height="13" align="absbottom">取2时提高浮点数的表数效率，目前在许多机器中采用了隐藏位表数方法。具体做法是：因为在尾数基值<img src="iamges/gsh1_22.gif" width="14" height="13" align="absbottom">＝2时，规格化浮点数尾数的最高位一定是1（如果尾数用补码表示，规格化浮点数尾数最高位一定与尾数符号位相反），所以，浮点数在存储和传送的过程中，尾数最高位可以不表示出来，只在计算时恢复这一个隐藏位，或采用某种方法对运算结果进行修正。<br>
+            　　在采用采用隐藏位表数方法之后，当取尾数基值<img src="iamges/gsh1_22.gif" width="14" height="13" align="absbottom">＝2时，浮点数的表数效率能够达到最大值100％。如果取尾数基值<img src="iamges/gsh1_22.gif" width="14" height="13" align="absbottom">＝4，就不能采用隐藏位表数方法，这时的浮点数的表数效率为75％。<br>
+            　　综上所述，浮点数的尾数基值<img src="iamges/gsh1_22.gif" width="14" height="13" align="absbottom">取2，并采用隐藏位表数方法是最佳的浮点数表示方式。这种浮点数表示方式能做到表数范围最大、表数误差最小、表数效率最高。<br>
+            　　目前，IBM公司的IBM 360系列机、IBM 370系列机、IBM 4300系列机等，浮点数的尾数基值<img src="iamges/gsh1_22.gif" width="14" height="13" align="absbottom">＝16。Burroughs公司的B6700、B7700等大型计算机，浮点数的尾数基值<img src="iamges/gsh1_22.gif" width="14" height="13" align="absbottom">＝8。DEC公司的VAX-11和Alpha等计算机，CDC公司的CDC6600、CYBER70等大型计算机及应用最广泛的Intel公司的x86系列机等的浮点数均采用尾数基值<img src="iamges/gsh1_22.gif" width="14" height="13" align="absbottom">＝2。浮点数的尾数基值不取2的原因可能是设计人员在早期对浮点数的本质研究不深，后来虽然弄明白了尾数基值取2最好，但是为了系列计算机具有兼容性，也只能如此了。 
+            <br>
+            <br>
+            </span><span class="pt9-black"><br>
+            </span></p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td colspan="2"> 
+            <p><br>
+              <span class="text">　网络层主要完成以下几方面的功能：</span><br>
+              <br>
+              <span class="point">・路由控制：</span><br>
+              <span class="text">　　利用网络拓扑结构等网络状态，选择分组传送路径。这是网络层的主要功能。在大多数子网中，分组的整个旅途需要经过多次转发。无线广播网络是唯一的例外。<br>
+              </span><br>
+              <span class="point">・拥塞控制：</span><br>
+              <span class="text">　　控制和预防网络中出现过多的分组。当到达通信子网中某一部分的分组数高于一定的阈值，使得该部分网络来不及处理这些分组时，就会使这部分以至整个网络的性能下降。这种情况称为拥塞。拥塞带来的影响可见下图。</span><br>
+              　</p>
+          </td>
+        </tr>
+        <tr> 
+          <td class="explaination" width="25" valign="top"><img src="../../../../image/tub/ts.gif" width="25" height="20"></td>
+          <td class="explaination">
+            <div align="center"><img src="../../../../image/pic/chapter04/4_12.gif" width="372" height="189"><br>
+              <span class="point"><br>
+              图 4.12</span></div>
+          </td>
+        </tr>
+        <tr> 
+          <td colspan="2"><br>
+            <span class="point">・透明传输：</span><br>
+            <span class="text">　　透明传输就是不管所传数据是什么样的比特组合，都应当能够在链路上传送。当所传数据中的比特组合恰巧出现了与某一个控制信息完全一样时，必须采取适当的措施，使收方不会将这样的数据误认为是某种控制信息。这样才能保证数据链路层的传输的透明的。<br>
+            </span><br>
+            <span class="point">・异种网络的互联：</span><br>
+            <span class="text">　　解决不同网络在寻址、分组大小、协议等方面的差异。不同类型的网络对分组大小，分组结构等的要求都不相同，因此要求在不同种类网络交界处的路由器能够对分组进行处理，使得分组能够在不同网络上传输。</span><br>
+            <span class="point"><br>
+            ・分组生成和装配：</span><br>
+            <span class="text">　　运输层报文与网络层分组间的相互转换。运输层报文通常很长，不适合直接在分组交换网络中传输。在发送端，网络层负责将运输层报文拆成一个个分组，再进行传输。在接收端，网络层负责将分组组装成报文交给运输层处理。</span><br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

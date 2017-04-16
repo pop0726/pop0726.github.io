@@ -1,0 +1,27 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+          <td class="explaination"><br>
+            　　引入IP重组计数器结果是全有/全无（all-or-nothing）：要么所有的段都到达了并且IP重组数据报，要么IP丢弃了整个数据报。另外，没有任何机制使接收方去告知发送方已收到哪些段。由于发送方本身并不知道有关分段的事情，这一设计就显得有用。更进一步地，如果发送方重发该数据报，路由可能不同，因为每次传输并不总是通过同样的路由器。因此，无法保证重发的数据报会象上次一样地被分段。<br>
+            <br>
+            　　分段之后，路由器将每一段转发给它的目的地。如果某段遇到一个MTU值更小的网络时，将在已有分段的基础上，将比MTU大的再分段。<br>
+            <br>
+            　　如果一个互联网设计得很糟糕，其中的网络按MTU从大到小依次连接，则路径上的每个路由器就必须对段再进行分段。IP对源段与子段并不加以区分，接收方也并不知道收到的是一个第一次分段后形成的段还是一个已经被多个路由器多次分段后形成的段。同等对待所有段的优点在于：接收方并不需先重组子段后才能重组原数据报。这样一来就节省了CPU时间，减少了每一段的头部中所需的信息量。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

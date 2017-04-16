@@ -1,0 +1,48 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第五章 标量处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black"><span class="part">5.1.5 流水线最佳段数的选择</span><br>
+            <br>
+            　　从上面的分析中可以清楚地看到，增加流水线的段数，流水线的吞吐率和加速比都能提高；但是，由于在每一个流水段的输出端都必须设置一个锁存器；因此，当流水线的段数增多时，锁存器的总延迟时间也将增加。另外，增加锁存器的数量，必然要增加流水线的价格。所以，在设计流水线时，要综合各方面的因素，根据最佳性能价格比来选择流水线的最佳段数。<br>
+            　　假设在非流水线的机器上采用顺序执行方式完成一个任务所需要的时间为t，那么，在同等速度的有k段流水线的机器上执行一个任务需要的时间为<img src="images/gsh1_41.gif" width="38" height="31" align="absmiddle"> 
+            ，其中d为锁存器的延迟时间。这样，流水线的最大吞吐率可以表示为：<img src="images/gsh1_42.gif" width="58" height="48" align="top"> 
+            。流水线的总价格粗略地估计为：C＝a＋bk，其中，a为所有流水段本身的总价格，b为每个锁存器的价格。A.G.Larson把流水线的性能价格比PCR定义为：<br>
+            　　　　<img src="images/gsh1_43.gif" width="156" height="51" align="absmiddle"> 
+            　　（5.27）<br>
+            　　可以通过对自变量k求导，得到性能价格比PCR的极值。由于大于零的极值只有一个，因此，这个极值就是最大值。如图5.12所示，当性能价格比PCR取得最大值时，它所对应的流水线的段数就时最佳段数<img src="images/gsh1_45.gif" width="14" height="16" align="absmiddle">：</p>
+          <p align="center" class="pt9-black"><img src="images/tu5_12.jpg" width="278" height="180"></p>
+          <p align="left" class="pt9-black">　　　 <img src="images/gsh1_44.gif" width="75" height="40" align="absmiddle">　　　　　　　　　　（5.28）<br>
+            　　从（5.28）关系式中可以很清楚地看到，流水线的最佳段数与流水线的延迟时间t和流水线本身的价格a的平方根成正比，而与锁存器的延迟时间d和锁存器的价格b的平方根成反比。<br>
+            　　在设计一条流水线的时候，可以根据（5.28）关系式，在流水线的总延迟时间t一定的情况下，可以通过调整流水线本身的价格a，锁存器的延迟时间d和锁存器的价格b来选取最佳的流水线段数<img src="images/gsh1_45.gif" width="14" height="16" align="absmiddle">。<br>
+            　　目前，一般处理机中的流水线段数在2段至10段之间，极少有超过15段的流水线。一般把8段或超过8段的流水线称为超流水线，采用8段以上流水线的处理机称为超流水线处理机。</p>
+          <p align="left" class="pt9-black">&nbsp;</p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

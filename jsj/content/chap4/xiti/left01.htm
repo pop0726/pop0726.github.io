@@ -1,0 +1,57 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第四章 输入输出系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="left"> 
+          <p class="pt9-black"><span class="part">习题</span><br>
+            <br>
+            <b>4.1 </b>与计算机系统中的其它部分，如中央处理机、存储系统等相比，输入输出系统有些什么特点？<br>
+            <br>
+            <b>4.2 </b>从一个中断源发出中断服务请求，到这个中断服务请求全部处理完成，并返回到原来的中断点所经过的过程称为中断处理过程。在一次完整的中断处理机过程中，主要做了哪些工作？其中，哪些必须用硬件实现？哪些必须用软件实现？哪些可以用硬件实现也可以用软件实现？<br>
+            <br>
+            <b>4.3 </b>有5个中断源D<font size="1">1</font>、D<font size="1">2</font>、D<font size="1">3</font>、D<font size="1">4</font>和D<font size="1">5</font>，它们的中断优先级从高到低分别是1级、2级、3级、4级和5级。这些中断源的中断优先级、正常情况下的中断屏蔽码和改变后的中断屏蔽码见下表。每个中断源有5位中断屏蔽码，其中，&quot;1&quot;表示该中断源被屏蔽，&quot;0&quot;表示该中断源开放。<br>
+            <img src="images/1.gif" width="491" height="170"> </p>
+          <p class="pt9-black">(1) 当使用正常的中断屏蔽码时，处理机响应各中断源的中断服务请求的先后次序是什么？实际的中断处理次序是什么？<br>
+            (2) 当使用改变后的中断屏蔽码时，处理机响应各中断源的中断服务请求的先后次序是什么？实际上中断处理的优先次序是什么？<br>
+            (3) 如果采用改变后的中断屏蔽码，当D<font size="1">1</font>、D<font size="1">2</font>、D<font size="1">3</font>、D<font size="1">4</font>和D<font size="1">5</font>这5个中断源同时请求中断服务时，画出处理机响应中断源的中断服务请求和实际运行中断服务程序过程的示意图。<br>
+            (4) 假设从处理机响应中断源的中断服务请求开始，到运行中断服务程序中第一次开中断所用的时间为一个单位时间，处理机运行中断服务程序的其它部分所用的时间为4个单位时间。当处理机执行主程序时，中断源D<font size="1">3</font>、D<font size="1">4</font>和D<font size="1">5</font>同时发出中断服务请求，过3个单位时间后，中断源D1和D2同时发出中断服务请求。采用改变后的中断屏蔽码，画出处理机响应各中断源的中断服务请求和实际运行中断服务程序过程的示意图。<br>
+            <br>
+            <b>4.4</b> 某处理机共有4个中断源，分别为D<font size="1">1</font>、D<font size="1">2</font>、D<font size="1">3</font>和D<font size="1">4</font>。要求处理机响应中断源的中断服务请求的次序从高到低分别为D<font size="1">1</font>、D<font size="1">2</font>、D<font size="1">3</font>、D<font size="1">4</font>，而处理机实际为各中断源服务的先后次序为这D<font size="1">3</font>、D<font size="1">2</font>、D<font size="1">4</font>、D<font size="1">1</font>。每个中断源有4位中断屏蔽码，其中，&quot;1&quot;表示该中断源被屏蔽，&quot;0&quot;表示该中断源开放。<br>
+            (1) 请设计各中断源的中断优先级和中断屏蔽码。<br>
+            (2) 如果处理机在运行主程序时，同时有D1和D2两个中断源请求中断服务，而在运行中断源D2的中断服务程序的过程中，中断源D<font size="1">3</font>和D<font size="1">4</font>又同时请求中断服务，请画出处理机响应各中断源的中断服务请求和实际运行中断服务程序过程的示意图。<br>
+            <br>
+            <b>4.5 </b>假设一台处理机共有D<font size="1">1</font>、D<font size="1">2</font>、D<font size="1">3</font>、D<font size="1">4</font>和D<font size="1">5</font>等5个中断源，它们的硬件中断优先级和在中断源的处理机状态字中由程序员设置的软件中断优先级见下表。处理机在运行主程序时，其中断优先级最低，为&quot;0&quot;级。</p>
+          <p class="pt9-black"><img src="images/2.gif" width="567" height="141"></p>
+          <p class="pt9-black">(1) 在处理机状态字中至少需要设置多少位中断屏蔽码？<br>
+            (2) 在表中填写&quot;中断响应优先次序&quot;和&quot;实际中断处理次序&quot;。最先响应、最早得到处理的中断源填&quot;1&quot;，其余依次为2、3、4、5。<br>
+            (3) 当处理机正在执行主程序时，5个中断源同时请求中断服务，画出处理机实际响应中断源的中断服务请求和运行中断服务程序过程的示意图。<br>
+            <br>
+          </p>
+          </div>
+        </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

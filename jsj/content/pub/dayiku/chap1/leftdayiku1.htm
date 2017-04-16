@@ -1,0 +1,929 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../../css/text01.css" type="text/css">
+<script language="JavaScript"></script>
+<script language="JavaScript" src="../scripts/behActions.js"></script>
+<script language="JavaScript" src="../scripts/behCourseBuilder.js"></script>
+<script language="JavaScript" src="../scripts/interactionClass.js"></script>
+<script language="JavaScript" src="../scripts/elemInptClass.js"></script>
+<script language="JavaScript" src="../scripts/elemIbtnClass.js"></script>
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF" onLoad="MM_initInteractions()">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr> 
+      <td valign="top" height="50"> 
+        <table width="80%" border="0" cellspacing="0" cellpadding="0" align="center">
+          <tr> 
+            <td class="pt9-black"> 
+              <div align="center"><a href="leftdayiku1.htm"><font color="#666666">第一章</font></a></div>
+            </td>
+            <td class="pt9-black"><img src="../images/dot.gif" width="3" height="11"></td>
+            <td class="pt9-black"> 
+              <div align="center"><a href="../chap2/leftdayiku2.htm"><font color="#666666">第二章</font></a></div>
+            </td>
+            <td class="pt9-black"><img src="../images/dot.gif" width="3" height="11"></td>
+            <td class="pt9-black"> 
+              <div align="center"><a href="../chap3/leftdayiku3.htm"><font color="#666666">第三章</font></a></div>
+            </td>
+            <td class="pt9-black"><img src="../images/dot.gif" width="3" height="11"></td>
+            <td class="pt9-black"> 
+              <div align="center"><a href="../chap4/leftdayiku4.htm"><font color="#666666">第四章</font></a></div>
+            </td>
+            <td class="pt9-black"><img src="../images/dot.gif" width="3" height="11"></td>
+            <td class="pt9-black"> 
+              <div align="center"><a href="../chap5/leftdayiku5.htm"><font color="#666666">第五章</font></a></div>
+            </td>
+            <td class="pt9-black"><img src="../images/dot.gif" width="3" height="11"></td>
+            <td class="pt9-black"> 
+              <div align="center"><a href="../chap6/leftdayiku6.htm"><font color="#666666">第六章</font></a></div>
+            </td>
+            <td class="pt9-black"><img src="../images/dot.gif" width="3" height="11"></td>
+            <td class="pt9-black"> 
+              <div align="center"><a href="../chap7/leftdayiku7.htm"><font color="#666666">第七章</font></a></div>
+            </td>
+            <td class="pt9-black"><img src="../images/dot.gif" width="3" height="11"></td>
+            <td class="pt9-black"> 
+              <div align="center"><a href="../chap8/leftdayiku8.htm"><font color="#666666">第八章</font></a></div>
+            </td>
+          </tr>
+        </table>
+        　　　　　　　　　　　　　　　　　　　 
+        <div align="center"><span class="part">第一章 计算机系统结构的基本概念</span></div>
+      </td>
+    </tr>
+    <tr> 
+      <td valign="top" height="27"> 
+        <div align="left"> 
+          <p class="pt9-black"><b>一、单选</b></p>
+          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td><interaction name="MultCh_TrueFalse01" object="G01" template="010_Multiple Choice/010_MultCh_TrueFalse_03.agt" includesrc="interactionClass.js,elemInptClass.js">
+                <div name="G01Layer"><span name="G01question" class="pt9-black">1、层次结构<br>
+                  </span> 
+                  <form name="G01Choices">
+                    <span name="G01choice1" class="pt9-black"> 
+                    <input name="G01RadioInp" type="radio" onClick="G01.e['choice1'].update()">
+                    </span><span class="pt9-black">计算机系统由硬件／器件和软件组成，按功能划分成多级层次结构。<span name="G01choice1"><br>
+                    </span></span> <span name="G01choice2" class="pt9-black"> 
+                    <input name="G01RadioInp" type="radio" onClick="G01.e['choice2'].update()">
+                    </span><span class="pt9-black">由程序设计者所看到的一个计算机系统的属性，即概念性结构和功能特性。<span name="G01choice2"></span></span><span name="G01choice2"><br>
+                    </span> 
+                  </form>
+                  <form name="G01controls">
+                  </form>
+                </div>
+                <script language="JavaScript">
+<!--
+  // Copyright 1998,1999 Macromedia, Inc. All rights reserved.
+  function newG01() {
+    G01 = new MM_interaction('G01',1,0,0,null,0,0,0,'','','c','',0);
+    G01.add('inpt','choice1',0,1,1,0);
+    G01.add('inpt','choice2',0,1,0,0);
+    G01.init();
+    G01.am('segm','Segment: Check Time_',1,1);
+    G01.am('cond','Time At Limit_','G01.timeAtLimit == true',0);
+    G01.am('actn','Popup Message','MM_popupMsg(\'You are out of time\')','pm');
+    G01.am('actn','Set Interaction Properties: Disable Interaction','MM_setIntProps(\'G01.setDisabled(true);\')','sp');
+    G01.am('end');
+    G01.am('segm','Segment: Correctness_',1,0);
+    G01.am('cond','Correct_01','G01.correct == true',0);
+    G01.am('actn','Popup Message','MM_popupMsg(\'   正确\')','');
+    G01.am('end');
+    G01.am('cond','Incorrect_01','G01.correct == false',0);
+    G01.am('actn','Popup Message','MM_popupMsg(\'    错误\')','');
+    G01.am('end');
+    G01.am('cond','Unknown Response_','G01.knownResponse == false',0);
+    G01.am('actn','Popup Message','MM_popupMsg(\'请输入答案！\')','');
+    G01.am('end');
+    G01.am('segm','Segment: Check Tries_',1,1);
+    G01.am('cond','Tries At Limit_','G01.triesAtLimit == true',0);
+    G01.am('actn','Popup Message','MM_popupMsg(\'You are out of tries\')','pm');
+    G01.am('actn','Set Interaction Properties: Disable Interaction','MM_setIntProps(\'G01.setDisabled(true);\')','sp');
+    G01.am('end');
+  }
+  if (window.newG01 == null) window.newG01 = newG01;
+  if (!window.MM_initIntFns) window.MM_initIntFns = ''; window.MM_initIntFns += 'newG01();';
+//-->
+</script>
+                <cbi-select object="G01"></interaction> <interaction name="MultCh_TrueFalse03" object="G03" template="010_Multiple Choice/010_MultCh_TrueFalse_03.agt" includesrc="interactionClass.js,elemInptClass.js"> 
+                <div name="G03Layer"><span name="G03question" class="pt9-black">2</span><span name="G01question" class="pt9-black">、</span><span name="G03question" class="pt9-black">计算机组成<br>
+                  </span> 
+                  <form name="G03Choices">
+                    <span name="G03choice1" class="pt9-black"> 
+                    <input name="G03RadioInp" type="radio" onClick="G03.e['choice1'].update()">
+                    </span><span class="pt9-black"><span name="G03choice1">计算机组成是计算机系统结构的逻辑实现，包括机器内部的数据流和控制流的组成以及逻辑设计等。<br>
+                    </span></span> <span name="G03choice2" class="pt9-black"> 
+                    <input name="G03RadioInp" type="radio" onClick="G03.e['choice2'].update()">
+                    不同公司厂家生产的具有相同系统结构的计算机</span><span name="G03choice2"><br>
+                    </span> 
+                  </form>
+                  <form name="G03controls">
+                  </form>
+                </div>
+                <script language="JavaScript">
+<!--
+  // Copyright 1998,1999 Macromedia, Inc. All rights reserved.
+  function newG03() {
+    G03 = new MM_interaction('G03',1,0,0,null,0,0,0,'','','c','',0);
+    G03.add('inpt','choice1',0,1,1,0);
+    G03.add('inpt','choice2',0,1,0,0);
+    G03.init();
+    G03.am('segm','Segment: Check Time_',1,1);
+    G03.am('cond','Time At Limit_','G03.timeAtLimit == true',0);
+    G03.am('actn','Popup Message','MM_popupMsg(\'You are out of time\')','pm');
+    G03.am('actn','Set Interaction Properties: Disable Interaction','MM_setIntProps(\'G03.setDisabled(true);\')','sp');
+    G03.am('end');
+    G03.am('segm','Segment: Correctness_',1,0);
+    G03.am('cond','Correct_01','G03.correct == true',0);
+    G03.am('actn','Popup Message','MM_popupMsg(\' 　　正确\')','');
+    G03.am('end');
+    G03.am('cond','Incorrect_01','G03.correct == false',0);
+    G03.am('actn','Popup Message','MM_popupMsg(\'    错误\')','');
+    G03.am('end');
+    G03.am('cond','Unknown Response_','G03.knownResponse == false',0);
+    G03.am('actn','Popup Message','MM_popupMsg(\'    请重新输入\')','');
+    G03.am('end');
+    G03.am('segm','Segment: Check Tries_',1,1);
+    G03.am('cond','Tries At Limit_','G03.triesAtLimit == true',0);
+    G03.am('actn','Popup Message','MM_popupMsg(\'You are out of tries\')','pm');
+    G03.am('actn','Set Interaction Properties: Disable Interaction','MM_setIntProps(\'G03.setDisabled(true);\')','sp');
+    G03.am('end');
+  }
+  if (window.newG03 == null) window.newG03 = newG03;
+  if (!window.MM_initIntFns) window.MM_initIntFns = ''; window.MM_initIntFns += 'newG03();';
+//-->
+</script>
+                <cbi-select object="G03"></interaction> <interaction name="MultCh_TrueFalse04" object="G04" template="010_Multiple Choice/010_MultCh_TrueFalse_03.agt" includesrc="interactionClass.js,elemInptClass.js"> 
+                <div name="G04Layer"> 
+                  <p class="pt9-black">3.计算机实现 </p>
+                  <form name="G04Choices">
+                    <p class="pt9-black"><span name="G04choice1" class="pt9-black"> 
+                      <input name="G04RadioInp" type="radio" onClick="G04.e['choice1'].update()">
+                      </span><span class="pt9-black"><span name="G04choice1">系统中某一部件由于采用某种更快的执行方式后整个系统性能的提高与这种执行方式的使用频率或占总执行时间的比例有关。 
+                      Amdahl定律定义了由于采用特殊的方法所能获得的加速比的大小。<br>
+                      </span></span> <span name="G04choice2" class="pt9-black"> 
+                      <input name="G04RadioInp" type="radio" onClick="G04.e['choice2'].update()">
+                      </span><span name="G04choice2">计算机实现是指计算机组成的物理实现。它包括处理机、主存等部件的物理结构，器件的集成度和速度，信号传输，器件、模块、插件、底板的划分与连接，专用器件的设计，电源、冷却、装配等技术以及有关的制造技术和工艺等。<br>
+                      </span> </p>
+                  </form>
+                  <form name="G04controls">
+                  </form>
+                </div>
+                <script language="JavaScript">
+<!--
+  // Copyright 1998,1999 Macromedia, Inc. All rights reserved.
+  function newG04() {
+    G04 = new MM_interaction('G04',1,0,0,null,0,0,0,'','','c','',0);
+    G04.add('inpt','choice1',0,1,0,0);
+    G04.add('inpt','choice2',0,1,1,0);
+    G04.init();
+    G04.am('segm','Segment: Check Time_',1,1);
+    G04.am('cond','Time At Limit_','G04.timeAtLimit == true',0);
+    G04.am('actn','Popup Message','MM_popupMsg(\'You are out of time\')','pm');
+    G04.am('actn','Set Interaction Properties: Disable Interaction','MM_setIntProps(\'G04.setDisabled(true);\')','sp');
+    G04.am('end');
+    G04.am('segm','Segment: Correctness_',1,0);
+    G04.am('cond','Correct_01','G04.correct == true',0);
+    G04.am('actn','Popup Message','MM_popupMsg(\'   正确\')','');
+    G04.am('end');
+    G04.am('cond','Incorrect_01','G04.correct == false',0);
+    G04.am('actn','Popup Message','MM_popupMsg(\'    错误\')','');
+    G04.am('end');
+    G04.am('cond','Unknown Response_','G04.knownResponse == false',0);
+    G04.am('actn','Popup Message','MM_popupMsg(\'　　请重新输入\')','');
+    G04.am('end');
+    G04.am('segm','Segment: Check Tries_',1,1);
+    G04.am('cond','Tries At Limit_','G04.triesAtLimit == true',0);
+    G04.am('actn','Popup Message','MM_popupMsg(\'You are out of tries\')','pm');
+    G04.am('actn','Set Interaction Properties: Disable Interaction','MM_setIntProps(\'G04.setDisabled(true);\')','sp');
+    G04.am('end');
+  }
+  if (window.newG04 == null) window.newG04 = newG04;
+  if (!window.MM_initIntFns) window.MM_initIntFns = ''; window.MM_initIntFns += 'newG04();';
+//-->
+</script>
+                <cbi-select object="G04"></interaction> <interaction name="MultCh_TrueFalse05" object="G05" template="010_Multiple Choice/010_MultCh_TrueFalse_03.agt" includesrc="interactionClass.js,elemInptClass.js"> 
+                <div name="G05Layer"><span class="pt9-black">4.透明性<span name="G05question"></span></span><span name="G05question" class="pt9-black"><br>
+                  </span> 
+                  <form name="G05Choices">
+                    <p class="pt9-black"><span name="G05choice1" class="pt9-black"> 
+                      <input name="G05RadioInp" type="radio" onClick="G05.e['choice1'].update()">
+                      </span><span class="pt9-black"><span name="G05choice1">在计算机技术中，一种本来是存在的事物或属性，但从某种角度看似乎不存在<br>
+                      </span></span> <span name="G05choice2" class="pt9-black"> 
+                      <input name="G05RadioInp" type="radio" onClick="G05.e['choice2'].update()">
+                      </span><span name="G05choice2">指在一个厂家内生产的具有相同的系统结构，但具有不同组成和实现的一系列不同型号的机器<br>
+                      </span> </p>
+                  </form>
+                  <form name="G05controls">
+                  </form>
+                </div>
+                <script language="JavaScript">
+<!--
+  // Copyright 1998,1999 Macromedia, Inc. All rights reserved.
+  function newG05() {
+    G05 = new MM_interaction('G05',1,0,0,null,0,0,0,'','','c','',0);
+    G05.add('inpt','choice1',0,1,1,0);
+    G05.add('inpt','choice2',0,1,0,0);
+    G05.init();
+    G05.am('segm','Segment: Check Time_',1,1);
+    G05.am('cond','Time At Limit_','G05.timeAtLimit == true',0);
+    G05.am('actn','Popup Message','MM_popupMsg(\'You are out of time\')','pm');
+    G05.am('actn','Set Interaction Properties: Disable Interaction','MM_setIntProps(\'G05.setDisabled(true);\')','sp');
+    G05.am('end');
+    G05.am('segm','Segment: Correctness_',1,0);
+    G05.am('cond','Correct_01','G05.correct == true',0);
+    G05.am('actn','Popup Message','MM_popupMsg(\'   正确\')','');
+    G05.am('end');
+    G05.am('cond','Incorrect_01','G05.correct == false',0);
+    G05.am('actn','Popup Message','MM_popupMsg(\'    错误\')','');
+    G05.am('end');
+    G05.am('cond','Unknown Response_','G05.knownResponse == false',0);
+    G05.am('actn','Popup Message','MM_popupMsg(\'请重新输入\')','');
+    G05.am('end');
+    G05.am('segm','Segment: Check Tries_',1,1);
+    G05.am('cond','Tries At Limit_','G05.triesAtLimit == true',0);
+    G05.am('actn','Popup Message','MM_popupMsg(\'You are out of tries\')','pm');
+    G05.am('actn','Set Interaction Properties: Disable Interaction','MM_setIntProps(\'G05.setDisabled(true);\')','sp');
+    G05.am('end');
+  }
+  if (window.newG05 == null) window.newG05 = newG05;
+  if (!window.MM_initIntFns) window.MM_initIntFns = ''; window.MM_initIntFns += 'newG05();';
+//-->
+</script>
+                <cbi-select object="G05"></interaction> <interaction name="MultCh_TrueFalse06" object="G06" template="010_Multiple Choice/010_MultCh_TrueFalse_03.agt" includesrc="interactionClass.js,elemInptClass.js"> 
+                <div name="G06Layer"><span name="G06question" class="pt9-black">5.</span><span name="G06question" class="pt9-black">由上往下设计<br>
+                  </span> 
+                  <form name="G06Choices">
+                    <p class="pt9-black"><span name="G06choice1" class="pt9-black"> 
+                      <input name="G06RadioInp" type="radio" onClick="G06.e['choice1'].update()">
+                      </span><span class="pt9-black"><span name="G06choice1">系统中某一部件由于采用某种更快的执行方式后整个系统性能的提高与这种执行方式的使用频率或占总执行时间的比例有关。 
+                      Amdahl定律定义了由于采用特殊的方法所能获得的加速比的大小。<br>
+                      </span></span> <span name="G06choice2" class="pt9-black"> 
+                      <input name="G06RadioInp" type="radio" onClick="G06.e['choice2'].update()">
+                      </span><span name="G06choice2">首先确定用户级虚拟机器的基本特征、数据类型和基本命令等，而后再逐级向下设计，直到由硬件执行或解释那级为止。当然每级设计过程中，既要考虑实现的方法，也要考虑如何使上一级能优化实现。<br>
+                      </span> </p>
+                  </form>
+                  <form name="G06controls">
+                  </form>
+                </div>
+                <script language="JavaScript">
+<!--
+  // Copyright 1998,1999 Macromedia, Inc. All rights reserved.
+  function newG06() {
+    G06 = new MM_interaction('G06',1,0,0,null,0,0,0,'','','c','',0);
+    G06.add('inpt','choice1',0,1,0,0);
+    G06.add('inpt','choice2',0,1,1,0);
+    G06.init();
+    G06.am('segm','Segment: Check Time_',1,1);
+    G06.am('cond','Time At Limit_','G06.timeAtLimit == true',0);
+    G06.am('actn','Popup Message','MM_popupMsg(\'You are out of time\')','pm');
+    G06.am('actn','Set Interaction Properties: Disable Interaction','MM_setIntProps(\'G06.setDisabled(true);\')','sp');
+    G06.am('end');
+    G06.am('segm','Segment: Correctness_',1,0);
+    G06.am('cond','Correct_01','G06.correct == true',0);
+    G06.am('actn','Popup Message','MM_popupMsg(\'   正确\')','');
+    G06.am('end');
+    G06.am('cond','Incorrect_01','G06.correct == false',0);
+    G06.am('actn','Popup Message','MM_popupMsg(\'    错误\')','');
+    G06.am('end');
+    G06.am('cond','Unknown Response_','G06.knownResponse == false',0);
+    G06.am('actn','Popup Message','MM_popupMsg(\'请重新输入\')','');
+    G06.am('end');
+    G06.am('segm','Segment: Check Tries_',1,1);
+    G06.am('cond','Tries At Limit_','G06.triesAtLimit == true',0);
+    G06.am('actn','Popup Message','MM_popupMsg(\'You are out of tries\')','pm');
+    G06.am('actn','Set Interaction Properties: Disable Interaction','MM_setIntProps(\'G06.setDisabled(true);\')','sp');
+    G06.am('end');
+  }
+  if (window.newG06 == null) window.newG06 = newG06;
+  if (!window.MM_initIntFns) window.MM_initIntFns = ''; window.MM_initIntFns += 'newG06();';
+//-->
+</script>
+                <cbi-select object="G06"></interaction> <interaction name="MultCh_TrueFalse07" object="G07" template="010_Multiple Choice/010_MultCh_TrueFalse_03.agt" includesrc="interactionClass.js,elemInptClass.js"> 
+                <div name="G07Layer"><span class="pt9-black">6.由下往上设计</span><span name="G07question" class="pt9-black"><br>
+                  </span> 
+                  <form name="G07Choices">
+                    <p class="pt9-black"><span name="G07choice1" class="pt9-black"> 
+                      <input name="G07RadioInp" type="radio" onClick="G07.e['choice1'].update()">
+                      </span><span class="pt9-black"><span name="G07choice1">根据硬件技术条件，特别是器件水平，首先把微程序机器级和传统机器研制出来。在此基础上，再设计操作系统、汇编语言、高级语言等虚拟机器级。最后设计面向应用的虚拟机器级。<br>
+                      </span></span> <span name="G07choice2" class="pt9-black"> 
+                      <input name="G07RadioInp" type="radio" onClick="G07.e['choice2'].update()">
+                      </span>指计算机组成的物理实现。它包括处理机、主存等部件的物理结构，器件的集成度和速度，信号传输，器件、模块、插件、底板的划分与连接，专用器件的设计，电源、冷却、装配等技术以及有关的制造技术和工艺等。 
+                    </p>
+                  </form>
+                  <form name="G07controls">
+                  </form>
+                </div>
+                <script language="JavaScript">
+<!--
+  // Copyright 1998,1999 Macromedia, Inc. All rights reserved.
+  function newG07() {
+    G07 = new MM_interaction('G07',1,0,0,null,0,0,0,'','','c','',0);
+    G07.add('inpt','choice1',0,1,1,0);
+    G07.add('inpt','choice2',0,1,0,0);
+    G07.init();
+    G07.am('segm','Segment: Check Time_',1,1);
+    G07.am('cond','Time At Limit_','G07.timeAtLimit == true',0);
+    G07.am('actn','Popup Message','MM_popupMsg(\'You are out of time\')','pm');
+    G07.am('actn','Set Interaction Properties: Disable Interaction','MM_setIntProps(\'G07.setDisabled(true);\')','sp');
+    G07.am('end');
+    G07.am('segm','Segment: Correctness_',1,0);
+    G07.am('cond','Correct_01','G07.correct == true',0);
+    G07.am('actn','Popup Message','MM_popupMsg(\'   正确\')','');
+    G07.am('end');
+    G07.am('cond','Incorrect_01','G07.correct == false',0);
+    G07.am('actn','Popup Message','MM_popupMsg(\'    错误\')','');
+    G07.am('end');
+    G07.am('cond','Unknown Response_','G07.knownResponse == false',0);
+    G07.am('actn','Popup Message','MM_popupMsg(\'请重新输入\')','');
+    G07.am('end');
+    G07.am('segm','Segment: Check Tries_',1,1);
+    G07.am('cond','Tries At Limit_','G07.triesAtLimit == true',0);
+    G07.am('actn','Popup Message','MM_popupMsg(\'You are out of tries\')','pm');
+    G07.am('actn','Set Interaction Properties: Disable Interaction','MM_setIntProps(\'G07.setDisabled(true);\')','sp');
+    G07.am('end');
+  }
+  if (window.newG07 == null) window.newG07 = newG07;
+  if (!window.MM_initIntFns) window.MM_initIntFns = ''; window.MM_initIntFns += 'newG07();';
+//-->
+</script>
+                <cbi-select object="G07"></interaction> <interaction name="MultCh_TrueFalse08" object="G08" template="010_Multiple Choice/010_MultCh_TrueFalse_03.agt" includesrc="interactionClass.js,elemInptClass.js"> 
+                <div name="G08Layer"><span class="pt9-black">7.系列机</span><span name="G08question" class="pt9-black"><br>
+                  </span> 
+                  <form name="G08Choices">
+                    <p class="pt9-black"><span name="G08choice1" class="pt9-black"> 
+                      <input name="G08RadioInp" type="radio" onClick="G08.e['choice1'].update()">
+                      </span><span class="pt9-black"><span name="G08choice1">指在一个厂家内生产的具有相同的系统结构，但具有不同组成和实现的一系列不同型号的机器<br>
+                      </span></span> <span name="G08choice2" class="pt9-black"> 
+                      <input name="G08RadioInp" type="radio" onClick="G08.e['choice2'].update()">
+                      </span>不同公司厂家生产的具有相同系统结构的计算机 </p>
+                  </form>
+                  <form name="G08controls">
+                  </form>
+                </div>
+                <script language="JavaScript">
+<!--
+  // Copyright 1998,1999 Macromedia, Inc. All rights reserved.
+  function newG08() {
+    G08 = new MM_interaction('G08',1,0,0,null,0,0,0,'','','c','',0);
+    G08.add('inpt','choice1',0,1,1,0);
+    G08.add('inpt','choice2',0,1,0,0);
+    G08.init();
+    G08.am('segm','Segment: Check Time_',1,1);
+    G08.am('cond','Time At Limit_','G08.timeAtLimit == true',0);
+    G08.am('actn','Popup Message','MM_popupMsg(\'You are out of time\')','pm');
+    G08.am('actn','Set Interaction Properties: Disable Interaction','MM_setIntProps(\'G08.setDisabled(true);\')','sp');
+    G08.am('end');
+    G08.am('segm','Segment: Correctness_',1,0);
+    G08.am('cond','Correct_01','G08.correct == true',0);
+    G08.am('actn','Popup Message','MM_popupMsg(\'   正确\')','');
+    G08.am('end');
+    G08.am('cond','Incorrect_01','G08.correct == false',0);
+    G08.am('actn','Popup Message','MM_popupMsg(\'    错误\')','');
+    G08.am('end');
+    G08.am('cond','Unknown Response_','G08.knownResponse == false',0);
+    G08.am('actn','Popup Message','MM_popupMsg(\'请重新输入\')','');
+    G08.am('end');
+    G08.am('segm','Segment: Check Tries_',1,1);
+    G08.am('cond','Tries At Limit_','G08.triesAtLimit == true',0);
+    G08.am('actn','Popup Message','MM_popupMsg(\'You are out of tries\')','pm');
+    G08.am('actn','Set Interaction Properties: Disable Interaction','MM_setIntProps(\'G08.setDisabled(true);\')','sp');
+    G08.am('end');
+  }
+  if (window.newG08 == null) window.newG08 = newG08;
+  if (!window.MM_initIntFns) window.MM_initIntFns = ''; window.MM_initIntFns += 'newG08();';
+//-->
+</script>
+                <cbi-select object="G08"></interaction> <interaction name="MultCh_TrueFalse09" object="G09" template="010_Multiple Choice/010_MultCh_TrueFalse_03.agt" includesrc="interactionClass.js,elemInptClass.js"> 
+                <div name="G09Layer"><span class="pt9-black">8.兼容机</span><span name="G09question" class="pt9-black"><br>
+                  </span> 
+                  <form name="G09Choices">
+                    <p class="pt9-black"><span name="G09choice1" class="pt9-black"> 
+                      <input name="G09RadioInp" type="radio" onClick="G09.e['choice1'].update()">
+                      </span><span class="pt9-black"><span name="G09choice1">计算机组成是计算机系统结构的逻辑实现，包括机器内部的数据流和控制流的组成以及逻辑设计等<br>
+                      </span></span> <span name="G09choice2" class="pt9-black"> 
+                      <input name="G09RadioInp" type="radio" onClick="G09.e['choice2'].update()">
+                      </span>不同公司厂家生产的具有相同系统结构的计算机称为兼容机</p>
+                  </form>
+                  <form name="G09controls">
+                  </form>
+                </div>
+                <script language="JavaScript">
+<!--
+  // Copyright 1998,1999 Macromedia, Inc. All rights reserved.
+  function newG09() {
+    G09 = new MM_interaction('G09',1,0,0,null,0,0,0,'','','c','',0);
+    G09.add('inpt','choice1',0,1,0,0);
+    G09.add('inpt','choice2',0,1,1,0);
+    G09.init();
+    G09.am('segm','Segment: Check Time_',1,1);
+    G09.am('cond','Time At Limit_','G09.timeAtLimit == true',0);
+    G09.am('actn','Popup Message','MM_popupMsg(\'You are out of time\')','pm');
+    G09.am('actn','Set Interaction Properties: Disable Interaction','MM_setIntProps(\'G09.setDisabled(true);\')','sp');
+    G09.am('end');
+    G09.am('segm','Segment: Correctness_',1,0);
+    G09.am('cond','Correct_01','G09.correct == true',0);
+    G09.am('actn','Popup Message','MM_popupMsg(\'   正确\')','');
+    G09.am('end');
+    G09.am('cond','Incorrect_01','G09.correct == false',0);
+    G09.am('actn','Popup Message','MM_popupMsg(\'    错误\')','');
+    G09.am('end');
+    G09.am('cond','Unknown Response_','G09.knownResponse == false',0);
+    G09.am('actn','Popup Message','MM_popupMsg(\'请重新输入\')','');
+    G09.am('end');
+    G09.am('segm','Segment: Check Tries_',1,1);
+    G09.am('cond','Tries At Limit_','G09.triesAtLimit == true',0);
+    G09.am('actn','Popup Message','MM_popupMsg(\'You are out of tries\')','pm');
+    G09.am('actn','Set Interaction Properties: Disable Interaction','MM_setIntProps(\'G09.setDisabled(true);\')','sp');
+    G09.am('end');
+  }
+  if (window.newG09 == null) window.newG09 = newG09;
+  if (!window.MM_initIntFns) window.MM_initIntFns = ''; window.MM_initIntFns += 'newG09();';
+//-->
+</script>
+                <cbi-select object="G09"></interaction> <interaction name="MultCh_TrueFalse10" object="G10" template="010_Multiple Choice/010_MultCh_TrueFalse_03.agt" includesrc="interactionClass.js,elemInptClass.js"> 
+                <div name="G10Layer"><span class="pt9-black">9.</span><span name="G10question" class="pt9-black">模拟<br>
+                  </span> 
+                  <form name="G10Choices">
+                    <p class="pt9-black"><span name="G10choice1" class="pt9-black"> 
+                      <input name="G10RadioInp" type="radio" onClick="G10.e['choice1'].update()">
+                      </span><span class="pt9-black"><span name="G10choice1">用软件方法在一台现有的计算机上实现另一台计算机的指令系统<br>
+                      </span></span> <span name="G10choice2" class="pt9-black"> 
+                      <input name="G10RadioInp" type="radio" onClick="G10.e['choice2'].update()">
+                      </span><span name="G10choice2">指在一个厂家内生产的具有相同的系统结构，但具有不同组成和实现的一系列不同型号的机器<br>
+                      </span> </p>
+                  </form>
+                  <form name="G10controls">
+                  </form>
+                </div>
+                <script language="JavaScript">
+<!--
+  // Copyright 1998,1999 Macromedia, Inc. All rights reserved.
+  function newG10() {
+    G10 = new MM_interaction('G10',1,0,0,null,0,0,0,'','','c','',0);
+    G10.add('inpt','choice1',0,1,1,0);
+    G10.add('inpt','choice2',0,1,0,0);
+    G10.init();
+    G10.am('segm','Segment: Check Time_',1,1);
+    G10.am('cond','Time At Limit_','G10.timeAtLimit == true',0);
+    G10.am('actn','Popup Message','MM_popupMsg(\'You are out of time\')','pm');
+    G10.am('actn','Set Interaction Properties: Disable Interaction','MM_setIntProps(\'G10.setDisabled(true);\')','sp');
+    G10.am('end');
+    G10.am('segm','Segment: Correctness_',1,0);
+    G10.am('cond','Correct_01','G10.correct == true',0);
+    G10.am('actn','Popup Message','MM_popupMsg(\'   正确\')','');
+    G10.am('end');
+    G10.am('cond','Incorrect_01','G10.correct == false',0);
+    G10.am('actn','Popup Message','MM_popupMsg(\'    错误\')','');
+    G10.am('end');
+    G10.am('cond','Unknown Response_','G10.knownResponse == false',0);
+    G10.am('actn','Popup Message','MM_popupMsg(\'请重新输入\')','');
+    G10.am('end');
+    G10.am('segm','Segment: Check Tries_',1,1);
+    G10.am('cond','Tries At Limit_','G10.triesAtLimit == true',0);
+    G10.am('actn','Popup Message','MM_popupMsg(\'You are out of tries\')','pm');
+    G10.am('actn','Set Interaction Properties: Disable Interaction','MM_setIntProps(\'G10.setDisabled(true);\')','sp');
+    G10.am('end');
+  }
+  if (window.newG10 == null) window.newG10 = newG10;
+  if (!window.MM_initIntFns) window.MM_initIntFns = ''; window.MM_initIntFns += 'newG10();';
+//-->
+</script>
+                <cbi-select object="G10"></interaction> <interaction name="MultCh_TrueFalse11" object="G11" template="010_Multiple Choice/010_MultCh_TrueFalse_03.agt" includesrc="interactionClass.js,elemInptClass.js"> 
+                <div name="G11Layer"><span class="pt9-black">10.仿真</span><span name="G11question" class="pt9-black"><br>
+                  </span> 
+                  <form name="G11Choices">
+                    <p class="pt9-black"><span name="G11choice1" class="pt9-black"> 
+                      <input name="G11RadioInp" type="radio" onClick="G11.e['choice1'].update()">
+                      </span><span class="pt9-black"><span name="G11choice1">用微程序直接解释另一种机器指令系统的方法<br>
+                      </span></span> <span name="G11choice2" class="pt9-black"> 
+                      <input name="G11RadioInp" type="radio" onClick="G11.e['choice2'].update()">
+                      </span><span name="G11choice2">每条指令的平均时钟周期数<br>
+                      </span> </p>
+                  </form>
+                  <form name="G11controls">
+                  </form>
+                </div>
+                <script language="JavaScript">
+<!--
+  // Copyright 1998,1999 Macromedia, Inc. All rights reserved.
+  function newG11() {
+    G11 = new MM_interaction('G11',1,0,0,null,0,0,0,'','','c','',0);
+    G11.add('inpt','choice1',0,1,1,0);
+    G11.add('inpt','choice2',0,1,0,0);
+    G11.init();
+    G11.am('segm','Segment: Check Time_',1,1);
+    G11.am('cond','Time At Limit_','G11.timeAtLimit == true',0);
+    G11.am('actn','Popup Message','MM_popupMsg(\'You are out of time\')','pm');
+    G11.am('actn','Set Interaction Properties: Disable Interaction','MM_setIntProps(\'G11.setDisabled(true);\')','sp');
+    G11.am('end');
+    G11.am('segm','Segment: Correctness_',1,0);
+    G11.am('cond','Correct_01','G11.correct == true',0);
+    G11.am('actn','Popup Message','MM_popupMsg(\'   正确\')','');
+    G11.am('end');
+    G11.am('cond','Incorrect_01','G11.correct == false',0);
+    G11.am('actn','Popup Message','MM_popupMsg(\'    错误\')','');
+    G11.am('end');
+    G11.am('cond','Unknown Response_','G11.knownResponse == false',0);
+    G11.am('actn','Popup Message','MM_popupMsg(\'请重新输入\')','');
+    G11.am('end');
+    G11.am('segm','Segment: Check Tries_',1,1);
+    G11.am('cond','Tries At Limit_','G11.triesAtLimit == true',0);
+    G11.am('actn','Popup Message','MM_popupMsg(\'You are out of tries\')','pm');
+    G11.am('actn','Set Interaction Properties: Disable Interaction','MM_setIntProps(\'G11.setDisabled(true);\')','sp');
+    G11.am('end');
+  }
+  if (window.newG11 == null) window.newG11 = newG11;
+  if (!window.MM_initIntFns) window.MM_initIntFns = ''; window.MM_initIntFns += 'newG11();';
+//-->
+</script>
+                <cbi-select object="G11"></interaction> <interaction name="MultCh_TrueFalse12" object="G12" template="010_Multiple Choice/010_MultCh_TrueFalse_03.agt" includesrc="interactionClass.js,elemInptClass.js"> 
+                <div name="G12Layer"><span class="pt9-black">11.</span><span name="G12question" class="pt9-black">Amdahl定律<br>
+                  </span> 
+                  <form name="G12Choices">
+                    <p class="pt9-black"><span name="G12choice1" class="pt9-black"> 
+                      <input name="G12RadioInp" type="radio" onClick="G12.e['choice1'].update()">
+                      </span><span class="pt9-black"><span name="G12choice1">系统中某一部件由于采用某种更快的执行方式后整个系统性能的提高与这种执行方式的使用频率或占总执行时间的比例有关。 
+                      Amdahl定律定义了由于采用特殊的方法所能获得的加速比的大小<br>
+                      </span></span> <span name="G12choice2" class="pt9-black"> 
+                      <input name="G12RadioInp" type="radio" onClick="G12.e['choice2'].update()">
+                      </span><span name="G12choice2">据硬件技术条件，特别是器件水平，首先把微程序机器级和传统机器研制出来。在此基础上，再设计操作系统、汇编语言、高级语言等虚拟机器级。最后设计面向应用的虚拟机器级<br>
+                      </span> </p>
+                  </form>
+                  <form name="G12controls">
+                  </form>
+                </div>
+                <script language="JavaScript">
+<!--
+  // Copyright 1998,1999 Macromedia, Inc. All rights reserved.
+  function newG12() {
+    G12 = new MM_interaction('G12',1,0,0,null,0,0,0,'','','c','',0);
+    G12.add('inpt','choice1',0,1,1,0);
+    G12.add('inpt','choice2',0,1,0,0);
+    G12.init();
+    G12.am('segm','Segment: Check Time_',1,1);
+    G12.am('cond','Time At Limit_','G12.timeAtLimit == true',0);
+    G12.am('actn','Popup Message','MM_popupMsg(\'You are out of time\')','pm');
+    G12.am('actn','Set Interaction Properties: Disable Interaction','MM_setIntProps(\'G12.setDisabled(true);\')','sp');
+    G12.am('end');
+    G12.am('segm','Segment: Correctness_',1,0);
+    G12.am('cond','Correct_01','G12.correct == true',0);
+    G12.am('actn','Popup Message','MM_popupMsg(\'   正确\')','');
+    G12.am('end');
+    G12.am('cond','Incorrect_01','G12.correct == false',0);
+    G12.am('actn','Popup Message','MM_popupMsg(\'    错误\')','');
+    G12.am('end');
+    G12.am('cond','Unknown Response_','G12.knownResponse == false',0);
+    G12.am('actn','Popup Message','MM_popupMsg(\'请重新输入\')','');
+    G12.am('end');
+    G12.am('segm','Segment: Check Tries_',1,1);
+    G12.am('cond','Tries At Limit_','G12.triesAtLimit == true',0);
+    G12.am('actn','Popup Message','MM_popupMsg(\'You are out of tries\')','pm');
+    G12.am('actn','Set Interaction Properties: Disable Interaction','MM_setIntProps(\'G12.setDisabled(true);\')','sp');
+    G12.am('end');
+  }
+  if (window.newG12 == null) window.newG12 = newG12;
+  if (!window.MM_initIntFns) window.MM_initIntFns = ''; window.MM_initIntFns += 'newG12();';
+//-->
+</script>
+                <cbi-select object="G12"></interaction> <interaction name="MultCh_TrueFalse13" object="G13" template="010_Multiple Choice/010_MultCh_TrueFalse_03.agt" includesrc="interactionClass.js,elemInptClass.js"> 
+                <div name="G13Layer"><span class="pt9-black">12.CPI</span><span name="G13question" class="pt9-black"><br>
+                  </span> 
+                  <form name="G13Choices">
+                    <p class="pt9-black"><span name="G13choice1" class="pt9-black"> 
+                      <input name="G13RadioInp" type="radio" onClick="G13.e['choice1'].update()">
+                      </span><span class="pt9-black"><span name="G13choice1">每秒百万次浮点操作次数<br>
+                      </span></span> <span name="G13choice2" class="pt9-black"> 
+                      <input name="G13RadioInp" type="radio" onClick="G13.e['choice2'].update()">
+                      </span><span name="G13choice2">每条指令的平均时钟周期数<br>
+                      </span> </p>
+                  </form>
+                  <form name="G13controls">
+                  </form>
+                </div>
+                <script language="JavaScript">
+<!--
+  // Copyright 1998,1999 Macromedia, Inc. All rights reserved.
+  function newG13() {
+    G13 = new MM_interaction('G13',1,0,0,null,0,0,0,'','','c','',0);
+    G13.add('inpt','choice1',0,1,0,0);
+    G13.add('inpt','choice2',0,1,1,0);
+    G13.init();
+    G13.am('segm','Segment: Check Time_',1,1);
+    G13.am('cond','Time At Limit_','G13.timeAtLimit == true',0);
+    G13.am('actn','Popup Message','MM_popupMsg(\'You are out of time\')','pm');
+    G13.am('actn','Set Interaction Properties: Disable Interaction','MM_setIntProps(\'G13.setDisabled(true);\')','sp');
+    G13.am('end');
+    G13.am('segm','Segment: Correctness_',1,0);
+    G13.am('cond','Correct_01','G13.correct == true',0);
+    G13.am('actn','Popup Message','MM_popupMsg(\'   正确\')','');
+    G13.am('end');
+    G13.am('cond','Incorrect_01','G13.correct == false',0);
+    G13.am('actn','Popup Message','MM_popupMsg(\'    错误\')','');
+    G13.am('end');
+    G13.am('cond','Unknown Response_','G13.knownResponse == false',0);
+    G13.am('actn','Popup Message','MM_popupMsg(\'请重新输入\')','');
+    G13.am('end');
+    G13.am('segm','Segment: Check Tries_',1,1);
+    G13.am('cond','Tries At Limit_','G13.triesAtLimit == true',0);
+    G13.am('actn','Popup Message','MM_popupMsg(\'You are out of tries\')','pm');
+    G13.am('actn','Set Interaction Properties: Disable Interaction','MM_setIntProps(\'G13.setDisabled(true);\')','sp');
+    G13.am('end');
+  }
+  if (window.newG13 == null) window.newG13 = newG13;
+  if (!window.MM_initIntFns) window.MM_initIntFns = ''; window.MM_initIntFns += 'newG13();';
+//-->
+</script>
+                <cbi-select object="G13"></interaction> <interaction name="MultCh_TrueFalse14" object="G14" template="010_Multiple Choice/010_MultCh_TrueFalse_03.agt" includesrc="interactionClass.js,elemInptClass.js"> 
+                <div name="G14Layer"><span class="pt9-black">13.MIPS</span><span name="G14question" class="pt9-black"><br>
+                  </span> 
+                  <form name="G14Choices">
+                    <p class="pt9-black"><span name="G14choice1" class="pt9-black"> 
+                      <input name="G14RadioInp" type="radio" onClick="G14.e['choice1'].update()">
+                      </span><span class="pt9-black"><span name="G14choice1">它表示每秒百万指令条数<br>
+                      </span></span> <span name="G14choice2" class="pt9-black"> 
+                      <input name="G14RadioInp" type="radio" onClick="G14.e['choice2'].update()">
+                      </span><span name="G14choice2">每秒百万次浮点操作次数<br>
+                      </span> </p>
+                  </form>
+                  <form name="G14controls">
+                  </form>
+                </div>
+                <script language="JavaScript">
+<!--
+  // Copyright 1998,1999 Macromedia, Inc. All rights reserved.
+  function newG14() {
+    G14 = new MM_interaction('G14',1,0,0,null,0,0,0,'','','c','',0);
+    G14.add('inpt','choice1',0,1,1,0);
+    G14.add('inpt','choice2',0,1,0,0);
+    G14.init();
+    G14.am('segm','Segment: Check Time_',1,1);
+    G14.am('cond','Time At Limit_','G14.timeAtLimit == true',0);
+    G14.am('actn','Popup Message','MM_popupMsg(\'You are out of time\')','pm');
+    G14.am('actn','Set Interaction Properties: Disable Interaction','MM_setIntProps(\'G14.setDisabled(true);\')','sp');
+    G14.am('end');
+    G14.am('segm','Segment: Correctness_',1,0);
+    G14.am('cond','Correct_01','G14.correct == true',0);
+    G14.am('actn','Popup Message','MM_popupMsg(\'   正确\')','');
+    G14.am('end');
+    G14.am('cond','Incorrect_01','G14.correct == false',0);
+    G14.am('actn','Popup Message','MM_popupMsg(\'    错误\')','');
+    G14.am('end');
+    G14.am('cond','Unknown Response_','G14.knownResponse == false',0);
+    G14.am('actn','Popup Message','MM_popupMsg(\'请重新输入\')','');
+    G14.am('end');
+    G14.am('segm','Segment: Check Tries_',1,1);
+    G14.am('cond','Tries At Limit_','G14.triesAtLimit == true',0);
+    G14.am('actn','Popup Message','MM_popupMsg(\'You are out of tries\')','pm');
+    G14.am('actn','Set Interaction Properties: Disable Interaction','MM_setIntProps(\'G14.setDisabled(true);\')','sp');
+    G14.am('end');
+  }
+  if (window.newG14 == null) window.newG14 = newG14;
+  if (!window.MM_initIntFns) window.MM_initIntFns = ''; window.MM_initIntFns += 'newG14();';
+//-->
+</script>
+                <cbi-select object="G14"></interaction> <interaction name="MultCh_TrueFalse15" object="G15" template="010_Multiple Choice/010_MultCh_TrueFalse_03.agt" includesrc="interactionClass.js,elemInptClass.js"> 
+                <div name="G15Layer"><span class="pt9-black">14.</span><span name="G15question" class="pt9-black">MFLOPS<br>
+                  </span> 
+                  <form name="G15Choices">
+                    <p class="pt9-black"><span name="G15choice1" class="pt9-black"> 
+                      <input name="G15RadioInp" type="radio" onClick="G15.e['choice1'].update()">
+                      </span><span class="pt9-black"><span name="G15choice1">每秒百万次浮点操作次数<br>
+                      </span></span> <span name="G15choice2" class="pt9-black"> 
+                      <input name="G15RadioInp" type="radio" onClick="G15.e['choice2'].update()">
+                      </span><span name="G15choice2">计算机组成是计算机系统结构的逻辑实现<br>
+                      </span> </p>
+                  </form>
+                  <form name="G15controls">
+                  </form>
+                </div>
+                <script language="JavaScript">
+<!--
+  // Copyright 1998,1999 Macromedia, Inc. All rights reserved.
+  function newG15() {
+    G15 = new MM_interaction('G15',1,0,0,null,0,0,0,'','','c','',0);
+    G15.add('inpt','choice1',0,1,1,0);
+    G15.add('inpt','choice2',0,1,0,0);
+    G15.init();
+    G15.am('segm','Segment: Check Time_',1,1);
+    G15.am('cond','Time At Limit_','G15.timeAtLimit == true',0);
+    G15.am('actn','Popup Message','MM_popupMsg(\'You are out of time\')','pm');
+    G15.am('actn','Set Interaction Properties: Disable Interaction','MM_setIntProps(\'G15.setDisabled(true);\')','sp');
+    G15.am('end');
+    G15.am('segm','Segment: Correctness_',1,0);
+    G15.am('cond','Correct_01','G15.correct == true',0);
+    G15.am('actn','Popup Message','MM_popupMsg(\'   正确\')','');
+    G15.am('end');
+    G15.am('cond','Incorrect_01','G15.correct == false',0);
+    G15.am('actn','Popup Message','MM_popupMsg(\'    错误\')','');
+    G15.am('end');
+    G15.am('cond','Unknown Response_','G15.knownResponse == false',0);
+    G15.am('actn','Popup Message','MM_popupMsg(\'请重新输入\')','');
+    G15.am('end');
+    G15.am('segm','Segment: Check Tries_',1,1);
+    G15.am('cond','Tries At Limit_','G15.triesAtLimit == true',0);
+    G15.am('actn','Popup Message','MM_popupMsg(\'You are out of tries\')','pm');
+    G15.am('actn','Set Interaction Properties: Disable Interaction','MM_setIntProps(\'G15.setDisabled(true);\')','sp');
+    G15.am('end');
+  }
+  if (window.newG15 == null) window.newG15 = newG15;
+  if (!window.MM_initIntFns) window.MM_initIntFns = ''; window.MM_initIntFns += 'newG15();';
+//-->
+</script>
+                <cbi-select object="G15"></interaction> </td>
+            </tr>
+          </table>
+          <p class="pt9-black">&nbsp;</p>
+         
+          <interaction name="MultCh_TrueFalse01" object="G01" template="010_Multiple Choice/010_MultCh_TrueFalse_03.agt" includesrc="interactionClass.js,elemInptClass.js"> 
+          <div name="G01Layer"> </div>
+          </interaction>
+<p class="pt9-black"><b>二.简答</b></p>
+          <form name="form4" method="post" action="">
+            <table width="71%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td colspan="3"> 
+                  <p class="pt9-black">1.如果有一个经解释实现的计算机，可以按功能划分为4级。每一级为了执行一条指令需要下一级的N条指令解释。若执行第一级的一条指令需Kns的时间，那么执行第2、3、4级的一条指令各需要用多少时间？<br>
+                  </p>
+                </td>
+              </tr>
+              <tr> 
+                <td width="3%">&nbsp;</td>
+                <td width="47%"> 
+                  <textarea name="textarea2" rows="2" cols="70"></textarea>
+                  <input type="hidden" name="hiddenField22242222">
+                </td>
+                <td width="50%">&nbsp;</td>
+              </tr>
+              <tr> 
+                <td width="3%" rowspan="2">&nbsp;</td>
+                <td width="47%"> 
+                  <div align="center"> 　　 </div>
+                </td>
+                <td width="50%" rowspan="2">&nbsp;</td>
+              </tr>
+              <tr> 
+                <td width="47%"> 
+                  <div align="center">
+                    <input type="reset" name="Submit2222222222" value="重置">
+                    <input type="button" name="Submit32242222" value="答案" onClick="MM_openBrWindow('01.htm','','width=300,height=150')">
+                    　　 </div>
+                </td>
+              </tr>
+            </table>
+          </form>
+          <form name="form4" method="post" action="">
+            <table width="71%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td colspan="3"> 
+                  <p class="pt9-black">2.试以实例说明计算机系统结构、计算机组成与计算机实现之间的相互关系。<br>
+                  </p>
+                </td>
+              </tr>
+              <tr> 
+                <td width="3%">&nbsp;</td>
+                <td width="47%"> 
+                  <textarea name="textarea5" rows="2" cols="70"></textarea>
+                  <input type="hidden" name="hiddenField2224222">
+                </td>
+                <td width="50%">&nbsp;</td>
+              </tr>
+              <tr> 
+                <td width="3%" rowspan="2">&nbsp;</td>
+                <td width="47%"> 
+                  <div align="center"> 　　 </div>
+                </td>
+                <td width="50%" rowspan="2">&nbsp;</td>
+              </tr>
+              <tr> 
+                <td width="47%"> 
+                  <div align="center">
+                    <input type="reset" name="Submit222222222" value="重置">
+                    <input type="button" name="Submit3224222" value="答案" onClick="MM_openBrWindow('02.htm','','width=400,height=200')">
+                    　　 </div>
+                </td>
+              </tr>
+            </table>
+          </form>
+          <form name="form4" method="post" action="">
+            <table width="71%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td colspan="3"> 
+                  <p class="pt9-black">3.假设高速缓存Cache工作速度为主存的5倍，且Cache被访问命中的概率为90%，则采用Cache后，能使整个存储系统获得多高的加速比？<br>
+                  </p>
+                </td>
+              </tr>
+              <tr> 
+                <td width="3%">&nbsp;</td>
+                <td width="47%"> 
+                  <textarea name="textarea3" rows="2" cols="70"></textarea>
+                  <input type="hidden" name="hiddenField222422">
+                </td>
+                <td width="50%">&nbsp;</td>
+              </tr>
+              <tr> 
+                <td width="3%" rowspan="2">&nbsp;</td>
+                <td width="47%"> 
+                  <div align="center"> 　　 </div>
+                </td>
+                <td width="50%" rowspan="2">&nbsp;</td>
+              </tr>
+              <tr> 
+                <td width="47%"> 
+                  <div align="center">
+                    <input type="reset" name="Submit22222222" value="重置">
+                    <input type="button" name="Submit322422" value="答案" onClick="MM_openBrWindow('03.htm','','width=300,height=150')">
+                    　　 </div>
+                </td>
+              </tr>
+            </table>
+          </form>
+          <form name="form4" method="post" action="">
+            <table width="71%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td colspan="3"> 
+                  <p class="pt9-black">4.什么是透明性概念？对计算机系统结构，下列哪些是透明的？哪些是不透明的？存贮器的模m交叉存取；浮点数据表示；I/O系统是采用通道方式还是I/O处理机方式；数据总线宽度；阵列运算部件；通道是采用结合型的还是独立型的；PDP-11系列中的单总线结构；访问方式保护；程序性中断；串行、重叠还是流水控制方式；堆栈指令；存贮最小编址单位；Cache存贮器。<br>
+                  </p>
+                </td>
+              </tr>
+              <tr> 
+                <td width="3%">&nbsp;</td>
+                <td width="47%"> 
+                  <textarea name="textarea4" rows="2" cols="70"></textarea>
+                  <input type="hidden" name="hiddenField22242">
+                </td>
+                <td width="50%">&nbsp;</td>
+              </tr>
+              <tr> 
+                <td width="3%" rowspan="2">&nbsp;</td>
+                <td width="47%"> 
+                  <div align="center"> 　　 </div>
+                </td>
+                <td width="50%" rowspan="2">&nbsp;</td>
+              </tr>
+              <tr> 
+                <td width="47%"> 
+                  <div align="center">
+                    <input type="reset" name="Submit2222222" value="重置">
+                    <input type="button" name="Submit32242" value="答案" onClick="MM_openBrWindow('04.htm','','width=300,height=150')">
+                    　　 </div>
+                </td>
+              </tr>
+            </table>
+          </form>
+          <form name="form4" method="post" action="">
+            <table width="71%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td colspan="3"> 
+                  <p class="pt9-black">5.假设一计算机可用两种运行方式，即常规方式与提高方式执行一个程序，其概率分布分别为{ 
+                    ，1- }。<br>
+                    (a) 假如 在a与b之间变动，0 a&lt;b 1，试用调和均值概念推导平均加速比因子表达式。（<img src="images/01.gif" width="173" height="48" align="absmiddle"> 
+                    , n为性能提高的倍数）<br>
+                    (b) 试计算a 0和b 1时的加速比因子。<br>
+                  </p>
+                </td>
+              </tr>
+              <tr> 
+                <td width="3%">&nbsp;</td>
+                <td width="47%"> 
+                  <textarea name="textarea6" rows="2" cols="70"></textarea>
+                  <input type="hidden" name="hiddenField2224">
+                </td>
+                <td width="50%">&nbsp;</td>
+              </tr>
+              <tr> 
+                <td width="3%" rowspan="2">&nbsp;</td>
+                <td width="47%"> 
+                  <div align="center"> 　　 </div>
+                </td>
+                <td width="50%" rowspan="2">&nbsp;</td>
+              </tr>
+              <tr> 
+                <td width="47%"> 
+                  <div align="center"> 
+                    <input type="reset" name="Submit222222" value="重置">
+                    <input type="button" name="Submit3224" value="答案" onClick="MM_openBrWindow('05.htm','','width=300,height=230')">
+                    　　 </div>
+                </td>
+              </tr>
+            </table>
+          </form>
+          <p>&nbsp;</p>
+        </div>
+      </td>
+    </tr>
+    <tr> 
+      <td valign="top" height="28"> <interaction name="MultCh_ImageChkboxes02" object="G02" template="010_Multiple Choice/060_MultCh_ImageChkboxes_04.agt" includesrc="interactionClass.js,elemIbtnClass.js"> 
+        <div name="G02Layer"> </div>
+        </interaction> </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

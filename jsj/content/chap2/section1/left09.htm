@@ -1,0 +1,49 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第二章 指令系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><span class="pt9-black"><br>
+            <b class="part">2.1.4 浮点数格式的设计</b></span></p>
+          <p align="left" class="pt9-black">　　定义一种浮点数表示方式需要确定6个参数，这6个参数的确定原则如下：<br>
+            　　1、尾数m的数制和码制。主要从运算简单、表数直观等方面来考虑。目前多数机器用小数、原码表示，只有早期的一些没有硬件乘除法指令的机器采用补码表示。尾数采用原码制表示，虽然加减法比采用补码表示复杂，但乘除法要比采用补码表示简单得多，而且，采用原码表示非常直观。<br>
+            　　另外，尾数采用小数表示能简化运算，特别是乘除法运算。<br>
+            　　2、阶码e的数制和码制，目前一般机器都采用整数、移码（或称增码、偏码、余码等）表示。阶码采用移码表示的主要原因是：使浮点0与机器0一致。如果浮点0与机器0不同，对机器硬件和软件的设计都会产生许多麻烦。例如，要判断运算结果是否为0必须作特殊的处理。然而阶码采用移码表示后，在做浮点乘除法运算时，由于阶码要进行加减运算，移码的加减法运算要比补码复杂。<br>
+            　　由于阶码主要是用来扩大浮点数的表数范围的，因此，它必须用整数表示。<br>
+            　　3、尾数的基值<img src="iamges/gsh1_22.gif" width="14" height="13" align="absbottom">，在上一节中已经得出结论：在浮点数的总字长一定的情况下，尾数的基值<img src="iamges/gsh1_22.gif" width="14" height="13" align="absbottom">选择2，浮点数具有最大的表数范围和最高的表数精度。如果再采用隐藏位表示方法，则这种浮点数表示方法同时又具有最高的表数效率。<br>
+            　　4、阶码的基值<img src="iamges/gsh1_68.gif" width="11" height="13" align="absbottom">，在一般通用计算机中，浮点数阶码的基值都取2，这是因为，在目前的一般计算机中，基本存储单元都是二态的。另外，浮点数中的阶码起指数的作用，主要用来扩大表数范围，阶码采用其它进位制与采用二进制相比并不能扩大浮点数的表数范围，因此，浮点数中的阶码采用二进制是必然的。<br>
+            　　另外两个参数是尾数字长p和阶码字长q，如何确定尾数字长p和阶码字长q，这是本节要解决的主要问题。<br>
+            　　目前，多数计算机的短浮点数是32位（二进制），长浮点数是64位，尽管在早期计算机中，浮点数的字长有16位、24位、36位、48位等多种，但这些计算机目前已经很少使用。在浮点数总字长中，除了尾数符号和阶码符号各占一个二进制位之外，其余都由尾数字长p和阶码字长q占据。<br>
+            　　在前一节的分析中已经介绍过，在浮点数表示方式中，尾数字长p主要影响表数精度，阶码字长q主要影响表数范围，而浮点数的表数范围和表数精度是浮点数的两个最主要的特性。<br>
+            　　浮点数的表数范围和表数精度是从计算机的实际应用领域中提出来的，不同的应用领域对浮点数的表数范围和表数精度可能有不同的要求。以下，主要介绍在浮点数的表数范围和表数精度给定的情况下，如何具体确定浮点数的尾数字长p和阶码字长q，即设计浮点数的格式。 
+            <br>
+          </p>
+          <p align="left"><span class="pt9-black">　</span></p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

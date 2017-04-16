@@ -1,0 +1,50 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第八章 并行处理机和多处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><span class="pt9-black"> 　　* Active Message通信机制<br>
+            　　通信协议的用户态实现以及协议的精简这两种方法都是针对传统通信协议在实现方法上所做的改进，而Active Message则是一种全新的通信机制，能够更为有效地提高通信系统的性能。<br>
+            <br>
+            　　1 Active Message的原理<br>
+            　　在Active Message通信方式下，消息的数据结构与传统的消息传递机制有所不同，它除了包含通常的数据项外，还增加了两项内容：消息处理程序指针Handler和参数。由于消息中包含消息处理程序指针，当消息到达目的结点后系统立即产生中断调用，并由中断处理机制启动消息处理程序。消息处理程序的功能是从网卡上取出消息并给发送方发送一个应答消息，然后返回原来被中断的程序。<br>
+            <br>
+            　　2 Active Message机制的特点<br>
+            　　1) Active Message消息处理方式与网络硬件的处理方式相一致。对大多数网络硬件系统来说，当它接收到一个消息数据包后，立即会产生一个优先级很高的中断，通知操作系统消息已经到达，此时操作系统会调用相应的中断处理程序来接收并处理到达的消息。这是一个完全异步的消息处理过程。Active 
+            Message正是直接使用了网络硬件提供的功能，让消息包的发送方预先指定好接收方用于处理该消息的函数，当消息数据包到达接收方时，这个预先指定的函数被调用来处理此消息。可见Active 
+            Message通信机制恰好顺应了网络硬件的通信过程，使得它能够更有效地发挥网络硬件的性能，有利于通信效率的提高。而传统的通信机制可实现同步通信和异步消息传输两种方式。前者通常采用&quot;停-等&quot;协议实现消息的可靠传输，与硬件的消息处理方式并不一致；后者则是通过引入复杂的缓冲管理机制来实现的，由于所有收到的消息首先要存放在缓冲器中，然后等待应用程序来处理，因此其软件处理开销较大，降低了通信系统的效率。研究表明，如果软、硬件操作模式之间的差异越大，则通信效率越低。使软件操作模式与网络硬件的消息处理方式相一致，以提高通信效率，即是提出这种Active 
+            Message通信机制的基本思想。<br>
+            　　2) Active Message通信机制是一种消息驱动的异步通信方式。异步通信最大的优点是能够实现通信与计算的重叠。与传统的异步通信方式相比，这种方式具有更大优越性。其原因首先是消息驱动能使CPU获得较高的利用率；第二个关键原因是接收方收到的数据是由消息处理程序Handler提交给应用程序，特别是当这种提交过程能由网卡上的处理器来完成时，就可使得CPU的计算与数据提交能够同时进行。<br>
+            　　3) Active Message通信机制能够简化缓冲管理。对数据接收方而言，由于在用户程序中已经预先分配了存储空间，接收到的数据可以直接存放到那里，因此在接收方可以取消缓冲 
+            ；对数据发送方而言，如果消息是大数据包，则需要把大数据包分割成若干块小的数据包放到缓冲中进行管理。如果消息是小数据包，由于Active 
+            Message通信处理小数据包的开销小，网络不易拥塞，使得网卡自身拥有的缓冲就足够用了，不需要另行分配缓冲进行管理。<br>
+            <br>
+            </span></p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

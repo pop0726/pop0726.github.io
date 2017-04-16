@@ -1,0 +1,28 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+          <td class="explaination"> <br>
+            　　在这种情况下经常采用另一种方案。在这种模型中，存在一个称为名字服务器（name server），有时称作名录服务器（dictionary 
+            server）的特殊进程。为了找到与一个给定服务名称（如定时服务器（&quot;time-of-day&quot;））相对应的TSAP地址，用户要与该名字服务器（它一直在侦听一个众所周知的TSAP）建立一个连接。接着，用户向名字服务器发送一个报文，指明服务的名称，而名字服务器则将相应的TSAP地址返回给用户。接下来，用户释放与名字服务器之间的连接，而与希望得到的服务之间建立-个新的连接。<br>
+            <br>
+            　　在这种模型中，当创建一个新的服务时，必须向名字服务器注册，给出它的服务名称（一般是ASCII码字符串）及其TSAP地址。名字服务器将这些信息记录在其内部数据库中，以便以后能够回答收到的查询。<br>
+            <br>
+            　　名字服务器的功能类似于电话系统中的查号辅助操作员--它提供从名字到号码的映射。正如在电话系统中一样，关键是由名字服务器（或初始连接协议中的进程服务器）所使用的众所周知的TSAP地址确实应该是用户所熟悉的。如果你根本就不知道查号台的号码，就谈不上让查号台话务员来查询任何信息。如果你认为你所拨的信息查询号码是清楚的，那么只要有机会你在国外也可以试一下。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

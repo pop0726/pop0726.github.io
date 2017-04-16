@@ -1,0 +1,53 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第八章 并行处理机和多处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><span class="pt9-black"> 　　(3) MPI<br>
+            <br>
+            　　MPI(Message Passing Interface)是一个新的消息传递标准, 是由MPI委员会在1992年11月至1994年元月举行的一系列会议上逐渐产生的。该委员会由来自约40个研究院所和几乎所有的MPP销售商, 
+            以及世界范围内涉及并行计算的大学和政府实验室的成员组成。<br>
+            　　MPI能用于大多数并行计算机、计算机机群和异构网络环境，并达到较高的数据传输率，而且还同时具备了公共软件包和厂家专用软件包的优点。除此以外，由于MPI是经过审慎的设计, 
+            并建立地多种消息传递库的基础之上, 所以能博采众长, 扬长补短, 使MPI的功能更加丰富和完善。<br>
+            　　MPI支持C和Fortran两种语言, 编程模型采用SPMD, 它的编程要比PVM容易, MPI系统的特点有:<br>
+            <br>
+            　　1) MPI提供了缓冲区管理的函数, 用户可以决定是完全由系统对发送、接收缓冲区进行管理，还是用户参与部分管理(向系统提交或释放自己的缓冲区), 
+            以便更实际地控制系统的缓冲区空间, 提高系统的安全性。<br>
+            　　2) MPI能运行于异构的网络环境中, 另外, MPI还提供了一些结构和函数, 允许用户构造自己的复杂数据类型, 使得通信更加方便。<br>
+            　　3) MPI通过通信上下文(context)提供通信的安全性, 所有的通信都在一个上下文中进行。接收操作只能接收到同一上下文中发送的消息，即使别的上下文中有任务在发送消息，它也不会去接收。同样，不同上下文中发送的消息也不会混淆。<br>
+            　　4) MPI实现了两个任务间的多种通信方式, 如阻塞式、非阻塞式通信，还有标准式、同步式、缓冲式和预备式发送操作。<br>
+            　　5) 集群通信(collective communication): MPI实现了组内所有任务之间的通信、数据交换及数据处理。在集群通信中，MPI提供了丰富的数据操作函数, 
+            还允许用户定义自己的数据操作函数, 使得通信和数据处理能更有效地结合起来。<br>
+            　　6) 错误处理: 由于MPI提供了可靠的数据传输机制, 发送的消息总能被对方正确地收到, 用户不必检查传输错误、超时错误或其它错误条件。因此，MPI未提供处理通信失败或处理机失败的机制, 
+            它只处理应用程序级的错误, MPI能处理的每个错误都会产生一个MPI异常信息。<br>
+            　　MPI能基于的通信协议比较丰富, 有的协议还不需要调用操作系统提供的通信功能, 因此效率较高, 另外, MPI程序的执行不需要任何守护进程, 
+            其各个并行任务之间的消息传递是直接进行的, 因此MPI比PVM的通信效率高。</span></p>
+          <p align="left">&nbsp;</p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

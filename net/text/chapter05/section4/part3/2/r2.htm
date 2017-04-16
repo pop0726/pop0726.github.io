@@ -1,0 +1,31 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" background="../../../../../image/htmls/right_r5_c3.gif" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="88%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+          <td class="text"> 
+            <p><br>
+              <span class="section">三、连接管理</span><br>
+              <br>
+              <span class="part">　2.释放连接</span><br>
+              <br>
+              　　显然，我们需要采用更为完善的连接释放协议来防止数据丢失。一种方法是采用对称释放方式，每个方向独立释放本方的连接。这种方式中，即使主机已经发出了释放连接TPDU，仍然能够继续接收数据。<br>
+              <br>
+              　　对称释放方式适用于每个用户进程有固定数量的数据需要发送，而且清楚地知道何时发送完毕的情况。其他情况下，决定所有工作是否已经完成和连接是否应该释放是没有把握的。可以预想一种协议，在该协议下，主机1说：&quot;我发送完了。你呢?&quot;如果主机2响应：&quot;我也发送完了。再见。&quot;那么，连接变可以被安全释放。<br>
+              　</p>
+            </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

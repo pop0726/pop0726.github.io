@@ -1,0 +1,474 @@
+<HTML>
+<HEAD>
+<title>计算机网络体系结构</title>
+<SCRIPT language=JavaScript>
+<!--
+/*-------------------------------------------填空题---------------------------------------------*/
+function getKeyWord(form){
+var mykeys=new Array();
+mykeys[0]="电路交换";mykeys[1]="报文交换";mykeys[2]="分组交换";mykeys[3]="分组交换";mykeys[4]="虚电路";mykeys[5]="数据报";mykeys[6]="主机";mykeys[7]="通信子网";mykeys[8]="协议";mykeys[9]="存储转发";mykeys[10]="直通";mykeys[11]="混合";mykeys[12]="SNMP";mykeys[13]="网管工作站";mykeys[14]="MIB";
+
+var answer=new Array();
+for(var I=0;I<mykeys.length;I++) answer[I]="";
+
+var every=form.elements;
+for(var I=0;I<every.length;I++)
+{
+if(every[I].type=="text")
+{
+ if(every[I].value!==null)
+ {var item=parseInt(every[I].name.substr(1))
+  answer[item-1]+=every[I].value;
+  }
+ }
+}
+var newcount="<html><head><title>谢谢您!</title></head><body><center><h2><font color=red>您的测试结果</font></h2></center>";
+var totalscore=0;
+for(var I=0;I<answer.length;I++)
+{
+	if(answer[I].toUpperCase()==mykeys[I].toUpperCase())
+	{
+		var rstr="<font size=2>第"+(I+1)+"个空答案正确!</font><br>";
+		newcount+=rstr;
+		totalscore+=1/15*100;
+	}else
+	{
+		var rstr="<font size=2>第"+(I+1)+"个空答案错误!正确答案为"+mykeys[I]+"</font><br>";
+		newcount+=rstr;
+	}
+
+}
+
+newcount+="<br>您的总成绩为:";
+newcount+=Math.ceil(totalscore);
+newcount+="分";
+newwin=window.open("","","height=400,width=400,scrollbars=yes,resizable=no");
+newwin.document.write(newcount);
+}
+/*-------------选择提----------------------------------------------------------------*/
+function getresultcheck(form)
+{var mykeys=new Array();
+mykeys[0]="b";mykeys[1]="b";mykeys[2]="a";mykeys[3]="c";mykeys[4]="b";mykeys[5]="c";mykeys[6]="c";mykeys[7]="a";mykeys[8]="b";mykeys[9]="d";
+
+
+var answer=new Array();
+for(var I=0;I<mykeys.length;I++) answer[I]="";
+
+var every=form.elements;
+//var lastname="";
+for(var I=0;I<every.length;I++)
+{
+	if(every[I].type=="radio")
+	{
+		/*alert("checkbox:name->"+every[I].name+"value->"+every[I].value);*/
+		if(every[I].checked)
+		{	
+			//var item=parseInt(every[I].name.charAt(1));
+			var item=parseInt(every[I].name.substr(0));/*返回由字符串转换得到的整数*/
+			/*substr返回一个从指定位置开始的指定长度的子字符串。*/
+			answer[item-1]+=every[I].value;
+		}
+	}				
+}
+
+var newcount="<html><head><title>谢谢您!</title></head><body><center><h2><font color=red>您的测试结果</font></h2></center>";
+var totalscore=0;
+for(var I=0;I<answer.length;I++)
+{
+	if(answer[I]==mykeys[I])
+	{
+		var rstr="<font size=2>第"+(I+1)+"题答案正确!</font><br>";
+		newcount+=rstr;
+		totalscore+=1/10*100;//每题分数
+	}else
+	{
+		var rstr="<font size=2>第"+(I+1)+"题答案错误!正确答案为"+mykeys[I]+"</font><br>";
+		newcount+=rstr;
+	}
+
+}
+
+newcount+="<br>您的总成绩为:";
+newcount+=Math.ceil(totalscore);
+newcount+="分";
+newwin=window.open("","","height=400,width=400,scrollbars=yes,resizable=no");
+newwin.document.write(newcount);}
+/*--------------------------------判断题----------------------------------------------------*/
+
+function getresultpanduan(form)
+{var mykeys=new Array();
+
+
+
+var answer=new Array();
+for(var I=0;I<mykeys.length;I++) answer[I]="";
+
+var every=form.elements;
+//var lastname="";
+for(var I=0;I<every.length;I++)
+{
+	if(every[I].type=="checkbox")
+	{
+		/*alert("checkbox:name->"+every[I].name+"value->"+every[I].value);*/
+		if(every[I].checked)
+		{	
+			//var item=parseInt(every[I].name.charAt(1));
+			var item=parseInt(every[I].name.substr(0));/*返回由字符串转换得到的整数*/
+			/*substr返回一个从指定位置开始的指定长度的子字符串。*/
+			answer[item-1]+=every[I].value;
+		}
+	}				
+}
+
+var newcount="<html><head><title>谢谢您!</title></head><body><center><h2><font color=red>您的测试结果</font></h2></center>";
+var totalscore=0;
+for(var I=0;I<answer.length;I++)
+{
+	if(answer[I]==mykeys[I])
+	{
+		var rstr="<font size=2>第"+(I+1)+"题 您答对了!</font><br>";
+		newcount+=rstr;
+		totalscore+=1/0*100;//每题分数
+	}else
+	{
+		var rstr="<font size=2>第"+(I+1)+"题 您答错了!</font><br>";
+		newcount+=rstr;
+	}
+
+}
+
+newcount+="<br>您的总成绩为:";
+newcount+=Math.ceil(totalscore);
+newcount+="分";
+newwin=window.open("","","height=400,width=400,scrollbars=yes,resizable=no");
+newwin.document.write(newcount);
+}
+/*--------------------------------简答题----------------------------------------------------*/
+
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</SCRIPT>
+<style type="text/css">
+<!--
+.unnamed1 {  font-family: "宋体"; font-size: 10pt}
+-->
+</style>
+<link rel="stylesheet" href="../../css/text.css" type="text/css">
+</HEAD>
+
+<BODY text=black bgColor=white leftMargin=0 topMargin=10 marginheight="10" 
+marginwidth="0">
+ <DIV class=p2 align=center></DIV> 
+      <FORM >
+  <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center">
+    <tr>
+      <td class="text"> 
+        <p class="unnamed1"><br>
+          <br>
+          <span class="section">　一、选择题：</span><br>
+          <br>
+          　1.OSI模型的工作是做为一个______。<br>
+          　 
+          <input type=radio  name=1 value=a>
+          A.制造计算机的蓝图<br>
+          　 
+          <input type=radio  name=1 value=b>
+          B.功能准则<br>
+          　 
+          <input type=radio  name=1 value=c>
+          C.传输数据的协议<br>
+          　 
+          <input type=radio  name=1 value=d>
+          D.所有其它组织向它汇报的控制体<br>
+          <br>
+          　2.当数据分组从低层向高层传送时，分组的头要被______。<br>
+          　 
+          <input type=radio  name=2 value=a>
+          A.加上<br>
+          　 
+          <input type=radio  name=2 value=b>
+          B.去掉<br>
+          　 
+          <input type=radio  name=2 value=c>
+          C.重新处置<br>
+          　 
+          <input type=radio  name=2 value=d>
+          D.修改<br>
+          <br>
+          　3.多个数据字符组成的数据块之前，以一个或多个同步字符SYN做为开始，帧尾是另一个控制字符，这种传输方案称为______。<br>
+          　 
+          <input type=radio  name=3 value=a>
+          A.面向字符的同步传输<br>
+          　 
+          <input type=radio  name=3 value=b>
+          B.异步传输<br>
+          　 
+          <input type=radio  name=3 value=c>
+          C.面向位的同步传输<br>
+          　 
+          <input type=radio  name=3 value=d>
+          D.起止式传输<br>
+          <br>
+          　4.数据链路层中的数据块常被称作______。<br>
+          　 
+          <input type=radio  name=4 value=a>
+          A.信息<br>
+          　 
+          <input type=radio  name=4 value=b>
+          B.分组<br>
+          　 
+          <input type=radio  name=4 value=c>
+          C.帧<br>
+          　 
+          <input type=radio  name=4 value=d>
+          D.比特流<br>
+          <br>
+          　5.ISO为运输层定义了4种类型的服务原语，由运输层服务用户产生的原语是______。<br>
+          　 
+          <input type=radio  name=5 value=a>
+          A.请求原语 指示原语<br>
+          　 
+          <input type=radio  name=5 value=b>
+          B.请求原语 响应原语<br>
+          　 
+          <input type=radio  name=5 value=c>
+          C.指示原语 确认原语<br>
+          　 
+          <input type=radio  name=5 value=d>
+          D.相应原语 确认原语<br>
+          <br>
+          　6.表示层的功能是______。<br>
+          　 
+          <input type=radio  name=6 value=a>
+          A.给物理层送一串位以供传输<br>
+          　 
+          <input type=radio  name=6 value=b>
+          B.在屏幕上显示数据以供用户查看<br>
+          　 
+          <input type=radio  name=6 value=c>
+          C.将数据转换成一种默认格式<br>
+          　 
+          <input type=radio  name=6 value=d>
+          D.上述全是<br>
+          <br>
+          　7.______层决定同步点的位置。<br>
+          　 
+          <input type=radio  name=7 value=a>
+          A.数据链路层<br>
+          　 
+          <input type=radio  name=7 value=b>
+          B.网络层<br>
+          　 
+          <input type=radio  name=7 value=c>
+          C.会话层<br>
+          　 
+          <input type=radio  name=7 value=d>
+          D.表示层<br>
+          <br>
+          　8.ATM技术是一种______。<br>
+          　 
+          <input type=radio  name=8 value=a>
+          A.类似于高速电话交换的包交换技术<br>
+          　 
+          <input type=radio  name=8 value=b>
+          B.提供低耗数据传输的串行电缆技术<br>
+          　 
+          <input type=radio  name=8 value=c>
+          C.允许数据在非高峰时间传输的新的WAN解决方法<br>
+          　 
+          <input type=radio  name=8 value=d>
+          D.提供类似以太网特性的光缆策略<br>
+          <br>
+          　9.千兆以太网比快速以太网有______数据传输率和______的碰撞域。<br>
+          　 
+          <input type=radio  name=9 value=a>
+          A.高 、大<br>
+          　 
+          <input type=radio  name=9 value=b>
+          B.高 、小<br>
+          　 
+          <input type=radio  name=9 value=c>
+          C.低 、大<br>
+          　 
+          <input type=radio  name=9 value=d>
+          D.低 、小<br>
+          <br>
+          　10.ISDN中2B＋D 通路中的B和D的意义是______。<br>
+          　 
+          <input type=radio  name=10 value=a>
+          A.4KHZ的模拟话路和内部信令<br>
+          　 
+          <input type=radio  name=10 value=b>
+          B.64KBPS的PCM通路和内部信令<br>
+          　 
+          <input type=radio  name=10 value=c>
+          C.16KBPS的数字通路和带外信令<br>
+          　 
+          <input type=radio  name=10 value=d>
+          D.64KBPS的PCM通路和带外信令<br>
+          <br>
+          　　 
+          <input type='reset' name='Submit3' value='重来'>
+          <input onClick=getresultcheck(this.form) type=button value=提交 name="button">
+          <br>
+          <br>
+          <br>
+          <span class="section">　二、填空题：</span><br>
+          <br>
+          　1.信息交换方式有 
+          <input type=text size=10 name=m1 style='border-color: black black #000000; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 1px; border-left-width: 0px'>
+          ， 
+          <input type=text size=10 name=m2 style='border-color: black black #000000; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 1px; border-left-width: 0px'>
+          ， 
+          <input type=text size=10 name=m3 style='border-color: black black #000000; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 1px; border-left-width: 0px'>
+          3种，其中 
+          <input type=text size=10 name=m4 style='border-color: black black #000000; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 1px; border-left-width: 0px'>
+          方式又分为 
+          <input type=text size=10 name=m5 style='border-color: black black #000000; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 1px; border-left-width: 0px'>
+          和 
+          <input type=text size=10 name=m6 style='border-color: black black #000000; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 1px; border-left-width: 0px'>
+          方式。<br>
+          <br>
+          　2.计算机网络的三个组成部分是 
+          <input type=text size=10 name=m7 style='border-color: black black #000000; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 1px; border-left-width: 0px'>
+          ， 
+          <input type=text size=10 name=m8 style='border-color: black black #000000; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 1px; border-left-width: 0px'>
+          和 
+          <input type=text size=10 name=m9 style='border-color: black black #000000; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 1px; border-left-width: 0px'>
+          。<br>
+          <br>
+          　3.网络交换机的三种交换方式是 
+          <input type=text size=10 name=m10 style='border-color: black black #000000; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 1px; border-left-width: 0px'>
+          ， 
+          <input type=text size=10 name=m11 style='border-color: black black #000000; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 1px; border-left-width: 0px'>
+          和 
+          <input type=text size=10 name=m12 style='border-color: black black #000000; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 1px; border-left-width: 0px'>
+          。<br>
+          <br>
+          　4.对于一个大中型网络，需要一个网络管理系统进行管理。当前流行的各类网管平台软件都支持 
+          <input type=text size=10 name=m13 style='border-color: black black #000000; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 1px; border-left-width: 0px'>
+          协议。驻留在 
+          <input type=text size=10 name=m14 style='border-color: black black #000000; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 1px; border-left-width: 0px'>
+          的网管平台软件可以通过该协议调阅被管的网络结点 
+          <input type=text size=10 name=m15 style='border-color: black black #000000; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 1px; border-left-width: 0px'>
+          中的内容。<br>
+          <br>
+          　　 
+          <input type='reset' name='Submit3' value='重来'>
+          <input type=button name=Button value=提交 onClick=getKeyWord(this.form)>
+          <br>
+          <br>
+          <br>
+          <span class="section">　三、简答题：</span><br>
+          <br>
+          　1.说明曼彻斯特编码方式的优点和缺点，并对比特流01101011写出曼彻斯特的编码图示。<br>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td> 
+              <div align="center"> 
+                <textarea name=textarea cols=50 rows=12></textarea>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <p class="unnamed1"> <br>
+          <br>
+          　2.协议与服务有何区别？有何关系？<br>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td> 
+              <div align="center"> 
+                <textarea name=textarea2 cols=50 rows=12></textarea>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <p class="unnamed1"><br>
+          <br>
+          　3.若两台计算机通过一条1500M的同轴电缆链接，电缆的时延特性为4.33us/KM，考虑与延时有关的其他因素38.5us，网络的传输速率为10Mb/s,假设在检测到总线空时站点就发送，问发送的帧的最短长度是多少字节？<br>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td> 
+              <div align="center"> 
+                <textarea name=textarea3 cols=50 rows=12></textarea>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <p class="unnamed1"><br>
+          <br>
+          　4.常用的对称密钥算法有哪些？常用的公用密钥算法有哪些？它们有什么优缺点？<br>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td> 
+              <div align="center"> 
+                <textarea name=textarea4 cols=50 rows=12></textarea>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <p class="unnamed1"><br>
+          <br>
+          　5.设某路由器建立了如下的路由表：<br>
+          　　　<img src="../../image/pic/test/1.gif"><br>
+          　　此路由器可以直接从接口0和接口1转发分组，也可通过相邻的路由器R2、R3和R4进行转发。现共收到5个分组，其目的站IP地址分别为：<br>
+          　　（1） 128.96.39.250<br>
+          　　（2） 128.96.40.1<br>
+          　　（3） 128.96.40.126<br>
+          　　（4） 192.4.153.90<br>
+          　　（5） 192.3.153.90<br>
+          　　分别计算其下一站。<br>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td> 
+              <div align="center"> 
+                <textarea name=textarea5 cols=50 rows=12></textarea>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <p class="unnamed1"><br>
+          <br>
+          　6.MTP和POP协议都是我们在E-MAIL中经常用到的协议,试说明两种协议的不同用处。<br>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td> 
+              <div align="center"> 
+                <textarea name=textarea6 cols=50 rows=12></textarea>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <p class="unnamed1"><br>
+          <br>
+          　7.什么是虚拟局域网？<br>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td> 
+              <div align="center"> 
+                <textarea name=textarea7 cols=50 rows=12></textarea>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <p class="unnamed1"><br>
+          <br>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td> 
+              <div align="center"> 
+                <input type='reset' name='Submit32' value='重来'>
+                　 
+                <input type=button name=Button2 value=答案 onClick="MM_openBrWindow('answer1.htm','计算机网络','scrollbars=yes,width=470,height=390')">
+              </div>
+            </td>
+          </tr>
+        </table>
+        <p class="unnamed1"> 
+      </td>
+    </tr>
+  </table>
+  <p class="unnamed1"><br>
+</form></BODY></HTML>

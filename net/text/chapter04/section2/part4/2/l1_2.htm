@@ -1,0 +1,41 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td colspan="2"><br>
+            <span class="point">・控制：<br>
+            </span><span class="text">　　用于序号和帧类型表示。见图4.10。</span><br>
+            　</td>
+        </tr>
+        <tr> 
+          <td valign="top" width="25"><img src="../../../../../image/tub/ts.gif" width="25" height="20" alt="图示"></td>
+          <td> 
+            <div align="center" class="point"><img src="../../../../../image/pic/chapter04/4_10.gif" width="379" height="134"><br>
+              图4.10 控制字段的结构</div>
+          </td>
+        </tr>
+        <tr> 
+          <td valign="top" colspan="2"><br>
+            <span class="point">・数据：</span><br>
+            <span class="text">　　数据字段用于传输用户数据。数据链路对HDLC提供完全透明的信息传输。数据字段可由任意比特组成。其长度在理论上没有限制。<br>
+            　　但实际上常受下列因素的制约，如帧检验字段的检错能力；数据传输率；通信站缓冲器大小等等。因此在实际应用中，常根据上述因素综合权衡，规定出一帧的总长度和对超长帧的处理办法。目前国际上用的最多的是1000-2000位左右的长度。在x.25协议中，信息字段的最大长度一般为128字节或256字节。<br>
+            </span><br>
+            <span class="point">・校验和：</span><br>
+            <span class="text">　　帧校验和字段共16比特，采用循环冗余校验方法，用来检查所接收的信息是否在传输过程中发生了差错。生成多项式是CRC-CCITT：x<sup><font size="1">16</font></sup>+x<sup><font size="1">12</font></sup>+x<sup><font size="1">5</font></sup>+1。校验的范围包括地址字段到信息字段的全部比特位。<br>
+            　</span></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

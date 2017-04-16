@@ -1,0 +1,46 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第三章 存储系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><span class="pt9-black"><b class="part">3.4.3 全cache技术</b><br>
+            <br>
+            　　以上，介绍了两个存储系统，一个是由Cache和主存储器构成的Cache存储系统，另一个是由主存储器和辅助存储器（磁盘存储器中的一部分）构成的虚拟存储器。但是，从系统程序员所看到的存储系统，或者从CPU对存储系统的要求看，只看到一个存储器，而且也希望只有一个存储器，就是前面提到过的存储系统的等效存储器。这个存储器工作速度很高，采用按地址随机访问的方式工作。至于这个存储器如何构成，软件与硬件的分工等，则是具体的实现方法而已。<br>
+            　　最简单，也是最直接的实现方法是：用一个速度很高（与Cache的速度相当），存储容量很大（与虚拟地址空间的容量相当），能够按地址随机访问的存储器来实现。当然，还要考虑实现的成本能否被大家所接受。但是，就目前的硬件技术来看，采用这种方法来实现是根本做不到的。也许，在将来能够做到。 
+            <br>
+            　　根据目前的硬件实现技术，除了上面介绍的采用Cache、主存和辅存（磁盘存储器中的一部分）三个存储器构成两个两级存储系统和一个三级存储系统的方法之外，还有一种新的实现方法。就是不用主存储器，只用Cache和辅存两个存储器构成&quot;Cache-辅存&quot;存储系统。这种存储系统简称为全Cache（all-Cache）存储系统。<br>
+            　　全Cache存储系统的等效访问周期与Cache很接近，等效存储容量就是虚拟地址空间的容量。<br>
+            　　目前，全Cache存储系统还处于实验阶段，并没有商用化。在多处理机系统中，一种全Cache存储系统的方案如图3.47所示。<br>
+            　　由于作为辅存的磁盘存储器，它的基本访问单位是物理块，每个物理块的容量是512个字节，因此，与磁盘存储器连接的局部Cache，它的块容量一般也是512个字节。其它Cache的块容量可以比512个字节小，也可以比512个字节大，一般只要取整数倍的关系即可。<br>
+            　　最后，应当指出，上面介绍的虚拟存储系统和Cache存储系统只是在目前的硬件和软件的实现技术条件下提出来。随着硬件和软件技术的发展，这些实现技术也并不总是有用的。例如，磁盘阵列和闪烁存储器的逐渐实用化，对实现全Cache存储系统是非常有力的支持。特别是闪烁存储器，很有可能成为代替磁盘存储器和主存储器的一种新型存储器，从而改变目前的存储系统组织方式。</span></p>
+          <p align="center"><span class="pt9-black"><img src="images/tu3_47.jpg" width="423" height="189"><br>
+            </span><br>
+          </p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

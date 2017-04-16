@@ -1,0 +1,57 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第七章 互连网络</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black"><b>4. 均匀洗牌置换</b><br>
+            <br>
+            　　均匀洗牌置换是将输入端分成数目相等的两半，前一半和后一半按序一个隔一个地从头至尾依次与输出端相连。这好比洗扑克牌时，将整副牌分成相等的两叠来洗。达到理想的一张隔一张的均匀情况。故称为均匀洗牌置换，或简称为洗牌置换。其函数关系可表示为：<br>
+            　　　<img src="iamges/gsh1_19.gif" width="269" height="23" align="absmiddle"> 
+            <br>
+            　　由此表达式可见，洗牌变换是将输入端二进制地址循环左移一位即得到对应的输出端二进制址。<br>
+            　　此外，还可以分别定义子洗牌（subshuffle）<img src="iamges/gsh1_20.gif" width="24" height="16" align="absmiddle"> 
+            和超洗牌(supershuffle)<img src="iamges/gsh1_20.gif" width="24" height="16" align="absmiddle"> 
+            如下：<br>
+            　　　<img src="iamges/gsh1_21.gif" width="269" height="96" align="absmiddle"> 
+            <br>
+            　　显然成立<br>
+            　　　<img src="iamges/gsh1_22.gif" width="200" height="50"> 
+            <br>
+            　　图7.6示出了N＝8的<img src="iamges/gsh1_23.gif" width="42" height="17" align="absmiddle">和<img src="iamges/gsh1_24.gif" width="22" height="14" align="absmiddle">的变换图形。从图可以看出：子洗牌是将整组数据分成若干个子组，对每个子组完成均匀洗牌变换，超洗牌仍对整组数据进行均匀洗牌变换，但增加了数据变换的宽度。 
+          </p>
+          <p align="center" class="pt9-black"><img src="iamges/tu7_06.jpg" width="446" height="216"></p>
+          <p align="left" class="pt9-black">　　逆均匀洗牌是均匀洗牌的逆函数，它所完成的变换图形如图7.7所示。与图7.6相比，两者的输入端和输出端正好互换了个位置，其函数表达式为：<br>
+            　　　<img src="iamges/gsh1_5F25.gif" width="264" height="22"><br>
+            　　这说明逆洗牌是将输入端二进制地址编号循环右移一位即得到相应的输出端地址。<br>
+            　　均匀洗牌与逆均匀洗牌是两种十分有用的互连函数，以它们代表的链路与以交换置换代表的开关多级组合起来可构成<img src="iamges/gsh1_26.gif" width="65" height="16" align="absmiddle">网络与逆<img src="iamges/gsh1_27.gif" width="75" height="16" align="absmiddle">网络。s函数在实现多项式求值、矩阵转置和FFT等并行运算以及并行排序等方面都得到广泛的应用。</p>
+          <p align="center" class="pt9-black"><img src="iamges/tu7_07.jpg" width="185" height="175"><br>
+            <br>
+          </p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

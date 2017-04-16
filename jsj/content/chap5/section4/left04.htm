@@ -1,0 +1,40 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第五章 标量处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><span class="pt9-black">　　通常，把一个时钟周期内能够同时发射多条指令的处理机称为超标量处理机。超标量处理机的典型结构如图5.47所示，最基本的要求是必须有两套或两条以上完整的指令执行部件。图5.49(b)是典型超标量处理机的指令流水线，为了能够在一个时钟周期内同时发射多条指令，超标量处理机必须有两条或两条以上能够同时工作的指令流水线。高性能超标量处理机通常还有一个先行指令窗口，这个先行指令窗口能够从指令Cache中预取多条指令，并且能够对这些指令进行数据相关性分析和功能部件冲突的检测。超标量处理机的基本的要求是在一个时钟周期内能够同时发射两条或两条以上指令。这里应当特别强调同时发射，因为在一个时钟周期内分时发射多条指令的不属于超标量处理机，而是将要在下面介绍的超流水线处理机。<br>
+            　　目前，在多数超标量处理机中，每个时钟周期发射两条指令，通常不超过4条。由于存在有数据相关和条件转移等问题，采用一般的指令调度技术，理论上的最佳情况是每个时钟周期发射3条指令。对大量程序的模拟统计结果也表明，每个时钟周期发射2至4条指令比较合理。例如，Intel公司的i860、i960、Pentium处理机，Motolora公司的MC88110处理机，IBM公司的Power 
+            6000处理机等每个时钟周期都发射两条指令，美国德州仪器公司（TI）为SUN公司生产SuperSPARC处理机每个时钟周期发射三条指令。</span></p>
+          <p align="center"><span class="pt9-black"><img src="images/tu5_49a.gif" width="537" height="319"><br>
+            <img src="images/tu5_49b.gif" width="555" height="331"> <br>
+            <b>图5.49 单发射与多发射处理机的指令流水线 </b></span></p>
+          <p align="center">&nbsp;</p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+          <td class="explaination"><br>
+            <span class="point">・Hop by hop 选项：</span><br>
+            　　每个路由器必须检查这段信息（具体用法以后决定）。<br>
+            <br>
+            <span class="point">・路由选择：</span><br>
+            　　说明数据报必须经过的路由器（这是一个至多包含24个Ipv6地址的列表）。<br>
+            <br>
+            <span class="point">・分段：</span><br>
+            　　该头部说明这个Ipv6分组包含的是一个大分组的第几段，利用这个扩展头部，目的节点就可以象Ipv4那样重组分组。<br>
+            <br>
+            <span class="point">・身份确认：</span><br>
+            　　该分组头包含一个校验和，使目的节点能确认发送者的身份。<br>
+            <br>
+            <span class="point">・封装的安全负荷：</span><br>
+            　　该头部包括密钥和加密的数据，目的节点能用解密算法从这两项中还原出初始数据，解密算法可由用户选择。<br>
+            <br>
+            <span class="point">・目的节点选项：</span><br>
+            　　该头部可能只被目的节点使用，目前还没有定义。<br>
+            <br>
+            　　IP6的头部在扩展余地方面的结构非常灵活，与Ipv4的头部相比，它没有校验和与分段字段，最小头部比Ipv4要简单，也就非常有效。随着时间的推移，Internet设计者将会开发出一些机制利用这种报头格式，提供范围广泛的服务。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

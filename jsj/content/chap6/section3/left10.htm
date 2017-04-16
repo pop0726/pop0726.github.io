@@ -1,0 +1,41 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第六章　向量处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black">4.稀疏矩阵的处理技术<br>
+            　　矩阵是许多科学与工程计算问题中研究的数学对象。在许多矩阵问题中非零元素往往是很少的。我们把许多元素的值为零的矩阵称为稀疏矩阵。例如在有限元问题中，经常遇到这种稀疏矩阵，其中非零项表示一个体积元素和相邻体积元素之间的相互作用。非零元素的个数与每个体积元素的相邻体积元素的个数有关。一般说来，非零元素的个数只占整个矩阵项数的很少一部分。<br>
+            　　在计算机系统结构方面已经采用了一些方法来解决稀疏矩阵问题。CDCSTAR采用稀疏向量方法。一个稀疏向量由两个向量组成。其中一个是短向量，它仅包含向量的非零元素。另一个是位向量，其&quot;1&quot;表示对应位置为非零元素，&quot;0&quot;表示对应位置为零元素。位向量的长度与稀疏向量的长度相等。如果向量元素是64位的操作数的话，那么现在所需的位数只是原来的1/64。<br>
+            　　当需要访问稀疏向量的时候，CDCSTAR根据位向量来决定对某个特定的单元是否要进行存取。当位向量相应位是零时，就不需要访问了。虽然位向量可以减少访问主存的次数，但是被存取的元素可能在冲突的存储模块中，这就会导致流水线的延迟。这使只访问非零元素而获得的性能提高被抵消掉了。位向量中的零也需一定的额外开销，但比一次完整的存储器访问所需的开销要小得多。<br>
+            　　显然，这种类型的系统结构能对稀疏向量进行各种处理。比如把稀疏形式转换成完整的向量形式，或者反过来。流水结构运算器的输入端可以接收稀疏形式的向量，输出端可以输出稀疏形式的向量。<br>
+            　　这种方法的主要问题是最好情况下用一位信息来代替64位信息。但是大型的稀疏矩阵往往非常稀疏，64比1的节省远远不够。稀疏向量这种方法如何进一步改进仍是一个待研究的问题。<br>
+            　　表示稀疏矩阵的另一种方法是只需存储非零元素，另外把非零元素在原始矩阵中的下标值记录在一个数组中。当访问稀疏矩阵元素时需要把下标值转换成存储器的地址。可以采用Hash方法把下标转换成地址。如果Hash查找发现一个下标，那么表示对应的元素为非零，Hash表中包含对应元素的存储器地址。如果Hash查找失败，表示相应元素为零。采用Hash方法存取数据与Cache查找十分类似，Cache查找可以用流水线方法实现，那么Hash查找也可以用流水线方法实现。因此，这种处理稀疏矩阵的方法在流水结构的计算机中大有用武之地。</p>
+          <p align="left" class="pt9-black">&nbsp;</p>
+          </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

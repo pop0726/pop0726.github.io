@@ -1,0 +1,47 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第六章　向量处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black">　　当发出向量指令时，所要求的功能流水线和操作数寄存器便要预定若干个时钟周期，其值取决于向量长度。使用同一组功能部件或操作数寄存器的后继向量指令在预定被释放之前是不能发出的。两个或更多的向量指令如果是不相关的，便可以同时使用不同功能流水线和不同的向量寄存器。这种并发的指令能以相继的时钟周期发出。图6.14(a)表示了两条独立的指令，其中一条使用加法流水线而另一条使用乘法流水线。图6.14(b)描述了两个独之的向量加法都要求使用加法流水线。当第一条加法指令发出时，加法流水线就被预定了，所以，第二条加法指令就要延迟到加法流水线空闲后才能发出。图6.14(c)表明两条不同的向量指令共享同一个操作数寄存器V1。第一条加法指令预定操作数寄存器V1，使乘法指令要延迟到操作数寄存器V1空闲后才能发出。图6.14(d)说明加法流水线和操作数寄存器V1都被预定的情况。就象操作数寄存器要求预定一样，结果寄存器也需要预定若干个时钟周期，其值取决于向量长度和流水线延迟。这种预定保证了最后结果能正确地传送到结果寄存器。</p>
+          <p align="center" class="pt9-black"><span class="pt9-black"><img src="images/tu6_14_a.gif" width="73" height="31" align="absmiddle"><br>
+            (a)不相关的指令</span></p>
+          <p align="center" class="pt9-black"><img src="images/tu6_14_b.gif" width="74" height="30" align="absmiddle"><br>
+            (b)功能部件的预定</p>
+          <p align="center" class="pt9-black"><img src="images/tu6_14_c.gif" width="75" height="32"><br>
+            (c)操作数寄存器的预定</p>
+          <p align="center" class="pt9-black"><img src="images/tu6_14_d.gif" width="74" height="28"><br>
+            (d)功能部件和操作数寄存器的预定</p>
+          <p align="center" class="pt9-black"><b>图6.14功能部件和操作数寄存器的预定</b></p>
+          <p align="left"><span class="pt9-black">　　结果寄存器可能成为后继指令的操作数寄存器。在Cray 
+            1中，这种技术称为两条流水线的链接(chaining)。流水线链接是从流水线的内部定向概念发展而来的。链接是当从一个流水线部件得到的结果直接送入另一个功能流水线的操作数寄存器时所发生的连接过程。换句话说，中间结果不必送回存储器，而且甚至在向量操作完成以前就使用。链接允许当第一个结果一变成可用的操作数时就马上发出相继的操作。当然，所需要的功能流水线和操作数寄存器必须恰当地预定；否则，链接操作就不得不挂起直到所需要的资源变为可用为止。下面的例子说明Cray 
+            1中的流水线链接。</span></p>
+          <p align="left" class="pt9-black">&nbsp;</p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

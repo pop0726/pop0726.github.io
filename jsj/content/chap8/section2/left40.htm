@@ -1,0 +1,54 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第八章 并行处理机和多处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black">　　(4) 机群系统负载平衡技术的研究状况<br>
+            <br>
+            　　1) 现有系统介绍<br>
+            　　美国Wisconsin-Madison大学的CONDOR系统可以在大多数UNIX平台工作站机群系统上运行。它的设计目的是调度长运行时间的计算作业充分利用空闲工作站进行计算，并保证当空闲工作站的交互式用户开始使用机器时及时撤走它调度的后台任务。CONDOR不需要重新编译用户程序，但需要把它们重新链接。另外，CONDOR研究小组还开发了一个系统接口(CARMI)，将并行环境PVM和CONDOR结合起来实现任务级负载平衡。<br>
+            　　加拿大Platform公司的LSF系统是一个商业化软件。LSF可以看成是一个通用型分布计算系统。它通过对资源的较好利用，把机群系统集合成一个对用户来说是单一的系统。LSF支持串行或并行程序的交互式或批处理式运行，并提供C语言函数库，使用户能够在编写并行程序时利用LSF 
+            的系统功能。LSF核心由LIM和RES两部分组成。其中LIM（Load Information Manager）的功能是负责收集本地负载信息，向Master 
+            LIM报告，由Maser LIM对作业进行分配，并通知相应机器的RES（Remote Execution Server）执行。LSF具有对作业级的任务进行透明的集中式管理、各结点的RES接受远程执行请求并提供透明执行等特点。<br>
+            　　我国吉林大学的ILBOT系统是用于工作站机群系统的智能动态负载平衡软件，它具有使用不同的资源指标来衡量不同类型的作业对资源的需求、使用在线跟踪技术进行作业选择等特点。<br>
+            　　美国Arizona State大学的CALYPSO是一个开发程序中的并行性的并行系统，它向用户提供了一个扩展C++编程语言CSL(Calypso 
+            Source Language)，支持DSM(Distributed Shared Memory)编程模式，相应增加了并行操作原语：shared，parbegin，parend和routine。运行时系统进行动态负载平衡，并具有容错能力。Calypso系统分离了逻辑并行性和物理并行性，使用户无需考虑数据划分和任务分配。<br>
+            <br>
+            　　2) 需进一步研究的问题<br>
+            　　(1) 加强对任务级并行粒度的支持<br>
+            　　独立的负载平衡系统往往只支持粗粒度并行，如作业级并行，而缺乏对并行程序在运行中产生大量并行任务的调度功能。因此目前对任务级的负载平衡依赖于并行计算系统本身。对于象CALYPSO这类并行系统，由于采用对用户透明的DSM模式，本身具有很强的负载平衡机制。然而大多数基于消息传递模式的并行环境如PVM等，因为并行任务的划分由程序员完成，所以基本上没有负载平衡机制。MPI标准也未制定负载平衡的接口。目前LSF和CONDOR的研究人员正在开发相应的任务级负载平衡功能，也有一些研究单位进行独立的任务级负载平衡系统的研究。<br>
+            　　(2) 提高任务分配的准确性 <br>
+            　　动态任务分配虽然具有很高的灵活性，但由于无法对即将派生的任务的性质，诸如任务粒度、同步关系和通信量等作出预测，从而无法准确地进行任务分配。因此某些研究尝试采用神经元学习等预测机制，提高分配准确度。<br>
+            　　(3) 减小额外的网络开销和计算开销<br>
+            　　负载平衡系统占用网络资源过多，如LSF，其对服务器结点的共享采用NFS网络文件系统，从而带来了额外的网络开销。减小开销的途径一是合理调整负载平衡系统的信息交换时机，一是采用局部信息进行分布式调度。后者也是减少调度计算开销的途径之一。</p>
+          <p></p>
+          <p></p>
+          <p align="left">&nbsp;</p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

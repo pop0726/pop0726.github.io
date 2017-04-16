@@ -1,0 +1,33 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+          <td class="explaination"><br>
+            <span class="point">・无类域间路由</span><br>
+            <br>
+            　　无类域间路由CIDR（classless interdomain routing）将子网掩码的思想扩展成可变长的子网掩码。CDIR只保留一个子网所需要（大约）的地址数，这样更有效的利用了地址空间。在CDIR方式中,一组有公共前缀地址的主机可以组成一个子网,这个公共前缀就当成这个子网的网络号。例如 
+            4个C类网络192.0.8.*，192.0.9.*，192.0.10.*和192.0.11.* 共1024个地址，它们有公共的前缀192.0.8,对应的子网掩码是255.255.252.0。另一个子网可能对应前缀192.0.2，还有一个子网可能对应前缀192.0.5。为了识别正确的子网，路由选择按最长匹配前缀的原则进行搜索。例如如果目的地址是192.0.9.123，路由器会找到它所属的子网是192.0.8。<br>
+            <br>
+            　　在给一个部门分配一组IP地址时，若部门内的每个主机都分配一个不同的IP，也许一组IP地址是不够的。但是，可能会出现这样的情况，同时连到Internet 
+            上机器只有很少的几台，因此可以采用临时分配IP地址的方法来共享一组IP地址 （这样的一个例子是ISP，它有许多用户，但每次只有几个登录使用Internet） 
+            。动态主机配置协议DHCP就是为了这个目的而出台的（RFC2131）。在DHCP协议中，需要IP地址的主机用它的MAC地址广播一个DHCP 
+            discover分组，DHCP服务器用一个DHCP offer 分组进行应答，应答分组中包括没被使用的IP，主机在得到的IP地址中选择一个，并用DHCP 
+            request分组广播它的选择，被选定的服务器用DHCP ack进行确认。分配出的IP地址有生命期，必须定期刷新以保持它的有效性。当主机完成任务后，发送一个DHCP 
+            release 分组释放占用的IP地址，否则当超过生命期后，地址自动被释放。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

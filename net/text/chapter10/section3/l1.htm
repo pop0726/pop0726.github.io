@@ -1,0 +1,43 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td class="explaination" colspan="2"><br>
+            　　下<span class="point">图10.24</span>是PGP的工作原理。用户A向用户B发送一个电子邮件明文P，用PGP进行加密。假定A和B都有RSA的秘密密钥Dx和公开密钥Ex，都有对方的公开密钥。<br>
+            <br>
+            　　明文P先经过MD5运算，再用RSA的秘密密钥DA对报文摘要用MD5进行加密，得出H。明文P和RSA的输出H拼接在一起，成为另一个报文P1，经ZIP程序压缩后，得出P1.Z。<br>
+            　</td>
+        </tr>
+        <tr> 
+          <td class="explaination" width="25" valign="top"><img src="../../../image/tub/ts.gif" width="25" height="20" alt="图示"></td>
+          <td class="explaination">
+            <div align="center"><img src="../../../image/pic/chapter10/10_24.gif" width="422" height="183"><br>
+              <span class="point"><br>
+              图10.24 PGP工作原理</span></div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="explaination" colspan="2"><br>
+            　　下一步是对P1.Z进行IDEA加密，使用的是一次一密的加密密钥，即128bit的KM。此外，密钥KM再经过RSA加密，其密钥是B的公开密钥DB。加密后的KM与加密后的P1.Z拼接在一起，用base64进行编码，然后得出ASCII码的文本, 
+            只包括52个字母、10个数字和&quot;+&quot;、&quot;/&quot;、&quot;=&quot;三个符号,发送到Internet上。<br>
+            <br>
+            　　用户B收到加密的邮件后，先进行base64解码，并用其RSA秘密密钥解出IDEA的密钥。用此密钥恢复出P1.Z。对P1.Z进行解压后，还原出P1.B接着分开明文P和加了密的MD5，并用A的公开密钥解出MD5。若与B自己算出的MD5一致，则可认为P是从A发来的邮件。<br>
+            <br>
+            　　从上图可以看出，有2个地方使用了RSA：对128bit的MD5加密和对128bit的IDEA密钥加密。虽然RSA的运算较慢，但这里只对256个bit进行加密，所以问题不明显。<br>
+            　</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

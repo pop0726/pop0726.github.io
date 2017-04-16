@@ -1,0 +1,88 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第二章 指令系统</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left"><span class="section">2.3 指令格式的优化设计</span></p>
+          <p align="left" class="pt9-black">　　由于指令系统是程序设计人员所能看到的计算机的主要属性，它在很大程度上决定了整个计算机系统所具有的基本功能。设计一套好的指令格式，不仅程序设计人员使用起来很方便，硬件实现起来比较容易，而且能够节省大量的程序存储空间。下面，举一个例子来说明。<br>
+            　　表2.4列出了美国Burroughs公司生产的B-1700计算机系统，分别采用8位定长操作码、4-6-10扩展操作码和全Huffman编码时，整个操作系统所用指令的操作码的总长度。从表中可以看出，改进操作码的编码方式可以节省大量的程序存储空间。</p>
+          <p align="center" class="pt9-black"><b>表2.4 B-1700计算机操作码编码方式比较</b><br>
+          </p>
+          <table width="85%" border="1" cellspacing="1" bgcolor="#66CC99">
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center">操作码编码方式</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">整个操作系统所用指令的操作码总位数</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">改进的百分比</div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center">8位定长编码</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">301,248</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">0</div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center">4-6-10扩展编码</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">184,966</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">39％</div>
+              </td>
+            </tr>
+            <tr> 
+              <td class="pt9-black"> 
+                <div align="center">Huffman编码</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">172,346</div>
+              </td>
+              <td class="pt9-black"> 
+                <div align="center">43％</div>
+              </td>
+            </tr>
+          </table>
+          <p align="left" class="pt9-black">　　另外，改进地址码的设计方法，也可以节省大量的程序存储空间。<br>
+            　　指令格式优化设计的主要目标有两个，一是节省程序的存储空间，二是指令格式要尽量规整，以减少硬件译码的复杂程度。另外，指令格式优化后，不应该降低指令的执行速度（例如，由于一条指令在主存储器中存放时，跨越了多个存储字，从而在读取指令时增加了访问存储器的次数）。<br>
+            　　以下，主要介绍操作码和地址码的优化设计方法，最后，举例说明整个指令格式的优化设计方法。</p>
+          <p align="left" class="pt9-black">&nbsp;</p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<html>
+<head>
+<title>计算机网络体系结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td colspan="2"><br>
+            　　<span class="part">开环</span><span class="explaination">的关键在于它致力于通过良好的设计来避免拥塞出现，确保问题在一开始就不会发生，比如决定何时接受新的通信，何时丢弃分组，以及丢弃哪些分组等，它们在作出决定时不考虑当前网络的状态。<br>
+            　　设计人员试图在各种层次上使用恰当的策略来阻止拥塞出现。下表给出数据链路层、网络层和运输层所使用策略对拥塞的影响。</span><br>
+            <span class="explaination">　</span></td>
+        </tr>
+        <tr> 
+          <td class="explaination" width="25" valign="top"><img src="../../../../image/tub/bg.gif" width="25" height="20" alt="表格"></td>
+          <td >
+            <div align="center"><span class="point">表 4.1</span><br>
+              <table width="413" border="0" cellspacing="1" cellpadding="0" bgcolor="#3300CC">
+                <tr bgcolor="#FFFFFF"> 
+                  <td width="79" class="part">　层</td>
+                  <td width="331" class="part">　策略</td>
+                </tr>
+                <tr bgcolor="#FFFFFF"> 
+                  <td width="79" class="explaination">　运输层</td>
+                  <td width="331" class="explaination">　重传策略、失序缓存策略、确认策略、流量控制策略、<br>
+                    　超时探测</td>
+                </tr>
+                <tr bgcolor="#FFFFFF"> 
+                  <td width="79" class="explaination">　网络层</td>
+                  <td width="331" class="explaination">　子网内虚电路/数据报、分组排队及服务、分组丢弃策略、<br>
+                    　路由选择算法、分组生命周期管理</td>
+                </tr>
+                <tr bgcolor="#FFFFFF"> 
+                  <td width="79" class="explaination">　数据链路层</td>
+                  <td width="331" class="explaination">　重传策略、确认策略、流量控制策略、分组丢失策略</td>
+                </tr>
+              </table>
+            　　</div>
+          </td>
+        </tr>
+        <tr> 
+          <td colspan="2"><span class="explaination">　　我们首先从</span><span class="point">数据链路层</span><span class="text">开始分析，重传策略决定超时时限及重发内容。时限太短会很快超时，造成发送方稠密重传，大大加重了系统负荷。时限太长，发送者的重发操作过于松懈，使接收者放弃出错后所有失序的包，这些包在稍后仍要重发，也会引起系统额外负荷。确认策略同样影响着拥塞，如果每个分组立即确认，确认分组产生许多额外的信息量。可是，如果确认被加到传送信息上捎带送回，则可能会引起超时重传。紧密的流控模式(如：小窗口)会减小数据率，但有助于改善拥塞情况。<br>
+            <br>
+            　　在</span><span class="point">网络层</span><span class="text">，虚电路及数据报方式的选择也会影响拥塞。因为许多拥塞控制算法仅对虚电路子网起作用。分组排队和服务策略与处理分组的顺序有关，分组丢弃策略也就是在没有空间时，按什么规则选择丢弃的分组。一个较好的策略可以缓解拥塞，而一个坏的策略则可以使拥塞更严重。路由选择算法的好坏是影响拥塞的重要因素，好的算法可以帮助控制拥塞，而一个不太好的算法都会向已经拥塞的线路上发送更多信息，加重拥塞。最后分组的生命周期也会影响拥塞。周期太长，丢失分组会消耗系统很多时间，防碍正常工作。周期太短，分组可能在到达目的地前夭折，增加了重发概率。<br>
+            </span><br>
+            　　<span class="point">运输层</span><span class="text">与数据链路层存在同样的问题，但确定超时时限更困难。因为在网络中的传输时间要比在两个路由器间的线路上传输时间更难以预测。如果时限太短，会引起不必要重发。 
+            <br>
+            　</span></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<html>
+<head>
+<title>计算机系统结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+<link rel="stylesheet" href="../../../css/text01.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="96%" border="0" cellspacing="3" cellpadding="2" height="100%">
+    <tr>
+      <td valign="top" height="37"> 
+        <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../images/bg0401.gif" height="18" align="right">
+          <tr>
+            <td class="pt10"> 
+              <div align="center" class="title">第五章 标量处理机</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" height="119"> 
+        <div align="center"> 
+          <p align="left" class="pt9-black"><b> 　　方法二，转移目标地址缓冲栈</b><br>
+            <br>
+            　　用一个小容量的高速缓冲栈保存最近执行的k条转移指令的&quot;转移历史表&quot;和转移目标地址，如图5.36所示。&quot;转移指令地址&quot;字段采用全相联方式访问。当程序中执行到一条转移指令时，把当前指令地址与转移目标缓冲栈中的所有转移指令地址进行比较；如果发现有相等的，则根据同一行中的&quot;转移历史表&quot;所记录的历史信息预测本次转移的方向，同时用转移目标地址预取指令。在实际转移条件形成之后，可以根据某一种规则修改&quot;转移历史表&quot;</p>
+          <p align="center" class="pt9-black"><img src="images/tu5_36.jpg" width="285" height="191"></p>
+          <p align="left" class="pt9-black"><b>　　方法三，转移目标指令缓冲栈</b><br>
+            <br>
+            　　当转移指令在指令分析部件中译码时，转移不成功方向上的指令已经被预取到指令缓冲栈中，或者已经存放在指令Cache中，为了能够在转移成功方向上也预取一部分指令，可以把图5.36中的转移目标地址部分改为存放转移目标地址之后的n条指令。设置转移目标指令缓冲栈的转移预测方法如图5.37所示，它的工作原理，预测转移方向的规则和修改&quot;转移历史表&quot;的方法与方法二相同。</p>
+          <p align="center" class="pt9-black"><img src="images/tu5_37.jpg" width="387" height="194"></p>
+          <p align="left"><span class="pt9-black">　　动态转移预测的方法有很多种，预测的准确性除了与程序本身的特性有关之外，还与记录的历史信息的复杂程度有关。一般来说，记录的历史信息愈复杂，其预测的准确性也愈高，当然，所需要的硬件代价也愈大。</span><br>
+            <br>
+          </p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>
