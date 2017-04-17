@@ -1,16 +1,17 @@
 # pop0726.github.io
 
-�й��ղص��廪��ѧ�Ŀγ̰̽�
+托管收藏的清华大学的课程教案
 
 
-ai �˹����ܵ���
-db1  ���ݿ�1
-db2  ���ݿ�2
-jsj  �����ԭ��
-net  ���������
-soft ��������
-pc  ΢�ͼ��������
-ds  ���ݽṹ
-aill �˹�����ԭ��
-aillm �˹�����ԭ��-�о���ˮƽ
-vr ������ʵ��ϵͳ����
+ai 人工智能导论
+db1  数据库1
+db2  数据库2
+jsj  计算机原理
+net  计算机网络
+soft 软件工程
+pc  微型计算机技术
+ds  数据结构
+aill 人工智能原理
+aillm 人工智能原理-研究生水平
+vr 虚拟现实与系统仿真
+#to be continue
