@@ -19,12 +19,12 @@
 [https://pop0726.github.io/pc/]
 ### ds  数据结构
 [https://pop0726.github.io/ds/]
-###aill 人工智能原理
+### aill 人工智能原理
 [https://pop0726.github.io/aill/]
-###aillm 人工智能原理-研究生水平
+### aillm 人工智能原理-研究生水平
 [https://pop0726.github.io/aillm/]
-###vr 虚拟现实与系统仿真
+### vr 虚拟现实与系统仿真
 [https://pop0726.github.io/vr/]
-###cg 计算机图形学
+### cg 计算机图形学
 [https://pop0726.github.io/cg/]
 # to be continued
