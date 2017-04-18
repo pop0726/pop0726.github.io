@@ -1,0 +1,32 @@
+<html>
+<head>
+<!-- #BeginEditable "doctitle" -->
+<title>计算机图形学</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/css.css" type="text/css">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../../images/bg03.gif">
+<div align="center">
+  <table width="90%" border="0" cellspacing="0" cellpadding="0" height="100%">
+    <tr> 
+      <td height="315" valign="top" width="100%" class=text><!-- #BeginEditable "right" --> 
+        <br>
+        Cohen-SutherLand 裁剪算法的基本思想：<br>
+        &nbsp;&nbsp;对每条线段P<sub>1</sub>P<sub>2</sub>：<br>
+        1） 判断端点在裁剪区域内、外：<br>
+        <li> P<sub>1</sub>P<sub>2</sub>完全在视区内，保存之；<br>
+        <li> P<sub>1</sub>P<sub>2</sub>完全在视区外，舍弃之；<br>
+          2） 上述两条件均不满足，则计算图形与裁剪边界的交点，将该线段分为分别位于裁剪区域内、外的两段，再重复1）。<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;在分段时，依据端点的区域码分别计算线段与各条裁剪边界的交点，如图3.10所示，对P<sub>1</sub>就需要分别计算交点P<sub>3</sub>和P<sub>4</sub>；即只要按顺序检测端点区域码的每一位，当某位不为0时，才把线段与对应的裁剪边界进行求交。 
+          <p><span class="text"><span class="blue">二、中点分割算法</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp; 与Cohen-Sutherland算法基本原理相似，只不过在第III种情况下是将线段分为均匀两段，分别测试，直至每条线段完全在裁剪区域内或裁剪区域外为止。</span><br>
+            <br>
+          </p>
+        <!-- #EndEditable --></td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

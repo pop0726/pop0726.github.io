@@ -1,0 +1,63 @@
+<html>
+<head>
+<!-- #BeginEditable "doctitle" -->
+<title></title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/css01.css" type="text/css">
+<link rel="stylesheet" href="../../../../css/css.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center"> 
+  <table width="95%" border="0" cellspacing="3" cellpadding="2" height="49%" class="text">
+    <tr> 
+      <td valign="top" height="883" width="100%"><!-- #BeginEditable "left" --> 
+        <p><img src="../../../../images/but/tushi.gif" width="25" height="20" align="absmiddle"> 
+          图6.19 翼边结构 
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td>
+              <div align="center"><img src="../../../../images/pic/chap06/mo6_355.gif"></div>
+            </td>
+          </tr>
+        </table>
+        <br>
+        ��翼边结构程序实现由五种结点Solid、Face、Loop、Edge和Vertex组成。下面对各结点简略描述如下：
+<p>��Solid 构成一个物体的根节点。具体包括：<br>
+          ����Solid ID;<br>
+          ����指向face的链表指针；<br>
+          ����指向edge的链表指针；<br>
+          ����指向vertex的链表指针；</p>
+        <p> ��Face 表示多面体的一个小平面,包括：<br>
+          ����Face ID ；<br>
+          ����指向face的链表首元素的指针；<br>
+          ����指向face的下一元素的指针；<br>
+          ����指向face的外环指针；</p>
+        <p><br>
+          ��Loop 表示一个面的外环和所有内环的双向链表。包括：<br>
+          ����LoopID；<br>
+          ����指向Loop的后继指针；<br>
+          ����指向Loop的前驱指针；</p>
+        <p>��Edge 由Edge节点构成，是整个数据结构的核心，每个Edge结点代表一条边，包括：<br>
+          ����Edge ID ;<br>
+          ����Edge的起始顶点指针；<br>
+          ����Edge的终止顶点指针；<br>
+          ����Edge的右邻面的外环指针；<br>
+          ����Edge的左邻面的外环指针；<br>
+          ����Edge的右方向向前邻边指针；<br>
+          ����Edge的右方向向后邻边指针；<br>
+          ����Edge的左方向向前邻边指针；<br>
+          ����Edge的左方向向后邻边指针；</p>
+        <p>��Vertex 由vertex节点构成，包括：<br>
+          ����Vertex ID ;<br>
+          ����顶点坐标(x,y,z) ;<br>
+          ����指向与该vertex相连的第一条边指针；<br>
+          ����指向下一个Vertex结点指针；</p>
+        <!-- #EndEditable --></td>
+    </tr>
+  </table>
+  
+</div>
+</body>
+</html>

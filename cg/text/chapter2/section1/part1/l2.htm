@@ -1,0 +1,53 @@
+<html>
+<head>
+<!-- #BeginEditable "doctitle" -->
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/css01.css" type="text/css">
+<link rel="stylesheet" href="../../../../css/css.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="95%" border="0" cellspacing="3" cellpadding="2" height="100%" class="pt9">
+    <tr> 
+      <td valign="top" height="457"><!-- #BeginEditable "left" --><b><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman";mso-font-kerning:
+0pt;mso-ansi-language:ZH-CN'><img src="../../../../images/but/chengxu.gif" width="28" height="25" align="absmiddle"></span></b> 
+       算法2.1  画斜率0≤k≤1的直线的改进的Bresenham画线算法： <br>
+        <span class="orange">�void BresenhamLine (int x<sub>0</sub>, int y<sub>0</sub>, int x<sub>1</sub>, int 
+        y<sub>1</sub>, long color)<br>
+        �{ <br>
+        ��int x, y, dx, dy;<br>
+        ��float k, e;<br>
+        ��dx = x<sub>1</sub>-x<sub>0</sub>；<br>
+        ��dy = y<sub>1</sub>- y<sub>0</sub>；<br>
+        ��e=-dx;<br>
+        ��x = x<sub>0</sub>；<br>
+        ��y = y<sub>0</sub>；<br>
+        ��if (dx = = 0) <br>
+        ��{<br>
+        ���for (i=0；i≤dy；i++)<br>
+        ���{<br>
+        ����DrawPixel (x, y+i, color)；//画像素（x,y+i）<br>
+        ���}<br>
+        ���return;<br>
+        ��}<br>
+        ��for (i=0；i≤dx；i++)<br>
+        ��{<br>
+        ���DrawPixel (x, y, color)；//画像素（x,y）<br>
+        ���x++；<br>
+        ���e += e+2*dy；<br>
+        ���if (e≥0)<br>
+        ���{ <br>
+        ����y++；<br>
+        ����e -＝ 2*dx；<br>
+        ���}<br>
+        ��}<br>
+        �} </span><!-- #EndEditable --></td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

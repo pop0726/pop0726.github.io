@@ -1,0 +1,144 @@
+<html>
+<head>
+<!-- #BeginEditable "doctitle" -->
+<title>计算机图形学</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/css.css" type="text/css">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../../images/bg03.gif">
+<div align="center">
+  <table width="90%" border="0" cellspacing="0" cellpadding="0" height="100">
+    <tr> 
+      <td height="171" valign="top" width="100%" class=text><!-- #BeginEditable "right" --> 
+        <span class="blue"><br>
+        8.2.2 高若德(Gouraud)明暗绘制方法</span><br>
+        ��高若德明暗绘制方法的基本思想是：先计算多边形各个顶点的光强，然后通过双线性插值，计算出多边形内各点的光强。其基本的算法步骤为:<br>
+        ��1) 计算多边形顶点的平均法向(见图8.4)；<br>
+        ��2) 根据基本光照模型计算顶点的平均光强；<br>
+        ��3) 通过线性插值，计算多边形的边上的各点光强；<br>
+        ��4) 通过线性插值，计算多边形内各点的光强。<br>
+        ��假定我们用多面体来近似表示某一个曲面体，已知多面体的各个多边形表面的顶点和法向量，则我们必须用多边形间的几何信息与拓扑信息来计算顶点的法向量。对每一个顶点，可取共享该顶点的各多边形法向量的平均值作为该顶点处曲面的法向量，然后把该法向量代入光照明模型计算出顶点处曲面的光亮度。假设顶点A相邻的多边形有k个，其法向分别为N<sub>i</sub>, 
+        i=0,1,…，k-1, 则顶点a的单位法向量为：<br>
+        ��<img src="../../../../images/pic/chap08/image095.gif" align="absmiddle"><br>
+        ��如图所示，顶点处的法向量可取共享该顶点的各多边形的单位法向量的平均值：<br>
+        �<img src="../../../../images/pic/chap08/image097.gif" align="absmiddle"><br>
+        ���<img src="../../../../images/pic/chap08/image097_2.gif" align="absmiddle" width="74" height="19"><br>
+        其中， <img src="../../../../images/pic/chap08/image099.gif" align="absmiddle">分别为四边形A、B、C和D的法矢量。<br>
+<br>　　在采用扫描线算法对上述多边形进行绘制时，先用多边形顶点的光亮度线性插值出当前扫描线与多边形的边界线的交点处的光亮度值，然后再用交点的光亮度线性插值出多边形与扫描线相交区段上每一采样点的光亮度值。 
+        
+在视平面上，假设一多边形在视平面上的投影为</span><b><span lang=EN-US>V</span></b><sub><span
+lang=EN-US>1</span></sub><b><span lang=EN-US>V</span></b><sub><span lang=EN-US>2</span></sub><b><span
+lang=EN-US>V</span></b><sub><span lang=EN-US>3</span></sub><b><span lang=EN-US>V</span></b><sub><span
+lang=EN-US>4</span></sub><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>，如图</span><span
+lang=EN-US>8.5</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>所示。一扫描线与多边形的投影边界线相交于</span><span
+lang=EN-US>a</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>和</span><span lang=EN-US>b</span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>两点，</span><span lang=EN-US> P</span><span style='font-family:
+宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman"'>是投影于该扫描线上</span><b><span
+lang=EN-US>V</span></b><sub><span lang=EN-US>5</span></sub><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>到</span><b><span lang=EN-US>V</span></b><sub><span
+lang=EN-US>6</span></sub><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>之间一象素中心的多边形采样点，四个顶点</span><b><span
+lang=EN-US>V</span></b><sub><span lang=EN-US>1</span></sub><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>、</span><b><span lang=EN-US>V</span></b><sub><span
+lang=EN-US>2</span></sub><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>、</span><b><span
+lang=EN-US>V</span></b><sub><span lang=EN-US>3</span></sub><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>和</span><b><span lang=EN-US>V</span></b><sub><span
+lang=EN-US>4</span></sub><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>的光亮度分别为</span><span
+lang=EN-US>I<sub>1</sub></span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>、</span><span
+lang=EN-US>I<sub>2</sub></span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>、</span><span
+lang=EN-US>I<sub>3</sub></span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>和</span><span
+lang=EN-US>I<sub>4</sub></span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>；取</span><b><span
+lang=EN-US>V</span></b><sub><span lang=EN-US>5</span></sub><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>点的光亮度</span><span lang=EN-US>I<sub>5</sub></span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>为</span><span lang=EN-US>I<sub>1</sub></span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>和</span><span lang=EN-US>I<sub>2</sub></span><span
+style='font-family:宋体;mso-hansi-font-family:"Times New Roman"'>的线性插值，</span><b><span
+lang=EN-US>V</span></b><sub><span lang=EN-US>6</span></sub><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>点的光亮度</span><span lang=EN-US>I<sub>6</sub></span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>为</span><span lang=EN-US>I<sub>1</sub></span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>和</span><span lang=EN-US>I<sub>4</sub></span><span
+style='font-family:宋体;mso-hansi-font-family:"Times New Roman"'>的线性插值，则<span
+lang=EN-US>P点出的光亮度</span></span><span lang=EN-US>I<sub>P</sub></span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>为</span><span lang=EN-US>I<sub>a</sub></span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>和</span><span lang=EN-US>I<sub>b</sub></span><span
+style='font-family:宋体;mso-hansi-font-family:"Times New Roman"'>的线性插值，即：<span
+lang=EN-US><o:p></o:p></span></span><br>
+        <p class=MsoNormal style='text-indent:21.0pt;layout-grid-mode:char'><span
+lang=EN-US style='font-family:宋体;mso-hansi-font-family:"Times New Roman"'>I<sub>5</sub>=uI<sub>1</sub>+(1-u)I<sub>2</sub>,<span
+style="mso-spacerun: yes">&nbsp;&nbsp; </span>u=(Y<sub>5</sub>-Y<sub>2</sub>)/(Y<sub>1</sub>-Y<sub>2</sub>)；</span><span
+lang=EN-US style='font-size:6.5pt;mso-bidi-font-size:12.0pt;font-family:宋体;
+mso-hansi-font-family:"Times New Roman"'><o:p></o:p></span></p>
+        <p class=MsoNormal style='text-indent:21.0pt;layout-grid-mode:char'><span
+lang=EN-US style='font-family:宋体;mso-hansi-font-family:"Times New Roman"'>I<sub>6</sub>=vI<sub>1</sub>+(1-v)I<sub>4</sub>,<span
+style="mso-spacerun: yes">&nbsp;&nbsp; </span>v=( Y<sub>6</sub>-Y<sub>4</sub> 
+          )/(Y<sub>1</sub>-Y<sub>4</sub>)；</span><span lang=EN-US style='font-size:6.5pt;
+mso-bidi-font-size:12.0pt;font-family:宋体;mso-hansi-font-family:"Times New Roman"'><o:p></o:p></span></p>
+        <p class=MsoNormal style='text-indent:21.0pt;layout-grid-mode:char'><span
+lang=EN-US style='font-family:宋体;mso-hansi-font-family:"Times New Roman"'>I<sub>P</sub>=tI<sub>5</sub>+(1-t)I<sub>6</sub>,<span
+style="mso-spacerun: yes">&nbsp;&nbsp; </span>t=(X<sub>p</sub>-X<sub>6</sub>)/(X<sub>5</sub>- 
+          X<sub>6</sub>)。</span><span lang=EN-US style='font-size:6.5pt;mso-bidi-font-size:
+12.0pt;font-family:宋体;mso-hansi-font-family:"Times New Roman"'><br>
+          </span>
+
+
+<br>　　两条相邻的扫描线与同一条边的交点的光强度值可以用增量法来递推计算。如图</span><span lang=EN-US>8.6</span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>所示，设</span><span lang=EN-US>Y</span><span style='font-family:
+宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman"'>坐标分别为</span><span
+lang=EN-US>y</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>和</span><span lang=EN-US>y-1</span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>的两条扫描线与多边形的边</span><span lang=EN-US>V<sub>1</sub>V<sub>2</sub></span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>的交点的光亮度值分别为</span><span lang=EN-US>I<sub>5</sub></span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>和</span><span lang=EN-US>I</span><span style='font-family:
+宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman"'>，则</span></p>
+        <p class=MsoNormal style='text-indent:21.0pt;layout-grid-mode:char'><span
+lang=EN-US><sub> <img
+src="../../../../images/pic/chap08/image103.gif" v:shapes="_x0000_i1087" align="absmiddle"> 
+          </sub> </span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>。</span></p>
+        <p class=MsoNormal style='layout-grid-mode:char'><span style='font-family:宋体;
+mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman"'>类似地，我们也可以用增量法来递推计算后继扫描线与多边形的其它边（如</span><span
+lang=EN-US>V<sub>1</sub>V<sub>4</sub></span><span style='font-family:宋体;
+mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman"'>）的交点的光亮度值。<br>
+          </span><span
+style='mso-bidi-font-size:10.0pt;font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>��当采用彩色进行绘制时，上述计算必须对</span><span
+lang=EN-US style='mso-bidi-font-size:10.0pt'>RGB</span><span style='mso-bidi-font-size:
+10.0pt;font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>三基色分别进行。</span><o:p><br>
+          ��双线性光强插值方法的优点：1）计算量小；2）可以得到连续的曲面光强。它的缺点是：它使得物体的高光部位变得模糊，面上的高光有时甚至出现异常形状；线性光强插值有时会造成表面出现过亮或过暗的条纹，称为马赫带（Mach-band）效应，图形的真实感降低。可以通过把表面再分割成更小的多边形等方法来消除这些问题，或者采用其它的方法，譬如冯氏明暗处理方法。<br>
+          ��由于高若德明暗绘制方法的计算量较小，并且产生的图形一般都比较好，所以，OpenGL实现了这种双线性光强插值算法。下面三个图分别是一头牛的多边形网格、等光强明暗绘制和高若德明暗绘制方法生成的图形。可见，高若德明暗绘制方法可以生成比较光滑的曲面效果。 
+          <br>
+          <br>
+        <!-- #EndEditable --></td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

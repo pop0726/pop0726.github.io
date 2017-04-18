@@ -1,0 +1,40 @@
+<html>
+<head>
+<!-- #BeginEditable "doctitle" -->
+<title>计算机图形学</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/css.css" type="text/css">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../../images/bg03.gif">
+<div align="center">
+  <table width="90%" border="0" cellspacing="0" cellpadding="0" height="100">
+    <tr> 
+      <td height="171" valign="top" width="100%" class=text><!-- #BeginEditable "right" --> 
+        <p><span class="blue"><br>
+          8.1.6 光强的距离衰减</span><br>
+          ��众所周知，如果一个房间里只有一个点光源（灯泡），那麽，离光源近的地方会比较亮，离光源远的地方就会比较暗。事实上，光的传播以距离平方成反比衰减，若将距离衰减效应考虑进去，则朗伯（Lambert）漫反射光照明模型可写为：<img src="../../../../images/pic/chap08/image078.gif" align="absmiddle"><br>
+          其中，d为光源与照射点P之间的距离。上式中，如果距离d变化不大，距离衰减效果难以体现，但如果变化过大，将导致不真实的光照效果，因此常常采用经验模型来模拟点光源的距离衰减效果：<br>
+          <img src="../../../../images/pic/chap08/image080.gif" align="absmiddle">，<br>
+          其中，a,b,c为经验常数。<br>
+          ��对于冯氏镜面反射模型，可以作类似的处理：<br>
+          ��<img src="../../../../images/pic/chap08/image082.gif" align="absmiddle">，<br>
+          其中，<br>
+          ��<img src="../../../../images/pic/chap08/image084.gif" align="absmiddle"><br>
+          是二次衰减函数的倒数，它应当满足：<img src="../../../../images/pic/chap08/image086.gif" align="absmiddle"> 
+          。<br>
+          ��考虑了入射光的距离衰减效应后，物体表面上的点P在m个光源照射下的冯氏简化光照模型，即（8－1－6）式，可以改写为：<br>
+          ��左（8－1－8） <br>
+          其中，di是第i个光源到P点的距离。<br>
+          ��同理，如果是m个沃恩光源，则有：<br>
+          ��左（8－1－8－1） <br>
+          ��当用上述光照明模型来计算每点处的光亮度时，需分别对红、绿、蓝三色进行计算。<br>
+          <br>
+        </p>
+        <!-- #EndEditable --></td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

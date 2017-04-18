@@ -14,4 +14,5 @@ ds  数据结构
 aill 人工智能原理
 aillm 人工智能原理-研究生水平
 vr 虚拟现实与系统仿真
+cg 计算机图形学
 # to be continue

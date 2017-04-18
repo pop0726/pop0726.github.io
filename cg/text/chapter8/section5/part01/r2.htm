@@ -1,0 +1,33 @@
+<html>
+<head>
+<!-- #BeginEditable "doctitle" -->
+<title>计算机图形学</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/css.css" type="text/css">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../../images/bg03.gif">
+<div align="center">
+  <table width="90%" border="0" cellspacing="0" cellpadding="0" height="100">
+    <tr> 
+      <td height="126" valign="top" width="100%" class=text><!-- #BeginEditable "right" --><span class="blue"><br>
+        8.5.1 光线跟踪的基本原理</span><br>
+        ��由Hall模型可知，物体表面上每一可见点处的光亮度由以下五部分组成：<br>
+        ��1） 由光源直接照射而引起的光亮度；<br>
+        ��2） 来自环境中其它物体的入射光在表面产生的镜面反射光亮度；<br>
+        ��3） 来自环境中其它物体的入射光在表面产生的规则透射光亮度；<br>
+        ��4） 光源通过其它透明或半透明物体透射过来的入射光在表面产生的理想漫透射光亮度（这部分光亮度的计算公式可以和朗伯漫反射合并）；<br>
+        ��5） 光源通过其它透明或半透明物体透射过来的入射光在表面产生的规则透射光亮度。<br>
+        ��光线是从光源出发向各个方向射出的，在到达某个物体表面后，一部分被吸收，另一部分被反射或折射后，改变方向，继续前进，直到遇到新的物体表面。这一过程是递归进行的。当然，光线在传播过程中会衰减，光线的强度会减弱。虽然从光源发出的光线有无穷多条，但实际上，从光源发出的光线只有少数经由物体表面的反射和透射后到达观察者的眼中。因此，直接从光源出发，沿光的传播方向进行光线跟踪是不现实的，也是不必要的。实际上，标准光线跟踪算法的跟踪方向与光传播的方向是相反的，是视线跟踪。如图8.16所示，光线跟踪算法采用逆向跟踪技术来完成整个绘制过程。算法从视点出发，通过图象平面上每一象素中心(x，y)向场景发出一条光线V，若光线与场景中的任何物体都不相交，则该象素采用背景颜色，结束该光线的跟踪过程。否则，光线首先与离视点最近的景物表面相交，此时光线在交点P处的走向，取决于物体表面的性质，一般有以下三种可能：<br>
+        ��1) 相交表面为理想漫射面，跟踪结束；<br>
+        ��2) 相交表面为理想镜面，光线沿其镜面反射方向继续跟踪；<br>
+        ��3) 相交表面为规则透射面，光线沿其规则透射方向继续跟踪。 <br>
+        ��显然，上述光线跟踪过程是一个递归过程。<a href="l2.htm#1" target="MyFrame" class="blue">光在点P对光线V方向的贡献分为三部分：</a> 
+        <p></p>
+        <!-- #EndEditable --></td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

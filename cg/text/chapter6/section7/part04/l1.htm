@@ -1,0 +1,45 @@
+<html>
+<head>
+<!-- #BeginEditable "doctitle" -->
+<title></title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/css01.css" type="text/css">
+<link rel="stylesheet" href="../../../../css/css.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center"> 
+  <table width="95%" border="0" cellspacing="3" cellpadding="2" height="49%" class="text">
+    <tr> 
+      <td valign="top" height="278" width="100%"><!-- #BeginEditable "left" --> 
+        <p><img src="../../../../images/but/tushi.gif" width="25" height="20" align="absmiddle"> 
+          图6.21 用八叉树表示三维物体<br>
+        </p>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td align="center"><img src="../../../../images/pic/chap06/mo6_357.gif" width="426" height="372"></td>
+          </tr>
+        </table>
+        <p><br>
+          ��下面是定义八叉树的数据结构的一个例子：<br>
+          ��<span class="orange">�typedef struct octreetype<br>
+          ���{<br>
+          ����ClassType Type;<br>
+          ����int Depth; //<br>
+          ����struct octreetype *Octree[8]; <br>
+          ���} OctreeType ;<br>
+          <br>
+          ���struct {<br>
+          ����PointType Point[8] ; // vertice of cube<br>
+          ����OctreeType *pOctreeRoot ;<br>
+          ���} Example ;</span><br>
+          <br>
+        </p>
+        <!-- #EndEditable --></td>
+    </tr>
+  </table>
+  
+</div>
+</body>
+</html>

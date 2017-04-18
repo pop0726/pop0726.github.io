@@ -1,0 +1,54 @@
+<html>
+<head>
+<!-- #BeginEditable "doctitle" -->
+<title></title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/css01.css" type="text/css">
+<link rel="stylesheet" href="../../../../css/css.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="95%" border="0" cellspacing="3" cellpadding="2" height="49%" class="text">
+    <tr> 
+      <td valign="top" height="166" width="100%"><!-- #BeginEditable "left" --> 
+        假设投影参考点在观察坐标系的Z<sub>v</sub>轴上，如下图5.7所示：<br>
+        <img src="../../../../images/but/tushi.gif" width="25" height="20" align="absmiddle"> 
+        图5.7 透视投影 <br>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td>
+              <div align="center"><img src="../../../../images/pic/chap05/mo5_14.gif" width="349" height="139"></div>
+            </td>
+          </tr>
+        </table>
+        <br>
+        其计算公式为：<br>
+        <img src="../../../../images/pic/chap05/mo5_13.gif" width="209" height="50">，<br>
+        <img src="../../../../images/pic/chap05/mo5_15.gif" width="215" height="49">。<br>
+        其中<img src="../../../../images/pic/chap05/mo5_16.gif" width="95" height="20" align="absmiddle">， 
+        为投影平面到视点的距离。在齐次坐标下，上式可以用矩阵表示为：<br>
+        <img src="../../../../images/pic/chap05/mo5_17.gif" width="257" height="108">。<br>
+        上式中，齐次坐标因子：<font size="3">h=（z<sub>prp</sub>- z）</font>/<font size="3">d<sub>p</sub></font>。<br>
+        在投影平面上的投影坐标可以用齐次坐标计算为<br>
+        <table width="10%" border="0" cellspacing="00" cellpadding="0">
+          <tr> 
+            <td rowspan="2" width="19%"><img src="../../../../images/pic/chap05/mo5_18.gif" width="14" height="41"></td>
+            <td width="81%">x<sub>p</sub>=x<sub>h</sub>/h，</td>
+          </tr>
+          <tr> 
+            <td width="81%">y<sub>p</sub>=y<sub>h</sub>/h； </td>
+          </tr>
+        </table>
+        原z值不变，可以用于消隐过程中的深度处理等等。<br>
+        如果视点选在观察坐标系的坐标原点（这时<font size="3">z<sub>prp</sub></font>=0），则空间任意一点P在投影平面上的投影坐标：<br>
+        <img src="../../../../images/pic/chap05/mo5_20.gif" width="87" height="92"><br>
+        <br>
+        <!-- #EndEditable --></td>
+    </tr>
+  </table>
+  
+</div>
+</body>
+</html>

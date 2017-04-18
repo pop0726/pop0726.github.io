@@ -1,0 +1,43 @@
+<html>
+<head>
+<!-- #BeginEditable "doctitle" -->
+<title>计算机图形学</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/css01.css" type="text/css">
+<link rel="stylesheet" href="../../../../css/css.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="95%" border="0" cellspacing="3" cellpadding="2" height="49%" class="text">
+    <tr> 
+      <td valign="top" height="73"> <!-- #BeginEditable "left" --><span class="text"><img src="../../../../images/but/tushi.gif" width="25" height="20" align="absbottom"> 
+        图3.9区域编码 <br>
+        </span> 
+        <table width="80%" border="0" cellspacing="00" cellpadding="0" align="center">
+          <tr> 
+            <td>
+              <div align="center"><span class="text"><img src="../../../../images/pic/chap03/mo_28.gif" width="178" height="159"></span></div>
+            </td>
+          </tr>
+        </table>
+        <br>
+        ��假定以相对的两个角点（<font size="3">x</font><sub><font size="3">min</font></sub>，<font size="3">y</font><sub><font size="3">min</font></sub>）和（<font size="3">x</font><sub><font size="3">max</font></sub>，<font size="3">y</font><sub><font size="3">max</font></sub>）来表示一个矩形裁剪区域。如图3.9所示，将二维平面分区，中间的矩形为裁剪区域。每个区以四位代码（称为区域码）表示，代码的编号从右到左，各位与坐标区域的关系为：<br>
+        ��位1：左；<br>
+        ��位2：右；<br>
+        ��位3：下；<br>
+        ��位4：上。<br>
+        如果某一位赋值为1，则表示端点落在相应的位置上，否则该位值为0。<br>
+        ��通过比较端点的坐标与裁剪边界的坐标，可以迅速地决定区域码各位的值。例如：如果x&lt;<font size="3">x<sub>min</sub></font>，则第一位置1；其它三位的值依此类推。对某线段的两个端点的区域码进行位与运算，可以快速判断哪条线段完全在裁剪窗口内，哪条线段完全在裁剪窗口外。完全在裁剪窗口内的线段的两个端点的区域码均为0000，该线段应当保留。两个端点的区域码的相同位的值都为1的线段则完全落在裁剪区域之外，该线段应当去除。例如，若线段的两端点的区域码分别为：code1=0101,code2=0110，则code1 
+        &amp; code2=0100，表示该线段位于裁剪窗口的下方。显然，我们有：<br>
+        ��I. 对线段的两个端点的区域码进行位与运算，若其结果不为0000，则线段完全位于裁剪窗口之外；<br>
+        ��II. 若两个端点的区域码均为0000，则线段位于裁剪窗口内；<br>
+        ��III. 否则，需要进一步计算线段与裁剪边界的交点，然后才能确定线段是完全位于裁剪窗口之外，还是一部分位于裁剪窗口之外另一部分位于裁剪窗口之内。<br>
+        <br>
+        <!-- #EndEditable --></td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

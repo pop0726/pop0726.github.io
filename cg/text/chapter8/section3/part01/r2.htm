@@ -1,0 +1,30 @@
+<html>
+<head>
+<!-- #BeginEditable "doctitle" -->
+<title>计算机图形学</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/css.css" type="text/css">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../../images/bg03.gif">
+<div align="center">
+  <table width="90%" border="0" cellspacing="0" cellpadding="0" height="100">
+    <tr> 
+      <td height="126" valign="top" width="100%" class=text><!-- #BeginEditable "right" --><span class="blue"><br>
+        三、Z-Buffer透明算法</span><br>
+        ��可以用Z-Buffer算法来实现透明效果。一个最简单（但并不一定最有效）的方法是：先处理所有的不透明表面，然后将透明物体的深度值与Z-Buffer中的深度值进行比较，如果透明物体的表面的深度值大于Z-Buffer中的深度值，即透明物体是可见的，则计算出透明表面的反射光强度，并利用公式（8－4－1）或（8－4－2）与Z-Buffer中的不透明面的光强度进行累加。<br>
+        ��当不透明物体前面有多个透明物体时，可以先处理所有的不透明表面，再将所有透明物体沿深度方向按照到视点的距离由远到近排序，然后依次进行处理。如果发现一个可见的透明面，就将其反射光强度与其后的物体表面上的光强度（亦即Z-Buffer中的光强度）进行累加，直到处理完所有的透明表面为止。<br>
+        <br>
+        <span class="blue">四、折射</span><br>
+        ��根据几何光学，光线在折射率不同的两个介质表面会产生折射现象，如图8.10 所示。假设入射光线R与介质2相交于P点，介质2的外表面在P点处的单位外法矢为N，入射光线R和折射光线T与N的夹角分别为θ<sub>1</sub>和θ<sub>2</sub>，则根据斯奈尔(Snell)定律：<br>
+        <img src="../../../../images/but/tushi.gif" width="25" height="20" align="absmiddle">（8－4－3）<br>
+        <img src="../../../../images/pic/chap08/image261.gif" align="absmiddle"> 
+        <br>
+        ��其中，c<sub>1</sub>和c<sub>2</sub>分别是光在介质1和介质2中的传播速度，η<sub>1</sub>和η<sub>2</sub>分别是光在介质1和介质2中的折射率。一般而言，材料的折射率定义为光在真空中的速度与光在该材料中的速度之比。光在几种常见介质中的传播速度见表8.1所示。<br>
+        <!-- #EndEditable --></td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

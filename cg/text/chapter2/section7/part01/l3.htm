@@ -1,0 +1,83 @@
+<html>
+<head>
+<!-- #BeginEditable "doctitle" -->
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/css01.css" type="text/css">
+<link rel="stylesheet" href="../../../../css/css.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="90%" border="0" cellspacing="3" cellpadding="2" height="100%" class="text" align="right">
+    <tr> 
+      <td valign="top" height="710"><!-- #BeginEditable "left" --> 
+        <p>��<span class="blue">a) 反走样固定宽度直线的区域采样方法</span><a name="a"></a><br>
+          ��假定每个象素都是一个面积等于1的小正方形矩形区域，将直线段看作宽度为一个像素的狭长矩形，如图2.10所示。这时可以采用简单的区域采样方法进行反走样。当直线段的矩形边界与象素的边界有交时，求出两者相交区域的面积，然后根据相交区域面积的大小确定该象素的亮度值。<br>
+          ��对于图2.10中的任何一个阴影像素而言，上述阴影面积A是介于0-1之间的正数，用它乘以象素的最大光强为Imax，则该像素的光强<br>
+          <img src="../../../../images/pic/chap02/image135.gif" align="absmiddle">。<br>
+          ��Pietteway和Winkins对Bresenham画线算法稍作改进后得到像素在多边形内的面积近似值，并用它调制像素的光强。改进后的Bresenham反走样画线算法如下：<br>
+          <br>
+          <img src="../../../../images/but/tushi.gif" width="25" height="20" align="absmiddle"> 
+          图2.10 固定宽度直线 <br>
+        </p>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td> 
+              <div align="center"><img src="../../../../images/pic/chap02/image131.gif" align="absmiddle"></div>
+            </td>
+          </tr>
+        </table>
+        <br>
+        <span class="orange">�BresenhamAntialiasingLine(int x1, int y1, int x2, 
+        int y2，int I)<br>
+        �// （x1, y1）,（x2, y2）分别是直线的起点和终点<br>
+        �// I是画线的最大亮度值<br>
+        �{<br>
+        ��int x,y,dx,dy,m,w,e;<br>
+        ��x = x1;<br>
+        ��y = y1;<br>
+        ��dx = x2－x1;<br>
+        ��dy = y2－y1;<br>
+        ��m = I*dy/dx;<br>
+        ��w = I－m;<br>
+        ��e = I/2;<br>
+        ��SetPixel(x,y,m/2);<br>
+        ��while (x &lt; x2)<br>
+        ��{<br>
+        ���if (e &lt; w)<br>
+        ���{<br>
+        �����x ++;<br>
+        �����e += m;<br>
+        ���}<br>
+        ���else<br>
+        ���{<br>
+        ����x ++;<br>
+        ����y++;<br>
+        ����e -= m;<br>
+        ���}<br>
+        ���SetPixel(x,y,e);<br>
+        ��}<br>
+        �}</span><br>
+        <br>
+        ��<span class="blue">b) 加权区域反走样算法</span><a name="b"></a><br>
+        ��从采样理论的角度考虑，区域采样方法相当于使用盒式滤波器进行前置滤波后再采样。区域采样方法有两个缺点：（1）象素的亮度与相交区域的面积成正比，而与相交区域落在象素内的位置无关，这在某种程度上仍然会导致阶梯现象。（2）直线条上沿理想直线方向的相邻两个象素有时会有较大的亮度差，特别是当直线是一条接近水平或接近垂直的直线时，这种现象就会比较突出。<br>
+        ��为了使靠近理想直线的像素能够分配到更大的亮度值，可以采用圆锥形滤波器，如图2.11所示。其基本思想是：建立一个底圆半径为一个像素单位，高为1的圆锥，并使底圆中心位于当前像素中心。当直线经过该像素时，直线的矩形区域与该圆锥底面的相交区域上对滤波器的积分，就是该像素的亮度值。在几何上，这个积分的结果相当于用过直线矩形区域的两边沿、且垂直于像素区域的一对平面，与该圆锥相切割所得到的三维物体的体积。<br>
+        ��这种区域采样法的反走样效果较好。为了简化计算，我们可以采用离散的区域反走样方法。 <br>
+        <br>
+        <img src="../../../../images/but/tushi.gif" width="25" height="20" align="absmiddle"> 
+        图2.11 圆锥形滤波器<br>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td> 
+              <div align="center"><img src="../../../../images/pic/chap02/image137.gif" align="absmiddle"></div>
+            </td>
+          </tr>
+        </table>
+        <!-- #EndEditable --></td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

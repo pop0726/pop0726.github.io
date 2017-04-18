@@ -1,0 +1,47 @@
+<html>
+<head>
+<!-- #BeginEditable "doctitle" -->
+<title></title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/css01.css" type="text/css">
+<link rel="stylesheet" href="../../../../css/css.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center"> 
+  <table width="95%" border="0" cellspacing="3" cellpadding="2" height="49%" class="text">
+    <tr> 
+      <td valign="top" height="218" width="100%"><!-- #BeginEditable "left" --> 
+        <p style='layout-grid-mode:char'><span class="MsoNormal"> <img src="../../../../images/but/tushi.gif" width="25" height="20" align="absmiddle"> 
+          图8.16 光线跟踪<br>
+          <br>
+          </span>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td align="center"><span class="MsoNormal"><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="440" height="260">
+                <param name=movie value="../../../../flash/chap08/F8.14.swf">
+                <param name=quality value=high>
+                <embed src="../../../../flash/chap08/F8.14.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="440" height="260">
+                </embed> 
+              </object></span></td>
+          </tr>
+        </table>
+        <p style='layout-grid-mode:char'><span class="MsoNormal"><br>
+          ��<a name="1"></a>显然，上述光线跟踪过程是一个递归过程。</span><span class="blue">光在点P对光线V方向的贡献分为三部分：</span><span class="MsoNormal"><br>
+          ��1） 由光源直接照射P点产生的的光强，是交点处的局部光强，根据Hall模型可以由下式计算：<br>
+          <img src="../../../../images/pic/chap08/image308.gif" align="absmiddle">。<br>
+          其中，m为光源的个数。如果忽略光源的规则透射光，则可以利用Whitted光照模型进行计算：<br>
+          <img src="../../../../images/pic/chap08/image310.gif" align="absmiddle">。<br>
+          ��2） 反射方向上由其他物体引起的间接光照光强，由 <img src="../../../../images/pic/chap08/image312.gif" align="absmiddle">'计算，Ir通过对反射光线的递归跟踪得到；<br>
+          ��3） 折射方向上由其他物体引起的间接光照光强，由 <img src="../../../../images/pic/chap08/image314.gif" align="absmiddle">'计算，It通过对折射光线的递归跟踪得到。<br>
+          把这三部分光强相加，就是该条光线V在P点处的总的光强。<br>
+          <br>
+          </span> 
+        <!-- #EndEditable --></td>
+    </tr>
+  </table>
+  
+</div>
+</body>
+</html>

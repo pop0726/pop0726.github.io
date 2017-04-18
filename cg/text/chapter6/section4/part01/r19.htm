@@ -1,0 +1,32 @@
+<html>
+<head>
+<!-- #BeginEditable "doctitle" -->
+<title>计算机图形学</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/css.css" type="text/css">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../../images/bg03.gif">
+<div align="center">
+  <table width="90%" border="0" cellspacing="0" cellpadding="0" height="100">
+    <tr> 
+      <td height="159" valign="top" width="100%" class=text><!-- #BeginEditable "right" --> 
+        <p><span class="blue"><br>
+          6.4.1.10.5 误差分析</span><br>
+          　　由以上的原理分析和算法流程可知，该降阶算法的主要误差在于计算退化曲线时所做的扰动上。分析如下：<br>
+          <img src="../../../../images/pic/chap06/mo6_269.gif" width="204" height="96"><br>
+          　　　　　　　　＝<font size="3">ε</font>max<br>
+          其中，<font size="3">ε</font>max=<img src="../../../../images/pic/chap06/mo6_270.gif" width="63" height="24" align="absmiddle"> 
+          j=0,1∧,n-1<font size="3">}</font>，B<sub>i,k</sub>(u) 为ｋ阶Ｂ样条基函数。<br>
+          　　众所周知，插入节点可以使其控制点更加接近曲线，当<font size="3">ε</font>max 大于给定的容差时，可以在降阶前或降阶后对曲线进行节点插入，直到满足给定误差为止。每次插入节点的位置，应当在相应于误差最大的节点区间的中点处。</p>
+        <p><span class="blue">6.4.1.10.6 计算实例</span><br>
+          　　以下是用2.2中的算法对B样条曲线进行降阶逼近的计算实例，例中初始曲线均为端点插值的5阶B样条曲线。其中粗实线表示降阶前的控制多边形和曲线，细实线表示降1阶后的情况，虚线表示降2阶后的情况。从图中不难看出，降1阶后的曲线和降阶前几乎重合。<br>
+        </p>
+        <br>
+        <!-- #EndEditable --></td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

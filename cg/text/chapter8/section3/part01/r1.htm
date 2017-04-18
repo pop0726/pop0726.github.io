@@ -1,0 +1,40 @@
+<html>
+<head>
+<!-- #BeginEditable "doctitle" -->
+<title>计算机图形学</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/css.css" type="text/css">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../../images/bg03.gif">
+<div align="center">
+  <table width="90%" border="0" cellspacing="0" cellpadding="0" height="100">
+    <tr> 
+      <td height="126" valign="top" width="100%" class=text><!-- #BeginEditable "right" --><span class="blue"><br>
+        8.3 透明与折射</span><br>
+        <span class="blue">一、透明</span><br>
+        ��通常透明的物体会同时产生反射光和折射光，例如透明玻璃就是如此。对于不发生几何变形和模糊变形的透明现象（如较薄的平面透明玻璃），我们可以用简化的模型来模拟透明效果： 
+        <br>
+        ��由于不发生几何变形，则可以忽略光线在透明体表面的折射；无模糊变形，则意味着可以忽略光能通过透明体时发生的漫反射。我们用k<sub>t</sub>表示透明体的透射系数（又叫透明度），如图8.8所示，P<sub>t</sub>点向观察者发出的光亮度I可以表示为光源在透明体t表面上P<sub>t</sub>点产生的反射光I<sub>t</sub>和从物体r表面上P<sub>r</sub> 
+        点传到P<sub>t</sub>点的透射光亮度I<sub>r</sub>的加权和，即：<br>
+        <img src="../../../../images/pic/chap08/image243.gif" align="absmiddle">，<img src="../../../../images/pic/chap08/image245.gif" align="absmiddle"> 
+        （8－4－1）<br>
+        其中，I<sub>t</sub>和I<sub>r</sub>的值可以用冯（Phong）模型计算得到。1－ <img src="../../../../images/pic/chap08/image248.gif" align="absmiddle">称为物体r的不透明度。<br>
+        ��对于象玻璃瓶和玻璃杯之类的透明物体，光线在其边沿处穿过玻璃的长度增加，呈现出在中间透明度高，越往两边透明度越低的现象。这时可以用下式来模拟这种效果：<br>
+        <img src="../../../../images/pic/chap08/image250.gif" align="absmiddle">。<br>
+        ��其中， <img src="../../../../images/pic/chap08/image252.gif" align="absmiddle">和<img src="../../../../images/pic/chap08/image254.gif" align="absmiddle" width="23" height="15">分别是最大和最小透明度，d为指数因子，N<sub>z</sub>是透明物体表面P<sub>t</sub>点处的法矢量N的z坐标分量，|N|=1。图8.9中，视点设在无穷远。当光线穿过中心点C处时，N<sub>z</sub>＝1；当光线穿过边缘点B处时，N<sub>z</sub>＝0。<br>
+        <span class="blue">二、滤光镜透明效果</span><br>
+        ��滤光镜可以让具有特定波长的光线（即：特定的颜色）通过，从而产生滤光透明的效果。假定图8.8 中的矩形t是一块滤光镜的横截面，则：<br>
+        <img src="../../../../images/but/dingyi.gif" width="27" height="19" align="absmiddle"> 
+        （8－4－2）<br>
+        <img src="../../../../images/pic/chap08/image256.gif" align="absmiddle">， 
+        <br>
+        其中，C<sub>t</sub>是物体<font size="2">t</font>的透明颜色。<br>
+        <br>
+        <!-- #EndEditable --></td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

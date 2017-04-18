@@ -1,0 +1,27 @@
+<html>
+<head>
+<!-- #BeginEditable "doctitle" -->
+<title>计算机图形学</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/css.css" type="text/css">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../../images/bg03.gif">
+<div align="center">
+  <table width="90%" border="0" cellspacing="0" cellpadding="0" height="100">
+    <tr> 
+      <td height="461" valign="top" width="100%" class=text><!-- #BeginEditable "right" --> 
+        <p><span class="blue"><br>
+          一、翼边结构</span><br>
+          ��翼边结构是一种用于边界表示法的数据结构。它以边为中心来组织数据，较好地描述了物体的点、边、面之间的拓扑关系。在翼边结构中，如图6.19所示，边是有向线段，例如：棱边<font size="2">P</font><sub>1</sub><font size="2">P</font><sub>2</sub>，它的数据结构中包含2个点的指针，分别指向棱边的2个端点<font size="2">P</font><sub>1</sub>和<font size="2">P</font><sub>2</sub>，其中<font size="2">P</font><sub>1</sub>为该棱边的起点，<font size="2">P</font><sub>2</sub>为它的终点。如果该棱边为一直线段，则它已被这两个端点所唯一确定；但是，如果它是一条曲线边，则其数据结构中还应当包含一个指向曲线信息的指针。在正则形体中，每条棱边都与两个面相连，因此，棱边的数据结构中，还包含有两个环指针，分别指向该棱边所邻接的两个表面上的外环&quot;左外环&quot;和&quot;右外环&quot;。这样，就确定了棱边与相邻表面之间的拓扑关系。为了能够从该棱边出发找到它所在的任一闭合面环上的其它棱边，在棱边的数据结构中还设计了四个边指针，分别指向它的&quot;左上边&quot; 
+          、&quot;左下边&quot;、&quot;右上边&quot;和&quot;右下边&quot;。如果外环所在的面还有内环，则该外环的数据结构中还要包含一个环指针，指向它的内环链表的首地址，否则该环指针为空（NULL）。内环的数据结构中也包含一个环指针，指向它所在面的外环。<br>
+          <br>
+          <br>
+        </p>
+        <!-- #EndEditable --></td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

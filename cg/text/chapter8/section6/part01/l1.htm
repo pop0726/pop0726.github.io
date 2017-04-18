@@ -1,0 +1,59 @@
+<html>
+<head>
+<!-- #BeginEditable "doctitle" -->
+<title></title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/css01.css" type="text/css">
+<link rel="stylesheet" href="../../../../css/css.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center"> 
+  <table width="95%" border="0" cellspacing="3" cellpadding="2" height="49%" class="text">
+    <tr> 
+      <td valign="top" height="511" width="100%"> <!-- #BeginEditable "left" --> 
+        <p>�<a name="1"></a>�<span class="blue">a) 在光照明模型中，改变哪些参数可产生纹理效果？</span><br>
+          ��考察简化的Phong光照明模型：<br>
+          <img src="../../../../images/pic/chap08/image370.gif" align="absmiddle"><img src="../../../../images/pic/chap08/image371.gif" align="absmiddle"><img src="../../../../images/pic/chap08/image372.gif" align="absmiddle">，<br>
+          可以发现：<br>
+          ��<img src="../../../../images/pic/chap08/image375.gif" align="absmiddle"> 
+          镜面反射项 只影响产生高光的局部区域的颜色和光亮度值，因此不能够用它来产生整个物体表面的纹理；<br>
+          ��<img src="../../../../images/pic/chap08/image375.gif" align="absmiddle"> 
+          对于物体表面的一个多边形来说，环境光项 是一个常数，它也无法反映丰富多采的纹理颜色。<br>
+          ��<img src="../../../../images/pic/chap08/image375.gif" align="absmiddle"> 
+          只剩下漫反射项 <img src="../../../../images/pic/chap08/image378.gif" align="absmiddle">可以用来产生纹理，其中：Ip反映不同光源的亮度的强弱，对于给定的光源，其值是一个常数；L反映光源的位置，由于基本光照明模型假设光源位于无穷远处，因此，对于给定的光源，L也保持不变。<br>
+          所以，在简化的Phong光照明模型中，可产生纹理效果的途径有两个：<br>
+        <li> 改变物体表面的物理属性参数，即：改变漫反射系数；<br>
+        <li> 改变物体表面的几何特征参数，即：改变表面的法向量。<br>
+          ��如果我们按一定的规则改变物体表面的物理属性（漫反射系数）或几何特征（法向量）参数，我们就可以得到各种各样所需要的丰富多采的纹理效果。 
+          <p>��对于全局光照明模型，可用于产生景物表面的纹理效果的参数主要有以下几种：<br>
+            ��1） 表面颜色，即表面的漫反射系数。<br>
+            ��2） 表面法向扰动。即扰动景物表面的法向来产生表面的凹凸纹理。<br>
+            ��3） 镜面反射和漫反射。即通过镜面反射和漫反射，可以将物体周围的环境映射到景物的表面上，这种纹理映射技术称为环境映射。<br>
+            ��4） 透明度。用纹理函数表示景物的透明度，来表现雕花玻璃这类透明物体的纹理图案。</p>
+          <p><br>
+            ��<a name="2"></a><span class="blue">b) 怎样定义纹理？</span><br>
+            ��可以用如下两种方法来定义纹理： <br>
+        <li> 图象纹理：<br>
+          ��把纹理定义为一个矩形区域内的图象（例如：彩色图案），绘制物体表面上一点时，将二维纹理图案中相应点的颜色值映射到三维物体的表面上。<br>
+          ��绝大多数二维图象纹理是定义在单位正方形区域（<img src="../../../../images/pic/chap08/image380.gif" align="absmiddle"> 
+          ）上的彩色图象。定义纹理的有效区域（如：<img src="../../../../images/pic/chap08/image382.gif" align="absmiddle"> 
+          ）称为纹理空间。理论上，定义在此空间上的任何函数都可以作为纹理函数，但在实际上，往往采用一些特殊的函数，来模拟生活中常见的纹理。<br>
+        
+        <li> 函数纹理：<br>
+          ��用数学函数定义简单的一维、二维或三维的纹理图案，如方格地毯、木纹等；或用数学函数定义随机高度场，生成表面粗糙纹理，即几何纹理，等等。 
+          <p>��<a name="3"></a><span class="blue">c) 如何进行纹理映射？</span><br>
+            ��在定义了纹理以后，我们还要考虑如何对纹理进行映射的问题。对于一维或二维图象纹理，就是如何建立纹理与三维物体表面之间的对应关系；而对于几何纹理，就是如何扰动物体表面的法向量。 
+            映射的方法不同，则在物体表面生成的纹理效果也不同。</p>
+          <p>��<a name="4"></a><span class="blue">d) 在纹理映射中如何进行反走样处理？</span><br>
+            ��实际上，纹理映射过程涉及到图象的采样和重构问题，有时会出现走样问题，这就需要引入反走样处理。<br>
+            <br>
+          </p>
+        <!-- #EndEditable --></td>
+    </tr>
+  </table>
+  
+</div>
+</body>
+</html>

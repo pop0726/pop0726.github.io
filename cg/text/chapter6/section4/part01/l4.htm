@@ -1,0 +1,47 @@
+<html>
+<head>
+<!-- #BeginEditable "doctitle" -->
+<title></title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/css01.css" type="text/css">
+<link rel="stylesheet" href="../../../../css/css.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center"> 
+  <table width="95%" border="0" cellspacing="3" cellpadding="2" height="49%" class="text">
+    <tr> 
+      <td valign="top" height="70" width="100%"><!-- #BeginEditable "left" --><span class=blue>四、B样条曲线的性质</span><br>
+        <span class="blue">1） 局部性</span><a name="01"></a><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;因为<font size="3">B</font><sub><font size="2">i,k</font></sub>(t)只在区间[t<sub>i</sub>, 
+        t<sub>i+k</sub>)中为正，在其它地方均取零值，使得k阶的B样条曲线在某点处的形状只与相关的k个控制点有关，而与其它控制点无关。当移动B样条曲线的某一个控制点P<sub>i</sub>（0≤i≤n 
+        ）时，只对其中的一部分曲线（对应于<img src="../../../../images/pic/chap06/mo6_136.gif" width="212" height="21" align="absmiddle"> 
+        的那一段）产生局部影响，并不对曲线的其它地方产生影响。 
+        <p><span class="blue">2） 连续性或可微性</span><a name="02"></a><br>
+          &nbsp;&nbsp;&nbsp;&nbsp;B样条曲线P（t）在<font size="3">r</font>重节点处的连续阶不低于<font size="3">k-r-1</font>；整条曲线的连续阶不低于<font size="3">k-r<sub>max</sub>-1</font>。其中<font size="3">r</font><sub>max</sub>是位于区间[t<sub>k-1</sub>, 
+          t<sub>n+1</sub>]内的节点的最大重数。<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;B样条曲线在每一曲线段内部是无限次可微的。</p>
+        <p><span class="blue">3） 凸包性</span><a name="03"></a><br>
+          &nbsp;&nbsp;&nbsp;&nbsp; B样条曲线在区间[t<sub>i</sub>, t<sub>i+1</sub>]上的部分曲线位于<font size="3">P</font><sub>i-k+1</sub>，<font size="3">P</font><sub>i-k+2</sub>，…， 
+          <font size="3">P</font><sub>i</sub>的凸包之内；整条曲线位于该曲线的所有控制点的凸包之内。</p>
+        <p><span class="blue">4） 几何不变性</span><a name="04"></a><br>
+          &nbsp;&nbsp;&nbsp;&nbsp;B样条曲线的形状和位置与坐标系的选取无关。</p>
+        <p><span class="blue">5） 变差缩减性</span><a name="05"></a><br>
+          &nbsp;&nbsp;&nbsp;&nbsp;设B样条曲线P（t）的控制多边形P<sub>0</sub>, P<sub>1</sub>, 
+          P<sub>2</sub>, …., P<sub>n</sub>（n≥k－1）是一平面折线，在该平面内的任一直线与P（t）的交点的个数不多于该直线与其控制多边形的交点个数。</p>
+        <p><span class="blue">6） 分段多项式</span><a name="06"></a><br>
+          &nbsp;&nbsp;&nbsp;&nbsp;P（t）在每一长度非零的区间（t<sub>i</sub>， t<sub>i+1</sub>）上，<font size="3">n</font>≥<font size="3">i</font>≥<font size="3">k－1</font>都是次数不高于<font size="3">k-1</font>次的、以<font size="3">t</font>为参数的多项式，P（t）是参数<font size="3">t</font>的<font size="3">k-1</font>次的分段多项式曲线。</p>
+        <p><span class="blue">7） 仿射不变性</span><a name="07"></a><br>
+          &nbsp;&nbsp;&nbsp;&nbsp;对任一仿射变换A：<br>
+          <img src="../../../../images/pic/chap06/mo6_137.gif" width="159" height="38" align="absmiddle">,<img src="../../../../images/pic/chap06/mo6_138.gif" width="88" height="17" align="absmiddle">。<br>
+          即在仿射变换下，B样条曲线P（t）的表达式具有形式不变性。<br>
+        </p>
+        <br>
+        <!-- #EndEditable --></td>
+    </tr>
+  </table>
+  
+</div>
+</body>
+</html>

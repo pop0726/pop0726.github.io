@@ -1,0 +1,29 @@
+<html>
+<head>
+<!-- #BeginEditable "doctitle" -->
+<title>计算机图形学</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/css.css" type="text/css">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../../images/bg03.gif">
+<div align="center">
+  <table width="90%" border="0" cellspacing="0" cellpadding="0" height="100">
+    <tr> 
+      <td height="189" valign="top" width="100%" class=text><!-- #BeginEditable "right" --><font class=blue><br>
+        二、凹区域裁剪Weiler-Atherton算法</font><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;Weiler-Atherton算法是一个通用的多边形裁剪算法，它适用于凸的、凹的和带孔的多边形的裁剪。<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;无论是被裁剪的多边形，还是裁剪区域多边形，都用边界的有向顶点序列表示，并约定外环（由多边形的外部边界构成）取顺时针方向，内环（由多边形的内部边界构成）取逆时针方向（见图3.17）。<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;该算法的基本思想是：沿作被裁剪多边形的边的方向来处理顶点，并采用如下规则：<br>
+        ��1) 对于由外到内穿入裁剪区域的顶点对V<sub>1</sub>V<sub>2</sub>，从线段V<sub>1</sub>V<sub>2</sub>与裁剪边界的交点V<sub>1</sub>′开始，继续沿作多边形的方向V<sub>1</sub>′V<sub>2</sub>前进。这种&quot;由外到内&quot;的交点称为&quot;入点&quot;。<br>
+        ��2) 对于由内到外穿出裁剪区域的顶点对V<sub>3</sub>V<sub>4</sub>，从线段V<sub>3</sub>V<sub>4</sub>与裁剪边界的交点V<sub>3</sub>′开始，按顺时针沿作裁剪边界的方向前进。这种&quot;由内到外&quot;的交点称为&quot;出点&quot;。在转向裁剪边界的方向前进之前，保存V<sub>3</sub>′V<sub>4</sub>作为恢复多边形搜索的入口。<br>
+        ��3) &quot;入点&quot;和&quot;出点&quot;总是交替地成对出现，形成一个结果多边形。<br>
+        ��4) 转到前一个&quot;出点&quot;的入口V<sub>3</sub>′V<sub>4</sub>，重复上述步骤1）到3）。如此继续，直到最初的开始点V<sub>1</sub>为止。<br>
+        <br>
+        <!-- #EndEditable --></td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

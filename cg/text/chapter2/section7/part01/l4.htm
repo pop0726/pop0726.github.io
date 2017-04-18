@@ -1,0 +1,81 @@
+<html>
+<head>
+<!-- #BeginEditable "doctitle" -->
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/css01.css" type="text/css">
+<link rel="stylesheet" href="../../../../css/css.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="95%" border="0" cellspacing="3" cellpadding="2" height="100%" class="text">
+    <tr> 
+      <td valign="top" height="463"><!-- #BeginEditable "left" -->��<span class="blue">a) 
+        基本原理</span><a name="1"></a><br>
+        ��如图2.12所示，首先将屏幕象素均分成n×n个子像素。然后，对于每个物理像素，计算中心点落在直线段内的子象素的个数m，则该象素的光强为：<br>
+        <img src="../../../../images/but/dingyi.gif" width="27" height="19" align="absmiddle"> 
+        （2－7－2）<br>
+        <img src="../../../../images/pic/chap02/image139.gif" align="absmiddle">。 
+        <br>
+        ��注意，上式与（2－7－1）式是不同的。这里有（n<sup>2</sup>+1）种可能的光强，而反走样细直线只有（n+1）种可能的光强。 
+        <br>
+        <img src="../../../../images/but/tushi.gif" width="25" height="20" align="absmiddle"> 
+        图2.12区域取样法反走样固定宽度直线<br>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td> 
+              <div align="center"><img src="../../../../images/pic/chap02/image140.gif" align="absmiddle"></div>
+            </td>
+          </tr>
+        </table>
+        <br>
+        ��对于彩色的情况，反走样图形的光强还需要考虑背景色。一般可取两者的线性插值。即：像素的红、绿、蓝（r，g，b）三元色的亮度值<br>
+        <img src="../../../../images/but/dingyi.gif" width="27" height="19" align="absmiddle"> 
+        （2－7－3）<br>
+        <img src="../../../../images/pic/chap02/image142.gif"><br>
+        其中， <img src="../../../../images/pic/chap02/image144.gif" align="absmiddle">是直线的（r，g，b）三元色的最大亮度值， 
+        <img src="../../../../images/pic/chap02/image146.gif" align="absmiddle">是背景的（r，g，b）三元色的亮度值。<br>
+        ��为了确定m，必须计算出中心点落在直线段内的子象素的个数，这就涉及到多边形对点的包含性检测问题（见7.1.2.3节）。我们这里采用一种简单的技术-代入测试（substitution 
+        test）法。 
+        <p>��<span class="blue">b) 代入测试法</span><a name="2"></a><br>
+          ��图2.13是位于第一象象限直线上的一个内部物理像素，即不在直线端点的像素，它被分为3×3个子像素，每个子像素的中心用圆点标出。直线的宽度等于一个像素宽。<br>
+          <img src="../../../../images/but/dingyi.gif" width="27" height="19" align="absmiddle"> 
+          图2.13 固定宽度直线内的子像素数</p>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td>
+              <div align="center"><img src="../../../../images/pic/chap02/image147.gif" align="absmiddle"></div>
+            </td>
+          </tr>
+        </table>
+        <p>��由于这是一个内部物理像素，它只需要检测子像素的中心是否位于直线的矩形条的两条边之间。假定直线方程为<br>
+          y = kx + b，<br>
+          其中，k是直线的斜率，b是直线的截距（即直线与y轴的交点的y坐标）。直线矩形条的上下两条边的方程为：<br>
+          <img src="../../../../images/pic/chap02/image149.gif" align="absmiddle"><br>
+          ��将子像素中心点的坐标代入上式，如果 <img src="../../../../images/pic/chap02/image151.gif" align="absmiddle">并且 
+          <img src="../../../../images/pic/chap02/image153.gif" align="absmiddle">，则该中心点在直线的矩形条内。如果 
+          <img src="../../../../images/pic/chap02/image155.gif" align="absmiddle">或 
+          <img src="../../../../images/pic/chap02/image157.gif" align="absbottom">，则表示子像素中心点在直线矩形条的边界上。<br>
+          ��这里必须注意，如果物理像素位于直线的端点，则还需要检测其子像素中心是否位于直线的端边。</p>
+        <p>��<span class="blue">c) 加权代入测试法</span><a name="3"></a><br>
+          ��代入测试法的一个明显的不足是：不管子像素的中心离理想直线有多远，只要它位于直线的矩形内，就赋予它相同的亮度。其实，仅仅简单地计算中心在具有一定宽度的直线内的子像素数是不够的，我们必须根据某些度量参数对每一个子像素的贡献进行加权。在此，我们根据子像素中心与直线中心线的距离来决定权重。<br>
+          ��在图2.13中，利用相似三角形的几何关系，可以得到从子像素中心到理想直线距离d:<br>
+          <img src="../../../../images/pic/chap02/image159.gif" align="absmiddle">,<br>
+          其中，x<sub>c</sub>，y<sub>c</sub>是子像素中心的坐标，<img src="../../../../images/pic/chap02/image161.gif" align="absmiddle"> 
+          。<br>
+          ��取第i个子像素的权函数为<br>
+          <img src="../../../../images/pic/chap02/image163.gif" align="absmiddle">，<img src="../../../../images/pic/chap02/image165.gif" align="absmiddle"> 
+          。<br>
+          其中，d<sub>i</sub>是第i个子像素中心到理想直线的距离，f可用来调节某些特定子像素的权。例如：当f=0时，所有子像素的权值都等于0；当f=1时，位于直线矩形条边界的子像素的权值最小，但位于理想直线（矩形中心）附近的子像素的权值最大。<br>
+          ��第i个子像素对物理像素的光强的贡献为：<br>
+          <img src="../../../../images/pic/chap02/image167.gif" align="absmiddle">。<br>
+          ��对于彩色的情形，可以用前面的线性混合函数（2－7－3）式作类似的处理。<br>
+        </p>
+        <!-- #EndEditable --></td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

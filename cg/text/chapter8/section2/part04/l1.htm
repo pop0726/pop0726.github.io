@@ -1,0 +1,424 @@
+<html>
+<head>
+<!-- #BeginEditable "doctitle" -->
+<title></title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/css01.css" type="text/css">
+<link rel="stylesheet" href="../../../../css/css.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center"> 
+  <table width="95%" border="0" cellspacing="3" cellpadding="2" height="49%" class="text">
+    <tr> 
+      <td valign="top" height="193" width="100%"><!-- #BeginEditable "left" --> 
+        ��<span class="blue">1）<span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>局部平均法</span></span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'><a name="1"></a><br>
+        </span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>��在水平和垂直方向，每隔一个象素用基本光照模型计算一次光强，而中间的象素的光强取为相邻象素的光强的平均。在大多数情况下，这种两步插值法对图象质量几乎没有什麽损失。</span><br>
+        ��<span class="blue">2）<span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>数值优化法</span></span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'><a name="2"></a><br>
+        </span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'> ��数值优化法的基本思想是：将法向量插值公式代入光照明模型中，然后进行数值优化。优化的策略有两种：一种是采用差分技术使计算模型得到简化；另一种是将计算模型作泰勒展开，取其泰勒展开式的前三项作为光亮度的近似公式，从而使计算公式得到简化。优化的结果是：大大地提高了计算速度。下面，我们主要介绍基于泰勒展开的数值优化方法。</span> 
+        <p class=MsoNormal style='text-indent:21.0pt;layout-grid-mode:char'><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>对于三角形面片，见图</span><span lang=EN-US>8.7</span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>所示，首先将屏幕坐标系平移至三角形的中心</span><span lang=EN-US><sub> <img
+src="../../../../images/pic/chap08/image132.gif" v:shapes="_x0000_i1096" align="absmiddle"> 
+          </sub> </span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>，即</span></p>
+        <p class=MsoNormal style='text-indent:21.0pt;layout-grid-mode:char'><span
+lang=EN-US><sub> <img
+src="../../../../images/pic/chap08/image134.gif" v:shapes="_x0000_i1097" align="absmiddle"> 
+          </sub> </span></p>
+        <p class=MsoNormal style='layout-grid-mode:char'><span style='font-family:宋体;
+mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman"'>将上式代入（</span><span
+lang=EN-US>8</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>－</span><span lang=EN-US>3</span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>－</span><span lang=EN-US>1</span><span style='font-family:
+宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman"'>）式，可得：</span></p>
+        <p class=MsoNormal style='text-indent:21.0pt;layout-grid-mode:char'><span
+lang=EN-US><sub> <img
+src="../../../../images/pic/chap08/image136.gif" v:shapes="_x0000_i1098" align="absmiddle"> 
+          </sub> </span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>，</span></p>
+        <p class=MsoNormal style='layout-grid-mode:char'><span style='font-family:宋体;
+mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman"'>其中，</span></p>
+        <p class=MsoNormal style='text-indent:21.0pt;layout-grid-mode:char'><span
+lang=EN-US><sub> <img
+src="../../../../images/pic/chap08/image138.gif" v:shapes="_x0000_i1099" align="absmiddle"> 
+          </sub> </span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>。</span></p>
+        <p class=MsoNormal style='layout-grid-mode:char'><span style='font-family:宋体;
+mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman"'>设</span><b><span
+lang=EN-US>L</span></b><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>为三角形面片的入射光线单位向量，当光源位于无限远时</span><b><span
+lang=EN-US>L</span></b><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>是常矢量，那么漫反射光强为：</span></p>
+        <p class=MsoNormal style='text-indent:21.0pt;layout-grid-mode:char'><span
+lang=EN-US><sub> <img
+src="../../../../images/pic/chap08/image140.gif" v:shapes="_x0000_i1100" align="absmiddle"> 
+          </sub></span></p>
+        <p class=MsoNormal style='layout-grid-mode:char'><span style='font-family:宋体;
+mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman"'>其中，</span></p>
+        <p class=MsoNormal style='text-indent:21.0pt;layout-grid-mode:char'><span
+lang=EN-US><sub> <img
+src="../../../../images/pic/chap08/image142.gif" v:shapes="_x0000_i1101" align="absmiddle"> 
+          </sub></span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>，</span></p>
+        <p class=MsoNormal style='layout-grid-mode:char'><span lang=EN-US><sub> 
+          <img
+src="../../../../images/pic/chap08/image144.gif" v:shapes="_x0000_i1102" align="absmiddle"> 
+          </sub></span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>称为漫反射因子。令</span></p>
+        <p class=MsoNormal style='text-indent:21.0pt;layout-grid-mode:char'><span
+lang=EN-US><sub> <img
+src="../../../../images/pic/chap08/image146.gif" v:shapes="_x0000_i1103" align="absmiddle"> 
+          </sub></span></p>
+        <p class=MsoNormal style='text-indent:21.0pt;layout-grid-mode:char'><span
+lang=EN-US><sub> <img
+src="../../../../images/pic/chap08/image148.gif" v:shapes="_x0000_i1104" align="absmiddle"> 
+          </sub> </span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>。</span></p>
+        <p class=MsoNormal style='layout-grid-mode:char'><span style='font-family:宋体;
+mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman"'>则</span></p>
+        <p class=MsoNormal style='text-indent:21.0pt;layout-grid-mode:char'><span
+lang=EN-US><sub> <img
+src="../../../../images/pic/chap08/image150.gif" v:shapes="_x0000_i1105" align="absmiddle"> 
+          </sub></span></p>
+        <p class=MsoNormal style='text-indent:21.0pt;tab-stops:12.0cm;layout-grid-mode:
+char'><span lang=EN-US><sub> <img
+src="../../../../images/pic/chap08/image152.gif" v:shapes="_x0000_i1106"> </sub> 
+          </span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>。</span></p>
+        <p class=MsoNormal style='layout-grid-mode:char'><span style='font-family:宋体;
+mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman"'>把</span><span
+lang=EN-US><sub> <img
+src="../../../../images/pic/chap08/image154.gif" v:shapes="_x0000_i1107" align="absmiddle"> 
+          </sub> </span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>在（</span><i><span
+lang=EN-US>x</span></i><span style='font-family:宋体'>&acute;</span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>，</span><i><span lang=EN-US>y</span></i><span
+style='font-family:宋体'>&acute;</span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>）</span><span
+lang=EN-US>=</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>（</span><span lang=EN-US>0</span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>，</span><span lang=EN-US>0</span><span style='font-family:
+宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman"'>）处进行泰勒展开，取前三项，得到：</span></p>
+        <img src="../../../../images/but/dingyi.gif" width="27" height="19" align="absmiddle">（<span lang=EN-US>8</span><span style='font-family:
+宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman"'>－</span><span
+lang=EN-US>3</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>－</span><span lang=EN-US>2</span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>）</span><span lang=EN-US><sub><br>
+          <img
+src="../../../../images/pic/chap08/image156.gif" v:shapes="_x0000_i1108" align="absmiddle"> 
+          </sub> </span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>，</span><span
+lang=EN-US><span style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+          </span></span>
+<p class=MsoNormal style='layout-grid-mode:char'><span style='font-family:宋体;
+mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman"'>其中，</span></p>
+        <p class=MsoNormal style='text-indent:21.0pt;layout-grid-mode:char'><span
+lang=EN-US><sub> <img
+src="../../../../images/pic/chap08/image158.gif" v:shapes="_x0000_i1109"> </sub> 
+          </span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>，</span></p>
+        <p class=MsoNormal style='text-indent:21.0pt;layout-grid-mode:char'><span
+lang=EN-US><sub> <img
+src="../../../../images/pic/chap08/image160.gif" v:shapes="_x0000_i1110"> </sub> 
+          </span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>，</span></p>
+        <p class=MsoNormal style='text-indent:21.0pt;layout-grid-mode:char'><span
+lang=EN-US><sub> <img
+src="../../../../images/pic/chap08/image162.gif" v:shapes="_x0000_i1111" align="absmiddle"> 
+          </sub> </span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>，</span></p>
+        <p class=MsoNormal style='text-indent:21.0pt;layout-grid-mode:char'><span
+lang=EN-US><sub> <img
+src="../../../../images/pic/chap08/image164.gif" v:shapes="_x0000_i1112" align="absmiddle"> 
+          </sub> </span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>，</span></p>
+        <p class=MsoNormal style='text-indent:21.0pt;layout-grid-mode:char'><span
+lang=EN-US><sub> <img
+src="../../../../images/pic/chap08/image166.gif" v:shapes="_x0000_i1113" align="absmiddle"> 
+          </sub> </span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>，</span></p>
+        <p class=MsoNormal style='text-indent:21.0pt;layout-grid-mode:char'><span
+lang=EN-US><sub> <img
+src="../../../../images/pic/chap08/image168.gif" v:shapes="_x0000_i1114" align="absmiddle"> 
+          </sub> </span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>。</span></p>
+        <p class=MsoNormal style='text-indent:21.0pt;layout-grid-mode:char'><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>对于镜面反射光强，可以采用类似的方法处理。同样地，我们假设光源位于无限远，三角形面片的入射光线单位向量</span><b><span
+lang=EN-US>L</span></b><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>是常矢量。根据简化的冯氏镜面反射模型的计算公式（</span><span
+lang=EN-US>8</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>－</span><span lang=EN-US>1</span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>－</span><span lang=EN-US>5</span><span style='font-family:
+宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman"'>）</span></p>
+        <p class=MsoNormal style='text-indent:21.0pt;layout-grid-mode:char'><span
+lang=EN-US><sub> <img
+src="../../../../images/pic/chap08/image170.gif" v:shapes="_x0000_i1115" align="absmiddle"> 
+          </sub> </span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>，</span></p>
+        <p class=MsoNormal style='layout-grid-mode:char'><span style='font-family:宋体;
+mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman"'>其中，</span><b><span
+lang=EN-US>H</span></b><sub><span lang=EN-US>0</span></sub><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>是入射光线矢量</span><b><span lang=EN-US>L</span></b><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>和视方向矢量</span><b><span lang=EN-US>V</span></b><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>的单位半角矢量，我们需要分两种情况来讨论：</span></p>
+        ��(a)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp; </span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>当视点位于无限远（平行投影）时，</span> 
+        <p class=MsoNormal style='margin-left:60.0pt;text-indent:3.0pt;layout-grid-mode:
+char'><span lang=EN-US><sub> <img
+src="../../../../images/pic/chap08/image172.gif" v:shapes="_x0000_i1116" align="absmiddle"> 
+          </sub></span></p>
+        <p class=MsoNormal style='margin-left:18.0pt;text-indent:21.0pt;layout-grid-mode:
+char'><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>是一个单位矢量（常矢量）。所以</span></p>
+        <p class=MsoNormal style='margin-left:60.0pt;text-indent:3.0pt;layout-grid-mode:
+char'><span lang=EN-US><sub> <img
+src="../../../../images/pic/chap08/image174.gif" v:shapes="_x0000_i1117" align="absmiddle"> 
+          </sub> </span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>，</span></p>
+        <p class=MsoNormal style='margin-left:39.0pt;layout-grid-mode:char'><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>其中，</span></p>
+        <p class=MsoNormal style='margin-left:60.0pt;text-indent:3.0pt;layout-grid-mode:
+char'><span lang=EN-US><sub> <img
+src="../../../../images/pic/chap08/image176.gif" v:shapes="_x0000_i1118" align="absmiddle"> 
+          </sub></span></p>
+        <p class=MsoNormal style='margin-left:60.0pt;text-indent:3.0pt;layout-grid-mode:
+char'><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>＝</span><span lang=EN-US><sub> <img
+src="../../../../images/pic/chap08/image178.gif" v:shapes="_x0000_i1119" align="absmiddle"> 
+          </sub> </span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>。</span></p>
+        ��(b)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>当视点位于有限远（透视投影）时，由于视线向量</span><b><span lang=EN-US>V</span></b><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>并非常量，为此需要作一些简化。我们用三角形三个顶点处的视线向量</span><b><span lang=EN-US>V</span></b><sub><span
+lang=EN-US>1</span></sub><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>、</span><b><span
+lang=EN-US>V</span></b><sub><span lang=EN-US>2</span></sub><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>和</span><b><span lang=EN-US>V</span></b><sub><span
+lang=EN-US>3</span></sub><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>来线性插值三角形内部的视线向量：<br>
+        </span> <img
+src="../../../../images/pic/chap08/image180.gif" v:shapes="_x0000_i1120" align="absmiddle"> 
+        <span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>，</span><span
+lang=EN-US> </span> 
+        <p class=MsoNormal style='margin-left:39.0pt;layout-grid-mode:char'><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>其中，</span></p>
+        <p class=MsoNormal style='margin-left:60.0pt;text-indent:3.0pt;layout-grid-mode:
+char'><span lang=EN-US><sub> <img
+src="../../../../images/pic/chap08/image182.gif" v:shapes="_x0000_i1121" align="absmiddle"> 
+          </sub></span></p>
+        <p class=MsoNormal style='margin-left:39.0pt;layout-grid-mode:char'><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>将屏幕坐标系平移至三角形的中心，得</span></p>
+        <p class=MsoNormal style='margin-left:60.0pt;text-indent:3.0pt;layout-grid-mode:
+char'><span lang=EN-US><sub> </sub> </span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>，</span><span lang=EN-US><sub><img
+src="../../../../images/pic/chap08/image184.gif" v:shapes="_x0000_i1122" align="absmiddle"></sub></span></p>
+        <p class=MsoNormal style='margin-left:39.0pt;layout-grid-mode:char'><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>其中，</span></p>
+        <p class=MsoNormal style='margin-left:60.0pt;text-indent:3.0pt;layout-grid-mode:
+char'><span lang=EN-US><sub> <img
+src="../../../../images/pic/chap08/image186.gif" v:shapes="_x0000_i1123" align="absmiddle"> 
+          </sub> </span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>。</span></p>
+        <p class=MsoNormal style='margin-left:39.0pt;layout-grid-mode:char'><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>所以，</span></p>
+        <p class=MsoNormal style='margin-left:39.0pt;layout-grid-mode:char'><span lang=EN-US><sub><img
+src="../../../../images/pic/chap08/image188.gif" v:shapes="_x0000_i1124" align="absmiddle"> 
+          </sub> </span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>，</span></p>
+        <p class=MsoNormal style='margin-left:42.0pt;layout-grid-mode:char'><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>其中</span><span lang=EN-US>,</span></p>
+        <p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt;layout-grid-mode:
+char'><span lang=EN-US><sub> <img
+src="../../../../images/pic/chap08/image190.gif" v:shapes="_x0000_i1125" align="absmiddle"> 
+          </sub> , </span></p>
+        <p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt;layout-grid-mode:
+char'><span lang=EN-US><sub> <img
+src="../../../../images/pic/chap08/image192.gif" v:shapes="_x0000_i1126" align="absmiddle"> 
+          </sub> , </span></p>
+        <p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt;layout-grid-mode:
+char'><span lang=EN-US><sub> <img
+src="../../../../images/pic/chap08/image194.gif" v:shapes="_x0000_i1127" align="absmiddle"> 
+          </sub> </span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>。</span></p>
+        <p class=MsoNormal style='margin-left:39.0pt;layout-grid-mode:char'><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>单位半角矢量</span></p>
+        <p class=MsoNormal style='margin-left:54.0pt;text-indent:3.0pt;layout-grid-mode:
+char'><span lang=EN-US><sub> <img
+src="../../../../images/pic/chap08/image196.gif" v:shapes="_x0000_i1128" align="absmiddle"> 
+          </sub> </span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>。</span></p>
+        <p class=MsoNormal style='margin-left:39.0pt;layout-grid-mode:char'><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>镜面反射因子</span></p>
+        <p class=MsoNormal style='margin-left:57.0pt;text-indent:3.0pt;layout-grid-mode:
+char'><span lang=EN-US><sub> <img
+src="../../../../images/pic/chap08/image198.gif" v:shapes="_x0000_i1129" align="absmiddle"> 
+          </sub> </span></p>
+        <p class=MsoNormal style='margin-left:57.0pt;text-indent:3.0pt;layout-grid-mode:
+char'><span lang=EN-US> <o:p></o:p></span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>＝</span><span lang=EN-US><sub> <img
+src="../../../../images/pic/chap08/image200.gif" v:shapes="_x0000_i1130" align="absmiddle"> 
+          </sub> </span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>。</span></p>
+        <p class=MsoNormal style='margin-left:54.0pt;text-indent:6.0pt;layout-grid-mode:
+char'><span lang=EN-US> <o:p></o:p></span></p>
+        <p class=MsoNormal style='margin-left:42.0pt;layout-grid-mode:char'><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>将</span><span lang=EN-US><sub> <img
+src="../../../../images/pic/chap08/image202.gif" v:shapes="_x0000_i1131" align="absmiddle"> 
+          </sub> </span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>在（</span><span
+lang=EN-US>x</span><span style='font-family:宋体'>&acute;</span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>，</span><span lang=EN-US>y</span><span
+style='font-family:宋体'>&acute;</span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>）</span><span
+lang=EN-US>=</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>（</span><span lang=EN-US>0</span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>，</span><span lang=EN-US>0</span><span style='font-family:
+宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman"'>）处进行泰勒展开，取前三项，最后可得：</span></p>
+        <img
+src="../../../../images/pic/chap08/image203.gif" v:shapes="_x0000_i1132" align="absmiddle"> 
+        <span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>＝</span><span
+lang=EN-US><sub> <img
+src="../../../../images/pic/chap08/image205.gif" v:shapes="_x0000_i1133" align="absmiddle"> 
+        </sub> </span> 其中，<br>
+        <span lang=EN-US><sub> <img
+src="../../../../images/pic/chap08/image207.gif" v:shapes="_x0000_i1134" align="absmiddle"> 
+        </sub> (<i>i</i>=0,1,</span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>…</span><span
+lang=EN-US>,5)</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>为常数，<br>
+        <br>
+        </span> <img
+src="../../../../images/pic/chap08/image209.gif" v:shapes="_x0000_i1135" align="absmiddle"> 
+        <br>
+        <br>
+        <img
+src="../../../../images/pic/chap08/image211.gif" v:shapes="_x0000_i1136" align="absmiddle">, 
+        <br>
+        <br>
+        <span
+lang=EN-US><sub><img
+src="../../../../images/pic/chap08/image213.gif" v:shapes="_x0000_i1137" align="absmiddle"> 
+        </sub> , <br>
+        <br>
+        </span><span
+lang=EN-US><sub><img
+src="../../../../images/pic/chap08/image215.gif" v:shapes="_x0000_i1138"> </sub> 
+        <sub> <img
+src="../../../../images/pic/chap08/image217.gif" v:shapes="_x0000_i1139"> </sub> 
+        <sub> <img
+src="../../../../images/pic/chap08/image219.gif" v:shapes="_x0000_i1140"> </sub> 
+        </span> <br>
+        <br>
+        <img
+src="../../../../images/pic/chap08/image221.gif" v:shapes="_x0000_i1141" align="absmiddle"> 
+        ,<br>
+        <br>
+        <img
+src="../../../../images/pic/chap08/image223.gif" v:shapes="_x0000_i1142" align="absmiddle"> 
+        <sub> <img
+src="../../../../images/pic/chap08/image225.gif" v:shapes="_x0000_i1143" align="absmiddle"> 
+        </sub> <br>
+        <br>
+        <img
+src="../../../../images/pic/chap08/image227.gif" v:shapes="_x0000_i1144" align="absmiddle"> 
+        <sub> <img
+src="../../../../images/pic/chap08/image229.gif" v:shapes="_x0000_i1145" align="absmiddle"> 
+        </sub> <br>
+        <br>
+        <img
+src="../../../../images/pic/chap08/image231.gif" v:shapes="_x0000_i1146" align="absmiddle"> 
+        , <br>
+        <br>
+        <img
+src="../../../../images/pic/chap08/image233.gif" v:shapes="_x0000_i1147" align="absmiddle"> 
+        <sub> <img
+src="../../../../images/pic/chap08/image235.gif" v:shapes="_x0000_i1148" align="absmiddle"> 
+        </sub><sub><img width=88 height=48
+src="../../../../images/pic/chap08/image237.gif" v:shapes="_x0000_i1149" align="absmiddle"> 
+        </sub> <br>
+        <br>
+        <img
+src="../../../../images/pic/chap08/image239.gif" v:shapes="_x0000_i1150" align="absmiddle"><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>。</span> 
+        <p class=MsoNormal style='text-indent:21.0pt;layout-grid-mode:char'><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>��上述基于泰勒展开的数值优化算法使每个象素的冯氏光照模型的计算量可以减少到只需</span><span
+lang=EN-US>5</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>次加法和</span><span lang=EN-US>1</span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>次内存存取，计算开销仅仅是高若德（</span><span lang=EN-US>Gouraud</span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>）方法的</span><span lang=EN-US>1</span><span style='font-family:
+宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman"'>倍，而比传统的冯氏（</span><span
+lang=EN-US>Phong</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>）方法降低了</span><span lang=EN-US>4-5</span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>倍。</span></p>
+        ��<span class="blue">3）<span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>几何加速方法</span></span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'><a name="3"></a><br>
+        ��</span><span
+lang=EN-US>Bergman</span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>和</span><span
+lang=EN-US>Harrison</span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>等人分别于</span><span
+lang=EN-US>1986</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>和</span><span lang=EN-US>1988</span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>年提出了高光的局部检测和叠加技术。其基本思想是：先用高若德（</span><span lang=EN-US>Gouraud</span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>）明暗处理算法快速绘制物体，然后对每个多边形的顶点和边界进行高光测试，如果镜面反射项大于某一给定的阈值</span><span
+lang=EN-US>T</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>，即（</span><b><span lang=EN-US>N</span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>・</span><span lang=EN-US>H</span></b><span style='font-family:
+宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman"'>）</span><span
+lang=EN-US>&gt; T</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>，可以认为镜面反射光强的贡献不可忽视，应当再把它叠加上去，从而产生镜面高光效果。由于物体表面的高光通常分布在小范围的局部区域，所以这种方法的效果是显著的，其代价是会附带一定程度的马赫带效应，而且有时会遗漏某些高光区域，特别是多边形比较大的时候。</span><span lang=EN-US style='font-size:6.5pt;mso-bidi-font-size:
+12.0pt;font-family:宋体;mso-hansi-font-family:"Times New Roman"'><br>
+        <br>
+        </span><!-- #EndEditable --></td>
+    </tr>
+  </table>
+  
+</div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<html>
+<head>
+<!-- #BeginEditable "doctitle" -->
+<title></title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/css01.css" type="text/css">
+<link rel="stylesheet" href="../../../../css/css.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center"> 
+  <table width="95%" border="0" cellspacing="3" cellpadding="2" height="49%" class="text">
+    <tr> 
+      <td valign="top" height="218" width="100%"><!-- #BeginEditable "left" --> 
+        <p style='layout-grid-mode:char'><span class="MsoNormal"><a name="1">��根据Williams于1978年提出的光源深度缓存方法的思想，我们可以对光源缓存进行加速。</a></span><a name="1" class="blue">其算法思想是： 
+          </a><span class="MsoNormal"><a name="1"><br>
+          </a>��1） 在光源立方体的每一个面，建一个n×m的深度缓存Z-Buffer，称为光源深度缓存，简称阴影缓存。所有景物均变换到光源坐标系，以光源为投影中心，用深度缓存消隐算法按光源方向对景物进行消隐，阴影缓存Z-Buffer存储的只是那些离光源最近的景物点的深度值，不进行光亮度的计算。<br>
+          ��2） 将P点也变换到光源坐标系，并以光源为投影中心，用深度缓存算法同样地把P点向相应的投影面进行投影，并用P点变换后的深度值和存储在阴影Z-Buffer中的深度值进行比较，若阴影Z-Buffer中的深度值比P点变换后的深度值小，则说明P点从光源方向不可见，位于阴影中。<br>
+          ��注意，上面第1）步是一个预处理过程，它在光线跟踪开始前完成。这个方法的优点是阴影测试的速度很快；缺点是当光源方向偏离视线方向较远时，在阴影区域附近产生的图象（阴影边界）会走样。因此，在内存许可的前提下，n和m应当尽可能大，以便改善图象走样的影响。 
+          </span>
+        <p>��上述方法也可以用于其它绘制方法（如：深度缓存、扫描线算法等等）的阴影测试。<br>
+          <br>
+        </p>
+        <!-- #EndEditable --></td>
+    </tr>
+  </table>
+  
+</div>
+</body>
+</html>

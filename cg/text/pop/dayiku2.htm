@@ -1,0 +1,47 @@
+<html>
+<head>
+<!-- #BeginEditable "doctitle" -->
+<title>答疑库</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../css/css01.css" type="text/css">
+<link rel="stylesheet" href="../../css/css.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#F8F9F6">
+<table width="95%" border="0" cellspacing="3" cellpadding="2" height="100%" class="pt9" align="center">
+  <tr> 
+      
+    <td valign="top" height="230"><!-- #BeginEditable "left" --> 
+      <p>（1） 知4阶均匀B样条曲线的<font size="2">n＋1</font>个点V0，V1，…Vn， 如何计算出它的控制点？<br>
+        答：我们先复习一下4阶均匀B样条曲线的公式： <br>
+        <img src="../../images/pop/image_02.gif"><br>
+        ��<img src="../../images/pop/image_02_2.gif" width="131" height="99"><br>
+        上式中，取<font size="2">t=0</font>，同时分别取<font size="2">i=3,4,…,n＋2</font>，则我们可以得到n个方程：<br>
+        <img src="../../images/but/dingyi.gif" width="27" height="19" align="absmiddle"> 
+        (1) <br>
+        <img src="../../images/pop/image_03.gif" width="160" height="41" align="absmiddle">，<font size="2"> 
+        i=0, 1, …, n-1</font>; <br>
+        再取<font size="2">t=1,i=n＋2</font>又可以得到1个方程:<br>
+        <img src="../../images/but/dingyi.gif" width="27" height="19" align="absmiddle"> 
+        (2)<br>
+        <img src="../../images/pop/image_04.gif" width="168" height="41" align="absmiddle">。 
+        <br>
+        但是，我们有<font size="2">n+3</font>个未知数，却只有<font size="2">n+1</font>个方程，所以我们还要补充2个边界条件，例如，已知开曲线的两端的导数为T0和Tn，则有：<br>
+        <img src="../../images/but/dingyi.gif" width="27" height="19" align="absmiddle"> 
+        (3) <br>
+        <img src="../../images/pop/image_05.gif" width="131" height="88" align="absmiddle"> 
+        <br>
+        这样，由（1）～（3）式，我们就可以得到线性方程组：<br>
+        <img src="../../images/pop/image_06.gif" width="281" height="149" align="absmiddle">。<br>
+        上式的系数矩阵是非奇异的，因此它有唯一解。<br>
+        ��对于其它的边界条件，例如：已知开曲线两端的二阶导数V″0＝V″n，我们可以类似地进行处理；对于周期性边界条件（即：曲线为一条光滑的闭合曲线）， 
+        我们可以得到以下方程：<br>
+        <img src="../../images/pop/image_07.gif" width="272" height="147" align="absmiddle">。<br>
+        <br>
+      </p>
+      <!-- #EndEditable --></td>
+    </tr>
+  </table>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<html>
+<head>
+<!-- #BeginEditable "doctitle" -->
+<title>计算机图形学</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/css.css" type="text/css">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../../images/bg03.gif">
+<div align="center">
+  <table width="90%" border="0" cellspacing="0" cellpadding="0" height="100">
+    <tr> 
+      <td height="171" valign="top" width="100%" class=text> <!-- #BeginEditable "right" --><span class="blue"><br>
+        7.4 深度缓存(Z-buffer)算法</span><br>
+        ��深度缓存算法是一种图象空间的消隐算法，它需要二个数组：一个是深度缓存数组<font size="2">ZB</font>（<font size="2">Z-buffer</font>，又称为<font size="2">Z</font>缓冲器），另一个是颜色属性数组<font size="2">CB</font> 
+        (<font size="2">Color-Buffer</font>，又称为帧缓冲器)，这两个数组的大小和屏幕上显示图形的区域（即视口）的大小有关，等于视口的宽度（横向象素数）<font size="2">m</font>和高度（纵向象素数）<font size="2">n</font>的乘积。其基本思想和消隐过程是：首先给深度缓存数组中的每个单元赋初，如果视点的方向是<font size="2">Z</font>轴的反反向，一般取初始值为<font size="2">z</font>的最小值；颜色属性数组中的每个单元的初值可设成背景颜色的值。图形消隐的过程就是决定<font size="2">Z</font>缓冲器和帧缓冲器中相应单元的深度和颜色值的过程。通过扫描转换，依次把每一个面离散成为象素点，逐个将象素点的深度值（<font size="2">z</font>坐标值）和<font size="2">Z</font>缓冲器中相应单元的值进行比较，如果前者大于后者，则用当前象素点的颜色值替换帧缓冲器的相应单元的颜色值，同时<font size="2">Z</font>缓冲器中相应单元的值也要改成当前这个象素点的<font size="2">z</font>坐标值。反之，如果这点的<font size="2">z</font>坐标值小于<font size="2">Z</font>缓冲器中的值，则说明对应象素已经显示了对象上一个点的属性，该点要比当前考虑的点更接近视点。因此，保持Z缓冲器和帧缓冲器中的值不变。处理完显示对象的所有面之后，帧缓冲器中便得到了消隐输出的图形。<br>
+        <font color="#FF0000">��这个算法的关键在于，要尽快计算出多边形内的点及其深度值。这里需要应用多边形中的点与点之间的相关性，包括水平相关性和垂直相关性。我们先来分析多边形中相邻的点的深度值在水平方向上的相关性。</font> 
+        <br>
+        ��设某个多边形所在的平面方程为：<br>
+        ��<font size="2">ax+by+cz+d=0，</font><br>
+        若c不为0，则 <br>
+        �<font size="2">�z=－(ax＋by＋d)/c。</font><br>
+        在点（<font size="2">x<sub>i</sub>,y<sub>i</sub></font>）处，<br>
+        <font size="2">��z<sub>i</sub> = －(d＋ax<sub>i</sub>＋by<sub>i</sub>)/c。</font><br>
+        而在点（<font size="2">x<sub>i+1</sub>,y<sub>i</sub></font>）处<br>
+        ��<font size="2">z<sub>i+1</sub> = －(d＋ax<sub>i+1</sub>＋by<sub>i</sub>)/c</font><br>
+        因为逐点扫描时，<font size="2">x<sub>i+1</sub> = x<sub>i</sub> + 1</font>，所以<br>
+        <img src="../../../../images/but/dingyi.gif" width="27" height="19" align="absmiddle">（7－4－1）<br>
+        �<img src="../../../../images/pic/chap07/mo7_026.gif" width="201" height="24" align="absmiddle">。<br>
+        ��这个公式表明：在平面多边形中，点的深度值在水平方向<font size="2">x</font>上可以递推计算。对于确定的面片，<font size="2">－a/c</font>是一个常数，所以沿水平扫描线的后继点的深度值，可以由前面点的深度值执行一次加法获得。<br>
+        ��类似地，可以得到平面多边形内的点的深度值在垂直方向<font size="2">y</font>上的递推关系：<br>
+        假定多边形的左边界线在视平面上的投影线的斜率为k，我们在y方向上，从上到下扫描，即<font size="2">y<sub>i+1</sub> 
+        = y<sub>i</sub> -1</font>，则扫描线与左边界线的投影的交点的<font size="2">x</font>坐标：<br>
+        <font size="2">��x<sub>i+1</sub> = x<sub>i</sub> - 1/k</font>，<br>
+        沿该边的深度值也可以递归的计算：<br>
+        ��<img src="../../../../images/pic/chap07/mo7_027.gif" width="219" height="52" align="absmiddle"><br>
+        如果是沿一条垂直边进行处理，这时由于斜率为无穷大，则上式可以简化为：<br>
+        ��<img src="../../../../images/pic/chap07/mo7_028.gif" width="111" height="41" align="absmiddle">。<br>
+        <br>
+        <!-- #EndEditable --></td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

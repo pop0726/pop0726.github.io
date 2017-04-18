@@ -1,0 +1,50 @@
+<html>
+<head>
+<!-- #BeginEditable "doctitle" -->
+<title></title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/css01.css" type="text/css">
+<link rel="stylesheet" href="../../../../css/css.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center"> 
+  <table width="95%" border="0" cellspacing="3" cellpadding="2" height="49%" class="text">
+    <tr> 
+      <td valign="top" height="490" width="100%"><!-- #BeginEditable "left" --><img src="../../../../images/but/dingyi.gif" width="27" height="19" align="absmiddle">（6－4－18－1） 
+        <br>
+        ��T=<img src="../../../../images/pic/chap06/mo6_230.gif" align="absmiddle"> 
+        .<br>
+        其中, <img src="../../../../images/pic/chap06/mo6_231.gif" width="38" height="42" align="absmiddle"> 
+        = n - k + 1。由于当节点的重复度增加1时, 曲线在节点处的连续性就减少1次, 因此为了保证升一阶后相邻曲线段的连续性不变, 应在t<sub>k-1</sub>至t<sub>n+1</sub>之间插入一些节点[10], 
+        使<font size="2">t</font><sub>k-1</sub>至<font size="2">t</font><sub>n+1</sub>之间的节点的重复度分别增加1。另外, 
+        在节点矢量的两端分别各增加一个节点, 使节点矢量变为:<br>
+        <img src="../../../../images/pic/chap06/mo6_232.gif">.<br>
+        于是, 根据定理1, 可以给出一条B样条曲线升阶的算法:<br>
+        <span class="blue"><img src="../../../../images/but/chengxu.gif" width="28" height="25" align="absmiddle"> 
+        算法6.2</span><br>
+        <span class="orange">for (i=k to k+s-1 by 1) Insert Knot t<sub>i</sub> 
+        into the curve;<br>
+        �j = -1;<br>
+        ��for (i=k-1 to n+s by m<sub>j</sub>+1) <br>
+        ��if (i == k-1) Start = 0;<br>
+        ��else Start = k - m<sub>j</sub> ;<br>
+        ��for (v=Start to k by 1)<br>
+        ��j = j + 1;<br>
+        ��<img src="../../../../images/pic/chap06/mo6_233.gif" width="17" height="26" align="absmiddle">= 
+        0;<br>
+        ��for (u=0 to k-1 by 1) <img src="../../../../images/pic/chap06/mo6_233.gif" width="17" height="26" align="absmiddle">=<img src="../../../../images/pic/chap06/mo6_233.gif" width="17" height="26" align="absmiddle"> 
+        +<img src="../../../../images/pic/chap06/mo6_234.gif" width="43" height="37" align="absmiddle"> 
+        V <sub>i-k+1+u</sub>;<br>
+        ��endfor <br>
+        endfor</span><br>
+        <span class="blue"><br>
+        </span> <br>
+        <!-- #EndEditable --></td>
+    </tr>
+  </table>
+  
+</div>
+</body>
+</html>

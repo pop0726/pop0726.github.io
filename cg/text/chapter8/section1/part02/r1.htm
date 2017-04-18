@@ -1,0 +1,41 @@
+<html>
+<head>
+<!-- #BeginEditable "doctitle" -->
+<title>计算机图形学</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/css.css" type="text/css">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../../images/bg03.gif">
+<div align="center">
+  <table width="90%" border="0" cellspacing="0" cellpadding="0" height="100">
+    <tr> 
+      <td height="171" valign="top" width="100%" class=text><!-- #BeginEditable "right" --> 
+        <p><span class="blue"><br>
+          8.1.2 漫反射光</span><br>
+          ��漫反射光是由物体表面的粗糙不平引起的，它均匀地向各个方向传播，与视点无关。根据朗伯（Lambert）余弦定律，漫反射光在空间均匀分布，反射光强I与入射光的入射角θ的余弦成正比，即：<img src="../../../../images/pic/chap08/image014.gif" align="absmiddle"><br>
+          ��其中， <img src="../../../../images/pic/chap08/image017.gif" align="absmiddle">是漫反射系数（0～1之间的常数），与物体表面性质有关； 
+          <img src="../../../../images/pic/chap08/image019.gif" align="absmiddle">是入射光（光源）的光强；θ是入射光的入射角，即入射光与物体表面法向量之间的夹角。可见，对于朗伯反射，光强在所有的观察方向上都相同，它与视点的位置无关。<br>
+          ��设物体表面在照射点P处的单位法向量为N，P到点光源的单位向量为L，则上式可表达为如下的向量形式：<br>
+          <img src="../../../../images/but/dingyi.gif" width="27" height="19" align="absmiddle">（8－1－2）<br>
+          <img src="../../../../images/pic/chap08/image022.gif"> 。 <br>
+          ��漫反射光的颜色由入射光的颜色和物体表面的颜色来确定。注意：在RGB颜色模型中，把入射光强I设为三个分量，分别代表RGB三基色的光强，通过这些分量的值来调整光源的颜色。同样的，漫反射系数Kd也有三个分量，分别代表RGB三基色的漫反射系数，它们反映物体的颜色，通过调整它们，可以设定物体的颜色。于是，（8－1－2）式可以改写为：<br>
+          <img src="../../../../images/pic/chap08/image024.gif"><br>
+
+　　当入射角θ＝0～<img src="../../../../images/pic/chap08/image026.gif" align="absmiddle"> 
+        时，点光源才照亮面片；否则，cosθ&lt;0, 光源位于物体的背后，光亮度为0。当入射角θ为0时，光源垂直照射在物体表面上，反射光强度最大。<br>
+        <br>
+          ��漫反射光的颜色取决于光源的颜色和材料的漫反射系数。如果材料的漫反射系数不同，同一个光源在相同的入射角照射不同材料时会出现不同的颜色。<br>
+          ��如果有多个光源，则可以把各个光源的漫反射光照效果进行叠加。这时，朗伯漫反射光照模型可以写成：<img src="../../../../images/pic/chap08/image028.gif" align="absmiddle"><br>
+          <br>
+          其中，Ipi表示第i个点光源的光强，Li和是物体表面上的照射点P指向第i个点光源的单位向量，m是光源的个数，这里假定这m个光源均位于光照表面的正面。<br>
+          ��在实际中，从周围环境投射来的环境光也会有相当的影响。我们可以将环境光和Lambert漫反射的光强合并，得到一个比较完整的漫反射表达式：<img src="../../../../images/pic/chap08/image030.gif" align="absmiddle"><br>
+        </p>
+        <p>&nbsp;</p>
+        <!-- #EndEditable --></td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<html>
+<head>
+<!-- #BeginEditable "doctitle" -->
+<title>计算机图形学</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/css01.css" type="text/css">
+<link rel="stylesheet" href="../../../../css/css.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center"> 
+  <table width="100%" border="0" cellspacing="00" cellpadding="0">
+    <tr>
+      <td height="732"> 
+        <table width="95%" border="0" cellspacing="3" cellpadding="2" height="100%" class="text" align="center">
+          <tr> 
+            <td valign="top" height="480"> 
+              <div align="center"> 
+                <p align="left">&nbsp;&nbsp;&nbsp;平移变换的公式为：<br>
+                  <img src="../../../../images/but/dingyi.gif" width="27" height="19" align="absmiddle">(3-2-3)<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../../../../images/pic/chap03/mo_7.gif" width="75" height="48" align="absmiddle"><br>
+                  <br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;显然，(3-2-3)式不能象(3-2-1)和(3-2-2)式那样用矩阵的形式表示。为此，我们引入齐次坐标表示法，就是用n＋１维向量表示一个n维向量，即n维空间中的点的位置向量(P<sub>1</sub>，P<sub>2</sub>，…P<sub>n</sub>)被表示为具有n＋１个坐标分量的向量(wP<sub>1</sub>，wP<sub>2</sub>，…，wP<sub>n</sub>，w) 
+                  。例如：二维空间坐标（x, y）的齐次坐标表示为[X, Y, w]，则x=X/w, y=Y/w。<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;于是，（3－2－3）式可以用矩阵表式为：<br>
+                  <img src="../../../../images/but/dingyi.gif" width="27" height="19" align="absmiddle">(3-2-4)<br>
+                  <br>
+                  ��<img src="../../../../images/pic/chap03/mo_8.gif" width="77" height="71" align="absmiddle"><br>
+                  <br>
+                  其中，<br>
+                  &nbsp;&nbsp;&nbsp;<img src="../../../../images/pic/chap03/mo_9.gif" width="110" height="72" align="absmiddle"> 
+                  <br>
+                  称为平移变换矩阵。<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;类似地，(3-2-1)和(3-2-2)式也可以改写成为矩阵表达式，这只需要将(3-2-4)式中的平移变换矩阵T<sub>t</sub>分别替换为比例变换矩阵T<sub>s</sub>和旋转变换矩阵T<sub>r</sub>，<br>
+                  &nbsp;&nbsp;&nbsp;<img src="../../../../images/pic/chap03/mo_10.gif" width="305" height="74"><br>
+                  &nbsp;&nbsp;&nbsp;<font color="#FF0000">利用齐次坐标和变换矩阵，其它几何变换也都可以用矩阵形式统一表示。此外，通过计算单个变换的矩阵乘积，可以将任意顺序变换的矩阵合并成为组合变换矩阵，从而使问题得到简化。这些内容我们将在下一章中介绍。<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;</font>一般来讲，坐标总是相对于某一个特定的坐标系而言的。三维空间中的一个点，在不同的坐标系中，它的坐标的值是不同的。那麽，齐次坐标是相对于哪个坐标系的呢？这个问题我们将在第4章中解答。<font color="#FF0000"> 
+                  </font><br>
+                </p>
+                </div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

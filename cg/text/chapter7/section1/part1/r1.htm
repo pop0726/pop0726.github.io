@@ -1,0 +1,35 @@
+<html>
+<head>
+<!-- #BeginEditable "doctitle" -->
+<title>计算机图形学</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/css.css" type="text/css">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../../images/bg03.gif">
+<div align="center">
+  <table width="90%" border="0" cellspacing="0" cellpadding="0" height="100">
+    <tr> 
+      <td height="171" valign="top" width="100%" class=text><!-- #BeginEditable "right" --> 
+        <p> <br>
+          ��在许多计算机图形系统中，通常用多面体来表示三维物体。在计算机的显示器上输出物体的图形时，必须经过某种投影变换，将三维几何信息转换成为能够被显示器接收和输出的二维几何信息。由于投影变换失去了深度信息，这可能导致图形理解的二义性。图7.1 
+          a)是未消除隐藏线的一个长方体线框图的平行投影，它可以有两种不同的理解，如图7.1 b)所示。要消除二义性，在显示时就必须消除物体被遮挡的（即不可见的）线或面，通常称作消除隐藏线和隐藏面，或简称为消隐。</p>
+        <p>��三维物体最简单的表示方式是多面体，其表面用三维空间中的多边形平面表示。如果物体的表面是曲面，则将曲面用多个平面多边形近似。消隐算法则研究多边形之间的遮挡关系。消隐的结果与被观察的物体有关，也与视点的位置有关。</p>
+        <p>��消隐算法有很多。通常按照消隐对象的不同，有两类消隐问题：线消隐（Hidden-line removal）和面消隐（Hidden-surface 
+          removal）。前者用于线框图，消隐对象是物体上的边，消除的是物体上被遮挡的边。后者用于填色图，消隐对象是物体上的面，消除的是物体上被遮挡的面。如果按照消隐的工作空间进行分类，可以将消隐算法分为三大类：<br>
+          <span class="blue">（1）对象空间（Object Space）消隐算法<br>
+          ��（如：光线投射、Roberts算法） </span><br>
+          <span class="blue">（2）图像空间（Image Space）消隐算法<br>
+          ��(如：扫描线、Z－buffer、Warnock算法)</span><br>
+          <span class="blue">（3） 对象空间和图像空间的混合消隐算法<br>
+          ��(如：画家算法) </span><br>
+        </p>
+        <p><br>
+        </p>
+        <!-- #EndEditable --></td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

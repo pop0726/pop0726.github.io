@@ -1,0 +1,363 @@
+<html>
+<head>
+<!-- #BeginEditable "doctitle" -->
+<title>计算机图形学</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/css.css" type="text/css">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../../images/bg03.gif">
+<div align="center">
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td valign="top" height="572"><!-- #BeginEditable "right" --> 
+        <table width="90%" border="0" cellspacing="0" cellpadding="0" height="100%" align="center">
+          <tr> 
+            <td height="55" valign="middle" class="text"> 
+              <p class=MsoNormalIndent><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'><br>
+                ��光栅图形显示器可以看成是由许多可发光的离散点（即像素）组成的矩阵，它需要专门的算法来生成直线、圆弧和曲线等等图形。本章将介绍生成光栅图形的相关算法。这些算法对于开发图形设备驱动程序是必需的。不过，在</span><span
+lang=EN-US>Windows</span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>、</span><span
+lang=EN-US>Unix</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>或</span><span lang=EN-US>Linux</span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>操作系统上开发计算机图形时，现在都有支持</span><span lang=EN-US>OpenGL</span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>的图形硬件和软件开发工具可供使用，而</span><span lang=EN-US>OpenGL</span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>程序库本身都提供了光栅图形显示的驱动程序，这为图形软件开发人员提供了便利。<br>
+                </span><span class="blue">2.1画线算法 <br>
+                ��</span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman";mso-font-kerning:
+0pt;mso-ansi-language:ZH-CN'>在数学上，理想的点和直线都是没有宽度的。但是，</span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>由于每个像素对应于图形设备上的一个矩形区域，当我们</span><span style='font-family:
+宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman";
+mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>在</span><span style='font-family:
+宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman"'>光栅图形设备上显示一个点时，实际上它是有用一个发光的矩形区域来表示的；当</span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman";mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>在</span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>光栅图形设备上显示一条直线时，我们</span><span style='font-family:宋体;
+mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman";
+mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>只能在显示器所给定的有限个像素组成的矩阵中，按扫描线顺序，依次确定最佳逼近于该直线的一组像素，并且对这些像素进行写操作。这个过程称为直线的扫描转换。</span><span
+style='mso-font-kerning:0pt;mso-ansi-language:ZH-CN'><o:p><br>
+                ��</o:p></span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman";mso-font-kerning:
+0pt;mso-ansi-language:ZH-CN'>对于水平线、垂直线和</span><span style='mso-font-kerning:
+0pt;mso-ansi-language:ZH-CN'>45</span><span style='font-family:宋体;mso-font-kerning:
+0pt;mso-ansi-language:ZH-CN'>&ordm;</span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman";mso-font-kerning:
+0pt;mso-ansi-language:ZH-CN'>斜线，选择哪些像素是显而易见的，但是对于其它的直线，确定用哪些像素来表示它就不那麽简单了。本节我们介绍用于直线扫描转换的常用算法：</span><span
+style='mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>Bresenham</span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman";mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>画线算法。</span><span
+style='mso-font-kerning:0pt;mso-ansi-language:ZH-CN'><o:p><br>
+                ��</o:p></span><span lang=EN-US><o:p></o:p></span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>在介绍画线算法之前，我们先讨论画直线的基本要求：直线必须有精确的起点和终点，外观要直，线宽应当均匀一致、且与直线的长度和方向无关，最后，算法速度要快。<br>
+                ��</span><span style='mso-font-kerning:0pt;mso-ansi-language:
+ZH-CN'>Bresenham</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman";mso-font-kerning:0pt;mso-ansi-language:
+ZH-CN'>算法是计算机图形学领域使用最广泛的直线扫描转换算法。该方法最初是为数字绘图仪设计的，后来被广泛地应用于光栅图形显示和数控（</span><span
+style='mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>NC</span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman";mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>）加工。该算法构思巧妙，使得每次只需检测误差项的符号就能决定直线上的下一个像素的位置。算法原理如下：过各个像素的中心构造一组虚拟网格线，首先按直线从起点到终点的顺序计算直线与各垂直网格线的交点，然后，采用增量计算，使得对于每一列，只要检查一个误差项的符号，就可以确定该列像素中与此交点最近的像素。</span><span
+style='mso-font-kerning:0pt;mso-ansi-language:ZH-CN'><o:p><br>
+                </o:p></span><span style='mso-font-kerning:0pt;mso-ansi-language:
+ZH-CN'><o:p></o:p></span> <span style='mso-font-kerning:0pt;mso-ansi-language:ZH-CN'> 
+                <o:p></o:p></span><span style='mso-font-kerning:0pt;mso-ansi-language:
+ZH-CN'><o:p></o:p></span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman";mso-font-kerning:
+0pt;mso-ansi-language:ZH-CN'>��先考虑斜率</span><span style='mso-font-kerning:0pt;
+mso-ansi-language:ZH-CN'>k=dy/dx</span><span style='font-family:宋体;mso-font-kerning:
+0pt;mso-ansi-language:ZH-CN'>≤</span><span style='mso-font-kerning:0pt;
+mso-ansi-language:ZH-CN'>1</span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman";mso-font-kerning:
+0pt;mso-ansi-language:ZH-CN'>的直线。如图</span><span style='mso-font-kerning:0pt;
+mso-ansi-language:ZH-CN'>2.1</span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman";mso-font-kerning:
+0pt;mso-ansi-language:ZH-CN'>所示，设直线</span><span style='mso-font-kerning:0pt;
+mso-ansi-language:ZH-CN'><sub> <img
+src="../../../../images/pic/chap02/image003.gif" v:shapes="_x0000_i1025" align="absmiddle"> 
+                </sub> </span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman";mso-font-kerning:
+0pt;mso-ansi-language:ZH-CN'>方程为</span><span style='mso-font-kerning:0pt;
+mso-ansi-language:ZH-CN'><sub> <img
+src="../../../../images/pic/chap02/image005.gif"  align="absmiddle"> </sub> </span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman";mso-font-kerning:
+0pt;mso-ansi-language:ZH-CN'>，其中，</span><span style='mso-font-kerning:0pt;
+mso-ansi-language:ZH-CN'>k</span><i><span style='mso-font-kerning:0pt;
+mso-ansi-language:ZH-CN'> </span></i><span style='mso-font-kerning:0pt;
+mso-ansi-language:ZH-CN'>= dy/dx</span><span style='font-family:
+宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman";
+mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>。</span><span style='mso-font-kerning:
+0pt;mso-ansi-language:ZH-CN'> </span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman";mso-font-kerning:
+0pt;mso-ansi-language:ZH-CN'>假设当前像素的</span><span style='mso-font-kerning:0pt;
+mso-ansi-language:ZH-CN'>x</span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman";mso-font-kerning:
+0pt;mso-ansi-language:ZH-CN'>坐标已经确定为</span><span style='mso-font-kerning:
+0pt;mso-ansi-language:ZH-CN'>x<sub>i</sub></span><span style='font-family:
+宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman";
+mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>，其</span><i><span
+style='mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>y</span></i><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman";mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>坐标为</span><span
+style='mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>y<sub>i</sub></span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman";mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>，由于坐标（</span><span
+style='mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>x<sub>i</sub></span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman";mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>，</span><span
+style='mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>y<sub>i</sub></span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman";mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>）（</span><span
+style='mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>i=0,1,</span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman";mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>…）只能取整数，那么下一个像素的</span><span
+style='mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>x</span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman";mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>坐标</span><span
+style='mso-font-kerning:0pt;mso-ansi-language:ZH-CN'><sub> <img
+src="../../../../images/pic/chap02/image007.gif" v:shapes="_x0000_i1027" align="absmiddle"> 
+                </sub></span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman";mso-font-kerning:
+0pt;mso-ansi-language:ZH-CN'>，而</span><span style='mso-font-kerning:0pt;
+mso-ansi-language:ZH-CN'>y<sub>i</sub></span><sub><span style='font-family:
+宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman";
+mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>＋</span><span
+style='mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>1</span></sub><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman";mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>的坐标有两种可能：</span><span
+style='mso-font-kerning:0pt;mso-ansi-language:ZH-CN'><o:p><br>
+                ��</o:p></span><span
+style='mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>1)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp; 
+                </span></span> <span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman";mso-font-kerning:0pt;mso-ansi-language:
+ZH-CN'>保持不变，即</span><span style='mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>y<i><sub> 
+                </sub></i><sub>i</sub></span><sub><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman";mso-font-kerning:0pt;mso-ansi-language:
+ZH-CN'>＋</span><span style='mso-font-kerning:0pt;mso-ansi-language:
+ZH-CN'>1</span></sub><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman";mso-font-kerning:0pt;mso-ansi-language:
+ZH-CN'>＝</span><span style='mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>y<sub>i</sub></span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman";mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>；或者</span><span
+style='mso-font-kerning:0pt;mso-ansi-language:ZH-CN'><o:p><br>
+                <br>
+                ��</o:p></span><span
+style='mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>2)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp; 
+                </span></span> <i><span style='mso-font-kerning:0pt;mso-ansi-language:
+ZH-CN'>y</span></i><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman";mso-font-kerning:0pt;mso-ansi-language:
+ZH-CN'>坐标递增</span><span style='mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>1</span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman";mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>，即</span><span
+style='mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>y<i><sub> </sub></i><sub>i</sub></span><sub><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman";mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>＋</span><span
+style='mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>1</span></sub><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman";mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>＝</span><span
+style='mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>y<sub>i</sub></span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman";mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>＋</span><span
+style='mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>1</span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman";mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>。</span><span
+style='mso-font-kerning:0pt;mso-ansi-language:ZH-CN'><o:p><br>
+                ��</o:p></span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman";mso-font-kerning:
+0pt;mso-ansi-language:ZH-CN'>令</span><span style='mso-font-kerning:0pt;
+mso-ansi-language:ZH-CN'><img src="../../../../images/pic/chap02/image009.gif" align="absmiddle"><sub> 
+                </sub></span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman";mso-font-kerning:
+0pt;mso-ansi-language:ZH-CN'>，</span><i><span style='mso-font-kerning:0pt;
+mso-ansi-language:ZH-CN'>y</span></i><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman";mso-font-kerning:
+0pt;mso-ansi-language:ZH-CN'>坐标是否增加</span><span style='mso-font-kerning:0pt;
+mso-ansi-language:ZH-CN'>1</span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman";mso-font-kerning:
+0pt;mso-ansi-language:ZH-CN'>取决于如图所示误差项</span><span style='mso-font-kerning:
+0pt;mso-ansi-language:ZH-CN'>d<sub> i</sub></span><span style='font-family:
+宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman";
+mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>的值。因为直线的起始点在像素中心，所以初始误差</span><span
+style='mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>d</span><sub><span
+style='mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>0</span></sub><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman";mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>＝</span><span
+style='mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>0</span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman";mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>。</span><span
+style='mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>x</span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman";mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>每增加</span><span
+style='mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>1</span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman";mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>，</span><span
+style='mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>y</span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman";mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>的值相应递增直线的斜率值</span><i><span
+style='mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>k</span></i><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman";mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>，即</span><span
+lang=EN-US><sub> <img
+src="../../../../images/pic/chap02/image011.gif" v:shapes="_x0000_i1029" align="absmiddle"> 
+                </sub> </span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman";mso-font-kerning:
+0pt;mso-ansi-language:ZH-CN'>。一旦</span><span style='mso-font-kerning:0pt;
+mso-ansi-language:ZH-CN'>d<sub>i</sub></span><sub><span style='mso-font-kerning:
+0pt;mso-ansi-language:ZH-CN'>+1</span></sub><span style='font-family:宋体;
+mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman";
+mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>≥</span><span style='mso-font-kerning:
+0pt;mso-ansi-language:ZH-CN'>1</span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman";mso-font-kerning:
+0pt;mso-ansi-language:ZH-CN'>，就把它减去</span><span style='mso-font-kerning:0pt;
+mso-ansi-language:ZH-CN'>1</span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman";mso-font-kerning:
+0pt;mso-ansi-language:ZH-CN'>，这样保证</span><i><span style='mso-font-kerning:0pt;
+mso-ansi-language:ZH-CN'>d<sub>i</sub></span></i><sub><span style='mso-font-kerning:
+0pt;mso-ansi-language:ZH-CN'>+1</span></sub><span style='font-family:宋体;
+mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman";
+mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>在</span><span style='mso-font-kerning:
+0pt;mso-ansi-language:ZH-CN'>0</span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman";mso-font-kerning:
+0pt;mso-ansi-language:ZH-CN'>～</span><span style='mso-font-kerning:0pt;
+mso-ansi-language:ZH-CN'>1</span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman";mso-font-kerning:
+0pt;mso-ansi-language:ZH-CN'>之间。当</span><span style='mso-font-kerning:0pt;
+mso-ansi-language:ZH-CN'>d</span><i><span style='mso-font-kerning:0pt;
+mso-ansi-language:ZH-CN'><sub> </sub></span></i><span style='mso-font-kerning:0pt;
+mso-ansi-language:ZH-CN'><sub>i</sub></span><sub><span style='mso-font-kerning:
+0pt;mso-ansi-language:ZH-CN'>+1</span></sub><span style='font-family:宋体;
+mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman";
+mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>≥</span><span style='mso-font-kerning:
+0pt;mso-ansi-language:ZH-CN'>0.5</span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman";mso-font-kerning:
+0pt;mso-ansi-language:ZH-CN'>时，直线</span><span style='mso-font-kerning:0pt;
+mso-ansi-language:ZH-CN'><sub> <img
+src="../../../../images/pic/chap02/image012.gif" v:shapes="_x0000_i1030"> </sub> 
+                </span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman";mso-font-kerning:
+0pt;mso-ansi-language:ZH-CN'>与</span><span style='mso-font-kerning:0pt;
+mso-ansi-language:ZH-CN'>x</span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman";mso-font-kerning:
+0pt;mso-ansi-language:ZH-CN'>＝</span><span style='mso-font-kerning:0pt;
+mso-ansi-language:ZH-CN'>x<sub>i</sub></span><span style='font-family:宋体;
+mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman";
+mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>＋</span><span style='mso-font-kerning:
+0pt;mso-ansi-language:ZH-CN'>1</span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman";mso-font-kerning:
+0pt;mso-ansi-language:ZH-CN'>的垂线的交点最接近于当前像素（</span><span style='mso-font-kerning:
+0pt;mso-ansi-language:ZH-CN'>x<sub>i</sub></span><i><span style='font-family:
+宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman";
+mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>，</span></i><span
+style='mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>y<sub>i</sub></span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman";mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>）的右上方像素（</span><span
+style='mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>x<sub>i</sub></span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman";mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>＋</span><span
+style='mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>1</span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman";mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>，</span><span
+style='mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>y<sub>i</sub></span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman";mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>＋</span><span
+style='mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>1</span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman";mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>）；而当</span><span
+style='mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>d</span><i><span
+style='mso-font-kerning:0pt;mso-ansi-language:ZH-CN'><sub> </sub></span></i><span
+style='mso-font-kerning:0pt;mso-ansi-language:ZH-CN'><sub>i</sub></span><sub><span
+style='mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>+1</span></sub><span
+style='mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>&lt;0.5</span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman";mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>时，其交点更接近于（</span><span
+style='mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>x<sub>i</sub></span><i><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman";mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>，</span></i><span
+style='mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>y<sub>i</sub></span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman";mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>）右边的像素（</span><span
+style='mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>x<sub>i</sub></span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman";mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>＋</span><span
+style='mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>1</span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman";mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>，</span><span
+style='mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>y<sub>i</sub></span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman";mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>）。为方便计算，令</span><span
+style='mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>e<sub>0</sub>=</span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman";mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>－</span><span
+style='mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>0.5</span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman";mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>，</span><span
+style='mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>e<sub> i</sub></span><sub><span
+style='mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>+1</span></sub><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman";mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>＝</span><span
+style='mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>d<sub>i</sub></span><sub><span
+style='mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>+1</span></sub><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman";mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>－</span><span
+style='mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>0.5</span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman";mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>，增量为</span><span
+style='mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>k</span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman";mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>。当</span><span
+style='mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>e<sub>i</sub></span><sub><span
+style='mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>+1</span></sub><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman";mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>≥</span><span
+style='mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>0</span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman";mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>时，取当前像素（</span><span
+style='mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>x<sub>i</sub></span><i><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman";mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>，</span></i><span
+style='mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>y<sub>i</sub></span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman";mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>）的右上方像素（</span><span
+style='mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>x<sub>i</sub></span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman";mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>＋</span><span
+style='mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>1</span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman";mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>，</span><i><span
+style='mso-font-kerning:0pt;mso-ansi-language:ZH-CN'> </span></i><span
+style='mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>y<sub>i</sub></span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman";mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>＋</span><span
+style='mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>1</span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman";mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>）；而当</span><span
+style='mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>e<i><sub> </sub></i><sub>i+1</sub>&lt;0</span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman";mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>时，更接近于右方像素（</span><span
+style='mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>x<sub>i</sub></span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman";mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>＋</span><span
+style='mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>1</span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman";mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>，</span><span
+style='mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>y<sub>i</sub></span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman";mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>）。</span><span
+style='mso-font-kerning:0pt;mso-ansi-language:ZH-CN'><br>
+                <br>
+                </span></p>
+              </td>
+          </tr>
+        </table>
+        <!-- #EndEditable --></td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

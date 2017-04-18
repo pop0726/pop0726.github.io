@@ -1,0 +1,30 @@
+<html>
+<head>
+<!-- #BeginEditable "doctitle" -->
+<title>计算机图形学</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/css.css" type="text/css">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../../images/bg03.gif">
+<div align="center">
+  <table width="90%" border="0" cellspacing="0" cellpadding="0" height="100">
+    <tr> 
+      <td height="126" valign="top" width="100%" class=text><!-- #BeginEditable "right" --> 
+        <p><br>
+          3） 立方体环境映射<br>
+          ��由于以球面为过渡面的纹理映射会在两个极点处产生奇变导致局部纹理变形，1986年，Greene和Heckbert提出采用立方体表面取代球面作为环境映射的过渡面。立方体的六个表面均为光栅图像，整个环境映射的纹理由六幅图像组成，这些图像可以预先经过滤波处理（或采用mip-map表）以便反走样。如图8.26所示，每幅图像既可以是一个视野为90o 
+          的数字相机拍摄的真实场景图像，也可以是计算机生成的真实感图形。其映射过程简单地将入射光束锥反射到立方体的表面上（见图8.26）。<br>
+          ��<font color="#FF0000">应当注意的是，如果采用照相机拍摄的图像，一般很难保证在六幅图的结合处不出现几何或光照的不连续性。 
+          </font><br>
+          4） 纹理映射与反射映射的区别<br>
+          ��纹理映射与反射映射的主要区别在于：纹理映射主要是模拟景物表面本身的颜色属性，纹理贴到景物表面后，和物体融为一体，视点位置的变化对它没有影响。反射映射与视点的位置和视线方向密切相关。例如：一个纹理映射的球在绕过球心的轴旋转时，纹理图案将和球一起旋转，它们是相对静止的一个整体；但是反射映射的球在旋转时，反射映射将产生一个静态的纹理图案，只要视点不变，球本身旋转时，反射映射生成的纹理图案不会随着球一起旋转，这就如同一面镜子在旋转或移动时，我们会发现静止的物体反射在镜子中的影像依然保持静止不动一样。但是，当视点和景物保持相对静止时，对于同一幅纹理图像，纹理映射和反射映射的结果是相同的。<br>
+          <br>
+        </p>
+        <!-- #EndEditable --></td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

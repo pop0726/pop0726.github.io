@@ -1,0 +1,44 @@
+<html>
+<head>
+<!-- #BeginEditable "doctitle" -->
+<title>计算机图形学</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/css.css" type="text/css">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../../images/bg03.gif">
+<div align="center">
+  <table width="90%" border="0" cellspacing="0" cellpadding="0" height="100">
+    <tr> 
+      <td height="159" valign="top" width="100%" class=text><!-- #BeginEditable "right" --> 
+        <p><span class="blue"> <br>
+          十、B样条曲线的降阶</span> <br>
+          &nbsp;&nbsp;&nbsp;&nbsp;为了实现不同CAD系统之间的产品数据交换，曲线的降阶逼近技术是常用的基本工具。一般而言Bézier曲线的降阶比B样条曲线的降阶要简单一些。1995年，Piegl和Tiller先将B样条转换成为一系列的Bézier曲线，然后对各条Bézier曲线进行降阶，最后再把他们拼接成B样条曲线并去除多余的重节点。1998年Wolters等将B样条曲线升阶的开花（blossom）算法的公式用于B样条曲线的降阶，并对曲线进行光顺设计。这些算法的逼近误差通常都比较大。<br>
+          ��下面，我们首先给出B样条曲线退化的充要条件，然后利用B样条升阶恒等式，导出B样条曲线降阶的算法，最后并对降阶后的曲线进行误差分析。 
+          <br>
+          <span class="blue">6.4.1.10.1 B样条曲线可降阶的充要条件</span><br>
+          B样条曲线是一种分段连续曲线。给定曲线的n个控制点V<sub>i</sub>(i=0,1,...,n-1) 和节点t<sub>i</sub>(i=0,1,...,n+k-1)，节点矢量T= 
+          {t<sub>0 </sub>t<sub>1</sub> ... t<sub>n+k-1</sub>}。<br>
+          当t∈[t<sub>j+k-1</sub>,t<sub>j+k</sub>) 时，k阶Ｂ样条曲线可以表示为 c<sup>k</sup>(t)=<img src="../../../../images/pic/chap06/mo6_243.gif" width="22" height="43" align="middle">V<sub>j</sub>B<sub>j,k</sub>(t)，或者：<br>
+          ��左（6－4－19）<br>
+          其中，<img src="../../../../images/pic/chap06/mo6_246.gif" width="98" height="42" align="absmiddle">∈[0,1)，B<sub>i,k</sub>(u) 
+          为ｋ阶B样条基函数， M<sup>k</sup>(i)为该曲线在t∈[t<sub>i,</sub>t<sub>i+1</sub>]时的k×k 
+          阶基矩阵，该基矩阵可以由递推公式（6－4－5）求出。<br>
+          显然，曲线c<sup>k</sup><sub>j</sub>(u)可降阶的（又称为退化的）充要条件为c<sup>k</sup><sub>j</sub>(u)=c<sub>j</sub><sup>k-1</sup>(u) 
+          ，其充要条件可以表示为：<br>
+          ��左（6－4－20）<br>
+          对曲线的控制顶点V<sub>i</sub>选取适当的扰动<font size="2">ε</font><sub>i</sub>，使得扰动后的曲线<br>
+          ��左（6－4－21）<br>
+          满足退化条件：<br>
+          ��左（6－4－22）<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;取所得曲线<img src="../../../../images/pic/chap06/mo6_249.gif" width="38" height="23" align="middle"> 
+          为 c<sup>k</sup><sub>j</sub>(u)的降阶逼近曲线。由于扰动后，该曲线的次数已由（k-1）降到（k-2），因此扰动后的曲线可以准确的降为k-1阶。<br>
+          <br>
+        </p>
+        <!-- #EndEditable --></td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<html>
+<head>
+<!-- #BeginEditable "doctitle" -->
+<title></title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/css01.css" type="text/css">
+<link rel="stylesheet" href="../../../../css/css.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center"> 
+  <table width="95%" border="0" cellspacing="3" cellpadding="2" height="49%" class="text">
+    <tr> 
+      <td valign="top" height="152" width="100%"><!-- #BeginEditable "left" -->消隐的步骤如下：<br>
+        ��1） 进行初步深度排序，如可按各多边形z最小值（或最大值、平均值）排序。<br>
+        ��2） 选择当前深度最小（即离视点最近）的多边形为裁剪多边形。<br>
+        ��3）用裁剪多边形对那些深度值更大的多边形进行裁剪，并将裁剪的结果分为内部多边形（位于裁剪多边形的内部）和外部多边形（位于裁剪多边形的外部）。<br>
+        ��4）比较裁剪多边形与各个内部多边形的深度，检查裁剪多边形是否是离视点最近的多边形。如果某个内部多边形比裁剪多边形离视点更近，则恢复被裁剪的各个多边形的原形，选择新的离视点更近的多边形作为裁剪多边形，转3）；否则转5）。<br>
+        ��5）从外部多边形中选择下一个深度最小的多边形作为裁剪多边形，其余的作为被裁剪多边形，从3）开始做，直到所有的多边形都处理过为止。在得到的多边形中，所有的内部多边形是不可见的，其余多边形均为可见多边形。<br>
+       <!-- #EndEditable --></td>
+    </tr>
+  </table>
+  
+</div>
+</body>
+</html>

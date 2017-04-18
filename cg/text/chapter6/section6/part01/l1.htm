@@ -1,0 +1,81 @@
+<html>
+<head>
+<!-- #BeginEditable "doctitle" -->
+<title></title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/css01.css" type="text/css">
+<link rel="stylesheet" href="../../../../css/css.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center"> 
+  <table width="95%" border="0" cellspacing="3" cellpadding="2" height="49%" class="text">
+    <tr> 
+      <td valign="top" height="209" width="100%"><!-- #BeginEditable "left" --> 
+        <p><span class="blue">1） 插值四个角点的双线性Coons曲面</span><a name="01"></a><br>
+          <br>
+        <table width="80%" border="0" cellspacing="00" cellpadding="0">
+          <tr> 
+            <td colspan="2" height="18"><img src="../../../../images/pic/chap06/mo6_335.gif" width="431" height="23"></td>
+          </tr>
+          <tr> 
+            <td width="68%">&nbsp;</td>
+            <td width="32%"><img src="../../../../images/pic/chap06/mo6_336.gif" width="73" height="21">。</td>
+          </tr>
+        </table>
+        <p><br>
+          <span class="blue">2） 线性插值两条边界的Coons曲面</span><a name="02"></a><br>
+          如果已知边界曲线P(u,0)和P (u,1)，则<br>
+          ��<img src="../../../../images/pic/chap06/mo6_337.gif" width="212" height="21">，<img src="../../../../images/pic/chap06/mo6_336.gif" width="73" height="21"> 
+          。<br>
+          类似地，可以构造插值于另两条边界曲线P (0,v), P (1,v)的曲面：<br>
+          ��<img src="../../../../images/pic/chap06/mo6_338.gif" width="217" height="21">，<img src="../../../../images/pic/chap06/mo6_336.gif" width="73" height="21"> 
+          。<br>
+          <span class="blue">3） 插值两条边界的双线性Coons曲面</span><a name="03"></a><br>
+          ��<img src="../../../../images/pic/chap06/mo6_339.gif" width="243" height="21">， 
+          <img src="../../../../images/pic/chap06/mo6_336.gif" width="73" height="21">。<br>
+          上式可以用矩阵形式来表示：<br>
+          <img src="../../../../images/but/dingyi.gif" width="27" height="19" align="absmiddle">（6－4－32） 
+          <br>
+          ��<img src="../../../../images/pic/chap06/mo6_340.gif" width="388" height="73" align="absmiddle">， 
+          <img src="../../../../images/pic/chap06/mo6_336.gif" width="73" height="21">。<br>
+          <br>
+          上式右端的3阶矩阵包含了曲面的全部插值条件，称为曲面的边界信息矩阵。其中，第一行和第一列分别包含了曲面片的4条边界曲线，右下角的二阶子方阵由曲面的4个角点的位置构成。该矩阵的左侧的行矩阵和右侧的列矩阵由混合函数构成，如果忽略自变量的差别，它们互为转置矩阵。即：（6－4－32）可以改写为<br>
+          <img src="../../../../images/but/dingyi.gif" width="27" height="19" align="absmiddle"> 
+          （6－4－33）<br>
+          ��<img src="../../../../images/pic/chap06/mo6_341.gif" width="417" height="73" align="absmiddle">， 
+          <img src="../../../../images/pic/chap06/mo6_336.gif" width="73" height="21">。<br>
+          <br>
+          其中，<br>
+          ��<img src="../../../../images/pic/chap06/mo6_342.gif" width="116" height="48" align="absmiddle"><br>
+          <font size="3">F</font><sub>0</sub>(u)和<font size="3">F</font><sub>1</sub>(u) 称为混合函数。它们满足下列条件：<br>
+          ��<img src="../../../../images/pic/chap06/mo6_343.gif" width="127" height="51" align="absmiddle"><br>
+          亦即：<br>
+          <img src="../../../../images/but/dingyi.gif" width="27" height="19" align="absmiddle">（6－4－34） 
+          <br>
+          ��<img src="../../../../images/pic/chap06/mo6_344.gif" width="125" height="49" align="absmiddle">���<img src="../../../../images/pic/chap06/mo6_345.gif" width="68" height="23" align="absmiddle">。 
+          <br>
+          ��在（6－4－32）中，混合函数<font size="3">F</font><sub>0</sub>(u)和<font size="3">F</font><sub>1</sub>(u)是线性函数。实际上，<font size="3">F</font><sub>0</sub>(u)和<font size="3">F</font><sub>1</sub>(u)还可以取其它形式的函数，只要它们满足（6－4－34）式即可。例如，可以取三次多项式：<br>
+          ��<img src="../../../../images/pic/chap06/mo6_346.gif" width="136" height="51" align="absmiddle"><br>
+        
+        <p><span class="blue">4） 佛格森双三次曲面与孔斯双三次曲面</span><a name="04"></a><br>
+          令<br>
+          ��<img src="../../../../images/pic/chap06/mo6_347.gif" width="128" height="24" align="absmiddle">，<br>
+          ��<img src="../../../../images/pic/chap06/mo6_348.gif" width="132" height="24" align="absmiddle">，<br>
+          ��<img src="../../../../images/pic/chap06/mo6_349.gif" width="175" height="97" align="absmiddle">，<br>
+          ��<img src="../../../../images/pic/chap06/mo6_350.gif" width="177" height="100" align="absmiddle">。<br>
+          则双三次佛格森双曲面和孔斯曲面可以用统一的矩阵形式表示为：<br>
+          ���<img src="../../../../images/pic/chap06/mo6_351.gif" width="144" height="24" align="absbottom">， 
+          <img src="../../../../images/pic/chap06/mo6_336.gif" width="73" height="21" align="absmiddle"><br>
+          其中，矩阵P由曲面的4个角点的位置矢量、<font size="2">v</font>向切矢、<font size="2">u</font>向切矢、以及<font size="2">u</font>向和<font size="2">v</font>向的混合偏导矢组成，它们分别与P的第一行的两个2阶分块矩阵和第二行的两个二阶分块矩阵相对应。如果<img src="../../../../images/pic/chap06/mo6_352.gif" width="112" height="25" align="absmiddle"> 
+          均为零，则称<font size="2">S（u，v）</font>为佛格森双三次曲面，否则称<font size="2">S（u，v）</font>为孔斯双三次曲面。<br>
+          <br>
+        </p>
+        <!-- #EndEditable --></td>
+    </tr>
+  </table>
+  
+</div>
+</body>
+</html>

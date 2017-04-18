@@ -1,0 +1,36 @@
+<html>
+<head>
+<!-- #BeginEditable "doctitle" -->
+<title>计算机图形学</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/css.css" type="text/css">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../../images/bg03.gif">
+<div align="center">
+  <table width="90%" border="0" cellspacing="0" cellpadding="0" height="100">
+    <tr> 
+      <td height="126" valign="top" width="100%" class=text><!-- #BeginEditable "right" --> 
+        <p><span class="blue"><br>
+          二、 反射映射</span><br>
+          ��反射映射是一种以纹理映射技术来近似模拟光泽表面或透明物体的光线跟踪效果的快速方法。它是一种与视点相关的技术，可以模拟镜面反射和透明折射的真实感图形效果。反射映射的基本出发点是要表现周围环境在一个光泽的物体表面中的映像。反射映射算法有两种：颜色映射（Chrome 
+          mapping）算法和环境映射（Environment mapping）算法。环境映射又有球面环境映射和六面体环境映射之分。下面我们将分别予以介绍。<br>
+          ��1） 颜色映射<br>
+          ��我们知道，镀铬钢的表面有光泽，反光性强，它能够象镜面一样反射周围的环境。颜色映射就是模拟镀铬表面反射周围环境的一种纹理映射，它可以将二维纹�&quot;反射&quot;到景物的表面上。其基本思想是：从视点出发经过每个像素的四个顶点的光线到达景物表面后产生反射，反射光束再与二维纹理图像相交，相交部分的纹理图案将映射到景物的表面。如图8.22所示。<br>
+          ��颜色映射可以象前面的二步映射那样那样采用球面作为过渡面，不过将一个矩形区域[0,1]×[0,1]的二维纹理映射到球面上时，在球的两极难免会失真。我们还可以直接采用经纬映射，如图8.23所示，即：将纬线映射为u坐标，经线映射为v坐标。设表面上任意一点P的单位反射向量为R＝（Rx，Ry，Rz）<sup>T</sup>，令R与二维纹理平面的交点为（u,v），<a href="l3.htm#1" target="MyFrame" class="blue">则经纬映射可以用(8-6-3)式(见左边)表示：</a> 
+          <br>
+          ��上式中，当 <img src="../../../../images/pic/chap08/image410.gif" align="absmiddle">（即v→0或1）时，Rx→0，Ry→0，（Rx/Ry）→病态，此时纹理坐标u的变化开始失效。这个缺陷可以通过对球面两极点（即v→0和1）附近对应的纹理图像进行模糊处理来加以克服。<br>
+          ��在（8－6－3）中，横坐标u与经度（角度）成正比，纵坐标v与反射向量的z坐标成正比，但由于<img src="../../../../images/pic/chap08/image412.gif" align="absmiddle"> 
+          ，所以，实际上v与纬度（角度）的正弦成正比。如果v也改为与纬度（角度）成正比，则可用下式取代（8－6－3）式的第二个等式： <br>
+          <img src="../../../../images/pic/chap08/image414.gif" align="absmiddle"><br>
+          但是，与上式相比，（8－6－3）式中计算v的公式不仅简化了计算，而且还可以证明：采用经度作为横坐标，纬度的正弦作为纵坐标，可以保证将球面上相等的面积映射到二维纹理平面中的面积相等的平面区域上。因此，采用（8－6－3）式一般可以得到更好的结果。<br>
+          ��如果以折射向量T＝（Tx，Ty，Tz）T代替（8－6－3）式中的反射向量R，则颜色映射也可以处理封闭曲面的折射问题。如果折射表面是平面，我们需要确保折射向量与纹理平面相交，并用平面作为过渡面的两步映射取代经纬映射。<br>
+          <br>
+        </p>
+        <!-- #EndEditable --></td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

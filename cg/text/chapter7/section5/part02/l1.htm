@@ -1,0 +1,68 @@
+<html>
+<head>
+<!-- #BeginEditable "doctitle" -->
+<title></title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/css01.css" type="text/css">
+<link rel="stylesheet" href="../../../../css/css.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center"> 
+  <table width="95%" border="0" cellspacing="3" cellpadding="2" height="49%" class="text">
+    <tr> 
+      <td valign="top" height="152" width="100%"><!-- #BeginEditable "left" --><img src="../../../../images/but/liti.gif" width="26" height="26" align="absmiddle">例（7－5－2）<br>
+        扫描线<font size="2">Z-buffer</font>算法()<br>
+        �{<br>
+        ��1） 对每个多边形求取其顶点中所含的y的最小值ymin和最大值ymax，按ymin进行排序，将多边形置入多边形y桶;<br>
+        ��2） 活化多边形表APT，活化边表AET初始化为空;<br>
+        ��3） For(每条扫描线i，i从小到大)<br>
+        ��{<br>
+        ���(1) 帧缓存CB置为背景色;<br>
+        ���(2) 深度缓存<font size="2">ZB</font>置为负无穷大（因为视方向为<font size="2">Z</font>轴的负方向）;<br>
+        ���(3) 将多边形<font size="2">y</font>桶中对应扫描线i的新的多边形加入到活化多边形表APT中;<br>
+        ���(4) 对新加入的多边形，生成其相应的边<font size="2">Y</font>桶;<br>
+        ���(5) 对APT中每一个多边形，若其边Y桶中对应扫描线i增加了新的边，则将新的边配对，加到活化边对表AET中;<br>
+        ���(6)<span class="orange"> for(AET中的每一对边)<br>
+        �����{<br>
+        ������<font size="2">for</font> (每一个满足xl &lt;j &lt; xr的象素j) 
+        <br>
+        ������{<br>
+        ��������d = z +Δzl; //深度<font size="2">depth</font><br>
+        ��������if (d &gt; ZB(i,j)) <br>
+        ��������{<br>
+        ���������ZB(i,j) =d;<br>
+        ���������计算当前象素点的颜色值c;<br>
+        ���������写帧缓存CB(i,j)=c;<br>
+        ��������}<br>
+        �������}<br>
+        ������}</span><br>
+        ��(7) 删除APT中多边形顶点最大y坐标为i的多边形，并删除相应的边;<br>
+        ��(8) <font size="2"><span class="orange">for</span></font><span class="orange"> 
+        （活化边表AET中的每一个边对）<br>
+        ����{<br>
+        ������if (y<sub>lmax</sub>=i &amp;&amp; 
+        y<sub>rmax</sub>=i) 删除y<sub>lmax</sub>和y<sub>rmax</sub>已等于<font size="2">i</font>的边对；<br>
+        ������else if (y<sub>lmax</sub>或y<sub>rmax</sub>
+        已等于i) <br>
+        ������{<br>
+        ��������删除y<sub>lmax</sub>或y<sub>rmax</sub>
+        已等于i的边; <br>
+        ��������对该多边形的边重新配对;<br>
+        ������}<br>
+        ������//用增量公式计算新的<font size="2">xl</font> 、<font size="2">xr</font> 和<font size="2">zl</font> 
+        。<br>
+        ��� ��xl＝xl＋Δxl;<br>
+        ���� xr＝xr＋Δxr;<br>
+        ���� zl＝zl＋Δxl Δzl +Δz ;<br>
+        ����}<br>
+        ��}<br>
+        �}<br>
+        </span> <!-- #EndEditable --></td>
+    </tr>
+  </table>
+  
+</div>
+</body>
+</html>

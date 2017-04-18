@@ -1,0 +1,58 @@
+<html>
+<head>
+<!-- #BeginEditable "doctitle" -->
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/css01.css" type="text/css">
+<link rel="stylesheet" href="../../../../css/css.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<table width="95%" border="0" cellspacing="3" cellpadding="2" height="100%" class="pt9" align="center">
+  <tr> 
+    <td valign="top" height="266"><br>
+      <span class="blue"> 1 证明在经过三维基本几何变换和透视投影变换后直线仍是直线。 </span> 
+      <p><span class="blue">2 若要求沿z轴长度为1的线段在x-y平面上产生长度为L, 并且与x轴夹角为α的图形，则斜平行投影的方向是什么？</span><br>
+        ��
+        <span class="blue"><br>
+        3 对应拍照中常用的操作，如左右摇动镜头，上下摇动镜头，变焦（改变镜头的焦距）和改变拍照距离等，如何设置图形系统中的视见参数以达到相同效果？</span></p>
+      <p class="blue">4 如为进行隐线和隐面消除操作，我们引入三维屏坐标系。空间点在该坐标系中的<font size="3">x</font><sub>s</sub>和<font size="3">y</font><sub>s</sub>坐标值分别等于它在观察坐标系中投影平面上的x和y值，并保留z坐标的相对关系。为使平面经过转换后仍为平面，即Ａ<font size="3">x</font><sub>ｅ</sub>＋B<font size="3">y</font><sub>ｅ</sub>＋C<font size="3">z</font><sub>ｅ</sub>＋D 
+        = 0→Ａ'<font size="3">x</font><sub>s</sub>＋B'<font size="3">y</font><sub>s</sub>＋C'<font size="3">z</font><sub>s</sub>＋D=0,求出对透视投影进行<font size="3">z</font>s变换的函数形式</p>
+      <p><span class="blue">5 写出对给定视见参数计算从用户坐标系变换到规范化观察坐标系的组合变换矩阵的程序。若不进行剪取操作还可再组合投影变换矩阵，从而使你的图形系统具有三维图形功能。</span><br>
+        ��(a) 画出一个立方体的一点，二点和三点透视图；<br>
+        ��(b) 利用前面练习题中的类似方法使图形绕任意直线作连续旋转，例如对一个顶点在（0，0，0）相对的另一顶点在（1，1，1）的正立方体使它对连接这两个顶点的直线作连续旋转，并产生平行投影图；<br>
+        ��(c) 输入必要的顶点坐标显示一个三维房子的线框图，检验系统的三维功能。输入不同的视见参数，观察产生的透视图；<br>
+        ��(d) 对函数y=f(x,z)，例如y=sin(x)・sin(z),计算离散x和z值上的函数值，并连接这些采样点构成网状图，试从不同角度产生这个函数的投影图。</p>
+      <p><br>
+        <span class="blue">6 在三维空间中给出一条直线从p<sub>1</sub>(6，10，3)到p<sub>2</sub>(－3，－5，2)，并给出由下述平面定义的观察四棱锥：（在投影中心（0，0，0））<br>
+        ����z=x, z=-x, z=y和z=-y<br>
+        投影平面在z=1处。</span><br>
+        ��(a) 在用户空间先剪取后再投影到投影平面上，产生直线图形的端点坐标是什么？<br>
+        ��(b) 先对直线进行投影然后用窗<font size="3">x</font><sub>min</sub>=－1, <font size="3">x</font><sub>max</sub>=1, 
+        <font size="3">y</font><sub>min</sub>=－1,和<font size="3">y</font><sub>max</sub>=1进行剪取，直线图形的端点坐标是什么？<br>
+        ��(c) 若线段的一个端点位于投影中心后面，即z &lt; 0,用上述两种方法产生的图形有什么不同？</p>
+      <p class="blue">7 扩大二维的Sutherland-Cohen裁剪算法至三维图形。在三维图形软件中实现裁剪功能，输入一个三维图形和不同的视见参数，观察显示图形的变换和裁剪功能。</p>
+      <p><span class="blue">8 设投影中心的位置是（0，0，0），在z=10平面的剪取窗为中心在（0，0，10）边长为6的正六边形，求视见体各面的向内法矢量。</span><br>
+        ��假定在z=10面上的6个顶点的坐标为<br>
+        ��P<sub>0</sub> (3<img src="../../../../images/pic/chap05/exam01.gif" width="24" height="24" align="absmiddle"> 
+        ,3,10) P<sub>1</sub> (3<img src="../../../../images/pic/chap05/exam01.gif" width="24" height="24" align="absmiddle">,-3,10) 
+        P<sub>2</sub> (0,-6,10)<br>
+        ��P<sub>3</sub>(-3<img src="../../../../images/pic/chap05/exam01.gif" width="24" height="24" align="absmiddle">,-3,10) 
+        P<sub>4</sub>(-3<img src="../../../../images/pic/chap05/exam01.gif" width="24" height="24" align="absmiddle">,3,10) 
+        P<sub>5</sub>(0,6,10)</p>
+      <p>��N<sub>1</sub> = (-10/3, 0 ,<img src="../../../../images/pic/chap05/exam01.gif" width="24" height="24" align="absmiddle">) 
+        N<sub>2</sub> = (-1,<img src="../../../../images/pic/chap05/exam01.gif" width="24" height="24" align="absmiddle"> 
+        ,3<img src="../../../../images/pic/chap05/exam01.gif" width="24" height="24" align="absmiddle"> 
+        ,/5) N<sub>3</sub> = ( <img src="../../../../images/pic/chap05/exam01.gif" width="24" height="24" align="absmiddle">/3,1,3/10)<br>
+        ��N<sub>4</sub> = (10/3,0,<img src="../../../../images/pic/chap05/exam01.gif" width="24" height="24" align="absmiddle">) 
+        N<sub>5</sub> = (1, -<img src="../../../../images/pic/chap05/exam01.gif" width="24" height="24" align="absmiddle">,3<img src="../../../../images/pic/chap05/exam01.gif" width="24" height="24" align="absmiddle"> 
+        /5) N<sub>6</sub> = (-<img src="../../../../images/pic/chap05/exam01.gif" width="24" height="24" align="absmiddle"> 
+        /3,-1,3/10)<br>
+      </p>
+      <p>&nbsp;</p>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

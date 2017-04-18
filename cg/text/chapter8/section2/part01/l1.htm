@@ -1,0 +1,28 @@
+<html>
+<head>
+<!-- #BeginEditable "doctitle" -->
+<title></title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/css01.css" type="text/css">
+<link rel="stylesheet" href="../../../../css/css.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center"> 
+  <table width="95%" border="0" cellspacing="3" cellpadding="2" height="49%" class="text">
+    <tr> 
+      <td valign="top" height="193" width="100%"><!-- #BeginEditable "left" --><li>
+        物体是一个多面体，而不是曲面物体的近似表示；<br>
+        <li>所有的光源都离物体足够远，以致于（N・L）和衰减函数对物体表面近似地成为一个常数；<br>
+        <li> 视点离物体表面足够远，以致于（V・R）或（N・H）对物体表面成为一个近似不变的常数。<br>
+        <br>
+        　　如果上述条件不成立，对于小多边形面片，也可以用小面片中心的光强来合理地近似该面片的表面光照效果。<br><br> 
+          ��对于多边形逼近表示的曲面物体，如果用等光强明暗绘制方法来显示，由于多边形内部的象素的颜色都是相同的，不同法向的面片之间存在光强度不连续的现象。另外，在不同法向的多边形邻接处，不仅有光强突变，而且还会产生马赫带效应，即人类视觉系统夸大具有不同常量光强的两个相邻区域之间的光强不连续性。为了保证多边形之间的光滑过渡，使相邻的多边形呈现匀称的、连续变化的光强，我们将在下面介绍增量式光照明模型及其主要算法：双线性光强插值和双线性法向插值算法，又分别被称为高若德（Gouraud）明暗处理和冯氏（Phong）明暗处理算法。其基本思想是在每一个多边形的顶点处计算合适的几何参数或光照明强度，然后在各个多边形内部通过线性插值得到光滑的颜色分布。<br>
+<!-- #EndEditable --></td>
+    </tr>
+  </table>
+  
+</div>
+</body>
+</html>

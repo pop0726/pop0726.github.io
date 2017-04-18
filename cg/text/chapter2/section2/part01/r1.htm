@@ -1,0 +1,271 @@
+<html>
+<head>
+<!-- #BeginEditable "doctitle" -->
+<title>计算机图形学</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/css.css" type="text/css">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../../images/bg03.gif">
+<div align="center">
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td valign="top" height="183"><!-- #BeginEditable "right" --> 
+        <table width="90%" border="0" cellspacing="0" cellpadding="0" height="100" align="center">
+          <tr> 
+            <td height="171" width="100%" class="text"> 
+              <p class=MsoNormal><span lang=EN-US><o:p></o:p></span> <span lang="EN-US" class="blue"><br>
+                2.2<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp; 
+                </span></span><span class="blue"> 画圆<br>
+                ��</span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>这一节中，我们介绍画圆弧的</span><span
+lang=EN-US>Bresenham</span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>算法。<br>
+                </span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman";mso-font-kerning:
+0pt'>��不失一般性，假设</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman";mso-font-kerning:0pt;mso-ansi-language:
+ZH-CN'>圆的圆心位于坐标原点（如果圆心不在原点，可以通过坐标平移使其与原点重合），半径为</span><span style='mso-font-kerning:
+0pt;mso-ansi-language:ZH-CN'>R</span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman";mso-font-kerning:
+0pt;mso-ansi-language:ZH-CN'>。以原点为圆心的圆</span><span style='mso-font-kerning:
+0pt;mso-ansi-language:ZH-CN'>C</span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman";mso-font-kerning:
+0pt;mso-ansi-language:ZH-CN'>有四条对称轴：</span><span style='mso-font-kerning:0pt;
+mso-ansi-language:ZH-CN'>x=0,y=0,x=y</span><span style='font-family:宋体;
+mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman";
+mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>和</span><span style='mso-font-kerning:
+0pt;mso-ansi-language:ZH-CN'>x=-y</span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman";mso-font-kerning:
+0pt;mso-ansi-language:ZH-CN'>。若已知圆弧上一点</span><span style='mso-font-kerning:
+0pt;mso-ansi-language:ZH-CN'>P<sub>1</sub></span><span style='font-family:宋体;
+mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman";
+mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>＝</span><span style='mso-font-kerning:
+0pt;mso-ansi-language:ZH-CN'>C</span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman";mso-font-kerning:
+0pt;mso-ansi-language:ZH-CN'>（</span><span style='mso-font-kerning:0pt;
+mso-ansi-language:ZH-CN'>x</span><i><span style='mso-font-kerning:0pt;
+mso-ansi-language:ZH-CN'>, </span></i><span style='mso-font-kerning:0pt;
+mso-ansi-language:ZH-CN'>y</span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman";mso-font-kerning:
+0pt;mso-ansi-language:ZH-CN'>），利用其对称性便可以得到关于四条对称轴的其它</span><span
+style='mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>7</span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman";mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>个点，即：</span><span
+style='mso-font-kerning:0pt;mso-ansi-language:ZH-CN'><o:p><br>
+                </o:p></span><span lang=EN-US style='mso-font-kerning:0pt'>��P<sub>2</sub></span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman";mso-font-kerning:0pt'>＝</span><span lang=EN-US
+style='mso-font-kerning:0pt'>C</span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman";mso-font-kerning:
+0pt'>（</span><span lang=EN-US style='mso-font-kerning:0pt'>x</span><i><span lang=EN-US style='mso-font-kerning:0pt'>,</span></i><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman";mso-font-kerning:0pt'>－</span><span lang=EN-US
+style='mso-font-kerning:0pt'>y</span><span style='font-family:宋体;
+mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman";
+mso-font-kerning:0pt'>），</span><span lang=EN-US style='mso-font-kerning:0pt'><o:p></o:p></span></p>
+              <p class=MsoNormalIndent><span lang=EN-US style='mso-font-kerning:0pt'>��P<sub>3</sub></span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman";mso-font-kerning:0pt'>＝</span><span lang=EN-US
+style='mso-font-kerning:0pt'>C</span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman";mso-font-kerning:
+0pt'>（－</span><span lang=EN-US style='mso-font-kerning:0pt'>x</span><i><span lang=EN-US style='mso-font-kerning:0pt'>, 
+                </span></i><span lang=EN-US style='mso-font-kerning:0pt'>y</span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman";mso-font-kerning:0pt'>），</span><span lang=EN-US
+style='mso-font-kerning:0pt'><o:p></o:p></span></p>
+              <p class=MsoNormalIndent><span lang=EN-US style='mso-font-kerning:0pt'>��P<sub>4</sub></span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman";mso-font-kerning:0pt'>＝</span><span lang=EN-US
+style='mso-font-kerning:0pt'>C</span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman";mso-font-kerning:
+0pt'>（－</span><span lang=EN-US style='mso-font-kerning:0pt'>x,</span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman";mso-font-kerning:0pt'>－</span><span lang=EN-US
+style='mso-font-kerning:0pt'>y</span><span style='font-family:宋体;
+mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman";
+mso-font-kerning:0pt'>），</span><span lang=EN-US style='mso-font-kerning:0pt'><o:p></o:p></span></p>
+              <p class=MsoNormalIndent><span lang=EN-US style='mso-font-kerning:0pt'>��P<sub>5</sub></span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman";mso-font-kerning:0pt'>＝</span><span lang=EN-US
+style='mso-font-kerning:0pt'>C</span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman";mso-font-kerning:
+0pt'>（</span><span lang=EN-US style='mso-font-kerning:0pt'>y</span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman";mso-font-kerning:0pt'>，</span><span lang=EN-US
+style='mso-font-kerning:0pt'>x</span><span style='font-family:宋体;
+mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman";
+mso-font-kerning:0pt'>），</span><span lang=EN-US style='mso-font-kerning:0pt'><o:p></o:p></span></p>
+              <p class=MsoNormalIndent><span lang=EN-US style='mso-font-kerning:0pt'>��P<sub>6</sub></span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman";mso-font-kerning:0pt'>＝</span><span lang=EN-US
+style='mso-font-kerning:0pt'>C</span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman";mso-font-kerning:
+0pt'>（－</span><span lang=EN-US style='mso-font-kerning:0pt'>y</span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman";mso-font-kerning:0pt'>，</span><span lang=EN-US
+style='mso-font-kerning:0pt'>x</span><span style='font-family:宋体;
+mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman";
+mso-font-kerning:0pt'>），</span><span lang=EN-US style='mso-font-kerning:0pt'><o:p></o:p></span></p>
+              <p class=MsoNormalIndent><span lang=EN-US style='mso-font-kerning:0pt'>��P<sub>7</sub></span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman";mso-font-kerning:0pt'>＝</span><span lang=EN-US
+style='mso-font-kerning:0pt'>C</span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman";mso-font-kerning:
+0pt'>（</span><span lang=EN-US style='mso-font-kerning:0pt'>y</span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman";mso-font-kerning:0pt'>，</span><span style='font-family:
+宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman";
+mso-font-kerning:0pt'>－</span><span lang=EN-US style='mso-font-kerning:0pt'>x</span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman";mso-font-kerning:0pt'>），</span><span lang=EN-US
+style='mso-font-kerning:0pt'><o:p></o:p></span></p>
+              <p class=MsoNormalIndent><span lang=EN-US style='mso-font-kerning:0pt'>��P<sub>8</sub></span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman";mso-font-kerning:0pt'>＝</span><span lang=EN-US
+style='mso-font-kerning:0pt'>C</span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman";mso-font-kerning:
+0pt'>（－</span><span lang=EN-US style='mso-font-kerning:0pt'>y</span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman";mso-font-kerning:0pt'>，</span><span style='font-family:
+宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman";
+mso-font-kerning:0pt'>－</span><span lang=EN-US style='mso-font-kerning:0pt'>x</span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman";mso-font-kerning:0pt'>）</span><span style='font-family:宋体;
+mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman";
+mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>。</span><span lang=EN-US
+style='mso-font-kerning:0pt'><o:p></o:p></span></p>
+              <p class=MsoNormalIndent style='text-indent:0cm'><span style='font-family:宋体;
+mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman";
+mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>这种性质称为八对称性。因此，只要扫描转换八分之一圆弧，就可以通过圆弧的八对称性得到整个圆。</span><span
+style='mso-font-kerning:0pt;mso-ansi-language:ZH-CN'><o:p><br>
+                ��</o:p></span><span style='font-family:宋体;
+mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman";
+mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>为了方便起见，考虑位于第一象限的四分之一圆弧。如果以点（</span><span
+style='mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>0</span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman";mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>，</span><span
+style='mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>R</span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman";mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>）为起点按顺时针方向生成圆，则在第一象限内</span><span
+style='mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>y</span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman";mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>是</span><span
+style='mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>x</span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman";mso-font-kerning:0pt;mso-ansi-language:ZH-CN'>的单调递减函数。</span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>假设圆心和起点均精确地落在像素中心上。<br>
+                ��</span><span style='font-family:宋体;
+mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman"'>如果已经知道圆弧上的一点</span><span
+lang=EN-US>(x,y)</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>，下一像素的选取有三种可能：正右方像素，右下角像素和正下方像素，分别用</span><span
+lang=EN-US>H,D</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>和</span><span lang=EN-US>V</span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>表示，如图</span><span lang=EN-US>2.2</span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>所示。这三个像素的偏差的平方为：<br>
+                </span><span lang=EN-US><sub> ��<img
+src="../../../../images/pic/chap02/image017.gif" v:shapes="_x0000_i1042"> <br>
+                </sub></span><span lang=EN-US><sub>��<img
+src="../../../../images/pic/chap02/image019.gif" v:shapes="_x0000_i1043"> </sub> 
+                </span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>。</span></p>
+              <p class=MsoNormal><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>令<br>
+                </span><span
+lang=EN-US><sub>��<img
+src="../../../../images/pic/chap02/image021.gif" v:shapes="_x0000_i1044"> </sub> 
+                </span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>，<br>
+                ��</span><span
+lang=EN-US><sub><img
+src="../../../../images/pic/chap02/image023.gif" v:shapes="_x0000_i1045"> </sub> 
+                </span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>。</span></p>
+              <p class=MsoNormal style='text-indent:21.0pt;tab-stops:12.0cm'><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>如果</span><span lang=EN-US><sub> <img
+src="../../../../images/pic/chap02/image025.gif" v:shapes="_x0000_i1046" align="absmiddle"> 
+                </sub> </span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>，说明圆弧到</span><span
+lang=EN-US>D</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>向像素的距离大于到</span><span lang=EN-US>H</span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>向像素的距离，因此，下一个像素应当取</span><span lang=EN-US>H</span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>向的像素（</span><span lang=EN-US>x<sub>i</sub>+1</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>，</span><span lang=EN-US>y<sub>i</sub></span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>）；反之，下一个像素应当取</span><span lang=EN-US>D</span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>向的像素（</span><span lang=EN-US>x<sub>i</sub>+1</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>，</span><span lang=EN-US>y<sub>i</sub></span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>－</span><span lang=EN-US>1</span><span style='font-family:
+宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman"'>）。经过更进一步地分析后，可以得到：<br>
+                </span>��如左 <font class=blue>公式（2－2－1）</font><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'> <br>
+                ��如左 <font class=blue>公式（2－2－2）</font><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'> <br>
+                </span></span></p>
+              <p class=MsoNormal style='tab-stops:12.0cm'><span style='font-family:宋体;
+mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman"'>我们可以按以下规则选取下一个像素作为圆弧的最佳逼近点：</span></p>
+             
+                
+              <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center" class="text">
+                <tr> 
+                    <td> 
+                      <ul>
+                        <li>当<img
+src="../../../../images/pic/chap02/image035.gif" v:shapes="_x0000_i1051" align="absmiddle">时，如果<span
+lang=EN-US><sub> <img
+src="../../../../images/pic/chap02/image037.gif" v:shapes="_x0000_i1052" align="absmiddle"> 
+                          </sub> </span>，则取为下一个像素点，否则取D为下一个像素点。
+                        <li><span style='font:7.0pt "Times New Roman"'> </span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>当</span><span lang=EN-US><sub> <img
+src="../../../../images/pic/chap02/image039.gif" v:shapes="_x0000_i1053" align="absmiddle"> 
+                          </sub> </span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>时，如果</span><span
+lang=EN-US><sub> <img
+src="../../../../images/pic/chap02/image041.gif" v:shapes="_x0000_i1054" align="absmiddle"> 
+                          </sub> </span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>，则取</span><span
+lang=EN-US>D</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>为下一个像素点，否则取</span><span lang=EN-US>V</span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>为下一个像素点；</span> 
+                        <li> <span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>当</span><span lang=EN-US><sub> <img
+src="../../../../images/pic/chap02/image043.gif" v:shapes="_x0000_i1055" align="absmiddle"> 
+                          </sub> </span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>时取</span><span
+lang=EN-US>D</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>为下一个像素点。</span> 
+                      </ul>
+                    </td>
+                  </tr>
+                </table>
+               为了提高计算速度，我们可以在<span
+lang=EN-US>Bresenham</span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>画圆算法中采用只有加、减和移位（即：乘以</span><span
+lang=EN-US>2</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>）操作的递推公式如下：</span> <br>
+              <span class="blue">��<a href="l1_bq2.htm#1" target="MyFrame" class="blue">a）</a><br>
+              ��<a href="l1_bq2.htm#2" target="MyFrame" class="blue">b） </a><br>
+              ��<a href="l1_bq2.htm#3" target="MyFrame" class="blue">c）<br>
+              </a></span> ��可见，只用加、减和移位操作便完全可以实现Bresenham画圆算法。和改进的Bresenham画线算法一样，Bresenham画圆算法具有很高的速度和效率，因此得到广泛的应用。<span
+lang=EN-US><span style='mso-tab-count:1'> </span></span><span class="blue"><br>
+              </span></td>
+          </tr>
+        </table>
+        <!-- #EndEditable --></td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<html>
+<head>
+<!-- #BeginEditable "doctitle" -->
+<title>计算机图形学</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/css.css" type="text/css">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../../images/bg03.gif">
+<div align="center">
+  <table width="90%" border="0" cellspacing="0" cellpadding="0" height="100">
+    <tr> 
+      <td height="171" valign="top" width="100%" class=text><!-- #BeginEditable "right" --> 
+        <p><span class="blue"><br>
+          7.3 区域排序算法</span><br>
+          ��多边形区域排序算法的基本思想是：在图象空间中，将待显示的所有多边形按深度值从小到大排序，用前面可见多边形去切割后面的多边形，最终使得每个多边形要么是完全可见，要么是完全不可见。用区域排序算法消隐，需要用到一个多边形裁剪算法，这种裁剪算法不仅能处理凸多边形，而且可以处理凹多边形，以及内部有空洞的多边形。 
+          <br>
+          ��当对两个形体相应表面的多边形进行裁剪时，我们称用来裁剪的多边形为裁剪多边形，另一个多边形为被裁剪多边形。算法要求多边形的外环和内环都是由有向边构成的闭环，多边形的外环总是逆时针方向的，而内环的方向则相反，是顺时针方向的。并且沿着边的走向，左侧始终是多边形的内部，右侧是多边形的外部。若两多边形相交，新的多边形可以用&quot;遇到交点后向左拐&quot;的规则来生成。于是被裁剪多边形被分为两个乃至多个多边形；我们把其中落在裁剪多边形外的多边形叫作外部多边形；把落在裁剪多边形之内的多边形叫作内部多边形。<br>
+          ��区域排序算法的复杂性与输入多边形的个数密切相关。在开始消隐前，我们可以将所有的多边形按其在XOY平面上的投影分区，这样在每一个子区域中的多边形数量将会减少，然后再对每一个区分别消隐。经过这种预处理后，可以使算法的计算时间大为减少。<br>
+          <br>
+        </p>
+        <!-- #EndEditable --></td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

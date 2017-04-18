@@ -1,0 +1,26 @@
+<html>
+<head>
+<!-- #BeginEditable "doctitle" -->
+<title>计算机图形学</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/css.css" type="text/css">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../../images/bg03.gif">
+<div align="center">
+  <table width="90%" border="0" cellspacing="0" cellpadding="0" height="100%" class="text">
+    <tr> 
+      <td height="55" valign="top" ><!-- #BeginEditable "right" --> <span class=blue><br>
+        3.4 裁剪</span><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;在计算机图形显示的过程中,往往需要确定图形的哪些部分(包括点、线段、文字、多边形等)落在显示区域(即:视口或视区)之内，哪些部分落在显示区域之外，以便只显示位于显示区域内的那部分图形。裁剪的实质就是决定图形中哪些部分位于指定的区域内。这需要进行几何处理,以便去除落在指定区域之外的部分,保留位于指定区域以内的部分。这个过程称为裁剪。最直观的裁剪方法是把各种几何图素通过扫描转换等技术离散成为点的集合，再逐点判断其是否位于指定的区域内。那样虽然简单，但是效率太低，一般不可取。<br>
+        <font class="blue">3.4.1 线段的裁剪</font><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;对于一条给定的线段，其裁剪过程一般包括以下几个部分：首先测试和判断它是否完全落在裁剪区之内？如果不是，再判断它是否完全落在裁剪区之外？然后,对于既不能确定完全落在裁剪区之内又不能确定完全落在裁剪区之外的线段,要计算它与一个或多个裁剪边界的交点。最后，对线段的端点进行测试，对于两个端点都落在裁剪区域内的线段就存储起来，否则就予以去除，即裁剪之。<br>
+        <br>
+        <br>
+        <!-- #EndEditable --></td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

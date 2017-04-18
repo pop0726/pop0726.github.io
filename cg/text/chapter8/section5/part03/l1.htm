@@ -1,0 +1,64 @@
+<html>
+<head>
+<!-- #BeginEditable "doctitle" -->
+<title></title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/css01.css" type="text/css">
+<link rel="stylesheet" href="../../../../css/css.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center"> 
+  <table width="95%" border="0" cellspacing="3" cellpadding="2" height="49%" class="text">
+    <tr> 
+      <td valign="top" height="218" width="100%"><!-- #BeginEditable "left" --> 
+        <p style='layout-grid-mode:char'><span class="MsoNormal">��</span><span class="blue">1） 
+          球面</span><span class="MsoNormal"><a name="1"></a><br>
+          ��设球心为 <img src="../../../../images/pic/chap08/image324.gif" align="absmiddle">，半径为r,则其方程为：<br>
+          ��<img src="../../../../images/pic/chap08/image326.gif" align="absmiddle"><br>
+          将光线的参数方程方程代入上式，经整理得到：<br>
+          ��<img src="../../../../images/pic/chap08/image328.gif" align="absmiddle"><br>
+          其中，<br>
+          ��<img src="../../../../images/pic/chap08/image330.gif" align="absmiddle"><br>
+          ��如果b<sup>2</sup>-4c&lt;0，则光线与球无交。<br>
+          ��如果b<sup>2</sup>-4c=0，这时t=－b/2，如果<img src="../../../../images/pic/chap08/image332.gif" align="absmiddle"> 
+          ,切点 <img src="../../../../images/pic/chap08/image334.gif" align="absmiddle">即为光线与球的交点,否则交点不在光线上。<br>
+          ��如果b<sup>2</sup>-4c&gt;0，这时 <img src="../../../../images/pic/chap08/image336.gif" align="absmiddle">，若有t1或t2&lt;0，则说明相应的交点不在光线上，交点无效。取 
+          <img src="../../../../images/pic/chap08/image338.gif" align="absmiddle">，则光线与球的交点为R(t0)，交点处的法向量为 
+          <img src="../../../../images/pic/chap08/image340.gif" align="absmiddle">，这是一个单位向量。<br>
+          ��用上述代数法计算光线与球的交点和法向量总共需要17次加减运算、17次乘法运算、1次开方运算和3次比较操作。如果采用几何法计算光线与球的交点和法向量，可以适当减少计算量，这里从略，建议读者自己练习之。 
+          <br>
+          ��</span><span class="blue">2） 参数曲面</span><span class="MsoNormal"><a name="2"></a><br>
+          ��设参数曲面的参数方程为:<br>
+          ��Q(u,v)=(x(u,v),y(u,v),z(u,v) )。 <br>
+          ��假设光线的单位方向矢量d=(dx, dy, dz)<sup>T</sup>与光线起点的位置矢量V=(Vx, Vy, Vz)<sup>T</sup>不平行。这里，我们将用下面两个平面的交线来表示光线：<br>
+          <img src="../../../../images/pic/chap08/image342.gif" align="absmiddle"><br>
+          其中，<br>
+          <img src="../../../../images/pic/chap08/image344.gif" align="absmiddle"><br>
+          P＝(x,y,z)<sup>T</sup>为平面上的一点 。如果d平行于V，则用不平行于d的某一坐标轴矢量取代上式中的V。<br>
+          光线与参数曲面的交是下列非线性方程组的解：<br>
+          <img src="../../../../images/pic/chap08/image348.gif" align="absmiddle"><br>
+          ��采用Newton迭代算法求解：<br>
+          ��1） 给定初始值(u0, v0)，令k=0； <br>
+          ��2） 将上式在(uk, vk)处作线性展开：<br>
+          <img src="../../../../images/pic/chap08/image350.gif">。<br>
+          ��通常上式左边的雅可比矩阵是非奇异的，所以有唯一解。<br>
+          ��3） 解上述线性方程组，得 <img src="../../../../images/pic/chap08/image352.gif" align="absmiddle">；<br>
+          ��4） 如果<br>
+          ��<img src="../../../../images/pic/chap08/image354.gif" align="absmiddle"><br>
+          ��转6）；否则转5）；<br>
+          ��5） 令<br>
+          ��<img src="../../../../images/pic/chap08/image356.gif" align="absmiddle"><br>
+          ��转4）； <br>
+          ��6） 结束。<br>
+          ��将Newton法所求得的解(uk+1,vk+1)代入曲面方程，即得交点Q(uk+1,vk+1)。<br>
+          <br>
+          </span>
+        <!-- #EndEditable --></td>
+    </tr>
+  </table>
+  
+</div>
+</body>
+</html>

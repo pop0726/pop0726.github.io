@@ -1,0 +1,72 @@
+<html>
+<head>
+<!-- #BeginEditable "doctitle" -->
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/css01.css" type="text/css">
+<link rel="stylesheet" href="../../../../css/css.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="95%" border="0" cellspacing="3" cellpadding="2" height="100%" class="text">
+    <tr> 
+      <td valign="top" height="779"><!-- #BeginEditable "left" --> 
+        <p class=MsoNormalIndent>��<a name="2"></a><span class="blue">2) 种子填充算法</span><br>
+          ��种子填充算法又称为边界填充算法。其基本思想是：从多边形区域的一个内点开始，由内向外用给定的颜色画点直到边界为止。如果边界是以一种颜色指定的，则种子填充算法可逐个像素地处理直到遇到边界颜色为止。<br>
+          种子填充算法常用四连通域和八连通域技术进行填充操作。<br>
+          ��从区域内任意一点出发，通过上、下、左、右四个方向到达区域内的任意像素。用这种方法填充的区域就称为四连通域；这种填充方法称为四向连通算法。<br>
+          ��从区域内任意一点出发，通过上、下、左、右、左上、左下、右上和右下八个方向到达区域内的任意像素。用这种方法填充的区域就称为八连通域；这种填充方法称为八向连通算法。<br>
+          ��一般来说，八向连通算法可以填充四向连通区域，而四向连通算法有时不能填充八向连通区域。例如，八向连通填充算法能够正确填充如图2.4a所示的区域的内部，而四向连通填充算法只能完成如图2.4b的部分填充。
+        <br><br><img src="../../../../images/but/tushi.gif" width="25" height="20" align="absmiddle"> 
+        图2.4 四向连通填充算法<br>
+        <table width="66%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td width="49%"> 
+              <div align="center"><img src="../../../../images/pic/chap02/image122.gif" width="210" height="185"></div>
+            </td>
+            <td width="51%"> 
+              <div align="center"><img src="../../../../images/pic/chap02/image122_2.gif" width="206" height="185"></div>
+            </td>
+          </tr>
+          <tr> 
+            <td width="49%"> 
+              <div align="center">a) 连通域及其内点</div>
+            </td>
+            <td width="51%"> 
+              <div align="center">b) 填充四连通域</div>
+            </td>
+          </tr>
+        </table>
+        <p> 四向连通填充算法：<br>
+          a） 种子像素压入栈中；<br>
+          b） 如果栈为空，则转e)；否则转c)；<br>
+          c） 弹出一个像素，并将该像素置成填充色；并判断该像素相邻的四连通像素是否为边界色或已经置成多边形的填充色，若不是，则将该像素压入栈；<br>
+          d） 转b）；<br>
+          e） 结束。<br>
+          四向连通填充方法可以用递归函数实现如下：</p>
+        <p><img src="../../../../images/but/dingyi.gif" width="27" height="19" align="absmiddle"> 
+          算法2.3 四向连通递归填充算法：<br>
+          <span class="orange">void BoundaryFill4(int x, int y, long FilledColor, 
+          long BoundaryColor)<br>
+          {<br>
+          ��long CurrentColor;<br>
+          ��CurrentColor = GetPixelColor(x,y);<br>
+          ��if (CurrentColor != BoundaryColor &amp;&amp; CurrentColor != FilledColor)<br>
+          ��{<br>
+          ���SetColor(FilledColor);<br>
+          ���SetPixel (x,y);<br>
+          ���BoundaryFill4(x+1, y, FilledColor, BoundaryColor);<br>
+          ���BoundaryFill4(x-1, y, FilledColor, BoundaryColor);<br>
+          ���BoundaryFill4(x, y+1, FilledColor, BoundaryColor);<br>
+          ���BoundaryFill4(x, y-1, FilledColor, BoundaryColor);<br>
+          ��}<br>
+          }</span></p>
+        <p>��上述算法的优点是非常简单，缺点是需要大量栈空间来存储相邻的点。一个改进的方法就是：通过沿扫描线填充水平像素段，来处理四连通或八连通相邻点，这样就仅仅只需要将每个水平像素段的起始位置压入栈，而不需要将当前位置周围尚未处理的相邻像素都压入栈，从而可以节省大量的栈空间。</p>
+        <!-- #EndEditable --></td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

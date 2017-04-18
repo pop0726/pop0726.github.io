@@ -1,0 +1,52 @@
+<html>
+<head>
+<!-- #BeginEditable "doctitle" -->
+<title>计算机图形学</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/css.css" type="text/css">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../../images/bg03.gif">
+<div align="center">
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td valign="top" height="300"><!-- #BeginEditable "right" --> 
+        <table width="90%" border="0" cellspacing="0" cellpadding="0" height="100" align="center">
+          <tr> 
+            <td height="233" width="100%" class="text"> 
+              <p class=MsoNormal><span lang=EN-US><o:p></o:p></span> <span class="blue"><br>
+                2.3 画椭圆</span><br>
+                中心在原点、轴对齐的椭圆的非参数化方程为：<br>
+                ��<img src="../../../../images/pic/chap02/image061.gif" align="absmiddle">。<br>
+                上式可用隐式方程表示为：<br>
+                <img src="../../../../images/pic/chap02/image063.gif"><br>
+                ��由于椭圆的对称性，仅考虑在第一象限的椭圆弧即可。椭圆弧的法向量计算公式为：<br>
+                <img src="../../../../images/pic/chap02/image065.gif" align="absmiddle"><br>
+                ��椭圆弧上斜率为－1的点将椭圆弧分为上、下部分，见图2.3所示。在上部分（区域2），法向量的y向分量较大，选择像素时增量Δy比较重要；在下部分（区域1），法向量的x分量较大，选择像素时增量Δx比较重要。下面我们分开进行讨论。<br>
+                在区域2，设当前位置为<img
+src="../../../../images/pic/chap02/image068.gif"  align="absmiddle">点，下一个可能的点是像素点H<span
+lang=EN-US><sub><img
+src="../../../../images/pic/chap02/image070.gif" v:shapes="_x0000_i1068" align="absmiddle"></sub></span>和D<span
+lang=EN-US><sub><img
+src="../../../../images/pic/chap02/image072.gif" v:shapes="_x0000_i1069" align="absmiddle"></sub></span>，这时可构造判别式：<br>
+                <span lang=EN-US><sub><img
+src="../../../../images/pic/chap02/image074.gif" v:shapes="_x0000_i1070" align="absmiddle"></sub></span><br>
+                ��若<span
+lang=EN-US><sub><img
+src="../../../../images/pic/chap02/image076.gif" v:shapes="_x0000_i1071" align="absmiddle"></sub></span>&lt;0,表示像素点H和D的中点在椭圆内，这时可取H为下一个像素点；若<span lang=EN-US><sub><img
+src="../../../../images/pic/chap02/image078.gif" v:shapes="_x0000_i1072" align="absmiddle"></sub></span> 
+                &gt;=0,表示像素点H和D的中点在椭圆外，这时应当取D为下一个像素点。所以，对于在区域2的椭圆弧，我们可以按左边的<font class=blue>规则</font>选取下一个像素作为椭圆弧的最佳逼近点：<br>
+                <span lang=EN-US style='font-family:
+Wingdings'><span style='font:7.0pt "Times New Roman"'> </span></span> 
+              <br>
+              
+            </td>
+          </tr>
+        </table>
+        <!-- #EndEditable --></td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

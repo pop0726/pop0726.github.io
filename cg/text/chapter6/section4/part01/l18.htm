@@ -1,0 +1,49 @@
+<html>
+<head>
+<!-- #BeginEditable "doctitle" -->
+<title></title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/css01.css" type="text/css">
+<link rel="stylesheet" href="../../../../css/css.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center"> 
+  <table width="95%" border="0" cellspacing="3" cellpadding="2" height="49%" class="text">
+    <tr> 
+      <td valign="top" height="70" width="100%"><!-- #BeginEditable "left" --> 
+        <p><span class=blue>算法6.3</span><br>
+          <span class="orange"> for ( i=k; i&lt;n; i++ )</span><br>
+          　　在t(i)后插入重节点；<br>
+          <span class="orange">for ( j=0; i&lt;s; j++ )<br>
+          {<br>
+          　　for ( i=k-1; i&lt;n; i++ )</span><br>
+          　　　　计算矩阵M<sup>k</sup>(i);<br>
+          　　按照（6－4－25）式计算系数矩阵P;<br>
+          　　按照（6－4－25）式计算向量Q;<br>
+          　　解方程PX=Q;<br>
+          　　<span class="orange">for ( i=0; i&lt;n; i++ )</span><br>
+          　　　　退化后的控制点V'(i)=V(i)+X(i);<br>
+          　　按照（6－4－26）式计算曲线段c(0)的降阶转换矩阵A(0); //A(0)为类三角阵<br>
+          　　按照（6－4－27）式计算前k-1个降阶后的控制点newV(0)~newV(k-2)；<br>
+          　　//只解前k-1个方程</p>
+        <p><span class="orange">　　for ( i=2; i&lt;=n-k; i+=2 )<br>
+          　　{ </span><br>
+          　　　　按照（6－4－26）式计算曲线段c(i)的降阶转换矩阵A(i);<br>
+          　　　　//只需要计算第k-3和第k-2列</p>
+        <p> 　　　　按照（6－4－27）式,解第k-3和第k-2个方程，得降阶后的控制<br>
+          　　　　点newV(k+i-3)和newV(k+i-2)<br>
+          　<span class="orange">　}<br>
+          　　k--;<br>
+          　　n--;<br>
+          　　t++;<br>
+          }</span><br>
+        </p>
+        <!-- #EndEditable --></td>
+    </tr>
+  </table>
+  
+</div>
+</body>
+</html>

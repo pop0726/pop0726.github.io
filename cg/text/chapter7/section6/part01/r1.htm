@@ -1,0 +1,39 @@
+<html>
+<head>
+<!-- #BeginEditable "doctitle" -->
+<title>计算机图形学</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/css.css" type="text/css">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../../images/bg03.gif">
+<div align="center">
+  <table width="90%" border="0" cellspacing="0" cellpadding="0" height="100">
+    <tr> 
+      <td height="171" valign="top" width="100%" class=text><!-- #BeginEditable "right" --> 
+        <p><span class="blue"><br>
+          7.6 区域子分算法(Warnock算法)</span><br>
+          ��区域子分算法采用分而治之的消隐策略。其基本思想是：把物体投影到全屏幕窗口上，然后递归分割窗口，直到窗口内目标足够简单，可以显示为止。<br>
+          ��该算法最初把初始窗口取作整个屏幕，将场景中的多边形投影到窗口内。如果窗口内没有物体，则按背景色显示；若窗口内只有一个面，则把该面显示出来。否则，把窗口等分成四个子窗口，然后对每个子窗口重复上述过程。 
+          <br>
+          ��具体来讲，每一次子分，都要把要显示的多边形和窗口的关系作一判断，多边形和窗口的关系有以下四种（见图7.15）：<br>
+          ���1） 多边形包含了窗口；<br>
+          ���2） 窗口包含了多边形；<br>
+          ���3） 多边形和窗口相交；<br>
+          ���4） 多边形和窗口分离。<br>
+          ��在多边形和窗口的关系确定后，满足下列条件的窗口可直接绘制出：<br>
+          ��1） 所有多边形都和窗口分离，把窗口填上背景颜色；<br>
+          ��2） 只有一个多边形和窗口相交，或只有一个多边形包含在窗口中，先把窗口填上背景色，然后再对窗口内的多边形部分用扫描线算法填上相应颜色；<br>
+          ��3） 只有一个多边形和窗口相交，这个多边形把窗口包含在内，把整个窗口填上该多边形的颜色；<br>
+          ��4） 虽有多个多边形与窗口相交，但离观察者最近的多边形包含了窗口，则把整个窗口填上离观察者最近的多边形的颜色。<br>
+          <br>
+          不满足上述条件的窗口需进一步细分。如果到某个时刻，子窗口仅有一个象素大，而窗口内仍有两个以上的面，则该窗口内象素的颜色可取离观察者最近的多边形的颜色，或取和这个窗口相交的所有多边形的平均值。 
+        </p>
+        <p></p>
+        <!-- #EndEditable --></td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

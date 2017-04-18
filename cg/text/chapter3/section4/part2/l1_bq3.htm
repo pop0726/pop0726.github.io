@@ -1,0 +1,50 @@
+<html>
+<head>
+<!-- #BeginEditable "doctitle" -->
+<title>计算机图形学</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/css01.css" type="text/css">
+<link rel="stylesheet" href="../../../../css/css.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="95%" border="0" cellspacing="3" cellpadding="2" height="49%" class="text">
+    <tr> 
+      <td valign="top" height="591"><!-- #BeginEditable "left" --> <font color="#FF0000"><img src="../../../../images/but/tushi.gif" width="25" height="20" align="absmiddle"></font> 
+        图3.16 凹多边形的裁剪（裁剪后的多边形有两个，但有一条多余的线） 
+        <div align="center"><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="440" height="320">
+            <param name=movie value="../../../../flash/chap03/F3.9.swf">
+            <param name=quality value=high>
+            <embed src="../../../../flash/chap03/F3.9.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="440" height="320">
+            </embed> 
+          </object><br>
+          <br>
+        </div>
+        <div align="center"> 
+          <table width="95%" border="0" cellspacing="00" cellpadding="0" align="center" class="text">
+            <tr> 
+              <td><font class=blue>下面是用Visual C++实现的Sutherland-Hodgeman多边形裁剪算法：</font> 
+                <br>
+                <b>1) global.h:</b><br>
+                <span class="orange">#if !defined(AFX_GLOBAL_H)<br>
+                #define AFX_GLOBAL_H<br>
+                typedef enum{Left, Right, Bottom, Top} Edge;<br>
+                #define N_EDGE 4<br>
+                typedef struct{float x,y;} Point2f;<br>
+                typedef struct{int x,y;} Point2i;<br>
+                int ClipPolygon(Point2i wMin,Point2i wMax,int n,Point2f *pIn,Point2f 
+                *pOut);<br>
+                #define MAXOUTPUT 200 //输出多边形的最多点数<br>
+                #endif//AFX_GLOBAL_H</span></td>
+            </tr>
+          </table>
+          &lt;&lt;&lt;请<a href="../../../../images/pic/chap03/ClipPolygoncpp.zip">下载更多</a><br>
+        </div>
+        <!-- #EndEditable --></td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

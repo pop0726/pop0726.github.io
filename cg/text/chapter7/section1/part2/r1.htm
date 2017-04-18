@@ -1,0 +1,28 @@
+<html>
+<head>
+<!-- #BeginEditable "doctitle" -->
+<title>计算机图形学</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/css.css" type="text/css">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../../images/bg03.gif">
+<div align="center">
+  <table width="90%" border="0" cellspacing="0" cellpadding="0" height="100">
+    <tr> 
+      <td height="171" valign="top" width="100%" class=text><!-- #BeginEditable "right" --> 
+        <p><span class="blue"><br>
+          7.1.2 凹多面体的隐藏线消除</span><br>
+          ��凹多面体的消隐比凸多面体的要复杂得多。对于隐藏线消除问题，总是假定它们是用线框图方式表示的。在这种方式下，多面体用棱来表示，多面体的隐藏线消除问题就是要消除被完全遮挡或部分遮挡的棱。因此，多面体的隐藏线消除问题就转化成为直线（棱）与多边形的遮挡判断问题：<br>
+          ��对于空间线段P<sub>1</sub>P<sub>2</sub> 和多边形，首先需要判断P<sub>1</sub>P<sub>2</sub> 
+          是否被多边形遮挡？如果有遮挡，则计算出被遮挡的线段部分。为此，以视点为投影中心，将线段和多边形顶点投影到屏幕上，并判断其投影是否相交。如果相交，再将线段与各多边形分别进行隐藏比较，确定可见的子线段。<br>
+          ��为了减少不必要的复杂计算，首先计算物体表面各多边形的外法矢量，当视线方向矢量<font size="2">V</font>与某多边形的外法矢量N的点积<font size="2">V・N&gt;0</font>时，该多边形为后向面（见图7.5），这是自隐藏面；反之为前向面，这是潜在的可见面。删除所有的后向面，只保留前向面参加消隐计算。此外，还可以采用包围盒技术对多边形与线段是否相交进行初判等等。<br>
+          <br>
+        </p>
+        <!-- #EndEditable --></td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

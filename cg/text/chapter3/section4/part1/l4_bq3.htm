@@ -1,0 +1,87 @@
+<html>
+<head>
+<!-- #BeginEditable "doctitle" -->
+<title>计算机图形学</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/css01.css" type="text/css">
+<link rel="stylesheet" href="../../../../css/css.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="90%" border="0" cellspacing="3" cellpadding="2" height="49%" class="text">
+    <tr> 
+      <td valign="top" height="424" width="100%"><!-- #BeginEditable "left" -->下面是用Visual 
+        C＋＋实现的上述算法：<br>
+        文件名：LB_LineClip.cpp<br>
+        <span class="orange">// LB_LineClip.cpp<br>
+        #include &quot;stdafx.h&quot;<br>
+        BOOL ClipTesting(float p, float q, float *u1, float *u2)<br>
+        { <br>
+        　　float r; </span> 
+        <p class="orange"> 　　if(p &lt; 0)<br>
+          　　{ <br>
+          　　　　r=q/p;<br>
+          　　　　if(r &gt; *u2) return FALSE;<br>
+          　　　　else if(r &gt; *u1)<br>
+          　　　　{ <br>
+          　　　　　　*u1=r;<br>
+          　　　　　　return TRUE;<br>
+          　　　　}<br>
+          　　}<br>
+          　　else if(p &gt; 0)<br>
+          　　{ <br>
+          　　　　r=q/p;<br>
+          　　　　if(r &lt; *u1) return FALSE;<br>
+          　　　　else if(r &lt; *u2)<br>
+          　　　　{ <br>
+          　　　　　　*u2=r;<br>
+          　　　　　　return TRUE;<br>
+          　　　　}<br>
+          　　}<br>
+          　　else <br>
+          　　　　if(q &lt; 0) return FALSE;<br>
+          　　return TRUE;<br>
+          }</p>
+        <p><span class="orange">BOOL LB_LineClip( float XL, float XR, float YB, 
+          float YT,<br>
+          　　　　　　　　　float &amp;x1, float &amp;y1, float &amp;x2, float &amp;y2)<br>
+          // Input: 裁剪窗口的对角顶点(XL,YB)和(XR,YT); 线段起点(x1,y1)和终点(x2,y2)<br>
+          // Output:裁剪后的线段起点(x1,y1)和终点(x2,y2)<br>
+          // 返回值: 1) false -- 与裁剪窗口没有交; <br>
+          // 2) true -- 线段的一部分或者全部位于裁剪窗口内。<br>
+          { <br>
+          　　float dx,dy,u1,u2;<br>
+          　　u1=0;<br>
+          　　u2=1;<br>
+          　　dx =x2-x1;<br>
+          　　if(ClipTesting(-dx,x1-XL,&amp;u1,&amp;u2))<br>
+          　　　　if(ClipTesting(dx,XR-x1, &amp;u1,&amp;u2))<br>
+          　　　　{<br>
+          　　　　　　dy =y2-y1;<br>
+          　　　　　　if(ClipTesting(-dy,y1-YB, &amp;u1,&amp;u2))<br>
+          　　　　　　　　　if(ClipTesting(dy,YT-y1, &amp;u1,&amp;u2))<br>
+          　　　　　　　　　{ <br>
+          　　　　　　　　　　if (u2 &lt; 1.0)<br>
+          　　　　　　　　　　{<br>
+          　　　　　　　　　　　x2 = x1+u2*dx;<br>
+          　　　　　　　　　　　y2 = y1+u2*dy;<br>
+          　　　　　　　　　　}<br>
+          　　　　　　　　　　if (u1 &gt; 0.0)<br>
+          　　　　　　　　　　{<br>
+          　　　　　　　　　　　　x1 += u1*dx;<br>
+          　　　　　　　　　　　　y1 += u1*dy;<br>
+          　　　　　　　　　　}<br>
+          　　　　　　　　　　return TRUE;<br>
+          　　　　　　　　　}<br>
+          　　　　　}<br>
+          　　return FALSE;<br>
+          }</span><br>
+        </p>
+        <!-- #EndEditable --></td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

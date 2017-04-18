@@ -1,0 +1,160 @@
+<html>
+<head>
+<!-- #BeginEditable "doctitle" -->
+<title>计算机图形学</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/css01.css" type="text/css">
+<link rel="stylesheet" href="../../../../css/css.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="95%" border="0" cellspacing="3" cellpadding="2" height="49%" class="text">
+    <tr> 
+      <td valign="top" height="73"><!-- #BeginEditable "left" --> 下面是用Visual C++实现的参数化裁剪算法,它包括3个文件:<br>
+        <span class="blue">1) CyrusBeckClipping.cpp</span><br>
+        #include &quot;stdafx.h&quot;<br>
+        #include &quot;global.h&quot;<br>
+        #include &quot;CyrusBeck.h&quot;<br>
+        #include &quot;math.h&quot; 
+        <p>BOOL CyrusBeckClipping(float p1[2],float p2[2],float n[][2],float f[][2],int 
+          k,<br>
+          Point2f *Pbegin, Point2f *Pend)<br>
+          // P1 and P2 are the end points of the line<br>
+          // the number of edges for the clipping region is k<br>
+          // the ni are the k normal vectors<br>
+          // the fi are the k boundary points,one in each edge<br>
+          // Pbegin and Pend are the addresses pointing to the end points of the 
+          clipped line<br>
+          // initialize the parameter limits, assuming the entire line is visible<br>
+          {<br>
+          //tL,tU are the lower and upper parameter limits<br>
+          float tL=0;<br>
+          float tU=1;</p>
+        <p> //calculate the directrix D<br>
+          float d[2]; //d is the direction of the line, P2-P1<br>
+          d[0]=p2[0]-p1[0];<br>
+          d[1]=p2[1]-p1[1];</p>
+        <p> //start the main loop<br>
+          for(int i=0;i&lt;k;i++)<br>
+          {<br>
+          //calculate wi,d*ni and wi*ni for this value of i<br>
+          float w[2]; //wi is the weighting function, P1-fi<br>
+          int j;<br>
+          for(j=0;j&lt;2;j++)<br>
+          w[j]=p1[j]-f[i][j];<br>
+          float Ddotn=d[0]*n[i][0]+d[1]*n[i][1];<br>
+          float Wdotn=w[0]*n[i][0]+w[1]*n[i][1];<br>
+          //is the line a point?<br>
+          if(fabs(Ddotn) &gt; ZERO)<br>
+          {<br>
+          //the line is not a point, calculate t<br>
+          float t = -1 * Wdotn / Ddotn;<br>
+          //looking for the upper or the lower limit?<br>
+          if(Ddotn &gt; 0) <br>
+          {<br>
+          //looking for the lower limit<br>
+          //is t within the range 0 to 1?<br>
+          if(t &gt; 1)//region entirely right of line<br>
+          return FALSE;//line trivially invisible-exit<br>
+          else<br>
+          tL=max(t,tL);<br>
+          }<br>
+          else<br>
+          {<br>
+          //looking for the upper limit<br>
+          //is t within the range 0 to 1?<br>
+          if(t &lt; 0)//region entirely left of line<br>
+          return FALSE;//line trivially insivible-exit<br>
+          else<br>
+          tU=min(t,tU);<br>
+          }<br>
+          }//if(Ddotn != 0)<br>
+          else//here Ddotn=0<br>
+          {<br>
+          if(Wdotn &lt; 0)<br>
+          {<br>
+          //the limit is trivially invisible or an invisible <br>
+          //point abnormal exit from the routine occurs<br>
+          return FALSE;<br>
+          }<br>
+          }<br>
+          }//for i</p>
+        <p> //a normal exit from the loop has occurred<br>
+          //check if the line is in fact invisible<br>
+          if(tL &lt;= tU)//the=catches a visible corner point<br>
+          {<br>
+          Pbegin-&gt;x=p1[0]+tL*d[0];<br>
+          Pbegin-&gt;y=p1[1]+tL*d[1];</p>
+        <p> Pend-&gt;x=p1[0]+tU*d[0];<br>
+          Pend-&gt;y=p1[1]+tU*d[1];<br>
+          <br>
+          return TRUE;<br>
+          }</p>
+        <p> return FALSE;<br>
+          }</p>
+        <p>BOOL CyrusBeck(CPtrList *pList, Point2f *pOut)<br>
+          {<br>
+          //准备参数<br>
+          float p1[2], p2[2], n[MAXOUTPUT][2], f[MAXOUTPUT][2];<br>
+          int k;<br>
+          <br>
+          k=0; <br>
+          POSITION pos;<br>
+          for(pos=pList-&gt;GetHeadPosition();pos;)<br>
+          {<br>
+          Point2f *p=(Point2f *)pList-&gt;GetNext(pos);<br>
+          f[k][0]=p-&gt;x;<br>
+          f[k][1]=p-&gt;y;<br>
+          k++;<br>
+          }</p>
+        <p> int pre,next;<br>
+          for(int i=0; i&lt;k; i++)<br>
+          {<br>
+          pre=i-1;<br>
+          if(pre &lt; 0)<br>
+          pre += k;<br>
+          next=i+1;<br>
+          if(next == k)<br>
+          next=0;<br>
+          float z1=(f[next][0]-f[i][0])*(f[pre][1]-f[i][1])-<br>
+          (f[pre][0]-f[i][0])*(f[next][1]-f[i][1]);</p>
+        <p> n[i][0]=f[next][1]-f[i][1];<br>
+          n[i][1]=-(f[next][0]-f[i][0]);<br>
+          float z2=(f[next][0]-f[i][0])*(n[i][1])-<br>
+          (n[i][0])*(f[next][1]-f[i][1]);</p>
+        <p> if(z1*z2 &lt; 0)//异号<br>
+          {<br>
+          n[i][0] *= -1;<br>
+          n[i][1] *= -1;<br>
+          } <br>
+          }</p>
+        <p> p1[0]=pOut[0].x;<br>
+          p1[1]=pOut[0].y;<br>
+          p2[0]=pOut[1].x;<br>
+          p2[1]=pOut[1].y;<br>
+          return CyrusBeckClipping(p1, p2, n, f, k, &amp;(pOut[2]), &amp;(pOut[3]));<br>
+          }</p>
+        <p><span class="blue">2) global.h:</span><br>
+          #if !defined(AFX_GLOBAL_H)<br>
+          #define AFX_GLOBAL_H<br>
+          typedef enum{Left, Right, Bottom, Top} Edge;<br>
+          #define N_EDGE 4<br>
+          typedef struct{float x,y;} Point2f;<br>
+          typedef struct{int x,y;} Point2i;<br>
+          #define MAXOUTPUT 200 //输出多边形的最多点数<br>
+          #endif//AFX_GLOBAL_H</p>
+        <p><span class="blue">3) CyrusBeck.h</span><br>
+          #if !defined(AFX_CyrusBeck_H)<br>
+          #define AFX_CyrusBeck_H<br>
+          #define ZERO 0.00001<br>
+          BOOL CyrusBeck(CPtrList *pList, Point2f *pOut);<br>
+          #endif<br>
+        </p>
+        <!-- #EndEditable --></td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

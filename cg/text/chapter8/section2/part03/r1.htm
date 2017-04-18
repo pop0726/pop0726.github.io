@@ -1,0 +1,85 @@
+<html>
+<head>
+<!-- #BeginEditable "doctitle" -->
+<title>计算机图形学</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/css.css" type="text/css">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../../images/bg03.gif">
+<div align="center">
+  <table width="90%" border="0" cellspacing="0" cellpadding="0" height="100">
+    <tr> 
+      <td height="361" valign="top" width="100%" class=text><!-- #BeginEditable "right" --> 
+        <span lang=EN-US style='mso-bidi-font-size:
+10.0pt'><o:p></o:p></span><span class="blue"><br>
+        8.2.3 冯氏明暗绘制方法</span><br>
+        ��冯氏（Phong）明暗处理方法的基本思想是：多边形内各点的法向量通过对顶点的法向量作双线性插值得到，在多边形内构造一个连续变化的法向量函数，并将它代入光亮度计算公式，即得到由多边形近似表示的曲面在各采样点处的光亮度值。因此，冯氏明暗处理方法又叫法向量插值明暗处理方法。它能够更真实地表现物体表面的高光效果，并缓解马赫带效应。但是由于每一个象素点的光亮度值都需要进行光照模型计算，故计算量较大。<br>
+        ��冯氏明暗处理的一般步骤：<br>
+        ��1) 计算每个多边形顶点的平均单位法矢量；<br>
+        ��2) 对多边形顶点的法矢量进行双线性插值，得到多边形内每个点的法矢量； <br>
+        ��3) 根据光照模型沿每条扫描线计算多边形内各点对应的投影象素的光强度值。<br>
+        ��对于多边形内任意一点的法矢量的双线性插值的计算公式与高若德明暗绘制方法中的类似，只不过是把其中的光强项用法向量项来代替罢了，在这里我们沿用图8.5的记号，并把I换为N，则P点处的法矢量N<sub>P</sub>就有如下的插值公式： 
+        <p class=MsoNormal style='text-indent:21.0pt;layout-grid-mode:char'><span lang=EN-US style='font-family:宋体;
+mso-hansi-font-family:"Times New Roman"'>N</span><sub><span lang=EN-US
+style='font-family:宋体;mso-hansi-font-family:"Times New Roman"'>5</span></sub><span
+lang=EN-US style='font-family:宋体;mso-hansi-font-family:"Times New Roman"'>=uN<sub>1</sub>+(1-u)N<sub>2</sub>,<span style="mso-spacerun: yes"> 
+          </span>u=(Y<sub>5</sub>-Y<sub>2</sub>)/(Y<sub>1</sub>-Y<sub>2</sub>)；</span><span
+lang=EN-US style='font-size:6.5pt;mso-bidi-font-size:12.0pt;font-family:宋体;
+mso-hansi-font-family:"Times New Roman"'><o:p></o:p></span></p>
+        <p class=MsoNormal style='text-indent:21.0pt;layout-grid-mode:char'><span lang=EN-US style='font-family:宋体;
+mso-hansi-font-family:"Times New Roman"'>N</span><sub><span lang=EN-US
+style='font-family:宋体;mso-hansi-font-family:"Times New Roman"'>6</span></sub><span
+lang=EN-US style='font-family:宋体;mso-hansi-font-family:"Times New Roman"'>=vN<sub>1</sub>+(1-v)N<sub>4</sub>,<span style="mso-spacerun: yes"> 
+          </span>v=( Y<sub>6</sub>-Y<sub>4</sub> )/(Y<sub>1</sub>-Y<sub>4</sub>)；</span><span
+lang=EN-US style='font-size:6.5pt;mso-bidi-font-size:12.0pt;font-family:宋体;
+mso-hansi-font-family:"Times New Roman"'><o:p></o:p></span></p>
+        <p class=MsoNormal style='text-indent:21.0pt;layout-grid-mode:char'><span lang=EN-US style='font-family:宋体;
+mso-hansi-font-family:"Times New Roman"'>N</span><sub><span lang=EN-US
+style='font-family:宋体;mso-hansi-font-family:"Times New Roman"'>P</span></sub><span
+lang=EN-US style='font-family:宋体;mso-hansi-font-family:"Times New Roman"'>=tN<sub>5</sub>+(1-t)N<sub>5</sub>,<span style="mso-spacerun: yes"> 
+          </span>t=(X<sub>p</sub>-X<sub>6</sub>)/(X<sub>5</sub>- X<sub>6</sub>)。</span><span
+lang=EN-US style='font-size:6.5pt;mso-bidi-font-size:12.0pt;font-family:宋体;
+mso-hansi-font-family:"Times New Roman"'><o:p><br>
+          ��</o:p></span>同时，两条相邻的扫描线与同一条边的交点的法向量的增量插值计算的公式也与光强插值公式相似，我们只要用法向量代替光强即可： 
+          <br>
+          ��如图8.6所示，设Y坐标分别为y和y-1的两条扫描线与多边形的边V<sub>1</sub>V<sub>2</sub>的交点的法向量分别为N<sub>5</sub>和N，则<br>
+          <img src="../../../../images/pic/chap08/image113.gif" align="absmiddle">。<br>
+        </p>
+        <p class=MsoNormal style='text-indent:21.0pt;layout-grid-mode:char'><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'> 但是，当多边形为三角形时，插值公式更简单。<br>
+          ��设屏幕坐标系为</span><span lang=EN-US>xoy</span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>，如图</span><span lang=EN-US>8.7</span><span style='font-family:
+宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman"'>所示，</span><span
+lang=EN-US>P<sub>1</sub></span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>、</span><span
+lang=EN-US>P<sub>2</sub></span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>和</span><span
+lang=EN-US>P<sub>3</sub></span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>是三角形三个顶点在屏幕上的投影坐标。建立三角形仿射坐标系</span><span
+lang=EN-US><sub> <img
+src="../../../../images/pic/chap08/image118.gif" v:shapes="_x0000_i1089" align="absmiddle"> 
+          </sub> </span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>，其中</span><span
+lang=EN-US>P<sub>1</sub></span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>、</span><span
+lang=EN-US>P<sub>2</sub></span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>和</span><span
+lang=EN-US>P<sub>3</sub></span><span style='font-family:宋体;mso-hansi-font-family:
+"Times New Roman"'>的</span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>仿射坐标为</span><span
+lang=EN-US>(0,0)</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>，</span><span lang=EN-US>(1,0)</span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>和</span><span lang=EN-US>(0,1)</span><span style='font-family:
+宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman"'>，<a href="l1.htm" target="MyFrame"><span class="blue">从屏幕坐标到三角形仿射坐标的变换为：</span></a></span><br>
+        </p>
+        <!-- #EndEditable --></td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

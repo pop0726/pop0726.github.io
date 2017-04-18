@@ -1,0 +1,51 @@
+<html>
+<head>
+<!-- #BeginEditable "doctitle" -->
+<title></title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/css01.css" type="text/css">
+<link rel="stylesheet" href="../../../../css/css.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center"> 
+  <table width="95%" border="0" cellspacing="3" cellpadding="2" height="49%" class="text">
+    <tr> 
+      <td valign="top" height="469" width="100%"><!-- #BeginEditable "left" --> 
+        <p class=MsoNormal style='layout-grid-mode:char'>下面，我们给出光线跟踪的递归算法：<br>
+          <span class="orange">RayTracer(Ray, Depth, &amp;Color)<br>
+          {<br>
+          �if （光线亮度衰减到小于给定值） return;<br>
+          �计算Ray与场景中最近的物体的交点P；<br>
+          �if (没有交点) Color = Background; //颜色等于背景色<br>
+          �else <br>
+          �{<br>
+          ��阴影测试；<br>
+          ��//在P点的颜色＝P点的局部光强<br>
+          ��Color = Local contribution at P by Hall model or somewhat else;</span> 
+        <p><span class="orange"> ��if (Depth&gt;1)<br>
+          ��{<br>
+          ���if (当前面是镜面)<br>
+          ���{<br>
+          ����计算反射光线ReflectedRay;<br>
+          ����RayTracer(ReflectedRay, Depth-1, &amp;RefColor);<br>
+          ����Color= Color + RefColor ;<br>
+          ����}<br>
+          ����if (当前面是透射面)<br>
+          ����{<br>
+          �����计算透射光线TransmittedRay;<br>
+          �����RayTracer(TransmittedRay, Depth-1, &amp;TransColor);<br>
+          �����Color= Color + TransColor;<br>
+          ����}<br>
+          ���}<br>
+          �}<br>
+          }</span><br>
+        </p>
+        <!-- #EndEditable --></td>
+    </tr>
+  </table>
+  
+</div>
+</body>
+</html>

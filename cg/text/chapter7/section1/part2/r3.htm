@@ -1,0 +1,38 @@
+<html>
+<head>
+<!-- #BeginEditable "doctitle" -->
+<title>计算机图形学</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/css.css" type="text/css">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../../images/bg03.gif">
+<div align="center">
+  <table width="90%" border="0" cellspacing="0" cellpadding="0" height="100">
+    <tr> 
+      <td height="171" valign="top" width="100%" class=text><!-- #BeginEditable "right" --> 
+        <p><span class="blue"><br>
+          二、直线与多边形的交点</span><br>
+          ��直线段与多边形的交点的个数，等于它与多边形的所有的边的交点数之和。这似乎是一个简单的问题，但是有两种特殊情况需要处理：<br>
+          ��（a）直线与多边形的顶点相交<br>
+          ��如果直线<font size="2">ab</font>与多边形的两条边<font size="2">P<sub>i</sub>P<sub>i＋1</sub> </font>和<font size="2">P<sub>i＋1</sub>P<sub>i＋2</sub></font>的交点<font size="2">Q</font>非常接近<font size="2">P<sub>i＋1</sub></font>，即<img src="../../../../images/pic/chap07/mo7_011.gif" width="56" height="24" align="absmiddle"> 
+          ,这时，我们还需要测试这两条边<font size="2">P<sub>i</sub>P<sub>i＋1</sub></font> 和<font size="2">P<sub>i＋1</sub>P<sub>i＋2</sub></font>的另外两个端点<font size="2">P<sub>i</sub></font>和<font size="2">P<sub>i＋2</sub></font>是位于直线<font size="2">ab</font>的同侧还是异侧。如果是前者，如图7.7（a）所示，则认为P<sub>i</sub>P<sub>i＋1</sub> 
+          和P<sub>i＋1</sub>P<sub>i＋2</sub>与直线<font size="2">ab</font>无交点；如果是后者，则认为<font size="2">P<sub>i</sub>P<sub>i＋1</sub></font> 
+          和<font size="2">P<sub>i＋1</sub>P<sub>i＋2</sub></font>与直线<font size="2">ab</font>有一个交点，见图7.7（b）。</p>
+        <p>��（b）直线与多边形的某条边重合<br>
+          假定直线<font size="2">ab</font>与多边形的一条边<font size="2">P<sub>i＋1</sub>P<sub>i＋2</sub></font> 重合,这时，我们需要进一步测试与这条边首尾相连的两条边<font size="2">P<sub>i</sub>P<sub>i＋1</sub></font> 
+          和<font size="2">P<sub>i＋2</sub>P<sub>i＋3</sub></font>的另外两个端点<font size="2">P<sub>i</sub></font>和<font size="2">P<sub>i＋3</sub></font>是位于直线<font size="2">ab</font>的同侧还是异侧。如果是前者，如图7.7（c）所示，则认为P<sub>i</sub>P<sub>i＋1</sub> 
+          、P<sub>i＋1</sub>P<sub>i＋2</sub>和P<sub>i＋2</sub>P<sub>i＋3</sub>这三条边与直线<font size="2">ab</font>无交点；如果是后者，则认为<font size="2">P<sub>i</sub>P<sub>i＋1</sub> 
+          、P<sub>i＋1</sub>P<sub>i＋2</sub></font>和<font size="2">P<sub>i＋2</sub>P<sub>i＋3</sub></font>这三条边与直线<font size="2">ab</font>有一个交点，见图7.7（d）。</p>
+        <p>��综上所述，我们可以统一处理上述2种特殊情况：<br>
+          ��（a）如果多边形的边与直线平行，那麽它们无交点；<br>
+          ��（b）当直线与多边形的边的某一端点相交时，如果多边形的边位于直线的左侧，则忽略该交点（与该边的交点数记为0），如果多边形的边位于该直线的右侧，则认为该交点有效（与该边的交点数记为1，总的交点数增加1）。<br>
+          <br>
+        </p>
+        <!-- #EndEditable --></td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

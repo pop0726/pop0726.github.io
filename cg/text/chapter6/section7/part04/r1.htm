@@ -1,0 +1,32 @@
+<html>
+<head>
+<!-- #BeginEditable "doctitle" -->
+<title>计算机图形学</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/css.css" type="text/css">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../../images/bg03.gif">
+<div align="center">
+  <table width="90%" border="0" cellspacing="0" cellpadding="0" height="100">
+    <tr> 
+      <td height="171" valign="top" width="100%" class=text><!-- #BeginEditable "right" --> 
+        <p><span class="blue"><br>
+          6.7.3 八叉树</span><br>
+          ��在图形系统中，表示三维实体的分层树结构，称为八叉树。它是四叉树的扩展。<br>
+          ��八叉树将指定的三维空间区域分成8个卦限（Octants），且在树上的每个非叶子节点处存储八个数据元素（体素）。每个元素称为体元，其对应的三维空间称为体素。在三维空间中，如果一个体素是空的，则该体元的类型用&quot;NULL&quot;表示；如果一个体素中的实体是同一种类型，我们就把它称为均质的，用&quot;FULL&quot;表示；否则称为非均质的，用&quot;PARTIAL&quot;表示。对于一个非均质的体素，必须把它再分成更小的8个卦限，节点相应的体元指向树中的下一层节点。<br>
+          <br>
+          ��可以对以任何形式定义的物体建立生成八叉树的算法：利用物体的最大和最小坐标值，围绕该物体定义一个平行六面体，把它分解成八个子立方体，并对立方体依次编号为0，1，2，…，7。然后再对包含物体的三维空间区域逐个卦限测试，如果子立方体已经是均质的，即为满（该立方体充满形体）或为空（没有形体在其中），则该子立方体可停止分解；否则，需要对该立方体作进一步分解，再一分为八个子立方体，直至生成八叉树表示为止。图6.21是用八叉树表示三维物体的一个例子。<br>
+          ��物体建立八叉树表示后，可将各种操作应用到该实体，即对同一空间区域内的两个八叉树表示，可应用执行集合操作的算法：对并操作，新八叉树由合并每个物体的每个区域而构造；对交操作，由寻找两棵树的重叠区域来执行，然后存储两物体重叠的卦限；对于差操作，先寻找两棵树的重叠区域，最后，存储仅由一个物体占据而不被另一物体所占据的卦限，形成一棵新的八叉树。 
+          <br>
+          ��八叉树表示的特点是，数据结构简单，集合运算容易。对形体执行交、并、差运算时，只需同时遍历参加集合运算的两形体相应的八叉树，无需进行复杂的求交运算。此外，由于在八叉树表示中，形体上各元素已按空间位置排成了一定的顺序，因此隐藏线（或面）的消隐算法极为简便、高效。它的另外一个优点是特别适合于并行处理。八叉树表示的主要缺点是：占用的存储量巨大，而且它只能近似地表示三维形体等等。 
+          <br>
+          <br>
+        </p>
+        <!-- #EndEditable --></td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

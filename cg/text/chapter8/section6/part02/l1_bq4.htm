@@ -1,0 +1,52 @@
+<html>
+<head>
+<!-- #BeginEditable "doctitle" -->
+<title></title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/css01.css" type="text/css">
+<link rel="stylesheet" href="../../../../css/css.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="95%" border="0" cellspacing="3" cellpadding="2" height="49%" class="text">
+    <tr> 
+      <td valign="top" height="350" width="100%"><!-- #BeginEditable "left" --><img src="../../../../images/but/tushi.gif" width="25" height="20" align="absmiddle"> 
+        图8.31 Mip映射的纹理坐标系<br>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td> 
+              <div align="center"><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="440" height="260">
+                  <param name=movie value="../../../../flash/chap08/F8.27.swf">
+                  <param name=quality value=high>
+                  <embed src="../../../../flash/chap08/F8.27.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="440" height="260">
+                  </embed> 
+                </object></div>
+            </td>
+          </tr>
+        </table>
+        <br>
+        <img src="../../../../images/but/tushi.gif" width="25" height="20" align="absmiddle"> 
+        （8－6－5）<a name="1"></a><br>
+        <img src="../../../../images/pic/chap08/image487.gif" align="absmiddle">， 
+        <br>
+        其中，Ii(u,v)为第i层纹理图像中位于（u,v）处的颜色值， <img src="../../../../images/pic/chap08/image489.gif" align="absmiddle">为插值因子，可由下式求出：<br>
+        <img src="../../../../images/pic/chap08/image491.gif" align="absmiddle">。<br>
+        即：<br>
+        <img src="../../../../images/pic/chap08/image493.gif" align="absmiddle">。<br>
+        ��例如，对于一个256×256的原始纹理图像来说，若给定的压缩比为d（<img src="../../../../images/pic/chap08/image494.gif" align="absmiddle">），先要确定它位于金字塔的哪两层之间，即先用下式计算出整数i：<br>
+        <img src="../../../../images/pic/chap08/image496.gif" align="absmiddle">，<br>
+        或者等价地，用下式确定i:<br>
+        <img src="../../../../images/pic/chap08/image498.gif" align="absmiddle">。<br>
+        上式中的方括号&quot;[]&quot;表示取整。实际计算时，也可以从i=0开始逐个增加i的值，直到d&gt;di （即 <img src="../../../../images/pic/chap08/image500.gif" align="absmiddle">）不成立时为止。这一方法虽然简单，不过效率较低。<br>
+        ��然后，用第i层和第i＋1层的纹理图像进行线性插值，即用（8－6－5）式，便可得到点（u,v）的纹理颜色，此时，<img src="../../../../images/pic/chap08/image502.gif" align="absmiddle"> 
+        。 <br>
+        <br>
+        <!-- #EndEditable --></td>
+    </tr>
+  </table>
+  
+</div>
+</body>
+</html>

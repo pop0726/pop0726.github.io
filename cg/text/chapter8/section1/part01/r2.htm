@@ -1,0 +1,35 @@
+<html>
+<head>
+<!-- #BeginEditable "doctitle" -->
+<title>计算机图形学</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/css.css" type="text/css">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../../images/bg03.gif">
+<div align="center">
+  <table width="90%" border="0" cellspacing="0" cellpadding="0" height="100">
+    <tr> 
+      <td height="171" valign="top" width="100%" class=text><!-- #BeginEditable "right" --> 
+        <p><span class="blue"><br>
+          8.1 基本光照模型</span><br>
+          ��在这一节中，我们将讨论计算物体表面的光强度的一些简单的方法，也就是简单的局部光照模型。本节中，若无特别说明，所有的光源均假定为三维空间中的点光源。点光源是发光体的最简单的模型，光线从一点出发，均匀地向四周发散。它是对场景中比物体小得多的光源的合理的近似。离场景足够远的光源，例如太阳，也可以用点光源来较好的模拟。<br>
+          ��当光线照射到不透明的物体表面时，一部分光线被反射，另一部分被吸收。反射光线的强弱取决于物体表面的材质的类型。表面光滑的材质能够反射较多的光线，而较暗的表面则吸收较多的光线。粗糙的物体表面能够将反射光向各个方向散射，称为漫反射；当光线照射到磨光的物体表面时会产生高光，或强光，称为镜面反射。当光线照射到透明的物体表面时，部分入射光会被反射，而另一部分将被折射。<br>
+          ��基本光照模型模拟物体表面对直接光照的反射作用，包括镜面反射（specular reflection）和漫反射（diffuse reflection），物体之间的光反射作用并没有充分考虑，仅仅用一个与周围的物体、视点和光源的位置都无关的环境光（ambient 
+          light）常量来近似。<br>
+          <span class="blue">8.1.1 环境光</span><br>
+          ��环境光是在物体和周围环境之间多次反射后，最终达到平衡时的一种光，又称为背景光。它用于模拟周围环境中散射到物体表面、然后再反射出来的光。环境光没有空间和方向上的特征，它在任何方向上的分布都相同，在所有方向上和所有物体表面上投射的环境光的量都是恒定不变的。<br>
+          三维空间中任意一点对环境光的反射光强度可以用公式定量地表示为：<br>
+          <img src="../../../../images/but/dingyi.gif" width="27" height="19" align="absmiddle">（8－1－1）<br>
+          �<img src="../../../../images/pic/chap08/image008.gif"><br>
+          ��其中：<img src="../../../../images/pic/chap08/image010.gif" align="absmiddle">是物体对环境光的反射系数，与物体表面性质有关； 
+          <img src="../../../../images/pic/chap08/image012.gif" align="absmiddle">是入射的环境光的光强，与环境的明暗度有关。<br>
+          <br>
+        </p>
+        <!-- #EndEditable --></td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

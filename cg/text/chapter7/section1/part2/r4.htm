@@ -1,0 +1,37 @@
+<html>
+<head>
+<!-- #BeginEditable "doctitle" -->
+<title>计算机图形学</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/css.css" type="text/css">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../../images/bg03.gif">
+<div align="center">
+  <table width="90%" border="0" cellspacing="0" cellpadding="0" height="100">
+    <tr> 
+      <td height="171" valign="top" width="100%" class=text><!-- #BeginEditable "right" --> 
+        <p><span class="blue"><br>
+          三、多边形对点的包含性检测</span><br>
+          ��在消隐和光线跟踪等许多算法中都需要判断一个点是位于多边形内部、外部，还是在多边形的边界上。实际上，这是一个多边形对点的包含性检测问题。常用的方法有：射线法和弧长法。<br>
+          ��（1）射线法<br>
+          ��如果被测点P位于多边形的某一条边界线上，则说明它位于该多边形的边界上；否则，从被测点P处作一条（平行于x轴或y轴的）射线，如果该射线与多边形交点的个数是奇数，则被测点在多边形的内部，否则，在多边形的外部。若射线正好经过多边形的顶点或与多边形的某条边界线重合，则应当用前面一节所介绍的方法对交点进行计数。<br>
+          ��其实，在这里我们感兴趣的是交点的个数，而不是交点的坐标。因此，在大多数情况下，我们可以通过检测射线与多边形的边的包围盒，来决定它们是否相交。如果射线穿过某一条边的包围盒，那麽它们有交，交点计数加1。这样可以大大地提高计算效率。<br>
+          ��（2）弧长法<br>
+          ��弧长法要求多边形是有向多边形，即规定沿多边形的环（无论内环还是外环）的正向往前运动，左侧始终为多边形的内部。以被测点P为圆心，作单位圆，将全部有向边向该单位圆作径向投影，并计算其在单位圆上弧长的代数和。如果代数和为0，则点P在多边形的外部，如图7.9（a）；如果代数和为2π<font size="2">.</font>，则点P在多边形的内部，如图7.9（b）；如果代数和为<font size="2">π</font>，则点P在多边形的边界上；否则，P为多边形的一个顶点。如果多边形有孔，这个方法仍然适用。<br>
+          ��弧长法的最大优点就是算法的稳定性很好，计算误差对最后的判断影响不大。当弧长的代数和接近0或<font size="2">2π</font>时，我们就能够得出P是位于多边形外或多边形内的结论。<br>
+          ��准确地计算一条边所对应的弧长是很费时的，但是我们可以对弧长法进行改进：事实上，可以利用多边形的顶点符号，以及边所跨越的象限计算弧长的代数和。这里，我们给出一种以顶点符号为基础的弧长累加方法。这种方法简单、快速。如图所示，将坐标原点移到被测点P。于是，新坐标系将平面划分为四个象限，各象限内(x, 
+          y)坐标的符号对分别为<font size="2">(＋,＋)，（－，＋），(－，－)，(＋，－)</font>。算法规定：若多边形的顶点<font size="2">V</font><sub>i</sub>的某个坐标为0,则其符号为＋。若顶点V<sub>i</sub>的x、y坐标都为0，则说明这个顶点为被测点，我们在这之前予以排除。于是，多边形的每一条边的两个端点的符号对与弧长变化的关系见表7－1－1。</p>
+        <p><font color="#FF0000">��应当注意，当边的终点V<sub>i+1</sub>在起点V<sub>i</sub>的相对象限时，弧长变化可能增加或减少π。设（<font size="2">x<sub>i</sub>,y<sub>i</sub></font>）和（<font size="2">x<sub>i＋1</sub>,y<sub>i＋1</sub></font>）分别为边的起点和终点坐标，令<br>
+          <font size="3"> �f</font></font><font size="2" color="#FF0000">=<font size="3">x</font><sub>i</sub><font size="3">y</font><sub>i+1</sub>-<font size="3">x</font><sub>i+1</sub><font size="3">y</font><sub>i</sub></font><font color="#FF0000"> 
+          ，<br>
+          若<font size="2">f＝0</font>，则边穿过坐标原点，P位于多边形的边界上。若<font size="2">f&gt;0</font>，则弧长代数和增加<font size="2">π</font>，若<font size="2">f&lt;0</font>，则弧长代数和减少<font size="2">π</font>。<br>
+          <br>
+          </font> </p>
+        <!-- #EndEditable --></td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<html>
+<head>
+<!-- #BeginEditable "doctitle" -->
+<title>计算机图形学</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/css.css" type="text/css">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../../images/bg03.gif">
+<div align="center">
+  <table width="90%" border="0" cellspacing="0" cellpadding="0" height="100">
+    <tr> 
+      <td height="206" valign="top" width="100%" class=text><!-- #BeginEditable "right" --><span class="blue"><br>
+        6.7.1 构造实体几何表示法（CSG）</span><br>
+        ��构造实体几何（CSG）表示是通过对体素进行集合运算而得到新的形体的一种表示方法。体素可以是长方体、柱体、锥体、球、环或封闭的自由曲面等等，也可以是半空间；其运算为几何变换或正则集合运算；通过对物体的正则并、交或差集合运算生成一个新物体。 
+        <p>��<b>CSG</b>表示可以看成是一棵有序的二叉树，称为<b>CSG</b>树。<b>CSG</b>树的结构为：<br>
+          <b>&lt;CSG树&gt;</b>：：<b>=〈</b>体素<b>〉</b>|<br>
+          <b>������〈CSG树〉〈</b>集合运算节点<b>〉〈CSG</b>树<b>〉</b>|<br>
+          <b>������〈CSG树〉〈</b>几何变换节点<b>〉〈</b>几何变换参数<b>〉</b><br>
+          其叶子节点是体素或者形体变换参数，非叶子结点是正则的集合运算或几何变换操作。这种运算或变换只对其紧接着的子节点起作用。每棵子树表示其下两个节点组合及变换的合法结果，根节点表示了最终的形体。几何变换并不限定为刚体变换，也可以是任意范围的比例变换、剪切变换和对称变换。<b>CSG</b>树是无二义性的，但不是唯一的，它的定义域取决于其所用体素以及所允许的几何变换和正则集合运算算子。如果体素是正则集，则只要<b>CSG</b>的叶子是合法的体素，正则集的性质能够保证任何<b>CSG</b>树都是合法的正则集。</p>
+        <p>��根据<b>CSG</b>树生成三维形体的一般过程可以简单地描述如下：首先在三维空间中选两个基本体素，然后选择组合两个基本体素的集合运算（并、交、差），这时除了基本体素外，增加了一个新的物体，它可以用来形成另一个物体：利用基本体素和每一步新创建的物体的组合，继续构造新物体，直至形成最后的结果物体。图6.16所示的是一个<b>CSG</b>表示的例子。<br>
+          <br>
+          <b>��CSG</b>表示的特点是：数据结构比较简单，数据量较小，修改比较容易，而且可以方便地转换成边界（Brep）表示；但是由于CSG表示受体素的种类和对体素操作的种类的限制，使得它表示形体的覆盖域有较大的局限性，而且对形体的局部操作（例如，倒角等等）不易实现，显示<b>CSG</b>表示的结果形体时需要的间也比较长。<br>
+        </p>
+        <!-- #EndEditable --></td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

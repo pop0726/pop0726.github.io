@@ -1,0 +1,36 @@
+<html>
+<head>
+<!-- #BeginEditable "doctitle" -->
+<title>计算机图形学</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/css.css" type="text/css">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../../images/bg03.gif">
+<div align="center">
+  <table width="90%" border="0" cellspacing="0" cellpadding="0" height="100">
+    <tr> 
+      <td height="171" valign="top" width="100%" class=text><!-- #BeginEditable "right" --> 
+        <p> <span class="blue"><br>
+          一、直线与多边形的遮挡判断</span><br>
+          ��平面多边形对直线段的遮挡判断算法，常采用下列步骤：<br>
+          ��（1） 若线段的两端点与视点在给定平面的同一侧，则线段位于给定平面的前面，是可见的，转（9）。<br>
+          ��（2） 求线段与相应的无限平面的交。若无交点，转（4）；否则，转（3）。<br>
+          ��（3） 交点将该线段分成两段，与视点同侧的一段是可见的，它没有被遮挡；另一段的可见性还不能确定，转（4），继续测试。<br>
+          ��（4） 若线段的投影与给定平面的投影的包围盒不相交，则线段可见，它不被该平面遮挡，转（9）。<br>
+          ��（5）求所剩线段的投影与平面边界投影的所有交点。<br>
+          ��（6）将线段的投影在交点处依次分成若干段，根据交点在原直线参数方程中的参数值的大小对线段进行排序。<br>
+          ��（7）求出第一投影线段的中点，若第一段的中点在多边形的投影内，则相应的线段被遮挡，否则不被遮挡。<br>
+          ��（8）其它各段的遮挡关系可依次按&quot;遮挡/可见&quot;交替地取值（见图7.6）。例如：如果第一段被遮挡，则后面线段的可见性依次为&quot;可见，遮挡，可见，…&quot;；若第一段可见，则后面的线段依次为&quot;遮挡，可见，遮挡，…&quot;。<br>
+          ��（9）结束。<br>
+        </p>
+        <p>��上述算法中，准确地计算出直线与多边形的交点的个数和位置是十分重要的。此外，算法中也需要判断一个点是否位于一个多边形的内部，这实际上是多边形对点的包含性检测问题。<br>
+          <br>
+        </p>
+        <!-- #EndEditable --></td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

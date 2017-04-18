@@ -1,0 +1,64 @@
+<html>
+<head>
+<!-- #BeginEditable "doctitle" -->
+<title>计算机图形学</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/css.css" type="text/css">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../../images/bg03.gif">
+<div align="center">
+  <table width="90%" border="0" cellspacing="0" cellpadding="0" height="100">
+    <tr> 
+      <td height="171" valign="top" width="100%" class=text><!-- #BeginEditable "right" --><span class="blue"><br>
+        7.5 扫描线(Scan line)算法</span><br>
+        ��正如前面所说，深度缓存算法存在一些缺点：占用存储空间大，没有利用图形的相关性与连续性。为了克服这些缺点，需要对它作两方面的改进：（1）利用平面的几何相关性提高点与多边形的包含性测试和深度计算的速度；（2）减小缓冲区；把显示窗口分成若干个区域，依次处理和显示一个区域，这样Z缓冲器的大小（存储单元数）只要等于一个区域的象素个数即可。如果把这个区域取成屏幕上的一行，就得到扫描线算法。 
+        <span class="blue"><br>
+        7.5.1 扫描线算法的数据结构</span><br>
+        ��为了有效的利用几何相关性，在扫描线算法中建立如下数据结构：<br>
+        ��（1） 多边形Y桶 <br>
+        ��多边形Y桶实际上是一个指针数组，用于存储所有多边形的有关信息。图7.11 a) 中的消隐对象是三个多边形（这里都是三角形），b)是a)的多边形Y桶。根据多边形顶点中最小的y坐标，确定每个多边形在多边形Y桶中的位置。多边形<font size="2">Y</font>桶中只保存每个多边形的序号及其多边形顶点的最大<font size="2">y</font>坐标。根据序号可以从定义多边形的数据结构中获取多边形的信息：多边形所在面的方程<font size="2">f=ax+by+cz+d</font>的系数（<font size="2">a,b,c,d</font>）、多边形的边、顶点坐标和颜色等等。<br>
+        ��（2） 活化多边形表APT<br>
+        ��活化多边形表<font size="2">APT</font>实际上是一个动态的链表，用于存储与当前扫描线相交的多边形。图7.12 是<font size="2">y=4</font>时的活化多边形表APT。 
+        <br>
+        ��（3）边<font size="2">Y</font>桶 <br>
+        ��每一个多边形都有一个边<font size="2">Y</font>桶。多边形<font size="2">P1</font>的边Y桶如图7.13所示。边<font size="2">Y</font>桶中，存放了每条边端点中较大的<font size="2">y</font>值，增量<font size="2">Δx，y</font>值较小一端的x 
+        坐标和<font size="2">z</font>坐标。 <br>
+        ��（4）活化边表AET <br>
+        ��在一条扫描线上，同一多边形的相邻两条边构成一个边对。活化边表<font size="2">AET</font>中存放当前多边形的边界线与当前扫描线相交的各边对的信息。它随扫描线的不同而动态地变化。<br>
+        ��如图7.14所示，当扫描线<font size="2">y=2</font>时，活化边表的指针指向边对（<font size="2">e<sub>0</sub>，e<sub>1</sub></font>）的信息: 
+        <font size="2"> 
+        <center>
+        </center>
+        </font> 
+        <table width="28%" border="0" cellspacing="00" cellpadding="0" class="text">
+          <tr> 
+            <td height="48" width="8%"><br>
+              AET</td>
+            <td width="92%" height="48"><img src="../../../../images/pic/chap07/mo7_037.gif" width="206" height="63" align="absmiddle"><br>
+            </td>
+          </tr>
+        </table>
+        <br>
+        ��当扫描线<font size="2">y=6</font>时，活化边表的指针指向边对（<font size="2">e<sub>0</sub>，e<sub>5</sub></font>）和（<font size="2">e<sub>3</sub>，e<sub>2</sub></font>）的信息:<br>
+        AET的每个节点包括边对中如下信息：左例（7－5－1）<br>
+        其中：<br>
+        ��<font size="2">x<sub>l</sub></font>： 左侧边与扫描线交点的<font size="2">x</font>坐标；<br>
+        ��<font size="2">Δx<sub>l</sub></font>： 左侧边在扫描线加1时的<font size="2">x</font>坐标增量；<br>
+        ��<font size="2">y<sub>lmax</sub></font>： 左侧边两端点中最大的<font size="2">y</font>值；<br>
+        ��<font size="2">x<sub>r</sub></font>： 右侧边与扫描线交点的<font size="2">x</font>坐标；<br>
+        ��<font size="2">Δx<sub>r</sub></font>： 右侧边在扫描线加1时的<font size="2">x</font>坐标增量；<br>
+        ��<font size="2">y<sub>rmax</sub></font>： 右侧边两端点中最大的<font size="2">y</font>值；<br>
+        ��<font size="2">z<sub>l</sub></font>： 左侧边与扫描线交点处的多边形深度值；<br>
+        ��<font size="2">IP</font>： 多边形序号；<br>
+        ��<font size="2">Δz<sub>l</sub></font>： 沿扫描线方向增加一个象素时，多边形所在平面的<font size="2">z</font>坐标增量，<font size="2">Δz<sub>l</sub>＝－a/c</font>；<br>
+        ��<font size="2">Δz</font>： 扫描线加1时，多边形所在平面的z坐标增量，<font size="2">Δz＝－b/c。</font><br>
+        <br>
+        <p></p>
+        <!-- #EndEditable --></td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

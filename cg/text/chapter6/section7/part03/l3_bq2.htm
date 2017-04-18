@@ -1,0 +1,46 @@
+<html>
+<head>
+<!-- #BeginEditable "doctitle" -->
+<title></title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/css01.css" type="text/css">
+<link rel="stylesheet" href="../../../../css/css.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center"> 
+  <table width="95%" border="0" cellspacing="3" cellpadding="2" height="49%" class="text">
+    <tr> 
+      <td valign="top" height="278" width="100%"><!-- #BeginEditable "left" -->��例如，欧拉操作<font size="2">MVFS</font> 
+        表示生成一个Solid , 它只包含一个顶点和一个面，没有边和环，这个面包在顶点外面。欧拉操作KVFS是MVFS 的逆操作。 
+        <p> ��下面是I. C. Braid定义的5种最常用的欧拉操作：<br>
+          ��1)<font size="2"> mvsf(v,f)</font>，生成含有一个点的面，并且构成一个新的体。<br>
+          ��2) <font size="2">mev(v<sub>1</sub>,v<sub>2</sub>,e)</font>，生成一个新的点<font size="2">v<sub>2</sub></font>，连接该点到已有的点<font size="2">v<sub>1</sub></font>，构成一条新的边。<br>
+          ��3) <font size="2">mef(v<sub>1</sub>,v<sub>2</sub>,f<sub>1</sub>,f<sub>2</sub>,e)</font>，连接面<font size="2">f<sub>1</sub></font>上的两个点<font size="2">v<sub>1</sub></font>、<font size="2">v<sub>2</sub></font>，生成一条新的边<font size="2">e</font>，并产生一个新的面。<br>
+          ��4)<font size="2"> kemr(e)</font>，删除一条边<font size="2">e</font>，生成该边某一邻面上的一新的内环。<br>
+          ��5) <font size="2">kfmrh(f<sub>1</sub>,f<sub>2</sub>)</font>，删除与面<font size="2">f<sub>1</sub></font>相接触的一个面<font size="2">f<sub>2</sub></font>，生成面<font size="2">f<sub>1</sub></font>上的一个内环，并形成体上的一个通孔。 
+          <br>
+          与上面几种欧拉操作相对应的逆操作有：<br>
+          ��6) <font size="2">kvsf</font>，删除一个体，该体仅含有一个点的面。<br>
+          ��7) <font size="2">kev(e,v)，</font>删除一条边<font size="2">e</font>和该边的一个端点<font size="2">v</font>。<br>
+          ��8)<font size="2"> kef(e)，</font>删除一条边<font size="2">e</font>和该边的一个邻面<font size="2">f</font>。<br>
+          ��9)<font size="2"> mekr(v<sub>1</sub>,v<sub>2</sub>,e)</font>，连接两个点<font size="2">v<sub>1</sub></font>、<font size="2">v<sub>2</sub></font>，生成一条新的边e，并删除掉<font size="2">v<sub>1</sub></font>和<font size="2">v<sub>2</sub></font>所在面上的一个内环。<br>
+          ��10) <font size="2">mfkrh(f<sub>1</sub>,f<sub>2</sub>)</font>，删除面f<sub>1</sub>上的一个内环，生成一个新的面<font size="2">f<sub>2</sub></font>，由此也删除了体上的一个通孔。<br>
+          为了方便对形体的修改，还定义了两个辅助的操作：<br>
+          ��11) <font size="2">semv(e<sub>1</sub>,v,e<sub>2</sub>)</font>，将边<font size="2">e<sub>1</sub></font>分割成两段，生成一个新的点v和一条新的边<font size="2">e<sub>2</sub></font>。<br>
+          ��12)<font size="2"> jekv(e<sub>1</sub>,e<sub>2</sub>)</font>，合并两条相邻的边<font size="2">e<sub>1</sub>、e<sub>2</sub></font>，删除它们的公共端点。</p>
+        <p>��以上十种欧拉操作和两个辅助操作，每两个一组，构成了六组互为可逆的欧拉操作。<br>
+          ��可以证明：对于正则形体，欧拉操作具有有效性和完备性。即：欧拉操作对形体操作的结果在物理上是可实现的；任何形体都可用有限步的欧拉操作构造出来。<br>
+          ��当物体以边界表示描述时，光线投射（Ray-casting）方法通常用来实现构造实体几何的并、交、差集合运算。<br>
+          ��对于非正则形体，欧拉公式已不再满足，但是欧拉操作中对形体点、边、面、体等几何元素作局部修改的原理仍然适用，1986年，Weiler定义了扩展的欧拉操作来构造非正则形体，仍然把他的一套操作形体拓扑结构的方法叫作欧拉操作。 
+          <br>
+          <br>
+        </p>
+        <!-- #EndEditable --></td>
+    </tr>
+  </table>
+  
+</div>
+</body>
+</html>

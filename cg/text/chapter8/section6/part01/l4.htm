@@ -1,0 +1,52 @@
+<html>
+<head>
+<!-- #BeginEditable "doctitle" -->
+<title></title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/css01.css" type="text/css">
+<link rel="stylesheet" href="../../../../css/css.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center"> 
+  <table width="95%" border="0" cellspacing="3" cellpadding="2" height="49%" class="text">
+    <tr> 
+      <td valign="top" height="147" width="100%"><!-- #BeginEditable "left" -->��曲面S(u,v)上任意一点处的法向量可通过沿u、v两个方向的偏导矢量的叉积得到：<br>
+        ��<img src="../../../../images/pic/chap08/image435.gif" align="absmiddle">。<br>
+        ��定义一个随机的扰动函数F(u,v)，使理想光滑表面上的每一个点S(u,v)，都沿该点处的法向量方向移动F(u,v)个单位长度，这样新的表面位置变为：<br>
+        <img src="../../../../images/pic/chap08/image437.gif" align="absmiddle">，<br>
+        其中，<br>
+        <img src="../../../../images/pic/chap08/image439.gif" align="absmiddle">。<br>
+        新表面的法向量可通过沿u、v两个方向的偏导矢量的叉积得到：<br>
+        <img src="../../../../images/pic/chap08/image441.gif" align="absmiddle">。<br>
+        而偏导矢量 <img src="../../../../images/pic/chap08/image443.gif" align="absmiddle">和 
+        <img src="../../../../images/pic/chap08/image445.gif" align="absmiddle">为<br>
+        <img src="../../../../images/pic/chap08/image447.gif" align="absmiddle"><br>
+        由于扰动函数F(u,v)的值相对于上式中其他的量很小，因此上两式的最后一项可以忽略不计，于是有<br>
+        <img src="../../../../images/pic/chap08/image449.gif" align="absmiddle"><br>
+        所以，新表面的法向量为<br>
+        <img src="../../../../images/pic/chap08/image451.gif" align="absmiddle">。<br>
+
+          ��上式右边的最后两项可以看成是原曲面法向量的扰动项。扰动后的法向量单位化后，用于计算曲面的亮度，可以产生貌似凹凸不平的几何扰动纹理。图8.27是一个一维情况下几何扰动纹理映射的例子。</p>
+        <p>��扰动函数F(u,v)可以任意选择，它可以是用数学函数定义的简单的网格图案、字母位图或其它的彩色位图。其偏导数的计算，如果F(u,v)不是用解析函数表示的，可以用中心差分实现。当采用彩色纹理图案定义F（u,v）时，几何扰动纹理函数的定义与颜色纹理的定义方法相同，可以用统一的图案纹理记录，图案中较暗的颜色对应于较小的F(u,v)值，较亮的颜色对应于较大的F(u,v)值，把各象素的值用一个二维数组记录下来，用几乎类似于二维纹理映射的方法映射到物体表面上，就可以成为一个几何扰动纹理映射。<br>
+        <img src="../../../../images/but/tushi.gif" width="25" height="20" align="absmiddle"> 
+        图8.27 一维几何扰动纹理映射
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td align="center"><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="440" height="260">
+                <param name=movie value="../../../../flash/chap08/F8.23.swf">
+                <param name=quality value=high>
+                <embed src="../../../../flash/chap08/F8.23.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="440" height="260">
+                </embed> 
+              </object></td>
+          </tr>
+        </table>
+        <br>
+        <!-- #EndEditable --></td>
+    </tr>
+  </table>
+  
+</div>
+</body>
+</html>

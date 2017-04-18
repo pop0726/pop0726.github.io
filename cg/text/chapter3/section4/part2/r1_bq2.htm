@@ -1,0 +1,30 @@
+<html>
+<head>
+<!-- #BeginEditable "doctitle" -->
+<title>计算机图形学</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/css.css" type="text/css">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../../images/bg03.gif">
+<div align="center">
+  <table width="90%" border="0" cellspacing="0" cellpadding="0" height="100">
+    <tr> 
+      <td height="189" valign="top" width="100%" class=text><font class=blue><br>
+        3.4.2 多边形裁剪</font><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;多边形裁剪的裁剪区域是一个矩形窗口。多边形裁剪就是去除矩形裁剪窗口以外的部分，保留或显示其位于矩形裁剪窗口之内的部分。<br>
+        <font class=blue>一、Sutherland-Hodgeman多边形裁剪</font><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;设被裁剪的多边形为凸多边形，对多边形的裁剪是通过用各个裁剪边界来处理多边形的所有顶点来实现的。Sutherland-Hodgeman算法的输入和输出均是用顶点序列表示的多边形。以裁剪边界及其延长线构成裁剪线，将平面区域分成内侧半平面（称为可见侧）和外侧半平面（又叫非可见侧），然后来考虑将要被裁剪的多边形的各个边的两端点P1和P2与裁剪线的关系：<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;1) 均在可见侧，输出P<sub>2</sub>；<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;2) 均在不可见侧，没有输出；<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;3) P<sub>1</sub>可见，P<sub>2</sub>不可见，则输出线段P<sub>1</sub>P<sub>2</sub>与裁剪边界的交点；<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;4) P<sub>1</sub>不可见，P<sub>2</sub>可见，则输出线段P<sub>1</sub>P<sub>2</sub>与裁剪边界的交点和P<sub>2</sub>点。<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;这个算法适用于裁剪凸多边形（见图3.14）。对于凹多边形，如果裁剪后的多边形只有一个，结果仍然是正确的（见图3.15）；但是如果裁剪后的多边形有分离的几个部分出现，即：结果多边形多于一个，这时会出现多余的线（见图3.16）。解决这个问题的办法：将凹多边形分割成2个或多个凸多边形分别进行处理；或者修改上述算法，沿作裁剪边界检查顶点表，正确地连接顶点对，以便得到正确的结果；或者采用其它的裁剪方法，如Weiler-Atherton算法或Weiler算法。<br>
+        <br>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

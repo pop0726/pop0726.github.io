@@ -1,0 +1,45 @@
+<html>
+<head>
+<!-- #BeginEditable "doctitle" -->
+<title></title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/css01.css" type="text/css">
+<link rel="stylesheet" href="../../../../css/css.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center"> 
+  <table width="95%" border="0" cellspacing="3" cellpadding="2" height="49%" class="text">
+    <tr> 
+      <td valign="top" height="199" width="100%"><!-- #BeginEditable "left" -->&nbsp;&nbsp;&nbsp;&nbsp;1）根据给定的参数值u<img src="../../../../images/pic/chap06/mo6_68.gif" width="40" height="16" align="absmiddle"> 
+        ，在控制多边形的每条边上确定一个分割点，使分割后的线段之比为<font size="3"> u:(1-u)</font> 。由此得分割点为：<br>
+        <table width="80%" border="0" cellspacing="00" cellpadding="0" align="center">
+          <tr> 
+            <td width="31%"><img src="../../../../images/pic/chap06/mo6_69.gif" width="140" height="20"></td>
+            <td width="69%"><img src="../../../../images/pic/chap06/mo6_70.gif" width="106" height="15"></td>
+          </tr>
+        </table>
+        <br>
+        由此组成一个边数为（n-1）的新的多边形；<br>
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;2）用相同的方法对该多边形再次分割，得到<font size="3">n-1</font>个分割点<img src="../../../../images/pic/chap06/mo6_71.gif" width="115" height="20" align="absmiddle"> 
+        形成另一个新的多边形；<br>
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;3）按相同的过程分割<font size="3">n-1</font>次后，得到两个顶点<img src="../../../../images/pic/chap06/mo6_72.gif" width="60" height="17" align="absmiddle"> 
+        。对线段 <img src="../../../../images/pic/chap06/mo6_73.gif" width="56" height="20" align="absmiddle">再分割一次，得到点<img src="../../../../images/pic/chap06/mo6_74.gif" width="14" height="17" align="absmiddle"> 
+        。<img src="../../../../images/pic/chap06/mo6_74.gif" width="14" height="17" align="absmiddle"> 
+        就是Bezier曲线上参数<font size="3">u</font>所对应的点，即：<font size="3">P(t)=</font><img src="../../../../images/pic/chap06/mo6_74.gif" width="14" height="17" align="absmiddle">； 
+        <img src="../../../../images/pic/chap06/mo6_73.gif" width="56" height="20" align="absmiddle">为曲线在<img src="../../../../images/pic/chap06/mo6_74.gif" width="14" height="17" align="absmiddle">处的切线。<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;这个作图过程的正确性可以用归纳法进行证明。<br><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;对Bezier曲线的控制多边形的上述切角过程可以一直递归地进行下去，其极限位置就是Bezier曲线所在的位置。因此，可以用这个方法画出整条曲线。<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<font color="#FF0000">注意，由于Bezier曲线满足凸包性，因此曲线上的每一点到曲线两端点连线<img src="../../../../images/pic/chap06/mo6_76.gif" width="32" height="21" align="absmiddle"> 
+          的距离小于或等于控制顶点到<img src="../../../../images/pic/chap06/mo6_76.gif" width="32" height="21" align="absmiddle">的距离的最大值。利用这个性质，我们可以用经过足够多次切角后的控制多边形作为Bezier曲线的近似图形进行显示或绘制。<br>
+          <br>
+        <!-- #EndEditable --></td>
+    </tr>
+  </table>
+  
+</div>
+</body>
+</html>

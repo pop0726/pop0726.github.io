@@ -1,0 +1,62 @@
+<html>
+<head>
+<!-- #BeginEditable "doctitle" -->
+<title></title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/css01.css" type="text/css">
+<link rel="stylesheet" href="../../../../css/css.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center"> 
+  <table width="95%" border="0" cellspacing="3" cellpadding="2" height="49%" class="text">
+    <tr> 
+      <td valign="top" height="1077" width="100%"><!-- #BeginEditable "left" -->下面，我们分别进行介绍。 
+        <p><span class="blue"> ��1. 纹理的表示方法</span><a name="1"></a><br>
+          ��二维纹理最常见的表示方法就是数字化的彩色图象，其分辨率用m×n表示，颜色数用2<sup>k</sup>表示，例如，k=1表示黑白（二值）图象；用位图（BitMap）文件（BMP文件）或其它格式的图象文件（例如：PCX，TIFF或JPEG等图象文件）保存。<br>
+          ��纹理的另外一种表示方法就是用解析函数或过程来表示。实际上，许多纹理都可以用二维纹理函数t(u,v) 或函数过程来表示。例如：我们可以用三维空间中定义的共振函数（正弦函数）来生成木纹理或大理石纹理，这种纹理映射方法称为过程纹理映射。</p>
+        <p><span class="blue">��2. 纹理的映射方法</span><a name="2"></a><br>
+          ��大体上，实现纹理影射的方法有两类：<br>
+          ��a）将纹理模式映射到景物表面，然后再从景物表面映射到投影平面，即：纹理空间→景物空间→图象空间；<br>
+          ��为了简化计算，由纹理空间向景物空间的映射可以采用线性映射：<br>
+          ��<img src="../../../../images/pic/chap08/image384.gif" align="absmiddle"><br>
+          由景物空间向图象空间的变换通过平行或透视投影来实现。然而，从纹理空间向图象空间映射时，每次选中的纹理面片与映射后得到的象素边界不匹配，需要计算象素的覆盖率，并对同一个象素进行累加。这个过程是比较复杂的。<br>
+          ��b）将象素区域映射到景物表面，再由景物表面映射到纹理空间，即：图象空间→景物空间→纹理空间。 <br>
+          ��这一类方法避免了象素的分割计算，并能简化反走样处理；但是它一般需要计算投影变换和纹理映射的逆变换。<br>
+          ��下面将介绍一些常用的纹理映射技术。<br>
+          <br>
+          ��<span class="blue">3. 常见的纹理映射<a name="3"></a></span></p>
+        <p>��（1） 圆柱映射<br>
+          <img src="../../../../images/but/tushi.gif" width="25" height="20" align="absmiddle"> 
+          图8.19 圆柱面的纹理映射</p>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td align="center"><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="440" height="260">
+                <param name=movie value="../../../../flash/chap08/F8.17.swf">
+                <param name=quality value=high>
+                <embed src="../../../../flash/chap08/F8.17.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="440" height="260">
+                </embed> 
+              </object></td>
+          </tr>
+        </table>
+        <p>��图8.19所示是一个圆柱面的纹理映射。设圆柱体表面的参数为（u,v）=（θ，z）， （0≤θ≤2π），在三维直角坐标系中，表面的参数方程为：<br>
+          <img src="../../../../images/pic/chap08/image398.gif" align="absmiddle"><br>
+          用如下线性变换将纹理映射到圆柱表面：<br>
+          <img src="../../../../images/but/dingyi.gif" width="27" height="19" align="absmiddle"> 
+          （8－9－1）<br>
+          <img src="../../../../images/pic/chap08/image389.gif" align="absmiddle"> 
+          <br>
+          其中， <img src="../../../../images/pic/chap08/image391.gif" align="absmiddle">，s和t是纹理平面的参数，如图8.19左上角所示。<br>
+          ��然后，采用某种真实感图形绘制算法（如：光线跟踪）生成该圆柱的真实感图形。圆柱表面上的点P的参数坐标可以由P的三维空间坐标（x,y,z）求得：<br>
+          <img src="../../../../images/pic/chap08/image393.gif" align="absmiddle"><br>
+          所以，我们可以得到&quot;图象空间→景物空间→纹理空间&quot;的映射关系，即线性变换（8－9－1）的逆变换：<br>
+          <img src="../../../../images/pic/chap08/image395.gif" align="absmiddle"><br>
+          ��将被每个象素区域所覆盖的矩形纹理图案中的光亮度值取平均，把该平均值作为圆柱表面上P点的漫反射系数Kd代入光照明模型进行计算，最后就能够生成该圆柱带有纹理图案的真实感图形。</p>
+        <!-- #EndEditable --></td>
+    </tr>
+  </table>
+  
+</div>
+</body>
+</html>

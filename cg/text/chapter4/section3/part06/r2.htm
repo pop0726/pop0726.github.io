@@ -1,0 +1,42 @@
+<html>
+<head>
+<!-- #BeginEditable "doctitle" -->
+<title>计算机图形学</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/css.css" type="text/css">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../../images/bg03.gif">
+<div align="center">
+  <table width="90%" border="0" cellspacing="0" cellpadding="0" height="100">
+    <tr> 
+      <td height="182" valign="top" width="100%" class=text><!-- #BeginEditable "right" --> 
+        <p><font class=blue> <br>
+          二、一般旋转</font><br>
+          &nbsp;&nbsp;&nbsp;&nbsp;绕坐标原点的任意旋转都可以看成是相继绕三个坐标轴旋转的结果。虽然旋转的顺序可以不唯一，但是结果却是一样的。假如我们将物体绕x轴旋转α角度，其旋转矩阵为 
+          <img src="../../../../images/pic/chap04/mo4_43.gif" width="45" height="17" align="absmiddle">，再绕y轴旋转β角度，其旋转矩阵为 
+          <img src="../../../../images/pic/chap04/mo4_44.gif" width="46" height="19" align="absmiddle">，最后再绕z轴旋转γ角度，其旋转矩阵为 
+          <img src="../../../../images/pic/chap04/mo4_45.gif" width="43" height="18" align="absmiddle">，则其组合变换矩阵为<br>
+          R ＝<img src="../../../../images/pic/chap04/mo4_46.gif" width="138" height="19" align="absmiddle"> 
+          。<br>
+          现在，请思考：相对于空间任意点，绕x, y和z轴分别旋转α，β和γ角度，其旋转变换的组合变换矩阵如何求？<br>
+          <font class=blue>三、绕任意轴的旋转</font><br>
+          &nbsp;&nbsp;&nbsp;&nbsp;假定我们已知一个立方体，见图4.9 (a)，它绕固定点P <sub>0</sub>且由矢量P<sub>1</sub>－P<sub>0</sub>所指定的方向轴旋转θ角度（规定：面向旋转轴的正向观察，逆时针的转角为正,(左图4.9)<br>
+          θ&gt;0;否则θ&lt;0），如何求它的变换矩阵呢？<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;首先，作平移变换T(-P<sub>0</sub>)，使参考点P<sub>0</sub>点与坐标原点重合(如图4.9 (b)所示)；然后，求绕矢量u=P<sub>1</sub>－P<sub>0</sub>旋转θ角的旋转变换矩阵R(θ)；最后作平移变换T(P<sub>0</sub>)，恢复原来的坐标系。<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;求R(θ)的方法很多。例如：我们可以通过坐标系的一系列的旋转变换使u与坐标系的z轴重合后，再绕z轴旋转θ角度，最后再作相应的坐标系的一系列逆旋转变换，从而得到变换矩阵R(θ)；我们也可以通过改变坐标系框架和旋转变换得到R(θ)。对于前者，大家可以自己练习。下面，我们介绍后一种方法。<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<font class=blue> </font>��令坐标系oxyz的坐标系框架用（e<sub>1</sub>, 
+          e<sub>2</sub>, e<sub>3</sub>, o）表示，新坐标系P<sub>0</sub>XYZ的坐标系框架用（i, j, 
+          k, P<sub>0</sub>）表示，并且两个坐标系的原点重合，即o＝P<sub>0</sub>，见图4.9 (b)，我们可以通过改变坐标系框架来实现坐标变换：<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;在坐标系P<sub>0</sub>XYZ中，P<sub>0</sub>Z轴与u=P<sub>1</sub>－P<sub>0</sub>重合，其单位矢量<br>
+          <img src="../../../../images/pic/chap04/mo4_48.gif" width="192" height="40">，<br>
+          P<sub>0</sub>X轴可取在经过P<sub>0</sub>点并与P<sub>0</sub>Z轴垂直的任一直线上。 <br>
+          <br>
+        </p>
+        <!-- #EndEditable --></td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

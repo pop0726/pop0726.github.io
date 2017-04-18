@@ -1,0 +1,46 @@
+<html>
+<head>
+<!-- #BeginEditable "doctitle" -->
+<title></title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/css01.css" type="text/css">
+<link rel="stylesheet" href="../../../../css/css.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="95%" border="0" cellspacing="3" cellpadding="2" height="49%" class="text">
+    <tr> 
+      <td valign="top" height="166" width="100%"><!-- #BeginEditable "left" -->&nbsp;&nbsp;&nbsp;&nbsp;例如：Cohen－Sutherland算法中的区域码的概念就可以推广到三维的情况：对场景中的各线段的每个端点(x,y,z)用6位而不是4位区域码来识别点与视口的位置关系。根据端点的位置，从右到左对区域码的6个二进制位置位：<br>
+        <br>
+        <table width="80%" border="0" cellspacing="00" cellpadding="0" class=text align="center">
+          <tr> 
+            <td>如果x&lt;x<sub>min</sub>（端点位于窗口的左边），第一位值1；</td>
+          </tr>
+          <tr> 
+            <td>如果x&gt;x<sub>max</sub>（端点位于窗口的右边），第二位值1；</td>
+          </tr>
+          <tr> 
+            <td>如果y&lt;y<sub>min</sub>（端点位于窗口的下边），第三位值1；</td>
+          </tr>
+          <tr> 
+            <td>如果y&gt;y<sub>max</sub>（端点位于窗口的上边），第四位值1；</td>
+          </tr>
+          <tr> 
+            <td>如果z&lt;z<sub>min</sub>（端点位于观察体的前面），第五位值1；</td>
+          </tr>
+          <tr> 
+            <td>如果z&gt;z<sub>max</sub>（端点位于观察体的后边），第六位值1。</td>
+          </tr>
+        </table>
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;如果直线段的两端点的区域码均为000000，则表明此线段完全位于裁剪区域之内，应当保留。否则，对线段的两端点的区域码执行位与操作，若结果为非0，则表明此线段的两端点均在某一裁剪平面之外，应当舍弃。如果不能识别此线段是完全位于裁剪区域之外或者完全位于裁剪区域以内，则要计算它与裁剪平面（即三维裁剪区域的边界）的交点，然后，再分别决定保留和舍弃线段的哪一部分。 
+        <p>&nbsp;</p>
+        <!-- #EndEditable --></td>
+    </tr>
+  </table>
+  
+</div>
+</body>
+</html>

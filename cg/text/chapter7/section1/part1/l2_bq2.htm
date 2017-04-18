@@ -1,0 +1,45 @@
+<html>
+<head>
+<!-- #BeginEditable "doctitle" -->
+<title></title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/css01.css" type="text/css">
+<link rel="stylesheet" href="../../../../css/css.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center"> 
+  <table width="95%" border="0" cellspacing="3" cellpadding="2" height="49%" class="text">
+    <tr> 
+      <td valign="top" height="404" width="100%"><!-- #BeginEditable "left" --> 
+        <p><img src="../../../../images/but/tushi.gif" width="25" height="20" align="absmiddle"> 
+          图7.4<br>
+        </p>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td align="center"><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="440" height="260">
+                <param name=movie value="../../../../flash/chap07/F7-4.swf">
+                <param name=quality value=high>
+                <embed src="../../../../flash/chap07/F7-4.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="440" height="260">
+                </embed> 
+              </object></td>
+          </tr>
+        </table>
+        <p><br>
+          ��现在假设凸多面体落在以视点为顶点的观察四棱锥内，视点与第<font size="2">i</font>个面上一点的连线方向为<font size="2">V</font>i＝<img src="../../../../images/pic/chap07/mo7_007.gif" width="36" height="75" align="absmiddle"> 
+          。那么，当点积V<sub>i</sub>・N<sub>i</sub>&gt;0时，平面<font size="2">i</font>为后向面。即：视点位于该平面的内侧，从视点位置无法观察到它的正面。后向面又称为自隐藏面。任意两个自隐藏面的交线，称为自隐藏线。<br>
+          一般地，消隐都是在观察坐标系下进行的。如果观察方向平行于观察坐标系的Z<sub>v</sub>轴，则观察方向矢量 <img src="../../../../images/pic/chap07/mo7_008.gif" width="64" height="73" align="absmiddle">，这时，有<br>
+          <font size="2">��V・N<sub>i</sub>＝c<sub>i</sub>V<sub>z</sub></font>。<br>
+          所以，只需考察N的Z<sub>v</sub>向分量与<font size="2">c<sub>i</sub></font>的符号。<br>
+          ��假设观察坐标系为右手系，观察方向是沿着Z<sub>v</sub>轴的负向。对于平行投影，当<font size="2">c<sub>i</sub></font>&lt;0时，则该多边形必为后向面。另外，如果<font size="2">c<sub>i</sub></font>＝0，则该平面与观察方向平行，也将无法被观察到，因为该平面的投影积聚为一条直线。<br>
+          ��对于任意一个凸多面体，我们可以先据此测试并决定哪些是后向面，然后检索每一条边：如果交于某一条边的两个面均为后向面，则该边为自隐藏边，在显示或绘制时可以消除或用虚线输出，否则此边未被遮挡，应当用实线输出。如果场景中只包含一些互不遮挡的凸多面体，则也可以用上述后向面判别法来进行消隐。<br>
+          <br>
+        </p>
+        <!-- #EndEditable --></td>
+    </tr>
+  </table>
+  
+</div>
+</body>
+</html>

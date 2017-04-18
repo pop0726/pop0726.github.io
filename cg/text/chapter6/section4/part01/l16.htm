@@ -1,0 +1,51 @@
+<html>
+<head>
+<!-- #BeginEditable "doctitle" -->
+<title></title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/css01.css" type="text/css">
+<link rel="stylesheet" href="../../../../css/css.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center"> 
+  <table width="95%" border="0" cellspacing="3" cellpadding="2" height="49%" class="text">
+    <tr> 
+      <td valign="top" height="70" width="100%"><!-- #BeginEditable "left" --> 
+        <p>一般地，对于一条有m个控制点的ｋ阶非均匀B样条曲线(m&gt;k),设其节点矢量为，<br>
+          <img src="../../../../images/pic/chap06/mo6_5F251.gif" width="333" height="33" align="absmiddle"><br>
+          插入重节点后，新的节点矢量为：<br>
+          <img src="../../../../images/pic/chap06/mo6_5F252.gif" width="402" height="39" align="texttop">。<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;设插入重节点后的曲线有ｎ个控制顶点（在上例中，n=m*2-k），则该曲线可以分为n-k+1段，分别表示为C<sup>k</sup><sub>j</sub>(u),j=0,1,...,n-k，对其控制点V<sub>i</sub> 
+          选取适当的扰动<font size="3">ε</font><sub>i</sub>，使得每段修正曲线<img src="../../../../images/pic/chap06/mo6_249.gif" width="38" height="23" align="absmiddle"> 
+          都满足退化条件（6－4－22）。<br>
+          令<img src="../../../../images/pic/chap06/mo6_5F253.gif" width="75" height="41" align="absmiddle"> 
+          ，其中<img src="../../../../images/pic/chap06/mo6_5F254.gif" width="25" height="21" align="absmiddle"> 
+          为Euclid范数。<br>
+          由约束优化方法，可以由下式来确定<font size="3">ε</font><sub>i</sub>：<br>
+          <img src="../../../../images/pic/chap06/mo6_5F255.gif" width="207" height="74">，<br>
+          取Lagrange函数为<br>
+          L = <img src="../../../../images/pic/chap06/mo6_5F256.gif" width="117" height="41" align="absmiddle"><br>
+          则有<br>
+          <img src="../../../../images/pic/chap06/mo6_5F257.gif" width="215" height="42" align="absmiddle">(j-i+k-1)=0, 
+          j=0,1,...,n-1, （6－4－23）<br>
+          <img src="../../../../images/pic/chap06/mo6_5F258.gif" width="152" height="44" align="absmiddle">(j+k-1)(V<sub>j+i</sub>+<font size="3">ε</font><sub>j+i</sub>)=0, 
+          j=0,1,...,n-k, （6－4－24）<br>
+          其中,m<sup>k</sup><sub>j</sub>(i)(j=0,1,...,k-1) 由下式定义<br>
+          M<sub>k</sub>(i)＝<img src="../../../../images/pic/chap06/mo6_5F259.gif" width="189" height="98" align="absmiddle"><br>
+          &nbsp;&nbsp;&nbsp;&nbsp;由于节点距为0的曲线段所对应的S<sub>j</sub>≡0 ，相应的这些约束方程可以不考虑。此外，为了使降阶后的曲线与原曲线具有相同的端点，应加入边界条件<font size="3">ε</font><sub>0</sub>=<font size="3">ε</font><sub>n-1</sub>=0 
+          。整理后可得以下方程：<br>
+          <img src="../../../../images/but/dingyi.gif" width="27" height="19" align="absmiddle">（6－4－25）<br>
+          <img src="../../../../images/pic/chap06/mo6_260.gif" width="355" height="279" align="absmiddle"><br>
+          其中，Ｉ为<font size="2">n</font>阶单位矩阵，<br>
+          <font size="3">A=</font><br>
+          <img src="../../../../images/pic/chap06/mo6_261.gif"><br>
+          &nbsp;&nbsp;&nbsp;</p>
+        <!-- #EndEditable --></td>
+    </tr>
+  </table>
+  
+</div>
+</body>
+</html>

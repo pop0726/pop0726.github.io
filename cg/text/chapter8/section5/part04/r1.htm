@@ -1,0 +1,31 @@
+<html>
+<head>
+<!-- #BeginEditable "doctitle" -->
+<title>计算机图形学</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/css.css" type="text/css">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../../images/bg03.gif">
+<div align="center">
+  <table width="90%" border="0" cellspacing="0" cellpadding="0" height="100">
+    <tr> 
+      <td height="126" valign="top" width="100%" class=text><!-- #BeginEditable "right" --> 
+        <p><span class="blue"><br>
+          8.5.4 光线跟踪算法中的阴影测试</span><br>
+          ��在真实的三维环境中，只要有光源存在，就必然会有阴影存在。阴影是真实感图形的一个重要组成部分，它有利于增强三维图形的立体感。景物表面的阴影区域是由于光源和周围环境向景物表面投射的光被其它不透明物体遮挡所造成的。<br>
+          <span class="blue">一、基本思想</span><br>
+          ��在光线跟踪算法中，阴影计算是与当前交点P处的局部光亮度计算联系在一起的。在计算某个光源在当前交点P处产生的局部光强（颜色）时，首先要确定当前交点P是否位于该光源的阴影区域内。一个简便的方法是：通过连接P点与光源的阴影测试线,测试是否与其它景物有交点，如果至少有一个交点，则说明P点被该景物遮挡，位于其阴影区域内。如果P位于该光源的阴影区域内，此时当前交点P由于没受到该光源的直接照射，其产生的局部光亮度可近似为0 
+          ；如果该光源照射到P点的光线仅仅被透明物体遮挡，则由Phong模型计算光源在P点处的漫反射和镜面反射的光强度应当乘以透明物体的透明度（0～1之间的一个常数）。这种方法将在阴影区和非阴影区产生一个泾渭分明的光亮度突变，形成不太真实的视觉效果。这种阴影称为硬阴影。<br>
+          <span class="blue">二、光源缓存</span><br>
+          ��一般而言，阴影测试是非常耗时的。为了提高测试阴影的效率，1986年Haines和Greenberg提出了光源缓存（light buffer）技术。即：以点光源L为中心，建立一个单位立方体（称为光源立方体），在立方体的6个表面按给定的分辨率划分成均匀的网格，并用一个二维数组来表示，这些数组称之为光源缓存。然后，以光源L为投影中心，以L到立方体的表面的4个顶点的连线形成的四棱锥作为视锥（观察空间），依次将场景中的景物表面（多边形）投影到立方体的6个表面上；在每个网格中，对相应的的投影多边形由近到远排序后，将结果（多边形的编号和相对于L的深度）记入光源缓存。在进行阴影测试时，我们根据阴影测试线所在的位置（即与阴影立方体的交点位置）就可以从光源缓存中找出位于当前交点P前面的所有多边形，通过计算它们与阴影测试线的交点来决定P点是否被遮挡,如图8.18所示。利用光源缓存技术，通常可以使阴影检测的速度提高一个数量级。<br>
+          ��由于直线与物体的求交是非常耗时的，所以这种阴影测试方法仍然开销很大。一个加速的方法，就是采用光源深度缓存技术。<br>
+          <br>
+        </p>
+        <!-- #EndEditable --></td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

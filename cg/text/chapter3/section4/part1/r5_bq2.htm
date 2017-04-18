@@ -1,0 +1,52 @@
+<html>
+<head>
+<!-- #BeginEditable "doctitle" -->
+<title>计算机图形学</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/css.css" type="text/css">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../../images/bg03.gif">
+<div align="center">
+  <table width="90%" border="0" cellspacing="0" cellpadding="0" height="100%">
+    <tr> 
+      <td height="292" valign="top" width="100%" class=text> <!-- #BeginEditable "right" --> 
+        <p><br>
+          即<br>
+          <img src="../../../../images/pic/chap03/mo_38_2.gif" width="217" height="19"><br>
+          <br>
+          <img src="../../../../images/pic/chap03/mo_38_1.gif" width="151" height="19"> 
+          。<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;令D＝P<sub>2</sub>-P<sub>1</sub>。如果N<sub>i</sub>・D＝0，则表明：或者P<sub>1</sub>＝P<sub>2</sub>，即线段P<sub>1</sub>P<sub>2</sub>是一个点；或者线段P<sub>1</sub>P<sub>2</sub>与边界E<sub>i</sub>平行（一般视为无交点，可以忽略）。<br>
+          如果P<sub>1</sub>＝P<sub>2</sub>，那麽：<br>
+        <li> 当 <img src="../../../../images/pic/chap03/mo_39.gif" width="98" height="20" align="absmiddle"> 
+          &gt;0时，点P<sub>1</sub>位于裁剪区域内部；<br>
+        <li> 当 <img src="../../../../images/pic/chap03/mo_39.gif" width="98" height="20" align="absmiddle">＝0时，点P1位于裁剪边界上；<br>
+        <li> 当 <img src="../../../../images/pic/chap03/mo_39.gif" width="98" height="20" align="absmiddle">&lt;0时，点P1位于裁剪区域外部。<br>
+          如果N<sub>i</sub>・D≠0，可以从上式得到线段P<sub>1</sub>P<sub>2</sub>与裁剪边界E<sub>i</sub>的交点参数：<br>
+          <img src="../../../../images/pic/chap03/mo_5F40.gif" width="139" height="45">。<br>
+          <img src="../../../../images/pic/chap03/mo_41.gif" width="61" height="19" align="absmiddle">时，表明线段P<sub>1</sub>P<sub>2</sub>与裁剪边界E<sub>i</sub>或E<sub>i</sub>的延长线有交点；否则它们没有交点，可以忽略。虽然线段与凸多边形至多有2个交点，但是满足<img src="../../../../images/pic/chap03/mo_41.gif" width="61" height="19" align="absmiddle"> 
+          （ <img src="../../../../images/pic/chap03/mo_42.gif" width="55" height="17" align="absmiddle">）的交点可能有多个，每个交点对应于凸多边形的一条边界。<br>
+          <br>
+          ��当N<sub>i</sub>・D&gt;0时，如果我们沿线段L<sub>1</sub>的端点P<sub>1</sub>向P<sub>2</sub>移动，就会跨越裁剪边界E<sub>i</sub>而进入该边界的内侧半平面，其交点用P<sub>E</sub>表示（见图3.13，其交点参数值为t<sub>1</sub>。请在图中用动画表示出来。），它靠近线段的起点；这样的交点参数值的集合可以表示为P<sub>E</sub>（t<sub>i</sub>）＝{ 
+          t<sub>i</sub> | N<sub>i</sub>・D&gt;0，<img src="../../../../images/pic/chap03/mo_41.gif" width="61" height="19" align="absmiddle"> 
+          }。反之，N<sub>i</sub>・D&lt;0时，如果我们沿线段L<sub>1</sub>的端点P<sub>1</sub>向P<sub>2</sub>移动，就会跨越裁剪边界Ei而离开该边界的内侧半平面，其交点用P<sub>L</sub>表示（见图3.12，其交点参数值为t<sub>5</sub>。请在图中用动画表示出来。），它靠近线段的终点；我们把这样的交点参数值的集合表示为P<sub>L</sub>（t<sub>i</sub>）＝{ 
+          t<sub>i </sub>| N<sub>i</sub>・D&lt;0，<img src="../../../../images/pic/chap03/mo_41.gif" width="61" height="19" align="absmiddle"> 
+          }。我们只要从P<sub>E</sub>（t<sub>i</sub>）中选出最大值 <img src="../../../../images/pic/chap03/mo_43.gif" width="14" height="19" align="absmiddle">，从P<sub>L</sub>（t<sub>i</sub>）中选取最小值 
+          <img src="../../../../images/pic/chap03/mo_44.gif" width="17" height="16" align="absmiddle">，由参数范围（ 
+          <img src="../../../../images/pic/chap03/mo_43.gif" width="14" height="19" align="absmiddle">， 
+          <img src="../../../../images/pic/chap03/mo_44.gif" width="17" height="16" align="absmiddle">）所定义的线段就是裁剪后的结果。<br>
+          <br>
+          考虑到参数的有效范围 ，我们有<br>
+          <img src="../../../../images/pic/chap03/mo_45.gif" width="171" height="40">，<br>
+          <br>
+          <img src="../../../../images/pic/chap03/mo_46.gif" width="164" height="37">。<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;如果t<sub>E</sub>&gt;t<sub>L</sub>，如图3.12中的线段L<sub>2</sub>所示，则表明线段P<sub>1</sub>P<sub>2</sub>位于裁剪区域以外，整条线段都应当舍弃。<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;当凸多边形为矩形且矩形的边平行于坐标轴时，上述算法可简化为Liang-Barsky算法。 
+        <!-- #EndEditable --></td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

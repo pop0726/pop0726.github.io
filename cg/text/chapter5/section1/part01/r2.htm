@@ -1,0 +1,39 @@
+<html>
+<head>
+<!-- #BeginEditable "doctitle" -->
+<title>计算机图形学</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/css.css" type="text/css">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../../images/bg03.gif">
+<div align="center">
+  <table width="90%" border="0" cellspacing="0" cellpadding="0" height="100">
+    <tr> 
+      <td height="83" valign="top" width="100%" class=text><!-- #BeginEditable "right" -->&nbsp;&nbsp;&nbsp;&nbsp;<br>
+        OpenGL是目前最流行的三维图形编程接口。它的输出流水线如图5.5所示： (左图) <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;在OpenGL的输出流水线中，三维对象的每个点都会与下列三个矩阵相乘：<br>
+        <li> 模型观察变换矩阵；<br>
+        <li>投影变换矩阵；<br>
+        <li>视见区变换矩阵。<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;模型观察变换矩阵可以看成是由造型矩阵M和观察矩阵V相乘得到的组合变换矩阵。首先应用造型矩阵对三维物体进行缩放、平移和旋转等等几何造型，然后应用观察矩阵将场景中的三维物体从世界坐标转换到观察坐标。所以模型观察变换矩阵等于VM。在OpenGL中，观察矩阵V通过设定视点、视方向和一个向上的参考矢量来决定：<br>
+          ��glMatrixMode(GL_MODELVIEW);<br>
+          ��glLoadIdentity();<br>
+          ��gluLookAt(eye.x, eye.y, eye.z, look.x, look.y, look.z, up.x, up.y, 
+          up.z); <br>
+          &nbsp;&nbsp;&nbsp;&nbsp;投影变换矩阵把位于观察体（View Volume）中的所有顶点都变换到一个标准的立方体中，这个立方体的中心位于坐标原点、6个面都分别与坐标平面平行，且沿每个坐标轴的坐标都是从－1到1。这使得三维裁剪非常容易。在OpenGL中，投影矩阵由观察体（View 
+          Volume）的形状(见图5.6)来设定：<br>
+          glMatrixMode(GL_PROJECTION);<br>
+          glLoadIdentity();<br>
+          glPerspective(ViewAngle, AspectRatio, NearPlane, FarPlane); //透视投影， 
+          或者<br>
+          glOrtho(left, right, bottom, top, near, far); //平行投影<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;视见区变换矩阵把经过裁剪处理后的三维场景映射到一个三维视口中。它把标准立方体的x和y坐标映射到整个屏幕坐标系（或设备坐标系）的视口中，同时将z坐标的值映射到0和1之间。<br>
+          <br>
+        <!-- #EndEditable --></td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

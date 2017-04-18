@@ -1,0 +1,61 @@
+<html>
+<head>
+<!-- #BeginEditable "doctitle" -->
+<title>计算机图形学</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/css01.css" type="text/css">
+<link rel="stylesheet" href="../../../../css/css.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="95%" border="0" cellspacing="3" cellpadding="2" height="49%" class="text">
+    <tr> 
+      <td valign="top" height="73">
+        <table width="100%" border="0" cellspacing="00" cellpadding="0" align="center" class="text">
+          <tr> 
+            <td height="17"><font color="#FF0000"><img src="../../../../images/but/tushi.gif" width="25" height="20" align="absmiddle"><span class="text"> 
+              图3.10 线段裁剪</span></font></td>
+          </tr>
+          <tr> 
+            <td>
+              <div align="center"><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="350" height="300">
+                  <param name=movie value="../../../../flash/chap03/f3.5.swf">
+                  <param name=quality value=high>
+                  <embed src="../../../../flash/chap03/f3.5.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="350" height="300">
+                  </embed> 
+                </object></div>
+            </td>
+          </tr>
+          <tr> 
+            <td><font color="#FF0000"><img src="../../../../images/but/tushi.gif" width="25" height="20" align="absmiddle"></font> 
+              图3.11 中点分割裁剪算法</td>
+          </tr>
+          <tr> 
+            <td>
+              <div align="center"><img src="../../../../images/pic/chap03/mo_29.gif" width="118" height="158"></div>
+            </td>
+          </tr>
+        </table>
+        <br>
+        　　设要被裁剪的线段是P<sub>0</sub>P<sub>1</sub>。为了避免将线段裁剪为许多零碎小段，只需分别计算距两个端点P<sub>0</sub>和P<sub>1</sub>最近的可见点A和B（见图3.11）即可；这两个可见点的连线AB就是原线段的可见部分。<br>
+        从P<sub>0</sub>出发，计算其最近可见点的算法如下：<br>
+        1) 计算出P<sub>0</sub>P<sub>1</sub>的中点P<sub>m</sub>；<br>
+        2) 计算P<sub>0</sub>和P<sub>m</sub>的区域码的位与，若结果不等于0，则取P<sub>m</sub>P<sub>1</sub>代替P<sub>0</sub>P<sub>1</sub>；否则，取P<sub>0</sub>P<sub>m</sub> 代替P<sub>0</sub>P<sub>1</sub>；<br>
+        3) 如果P<sub>1</sub>P<sub>m</sub>的长度小于给定的容差，即|P<sub>1</sub>P<sub>m</sub>| 
+        &lt; <font size="3">ε</font>，转步4）；否则转步1）；<br>
+        4) 结果输出：P<sub>m</sub>就是P<sub>0</sub>的最近可见点。<br>
+        5) 算法结束。<br>
+        <font color="#FF0000">��如果将P<sub>0</sub>和P<sub>1</sub>交换，上述算法即为求P<sub>1</sub>点的最近可见点的算法。</font><br>
+        <!-- #BeginEditable "left" --> 
+        <div align="center">
+          <div align="left"><br>
+          </div>
+        </div>
+        <!-- #EndEditable --></td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<html>
+<head>
+<!-- #BeginEditable "doctitle" -->
+<title></title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/css01.css" type="text/css">
+<link rel="stylesheet" href="../../../../css/css.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center"> 
+  <table width="95%" border="0" cellspacing="3" cellpadding="2" height="49%" class="text">
+    <tr> 
+      <td valign="top" height="369" width="100%"><!-- #BeginEditable "left" --> 
+        <p><img src="../../../../images/but/tushi.gif" width="25" height="20" align="absmiddle"> 
+          图7.1 长方体线框图的平行投影的二义</p>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td align="center"><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="440" height="260">
+                <param name=movie value="../../../../flash/chap07/f7-1.swf">
+                <param name=quality value=high>
+                <embed src="../../../../flash/chap07/f7-1.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="440" height="260">
+                </embed> 
+              </object></td>
+          </tr>
+        </table>
+        <p><br>
+          ��<span class="blue">(1) 对象空间（Object Space）消隐算法 （光线投射、Roberts）</span><br>
+          ��对象空间的消隐算法通过分析消隐对象的三维特性之间的关系来确定其是否可见。例如，将三维平面作为分析对象，将场景中的每一个面与其它的面进行比较，通过比较各平面的参数来确定它们的可见性，求出所有点、边、面的遮挡关系。<br>
+          ��<span class="blue">(2)图像空间（Image Space）消隐算法 (Z－buffer、扫描线、Warnock)</span><br>
+          ��图像空间的方法是将对象投影后分解为像素，按照一定的规律，比较像素之间的深度（z）值，从而确定哪个多边形在该像素可见。<br>
+          ��<span class="blue">(3) 对象空间和图像空间的混合消隐算法 (画家算法)</span><br>
+          ��在物体空间中预先计算面的可见性优先级（按深度排序），然后在图像空间中按照面的可见性优先顺序，依次进行投影，最后生成消隐图。 前一种方法所产生的消隐图可以任意放大或缩小，不会变形；但是后两种方法所产生的消隐图放大时，往往产生变形（如：锯齿）。<br>
+          ��一般来说，对于对象空间方法，一个对象必须和其它所有对象进行比较，才能确定其可见性。如果场景中含有 n 个对象，则比较的计算量为n<sup>2</sup>次。对于图像空间方法，每个对象都分解为像素，然后要在各个像素之间进行比较，才能决定哪个对象的像素是可见的。如果每个对象投影后含有m个像素，则比较计算量为m×n次。m虽然很大，但像素之间的比较极其简单，而且可以利用空间连贯性（Coherence）简化计算，因而有时效率反而比较高。目前实用的消隐算法经常将对象空间方法和图像空间方法结合起来使用：首先使用对象空间方法删去对象中一部分肯定不可见的面，然后对其余面再用图像空间方法进行分析。<br>
+          <br>
+        </p>
+        <!-- #EndEditable --></td>
+    </tr>
+  </table>
+  
+</div>
+</body>
+</html>

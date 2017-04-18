@@ -1,0 +1,102 @@
+<html>
+<head>
+<!-- #BeginEditable "doctitle" -->
+<title></title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/css01.css" type="text/css">
+<link rel="stylesheet" href="../../../../css/css.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center"> 
+  <table width="95%" border="0" cellspacing="3" cellpadding="2" height="49%" class="text">
+    <tr> 
+      <td valign="top" height="290" width="100%"><!-- #BeginEditable "left" --> 
+        <table width="100%" border="0" cellspacing="00" cellpadding="0" class="text">
+          <tr> 
+            <td colspan="2" class="blue">（1） 局部性<a name="01"></a></td>
+          </tr>
+          <tr> 
+            <td width="8%">&nbsp;</td>
+            <td width="92%">在k阶NURBS曲线上任一点的位置至多与k个相应的控制点及其权因子有关，与其它的控制点和权因子无关；另一方面，如果改变k次NURBS曲线的一个控制点P<sub>i</sub>或权因子 
+              <font size="2">ω</font><sub>i</sub>，仅仅只影响至多k个曲线段的局部形状。即：当<font size="2">P</font><sub>i</sub><font size="2">ω</font><sub>i</sub> 
+              变化时，仅仅影响<font size="2">t</font>∈<font size="3">[</font><font size="2">t</font><sub>i</sub>,<font size="2">t</font><sub>i+k</sub><font size="3">)</font> 
+              区间内的一段曲线。</td>
+          </tr>
+          <tr> 
+            <td colspan="2" class="blue">（2） 凸包性<a name="02"></a></td>
+          </tr>
+          <tr> 
+            <td width="8%">&nbsp;</td>
+            <td width="92%">如果<font size="2">ω</font><sub>i</sub>≥<font size="2">0,i=0,1,∧,n</font>，定义在非零节点区间上的曲线段总是位于定义它的k个控制点的凸包内；整条NURBS曲线位于所有定义各曲线段的控制顶点的凸包的并集内。如果某个权因子小于0，则不能保证凸包性成立。</td>
+          </tr>
+          <tr> 
+            <td colspan="2" class="blue">（3） 几何不变性<a name="03"></a></td>
+          </tr>
+          <tr> 
+            <td width="8%">&nbsp;</td>
+            <td width="92%">NURBS曲线的形状和位置与坐标系的选取无关。</td>
+          </tr>
+          <tr> 
+            <td colspan="2" class="blue">（4） 变差缩减性<a name="04"></a></td>
+          </tr>
+          <tr> 
+            <td width="8%">&nbsp;</td>
+            <td width="92%">设NURBS曲线C（t）的控制多边形<font size="2">P</font><sub>0</sub>, 
+              <font size="2">P</font><sub>1</sub>, <font size="2">P</font><sub>2</sub>, 
+              …., <font size="2">P</font><sub>n</sub>（<font size="2">n≥k－1</font>）是一平面折线，在该平面内的任一直线与C（t）的交点的个数不多于该直线与其控制多边形的交点个数。</td>
+          </tr>
+          <tr> 
+            <td colspan="2" height="23"><span class="blue">（5） NURBS曲线具有仿射变换不变性。<a name="05"></a></span></td>
+          </tr>
+          <tr> 
+            <td width="8%">&nbsp;</td>
+            <td width="92%">&nbsp;</td>
+          </tr>
+          <tr> 
+            <td colspan="2" class="blue">（6） NURBS曲线与有理基函数具有相同的可微性。<a name="06"></a></td>
+          </tr>
+          <tr> 
+            <td width="8%">&nbsp;</td>
+            <td width="92%">&nbsp;</td>
+          </tr>
+          <tr> 
+            <td colspan="2" class="blue"><a name="07"></a>（7） 如果某个权因子<img src="../../../../images/pic/chap06/mo6_303.gif" width="20" height="24" align="absmiddle">为零，那么相应的控制点<font size="3">P</font><sub>i</sub>对曲线的形状等几何特性没有影响。</td>
+          </tr>
+          <tr> 
+            <td width="8%">&nbsp;</td>
+            <td width="92%">&nbsp;</td>
+          </tr>
+          <tr> 
+            <td colspan="2" class="blue">（8） 任意r（r≥1）阶导数<a name="08"></a></td>
+          </tr>
+          <tr> 
+            <td width="8%">&nbsp;</td>
+            <td width="92%">利用B样条基函数的局部支撑性，NURBS曲线C（t）可以用矩阵的形式表示如下： <br>
+              ��<img src="../../../../images/pic/chap06/mo6_304.gif" width="284" height="118"><br>
+              其中，<br>
+              ��<img src="../../../../images/pic/chap06/mo6_305.gif" width="187" height="25" align="absmiddle">，<br>
+              ��<img src="../../../../images/pic/chap06/mo6_306.gif" width="145" height="98" align="absmiddle">，<br>
+              ��<img src="../../../../images/pic/chap06/mo6_307.gif" width="116" height="97" align="absmiddle">。<br>
+              <font size="3">M</font><sup>k</sup>(i)是k阶基矩阵。<br>
+              <br>
+              用矩阵公式表示的NURBS曲线的r阶导数为：<br>
+              �<img src="../../../../images/pic/chap06/mo6_308.gif" width="301" height="49"><br>
+              经常使用的是NURBS曲线的一阶和二阶导数：<br>
+              �<img src="../../../../images/pic/chap06/mo6_309.gif" width="304" height="45" align="absmiddle">，<br>
+              �<img src="../../../../images/pic/chap06/mo6_310.gif" width="393" height="54" align="absmiddle"> 
+              <br>
+              �. ��������<img src="../../../../images/pic/chap06/mo6_311.gif" width="272" height="50" align="absmiddle"><br>
+            </td>
+          </tr>
+        </table>
+        <p><br>
+        </p>
+        <!-- #EndEditable --></td>
+    </tr>
+  </table>
+  
+</div>
+</body>
+</html>

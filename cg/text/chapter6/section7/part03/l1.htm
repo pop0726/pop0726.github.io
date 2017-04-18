@@ -1,0 +1,71 @@
+<html>
+<head>
+<!-- #BeginEditable "doctitle" -->
+<title></title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/css01.css" type="text/css">
+<link rel="stylesheet" href="../../../../css/css.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center"> 
+  <table width="95%" border="0" cellspacing="3" cellpadding="2" height="49%" class="text">
+    <tr> 
+      <td valign="top" height="298" width="100%"><img src="../../../../images/but/tushi.gif" width="25" height="20" align="absmiddle"><!-- #BeginEditable "left" --> 
+        图6.17 六面体的拓扑信息 <br>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td>
+              <div align="center"><img src="../../../../images/pic/chap06/mo6_364_1.gif" width="393" height="170"><br>
+                <img src="../../../../images/pic/chap06/mo6_364_2.gif" width="392" height="167"><br>
+                <img src="../../../../images/pic/chap06/mo6_364_3.gif" width="392" height="171"> 
+              </div>
+            </td>
+          </tr>
+        </table>
+        <br>
+        ��<span class="blue">1） 点</span><a name="01"></a><br>
+        ��点（<font size="2">Vertex</font>）通过它在空间中的位置来表示。一维空间的点用一元组（<font size="2">t</font>）表示；二维空间中的的点用二元组（<font size="2">x,y</font>）表示；三维空间中的点用三元组（<font size="2">x,y,z</font>）表示。<font size="2">n</font>维空间中的点在齐次坐标下用（<font size="2">n+1</font>）元组（<font size="2">x<sub>1</sub>， 
+        x<sub>2</sub>，…，x<sub>n</sub>，w</font>）表示。点是几何造型中的最基本的元素，许多其它形体都可以用有序的点集表示。<br>
+        ��在正则形体定义中，不允许孤立的点存在。 
+        <p>��<span class="blue">2） 边</span><a name="02"></a><br>
+          ��边（Edge）是一个面的边界或者几个面（包括平面和曲面）的交。对正则形体而言，一条边只能是两个面的交集；但对于非正则形体而言它既可以是多个面的交集，也可以是一张孤立的平面或曲面的边界。边可以是直线或曲线，它的形状由边的几何信息来表示。边有方向，它由起点和终点来界定。<br>
+          ��在正则形体定义中，也不允许孤立的边存在。</p>
+        <p>��<span class="blue">3） 环</span><a name="03"></a><br>
+          ��环（Loop）是由一系列首尾相连的有向边组成的封闭边界。环中的边不能相交，并且相邻的两条边共享一个端点。环有方向、内外之分。外环边通常按逆时针方向排序，内环边通常按顺时针方向排序，这样，使得环的&quot;内部&quot;始终位于环的左侧。<br>
+          ��环主要用于定义面，包括带一个或多个孔的面。</p>
+        <p>��<span class="blue">4） 面</span><a name="04"></a><br>
+          ��面（Face）由一个外环和<font size="2">n</font>（<font size="2">n≥0</font>）个内环来表示。内环完全在外环之内。每个环既不能自相交，也不能与其它环相交。根据环的定义，在面上沿环的方向前进，左侧总在面内，右侧总在面外。面有方向性，一般用其外法矢方向作为该面的正向。面的形状由它的几何信息来表示，可以是平面或曲面。 
+          <br>
+          ��同样地，在正则形体定义中，也不允许孤立的面存在。</p>
+        <p>�<span class="blue">�5） 体</span><a name="05"></a><br>
+          ��体（Body）是用面的并集来表示的。用于定义体的面形成一个封闭的边界。在正则几何造型系统中，要求体必须是正则的。<br>
+          ��例如，一个长方体，如图6.18所示，它由长方体的6个外表面和4个内表面（形成中间的方孔）的并集表示；它的上表面由一个外环和一个内环定义；外环由4条边<font size="2">e<sub>9</sub>~ 
+          e<sub>12</sub></font>构成； 4条边<font size="2">e<sub>13</sub>~ e<sub>16</sub></font>形成一个封闭的内环，分别由顶点<font size="2">V<sub>9</sub>→V<sub>10</sub>，V<sub>10</sub>→V<sub>11</sub>，V<sub>11</sub>→V<sub>12</sub>，V<sub>12</sub>→V<sub>9</sub></font>构成首尾相连的4条边。</p>
+        <p></p>
+        <p></p>
+        <p> </p>
+        <p></p>
+        <p></p>
+        <p><img src="../../../../images/but/tushi.gif" width="25" height="20" align="absmiddle">图6.18 
+          开孔的立方体<br>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td> 
+              <div align="center"><img src="../../../../images/pic/chap06/mo6_354.gif" width="225" height="197"></div>
+            </td>
+          </tr>
+        </table>
+        <p>��几何信息描述物体的大小、位置和形状等等。例如：物体的某一表面位于一曲面上，定义这一曲面方程的数据就是几何信息。定义直线边的两个端点的3维坐标也是几何信息，等等。<br>
+          ��拓扑信息与几何信息分开表示有许多优点，例如：对于拓扑结构相同的物体可以用统一的数据结构来表示，这对于处理机械工程中具有相同类型的零部件很有意义；便于在数据结构上附加各种非几何信息（譬如表面硬度、粗糙度、同心度）；便于进行开槽、钻孔、倒角等特征造型，因为这一类的局部操作只需要提取相关的面、棱边及其相邻的两个表面等等有关信息就可以完成。<br>
+          ��边界表示法的典型代表是1972年由<font size="2">B. G. Baumgart</font>提出的翼边结构。<br>
+          <br>
+        </p>
+        <!-- #EndEditable --></td>
+    </tr>
+  </table>
+  
+</div>
+</body>
+</html>

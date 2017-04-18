@@ -1,0 +1,44 @@
+<html>
+<head>
+<!-- #BeginEditable "doctitle" -->
+<title>Untitled Document</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/css01.css" type="text/css">
+<link rel="stylesheet" href="../../../../css/css.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center">
+  <table width="95%" border="0" cellspacing="3" cellpadding="2" height="100%" class="text">
+    <tr> 
+      <td valign="top" height="596"><!-- #BeginEditable "left" --><span class="blue">1) 
+        点阵字符</span><a name="1"></a><br>
+        ��在点阵字库中，每个字符由一个位图表示（如图2.5所示），并把它用一个称为字符掩膜的矩阵来表示，其中的每个元素都是一位二进制数，如果该位为1表示字符的笔画经过此位，该像素置为字符颜色；如果该位为0，表示字符的笔画不经过此位，该像素置为背景颜色。点阵字符的显示分为两步：首先从字库中将它的位图检索出来，然后将检索到的位图写到帧缓冲器中。<br>
+        ��在实际应用中，同一个字符有多种字体（如宋体、楷体等），每种字体又有多种大小型号，因此字库的存储空间十分庞大。为了减少存储空间，一般采用压缩技术。<br><br>
+        <img src="../../../../images/but/tushi.gif" width="25" height="20" align="absmiddle"> 
+        图2.5 字符的点阵表示和矢量轮廓表示 
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td align="center"><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="440" height="260">
+                <param name=movie value="../../../../flash/chap02/F2.8.swf">
+                <param name=quality value=high>
+                <embed src="../../../../flash/chap02/F2.8.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="440" height="260">
+                </embed> 
+              </object></td>
+          </tr>
+        </table>
+        <br>
+        <span class="blue">2) 矢量字符</span><a name="2"></a><br>
+        ��矢量字符记录字符的笔画信息而不是整个位图，具有存储空间小，美观、变换方便等优点。例如：在AutoCAD中使用图形实体-形（Shape）-来定义矢量字符，其中，采用了直线和圆弧作为基本的笔画来对矢量字符进行描述。 
+        <br>
+        ��对于字符的旋转、放大、缩小等几何变换，点阵字符需要对其位图中的每个象素进行变换，而矢量字符则只需要对其几何图素进行变换就可以了，例如：对直线笔画的两个端点进行变换，对圆弧的起点、终点、半径和圆心进行变换等等。<br>
+        ��矢量字符的显示也分为两步。首先从字库中将它的字符信息。然后取出端点坐标，对其进行适当的几何变换，再根据各端点的标志显示出字符。<br>
+&nbsp;&nbsp;&nbsp;&nbsp;轮廓字形法是当今国际上最流行的一种字符表示方法，其压缩比大，且能保证字符质量。轮廓字形法采用直线、B样条/Bezier曲线的集合来描述一个字符的轮廓线。轮廓线构成一个或若干个封闭的平面区域。轮廓线定义加上一些指示横宽、竖宽、基点、基线等等控制信息就构成了字符的压缩数据。
+        <br>
+        <!-- #EndEditable --></td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

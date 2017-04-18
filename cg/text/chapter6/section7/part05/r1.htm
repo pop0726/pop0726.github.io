@@ -1,0 +1,32 @@
+<html>
+<head>
+<!-- #BeginEditable "doctitle" -->
+<title>计算机图形学</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/css.css" type="text/css">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../../images/bg03.gif">
+<div align="center">
+  <table width="90%" border="0" cellspacing="0" cellpadding="0" height="100">
+    <tr> 
+      <td height="171" valign="top" width="100%" class=text><!-- #BeginEditable "right" --> 
+        <p><span class="blue"><br>
+          6.7.4 二叉空间分割（BSP）树</span><br>
+          ��八叉树表示三维形体时，即使对于象圆柱这样简单的物体，也需要占用很大的存储空间。与八叉树不同，BSP树每次将空间分为二部分而不是八部分。除此之外，二叉树与八叉树是类似的。<br>
+          ��用BSP树，每次将三维空间用任一位置和任一方向的平面分为二部分，可以提供比八叉树更有效的分割。因为与八叉树相比，我们可以将平面的位置和方向按被分割物体的空间属性来选择。例如，对于圆柱，我们可以选择平行于圆柱的母线（或中心线）的平面来进行空间分割。这样，可以减少景物树的表示深度，从而减少搜索树的时间。<br>
+          ��另外，BSP树还可以用于快速识别三维场景中的可见面。这个问题，我们将在消隐的有关章节中介绍。</p>
+        <p></p>
+        <p><span class="blue">6.7.5 分形几何方法</span><br>
+          ��我们前面所讨论的各种物体都有一个共同的特点：物体的表面形状可以用方程来描述，它们有光滑的表面和规则的形状。但是，很多自然景物，譬如山脉、云彩和雪花等等，通常是不规则或粗糙的，这些都很难用传统的几何造型方法来描述或模拟。<br>
+          ��分形几何（Fractal Geometry）方法是为了描述形状不规则、但具有自相似性的物体所采用的一种造型方法。例如，用图6.22中所示的初始元和生成元，可以构造出雪花形状或Koch曲线，如图6.23所示。初始元中的每条直线每次用N＝4条相等的线段取代，缩放因子是S＝1/3，每次初始元的线段长度以4/3倍增加。因此，当增加更多的细节后，分形曲线的长度趋于无限。 
+          <br>
+          <br>
+        </p>
+        <!-- #EndEditable --></td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

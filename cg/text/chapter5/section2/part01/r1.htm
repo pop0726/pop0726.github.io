@@ -1,0 +1,30 @@
+<html>
+<head>
+<!-- #BeginEditable "doctitle" -->
+<title>计算机图形学</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/css.css" type="text/css">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../../../../images/bg03.gif">
+<div align="center">
+  <table width="90%" border="0" cellspacing="0" cellpadding="0" height="100">
+    <tr> 
+      <td height="83" valign="top" width="100%" class=text> <!-- #BeginEditable "right" --><font color="#0000FF"><br>
+        5.2 观察坐标系</font><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;在OpenGL中，观察坐标系采用的是右手系，这是它同其它许多图形标准所不同的地方。假如在三维空间中给定视点E＝[E<sub>x</sub>, E<sub>y</sub>, E<sub>z</sub>]<sup>T</sup>、视中心点L=[L<sub>x</sub>, L<sub>y</sub>, L<sub>z</sub>]<sup>T</sup>和一个向上的方向U=[U<sub>x</sub>, U<sub>y</sub>, U<sub>z</sub>]<sup>T</sup>（U不平行于E-L）。观察坐标系以视点为坐标原点，面向视中心的方向为z轴的负方向。因此，令：<br>
+        Z<sub>e</sub> = E-L，<br>
+        X<sub>e</sub> = U×Z<sub>e</sub>，<br>
+        Y<sub>e</sub> = Z<sub>e</sub>×X<sub>e</sub>；<br>
+        将它们单位化，我们就可以得到观察坐标系的坐标系框架（X<sub>e</sub>/| X<sub>e</sub>|，Y<sub>e</sub>/| Y<sub>e</sub>|，Z<sub>e</sub>/| Z<sub>e</sub>|，E）。令<br>
+        <img src="../../../../images/pic/chap05/mo5_7.gif" width="205" height="99"><br>
+        从世界坐标系变换到观察坐标系，可以看成是由平移和旋转构成的组合变换，因此，利用前一节所介绍的方法，我们可以得到观察矩阵：<br>
+        <img src="../../../../images/pic/chap05/mo5_8.gif" width="155" height="95">，<br>
+        <br>
+        <!-- #EndEditable --></td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

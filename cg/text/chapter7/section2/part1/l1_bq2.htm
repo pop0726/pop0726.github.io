@@ -1,0 +1,85 @@
+<html>
+<head>
+<!-- #BeginEditable "doctitle" -->
+<title></title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/css01.css" type="text/css">
+<link rel="stylesheet" href="../../../../css/css.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center"> 
+  <table width="95%" border="0" cellspacing="3" cellpadding="2" height="49%" class="text">
+    <tr> 
+      <td valign="top" height="828" width="100%"><!-- #BeginEditable "left" --> 
+        <p><img src="../../../../images/but/dingyi.gif" width="27" height="19" align="absmiddle">图7.10 
+          P不遮挡Q的情况：(a)～(e)，(f)是三个平面互相遮挡的例子<br>
+        <table width="100%" border="0" cellspacing="00" cellpadding="0">
+          <tr> 
+            <td> 
+              <div align="center"><img src="../../../../images/pic/chap07/mo7_020.gif" width="176" height="154"><br>
+                <br>
+                （ａ）</div>
+            </td>
+            <td> 
+              <div align="center"><img src="../../../../images/pic/chap07/mo7_021.gif" width="175" height="160"><br>
+                （ｂ）</div>
+            </td>
+          </tr>
+          <tr> 
+            <td> 
+              <div align="center"><img src="../../../../images/pic/chap07/mo7_022.gif" width="170" height="136"><br>
+                （ｃ）</div>
+            </td>
+            <td> 
+              <div align="center"><img src="../../../../images/pic/chap07/mo7_023.gif" width="173" height="135"><br>
+                （ｄ）</div>
+            </td>
+          </tr>
+          <tr> 
+            <td> 
+              <div align="center"><img src="../../../../images/pic/chap07/mo7_024.gif" width="179" height="149"><br>
+                （ｅ）</div>
+            </td>
+            <td> 
+              <div align="center"><img src="../../../../images/pic/chap07/mo7_025.gif" width="179" height="143"><br>
+                （ｆ）</div>
+            </td>
+          </tr>
+        </table>
+        <p>��1） 根据每个待排序的多边形顶点<font size="2">z</font>坐标的极小值<font size="2">Z<sub>min</sub></font>（即离视点最远，视方向为Z轴的负方向）把多边形作一初步的排序。<br>
+          ��2） 设<font size="2">Z<sub>min</sub></font>最小的多边形为P，它在待排序的多边形中暂时成为优先级最小的多边形，其他的多边形称为Q，进一步确定P和Q的遮挡关系。<br>
+          ��3） 如果<font size="2">P</font>的顶点的<font size="2">z</font>坐标的最大值<font size="2">P<sub><sub>Z<sub>max</sub></sub></sub></font> 
+          比Q的顶点的<font size="2">z</font>坐标的最小值<font size="2">Q</font> <font size="2"><sub>Z<sub>min</sub></sub></font>小，则<font size="2">P</font>肯定不遮挡<font size="2">Q</font>。<br>
+          ��4） 如果列表中的每个<font size="2">Q</font>均有<font size="2">Q<sub>Z<sub>min</sub></sub></font> 
+          &gt; <font size="2">P<sub>Z<sub>max</sub></sub></font>, 则<font size="2">P</font>确是优先级最低的多边形。<br>
+          ��5） 对每一Q<sub>Z<sub>min</sub></sub> &lt;P<sub>Z<sub>max</sub></sub>，作进一步的检测，包括：<br>
+        <table width="90%" border="0" cellspacing="00" cellpadding="0" align="center" class="text">
+          <tr> 
+            <td> 
+              <li> P和Q在<font size="2">xoy</font>平面上的投影的包围盒不重叠。例如：在图7.10（a）中，P和Q在<font size="2">oxy</font>平面上的投影的包围盒在X方向上互不相交；图7.10（b）中，P和Q在<font size="2">oxy</font>平面上的投影的包围盒在Y方向上互不相交。<br>
+              <li>P和Q在<font size="2">xoy</font>平面上的投影不相交（如图7.10（e）所示）。<br>
+              <li>P的各顶点均在Q的远离视点的一侧，见图7.10（c）。<br>
+              <li>Q的各顶点均在P的靠近视点的一侧，见图7.10（d）。<br>
+                上述四项只要有一项成立，P就不遮挡Q，转6）；否则，转7）。 
+            </td>
+          </tr>
+        </table>
+        ��6） 将<font size="2">P</font>加入多边形优先级列表中，其优先级等于它加入该优先级表的顺序号。将<font size="2">P</font>从待排序的多边形中删除。如果只剩一个多边形，转9）；否则，转2）。<br>
+        ��7） 如果上述四项检测都不成立，则把<font size="2">P</font>和<font size="2">Q</font>交换一下次序，再进行上述各项检测。但交换次序时要对原来的优先级最低的多边形作一标志，避免多边形相贯时的循环交换。 
+        <br>
+        ��8） 出现循环交换时，把P从原多边形初步排序队列中删除，并把P按遮挡关系分成两个多边形，再插入按每个多边形顶点z坐标的极小值Zmin所作的初步排序队列中（以便可得到正确的深度排序的多边形优先级列表）；转2）。<br>
+        ��9） 将最后一个多边形加入多边形优先级列表中，其优先级最高。<br>
+        <br>
+<br>
+          ��<font color="#FF0000">对于两个面相交、或者两个以上的面相互重叠的情形，仅仅用排序的办法不能得到正确的深度排序，这时必须把有关的面按交线或遮挡关系进行分割后再排序。 
+          <br>
+
+        <!-- #EndEditable --></td>
+    </tr>
+  </table>
+  
+</div>
+</body>
+</html>

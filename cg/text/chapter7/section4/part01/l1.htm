@@ -1,0 +1,62 @@
+<html>
+<head>
+<!-- #BeginEditable "doctitle" -->
+<title></title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/css01.css" type="text/css">
+<link rel="stylesheet" href="../../../../css/css.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div align="center"> 
+  <table width="95%" border="0" cellspacing="3" cellpadding="2" height="49%" class="text">
+    <tr> 
+      <td valign="top" height="152" width="100%"><!-- #BeginEditable "left" -->Z-Buffer算法：<br>
+        <br>
+        <span class="orange">�Z-Buffer算法（）<br>
+        ��{ <br>
+        ����for (i=0，1，…，m)<br>
+        ����for (j=1，…，n)<br>
+        ���{ <br>
+        ����用背景色初始化帧缓存CB：CB(i,j)=背景色；<br>
+        ����用最小Z值初始化深度缓存：ZB(i,j)=Zmin；<br>
+        ���}<br>
+        ���for(每一个多边形)<br>
+        ���{ 将该多边形进行投影变换；<br>
+        ����扫描转换该多边形在视平面上的投影多边形；<br>
+        ����for(该多边形所覆盖的每个象素(i,j) )<br>
+        ����{ 计算该多边形在该象素的深度值Z<sub>i,j</sub>；<br>
+        ������if(Z<sub>i,j</sub> &gt; ZB(i,j) <br>
+        ������{ <br>
+        �������ZB(i,j) ＝ Z<sub>i,j</sub>；<br>
+        ��������计算该多边形在该象素的颜色值C<sub>i,j</sub>；<br>
+        ��������CB(i,j)= C<sub>i,j</sub>；<br>
+        ������} <br>
+        �����}<br>
+        ����}<br>
+        ��}</span><br>
+        <br>
+        ��利用多边形内的点在水平和垂直方向上的相关性，可以得到计算多边形的点及其深度值的算法步骤：<br>
+        ��1） 将多边形的边按其<font size="2">y</font>最小值排序，搜索多边形中各顶点的<font size="2">y</font>值，找出其中最小的值<font size="3">y<sub>min</sub></font>和最大值<font size="3">y<sub>max</sub></font>;<br>
+        ��2） 令扫描线从<font size="3">y=y<sub>max</sub></font>到<font size="3">y<sub>min</sub></font>以增量为1变化，依次对每条水平线进行扫描：<br>
+        ����(a) 找出与当前扫描线相交的所有边，利用垂直相关性求出这些边与扫描线<br>
+        ������的交点,并将这些交点<font size="2">Qi（i=0，1，…，m）</font>按<font size="2">x</font>坐标从小到大排序；<br>
+        ����(b) <font size="2">for（i=0，1，…，m /2）</font><br>
+        ������{������� 
+        <table width="60%" border="0" cellspacing="00" cellpadding="0" class="text" align="center">
+          <tr> 
+            <td>从第一个交点<font size="2">Q<sub>2i</sub></font>开始，利用多边形上点的水平相关性，即公式（7－4－1），计算出后继点的深度值，直到<font size="2">Q<sub>2i＋1</sub></font>为止； 
+            </td>
+          </tr>
+        </table>
+        ������} <br>
+        ��深度缓存算法以离视点近的物体的投影取代离视点远的物体的投影，各个面出现的先后顺序是无关紧要的。它不用对物体进行排序，只需对平面进行扫描转换，因此有利于硬件实现。深度缓存算法最突出的缺点是两个缓存占用的存储空间太大。但是，随着目前计算机硬件的高速发展，Z缓冲器算法已被硬件化，这个问题也就随之消失。目前，几乎所有的三维图形显示加速卡都支持深度缓存算法，它已经成为最常用的一种消隐方法。<br>
+        <br>
+        <!-- #EndEditable --></td>
+    </tr>
+  </table>
+  
+</div>
+</body>
+</html>
