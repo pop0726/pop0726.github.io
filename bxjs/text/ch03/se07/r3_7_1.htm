@@ -11,7 +11,7 @@ background-attachment: fixed;
 -->
 </STYLE>
 <title>Untitled Document</title>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
 <link rel="stylesheet" href="../../../css/style.css" type="text/css">
 </head>
 
@@ -25,25 +25,25 @@ background-attachment: fixed;
       <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0">
         <tr> 
           <td class="text" valign="top"> 
-            <p>����PCAM��Partitioning�����֣���Communication��ͨ�ţ���Agglomeration����ϣ���Mapping��ӳ�䣩����д�����Ǳ�ʾ��ʹ�ô˷���Ʋ����㷨���ĸ��׶Σ����񻮷֡�ͨ�ŷ�����������Ϻʹ�����ӳ�䣬��ƻ��֡�ͨ�š���ϡ�ӳ�䡣PCAM��һ����Ʒ���ѧ����ʵ����Ʋ����㷨����Ȼ���̡�PCAM��Ʒ�����˼���ǣ��Ⱦ��������㷨�Ĳ����Ժ������㷨�Ŀ���չ�ԣ�Ȼ�������Ż��㷨��ͨ�ųɱ���ȫ��ִ��ʱ�䡣������˵�������񻮷ֺ�ͨ�ŷ����׶���Ҫ�����㷨�Ĳ����ԺͿ���չ�Ե�������޹ص����ԡ���������Ϻʹ�����ӳ��׶���Ҫ���Ǿֲ��Ժ������������йص����⡣���׶ε��������£� 
+            <p>　　PCAM是Partitioning（划分）、Communication（通信）、Agglomeration（组合）和Mapping（映射）的缩写，它们表示了使用此法设计并行算法的四个阶段：任务划分、通信分析、任务组合和处理器映射，简称划分、通信、组合、映射。PCAM是一种设计方法学，是实际设计并行算法的自然过程。PCAM设计方法的思想是：先尽量开拓算法的并发性和满足算法的可扩展性，然后着重优化算法的通信成本和全局执行时间。具体来说，在任务划分和通信分析阶段主要考虑算法的并发性和可扩展性等与机器无关的特性。在任务组合和处理器映射阶段主要考虑局部性和其它与性能有关的问题。各阶段的任务如下： 
               <br>
               <br>
-              ����<b>����</b>����������������ֽ��һЩС������Ŀ���Ǿ������ز���ִ�еĿ����ԣ�<br>
+              　　<b>划分</b>：将整个计算任务分解成一些小任务，其目的是尽量开拓并行执行的可能性；<br>
               <br>
-              ����<b>ͨ��</b>��ȷ��С����ִ������Ҫ���е�ͨ�ţ�Ϊ�����׼����<br>
+              　　<b>通信</b>：确定小任务执行中需要进行的通信，为组合做准备；<br>
               <br>
-              ����<b>���</b>��������Ҫ���ʵ�ֵĴ���������ǰ���׶εĽ�����ʵ��ؽ�һЩС������ϳɸ����������������ܡ�����ͨ�ſ�����<br>
+              　　<b>组合</b>：按性能要求和实现的代价来考察前两阶段的结果，适当地将一些小任务组合成更大的任务以提高性能、减少通信开销；<br>
               <br>
-              ����<b>ӳ��</b>������Ϻ��������䵽�������ϣ���Ŀ����ʹȫ��ִ��ʱ���ͨ�ſ�������С��ʹ�������������ʾ����ߡ�<br>
+              　　<b>映射</b>：将组合后的任务分配到处理器上，其目标是使全局执行时间和通信开销尽量小，使处理器的利用率尽量高。<br>
               <br>
-              ������ͼ������PCAM��ƹ��̡�<br>
-              ��������<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="400" height="350"><param name="wmode" value="transparent">
+              　　下图表现了PCAM设计过程。<br>
+              　　　　<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="400" height="350"><param name="wmode" value="transparent">
                 <param name=movie value="../../../swf/P-3-8-1.swf">
                 <param name=quality value=high>
                 <embed src="../../../swf/P-3-8-1.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="400" height="350">
                 </embed> 
               </object><br>
-              ����PCAM��Ʒ������ĸ��׶���Ȼ��һ��һ�����еģ���ʵ�������ǿ���ͬʱһ�����ǡ���������ƹ����п�����Ҫ���ݷ��������ϵ�����</p>
+              　　PCAM设计方法的四个阶段虽然是一步一步进行的，但实际上它们可以同时一并考虑。并且在设计过程中可能需要回溯反复，不断调整。</p>
             </td>
         </tr>
       </table>

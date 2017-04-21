@@ -11,7 +11,7 @@ background-attachment: fixed;
 -->
 </STYLE>
 <title>Untitled Document</title>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
 <link rel="stylesheet" href="../../../css/style.css" type="text/css">
 </head>
 
@@ -26,21 +26,21 @@ background-attachment: fixed;
         <tr> 
           <td class="text" valign="top"> 
             
-<p>����<b> ������������������<img src="../../../images/img_text/ch06/6_2_7.gif" width="300" height="262"></b><br>
-              ����ͼ6.2.7 �ø������һ����ӳ�䵽���������ϣ�����ͷ�Ĵ�ʵ�߱�ʾ����<br>
+<p>　　<b> 　　　　　　　　　<img src="../../../images/img_text/ch06/6_2_7.gif" width="300" height="262"></b><br>
+              　　图6.2.7 用格雷码把一个链映射到超立方体上（带箭头的粗实线表示链）<br>
               <br>
-              ��������n��Ԫ�ش�����p=2<sup>d</sup> ������������һ����������ṹ����ÿ���������Ϸֲ���n/p��Ԫ�ء�������֮������Ϊһ����״�ṹ����������0��2<sup>d</sup>-1���б�ţ�Ȼ����ݸ����루Gray-code���Ѵ�����ӳ�䵽һ�����������ϣ���ͼ6.2.7���㷨�������׶Σ����ز�����Զ�̽�������ż�û�ð�ݡ�<br>
+              　　设有n个元素待排序，p=2<sup>d</sup> 个处理器构成一个超立方体结构，则每个处理器上分布有n/p个元素。处理器之间虚拟为一个链状结构并沿着链从0到2<sup>d</sup>-1进行编号，然后根据格雷码（Gray-code）把处理器映射到一个超立方体上，见图6.2.7。算法分三个阶段：本地操作、远程交换、奇偶置换冒泡。<br>
               <br>
-              ������һ�׶Σ������������Ա��ص�n/p��Ԫ�ؽ���������������Ӷ�Ϊ<img src="../../../images/img_text/ch06/21.gif" width="67" height="38" align="absmiddle">��<br>
+              　　第一阶段，各个处理器对本地的n/p个元素进行排序操作，复杂度为<img src="../../../images/img_text/ch06/21.gif" width="67" height="38" align="absmiddle">。<br>
               <br>
-              �����ڶ����׶η�d�����衣��1�������������ϱ��Ϊ0�Ĵ���������Ϊ2<sup>d</sup>-1�Ĵ�����֮�����Ԫ�رȽϺͽ������������Ϊ1��2<sup>d</sup>-1�Ĵ�����֮�����Ԫ�رȽϺͽ�������������֮�Ǳ��֮��Ϊ2<sup>d</sup>-1�Ĵ�����֮����������Ԫ�رȽϺͽ�������2��������������������������ȵ���������һ������Ŵ�0��2<sup>d-1</sup>-1���ڶ�������Ŵ�2<sup>d-1</sup>��2<sup>d</sup>-1��Ȼ������������ֱ�������Ƶ�һ���Ĳ�������3�������ڰѲ���2�����������Ȳ�ֹ��γ�4������ÿ���������в���1��Ԫ�رȽϺͽ���������ÿһ������Ҫ����<img src="../../../images/img_text/ch06/14.gif" width="48" height="18" align="absmiddle">��ʱ�䣬<img src="../../../images/img_text/ch06/22.gif" width="56" height="18" align="absmiddle">����ʱ�仨��Ϊ<img src="../../../images/img_text/ch06/23.gif" width="65" height="38" align="absmiddle">��<br>
+              　　第二个阶段分d个步骤。第1个步骤虚拟链上编号为0的处理器与编号为2<sup>d</sup>-1的处理器之间进行元素比较和交换操作，编号为1与2<sup>d</sup>-1的处理器之间进行元素比较和交换，……。总之是编号之和为2<sup>d</sup>-1的处理器之间两两进行元素比较和交换。第2个步骤把虚拟连拆成两个长度相等的子链，第一条链编号从0到2<sup>d-1</sup>-1，第二条链编号从2<sup>d-1</sup>到2<sup>d</sup>-1。然后对这两条链分别进行类似第一步的操作。第3个步骤在把步骤2的两条子链等拆分共形成4条链，每条子链进行步骤1的元素比较和交换操作。每一步骤需要花费<img src="../../../images/img_text/ch06/14.gif" width="48" height="18" align="absmiddle">的时间，<img src="../../../images/img_text/ch06/22.gif" width="56" height="18" align="absmiddle">步的时间花费为<img src="../../../images/img_text/ch06/23.gif" width="65" height="38" align="absmiddle">。<br>
               <br>
-              �����������׶ΰ�����һС����������ż�û�ð�����������ƵĲ��裬����ͬ���ǵ�������֮��û��Ԫ�ؽ���ʱ����ֹѭ������Ϊ��һ������ʹ�þ����Լ�������λ�ý�Զ��Ԫ���ƶ����˽Ͻ���λ�ã����Եڶ�����ż�û�������ѭ�������������١���ѭ������Ϊr���򱾽׶εĸ��Ӷ�Ϊ<img src="../../../images/img_text/ch06/24.gif" width="43" height="38" align="absmiddle">��<br>
+              　　第三个阶段按照上一小节所述的奇偶置换冒泡排序相类似的步骤，所不同的是当处理器之间没有元素交换时则终止循环。因为第一步操作使得距离自己本来的位置较远的元素移动到了较近的位置，所以第二步奇偶置换操作的循环次数将大大减少。设循环次数为r，则本阶段的复杂度为<img src="../../../images/img_text/ch06/24.gif" width="43" height="38" align="absmiddle">。<br>
               <br>
-              �����������׶ε�ʱ����ӣ��õ������㷨�Ĳ��д���ʱ�䣺<br>
-              ������<img src="../../../images/img_text/ch06/25.gif" width="221" height="38" align="absmiddle"><br>
+              　　把三个阶段的时间相加，得到整个算法的并行处理时间：<br>
+              　　　<img src="../../../images/img_text/ch06/25.gif" width="221" height="38" align="absmiddle"><br>
               <br>
-              ����<font color="#000000">��n��pΪ��ֵ������£��㷨��Ч�ʾ�����r�����r��С�����㷨������ż�û��㷨�����r��pΪͬһ���������㷨����ż�û��㷨���������ơ�</font><br>
+              　　<font color="#000000">在n和p为定值的情况下，算法的效率决定于r。如果r很小，则本算法优于奇偶置换算法。如果r与p为同一量级，则本算法与奇偶置换算法的性能类似。</font><br>
               <br>
             </p>
             </td>

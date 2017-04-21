@@ -1,7 +1,7 @@
 <html>
 <head>
 <title>Untitled Document</title>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
 <link rel="stylesheet" href="../../css/text.css" type="text/css">
 <style type="text/css">
 <!--
@@ -18,70 +18,70 @@
 <center><table width="95%" border="0" cellspacing="0" cellpadding="0">
   <tr>
       <td class=text> 
-        <p><b>һ�� �ʴ����</b></p>
-        <p>�ʴ��1��<br>
-          &nbsp;&nbsp;&nbsp;&nbsp; ��ͼ6.3.3��ʾ��������p����������һ��n��n�ľ�����в���ת�����㣬������з���Ŀ��״���֣��з������з�����ȫ�Գƣ���ÿ������������n/p�У���ͼ�Ͽ��Կ�����ÿ����������Ҫ���������д���������ͨ���Ա㽻����Ӧ�ľ���Ԫ�أ�ͨ��������һ��(n/p)��(n/p)��С�ķ���ͨ����Ϻ�ÿ����������Ҫ��ÿ���ӿ���оֲ��û���ÿ���ӿ���û�ʱ�������Ϊ 
-          <img src="../../images/gongshi/1da-1.gif" width="48" height="24" align="absmiddle">����д�� 
-          <img src="../../images/gongshi/1da-2.gif" width="56" height="24" align="absmiddle">���������ǵ�λʱ����ȡ�ı�׼��ͬ����������û�в������ֻ��һ������������p���ӿ��ڵ����������ϴ�������û���ʱ���ܹ�Ϊ<img src="../../images/gongshi/1da-3.gif" width="41" height="24" align="absmiddle"> 
-          ����ͨ�ŵķ�����Ҫ��ϵ�����������ṹ��·�ɻ��ơ������ó�����������ṹ����ͨ·�ɣ�cut-through routing������ʱ�����㷨��ͨ��ʱ��Ϊ<br>
+        <p><b>一、 问答题答案</b></p>
+        <p>问答第1题<br>
+          &nbsp;&nbsp;&nbsp;&nbsp; 如图6.3.3所示，假设用p个处理器对一个n×n的矩阵进行并行转置运算，设采用行方向的块带状划分（列方向与行方向完全对称）。每个处理器分配n/p行，从图上可以看出，每个处理器需要与其它所有处理器进行通信以便交换相应的矩阵元素，通信量都是一个(n/p)×(n/p)大小的方阵。通信完毕后，每个处理器还要对每个子块进行局部置换，每个子块的置换时间的量级为 
+          <img src="../../images/gongshi/1da-1.gif" width="48" height="24" align="absmiddle">（或写作 
+          <img src="../../images/gongshi/1da-2.gif" width="56" height="24" align="absmiddle">，差别仅仅是单位时间所取的标准不同，在量级上没有差别，最终只差一个常数），故p个子块在单个处理器上串行完成置换的时间总共为<img src="../../images/gongshi/1da-3.gif" width="41" height="24" align="absmiddle"> 
+          。对通信的分析需要联系到具体的网络结构和路由机制。当采用超立方体网络结构和切通路由（cut-through routing）机制时，本算法的通信时间为<br>
           <center>
             <img src="../../images/gongshi/1da-4.gif" width="207" height="41" align="absmiddle"> 
           </center>
           <br>
-          &nbsp;&nbsp;&nbsp;&nbsp; ����㷨�ܵ�����ʱ���ԼΪ�� <br>
+          &nbsp;&nbsp;&nbsp;&nbsp; 因此算法总的运行时间大约为： <br>
           <center>
             <img src="../../images/gongshi/1da-5.gif" width="261" height="47" align="absmiddle"> 
             <br>
           </center>
           <br>
-          �ʴ��2��<br>
-          &nbsp;&nbsp;&nbsp;&nbsp; �ö�̬�滮��˼·��������⡣��C[i, j]�Ǿ���˻� <img src="../../images/gongshi/2da-1.gif" width="115" height="25" align="absmiddle">�����Ų�������������������������ĳ˻��� 
-          <img src="../../images/gongshi/2da-2.gif" width="268" height="25" align="absmiddle">�����У�<img src="../../images/gongshi/2da-3.gif" width="236" height="25" align="absmiddle"> 
+          问答第2题<br>
+          &nbsp;&nbsp;&nbsp;&nbsp; 用动态规划的思路来解决问题。设C[i, j]是矩阵乘积 <img src="../../images/gongshi/2da-1.gif" width="115" height="25" align="absmiddle">的最优操作步数，把它看成两个矩阵的乘积： 
+          <img src="../../images/gongshi/2da-2.gif" width="268" height="25" align="absmiddle">，则有：<img src="../../images/gongshi/2da-3.gif" width="236" height="25" align="absmiddle"> 
           <br>
-          &nbsp;&nbsp;&nbsp;&nbsp; ���о���Ai�Ĺ�ģΪ <img src="../../images/gongshi/2da-4.gif" width="47" height="24" align="absmiddle">������C[i, 
-          j]�������ɲ�ͬ��k���õ�����˵õ�����ĵ��ƹ�ʽ��<br>
+          &nbsp;&nbsp;&nbsp;&nbsp; 其中矩阵Ai的规模为 <img src="../../images/gongshi/2da-4.gif" width="47" height="24" align="absmiddle">。由于C[i, 
+          j]仅可以由不同的k而得到，因此得到下面的递推公式：<br>
           <img src="../../images/gongshi/2da-5.gif" width="378" height="59"> <br>
-          &nbsp;&nbsp;&nbsp;&nbsp; ��������ת��Ϊ��C[1, n]��ͬ���Ѳ�ͬ��C[i, j]��֯��һ�����󣬵�����j��iʱC[i, 
-          j]��ֵΪ0�����ʵ�ʹ���һ���϶Խ��󣬼�ͼ6.8.1������������Ԫ��֮���������ϵ��������������ϵͼ�����Է��֣�������ϵͼ��һ�������޻�ͼ����������ѭ���������������ʵ�ϣ�ÿ��Ԫ��ֻ�����ڱ��кͱ�������ű��Լ�С��Ԫ�أ���˸������������һ��������ͨ���з����з���ͶԽ��߷�����˳�μ��㣬ֻҪ��֤ÿһ�л�ÿһ�ж��ǰ�����Ŵӵ͵��ߵ�˳�򼴿ɡ���ͼ6.8.1���Կ������Խ�����n-1��Ԫ�صļ���ʱ��Ϊ1������Խ��߾���Խ�󣬼���ʱ��Խ������Խ��߾���Ϊk��n-k-1��Ԫ����ÿ��Ԫ�صļ���ʱ��Ϊk+1������������м���ʱ��Ϊ��<br>
+          &nbsp;&nbsp;&nbsp;&nbsp; 整个问题转化为求C[1, n]。同样把不同的C[i, j]组织成一个矩阵，但由于j≤i时C[i, 
+          j]的值为0，因此实际构成一个上对角阵，见图6.8.1。考察矩阵各个元素之间的依赖关系，并画出依赖关系图，可以发现，依赖关系图是一个有向无环图，即不存在循环依赖的情况。事实上，每个元素只依赖于本行和本列中序号比自己小的元素，因此跟上面各个问题一样，可以通过行方向、列方向和对角线方向来顺次计算，只要保证每一行或每一列都是按照序号从低到高的顺序即可。从图6.8.1可以看到，对角线上n-1个元素的计算时间为1，距离对角线距离越大，计算时间越长，与对角线距离为k的n-k-1个元素其每个元素的计算时间为k+1。因此整个串行计算时间为：<br>
           <img src="../../images/gongshi/2da-6.gif" width="263" height="24" align="absmiddle"> 
           <br>
-          ������ѧ֪ʶ��֪<img src="../../images/gongshi/2da-7.gif" width="75" height="25" align="absmiddle"> 
-          ��<br>
+          根据数学知识可知<img src="../../images/gongshi/2da-7.gif" width="75" height="25" align="absmiddle"> 
+          。<br>
           <img src="../../images/gongshi/2da-8.gif" width="430" height="443"> 
           <br>
           <center>
-            ͼ6.8.1 ����˻�������������� 
+            图6.8.1 矩阵乘积的运算次序问题 
           </center>
           <br>
-          &nbsp;&nbsp;&nbsp;&nbsp; ������n̨�����������ɵĻ�״�ṹ�ϵĲ��д���ʱ�䡣�������n�����ڵ�r�����������Խ���r+1��Ԫ�ص�ֵ��ÿ�����������һ��ֵ�ļ��㡣����Ԫ���ڸ����������ϵĻ��ּ�ͼ6.8.1�������ÿһ���ļ����ÿ�������������Լ��ļ��������͵��������еĴ��������Ա�����һ�ε���ʱÿ��������������ֱ�Ӵӱ����ڴ��ȡ���ݡ����ǵ�r�ε�����Ҫ���ѵ�ʱ�䣬����Ԫ��������r������Ԫ�أ���˱�Ԫ��ֵ�ļ�����Ҫ����r��ʱ�䣬�������㲥�����ѵ�ͨ��ʱ���� 
-          <img src="../../images/gongshi/2da-9.gif" width="96" height="24" align="absmiddle">����˵�r�ε��������ѵ���ʱ��Ϊ 
-          <img src="../../images/gongshi/2da-10.gif" width="128" height="24" align="absmiddle">����������ʱ��Ϊ��<br>
+          &nbsp;&nbsp;&nbsp;&nbsp; 考虑在n台处理器所构成的环状结构上的并行处理时间。计算过程n步，在第r步，计算距离对角线r+1的元素的值，每个处理器完成一个值的计算。矩阵元素在各个处理器上的划分见图6.8.1。在完成每一步的计算后，每个处理器都把自己的计算结果发送到其它所有的处理器，以便在下一次迭代时每个处理器都可以直接从本地内存获取数据。考虑第r次迭代需要花费的时间，由于元素依赖于r个其它元素，因此本元素值的计算需要花费r的时间，计算结果广播所花费的通信时间是 
+          <img src="../../images/gongshi/2da-9.gif" width="96" height="24" align="absmiddle">，因此第r次迭代所花费的总时间为 
+          <img src="../../images/gongshi/2da-10.gif" width="128" height="24" align="absmiddle">。整个处理时间为：<br>
           <center>
             <img src="../../images/gongshi/2da-11.gif" width="201" height="88"> 
           </center>
           <br>
-          &nbsp;&nbsp;&nbsp;&nbsp; �ɼ����д���ʱ�������Ϊ <img src="../../images/gongshi/2da-12.gif" width="44" height="24" align="absmiddle">����Ϊ���д���ʱ��Ϊ 
-          <img src="../../images/gongshi/2da-13.gif" width="44" height="24" align="absmiddle">�����Ҵ�������ĿΪn����˴˲����㷨�ǳɱ���ѵġ� 
+          &nbsp;&nbsp;&nbsp;&nbsp; 可见并行处理时间的量级为 <img src="../../images/gongshi/2da-12.gif" width="44" height="24" align="absmiddle">。因为串行处理时间为 
+          <img src="../../images/gongshi/2da-13.gif" width="44" height="24" align="absmiddle">，并且处理器数目为n，因此此并行算法是成本最佳的。 
           <br>
-          &nbsp;&nbsp;&nbsp;&nbsp; ���Ƶأ�������p��p��n��̨��������������⣬ֻ����ÿ̨������Ҫ��ɾ�����У�n/p��Ԫ�صļ��㣬��r�ε����ļ���ʱ��Ϊnr/p����ÿ�ε�����ͬ����Ҫ�ѱ��μ���Ľ���㲥�������Ĵ��������㲥����Ҫ��ʱ���� 
-          <img src="../../images/gongshi/2da-14.gif" width="125" height="24" align="absmiddle">����˲��д���ʱ��Ϊ��<br>
+          &nbsp;&nbsp;&nbsp;&nbsp; 类似地，可以用p（p＜n）台处理器来解决问题，只不过每台处理器要完成矩阵多列（n/p）元素的计算，第r次迭代的计算时间为nr/p。在每次迭代中同样需要把本次计算的结果广播到其它的处理器，广播所需要的时间是 
+          <img src="../../images/gongshi/2da-14.gif" width="125" height="24" align="absmiddle">。因此并行处理时间为：<br>
           <center>
             <img src="../../images/gongshi/2da-15.gif" width="328" height="147"> 
           </center>
           <br>
-          &nbsp;&nbsp;&nbsp;&nbsp; �����㷨�ĳɱ�Ϊ��<img src="../../images/gongshi/2da-16.gif" width="88" height="27" align="absmiddle"> 
+          &nbsp;&nbsp;&nbsp;&nbsp; 并行算法的成本为：<img src="../../images/gongshi/2da-16.gif" width="88" height="27" align="absmiddle"> 
           <br>
-          &nbsp;&nbsp;&nbsp;&nbsp; �ɼ��㷨�ǳɱ���ѵġ� <br>
+          &nbsp;&nbsp;&nbsp;&nbsp; 可见算法是成本最佳的。 <br>
           <br>
-          �ʴ��3��<br>
-          &nbsp;&nbsp;&nbsp;&nbsp; ��������Dijkstra�㷨��6.6.2�ڵ�Prim�㷨�����Կ�������֮�伸���ǵ�ͬ�ģ���Ҫ�������ǣ�����ÿ����� 
-          <img src="../../images/gongshi/2da-17.gif" width="83" height="23" align="absmiddle">��Dijkstra�㷨���� 
-          <img src="../../images/gongshi/2da-18.gif" width="28" height="21" align="absmiddle">������ʾ����ʼ��s��VT�еĽ�㵽����u�����·����Prim�㷨�򱣴�d[u]����ʾ���u����VT�н�����̱ߡ� 
-          &nbsp;&nbsp;&nbsp;&nbsp; ������6.6.2.3����������Prim�㷨�Ĳ��л�����Dijkstra�㷨��ȫ���á��㷨�������������۲μ�6.6.2.3�ڡ� 
+          问答第3题<br>
+          &nbsp;&nbsp;&nbsp;&nbsp; 对照上述Dijkstra算法与6.6.2节的Prim算法，可以看到两者之间几乎是等同的，主要的区别是，对于每个结点 
+          <img src="../../images/gongshi/2da-17.gif" width="83" height="23" align="absmiddle">，Dijkstra算法保存 
+          <img src="../../images/gongshi/2da-18.gif" width="28" height="21" align="absmiddle">，它表示从起始点s经VT中的结点到达结点u的最短路；而Prim算法则保存d[u]，表示结点u连接VT中结点的最短边。 
+          &nbsp;&nbsp;&nbsp;&nbsp; 这样，6.6.2.3节所阐述的Prim算法的并行化对于Dijkstra算法完全适用。算法分析与性能评价参见6.6.2.3节。 
           <!--czp-wenda-daan-->
           <br>
           <br>
-          ��</p>
+          　</p>
       </td>
   </tr>
 </table>

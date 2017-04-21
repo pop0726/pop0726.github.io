@@ -11,7 +11,7 @@ background-attachment: fixed;
 -->
 </STYLE>
 <title>Untitled Document</title>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
 <link rel="stylesheet" href="../../../css/style.css" type="text/css">
 </head>
 
@@ -22,25 +22,25 @@ background-attachment: fixed;
       <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0">
         <tr> 
           <td class="text" valign="top"> 
-            <p>����<b>ͼ</b> һ��ͼG���Ա�ʾΪһ����Ԫ�飨V, E��������V��E�ֱ��ǽ��ͱߵ����޼��ϡ�ͼ���Է�Ϊ����ͼ������ͼ��һ���о�����Ȥ��������ͼ��������������У����û������˵��������ΪV={v1, 
-              v2, ��, vn}��E={e1, e2, ��, em}���������|V|=n������|E|=m��<br>
+            <p>　　<b>图</b> 一个图G可以表示为一个二元组（V, E），其中V和E分别是结点和边的有限集合。图可以分为有限图与无限图，一般研究感兴趣的是有限图。在下面的讨论中，如果没有特殊说明，就认为V={v1, 
+              v2, …, vn}，E={e1, e2, …, em}，即结点数|V|=n，边数|E|=m。<br>
               <br>
-              ����<b>ͼ�ı�</b> ͼG�ı߿������з���ģ�Ҳ�������޷���ģ��ֱ��Ϊ����ߺ�����ߣ������������vi��vj�ı�e��Ϊ(vi, 
-              vj)����ʱ����������Ϊ���ڽ�㡣���eΪ����ߣ�����������Ϊ�ߵ������˵㣻���ʱ�������������ֱ��Ϊʼ����յ㡣�������֮������ж����ߡ�<br>
+              　　<b>图的边</b> 图G的边可以是有方向的，也可以是无方向的，分别称为有向边和无向边，连接两个结点vi和vj的边e记为(vi, 
+              vj)，此时称两个结点称为相邻结点。如果e为无向边，则两个结点称为边的两个端点；如果时有向边则两个点分别称为始点和终点。两个结点之间可以有多条边。<br>
               <br>
-              ����<b>��</b> ��ͼ��ĳ���v���������б�����Ϊ���Ķȣ���Ϊd(v)����������ߣ���vΪ���ı���֮�ͳ�Ϊv�����ȣ���Ϊd<sup>+</sup>(v)����vΪ�յ�ı���֮�ͳ�Ϊv�ĸ��ȣ���Ϊd<sup>��</sup>(v)�����ڶ���һЩ�򵥵����ʣ�<br>
-              ������ �κ�һ��ͼG�����н��Ķ�֮�͵��ڱ�����������<br>
-              ������ �κ�һ��ͼG�ж�Ϊ�����Ľ��Ϊż������<br>
-              ������ �κ�һ������ͼ��������£�������֮�͵��ڸ���֮�͡�<br>
+              　　<b>度</b> 与图的某结点v关联的所有边数称为结点的度，记为d(v)。对于有向边，以v为起点的边数之和称为v的正度，记为d<sup>+</sup>(v)；以v为终点的边数之和称为v的负度，记为d<sup>－</sup>(v)。关于度有一些简单的性质：<br>
+              　　√ 任何一个图G中所有结点的度之和等于边数的两倍；<br>
+              　　√ 任何一个图G中度为奇数的结点为偶数个；<br>
+              　　√ 任何一个有向图（定义见下）中正度之和等于负度之和。<br>
               <br>
-              ����<b>��ͼ</b> ����ͼG=(V, E)��G'=(V', E')�����<img src="../../../images/img_text/ch06/169.gif" width="42" height="17" align="absmiddle">��<img src="../../../images/img_text/ch06/170.gif" width="43" height="17" align="absmiddle">�����G'ΪG����ͼ��Subgraph�������G'��G����ͼ�Ұ�����G�����ж��㣬���G'ΪG��֧����ͼ��������ͼ�����G'��G����ͼ�Ұ����˰�����ͼG��V'֮������бߣ����ΪG�ĵ�����ͼ��<br>
+              　　<b>子图</b> 给定图G=(V, E)和G'=(V', E')，如果<img src="../../../images/img_text/ch06/169.gif" width="42" height="17" align="absmiddle">，<img src="../../../images/img_text/ch06/170.gif" width="43" height="17" align="absmiddle">，则称G'为G的子图（Subgraph）。如果G'是G的子图且包含了G的所有顶点，则称G'为G的支撑子图或生成子图。如果G'是G的子图且包含了包含了图G在V'之间的所有边，则称为G的导出子图。<br>
               <br>
-              ����<b>ͼ��·��</b> ����ͼG��һ������<img src="../../../images/img_text/ch06/171.gif" width="95" height="21" align="absmiddle">�����������ÿ��Ԫ�ض���ͼG�Ľ�㣬����������������Ԫ������Ӧ�Ľ��֮�䶼�б�������������г�ΪͼG�д�v0��vk��һ��·����Path�������ͼG���������u��v֮����һ��·������ƴ�u���Ե���v�����·���ϵĽ�������ͬ�����Ϊ��·�������·���������յ���ͬ�����Ϊ������������ڲ���������ͬ�����Ϊ�򵥻���<br>
+              　　<b>图的路径</b> 对于图G和一个序列<img src="../../../images/img_text/ch06/171.gif" width="95" height="21" align="absmiddle">，如果序列中每个元素都是图G的结点，且序列中相邻两个元素所对应的结点之间都有边相连，则此序列称为图G中从v0到vk的一个路径（Path）。如果图G的两个结点u和v之间有一个路径，则称从u可以到达v。如果路径上的结点各不相同，则称为简单路径。如果路径的起点和终点相同，则称为环。如果环的内部结点各不相同，则称为简单环。<br>
               <br>
-              ����<b>ͼ�ķ���</b> ���ͼG�����б߶�������ߣ����Ϊ����ͼ��������б߶�����������Ϊ����ͼ���Ȱ���������ְ�������ߵ�ͼ��Ϊ���ͼ������ֻ�о�����ͼ������ͼ��ͼ�����н��֮�䶼�б�������ͼ����ȫͼ�����ͼG���κ��������u��v֮�䶼�д���·�������Ϊ��ͨͼ��Connected 
-              Graph�������ͼG�в����ڻ������Ϊɭ�֣�Forest������ͨ��ɭ�ֳ�Ϊ����Tree����<br>
+              　　<b>图的分类</b> 如果图G的所有边都是无向边，则称为无向图；如果所有边都是有向边则称为有向图；既包含有向边又包含无向边的图称为混和图。本节只研究有向图和无向图。图中所有结点之间都有边相连的图叫完全图。如果图G中任何两个结点u和v之间都有存在路径，则称为连通图（Connected 
+              Graph）。如果图G中不存在环，则称为森林（Forest）；连通的森林称为树（Tree）。<br>
               <br>
-              �����й�ͼ�ĸ�����Ϣ����μ��廪��ѧ���������ġ�ͼ��������ṹ������һ��ȱ�������</p>
+              　　有关图的更多信息，请参见清华大学出版社出版的《图论与代数结构》（戴一奇等编著）。</p>
             </td>
         </tr>
       </table>

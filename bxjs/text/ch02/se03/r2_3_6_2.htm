@@ -11,7 +11,7 @@ background-attachment: fixed;
 -->
 </STYLE>
 <title>Untitled Document</title>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
 <link rel="stylesheet" href="../../../css/style.css" type="text/css">
 </head>
 
@@ -25,10 +25,10 @@ background-attachment: fixed;
       <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0">
         <tr> 
           <td class="text" valign="top"> 
-            <p>����<b>Cacheһ���Բ���</b><br>
+            <p>　　<b>Cache一致性策略</b><br>
               <br>
-              ����ͨ��ʹ�����ֲ��������Cacheһ�������⣺д��Ч���Ժ�д���²��ԡ�д��Ч���ԣ�write invalidate����ָ��ĳ��������������˽��Cache�е�ĳ������ʱ����֪ͨ��������Cache��һ�����������еĸ����Ӵ˾���Ч�������Ϳ��Ա�������&quot;��ʱ&quot;�ĸ�����ʹ�ö���ɴ���д���²��ԣ�write 
-              update����ָ��ĳ��������������˽��Cache�е�ĳ������ʱ�����������µ����ݷ��͸����е�����Cache���Ը�����һ����������Cache�е����и�����һ����˵��ʹ��д���²��ԣ���Ҫ������º�����ݣ���д��Чֻ�贫��д��Ч��Ϣ�����д���´������������д��ЧҪ�󡣶��ң������µ����ݵ�ĳЩ�����Ժ�Ҳ��һ���ٱ�ʹ�á�������ͼ�У�P<sub>1</sub>����X��P<sub>2</sub>��һ����ʹ�ñ���X��ֵ�����ÿ�ζ������еĸ�����������û�б�Ҫ�ġ���ע�⣬д��Ч��д������ά��Cacheһ���ԵĲ��ԣ�����ά��Cache�����洢��һ���ԵĲ���û�б�Ȼ�Ĺ�ϵ��������ʹ��д��Ч���Ի���д���²��ԣ������洢���е����ݸ���������ͨ��дֱ���д�ز�����ά����Cache��һ���ԡ����磬�������д��Ч���Ժ�дֱ����ԣ���������P�޸�˽��Cache�е�ĳһ����ʱ������Ҫ��������������Cache������Ч��Ϣ������Ҫ�������洢���и����ݵĸ������¡����գ�������P��˽��Cache�͹����洢���е���������ͬ��������ȷ�ģ�������������Cache�и����ݵĸ��������Ϊ��Ч���������д��Ч���Ժ�д�ز��ԣ���������P�޸�˽��Cache�е�ĳһ����ʱ������Ҫ��������������Cache������Ч��Ϣ������Ҫ�����洢��������Ч��Ϣ�����գ�ֻ�д�����P��˽��Cache�е���������ȷ�ģ��������洢��������������Cache�и����ݵĸ����������Ϊ��Ч��</p>
+              　　通常使用两种策略来解决Cache一致性问题：写无效策略和写更新策略。写无效策略（write invalidate）是指当某个处理器更新其私有Cache中的某个数据时，它通知所有其它Cache这一数据在它们中的副本从此均无效。这样就可以避免其它&quot;过时&quot;的副本被使用而造成错误。写更新策略（write 
+              update）是指当某个处理器更新其私有Cache中的某个数据时，它把所更新的数据发送给所有的其它Cache，以更新这一数据在其它Cache中的所有副本。一般来说，使用写更新策略，需要传输更新后的数据，而写无效只需传输写无效信息，因此写更新传输的数据量比写无效要大。而且，被更新的数据的某些副本以后也不一定再被使用。例如上图中，P<sub>1</sub>更新X后，P<sub>2</sub>不一定再使用变量X的值。因此每次都对所有的副本都更新是没有必要的。请注意，写无效和写更新是维护Cache一致性的策略，它与维护Cache与主存储器一致性的策略没有必然的关系。无论是使用写无效策略还是写更新策略，共享存储器中的数据副本都可以通过写直达或写回策略来维护与Cache的一致性。例如，如果采用写无效策略和写直达策略，当处理器P修改私有Cache中的某一数据时，不但要向其它处理器的Cache发送无效信息，而且要将共享存储器中该数据的副本更新。最终，处理器P的私有Cache和共享存储器中的数据是相同而且是正确的，而其它处理器Cache中该数据的副本被标记为无效。如果采用写无效策略和写回策略，当处理器P修改私有Cache中的某一数据时，不但要向其它处理器的Cache发送无效信息，而且要向共享存储器发送无效信息。最终，只有处理器P的私有Cache中的数据是正确的，而共享存储器和其它处理器Cache中该数据的副本均被标记为无效。</p>
             </td>
         </tr>
       </table>

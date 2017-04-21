@@ -2,7 +2,7 @@
 <html>
 <head>
 <title>Untitled Document</title>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
 
 <link rel="stylesheet" href="../../../css/style.css" type="text/css">
 </head>
@@ -16,11 +16,11 @@
     <td valign="top">
       <table width="90%" border="0" align="center" cellpadding="0" cellspacing="0">
         <tr> 
-          <td class="text" valign="top">��<span class="part">3.2.3����������ķֽⷽ��</span><br>
+          <td class="text" valign="top">　<span class="part">3.2.3　搜索问题的分解方法</span><br>
             <br>
-            ����������������ӣ�һ����˾Ϊ10λ�߼�ֵ�Ŀͻ����ͻ��������ѡ�ģ�������Ҫ����߼�ֵ�ͻ��Ļ�������������ÿ�깺��Ĳ�Ʒ��ֵ����100��Ԫ���䷢10���������ڵ���������δӿͻ������У����пͻ������������ѡ��10λ����Ҫ��ĸ߼�ֵ�ͻ���һ�ֿ��еĽ���취�ǶԿͻ���������������У���ϴ����������Ȼ�����������ͷ10���߼�ֵ�ͻ����У������ǣ���ô�����������зֽ����ʹ�����Բ��н��У�<br>
+            　　考虑下面的例子：一个大公司为10位高价值的客户（客户是随机挑选的，不过需要满足高价值客户的基本条件，比如每年购买的产品价值超过100万元）颁发10个奖。现在的问题是如何从客户名单中（所有客户名单）随机挑选出10位满足要求的高价值客户。一种可行的解决办法是对客户名单进行随机排列（象洗牌那样），然后给出名单的头10个高价值客户就行，问题是，怎么对这个任务进行分解才能使它可以并行进行？<br>
             <br>
-            ����һ�ֿ��ܵİ취��ʹ�����ݻ��֣��ѿͻ������ֳ�10����ȴ�С�Ĳ��֣�Ȼ��ʹ�����������Ĵ����㷨����ÿ��С�����и�ѡ��һ���߼�ֵ�ͻ���������㷨��û��ʲô���⣿�������ĳЩС�����и���û�и߼�ֵ�ͻ���ô�죿��ʱû����ɼ�������һ���ֲ���ʩ�ǲ��ö�ÿ��С���������ҳ�����ࣩ10���߼�ֵ�ͻ�������ʮ���ģ����ҳ���������٣����������ٿ��Ա�֤�㷨����ܵõ�10���߼�ֵ�ͻ�����������������Ϊʲô��Ҫ��ô���������ȴ����㷨��ʲô�ô���<br>
+            　　一种可能的办法是使用数据划分，把客户名单分成10个相等大小的部分，然后使用上面描述的串行算法来在每个小名单中各选出一个高价值客户。（这个算法有没有什么问题？）但如果某些小名单中根本没有高价值客户怎么办？此时没法完成计算任务。一个弥补措施是采用对每个小名单，都找出（最多）10个高价值客户（不够十个的，能找出多少算多少），这样至少可以保证算法最后能得到10个高价值客户的名单。可是我们为什么需要这么做？这样比串行算法有什么好处？<br>
             <p></p>
             <br>
           </td>

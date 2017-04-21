@@ -11,7 +11,7 @@ background-attachment: fixed;
 -->
 </STYLE>
 <title>Untitled Document</title>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
 <link rel="stylesheet" href="../../../css/style.css" type="text/css">
 </head>
 
@@ -25,20 +25,20 @@ background-attachment: fixed;
       <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0">
         <tr> 
           <td class="text" valign="top"> 
-            <p>��<font color="#000000">��</font>����˷��ļ��㹫ʽ�ǣ�<br>
-              ����������������������<img src="../../../images/img_text/ch06/59.gif" width="197" height="45" align="absmiddle"><br>
-              ��������<img src="../../../images/img_text/ch06/60.gif" width="203" height="25" align="absmiddle">��<br>
+            <p>　<font color="#000000">　</font>矩阵乘法的计算公式是：<br>
+              　　　　　　　　　　　<img src="../../../images/img_text/ch06/59.gif" width="197" height="45" align="absmiddle"><br>
+              　　其中<img src="../../../images/img_text/ch06/60.gif" width="203" height="25" align="absmiddle">。<br>
               <br>
-              ����<font color="#000000">���ֱ�۵ľ���˷��Ĵ����㷨��ͼ6.3.10�����㷨ÿ�����������һ��Ԫ����Ҫn��ʱ�䣬n<sup>2</sup>��Ԫ������Ҫ����ʱ��Ϊn<sup>3</sup>��O(n<sup>3</sup>)���Ǿ���˷������ʱ�临�Ӷȣ�ͨ������������&quot;Fast 
-              Matrix Multiplication&quot;Ϊ�ؼ��ʿ��Բ��ҵ��ܶ����ڿ��پ���˷��������ҳ�����ġ������Ѿ�֤����������˵Ĵ����㷨���ӶȲ�����С��O(n<sup>2</sup>)���������Ŀ����㷨����Strassen����ģ��㷨�Ѿ�����˷ֽ�Ϊ�����Ӿ���˻��ĺͣ�Ȼ����εݹ�ֽ���ȥ��Ŀǰ��֪��͵�ʱ�临�Ӷ�ΪO(n<sup>2.376</sup>)����Coppersmith��Winograd��1990�������Ϊ�˼��������С�ڵĲ��л���Ȼ����ͼ6.3.10�������Ĵ�ͳ�㷨��</font><br>
-              ��<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="400" height="300"><param name="wmode" value="transparent">
+              　　<font color="#000000">最简单直观的矩阵乘法的串行算法见图6.3.10。此算法每计算结果矩阵的一个元素需要n的时间，n<sup>2</sup>个元素所需要的总时间为n<sup>3</sup>。O(n<sup>3</sup>)不是矩阵乘法的最低时间复杂度，通过搜索引擎以&quot;Fast 
+              Matrix Multiplication&quot;为关键词可以查找到很多由于快速矩阵乘法运算的网页和论文。现在已经证明，矩阵相乘的串行算法复杂度不可能小于O(n<sup>2</sup>)。最著名的快速算法是由Strassen提出的，算法把矩阵相乘分解为若干子矩阵乘积的和，然后逐次递归分解下去。目前已知最低的时间复杂度为O(n<sup>2.376</sup>)，由Coppersmith和Winograd在1990年提出。为了简单起见，本小节的并行化仍然基于图6.3.10所描述的传统算法。</font><br>
+              　<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="400" height="300"><param name="wmode" value="transparent">
                 <param name=movie value="../../../swf/S-6-3-10.swf">
                 <param name=quality value=high>
                 <embed src="../../../swf/S-6-3-10.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="400" height="300">
                 </embed> 
-              </object>����������<br>
-              ��������������������������������˵Ĵ����㷨</p>
-            <p>�����ڿ�ʼ���л�֮ǰ��������ֿ��������ĸ���ڽ��о������ʱ���������������ڰѾ������ת��Ϊ�Ծ���Ԫ�صĲ�������ʵ�����԰�һ���Ӿ���鿴��һ����Ԫ�أ��Ѿ������ת��Ϊ�Ծ���飨��Ԫ�أ��Ĳ���������б�Ҫ������黹���Խ�һ���ֽ�Ϊ��С�ľ���顣���ָ�������ֿ�������������һ��n��n�ľ�����Կ�����q��q������������ɣ�ÿ���������һ��(n/q)��(n/q)�ľ���<br>
+              </object>　　　　　<br>
+              　　　　　　　　　　　　　矩阵相乘的串行算法</p>
+            <p>　　在开始并行化之前，先引入分块矩阵操作的概念。在进行矩阵操作时，我们总是倾向于把矩阵操作转化为对矩阵元素的操作。其实，可以把一个子矩阵块看作一个超元素，把矩阵操作转化为对矩阵块（超元素）的操作；如果有必要，矩阵块还可以进一步分解为更小的矩阵块。这种概念叫做分块矩阵操作。比如一个n×n的矩阵可以看作由q×q个矩阵块所构成，每个矩阵块是一个(n/q)×(n/q)的矩阵。<br>
             </p>
           </td>
         </tr>

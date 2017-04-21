@@ -11,7 +11,7 @@ background-attachment: fixed;
 -->
 </STYLE>
 <title>Untitled Document</title>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
 <link rel="stylesheet" href="../../../css/style.css" type="text/css">
 </head>
 
@@ -25,15 +25,15 @@ background-attachment: fixed;
       <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0">
         <tr> 
           <td class="text" valign="top"> 
-            <p>��������Ľ������򱻻��ֳɴ��в��ֺͲ��в��֣����в��ֵ�ִ�к͵���������������ͬ�������벢�в���ʱ��ϵͳ�����һ�������飬������һ����Ŀ���̣߳����Ƚ�����̳߳�Ϊ��������鳤�����������еĲ�������ṹʱ���������̶߳�����ִ�о�̬��̬��������񣬲�������ṹ��ɺ��鳤����ִ�У����������̵߳ȴ�������һ����������ṹ���˳����в���ʱ�������鳤�����������̶߳��������������ͼ˵��������ģ�͡�<br>
+            <p>　　具体的讲，程序被划分成串行部分和并行部分，串行部分的执行和单处理器的情形相同，而进入并行部分时，系统会产生一个工作组，它包括一定数目的线程，最先进入的线程成为工作组的组长。遇到程序中的并行任务结构时，各工作线程独立的执行静态或动态分配的任务，并行任务结构完成后，组长继续执行，其它工作线程等待进入下一个并行任务结构，退出并行部分时，除了组长，其它工作线程都将结束。下面的图说明了这种模型。<br>
               <br>
-              ���������̶߳����ǽ���ͻ���ķ�ӳ��OpenMP���ص㣬��Ҳ��ʹOpenMP���ʺ���SMP��һ������ԭ�򣺼�ȻSMP�еĸ����������������ϱ������ǹ����洢���ģ�������ȫ���������߼���Ҳ�����ǹ����洢�����������Լ����������õ�ϵͳ������ͬʱ��ͳһ�ĵ�ַ�ռ�Ҳʹ����Ա�������ؿ���ͨ�ŵ����⡣<br>
-              ��������������<img src="../../../images/img_text/ch08/p8_2_1.gif" width="398" height="138"><br>
+              　　采用线程而不是进程突出的反映了OpenMP的特点，这也是使OpenMP更适合于SMP的一个根本原因：既然SMP中的各个处理器在物理上本来就是共享存储器的，我们完全有理由在逻辑上也让它们共享存储器，这样可以减少许多无用的系统开销，同时，统一的地址空间也使程序员根本不必考虑通信的问题。<br>
+              　　　　　　　<img src="../../../images/img_text/ch08/p8_2_1.gif" width="398" height="138"><br>
               <br>
-              ����OpenMPҲ֧��Ƕ�׵Ĳ���ִ��ģ�͡��򵥵Ľ��������ڹ������ڲ������ٲ������ɸ��ӹ����飬��ͼ����ʾ�����ֹ�����ʽ��ѭ���ڸ��ر仯������Ǻ���Ч�ġ�<br>
-              ����<img src="../../../images/img_text/ch08/p8_2_2.gif" width="446" height="173"><br>
+              　　OpenMP也支持嵌套的并行执行模型。简单的讲，就是在工作组内部可以再产生若干个子工作组，如图三所示。这种工作方式对循环内负载变化的情况是很有效的。<br>
+              　　<img src="../../../images/img_text/ch08/p8_2_2.gif" width="446" height="173"><br>
               <br>
-              ����������������������ͼ�� OpenMP��Ƕ�ײ���ģ��<br>
+              　　　　　　　　　　　图三 OpenMP的嵌套并行模型<br>
             </p>
             </td>
         </tr>

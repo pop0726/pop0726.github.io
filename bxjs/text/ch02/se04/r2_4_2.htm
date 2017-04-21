@@ -11,7 +11,7 @@ background-attachment: fixed;
 -->
 </STYLE>
 <title>Untitled Document</title>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
 <link rel="stylesheet" href="../../../css/style.css" type="text/css">
 </head>
 
@@ -25,26 +25,26 @@ background-attachment: fixed;
       <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0">
         <tr> 
           <td class="text" valign="top"> 
-            <p>������ǰ���е�MPP��ʹ�������Ϸֲ��Ĵ洢����MPPʹ��ר���������ĸ��ٻ������硣ÿ���������һ�����������������ٻ��桢һ�����ش洢�����е�MPPϵͳ����ڻ��д��̡�������ñ��ػ������罫����������������������MPP�У������ͨ��ʹ�����߽ṹ��Ŀǰ��MPP��ʹ�ý��濪�ء�<br>
+            <p>　　当前所有的MPP都使用物理上分布的存储器。MPP使用专门设计制造的高速互连网络。每个结点内有一个或多个处理器、高速缓存、一个本地存储器，有的MPP系统结点内还有磁盘。结点内用本地互连网络将各部件连接起来。在早期MPP中，结点内通常使用总线结构，目前的MPP多使用交叉开关。<br>
               <br>
-              �����Ӵ洢ϵͳ�ĽǶȣ�MPPϵͳ������NORMA�ṹ�������ֽṹ�У����еĴ洢�����������Ƿֲ��ģ����Ҷ���˽�еġ�ÿ����������ֱ�ӷ��ʵ�ֻ�б��ش洢����������ֱ�ӷ��������������Ĵ洢���������ɶ��������ɣ�ÿ��������˽�пռ���̼䣬������Ϣ�����໥ͨ�š��ֲ��洢���ŵ���ϵͳ�Ŀ���չ�Ժã�������Ϣ���ݷ�ʽʹ�ñ�����ѣ��ɱ���Բ��á� 
+              　　从存储系统的角度，MPP系统大多采用NORMA结构。在这种结构中，所有的存储器在物理上是分布的，而且都是私有的。每个处理器能直接访问的只有本地存储器，而不能直接访问其它处理器的存储器。程序由多个进程组成，每个都有其私有空间进程间，采用消息传递相互通信。分布存储的优点是系统的可扩展性好，但是消息传递方式使得编程困难，可编程性不好。 
               <br>
               <br>
-              ��������MPP��Ŀ����ͨ��������Ӳ���õ������ܡ�����MPP�����е�һ����Ҫ�����ǣ�ϵͳ�������Ƿ����Ŵ��������������ƣ����Ե�������Ϊ�˴ﵽ��һĿ�꣬MPP������һϵ�еļ��������÷ֲ��Ĵ洢��������Ϊ�ֲ�ʽ����ϵ�ṹ�ȼ���ʽ�����ṩ���ߵĴ������ڴ�������Ŀ�ܶ������£�ͨ�ſ�����Ӱ��ϵͳ���ٱȵ���Ҫ���ء����MPPʹ��ר����Ƶĸߴ��������ӳٻ������硣MPP�����д����Ĵ�������Ӳ������ʹ��ϵͳ�������ϵĸ��ʴ����ߡ��ݹ��ƣ�һ̨��1000����������MPP��ÿ��������һ��������ʧЧ�����MPP����ʹ�ø߿����Լ�����ʹ��ʧЧ�Ĳ������µ�������ϵͳ�ı�����ͬʱ��ʧЧ�Ĵ�������ʧЧǰ��ɵ������ܹ����Ա����Ա���������ܹ��������д�����<br>
+              　　开发MPP的目的是通过大量的硬件得到高性能。所以MPP开发中的一个重要问题是：系统的性能是否随着处理器数量（近似）线性地增长。为了达到这一目标，MPP采用了一系列的技术。采用分布的存储器就是因为分布式的体系结构比集中式的能提供更高的带宽。在处理器数目很多的情况下，通信开销是影响系统加速比的重要因素。因此MPP使用专门设计的高带宽、低延迟互连网络。MPP包含有大量的处理器等硬件，这使得系统发生故障的概率大大提高。据估计，一台有1000个处理器的MPP，每天至少有一个处理器失效。因此MPP必须使用高可用性技术，使得失效的部件不致导致整个系统的崩溃。同时，失效的处理器在失效前完成的任务能够得以保存以便其它结点能够继续进行处理。<br>
               <br>
-              ����MPPϵͳ��Ҫ���ǵ���һ��������ϵͳ�ĳɱ�����ΪMPPҪʹ�ô�����Ӳ�������Ҫ��������ÿһ�����ĳɱ���ĿǰMPP���ͳɱ��Ĵ�ʩ�У�ʹ����Ʒ΢��������Shell�ṹ��ʹ�������Ϸֲ��Ĵ洢����ʹ��SMP��㣬���ͽ���ڲ���������Ĺ�ģ��ʹ�÷ֲ��洢����ͬ����ģ�ļ��д洢��Ҫ���ˡ�ʹ������΢�������ж෽��ĺô���һ�ǳɱ��ȶ��������ͣ������������ٶȿ죬�����ɱ�Ҳ�͡�Ŀǰ����MPPϵͳ������Shell�ṹ��Shell��һ���û���ƵĽӿڵ�·��΢������ͨ��Shell�����ڵ���������������������������ʱ��ֻ�������������Shell��·����ϵͳ�ͽ���ڵ��������ֲ��øı䡣��ʹ�󷽱���ϵͳ��������ͬʱ�����ɱ�Ҳ�ܵ͡���Ʒ΢�����������ܿ죬����Shell�ṹ��MPP������֮������<br>
+              　　MPP系统需要考虑的另一个问题是系统的成本。因为MPP要使用大量的硬件，因此要尽量降低每一部件的成本。目前MPP降低成本的措施有：使用商品微处理器及Shell结构；使用物理上分布的存储器；使用SMP结点，降低结点内部互连网络的规模。使用分布存储器比同样规模的集中存储器要便宜。使用商用微处理器有多方面的好处。一是成本比独立开发低，二是其升级速度快，升级成本也低。目前许多MPP系统都采用Shell结构。Shell是一个用户设计的接口电路。微处理器通过Shell与结点内的其它部分相连。当处理器升级时，只需更换处理器和Shell电路，而系统和结点内的其它部分不用改变。这就大大方便了系统的升级，同时升级成本也很低。商品微处理器升级很快，采用Shell结构后，MPP可以随之升级。<br>
               <br>
-              ����Ŀǰ��MPP����ͨ�õ�ϵͳ����֧�ֲ�ͬ��Ӧ�ã���ͬ���㷨����֧���첽MIMDģʽ��֧�����еı�׼���ģʽ��PVM��MPI����<br>
+              　　目前的MPP都是通用的系统，能支持不同的应用，不同的算法；都支持异步MIMD模式，支持流行的标准编程模式（PVM、MPI）。<br>
               <br>
-              ������֮����������������MPP����������ϵͳ����Ҫ�ص㡣MPP�޴�ļ���������Դ�ڴ����Ĵ�������������������ͼ�������Ҳ����йأ�����ͨ�����ѣ��ɱ��ߵȡ�MPP�ɴﵽ�ܸߵķ�ֵ�ٶȣ�������ͨ�š��㷨��ԭ�򣬳����ٶ�ͨ��ֻ�з�ֵ�ٶȵ�3��10%��MPP������ϣ���ﵽ3T����Ŀ��ͽ���ش���ս�������ϵͳ�������������߳����ٶ�����һ�����⡣<br>
+              　　总之，处理器数量大是MPP区别于其它系统的主要特点。MPP巨大的计算能力来源于大量的处理器，它的许多问题和技术困难也与此有关，例如通信困难，成本高等。MPP可达到很高的峰值速度，但由于通信、算法等原因，持续速度通常只有峰值速度的3－10%。MPP是最有希望达到3T性能目标和解决重大挑战性问题的系统，但是如何能提高持续速度仍是一个问题。<br>
               <br>
-              ����������MPPϵͳ������Thinking Machine��CM2/CM5��NASA/Goodyear��MPP��nCUBE��Cray 
-              T3D��Intel Paragon��MasPar MP1�ȣ�������ASCI�ƻ��е�MPPϵͳ��Intel��˾��Sandia����ʵ�����������Ƶ�Option 
-              Red��IBM��˾��Lawrence Livermore����ʵ�����������Ƶ�Blue Pacific��SGI��˾��Los Alamos����ʵ�����������Ƶ�Blue 
-              Mountain��Blue Mountain��1998��12����ɡ�����48�������ɣ�����6144����������ÿ�������һ����128����������Origin 
-              2000ϵͳ��Origin 2000��CC-NUMAϵͳ����������4�׵�HiPPI-800�����������ӡ�Option Red��Intel����չϵͳ��˾��Sandia����ʵ������1997��6����ɵ�MPPϵͳ��ϵͳ�ܹ���4608����㣬��ֵ�ٶȴ�1.8Tflops��ÿ����㺬����200MHz��Pentium 
-              Pro�����������н������4536���Ǽ����㣬�������Ƿ����㡢I/O��㡢ϵͳ���ͱ��ݽ�㡣����ڲ�ʹ��64λ��66MHz�������ӡ�������ͷ�����ṹ��ͬ��ÿ������㴦��һ������ϣ�I/O��ϵͳ���ÿһ����㴦��һ������ϡ�ÿ�����������һ�����Ƶ�����·�ɲ�����Mesh 
-              Routing Component, MRC����MRC֮��ͨ����ƽ�棨two-plane������ṹ�Ļ����������ӡ�<br>
+              　　著名的MPP系统早期有Thinking Machine的CM2/CM5，NASA/Goodyear的MPP，nCUBE，Cray 
+              T3D，Intel Paragon，MasPar MP1等；当今有ASCI计划中的MPP系统：Intel公司与Sandia国家实验室联合研制的Option 
+              Red；IBM公司与Lawrence Livermore国家实验室联合研制的Blue Pacific和SGI公司与Los Alamos国家实验室联合研制的Blue 
+              Mountain。Blue Mountain于1998年12月完成。它由48个结点组成，共有6144个处理器。每个结点是一个有128个处理器的Origin 
+              2000系统（Origin 2000是CC-NUMA系统）。结点间用4兆的HiPPI-800交换开关连接。Option Red是Intel可扩展系统公司和Sandia国家实验室于1997年6月完成的MPP系统。系统总共有4608个结点，峰值速度达1.8Tflops。每个结点含两个200MHz的Pentium 
+              Pro处理器。所有结点中有4536个是计算结点，其它的是服务结点、I/O结点、系统结点和备份结点。结点内部使用64位、66MHz总线连接。计算结点和服务结点结构相同，每两个结点处于一块结点板上，I/O和系统结点每一个结点处于一块结点板上。每块结点板连接至一个定制的网格路由部件（Mesh 
+              Routing Component, MRC），MRC之间通过两平面（two-plane）网格结构的互连网络连接。<br>
             </p>
             </td>
         </tr>

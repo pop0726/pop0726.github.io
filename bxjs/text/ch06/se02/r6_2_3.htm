@@ -11,7 +11,7 @@ background-attachment: fixed;
 -->
 </STYLE>
 <title>Untitled Document</title>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
 <link rel="stylesheet" href="../../../css/style.css" type="text/css">
 </head>
 
@@ -25,11 +25,11 @@ background-attachment: fixed;
       <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0">
         <tr> 
           <td class="text" valign="top"> 
-            <p>������������Quicksort����������õĴ����ڲ������㷨�������������µĸ��Ӷ�Ϊ<img src="../../../images/img_text/ch06/11.gif" width="38" height="21" align="absmiddle">������ƽ�����Ӷ���<img src="../../../images/img_text/ch06/26.gif" width="59" height="18" align="absmiddle">�����ÿ������򷽷���һ��������н�����������Ҫ���еıȽϴ�����ԼΪ<img src="../../../images/img_text/ch06/27.gif" width="55" height="18" align="absmiddle">�������������򷽷���ƽ���Ƚϴ�����<br>
+            <p>　　快速排序（Quicksort）几乎是最常用的串行内部排序算法，尽管其最坏情况下的复杂度为<img src="../../../images/img_text/ch06/11.gif" width="38" height="21" align="absmiddle">，但其平均复杂度是<img src="../../../images/img_text/ch06/26.gif" width="59" height="18" align="absmiddle">。利用快速排序方法对一个随机序列进行排序所需要进行的比较次数大约为<img src="../../../images/img_text/ch06/27.gif" width="55" height="18" align="absmiddle">，少于其它排序方法的平均比较次数。<br>
               <br>
-              ����<font color="#000000">����������һ�ַ��η�����������һ����Ѵ��������зֳ����������У�����һ���������е�����Ԫ�ؾ�С�ڽ磬����һ��������������Ԫ�ص�ֵ�����ڻ���ڽ硣Ȼ���ÿ�������в���ͬ���ķ��������������������ֵ��ע����ǣ�һ�����и��ݽ�ֳɵ����������еĳ��Ȳ�һ����ȣ���˶Բ�ͬ�ĳ�ʼ���������ʱ�临�Ӷ�Ҳ��ͬ���ֳɵ����������еĳ���Խ�ӽ����㷨�ĸ��Ӷ�Խ�͡������������ϸ����ɲ����й��鼮��</font><br>
+              　　<font color="#000000">快速排序是一种分治方法，它根据一个界把待排序序列分成两个子序列，其中一个子序列中的所有元素均小于界，而另一个子序列中所有元素的值均大于或等于界。然后对每个子序列采用同样的方法处理，最终完成排序。值得注意的是，一个序列根据界分成的两个子序列的长度不一定相等，因此对不同的初始序列排序的时间复杂度也不同。分成的两个子序列的长度越接近，算法的复杂度越低。快速排序的详细情况可参阅有关书籍。</font><br>
               <br>
-              ���������о�����ڶ���������ϲ���ʵ�ֿ�������<br>
+              　　下面研究如何在多个处理器上并行实现快速排序。<br>
               <br>
             </p>
             </td>

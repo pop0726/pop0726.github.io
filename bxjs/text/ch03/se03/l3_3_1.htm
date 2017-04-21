@@ -2,7 +2,7 @@
 <html>
 <head>
 <title>Untitled Document</title>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
 
 <link rel="stylesheet" href="../../../css/style.css" type="text/css">
 </head>
@@ -16,23 +16,23 @@
     <td valign="top">
       <table width="90%" border="0" align="center" cellpadding="0" cellspacing="0">
         <tr> 
-          <td class="text" valign="top">��<span class="part">3.3.1����̬����<br>
+          <td class="text" valign="top">　<span class="part">3.3.1　静态分配<br>
             <br>
-            ����</span>һ�����г����д��ڵĲ����Ժ�������֮���������ϵ������ȫ��������г��������ͼ����ʾ���������ͼ�Ǿ�̬�ģ���������ļ����ģ����ȷ������ô���п���Ϊ������г����ҵ�һ�����ŵ����������ԣ�ʹ�ø��ز�ƽ�����ͣ����Ҵ�����֮��Ľ������١�����������ͼ������ļ����ģ���õ�����һ�����ŵ����������ԣ�������Ȿ����һ��NP��ȫ���⣨<font color="#CC6633">˼����Ϊʲô��</font>�����ڴ��������£�����ֻ�ܵõ��Ϻõķ�����ԡ�Ϊ�˼����ۣ����Ǽ�������ͼ�е�������û���໥������ϵ��Ҳ����˵�����е���������Բ��е�ִ�У��ں���������У����Ƕ������Ĳ�������������ͼ��<br>
+            　　</span>一个并行程序中存在的并行性和子任务之间的依赖关系可以完全由这个并行程序的任务图来表示。如果任务图是静态的，并且任务的计算规模可以确定，那么就有可能为这个并行程序找到一种最优的任务分配策略，使得负载不平衡度最低，并且处理器之间的交互最少。但根据任务图和任务的计算规模来得到这样一个最优的任务分配策略，这个问题本身是一个NP完全问题（<font color="#CC6633">思考，为什么？</font>），在大多数情况下，我们只能得到较好的分配策略。为了简化讨论，我们假设任务图中的任务本身没有相互依赖关系，也就是说，所有的子任务可以并行的执行，在后面的讨论中，我们都隐含的采用这样的任务图。<br>
             <br>
-            ����������������ͼ��Ϊ���ҵ�һ�ֺ����ķ�����Եĸ��Ӷ�ȡ������Щ�������Ƿ���⡣���һ�������е�����������Ҫ��ͬ�ļ���ʱ�䣬��ô���ǳ���������Ǿ���ġ��������������ļ���ʱ����ܴ���ô����������ǲ�����ġ����磬�ھ���˷��У��������������ݻ��֣���ô�õ��������Ǿ���ģ�������һ��ϡ�����������ĳ˷����������������ݻ��֣���ô�õ��������п����ǲ�����ġ�ͨ��������������ϵľ�̬���ؾ������Ҫ�ȷǾ��������ϵľ�̬���ؾ�����Լ򵥵Ķࡣ<br>
+            　　对这样的任务图，为它找到一种合理的分配策略的复杂度取决于这些子任务是否均衡。如果一个任务集中的所有任务都需要相同的计算时间，那么我们称这个任务集是均衡的。否则如果各任务的计算时间差别很大，那么称这个任务集是不均衡的。比如，在矩阵乘法中，如果采用输出数据划分，那么得到的任务集是均衡的；而对于一个稀疏矩阵和向量的乘法，如果按照输出数据划分，那么得到的任务集有可能是不均衡的。通常，均衡的任务集上的静态负载均衡策略要比非均衡任务集上的静态负载均衡策略简单的多。<br>
             <br>
-            �������ھ�������񼯣�ֻҪ��ÿ��������������ͬ��Ŀ�������񣬾Ϳ���ʹ���ز�������С�����ڸ�һ��ķǾ�������񼯣�����ʹ����֪�Ĵ���㷨��bin-packing����Ϊ������������������С�����ز�����ȡ���Ҫע����Ǵ���㷨����Ҳ��һ��NP��ȫ���⣬�����кܺõ�����ʽ�㷨���ر�������Դ�������Ŀ�㹻��������п��ܵõ��ܺõĽ⡣<br>
+            　　对于均衡的任务集，只要给每个处理器分配相同数目的子任务，就可以使负载不均衡最小。对于更一般的非均衡的任务集，可以使用熟知的打包算法（bin-packing）来为处理器分配任务，以最小化负载不均衡度。需要注意的是打包算法本身也是一个NP完全问题，但它有很好的启发式算法，特别当任务集相对处理器数目足够的情况下有可能得到很好的解。<br>
             <br>
-            ������ʹ�ǵ�����֮��û���໥������ϵ������£����������Ȼ��Ҫ���ʹ������ݣ��������������ʱҪ�����İ���ص�������Щ������ͬ���ݵ����񣩷��䵽ͬһ���������ϣ�������������������Ҫ���ܵĿռ���ܽ��͡�<br>
+            　　即使是当任务之间没有相互依赖关系的情况下，任务可能仍然需要访问公共数据，所以在任务分配时要尽量的把相关的任务（那些访问相同数据的任务）分配到同一个处理器上，这样，共享数据所需要的总的空间才能降低。<br>
             <br>
-            �������������ݷֽ�ķ���������������ʱ��ǡ���ķֽⱾ��Ҳ��������ƽ�⸺�ز���С����������Ľ�����������ܳ��õ��������ݽṹ�ϵ����ݷֽ���ԣ������ͼ�� 
+            　　当采用数据分解的方法来开发并行性时，恰当的分解本身也可以用来平衡负载并最小化处理器间的交互。下面介绍常用的两类数据结构上的数据分解策略：数组和图。 
             <br>
-            ����<a href="r3_3_1_1.htm" target="right">����ֲ�����</a><br>
-            ��������<a href="r3_3_1_1.htm" target="right">��ֲ�</a><span class="part"><br>
-            ��������</span><a href="r3_3_1_2.htm" target="right">����ת�ֲ�</a><span class="part"><br>
+            　　<a href="r3_3_1_1.htm" target="right">数组分步策略</a><br>
+            　　　　<a href="r3_3_1_1.htm" target="right">块分布</a><span class="part"><br>
+            　　　　</span><a href="r3_3_1_2.htm" target="right">块轮转分布</a><span class="part"><br>
             <br>
-            ����</span><a href="r3_3_1_3.htm" target="right">ͼ�ķָ����</a><br>
+            　　</span><a href="r3_3_1_3.htm" target="right">图的分割策略</a><br>
             <br>
             <span class="part"> </span></td>
         </tr>

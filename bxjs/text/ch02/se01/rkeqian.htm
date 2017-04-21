@@ -11,7 +11,7 @@ background-attachment: fixed;
 -->
 </STYLE>
 <title>Untitled Document</title>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
 <link rel="stylesheet" href="../../../css/style.css" type="text/css">
 </head>
 
@@ -25,39 +25,39 @@ background-attachment: fixed;
       <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0">
         <tr> 
           <td class="text"> 
-            <p>����<span class="section">����ǰ˼����<a name="01"></a></span><br>
-              ����ʵ�������еĲ��в������������еģ�Ϊ��ʵ�ֲ��д��������м����Ӧ�����ļ�������ɣ���ṹӦ�������ģ����м����и�����������ͨ�ţ��������ʴ洢�������д����л�������Щ���д����в������������⣿<br>
+            <p>　　<span class="section">〖课前思考〗<a name="01"></a></span><br>
+              　　实际生活中的并行操作是怎样进行的？为了实现并行处理，并行计算机应该由哪几部分组成？其结构应是怎样的？并行计算中各处理器怎样通信？怎样访问存储器？并行处理中会遇到哪些串行处理中不曾遇到的问题？<br>
               <br>
-              ����<span class="section">��ѧϰĿ�꡽<a name="02"></a></span><br>
-              �������½����ܲ��м������ϵͳ�ṹģ�ͣ��ô�ģ�ͣ��������硣���м������ϵͳ�ṹģ�Ͱ���PVP��SMP��MPP��DSM��COW���ô�ģ�Ͱ���UMAģ�ͣ�NUMAģ�ͣ�COMAģ�ͣ�CC-NUMAģ�ͺ�NORMAģ�͡���Щģ�������Ⲣ�м��������ԭ���Ļ��������Ӧ����֪��<br>
+              　　<span class="section">〖学习目标〗<a name="02"></a></span><br>
+              　　本章将介绍并行计算机的系统结构模型，访存模型，互连网络。并行计算机的系统结构模型包括PVP，SMP，MPP，DSM，COW。访存模型包括UMA模型，NUMA模型，COMA模型，CC-NUMA模型和NORMA模型。这些模型是理解并行计算机工作原理的基础，因此应该熟知。<br>
               <br>
-              �������������ڲ��д��������λʮ����Ҫ������Ӱ�첢�м�������ܵ���Ҫ���ء����½����ܻ�������Ļ���֪ʶ�����羲̬����Ͷ�̬���磬�����������ܵ�ָ���Լ�ͨ�Ż��ơ�<br>
+              　　互连网络在并行处理领域地位十分重要。它是影响并行计算机性能的重要因素。本章将介绍互连网络的基本知识，比如静态网络和动态网络，衡量网络性能的指标以及通信机制。<br>
               <br>
-              �������µ����ݶ�Ϊ���м�����Ļ���֪ʶ��ͨ��ѧϰ�������������ո���������Ļ����ϣ��Բ��м�������乤����ʽ��һ��ȫ����˽⡣<br>
+              　　本章的内容多为并行计算机的基础知识。通过学习，力求能在掌握各基本概念的基础上，对并行计算机及其工作方式有一个全面的了解。<br>
               <br>
-              ����<span class="section">��ѧϰָ�ϡ�<a name="03"></a></span><br>
-              �������»�������Ƚ϶࣬���ڸ�������⡣��ѧϰ���м����ϵͳģ�ͺͷô�ģ��ʱҪע���ģ������������ģ�͵��ص㡣<br>
+              　　<span class="section">〖学习指南〗<a name="03"></a></span><br>
+              　　本章基本概念比较多，重在概念的理解。在学习并行计算机系统模型和访存模型时要注意各模型区别于其它模型的特点。<br>
               <br>
-              ����<span class="section">�����ص㡽<a name="04"></a></span><br>
-              �������м����ϵͳ�ṹģ��SMP��MPP��COW<br>
-              �������м�����ô�ģ��UMA��NUMA��NORMA<br>
-              ������������Ļ�������<br>
-              ����Ѱ����ʽ<br>
+              　　<span class="section">〖难重点〗<a name="04"></a></span><br>
+              　　并行计算机系统结构模型SMP，MPP，COW<br>
+              　　并行计算机访存模型UMA，NUMA，NORMA<br>
+              　　互连网络的基本概念<br>
+              　　寻径方式<br>
               <br>
-              ����<span class="section">��֪ʶ�㡽<a name="05"></a></span><br>
-              ������ SISD��SIMD��MIMD<br>
-              ������ ���м����ϵͳ�ṹģ��SMP��MPP��COW<br>
-              ������ ���м�����ô�ģ��<br>
-              ������ ��������<br>
-              ������ ����Ĳ���<br>
-              ������ ��̬���磨���������˽ṹ��������<br>
-              ������ ��̬���磨���ߡ����濪�ء��༶�������磩<br>
-              ������ �洢ת������ʴѰ��<br>
-              ������ ά��Ѱ��<br>
-              ������ Cacheһ����<br>
-              ������ ��������Э��<br>
-              ������ ����Ŀ¼��Э��<br>
-              ������ SMP��MPP��COW���ص�<br>
+              　　<span class="section">〖知识点〗<a name="05"></a></span><br>
+              　　● SISD，SIMD，MIMD<br>
+              　　● 并行计算机系统结构模型SMP，MPP，COW<br>
+              　　● 并行计算机访存模型<br>
+              　　● 互连函数<br>
+              　　● 网络的参数<br>
+              　　● 静态网络（及各种拓扑结构、参数）<br>
+              　　● 动态网络（总线、交叉开关、多级互连网络）<br>
+              　　● 存储转发，虫蚀寻径<br>
+              　　● 维序寻径<br>
+              　　● Cache一致性<br>
+              　　● 监听总线协议<br>
+              　　● 基于目录的协议<br>
+              　　● SMP，MPP，COW的特点<br>
             </p>
           </td>
         </tr>

@@ -11,7 +11,7 @@ background-attachment: fixed;
 -->
 </STYLE>
 <title>Untitled Document</title>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
 <link rel="stylesheet" href="../../../css/style.css" type="text/css">
 </head>
 
@@ -25,23 +25,23 @@ background-attachment: fixed;
       <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0">
         <tr> 
           <td class="text" valign="top"> 
-            <p>��<b>��ȫ��ͨ�ţ�Global Communication��</b><br>
+            <p>　<b>　全局通信（Global Communication）</b><br>
               <br>
-              ������ȫ��ͨ���У��кܶ�������뽻�����ݡ��������ɹ����ͨ�ţ��Ӷ������˲���ִ�еĻ��ᡣ<br>
+              　　在全局通信中，有很多任务参与交换数据。这可能造成过多的通信，从而限制了并行执行的机会。<br>
               <br>
-              ����<font color="#000000">��������ϣ������<img src="../../../images/img_text/ch03/20.gif" width="63" height="45" align="absmiddle">��Ϊ�ˣ�����ʹ��һ��������S����Ӹ�����һ�ν���һ��ֵ��x<sub>i</sub>���������ۼӡ���ʱ�ͻ����ȫ��ͨ�ŵľ��档<br>
-              ����<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="400" height="200"><param name="wmode" value="transparent">
+              　　<font color="#000000">例如我们希望计算<img src="../../../images/img_text/ch03/20.gif" width="63" height="45" align="absmiddle">。为此，我们使用一个根进程S负责从各进程一次接收一个值（x<sub>i</sub>）并进行累加。这时就会出现全局通信的局面。<br>
+              　　<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="400" height="200"><param name="wmode" value="transparent">
                 <param name=movie value="../../../swf/S-3-7-7.swf">
                 <param name=quality value=high>
                 <embed src="../../../swf/S-3-7-7.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="400" height="200">
                 </embed> 
               </object><br>
               <br>
-              �������÷��β��Կ��Կ�����͵Ĳ����ԣ�<br>
-              ����������������<img src="../../../images/img_text/ch03/21.gif" width="168" height="59"><br>
+              　　采用分治策略可以开拓求和的并行性：<br>
+              　　　　　　　　<img src="../../../images/img_text/ch03/21.gif" width="168" height="59"><br>
               <br>
-              ������ʽ�ұߵ�������Ϳ���ͬʱִ�У�����ÿһ���Կɰ�ͬ���ķ�ʽ��һ���ֽ⡣��͵Ĺ�������ͼ��ʾ��ͬһ���ϵ���Ϳ��Բ���ִ�С������Ϳ��Ա���ȫ��ͨ�ţ�������㷨�Ĳ��жȡ�ͼ��<img src="../../../images/img_text/ch03/22.gif" width="43" height="37" align="absmiddle">��ʾ������X��������Y���������ݵĺ͡�</font><br>
-              ������<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="400" height="300"><param name="wmode" value="transparent">
+              　　上式右边的两个求和可以同时执行，并且每一个仍可按同样的方式进一步分解。求和的过程如下图所示，同一级上的求和可以并行执行。这样就可以避免全局通信，并提高算法的并行度。图中<img src="../../../images/img_text/ch03/22.gif" width="43" height="37" align="absmiddle">表示处理器X至处理器Y上所有数据的和。</font><br>
+              　　　<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="400" height="300"><param name="wmode" value="transparent">
                 <param name=movie value="../../../swf/P-3-8-4.swf">
                 <param name=quality value=high>
                 <embed src="../../../swf/P-3-8-4.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="400" height="300">

@@ -11,7 +11,7 @@ background-attachment: fixed;
 -->
 </STYLE>
 <title>Untitled Document</title>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
 <link rel="stylesheet" href="../../../css/style.css" type="text/css">
 </head>
 
@@ -25,14 +25,14 @@ background-attachment: fixed;
       <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0">
         <tr> 
           <td class="text" valign="top"> 
-            <p>����<b>���ڲ��г���ģ�͵�ѡ��</b><br>
+            <p>　　<b>关于并行程序模型的选择</b><br>
               <br>
-              �����ڸ���һ����ϵ�ṹ��ʱ��������ô�������õ�ʲô���Ĳ��г���ģ�ͣ�����ı�������Ŀǰ���õ�һЩ���г���ģ�ͣ�<br>
+              　　在给定一种体系结构的时候，我们怎么决定采用的什么样的并行程序模型？下面的表给出了目前常用的一些并行程序模型：<br>
             </p>
             <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#000000">
               <tr bgcolor="#CCCCCC"> 
                 <td colspan="3" class="text"> 
-                  <div align="center"><b>���г���Ա��ѡ��</b></div>
+                  <div align="center"><b>并行程序员的选择</b></div>
                 </td>
               </tr>
               <tr bgcolor="#CCCCCC"> 
@@ -40,15 +40,15 @@ background-attachment: fixed;
                   <div align="center"><b></b></div>
                 </td>
                 <td width="15%" class="text"> 
-                  <div align="center"><b>���Ʋ���</b></div>
+                  <div align="center"><b>控制并行</b></div>
                 </td>
                 <td width="30%" class="text"> 
-                  <div align="center"><b>���ݲ���</b></div>
+                  <div align="center"><b>数据并行</b></div>
                 </td>
               </tr>
               <tr bgcolor="#FFFFFF"> 
                 <td width="15%" class="text"> 
-                  <div align="center">�����洢</div>
+                  <div align="center">共享存储</div>
                 </td>
                 <td width="15%" class="text"> 
                   <div align="center">MPI, Pthreads, OpenMP,</div>
@@ -70,7 +70,7 @@ background-attachment: fixed;
               </tr>
               <tr bgcolor="#FFFFFF"> 
                 <td width="15%" class="text"> 
-                  <div align="center">�ֲ��洢�ദ����ϵͳ</div>
+                  <div align="center">分布存储多处理器系统</div>
                 </td>
                 <td width="15%" class="text"> 
                   <div align="center">MPI,</div>
@@ -92,7 +92,7 @@ background-attachment: fixed;
               </tr>
             </table>
             <br>
-            ����<font color="#000000">�ںܶ�ļ����ϵͳ�У���ͬʱ�ṩ��OpenMP��MPI������DEC��8400��Ⱥ�������SGI��Origin2000��������ģ�ͶԲ�ͬ��Ӧ�������Ǹ��Ե����ơ�MPI�����ڷֲ�ʽ�洢��ϵͳ����OpenMP���Ա������ڹ����洢ϵͳ����Ϊһ��ѭ�������б������Ĺ������ԡ�ʵ���ϣ�OpenMP�Ǹ��Ͳ��POSIX�̣߳�Pthreads�����һ��Ӧ�ó���ӿڣ�API����</font></td>
+            　　<font color="#000000">在很多的计算机系统中，都同时提供了OpenMP和MPI，比如DEC的8400集群计算机和SGI的Origin2000，这两种模型对不同的应用有它们各自的优势。MPI被用于分布式存储的系统，而OpenMP可以被用来在共享存储系统上作为一种循环级并行编译器的工作语言。实质上，OpenMP是更低层的POSIX线程（Pthreads）库的一个应用程序接口（API）。</font></td>
         </tr>
       </table>
       <br>

@@ -11,7 +11,7 @@ background-attachment: fixed;
 -->
 </STYLE>
 <title>Untitled Document</title>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
 <link rel="stylesheet" href="../../../css/style.css" type="text/css">
 </head>
 
@@ -25,69 +25,69 @@ background-attachment: fixed;
       <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0">
         <tr> 
           <td class="text" valign="top"> 
-            <p>¡¡¡¡<b>Ö±¹ÛÓ¡Ïó--¼òµ¥µÄMPI³ÌĞòÊµÀı</b></p>
-            <p>¡¡¡¡<b>Ò»¸ö¼òµ¥µÄMPI³ÌĞòµÄÀı×Ó(FORTRAN)</b></p>
-            <p>¡¡¡¡£¡simple.f<br>
-              ¡¡¡¡program main<br>
-              ¡¡¡¡include 'mpif.h'<br>
-              ¡¡¡¡character*(MPI_MAX_PROCESSOR_NAME) processor_name<br>
-              ¡¡¡¡integer myid, numprocs, namelen, rc, ierr</p>
-            <p>¡¡¡¡! MPI initialization phase<br>
-              ¡¡¡¡call MPI_INIT( ierr )<br>
-              ¡¡¡¡call MPI_COMM_RANK( MPI_COMM_WORLD, myid, ierr )<br>
-              ¡¡¡¡call MPI_COMM_SIZE( MPI_COMM_WORLD, numprocs, ierr )<br>
-              ¡¡¡¡call MPI_GET_PROCESSOR_NAME( processor_name, namelen, ierr )</p>
-            <p>¡¡¡¡! MPI working phase<br>
-              ¡¡¡¡print *, &quot;This is Process&quot;, myid, &quot;of&quot;,numprocs,&quot;on&quot;, 
+            <p>ã€€ã€€<b>ç›´è§‚å°è±¡--ç®€å•çš„MPIç¨‹åºå®ä¾‹</b></p>
+            <p>ã€€ã€€<b>ä¸€ä¸ªç®€å•çš„MPIç¨‹åºçš„ä¾‹å­(FORTRAN)</b></p>
+            <p>ã€€ã€€ï¼simple.f<br>
+              ã€€ã€€program main<br>
+              ã€€ã€€include 'mpif.h'<br>
+              ã€€ã€€character*(MPI_MAX_PROCESSOR_NAME) processor_name<br>
+              ã€€ã€€integer myid, numprocs, namelen, rc, ierr</p>
+            <p>ã€€ã€€! MPI initialization phase<br>
+              ã€€ã€€call MPI_INIT( ierr )<br>
+              ã€€ã€€call MPI_COMM_RANK( MPI_COMM_WORLD, myid, ierr )<br>
+              ã€€ã€€call MPI_COMM_SIZE( MPI_COMM_WORLD, numprocs, ierr )<br>
+              ã€€ã€€call MPI_GET_PROCESSOR_NAME( processor_name, namelen, ierr )</p>
+            <p>ã€€ã€€! MPI working phase<br>
+              ã€€ã€€print *, &quot;This is Process&quot;, myid, &quot;of&quot;,numprocs,&quot;on&quot;, 
               processor_name</p>
-            <p>¡¡¡¡! MPI finalization phase<br>
-              ¡¡¡¡call MPI_FINALIZE( rc )<br>
-              ¡¡¡¡end</p>
-            <p>¡¡¡¡ÓÃmpif90ÃüÁî½«Õâ¸ö³ÌĞò±àÒë£º<br>
-              ¡¡¡¡mpif90 -o simple simple.f<br>
+            <p>ã€€ã€€! MPI finalization phase<br>
+              ã€€ã€€call MPI_FINALIZE( rc )<br>
+              ã€€ã€€end</p>
+            <p>ã€€ã€€ç”¨mpif90å‘½ä»¤å°†è¿™ä¸ªç¨‹åºç¼–è¯‘ï¼š<br>
+              ã€€ã€€mpif90 -o simple simple.f<br>
               <br>
-              ¡¡¡¡È»ºóÓÃmpirunÀ´ÔËĞĞÕâ¸ö³ÌĞò£¨¼Ù¶¨ÒÑ¾­ÉèÖÃºÃÁËÅäÖÃÎÄ¼ş£©¡£<br>
-              ¡¡¡¡mpirun -np 4 simple<br>
+              ã€€ã€€ç„¶åç”¨mpirunæ¥è¿è¡Œè¿™ä¸ªç¨‹åºï¼ˆå‡å®šå·²ç»è®¾ç½®å¥½äº†é…ç½®æ–‡ä»¶ï¼‰ã€‚<br>
+              ã€€ã€€mpirun -np 4 simple<br>
               <br>
-              ¡¡¡¡ÎªÕâ¸ö³ÌĞòÖ¸¶¨ËÄ¸ö¹¤×÷½ø³Ì£¬Èç¹ûÕâ¸ö³ÌĞòÔÚÒ»¸ö¼¯ÈºÏµÍ³µÄÄ³Ì¨¼ÆËã»úcluster1ÉÏÔËĞĞ£¬ËüµÄÊä³ö½á¹û£¨¿ÉÄÜ£©ÈçÏÂ£º<br>
-              ¡¡¡¡This is Process 0 of 4 on cluster1<br>
-              ¡¡¡¡This is Process 2 of 4 on cluster1<br>
-              ¡¡¡¡This is Process 1 of 4 on cluster1<br>
-              ¡¡¡¡This is Process 3 of 4 on cluster1<br>
+              ã€€ã€€ä¸ºè¿™ä¸ªç¨‹åºæŒ‡å®šå››ä¸ªå·¥ä½œè¿›ç¨‹ï¼Œå¦‚æœè¿™ä¸ªç¨‹åºåœ¨ä¸€ä¸ªé›†ç¾¤ç³»ç»Ÿçš„æŸå°è®¡ç®—æœºcluster1ä¸Šè¿è¡Œï¼Œå®ƒçš„è¾“å‡ºç»“æœï¼ˆå¯èƒ½ï¼‰å¦‚ä¸‹ï¼š<br>
+              ã€€ã€€This is Process 0 of 4 on cluster1<br>
+              ã€€ã€€This is Process 2 of 4 on cluster1<br>
+              ã€€ã€€This is Process 1 of 4 on cluster1<br>
+              ã€€ã€€This is Process 3 of 4 on cluster1<br>
               <br>
-              ¡¡¡¡Èç¹ûÕâ¸ö³ÌĞòÔÚÒ»¸ö¼¯ÈºÏµÍ³µÄËÄÌ¨²»Í¬¼ÆËã»úcluster1-cluster4ÉÏÔËĞĞ£¬ËüµÄÊä³ö½á¹û£¨¿ÉÄÜ£©ÈçÏÂ£º<br>
-              ¡¡¡¡This is Process 0 of 4 on cluster1<br>
-              ¡¡¡¡This is Process 2 of 4 on cluster3<br>
-              ¡¡¡¡This is Process 1 of 4 on cluster2<br>
-              ¡¡¡¡This is Process 3 of 4 on cluster4</p>
-            <p>¡¡¡¡<b>Õâ¸ö³ÌĞòµÄCÓïÑÔ°æ±¾ÈçÏÂ</b>£º<br>
-              ¡¡¡¡// simple.c<br>
-              ¡¡¡¡#include &quot;mpi.h&quot;<br>
-              ¡¡¡¡#inlucde &lt;stdio.h&gt;<br>
-              ¡¡¡¡#include &lt;math.h&gt;</p>
-            <p>¡¡¡¡int main( int argc, char **argv)<br>
-              ¡¡¡¡{<br>
-              ¡¡¡¡¡¡int myid, numprocs;<br>
-              ¡¡¡¡¡¡int namelen;<br>
-              ¡¡¡¡¡¡char processor_name[ MPI_MAX_PROCESSOR_NAME ];<br>
-              ¡¡¡¡<br>
-              ¡¡¡¡¡¡// MPI Initialization phase<br>
-              ¡¡¡¡¡¡MPI_Init( &amp; argc, &amp;argv );<br>
-              ¡¡¡¡¡¡MPI_Comm_rank( MPI_COMM_WORLD, &amp;myid );<br>
-              ¡¡¡¡¡¡MPI_Comm_size( MPI_COMM_WORLD, &amp;numprocs );<br>
-              ¡¡¡¡¡¡MPI_Get_processor_name( processor_name, &amp;namelen );</p>
-            <p> ¡¡¡¡¡¡// The working phase<br>
-              ¡¡¡¡¡¡Printf(&quot;This is Process %d of %d on %s\n&quot;, myid, numprocs, 
+              ã€€ã€€å¦‚æœè¿™ä¸ªç¨‹åºåœ¨ä¸€ä¸ªé›†ç¾¤ç³»ç»Ÿçš„å››å°ä¸åŒè®¡ç®—æœºcluster1-cluster4ä¸Šè¿è¡Œï¼Œå®ƒçš„è¾“å‡ºç»“æœï¼ˆå¯èƒ½ï¼‰å¦‚ä¸‹ï¼š<br>
+              ã€€ã€€This is Process 0 of 4 on cluster1<br>
+              ã€€ã€€This is Process 2 of 4 on cluster3<br>
+              ã€€ã€€This is Process 1 of 4 on cluster2<br>
+              ã€€ã€€This is Process 3 of 4 on cluster4</p>
+            <p>ã€€ã€€<b>è¿™ä¸ªç¨‹åºçš„Cè¯­è¨€ç‰ˆæœ¬å¦‚ä¸‹</b>ï¼š<br>
+              ã€€ã€€// simple.c<br>
+              ã€€ã€€#include &quot;mpi.h&quot;<br>
+              ã€€ã€€#inlucde &lt;stdio.h&gt;<br>
+              ã€€ã€€#include &lt;math.h&gt;</p>
+            <p>ã€€ã€€int main( int argc, char **argv)<br>
+              ã€€ã€€{<br>
+              ã€€ã€€ã€€int myid, numprocs;<br>
+              ã€€ã€€ã€€int namelen;<br>
+              ã€€ã€€ã€€char processor_name[ MPI_MAX_PROCESSOR_NAME ];<br>
+              ã€€ã€€<br>
+              ã€€ã€€ã€€// MPI Initialization phase<br>
+              ã€€ã€€ã€€MPI_Init( &amp; argc, &amp;argv );<br>
+              ã€€ã€€ã€€MPI_Comm_rank( MPI_COMM_WORLD, &amp;myid );<br>
+              ã€€ã€€ã€€MPI_Comm_size( MPI_COMM_WORLD, &amp;numprocs );<br>
+              ã€€ã€€ã€€MPI_Get_processor_name( processor_name, &amp;namelen );</p>
+            <p> ã€€ã€€ã€€// The working phase<br>
+              ã€€ã€€ã€€Printf(&quot;This is Process %d of %d on %s\n&quot;, myid, numprocs, 
               processor_name );</p>
-            <p> ¡¡¡¡¡¡// MPI Finalization phase<br>
-              ¡¡¡¡¡¡MPI_Finalize( );<br>
-              ¡¡¡¡}</p>
-            <p>¡¡¡¡ÓÃmpiccÃüÁî½«Õâ¸ö³ÌĞò±àÒë£º<br>
-              ¡¡¡¡mpicc -o simple simple.c<br>
-              ¡¡¡¡<br>
-              ¡¡¡¡È»ºóÓÃmpirunÀ´ÔËĞĞÕâ¸ö³ÌĞò£¨¼Ù¶¨ÒÑ¾­ÉèÖÃºÃÁËÅäÖÃÎÄ¼ş£©¡£<br>
-              ¡¡¡¡mpirun -np 4 simple</p>
-            <p>¡¡¡¡Õâ¸ö³ÌĞòµÄÔËĞĞ½á¹ûºÍÉÏÃæµÄFortran³ÌĞòÏàËÆ¡£±¾½ÚÖĞ½«²ÉÓÃcÓïÑÔ¶ÔMPIµÄ±à³Ì¹æ·¶½øĞĞËµÃ÷¡£ ÕâÁ½¸ö³ÌĞòµÄÔËĞĞ¹ı³Ì¿ÉÒÔÓÃÏÂÃæµÄÍ¼À´±íÊ¾£º<br>
+            <p> ã€€ã€€ã€€// MPI Finalization phase<br>
+              ã€€ã€€ã€€MPI_Finalize( );<br>
+              ã€€ã€€}</p>
+            <p>ã€€ã€€ç”¨mpiccå‘½ä»¤å°†è¿™ä¸ªç¨‹åºç¼–è¯‘ï¼š<br>
+              ã€€ã€€mpicc -o simple simple.c<br>
+              ã€€ã€€<br>
+              ã€€ã€€ç„¶åç”¨mpirunæ¥è¿è¡Œè¿™ä¸ªç¨‹åºï¼ˆå‡å®šå·²ç»è®¾ç½®å¥½äº†é…ç½®æ–‡ä»¶ï¼‰ã€‚<br>
+              ã€€ã€€mpirun -np 4 simple</p>
+            <p>ã€€ã€€è¿™ä¸ªç¨‹åºçš„è¿è¡Œç»“æœå’Œä¸Šé¢çš„Fortranç¨‹åºç›¸ä¼¼ã€‚æœ¬èŠ‚ä¸­å°†é‡‡ç”¨cè¯­è¨€å¯¹MPIçš„ç¼–ç¨‹è§„èŒƒè¿›è¡Œè¯´æ˜ã€‚ è¿™ä¸¤ä¸ªç¨‹åºçš„è¿è¡Œè¿‡ç¨‹å¯ä»¥ç”¨ä¸‹é¢çš„å›¾æ¥è¡¨ç¤ºï¼š<br>
               <img src="../../../images/img_text/ch07/7_2_1.gif" width="610" height="442"> 
             </p>
           </td>

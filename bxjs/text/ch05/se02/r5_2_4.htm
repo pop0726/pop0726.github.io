@@ -11,7 +11,7 @@ background-attachment: fixed;
 -->
 </STYLE>
 <title>Untitled Document</title>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
 <link rel="stylesheet" href="../../../css/style.css" type="text/css">
 </head>
 
@@ -25,35 +25,35 @@ background-attachment: fixed;
       <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0">
         <tr> 
           <td class="text" valign="top"> 
-            <p>��<font color="#000000">��</font>�ڲ���ϵͳ�У�����ٶȿ��������Ӵ�������Ŀ�ķ���������ٶ��ܹ��洦������Ŀ�����Ӷ���������������ζ��ƽ���ٶȲ��䣩����˵�����ϵͳ���кܺõĿ���չ�ԡ�������Ҫ�����ϸ�ļ����ٶȵĶ��塣<br>
+            <p>　<font color="#000000">　</font>在并行系统中，提高速度可以用增加处理器数目的方法，如果速度能够随处理器数目的增加而线性增长（这意味着平均速度不变），则说明这个系统具有很好的可扩展性。首先需要给出严格的计算速度的定义。<br>
               <br>
-              ����p���������Ĳ���ϵͳ��WΪ�����ģ������ָ���������������TΪ����ִ��ʱ�䣬���岢�м�����ٶ�VΪ�����ģW�벢������ʱ��T���̣�<br>
-              ����������������������������<img src="../../../images/img_text/ch05/98.gif" width="67" height="19" align="absmiddle"><br>
-              ������p���������Ĳ���ϵͳ��ƽ���ٶȶ���Ϊ���м����ٶ�V���Դ���������p��<br>
-              ����������������������������<img src="../../../images/img_text/ch05/99.gif" width="87" height="44" align="absmiddle"><br>
-              ��������ƽ���ٶȵĶ��壬�����ƽ���ٶȣ����Ϊ���ٶȣ�����չ�Զ���ָ�����£�<br>
-              �������������ڲ��м�����ϵ�ĳ�������㷨������������Ŀ����ʱ��������һ���Ĺ������ܹ�ά����������ϵͳ��ƽ���ٶȲ��䣬��Ƹü����ǿ���չ�ġ�<br>
+              　　p个处理器的并行系统，W为问题规模（这里指浮点操作个数），T为并行执行时间，则定义并行计算的速度V为问题规模W与并行运行时间T的商：<br>
+              　　　　　　　　　　　　　　<img src="../../../images/img_text/ch05/98.gif" width="67" height="19" align="absmiddle"><br>
+              　　而p个处理器的并行系统的平均速度定义为并行计算速度V除以处理器个数p：<br>
+              　　　　　　　　　　　　　　<img src="../../../images/img_text/ch05/99.gif" width="87" height="44" align="absmiddle"><br>
+              　　根据平均速度的定义，定义等平均速度（简称为等速度）可扩展性度量指标如下：<br>
+              　　对于运行于并行计算机上的某个并行算法，当处理器数目增加时，若增加一定的工作量能够维持整个并行系统的平均速度不变，则称该计算是可扩展的。<br>
               <br>
-              ����ע�⣬��ƽ���ٶ�Ϊ����ʱ��Ҳ�����ٶ��봦������Ŀ�����Ա���������Ҳ���Ǽ��ٱ��봦������Ŀ�ɱ���������<br>
+              　　注意，当平均速度为常数时，也就是速度与处理器数目成线性比例增长，也就是加速比与处理器数目成比例增长。<br>
               <br>
-              �������˶��壬���W��ʹ��p��������ʱ�㷨�������ģ����W'��ʾ����������Ŀ��p����p'ʱ��Ϊ�˱�������ϵͳ��ƽ���ٶȲ�������Ҫ�������ģ����������������Եõ���������Ŀ��p���ӵ�p'ʱƽ���ٶȹ�ʽΪ<br>
-              ����������������������������<img src="../../../images/img_text/ch05/100.gif" width="175" height="48" align="absmiddle"><br>
-              ����������Ĺ�ʽ�������ֵ����0��1֮�䣬ֵԽ���ʾ����չ��Խ�á�<br>
-              ������ƽ���ٶ��ϸ񱣳ֲ���ʱ����<img src="../../../images/img_text/ch05/101.gif" width="48" height="24" align="absmiddle">ʱ������ĵ��ٶȹ�ʽ�ȼ���<br>
-              ����������������������������<img src="../../../images/img_text/ch05/102.gif" width="208" height="48" align="absmiddle"><br>
-              ������p=1ʱ����T=T<sub>1</sub>������������ĿΪp'ʱ����T'=Tp'����Ӧ�ļ�<img src="../../../images/img_text/ch05/103.gif" width="111" height="24" align="middle">��������<br>
+              　　按此定义，如果W是使用p个处理器时算法的问题规模，令W'表示当处理器数目由p增大到p'时，为了保持整个系统的平均速度不变所需要的问题规模（工作量），则可以得到处理器数目从p增加到p'时平均速度公式为<br>
+              　　　　　　　　　　　　　　<img src="../../../images/img_text/ch05/100.gif" width="175" height="48" align="absmiddle"><br>
+              　　用上面的公式计算出的值介于0与1之间，值越大表示可扩展性越好。<br>
+              　　当平均速度严格保持不变时，即<img src="../../../images/img_text/ch05/101.gif" width="48" height="24" align="absmiddle">时，上面的等速度公式等价于<br>
+              　　　　　　　　　　　　　　<img src="../../../images/img_text/ch05/102.gif" width="208" height="48" align="absmiddle"><br>
+              　　当p=1时，记T=T<sub>1</sub>；当处理器数目为p'时，记T'=Tp'；相应的记<img src="../../../images/img_text/ch05/103.gif" width="111" height="24" align="middle">，于是有<br>
               <img src="../../../images/img_text/ch05/104.gif" width="499" height="49" align="absmiddle"><br>
-              ������������Ŀ���չ�Զ����봫ͳ�ļ��ٱȶ�����Щ���ƣ�ֻ�Ǽ��ٱȶ����Ǳ��������ģ���䣬�����ٶȵĿ���չ�Զ����Ǳ���ƽ���ٶȲ��䡣�������ͼ��ʾ�����ٱ��������������д�������ڴ��д�������õ��������ӣ������ٶȿ���չ�Զ�������������С��ģϵͳ�����ģϵͳ�����������˥����<br>
+              　　上面给出的可扩展性定义与传统的加速比定义有些类似，只是加速比定义是保持问题规模不变，而等速度的可扩展性定义是保持平均速度不变。如下面的图所示，加速比是用来描述并行处理相对于串行处理所获得的性能增加，而等速度可扩展性度量用来描述从小规模系统到大规模系统所引起的性能衰减。<br>
               <img src="../../../images/img_text/ch05/105.gif" width="463" height="407"> 
             </p>
-            <p>����һ�������ַ������Եõ����ٶȿ���չ�Զ���ָ�꣺<br>
-              ������ ��������ʹ�����������������ÿ��Ƴ���ȥ����Ӧ�ó������õ���ϣ���Ĺ̶���ƽ���ٶ�<br>
-              ������ ���㷨���ҳ�ƽ���ٶ���ִ��ʱ��֮��Ĺ�ϵ�����õ�Ч�ʿ���չ�Թ�ʽȥ���㣻<br>
-              ������ Ԥ�Ʒ����Ƶ��ƹ�Ŀ���չ�Թ�ʽ���о�����չ�ԡ�<br>
+            <p>　　一般有三种方法可以得到等速度可扩展性度量指标：<br>
+              　　● 测量法：使用软件方法，即采用控制程序去调用应用程序，来得到所希望的固定的平均速度<br>
+              　　● 计算法：找出平均速度与执行时间之间的关系，再用等效率可扩展性公式去计算；<br>
+              　　● 预计法：推导推广的可扩展性公式来研究可扩展性。<br>
               <br>
-              �������ٶȶ���ָ�������ŵ���ʹ�û����ٶ�ָ����һ��ȷ������������������չ�ԣ��Ƚ�ֱ�ۡ��ٶ����ɹ�������W��ִ��ʱ��T�����ģ���W��ӳ��Ӧ�ó�������ʣ�T��ӳ�˽ṹ�ͳ���Ч�ʵ�Ӱ�죻�ٶ��Ǹ��ֽṹ�ļ����໥�ɱȽϵ�����ִ��ʱ������˼�����ӳ���������Ҫ��ʱ�������ٶ��ǱȽ����ײ����ģ���ΪW������ִ�еĸ��������������<br>
+              　　等速度度量指标的最大优点是使用机器速度指标这一明确的物理量来度量可扩展性，比较直观。速度是由工作负载W和执行时间T决定的，而W反映了应用程序的性质，T反映了结构和程序效率的影响；速度是各种结构的及其相互可比较的量；执行时间包含了计算和延迟这两个主要的时间量；速度是比较容易测量的，因为W可由所执行的浮点操作数决定。<br>
               <br>
-              �������ٶȶ���ָ���ȱ���ǽ��ø����������ΪWʱ��ȫ��ģ�ĳЩ�Ǹ����������������ܵ���Ҫ�仯���ӳ���Ȼ������ִ��ʱ���У�����û�б���ȷ�ض���ΪW�ĺ�����<br>
+              　　等速度度量指标的缺点是仅用浮点操作数作为W时不全面的，某些非浮点运算可能造成性能的主要变化；延迟虽然包含在执行时间中，但它没有被明确地定义为W的函数。<br>
             </p>
           </td>
         </tr>

@@ -11,7 +11,7 @@ background-attachment: fixed;
 -->
 </STYLE>
 <title>Untitled Document</title>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
 <link rel="stylesheet" href="../../../css/style.css" type="text/css">
 </head>
 
@@ -25,56 +25,56 @@ background-attachment: fixed;
       <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0">
         <tr> 
           <td class="text" valign="top"> 
-            <p>¡¡¡¡<b>ÀûÓÃÔËĞĞÊ±º¯ÊıµÄÀı×Ó</b><br>
+            <p>ã€€ã€€<b>åˆ©ç”¨è¿è¡Œæ—¶å‡½æ•°çš„ä¾‹å­</b><br>
               <br>
-              ¡¡¡¡<font color="#000000">ÏÂÃæµÄÀı×Ó²ÉÓÃÔËĞĞÊ±µ÷ÓÃÀ´Íê³É¦ĞµÄ¼ÆËã</font></p>
-            <p><font color="#000000"> ¡¡¡¡PROGRAM pie<br>
-              ¡¡¡¡IMPLICIT NONE<br>
-              ¡¡¡¡INTEGER :: n,i,nnode,nthread,inode,counter<br>
-              ¡¡¡¡INTEGER :: lck<br>
-              ¡¡¡¡INTEGER, EXTERNAL :: omp_get_num_procs,omp_get_thread_num<br>
-              ¡¡¡¡INTEGER, EXTERNAL :: omp_get_num_threads<br>
-              ¡¡¡¡LOGICAL, EXTERNAL :: omp_test_lock<br>
-              ¡¡¡¡REAL(8) :: w,x,sum,pi<br>
-              ¡¡¡¡WRITE(6,'('' program pi running on columbus'')')<br>
-              ¡¡¡¡nnode=omp_get_num_procs()<br>
-              ¡¡¡¡WRITE(6,'('' number of processors = '',i2)')nnode<br>
-              ¡¡! read in number of strips<br>
-              ¡¡¡¡WRITE(6,'('' enter number of strips to use for integration '')')<br>
-              ¡¡¡¡READ(5,*)n<br>
-              ¡¡¡¡w=1.0d0/REAL(n)<br>
-              ¡¡¡¡sum=0.0d0<br>
-              ¡¡¡¡WRITE(6,'('' enter number of threads to use '')')<br>
-              ¡¡¡¡READ(5,*)nthread<br>
-              ¡¡¡¡CALL omp_set_num_threads(nthread)<br>
-              ¡¡! create a pointer to a lock using variable lck<br>
-              ¡¡¡¡CALL omp_init_lock(lck)<br>
-              ¡¡¡¡counter=0<br>
-              ¡¡! $OMP parallel default(shared) private(i,x,inode) reduction(+:sum)<br>
-              ¡¡¡¡nthread=omp_get_num_threads()<br>
-              ¡¡¡¡WRITE(6,'('' num threads = '',i4)')nthread<br>
-              ¡¡¡¡inode=omp_get_thread_num()<br>
-              ¡¡¡¡WRITE(6,'('' hello world from '',i2)')inode<br>
-              ¡¡¡¡DO WHILE(counter&lt;n)<br>
-              ¡¡! spin loop waiting for lock<br>
-              ¡¡¡¡DO WHILE(.NOT.omp_test_lock(lck))<br>
-              ¡¡¡¡END DO<br>
-              ¡¡! got it <br>
-              ¡¡¡¡counter=counter+1<br>
-              ¡¡¡¡i=counter<br>
-              ¡¡! release lock<br>
-              ¡¡¡¡CALL omp_unset_lock(lck)<br>
-              ¡¡! $OMP barrier<br>
-              ¡¡¡¡WRITE(6,'('' thread '',i2,'' doing i= '',i4)')inode,i<br>
-              ¡¡¡¡x=w*(REAL(i)-0.5d0)<br>
-              ¡¡¡¡sum=sum+4.0d0/(1.0d0+x*x)<br>
-              ¡¡¡¡END DO<br>
-              ¡¡! $OMP end parallel<br>
-              ¡¡¡¡CALL omp_destroy_lock(lck)<br>
-              ¡¡¡¡pi=w*sum<br>
-              ¡¡¡¡WRITE(6,'('' pi = '',g17.10)')pi<br>
-              ¡¡¡¡END PROGRAM pie</font></p>
-            <p>¡¡¡¡ĞèÒª×¢ÒâµÄÊÇ£¬²¢²»ÊÇËùÓĞµÄOpenMP±àÒëÆ÷£¨ÔËĞĞÊ±¿â£©¶¼Ìá¹©ÕâĞ©½Ó¿Ú£¬ÔÚÕâÖÖÇé¿öÏÂ£¬ÓÃ»§¿ÉÒÔÖ±½Óµ÷ÓÃPthreadµÄº¯ÊıÀ´Íê³ÉÏà¹ØµÄÈÎÎñ¡£</p>
+              ã€€ã€€<font color="#000000">ä¸‹é¢çš„ä¾‹å­é‡‡ç”¨è¿è¡Œæ—¶è°ƒç”¨æ¥å®ŒæˆÏ€çš„è®¡ç®—</font></p>
+            <p><font color="#000000"> ã€€ã€€PROGRAM pie<br>
+              ã€€ã€€IMPLICIT NONE<br>
+              ã€€ã€€INTEGER :: n,i,nnode,nthread,inode,counter<br>
+              ã€€ã€€INTEGER :: lck<br>
+              ã€€ã€€INTEGER, EXTERNAL :: omp_get_num_procs,omp_get_thread_num<br>
+              ã€€ã€€INTEGER, EXTERNAL :: omp_get_num_threads<br>
+              ã€€ã€€LOGICAL, EXTERNAL :: omp_test_lock<br>
+              ã€€ã€€REAL(8) :: w,x,sum,pi<br>
+              ã€€ã€€WRITE(6,'('' program pi running on columbus'')')<br>
+              ã€€ã€€nnode=omp_get_num_procs()<br>
+              ã€€ã€€WRITE(6,'('' number of processors = '',i2)')nnode<br>
+              ã€€! read in number of strips<br>
+              ã€€ã€€WRITE(6,'('' enter number of strips to use for integration '')')<br>
+              ã€€ã€€READ(5,*)n<br>
+              ã€€ã€€w=1.0d0/REAL(n)<br>
+              ã€€ã€€sum=0.0d0<br>
+              ã€€ã€€WRITE(6,'('' enter number of threads to use '')')<br>
+              ã€€ã€€READ(5,*)nthread<br>
+              ã€€ã€€CALL omp_set_num_threads(nthread)<br>
+              ã€€! create a pointer to a lock using variable lck<br>
+              ã€€ã€€CALL omp_init_lock(lck)<br>
+              ã€€ã€€counter=0<br>
+              ã€€! $OMP parallel default(shared) private(i,x,inode) reduction(+:sum)<br>
+              ã€€ã€€nthread=omp_get_num_threads()<br>
+              ã€€ã€€WRITE(6,'('' num threads = '',i4)')nthread<br>
+              ã€€ã€€inode=omp_get_thread_num()<br>
+              ã€€ã€€WRITE(6,'('' hello world from '',i2)')inode<br>
+              ã€€ã€€DO WHILE(counter&lt;n)<br>
+              ã€€! spin loop waiting for lock<br>
+              ã€€ã€€DO WHILE(.NOT.omp_test_lock(lck))<br>
+              ã€€ã€€END DO<br>
+              ã€€! got it <br>
+              ã€€ã€€counter=counter+1<br>
+              ã€€ã€€i=counter<br>
+              ã€€! release lock<br>
+              ã€€ã€€CALL omp_unset_lock(lck)<br>
+              ã€€! $OMP barrier<br>
+              ã€€ã€€WRITE(6,'('' thread '',i2,'' doing i= '',i4)')inode,i<br>
+              ã€€ã€€x=w*(REAL(i)-0.5d0)<br>
+              ã€€ã€€sum=sum+4.0d0/(1.0d0+x*x)<br>
+              ã€€ã€€END DO<br>
+              ã€€! $OMP end parallel<br>
+              ã€€ã€€CALL omp_destroy_lock(lck)<br>
+              ã€€ã€€pi=w*sum<br>
+              ã€€ã€€WRITE(6,'('' pi = '',g17.10)')pi<br>
+              ã€€ã€€END PROGRAM pie</font></p>
+            <p>ã€€ã€€éœ€è¦æ³¨æ„çš„æ˜¯ï¼Œå¹¶ä¸æ˜¯æ‰€æœ‰çš„OpenMPç¼–è¯‘å™¨ï¼ˆè¿è¡Œæ—¶åº“ï¼‰éƒ½æä¾›è¿™äº›æ¥å£ï¼Œåœ¨è¿™ç§æƒ…å†µä¸‹ï¼Œç”¨æˆ·å¯ä»¥ç›´æ¥è°ƒç”¨Pthreadçš„å‡½æ•°æ¥å®Œæˆç›¸å…³çš„ä»»åŠ¡ã€‚</p>
           </td>
         </tr>
       </table>

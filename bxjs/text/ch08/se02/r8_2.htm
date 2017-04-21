@@ -11,7 +11,7 @@ background-attachment: fixed;
 -->
 </STYLE>
 <title>Untitled Document</title>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
 <link rel="stylesheet" href="../../../css/style.css" type="text/css">
 </head>
 
@@ -25,21 +25,21 @@ background-attachment: fixed;
       <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0">
         <tr> 
           <td class="text" valign="top"> 
-            <p>�������Ƴ��󲻾ã���������ı�������ʼ֧��OpenMP�ĳ���IBM, DEC, SGI��Intel�ȹ�˾�����Լ��Ĳ�Ʒ�������м����˶�OpenMP��֧�֡�<br>
+            <p>　　在推出后不久，就有许多的编译器开始支持OpenMP的程序，IBM, DEC, SGI，Intel等公司都在自己的产品编译器中加入了对OpenMP的支持。<br>
               <br>
-              ����<font color="#000000">Ϊ������OpenMP���б�Ҫ��OpenMP�ĳ��ֱ�����һ���򵥵Ľ��ܡ�<br>
+              　　<font color="#000000">为了理解OpenMP，有必要对OpenMP的出现背景作一个简单的介绍。<br>
               <br>
-              �����ڸ����ܼ������򣬺ܳ�ʱ�������γ���һ�ֿ�������ÿ���չ�Ĳ��г����Ψһ�ķ������ڴ�������������Ϣ���ݣ�����MPI�������SMP��DMM��˵���ǿ��еģ������ſ���չ�����洢�ദ����ϵͳ��SSMP���ĳ��֣�������ʶ����SMP�ṹ���и�Ϊֱ�ӵķ�������ˣ�OpenMP����Ϊһ����SMP�����MPI�Ŀ���ֲ�ı�׼���˳�������ʵ�ϣ�OpenMP�Ǵ�SGI��ָ����伯��չ�����ģ���ֱ�Ӽ̳���X3H5��׼��<br>
+              　　在高性能计算领域，很长时间以来形成了一种看法，获得可扩展的并行程序的唯一的方法是在处理器间利用消息传递（比如MPI），这对SMP和DMM来说都是可行的，但随着可扩展共享存储多处理器系统（SSMP）的出现，人们意识到在SMP结构上有更为直接的方法，因此，OpenMP被作为一种在SMP上替代MPI的可移植的标准提了出来。事实上，OpenMP是从SGI的指导语句集发展起来的，它直接继承于X3H5标准。<br>
               <br>
-              ������Pthread�����ĳ���ӿڲ�ͬ��OpenMP����ָ����䣨��Ҫ�ֶΣ����⺯�����úͻ������������û��ṩһ���ڹ����洢�ļ�����ϴ����͹�������ֲ�Ĳ��г���ķ�������Щָ������OpenMP�������ṩ�˱�Ҫ�ĳ���˵����ʹ�ñ������ܹ�������Щָ����佫OpenMP����ת��Ϊ��ִ�еĶ��̳߳������ڲ��ö��̣߳����̹߳�����ͬ�ĵ�ַ�ռ䣨<font color="#CC6633">��ע�⣬�߳�Ҳ���Լ���˽�е�ַ�ռ�</font>�������Բ���Ҫ��ʽ��ͨ�š�</font><br>
+              　　与Pthread这样的程序接口不同，OpenMP采用指导语句（主要手段），库函数调用和环境变量来给用户提供一种在共享存储的计算机上创建和管理可移植的并行程序的方法。这些指导语句给OpenMP编译器提供了必要的程序说明，使得编译器能够根据这些指导语句将OpenMP程序转换为可执行的多线程程序。由于采用多线程，各线程共享相同的地址空间（<font color="#CC6633">但注意，线程也有自己的私有地址空间</font>），所以不需要显式的通信。</font><br>
               <br>
-              �����ӳ��򿪷��ĽǶ�������OpenMP��MPI(������˵Pthread)Ҫ�򵥵Ķ࣬��Ҳ���������������ڡ�����һ���У����ǽ���ϸ����OpenMP 
-              Fortran API 2.0�ı�׼�������׼������Fortran77��Fortran90�������У��ٶ�ʹ�õ�������Fortran90�����������Բ��������ϸ�����֡�<br>
+              　　从程序开发的角度来讲，OpenMP比MPI(更不用说Pthread)要简单的多，这也就是它的优势所在。在这一章中，我们将详细介绍OpenMP 
+              Fortran API 2.0的标准。这个标准适用于Fortran77和Fortran90，本文中，假定使用的语言是Fortran90，对两种语言并不加以严格的区分。<br>
               <br>
-              ����������һЩ����OpenMP�Ļ������<br>
-              ����<b>OpenMP��׼</b>��OpenMP����OpenMP��̳�ƶ���һ���������洢�ദ����ϵͳ�Ĳ��г������ԡ�<br>
-              ����<b>OpenMP����</b>����OpenMP���г������Կ����Ĳ��г���<br>
-              ����<b>OpenMP������</b>�����Դ���OpenMP����ı�������<br>
+              　　下面是一些关于OpenMP的基本术语：<br>
+              　　<b>OpenMP标准</b>：OpenMP是由OpenMP论坛制订的一个面向共享存储多处理器系统的并行程序语言。<br>
+              　　<b>OpenMP程序</b>：用OpenMP并行程序语言开发的并行程序。<br>
+              　　<b>OpenMP编译器</b>：可以处理OpenMP程序的编译器。<br>
             </p>
             </td>
         </tr>

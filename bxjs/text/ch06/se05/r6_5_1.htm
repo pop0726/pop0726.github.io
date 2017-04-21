@@ -11,7 +11,7 @@ background-attachment: fixed;
 -->
 </STYLE>
 <title>Untitled Document</title>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
 <link rel="stylesheet" href="../../../css/style.css" type="text/css">
 </head>
 
@@ -23,35 +23,35 @@ background-attachment: fixed;
         <tr> 
           
 <td class="text" valign="top"> 
-<p>��������ͼ6.5.1��ʾ������ͼ������r+1�㣬�м����ÿ����n����㣬���Ե�����㣨��0��͵�r�㣩����һ����㣬ÿ�����н�㶼����һ�����н���е�·��������0��Ľ��S�͵�r��Ľ��R�ֱ��Ϊ�����յ㡣Ŀ���������㵽�ص�����·��Ϊ�˱���˵�����⣬�Ƚ���һЩ���ű�ʾ����k��ĵ�i������ʾΪv<sub>i</sub><sup>k</sup>�����ӽ��v<sub>i</sub><sup>k</sup>��v<sub>j</sub><sup>k+1</sup>�ĵ�·�ĳ��ȶ���Ϊc<sub>i,j</sub><sup>k</sup>�����κ�һ�����v<sub>i</sub><sup>k</sup>���յ�R�����·��Ϊc<sub>i</sub><sup>k</sup>�����ڵ�k���n����㣬����<img src="../../../images/img_text/ch06/117.gif" width="103" height="22" align="absmiddle">��ΪC<sup>k</sup>������������Ա�ʾΪ��C<sup>0</sup>������<img src="../../../images/img_text/ch06/118.gif" width="28" height="22" align="absmiddle">��<br>
+<p>　　考虑图6.5.1所示的无向图，它有r+1层，中间各层每层有n个结点，最边缘的两层（第0层和第r层）各有一个结点，每层所有结点都跟下一层所有结点有道路相连。第0层的结点S和第r层的结点R分别称为起点和终点。目标是求从起点到重点的最短路。为了便于说明问题，先介绍一些符号表示。第k层的第i个结点表示为v<sub>i</sub><sup>k</sup>；连接结点v<sub>i</sub><sup>k</sup>和v<sub>j</sub><sup>k+1</sup>的道路的长度定义为c<sub>i,j</sub><sup>k</sup>；从任何一个结点v<sub>i</sub><sup>k</sup>到终点R的最短路记为c<sub>i</sub><sup>k</sup>；对于第k层的n个结点，向量<img src="../../../images/img_text/ch06/117.gif" width="103" height="22" align="absmiddle">记为C<sup>k</sup>。这样问题可以表示为求C<sup>0</sup>，即求<img src="../../../images/img_text/ch06/118.gif" width="28" height="22" align="absmiddle">。<br>
 </p>
 <center>
 <img src="../../../images/img_text/ch06/6_5_1.gif" width="500" height="260"><br>
- ͼ6.5.1 ���·����ͼʾ��һ��r+1�������ͼ
+ 图6.5.1 最短路问题图示，一个r+1层的无向图
 </center>
-<p>�������ö�̬�滮��˼�룬������ֽ�Ϊһϵ�������⣬Ҫ���k���ĳ���v<sub>i</sub><sup>k</sup>���յ�R�����·����Ϊ���·��Ȼ������k+1���ĳ�����v<sub>j</sub><sup>k+1</sup> 
-�����������v<sub>i</sub><sup>k</sup>���յ�R��·�̵��ڴӽ��v<sub>i</sub><sup>k</sup>��v<sub>j</sub><sup>k+1</sup>��·�̼��ϴ�v<sub>j</sub><sup>k+1</sup>��R��·�̡��õ�����ĵݹ����ʽ��<br>
-��������������������<img src="../../../images/img_text/ch06/119.gif" width="207" height="23" align="absmiddle"><br>
-������Ȼ���У�<br>
-��������������������<img src="../../../images/img_text/ch06/120.gif" width="147" height="23"><br>
-�����������������ʽ�ӿ��Ե��Ƶõ�C<sup>0</sup>��<br>
-������Ϊ����ʽ��ֻ����һ����ͬ�ĵ�����������һ��һά��̬�滮���⡣<br>
-����������C<sub>i</sub><sup>k</sup>�ı���ʽչ�����Եõ���<br>
-��������<img src="../../../images/img_text/ch06/121.gif" width="349" height="91"><br>
-�������Կ�������ʽ�����������˵Ĵ���ʽ�Ͽ�����ʵ���ϣ�����ʽ�еļӷ������滻Ϊ�˷����㣬������Сֵ�������滻Ϊ�ӷ����㣬�������ʽ�ӱ�Ϊ������ˣ����� 
+<p>　　利用动态规划的思想，把问题分解为一系列子问题，要求第k层的某结点v<sub>i</sub><sup>k</sup>到终点R的最短路，因为最短路必然经过第k+1层的某个结点v<sub>j</sub><sup>k+1</sup> 
+，这样，结点v<sub>i</sub><sup>k</sup>到终点R的路程等于从结点v<sub>i</sub><sup>k</sup>到v<sub>j</sub><sup>k+1</sup>的路程加上从v<sub>j</sub><sup>k+1</sup>到R的路程。得到下面的递归表达式：<br>
+　　　　　　　　　　<img src="../../../images/img_text/ch06/119.gif" width="207" height="23" align="absmiddle"><br>
+　　显然又有：<br>
+　　　　　　　　　　<img src="../../../images/img_text/ch06/120.gif" width="147" height="23"><br>
+　　利用上面的两个式子可以递推得到C<sup>0</sup>。<br>
+　　因为递推式中只含有一个不同的递推项，因此这是一个一维动态规划问题。<br>
+　　把上面C<sub>i</sub><sup>k</sup>的表达式展开可以得到：<br>
+　　　　<img src="../../../images/img_text/ch06/121.gif" width="349" height="91"><br>
+　　可以看到，上式与矩阵向量相乘的从形式上看很像。实际上，把上式中的加法运算替换为乘法运算，把求最小值的运算替换为加法运算，则上面的式子变为矩阵相乘，即： 
 <br>
-��������������������<img src="../../../images/img_text/ch06/122.gif" width="105" height="23"><br>
-��������C<sup>k</sup>��C<sup>k+1</sup>����n��1��������M<sup>k,k+1</sup>��һ��n��n�ľ�����Ԫ��M[i,j]��Ŵӵ�k���i����㵽��k+1���j�����֮��ĵ�·���ȣ����£�<br>
-��������������������<img src="../../../images/img_text/ch06/123.gif" width="183" height="93"><br>
-�����������Ͱ�����ת��Ϊ����������˵����⣬��Ȼ��&quot;�˷�&quot;��&quot;�ӷ�&quot;���Ǽٵģ����Ⲣ��Ӱ����㸴�Ӷȵķ�����<br>
+　　　　　　　　　　<img src="../../../images/img_text/ch06/122.gif" width="105" height="23"><br>
+　　其中C<sup>k</sup>和C<sup>k+1</sup>都是n×1的向量，M<sup>k,k+1</sup>是一个n×n的矩阵，其元素M[i,j]存放从第k层第i个结点到第k+1层第j个结点之间的道路长度，如下：<br>
+　　　　　　　　　　<img src="../../../images/img_text/ch06/123.gif" width="183" height="93"><br>
+　　这样，就把问题转化为矩阵向量相乘的问题，当然，&quot;乘法&quot;和&quot;加法&quot;都是假的，但这并不影响计算复杂度的分析。<br>
 <br>
-�����ڵ�̨�������ϼ���ÿ������·����C<sup>k</sup>��Ҫ����<img src="../../../images/img_text/ch06/11.gif" width="38" height="21" align="absmiddle">��ʱ�䣬���н���������⣨r�㣩��ʱ�临�Ӷ�Ϊ<img src="../../../images/img_text/ch06/124.gif" width="43" height="21" align="absmiddle">��<br>
+　　在单台处理器上计算每层的最短路向量C<sup>k</sup>需要花费<img src="../../../images/img_text/ch06/11.gif" width="38" height="21" align="absmiddle">的时间，串行解决整个问题（r层）的时间复杂度为<img src="../../../images/img_text/ch06/124.gif" width="43" height="21" align="absmiddle">。<br>
 <br>
-������p��P��n��������������ִ��ʱ����6.3�ڲ��г��ܾ��������֪�����ÿ�����·�����ļ�����Ҫ<img src="../../../images/img_text/ch06/125.gif" width="40" height="40" align="absmiddle">��ʱ�䣬��˲��н�����������ʱ�临�Ӷ�Ϊ<img src="../../../images/img_text/ch06/126.gif" width="46" height="40" align="absmiddle">���ر�أ�������������p=nʱ���������������<img src="../../../images/img_text/ch06/127.gif" width="36" height="18" align="absmiddle">ʱ������ɡ�<br>
+　　当p（P≤n）个处理器并行执行时，由6.3节并行稠密矩阵运算可知，完成每层最短路向量的计算需要<img src="../../../images/img_text/ch06/125.gif" width="40" height="40" align="absmiddle">的时间，因此并行解决整个问题的时间复杂度为<img src="../../../images/img_text/ch06/126.gif" width="46" height="40" align="absmiddle">。特别地，当处理器个数p=n时，整个问题可以在<img src="../../../images/img_text/ch06/127.gif" width="36" height="18" align="absmiddle">时间内完成。<br>
 <br>
-����<font color="#000000">��ͼ6.5.1����������ĸ������֮��ֻ��������ֱ�ӵĵ�·����ʱ�����������֮��ĵ�·���ȶ�Ϊ����󣩣�����ľ���M<sub>k,k+1</sub>Ϊϡ����󡣽���6.4����������ϡ������������˻��Ĳ��л������������ڸ��͵�ʱ�临�Ӷ�������������⡣<br>
+　　<font color="#000000">当图6.5.1中相邻两层的各个结点之间只有少数有直接的道路相连时（即其它结点之间的道路长度都为无穷大），上面的矩阵M<sub>k,k+1</sub>为稀疏矩阵。借助6.4节所讲述的稀疏矩阵与向量乘积的并行化方法，有望在更低的时间复杂度内完成问题的求解。<br>
 <br>
-������֮�����·�������ͨ������ӷ���˷�����ķ�ʽת��Ϊ�����������˻������⣬�Ӷ������ֳɵķ������Բ��л���</font><br>
+　　总之，最短路问题可以通过虚拟加法与乘法运算的方式转化为矩阵与向量乘积的问题，从而利用现成的方法加以并行化。</font><br>
 </p>
             </td>
         </tr>

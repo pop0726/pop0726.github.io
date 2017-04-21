@@ -11,7 +11,7 @@ background-attachment: fixed;
 -->
 </STYLE>
 <title>Untitled Document</title>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
 <link rel="stylesheet" href="../../../css/style.css" type="text/css">
 </head>
 
@@ -25,16 +25,16 @@ background-attachment: fixed;
       <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0">
         <tr> 
           <td class="text" valign="top"> 
-            <p>����<b>����Ŀ¼��Э��</b><br>
+            <p>　　<b>基于目录的协议</b><br>
               <br>
-              ������ĳһ�������޸���˽��Cache�е����ݺ󣬲���ÿ����������Cache�ж��и����ݵĸ��������ʹ�ù㲥�ķ�ʽ�����Ǹ�Ч�ġ����ң��������еĲ���ϵͳ��֧�ֹ㲥���ܷ�ֻ֪ͨ��Щ���б��޸����ݵĸ����Ĵ�����������ǻ���Ŀ¼��Э���˼�롣�ڻ���Ŀ¼��Э���У������洢��ά��һ��Ŀ¼����Ϊ���ٻ���Ŀ¼����Ŀ¼�м�����������ĳһ���ݵ����д������������������ݱ�����ʱ���͸���Ŀ¼�ļ��أ���������Cache�а��������ݵĴ�����&quot;��Ե�&quot;�ط�����Ч��Ϣ����º����ݡ�Ŀ¼�����Ǽ��еģ�Ҳ���Էֲ��ڸ����洢ģ���ϡ��ر���ĳЩϵͳ�ڣ��洢�����߼����ǹ����ģ����������Ƿֲ��ġ���ʱĿ¼���Էֲ��ڸ��洢���ڡ�Ŀ¼Ҳ�ж�����ʽ������ȫӳ��Ŀ¼������Ŀ¼����ʽĿ¼��<font color="#000000">��ȫӳ��Ŀ¼�����У�����ÿ�����ݿ飬Ϊÿ��������������һ����־λ������Ŀ¼�Ƚ��Ӵ�������Ŀ¼�޷����У�����ͬʱ����ͬһ���ݿ鿽����Cache��������������������ĳһ���ݿ��Cache��Ŀ�Ѵ�����������������Cache��������ݿ�ʱ������Ҫ���Ѿ����и����ݵ�Cache�� 
-              &quot;����&quot; ��һ�����������Ŀ¼��Ҫ��Ӧ��&quot;�������&quot;������ʽĿ¼�����У��ڴ������������ݿ��ʱ������ͬһ���ݿ�Ĵ�������ָ���γ�һ��������ͨ���������Ϳ����ҵ����к��и����ݿ�Ĵ�����������Ŀ¼����ʽĿ¼������Ӧ�������϶�ĳ��ϣ��༴�и��õ���չ�ԡ�</font> 
+              　　当某一处理器修改了私有Cache中的数据后，并非每个处理器的Cache中都有该数据的副本。因此使用广播的方式并不是高效的。而且，并非所有的并行系统都支持广播。能否只通知那些含有被修改数据的副本的处理器？这就是基于目录的协议的思想。在基于目录的协议中，共享存储器维护一个目录，称为高速缓存目录，该目录中记载了申请了某一数据的所有处理器。这样，当数据被更新时，就根据目录的记载，向所有其Cache中包含该数据的处理器&quot;点对点&quot;地发送无效信息或更新后数据。目录可以是集中的，也可以分布于各个存储模块上。特别在某些系统内，存储器在逻辑上是共享的，但物理上是分布的。此时目录可以分布于各存储器内。目录也有多种形式，比如全映射目录，有限目录和链式目录。<font color="#000000">在全映射目录方案中，对于每个数据块，为每个处理机都设置一个标志位，这种目录比较庞大。在有限目录限方案中，限制同时含有同一数据块拷贝的Cache的数量。这样，当含有某一数据块的Cache数目已达限制数量，但仍有Cache申请该数据块时，就需要从已经含有该数据的Cache中 
+              &quot;驱逐&quot; 出一个。因此有限目录需要相应的&quot;驱逐策略&quot;。在链式目录方案中，在处理器申请数据块的时将含有同一数据块的处理器用指针形成一个链表。通过该链表就可以找到所有含有该数据块的处理器。有限目录和链式目录更能适应处理器较多的场合，亦即有更好的扩展性。</font> 
               <br>
               <br>
-              ������������Э�������Ŀ¼��Э��Ҳ���Խ������ʹ�á�����ͼ��ʾ��<br>
-              ����<img src="../../../images/img_text/ch02/p2_3_8.gif" width="446" height="220"><br>
+              　　监听总线协议与基于目录的协议也可以结合起来使用。如下图所示。<br>
+              　　<img src="../../../images/img_text/ch02/p2_3_8.gif" width="446" height="220"><br>
               <br>
-              ��������ϵͳ��Ϊ����&quot;����&quot;��ÿ��&quot;����&quot;�к��ж���������ʹ洢����ÿ����������˽��Cache����ÿ��&quot;����&quot;��ʹ�ü�������Э�飬��&quot;����&quot;֮���û���Ŀ¼��Э��ά��Cacheһ���ԡ�<br>
+              　　整个系统分为几个&quot;大结点&quot;，每个&quot;大结点&quot;中含有多个处理器和存储器。每个处理器有私有Cache。在每个&quot;大结点&quot;内使用监听总线协议，而&quot;大结点&quot;之间用基于目录的协议维护Cache一致性。<br>
             </p>
             </td>
         </tr>

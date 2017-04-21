@@ -11,7 +11,7 @@ background-attachment: fixed;
 -->
 </STYLE>
 <title>Untitled Document</title>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
 <link rel="stylesheet" href="../../../css/style.css" type="text/css">
 </head>
 
@@ -25,18 +25,18 @@ background-attachment: fixed;
       <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0">
         <tr> 
           <td class="text" valign="top"> 
-            <p>����<b>����ƽ���㷨</b><br>
+            <p>　　<b>负载平衡算法</b><br>
               <br>
-              ������Ի�����ֽ⼼���������㷨���кܶ�ר�ú�ͨ�õĸ���ƽ�⼼����Load-Balancing Technigues����<br>
+              　　针对基于域分解技术开发的算法，有很多专用和通用的负载平衡技术（Load-Balancing Technigues）。<br>
               <br>
-              ����<b>�ֲ��㷨</b> �ֲ�����ƽ���㷨��˼����ͨ���ӽ���Ǩ������������Ǩ���������ﵽ����ƽ�⡣���磬ÿ�������������Ե����ھӱȽϸ��ص����ء�������쳬����ĳ����ֵ���ͽ��и���Ǩ�ơ�����Լ��ĸ����������ھӸ����أ���Ӹ��ھ�Ǩ��һЩ���񡣷�֮������Լ��ĸ����أ�������ھӽϿ��У�����Լ���һ���ָ���Ǩ�������ֲ��㷨���ŵ����������ֻ���þֲ��ĸ�����Ϣ��ͬʱ��Ǩ������ʱ����ͨ�����ܴ󣬶��˷���ֻ�ھֲ�Ǩ�ƣ����������Ч�ʡ� 
+              　　<b>局部算法</b> 局部负载平衡算法的思想是通过从近邻迁入任务和向近邻迁出任务来达到负载平衡。比如，每个处理器周期性地与邻居比较负载的轻重。如果差异超过了某个阈值，就进行负载迁移。如果自己的负载轻且有邻居负载重，则从该邻居迁入一些任务。反之，如果自己的负载重，而别的邻居较空闲，则把自己的一部分负载迁给它。局部算法的优点是这个方案只利用局部的负载信息。同时，迁移任务时往往通信量很大，而此方案只在局部迁移，有利于提高效率。 
               <br>
               <br>
-              ����<b>���ʷ���</b>��Probabilistic Method�� �˷���˼���ǽ���������ط��������������������㹻�࣬��ÿ��������Ԥ���ֵܷ����µ��������񡣴˷����ŵ��ǵͼۺͿ���չ�Ժã�ȱ����Ҫ��紦��������ͨ�ţ�����ֻ�е�������ԶԶ���ڴ�������ʱ���ܴﵽԤ�ڵ�Ч����<br>
+              　　<b>概率方法</b>（Probabilistic Method） 此法的思想是将任务随机地分配给处理器，如果任务足够多，则每个处理器预计能分到大致等量的任务。此法的优点是低价和可扩展性好；缺点是要求跨处理器进行通信，并且只有当任务数远远多于处理器数时才能达到预期的效果。<br>
               <br>
-              ����<b>ѭ��ӳ��</b>��Cyclic Mapping�� �˷��ֳ�Ϊѭ��ָ�ɷ����������ظ��������������������ʵ�����Ǹ��ʷ�����һ����ʽ���˷������ڸ�������������ԵĿռ�ֲ��Ե������<br>
+              　　<b>循环映射</b>（Cyclic Mapping） 此法又称为循环指派法，即轮流地给处理器分配计算任务。它实际上是概率方法的一种形式。此法适用于各计算任务呈明显的空间局部性的情况。<br>
               <br>
-              ������֮���ֲ��㷨����С���������ر仯��ʱ�������������ʷ�������С������չ�Ժã���ͨ�Ŵ��ۿ��ܽϴ���ֻ������������Զ���ڴ��������������ѭ��ӳ�似���Ǹ���ӳ���һ����ʽ�������ʷ����������������ڵ��¿ɹ۵�ͨ�š� 
+              　　总之，局部算法代价小，但当负载变化大时调整很慢；概率方法代价小，可扩展性好，但通信代价可能较大，且只适用于任务数远多于处理器数的情况；循环映射技术是概率映射的一种形式，而概率方法比其它技术易于导致可观的通信。 
               <br>
             </p>
             </td>

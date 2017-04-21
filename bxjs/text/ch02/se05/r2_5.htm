@@ -11,7 +11,7 @@ background-attachment: fixed;
 -->
 </STYLE>
 <title>Untitled Document</title>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
 <link rel="stylesheet" href="../../../css/style.css" type="text/css">
 </head>
 
@@ -25,15 +25,15 @@ background-attachment: fixed;
       <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0">
         <tr> 
           <td class="text" valign="top"> 
-            <p>����T3Eϵͳ�ɴ���������ԪPE��processing element����ɣ�PE����һ����ά˫�����������ӡ�ϵͳ�л�������GigaRingͨ������PE����ά����������I/O�豸������T3E��ϵͳ�ṹ����ͼ��ʾ��<br>
-����<img src="../../../images/img_text/ch02/p2_5_1.gif" width="489" height="376"><br>
+            <p>　　T3E系统由大量处理单元PE（processing element）组成，PE间用一个三维双向环绕网格连接。系统中还有许多GigaRing通道，将PE和三维环绕网格与I/O设备相连。T3E的系统结构如下图所示。<br>
+　　<img src="../../../images/img_text/ch02/p2_5_1.gif" width="489" height="376"><br>
               <br>
-              ����T3E��ÿ��������Ԫ����һ��DEC Alpha 21164�����������ⲿ��һ��Shell��·����Shell��·����һ�����ش洢����һ������оƬ��һ��·��оƬ�����ش洢��Ϊ64MB��2GB������Ϊ1.2GB/s��·��оƬ��7��˫��˿ڣ�����1����PE�ڲ����ӣ���6������ά�����������ӡ����ƵĿ���оƬ֧�ֲַ�ʽ�������档ÿ�����������Դ�ȡ�κ�PE�еĴ洢����ÿ������������ͨ��GigaRing�����κ�I/O�豸��PE��û�����弶���ٻ��棬����ʹ�ô������ڵĸ��ٻ��档<br>
+              　　T3E的每个处理单元中有一个DEC Alpha 21164处理器，其外部是一个Shell电路。该Shell电路包含一个本地存储器，一个控制芯片和一个路由芯片。本地存储器为64MB至2GB，带宽为1.2GB/s。路由芯片有7个双向端口，其中1个与PE内部连接，另6个与三维环绕网格连接。定制的控制芯片支持分布式共享主存。每个处理器可以存取任何PE中的存储器，每个处理器可以通过GigaRing访问任何I/O设备。PE上没有主板级高速缓存，而是使用处理器内的高速缓存。<br>
               <br>
-              ����T3E�Ļ�����������˽ṹΪ��ά�������񡣸���������ÿ��ʱ�����ڣ�13.3ns����ȫ������������һ��64bit���֡�T3Eʹ��һ������Ӧ�����··���㷨��������Ϣ�ƹ���æ�ĵضΡ� 
+              　　T3E的互连网络的拓扑结构为三维环绕网格。该网络能在每个时钟周期（13.3ns）向全部六个方向传输一个64bit的字。T3E使用一种自适应的最短路路由算法，允许消息绕过繁忙的地段。 
               <br>
               <br>
-              ����ϵͳͨ��GigaRingͨ����I/O�豸������GigaRingͨ���봦��������ά��������������ϵͳ���ж��GigaRingͨ����ÿ��GigaRingͨ�����ṩ1GB/s�ķ�ֵ����������������16��PE��ͨ��GigaRingͨ����ϵͳ����HiPPIͨ������̫����ATM�������̺ʹŴ����ӡ�<br>
+              　　系统通过GigaRing通道与I/O设备相连。GigaRing通道与处理器和三维环绕网格都相连。系统中有多个GigaRing通道，每个GigaRing通道可提供1GB/s的峰值带宽，最多可以连接16个PE。通过GigaRing通道，系统可与HiPPI通道、以太网、ATM网、磁盘和磁带连接。<br>
             </p>
             </td>
         </tr>

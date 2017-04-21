@@ -11,7 +11,7 @@ background-attachment: fixed;
 -->
 </STYLE>
 <title>Untitled Document</title>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
 <link rel="stylesheet" href="../../../css/style.css" type="text/css">
 </head>
 
@@ -25,28 +25,28 @@ background-attachment: fixed;
       <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0">
         <tr> 
           <td class="text" valign="top"> 
-            <p>��<b>��MPIͨ����<br>
+            <p>　<b>　MPI通信域<br>
               <br>
-              </b>����MPI�е�ͨ����Communicator���ṩ��һ����֯�͹������̼�ͨ�ŵķ�����ͨ�������ͨ�������ģ�Context���������飨Group�������⴦�������ˣ�Topology�������Ե����ݣ���������������������֮���ͨ�Ź�ϵ��<br>
+              </b>　　MPI中的通信域（Communicator）提供了一种组织和管理进程间通信的方法。通信域包括通信上下文（Context）、进程组（Group）、虚拟处理器拓扑（Topology）和属性等内容，它用于完整的描述进程之间的通信关系。<br>
               <br>
-              ����ÿ��ͨ�������һ��MPI���̣���Ϊ�����顣��һ�����֮������໥ͨ�ţ��������ͨ�����ڵ�ͨ�Ų����Խͨ����ı߽硣�������ṩ��һ�ְ�ȫ����Ϣ���ݵĻ��ƣ���Ϊ���������ڲ����ⲿ��ͨ�ţ������˲���Ҫ��ͬ����ÿ�����̶�������ĳ���ض���ͨ�����У����п��ܽ����ڶ��ͨ�����е����Σ������ĳ���˿����Ƕ����֯�ĳ�Աһ������������һ�����̵��������н���������ÿ�����̸����������е�λ�ñ�����һ�����̺ţ�0�� 
-              1�� ...��N-1����<br>
+              　　每个通信域包括一组MPI进程，称为进程组。这一组进程之间可以相互通信，而且这个通信域内的通信不会跨越通信域的边界。这样就提供了一种安全的消息传递的机制，因为它隔离了内部和外部的通信，避免了不必要的同步。每个进程都至少在某个特定的通信域中，但有可能进程在多个通信域中的情形，这就像某个人可以是多个组织的成员一样。进程组由一个进程的有序序列进行描述，每个进程根据在序列中的位置被赋予一个进程号（0， 
+              1， ...，N-1）。<br>
               <br>
-              ����MPIԤ������һ���ս����飺MPI_GROUP_EMPTY�����������κεĽ��̡�����һ������MPI_GROUP_NULL������ʾһ����Ч�Ľ����顣</p>
-            <p>����ͨ�������Ŀ�����Ϊ��ͨ������ͨ�ſռ��һ�ֻ��֣���ͬͨ���������е���Ϣ�����໥������Ҳ�����໥���ͺͽ��գ�����ṩ��һ���ֶ����Ѳ�ͬ���ͨ�ŷֿ�������ͬ��������֮����໥���ã������缯��ͨ�ź͵㵽��ͨ�ž��в�ͬ��ͨ�������ģ���������໥��������Ҫע����ǣ�ͨ����������Ȼ���ڣ�����������Ϊ��ʽ��MPI����������ڣ�ֻ����Ϊͨ�����һ���֡�</p>
-            <p>��������ֲ�ʽ�ദ����ϵͳ֮��Ļ����в�ͬ�����˽ṹһ������������Щ�������ϵĶ��MPI����֮���߼���ϵҲ���Ծ������˽ṹ��ֻ������������һ���߼��ϵ���ϵ�����Գ�Ϊ���⴦�������ˡ�������֧��ĳЩ��Ҫ���ƽ������˵�Ӧ�ã��Լ�����������̵��߼����˺ʹ��������������ˣ��Ӷ���ñȽϸߵ����ܡ����̵��������˶�����ͨ������˵���Ƕ���ģ���ѡ�Ĳ��֡�ͨ������£����������û������ṩһ�ַ���ֱ�ӵĴ�����������ʽ������ĳ������������ͨ��&quot;���ϱߵĴ�����&quot;��ָ��ĳ��������������Ժܶ��㷨�Ƿǳ�����ġ� 
-              MPIԤ����������ͨ����<br>
-              ����MPI_COMM_WORLD <br>
-              ����MPI_COMM_SELF <br>
-              ����MPI_COMM_WORLD��һ��MPI������������н��̣��������ļ����ƣ���Ϊһ��ͨ���򣻶�MPI_COMM_SELF���ڵ�ͨ����ֻ������ǰ�Ľ��̡�MPI_COMM_NULL������ 
-              ��ʾһ����Ч��ͨ����</p>
-            <p>��������̸����ͨ������£�ͨ����ͨ����Ľ������ڽ��У����ᴩԽ������ı߽硣���е�ʱ�򣬿�����Ҫ������������֮���໥ͨ�š�����Ҫ����<b>���ͨ����</b>����Ӧ�ģ�ǰ���ᵽ��ͨ�����Ϊ<b>����ͨ����</b>��ͨ��������壬��������ͨ����ͽ������������𣩡����ͨ������˹��췽ʽ��ͬ���⣬ʹ�÷�����û������ĵط����������ǲ�����ϸ���ܣ�����ֻ����������صĺ���������ϸ��������ο��淶�� 
+              　　MPI预定义了一个空进程组：MPI_GROUP_EMPTY，它不包括任何的进程。另外一个常量MPI_GROUP_NULL用来表示一个无效的进程组。</p>
+            <p>　　通信上下文可以视为对通信域内通信空间的一种划分，不同通信上下文中的消息不会相互混淆，也不能相互发送和接收（这就提供了一种手段来把不同类的通信分开，而不同担心它们之间的相互作用），比如集合通信和点到点通信具有不同的通信上下文，因此它们相互独立。需要注意的是，通信上下文虽然存在，但它并不作为显式的MPI对象独立存在，只是作为通信域的一部分。</p>
+            <p>　　就象分布式多处理器系统之间的互连有不同的拓扑结构一样，运行在这些处理器上的多个MPI进程之间逻辑关系也可以具有拓扑结构，只是这种拓扑是一种逻辑上的联系，所以称为虚拟处理器拓扑。它用来支持某些需要控制进程拓扑的应用，以及用来连结进程的逻辑拓扑和处理器的物理拓扑，从而获得比较高的性能。进程的虚拟拓扑对组内通信域来说，是额外的，可选的部分。通常情况下，它用来给用户程序提供一种方便直接的处理器命名方式（比如某个处理器可以通过&quot;我南边的处理器&quot;来指定某个处理器），这对很多算法是非常方便的。 
+              MPI预定义了两个通信域：<br>
+              　　MPI_COMM_WORLD <br>
+              　　MPI_COMM_SELF <br>
+              　　MPI_COMM_WORLD将一个MPI程序产生的所有进程（由配置文件控制）作为一个通信域；而MPI_COMM_SELF所在的通信域只包含当前的进程。MPI_COMM_NULL则用来 
+              表示一个无效的通信域。</p>
+            <p>　　上面谈到，通常情况下，通信在通信域的进程组内进行，不会穿越进程组的边界。但有的时候，可能需要在两个进程组之间相互通信。这需要构造<b>组间通信域</b>。相应的，前面提到的通信域称为<b>组内通信域</b>（通过这个定义，可以理解通信域和进程组概念的区别）。组间通信域除了构造方式不同以外，使用方法并没有特殊的地方。所以我们不做详细介绍，下面只给出几个相关的函数，更详细的内容请参考规范。 
               <br>
-              ����MPI_INTERCOMM_CREATE<br>
-              ����MPI_INTERCOMM_MERGE<br>
-              ����MPI_REMOTE_GROUP<br>
-              ����MPI_REMOTE_SIZE<br>
-              ����MPI_COMM_TEST_INTER<br>
+              　　MPI_INTERCOMM_CREATE<br>
+              　　MPI_INTERCOMM_MERGE<br>
+              　　MPI_REMOTE_GROUP<br>
+              　　MPI_REMOTE_SIZE<br>
+              　　MPI_COMM_TEST_INTER<br>
             </p>
           </td>
         </tr>

@@ -2,7 +2,7 @@
 <html>
 <head>
 <title>Untitled Document</title>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
 
 <link rel="stylesheet" href="../../../css/style.css" type="text/css">
 </head>
@@ -16,9 +16,9 @@
     <td valign="top"> 
       <table width="90%" border="0" align="center" cellpadding="0" cellspacing="0">
         <tr> 
-          <td class="section" valign="top">��<span class="part">6.6.3.3��Prim�㷨�Ĳ��л�</span><br>
+          <td class="section" valign="top">　<span class="part">6.6.3.3　Prim算法的并行化</span><br>
             <span class="text"><br>
-            ��������ֻ����Prim�㷨�Ĳ��л���Prim�㷨��һ�������Ĺ��̣�ÿ�ε�������С��������һ����㣬���ձ����С֧��������Ϊÿ����һ���������·����d��Ҫ�����仯������һ��ѡ��������뵽�����������ζ�Ų�ͬ�ĵ����Ǻ��Ѳ��л��ģ���һ�ε������̿����ö��������������ɡ�</span></td>
+            　　这里只讨论Prim算法的并行化。Prim算法是一个迭代的过程，每次迭代向最小树中增加一个结点，最终编程最小支撑树。因为每加入一个结点后最短路向量d都要发生变化，很难一次选多个结点加入到最短树，这意味着不同的迭代是很难并行化的，但一次迭代过程可以用多个处理器并行完成。</span></td>
         </tr>
       </table>
     </td>

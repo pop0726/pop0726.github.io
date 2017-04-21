@@ -1,7 +1,7 @@
 <html>
 <head>
 <title>Untitled Document</title>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
 <link rel="stylesheet" href="../../css/text.css" type="text/css">
 <style type="text/css">
 <!--
@@ -18,46 +18,46 @@
 <center><table width="95%" border="0" cellspacing="0" cellpadding="0">
   <tr>
       <td class=text> 
-        <p><b>һ</b><b>�� �ʴ����</b></p>
-        <p>�ʴ��1��<br>
-          &nbsp;&nbsp;&nbsp;&nbsp;�����������˵������PRAM-CRCW���ڹ���PRAM-CRCW������PRAM-CRCW֮�䣬��������£����ԣ�����ͬ���㷨���������õ�ʱ��ҲӦ����ͬ�����������ϣ��� 
-          ��ˣ�����PRAM-CRCW������PRAM-CRCW������ʱ�����޾�ΪO(t)�� ����PRAM-CRCW����д�Ľ��Ҳֻ����һ�������ڸı�һ�������洢��Ԫ�����ݣ�����PRAM-CREW����Ҳ����һ�������������ͬ�����ݣ�����PRAM-CREW������ʱ������Ҳ��O(t)�� 
-          ǰ���Ѿ��ᵽ������PRAM-EREW��PRAM-CREW��PRAM-CRCW���з��棬����ʱ����������Ĺ�ʽ��<br>
+        <p><b>一</b><b>、 问答题答案</b></p>
+        <p>问答第1题<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;从灵活性上来说，优先PRAM-CRCW介于公共PRAM-CRCW和任意PRAM-CRCW之间，但功能相仿，所以，对相同的算法，它们所用的时间也应该相同（渐近意义上）。 
+          因此，公共PRAM-CRCW与任意PRAM-CRCW的运行时间上限均为O(t)； 由于PRAM-CRCW并发写的结果也只是在一个周期内改变一个共享存储单元的内容，对于PRAM-CREW，它也能在一个周期内完成相同的内容，所以PRAM-CREW的运行时间上限也是O(t)； 
+          前面已经提到过，用PRAM-EREW对PRAM-CREW和PRAM-CRCW进行仿真，仿真时间满足下面的公式，<br>
           <img src="../../images/gongshi/1da-1.gif" width="279" height="48"> <br>
-          �õ���������ԭ���Ƕ�PRAM-CREW��PRAM-CRCW�ϵ�p����������ͬ�Ĺ����洢��Ԫ�Ĳ���������PRAM-EREW�Ͽ����ö����������ķ�ʽ��ģ�⣬����Ҫ�ķѵ�ʱ��Ϊlogp�� 
-          ���ԣ�PRAM-EREW���õļ���ʱ������Ϊ <br>
+          得到这个结果的原因是对PRAM-CREW和PRAM-CRCW上的p处理器对相同的共享存储单元的并发读，在PRAM-EREW上可以用二叉树传播的方式来模拟，这需要耗费的时间为logp。 
+          所以，PRAM-EREW所用的计算时间上限为 <br>
           <img src="../../images/gongshi/1da-2.gif" width="240" height="24"> <br>
           <br>
-          �ʴ��2��<br>
-          &nbsp;&nbsp;&nbsp;&nbsp;���������ֽṹ����Ϣ���ݵķ�����˫��ģ���Ҫ���ǵ�ʵ�����ǣ�����ԭ�����ù����洢��������һ����λʱ������ɵ���������������֮������ݽ�������������Ϣ���ݵĻ�������Ҫ����ʱ�䣿 
-          ���ڻ����������������������һ��ͨ�ţ�����һ�����ݣ���ʱ�临�Ӷ�Ϊ<em>O</em>(<em>p</em>/2)��Ҳ����<em>O</em>(<em>p</em>) 
-          �������ڻ��ϵ�����ʱ������Ϊ<em>O</em>(<em>pt</em>)�� ���ڶ�ά�����������������������һ��ͨ�ţ�����һ�����ݣ���ʱ�临�Ӷ�Ϊ<img src="../../images/gongshi/2da-1.gif" width="55" height="27" align="absmiddle"> 
-          ��Ҳ����<img src="../../images/gongshi/2da-2.gif" width="49" height="27" align="absmiddle">�������ڶ�ά�����ϵ�����ʱ������Ϊ 
-          <img src="../../images/gongshi/2da-3.gif" width="56" height="27" align="absmiddle">�� 
-          ���ڳ������壬�������������������һ��ͨ�ţ�����һ�����ݣ���ʱ�临�Ӷ�Ϊ <img src="../../images/gongshi/2da-4.gif" width="60" height="21" align="absmiddle">�������ڳ��������ϵ�����ʱ������Ϊ<img src="../../images/gongshi/2da-5.gif" width="68" height="21" align="absmiddle">��<br>
+          问答第2题<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;假设这三种结构中消息传递的方向都是双向的，需要考虑的实际上是，对于原来利用共享存储器可以在一个单位时间内完成的任意两个处理器之间的数据交换，现在在消息传递的机器上需要多少时间？ 
+          对于环，任意两个处理器间完成一次通信（传递一个数据）的时间复杂度为<em>O</em>(<em>p</em>/2)，也就是<em>O</em>(<em>p</em>) 
+          ，所以在环上的运行时间上限为<em>O</em>(<em>pt</em>)； 对于二维网格，任意两个处理器间完成一次通信（传递一个数据）的时间复杂度为<img src="../../images/gongshi/2da-1.gif" width="55" height="27" align="absmiddle"> 
+          ，也就是<img src="../../images/gongshi/2da-2.gif" width="49" height="27" align="absmiddle">，所以在二维网格上的运行时间上限为 
+          <img src="../../images/gongshi/2da-3.gif" width="56" height="27" align="absmiddle">； 
+          对于超立方体，任意两个处理器间完成一次通信（传递一个数据）的时间复杂度为 <img src="../../images/gongshi/2da-4.gif" width="60" height="21" align="absmiddle">，所以在超立方体上的运行时间上限为<img src="../../images/gongshi/2da-5.gif" width="68" height="21" align="absmiddle">。<br>
           <br>
-          �ʴ��3��<br>
-          &nbsp;&nbsp;&nbsp;&nbsp;��1�� �ԣ����Բμ���������ӣ� <br>
-          &nbsp;&nbsp;&nbsp;&nbsp;��2�� �㷨�����൱�ڶ������ι�Լ�������㷨�ĸ��Ӷ�Ϊlogn�������㷨��ʱ�临�Ӷ�Ϊ 
-          <img src="../../images/gongshi/3da-1.gif" width="59" height="21" align="absmiddle">���������㷨������Ҳ���Կ��������ѭ���Ǵ��еģ���logn��ѭ�������ڲ�ѭ���ǲ��еģ�ƽ��ֻ��Ҫһ��������������λʱ�䣬�����ɴ�Ҳ���Կ������㷨��ʱ�临�Ӷ�Ϊ 
-          <img src="../../images/gongshi/3da-1.gif" width="59" height="21" align="absmiddle">�� 
+          问答第3题<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;（1） 略（可以参见下面的例子） <br>
+          &nbsp;&nbsp;&nbsp;&nbsp;（2） 算法过程相当于二叉树形归约，树形算法的复杂度为logn，所以算法的时间复杂度为 
+          <img src="../../images/gongshi/3da-1.gif" width="59" height="21" align="absmiddle">，从上面算法描述中也可以看出，外层循环是串行的，有logn个循环步，内层循环是并行的，平均只需要一个（两个？）单位时间，所以由此也可以看出，算法的时间复杂度为 
+          <img src="../../images/gongshi/3da-1.gif" width="59" height="21" align="absmiddle">。 
           <br>
           <br>
-          �ʴ��4��<br>
-          &nbsp;&nbsp;&nbsp;&nbsp;����һ��SPMD�ĳ���<br>
-          &nbsp;&nbsp;&nbsp;&nbsp;����㷨����Ҫ�ṹ����һ����㷨�ȼۡ����ȶԳ����г��ֵĺ�������Ҫ��˵����<br>
-          &nbsp;&nbsp;&nbsp;&nbsp;bsp_pid���õ����̣��������������ı�ʶ�����̺ţ���<br>
-          &nbsp;&nbsp;&nbsp;&nbsp;bsp_nprocs���õ�����������Ŀ��<br>
-          &nbsp;&nbsp;&nbsp;&nbsp;bsp_put���ڴ�������ͨ�ţ�<br>
-          &nbsp;&nbsp;&nbsp;&nbsp;bsp_sync���ϰ�ͬ����<br>
-          &nbsp;&nbsp;&nbsp;&nbsp;bsp_begin��BSPϵͳ��ʼ����<br>
-          &nbsp;&nbsp;&nbsp;&nbsp;bsp_end��BSPϵͳ������<br>
-          &nbsp;&nbsp;&nbsp;&nbsp;��Ҫע����ǳ����е�ѭ�����֣�����������ֳ���BSPģ�͵��ص㣺���㡢ͨ�š��ϰ�ͬ�������Ľṹ�� 
-          ��Ҫָ�����ǣ�����������Ŀ����ϣ������ܹ���Ϥ����SPMD�ĳ�����ʽ����Ϥ�㷨���ڲ�ͬ����ģ���µĳ��������ʽ����ϤBSPģ�͵��ص�ͱ��﷽����
+          问答第4题<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;这是一个SPMD的程序。<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;这个算法的主要结构和上一题的算法等价。首先对程序中出现的函数作简要的说明。<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;bsp_pid：得到进程（处理器）本身的标识（进程号）；<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;bsp_nprocs：得到处理器的数目；<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;bsp_put：在处理器间通信；<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;bsp_sync：障碍同步；<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;bsp_begin：BSP系统初始化；<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;bsp_end：BSP系统结束。<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;需要注意的是程序中的循环部分，它清楚的体现出了BSP模型的特点：计算、通信、障碍同步相间隔的结构。 
+          需要指出的是，给出这个题的目的是希望大家能够熟悉这种SPMD的程序形式，熟悉算法的在不同并行模型下的程序表达形式，熟悉BSP模型的特点和表达方法。
           <!--czp-wenda-daan-->
           <br>
           <br>
-          ��</p>
+          　</p>
       </td>
   </tr>
 </table>

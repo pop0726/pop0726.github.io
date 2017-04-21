@@ -11,7 +11,7 @@ background-attachment: fixed;
 -->
 </STYLE>
 <title>Untitled Document</title>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
 <link rel="stylesheet" href="../../../css/style.css" type="text/css">
 </head>
 
@@ -25,18 +25,18 @@ background-attachment: fixed;
       <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0">
         <tr> 
           <td class="text" valign="top"> 
-            <p>����<b>����ת�ֲ�</b><br>
+            <p>　　<b>块轮转分布</b><br>
               <br>
-              �����������ÿ��Ԫ������ļ���������ͬʱ����ֲ��п��ܻᵼ�¸��صĲ����⡣����ת�ֲ��ǿ�ֲ���һ�ֱ��Σ������������������Ρ����ֲַ����Զ��������͵����ݲ��м���ǳ��ʺϣ����㱻�ֳɶ�����裬�����ڵĲ�������ڵ�Ԫ�صļ������𽥵ĸı䡣һ�������Ǹ�˹��Ԫ���ⷽ��Ax=b������A��n��n�ľ��������ͼ�����˶�һά������п���ת�ֲ������Σ�4������������ͬ����ɫ������ͬ�Ĵ���������<br>
-              ����<img src="../../../images/img_text/ch03/p3_3_4.gif" width="464" height="32"><br>
+              　　当矩阵的每个元素所需的计算量不相同时，块分布有可能会导致负载的不均衡。块轮转分布是块分布的一种变形，它可以用于这种情形。这种分布策略对下面类型的数据并行计算非常适合：计算被分成多个步骤，在相邻的步骤里，相邻的元素的计算量逐渐的改变。一个例子是高斯消元法解方程Ax=b，其中A是n×n的矩阵。下面的图给出了对一维数组进行块轮转分布的情形（4个处理器，不同的颜色代表不同的处理器）：<br>
+              　　<img src="../../../images/img_text/ch03/p3_3_4.gif" width="464" height="32"><br>
               <br>
-              �����Զ�ά��������п���ת�ֲ������Ӽ������ͼ��<br>
-              ����<img src="../../../images/img_text/ch03/p3_3_5.gif" width="201" height="186"><br>
+              　　对二维数组进行行块轮转分布的例子见下面的图：<br>
+              　　<img src="../../../images/img_text/ch03/p3_3_5.gif" width="201" height="186"><br>
               <br>
-              �����Զ�ά������ж�ά����ת�ֲ������Ӽ������ͼ��<br>
-              ������<img src="../../../images/img_text/ch03/p3_3_6.gif" width="187" height="187"><br>
+              　　对二维数组进行二维块轮转分布的例子见下面的图：<br>
+              　　　<img src="../../../images/img_text/ch03/p3_3_6.gif" width="187" height="187"><br>
               <br>
-              �����ڿ���ת�ֲ��У����ֵĿ���������ڴ���������Ŀ��ͨ���Ǵ�������Ŀ��������������ͬ���ǿ鱻����ת�ķ�ʽ�����������������һά�Ŀ���ת�ֲ�������ֳ���n�飬��ô��i�鱻�����������P<sub>i%p</sub>������pΪ����������<br>
+              　　在块轮转分布中，划分的块的数量多于处理器的数目（通常是处理器数目的整数倍），不同的是块被以轮转的方式分配给处理器。比如一维的块轮转分布，如果分成了n块，那么第i块被分配给处理器P<sub>i%p</sub>，其中p为处理器数。<br>
             </p>
           </td>
         </tr>

@@ -11,7 +11,7 @@ background-attachment: fixed;
 -->
 </STYLE>
 <title>Untitled Document</title>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
 <link rel="stylesheet" href="../../../css/style.css" type="text/css">
 </head>
 
@@ -25,16 +25,16 @@ background-attachment: fixed;
       <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0">
         <tr> 
           <td class="text" valign="top"> 
-            <p>����һ��dά�ĳ���������Կ�����������d-1ά�ĳ������廥�����ɵģ�������һ�㣬���԰�һ��dά�ĳ��������д洢��һ�����л��ֳ����������ж��ֱ��ŵ�����d-1ά�ĳ��������ϣ�ʹ��ÿ��d-1ά�������ÿ����������������һ���������ĳ������ֱ������������������һ�����ڽ����������С�ڽ�������п��Էֱ���ڲ�ͬ�ĳ��������ϡ�<br>
+            <p>　　一个d维的超立方体可以看作是由两个d-1维的超立方体互联而成的，利用这一点，可以把一个d维的超立方体中存储的一个序列划分成两个子序列而分别存放到两个d-1维的超立方体上，使得每个d-1维立方体的每个处理器都跟另外一个立方体的某处理器直接相连。这样，根据一个大于界的子序列与小于界的子序列可以分别放在不同的超立方体上。<br>
               <br>
-              �����账��������p=2<sup>d</sup>����һ��dά�ĳ������壬���������մ�0��2<sup>d</sup>���ж����Ʊ��룻n��Ԫ�������ɵ����о��ȷֲ��������������ϣ�ʹ��ÿ������������n/p��Ԫ�ء�����ѡ��һ����Ԫ�أ���������ֵ�㲥�����������������������������λ����ֵΪ1�Ĵ����������λ����ֵΪ0�Ĵ�����֮�����Ԫ�صĲ��ֽ�����ʹ�����λ����ֵΪ1�Ĵ������ϵ�����Ԫ�ؾ����ڽ�ֵ�����λ����ֵΪ0�Ĵ������ϵ�����Ԫ�ؾ�С�ڻ���ڽ�ֵ�������Ͱ�ά��Ϊd�ĳ������廮�ֳ�������������ά��Ϊd-1�ĳ������塣��ÿ��ά��Ϊd-1�ĳ��������ظ�����Ĳ������μ�ͼ6.2.8��<br>
+              　　设处理器个数p=2<sup>d</sup>构成一个d维的超立方体，处理器按照从0到2<sup>d</sup>进行二进制编码；n个元素所构成的序列均匀分布到各个处理器上，使得每个处理器上有n/p个元素。现在选择一个界元素，并将它的值广播到各个处理器，各个处理器中最高位编码值为1的处理器与最高位编码值为0的处理器之间进行元素的部分交换，使得最高位编码值为1的处理器上的所有元素均大于界值，最高位编码值为0的处理器上的所有元素均小于或等于界值。这样就把维数为d的超立方体划分成了两个独立的维数为d-1的超立方体。对每个维数为d-1的超立方体重复上面的操作，参见图6.2.8。<br>
               <br>
-              ������������㷨�������Կ��������ѡ������㷨����������ֱ�ӵ�Ӱ�졣������зָ��Խ���ȣ����㷨����Խ�á�һ����ԱȽϺõĽ�ѡ��ʽ�Ǵ��������Լ�ӵ�е�����Ԫ����ֵԪ����Ϊ��ֵ���������ֽ�ѡ����ԣ��㷨ÿ�ε������Է��Ĳ����ֲ����򣻽�ѡ�񣻽�ֵ�㲥��Ԫ�ؽ������ֲ������ʱ�临�Ӷ�Ϊ<img src="../../../images/img_text/ch06/31.gif" width="67" height="38" align="absmiddle">�������������ѡ����ʱ�临�Ӷ�Ϊ<img src="../../../images/img_text/ch06/32.gif" width="28" height="18" align="absmiddle">����i�ε�����Ҫ���ĵ�ͨ��ʱ����<img src="../../../images/img_text/ch06/33.gif" width="66" height="18" align="absmiddle">��d�ε���������<img src="../../../images/img_text/ch06/34.gif" width="59" height="21" align="absmiddle">��ʱ�䣻���ڽ���ֻ���ܷ��������ڵĴ�����֮�䣬ÿ�ε�����ʱ�����Ϊ<img src="../../../images/img_text/ch06/35.gif" width="48" height="18" align="absmiddle">��d�ε���������<img src="../../../images/img_text/ch06/36.gif" width="65" height="38" align="absmiddle">������ܵĲ��д���ʱ��Ϊ��<br>
-              ����������<img src="../../../images/img_text/ch06/37.gif" width="237" height="38" align="absmiddle"><br>
+              　　从上面的算法描述可以看出，界的选择对于算法的性能有着直接的影响。界把序列分割得越均匀，则算法性能越好。一个相对比较好的界选择方式是处理器在自己拥有的所有元素中值元素作为界值。按照这种界选择策略，算法每次迭代可以分四步：局部排序；界选择；界值广播；元素交换。局部排序的时间复杂度为<img src="../../../images/img_text/ch06/31.gif" width="67" height="38" align="absmiddle">；排序排序后再选择界的时间复杂度为<img src="../../../images/img_text/ch06/32.gif" width="28" height="18" align="absmiddle">；第i次迭代需要消耗的通信时间是<img src="../../../images/img_text/ch06/33.gif" width="66" height="18" align="absmiddle">，d次迭代共消耗<img src="../../../images/img_text/ch06/34.gif" width="59" height="21" align="absmiddle">的时间；由于交换只可能发生在相邻的处理器之间，每次迭代的时间最多为<img src="../../../images/img_text/ch06/35.gif" width="48" height="18" align="absmiddle">，d次迭代共花费<img src="../../../images/img_text/ch06/36.gif" width="65" height="38" align="absmiddle">。因此总的并行处理时间为：<br>
+              　　　　　<img src="../../../images/img_text/ch06/37.gif" width="237" height="38" align="absmiddle"><br>
               <br>
-              �������ڴ��д���ʱ��Ϊ<img src="../../../images/img_text/ch06/16.gif" width="59" height="18" align="absmiddle">������㷨�ļ��ٱ�S��Ч��E�ֱ�Ϊ��<br>
-              ����������<img src="../../../images/img_text/ch06/38.gif" width="233" height="56" align="absmiddle"><br>
-              ����������<img src="../../../images/img_text/ch06/39.gif" width="179" height="58"><br>
+              　　由于串行处理时间为<img src="../../../images/img_text/ch06/16.gif" width="59" height="18" align="absmiddle">，因此算法的加速比S与效率E分别为：<br>
+              　　　　　<img src="../../../images/img_text/ch06/38.gif" width="233" height="56" align="absmiddle"><br>
+              　　　　　<img src="../../../images/img_text/ch06/39.gif" width="179" height="58"><br>
             </p>
             </td>
         </tr>

@@ -11,7 +11,7 @@ background-attachment: fixed;
 -->
 </STYLE>
 <title>Untitled Document</title>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
 <link rel="stylesheet" href="../../../css/style.css" type="text/css">
 </head>
 
@@ -25,15 +25,15 @@ background-attachment: fixed;
       <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0">
         <tr> 
           <td class="text" valign="top"> 
-            <p>����<b>��С�����ݷ�����</b><br>
+            <p>　　<b>最小化数据访问量</b><br>
               <br>
-              ������ǿ�����㷨�е����ݾֲ��Ե�һ�����������Ǿ������ٲ���������Ҫ���ʵĹ�����������һ����Ч�ķ�����ѡ��ǡ���ķֽ�͸���ƽ����ԡ�<font color="#000000">���磬�Ծ���--����˷������ö�ά����ӳ��ķ��������Լ���ÿ��������������Ҫ���ʵĹ�����������A��B������һάӳ����ȣ��������ݷ��������Դ�n<sup>2</sup>/p+n<sup>2</sup>���ٵ�<img src="../../../images/img_text/ch03/7.gif" width="55" height="24" align="absmiddle">��һ����˵�����ýϸ�ά�ķֲ��ܹ������㷨������Ҫ���ʵĹ�����������<br>
+              　　增强并行算法中的数据局部性的一个基本方法是尽量减少并行任务需要访问的共享数据量。一个有效的方法是选择恰当的分解和负载平衡策略。<font color="#000000">比如，对矩阵--矩阵乘法，采用二维计算映射的方法，可以减少每个并行任务所需要访问的共享数据量（A和B）。和一维映射相比，共享数据访问量可以从n<sup>2</sup>/p+n<sup>2</sup>减少到<img src="../../../images/img_text/ch03/7.gif" width="55" height="24" align="absmiddle">。一般来说，采用较高维的分布能够帮助算法减少需要访问的共享数据量。<br>
               </font><br>
-              ��������һ�ּ��ٹ������ݷ������Ĳ�����ͨ�����ٲ������������ķ���������ÿ������ִ�е�ƽ�������������ַ�������Ҫʹ�ô����������ĳ��ϲ�������ʹ�ã���Ϊ��ʵ���Ͻ����˳���Ĳ����ȡ�<br>
+              　　另外一种减少共享数据访问量的策略是通过减少并行任务数量的方法来增加每个任务执行的平均计算量。这种方法在需要使用大量处理器的场合并不经常使用，因为它实质上降低了程序的并发度。<br>
               <br>
-              ����ͬʱ������Ҳ���Բ����ڱ��ش洢�м�����ֻ�ڱ�Ҫ��ʱ���ύ������ķ��������ٹ������ݵķ��������������Ա���Թ������ݵĶ�η��ʡ���Ҫע����ǣ���Ȼ���ݸ��Ƶķ���Ҳ���Դﵽͬ����Ŀ�ģ����Ժܶ�ĳ���ʵ���ϸ�������Ҫ�Ĵ洢���ռ��ǿ��Խ�ʡ�����ġ�<br>
+              　　同时，我们也可以采用在本地存储中间结果，只在必要的时候提交最后结果的方法来减少共享数据的访问量，这样可以避免对共享数据的多次访问。需要注意的是，虽然数据复制的方法也可以达到同样的目的，但对很多的程序，实际上复制所需要的存储器空间是可以节省下来的。<br>
               <br>
-              ����<font color="#000000">��������еĲ��Զ������ڸ�����ϵ�ṹ�͸��ֲ��г���ģ�͡�</font><br>
+              　　<font color="#000000">上面的所有的策略都适用于各种体系结构和各种并行程序模型。</font><br>
               <br>
             </p>
           </td>

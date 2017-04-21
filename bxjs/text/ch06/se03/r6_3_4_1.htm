@@ -11,7 +11,7 @@ background-attachment: fixed;
 -->
 </STYLE>
 <title>Untitled Document</title>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
 <link rel="stylesheet" href="../../../css/style.css" type="text/css">
 </head>
 
@@ -27,26 +27,26 @@ background-attachment: fixed;
                 <param name=quality value=high>
                 <embed src="../../../swf/S-6-3-11.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="400" height="300">
                 </embed> 
-              </object>����<font color="#000000">��<br>
-              ����������������</font>���÷ֿ��������Ĵ��о�������㷨<br>
+              </object>　　<font color="#000000">　<br>
+              　　　　　　　　</font>利用分块矩阵操作的串行矩阵相乘算法<br>
               <br>
-              ����ͼ6.3.11���㷨�����ײ��л���������������������˵ľ�������ÿ����̻��ֵ��������������ľ���ΪA=(a<sub>ij</sub>)��B=(b<sub>ij</sub>)������������ΪC=(c<sub>ij</sub>)������������p=q<sup>2</sup>��������������ֳ�p���ӿ�A<sub>ij</sub>��B<sub>ij</sub>��ÿ���ӿ�Ĵ�СΪ(n/q)��(n/q)������Щ�ӿ���䵽q��q���������ϡ�Ϊ�˼����C<sub>ij</sub>����Ҫ���еĿ�A<sub>ik</sub>��B<sub>kj</sub>��<img src="../../../images/img_text/ch06/61.gif" width="71" height="18" align="absmiddle">����Ϊ����Ҫ���������֮���ͨ�Ų���������ֿ�������㷨���̷�Ϊ������ͨ�š����㡣ͨ�Ź��̵õ���������Ҫ�ľ���飻������̸���Դ����龭���˷��ͼӷ�����õ�Ŀ�����顣<br>
+              　　图6.3.11的算法很容易并行化，这里讨论两个参与相乘的矩阵均采用块棋盘划分的情况。设参与计算的矩阵为A=(a<sub>ij</sub>)，B=(b<sub>ij</sub>)，计算结果矩阵为C=(c<sub>ij</sub>)，处理器个数p=q<sup>2</sup>。把两个矩阵均分成p个子块A<sub>ij</sub>和B<sub>ij</sub>，每个子块的大小为(n/q)×(n/q)；将这些子块分配到q×q个处理器上。为了计算块C<sub>ij</sub>，需要所有的块A<sub>ik</sub>与B<sub>kj</sub>（<img src="../../../images/img_text/ch06/61.gif" width="71" height="18" align="absmiddle">），为此需要多个处理器之间的通信操作。矩阵分块后，整个算法过程分为两步：通信、计算。通信过程得到计算所需要的矩阵块；计算过程根据源矩阵块经过乘法和加法运算得到目标矩阵块。<br>
               <br>
-              �����ڶ����������ڵ�������������ɵģ������绥���ṹû�й�ϵ������Ҫ��ʱ������Ϊ<img src="../../../images/img_text/ch06/62.gif" width="79" height="40" align="absmiddle">��ͨ��ʱ�������绥���ṹ�Ĳ�ͬ����ͬ���ڶ�ά����ṹ�ͳ�������ṹ�е�ͨ��ʱ��ֱ�Ϊ��<br>
-              ��������������<img src="../../../images/img_text/ch06/63.gif" width="298" height="43" align="absmiddle"><br>
-              ���������㷨�ܵ�����ʱ��Ϊ��<br>
-              ��������<img src="../../../images/img_text/ch06/64.gif" width="153" height="43" align="absmiddle">����ά����<br>
-              ��������<img src="../../../images/img_text/ch06/65.gif" width="163" height="43" align="absmiddle">���������壩<br>
-              ������������ʱ���⣬���Գ������廥���ṹΪ��������һ�´˲����㷨����������ָ�꣺���ٱȡ�Ч�ʡ��ɱ���<br>
-              ����<br>
-              �������ٱȶ���Ϊ��õĴ����㷨��˲����㷨����ʱ��ı�ֵ�����Ұ�O(n<sup>3</sup>)�������о�����˵�����ʱ�临�Ӷȣ����㷨�ļ��ٱ�Ϊ��<br>
-              ������������<img src="../../../images/img_text/ch06/66.gif" width="306" height="63" align="absmiddle"><br>
-              �����㷨��Ч��Ϊ��<br>
-              ������������<img src="../../../images/img_text/ch06/67.gif" width="186" height="57" align="absmiddle"><br>
-              �����㷨�ĳɱ�Ϊ��<br>
-              ������������<img src="../../../images/img_text/ch06/68.gif" width="188" height="24" align="absmiddle"><br>
+              　　第二步计算是在单个处理器上完成的，与网络互联结构没有关系，所需要的时间量级为<img src="../../../images/img_text/ch06/62.gif" width="79" height="40" align="absmiddle">。通信时间虽网络互联结构的不同而不同。在二维网格结构和超立方体结构中的通信时间分别为：<br>
+              　　　　　　　<img src="../../../images/img_text/ch06/63.gif" width="298" height="43" align="absmiddle"><br>
+              　　所以算法总的运行时间为：<br>
+              　　　　<img src="../../../images/img_text/ch06/64.gif" width="153" height="43" align="absmiddle">（二维网格）<br>
+              　　　　<img src="../../../images/img_text/ch06/65.gif" width="163" height="43" align="absmiddle">（超立方体）<br>
+              　　除了运行时间外，再以超立方体互联结构为例来考察一下此并行算法的其它性能指标：加速比、效率、成本。<br>
+              　　<br>
+              　　加速比定义为最好的串行算法与此并行算法运行时间的比值，姑且把O(n<sup>3</sup>)看作串行矩阵相乘的最优时间复杂度，则算法的加速比为：<br>
+              　　　　　　<img src="../../../images/img_text/ch06/66.gif" width="306" height="63" align="absmiddle"><br>
+              　　算法的效率为：<br>
+              　　　　　　<img src="../../../images/img_text/ch06/67.gif" width="186" height="57" align="absmiddle"><br>
+              　　算法的成本为：<br>
+              　　　　　　<img src="../../../images/img_text/ch06/68.gif" width="188" height="24" align="absmiddle"><br>
               <br>
-              ����<font color="#000000">���Կ�������pԶС��nʱ���㷨�ļ��ٱ�Ϊ����Ϊp��Ч�ʽӽ�1����p&lt;n<sup>2</sup>ʱ�������㷨�봮���㷨�ĳɱ�����ͬһ���������ǲ����㷨��ִ�й�������Ҫռ�ý϶�Ĵ洢�ռ䣨ÿ����������Ҫ����<img src="../../../images/img_text/ch06/69.gif" width="31" height="23" align="absmiddle">����СΪn<sup>2</sup>/p�Ŀ鹲ռ��<img src="../../../images/img_text/ch06/70.gif" width="57" height="23" align="absmiddle">�Ĵ洢�ռ䣩����Ҫ�����µĲ����㷨�Խ�ʡ�洢�ռ䡣</font></p>
+              　　<font color="#000000">可以看到，当p远小于n时，算法的加速比为近似为p，效率接近1。当p&lt;n<sup>2</sup>时，并行算法与串行算法的成本处于同一量级。但是并行算法在执行过程中需要占用较多的存储空间（每个处理器需要容纳<img src="../../../images/img_text/ch06/69.gif" width="31" height="23" align="absmiddle">个大小为n<sup>2</sup>/p的块共占用<img src="../../../images/img_text/ch06/70.gif" width="57" height="23" align="absmiddle">的存储空间），需要开发新的并行算法以节省存储空间。</font></p>
           </td>
         </tr>
       </table>

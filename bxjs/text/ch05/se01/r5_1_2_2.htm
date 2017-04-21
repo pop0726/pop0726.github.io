@@ -11,7 +11,7 @@ background-attachment: fixed;
 -->
 </STYLE>
 <title>Untitled Document</title>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
 <link rel="stylesheet" href="../../../css/style.css" type="text/css">
 </head>
 
@@ -25,31 +25,31 @@ background-attachment: fixed;
       <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0">
         <tr> 
           <td class="text" valign="top"> 
-            <p>����Gustafson���ɵĻ����������ǣ�<br>
+            <p>　　Gustafson定律的基本出发点是：<br>
               <br>
-              ����(1) ���ںܶ���ͼ��㣬����Ҫ��ܸߣ����ڴ���Ӧ���о�����һ���ؼ����أ�������ʱ���ǹ̶�����ġ���ʱΪ����߾��ȣ�����Ӵ����������Ӧ��Ҳ�������Ӵ���������Ŀ������ⲿ�ּ��㣬�Ա��ּ���ʱ�䲻�䣻<br>
+              　　(1) 对于很多大型计算，精度要求很高，即在此类应用中精度是一个关键因素，而计算时间是固定不变的。此时为了提高精度，必须加大计算量，相应的也必须增加处理器的数目来完成这部分计算，以保持计算时间不变；<br>
               <br>
-              ����(2) ����ѧ���о�����ʵ��Ӧ����û�б�Ҫ�̶��������ض�ʹ������������ڲ�ͬ��Ŀ�Ĵ������ϣ����ദ����������Ӧ�����������ģ����ʵ�ʵ����塣����о��ڸ�����ʱ�����ò�ͬ��Ŀ�Ĵ������ܹ���ɶ��ļ������ǲ��м�����һ����ʵ�ʵ����⡣<br>
+              　　(2) 除非学术研究，在实际应用中没有必要固定工作负载而使计算程序运行在不同数目的处理器上，增多处理器必须相应的增大问题规模才有实际的意义。因此研究在给定的时间内用不同数目的处理器能够完成多大的计算量是并行计算中一个很实际的问题。<br>
               <br>
-              ����(3) �Դ�������⣬�����ģ�ĸı�ֻ��ı�����в��м�������������ı䴮�м������� <br>
+              　　(3) 对大多数问题，问题规模的改变只会改变计算中并行计算量，而不会改变串行计算量。 <br>
               <br>
-              ��������Щ����������Gustafson��1987������˱������ģ�ļ��ٱ�ģ�ͣ�<br>
+              　　从这些动机出发，Gustafson在1987年提出了变问题规模的加速比模型：<br>
               <img src="../../../images/img_text/ch05/17.gif" width="469" height="71"> 
               <br>
-              ������p��ִ�ʱ��S'��p���������Թ�ϵ����б��Ϊ1-f�������Gustafson���ٱȶ��ɣ�����ζ�����Ŵ�������Ŀ�����ӣ����ٱȼ����봦������Ŀ�ɱ������������ӣ����б���f�����ǳ����ƿ������Ϊ���м���ϵͳ�ķ�չ�����˷ǳ��ֹ۵Ľ��ۡ�<br>
+              　　当p充分大时，S'与p几乎成线性关系，其斜率为1-f，这就是Gustafson加速比定律，它意味着随着处理器数目的增加，加速比几乎与处理器数目成比例的线性增加，串行比例f不再是程序的瓶颈，这为并行计算系统的发展带来了非常乐观的结论。<br>
               <br>
-              ����Gustafson���ɵļ����������������������ͼ����ʾ��<br>
+              　　Gustafson定律的几何意义可以清楚的用下面的图来表示：<br>
               <img src="../../../images/img_text/ch05/18.gif" width="483" height="248"><br>
-              ��������������Ŀn=1024�����ٱ�Sn����仯��������£�������ͼ��ʾ���£�<br>
-              ��������<img src="../../../images/img_text/ch05/19.gif" width="217" height="23"><br>
+              　　当处理器数目n=1024，加速比Sn随α变化的情况如下：可以用图表示如下：<br>
+              　　　　<img src="../../../images/img_text/ch05/19.gif" width="217" height="23"><br>
               <br>
               <img src="../../../images/img_text/ch05/20.gif" width="437" height="328"> 
               <br>
               <br>
-              ����ͬ���ģ������ǵ����г�������ʱ�Ķ��⿪��ʱ��Gustafson����Ӧ���޸�Ϊ��<br>
-              ������<img src="../../../images/img_text/ch05/21.gif" width="348" height="71"><br>
+              　　同样的，当考虑到并行程序运行时的额外开销时，Gustafson定律应该修改为：<br>
+              　　　<img src="../../../images/img_text/ch05/21.gif" width="348" height="71"><br>
               <br>
-              ����<span class="part">ע��</span>��W<sub>o</sub>��p�ĺ����������ܻ�����p�ĸı���ı䡣Ҫ����һ�㻯��Gustafson���������������Լ��ٱȣ���p�ı�ʱ������Ҫ���ƶ��⿪��������������ʵ���������Ƿǳ����ѵġ�<br>
+              　　<span class="part">注意</span>：W<sub>o</sub>是p的函数，它可能会随着p的改变而改变。要到达一般化的Gustafson定律所描述的线性加速比，当p改变时，必须要控制额外开销的增长，这在实际中往往是非常困难的。<br>
             </p>
           </td>
         </tr>

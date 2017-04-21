@@ -11,7 +11,7 @@ background-attachment: fixed;
 -->
 </STYLE>
 <title>Untitled Document</title>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
 <link rel="stylesheet" href="../../../css/style.css" type="text/css">
 </head>
 
@@ -25,11 +25,11 @@ background-attachment: fixed;
       <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0">
         <tr> 
           <td class="text" valign="top"> 
-            <p>����<b>1. ������η��䵽��ͬ�Ĵ�������</b><br>
+            <p>　　<b>1. 数据如何分配到不同的处理器上</b><br>
               <br>
-              �����ڴ�����������У�����������ݶ����ڱ������ڴ��У�ֻ�����ڲ����򣩣������г������ж���ѡ�񡣿��԰��������ݷ���һ������ϣ��������Ӵ˽��ȡ���ݲ��Ѵ�������ٻ��͸��˽�㡣���ܶ������Ҫ��Դ���ݺʹ���������ݶ��ֲ��ڲ�ͬ�Ľ���ϣ����Ҫ�������ݵķֲ����⡣<br>
+              　　在串行排序程序中，待排序的数据都放在本机的内存中（只考虑内部排序），而并行程序则有多种选择。可以把所有数据放在一个结点上，其它结点从此结点取数据并把处理结果再回送给此结点。但很多情况下要求源数据和处理结果数据都分布在不同的结点上，这就要考虑数据的分布问题。<br>
               <br>
-              ����һ��ֱ�۵İ취�ǰ����в�������Ĵ����������ݱ�ţ�Դ���ݰ�������ȡģ�ֲ�����Ӧ�Ĵ������ϡ��������ڸ����������Ͼ��ȷֲ�������С��Ŵ������ϵ�ÿ��Ԫ�ؾ�С�ڴ��Ŵ������ϵ�ÿ��Ԫ�ء����ڴ�������ͬ�ı�ŷ�ʽ����������ܿ��ܲ�ͬ�� 
+              　　一个直观的办法是把所有参与排序的处理器和数据编号，源数据按照其编号取模分布到相应的处理器上。排序结果在各个处理器上均匀分布，满足小编号处理器上的每个元素均小于大编号处理器上的每个元素。对于处理器不同的编号方式，排序的性能可能不同。 
               <br>
             </p>
           </td>

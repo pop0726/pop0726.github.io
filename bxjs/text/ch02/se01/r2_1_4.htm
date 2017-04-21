@@ -11,7 +11,7 @@ background-attachment: fixed;
 -->
 </STYLE>
 <title>Untitled Document</title>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
 <link rel="stylesheet" href="../../../css/style.css" type="text/css">
 </head>
 
@@ -26,50 +26,50 @@ background-attachment: fixed;
         <tr> 
           
 <td class="text" valign="top"> 
-<p>����<b>SIMD�����<a name="01"></a></b> SIMD�����ǰ���Ѿ����ܹ�����ṹ����ͼ��ʾ������PE��ʾ������Ԫ��P��ʾ��������M��ʾ�洢����<br>
-����<img src="../../../images/img_text/ch02/p2_1_1.gif" width="483" height="311">��<br>
-����SIMD��ͨ����������������ԪPE�������Ʋ���ֻ��һ�������Ʋ����㲥һ��ָ����еĴ�����Ԫͬʱִ������ָ�����ͬ�Ĵ�����Ԫ���������ݿ��ܲ�ͬ��<br>
+<p>　　<b>SIMD计算机<a name="01"></a></b> SIMD计算机前面已经介绍过，其结构如下图所示，其中PE表示处理单元，P表示处理器，M表示存储器。<br>
+　　<img src="../../../images/img_text/ch02/p2_1_1.gif" width="483" height="311">　<br>
+　　SIMD中通常包含大量处理单元PE，而控制部件只有一个。控制部件广播一条指令，所有的处理单元同时执行这条指令，但不同的处理单元操作的数据可能不同。<br>
 <br>
-�������͵�SIMD�������MasPar��˾��MP-1ϵ�У�Thinking 
-Machines��˾��CM-2��Illiac IV��BSP�ȡ�MasPar 
-MP-1��������16384����������������16384��������ʱ��32λ�����������ķ�ֵ���ܿɴ�26000MIPS�������ȸ����������ܴ�1.5GFlops��˫���ȸ����������ܴ�650MFlops��CM-2��65536��������Ԫ����ֵ�ٶȴﵽ28GFlops�������ٶȴﵽ5.6GFlops��<br>
+　　典型的SIMD计算机有MasPar公司的MP-1系列，Thinking 
+Machines公司的CM-2，Illiac IV，BSP等。MasPar 
+MP-1最多可容纳16384个处理器。当配置16384个处理器时，32位的整数操作的峰值性能可达26000MIPS，单精度浮点运算性能达1.5GFlops，双精度浮点运算性能达650MFlops。CM-2有65536个处理单元，峰值速度达到28GFlops，持续速度达到5.6GFlops。<br>
 <br>
-����<b>��������������<a name="02"></a></b> �ڲ���������������������ר�Ŷ��Ƶ�������������ÿ�������������кܸߵĴ�����������������������ͨ�����������Ͷ���������������д�������;������ߴ���������Cray 
-C-90��Cray T-90��NEC SX-4���ҹ�������1�Ŷ���PVP��PVPͨ��ʹ�ö��Ƶĸߴ������罫�����������������洢��ģ�顣�洢�������Ժܸߵ��ٶ��������ṩ���ݡ����磬��Cray 
-T-90�У������洢������14GB/s�����ʽ������ṩ��һ�������������ֻ���ͨ����ʹ�ø��ٻ��棬����ʹ�ô����������Ĵ�����ָ���������ϵͳ�ṹ����ͼ��ʾ��ͼ��VP��ʾ������������SM��ʾ�����洢����<br>
-������������������<img src="../../../images/img_text/ch02/p2_1_2.gif" width="343" height="261"><br>
+　　<b>并行向量处理机<a name="02"></a></b> 在并行向量处理机中有少量专门定制的向量处理器。每个向量处理器有很高的处理能力。并行向量处理机通过向量处理和多个向量处理器并行处理两条途径来提高处理能力。Cray 
+C-90、Cray T-90、NEC SX-4和我国的银河1号都是PVP。PVP通常使用定制的高带宽网络将向量处理器连向共享存储器模块。存储器可以以很高的速度向处理器提供数据。例如，在Cray 
+T-90中，共享存储器能以14GB/s的速率将数据提供给一个处理器。这种机器通常不使用高速缓存，而是使用大量的向量寄存器和指令缓冲器。其系统结构如下图所示。图中VP表示向量处理器，SM表示共享存储器。<br>
+　　　　　　　　　<img src="../../../images/img_text/ch02/p2_1_2.gif" width="343" height="261"><br>
 <br>
-����<b>�Գƶദ����<a name="03"></a></b> �Գƶദ����������ص������еĸ���������ȫƽ�ȣ�������֮�֡����еĴ����������Է����κδ洢��Ԫ��I/O�豸���洢��һ��ʹ�ù����洢����ֻ��һ����ַ�ռ䡣��Ϊʹ�ù����洢����ͨ�ſ��ù�����������дͬһ�ڴ浥Ԫ����ʵ�֡���ʹ�ñ�̺����ס����͵ĶԳƶദ������Sun 
-SPARC server 10000��Sun SPARC center 2000��SGI 
-Power Challenge�Լ��ҹ������1�š�SMP�㷺�����ڷ���������SMP�Ľṹ����ͼ��ʾ��P/C��ʾ�������͸��ٻ��棬SM��ʾ�����洢����<br>
-��������������������<img src="../../../images/img_text/ch02/p2_1_3.gif" width="343" height="261"><br>
+　　<b>对称多处理机<a name="03"></a></b> 对称多处理机的最大特点是其中的各处理器完全平等，无主从之分。所有的处理器都可以访问任何存储单元和I/O设备。存储器一般使用共享存储器，只有一个地址空间。因为使用共享存储器，通信可用共享变量（读写同一内存单元）来实现。这使得编程很容易。典型的对称多处理机有Sun 
+SPARC server 10000，Sun SPARC center 2000，SGI 
+Power Challenge以及我国的曙光1号。SMP广泛地用于服务器领域。SMP的结构如下图所示。P/C表示处理器和高速缓存，SM表示共享存储器。<br>
+　　　　　　　　　　<img src="../../../images/img_text/ch02/p2_1_3.gif" width="343" height="261"><br>
 <br>
-����<b>���ģ���д�����<a name="04"></a></b> ���ģ���д�����һ��ָ��ģ�ǳ���Ĳ��м����ϵͳ�����г�ǧ���������������һ����÷ֲ��Ĵ洢�����洢��һ��Ϊ������˽�У���������֮������Ϣ���ݵķ�ʽͨ�š����ģ���д������Ļ�������һ����ר����ƶ��Ƶġ����͵�MPP��Intel 
-Paragon��IBM SP2�Լ�Option Red��MPP�Ľṹ����ͼ��ʾ������MB��ʾ�洢�����ߣ�P/C��ʾ�������͸��ٻ��棬NIC��ʾ����ӿڵ�·��LM��ʾ���ش洢������<font color="#000000">����ӿڵ�·��Network 
-Interface Circuitry��NIC��������������������磨��������������������Ľӿڵ�·�����͵�NIC����һ��Ƕ��ʽ�Ĵ�������һЩ���롢������������Լ�һЩ���ƴ洢���Ϳ����߼������Ĺ����У�����Ϣ��ʽ����·��ѡ�����ʹ�����Ƶȡ�</font>��<br>
-����</p>
+　　<b>大规模并行处理机<a name="04"></a></b> 大规模并行处理机一般指规模非常大的并行计算机系统，含有成千上万个处理器。它一般采用分布的存储器，存储器一般为处理器私有，各处理器之间用消息传递的方式通信。大规模并行处理机的互连网络一般是专门设计定制的。典型的MPP有Intel 
+Paragon、IBM SP2以及Option Red。MPP的结构如下图所示。其中MB表示存储器总线，P/C表示处理器和高速缓存，NIC表示网络接口电路，LM表示本地存储器。（<font color="#000000">网络接口电路（Network 
+Interface Circuitry，NIC）是用来将计算机与网络（例如局域网）连接起来的接口电路。典型的NIC包括一个嵌入式的处理器，一些输入、输出缓冲器，以及一些控制存储器和控制逻辑，它的功能有：将消息格式化、路由选择、流和错误控制等。</font>）<br>
+　　</p>
 <center>
 <img src="../../../images/img_text/ch02/p2_1_4.gif" width="488" height="259"> 
 </center>
 <p><br>
 <br>
-����<b>�ֲ�ʽ�����洢���ദ����<a name="05"></a></b> 
-�ֲ�ʽ�����洢���ദ��������Ҫ�ص������Ĵ洢�����������Ƿֲ��ڸ�������еģ�����ͨ��Ӳ��������Ϊ�û��ṩһ����һ��ַ�ı�̿ռ䣬���γ�һ������Ĺ����洢������ͨ�����ٻ���Ŀ¼֧�ֲַ����ٻ����һ���ԡ�DSM��SMP���������ڸ�������д洢������MPP���������ڴ洢�����߼����ǹ����ġ����͵�DSM��Stanford 
-DASH��SGI/Cray Origin 2000��DSM�Ľṹ����ͼ��ʾ������DIR��ʾ���ٻ���Ŀ¼����������ͬǰ��<br>
-����</p>
+　　<b>分布式共享存储器多处理机<a name="05"></a></b> 
+分布式共享存储器多处理机的主要特点是它的存储器在物理上是分布在各个结点中的，但是通过硬件和软件为用户提供一个单一地址的编程空间，即形成一个虚拟的共享存储器。它通过高速缓存目录支持分布高速缓存的一致性。DSM与SMP的区别在于各结点内有存储器，与MPP的区别在于存储器在逻辑上是共享的。典型的DSM有Stanford 
+DASH、SGI/Cray Origin 2000。DSM的结构如下图所示，其中DIR表示高速缓存目录，其它符号同前。<br>
+　　</p>
 <center>
 <img src="../../../images/img_text/ch02/p2_1_5.gif" width="486" height="307"> 
 </center>
 <p><br>
 <br>
-����<b>����վ��Ⱥ<a name="06"></a></b> ����վ��Ⱥ��һ�����˵Ĳ���ϵͳ��COW���ɸߵ���Ʒ΢������������վ���ø�����Ʒ�������磨�е����û�ȺҲʹ�ö��Ƶ����磩���Ӷ��ɡ����COW��ÿ����㶼��һ̨�����ļ����������û����ꡢ��ʾ�������裩��COW��ÿ������϶��������Ĳ���ϵͳ����MPP��ÿ�������ͨ��ֻ�в���ϵͳ��΢�ˡ�COW��ÿ��������б��ش��̣���MPP�Ľ����û�С�COW����������ӿ������ӵ�I/O�����ϵģ�����ϣ�����MPP����������ӿ������ӵ��洢�����ϵģ�����ϣ���COW�Ľṹ����ͼ��ʾ������LD��ʾ���ش��̣�B��ʾ�洢������I/O���ߵĽӿڣ�IOB��ʾI/O���ߡ�<br>
-����</p>
+　　<b>工作站机群<a name="06"></a></b> 工作站机群是一种新兴的并行系统。COW是由高档商品微机（包括工作站）用高速商品互连网络（有的商用机群也使用定制的网络）连接而成。因此COW的每个结点都是一台完整的计算机（可能没有鼠标、显示器等外设）。COW的每个结点上都有完整的操作系统，而MPP的每个结点上通常只有操作系统的微核。COW的每个结点内有本地磁盘，而MPP的结点内没有。COW各结点的网络接口是连接到I/O总线上的（松耦合），而MPP各结点的网络接口是连接到存储总线上的（紧耦合）。COW的结构如下图所示，其中LD表示本地磁盘，B表示存储总线与I/O总线的接口，IOB表示I/O总线。<br>
+　　</p>
 <center>
 <img src="../../../images/img_text/ch02/p2_1_6.gif" width="484" height="344"> 
 </center>
 <p><br>
 <br>
-����<b>С��</b> PVP�Ĵ������ͻ������綼�Ƕ��Ƶġ�SMP��MPP��ʹ�����ô�������MPP�Ļ��������Ƕ��Ƶġ�COW������ʹ����Ʒ������SMP��MPP��COW�ڱ���2.4���л�����ϸ���ܡ�<br>
+　　<b>小结</b> PVP的处理器和互连网络都是定制的。SMP、MPP多使用商用处理器。MPP的互连网络是定制的。COW基本都使用商品部件。SMP、MPP和COW在本章2.4节中还会详细介绍。<br>
 </p>
             </td>
         </tr>

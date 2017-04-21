@@ -11,7 +11,7 @@ background-attachment: fixed;
 -->
 </STYLE>
 <title>Untitled Document</title>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
 <link rel="stylesheet" href="../../../css/style.css" type="text/css">
 </head>
 
@@ -25,15 +25,15 @@ background-attachment: fixed;
       <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0">
         <tr> 
           <td class="text" valign="top"> 
-            <p>����<b>��С��������Ƶ��</b><br>
+            <p>　　<b>最小化交互的频度</b><br>
               <br>
-              �����ڴ�����Ĳ��м����ϵͳ�ϣ�ÿ��һ��������Ҫ���ʹ������ݣ�������һ������������������������������ʵĹ������ݵĴ�Сû�й�ϵ��Ϊ�˼����ⲿ�ֵĿ�����һ����ֱ�ӵ�˼���Ǽ��ٲ����㷨�жԹ������ݵķ��ʴ�����Ҳ������С��������Ƶ�ȡ�ͨ���������ͨ���ı䲢���㷨�Ľṹ��������ԭ����εĹ������ݷ��ʿ���һ����ɡ��ڲ��ı�����Ҫ���ʵĹ������ݵ�����������£����ֳ�����ع����Լ����ܵĽ���������<br>
+              　　在大多数的并行计算机系统上，每次一个任务需要访问共享数据，都会有一个访问启动开销，这个开销与所访问的共享数据的大小没有关系。为了减少这部分的开销，一个很直接的思想是减少并行算法中对共享数据的访问次数，也就是最小化交互的频度。通常，这可以通过改变并行算法的结构，这样，原来多次的共享数据访问可以一次完成。在不改变所需要访问的共享数据的总量的情况下，这种程序的重构可以减少总的交互开销。<br>
               <br>
-              ��������Ϣ���ݵ�ϵͳ��˵�������Ŀ�������������ɲ��֣�<br>
-              ������ ��������������ʵ����ݽṹ�Ĵ�С�޹أ���<br>
-              ������ ���ʿ������������ʵ����ݽṹ�Ĵ�С�����ȣ���<br>
+              　　拿消息传递的系统来说，交互的开销包括两个组成部分：<br>
+              　　☆ 启动开销（与访问的数据结构的大小无关）；<br>
+              　　☆ 访问开销（与所访问的数据结构的大小成正比）；<br>
               <br>
-              ��������Ϣ���ݵ�ϵͳ�У�������������Ϣ������ʱ����ͬ�����ʱ��Ժܶ�ϵͳ��˵�����ݺ��ӣ���ˣ�������Ϣ�ϲ��ķ��������ٲ����㷨���ܵ������������п���������������ܡ�һ������ַ���Ϊ��ϸ���ȵĽ�����ϳɴ����ȵĽ�����</p>
+              　　在消息传递的系统中，启动开销与消息的启动时间相同，这个时间对很多系统来说都不容忽视，因此，采用消息合并的方法来减少并行算法中总的启动开销，有可能显著的提高性能。一般称这种方法为将细粒度的交互组合成粗粒度的交互。</p>
           </td>
         </tr>
       </table>

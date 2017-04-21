@@ -11,7 +11,7 @@ background-attachment: fixed;
 -->
 </STYLE>
 <title>Untitled Document</title>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
 <link rel="stylesheet" href="../../../css/style.css" type="text/css">
 </head>
 
@@ -25,21 +25,21 @@ background-attachment: fixed;
       <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0">
         <tr> 
           <td class="text" valign="top"> 
-            <p>����ֱ�Ӳ��л����д����㷨ʱҪע���������⣺��һ���������еĴ����㷨�����Բ��л���ĳЩ�����㷨�����ڵĴ����ԣ�������ĳЩ�����㷨�У�ÿһ����Ҫ�õ���һ���Ľ����ֻ�е���һ����ȫ��������һ�����ܿ�ʼ������������֮��Ͳ��ܲ��У�ֻ�ܿ��������Ĳ��л��취������ģ���˻��㷨��ÿ���¶��µ����ĳ���������һ���¶��µ����Ľ����㡣�����ͺ���ֱ�ӽ������¶ȵĵ��������������ڶ����õĴ����㷨���л��󲢲�һ���ܵõ�����Ĳ����㷨����һ���棬���õĴ����㷨���л���Ҳ����������Ĳ����㷨�����磬�����㷨����û���������ġ������ڲ����㷨�У�ʹ���ʵ����������Ҳ����ʹ�����㷨Ч�ʸ��ߡ������������Ĳ����㷨�Ϳ��ܱ�ֱ���ɴ����㷨���л��õ����㷨Ч�ʸߡ��ֱ��磬ö�ٲ���һ�ֺõĴ����㷨�����ǽ���ֱ�Ӳ��л�����Եõ��ȽϺõĲ����㷨��<br>
+            <p>　　直接并行化已有串行算法时要注意两个问题：第一，并非所有的串行算法都可以并行化。某些串行算法有内在的串行性，比如在某些串行算法中，每一步都要用到上一步的结果。只有当上一步完全结束后，下一步才能开始。这样，各步之间就不能并行，只能考虑其它的并行化办法。例如模拟退火算法，每个温度下迭代的出发点是上一个温度下迭代的结束点。这样就很难直接将各个温度的迭代并行起来。第二，好的串行算法并行化后并不一定能得到优秀的并行算法；另一方面，不好的串行算法并行化后也可能是优秀的并行算法。例如，串行算法中是没有冗余计算的。但是在并行算法中，使用适当的冗余计算也可能使并行算法效率更高。加入冗余计算的并行算法就可能比直接由串行算法并行化得到的算法效率高。又比如，枚举不是一种好的串行算法。但是将其直接并行化后可以得到比较好的并行算法。<br>
               <br>
-              ����ֱ�Ӳ��л��Ĺؼ����ڷ����ͱ�¶ԭ�д����㷨�й��еĲ����ԡ�ֱ�Ӳ��л�Ҳ���ǻ�е�ģ���ȫֱ�ӵġ���ʱΪ�˱�¶�㷨�Ĳ����ԣ�Ҫ�Դ����㷨����һЩ�ʵ��ĸĶ�����֮��Ҫ�ڱ�֤�㷨��ȷ�Ե�ǰ���£���������㷨��Ч�ʡ�<br>
+              　　直接并行化的关键在于分析和暴露原有串行算法中固有的并行性。直接并行化也不是机械的，完全直接的。有时为了暴露算法的并行性，要对串行算法进行一些适当的改动。总之，要在保证算法正确性的前提下，尽量提高算法的效率。<br>
               <br>
-              ����<font color="#000000">��������������͵ķ���������ֵ���֡��豻������Ϊf(x)����������Ϊ[a,b]��Ϊ�˻��֣�������[a,b]���ȷֳ�N��С���䣬ÿ��С���䳤<img src="../../../images/img_text/ch03/8.gif" width="39" height="41" align="absmiddle">�����ݻ��ֵĶ���<br>
-              ����������������<img src="../../../images/img_text/ch03/9.gif" width="243" height="45">��<br>
-              <img src="../../../images/img_text/ch03/10.gif" width="55" height="41" align="absmiddle">�ǵ�i<img src="../../../images/img_text/ch03/11.gif" width="98" height="18" align="absmiddle">��С������˵�����꣬��<img src="../../../images/img_text/ch03/12.gif" width="139" height="39" align="absmiddle">��f(x)�ڵ�i<img src="../../../images/img_text/ch03/11.gif" width="98" height="18" align="absmiddle">��С�����ϻ��ֵĽ���ֵ�����ʹ�ô����㷨��������ѭ���͵������������͡���������㷨����ֱ�Ӳ��л���������k̨�����������԰���N��С�����ϵļ�������ֵ�����������0�Ŵ����������<img src="../../../images/img_text/ch03/13.gif" width="95" height="18" align="absmiddle">��С�����ϵļ�����ۼӣ�1�Ŵ����������<img src="../../../images/img_text/ch03/14.gif" width="171" height="18" align="absmiddle">��С�����ϵļ�����ۼӣ�������k-1�Ŵ����������<img src="../../../images/img_text/ch03/15.gif" width="124" height="18" align="absmiddle">��С�����ϵļ�����ۼӡ�k�����������еؼ�������ֺͣ�Ȼ���ٰѽ���ӵ�һ��<br>
-��<img src="../../../images/img_text/ch03/p3_6_1.gif" width="488" height="240"></font></p>
+              　　<font color="#000000">假设我们想用求和的方法进行数值积分。设被积函数为f(x)，积分区间为[a,b]。为了积分，将区间[a,b]均匀分成N个小区间，每个小区间长<img src="../../../images/img_text/ch03/8.gif" width="39" height="41" align="absmiddle">，根据积分的定义<br>
+              　　　　　　　　<img src="../../../images/img_text/ch03/9.gif" width="243" height="45">，<br>
+              <img src="../../../images/img_text/ch03/10.gif" width="55" height="41" align="absmiddle">是第i<img src="../../../images/img_text/ch03/11.gif" width="98" height="18" align="absmiddle">个小区间左端点的坐标，而<img src="../../../images/img_text/ch03/12.gif" width="139" height="39" align="absmiddle">是f(x)在第i<img src="../../../images/img_text/ch03/11.gif" width="98" height="18" align="absmiddle">个小区间上积分的近似值。如果使用串行算法，可以用循环和叠加完成上述求和。这个串行算法可以直接并行化。假设有k台处理器，可以把这N个小区间上的计算任务分到各处理器：0号处理器负责第<img src="../../../images/img_text/ch03/13.gif" width="95" height="18" align="absmiddle">个小区间上的计算和累加，1号处理器负责第<img src="../../../images/img_text/ch03/14.gif" width="171" height="18" align="absmiddle">个小区间上的计算和累加，……，k-1号处理器负责第<img src="../../../images/img_text/ch03/15.gif" width="124" height="18" align="absmiddle">个小区间上的计算和累加。k个处理器并行地计算出部分和，然后再把结果加到一起。<br>
+　<img src="../../../images/img_text/ch03/p3_6_1.gif" width="488" height="240"></font></p>
             <p></p>
             <p></p>
             <p></p>
             <p></p>
             <p></p>
             <p></p>
-            <p><font color="#000000">������ѧ�͹������д�����ֵ�������⡣�����Щ���⣬�����Ѿ���Ƴ������മ����ֵ���㷽�����������Щ����Ĳ����㷨ʱ�������ô����㷨ֱ�Ӳ��л��ķ�������������һ�������ŵ��ǣ��㷨���ȶ��ԡ������Ե������ڴ����㷨�����н��ۣ������ٿ��ǡ�</font><br>
+            <p><font color="#000000">　　科学和工程中有大量数值计算问题。针对这些问题，人们已经设计出了许多串行数值计算方法。在设计这些问题的并行算法时，大多采用串行算法直接并行化的方法。这样做的一个显著优点是，算法的稳定性、收敛性等问题在串行算法中已有结论，不必再考虑。</font><br>
             </p>
           </td>
         </tr>

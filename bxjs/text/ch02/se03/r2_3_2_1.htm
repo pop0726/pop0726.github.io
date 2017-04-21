@@ -11,7 +11,7 @@ background-attachment: fixed;
 -->
 </STYLE>
 <title>Untitled Document</title>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
 <link rel="stylesheet" href="../../../css/style.css" type="text/css">
 </head>
 
@@ -25,9 +25,9 @@ background-attachment: fixed;
       <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0">
         <tr> 
           <td class="text" valign="top"> 
-            <p>������1��<b>�洢ת��</b>��Store-and-Forward�� �����ַ�ʽ�£���Ϣ���ֳɰ������ͣ�������Ϣ����Ļ�����λ������Դ���ͨ��һϵ���м��㵽��Ŀ�Ľ�㡣ÿ�������һ��������������������һ���м���Aʱ��A��������ȫ������������������������У�Ȼ����Ѱ���㷨�Ŀ�����ѡ����һ���м���B������A��B��ͨ�����в���B�İ�����������ʱ��A�Ѱ�����B�����ϵش洢��ת�������Ϳ��Ե���Ŀ�Ľ�㡣���еİ�����Ŀ�Ľ���Ŀ�Ľ���ٰѰ���װ��ԭ������Ϣ��<br>
+            <p>　　（1）<b>存储转发</b>（Store-and-Forward） 在这种方式下，消息被分成包来传送，包是信息传输的基本单位。包从源结点通过一系列中间结点到达目的结点。每个结点有一个包缓冲区。当包到达一个中间结点A时，A把整个包全部接收下来放入其包缓冲区中，然后在寻径算法的控制下选择下一个中间结点B，当从A到B的通道空闲并且B的包缓冲区可用时，A把包发向B。不断地存储和转发，包就可以到达目的结点。所有的包到达目的结点后，目的结点再把包组装成原来的消息。<br>
               <br>
-              �������ַ�ʽ��ȱ����ÿ������������������л��壬��Ҫ�ϴ�Ļ�����������֤�����ڴ洢ת����ʽ�£�ͨ��ʱ�ӻ��������������·���ϵ���·�������ȡ�<br>
+              　　这种方式的缺点是每个结点必须对整个包进行缓冲，需要较大的缓冲器。可以证明，在存储转发方式下，通信时延基本上与包经过的路径上的链路数成正比。<br>
             </p>
           </td>
         </tr>

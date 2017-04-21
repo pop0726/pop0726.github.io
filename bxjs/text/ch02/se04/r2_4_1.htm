@@ -11,7 +11,7 @@ background-attachment: fixed;
 -->
 </STYLE>
 <title>Untitled Document</title>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
 <link rel="stylesheet" href="../../../css/style.css" type="text/css">
 </head>
 
@@ -25,24 +25,24 @@ background-attachment: fixed;
       <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0">
         <tr> 
           <td class="text" valign="top"> 
-            <p>����SMP�Ĵ洢��ϵͳ�ṹ����UMAģ�͡�SMPϵͳ�����д�����ͨ���������߻򽻲濪���빲���洢��������ÿ���������ɴ�˽�еĸ��ٻ��档ÿ̨���������ʹ����洢�����κβ��ֶ�Ҫͨ���������磬���д��������ʹ����洢��ͬһ��ַ��Ԫ��ʱ����ͬ���洢���������ϱ����д��������ȹ�����<br>
+            <p>　　SMP的存储器系统结构属于UMA模型。SMP系统中所有处理器通过高速总线或交叉开关与共享存储器相连。每个处理器可带私有的高速缓存。每台处理器访问共享存储器的任何部分都要通过互连网络，所有处理器访问共享存储器同一地址单元的时间相同，存储器在物理上被所有处理器均匀共享。<br>
               <br>
-              ����SMPϵͳ���κδ��������ɷ����κδ洢��Ԫ��I/O�豸��SMPһ��ֻ��һ����ַ�ռ䣬��һӳ����Ȼ�õ�֧�֡�����ϵͳ�����ݺ�Ӧ�ó����������һ��ַ�ռ���ֻ��һ�ݿ���������ϵͳ�ɰ����������ĸ������ص��ڴ����������񣬸���ƽ���������ɡ���Ϊ���е����ݾ�פ����ͬһ�����洢���У������û����ÿ������ݵķ�����ٷ��䡣������������ͨ������ͬһ�ڴ��ַ��Ԫ���໥ͨ�š�����ͨ�ŷ�ʽ������ݿɿ������Ҵӱ�̵ĽǶ�����������ͬһ�ڴ��ַ��Ԫ���ǹ�����������ʹ����SMP�ϱ�̼������ࡣͬʱ����������ֻ��һ�ݿ������û������ݵĹ���Ҳ���������ࡣ<br>
+              　　SMP系统中任何处理器均可访问任何存储单元和I/O设备。SMP一般只有一个地址空间，单一映像自然得到支持。操作系统、数据和应用程序在这个单一地址空间中只有一份拷贝。操作系统可按各处理机的负载灵活地调节处理机的任务，负载平衡很容易完成。因为所有的数据均驻留在同一共享存储器中，所以用户不用考虑数据的分配和再分配。各处理机可以通过共享同一内存地址单元来相互通信。这种通信方式不仅快捷可靠，而且从编程的角度来看，共享同一内存地址单元就是共享变量。这使得在SMP上编程简化了许多。同时，由于数据只有一份拷贝，用户对数据的管理也方便了许多。<br>
               <br>
-              ����SMPϵͳÿ������������ƽ�ȵط����ڴ漰I/O�ĶԳƵ��߼��ṹ����ԳƵ�Ӳ���ṹ�����ڿ����ϸߵĲ����ԡ��Գ�����SMP���ŵ㣬����Ҳ��SMP������һЩ���⣺���еĴ����������Է��ʴ洢����I/O�豸ʹ�ô洢����I/O�ĸ��غܴ����׳�Ϊϵͳ��ƿ������������ϵͳ�д���������������һ���棬���д���������һ���洢����һ������ϵͳ���������ߡ��洢��������ϵͳ����һ��ʧЧ�ͻᵼ������ϵͳ�ı�����ϵͳ�����ɿ����ȶ���SMPϵͳ�Ļ�������ʹ�����߻򽻲濪�أ������ߺͽ��濪��һ�����ɾ�������չ��<br>
+              　　SMP系统每个处理器可以平等地访问内存及I/O的对称的逻辑结构及其对称的硬件结构有利于开发较高的并行性。对称性是SMP的优点，但它也给SMP带来了一些问题：所有的处理器都可以访问存储器和I/O设备使得存储器和I/O的负载很大，容易成为系统的瓶颈。这限制了系统中处理器的数量。另一方面，所有处理器共用一个存储器和一个操作系统，所以总线、存储器、操作系统中有一个失效就会导致整个系统的崩溃，系统不够可靠和稳定。SMP系统的互连网络使用总线或交叉开关，而总线和交叉开关一旦作成就难于扩展。<br>
               <br>
-              ����Ŀǰ���ǲ���CC-NUMA��ϵ�ṹ�����SMP�Ŀ���չ�����⡣CC-NUMA�ǽ�һЩSMP����Ϊ����û����������������γɵ�һ���ϴ��ϵͳ��CC-NUMAϵͳ�и����䲻���������ӣ���˿��԰�������Ľ�㣬�����SMP������չ�����⡣ͬʱCC-NUMAϵͳ��Ȼ�ǵ�һ��ַ�ռ䣬���н���еĴ洢��ͳһ��ַ������һ��ͳһ�ĵ�ַ�ռ䣬�õ�ַ�ռ䱻���еĴ�����������������SMPϵͳ���ڱ�̵��ص㡣��CC-NUMA�У��������ݿռ�ֲ��Ե�ԭ�򣬴�������������ݷ��ʶ��������ڱ��ؽ���ڣ������ϵ�ͨ����Ҫ�Ǹ��ٻ���һ������������Ǵ������ݡ�<br>
+              　　目前人们采用CC-NUMA体系结构来解决SMP的可扩展性问题。CC-NUMA是将一些SMP机作为结点用互连网络连接起来形成的一个较大的系统。CC-NUMA系统中各结点间不用总线连接，因此可以包含更多的结点，解决了SMP不可扩展的问题。同时CC-NUMA系统仍然是单一地址空间，所有结点中的存储器统一编址，构成一个统一的地址空间，该地址空间被所有的处理器共享，保持了SMP系统易于编程的特点。在CC-NUMA中，由于数据空间局部性的原因，处理器大多数数据访问都可限制在本地结点内，网络上的通信主要是高速缓存一致性命令而不是传输数据。<br>
               <br>
-              �������͵�SMP�������Ӣ�ض�SHV��������·�塢SUN Ultra Enterprise 10000ϵͳ�����͵�CC-NUMAϵͳ��HP/Convex 
-              Exemplar X-Class��Sequent NUMA-Q��SGI/Gray Origin 2000��<br>
+              　　典型的SMP计算机有英特尔SHV服务器电路板、SUN Ultra Enterprise 10000系统。典型的CC-NUMA系统有HP/Convex 
+              Exemplar X-Class、Sequent NUMA-Q、SGI/Gray Origin 2000。<br>
               <br>
-              ����Ӣ�ض�SHV��·����һ���Ͷ˵�SMPϵͳ��������������CC-NUMAϵͳ��SHV�����߽ṹ�ġ�һ��SHV�а���4��Pentium 
-              Pro���������PCI�š�һ�������洢��������һ��OEM�š�������һ��ʱ��Ƶ��Ϊ66MHz��64λ�����Ĵ洢���������ӡ�һ��Pentium 
-              Pro�������һ��Pentium Pro��������һ��256KB��512KB�Ķ������ٻ��桢һ���߼��ɱ���жϿ�������APIC����һ���������棭���߿�������PCI����PCI������SHV�ϵĴ洢�����ߵĽӿڣ����൱��SHV��I/O�豸����������̡�CD-ROM������I/O�豸�������洢�������ɹ���4GB��DRAM��OEM���Ǹ�������������׼���ģ������߿ɽ�������Ҫ���豸����OEM���ϡ�ͨ��OEM�ſ��Խ����SHV������������CC-NUMAϵͳ��<br>
+              　　英特尔SHV电路板是一个低端的SMP系统。它可用来构造CC-NUMA系统。SHV是总线结构的。一个SHV中包含4个Pentium 
+              Pro组件、两个PCI桥、一个或多个存储控制器和一个OEM桥。它们用一条时钟频率为66MHz、64位带宽的存储器总线连接。一个Pentium 
+              Pro组件包括一个Pentium Pro处理器，一个256KB或512KB的二级高速缓存、一个高级可编程中断控制器（APIC）和一个二级缓存－总线控制器。PCI桥是PCI总线与SHV上的存储器总线的接口，它相当于SHV的I/O设备。它可与磁盘、CD-ROM或其它I/O设备相连。存储控制器可管理4GB的DRAM。OEM桥是给第三方开发者准备的，开发者可将他们需要的设备连在OEM桥上。通过OEM桥可以将多个SHV连接起来构成CC-NUMA系统。<br>
               <br>
-              ����Exemplar X��HP/Convex��˾��1996����Ϊ����չ���д������Ƴ��ġ�������CC-NUMA�ṹ��һ��Exemplar 
-              Xϵͳ�������ɽ�㣬ÿ�������һ��SMPϵͳ����Щ���ͨ��һ��һ���Ի��λ�������Coherent Toroidal Interconnect��������ÿ��������16����ƵΪ180MHz��64λPA-8000��������ÿ����������һ��1MB��ָ����ٻ����һ��1MB�����ݸ��ٻ��档ÿ������ڻ���һ��256MB��16GB��32·����洢����Ϊ�����洢��������ڲ�ʹ�� 
-              ���濪�����ӡ�Exemplar Xϵͳ��һ���ص�����ÿ����������ö�����Ƶ������ƶ��������봦������PCI��ۺͽ��濪��������ͬʱ�������Ļ��������������������Ǳ�֤���������ݴ���ĸߴ�����<br>
+              　　Exemplar X是HP/Convex公司于1996年作为可扩展并行处理机推出的。它采用CC-NUMA结构。一个Exemplar 
+              X系统包含若干结点，每个结点是一个SMP系统。这些结点通过一个一致性环形互连网（Coherent Toroidal Interconnect）相连。每个结点包含16个主频为180MHz的64位PA-8000处理器。每个处理器有一个1MB的指令高速缓存和一个1MB的数据高速缓存。每个结点内还有一个256MB至16GB的32路交叉存储器作为共享存储器。结点内部使用 
+              交叉开关连接。Exemplar X系统的一个特点是在每个结点内设置独特设计的数据移动器。它与处理器、PCI插槽和交叉开关相连，同时与各结点间的环形网络相连，其作用是保证各结点间数据传输的高带宽。<br>
             </p>
             </td>
         </tr>

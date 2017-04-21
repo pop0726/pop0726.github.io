@@ -11,7 +11,7 @@ background-attachment: fixed;
 -->
 </STYLE>
 <title>Untitled Document</title>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
 <link rel="stylesheet" href="../../../css/style.css" type="text/css">
 </head>
 
@@ -25,70 +25,70 @@ background-attachment: fixed;
       <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0">
         <tr> 
           <td class="text" valign="top"> 
-            <p>°°°°<font color="#000000">≥Ã–Ú»Áœ¬£∫</font></p>
-            <p><font color="#000000"> °°°°PROGRAM ffttest<br>
-              °°°°USE clips_library<br>
-              °°°°IMPLICIT NONE<br>
-              °°°°INTEGER, PARAMETER :: maxn=10000,mfax=13,nvol=1000000<br>
-              °°! real and imag parts<br>
-              °°°°REAL(8), ALLOCATABLE, DIMENSION(:,:) :: a,b<br>
-              °°°°REAL(8), DIMENSION(maxn) :: trigs<br>
-              °°°°INTEGER, DIMENSION(mfax) :: ifax<br>
-              °°°°INTEGER :: irep,nrep,n,isign,i,j<br>
-              °°°°INTEGER :: nloop,nend,nnode,ier,istart,nthread<br>
-              °°°°REAL(8) :: cputm,t1,t2,t,ops,ainv<br>
-              °°°°INTEGER, EXTERNAL :: omp_get_num_procs,omp_get_num_threads<br>
-              °°°°nnode=omp_get_num_procs()<br>
-              °°°°WRITE(6,'('' ffttest with '',i2,'' processors '')')<br>
-              °°°°WRITE(6,'('' how many threads to use ? '')')<br>
-              °°°°READ(5,*)nthread<br>
-              °°°°CALL omp_set_num_threads(nthread)<br>
-              °°°°OPEN(5,FILE='gpfa.con',STATUS='unknown')<br>
-              °°°°WRITE(6,300)<br>
-              °°°°300 FORMAT(' n nrep nops time Mflop')<br>
-              °°! single sequence<br>
-              °°°°WRITE(6,'('' single sequence results '')')<br>
-              °°°°DO WHILE(.TRUE.)<br>
-              °°°°READ(5,*,END=998) n,nrep<br>
-              °°°°nrep=nvol/n<br>
-              °°°°ALLOCATE(a(n,nrep),STAT=ier)<br>
-              °°°°ALLOCATE(b(n,nrep),STAT=ier)<br>
-              °°°°a=1.0d0; b=0.0d0<br>
-              °°°°ainv=1.0d0/REAL(n)<br>
-              °°! initialise Fourier transform routines<br>
-              °°! New Temperton GPFA<br>
-              °°°°CALL setgpfa(trigs,n)<br>
-              °°°°t1=clips_time()<br>
-              °°! $OMP parallel default(shared) private(irep,i,istart)<br>
-              °°! nthread=omp_get_num_threads()<br>
-              °°! WRITE(6,'('' nthreads = '',i2)')nthread<br>
-              °°! $OMP do<br>
-              °°°°DO irep=1,nrep<br>
-              °°! New Temperton GPFA<br>
-              °°°°CALL gpfa(a(:,irep),b(:,irep),trigs,1,n,n,1,1)<br>
-              °°°°CALL gpfa(a(:,irep),b(:,irep),trigs,1,n,n,1,-1)<br>
-              °°! need to normalise<br>
-              °°°°°°a(:,irep)=a(:,irep)*ainv<br>
-              °°°°°°b(:,irep)=b(:,irep)*ainv<br>
-              °°°°END DO<br>
-              °°! $OMP end parallel<br>
-              °°°°t2=clips_time()<br>
-              °°! assume 5nLOG2(n) ops - really only for radix 2<br>
-              °°! and its done it twice!<br>
-              °°°°ops=log(1.0d0*n)/log(2.0d0)*n*nrep*10<br>
-              °°°°DO i=1,n<br>
-              °°°°°°IF(abs(a(i,1)-1.0d0)+abs(b(i,1)-0.0d0)&gt;1.0d-4)THEN<br>
-              °°°°°°°°WRITE(6,'('' error in result'',i4,2g12.5)')i,a(i,1)<br>
-              °°°°°°°°STOP<br>
-              °°°°°°END IF<br>
-              °°°°END DO<br>
-              °°°°t=t2-t1<br>
-              °°°°WRITE(6,200) n,nrep,ops,t,ops/(t*1.0D6)<br>
+            <p>„ÄÄ„ÄÄ<font color="#000000">Á®ãÂ∫èÂ¶Ç‰∏ãÔºö</font></p>
+            <p><font color="#000000"> „ÄÄ„ÄÄPROGRAM ffttest<br>
+              „ÄÄ„ÄÄUSE clips_library<br>
+              „ÄÄ„ÄÄIMPLICIT NONE<br>
+              „ÄÄ„ÄÄINTEGER, PARAMETER :: maxn=10000,mfax=13,nvol=1000000<br>
+              „ÄÄ! real and imag parts<br>
+              „ÄÄ„ÄÄREAL(8), ALLOCATABLE, DIMENSION(:,:) :: a,b<br>
+              „ÄÄ„ÄÄREAL(8), DIMENSION(maxn) :: trigs<br>
+              „ÄÄ„ÄÄINTEGER, DIMENSION(mfax) :: ifax<br>
+              „ÄÄ„ÄÄINTEGER :: irep,nrep,n,isign,i,j<br>
+              „ÄÄ„ÄÄINTEGER :: nloop,nend,nnode,ier,istart,nthread<br>
+              „ÄÄ„ÄÄREAL(8) :: cputm,t1,t2,t,ops,ainv<br>
+              „ÄÄ„ÄÄINTEGER, EXTERNAL :: omp_get_num_procs,omp_get_num_threads<br>
+              „ÄÄ„ÄÄnnode=omp_get_num_procs()<br>
+              „ÄÄ„ÄÄWRITE(6,'('' ffttest with '',i2,'' processors '')')<br>
+              „ÄÄ„ÄÄWRITE(6,'('' how many threads to use ? '')')<br>
+              „ÄÄ„ÄÄREAD(5,*)nthread<br>
+              „ÄÄ„ÄÄCALL omp_set_num_threads(nthread)<br>
+              „ÄÄ„ÄÄOPEN(5,FILE='gpfa.con',STATUS='unknown')<br>
+              „ÄÄ„ÄÄWRITE(6,300)<br>
+              „ÄÄ„ÄÄ300 FORMAT(' n nrep nops time Mflop')<br>
+              „ÄÄ! single sequence<br>
+              „ÄÄ„ÄÄWRITE(6,'('' single sequence results '')')<br>
+              „ÄÄ„ÄÄDO WHILE(.TRUE.)<br>
+              „ÄÄ„ÄÄREAD(5,*,END=998) n,nrep<br>
+              „ÄÄ„ÄÄnrep=nvol/n<br>
+              „ÄÄ„ÄÄALLOCATE(a(n,nrep),STAT=ier)<br>
+              „ÄÄ„ÄÄALLOCATE(b(n,nrep),STAT=ier)<br>
+              „ÄÄ„ÄÄa=1.0d0; b=0.0d0<br>
+              „ÄÄ„ÄÄainv=1.0d0/REAL(n)<br>
+              „ÄÄ! initialise Fourier transform routines<br>
+              „ÄÄ! New Temperton GPFA<br>
+              „ÄÄ„ÄÄCALL setgpfa(trigs,n)<br>
+              „ÄÄ„ÄÄt1=clips_time()<br>
+              „ÄÄ! $OMP parallel default(shared) private(irep,i,istart)<br>
+              „ÄÄ! nthread=omp_get_num_threads()<br>
+              „ÄÄ! WRITE(6,'('' nthreads = '',i2)')nthread<br>
+              „ÄÄ! $OMP do<br>
+              „ÄÄ„ÄÄDO irep=1,nrep<br>
+              „ÄÄ! New Temperton GPFA<br>
+              „ÄÄ„ÄÄCALL gpfa(a(:,irep),b(:,irep),trigs,1,n,n,1,1)<br>
+              „ÄÄ„ÄÄCALL gpfa(a(:,irep),b(:,irep),trigs,1,n,n,1,-1)<br>
+              „ÄÄ! need to normalise<br>
+              „ÄÄ„ÄÄ„ÄÄa(:,irep)=a(:,irep)*ainv<br>
+              „ÄÄ„ÄÄ„ÄÄb(:,irep)=b(:,irep)*ainv<br>
+              „ÄÄ„ÄÄEND DO<br>
+              „ÄÄ! $OMP end parallel<br>
+              „ÄÄ„ÄÄt2=clips_time()<br>
+              „ÄÄ! assume 5nLOG2(n) ops - really only for radix 2<br>
+              „ÄÄ! and its done it twice!<br>
+              „ÄÄ„ÄÄops=log(1.0d0*n)/log(2.0d0)*n*nrep*10<br>
+              „ÄÄ„ÄÄDO i=1,n<br>
+              „ÄÄ„ÄÄ„ÄÄIF(abs(a(i,1)-1.0d0)+abs(b(i,1)-0.0d0)&gt;1.0d-4)THEN<br>
+              „ÄÄ„ÄÄ„ÄÄ„ÄÄWRITE(6,'('' error in result'',i4,2g12.5)')i,a(i,1)<br>
+              „ÄÄ„ÄÄ„ÄÄ„ÄÄSTOP<br>
+              „ÄÄ„ÄÄ„ÄÄEND IF<br>
+              „ÄÄ„ÄÄEND DO<br>
+              „ÄÄ„ÄÄt=t2-t1<br>
+              „ÄÄ„ÄÄWRITE(6,200) n,nrep,ops,t,ops/(t*1.0D6)<br>
               200 FORMAT(i5,i6,3(1pe12.3))<br>
-              °°°°DEALLOCATE(a,b)<br>
-              °°°°END DO<br>
+              „ÄÄ„ÄÄDEALLOCATE(a,b)<br>
+              „ÄÄ„ÄÄEND DO<br>
               998 WRITE(6,*) 'end of data reached'</font></p>
-            <p><font color="#000000">°°°°END PROGRAM ffttest</font></p>
+            <p><font color="#000000">„ÄÄ„ÄÄEND PROGRAM ffttest</font></p>
           </td>
         </tr>
       </table>

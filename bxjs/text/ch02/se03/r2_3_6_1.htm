@@ -11,7 +11,7 @@ background-attachment: fixed;
 -->
 </STYLE>
 <title>Untitled Document</title>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
 <link rel="stylesheet" href="../../../css/style.css" type="text/css">
 </head>
 
@@ -25,13 +25,13 @@ background-attachment: fixed;
       <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0">
         <tr> 
           <td class="text" valign="top"> 
-            <p>����<b>Cacheһ��������</b><br>
+            <p>　　<b>Cache一致性问题</b><br>
               <br>
-              �����ִ����л��У�Ϊ����ߴ��������ٶȣ���������������Cache��һ������������ϵͳ�ڿ����ж�ݿ��������������Cacheһ�������⡣������ͼ�е�2���������͹����ڴ湹�ɵ�ϵͳ����ʼʱ�̣�������P<sub>1</sub>��P<sub>2</sub>��������X�ӹ����ڴ�װ����˽��Cache����ʱ������Cache�к͹����ڴ��еı���X��ֵ��һ���ġ��ڳ������е�ĳһʱ�̣�������P<sub>1</sub>��X��ֵ�޸�ΪX'����������˽��Cache�� 
-              ��ֵ����ʱ����P<sub>1</sub>����дֱ�write-through��������д�أ�write-back�����ԣ��������޸�P<sub>2</sub>˽��Cache��X��ֵ����ʱ���P<sub>2</sub>��Ҫ��ȡX�������õ����ǹ�ʱ��ֵ��<br>
-              ����<img src="../../../images/img_text/ch02/p2_3_7.gif" width="471" height="200"><br>
+              　　现代并行机中，为了提高处理器的速度，处理器往往带有Cache。一个数据在整个系统内可能有多份拷贝，这就引发了Cache一致性问题。例如下图中的2个处理器和共享内存构成的系统。初始时刻，处理机P<sub>1</sub>和P<sub>2</sub>都将变量X从共享内存装入了私有Cache。这时，两个Cache中和共享内存中的变量X的值是一样的。在程序运行的某一时刻，处理机P<sub>1</sub>把X的值修改为X'，并更新了私有Cache中 
+              的值。此时无论P<sub>1</sub>采用写直达（write-through），还是写回（write-back）策略，都不会修改P<sub>2</sub>私有Cache中X的值。这时如果P<sub>2</sub>需要读取X，则它得到的是过时的值。<br>
+              　　<img src="../../../images/img_text/ch02/p2_3_7.gif" width="471" height="200"><br>
               <br>
-              ����Cacheһ����������ָ�ں��ж��Cache�Ĳ���ϵͳ�У����ݵĶ����������Ϊû��ͬ�����£�����ɵĲ�һ�����⡣���ϵ����������ڶ������������һ����д������ɵ�Cache��һ�¡���������ԭ��Ҳ�����Cacheһ�������⣬�������Ǩ�ƺ�ĳЩI/O�����ȡ�<br>
+              　　Cache一致性问题是指在含有多个Cache的并行系统中，数据的多个副本（因为没有同步更新）而造成的不一致问题。以上的例子是由于多个处理器共享一个可写变量造成的Cache不一致。还有其它原因也会造成Cache一致性问题，比如进程迁移和某些I/O操作等。<br>
             </p>
           </td>
         </tr>

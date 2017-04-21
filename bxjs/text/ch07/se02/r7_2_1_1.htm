@@ -11,7 +11,7 @@ background-attachment: fixed;
 -->
 </STYLE>
 <title>Untitled Document</title>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
 <link rel="stylesheet" href="../../../css/style.css" type="text/css">
 </head>
 
@@ -25,34 +25,34 @@ background-attachment: fixed;
       <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0">
         <tr> 
           <td class="text" valign="top"> 
-            <p>����<b>MPI��������</b><br>
+            <p>　　<b>MPI基本概念</b><br>
               <br>
-              ����<b>MPI ���</b><br>
-              ����MPI�� Message Passing Interface ����һ�ֻ�����Ϣ���ݵĲ��г�����Ʊ�׼������ȷ������һ�����û��ӿڣ������ھ���ʵ�֣����˸����˽������⣬��û��̫������ơ��������ڱ�׼�����������е�Ŭ�������Ѿ���Ϊ����Ϣ���ݲ��г��������ƵĴ�������ʵ�ϵı�׼��<br>
+              　　<b>MPI 简介</b><br>
+              　　MPI（ Message Passing Interface ）是一种基于消息传递的并行程序设计标准，它明确定义了一整套用户接口，而对于具体实现，除了给出了建议以外，并没有太多的限制。由于它在标准化方面所进行的努力，它已经成为了消息传递并行程序程序设计的代表和事实上的标准。<br>
               <br>
-              ������MPI��׼���ƶ������У��ƶ���ϣ��MPI�ܹ��ﵽ���������Ŀ�꣺<br>
-              ������ �ϸߵ�ͨ������<br>
-              ������ �Ϻõĳ������ֲ��<br>
-              ������ ����������Ϣ���ݳ�����Ƶĸ���Ҫ��</p>
-            <p>����<b>MPI�����԰�</b><br>
-              ��������MPI��һ���������һ�ֳ������ԣ���˶�MPI��ʹ�ñ�����ض��ĳ������Խ���������С�ͨ������£���һ��MPI��ʵ�֣���FORTRAN��C���Ե�֧���ǻ�����Ҫ��<br>
+              　　在MPI标准的制定过程中，制定者希望MPI能够达到下面的三个目标：<br>
+              　　● 较高的通信性能<br>
+              　　● 较好的程序可移植性<br>
+              　　● 可以满足消息传递程序设计的各种要求</p>
+            <p>　　<b>MPI的语言绑定</b><br>
+              　　由于MPI是一个库而不是一种程序语言，因此对MPI的使用必须和特定的程序语言结合起来进行。通常情况下，对一个MPI的实现，对FORTRAN和C语言的支持是基本的要求。<br>
               <br>
-              ������MPI-1��׼����ȷ�������MPI��FORTRAN77��C���Եİ󶨣����Ҹ�����ͨ�ýӿں����FORTRAN77��C���Ե�ר�ýӿ�˵��������Fortran90��C++�����ڲ��г����е�Ӧ���𽥹㷺�������MPI-2���ּ����˶�Fortran 
-              90��C++���Եİ�˵����<br>
+              　　在MPI-1标准中明确的提出了MPI和FORTRAN77与C语言的绑定，并且给出了通用接口和针对FORTRAN77与C语言的专用接口说明。由于Fortran90和C++语言在并行程序中的应用逐渐广泛，因此在MPI-2中又加入了对Fortran 
+              90和C++语言的绑定说明。<br>
               <br>
-              �����󶨵ĸ��������һ��MPI��׼�к����ӿڵ�������˵����<br>
-              ����MPI_COMM_RANK( comm, rank )<br>
-              ����IN comm<br>
-              ����OUT rank</p>
-            <p>����int MPI_Comm_rank( MPI_Comm comm, int *rank )</p>
-            <p>����MPI_COMM_RANK( COMM, RANK, IERROR )<br>
-              ����INTEGER COMM, RANK, IERROR</p>
-            <p>��������������ڵõ���ǰ���̱�ʶ�� <br>
-              ����ǰ���������Զ�����˵�����������˺��������ƣ��������ƺͲ��������ԣ�IN/OUT˵�������м�һ���Ǹú�����C���԰󶨣����������FORTRAN���԰󶨡�:</p>
-            <p>����<b>MPIʵ��</b><br>
-              ������ʵ�ʵ�ϵͳ�У�MPI�Գ�������ʽ���֣�ͨ���⺯���ӿڸ��û��ṩMPI�淶����Ĺ��ܡ������Ŀⱻ��ΪMPIʵ�֡�</p>
-            <p>����<b>Ŀǰ��Ҫ��MPIʵ��</b><br>
-              ����MPICH��һ������Ҫ��MPIʵ�֣���http://www.mcs.anl.gov/mpi/mpich������ѵõ�����MPICH��MPI��׼��֧�ֻ�������ٷ���MPI��׼�ķ���ͬ��������������MPI��Chameleon�����ʵĺ��壬��Ϊ�����MPICH��ʵ��ʹ��Chameleon��Ϣ����ϵͳ�����˱�Ҫ��MPI�����⣬MPICH����������һϵ�еĹ��ߣ�����ר�õ�ͼ�ο�����ܿ��ӻ����ߵȵȡ�����MPICH�ṩԴ�룬�������㷺�������о���<br>
+              　　绑定的概念可以用一个MPI标准中函数接口的声明来说明：<br>
+              　　MPI_COMM_RANK( comm, rank )<br>
+              　　IN comm<br>
+              　　OUT rank</p>
+            <p>　　int MPI_Comm_rank( MPI_Comm comm, int *rank )</p>
+            <p>　　MPI_COMM_RANK( COMM, RANK, IERROR )<br>
+              　　INTEGER COMM, RANK, IERROR</p>
+            <p>　　这个函数用于得到当前进程标识： <br>
+              　　前三行是语言独立的说明，它给出了函数的名称，参数名称和参数的属性（IN/OUT说明），中间一行是该函数的C语言绑定，最后两行是FORTRAN语言绑定。:</p>
+            <p>　　<b>MPI实现</b><br>
+              　　在实际的系统中，MPI以程序库的形式出现，通过库函数接口给用户提供MPI规范定义的功能。这样的库被称为MPI实现。</p>
+            <p>　　<b>目前主要的MPI实现</b><br>
+              　　MPICH是一种最重要的MPI实现（从http://www.mcs.anl.gov/mpi/mpich可以免费得到）。MPICH对MPI标准的支持基本上与官方的MPI标准的发表同步。它的名称是MPI和Chameleon两个词的合体，因为最初的MPICH的实现使用Chameleon消息传递系统。除了必要的MPI功能外，MPICH包还包括了一系列的工具，比如专用的图形库和性能可视化工具等等。由于MPICH提供源码，它还被广泛的用于研究。<br>
             </p>
           </td>
         </tr>

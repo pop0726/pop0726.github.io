@@ -11,7 +11,7 @@ background-attachment: fixed;
 -->
 </STYLE>
 <title>Untitled Document</title>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
 <link rel="stylesheet" href="../../../css/style.css" type="text/css">
 </head>
 
@@ -26,20 +26,20 @@ background-attachment: fixed;
         <tr> 
           
 <td class="text" valign="top"> 
-<p>����<b>��ά�������ṹ�ϵľ���ת��</b><br>
+<p>　　<b>二维网格互联结构上的矩阵转置</b><br>
 <br>
-�����账������Ŀp��n<sup>2</sup>��������n��n�ľ���ֳ�p����СΪ<img src="../../../images/img_text/ch06/41.gif" width="104" height="23" align="absmiddle">���ӿ飬��Щ�ӿ���ȻӰ�䵽�������ṹ��p���������ϡ��㷨���Է���������ɣ���һ�����������ӿ鿴��һ���������ͼ6.3.4(a)��ʾ���ӿ�ת�ã���һ���ɸ�����������ͨ�ţ��ڶ��������������ֱ���Լ����ڲ��ӿ���оֲ�ת�ã���ͼ6.3.4(b)��ʾ��<br>
-����</p>
+　　设处理器数目p≤n<sup>2</sup>，则整个n×n的矩阵分成p个大小为<img src="../../../images/img_text/ch06/41.gif" width="104" height="23" align="absmiddle">的子块，这些子块自然影射到网格互联结构的p个处理器上。算法可以分两步来完成：第一步，将各个子块看作一个整体进行图6.3.4(a)所示的子块转置，这一步由各处理器互相通信；第二步，各处理器分别对自己的内部子块进行局部转置，如图6.3.4(b)所示。<br>
+　　</p>
 <center>
 <img src="../../../images/img_text/ch06/42-1.gif" width="368" height="363"><br>
-(a) �ӿ��ת�ã�����<br>
-��������������������<br>
-����<img src="../../../images/img_text/ch06/42-2.gif">��<br>
-b) �ӿ���ת�� <br>
-ͼ6.3.4 16���������Ͽ����̻��ֵ�8��8�����ת��
+(a) 子块间转置；　　<br>
+　　　　　　　　　　<br>
+　　<img src="../../../images/img_text/ch06/42-2.gif">　<br>
+b) 子块内转置 <br>
+图6.3.4 16个处理器上块棋盘划分的8×8矩阵的转置
 </center>
-<p> ����<font color="#000000">�����㷨������ʱ��������£���һ���ӿ��ת�����·��ԼΪ<img src="../../../images/img_text/ch06/43.gif" width="31" height="23" align="absmiddle">���ƶ������ӿ��ʱ��Ϊ<img src="../../../images/img_text/ch06/44.gif" width="68" height="22" align="absmiddle">�����Ը����ӿ鵽��Ŀ�ĵص�ʱ��Ϊ<img src="../../../images/img_text/ch06/45.gif" width="105" height="23" align="absmiddle">���ڶ�����СΪ<img src="../../../images/img_text/ch06/46.gif" width="104" height="23" align="absmiddle">���ӿ�ת����Ҫ��ʱ��������n<sup>2</sup>/p�������㷨��������ʱ��Ϊ��</font><br>
-��������������<img src="../../../images/img_text/ch06/47.gif" width="213" height="43" align="absmiddle"></p>
+<p> 　　<font color="#000000">整个算法的运行时间分析如下：第一步子块间转置最长的路径约为<img src="../../../images/img_text/ch06/43.gif" width="31" height="23" align="absmiddle">，移动单个子块的时间为<img src="../../../images/img_text/ch06/44.gif" width="68" height="22" align="absmiddle">，所以各个子块到达目的地的时间为<img src="../../../images/img_text/ch06/45.gif" width="105" height="23" align="absmiddle">；第二步大小为<img src="../../../images/img_text/ch06/46.gif" width="104" height="23" align="absmiddle">的子块转置需要的时间量级是n<sup>2</sup>/p，所以算法的总运行时间为：</font><br>
+　　　　　　　<img src="../../../images/img_text/ch06/47.gif" width="213" height="43" align="absmiddle"></p>
             </td>
         </tr>
       </table>

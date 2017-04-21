@@ -11,7 +11,7 @@ background-attachment: fixed;
 -->
 </STYLE>
 <title>Untitled Document</title>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
 <link rel="stylesheet" href="../../../css/style.css" type="text/css">
 </head>
 
@@ -25,12 +25,12 @@ background-attachment: fixed;
       <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0">
         <tr> 
           <td class="text" valign="top"> 
-            <p>�����ڸ��ִ��������㷨�У�ð�������۴������ϣ�ʱ�临�Ӷ�Ϊ<img src="../../../images/img_text/ch06/6.gif" width="31" height="18" align="absmiddle">������ʵ��Ч���϶�������õģ������㷨�򵥣����Ӧ�ñȽϹ㷺�������Ƕ�����Ҫ�󲻸ߵĳ��ϡ������о����ʵ��ð������Ĳ��л���<br>
+            <p>　　在各种串行排序算法中，冒泡排序不论从理论上（时间复杂度为<img src="../../../images/img_text/ch06/6.gif" width="31" height="18" align="absmiddle">）还是实际效果上都不是最好的，但其算法简单，因而应用比较广泛，尤其是对性能要求不高的场合。本节研究如何实现冒泡排序的并行化。<br>
               <br>
-              ��������ð�������㷨��������ѭ������ÿ�β����Ƚ��������ڵ�Ԫ�أ�Ȼ��ͨ������ʹ֮����ָ�������򡣻����Ĵ����㷨��ͼ6.2.3����Ȼ����ͨ��һЩ�ֶ�����������ܣ����統û�з��ֽ���ʱ�����ѭ���ȣ������Ⲣ���ı��㷨���е�ʱ�临�Ӷȡ�<br>
+              　　串行冒泡排序算法包括两个循环，，每次操作比较两个相邻的元素，然后通过交换使之符合指定的排序。基本的串行算法见图6.2.3。当然可以通过一些手段来提高其性能，比如当没有发现交换时便结束循环等，不过这并不改变算法运行的时间复杂度。<br>
               <br>
-              ����ð������˳�αȽ����ڵ�Ԫ�أ����ڱ�������һ�����еĹ��̣����Ѳ��л�����˳�εıȽϹ��̲��л��������㷨���󣬵ò���Ԥ��Ľ�������еĲ����㷨�����ð������ı��Ρ�<br>
-              ����������������<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="400" height="200"><param name="wmode" value="transparent">
+              　　冒泡排序顺次比较相邻的元素，这在本质上是一个串行的过程，很难并行化。将顺次的比较过程并行化将导致算法错误，得不到预想的结果。现有的并行算法多针对冒泡排序的变形。<br>
+              　　　　　　　　<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="400" height="200"><param name="wmode" value="transparent">
                 <param name=movie value="../../../swf/S-6-2-3.swf">
                 <param name=quality value=high>
                 <embed src="../../../swf/S-6-2-3.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="400" height="200">

@@ -11,7 +11,7 @@ background-attachment: fixed;
 -->
 </STYLE>
 <title>Untitled Document</title>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
 <link rel="stylesheet" href="../../../css/style.css" type="text/css">
 </head>
 
@@ -25,35 +25,35 @@ background-attachment: fixed;
       <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0">
         <tr> 
           <td class="text" valign="top"> 
-            <p>����Amdahl���ɵĻ����������ǣ�<br>
+            <p>　　Amdahl定律的基本出发点是：<br>
               <br>
-              ����(1) ���������ѧ���㣬ʵʱ��Ҫ��ܸߣ���������Ӧ���м���ʱ���Ǹ��ؼ������أ������㸺���ǹ̶�����ġ�Ϊ�ˣ���һ���ļ��㸺���£�Ϊ����ʵʱ�Ե�Ҫ�󣬿���ͨ�����Ӵ�������Ŀ�ķ�������������ʱ�䣬��߼����ٶȣ�<br>
+              　　(1) 对于许多科学计算，实时性要求很高，即在这类应用中计算时间是个关键性因素，而计算负载是固定不变的。为此，在一定的计算负载下，为满足实时性的要求，可以通过增加处理器数目的方法来减少运行时间，提高计算速度；<br>
               <br>
-              ����(2) ��Ϊ�̶��ļ��㸺�ؿ��Էֲ��ڶ���������ϣ����������˴������ͼӿ���ִ���ٶȣ��Ӷ��ﵽ�˼��ٵ�Ŀ�ġ�<br>
+              　　(2) 因为固定的计算负载可以分布在多个处理器上，这样增加了处理器就加快了执行速度，从而达到了加速的目的。<br>
               <br>
-              �����������Ķ����ƶ��£�1967��Amdahl�Ƶ����˹̶���������µļ��ٱȹ�ʽ��<br>
-              ������������ <img src="../../../images/img_text/ch05/8.gif" width="108" height="49" align="absmiddle"><br>
-              ��������W=Ws + Wp����ʽ�ұ߷��ӷ�ĸͬ����W������<br>
-              ������������<img src="../../../images/img_text/ch05/9.gif" width="188" height="65" align="absmiddle"><br>
-              ������<img src="../../../images/img_text/ch05/10.gif" width="51" height="17" align="absmiddle"> 
-              ʱ�����ٱȵļ���Ϊ<br>
-              ������������<img src="../../../images/img_text/ch05/11.gif" width="83" height="44"><br>
+              　　在这样的动机推动下，1967年Amdahl推导出了固定负载情况下的加速比公式：<br>
+              　　　　　　 <img src="../../../images/img_text/ch05/8.gif" width="108" height="49" align="absmiddle"><br>
+              　　由于W=Ws + Wp，上式右边分子分母同除以W，则有<br>
+              　　　　　　<img src="../../../images/img_text/ch05/9.gif" width="188" height="65" align="absmiddle"><br>
+              　　当<img src="../../../images/img_text/ch05/10.gif" width="51" height="17" align="absmiddle"> 
+              时，加速比的极限为<br>
+              　　　　　　<img src="../../../images/img_text/ch05/11.gif" width="83" height="44"><br>
               <br>
-              ���������������Amdahl���ٶ��ɣ�����ζ�����Ŵ�������Ŀ���������󣬲���ϵͳ���ܴﵽ�ļ��ٱȴ������ޣ���Ϊһ������1/f���������ֻȡ����Ӧ�ñ��������ʡ������������ʷ�������Բ���ϵͳ�ķ�չ������һ�ֱ��۵�Ӱ�졣������������Ӱ���ǣ�һ��Ȱ�貢�м�����������������ģ�Ĳ��м���������Ǵٽ��˲��б������ķ�չ���Խ��ͳ����д��в��ֵ�ֵ��<br>
+              　　这就是著名的Amdahl加速定律，它意味着随着处理器数目的无限增大，并行系统所能达到的加速比存在上限，且为一个常数1/f，这个常数只取决于应用本身的性质。这个结论在历史上曾经对并行系统的发展带来了一种悲观的影响。它带来的两种影响是，一是劝阻并行计算机厂商生产更大规模的并行计算机，二是促进了并行编译计算的发展，以降低程序中串行部分的值。<br>
               <br>
-              ����Amdahl���ɵļ����������������������ͼ����ʾ��<br>
+              　　Amdahl定律的几何意义可以清楚的用下面的图来表示：<br>
               <img src="../../../images/img_text/ch05/12.gif" width="485" height="256"> 
               <br>
-              ��������������Ŀn=1024�����ٱȹ�ʽ���£�Sn����仯���������ͼ��<br>
-              ������<img src="../../../images/img_text/ch05/13.gif" width="215" height="42"><br>
-              ����<img src="../../../images/img_text/ch05/14.gif" width="437" height="328"><br>
+              　　当处理器数目n=1024，加速比公式如下，Sn随α变化的情况如下图：<br>
+              　　　<img src="../../../images/img_text/ch05/13.gif" width="215" height="42"><br>
+              　　<img src="../../../images/img_text/ch05/14.gif" width="437" height="328"><br>
               <br>
-              ����ʵ���ϲ��м��ٱȲ��������ڳ���Ĵ��з����ı���������Ҳ�ܲ��г�������ʱ�Ķ��⿪����Ӱ�졣������ǵ��ⲿ�����ص�Ӱ�죬��W<sub>o</sub>Ϊ���⿪������ô����Ĺ�ʽӦ���޸�Ϊ��<br>
-              ����<img src="../../../images/img_text/ch05/15.gif" width="416" height="71"><br>
-              �������������µļ��ٱȼ���Ϊ��<br>
-              ����������<img src="../../../images/img_text/ch05/16.gif" width="120" height="63"><br>
+              　　实际上并行加速比不仅受限于程序的串行分量的比例，而且也受并行程序运行时的额外开销的影响。如果考虑到这部分因素的影响，令W<sub>o</sub>为额外开销，那么上面的公式应该修改为：<br>
+              　　<img src="../../../images/img_text/ch05/15.gif" width="416" height="71"><br>
+              　　这种情形下的加速比极限为：<br>
+              　　　　　<img src="../../../images/img_text/ch05/16.gif" width="120" height="63"><br>
               <br>
-              ����<span class="part">����</span>�����г����еĴ��з��������Ͳ��ж��⿪��Խ������ٱ�ԽС��<br>
+              　　<span class="part">结论</span>：并行程序中的串行分量比例和并行额外开销越大，则加速比越小。<br>
               <br>
               <br>
             </p>

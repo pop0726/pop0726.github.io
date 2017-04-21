@@ -11,7 +11,7 @@ background-attachment: fixed;
 -->
 </STYLE>
 <title>Untitled Document</title>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
 <link rel="stylesheet" href="../../../css/style.css" type="text/css">
 </head>
 
@@ -23,13 +23,13 @@ background-attachment: fixed;
         <tr> 
           
 <td class="text" valign="top"> 
-<p>����Fox�㷨ͬ��ͨ��ѭ����λ�İ취���ﵽ��ʡ�洢�ռ��Ŀ�ģ�����Cannon�㷨��ͬ���ǣ���ͨ��һ�Զ�㲥�ķ�ʽ����A���Ӿ���飬������Cannon������ѭ����λ��������B���Ӿ���顣���ݶԳ��ԣ�Ҳ���ԶԾ���A���������ѭ����λ���Ծ���B�������ȡ�㲥�ķ�ʽ��Ч��һ�����账��������p=q<sup>2</sup>�����㷨��Ҫ�����£�<br>
-����1. ��ѡ�еĶԽ���Aii�������е�q������������һ�Զ�㲥��<br>
-����2. �����������Լ���ӵ�е�A��B���ӿ���о���������㣻<br>
-����3. B����Ŀ�����ѭ���ƶ�һλ�����������һ���µ�B����飻<br>
-����4. ѡ��A��һ���������Ϊ�㲥Դ��ѡ�񷽷��ǣ����A<sub>ij</sub>���ϴεĹ㲥Դ���򱾴εĹ㲥Դ��A<sub>i</sub>,(j+1)%q������'%'��ʾȡģ���㡣ת����1��<br>
+<p>　　Fox算法同样通过循环移位的办法来达到节省存储空间的目的，但与Cannon算法不同的是，它通过一对多广播的方式处理A的子矩阵块，而用象Cannon那样的循环移位方法处理B的子矩阵块。根据对称性，也可以对矩阵A的子阵进行循环移位而对矩阵B的子阵采取广播的方式，效果一样。设处理器个数p=q<sup>2</sup>，则算法的要点如下：<br>
+　　1. 所选中的对角线Aii向所在行的q个处理器进行一对多广播；<br>
+　　2. 各处理器将自己所拥有的A和B的子块进行矩阵相乘运算；<br>
+　　3. B矩阵的块向上循环移动一位，从下面接受一个新的B矩阵块；<br>
+　　4. 选择A的一个矩阵块作为广播源，选择方法是：如果A<sub>ij</sub>是上次的广播源，则本次的广播源是A<sub>i</sub>,(j+1)%q。其中'%'表示取模运算。转步骤1。<br>
 <br>
-����ͼ6.3.13����16�������������Fox����˷�����ʾ��Fox�㷨�����ܷ����ڴ˲��ٸ�����<br>
+　　图6.3.13是在16个处理器上完成Fox矩阵乘法的演示。Fox算法的性能分析在此不再给出。<br>
 </p>
 <center>
 <img src="../../../images/img_text/ch06/6_3_13_1-1.gif" width="350" height="340"><br>
@@ -40,9 +40,9 @@ background-attachment: fixed;
 (c) <br>
 <img src="../../../images/img_text/ch06/6_3_13_2-2.gif" width="350" height="340"><br>
 (d)<br>
-����������������ͼ6.3.13 16���������ϵ�Fox�˷���ʾ 
+　　　　　　　　图6.3.13 16个处理器上的Fox乘法演示 
 </center>
-<p>����<font color="#000000">Cannon��Fox�˷����Կ���һ���㷨�����Ƕ�ͨ��ͨ������㽻��ķ�ʽ�����˼�������Ҫ�Ĵ洢�������˵�򵥾���ֿ�˷���ģʽ��&quot;ͨ�ţ�����&quot;�Ļ�����ôCannon��Fox�˷���ģʽ����&quot;ͨ�ţ����㣭ͨ�ţ����㣭����&quot;��</font><br>
+<p>　　<font color="#000000">Cannon和Fox乘法可以看作一类算法，它们都通过通信与计算交叉的方式减少了计算所需要的存储量。如果说简单矩阵分块乘法的模式是&quot;通信－计算&quot;的话；那么Cannon和Fox乘法的模式则是&quot;通信－计算－通信－计算－……&quot;。</font><br>
             </p>
           </td>
         </tr>

@@ -11,7 +11,7 @@ background-attachment: fixed;
 -->
 </STYLE>
 <title>Untitled Document</title>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
 <link rel="stylesheet" href="../../../css/style.css" type="text/css">
 </head>
 
@@ -25,30 +25,30 @@ background-attachment: fixed;
       <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0">
         <tr> 
           <td class="text" valign="top"> 
-            <p>����<b>��ż�û�ð������Ĳ��л�</b><br>
+            <p>　　<b>奇偶置换冒泡排序的并行化</b><br>
               <br>
-              ������ż�û�ð����������ײ��л������㷨��ÿ���׶Σ�ÿ��Ԫ�صıȽϿ��Բ�����ɶ��������š�����6.2.6�����˲��л���ĳ���α�룬����ٶ���������Ŀ���ڴ������Ԫ����Ŀ������������һ�²����㷨�ļ��ٱȺ�Ч�ʡ��账������ĿΪp��p��n����ÿ������������n/p��Ԫ�ع���һ����Ԫ�ء����ȣ��������������Լ���Ԫ�ؽ����ڲ���������Ŀǰ���Ĵ����㷨��ʱ�临�Ӷ�Ϊ<img src="../../../images/img_text/ch06/12.gif" width="109" height="18" align="absmiddle">��Ȼ��ÿ����������ִ��p��������p/2���������p/2��ż�������������ڵĴ���������Ԫ�ؽ�����ÿ��������Ҫ<img src="../../../images/img_text/ch06/14.gif" width="48" height="18" align="absmiddle">�αȽϲ�����<img src="../../../images/img_text/ch06/14.gif" width="48" height="18" align="absmiddle">��ͨ��ʱ�䡣�����ܵĲ��д���ʱ���ǣ� 
+              　　奇偶置换冒泡排序很容易并行化，在算法的每个阶段，每对元素的比较可以并行完成而互不干扰。程序6.2.6给出了并行化后的程序伪码，代码假定处理器数目等于待排序的元素数目。下面来分析一下并行算法的加速比和效率。设处理器数目为p（p≤n），每个处理器上有n/p个元素构成一个超元素。首先，各个处理器对自己的元素进行内部排序，利用目前最快的串行算法，时间复杂度为<img src="../../../images/img_text/ch06/12.gif" width="109" height="18" align="absmiddle">。然后，每个处理器都执行p步操作（p/2步奇操作和p/2步偶操作）来与相邻的处理器进行元素交换。每步操作需要<img src="../../../images/img_text/ch06/14.gif" width="48" height="18" align="absmiddle">次比较操作和<img src="../../../images/img_text/ch06/14.gif" width="48" height="18" align="absmiddle">的通信时间。所以总的并行处理时间是： 
               <br>
-              ��������<img src="../../../images/img_text/ch06/15.gif" width="235" height="38" align="absmiddle"><br>
-              ������Ϊ���д���ʱ����<img src="../../../images/img_text/ch06/16.gif" width="59" height="18" align="absmiddle">����˵õ��㷨�ļ��ٱ�S��Ч��E�ֱ�Ϊ��<br>
-              ����<img src="../../../images/img_text/ch06/17.gif" width="194" height="38" align="absmiddle"><br>
-              ����<img src="../../../images/img_text/ch06/18.gif" width="240" height="38" align="absmiddle"><br>
+              　　　　<img src="../../../images/img_text/ch06/15.gif" width="235" height="38" align="absmiddle"><br>
+              　　因为串行处理时间是<img src="../../../images/img_text/ch06/16.gif" width="59" height="18" align="absmiddle">，因此得到算法的加速比S和效率E分别为：<br>
+              　　<img src="../../../images/img_text/ch06/17.gif" width="194" height="38" align="absmiddle"><br>
+              　　<img src="../../../images/img_text/ch06/18.gif" width="240" height="38" align="absmiddle"><br>
               <br>
-              ����������ʽ�ӿ��Կ�������Ч��ά����һ��ˮƽ��������<img src="../../../images/img_text/ch06/19.gif" width="73" height="18" align="absmiddle">����˵����Ҫ��Ч�ʹ̶�ʱ��Ϊ������һ̨�����������񣨼��������Ԫ����Ŀ����Ҫ��ָ�����ӣ�����㷨�Ŀ���չ�ԱȽϲ<br>
-              ����<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="400" height="450"><param name="wmode" value="transparent">
+              　　从上述式子可以看出，将效率维持在一定水平的条件是<img src="../../../images/img_text/ch06/19.gif" width="73" height="18" align="absmiddle">，这说明当要求效率固定时，为了增加一台处理器，任务（即待排序的元素数目）需要呈指数增加，因此算法的可扩展性比较差。<br>
+              　　<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="400" height="450"><param name="wmode" value="transparent">
                 <param name=movie value="../../../swf/S-6-2-5.swf">
                 <param name=quality value=high>
                 <embed src="../../../swf/S-6-2-5.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="400" height="450">
                 </embed> 
               </object><br>
-              ����������������������������ż�û������ʾ��</p>
-            <p>����<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="400" height="400"><param name="wmode" value="transparent">
+              　　　　　　　　　　　　　奇偶置换排序的示例</p>
+            <p>　　<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="400" height="400"><param name="wmode" value="transparent">
                 <param name=movie value="../../../swf/S-6-2-6.swf">
                 <param name=quality value=high>
                 <embed src="../../../swf/S-6-2-6.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="400" height="400">
                 </embed> 
               </object><br>
-              ��������������������������������ż�û������㷨<br>
+              　　　　　　　　　　　　　并行奇偶置换排序算法<br>
             </p>
           </td>
         </tr>

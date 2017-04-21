@@ -11,7 +11,7 @@ background-attachment: fixed;
 -->
 </STYLE>
 <title>Untitled Document</title>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
 <link rel="stylesheet" href="../../../css/style.css" type="text/css">
 </head>
 
@@ -22,16 +22,16 @@ background-attachment: fixed;
       <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0">
         <tr> 
           <td class="text" valign="top"> 
-            <p>������̬�滮��һ�����⿴��һϵ���໥�����������⣬�������ٷֳɸ�С�����⣬С��������Ľ�����´�������Ľ�������ս���������⡣������r�ֽ��t��������<img src="../../../images/img_text/ch06/115.gif" width="72" height="21" align="absmiddle">��������r�Ľ�f(r)���Ա�ʾΪ��<br>
-              ��������������������<img src="../../../images/img_text/ch06/116.gif" width="191" height="21"><br>
-              ����<font color="#000000">����g��Ϊ��Ϻ����������������Ȿ�������ʡ������Ż����⣬g����Ϊȡ���ֵ����Сֵ����gȡ���ֵ����Сֵʱ���Ѵ˷�����Ϊ��̬�滮�������͵��ܹ��ö�̬�滮�����������������·���⡢�������⡢�������⡢ģ����ƥ������ȡ�<br>
+            <p>　　动态规划把一个问题看成一系列相互关联的子问题，子问题再分成更小的问题，小的子问题的解决导致大子问题的解决，最终解决整个问题。设问题r分解成t个子问题<img src="../../../images/img_text/ch06/115.gif" width="72" height="21" align="absmiddle">，则问题r的解f(r)可以表示为：<br>
+              　　　　　　　　　　<img src="../../../images/img_text/ch06/116.gif" width="191" height="21"><br>
+              　　<font color="#000000">其中g称为组合函数，它依赖于问题本来的性质。对于优化问题，g常常为取最大值或最小值。当g取最大值或最小值时，把此方法称为动态规划法。典型的能够用动态规划法解决的问题包括最短路问题、背包问题、调度问题、模糊串匹配问题等。<br>
               <br>
-              ������̬�滮���ݲ�ͬ�ı�׼���Խ��в�ͬ�ķ��ࡣ������ı���ʽ��ֻ����һ���ݹ���ʱ����Ϊһά��̬�滮��Monadic Dynamic 
-              Programming������������ʽ�к��ж���һ���ݹ���ʱ���Ϊ��ά��̬�滮��Polyadic Dynamic Programming����<br>
+              　　动态规划根据不同的标准可以进行不同的分类。当上面的表达式中只包含一个递归项时，称为一维动态规划（Monadic Dynamic 
+              Programming）；而当表达式中含有多于一个递归项时则称为多维动态规划（Polyadic Dynamic Programming）。<br>
               <br>
-              ��������������֮���������ϵ������һ������ͼ����ʾ�����������P1������������P2�����P1��P2��һ���ߡ�����������ɵ�����ͼ��һ����ѭ��ͼ����ͼ���Ҳ���һ���㣬ʹ�ôӴ˵������������������ܹ��ص���㣩��������ͼ���Էֳ����ɵȼ���ʹ��ÿһ��������ֻ������ǰ������ɵȼ���������Щ��̬�滮���⣬ÿһ��������ֻ�������������ǰ���һ��������Щ�����ĳһ��������Ҫ������ǰ��ĺܶ༶��</font><br>
+              　　各个子问题之间的依赖关系可以用一个有向图来表示，如果子问题P1依赖于子问题P2，则从P1向P2连一条线。如果这样构成的有向图是一个非循环图（即图中找不到一个点，使得从此点出发沿着有向边最终能够回到起点），则整个图可以分成若干等级，使得每一级子问题只依赖于前面的若干等级。对于有些动态规划问题，每一级子问题只依赖于其紧接着前面的一级；而有些问题的某一级子问题要依赖于前面的很多级。</font><br>
               <br>
-              �����������Թ滮��������෱���ԣ����Ѹ����е����Թ滮�������һ��ͨ�õĲ��л������������һ������Ĳ��л������ܹ�����һϵ������Ľ�������ڷ�������������̬�滮����Ĳ����㷨��ϣ���ܹ��Դ˽��������������ж�̬�滮����Ĳ��л����⡣</p>
+              　　鉴于线性规划问题的种类繁多性，很难给所有的线性规划问题给出一个通用的并行化解决方案。但一个问题的并行化往往能够带动一系列问题的解决。本节分析几个常见动态规划问题的并行算法，希望能够以此解决几类而不是所有动态规划问题的并行化问题。</p>
             </td>
         </tr>
       </table>

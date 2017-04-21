@@ -11,7 +11,7 @@ background-attachment: fixed;
 -->
 </STYLE>
 <title>Untitled Document</title>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
 <link rel="stylesheet" href="../../../css/style.css" type="text/css">
 </head>
 
@@ -25,16 +25,16 @@ background-attachment: fixed;
       <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0">
         <tr> 
           <td class="text" valign="top"> 
-            <p>��<b>��ͨ���о�</b><br>
+            <p>　<b>　通信判据</b><br>
               <br>
-              ���������������԰������ͨ����Ƶ��Ƿ������<br>
-              ������1�����������Ƿ�ִ�д���ͬ�����ͨ�ţ������ǣ�����Ƶ��㷨�Ŀ���չ�Կ��ܻ᲻�á�<br>
+              　　下面的问题可以帮助检查通信设计得是否合理。<br>
+              　　（1）所有任务是否执行大致同样多的通信？若不是，所设计的算法的可扩展性可能会不好。<br>
               <br>
-              ������2��ÿ�������Ƿ�ֻ�������Ľ���ͨ�ţ������ǣ�����ܵ���ȫ��ͨ�š���ʱӦ�跨��ȫ��ͨ�Ż��ɾֲ�ͨ�š�<br>
+              　　（2）每个任务是否只与少数的近邻通信？若不是，则可能导致全局通信。此时应设法将全局通信换成局部通信。<br>
               <br>
-              ������3����ͨ�Ų����ܷ���ִ�У������ܣ�����Ƶ��㷨�����ǵ�Ч�ĺͲ��߿���չ�Եġ���ʱ�����÷��β��������������ԡ�<br>
+              　　（3）诸通信操作能否并行执行？若不能，所设计的算法可能是低效的和不具可扩展性的。此时可试用分治策略来开发并行性。<br>
               <br>
-              ������4����ͬ����ļ����ܷ���ִ�У��Ƿ����Ϊ�ȴ����ݶ����Ͳ��жȣ������ܲ���ִ�У�����Ƶ��㷨�����ǵ�Ч�ĺͲ��߿���չ�Եġ���ʱ�ɿ������°���ͨ�źͼ����˳���Ը������������</p>
+              　　（4）不同任务的计算能否并行执行？是否会因为等待数据而降低并行度？若不能并行执行，所设计的算法可能是低效的和不具可扩展性的。此时可考虑重新安排通信和计算的顺序以改善这种情况。</p>
             </td>
         </tr>
       </table>
