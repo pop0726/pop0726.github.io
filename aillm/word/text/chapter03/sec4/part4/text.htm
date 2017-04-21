@@ -1,0 +1,143 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第三章 不确定和非单调推理方法</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <br>
+      　　<span class="part">3.4.4 定性模拟法</span><br>
+      　　<span class="text">1. 结构描述和行为描述<br>
+      　　定性模拟是从结构的定性描述出发，来导出行为描述的。结构的定性描述由系统的状态参量和约束关系组成。认为参量是时间的光滑函数，约束是参量间的二元或多元关系。如速度的导数是加速度表为DERIV(Vel,acc),f=ma 
+      表为MULT(maf),f随g单调增加表为M<sup>+</sup>(f,g)，单调减表为M<sup>－</sup>(f,g)。<br>
+      　　行为描述关心参量的变化。假设参量f(t)是[a,b]到[-∞,∞]的光滑函数。f是界标值是一具有限集合，至少包含f(a),f(b)。<br>
+      　　集合　{t|t∈[a,b]∧f(t) 是界标值}的元素称作区分点。<br>
+      　　设l<font size="1">1</font>&lt;l<font size="1">2</font>&lt;…&lt;l<font size="1">k</font>是f:[a,b]→[-∞,∞]的界标值，对任意的t∈[a,b] 
+      f在t的定性状态QS(f,t)规定为有序对&lt;qval,qdir&gt;。其中<br>
+      　　<img src="../../../../images/text/chap03/sec4/gs7.gif" width="194" height="109"><br>
+      　　设<font size="2">t</font><font size="1">i</font>,<font size="2">t</font><font size="1">i+1</font>是相邻的区分点，f在(<font size="2">t</font><font size="1">i</font>,<font size="2">t</font><font size="1">i+1</font>)内的定性状态QS(f,<font size="2">t</font><font size="1">i</font>,<font size="2">t</font><font size="1">i+1</font>)规定为QS(f,t),其中t∈(<font size="2">t</font><font size="1">i</font>,<font size="2">t</font><font size="1">i+1</font>)。<br>
+      　　f在[a,b]上定性行为规定为f的定性状态序列：QS(f,<font size="2">t</font><font size="1">0</font>)，QS(f,<font size="2">t</font><font size="1">0</font>,<font size="2">t</font><font size="1">1</font>)QS(f,<font size="2">t</font><font size="1">1</font>)…,QS(f,<font size="2">t</font><font size="1">n</font>)。其中<font size="2">t</font><font size="1">i</font>为区分点且<font size="2">t</font><font size="1">i</font>&lt;<font size="2">t</font><font size="1">i+1</font>。<br>
+      　　若　F＝{<font size="2">f</font><font size="1">1</font>,…,<font size="2">f</font><font size="1">k</font>}则F的定性状态规定为<br>
+      　　QS(F,<font size="2">t</font><font size="1">i</font>)={QS(<font size="2">f</font><font size="1">1</font>,<font size="2">t</font><font size="1">i</font>)…,QS(<font size="2">f</font><font size="1">k</font>,<font size="2">t</font><font size="1">i</font>)}<br>
+      　　QS(F,<font size="2">t</font><font size="1">i</font>,<font size="2">t</font><font size="1">i+1</font>)={QS(<font size="2">f</font><font size="1">1</font>,<font size="2">t</font><font size="1">i</font>,<font size="2">t</font><font size="1">i+1</font>),…,QS(<font size="2">f</font><font size="1">k</font>,<font size="2">t</font><font size="1">i</font>,<font size="2">t</font><font size="1">i+1</font>)}<br>
+      　　其中<font size="2">t</font><font size="1">i</font>是<font size="2"> f</font><font size="1">1</font>,…,<font size="2">f</font><font size="1">k</font> 
+      区分点并集的元素。<br>
+      　　2. 定性状态转移<br>
+      　　依假设f 是光滑函数，f从一个定性状态转换成另一定性状态是受介值定理和中值定理限制的。定性状态转换有两类，一类是P转换从时间点到时间区间，另一类是I转换从时间区间到时间点。<br>
+      　　<b>转换表</b><br>
+      　　P转换　　QS(f,ti)<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">QS(f 
+      ,ti,ti+1)<br>
+      　　　<img src="../../../../images/text/chap03/sec4/p1.gif" width="12" height="13" align="absmiddle">　　&lt;l<font size="1">j</font>,std&gt;　　　　　　&lt;l<font size="1">j</font>,std&gt;<br>
+      　　　<img src="../../../../images/text/chap03/sec4/p2.gif" width="12" height="13" align="absmiddle">　　&lt;l<font size="1">j</font>,std&gt;　　　　　　&lt;(l<font size="1">j</font>,l<font size="1">j+1</font>),inc&gt;<br>
+      　　　<img src="../../../../images/text/chap03/sec4/p3.gif" width="12" height="13" align="absmiddle">　　&lt;l<font size="1">j</font>,std&gt;　　　　　　&lt;(l<font size="1">j-1</font>,l<font size="1">j</font>),dec&gt;<br>
+      　　　<img src="../../../../images/text/chap03/sec4/p4.gif" width="12" height="12" align="absmiddle">　　&lt;l<font size="1">j</font>,inc&gt;　　　　　　&lt;(l<font size="1">j</font>,l<font size="1">j+1</font>&gt;,inc 
+      &gt;<br>
+      　　　<img src="../../../../images/text/chap03/sec4/p5.gif" width="12" height="12" align="absmiddle">　　&lt;(l<font size="1">j</font>,l<font size="1">j+1</font>),inc&gt;　　 
+      &lt;(l<font size="1">j</font>,l<font size="1">j+1</font>),inc&gt;<br>
+      　　　<img src="../../../../images/text/chap03/sec4/p6.gif" width="12" height="13" align="absmiddle">　　&lt;l<font size="1">j</font>,dec&gt;　　　　　　&lt;(l<font size="1">j-1</font>,l<font size="1">j</font>),dec&gt;<br>
+      　　　<img src="../../../../images/text/chap03/sec4/p7.gif" width="12" height="12" align="absmiddle">　　&lt;(l<font size="1">j</font>,l<font size="1">j+1</font>),dec&gt;　　 
+      &lt;(l<font size="1">j</font>,l<font size="1">j+1</font>),dec&gt;<br>
+      <br>
+      　　I转换　　QS(f,<font size="2">t</font><font size="1">i</font>,<font size="2">t</font><font size="1">i+1</font>)<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10"> 
+      QS(f,<font size="2">t</font><font size="1">i+1</font>)<br>
+      　　　<img src="../../../../images/text/chap03/sec4/i1.gif" width="12" height="13" align="absmiddle">　　&lt;l<font size="1">j</font>,std&gt; 
+      &lt;lj std&gt;<br>
+      　　　<img src="../../../../images/text/chap03/sec4/i2.gif" width="12" height="13" align="absmiddle">　　&lt;(l<font size="1">j</font>,l<font size="1">j+1</font>),inc&gt;　　&lt;l<font size="1">j+1</font>,inc&gt;<br>
+      　　　<img src="../../../../images/text/chap03/sec4/i3.gif" width="12" height="13" align="absmiddle">　　&lt;(l<font size="1">j</font>,l<font size="1">j+1</font>),inc&gt;　　&lt;l<font size="1">j+1</font>,inc&gt; 
+      <br>
+      　　　<img src="../../../../images/text/chap03/sec4/i4.gif" width="12" height="12" align="absmiddle">　　&lt;(l<font size="1">j</font>,l<font size="1">j+1</font>),inc&gt;　　&lt;(l<font size="1">j</font>, 
+      l<font size="1">j+1</font>)inc&gt;<br>
+      　　　<img src="../../../../images/text/chap03/sec4/i5.gif" width="12" height="12" align="absmiddle">　　&lt;(lj,l<font size="1">j+1</font>),dec&gt;　　&lt;l<font size="1">j</font>,std&gt;<br>
+      　　　<img src="../../../../images/text/chap03/sec4/i6.gif" width="12" height="13" align="absmiddle">　　&lt;(l<font size="1">j</font>,l<font size="1">j+1</font>),dec&gt;　　&lt;l<font size="1">j</font>,dec&gt;<br>
+      　　　<img src="../../../../images/text/chap03/sec4/i7.gif" width="12" height="12" align="absmiddle">　　&lt;(l<font size="1">j</font>,l<font size="1">j+1</font>),dec&gt;　　&lt;(l<font size="1">j</font>,l<font size="1">j+1</font>) 
+      ,dec&gt;<br>
+      　　　<img src="../../../../images/text/chap03/sec4/i8.gif" width="12" height="13" align="absmiddle">　　&lt;(l<font size="1">j</font>,l<font size="1">j+1</font>),inc&gt;　　&lt; 
+      l<sup>*</sup>,std&gt;<br>
+      　　　<img src="../../../../images/text/chap03/sec4/i9.gif" width="12" height="13" align="absmiddle">　　&lt;(l<font size="1">j</font>,l<font size="1">j+1</font>),dec&gt;　　&lt; 
+      l<sup>*</sup>,std&gt;<br>
+      <br>
+      　　3. QSIM 算法<br>
+      　　已知初始状态，利用转换规则来实现定性模拟有QSIM算法。<br>
+      　　首先将初始状态送入ACTIVE表中，然后重复（1）－（6）直至ACTIVE空为止。<br>
+      　　（1） 从ACTIVE　中选一状态。<br>
+      　　（2） 对每个参量依转换表找出所有可能的后继状态。<br>
+      　　（3） 对约束中参量的转换生成二元组，三元组集合。依约束关系做一致性滤波。<br>
+      　　（4） 对有公共参量的约束，对元组进行组对。再对组对的元组作一致性滤波。<br>
+      　　（5） 从剩下的元组生成所有可有的全局解释。每个解释生成一个新的状态作为当前状态的后继状态。 <br>
+      　　（6） 对新状态作全局滤波，剩下的状态送入ACTIVE表。所说的全局滤波是排除无变化情形(如I1、I4、I7）、循环情形（新状态与某个前辈状态相同）、发散情形（某参数值为∞，这时当前时间点必为结束点）。<br>
+      　　4.举例：上抛球运动的定性模拟<br>
+      　　以向上抛球的运动过程为例来说明QSIM算法。设球的高度为y，速度为v,加速度A。<br>
+      　　已知约束关系　<br>
+      　　　　DERIV　(Y，V)<br>
+      　　　　DERIV　(V，A)<br>
+      　　　　A(t)=g&lt;0<br>
+      　　初始状态(<font size="2">t</font><font size="1">0</font>,<font size="2">t</font><font size="1">1</font>)球向上运动<br>
+      　　　　QS(A,<font size="2">t</font><font size="1">0</font>,<font size="2">t</font><font size="1">1</font>)=&lt;g,std 
+      &gt;<br>
+      　　　　QS(V,<font size="2">t</font><font size="1">0</font>,<font size="2">t</font><font size="1">1</font>)=&lt;(0, 
+      ∞),dec&gt;<br>
+      　　　　QS(y,<font size="2">t</font><font size="1">0</font>,<font size="2">t</font><font size="1">1</font>)=&lt;(0, 
+      ∞),inc&gt;<br>
+      　　对每个参量做各种可能的转换，当前处于时间区间上，所以需使用I转换。<br>
+      　　A <img src="../../../../images/text/chap03/sec4/i1.gif" width="12" height="13" align="absmiddle">&lt;g,std&gt;<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">&lt;g,std&gt;<br>
+      　　V <img src="../../../../images/text/chap03/sec4/i5.gif" width="12" height="12" align="absmiddle">&lt;(0, 
+      ∞ ),dec&gt; <br>
+      　　　<img src="../../../../images/text/chap03/sec4/i6.gif" width="12" height="13" align="absmiddle">&lt;(0, 
+      ∞),dec&gt;<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">&lt;0,dec&gt;<br>
+      　　　<img src="../../../../images/text/chap03/sec4/i7.gif" width="12" height="12" align="absmiddle">&lt;(0, 
+      ∞),dec&gt;<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">&lt;(0, 
+      ∞),dec&gt;<br>
+      　　　<img src="../../../../images/text/chap03/sec4/i9.gif" width="12" height="13" align="absmiddle">&lt;(0, 
+      ∞),dec&gt;<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">&lt;l<sup>*</sup>,std&gt;<br>
+      　　Y <img src="../../../../images/text/chap03/sec4/i4.gif" width="12" height="12" align="absmiddle">&lt;(0, 
+      ∞),iec&gt;<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">&lt;(0, 
+      ∞),inc&gt;<br>
+      　　　<img src="../../../../images/text/chap03/sec4/i8.gif" width="12" height="13" align="absmiddle">&lt;(0, 
+      ∞),inc&gt;<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">&lt; 
+      l<sup>*</sup>,std &gt;<br>
+      　　对约束形成元组集合，先对单个约束做一致性滤波，滤掉的以C表示。然后对元组做组对再做一致性滤波，滤掉的以W表示。<br>
+      　　依　DERIV(Y，V)组对<br>
+      　　　　(<img src="../../../../images/text/chap03/sec4/i4.gif" width="12" height="12" align="absmiddle">，<img src="../../../../images/text/chap03/sec4/i5.gif" width="12" height="12" align="absmiddle">)　　　C　　　(<img src="../../../../images/text/chap03/sec4/i8.gif" width="12" height="13" align="absmiddle">，<img src="../../../../images/text/chap03/sec4/i5.gif" width="12" height="12" align="absmiddle">)　　W　<br>
+      　　　　(<img src="../../../../images/text/chap03/sec4/i4.gif" width="12" height="12" align="absmiddle">，<img src="../../../../images/text/chap03/sec4/i6.gif" width="12" height="13" align="absmiddle">)　　　C　　　(<img src="../../../../images/text/chap03/sec4/i8.gif" width="12" height="13" align="absmiddle">，<img src="../../../../images/text/chap03/sec4/i6.gif" width="12" height="13" align="absmiddle">)<br>
+      　　　　(<img src="../../../../images/text/chap03/sec4/i4.gif" width="12" height="12" align="absmiddle">，<img src="../../../../images/text/chap03/sec4/i7.gif" width="12" height="12" align="absmiddle">)　　　　　　 
+      (<img src="../../../../images/text/chap03/sec4/i8.gif" width="12" height="13" align="absmiddle">，<img src="../../../../images/text/chap03/sec4/i7.gif" width="12" height="12" align="absmiddle">)　　C<br>
+      　　　　(<img src="../../../../images/text/chap03/sec4/i4.gif" width="12" height="12" align="absmiddle">, 
+      <img src="../../../../images/text/chap03/sec4/i9.gif" width="12" height="13" align="absmiddle">)　　　W　　　(<img src="../../../../images/text/chap03/sec4/i8.gif" width="12" height="13" align="absmiddle">,<img src="../../../../images/text/chap03/sec4/i9.gif" width="12" height="13" align="absmiddle">)　　 
+      C<br>
+      　　依　DERIV(V，A)组对<br>
+      　　　　(<img src="../../../../images/text/chap03/sec4/i5.gif" width="12" height="12" align="absmiddle">，<img src="../../../../images/text/chap03/sec4/i1.gif" width="12" height="13" align="absmiddle">)　　　C　　　(<img src="../../../../images/text/chap03/sec4/i7.gif" width="12" height="12" align="absmiddle">，<img src="../../../../images/text/chap03/sec4/i1.gif" width="12" height="13" align="absmiddle">)<br>
+      　　　　(<img src="../../../../images/text/chap03/sec4/i6.gif" width="12" height="13" align="absmiddle">，<img src="../../../../images/text/chap03/sec4/i1.gif" width="12" height="13" align="absmiddle">)　　　　　　 
+      (<img src="../../../../images/text/chap03/sec4/i9.gif" width="12" height="13" align="absmiddle">，<img src="../../../../images/text/chap03/sec4/i1.gif" width="12" height="13" align="absmiddle">)　　C<br>
+      其中如元组(<img src="../../../../images/text/chap03/sec4/i4.gif" width="12" height="12" align="absmiddle">，<img src="../../../../images/text/chap03/sec4/i5.gif" width="12" height="12" align="absmiddle">)中，<img src="../../../../images/text/chap03/sec4/i4.gif" width="12" height="12" align="absmiddle">使Y的定性状态变为&lt;(0, 
+      ∞)，inc&gt;而<img src="../../../../images/text/chap03/sec4/i5.gif" width="12" height="12" align="absmiddle">使V的定性状态变为&lt;0，std&gt;,这与约束DERIV(Y，V)不一致。于是(<img src="../../../../images/text/chap03/sec4/i4.gif" width="12" height="12" align="absmiddle">，<img src="../../../../images/text/chap03/sec4/i5.gif" width="12" height="12" align="absmiddle">)被过滤掉。又元组(<img src="../../../../images/text/chap03/sec4/i4.gif" width="12" height="12" align="absmiddle">，<img src="../../../../images/text/chap03/sec4/i9.gif" width="12" height="13" align="absmiddle">)中的<img src="../../../../images/text/chap03/sec4/i9.gif" width="12" height="13" align="absmiddle">和元组(<img src="../../../../images/text/chap03/sec4/i9.gif" width="12" height="13" align="absmiddle">，<img src="../../../../images/text/chap03/sec4/i1.gif" width="12" height="13" align="absmiddle">)中的I9都是对V的转换，由于(<img src="../../../../images/text/chap03/sec4/i9.gif" width="12" height="13" align="absmiddle">，<img src="../../../../images/text/chap03/sec4/i1.gif" width="12" height="13" align="absmiddle">)已被滤掉，所以导致(<img src="../../../../images/text/chap03/sec4/i4.gif" width="12" height="12" align="absmiddle">，<img src="../../../../images/text/chap03/sec4/i9.gif" width="12" height="13" align="absmiddle">)也被滤掉。<br>
+      　　对剩下的元组形成两个全局解释。<br>
+      　　　Y　　　V　　　A<br>
+      　　　<img src="../../../../images/text/chap03/sec4/i4.gif" width="12" height="12" align="absmiddle">　　<img src="../../../../images/text/chap03/sec4/i7.gif" width="12" height="12" align="absmiddle">　　　<img src="../../../../images/text/chap03/sec4/i1.gif" width="12" height="13" align="absmiddle"><br>
+      　　　<img src="../../../../images/text/chap03/sec4/i8.gif" width="12" height="13" align="absmiddle">　　<img src="../../../../images/text/chap03/sec4/i6.gif" width="12" height="13" align="absmiddle">　　　<img src="../../../../images/text/chap03/sec4/i1.gif" width="12" height="13" align="absmiddle"><br>
+      其中第一种解释为无变化情形被滤掉。第二种解释是唯一的后继状态。这时<br>
+      　　　QS(A,<font size="2">t</font><font size="1">1</font>)=&lt;g,std&gt;<br>
+      　　　QS(v,t<font size="1">l</font>)=&lt;0,dec&gt;<br>
+      　　　QS(y,<font size="2">t</font><font size="1">1</font>)=&lt;<font size="2">y</font>MAX,std&gt;<br>
+      其中Y<sub><font size="1">MAX</font></sub>是新的界标值。<br>
+      </span></td>
+  </tr>
+</table>
+</body>
+</html>

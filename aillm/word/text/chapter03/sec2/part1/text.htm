@@ -1,0 +1,119 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第三章 不确定和非单调推理方法</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <span class="section"><br>
+      　　3.2 不确定推理方法</span><br>
+      <br>
+      <span class="part">　　3.2.1 确定性方法</span><span class="text"><br>
+      　　以产生式作为知识表示的MYCIN中，第一次使用了不确定性推理方法，给出了以确定性因子或称可信度作为不确定性的度量。<br>
+      　　1.规则的不确定性度量<br>
+      　　规则以A→B表示，其中前提A可以是一些命题的合取或析取。MYCIN系统引入可信度CF作为规则不确定性度量。CF表示了增量<br>
+      　　　　　P(B│A)－P(B)<br>
+      　　相对于P(B)或P(～B)的比值。其中P表概率。规定<br>
+      　　　　　<img src="../../../../images/text/chap03/sec2/gs1.gif" width="225" height="66"><br>
+      　　CF(B，A)表示了证据A为真时，相对于P(～B)=1-P(B)来说A对B为真的支持程度（当CF(B,A)≥ 0）。或相对于P(B)来说A对B为真的不支持程度（当CF(B,A)&lt;0）。这种定义形式保证了－1≤CF(B,A)≤ 
+      1。当P(B│A)－P(B)相同时，P(B)小的CF小，P(B)大的CF大。<br>
+      　　容易看出CF(B,A)的几个特殊值：<br>
+      　　（1） 前提A真，结论B必真的情形。由P(B│A)＝1来体现，这时CF(B,A)=1。<br>
+      　　（2） 前提A与结论B无关的情形。由P(B│A)＝P(B)来体现，这时CF(B,A)＝0。<br>
+      　　（3） 前提A与结论B无关的情形，由P(B│A)＝0来体现，这时CF(B,A)＝－1。<br>
+      　　显然CF(B,A)≥ 0表示前提A真支持B真。CF(B,A)＜0表示前提A真不支持B真。<br>
+      　　不难看出，CF(B,A)的定义借用了概率，但它本身并不是概率。因为CF(B,A)可取负值，CF(B,A)+CF(B,～A)不必为1甚至可能为0。<br>
+      　　实际应用中，A→B的CF(B,A)值是由专家主观确定的，并不是由P(B│A)，P(B)来计算的。需注意的是CF(B,A)表示的是增量P(B|A)－P(B)对1－P(B)或P(B)的比值，而不是绝对量的比值。<br>
+      　　2.证据的不确定性度量<br>
+      　　证据A的不确定性也可以CF(A)表示，同样规定－1≤CF(A)≤ 1。<br>
+      　　几个特殊值规定为<br>
+      　　（1） A肯定为真时CF(A)＝1。<br>
+      　　（2） A肯定为假时，CF(A)＝－1。<br>
+      　　（3） 对A一无所知时，CF(A)＝0。<br>
+      　　CF(A)&gt;0　表示A以CF(A)程度为真。<br>
+      　　CF(A)&lt;0　表示A以CF(A)程度为假。<br>
+      　　实际使用时，初始证据的CF值由专家提供，其它证据的CF值是需使用规则经推理求得。<br>
+      　　3.推理计算<br>
+      　　（1） 已知　CF(A),A→B CF(B,A)求CF(B)<br>
+      　　　　　规定　CF(B)＝CF(B，A)・max{0,CF(A)}<br>
+      　　（2） 规定　CF(～A)＝-CF(A)<br>
+      　　　　　　　　CF(<img src="../../../../images/text/chap02/sec01/a1.gif" width="15" height="11" align="absmiddle">∧<img src="../../../../images/text/chap02/sec01/a2.gif" width="16" height="11" align="absmiddle">)＝min{CF(<img src="../../../../images/text/chap02/sec01/a1.gif" width="15" height="11" align="absmiddle">)，CF(<img src="../../../../images/text/chap02/sec01/a2.gif" width="16" height="11" align="absmiddle">)}<br>
+      　　　　　　　　CF(<img src="../../../../images/text/chap02/sec01/a1.gif" width="15" height="11" align="absmiddle">∧<img src="../../../../images/text/chap02/sec01/a2.gif" width="16" height="11" align="absmiddle">)=max{CF(<img src="../../../../images/text/chap02/sec01/a1.gif" width="15" height="11" align="absmiddle">),CF(<img src="../../../../images/text/chap02/sec01/a2.gif" width="16" height="11" align="absmiddle">)}<br>
+      　　（3） 由规定<img src="../../../../images/text/chap02/sec01/a1.gif" width="15" height="11" align="absmiddle">→B求得CF(B)，又使用规则<img src="../../../../images/text/chap02/sec01/a2.gif" width="16" height="11" align="absmiddle">→B时，如何更新CF(B)。或说<br>
+      　　　　　已知　CF(<img src="../../../../images/text/chap02/sec01/a1.gif" width="15" height="11" align="absmiddle">)，CF(<img src="../../../../images/text/chap02/sec01/a2.gif" width="16" height="11" align="absmiddle">)以及CF(B,<img src="../../../../images/text/chap02/sec01/a1.gif" width="15" height="11" align="absmiddle">)，CF(B,<img src="../../../../images/text/chap02/sec01/a2.gif" width="16" height="11" align="absmiddle">)来寻求合成的CF(B)。<br>
+      　　依（1）先计算出<br>
+      　　　　　C<font size="2">F</font><font size="1">1</font>(B)＝CF(B，<img src="../../../../images/text/chap02/sec01/a1.gif" width="15" height="11" align="absmiddle">)・max{0,CF(<img src="../../../../images/text/chap02/sec01/a1.gif" width="15" height="11" align="absmiddle">)}<br>
+      　　　　　C<font size="2">F</font><font size="1">2</font>(B)＝CF(B,<img src="../../../../images/text/chap02/sec01/a2.gif" width="16" height="11" align="absmiddle">)・max{0,CF(<img src="../../../../images/text/chap02/sec01/a2.gif" width="16" height="11" align="absmiddle">)}<br>
+      　　进而规定<br>
+      　　<img src="../../../../images/text/chap03/sec2/gs2.gif" width="354" height="56"><br>
+      　　CF(B)的更新计算，也可这样来理解。已知CF(A)，A→B CF(B，A)而B原来的可信度为CF(B)，来求B的可信度更新值CF(B|A)。这时的计算可写成<br>
+      　　　　当CF(A)＝1时，有<br>
+      　　<img src="../../../../images/text/chap03/sec2/gs3.gif" width="350" height="58"><br>
+      　　当CF(A)&lt;1(证据A也是不确定的)，这时CF(B|A)必然比CF(A)=1时的CF(B|A)来得小。若CF(A)&gt;0，可以CF(A)・CF(B，A)作为对规则A→B的可信度，而CF(B|A)的计算仍可使用CF(A)=1时的公式。但CF(A)&lt;0时，规则A→B可不使用，像MYCIN系统规定CF(A)≤0.2就认为是不可使用的前提。<br>
+      　　关于CF(B|A)的计算，对除CF(A)，CF(B，A)均非负，以及CF(B)，CF(B，A)均为负之外的其它情形，EMYCIN系统使用的是<br>
+      　　<img src="../../../../images/text/chap03/sec2/gs4.gif" width="206" height="28"><br>
+      　　应指出，若通过引入信任增长度MB和不信任增长度MD来定义CF=MB-MD，并用MB、MD来计算合成的CF值，半群代数结构方可得到保证。而在MYCIN中上述计算CF(B|A)的方法过于简单了，并不能保证CF合成计算的结合律了。<br>
+      　　4. 对CF定义的改进<br>
+      　　确定性因子直观上应满足下述性质：<br>
+      　　(1) CF(B,A,e)=CF(B,A) 独立性<br>
+      　　(2) CF(B,<img src="../../../../images/text/chap02/sec01/a1.gif" width="15" height="11" align="absmiddle">,<img src="../../../../images/text/chap02/sec01/a2.gif" width="16" height="11" align="absmiddle">)=CF(B,<img src="../../../../images/text/chap02/sec01/a2.gif" width="16" height="11" align="absmiddle">,<img src="../../../../images/text/chap02/sec01/a1.gif" width="15" height="11" align="absmiddle">)组合交换性<br>
+      　　(3) 若CF(A,A')=1 则CF(B,A)=CF(B，A')有序组合性<br>
+      　　其中e是在已知证据A之前出现的证据。<br>
+      　　但上述所定义的CF(B,A)并不满足这些性质。例如 已知<img src="../../../../images/text/chap02/sec01/a1.gif" width="15" height="11" align="absmiddle">→B 
+      CF(B，<img src="../../../../images/text/chap02/sec01/a1.gif" width="15" height="11" align="absmiddle">)=0.9,<img src="../../../../images/text/chap02/sec01/a2.gif" width="16" height="11" align="absmiddle">→B 
+      CF(B,<img src="../../../../images/text/chap02/sec01/a2.gif" width="16" height="11" align="absmiddle">)=-0.9来计算P(B|<img src="../../../../images/text/chap02/sec01/a1.gif" width="15" height="11" align="absmiddle"><img src="../../../../images/text/chap02/sec01/a2.gif" width="16" height="11" align="absmiddle">e)。依CF(B，A)定义有<br>
+      　　<img src="../../../../images/text/chap03/sec2/gs5.gif" width="261" height="76"><br>
+      　　于是由<img src="../../../../images/text/chap02/sec01/a1.gif" width="15" height="11" align="absmiddle">有<br>
+      　　　　　0.9=(P(B|<img src="../../../../images/text/chap02/sec01/a1.gif" width="15" height="11" align="absmiddle"><img src="../../../../images/text/chap02/sec01/a2.gif" width="16" height="11" align="absmiddle">e)-P(B|e))/(1-P(B|e))<br>
+      　　若规定P(B|e)=0.5，可得<br>
+      　　　　　P(B|<img src="../../../../images/text/chap02/sec01/a1.gif" width="15" height="11" align="absmiddle">e)=0.95<br>
+      　　进而由<img src="../../../../images/text/chap02/sec01/a2.gif" width="16" height="11" align="absmiddle">有<br>
+      　　　　　-0.9=(P(B|<img src="../../../../images/text/chap02/sec01/a1.gif" width="15" height="11" align="absmiddle"><img src="../../../../images/text/chap02/sec01/a2.gif" width="16" height="11" align="absmiddle">e)-P(B|<img src="../../../../images/text/chap02/sec01/a1.gif" width="15" height="11" align="absmiddle">e))/(P(B|<img src="../../../../images/text/chap02/sec01/a1.gif" width="15" height="11" align="absmiddle">e)<br>
+      　　依P(B|<img src="../../../../images/text/chap02/sec01/a1.gif" width="15" height="11" align="absmiddle">e)=0.95<br>
+      　　得P(B|<img src="../../../../images/text/chap02/sec01/a1.gif" width="15" height="11" align="absmiddle"><img src="../../../../images/text/chap02/sec01/a2.gif" width="16" height="11" align="absmiddle">e)=0.10<br>
+      　　我们若先对<img src="../../../../images/text/chap02/sec01/a2.gif" width="16" height="11" align="absmiddle">再对<img src="../../../../images/text/chap02/sec01/a1.gif" width="15" height="11" align="absmiddle">重复计算过程得<br>
+      　　　　　P(B|<img src="../../../../images/text/chap02/sec01/a2.gif" width="16" height="11" align="absmiddle"><img src="../../../../images/text/chap02/sec01/a1.gif" width="15" height="11" align="absmiddle">e)=0.90<br>
+      　　从而出现了P(B|<img src="../../../../images/text/chap02/sec01/a1.gif" width="15" height="11" align="absmiddle"><img src="../../../../images/text/chap02/sec01/a2.gif" width="16" height="11" align="absmiddle">e)与P(B|<img src="../../../../images/text/chap02/sec01/a2.gif" width="16" height="11" align="absmiddle"><img src="../../../../images/text/chap02/sec01/a1.gif" width="15" height="11" align="absmiddle">e)不相等情形，这与人们的直观认识不一致。<br>
+      　　Heckerman 修正了对CF的定义记为CF<sup>*</sup>解决了CF应满足的直观性质。规定<br>
+      　　<img src="../../../../images/text/chap03/sec2/gs6.gif" width="248" height="67"><br>
+      　　5.举例<br>
+      　　已知　<font size="2">R</font><font size="1">1</font>：<img src="../../../../images/text/chap02/sec01/a1.gif" width="15" height="11" align="absmiddle">→<img src="../../../../images/text/chap03/sec2/b2.gif" width="14" height="13" align="absmiddle"> 
+      CF(<img src="../../../../images/text/chap03/sec2/b1.gif" width="12" height="14" align="absmiddle">,<img src="../../../../images/text/chap02/sec01/a1.gif" width="15" height="11" align="absmiddle">)=0.8<br>
+      　　　　　<font size="2">R</font><font size="1">2</font>：<img src="../../../../images/text/chap02/sec01/a2.gif" width="16" height="11" align="absmiddle">→<img src="../../../../images/text/chap03/sec2/b1.gif" width="12" height="14" align="absmiddle"> 
+      CF(<img src="../../../../images/text/chap03/sec2/b1.gif" width="12" height="14" align="absmiddle">,<img src="../../../../images/text/chap02/sec01/a2.gif" width="16" height="11" align="absmiddle">)=0.5<br>
+      　　　　　<font size="2">R</font><font size="1">3</font>：<img src="../../../../images/text/chap03/sec2/b1.gif" width="12" height="14" align="absmiddle">∧<img src="../../../../images/text/chap02/sec01/a3.gif" width="15" height="13" align="absmiddle">→<img src="../../../../images/text/chap03/sec2/b2.gif" width="14" height="13" align="absmiddle"> 
+      CF(<img src="../../../../images/text/chap03/sec2/b2.gif" width="14" height="13" align="absmiddle">,<img src="../../../../images/text/chap03/sec2/b1.gif" width="12" height="14" align="absmiddle">∧<img src="../../../../images/text/chap02/sec01/a3.gif" width="15" height="13" align="absmiddle">)=0.8<br>
+      　　初始证据<img src="../../../../images/text/chap02/sec01/a1.gif" width="15" height="11" align="absmiddle">,<img src="../../../../images/text/chap02/sec01/a2.gif" width="16" height="11" align="absmiddle">,<img src="../../../../images/text/chap02/sec01/a3.gif" width="15" height="13" align="absmiddle">的CF值均设为1，而初始未知证据<img src="../../../../images/text/chap03/sec2/b1.gif" width="12" height="14" align="absmiddle">,<img src="../../../../images/text/chap03/sec2/b2.gif" width="14" height="13" align="absmiddle">的CF值设为0，也即认为对<img src="../../../../images/text/chap03/sec2/b1.gif" width="12" height="14" align="absmiddle">,<img src="../../../../images/text/chap03/sec2/b2.gif" width="14" height="13" align="absmiddle">是一无所知。<br>
+      　　来计算CF(<img src="../../../../images/text/chap03/sec2/b1.gif" width="12" height="14" align="absmiddle">),CF(<img src="../../../../images/text/chap03/sec2/b2.gif" width="14" height="13" align="absmiddle">)的更新值。<br>
+      　　依<font size="2">R</font><font size="1">1</font>，CF(<img src="../../../../images/text/chap03/sec2/b1.gif" width="12" height="14" align="absmiddle">|<img src="../../../../images/text/chap02/sec01/a1.gif" width="15" height="11" align="absmiddle">)＝0+0.8(1－0)＝0.8　即使用<font size="2">R</font><font size="1">1</font>后的CF(<img src="../../../../images/text/chap03/sec2/b1.gif" width="12" height="14" align="absmiddle">)由0提高到0.8了。<br>
+      　　依<font size="2">R</font><font size="1">2</font>，CF(<img src="../../../../images/text/chap03/sec2/b1.gif" width="12" height="14" align="absmiddle">|<img src="../../../../images/text/chap02/sec01/a1.gif" width="15" height="11" align="absmiddle">)=0.8+0.5(1-0.8)=0.9<br>
+      　　依<font size="2">R</font><font size="1">3</font>，需先求<br>
+      　　　　　CF(B∧<img src="../../../../images/text/chap02/sec01/a2.gif" width="16" height="11" align="absmiddle">)=min 
+      (CF(<img src="../../../../images/text/chap02/sec01/a3.gif" width="15" height="13" align="absmiddle">),CF(<img src="../../../../images/text/chap03/sec2/b1.gif" width="12" height="14" align="absmiddle">))<br>
+      　　　　　　　　　=min (1,0,9)=0.9<br>
+      　　而<img src="../../../../images/text/chap03/sec2/b1.gif" width="12" height="14" align="absmiddle">∧<img src="../../../../images/text/chap02/sec01/a3.gif" width="15" height="13" align="absmiddle">→<img src="../../../../images/text/chap03/sec2/b2.gif" width="14" height="13" align="absmiddle"> 
+      的前提CF(<img src="../../../../images/text/chap03/sec2/b1.gif" width="12" height="14" align="absmiddle">∧<img src="../../../../images/text/chap02/sec01/a3.gif" width="15" height="13" align="absmiddle">)≠1,要作CF(<img src="../../../../images/text/chap03/sec2/b2.gif" width="14" height="13" align="absmiddle">，<img src="../../../../images/text/chap03/sec2/b1.gif" width="12" height="14" align="absmiddle">∧<img src="../../../../images/text/chap02/sec01/a3.gif" width="15" height="13" align="absmiddle">)×CF(<img src="../../../../images/text/chap03/sec2/b1.gif" width="12" height="14" align="absmiddle">∧<img src="../../../../images/text/chap02/sec01/a3.gif" width="15" height="13" align="absmiddle">)=0.8×0.9=0.72再计算<br>
+      　　　　　CF(<img src="../../../../images/text/chap03/sec2/b2.gif" width="14" height="13" align="absmiddle">|<img src="../../../../images/text/chap03/sec2/b1.gif" width="12" height="14" align="absmiddle">∧<img src="../../../../images/text/chap02/sec01/a3.gif" width="15" height="13" align="absmiddle">)=0+0.72(1-0)=0.72<br>
+      　　这样便求得了CF(<img src="../../../../images/text/chap03/sec2/b1.gif" width="12" height="14" align="absmiddle">)，CF(<img src="../../../../images/text/chap03/sec2/b2.gif" width="14" height="13" align="absmiddle">)分别为0.9和0.72。<br>
+      </span></td>
+  </tr>
+</table>
+</body>
+</html>

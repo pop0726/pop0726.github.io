@@ -1,0 +1,76 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第六章　实例学习</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <span class="text"><br>
+      　　</span><span class="part">6.6.2　基于解释学习的几种方法</span><span class="text"><br>
+      　　1.解释与概括交替进行的EBG方法<br>
+      1987年斯坦福大学Haym和Hirsh提出了新的基于解释概括（EBC）的方法，这是解释与概括交替进行的方法。<br>
+      　　（1） 问题的逻辑描述<br>
+      　　系统提供了正向、反向、归纳等多种推理方式。逻辑的表示方法使EBG的语义更为清楚，为学习提供了方便的语言环境。例如要学习目标概念Safe-to-stack(V1,V2)，其领域知识就可表示如下。<br>
+      　　事实知识：<br>
+      　　On(obj1,obj2)<br>
+      　　Isa(obj2,Endtable)<br>
+      　　Color(obj1,red)<br>
+      　　Color(obj2,blue)<br>
+      　　Volume(obj1,1)<br>
+      　　Density(obj1,0.1)<br>
+      　　领域规则：<br>
+      　　Not(Fragile(y))→Safe-to-stack(x,y)<br>
+      　　Lighter(x,y)→Safe-to-stack(x,y)<br>
+      　　Volume(p1,v1)∧Density(p1,d1)∧X(v1,d1,w1)→Weight(p1,w1)<br>
+      　　Isa(p1,Endtable)→Weight(p1,5)<br>
+      　　Weight(p1,w1)∧Weight(p2,w2)∧&lt;(w1,w2)→Lighter(p1,p2)<br>
+      　　（2）产生解释结构<br>
+      　　为证明该例子满足目标概念，系统从目标开始反向推理，根据知识库中已有的上述事实和规则，分解目标，每当使用一条规则时，同时返回去把该规则应用到变量化的目标概念上。这样，在生成该例子求解的解释结构的同时，也生成了变量化的概括的解释结构。<br>
+      　　这个例子的解释结构是图6.21。</span><br>
+      <br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="30" valign="top"><img src="../../../../images/text/tb/tushi.gif" width="25" height="16" alt="图示"></td>
+          <td align="center" class="explaination"><img src="../../../../images/text/chap06/sec6/tu6.21.gif" width="376" height="255"><br>
+            <br>
+            图 6.21 </td>
+        </tr>
+      </table>
+      <span class="text"><br>
+      　　概括化的解释结构是图6.22。</span><br>
+      <br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="30" valign="top"><img src="../../../../images/text/tb/tushi.gif" width="25" height="16" alt="图示"></td>
+          <td align="center" class="explaination"><img src="../../../../images/text/chap06/sec6/tu6.22.gif" width="385" height="255"><br>
+            <br>
+            图 6.22</td>
+        </tr>
+      </table>
+      <span class="text"><br>
+      　　（3）生成控制规则<br>
+      　　将概括化的解释结构的所有叶结点的合取作为前件，以顶点的目标概念为后件，略去解释结构的中间部件，就生成概括化的产生式规则： <br>
+      　　Volume(V2,V48)∧Density(V2,V49)∧X(V48,V49,V42)∧Isa(V3,Endtable)∧&lt;(V42,5)→Safe-to-stack(V2,V3)<br>
+      　　使用生成的这个控制规则求解类似问题时，求解速度快且效率高。但是简单地把常量转为变量以实现概括化的方法可能过份一般化。在某些特例下可能使规则失败。<br>
+      </span></td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第三章 不确定和非单调推理方法</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <br>
+      　　<span class="part">3.3.5　非单调逻辑</span><span class="text"><br>
+      　　关于非单调逻辑可分为两类。一类是基于最小化语义的最小化非单调逻辑，如限制理论。另一类是基于不动点定义的不动点非单调逻辑，如默认逻辑。已对限制理论和默认理论做过介绍，下面就不动点概念做说明。<br>
+      　　设　T=&lt;D,W&gt; 表一默认逻辑理论，其中D为默认推理规则休，W为已知公式集。<br>
+      　　如果D的每条规则都无变量出现，称T为封闭理论。例如<br>
+      　　　　T=&lt;D,W&gt;，D＝<img src="../../../../images/text/chap03/sec2/gs40.gif" width="43" height="29" align="absmiddle">，W＝φ<br>
+      于是可得B。然而<br>
+      　　　　T'＝&lt;D，W'&gt;，W'＝{～A}<br>
+      反而导不出B，尽管T'<img src="../../../../images/text/chap02/sec03/fh.gif" width="12" height="8">T。所以这种理论有非单调性。<br>
+      　　设T＝＜D，M＞为封闭的，Γ为关于D上的一个算子，Γ作用于任意的命题集合S，而且Γ(S)是满足下列条件的最小的集合：<br>
+      　　（1） W<img src="../../../../images/text/chap02/sec03/fh2.gif" width="11" height="10">Γ(S)<br>
+      　　（2） Th(Γ(S))= Γ(S)<br>
+      　　　　　(Th(Γ(s))：{A|Γ(S)├ A})<br>
+      　　（3） 若<img src="../../../../images/text/chap03/sec2/gs41.gif" width="27" height="25" align="absmiddle">为D的规则，且<br>
+      　　　　　α∈Γ(S)，～β<img src="../../../../images/text/chap02/sec03/fh3.gif" width="10" height="12">Γ(S)　那么 
+      γ∈Γ(S)<br>
+      　　称公式集E为关于D的算子Γ的不动点，如果<br>
+      　　　　　Γ(E)=E<br>
+      　　这时还称E 为T＝＜D，W＞的一个增广。直观含义是由公式集W出发，使用默认规则D，所得的公式集E，包含原公式集W，而且具有Γ(E)＝E的性质，即E是不动点。</span>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="text">
+        <tr>
+          <td width="30"><img src="../../../../images/text/tb/dingyi.gif" width="26" height="17" alt="定理"></td>
+          <td><b>定理 6</b></td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td>　E是公式集（一阶逻辑），T＝&lt;D,W&gt;封闭的默认理论，递归定义E<font size="1">i</font>：<br>
+            　<font size="2">E</font><font size="1">0</font>＝W<br>
+            　E<font size="1">i+1</font>=Th(E<font size="1">i</font>)∪<img src="../../../../images/text/chap03/sec2/gs42.gif" width="45" height="31" align="absmiddle">∈D, 
+            α∈E<font size="1">i </font>,～β<img src="../../../../images/text/chap02/sec03/fh3.gif" width="10" height="12">E}<br>
+            那么E为T的一个增广其充分必要条件是<br>
+            　　　<img src="../../../../images/text/chap03/sec2/gs43.gif" width="51" height="32"></td>
+        </tr>
+      </table>
+      <span class="text"><br>
+      　　</span><span class="part">3.3.6 非单调推理系统TMS</span><span class="text"><br>
+      　　TMS(Truth Maintenance System)是Doyle 于1979年建立的非单调系统，给出了非单调的表示方法，以及出现不一致时如回溯的方法。这需要找出不一致的原由，以便消除不一致，而且在这过程中要修改由于这一源由所得出的曾认为是可信的所有命题。在非单调系统中一致意义下的推理是使用标准逻辑来实现的。TMS处理了不一致这个核心问题。<br>
+      　　TMS将每个命题称为结点，每个结点具有IN和OUT两个状态之一。IN状态表相信为真，OUT状态表不相信为真，或无理由相认为真，或当前没有可相信的理由。<br>
+      　　对每个结点由一个支持表来描述，以说明该结点与其它结点的IN或OUT状态的依赖关系。形如（SL（IN结点）OUT结点）），意思是说，当（IN结点）中的结点当前均为IN状态，而（OUT结点）中的结点均为OUT状态时，结点SL是有效的。<br>
+      　　例如有三个结点<br>
+      　　（1） 现在是冬天，其支持表为(SL()())<br>
+      　　（2） 天气是寒冷的，其支持表为(SL(1)(3))<br>
+      　　（3） 天气是温暖的。<br>
+      这时若结点（1）是IN状态，（3）是OUT状态，那么结点（2）才是IN状态，或说&quot;如果现在是冬天，又没有天气是温暖的证据，则结论为天气是寒冷的。一旦某时刻出现了天气是温暖的证据，即结点（3）是可信了，那么TMS将会使结点（2）转变为OUT状态了，而且凡与结点（3）有依赖关系的其它结点（很可能是多层依赖关系的一系列结点）都要考虑IN、OUT状态的变化。<br>
+      　　又例如，找一个时间使三个忙人同时参加一个会议。实现办法是可以首先假设一个开会日期，然后再从这三个人的时间安排表中找出不一致性。发现不一致时，就需撤消所做的假设会议日期，而以另一个有希望不发生冲突的日期来代替，这个非单调系统可表示成<br>
+      　　(1)日期＝星期三(SL()(2))<br>
+      　　(2)日期≠星期三<br>
+      　　(3)时间为下午2点(SL(57，103，45)())。其中结点（1）（3）为IN状态，结点（2）为OUT状态。进而需为会议安排房间，如发现星期三下午没有空房可借会议使用，结果出现<br>
+      　　(4)矛盾(SL)(1,3)())<br>
+      这时不一致出现了，需回溯。查看结点（4）的SL表中（1）和（3）结点。进而再查（1）、（3）SL表中IN结点（57），（103），（45）等等。<br>
+      　　可试图找到一个假设集仅包含结点，使得只要除去这个集中的一个假设矛盾就可消除。像这个例子假设集仅包含结点（1）。<br>
+      　　TMS在每一时刻只能处理一组假设，而ATMS考虑了假设集合。<br>
+      </span></td>
+  </tr>
+</table>
+</body>
+</html>

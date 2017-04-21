@@ -1,0 +1,77 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td class="text"> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第七章 其它学习方法</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <br>
+      　　2.术语和操作<br>
+      　　(1)变量和类型<br>
+      　　令X<font size="1">l</font>,…,Xn表示描述对象的离散变量。每个变量有-个论域，论域都是有限集合。变量Xi的论域写为<br>
+      　　　　　DOM(Xi)＝{<font size="2">d</font><font size="1">0</font>,<font size="2">d</font><font size="1">1</font>,…,<font size="2">d</font><font size="1">j-1</font>}<br>
+      论域的大小和结构可以各不相同。变量分为三类：名称变量(分类变量)的论域为非排序的集合；线性变量(数值变量)的论域是全排序的集合；结构变量的论域是图形排序的集合。结构变量的值构成一般化体系。有两种一般化体系。不排序的一般化体系中，叶节点组成无序集合。排序的一般化体系中，叶节点组成有序集合。两种一般化体系的例子分别如图 
+      7.6和图 7.7所示。<br>
+      <br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="30" valign="top"><img src="../../../../images/text/tb/tushi.gif" width="25" height="16" alt="图示"></td>
+          <td align="center"><img src="../../../../images/text/chap07/sec4/tu7.6.gif" width="177" height="119"><br>
+            <span class="explaination"><br>
+            图7.6 一个无序的-般化体系</span></td>
+        </tr>
+      </table>
+      <p> 　　(2)事件和事件空间 <br>
+        　　一个事件是一个对象的描述，描述形式是变量X<font size="1">l</font>,…,Xn的值组成的n元组。事件空间是所有可能的事件的集合。<br>
+        　　(3)句法距离<br>
+        　　事件<font size="2">e</font><font size="1">1</font>和<font size="2">e</font><font size="1">2</font>的句法距离d(<font size="2">e</font><font size="1">1</font>，<font size="2">e</font><font size="1">2</font>)定义为在<font size="2">e</font><font size="1">1</font>和<font size="2">e</font><font size="1">2</font>中每个变量值之间句法距离之和。两个变量值间的句法距离是在0和1之间的一个数。对于名称变量，若值相同则句法距离取0， 
+        若不相同则取1。对于线性变量，句法距离是值之间绝对差与论域总幅度之比。对于结构变量，变量值是一般化体系的叶节点。所以句法距离取决于一般化体系的类型。不排序的一般化体系相当于名称变量，排序的一般化体系相当于线性变量。</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="30" valign="top"><img src="../../../../images/text/tb/tushi.gif" width="25" height="16" alt="图示"></td>
+          <td align="center"><img src="../../../../images/text/chap07/sec4/tu7.7.gif" width="246" height="173"><br>
+            <span class="explaination"><br>
+            图7.7 一个有序的一般化体系 </span></td>
+        </tr>
+      </table>
+      <br>
+      　　(4)关系命题<br>
+      　　关系命题又称为选择器，其型式为<br>
+      　　　　　[X<font size="1">I</font> # Ri]<br>
+      其中Ri是基准。它是Xi论域中元素的表，各元素由析取&quot;ú&quot;联结。对线性变量可以用范围符&quot;…&quot;。#表示关系符。它是&quot;＝&quot;或&quot;≠&quot;。对线性变量还可以用&quot;≥&quot;，&quot;&gt;&quot;，&quot;&lt;&quot;或&quot;≤&quot;。选择器的实例有 
+      <br>
+      　　　　　[1ength&gt;2]<br>
+      　　　　　[color＝blue∨red] <br>
+      　　　　　[size≠medium] <br>
+      　　　　　[weight＝2…5] <br>
+      　　(5)复合<br>
+      　　逻辑复合(l一complex)是选择器的逻辑积。它可以写作<br>
+      　　　　　<img src="../../../../images/text/chap07/sec4/gs1.gif" width="138" height="17"><br>
+      一个事件e满足一个l－complex，如果e中变量值满足所有的选择器，例如事件 <br>
+      　　　　　e＝(2,7,0,1,5,4,6)<br>
+      满足l-complex<br>
+      　　　　　[X<font size="1">1</font>＝2∨3][X<font size="1">3</font>&lt;3][X<font size="1">5</font>＝3…8]<br>
+      (在l-complex的表示中可以省略合取号)。因此，l-complex可以看作满足它的所有事件的集合。<br>
+      　　集合复合(s-complex)是事件的集合。s-complex和l-complex统称复合(complex)。<br>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

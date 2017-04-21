@@ -1,0 +1,141 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td class="text"> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../../images/pic/bg0401.gif" height="18" align="right" class="chap">
+              <tr> 
+                <td> 
+                  <div align="center">第二章 归结推理方法</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <br>
+      　　<span class="part">2.4.3 归结推理过程</span><br>
+      　　为证明├A→B，其中A，B是谓词公式。使用反演过程，先建立<br>
+      　　　　G＝A∧～B<br>
+      　　进而做出相应的子句集S，只需证明S是不可满足的。<br>
+      　　归结法是仅有一条推理规则的推理方法。对S中的可归结的子句做归结，求得归结式，并将这归结式（新子句）仍放入S中，反复这个归结过程直至产生空子句□为止。这时S必是不可满足的。从而├A→B得证。<br>
+      　　因为□的出现，必是S中或归结式加入S后同时出现子句P与～P所致。由于<img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absmiddle">∧<img src="../../../../images/text/chap02/sec01/c2.gif" width="13" height="14" align="absmiddle"><img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">R(<img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absmiddle">,<img src="../../../../images/text/chap02/sec01/c2.gif" width="13" height="14" align="absmiddle">)所以这个矛盾的原因必在S，或说S本身有矛盾，也就是S必是不可满足的。
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="text">
+        <tr> 
+          <td width="30"><img src="../../../../images/text/tb/liti.gif" width="26" height="25" alt="例题"></td>
+          <td><b>例1:</b></td>
+        </tr>
+        <tr> 
+          <td>&nbsp;</td>
+          <td>　证明 (<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)(A(x)→(B(x)∧C(x))∧(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)(A(x)∧D(x))<br>
+            　　　　　　　　→(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)(D(x)∧C(x))<br>
+            　使用归结法的证明步骤。<br>
+            　第一步：使用反演法，先写出公式G：<br>
+            　(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)(A(x)→(B(x)∧C(x)))∧(<img src="../../../../images/text/chap02/sec02/fh2.gif" width="8" height="9" align="absmiddle">x)(A(x)∧D(x))∧～(<img src="../../../../images/text/chap02/sec02/fh2.gif" width="8" height="9" align="absmiddle">x)(D(x)∧C(x)<br>
+            　第二步：将G的各合取项分别化成SKOLEM标准形，得子句集{S<font size="1">1</font>,S<font size="1">2</font>,S<font size="1">～B</font>}。<br>
+            　　(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)(A(x)→(B(x)∧C(x)))<br>
+            　　=(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)(～A(x)∨(B(x)∧C(x)))<br>
+            　　=(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)((～A(x)∨B(x))∧(～A(x)∨C(x)))<br>
+            　S<font size="1">1</font>={～A(x)∨B(x),～A(x)∨C(x)}<br>
+            　对(<img src="../../../../images/text/chap02/sec02/fh2.gif" width="8" height="9" align="absmiddle">x)(A(x) 
+            ∧ D(x))有<br>
+            　S<font size="1">2</font>={A(a),D(a)}<br>
+            　　　～(<img src="../../../../images/text/chap02/sec02/fh2.gif" width="8" height="9" align="absmiddle">x)(D(x) 
+            ∧C(x))<br>
+            　　=(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)(～D(x) 
+            ∧ C(x))<br>
+            　　=(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)(～D(x) 
+            ∨ ～C(x))<br>
+            　S<font size="1">～B</font>={～D(x)∨～C(x)}<br>
+            　从而得子句集<br>
+            　S={～A(x)∨B(x),～A(x)∨C(x),A(a),D(a),～D(x)∨～C(x)}<br>
+            　第四步 使用归结规则建立推理过程<br>
+            　（1）～A(x)∨ B(x)<br>
+            　（2）～A(x)∨C(x)<br>
+            　（3）A(a)<br>
+            　（4）D(a)<br>
+            　（5）～D(x)∨～C(x)<br>
+            　（6）C(a) 　　　　　　(2)(3)归结<br>
+            　（7）～C(a) 　　　　　(4)(5)归结<br>
+            　（8）□ 　　　　　　　(6)(7)归结<br>
+            　<span class="section">2.2.5节</span>的例子，已建立了相应的子句集了，可直接使用归结推理规则了。</td>
+        </tr>
+        <tr> 
+          <td width="30"><img src="../../../../images/text/tb/liti.gif" width="26" height="25" alt="例题"></td>
+          <td><b>例2:</b></td>
+        </tr>
+        <tr> 
+          <td width="31">&nbsp;</td>
+          <td>　证明梯形的对角线与上下底构成的内错角相等。<br>
+            　（1）～T (x,y,u,v) ∨P(x,y,u,v)<br>
+            　（2）～P(x,y,u,v) ∨ E(x,y,v,u,v,y)<br>
+            　（3）T(a,b,c,d)<br>
+            　（4）～E(a,b,d,c,d,b)<br>
+            　（5）～P(a,b,c,d) 　　　　(2)(4)归结<br>
+            　（6）P(a,b,c,d) 　　　　　(1)(3)归结<br>
+            　（7）□　　　　　　　　　 (5)(6)归结</td>
+        </tr>
+        <tr> 
+          <td><img src="../../../../images/text/tb/liti.gif" width="26" height="25" alt="例题"></td>
+          <td><b>例3:</b></td>
+        </tr>
+        <tr> 
+          <td>&nbsp;</td>
+          <td>　猴子香蕉问题<br>
+            　（1）～P(x,y,z,s) ∨ P(z,y,z,walk(x,z,s))<br>
+            　（2）～P(x,y,x,s) ∨ P(y,y,y,Carry(x,y,s))<br>
+            　（3）～P(b,b,b,s) ∨R(Climb (s))<br>
+            　（4）P(a,b,c,s)<br>
+            　（5）～R(s) ∨ ANS(s)<br>
+            　（6）～P(b,b,b,s) ∨ ANS(Climb(s))　(3)(5)归结<br>
+            　（7）～P(x,b,x,s) ∨ANS(Climb(Carry(x,b,s))) (2)(6)归结<br>
+            　（8）～P(x,b,z,s) ∨ANS(Climb(Carry(z,b,walk(x,z,s)))) (1)(7)归结<br>
+            　（9）□∨ANS(Climb(Carry(c,b,walk(a,c,s)))) (4)(8)归结<br>
+            　于是猴子吃香蕉的问题的答案是<br>
+            　　　Climb (Carry(c,b,walk(a,c,s)))</td>
+        </tr>
+        <tr>
+          <td><img src="../../../../images/text/tb/liti.gif" width="26" height="25" alt="例题"></td>
+          <td><b>例4:</b></td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td>　若A，B为两个集合，试证明<br>
+            　　　A∩B<img src="../../../../images/text/chap02/sec03/fh2.gif" width="11" height="10">A<br>
+            　先写出逻辑描述，建子句集，再使用归结推理过程。<br>
+            　A<font size="1">1</font>：(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">A)(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">B)(x∈A∧x∈B←→x∈A∩B)<br>
+            　S<font size="1">1</font>：{ x<img src="../../../../images/text/chap02/sec03/fh3.gif" width="10" height="12" align="absmiddle">A∨x<img src="../../../../images/text/chap02/sec03/fh3.gif" width="10" height="12" align="absmiddle">B∨x∈A∩B,x∈A∨x<img src="../../../../images/text/chap02/sec03/fh3.gif" width="10" height="12" align="absmiddle">A∩B,x∈B∨x<img src="../../../../images/text/chap02/sec03/fh3.gif" width="10" height="12" align="absmiddle">A∩B}<br>
+            　A<font size="1">2</font>：(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">A)(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">B)(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)(x∈A→x∈B)←→A<img src="../../../../images/text/chap02/sec03/fh2.gif" width="11" height="10">B)<br>
+            　S<font size="1">2</font>：{ x<img src="../../../../images/text/chap02/sec03/fh3.gif" width="10" height="12" align="absmiddle">A∨x∈B∨A<img src="../../../../images/text/chap02/sec03/fh4.gif" width="11" height="10" align="absmiddle">B,f(A,B)∈A∨A<img src="../../../../images/text/chap02/sec03/fh2.gif" width="11" height="10">B,f(A,B)<img src="../../../../images/text/chap02/sec03/fh3.gif" width="10" height="12" align="absmiddle">B∨A<img src="../../../../images/text/chap02/sec03/fh2.gif" width="11" height="10">B}<br>
+            　～B：～( A)( B)(A∩B<img src="../../../../images/text/chap02/sec03/fh2.gif" width="11" height="10">A)<br>
+            　S<font size="1">～B</font>：C∩D<img src="../../../../images/text/chap02/sec03/fh4.gif" width="11" height="10" align="absmiddle">C<br>
+            　证明<br>
+            　（1）x<img src="../../../../images/text/chap02/sec03/fh3.gif" width="10" height="12" align="absmiddle">A∨x<img src="../../../../images/text/chap02/sec03/fh3.gif" width="10" height="12" align="absmiddle">B∨x∈A∩B<br>
+            　（2）x∈A∨x<img src="../../../../images/text/chap02/sec03/fh3.gif" width="10" height="12" align="absmiddle">A∩B<br>
+            　（3）x∈B∨x<img src="../../../../images/text/chap02/sec03/fh3.gif" width="10" height="12" align="absmiddle">A∩B<br>
+            　（4）x<img src="../../../../images/text/chap02/sec03/fh3.gif" width="10" height="12" align="absmiddle">A∨x∈B∨A<img src="../../../../images/text/chap02/sec03/fh4.gif" width="11" height="10" align="absmiddle">B<br>
+            　（5）f(A，B)∈A∨A<img src="../../../../images/text/chap02/sec03/fh2.gif" width="11" height="10">B<br>
+            　（6）f(A,B)<img src="../../../../images/text/chap02/sec03/fh3.gif" width="10" height="12" align="absmiddle">B∨A<img src="../../../../images/text/chap02/sec03/fh2.gif" width="11" height="10">B<br>
+            　（7）C∩D<img src="../../../../images/text/chap02/sec03/fh4.gif" width="11" height="10" align="absmiddle">C<br>
+            　（8）f(C∩D,C)∈C∩D (5)(7)归结<br>
+            　（9）f(C∩D,C)<img src="../../../../images/text/chap02/sec03/fh3.gif" width="10" height="12" align="absmiddle">C 
+            (6)(7)归结<br>
+            　（10）f (C∩D,C)∈C　(2)(8)归结<br>
+            　（11）□　　　　　　 (9)(10)归结</td>
+        </tr>
+      </table>
+      <br>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

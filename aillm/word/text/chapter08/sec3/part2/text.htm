@@ -1,0 +1,93 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td><span class="text"> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="50%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第八章 自然语言理解的任务和发展简史</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <br>
+      　　</span><span class="part">8.3.2 SHRDLU</span><span class="text"><br>
+      　　SHRDLU系统是1972年T.Winograd设计的，这是他在美国麻省理工学院的博士学位研究工作。SHRDLU是一个在&quot;积木世界&quot;中进行英语对话的自然语言理解系统。系统模拟一个能操纵桌子上一些玩具积木的机器人手臂'，用户通过人-机对话方式命令机器人摆弄那些积木块，系统则通过屏幕来给出回答并显示现场的相应情景(如图8.2所示)。下面是一段人-机对话的样本： 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td width="30" valign="top"><img src="../../../../images/text/tb/tushi.gif" width="25" height="16" alt="图示"></td>
+          <td align="center" class="explaination"><img src="../../../../images/text/chap08/sec3/tu82.gif" width="370" height="251"><br>
+            图8.2 积木世界</td>
+        </tr>
+      </table>
+      </span><span class="explaination">　　1. Pick up a big red block.捡起一块大的红色长方块。<br>
+      　　　0K 是。<br>
+      　　2. Grasp the Pyramid. 抓住那块棱锥。<br>
+      　　　I DON'T UNDERSTAND WHICH PYRAMID YOU MEAN 我不懂您指的是哪块棱锥。<br>
+      　　3. Find a blook which is taller than the one you are holding and Put it 
+      into the box. 找一块比您手里的那一块更高的长方块，并把它放入盒子里。<br>
+      　　　BY&quot;IT&quot;，I ASSUME YOU MEAN THE BLOCK WHICH IS TALLER THAN THE 
+      ONE I AM HOLDING. 关于&quot;它&quot;我想您指的是比我手里的这一块更高的长方块。<br>
+      　　　0K是。<br>
+      　　4 What does the box contain? 盒子里装的是什么?<br>
+      　　　THE BLUE PYRAMID AND THE BLUE BLOCK. 蓝色棱锥和蓝色长方块。<br>
+      　　5 What is the pyramid supported by? 这块棱锥被什么支撑着?<br>
+      　　　THE BOX 盒子。 <br>
+      　　6 How many blocks are not in the box? 有几个长方块不在盒子里?<br>
+      　　　FOUR OF THEM 四个。<br>
+      　　7 Is at least one of them narrower than the one which I told you to pick 
+      up? 它们中是否至少有一个比我要您捡起来的那个更窄?<br>
+      　　　YES,THE RED CUBE是的，红色正方块。<br>
+      　　8 Is it supported? 它是否被支撑着?<br>
+      　　　YES，BY THE TABLE 是的，被桌子支撑着。<br>
+      　　9 Can　the　table pick up block? 桌子能捡起长方块吗?<br>
+      　　　N0 不能。 <br>
+      　　10 Can a pyramid be supported by a b1ock? 棱锥可否被长方块支撑?<br>
+      　　　YES 可以。<br>
+      　　11 Can a pyramid support a pyramid? 棱锥可否支撑棱锥?<br>
+      　　　I DON'T KNOW 我不知道。 <br>
+      　　12 Stack up two pyramids. 把两块棱锥摞起来。<br>
+      　　I CAN'T 我办不到。</span><span class="text"><br>
+      　　SHRDLU系统的结构及组成如图8.3所示。T.Winograd认为，当一个人看到或听到一个句子时，他将使用他的全部知识和智能去理解它。这里不仅包括语法，也包括单词的知识、句子的上下文，以及他对于主题事物的理解。因此，为了在计算机上模拟这样一个语言理解过程，需要在系统中把语法、语义和推理有机地组织在一起，尤其应当注意它们之间的相互作用。图中的箭头表示一个部件可直接调用另一部件。以下分别介绍一下SHRDLU系统的主要部件：</span> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="30" valign="top"><img src="../../../../images/text/tb/tushi.gif" width="25" height="16" alt="图示"></td>
+          <td align="center" class="explaination"><img src="../../../../images/text/chap08/sec3/tu83.gif" width="370" height="138"><br>
+            图8.3 SHRDLU系统的结构及组成</td>
+        </tr>
+      </table>
+      <span class="text">　　(1)监控器：是一小段LISP程序，它可访问系统的基本部件。由于系统中大多数部件之间的通讯可以直接进行，监控器需要管理的仅仅是理解过程的起始部分和结束部分。<br>
+      　　(2)输入程序：是一段LISP程序，它接受键盘输入的英语字母和标点符号，在词典中查找单词，完成词形分析(如识别到&quot;runing&quot;是单词&quot;run&quot;的&quot;-ing&quot;形式，并把有关信息添加到单词&quot;run&quot;的信息表上去)，最后回送输入句子的单词串以及它们的信息表，后者也正是句法模块的输入数据。<br>
+      　　(3)句法模块：是语言理解过程的主要部件。它包含几个用PROGRAMMAR语言编写的大程序，用来处理英语句子的基本成分，如子句、名词短语、介词短语等。PROGRAMMAR是一种专门用来描述句法规则的语言，它本身是用LISP语言编写的。PROGRAMMAR有两个编译程序，一个用来把PROGRAMMAR语言编译成LISP语言，以便能同系统的其他部件一起调试，另一个直接产生汇编码以提高执行效率。这种采用专门的规则描述语言来编写语法的做法有很多优点，最主要的是它把句法规则同程序分离开来，极大地方便了规则的书写、修改和扩充，因此为当代的许多实用化的自然语言理解系统所仿效。<br>
+      　　(4)语义模块：是一整套LISP程序，它同句法模块一起协同工作以解释输入句子。一般来说对于句子的每一种基本成分都有相应的几种语义分析程序，每一种完成一项给定的分析。这些语义分析程序还可以直接调用部件PLANNER，以便利用推理来对输入句子作出合理的解释。<br>
+      　　(5)回答程序：是另一套LISP程序，它负责系统响应式的生成，并且为以后推理的需要而保留对话的记录。它既要根据用户输入的句子确定回答的内容，又要用流利的英语来表达指定的内容，所以它实际上是一个语言生成程序。<br>
+      　　(6)PROGRAMMAR：是一种基于LISP的规则描述语言。它本身是一个句法分析系统，用来解释以程序形式写成的语法。它的机制包括为输入句子建立一棵句法结构树，以及一组专用函数，以便访问句法树上各个结点的附带信息。 
+      <br>
+      　　(7)词典：每个词条带有两部分信息：第一部分是词条的句法特征集，第二部分是词条的语义定义。词条的信息实际上保存在LISP语言的原子特性表中，所以词典的查找由LISP解释程序来执行。<br>
+      　　(8)语义特征网络：保存在LISP语言的原子特性表里，并被用于语义分析的初始阶段。语义特征反映了事物和动作的分类体系，语义解释程序利用这些语义特征来选择多义词的意义。例如，&quot;in&quot;应用到box一类中空的物体时，具有&quot;contained 
+      in&quot;(内)的意思；但应用到象stack一类堆积物时，便有&quot;part of&quot;(部分)的含义，比如&quot;the 
+      red block in the tall stack&quot;。<br>
+      　　(9)积木定理：是用PLANNER语言编写的定理集，它包含了与这个小小的积木世界有关的专门知识，它给系统提供了一个对话的特定背景。<br>
+      　　(10)显示程序：它被附加到PDP-10计算机的DEC-340图形显示器上，以模拟机器人操纵的积木世界。它显示的幕景画面由当前存储器里的数据模块所规定，并且实时显示任何的动作，因此用户可以通过屏幕获得命令执行结果的视觉反馈。与此同时，还可以在屏幕上观察到用户输入的句子和机器作出的相应回答。<br>
+      　　(11)PLANNER：SHRDLU的世界模型以及有关它的推理是用MICRO-PLANNER程序语言实现的，因此这个模块是各个分析阶段都可能会调用的演绎系统，包括对分析过程的指导和对积木世界的事实演绎。MICRO-PLANNER语言也是用LISP语言编写的，它是PLANNER语言的一个缩写本。<br>
+      　　(12)数据：存储着当前幕景的事实，包括各种物体的尺寸、形状、颜色和位置。所有信息都是事先存入机器的，不需要通过英语输入。 <br>
+      　　系统对每个输入句子进行分析和应答所需的时间为5到20秒。系统的词典中只有大约200个词条。 <br>
+      　　SHRDLU在语言理解过程中试图把语言学方法和推理方法结合起来，从而使它取得了引人注目的结果。然而系统仍无力解决英语中众多复杂的问题，如一致关系、词&quot;the&quot;和&quot;and&quot;的处理等。<br>
+      　　Y.Wilks曾经评论SHRDLU，说它的能力并非来自语言学的分析，而是由于在一个简单的限定领域(积木世界)内使用了人工智能的问题求解方法。在这样一种受限的领域中许多比较困难的语言问题都被回避了。因此，如果把SHRDLU扩展到一个较大的领域中去，它是否还能保持原先那样的性能是值得怀疑的。<br>
+      </span></td>
+  </tr>
+</table>
+</body>
+</html>

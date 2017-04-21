@@ -1,0 +1,88 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第三章 不确定和非单调推理方法</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <br>
+      <span class="chap">　　3.3 非单调推理方法</span><span class="text"><span class="text"><br>
+      <br>
+      　　<span class="part">3.3.1 封闭世界假设（CWA）方法</span><br>
+      　　</span>设已有信任集△，CWA是△下实现完备化最直接的方法。需要考虑一个假设集△asm以使△∪△asm完备。<br>
+      　　设T[△]是由△形成的理论集，φ∈T[△]当且仅当Δ├φ。<br>
+      　　而CWA[△]是由△∪△asm形成的理论集，φ∈CWA[△]当且仅当△∪△asm├φ。<br>
+      　　CWA方法是这样来定义△asm的，如果～P∈△asm当且仅当P<img src="../../../../images/text/chap02/sec03/fh3.gif" width="10" height="12" align="absmiddle">T[△]。即在△下，P是不可证明的就假设～P是可证明的。将这样的～P放入△asm　来扩充T[△]。 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="text">
+        <tr> 
+          <td width="30" class="text"><img src="../../../../images/text/tb/liti.gif" width="26" height="25" alt="例题"></td>
+          <td><b>例1:</b></td>
+        </tr>
+        <tr> 
+          <td>&nbsp;</td>
+          <td>　△＝P{(A)∨P(B)}<br>
+            　那么P(A)，P(B)都不在T[△]中，于是～P(A),～P(B)都在△asm中。然而这个△∪△asm是不一致的。讨论不一致是非单调推理中的重要问题。</td>
+        </tr>
+        <tr> 
+          <td><img src="../../../../images/text/tb/dingyi.gif" width="26" height="17" alt="定理"></td>
+          <td><b>定理 1</b></td>
+        </tr>
+        <tr> 
+          <td>&nbsp;</td>
+          <td class="explaination">　CWA[△]是一致的，当且仅当对每一个由Δ推出的正基子句L<font size="1">1</font>∨…∨Ln其中至少有一个Li可由△推出（把L<font size="1">1</font>V…VLn归类）。</td>
+        </tr>
+        <tr> 
+          <td><img src="../../../../images/text/tb/dingyi.gif" width="26" height="17" alt="定理"></td>
+          <td><b>定理 2</b></td>
+        </tr>
+        <tr> 
+          <td>&nbsp;</td>
+          <td class="explaination">　若△的子句形是Horn集而且是一致的必有CWA[△]是一致的。</td>
+        </tr>
+      </table>
+      <br>
+      　　这样一致的Horn子句集，可得一致的增广CWA[△]，但为使CWA[△]是一致的并不必须△是Horn子句集。定理1是容易理解的，如<br>
+      　　　　　△＝{P∨Q∨R，～R}<br>
+      　　　　　T[△]＝△∪(P∨Q)<br>
+      CWA[△]的不一致来自对～P,～Q的同时引入，当△能推导出P时，自然就不能引入～P了，从而不会出现不一致。<br>
+      　　为简单计，不总去设想所有不能由△证明的公式，而是仅对感兴趣的某一特殊谓词如P来实现CWA。 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="text">
+        <tr> 
+          <td width="30" class="text"><img src="../../../../images/text/tb/liti.gif" width="26" height="25" alt="例题"></td>
+          <td class="text"><b>例2:</b></td>
+        </tr>
+        <tr> 
+          <td>&nbsp;</td>
+          <td class="text">　△是<br>
+            　　(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)(Q(x)→P(x))<br>
+            　　Q(a)<br>
+            　　P(b)∨R(b)<br>
+            仅对Δ中的文字P做CWA。如P(b)不能由Δ推出，便可假设～P(b)成立了,即～P(b)∈△asm。这样在△∪△asm下便可推出R(b)成立了。 
+          </td>
+        </tr>
+      </table>
+      <br>
+      　　当将CWA同一个谓词集联系起来时，将会产生不一致，尽管其中对每一谓词的CWA扩充是一致的。如　△＝{P∨Q}，对谓词集{P，Q}作CWA扩充得～P或～Q这与△不一致。尽管～P或～Q同△都是一致的。又如　△＝{P(a)∨ 
+      Q，P(b)∨～Q}对文字P来说△是Horn子句集，而CWA对谓词P可产生～P(a),～P(b),它们与△一起也是不一致的。</span><br>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

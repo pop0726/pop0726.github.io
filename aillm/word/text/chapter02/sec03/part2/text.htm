@@ -1,0 +1,226 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../../images/pic/bg0401.gif" height="18" align="right" class="chap">
+              <tr> 
+                <td> 
+                  <div align="center">第二章 归结推理方法</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <br>
+      <span class="part">　　2.3.2 H解释</span><span class="text"><br>
+      　　由子句集S建立H域、原子集A，希望定义于一般论域D上使S为真的任一解释I，可由依于S的H域上的某个解释I<sup>*</sup>来实现 。这样，便使任一论域D上S为真的问题，化成了仅有可数个元素的H域上S为真的问题了。从而子句集S在D上的不可满足问题化成了H上的不可满足问题，这是很有意义的结果。<br>
+      　　以　S={P(x)∨Q(x),R(f(y))} 为例，有<br>
+      　　　　H={a,f(a),f(f(a)), …}<br>
+      　　　　A={P(a),Q(a),R(a),P(f(a)),Q(f(a)),R(f(a)),…}<br>
+      　　凡对A中的各元素真假值的一个具体设定，都是S的一个H解释。如<br>
+      　　I<font size="1">1</font><sup>*</sup>={P(a),Q(a),R(a),P(f(a)),Q(f(a)),R(f(a)), 
+      …}<br>
+      　　I<font size="1">2</font><sup>*</sup>={～P(a),～Q(a),～R(a),～P(f(a)),Q(f(a)),R(f(a)), 
+      …}<br>
+      　　I<font size="1">3</font><sup>*</sup>={P(a),～Q(a),～R(a),P(f(a)),Q(f(a)),～R(f(a)), 
+      …}<br>
+      　　I<font size="1">1</font><sup>*</sup>,I<font size="1">2</font><sup>*</sup>,I<font size="1">3</font><sup>*</sup>中出现的P(a)指P(a)取值为T，出现的～P(a)指～P(a)=T或说P(a)取值为F。显然在H域上，这样定义的I<sup>*</sup>下，S的真假值就确定了。如<br>
+      　　　　S|<sub><font size="1">I1</font><sup>*</sup></sub>=T， S|<sub><font size="1">I2</font><sup>*</sup></sub>=F， 
+      S|<sub><font size="1">I3</font><sup>*</sup></sub>=F<br>
+      　　这是因为<br>
+      　　　　S={P(x)∨Q(x),R(f(y))}<br>
+      　　的逻辑含义是<br>
+      　　　　(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">y)((P(x)∨Q(x)) 
+      ∧R(f(y)))<br>
+      　　而论域 H={a,f(a),P(f(a)), …}。<br>
+      　　我们关心的是，对论域D上的任一解释I，若有S|I=T，如何求得一个相应的H解释I<sup>*</sup>，使得S|<font size="1">I</font><sup>*</sup>=T成立。<br>
+      　　可通过两个例子来说明由I寻求I<sup>*</sup>的过程。</span>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="text">
+        <tr> 
+          <td width="30"><img src="../../../../images/text/tb/liti.gif" width="26" height="25" alt="例题"></td>
+          <td><b>例1:</b></td>
+        </tr>
+        <tr> 
+          <td>&nbsp;</td>
+          <td> 　S={P(x),Q(y,f(y,a))}<br>
+            　有 H={a,f(a,a),f(a,f(a,a)),f(f(a,a),a),f(f(a,a),f(a,a)),…}<br>
+            　　 A={P(a),Q(a,a),P(f(a,a,)),Q(a,f(a,a)),Q(f(a,a),a),Q(f(a,a),f(a,a)),…}<br>
+            　设 D={1,2}，解释I作如下设定 
+            <table width="80%" border="0" cellspacing="0" cellpadding="0" class="text" align="center">
+              <tr align="center"> 
+                <td>a</td>
+                <td>f(1,1)</td>
+                <td>f(1,2)</td>
+                <td>f(2,1)</td>
+                <td>f(2,2)</td>
+                <td>&nbsp;</td>
+              </tr>
+              <tr align="center"> 
+                <td>2</td>
+                <td>1</td>
+                <td>2</td>
+                <td>2</td>
+                <td>2</td>
+                <td>1</td>
+              </tr>
+              <tr align="center"> 
+                <td>P(1)</td>
+                <td>P(2)</td>
+                <td>Q(1,1)</td>
+                <td>Q(1,2)</td>
+                <td>Q(2,1)</td>
+                <td>Q(2,2)</td>
+              </tr>
+              <tr align="center"> 
+                <td>T</td>
+                <td>T</td>
+                <td>F</td>
+                <td>T</td>
+                <td>T</td>
+                <td>F</td>
+              </tr>
+            </table>
+            　于是有<br>
+            　　S|<font size="1">I</font>= P(1) ∧ Q(1,f(1,2)) 　 对应 x=1,y=1<br>
+            　　　　∧P(1) ∧ Q(2,f(2,2)) 　对应 x=1,y=2<br>
+            　　　　∧P(2) ∧ Q(1,f(1,2)) 　对应 x=2,y=1<br>
+            　　　　∧P(2) ∧ Q(2,f(2,2)) 　对应 x=2,y=2<br>
+            　　　=T<br>
+            　可按下列对应方法来选取相应的I<sup>*</sup>，依I取<br>
+            　　a→2 <br>
+            　　f(a ,a)→f(2,2)→1<br>
+            　　f(a ,f(a ,a))→f(2,1)→2<br>
+            　　f(f(a ,a,),a)→f(1,2)→2<br>
+            　　f(f(a ,a),f(a ,a))→f(1,1)→1<br>
+            　　…<br>
+            　　P(a)→P(2)→T<br>
+            　　Q(a ,a)→Q(2,2)→F<br>
+            　　P(f(a ,a))→P(1)→T<br>
+            　　Q(a ,f(a ,a))→Q(2,1)→T<br>
+            　　Q(f(a ,a),a)→Q(1,2)→T<br>
+            　　Q(f(a,a),f(a,a))→Q(1,1)→F<br>
+            　　…<br>
+            　于是得对应于I的<br>
+            　　I<sup>*</sup>={P(a),～Q(a,a),P(f(a,a)),Q(a,f(a,a)),Q(f(a,a),a),～Q(f(a,a),f(a,a)), 
+            …}<br>
+            　在I<sup>*</sup>下S的真值<br>
+            　　S|<font size="1">I*</font> =P(a)∧ Q(a,f(a,a))<br>
+            　　　　　　　(x=a,y=a 对应于x=2,y=2)<br>
+            　　　　　∧P(a) ∧ Q(f(a,a),f(f(a,a),a))<br>
+            　　　　　　　(x=a,y=f(a,a)对应于x=2,y=1)<br>
+            　　　　　∧P(f(a,a)) ∧ Q(a,f(a,a))<br>
+            　　　　　　　(x=f(a,a)),y=a对应于x=1,y=2)<br>
+            　　　　　∧P(f(a,a)) ∧Q(f(a,a),f(f(a,a),a))<br>
+            　　　　　　　(x=f(a,a),y=f(a,a)对应于x=1,y=1)<br>
+            　　　　　∧P(a) ∧ Q(f(a,f(a,a)),f(f(a,f(a,a)),a))<br>
+            　　　　　　　(x=a,y=f(a,f(a,a))对应于x=2,y=2)<br>
+            　　　　　…<br>
+            　　　　=T</td>
+        </tr>
+        <tr>
+          <td><img src="../../../../images/text/tb/liti.gif" width="26" height="25" alt="例题"></td>
+          <td><b>例2:</b></td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td> 　S={(P(x)∨ Q(x),R(f(y))}S中不出现常量符号。<br>
+            　H={a,f(a),P(f(a)), …}<br>
+            　A={P(a),Q(a),R(a),P(f(a)),Q(f(a)),R(f(a)), …}<br>
+            　仍设D={1,2}，解释I作如下设定
+            <table width="80%" border="0" cellspacing="0" cellpadding="0" align="center" class="text">
+              <tr> 
+                <td>f(1)</td>
+                <td>f(2)</td>
+                <td>P(1)</td>
+                <td>P(2)</td>
+                <td>Q(1)</td>
+                <td>Q(2)</td>
+                <td>R(1)</td>
+                <td>R(2)</td>
+              </tr>
+              <tr> 
+                <td>2</td>
+                <td>2</td>
+                <td>T</td>
+                <td>F</td>
+                <td>F</td>
+                <td>T</td>
+                <td>F</td>
+                <td>T</td>
+              </tr>
+            </table>
+            <br>
+            　于是有S|<font size="1">I</font>=T<br>
+            　由于I对常量符号a没有设定，这时a 设定1或2(D中元素)，便有相应于I的两H解释I<font size="1">1</font><sup>*</sup>和I<font size="1">2</font><sup>*</sup>，同例1的计算得<br>
+            　　I<font size="1">1</font><sup>*</sup>={P(a),～Q(a),～R(a),～P(f(a)),Q(f(a)),R(f(a)),～P(f(f(a))),Q(f(f(a))),R(f(f(a))), 
+            …}<br>
+            　　I<font size="1">2</font><sup>*</sup>={～P(a),Q(a),R(a),～P(f(a)),Q(f(a)),R(f(a)),～P(f(f(a))),Q(f(f(a))),R(f(f(a))), 
+            …}<br>
+            　有S|<sub>I<font size="1">1</font><sup>*</sup></sub>=T， S|<sub>I<font size="1">2</font><sup>*</sup></sub>=T。<br>
+            　这样便实现了由I来确定相应的I<sup>*</sup>的问题，实际上仅依I对S中出现的个体及函数符号的设定，随之对A的元素的设定，这样便将I<sup>*</sup>建立起来了。<br>
+            　严格地说由I到I<sup>*</sup>，实为H域到D域的映射，对H中每个常量、每个函数依I来规定D中的一个确定的元素。可如下递归定义：<br>
+            　若S中有常量符号，任一a∈H<sub><font size="1">0</font></sub>，在I下a取值为a<sup><font size="1">0</font></sup>,就规定a→a<sup><font size="1">0</font></sup>。<br>
+            　若S中无常量符号，H<sub><font size="1">0</font></sub>={a},就规定a→a<sup><font size="1">0</font></sup>,而a<sup><font size="1">0</font></sup>是D中任一元素。<br>
+            　若f(<img src="../../../../images/text/chap02/sec02/x1.gif" width="12" height="8">, 
+            …,<img src="../../../../images/text/chap02/sec02/xn.gif" width="12" height="7">)是 
+            S中任一函数符号，任取(h<font size="1">1</font>,…,h<font size="1">n</font>)∈<img src="../../../../images/text/chap02/sec02/hin.gif" width="13" height="12" align="absmiddle">(<img src="../../../../images/text/chap02/sec02/hin.gif" width="13" height="12" align="absmiddle">=H<font size="1">i</font>×…×H<font size="1">i</font> 
+            共n个)。当在I下(h<font size="1">1</font>,…,h<font size="1">n</font>)取值为(<img src="../../../../images/text/chap02/sec02/h01.gif" width="11" height="13" align="absmiddle">,…,<img src="../../../../images/text/chap02/sec02/h0n.gif" width="13" height="12" align="absmiddle">)，且在I下对应值为f(<img src="../../../../images/text/chap02/sec02/h01.gif" width="11" height="13" align="absmiddle">,…,<img src="../../../../images/text/chap02/sec02/h0n.gif" width="13" height="12" align="absmiddle">)(为D的元素)，就规定<br>
+            　　　f(h<font size="1">1</font>,…,h<font size="1">n</font>)→f(<img src="../../../../images/text/chap02/sec02/h01.gif" width="11" height="13" align="absmiddle">,…,<img src="../../../../images/text/chap02/sec02/h0n.gif" width="13" height="12" align="absmiddle">)<br>
+            　这样已依I确定了H中元素到D的映射值，而S中的谓词完全对应于I中的设定，便得I<sup>*</sup>，于是可得
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" class="text">
+              <tr>
+                <td width="30"><img src="../../../../images/text/tb/dingyi.gif" width="26" height="17" alt="定理"></td>
+                <td><b>定理 2.3.2(1)</b></td>
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+                <td>　<span class="explaination">设I是S的论域D上的解释，存在对应于I的H解释I<sup>*</sup>，使得若有S|<font size="1">I</font>=T，必有S|<font size="1">I*</font>=T。</span></td>
+              </tr>
+              <tr>
+                <td><img src="../../../../images/text/tb/dingyi.gif" width="26" height="17" alt="定理"></td>
+                <td><b>定理 2.3.2(2)</b></td>
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+                <td>　<span class="explaination">子句集S是不可满足的，当且仅当在所有的S的H解释下为假。</span></td>
+              </tr>
+              <tr>
+                <td><img src="../../../../images/text/tb/zhm.gif" width="25" height="17" alt="证明"></td>
+                <td><b>证明</b></td>
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+                <td>　S 在一般论域D上是不可满足的，必然在H域上是不可满足的。<br>
+                  　反过来，依定理2.3.2(1)，若S在任一H解释I<sup>*</sup>下均为假，而S在某个解释I下为真，这是不可能的。因S在某个I<sub><font size="1">0</font></sub>下为真必有I<sub><font size="1">0</font></sub><sup>*</sup>存在，使得S在I<sub><font size="1">0</font></sub><sup>*</sup>下也为真。<br>
+                  　这个定理将S在一般论域D上的不可满足问题化成了可数集H上的不可满足问题。今后的讨论只需在S的H域上进行了，不必再涉及一般论域D。所谈的解释不作说明都认为是H解释了</td>
+              </tr>
+              <tr>
+                <td><img src="../../../../images/text/tb/dingyi.gif" width="26" height="17" alt="定理"></td>
+                <td><b>定理 2.3.2(3)</b></td>
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+                <td>　<span class="explaination">子句集S是不可满足的当且仅当对每个解释I下，至少有S的某个子句的某个基例为假。</span><br>
+                  　因为S的逻辑含义是所包含的子句的合取，而且变量受全称量词作用。那么在某个解释I(均指H解释)下为假，只需某个子句的某个基例为假，而S是不可满足要求在任一解释下均为假，从而<b>定理2.3.2(3)</b>成立。这个结果常被引用。</td>
+              </tr>
+            </table>
+            
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

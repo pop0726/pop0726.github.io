@@ -1,0 +1,104 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td class="text"><span class="text"> </span>
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../../images/pic/bg0401.gif" height="18" align="right" class="chap">
+              <tr> 
+                <td> 
+                  <div align="center">第二章 归结推理方法</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <span class="text"><br>
+      　　<span class="part">2.5.3 线性归结</span><br>
+      　　线性归结是这样一种归结，首先从子句集S中选取一个称作顶子句的子句<font size="2">C</font><font size="1">0</font>开始做归结，其次是归结过程中所得到的归结式<font size="2">C</font><font size="1">i</font>立即同另一子句B<font size="1">i</font>进行归结得归结式<font size="2">C</font><font size="1">i+1</font>。而B<font size="1">i</font>属于S或是已出现的归结式<font size="2">C</font><font size="1">j</font>(j&lt;i)<br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="text">
+        <span class="text"> <span class="text"> 
+        <tr> 
+          <td width="30"><span class="text"><img src="../../../../images/text/tb/liti.gif" width="26" height="25" alt="例题"></span></td>
+          <td><b>例:</b></td>
+        </tr>
+        <tr> 
+          <td>&nbsp;</td>
+          <td>　S＝{P∨Q ,～P∨Q,P∨～Q,～P∨～Q}<br>
+            　选取顶子句<font size="2">C</font><font size="1">0</font>＝P∨Q。<br>
+            　线性归结过程<br>
+            　(1) P∨Q<br>
+            　(2) ～P∨Q<br>
+            　(3) P∨～Q<br>
+            　(4) ～P∨～Q<br>
+            　(5) Q (1)(2)<br>
+            　(6) P (5)(3)<br>
+            　(7) ～Q (6)(4)<br>
+            　(8) □ (7)(5)<br>
+            　顶子句的选择直接影响着归结的效率。如可选得<font size="2">C</font><font size="1">0</font>使S－{<font size="2">C</font><font size="1">0</font>}是可满足的。</td>
+        </tr>
+        </span> </span> 
+      </table>
+      <br>
+      　　</span><span class="part">2.5.4 单元归结和输入归结</span><span class="text"><br>
+      　　在归结过程中，每次归结都有一个子句是单元（只含一个文字的）子句或单元因子时的归结称作单元归结。<br>
+      　　一般地说，两子句归结式所含文字的个数，常常较这两个子句的每个所含文字个数都来得多。然而归结过程空子句的产生，必须来自两个只有单文字的子句如P和～P,于是归结式含文字的个数影响着归结的效率，单元归结具有明显的高效率，因为单元归结下的归结式所含文字个数，必是较长的那个被归结子句所含文字的个数减1。但是不难想像，单元归结不是完备的，如S是不可满足的，但不含单元子句时就不能使用单元归结。<br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="text">
+        <span class="text"> 
+        <tr> 
+          <td width="30"><span class="text"><img src="../../../../images/text/tb/liti.gif" width="26" height="25" alt="例题"></span></td>
+          <td><b>例1:</b></td>
+        </tr>
+        <tr> 
+          <td>&nbsp;</td>
+          <td>　S＝{P∨Q ,～P∨R,～Q∨ R,～R}<br>
+            　单元归结过程<br>
+            　(1) P∨Q<br>
+            　(2) ～P∨R<br>
+            　(3) ～Q∨R<br>
+            　(4) ～R<br>
+            　(5) ～P 　　(4)(2)<br>
+            　(6) ～Q 　　(4)(3)<br>
+            　(7) Q 　　　(5)(1)<br>
+            　(8) P 　　　(6)(1)<br>
+            　(9) R 　　　(7)(3)<br>
+            　(10) □ 　　(7)(6)</td>
+        </tr>
+        </span> 
+      </table>
+      　　在归结过程中，对两子句所做的每一次归结，其中必须有一个是S的子句时，便称作输入归结。这种归结也是效率较高的。<br>
+      　　单元归结与输入归结是一致的。即有从S到□的输入归结的充分必要条件是有从S到□的单元归结。它们都是不完备的归结方法。</span>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="text">
+        <tr>
+          <td width="30"><span class="text"><img src="../../../../images/text/tb/liti.gif" width="26" height="25" alt="例题"></span></td>
+          <td><b>例2:</b></td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td> 　S＝{P∨Q ,～P∨R,～Q∨ R,～R}<br>
+            　输入归结过程<br>
+            <span class="text">　(1) P∨Q<br>
+            　(2) ～P∨R<br>
+            　(3) ～Q∨R<br>
+            　(4) ～R<br>
+            　(5) Q∨R　　(1)(2)<br>
+            　(6) R 　　　(3)(5)<br>
+            　(7) □　　　(4)(6)</span> </td>
+        </tr>
+      </table>
+      <br>
+      　　例1及例2的子句集是相同的，分别采用了单元归结和输入归结的推理过程。<br>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

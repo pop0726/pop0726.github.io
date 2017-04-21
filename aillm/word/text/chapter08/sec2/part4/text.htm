@@ -1,0 +1,56 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td><span class="text"> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="50%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第八章 自然语言理解的任务和发展简史</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <br>
+      　　为了简化输出的生成过程，某些词被立即翻译成适合于响应式的新形式。例如，上述脚本中包含了从&quot;I&quot;到&quot;you&quot;和从&quot;me&quot;到&quot;you&quot;的直接翻译。因此，如果患者说：&quot;<b>I</b> 
+      cried(我哭了)，ELIZA要求回答：&quot;Why did <b>you</b> cry?&quot;(您为什么哭呢?)。这些直接转换被立即执行，然后再进行其他模式的匹配。<br>
+      　　ELIZA的脚本是围绕一些主要关键词来组织的。在上面的那个例子中，第一个关键词便是&quot;remember&quot;，它有两种输入模式：<br>
+      </span><span class="explaination">　　(0 YOU REMEMBER 0)<br>
+      　　(0 DO I REMEBER 0)</span><span class="text"><br>
+      其中&quot;0&quot;可以同句中零个到任意多个词相匹配。每个这样的输入模式带有几个输出模式(即响应式)。在这些输出模式中，数字(如4)表示把输入模式中对应的片断（如第4段)插入到这个响应式的指定位置上。举例来说，如果某人告诉ELIZA：<br>
+      </span><span class="explaination">　　&quot;I remember <b>the first time I 
+      went to the beach.</b>&quot;(我想起了我第一次去海滨的情况)</span><span class="text"><br>
+      ELIZA可以用它的第一个输入模式的第四个输出来产生如下的响应：<br>
+      　　</span><span class="explaination">&quot;WHY DO YOU REMEMBER <b>THE FIRST 
+      TIME YOU WENT TO THE BEACH</b> JUST NOW?&quot;(为什么你现在想起你第一次去海滨的情况?)</span><span class="text">一般来讲，如果一个输入模式带有不只一个输出模式的话，ELIZA便轮流地选用它们。<br>
+      　　ELIZA还把应当同等对待的词汇集到一起，例如词类FAMILY概括了&quot;mother&quot;，&quot;mom&quot;，&quot;dad&quot;和&quot;father&quot;等词。在上述脚本中，关键词&quot;your&quot;的第一个输入模式说明了怎样来使用词类FAMILY。如果某人告诉ELIZA：<br>
+      </span><span class="explaination">　　&quot;My brother is mean to me.&quot;(我兄弟对我是吝啬的。)</span><span class="text"><br>
+      ELIZA的回答可以是：</span><span class="explaination"><br>
+      　　&quot;WHO ELSE IN YOUR FAMILY IS MEAN TO YOU?&quot;(你家里还有谁对你是吝啬的?) </span><span class="text"><br>
+      　　对于不存在匹配模式的情况也必须予以考虑。为此ELIZA专门设计了一个(O)模式，它可以同任意的输入句子匹配，并产生某些模棱两可的响应，例如像：<br>
+      </span><span class="explaination">　　&quot;CAN YOU ELABORATE ON THAT?&quot; 
+      (您能否详细谈谈这个问题?)</span><span class="text"><br>
+      或者<br>
+      </span><span class="explaination">　　&quot;THAT'S QUITE　INTERESTING&quot; 
+      (这很有趣。)</span><span class="text"><br>
+      　　这种方法的一个主要缺点是它有可能遗漏掉句子中的某些重要信息，从而导致错误的分析和响应。例如对于输入句子：<br>
+      </span><span class="explaination">　　&quot;My friend's sister likes me.&quot;(我朋友的姐姐喜欢我。)</span><span class="text"><br>
+      ELIZA可能回答：<br>
+      </span><span class="explaination">　　&quot;TELL ME MORE ABOUT YOU FAMILY&quot;(多告诉我一些您家的事儿，好吗?)</span><span class="text"><br>
+      原因是ELIZA的输入模式完全忽略了输入句子中&quot;my&quot;和&quot;sister&quot;之间的词&quot;friend's&quot;，而且在这里&quot;my&quot;也不是&quot;sister&quot;的定语，所以系统的回答显得有点牛唇不对马嘴。这说明回避句法和语义分析的&quot;理解&quot;，往往不能真正胜任语言理解的任务。<br>
+      </span></td>
+  </tr>
+</table>
+</body>
+</html>

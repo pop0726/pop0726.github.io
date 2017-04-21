@@ -1,0 +1,140 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td><span class="text"> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../../images/pic/bg0401.gif" height="18" align="right">
+              <tr> 
+                <td> 
+                  <div align="center" class="chap">第二章 归结推理方法</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <span class="explaination"><br>
+      　　</span></span><span class="part">2.7.3 Boyer-Moore 定理证明方法</span><span class="text"><span class="text"><br>
+      　　</span>1979年Boyer 和Moore 提出了计算逻辑，在此基础上讨论了具有归纳结构的这种难度较大的定理证明问题，建立了归纳证明方法，给出了定理证明程序BMTP。<br>
+      　　具有归纳结构的知识，像整数、表、树等使用一阶谓词来表达是不方便的，更难于使用归结法来求解这类问题了。计算逻辑或BMTP采用了类似于LISP语言的函数而不是一阶谓词做为知识表示方法的，使用简便又便于机器实现。使用了递归函数（如递归方式来定义函数）来表示和自动证明具有归纳结构的定理。<br>
+      　　BMTP中还含有一个简化证明程序，对所要证明的定理首先加以简化。包括重写、使用等式、删除不必要的项、删除无关的项以及一般化等简化手段。如果仅使用简化程序就可证明定理，那就无须调用归纳证明程序，如果简化程序尚不能得到定理的证明，那需对所要证明的定理的已简化的形式使用归纳证明程序，这需依递归函数结构选定归纳方案来构造出归纳证明。<br>
+      　　每当一个定理易被BMTP所证明，便将它保存于定理表中，以便以后的证明中加以引用，这样随着证明定理的增多，便自动扩大了BMTP的证明能力。<br>
+      　　归纳法是人们常用的一种推理方法，因而计算逻辑所提出的证明理论有着重要的意义。BMTP已证明了算术因子分解定理，快速串搜索算法正确性等400多条定理。<br>
+      　　计算逻辑的基础知识是两个函数、五条公理、外壳原理、定义原理和归纳原理。下面将就这些内容做一简单介绍。<br>
+      　　1． 基本公理<br>
+      　　BMTP 是由两个函数IF和EQUAL　以及两个常量TRUE（简记为T）和FALSE（简记为F）出发进行讨论的。BMTP中出现的表达式仅使用函数和变量，不用谓词也不出现量词，所出现的变量可视为是受某论域上的全称量词约束，但不能考虑像存在量词约束的变量。<br>
+      　　五条公理：<br>
+      　　（1） T≠ F<br>
+      　　（2） X＝Y　有(EQUAL　X　Y)＝T<br>
+      　　（3） X≠ Y 　有　(EQUAL　X　Y)＝F<br>
+      　　（4） X= F 有　(IF　　X　Y　Z)＝Z<br>
+      　　（5） X≠ F 有　(IF X Y Z)=Y<br>
+      　　函数EQUAL可用来判明两变量是否相等，函数IF从逻辑上可理解为(X∧Y)∨(～X∧Z)。这两个函数是采用<br>
+      的前辍表示法，有如LISP语言中的函数表示形式。由这两个函数容易给出逻辑中常用的几个联结词的定义。不难看出<br>
+      </span><span class="explaination">　　(NOT　X)＝(IF　X　F　T )<br>
+      　　(ANT X Y)=(IF X(IF Y T F) F)<br>
+      　　(OR X Y )=(IF X T (IF Y T F ))<br>
+      　　(IMPLIES X Y )=(IF X (IF Y T F ) T)</span><span class="text"><br>
+      　　进而还可定义<br>
+      </span><span class="explaination">　　(AND X Y Z)=(AND X (AND Y Z))<br>
+      　　(OR X Y Z)=(OR X (OR Y Z))</span><span class="text"><br>
+      　　2.外壳原理<br>
+      　　归纳法是用于有关自然数的定理的，这是因为自然数集是属于归纳型数据结构。自然归纳法不应仅限于使用在自然数集上，而应扩大归纳法的应用范围，由自然数集扩大到具有归纳结构的数据类型上。这种归纳结构的数据类型就叫外壳，需加以定义。<br>
+      　　例如，要引入非负整数，其外壳需从下述几个方面来考虑：<br>
+      　　（1） 需一个数ZERO 作为外壳起点，称之为底对象。<br>
+      　　（2） 外壳构元符ADD1，由ADD1可建立相继后元，如(ADD1 0)为1，(ADD1(ADD1　0))为2，……。<br>
+      　　（3） 外壳存取符SUB1，由SUB1可得相继前元。如(SUB1 2)为1。<br>
+      　　（4） 外壳默认值ZERO，表明(SUB1　0)的值仍为0。<br>
+      　　（5） 外壳识别符NUMBERP。用以区分所引入的数据类型与其它数据类型。<br>
+      　　（6） 外壳类型限制，形如(NUMBERP　X)可表达X是否属于该外壳。<br>
+      　　（7） 外壳良基关系。相当于小于关系，在这种意义下外壳有唯一的最小元。可如下定义良基关系，设R是集合S上的一个二元关系，如果S中不存在无穷序列<br>
+      　　　　<img src="../../../../../../../../../word/images/text/chap02/sec02/x1.gif" width="12" height="8"> 
+      <img src="../../../../../../../../../word/images/text/chap02/sec02/x2.gif" width="12" height="8"> 
+      … <font size="2">x</font><font size="1">i</font> <font size="2">x</font><font size="1">i+1</font> 
+      …<br>
+      　　使得对所有的i<br>
+      　　　　(R <font size="2">x</font><font size="1">i+1</font> <font size="2">x</font><font size="1">i</font>)≠ 
+      F<br>
+      　　（也称R意义下 <font size="2">x</font><font size="1">i+1</font> 小于<font size="2">x</font><font size="1">i</font>）。<br>
+      　　可以证明R是S上的良基关系，S又非空，S中必存在R意义下的最小元，而且是唯一的。<br>
+      　　一般由n 个变元构成的外壳的外壳原理包括底对象、构元符、存取符、识别符、类型限制、默认值和良基关系。<br>
+      　　外壳原理的建立，相当于把一些公理加进了BMTP中。<br>
+      　　3.定义原理<br>
+      　　定义原理是在外壳中依基本函数定义新函数的方法。计算逻辑的句法采用了类似于Lisp 语言的句法结构，不使用谓词，函数描述如同Lisp 语言函数的前辍表示形式。<br>
+      　　定义函数(f<img src="../../../../../../../../../word/images/text/chap02/sec02/x1.gif" width="12" height="8">…<img src="../../../../../../../../../word/images/text/chap02/sec02/xn.gif" width="12" height="7">)=定义体，要求<br>
+      　　（1）f 是新的n元函数符。<br>
+      　　（2）<img src="../../../../../../../../../word/images/text/chap02/sec02/x1.gif" width="12" height="8">…<img src="../../../../../../../../../word/images/text/chap02/sec02/xn.gif" width="12" height="7">均为不同变元。<br>
+      　　（3）定义体是一个项，除<img src="../../../../../../../../../word/images/text/chap02/sec02/x1.gif" width="12" height="8">…<img src="../../../../../../../../../word/images/text/chap02/sec02/xn.gif" width="12" height="7">外其它任何符号不能作变元。<br>
+      　　（4）存在一个用函数符r表示的良基关系，以及n元函数符m，使得体中(f<font size="2">y</font><font size="1">1</font>…<font size="2">y</font><font size="1">n</font>)的子项和控制(f<font size="2">y</font><font size="1">1</font>…<font size="2">y</font><font size="1">n</font>)的无f项<font size="2">t</font><font size="1">1</font>…<font size="2">t</font><font size="1">n</font>的每次出现都有<br>
+      　　( IMPLIES (AND <font size="2">t</font><font size="1">1</font>…<font size="2">t</font><font size="1">n</font>)<br>
+      　　　　　　　(r (m <font size="2">y</font><font size="1">1</font>…<font size="2">y</font><font size="1">n</font>)(m 
+      <img src="../../../../../../../../../word/images/text/chap02/sec02/x1.gif" width="12" height="8">…<img src="../../../../../../../../../word/images/text/chap02/sec02/xn.gif" width="12" height="7">)))<br>
+      　　成立。<br>
+      　　这些要求是为保证所定义的函数之间没有矛盾以及递归函数的正确性。BMTP只接受满足定义原理的函数。<br>
+      　　要求中的项指变元以及(f<img src="../../../../../../../../../word/images/text/chap02/sec02/x1.gif" width="12" height="8">…<img src="../../../../../../../../../word/images/text/chap02/sec02/xn.gif" width="12" height="7">)形式的函数。如X,Y,(ADD1 
+      X),(SUBI Y)都是项，项中的变元认为是受全称量词作用的。<br>
+      　　说项t是无f的，指f 不在t中作为函数符出现。说项t在项b中控制项s的出现指b含有形如(IF　t　p q ), 且s在p中出现，或b含有形如(IF 
+      t' P Q),(t' =(NOT t)的子项且s在q中出现。例如P和(NOT Q)在项<br>
+      　　(IF　P　(IF　(IF　Q　F　S )S　R)　T)<br>
+      　　中控制S的第一次出现，而P和(IF　Q　F　S)控制S的第二次出现。<br>
+      　　例如定义<br>
+      </span><span class="explaination">　　(SUM　X　Y)<br>
+      　　=(IF (ZEROP　X)<br>
+      　　　　　Y<br>
+      　　　　 (ADD1 (SUM(SUB1 X)Y)))<br>
+      　　　(APPEND X Y)<br>
+      　　=(IF (LISTP X)<br>
+      　　　　 (CONS (CAR X) (APPEND(CDR X)<br>
+      　　　　　Y))<br>
+      　　　　　Y)</span><span class="text"><br>
+      都符合函数定义。<br>
+      　　4．归纳法原理<br>
+      　　若项P是待证的定理，如何使用归纳法加以证明？这与大家熟悉的归纳法证明步骤是相同的，要先验证基始情形成立，再假设P在K时成立来论证K+1时P也成立。可如下叙述。<br>
+      　　设P是项，为待证的定理。r 是良基关系，m是n元函数符，<img src="../../../../../../../../../word/images/text/chap02/sec02/x1.gif" width="12" height="8">…<img src="../../../../../../../../../word/images/text/chap02/sec02/xn.gif" width="12" height="7"> 
+      是不同的变元，<font size="2">q</font><font size="1">1</font>…<font size="2">q</font><font size="1">k</font>是项，<font size="2">h</font><font size="1">1</font>…<font size="2">h</font><font size="1">k</font>是正整数，而<font size="2">S</font><font size="1">ij</font>为置换满足<br>
+      　　(IMPLIES　<font size="2">q</font><font size="1">i</font> (r (m <img src="../../../../../../../../../word/images/text/chap02/sec02/x1.gif" width="12" height="8">…<img src="../../../../../../../../../word/images/text/chap02/sec02/xn.gif" width="12" height="7">)/S<font size="1">ij</font> 
+      (m <img src="../../../../../../../../../word/images/text/chap02/sec02/x1.gif" width="12" height="8">…<img src="../../../../../../../../../word/images/text/chap02/sec02/xn.gif" width="12" height="7">)))<br>
+      对　l≤ i≤ k ,l≤ j≤ <font size="2">h</font><font size="1">i</font>。 <br>
+      　　这时<br>
+      　　若有　(IMPLIES (AND (NOT <font size="2">q</font><font size="1">1</font>) 
+      …(NOT　<font size="2">q</font><font size="1">k</font>))P)<br>
+      　　成立。<br>
+      　　必有　(IMPLIES (AND　<font size="2">q</font><font size="1">1</font> P/<font size="2">S</font><font size="1">il</font>…P/<font size="2">S</font><font size="1">iR<font size="1">i</font></font>)P)<br>
+      　　对 l≤ i≤ k 。那么定理P成立。<br>
+      </span><span class="explaination">　　(EQUAL　　(APPEND　(APPEND　A　B)　C)<br>
+      　　　　　　　(APPEND　　A　(APPEND　B　C)))</span><span class="text"><br>
+      　　取r为CAR.CDRP，m为(mA A　B　C)＝A，<img src="../../../../../../../../../word/images/text/chap02/sec02/x1.gif" width="12" height="8"><img src="../../../../../../../../../word/images/text/chap02/sec02/x2.gif" width="12" height="8"><font size="2">x</font><font size="1">3</font>为A，B，C，<font size="2">q</font><font size="1">1</font>为(LISTP　A)，<font size="2">h</font><font size="1">1</font> 
+      是1，而置换<br>
+      　　　　Sll为{(A(CDRA))，(B　B)，(C，C)}<br>
+      　　这时有<br>
+      </span><span class="explaination">　　　　(IMPLIES　(LISTP　A)<br>
+      　　　　　　　　　(CAR.CDRP　(mA (CDR A) B C)<br>
+      　　　　　　　　　　　　　　 (mA A B C)))</span><span class="text"><br>
+      　　成立。<br>
+      　　归纳步骤：<br>
+      　　先验证<br>
+      　　</span><span class="explaination">(IMPLIES (NOT (LISTP A))<br>
+      　　　　　　 (EQUAL (APPEND (APPEND A B)C))<br>
+      　　　　　　 　　　 (APPEND A (APPEND B C))))</span><span class="text"><br>
+      　　成立,再证明<br>
+      </span><span class="explaination">　　(IMPLIES (AND (LISTP A)<br>
+      　　　　　　 (EQUAL (APPEND (APPEND <br>
+      　　　　　　　　　　(CDRA) B) C)<br>
+      　　　　　　　　　　(APPEND (CDR A)<br>
+      　　　　　　　　　　　　　　(APPEND B C))))<br>
+      　　　　　　 (EQUAL (APPEND (APPEND A B) C)<br>
+      　　　　　　　　　　(APPEND A (APPEND B C))))</span><span class="text"><br>
+      </span></td>
+  </tr>
+</table>
+</body>
+</html>

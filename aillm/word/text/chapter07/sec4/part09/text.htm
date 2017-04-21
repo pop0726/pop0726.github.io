@@ -1,0 +1,104 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td><span class="text"> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第七章 其它学习方法</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <br>
+      　　<b>第二次迭代</b><br>
+      　　步骤2：产生两个星<br>
+      　　<img src="../../../../images/text/chap07/sec4/gs9.gif" width="253" height="58"><br>
+      　　步骤3：从每个星中取一个复合，得到复合的所有组合。再经过不相交化过程处理，由LEF评价，从中选出最优聚类是</span><br>
+      <br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="30" valign="top"><img src="../../../../images/text/tb/bg.gif" width="25" height="21" alt="表格"></td>
+          <td>
+            <table width="55%" border="0" cellspacing="1" cellpadding="0" align="center" class="text" bgcolor="#003973">
+              <tr bgcolor="#d7ebff"> 
+                <td width="50%">&nbsp;</td>
+                <td>　　稀疏性　简单性</td>
+              </tr>
+              <tr bgcolor="#FFFFFF"> 
+                <td> 　　复合1：[X<font size="1">1</font>≤1][X<font size="1">3</font>≤1]<br>
+                  　　复合2：[X<font size="1">1</font>=2]</td>
+                <td>　　　31　　　2<br>
+                  　　　22　　　1<br>
+                  　　　53　　　3</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <span class="text"> <br>
+      　　步骤4：这是第二次（最后一次）b迭代。<br>
+      　　步骤5：复合[X<font size="1">1</font>≤1][X<font size="1">3</font>≤1]覆盖集合{<font size="2">e</font><font size="1">1</font>,<font size="2">e</font><font size="1">2</font>,<font size="2">e</font><font size="1">3</font>,<font size="2">e</font><font size="1">4</font>,<font size="2">e</font><font size="1">5</font>},而复合[X<font size="1">1</font>=2]覆盖集合{<font size="2">e</font><font size="1">6</font>,<font size="2">e</font><font size="1">7</font>,<font size="2">e</font><font size="1">8</font>,<font size="2">e</font><font size="1">9</font>,<font size="2">e</font><font size="1">10</font>}。因为这个聚类比以前的聚类有改进（稀疏性更小），所以选中心事件<font size="2">e</font><font size="1">1</font>和<font size="2">e</font><font size="1">8</font>为新的根。<br>
+      　　</span><b class="explaination">第三次迭代</b><span class="text"><br>
+      　　这次迭代产生与第一次迭代相同的聚类。<br>
+      　　步骤4：这次迭代没有改进。它是第一次p迭代。<br>
+      　　步骤5：由于得到的聚类没有改进，所以选边缘事件e2和e6为新的根。<br>
+      　　</span><b class="explaination">第四次迭代</b><span class="text"><br>
+      　　步骤2和3：产生的最佳聚类是：</span><br>
+      <br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="30" valign="top"><img src="../../../../images/text/tb/bg.gif" width="25" height="21" alt="表格"></td>
+          <td>
+            <table width="55%" border="0" cellspacing="1" cellpadding="0" align="center" class="text" bgcolor="#003973">
+              <tr bgcolor="#d7ebff"> 
+                <td>&nbsp;</td>
+                <td>　　稀疏性　简单性</td>
+              </tr>
+              <tr bgcolor="#FFFFFF"> 
+                <td> 　　复合1：[X<font size="1">3</font>≥1]<br>
+                  　　复合2：[X<font size="1">3</font>=2]</td>
+                <td>　　　49　　　1<br>
+                  　　　22　　　1<br>
+                  　　　71　　　2</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <span class="text"><br>
+      　　步骤4：这是第二次p迭代。如果得到的聚类优于以前最好的聚类，就安排另外两次p迭代。但这次稀疏性71不优于以前的53，所以满足结束条件。最优聚类是迭代2的结果<br>
+      　　{[X<font size="1">1</font>≤1][X<font size="1">3</font>≤1] ,[X<font size="1">l</font>=2]}<br>
+      　　5. 体系构成模块<br>
+      　　体系构成模块利用聚类模块来确定分类体系。它实现两个循环，一个是迭代的，一个是递归的。迭代循环是对一系列K值重复执行聚类模块，以便确定能得到最优聚类的K值。这一循环的计算量是可接受的，因为在实用中最有意义的体系在每一层有相对较少的分支。<br>
+      　　递归循环是在体系的每个节点使用迭代过程。第一步是对于表示初始事件集E的根执行该过程。确定E的聚类和合取描述。以后的步骤是对一些节点重复同样的操作，这些节点表示以前的步骤得到的聚类。体系自顶向下继续增大，直到不满足继续增大的准则。准则要求在体系每一层次上的分类及其描述间的复合优于以前的层次。 
+      <br>
+      　　为了确定最优的K值，必须修改聚类准则，使之可以比较包括不同数目复合的聚类。该准则应该反映聚类和数据间的符合对K值的依赖性。当类型数K增加时，这种符合很可能增加。此外，增加K也增加了复杂性。一种准则考虑了上面的折衷，它要求乘积<br>
+      　　　　　总稀疏性×(K + b)<br>
+      最小。其中b是实验确定的参数，它权衡稀疏性和类型数目K的相对影响。<br>
+      　　6. 结论<br>
+      　　上述的合取概念聚类可以确定对象的分类体系。每一类用一个合取命题描述，而且与同一父节点的其他类不相交，并使聚类准则最优。该方法与数值分类法的主要差别是，它把相似性测度的概念扩展为更一般的概念内聚。这种测度不仅考虑单个对象的特性，而且考虑对象之间的关系，以及它们与已知概念的关系。<br>
+      　　这种方法的发展方向是：<br>
+      　　(1) 希望确定新的，更有关的变量。<br>
+      　　(2) 希望类型的描述不限于合取，还可以采用蕴涵和等价等联结词。<br>
+      　　(3) 聚类准则应包含目标、目的和有关的努力。<br>
+      　　(4) 分类结果不是树结构的体系，而是构成图结构的分类网。其中的链不仅表示父子节点关系，而且表示其他关系。<br>
+      　　(5)对视觉信息聚类时，以各种标准几何形状为概念结构部件，如圆、三角、矩形等。而且允许非不相交的聚类。<br>
+      　　(6)在需要考虑对象内部结构时(变量中包括对象各子部分特性间的关系时)，需要更强的描述语言，如一阶谓词逻辑或其扩充。<br>
+      </span></td>
+  </tr>
+</table>
+</body>
+</html>

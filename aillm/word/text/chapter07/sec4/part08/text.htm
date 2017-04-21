@@ -1,0 +1,154 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td><span class="text"> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第七章 其它学习方法</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <br>
+      　　(3)分类的动态修改<br>
+      　　上面得到的聚类把所有已观察的事件划分成不相交的几类。但是聚类中各复合的并集不一定覆盖整个事件空间。因此若考虑在这个并集以外的未观察事件，这些事件没有分到任一类型。为了考虑一个新的事件，应该自动调整分类。这由不相交化过程实现0过程如下。把当前聚类中的复合作为核心复合，把新事件作为m-list的元素。由不相交化过程把该事件放入它的最佳宿主复合中。于是，初始复合就成为它和该事件的合并(refunion)。<br>
+      　　(4)聚类模块的例子 <br>
+      　　 <span class="text">共有10个对象。每个对象用4个变量描述，即X1,X2,X3和X4。变量论域都是</span><br>
+      　　　DOM(Xi)＝ 0,1,2 ，i＝1,3,4<br>
+      变量X1和X3是线性的，X2是结构的，X4是名称的。X2论域的一般化体系如图 7.11所示。<br>
+      <br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td width="30" valign="top"><img src="../../../../images/text/tb/tushi.gif" width="25" height="16" alt="图示"></td>
+          <td align="center"><img src="../../../../images/text/chap07/sec4/tu7.11.gif" width="139" height="115"><br>
+            <span class="explaination">图7.11 X<font size="1">2</font>论域的一般化体系</span></td>
+        </tr>
+      </table>
+      对象的描述如图 7.12所示。</span><br>
+      <br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="30" valign="top"><img src="../../../../images/text/tb/tushi.gif" width="25" height="16" alt="图示"></td>
+          <td align="center"> 
+            <table width="60%" border="0" cellspacing="1" cellpadding="0" class="text" align="center" bgcolor="#003366">
+              <tr bgcolor="#d7ebff" align="center"> 
+                <td>事件</td>
+                <td bgcolor="#d7ebff"><font size="2">X</font><font size="1">1</font> 
+                  <font size="2">X</font><font size="1">2</font> <font size="2">X</font><font size="1">3</font> 
+                  <font size="2">X</font><font size="1">4</font></td>
+                <td>事件</td>
+                <td><font size="2">X</font><font size="1">1</font> <font size="2">X</font><font size="1">2</font> 
+                  <font size="2">X</font><font size="1">3</font> <font size="2">X</font><font size="1">4</font></td>
+              </tr>
+              <tr bgcolor="#FFFFFF" align="center"> 
+                <td>e1<br>
+                  e2<br>
+                  e3<br>
+                  e4<br>
+                  d5</td>
+                <td>0　a　0　1<br>
+                  0　b　0　0<br>
+                  0　c　1　2<br>
+                  1　a　0　2<br>
+                  1　c　1　1</td>
+                <td>e6<br>
+                  e7<br>
+                  e8<br>
+                  e9<br>
+                  c10</td>
+                <td>2　a　1　0<br>
+                  2　b　0　1<br>
+                  2　c　0　0<br>
+                  2　b　0　1<br>
+                  2　c　2　2</td>
+              </tr>
+              <tr bgcolor="#FFFFFF" align="center"> 
+                <td>变量类型</td>
+                <td>L　S　L　N</td>
+                <td>变量类型</td>
+                <td> L　S　L　N</td>
+              </tr>
+            </table>
+            <span class="text"><br>
+            </span><span class="explaination">（L：线性，N：名称，S：结构）<br>
+            图7.12 对象的描述</span></td>
+        </tr>
+      </table>
+      <span class="text">　　　　　　　　　　　　　　　　</span><span class="text"><br>
+      为了简单，要求把对象分成两类：K＝2。在LEF中，主要准则是使总的稀疏性量小，其容限是0%。其次的准则是使聚类最简单，取选择器数目的相反数。图 
+      7.13是事件描述的几何表示。每个方格中注明它表示的事件。空方格表示未观察的事件。</span> <br>
+      <br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="30" valign="top"><img src="../../../../images/text/tb/tushi.gif" width="25" height="16" alt="图示"></td>
+          <td class="explaination" align="center"><img src="../../../../images/text/chap07/sec4/tu7.13.gif" width="400" height="405"><br>
+            图7.13 事件的几何表示 </td>
+        </tr>
+      </table>
+      <span class="text"> <br>
+      　　<b>第一次迭代</b><br>
+      　　步骤1：对K＝2，选2个已观察事件为根。可以任选，也可以选句法距离最大的事件(这时算法收敛较快)。为了选择这种突出的事件，可以用ESEL程序(Michalski和Larson，1978)。本例选两个差的初始根，选两个接近的事件e<font size="1">1</font>和e<font size="1">2</font>。<br>
+      　　步骤2：由限制星过程(boundstar过程)产生限制简化星RG(e<font size="1">1</font>|{e<font size="1">2</font>}，m)和 
+      RG(e<font size="1">2</font>|{e<font size="1">1</font>}，m)，并取m＝5，于是有<br>
+      　　<img src="../../../../images/text/chap07/sec4/gs7.gif" width="290" height="37">s<br>
+      结构变量X<font size="1">2</font>的选择器中的&quot;b∨c&quot;可以换成更一般的值f。这是攀登一般化体系规则。对线性变量X<font size="1">3</font>,可以用闭合区间规则。于是星就成为<br>
+      　　<img src="../../../../images/text/chap07/sec4/gs8.gif" width="269" height="37"><br>
+      　　步骤3：从每个星中选一个复合，进行适当修改，使2个复合组成的集合是E的不相交覆盖，而且是在所有可能的这种覆盖中按LEF最优或次最优的。因为它的总稀疏性，所以要考虑下列四种组合，从中选出覆盖(a)。四种组合如图 
+      7.14所示。</span><br>
+      <br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="30" valign="top"><img src="../../../../images/text/tb/tushi.gif" width="25" height="16" alt="图示"></td>
+          <td align="center"> 
+            <table width="60%" border="0" cellspacing="1" cellpadding="0" class="text" align="center" bgcolor="#003366">
+              <tr bgcolor="#d7ebff"> 
+                <td width="50%">&nbsp;</td>
+                <td>　　　稀疏性　简单性</td>
+              </tr>
+              <tr bgcolor="#FFFFFF"> 
+                <td width="50%">(a)复合1：[X<font size="1">2</font>=a][X3≤1]<br>
+                  　 复合2：[X<font size="1">2</font>=f]</td>
+                <td>　　　　15　　　　2<br>
+                  　　　　47　　　　1<br>
+                  　　　　62　　　　3</td>
+              </tr>
+              <tr bgcolor="#FFFFFF"> 
+                <td width="50%">(b)复合1：[X<font size="1">1</font>=1∨2]<br>
+                  　 复合2：[X<font size="1">2</font>=f]</td>
+                <td rowspan="3">这些覆盖不是不相交的，对这些覆盖用不相交化过程，但每种情况得到的聚类的稀疏性都≥62，而且简单性是3。</td>
+              </tr>
+              <tr bgcolor="#FFFFFF"> 
+                <td width="50%">(c)复合1：[X<font size="1">2</font>=a][X<font size="1">3</font>≤1]<br>
+                  　 复合2：[X<font size="1">4</font>=0∨2]</td>
+              </tr>
+              <tr bgcolor="#FFFFFF"> 
+                <td width="50%">(d)复合1：[X<font size="1">4</font>=1∨2]<br>
+                  　 复合2：[X<font size="1">4</font>=0∨2]</td>
+              </tr>
+            </table>
+            <br>
+            <span class="text"></span><span class="explaination">图7.14 四种组合</span><span class="text"> 
+            </span> </td>
+        </tr>
+      </table>
+      <p><span class="text"> 　　步骤4：检查结束条件。结束条件的参数b＝2，p＝2。这次迭代是第一次b迭代。<br>
+        　　步骤5：确定两个新的根。这些根是覆盖(a)的已观察事件中的中心事件。复合[X<font size="1">2</font>=a][X<font size="1">3</font>≤1]覆盖集合{<font size="2">e</font><font size="1">1</font>,<font size="2">e</font><font size="1">4</font>,<font size="2">e</font><font size="1">6</font>}，复合[X<font size="1">2</font>=f]覆盖集合{<font size="2">e</font><font size="1">2</font>,<font size="2">e</font><font size="1">3</font>,<font size="2">e</font><font size="1">5</font>,<font size="2">e</font><font size="1">7</font>,<font size="2">e</font><font size="1">8</font>,<font size="2">e</font><font size="1">9</font>,<font size="2">e</font><font size="1">10</font>}。注意X<font size="1">2</font>的根f是b和c的一般化。由句法距离分别确定两个集合的中心事件<font size="2">e</font><font size="1">4</font>和<font size="2">e</font><font size="1">8</font>。这是新根。<br>
+        </span></p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

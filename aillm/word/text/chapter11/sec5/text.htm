@@ -1,0 +1,52 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td><span class="text"> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第十一章 神经网络</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <br>
+      </span><span class="section">　　7．Hopfield网络</span><span class="text"><br>
+      <br>
+      　　Hopfield网络是Hopfield在1982年提出的，是神经网络第二次研究热潮的开端．Hopfield网络可分为离散型和连续型两种形式，这里主要讨论离散型Hopfiled网络。<br>
+      　　离散Hopfield网络是单层神经元网络，所有神经元之间都存在双向的连接。每个神经元有两个可能的状态，分别用1和-1表示，因此也称为二值Hopfield网络。设整个网络由n个神经元组成，则网络的状态由所有的n个神经元的状态组成，表示为一个n维向量U={<font size=2>u</font><font size=1>o</font>,<font size=2>u</font><font size=1>1</font>,…<font size=2>u</font><font size=1>k-1</font>}<sup>T</sup>．设在时刻t时神经元j的状态为uj，从神经元i到神经元j的连接权值为<font size=2>t</font><font size=1>ij</font>(当i=j时，<font size=2>t</font><font size=1>ij</font>=0)，则时刻t+1时有<br>
+      　　　　　　<img src="../../../images/text/chap11/sec2/gs14.gif" width="80" height="35"><br>
+      　　　　　　uj(t+1)=sgn(Sj)<br>
+      　　每个神经元状态的变化都可能引起其他神经元状态的变化。已经证明，若有<font size=2>t</font><font size=1>ij</font>=<font size=2>t</font><font size=1>ji</font>，则网络肯定可以收敛到一个稳定状态。但当<font size=2>t</font><font size=1>ij</font>≠<font size=2>t</font><font size=1>ji</font>时，许多网络结构也能收敛。对于n个神经元的Hopfiled网络，共有n(n-1) 
+      个连接。<br>
+      　　Hopfield网络的能量E定义为所有神经元能量之和：<br>
+      　　　　　　<img src="../../../images/text/chap11/sec2/gs15.gif" width="55" height="27"><br>
+      　　每个神经元的能量定义为<br>
+      　　　　　　<img src="../../../images/text/chap11/sec2/gs16.gif" width="97" height="36"><br>
+      　　神经元状态的改变会引起能量的改变。为清楚起见，将Ej写成<br>
+      　　　　　　<img src="../../../images/text/chap11/sec2/gs17.gif" width="163" height="35"><br>
+      　　设<font size=2>u</font><font size=1>j</font>发生改变，则可分为两种情况。第一种情况，<font size=2>u</font><font size=1>j</font>从-1变到1，则Sj≥0,因此Ei减小；第二种情况，<font size=2>u</font><font size=1>j</font>从1变到-1,则Sj&lt;0，因此亦有Ei减小。可<font size=2>u</font><font size=1>j</font>状态转换过程是一个能量极小化的过程。<br>
+      　　Hopfield网络可用做联想存储器，但有两个局限性，第一，类别数目不能太多，否则会收敛到虚假的输出。一般来讲，类别数目应满足&lt;0.15n。例如10个类别所需要的神经元达70个以上。第二，各类信号如果相同位数较多的话，可能会发生混淆的现象。<br>
+      <br>
+      　　</span><span class="section">8.神经网络的应用</span><span class="text"><br>
+      <br>
+      　　神经网络应用范围广泛，由于它的自学习、自组织能力，能从大量样本中提取特征，进而形成某种模式。因此，在模式识别、人工智能和组合优化的应用中显示出明显的优势。<br>
+      　　例如，在生物领域中，可利用人工神经网络对人的大脑做更深入的研究，还可以建立视网膜的模型；在商业事务领域中，估算地质结构中含原油的可能性，确认某些特殊位置的合作人选，建立矿产资源公共数据库，优化飞机航线的座位以及费用规划，识别手写体字符，特别是对于印刷体字符的识别以达到实用阶段。在军事领域中，可对雷达信号进行分类，制造智能武器，优化利用侦察资源，识别与跟踪目标等。<br>
+      　　神经网络特别擅长处理多种模式识别任务，比传统的人工智能做的要好。Intel公司投资建造了一个用于表达人类语音的小型应用系统，通过限制每次仅一个人讲话，并且使用了大约一百个独立的单词或词语。如果用讲话者本人的声音来训练系统，语音识别神经网络能达到90%以上的正确率。自从1983年开始，这个声音控制数据输入系统已经投入到各种制造业的应用中了。<br>
+      </span></td>
+  </tr>
+</table>
+</body>
+</html>

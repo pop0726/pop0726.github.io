@@ -1,0 +1,65 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第三章 不确定和非单调推理方法</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <br>
+      　　<span class="part">3.4.5 代数方法</span><br>
+      　　<span class="text">Willioms 建立了一个定性定量相结合的混合代数，实现了相应地符号代数程序 MINIMA，它是 MACSYMA 
+      的一种定性模拟，为化简、分解、组合定性方程提供了工具。这个代数系统可用来解决一类物理问题的设计。<br>
+      　　这个代数系统是定义实数R和符号S'＝{+,－,0,？}之上的（有关符号同3,4,2），允许在R上做定量运算，也允许在S'上做定性运算。如可在R上进行+－×/，可在S'上进行<img src="../../../../images/text/chap03/sec4/pic1.gif" width="10" height="10"><img src="../../../../images/text/chap03/sec4/pic5.gif" width="10" height="10"><img src="../../../../images/text/chap03/sec4/pic2.gif" width="10" height="11"><img src="../../../../images/text/chap03/sec4/pic6.gif" width="10" height="10">，并有定性算子[]。交换律、结合津、分配律都成立，只是[S',<img src="../../../../images/text/chap03/sec4/pic1.gif" width="10" height="10">,<img src="../../../../images/text/chap03/sec4/pic2.gif" width="10" height="11">]上对<img src="../../../../images/text/chap03/sec4/pic1.gif" width="10" height="10">来说没有逆元。从而由<br>
+      　　　　s<img src="../../../../images/text/chap03/sec4/pic1.gif" width="10" height="10">u=t<img src="../../../../images/text/chap03/sec4/pic1.gif" width="10" height="10">u 
+      导不出　s=t<br>
+      　　　　s<img src="../../../../images/text/chap03/sec4/pic1.gif" width="10" height="10">t=u 
+      导不出　s=u<img src="../../../../images/text/chap03/sec4/pic5.gif" width="10" height="10">t<br>
+      　　这个系统可用来进行设计。例如，已知一个可自行打取的饮料瓶和一个饮储存箱。要求设计一个以便能自动改变瓶箱液面高度，使得当瓶液面高Hb下降时可从箱中得到饮料的补充。这个设计过程可这样来直观地设想：<br>
+      　　瓶中液面高Hb升降由注入流出的饮料流量<font size="2">Q</font>b所决定，容器底部压力P和饮料密度成比例，也即压力由高度决定。要求瓶中压力相对箱中压力下降时，就有饮料由箱中流入瓶中。显然所需设计的装置，只需由瓶箱间加一条管子来实现。这个设计的推理过程不只涉及具体值，也不只涉及定性的符号值，有些地方需要精确的关系而不仅是简单的符号关系。<br>
+      　　可用所述的混合代数来描述推演这个问题，MINIMA系统可自动处理这个设计问题。<br>
+      　　　　目标[Hv-Hb]=[<img src="../../../../images/text/chap03/sec4/gs8.gif" width="14" height="30" align="absmiddle">Hb]<br>
+      　　　　　Hb×Ab=Vb 容器模型，瓶中饮料体积为截面乘以高。<br>
+      　　　　　Hb=Vb/Ab<br>
+      　　　　　[Hv-Hb]= [<img src="../../../../images/text/chap03/sec4/gs8.gif" width="14" height="30" align="absmiddle">(<img src="../../../../images/text/chap03/sec4/gs9.gif" width="19" height="30" align="absmiddle">)]<br>
+      　　　　　[Hv-Hb]= [(<img src="../../../../images/text/chap03/sec4/gs8.gif" width="14" height="30" align="absmiddle">Vb)/Ab]<br>
+      　　　　　[Hv-Hb]= [<img src="../../../../images/text/chap03/sec4/gs8.gif" width="14" height="30" align="absmiddle">Vb]<img src="../../../../images/text/chap03/sec4/pic6.gif" width="10" height="10">Ab<br>
+      　　　　　[Ab]=[+] 容器模型<br>
+      　　　　　[Hv-Hb]= [<img src="../../../../images/text/chap03/sec4/gs8.gif" width="14" height="30" align="absmiddle">Vb]<br>
+      　　　　　Qb= <img src="../../../../images/text/chap03/sec4/gs8.gif" width="14" height="30" align="absmiddle">Vb 
+      容器模型<br>
+      　　　　　[Hv-Hb]=[ Qb]<br>
+      　　　　　Pv=d×g×Hv 容器模型，箱中饮料一点的压力是密度与重力加速度、高度的乘积。<br>
+      　　　　　Hv =Pv/(d×g)<br>
+      　　　　　[Pv/(d×g)-Hb]=[Qb]<br>
+      　　　　　Pb＝d×g×Hb 容器模型<br>
+      　　　　　Hb＝Pb/(d×g)<br>
+      　　　　　[Pv-Pb]<img src="../../../../images/text/chap03/sec4/pic6.gif" width="10" height="10">([d] 
+      ×[g])=[Qb]<br>
+      　　　　　[d]=[+] 饮料性质<br>
+      　　　　　[g]=[+] 重力性质<br>
+      　　　　　[Pv-Pb]<img src="../../../../images/text/chap03/sec4/pic6.gif" width="10" height="10">([+]<img src="../../../../images/text/chap03/sec4/pic2.gif" width="10" height="11">[+]) 
+      =[Qb]<br>
+      　　　　　[Pv-Pb]=[Qb]<br>
+      　　最后这个表达式，正是一根管子两端压力与流量间的关系，从而只需用一根管子把饮料瓶与饮料箱连结起来。<br>
+      </span></td>
+  </tr>
+</table>
+</body>
+</html>

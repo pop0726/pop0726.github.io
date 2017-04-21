@@ -1,0 +1,55 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td><span class="text"> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第九章 句法分析</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      </span> <span class="text"><br>
+      　　</span><span class="part">9.8.3 功能合一语法(FUG</span>)<br>
+      <span class="text">　　最早把合一运算引入语法理论的是M.Kay。他创导的FUG有一个最大的特点，那就是词条定义、句法规则、语义信息以及句子的结构功能表示全部都可以用复杂特征集来表示，后者在FUG中被称作功能描述(FD)。例如句子<br>
+      　　　　She smashed a brick. (她砸碎了一块砖。)<br>
+      可以用以下的FD(1)来表示其分析结果：(见上页)<br>
+      　　值得注意的是在FD中，只有Patterns的值是有序的，用它来说明各个成分在句子中出现的顺序。此外，在一个句子的分析结果中，不仅包括了对词、短语和句子等各级语言单位的特征与功能的描写，而且还指明了围绕句子中心动词的深层格关系(施事，受事等)。 
+      <br>
+      　　下面再来看怎样用FD来表达句法规则。FD(2)和FD(3)分别是主动态和被动态的规则： <br>
+      　　FD(2)：<br>
+      　　<img src="../../../../images/text/chap09/sec8/gs5.gif" width="257" height="178"><br>
+      　　FD(3)：<br>
+      　　<img src="../../../../images/text/chap09/sec8/gs6.gif" width="352" height="295"><br>
+      　　调用这两条规则的条件是： <br>
+      　　(1) 句法成分Category＝S，而且<br>
+      　　(2)谓语动词满足Transitivity＝Material-Process。<br>
+      另外，规则中的Patterns采用了递增式的部分描述，例如陈述句为(…Subject Predicator…)，而及物动词的主动态为(…Predicator 
+      Direct-Object…)。在FUG中，Patterns也同功能描述一样可以逐片组合，因此对于一个及物动词的主动态陈述句，以上两个Patterns经过合一便得到最终的成分顺序：(…Subject 
+      Predicator Direct-Object…)。<br>
+      　　在FUG中，词典的信息也是用FD来描述的。英语词条&quot;saw&quot;的定义可以分别用FD(4)，FD(5)和FD(6)表示，它们对应于该词的三个定义项。<br>
+      　　FD(4)：<br>
+      　　<img src="../../../../images/text/chap09/sec8/gs7.gif" width="217" height="96"><br>
+      　　FD(5)：<br>
+      　　<img src="../../../../images/text/chap09/sec8/gs8.gif" width="123" height="56"><br>
+      　　FD(6)：<br>
+      　　<img src="../../../../images/text/chap09/sec8/gs9.gif" width="230" height="91"><br>
+      　　FUG既可用于分析，也可用于生成。我们称这样的形式体系具有双向性。<br>
+      </span></td>
+  </tr>
+</table>
+</body>
+</html>

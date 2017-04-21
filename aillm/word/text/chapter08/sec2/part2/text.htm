@@ -1,0 +1,74 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td><span class="text"> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="50%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第八章 自然语言理解的任务和发展简史</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <br>
+      　　</span><span class="part">8.2.2 STUDENT</span><span class="text"><br>
+      　　1968年美国麻省理工学院的博士研究生D.Bobrow完成了另一个基于模式匹配的自然语言理解系统STUDENT。系统能理解和求解像下面这样的中学代数题：<br>
+      </span><span class="explaination">　　If the number of customers Tom gets 
+      is twice the square of 20 percent of the number of advertisements he runs，and 
+      the number of advertisements he runs is 45， what is the number of customers 
+      Tom gets? (汤姆招来的顾客数是他所做广告数的百分之二十的平方的两倍，已知他所做的广告数是45，问汤姆招来的顾客数是多少?)</span><span class="text"><br>
+      <br>
+      　　STUDENT用来识别输入句子的关键词模式如： <br>
+      </span><span class="explaination">　　(WHAT ARE　*　AND *)<br>
+      　　(WHAT IS *)<br>
+      　　(HOW MANY *1　IS *)<br>
+      　　(HOW MANY * DO * HAVE)<br>
+      　　(HOW MANY * DOES * HAVE)<br>
+      　　(FIND *)<br>
+      　　(*(*1/VERB)* AS MANY * AS *(*1/VERB)*)<br>
+      　　(FIND * AND *)<br>
+      　　(* IS MULTIPLIED BY *)<br>
+      　　(* IS DEVIDED BY *)<br>
+      　　(* IS *)<br>
+      　　(*(*1/VERB)，*1*)</span><span class="text"><br>
+      符号&quot;*&quot;可以同任意长的一个词串相匹配，&quot;*1&quot;只能同一个词匹配，而&quot;(*1/VERB)表示被匹配的元素必须是一个动词。<br>
+      　　STUDENT首先把输入文本分割成若干核心语句，每个核心语句对应于一个恒等式，以便同那些事先存储在系统中的关键词模式进行匹配。于是经过分割处理后的输入文本具有如下形式：<br>
+      </span><span class="explaination">　　((The number of customers Tom gets is 
+      twice the square of 20 percent of the number of advertisements he runs)<br>
+      　　　(the number of advertisements he runs is 45)<br>
+      　　　(unknown is the number of customers Tom gets))</span><span class="text"><br>
+      　　接着，系统把上述核心语句分别翻译成如下所示的LISP等式：<br>
+      </span><span class="explaination">　　((EQUAL (THE NUMBER OF CHSTOMERS TOM 
+      GETS)<br>
+      　　　(TIMES 2.0<br>
+      　　　　　　(SQUARE(TIMES 0.2 (THE NUMBER OF ADS HE RUNS)))))<br>
+      　　 (EQUAL(THE NUMBER OF ADS HE RUNS)45)<br>
+      　　 (EQUAL(UNKNOWN) (THE NUMBER OF CUSTOMERS TOM GETS)))</span><span class="text"><br>
+      　　最后，STUENT调用SOLVE模块来处理这个代数方程组和待求的未知量。如果SOLVE失败，STUDENT便调用某些启发式信息，例如扩充成语，把两个原先&quot;略有区别&quot;的变量合并，或寻找事先储存在REMEMBER模块中的专门知识，如：<br>
+      </span><span class="explaination">　　(FEET IS THE PLURAL OF FOOT) FEET(英尺)是FOOT的复数<br>
+      　　(ONE HALF ALWAYS MEANS.5) 一半通常意味着0.5<br>
+      　　(DISTANCE EQUALS SPEED TIMES TIME) 距离等于速度乘时间 <br>
+      　　(ONE FOOT EQUALS l2 INCHES) 一英尺等于12英寸</span><span class="text"><br>
+      如果所有这些办法都未能奏效，STUDENT将请求用户提供额外的信息。<br>
+      　　STUDENT最终利用回答模式：<br>
+      　　　(&lt;变量&gt;IS&lt;值)<br>
+      来生成代数习题的答案，本例的回答是：<br>
+      　　(THE NUMBER OF CUSTOMERS TOM GETS IS 162)。<br>
+      　　STUDENT依靠简单的模式匹配技术，加上一些精心设计的启发式信息，使得系统在分析中学代数的文字题时表现杰出。<br>
+      </span> </td>
+  </tr>
+</table>
+</body>
+</html>

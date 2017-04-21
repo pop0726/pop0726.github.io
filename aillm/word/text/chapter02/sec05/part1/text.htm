@@ -1,0 +1,125 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td><span class="text"> </span>
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../../images/pic/bg0401.gif" height="18" align="right" class="chap">
+              <tr> 
+                <td> 
+                  <div align="center">第二章 归结推理方法</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <span class="text"><br>
+      　　</span><span class="section">2.5 归结过程的控制策略</span><span class="text"><br>
+      <br>
+      　　尽管归结推理方法比直接使用Herbrand 定理做推理是有了明显的进步，然而使用归结法时，若从子句集S出发做所有可能的归结，并将归结式加入S中，再做第二层这样的归结，…直到产生空子句的这种盲目的全面归结的话，同样会产生组合爆炸问题。这种无控制的盲目全面归结会导致大量的不必要的归结式的产生，严重的是它们又将产生下一层的更大量的不必要的归结式的产生。于是，如何给出控制策略，以使仅只对选择合适的子句间方可做归结来避免多余不必要的归结式的出现，或说少做些归结但仍然导出空子句来，这已成为极重要的问题了。<br>
+      　　举例来说明盲目归结带来的困难。<br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="text">
+        <span class="text"> 
+        <tr> 
+          <td width="30"><img src="../../../../images/text/tb/liti.gif" width="26" height="25" alt="例题"></td>
+          <td><b>例:</b></td>
+        </tr>
+        <tr> 
+          <td>&nbsp;</td>
+          <td>　S＝{P∨Q,～P∨Q，P∨～Q,～P∨～Q} 来证明是不满足的。<br>
+            　证明过程是从S<font size="1">0</font>＝S 出发。依次构造<br>
+            　S<font size="1">i</font>={<span class="text"><img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absmiddle"></span>,<span class="text"><img src="../../../../images/text/chap02/sec01/c2.gif" width="13" height="14" align="absmiddle"></span>的归结式│<span class="text"><img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absmiddle"></span>∈S<font size="1">0</font>∪S<font size="1">1</font>…∪S<font size="1">i-1</font>,<span class="text"><img src="../../../../images/text/chap02/sec01/c2.gif" width="13" height="14" align="absmiddle"></span>∈S<font size="1">i-1</font>} 
+            i=1,2,…,直至出现空子句□证明结束。这就是盲目全面归结的描述。具体的归结过程是<br>
+            　S<font size="1">0</font> (1)P∨ Q 　　　　　　(2) ～P∨Q<br>
+            　　 (3)P ∨～Q 　　　　　(4)～P∨～Q<br>
+            　S<font size="1">1</font> (5)Q 　(1)(2) 　　　 (6)P　 　　　　 (1)(3)<br>
+            　　 (7)Q∨～Q (1)(4) 　　(8)P∨～P 　　　(1)(4) <br>
+            　　 (9)Q ∨～Q (2)(3) 　 (10) P∨～P 　　(2)(3)<br>
+            　　 (11)～P (2)(4) 　　　(12)～Q 　　　　(3)(4)<br>
+            　S<font size="1">2</font> (13)P ∨Q (1)(7) 　　(14) P∨ Q 　　 (1)(8)<br>
+            　　 (15)P∨ Q (1)(9) 　　(16)P∨ Q 　　　(1)(10)<br>
+            　　 (17)Q (1)(11) 　　　 (18)P 　　　　　(1)(12)<br>
+            　　 (19)Q (2)(6) 　　　　(20)～P∨ Q 　　(2)(7)<br>
+            　　 (21) ～P ∨Q (2)(8)　(22)～P∨ Q 　　(2)(9)<br>
+            　　 (23)～P ∨Q (2)(10)　(24)～P 　　　　(2)(12)<br>
+            　　 (25)P (3)(5)　　　　 (26)P<span class="text">∨</span>～Q 　　 (3)(7)<br>
+            　　 (27)P ∨～Q (3)(8) 　(28)P ∨～Q 　　(3)(9)<br>
+            　　 (29)P∨<span class="text">～</span>Q　(3)(10)　(30)～Q 　　　　(3)(11)<br>
+            　　 (31)～P (4)(5)　　　 (32)～Q 　　　　(4)(6)<br>
+            　　 (33)～P∨～Q (4)(7)　(34)～P ∨～Q 　(4)(8)<br>
+            　　 (35)～P∨ ～Q (4)(9) (36)～P∨ ～Q 　(4)(10)<br>
+            　　 (37) Q (5)(7)　　　　(38)Q 　　　　　(5)(9) <br>
+            　　 (39) □ (5)(12)<br>
+            在这种归结过程中产生了相当数量的不必要的归结式。一类是重言式如(7)－(10)，由它们又产生了归结式(13)�D(16)，(20)－(23)，(26)�D(29)，(33)－(39)。另一类是重复的，如P,Q,～P,～Q就多次出现过。<br>
+            　就这个例子而言，若由人来证明只需三步，(5)(12)(39)便得空子句，这节将介绍删除策略、语义归结和线性归结等控制策略。</td>
+        </tr>
+        </span> 
+      </table>
+      　　</span><span class="part">2.5.1 删除策略</span><span class="text"><br>
+      　　设有两个子句C和D，若有置换σ使得<br>
+      　　　　Cσ<img src="../../../../../../../../../word/images/text/chap02/sec03/fh5.gif" width="12" height="9" align="absmiddle">D 
+      成立，便说子句C把子句D归类。</span> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="text">
+        <tr>
+          <td width="30"><span class="text"><img src="../../../../images/text/tb/liti.gif" width="26" height="25" alt="例题"></span></td>
+          <td><b>例:</b></td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td>　C＝P(X)　　D＝P(a)∨Q(a) 取σ＝{a/x},便有<br>
+            　Cσ= P(a)<span class="text"><img src="../../../../../../../../../word/images/text/chap02/sec03/fh5.gif" width="12" height="9" align="absmiddle"></span>{P(a),Q(a)}而{P(a),Q(a)}的逻辑表示就是D＝P(a)∨Q(a)。于是C把D归类。</td>
+        </tr>
+      </table>
+      <span class="text">　　若对S使用归结推理过程中，当归结式C<font size="1">j</font>是重言式或C<font size="1">j</font>被S中子句或归结式C<font size="1">i</font>(i&lt;j)所归类时，便将C<font size="1">j</font>删除。这样的推理过程便称作使用了删除策略的归结过程。<br>
+      　　判别归结式是否重言式是简单的，因归结式也是子句是文字的析取，只需检查归结式中有无互补对便可实现。然而判别C是否把D归类就不这么简单了，但有算法。<br>
+      　　删除策略对阻止不必要的归结式的产生来缩短归结过程是有效的。然而要在归结式C<font size="1">j</font>产生后方能判别它是否可被删除，这部分计算量是要花费的，只是节省了被删除的子句又生成的归结式。尽管使用删除策略的归结，少做了归结但不影响产生空子句，就是说使用删除策略的归结推理是完备的。<br>
+      　　现在讨论归类算法。<br>
+      　　给了子句C，D。令<br>
+      　　　θ＝{<font size="2">a</font><font size="1">1</font>/<img src="../../../../../../../../../word/images/text/chap02/sec02/x1.gif" width="12" height="8">,…,<font size="2">a</font><font size="1">n</font>/<img src="../../../../../../../../../word/images/text/chap02/sec02/xn.gif" width="12" height="7">}<br>
+      其中<img src="../../../../../../../../../word/images/text/chap02/sec02/x1.gif" width="12" height="8">,…,<img src="../../../../../../../../../word/images/text/chap02/sec02/xn.gif" width="12" height="7">是出现于D中的所有变量。<font size="2">a</font><font size="1">1</font>,…,<font size="2">a</font><font size="1">n</font>是C，D中未出现的常量。<br>
+      　　设　D ＝L<font size="1">1</font>∨…∨L<font size="1">m</font><br>
+      　　　　Dθ＝L<font size="1">1</font>θ∨…∨L<font size="1">m</font>θ　是基子句了。<br>
+      　　　　～Dθ＝～L<font size="1">1</font>θ∧…∧～L<font size="1">m</font>θ<br>
+      　　归类问题本是Cσ与D中部分文字合一的问题，作了上述准备，便化成了Cσ与～Dθ的归结问题了。由于依归类的定义，不允许D的变量做置换的，所以先将D中元素以常量代入，为用归结法自然要将Dθ取否定。<br>
+      　　归类算法<br>
+      　　(1) 令W＝{～L<font size="1">1</font>θ,…,～L<font size="1">m</font>θ}<br>
+      　　(2) 令K＝0，U0＝{C}<br>
+      　　(3) 如果U<sup>k</sup>包含□，停止，这时C把D归类。否则令U<sup>R+1</sup>＝{<img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absmiddle">,<img src="../../../../images/text/chap02/sec01/c2.gif" width="13" height="14" align="absmiddle">的归结式│<img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absmiddle">∈U<sup>k</sup>,<img src="../../../../images/text/chap02/sec01/c2.gif" width="13" height="14" align="absmiddle">∈W}　　　<br>
+      　　(4) 如果U<sup>k+1</sup>是空集，停止，这时C不能把D归类。否则K+1→K转(3)</span> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="text">
+        <tr> 
+          <td width="30"><span class="text"><img src="../../../../images/text/tb/liti.gif" width="26" height="25" alt="例题"></span></td>
+          <td><b>例:</b></td>
+        </tr>
+        <tr> 
+          <td>&nbsp;</td>
+          <td>　C ＝～P(x) ∨(Q(f(x),a)<br>
+            　D =～P(h(y))∨(Q(f(h(y)),a)∨P(z)<br>
+            　使用归类算法可知C 把D归类<br>
+            　先作θ＝{b/y,c/z}<br>
+            　　　Dθ=～P(h(b)) ∨Q(f(h(b)),a)∨ P(c)<br>
+            　　　～Dθ={P(h(b)),～Q(f(h(b)),a),～P(c)}<br>
+            　(1)W={ P(h(b)),～Q(f(h(b)),a),～P(c)}<br>
+            　(2)U<sup><font size="1">0</font></sup>={C}={～P(x) ∨Q(f(x),a)}<br>
+            　(3)U<sup><font size="1">0</font></sup>不包含□，作<br>
+            　　 U<sup><font size="1">1</font></sup>={Q(f(h(b)),a),～P(h(b))}<br>
+            　(4)U<sup><font size="1">1</font></sup>不空□<br>
+            　(5)U<sup><font size="1">2</font></sup>含□<br>
+            　从而C把D归类。</td>
+        </tr>
+      </table>
+      <span class="text"><br>
+      </span></td>
+  </tr>
+</table>
+</body>
+</html>

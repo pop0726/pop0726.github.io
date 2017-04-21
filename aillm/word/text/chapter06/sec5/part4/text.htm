@@ -1,0 +1,69 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第六章　实例学习</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <br>
+      <span class="text"> 　　2． 一个实例<br>
+      　　对积分∫3x・cosx・dx ，问题求解器产生出图 6.19所示的执行追踪。 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td width="30" valign="top"><img src="../../../../images/text/tb/tushi.gif" width="25" height="16" alt="图示"></td>
+          <td align="center" class="explaination"><img src="../../../../images/text/chap06/sec5/tu6.19.gif" width="401" height="249"><br>
+            <br>
+            图6.19 部分搜索树 </td>
+        </tr>
+      </table>
+      　　评论器从中提取出几个示教例子：<br>
+      　　∫3x・cosx・dx<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">OP12 
+      用u=3x 和dv=cosx dx （正例）<br>
+      　　∫3・sinx・dx<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">OP03 
+      用r=3 和f(x)=sinx 　　（正例）<br>
+      　　∫sinx・dx<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">OP06 
+      　（正例）<br>
+      考虑对OP12的示教例子。如果这是它的第一个示教例子。由此得的变形空间就是<br>
+      　　G=∫f(x)g(x)dx<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">OP12, 
+      用u=f(x) 和dv=g(x)・dx<br>
+      　　S=∫3x・cosx dx<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">OP12,用u=3x 
+      和dv=cosx dx<br>
+      　　如果第二个积分问题是∫5x・sinx・dx，则提取的示教例子是：<br>
+      　　∫5x ・sinx dx=&gt; OP12, 用u=5x 和dv=sinx・dx (正例) <br>
+      　　∫5・cosx・dx =&gt;OP03, 用r=5 和f(x)=cosx （正例）<br>
+      　　∫cosx・dx=&gt;OP10 (正例)<br>
+      　　∫5x・sinx・dx =&gt;OP12，用u=sinx 和dv=5x dx （反例）<br>
+      利用这时里的OP12的一个正例和一个反例，修改变型空间为：<br>
+      　　G={gl,g2},其中<br>
+      　　　g1：∫polynom(x)・g(x)・dx=&gt;OP12<br>
+      　　　　　　用u=polynom(x) 和dv=g(x)・dx <br>
+      　　　g2：∫f(x)・transc(x)・dx=&gt;OP12<br>
+      　　　　　　用u=f(x) 和dv=transc(x)dx<br>
+      　　S={s1},其中<br>
+      　　　s1：∫kx・trig(x)dx=&gt;OP12<br>
+      　　　　　　用u=kx 和dv=trig(x)dx<br>
+      示教正例使常数3和5一般化为k(表示整数)，使sin和cos一般化为trig(表示三角函数)，结果为s1。示教反例导致两种可用的特殊化。在g1中，f被特殊化为polynom(表示多项式)，以防止u=sinx 
+      .在g2中，g被特殊化为transc(表示超越函数),以防止dx=5x odx 。这两个特殊化的结果都不覆盖反例。<br>
+      　　用更多的示教例子，就可得到OP12的启发式规则，即开始给出的∫f(x)・transc(x)dx。<br>
+      </span></td>
+  </tr>
+</table>
+</body>
+</html>

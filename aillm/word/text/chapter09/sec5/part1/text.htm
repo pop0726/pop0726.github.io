@@ -1,0 +1,98 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第九章 句法分析</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <br>
+      <span class="text">　　</span><span class="section">9.5 转换语法</span><span class="text"><br>
+      <br>
+      　　上一节介绍的语言串理论所关注的是个别句子的结构描述，它们是句法分析器的基础。除此以外，Z.Harris还提出了语言转换理论，所谓转换(transformation)就是把具有共同成分的句子成对地联系起来。例如句子：<br>
+      </span><span class="explaination">　　　　&quot;Mary ate the muffin&quot; (玛丽吃了那块松饼。)</span><span class="text"><br>
+      经过不同的转换便得到了其他相关的句子：<br>
+      　　　　被动转换：</span><span class="explaination">&quot;The muffin was eaten by 
+      Mary.&quot;<br>
+      　　　　　　　　　(那块松饼被玛丽吃了。)</span><span class="text"><br>
+      　　　　分裂转换：</span><span class="explaination">&quot;It was Mary who ate the 
+      muffin.&quot;<br>
+      　　　　　　　　　(正是玛丽吃了那块松饼。)</span><span class="text"><br>
+      　　　　疑问转换：</span><span class="explaination">&quot;Did Mary eat the muffin?&quot;<br>
+      　　　　　　　　　(是玛丽吃了那块松饼吗?)</span><span class="text"><br>
+      等等。<br>
+      　　Harris指出，许多这样的转换是释义性的，即这些通过转换得到的句对将形成互为释义的关系，因为它们携带的信息相同只是强调点不同。在计算语言学中，我们的目标往往不仅仅是对一个句子进行句法分析，而是要搞清楚句子的意思。如果许多结构都可以被用来表达同一个思想，那么上述任务就变得复杂化了。很显然，我们可以利用释义性转换来减少这种多样性，即把那些由释义性转换联系在一起的所有句子都映射成一个单独的句子。例如，把被动句映射为主动句。利用这种方式就可以把后继阶段的分析(如语义分析)所要处理的结构限制在尽可能小的范围里。 
+      <br>
+      　　转换的另一个价值在于对英语句子的刻画上。例如我们不必用一部语法来直接刻画所有的句子，而只需定义其中的一部分句核(kernel sentence)，和一组转换规则。这样的转换语法(transformational 
+      grammar)所定义的语言实际上由两部分组成：一个句核集，加上通过对该集中的每个句子应用一条或几条转换规则所获得的其他句子。例如，假设一个主动语气的简单句：&quot;Mary 
+      atethe muffin.&quot;在句核集中。通过应用被动转换规则，得到&quot;The muffin was eaten by Mary.&quot;；应用分裂转换规则，得到&quot;It was Mary who ate the muffin.&quot;；先应用被动转换规则再应用分裂转换规则，便得到&quot;It 
+      was the muffin which was eaten by Mary.&quot;<br>
+      　　Chomsky作为Harris的学生后来大大发展了转换语法的思想，并创立了转换生成学派。但Chomsky的形式体系(见图9.9)与Harris的大不相同，特别是他的转换作用于属于深层结构的短语结构树，而不是属于表层结构的句子串。<br>
+      <br>
+      　　</span><span class="part">9.5.1 乔姆斯基的转换语法</span><span class="text"><br>
+      　　过去25年中Chomsky的理论有了很大的变化，因此有关转换语法的概念并没有一个很严格的定义。下面我们要介绍的是六十年代初的转换语法形式，因为这正是第一个转换分析器诞生的时期。<br>
+      　　一部转换语法由一个基础部件和一个转换部件组成。基础部件是一部上下文无关语法，它产生一组深层结构(deep structure)的树。转换部件是一组树重写规则，把它们应用于一棵深层结构树，便产生一棵或多棵表层结构(surface 
+      structure)树。表层结构树的前沿(终结结点序)就是语言的句子。<br>
+      　　基础部件的根符号叫做S。此外它还有一个著名的符号COMP，它只出现在下面这条产生式的左侧：<br>
+      　　　　COMP→#S#<br>
+      其中#是句子(子句)的边界标记。如果没有这条产生式，语法就不是递归的。<br>
+      　　每条转换规则主要由结构索引(structural index)和结构改变(structural change)两部分组成。结构索引是一个n元组(矢量)：&lt;<font size="2">si</font><font size="1">1</font>,…,<font size="2">si</font><font size="1">n</font>&gt;，其中的每个分量或者是一个符号(一个结点的名字)，或者是&quot;x&quot;。结构改变是一个矢量：&lt;<font size="2">sc</font><font size="1">1</font>,…,<font size="2">sc</font><font size="1">n</font>&gt;，其长度和结构索引相同。它的每个分量依然是一个矢量：<font size="2">sc</font><font size="1">i</font>=&lt;<font size="3">sc</font><font size="1">i,1</font>,…,<font size="2">sc</font><font size="1">i,n(i)</font>&gt;，它有可能为空(即n(i)＝0)。每个<font size="3">sc</font><font size="1">i,j</font>或者是一个终结符，或者是一个1到n之间的整数。<br>
+      　　转换规则的应用是以一个适当分析(proper analysis)的概念为基础的，后者又以树的一个截断(cut)为基础。一个截断是用从左向右穿过一棵树的一条线来定义的，这条线只穿过树上的结点(而不穿过结点之间的连接线)；因此被这条线所穿过的结点形成了这个截断。例如对于图9.4所示的树，结点序：NP 
+      VERB形成了一个截断。</span> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="30" valign="top"><img src="../../../../images/text/tb/tushi.gif" width="25" height="16" alt="图示"></td>
+          <td align="center" class="explaination"><img src="../../../../images/text/chap09/sec2/tu94.gif" width="150" height="175"><br>
+            图9.4 由结点序：NP VERB N 形成的一个截断 </td>
+        </tr>
+      </table>
+      <span class="text">更加形式化地来说，一个截断是树上全部结点D的一个子集C，使得<br>
+      　　(1)C中没有一个结点处在由C中其他结点开始的任何一条后继结点路径上；<br>
+      　　(2)D中没有其他结点可以加入C而不违背规则(1)。<br>
+      　　如果在一个截断中的结点名字由左向右排列，能同一条转换规则的结构索引匹配，这个截断便是这条转换规则对于这棵树的一个适当分析。所谓一个结构索引同结点名字的序匹配，就是指对于这个结构索引中出现的&quot;x&quot;存在一个符号(可以是空，但不包括＃)序的置换，使得这个结构索引与结点名字的序相同。例如，截断<br>
+      　　　　NP VERB N<br>
+      可以被以下的任何一个结构索引所匹配：<br>
+      　　　　　NP VERB N<br>
+      　　　　X NP VERB N X<br>
+      　　　　　NP X<br>
+      　　　　　　 X<br>
+      　　适当分析使结构索引中的每个元素(可能除了&quot;X&quot;以外)同树上的一个结点联系起来，从而也同由这个结点所支配的一棵子树联系起来。结构变化指明在实现这个转换时这些子树应当如何移动。<font size="2">sc</font><font size="1">i</font>说明应当把什么东西放到同<font size="3">Si</font>i相匹配的那个结点所占据的位置上去。如果<font size="2">sc</font><font size="1">i</font>是一个一元组，那么只要用-个结点(以及它所支配的子树)去置换另一个结点；如果<font size="2">sc</font><font size="1">i</font>是一个n元组，n＞1，那么我们首先用<font size="2">sc</font><font size="1">i,1</font>去置换原来的结点，然后把<font size="2">sc</font><font size="1">i,2</font>,…<font size="2">sc</font><font size="1">in(i)</font>,作为结点<font size="2">sc</font><font size="1">i1</font>,的右邻结点插进来，如图9.5所示。如果<font size="2">sc</font><font size="1">i,j</font>是一个1到n之间的整数，那么新结点就是同结构索引中第<font size="2">sc</font><font size="1">i,j</font>个元素匹配的那个结点；如果<font size="2">sc</font><font size="1">i,j</font>是一个终结符，那么这个新结点就是一个同名的终结点。遵循语言学惯用的标记法，我们将把<font size="2">sc</font><font size="1">i</font>写成<br>
+      　　　　<font size="2">sc</font><font size="1">i,1</font>十<font size="2">sc</font><font size="1">i,2</font>十…十<font size="2">sc</font><font size="1">i,n(i)</font><br>
+      　　　　并用0来表示空矢量。<br>
+      　　由于<font size="2">sc</font><font size="1">i</font>的值可能是空矢量，树上的某个结点可能没有后继结点。因此我们在完成转换以后将删除那些甚至一个终结点也不支配的非终结点。<br>
+      　　由于结构索引中的符号&quot;X&quot;可以同零个或多个结点相匹配，所以上面给出的规定对于结构索引中的这些分量不适用。我们将对转换加以限制，从而使在截断中被&quot;X&quot;匹配的结点不参加转换。用结构改变的形式来说就是：如果sik＝&quot;x&quot;，那么sck＝K，并且没有其他的<font size="2">sc</font><font size="1">i,j</font>＝K。</span>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="30" valign="top"><img src="../../../../images/text/tb/tushi.gif" width="25" height="16" alt="图示"></td>
+          <td align="center"> 
+            <p></p>
+            <p></p>
+            <p class="explaination"> <img src="../../../../images/text/chap09/sec2/tu95.gif" width="320" height="122"><br>
+              <br>
+              图9.5 当<font size="2">sc</font><font size="1">i</font>是一个n元组时，用&lt;<font size="2">sc</font><font size="1">i,1</font>, 
+              …,<font size="2">sc</font><font size="1">i,n(i)</font>&gt;去置换<font size="2">si</font><font size="1">i</font>的情况</p>
+      </td>
+        </tr>
+      </table>
+      <br>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../../images/pic/bg0401.gif" height="18" align="right" class="chap">
+              <tr> 
+                <td> 
+                  <div align="center">第二章 归结推理方法</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <br>
+      <span class="text">　　</span><span class="part">2.3.3 语义树</span><span class="text"><br>
+      　　对S的不可满足性，从几何上做些讨论是有益的。可将S的所有可能的解释展示在一棵树上，进而观察每个分枝对应的S的逻辑真值是真是假，要展现S的解释于树中，自然要依S的原子集A了。</span>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="text">
+        <tr>
+          <td width="30"><img src="../../../../images/text/tb/liti.gif" width="26" height="25" alt="例题"></td>
+          <td><b>例1:</b></td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td>　设子句集S的原子集<br>
+            　A={P，Q，R}(属命题逻辑。这时S的原子集就是S中出现的全体原子命题)<br>
+            　对A以一棵二叉树来描述，如可以N<font size="1">0</font>为根结点，向下分两枝到N<font size="1">11</font>，N<font size="1">12</font>，分别以P和～P标记在N<font size="1">0</font>N<font size="1">11</font>，N<font size="1">0</font>N<font size="1">12</font>分枝上。再从N<font size="1">11</font>，N<font size="1">12</font>，向下各分两枝到N<font size="1">21</font>，N<font size="1">22</font>，N<font size="1">23</font>，N<font size="1">24</font>，分别以A中的Q和～Q来标记在各分枝上(向左的分枝标记Q，向右的分枝标记～Q)，最后从N<font size="1">21</font>，N<font size="1">22</font>，N<font size="1">23</font>，N<font size="1">24</font>再向下各分两枝到N<font size="1">31</font>，…，N<font size="1">38</font>，分别以A中的R和～R来标记。这棵树便称作子句集S的语义树（见图2.1）。 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td width="30"><img src="../../../../images/text/tb/tushi.gif" width="25" height="16" alt="图示"></td>
+                <td>&nbsp;</td>
+              </tr>
+              <tr> 
+                <td>&nbsp;</td>
+                <td align="center"><img src="../../../../images/text/chap02/sec03/tu2.1.gif" width="232" height="136"><br>
+                  <br>
+                  <span class="explaination">图2.1语义树</span></td>
+              </tr>
+            </table>
+          　为了方便，常以I(N)示从根结点到结点N分枝上所标记的所有文字的并集。如　　<br>
+            　　　　　　I(N<font size="1">34</font>)＝{P,～Q,～R}</td>
+        </tr>
+        <tr>
+          <td><img src="../../../../images/text/tb/liti.gif" width="26" height="25" alt="例题"></td>
+          <td><b>例2:</b></td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td>　对子句集S＝{P(x)∨Q(y),～P(a),～Q(b)}画出相应的语义树。<br>
+            　因为 H＝{a ,b}<br>
+            　　　 A={P(a),Q(a),P(b)，Q(b)}<br>
+            　从A出发，同例1便可画出P(a),Q(a),P(b),Q(b)构成的语义树。<br>
+            　由于H一般是可数集，从而S的语义树一般是棵无限树。 </td>
+        </tr>
+        <tr>
+          <td><img src="../../../../images/text/tb/liti.gif" width="26" height="25" alt="例题"></td>
+          <td><b>例3:</b></td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td>　对子句集S＝{～P(x)∨Q(x),P(f(y)),～Q(f(y))}画出相应的语义树。<br>
+            　因为　H＝{a ,f(a),f(f(a)), …}<br>
+            　　　　A＝{P(a),Q(a),P(f(a)),Q(f(a)), …}<br>
+            　从A出发便可画出S的语义树，这是棵无限树（见图2.2）。 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td width="30"><img src="../../../../images/text/tb/tushi.gif" width="25" height="16" alt="图示"></td>
+                <td>&nbsp;</td>
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+                <td align="center"><img src="../../../../images/text/chap02/sec03/tu2.2.gif" width="263" height="120"><br>
+                  <br>
+                  <span class="explaination">图2.2　无限语义树 </span></td>
+              </tr>
+            </table>
+          　S的语义树是完全的，如果对该语义树的所有叶结点N来说，I(N)包含了S的原子集A＝{<img src="../../../../images/text/chap02/sec01/a1.gif" width="15" height="11" align="absmiddle">,<img src="../../../../images/text/chap02/sec01/a2.gif" width="16" height="11" align="absmiddle">,…}中的所有元素A<font size="1">i</font>或～A<font size="1">i</font>,i=1…n…。</td>
+        </tr>
+      </table>
+      <span class="text">　　通过对S的完全语义树的观察，便可看到S的所有的解释，这棵树的每个直到叶结点的分枝都对应于S的一个解释。特别对有限树来说，若N是叶结点，那么I(N)便是S的一个解释。为讨论S的不可满足性，就可通过对语义树每个分枝来计算S的真值而实现。<br>
+      　　有时并不需要无限地延伸某个分枝方能确定在相应的解释下S取假值。如果某个分枝延伸到结点N时，I(N)已使S的某一子句的某一基例为假，就无需对N再做延伸了。<br>
+      　　如果结点N的I(N)使S的某一子句的某一基例为假，而N的父辈结点不能判断这个事实，就说N是失败结点。<br>
+      　　如果S的完全语义树的每个分枝上都有一个失败结点，就说它是一棵封闭树。<br>
+      　　就例3而言，图2.2所示的完全语义树便具有每个分枝上都有失败结点这一性质，从而是棵封闭树，如果从图2.2剪去所有失败结点以下的分枝便得相应的封闭树图2.3。</span>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="30"><img src="../../../../images/text/tb/tushi.gif" width="25" height="16" alt="图示"></td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td align="center"><img src="../../../../images/text/chap02/sec03/tu2.3.gif" width="279" height="177"><br>
+            <br>
+            <span class="explaination">图2.3封闭语义树</span> </td>
+        </tr>
+      </table>
+      <span class="text">　　如I(N<font size="1">22</font>)＝{P(a),～Q(a)}，这个S的部分解释已使S中的子句～P(x)∨Q(x)的基例～P(a)∨Q(a)为假了，而N<font size="1">11</font>，N<font size="1">0</font>不具有这个性质。若将I(N<font size="1">22</font>)扩充为S的解释，仍然会使S为假，扩充的部分对使S为假已不起作用了。从图上看无需对N<font size="1">22</font>再作延伸了。<br>
+      　　再如I(N<font size="1">41</font>)={P(a),Q(a),P(f(a)),Q(f(a))},它使S的子句中的子句 
+      ～Q(f(y))的基例～Q(f(a))为假,而N<font size="1">41</font>的父辈不能使S的某子句的某基例为假，从而N41是失败结点。同样，为讨论S的不可满足性无需对N<font size="1">41</font>做延伸了。<br>
+      　　现在已不难想像，S的不可满足性与封闭语义树的关系了。<br>
+      </span></td>
+  </tr>
+</table>
+</body>
+</html>

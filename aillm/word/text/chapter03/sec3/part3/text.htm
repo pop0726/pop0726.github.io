@@ -1,0 +1,72 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第三章 不确定和非单调推理方法</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <br>
+      　　<span class="part">3.3.3　默认推理法</span><br>
+      　　<span class="text">可使用非标准的非单调观点来定义一种逻辑以便解决非单调推理问题。这时引入的推理规则称为默认（default）规则，所建立的理论称默认理论。默认规则是推理规则，是在某种特殊条件下用来增广Δ的。<br>
+      　　设D是默认规则集，由D对Δ的增广记为ε[Δ,D]。D中的规则形式为<br>
+      　　　　　<img src="../../../../images/text/chap03/sec2/gs39.gif" width="60" height="26" align="absmiddle"> 
+      或α(x):β(x)/γ(x)<br>
+      　　其中αβγ是逻辑公式，x可是含多个变元的变量，横线上的公式表条件，横线下的公式表结论。这条规则可这样解释，如果存在x的一个例<font size="2">x</font><font size="1">0</font>，α(<font size="2">x</font><font size="1">0</font>)遵从ε[Δ,D]而β(x)同ε[Δ,D]相一致，则ε[Δ,D]应包含γ(<font size="2">x</font><font size="1">0</font>)，即这时默认γ(<font size="2">x</font><font size="1">0</font>)成立。<br>
+      　　对某个典型情况下为真，但不必总是真的命题可用默认规则来表示对该命题的信任。也就是使用默认规则来建立假设。<br>
+      　　例如　Bird(x):Flies(x)/Flies(x)表示了通常情况下鸟是会飞的，或说若x是鸟，又同信任x会飞相一致，那么就可相信x会飞或说默认x 
+      会飞、使用这条规则对△<br>
+      　　若△包括<br>
+      　　　　　　Bird (Tweety)<br>
+      　　　　　　Ostrich(x)→～Flies(x)<br>
+      　　时，可推得Flies(Tweety)<br>
+      　　如果再将Flies(Tweety)加入△，将没有Flies(Tweety)的结论。显然默认理论是非单调的。<br>
+      　　关于一个谓词P的CWA方法，可用默认规则<br>
+      　　　　　：～P(x)/～P(x)<br>
+      来表示，即如果相信～P(x)的一个例的成立，不出现不一致，那么～P(x)的这个例就是可信的。关于对P的CWA方法的效果同这默认理论的效果是有区别的。CWA允许得到～P(x)的一个例，只要这个例与Δ是一致的。而默认规则的使用仅当那个例与ε[Δ,D]是一致的方允许。所以这两种方法会导致不同的增广。<br>
+      　　大多数情形仅使用默认规则的一种特殊情形，这时的默认规则形式为<br>
+      　　　　　α(x):r(x)/γ(x)<br>
+      　　称作正常的默认规则。<br>
+      　　默认理论有些重要性质。<br>
+      　　（1） 一个默认理论可能有多于一个的增广。<br>
+      　　例如　有默认规则　<br>
+      　　　　　：～A/～A　：～B/～B<br>
+      而Δ＝{A∨B}，于是使用规则于Δ可得对Δ的扩充{A∨B，～A},{A∨B,～B}<br>
+      可选一个作为信任的合理增广。<br>
+      　　（2） 两个增广的并集会是不一致的。<br>
+      　　如{A∨B，～A}∪{A∨B,～B}={A∨B,～A,～B}是不一致的。<br>
+      　　（3）存在没有增广的默认理论<br>
+      　　（4）每个正常默认理论都有一个增广。<br>
+      　　（5）一个默认理论有一个不一致的增广，当且仅当Δ本身是不一致时。<br>
+      　　（6）如果D和D'都是正常默认规则集，又 D'<img src="../../../../images/text/chap02/sec03/fh2.gif" width="11" height="10">D，则对任一ε[Δ,D']有一个ε[Δ,D]使得ε[Δ,D']<img src="../../../../images/text/chap02/sec03/fh2.gif" width="11" height="10">ε[Δ,D]。即当默认规则增加时，不会减少信任甚至增加新的信任。<br>
+      　　当给了Δ和D，对φ的一个默认证明有如从Δ到φ的普通证明，不过是以默认规则作为推理规则。一条默认规则的使用，必须严格地依其定义，在推得结论之前要作一致性检查。<br>
+      　　例如　D包含两条默认规则<br>
+      　　　　　Bird(x)：Flies(x)/Flies(x) (鸟会飞)<br>
+      　　　　　Fc(x)：Bird(x)/Bird(x) (有羽毛的为鸟)<br>
+      　　而Δ仅包含Fc(Tweety)于是可得对　Flies(Tweety )的默认证明。<br>
+      　　如果Δ是<br>
+      　　　　　Ostrich(Tweety)<br>
+      　　　　　Ostrich (x)→～Flies(x)<br>
+      　　　　　Ostrich (x)→Fc(x)<br>
+      就得不到Flies(Tweety)的默认证明了。因为规则的例Bird(Tweety)：Flies(Tweety)/Flies(Tweety)不能一致地使用了。<br>
+      </span></td>
+  </tr>
+</table>
+</body>
+</html>

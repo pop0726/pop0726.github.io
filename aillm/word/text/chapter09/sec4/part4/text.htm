@@ -1,0 +1,173 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第九章 句法分析</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <br>
+      <span class="text">　　2.自底向上的并行算法<br>
+      　　对于上下文无关语法的另一个通用算法是自底向上的并行算法。这个算法以自底向上的方式建立一些局部分析，其中每个局部分析代表了输入句子的一个子串。形式地说，标号为i的局部分析包含四个成分：root(i)，first(i)，last(i)和constituents(i)。它的意思是：句子中号码从fist(i)到last(i)的词可以从root(i)推导出来，而且如果constituents(i)是一个n元组：&lt;<font size="2">c</font><font size="1">1</font>,…,<font size="2">c</font><font size="1">n</font>&gt;，那么这个推导由。以下产生式组成：<br>
+      　　　　root(i)→root(c1)…root(cn)，<br>
+      后面跟着的是伴随局部分析c1…cn的推导。<br>
+      　　具体算法如下：<br>
+      　　(1) 如果句子的词是S<font size="1">1</font>,…,Sn<br>
+      　　　　则对于i＝1,…,k：<br>
+      　　　　　分别建立一个局部分析，<br>
+      　　　　　　　它的root＝Si，<br>
+      　　　　　　　　　first＝last＝i，<br>
+      　　　　　　　　　constituents＝空的n元组，<br>
+      　　　　并且对于Si的每个词类C<br>
+      　　　　　分别建立一个局部分析，<br>
+      　　　　　　　它的root＝C，<br>
+      　　　　　　　　　first＝last＝i，<br>
+      　　　　　　　　　constituents＝空的n元组。<br>
+      　　(2) 无限地重复：<br>
+      　　　　如果存在一个产生式A→r<font size="1">1</font>r<font size="1">2</font>…rn<br>
+      　　　　　　以及局部分析i<font size="1">1</font>,…,in<br>
+      　　　　　　　　使得对于j=1,…,n，root(ij)＝rj，<br>
+      　　　　　　　　并且对于j＝2,…,n，last(ij-1)＝first(ij)一1。<br>
+      　　　　则建立一个新的局部分析，<br>
+      　　　　　　　它的root＝A，<br>
+      　　　　　　　　　first＝first(i<font size="1">1</font>)，<br>
+      　　　　　　　　　last：＝last(i<font size="1">n</font>)，<br>
+      　　　　　　　　　Constituents＝&lt;i<font size="1">1</font>,…,i<font size="1">n</font>&gt;；<br>
+      　　　　否则(如果不存在这样的产生式)退出。<br>
+      <br>
+      　　当你实现这个过程时，一个复杂的问题就是要保证不得重复应用同一个归约。这一点通常是用一组嵌套的循环来取代上述算法中的非结构化的&quot;重复&quot;(repeat)来实现的，即让最外层的循环总是越过正在建立的那个局部分析的最后一个词。<br>
+      　　如果产生式的右侧总是只有一个或两个符号，我们便可以按如下方式来建立这种自底向上的算法： <br>
+      <br>
+      　　(1)对于i＝1,…,k重复步骤(2)到(7)；<br>
+      　　(2)建立一个局部分析，它的root＝Si，<br>
+      　　　　　　　　　　　　　　first=1ast＝i。<br>
+      　　　　　　　　　　　　　　constituents＝空的n元组，<br>
+      　　　　并且对于Si的每个词类C<br>
+      　　　　　　建立一个局部分析，其root＝C，<br>
+      　　　　　　　　　　　　　　　　first＝last＝i，<br>
+      　　　　　　　　　　　　　　　　constituents＝空的n元组，<br>
+      　　　　把这些局部分析的标号装入&quot;todo&quot;集。<br>
+      　　(3)重复步骤(4)到(7)直到todo为空。<br>
+      　　(4)从todo中选择一个元素(即一个局部分析的标号)，命它为r。从todo中删除r。<br>
+      　　(5)设P是这样一个产生式集，这些产生式右侧的最后一个符号(也许只有这样一个符号)是root(r)。<br>
+      　　(6)对于P中的每个成员p重复步骤(7)。<br>
+      　　(7)如果p的形式为A→y，其中y＝root(r)<br>
+      　　　　则建立一个局部分析，它的root＝A，<br>
+      　　　　　　　　　　　　　　　　first＝first(r)，<br>
+      　　　　　　　　　　　　　　　　1ast=last(r)，<br>
+      　　　　　　　　　　　　　　　　Constituents=&lt;r&gt;;<br>
+      　　　　否则p的形式为A→xy，其中y＝root(r)<br>
+      　　　　　　对每个局部分析m，使得root(m)＝x，<br>
+      　　　　　　　　　　　　　　　　　last(m)＝first(r)-1，<br>
+      　　　　　　建立一个局部分析，它的root＝A，<br>
+      　　　　　　　　　　　　　　　　　first＝first(m)，<br>
+      　　　　　　　　　　　　　　　　　1ast：＝1ast(r)，<br>
+      　　　　　　　　　　　　　　　　　Constituents＝&lt;m，r&gt;。<br>
+      　　　　把刚才建立的所有局部分析的标号添加到todo中去。<br>
+      <br>
+      　　这个算法利用todo集来保存那样一些局部分析，它们已经生成但未曾作为其他局部分衍的最后成分被结合。如果对算法中的第(7)步加以适当的一般化，这个算法便可以用来处理产生式右侧具有任意多个符号的语法。<br>
+      　　一旦所有的局部分析都已建立，那么那些root＝起始符,first＝1，last＝句长的局部分析便是输入句子的句法分析。沿着constituents的指针便可以找到句子的句法树。请注意，对于一个有句法歧义的句子来说。两棵或多棵句法树可以共享一个局部分析，这意味着那些局部分祈和constituents指针所构成的是一个无环图，而不是一棵树。<br>
+      　　用这个算法来处理那部只有三条规则的语法和句子&quot;I like cheese&quot;(PRO TV N)，将产生顺序如表9.2所示的局部分析。</span> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td width="30" valign="top"><img src="../../../../images/text/tb/bg.gif" width="25" height="21" alt="表格"></td>
+          <td align="center"> <span class="explaination">　表9.2 句子&quot;I<font size="1">1</font> 
+            like<font size="1">2</font> cheese<font size="1">3</font>&quot;的局部分析</span> 
+            <br>
+            <br>
+            <table width="80%" border="0" cellspacing="1" cellpadding="0" align="center" class="text" bgcolor="#003973">
+              <tr bgcolor="#bfdfff" align="center"> 
+                <td width="20%">局部分析</td>
+                <td>root</td>
+                <td width="20%">first</td>
+                <td width="20%">1ast</td>
+                <td width="20%">constituents</td>
+              </tr>
+              <tr bgcolor="#FFFFFF" align="center"> 
+                <td width="20%">1<br>
+                  2<br>
+                  3<br>
+                  4<br>
+                  5<br>
+                  6<br>
+                  7<br>
+                  8<br>
+                  9<br>
+                  10<br>
+                  11<br>
+                  12</td>
+                <td>&quot;I&quot;<br>
+                  PRO<br>
+                  NP<br>
+                  &quot;like&quot;<br>
+                  TV<br>
+                  VP<br>
+                  S<br>
+                  &quot;cheese&quot;<br>
+                  N<br>
+                  NP<br>
+                  VP<br>
+                  S</td>
+                <td width="20%">1<br>
+                  1<br>
+                  1<br>
+                  2<br>
+                  2<br>
+                  2<br>
+                  1<br>
+                  3<br>
+                  3<br>
+                  3<br>
+                  2<br>
+                  1</td>
+                <td width="20%">1<br>
+                  1<br>
+                  1<br>
+                  2<br>
+                  2<br>
+                  2<br>
+                  2<br>
+                  3<br>
+                  3<br>
+                  3<br>
+                  3<br>
+                  3</td>
+                <td width="20%">&lt; &gt;<br>
+                  &lt; &gt;<br>
+                  &lt;2&gt;<br>
+                  &lt; &gt;<br>
+                  &lt; &gt;<br>
+                  &lt;5&gt;<br>
+                  &lt;3,6&gt;<br>
+                  &lt; &gt;<br>
+                  &lt; &gt;<br>
+                  &lt;9&gt;<br>
+                  &lt;5,10&gt;<br>
+                  &lt;3,11&gt;</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <span class="text"><br>
+      </span></td>
+  </tr>
+</table>
+</body>
+</html>

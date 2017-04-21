@@ -1,0 +1,52 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td class="text">
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第三章 不确定和非单调推理方法</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <br>
+      　　<span class="part">3.2.6 信含网络</span><span class="text"><br>
+      　　</span>信念（Belief）网络是一种模拟人类推理过程中因果关系的一种向图。它的结点表示问题求解中的命题或变量，也可以是假设，通过弧把认为有直接关系的命题或变量连结起来。若结点M的值直接影响结点N的值记作(M→N)，这时把M，N连结起来，而且连结强度用条件概率P(N|M)来表示。<br>
+      　　一般说来，n个命题<img src="../../../../images/text/chap02/sec02/x1.gif" width="12" height="8">,…,<img src="../../../../images/text/chap02/sec02/xn.gif" width="12" height="7">之间相互关系的一般知识可用联合概率分布函数来描述，但十分复杂。Pearl 
+      认为人在推理时知识并不是以联合概率分布形式表示的，而是以变量间的相关性和条件相关性表示，即用条件概率表示。如<br>
+      　　P(<img src="../../../../images/text/chap02/sec02/x1.gif" width="12" height="8">,…,<img src="../../../../images/text/chap02/sec02/xn.gif" width="12" height="7">)=P(<img src="../../../../images/text/chap02/sec02/xn.gif" width="12" height="7">|<img src="../../../../images/text/chap02/sec02/xn.gif" width="12" height="7"><font size="1">-1</font>,… 
+      ,<img src="../../../../images/text/chap02/sec02/x1.gif" width="12" height="8">)・(P(<img src="../../../../images/text/chap02/sec02/xn.gif" width="12" height="7"><font size="1">-1</font>|<img src="../../../../images/text/chap02/sec02/xn.gif" width="12" height="7"><font size="1">-2</font>,…,<img src="../../../../images/text/chap02/sec02/x1.gif" width="12" height="8">)・…・P(<img src="../../../../images/text/chap02/sec02/x2.gif" width="12" height="8">|<img src="../../../../images/text/chap02/sec02/x1.gif" width="12" height="8">) 
+      P(<img src="../../../../images/text/chap02/sec02/x1.gif" width="12" height="8">)<br>
+      　　例如图3.4所示<br>
+      　　有P(<img src="../../../../images/text/chap02/sec02/x1.gif" width="12" height="8">,<img src="../../../../images/text/chap02/sec02/x2.gif" width="12" height="8">,…,<font size="2">x</font><font size="1">6</font>)=P(<font size="2">x</font><font size="1">6</font>|<font size="2">x</font><font size="1">5</font>)・(P(<font size="2">x</font><font size="1">5</font>|<img src="../../../../images/text/chap02/sec02/x2.gif" width="12" height="8">,<font size="2">x</font><font size="1">3</font>)・P(<font size="2">x</font><font size="1">4</font>|<img src="../../../../images/text/chap02/sec02/x1.gif" width="12" height="8">,<img src="../../../../images/text/chap02/sec02/x2.gif" width="12" height="8">)・(P(<font size="2">x</font><font size="1">3</font>|<img src="../../../../images/text/chap02/sec02/x1.gif" width="12" height="8">)・P(<img src="../../../../images/text/chap02/sec02/x2.gif" width="12" height="8">|<img src="../../../../images/text/chap02/sec02/x1.gif" width="12" height="8">)・P(<img src="../../../../images/text/chap02/sec02/x1.gif" width="12" height="8">) 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="30" valign="top"><img src="../../../../images/text/tb/tushi.gif" width="25" height="16" alt="图示"></td>
+          <td align="center"><img src="../../../../images/text/chap03/sec2/tu3.4.gif" width="171" height="232"><br>
+            <span class="explaination"> <br>
+            图3.4信念网络 </span></td>
+        </tr>
+      </table>
+      　　当命题间相关性由边表示，条件概率表示边的强度，从而命题间静态结构关系的有关知识就表示出来了。<br>
+      　　当获取新证据新事实时，对每个命题可能取值的影响，将对每个结点定义一个信任度，记作BEL(x)。可规定<br>
+      　　　　　BEL(x)=P(x=<font size="2">x</font><font size="1">i</font>|D)<br>
+      　　表当前所拥有的所有事实和证据D条件下，命题X取值xi的可信任程度。基于BEL进而计算新证据、事实下各命题的可信任程度。这便是不确定性计算问题。<br>
+      　　信念网络是一种不确定的内涵表示。如何建立一种简单有效的方法来实现知识在网络中的传播是主要研究课题。<br>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

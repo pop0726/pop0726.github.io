@@ -1,0 +1,69 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第六章　实例学习</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <br>
+      　　<span class="section">6.4 学习多个概念</span><span class="text"><br>
+      <br>
+      　　在学习单个概念时，提供给程序若干正例和反例。程序找到的概念应把例子空间划分成正例区和反例区。如图6.11a所示。在学习多个概念时，提供给程序几个概念各自的示教例子。程序由此得到几个概念。每个概念对应例子空间的一个区。如图6.11b所示。例如，诊断多种疾病的程序应具有下列规则集。<br>
+      　　　　（疾病A的诊断症状）<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">疾病是A。<br>
+      　　　　（疾病B的诊断症状）<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">疾病是B。<br>
+      　　　　　┋<br>
+      　　　　（疾病N的诊断症状）<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">疾病是N</span><br>
+      <br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="30" valign="top"><img src="../../../../images/text/tb/tushi.gif" width="25" height="16" alt="图示"></td>
+          <td align="center" class="explaination"><img src="../../../../images/text/chap06/sec4/tu6.11.gif" width="318" height="157"><br>
+            图6.11 例子空间的划分 </td>
+        </tr>
+      </table>
+      <span class="text"><br>
+      　　学习多个概念中的主要问题是概念描述的重迭，也就是各种规则条件部分的重迭。例如，在图6.11b 中，当病人症状落在A与B重迭的区域时，诊病人有A和B两种病。有些情况下，这种重迭是正确的，如疾病诊断。另一些情况下，要求各个概念互不相容，如识别手写体字符要求对字符作唯一分类。这时重迭会引起新问题，为此在加入新概念时应修改原有概念，以防止重迭。<br>
+      </span><span class="part"><br>
+      　　6.4.1 AQ11程序</span><span class="text"><br>
+      　　Michalski 等人（1978）研究了几种学习分类规则集的方法。模式分类器使用这些规则把收到的未知模式分类为几种类型之一。提供的示教例子包括模式样本及其分类。程序由这些示教例子学习分类规则。分类规则应力求用尽量少的模式特征实现可靠的分类。下面介绍AQ11（Michalski,1978）。<br>
+      　　1． 用Aq算法寻找鉴别规则<br>
+      　　AQ11程序用于学习黄豆病害的分类规则集。它寻求规则空间中尽可能一般的规则，使该规则把Ci类的示教例子与其它类型Cj(j≠i)的示教例子区分开。这些规则称为鉴别规则或鉴别描述。它使用VL1语言表示鉴别规则。这种语言的内容很丰富，包括合取、析取和集合运算。因此，VL1的规则空间很大。<br>
+      　　Aq 算法是搜索规则空间的算法，它相当于反复应用消除候选元素算法。它把学习鉴别规则问题转化为一系列学习单个概念问题。为了寻找对Ci类的规则，它把Ci类的例子作为正例子，而把所有其它类的例子作为反例。由此找到覆盖全部正例不覆盖任一反例的描述，以此作为Ci的规则。这样找到的鉴别规则集可能在例子空间中未观察的区域内重迭。<br>
+      　　AQ11用另一种方法寻找不重迭的分类规则集。为了寻求Ci类的分类规则，它以Ci类的例子为正例，它的反例包括所有其它类型Cj（j≠i）的例子和已处理的各类型Ck(1≤k≤i)的正例区中全部正例。于是，C2类只覆盖C1类未覆盖的那一部分， 
+      C3类覆盖的那一部分是在C1和C2类都不覆盖的那一部分中。<br>
+      　　AQ11得到的鉴别规则相当于符合示教例子的最一般的描述的集合，即各类型的G集合G1、G2等。有时要使用符合示教例子的最特殊的描述的集合，即各类型的S集合S1和S2等。图6.12表示对各种类型的G和S集合。同时使用G和S集合时，可以作确定性分类（被S集覆盖的例子），可能性分类（只被一个G集覆盖的例子）和多种可能性分类（同时被多于一个G集覆盖的例子）。<br>
+      　　2. AQ11的应用　<br>
+      　　AQ11用于学习15种黄豆的病害的诊断规则，提供给630种黄豆植株的描述，每个描述是35个特征的特征向量。同时送入每个描述的专家诊断结论。选择例子程序从中选出290种样本植株作为示教例子。选择准则是使例子间相差较大。其余340种植株留作测试集合，它们用于检验得到的规则。程序由290个例子推出可能重迭的规则。</span><br>
+      <br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="30" valign="top"><img src="../../../../images/text/tb/tushi.gif" width="25" height="16" alt="图示"></td>
+          <td align="center" class="explaination"><img src="../../../../images/text/chap06/sec4/tu6.12.gif" width="251" height="159"><br>
+            <br>
+            图6.12 各个类型的G和S集</td>
+        </tr>
+      </table>
+      <span class="text"> <br>
+      　　植物学专家曾坚持使用比VL1语言更强的表达能力。例如专家的规则把某些特征列为必要条件，另一些特征列为充分条件。但是AQ11不能作这种区分。尽管如此，程序得出的规则正确诊断疾病的比率仍达到97.6%，而专家诊断正确率只有71.8%。些外，程序得到的规则推出的多种可能性也较少。<br>
+      </span> </td>
+  </tr>
+</table>
+</body>
+</html>

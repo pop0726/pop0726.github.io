@@ -1,0 +1,69 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td><span class="text"> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第十章 语义分析</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <br>
+      　　</span><span class="section">10.3 动 词</span><span class="text"><br>
+      <br>
+      　　根据英语的传统语法，每一个非并列的句子或短语都有一个中心词，一个句子的中心词则是它的主要动词。例如，在句子：<br>
+      </span><span class="explaination">　　　　John probably knows the old man.<br>
+      　　　　(约翰也许认识这个老人。)</span><span class="text"><br>
+      中，动词&quot;knows&quot;是全句的中心，名词&quot;man&quot;是名词短语&quot;the old man&quot;的中心。 
+      <br>
+      　　传统语法还认为，在一个句子中围绕其中中心动词的有两类修饰成分(modifiers)，一类叫补足语(complements)，包括例句中作为主语的名词短语&quot;John&quot;和作为宾语的名词短语&quot;the 
+      o1d man&quot;；另一类叫附加语(adjuncts)，如例句中的状语&quot;probably&quot;。在句子的逻辑式中，作为中心动词的词义谓词将为该动词的每个补足语分配一个适当的变元。在这个意义上，补足语的句法概念同词义谓词中变元的语义概念之间存在着紧密的联系。<br>
+      　　下面是这类词义谓词表达式的例子：<br>
+      </span><span class="explaination">　　　　John laughs.(约翰笑了。)<br>
+      　　　　laugh1(john).<br>
+      　　　　John sees Mary.(约翰看见玛丽。)<br>
+      　　　　See1(john，mary).<br>
+      　　　　John gives Fido to Mary.(约翰把菲杜给了玛丽。)<br>
+      　　　　Give1(john，fido，mary).<br>
+      　　　　John gives Mary Fido.(约翰把菲杜给了玛丽。)<br>
+      　　　　Give1 (john，fido,mary).<br>
+      　　　　John believes in Mary.(约翰信任玛丽。)<br>
+      　　　　believe-in(john，mary).<br>
+      　　　　John trusts Mary.(约翰信任玛丽。)<br>
+      　　　　trust1(john，mary).</span><span class="text"><br>
+      　　请注意，在上面的例句中某些补足语是通过象&quot;to&quot;和&quot;in&quot;一类的介词引入句子的。如第三句中的介词短语&quot;to 
+      Mary&quot;所起的作用同第四句中的间接宾语&quot;Mary&quot;在语义上完全一样。又如在第五和第六句中，&quot;believe 
+      in&quot;和&quot;trust&quot;的意思都是&quot;信任&quot;，在这种场合下由介词&quot;in&quot;引出的补足语其实与直接宾语相当。<br>
+      　　当然，介词也可以引出附加语，如句子：&quot;John walks in the park&quot;(约翰在公园里散步)，只是在这个句子中，&quot;in&quot;有它自己独立的意思(&quot;在…里&quot;)。<br>
+      　　如果在一个谓词中至少有一个变元是逻辑式，我们就称这个谓词是内涵的(intensional)。许多动词都要用这种内涵的谓词来表达，如：<br>
+      </span><span class="explaination">　　　　John believes that Mary knows Bill.(约翰相信玛丽认识比尔。)<br>
+      　　　　believe (john，know(mary，bill)).<br>
+      　　　　John wants to see Mary.(约翰想见到玛丽。)<br>
+      　　　　want(john，see(john，mary)).<br>
+      　　　　John asks Bill to find Mary.(约翰要求比尔去找玛丽。)<br>
+      　　　　ask(john，bill，find(bill，mary)).<br>
+      　　对于被动句也可以来用类似的嵌套形式来表达：<br>
+      　　　　John is seen by Mary.(约翰被玛丽看到)<br>
+      　　　　be-passive(john，see(mary，john)).</span><span class="text"><br>
+      式中谓词be-passive(X，P)的意思是：P所描述的事件是针对X的。而P所表达的意思相当于主动句&quot;Mary sees John&quot;，be-pas-sive 
+      表达了被动句在意义上与主动句之间的差异。<br>
+      　　最后，有少数动词的意思相当于零目谓词，比如句子&quot;It snows&quot;(下雪了)对应于简单逻辑式snow，句中的&quot;It&quot;应视为动词&quot;snow&quot;的假主语。至此我们已经看到了分别带有0个到3个变元的动词词义谓词，在LFL中没有出现过变元数多于3的动词词义谓词。<br>
+      </span></td>
+  </tr>
+</table>
+</body>
+</html>

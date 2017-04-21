@@ -1,0 +1,80 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td><span class="text"> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="50%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第八章 自然语言理解的任务和发展简史</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <br>
+      　　</span><span class="section">8.3 以句法-语义分析为主流的中期历史<br>
+      </span><span class="text"><br>
+      　　进入70年代以后，一批采用句法-语义分析技术的自然语言理解系统脱颖而出，在语言分析的深度和难度方面都比早期系统有了长足的进步。这个时期的代表作是LUNAR，SHRDLU和MARGIE系统。<br>
+      <br>
+      　　</span><span class="part">8.3.1 LUNAR</span><span class="text"><br>
+      　　LUNAR是第一个允许用普通英语同计算机数据库对话的人-机接口，是1972年美国BBN公司的W.Woods负责设计的。系统用来协助地质学家查找、比较和评价阿波罗-11飞船带回的月球岩石和土壤标本的化学分析数据。</span> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="30" valign="top"><img src="../../../../images/text/tb/tushi.gif" width="25" height="16" alt="图示"></td>
+          <td class="explaination" align="center"><img src="../../../../images/text/chap08/sec3/tu81.gif" width="400" height="125"><br>
+            图8.1 LUNAR的结构框图</td>
+        </tr>
+      </table>
+      <span class="text">　　LUNAR系统的结构框图如图8.1所示。图中的箭头表示信息的流向。系统由三个主要模块组成，它们分别是：句法分析、语义解释和数据检索。系统的资源包括ATN语法、词典、语义规则和一个数据库。<br>
+      　　用户用英语向系统提出来的请求如：<br>
+      </span><span class="explaination">　　(WHAT IS THE AVERAGE CONCENTRATION OF 
+      ALUMINIUM IN HIGH ALKALI ROCKS?) 在强碱岩石中铝的平均浓度是多少?<br>
+      　　(WHAT SAMPLES CONTAIN P205?) 什么样本中含有P205?<br>
+      　　(GIVE ME THE MODAL ANALYSES OF P205 IN THOSE SAMPLES)告诉我那些样本中P205的典型分析<br>
+      　　(GIVE ME EU DETERMINATIONS IN SAMPLES WHICH CONTAIN ILM) 告诉我含ILM的样本中的EU测定结果。</span><span class="text"><br>
+      　　LUNAR通过以下三个步骤来处理这些请求：<br>
+      　　(1)利用一个ATN句法分析器(详见第九章)对输入句子进行句法分析，以便获得反映该句子句法结构的一棵句法树；<br>
+      　　(2)语义解释：把上述句法树翻译成一种形式化的查询语言，后者以谓词形式来表达用户对数据库检索所提出来的各种限制； <br>
+      　　(3)对数据库执行这个查询语言表达式，以产生该请求的回答。<br>
+      　　处理过程的前两步属于语言理解部分，由语言处理模块完成；第三步是生成回答，通过检索数据库和推理来实现。<br>
+      　　LUNAR系统的语言理解部分包含一部3500词的机器词典和一套以ATN形式表述的英语语法规则。它有能力处理英语的时态和语气、某些指代和比较、定语从句、形容词定语和嵌入的补语结构。 
+      <br>
+      　　LUNAR采用的形式化查询语言由以下三类对象组成：<br>
+      　　(1)标识符：用以命名数据库中实体的类别(包括用函数定义的实体)；<br>
+      　　(2)命题：由以标识符作为变元的原子团组成；<br>
+      　　(3)命令：包括起始行动。<br>
+      例如，L10046是某种特殊样品的标识符,OLIV是橄榄矿石的标识符，CONTAIN是谓词，TEST是命令，则<br>
+      　　</span><span class="explaination">(TEST(CONTAIN　L10046 OLIV))</span><span class="text"><br>
+      是一条典型的查询语言表达式。量词函数FOR是这种查询语言的一个主要函数，在表达式<br>
+      　　</span><span class="explaination">(FOR&lt;QUANT&gt;X/&lt;CLASS&gt;：&lt;PX&gt;；&lt;QX&gt;)</span><span class="text"><br>
+      中，&lt;QUJANT&gt;是一个量词，如EVERY(所有的)，SOME(存在一个)等；X是一个变量；&lt;CLASS&gt;是对象的类别；&lt;PX&gt;说明某种限定，&lt;QX&gt;表示命题或命令。如果SEQ是一个枚举函数；用来罗列一个事先计算好的表；PRINTOUT是一条命令，打印作为其变元的那个标识符所代表的实体，则<br>
+      　　</span><span class="explaination">(FOR EVERY X1(SEQ TYPE (C))：T；(PRINTOUT 
+      X1))</span><span class="text"><br>
+      表示让机器打印出所有type为C的样品的号码。在这个例子中， &lt;PX&gt;＝T表示没有设置任何限制。<br>
+      　　下面是LUNAR系统的一个完整的运行实例。请求：<br>
+      　　</span><span class="explaination">(DO ANY SAMPLES HAVE GREATER THEN l3 
+      PERCENT ALUMINUM)</span><span class="text"><br>
+      是否有任何样本含铝量超过百分之十三?<br>
+      (通过句法分析和语义解释所得到的)查询语言表达式：<br>
+      </span><span class="explaination">　　(TEST(FOR SOME X1/(SEQ SAMPLES)：T；<br>
+      　　　　　　　　(CONTAIN X1(NPR *X2/'AL203)<br>
+      　　　　　　　　　　　　　　　　　 　(GREATERTHAN l3 PCT))))</span><span class="text"><br>
+      响应： <br>
+      　　</span><span class="explaination">YES</span><span class="text"> <br>
+      　　LUNAR是把ATN语法应用于实际问题的一个范例。由于系统只要求有限的性能目标(在一个特定数据库的查询中，涉及到的词汇和句型都极其有限，而且注意力无需放在会话的趣味性方面)，所以自然语言对话中的某些常见的复杂问题被回避了。<br>
+      </span></td>
+  </tr>
+</table>
+</body>
+</html>

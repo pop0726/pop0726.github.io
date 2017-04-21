@@ -1,0 +1,92 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第九章 句法分析</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+       <br>
+      <span class="text">　　</span><span class="part">9.8.4 词汇功能语法(LFG)</span><span class="text"><br>
+      　　在LFG中，对-个句子的描述包括以下两部分：一个成分结构(c-structure)和一个功能结构(f-structure)。c-structure用来描写表层句子的层次结构，是由一部上下文无关语法产生的，结点上采用短语标记来标注。f-structure通过附加到语法规则和词条定义上的功能方程式来生成,它的作用类似于FUG中的功能描述，语义模块通过它可以进一步确定句子的谓词-变元关系。<br>
+      　　LFG的句法规则如(1)～(3)所示：<br>
+      </span><span class="explaination">　　　　　S →　　　NP　　　　　　　VP<br>
+      　　　　　　　　(↑Subject)＝↓　 ↑＝↓　　　　　　　　(1)<br>
+      　　　　　NP→　Determiner Noun　　　　　　　　　　　　 (2)<br>
+      　　　　　VP→　Verb　　　NP　　　　　　　NP<br>
+      　　　　　　　 ↑＝↓ (↑Object)＝↓ (↑Object2)＝↓　　(3)</span><span class="text"><br>
+      其中符号&quot;↑&quot;和&quot;↓&quot;叫做元变量，&quot;↑&quot;指规则左侧的那个结点。&quot;↓&quot;指当前结点本身。所以(1)中的第一个方程式可解释为：把NP的属性传递给S结点的Subject特征；第二个方程式说明：VP的全部属性都应转移给支配它的S结点。正是通过这些功能方程式，在LFG中实现了复杂特征集在句法结构各个结点之间的传递和组合。<br>
+      　　功能方程式的另一个来源是词条信息，如：<br>
+      </span><span class="explaination">　　handed Verb　　(↑Tense)＝Past 　　　　　　　　　　　　　　　　(4)<br>
+      　　　　　　　　　 (↑Predicate)：＝'Hand((↑Subject)，<br>
+      　　　　　　　　　　　　　　　　　　　　(↑Object)，(↑Objcct2)&gt;'<br>
+      　　girl Noun　　　(↑Number)=Singular　　　　　　　　　　　　　　 (5)<br>
+      　　　　　　　　　 (↑Predicate)＝'Girl'<br>
+      　　baby Noun　　　(↑Number)＝Singular　　　　　　　　　　　　　　(6)<br>
+      　　　　　　　　　 (↑Predicate)＝'Baby' <br>
+      　　toys Noun　　　(↑Number)＝Plural　　　　　　　　　　　　　　　(7)<br>
+      　　　　　　　　　 (↑Predicate)＝'Toy'<br>
+      　　the Determiner (↑Definiteness)＝Define　　　　　　　　　　　　(8)<br>
+      　　a Determiner 　(↑Definiteness)＝Indefinite　　　　　　　　　　(9)<br>
+      　　　　　　　　　 (↑Number)＝Singular </span><span class="text"><br>
+      值得注意的是，在动词的词条信息中，通过功能方程式定义了从语法功能(如Subject, Object等)到谓词-变元关系的映射。这是句子的功能结构同语义表示衔接的基础。例如，对于句子(10)：<br>
+      　　A girl handed the baby the toys. (10)<br>
+      　　(一个女孩把玩具递给了那个婴儿。)<br>
+      利用句法规则(1)一(3)可以首先推导出它的c-structure如图9.15所示。</span> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="30" valign="top"><img src="../../../../images/text/tb/tushi.gif" width="25" height="16" alt="图示"></td>
+          <td align="center" class="explaination"><img src="../../../../images/text/chap09/sec2/tu915.gif" width="300" height="168"><br>
+            <br>
+            图9.15 例句(10)的c-structure</td>
+        </tr>
+      </table>
+      <span class="text"><br>
+      　　然后通过图中句法树上的标号，用具体变量Xi去置换各功能方程式中的元变量，如： <br>
+      </span><span class="explaination">　　(x<font size="1">1</font>Subject)：＝x<font size="1">2</font>　　　　　　　　　　　　　　　 
+      (1a)<br>
+      　　x<font size="1">1</font>＝<font size="2">x</font><font size="1">3</font>　　　　　　　　　　　　　　　　　　　　　(1b)<br>
+      　　(<font size="2">x</font><font size="1">3</font>Object)＝<font size="2">x</font><font size="1">4</font>　　　　　　　　　　　　　　　　　(3a)<br>
+      　　(<font size="2">x</font><font size="1">3</font>Object2)＝<font size="2">x</font><font size="1">5</font>　　　　　　　　　　　　　　　　 
+      (3b)<br>
+      　　(<font size="2">x</font><font size="1">3</font>Tense)＝Past　　　　　　　　　　　　　　　　 
+      (4a)<br>
+      　　(<font size="2">x</font><font size="1">3</font>Predicate)＝Hand&lt;(<font size="2">x</font><font size="1">3</font>Subject),(<font size="2">x</font><font size="1">3</font>Object),<br>
+      　　　　　　　　　 (<font size="2">x</font><font size="1">3</font>Object2)&gt;'　　　　　　　　　　(4b)<br>
+      　　(<font size="2">x</font><font size="1">3</font>Definiteness)＝Indefinite　　　　　　　　　　(9a)<br>
+      　　(x<font size="1">2</font>Number)＝Singular　　　　　　　　　　　　　　(9b)<br>
+      　　(<font size="2">x</font><font size="1">3</font>Number)＝Singular　　　　　　　　　　　　　　(5a)<br>
+      　　(x<font size="1">2</font>Predicate)＝'Girl'　　　　　　　　　　　　　 (5b)<br>
+      　　… … …</span><span class="text"><br>
+      　　最后通过合一求得这个方程组的解。后者就是例句(10)的f-structure：<br>
+      　　<img src="../../../../images/text/chap02/sec02/x1.gif" width="12" height="8" align="absmiddle">＝<font size="2">x</font><font size="1">3</font>＝<img src="../../../../images/text/chap09/sec8/gs10.gif" width="217" height="115" align="absmiddle"><br>
+      　　<img src="../../../../images/text/chap02/sec02/x2.gif" width="12" height="8">＝<img src="../../../../images/text/chap09/sec8/gs11.gif" width="154" height="62" align="absmiddle"><br>
+      　　<font size="2">x</font><font size="1">4</font>＝<img src="../../../../images/text/chap09/sec8/gs12.gif" width="151" height="68" align="absmiddle"><br>
+      　　<font size="2">x</font><font size="1">5</font>＝<img src="../../../../images/text/chap09/sec8/gs13.gif" width="148" height="75" align="absmiddle"><br>
+      　　综上所述LFG具有如下几个待点：<br>
+      　　(1)采用复杂特征集，即属性值矩阵，作为表达语法信息的基本手段。<br>
+      　　(2)以合一运算作为句法-语义分析的基本算法，合一运算的对象是表达语法信息的复杂特征集。<br>
+      　　(3)句法-语义分析过程所依据的语言知识主要存储在机器词典的词条栏目中，整个分析过程是词汇驱动的。<br>
+      　　(4)以无序的语法功能作为语法理论的基本观念。<br>
+      　　由于具备这些重要特点，词汇功能语法克服了短语结构语法的许多缺陷，成为计算语言学的重要成果之-。据文献报导，LFG已被美国卡内基-梅隆大学的基于知识的机器翻译系统KBMT、美国曼彻斯待理工大学的英日机器翻译系统NTRAN和日本财团bravis开发的机器翻译系统采用。<br>
+      </span></td>
+  </tr>
+</table>
+</body>
+</html>

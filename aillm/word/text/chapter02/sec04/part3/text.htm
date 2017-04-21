@@ -1,0 +1,173 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td class="text"> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../../images/pic/bg0401.gif" height="18" align="right" class="chap">
+              <tr> 
+                <td> 
+                  <div align="center">第二章 归结推理方法</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <br>
+      　　<span class="part">2.4.2 归结式</span><br>
+      　　在谓词逻辑下求两个子句的归结式，和命题逻辑一样消互补对，但需考虑变量的合一与置换。<br>
+      　　设<img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absmiddle">、<img src="../../../../images/text/chap02/sec01/c2.gif" width="13" height="14" align="absmiddle"> 
+      是两个无公共变量的子句，L<font size="1">1</font>、L<font size="1">2</font>分别是<img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absmiddle">、<img src="../../../../images/text/chap02/sec01/c2.gif" width="13" height="14" align="absmiddle">的文字，如果 
+      L<font size="1">1</font>与～L<font size="1">2</font> 有mgu σ，则<br>
+      　　　　　(<img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absmiddle">σ-{L<font size="1">1</font>σ})∪(<img src="../../../../images/text/chap02/sec01/c2.gif" width="13" height="14" align="absmiddle">σ 
+      -{L<font size="1">2</font>σ})<br>
+      称作子句<img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absmiddle">、<img src="../../../../images/text/chap02/sec01/c2.gif" width="13" height="14" align="absmiddle"> 
+      的一个二元归结式，而L<font size="1">1</font>、L<font size="1">2</font>为被归结的文字。<br>
+      　　这里使用了集合的符号和运算，是为了说明的方便。要将子句C<font size="1">i</font>σ、L<font size="1">i</font>σ先写成集合形式，如P(x)∨～Q(y)改写为{P(x),～Q(y)}。在集合的表示下作减法和作并集运算，然后再写成子句形，如集合运算结果为{P(x),～Q(y)}改写为P(x)∨～Q(y)。<br>
+      　　归结式定义中，要求<img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absmiddle">、<img src="../../../../images/text/chap02/sec01/c2.gif" width="13" height="14" align="absmiddle"> 
+      无公共变量也是合理的。如<img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absmiddle">=P(x)<img src="../../../../images/text/chap02/sec01/c2.gif" width="13" height="14" align="absmiddle">=～P(f(x)),而<br>
+      　　　　　S＝{<img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absmiddle">、<img src="../../../../images/text/chap02/sec01/c2.gif" width="13" height="14" align="absmiddle"> 
+      }<br>
+      　　是不可满足的，但<img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absmiddle">、<img src="../../../../images/text/chap02/sec01/c2.gif" width="13" height="14" align="absmiddle"> 
+      的变量是相同的，就无法合一了，从而没有归结式了。也即不能用归结法证明S的不可满足性了，这就限制了归结法的使用范围，如果对C1或C2的变量使用易名规则，便可将C1、C2化成无共同的变量了。这是没问题的，如S＝{P(x)∨Q(y),R(y)∨Q(y)}其逻辑表示是<br>
+      　　S＝(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">y)((P(x) 
+      ∨～Q(y)) ∧ (R(y)∨Q(y)))<br>
+      　　 = (<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">y)((P(x) 
+      ∨～Q(y)) ∧(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">y)(R(y)∨Q(y)))<br>
+      　　 = (<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">y)((P(x) 
+      ∨～Q(y)) ∧(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">y)(R(y)∨Q(y)))<br>
+      　　 = (<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">y)((P(x) 
+      ∨～Q(y)) ∧(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">z)(R(z)∨Q(z)))<br>
+      　　写成集合形式<br>
+      　　　　　S＝{P(x)∨～Q(y),R(z)∨Q(z)}<br>
+      　　同命题逻辑下归结式的定义不同的是，先需对<img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absmiddle">、<img src="../../../../images/text/chap02/sec01/c2.gif" width="13" height="14" align="absmiddle"> 
+      有关变量作mgu,再消去互补对。<br>
+      　　同样有<br>
+      　　　　　<img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absmiddle">∧<img src="../../../../images/text/chap02/sec01/c2.gif" width="13" height="14" align="absmiddle"><img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">R(<img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absmiddle">,<img src="../../../../images/text/chap02/sec01/c2.gif" width="13" height="14" align="absmiddle">)<br>
+      　　其中R(<img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absmiddle">,<img src="../../../../images/text/chap02/sec01/c2.gif" width="13" height="14" align="absmiddle">)表示<img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absmiddle">,<img src="../../../../images/text/chap02/sec01/c2.gif" width="13" height="14" align="absmiddle"> 
+      的二元归结式。
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="text">
+        <tr> 
+          <td width="30"><img src="../../../../images/text/tb/liti.gif" width="26" height="25" alt="例题"></td>
+          <td><b>例1:</b></td>
+        </tr>
+        <tr> 
+          <td>&nbsp;</td>
+          <td>　<img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absmiddle"> 
+            =～A(x)∨B(x)<br>
+            　<img src="../../../../images/text/chap02/sec01/c2.gif" width="13" height="14" align="absmiddle"> 
+            = A(a)∨D(y)<br>
+            　R(<img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absmiddle">,<img src="../../../../images/text/chap02/sec01/c2.gif" width="13" height="14" align="absmiddle">) 
+            = B(a)∨D(y)</td>
+        </tr>
+        <tr> 
+          <td><img src="../../../../images/text/tb/liti.gif" width="26" height="25" alt="例题"></td>
+          <td><b>例2:</b></td>
+        </tr>
+        <tr> 
+          <td>&nbsp;</td>
+          <td>　<img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absmiddle"> 
+            =～A(x)∨B(x)<br>
+            　<img src="../../../../images/text/chap02/sec01/c2.gif" width="13" height="14" align="absmiddle"> 
+            = A(g(x))<br>
+            　先将<img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absmiddle">的变量改写为y，便可对　<br>
+            　　　<img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absmiddle"> 
+            ＝～A(y)∨B(y)<br>
+            　　　<img src="../../../../images/text/chap02/sec01/c2.gif" width="13" height="14" align="absmiddle"> 
+            ＝A(g(x))<br>
+            　作归结了，R(<img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absmiddle">,<img src="../../../../images/text/chap02/sec01/c2.gif" width="13" height="14" align="absmiddle">)＝B(g(x)))。实际计算过程中不必写出换变量这一步，而只需将<img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absmiddle">,<img src="../../../../images/text/chap02/sec01/c2.gif" width="13" height="14" align="absmiddle"> 
+            的变量想作是不同的就可以了。</td>
+        </tr>
+        <tr> 
+          <td><img src="../../../../images/text/tb/liti.gif" width="26" height="25" alt="例题"></td>
+          <td><b>例3:</b></td>
+        </tr>
+        <tr> 
+          <td>&nbsp;</td>
+          <td>　<img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absmiddle"> 
+            =P(x)∨Q(x)<br>
+            　<img src="../../../../images/text/chap02/sec01/c2.gif" width="13" height="14" align="absmiddle"> 
+            =～P(g(y))∨～Q(b)∨R(x)<br>
+            这样的<img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absmiddle">,<img src="../../../../images/text/chap02/sec01/c2.gif" width="13" height="14" align="absmiddle">有两个二元归结式，取σ<font size="1">1</font>={g(y)/x}得<br>
+            　　　R(<img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absmiddle">,<img src="../../../../images/text/chap02/sec01/c2.gif" width="13" height="14" align="absmiddle">) 
+            =Q(g(y))∨～Q(b)∨R(x)<br>
+            　而取σ<font size="1">2</font>={b/x}，便有R(<img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absmiddle">,<img src="../../../../images/text/chap02/sec01/c2.gif" width="13" height="14" align="absmiddle">) 
+            =P(b)∨～P(g(y))∨R(x)</td>
+        </tr>
+        <tr>
+          <td><img src="../../../../images/text/tb/liti.gif" width="26" height="25" alt="例题"></td>
+          <td><b>例4:</b></td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td>　<img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absmiddle"> 
+            =P(x)∨～Q(b)<br>
+            　<img src="../../../../images/text/chap02/sec01/c2.gif" width="13" height="14" align="absmiddle"> 
+            =～P(a)∨Q(y)∨R(z)<br>
+            　这时注意，求归结式不能同时消去两个互补对。如在σ＝{a/x,b/y}下　得 R(z)。这不是<img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absmiddle">,<img src="../../../../images/text/chap02/sec01/c2.gif" width="13" height="14" align="absmiddle"> 
+            的二元归结式。最简单的例子是<br>
+            　　　<img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absmiddle"> 
+            =P∨Q,<img src="../../../../images/text/chap02/sec01/c2.gif" width="13" height="14" align="absmiddle"> 
+            =～P∨～Q<br>
+            　若消两个互补对便得空子句□。但是<img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absmiddle">,<img src="../../../../images/text/chap02/sec01/c2.gif" width="13" height="14" align="absmiddle"> 
+            并无矛盾。或说消两个互补对的结果并不是<img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absmiddle">,<img src="../../../../images/text/chap02/sec01/c2.gif" width="13" height="14" align="absmiddle"> 
+            的逻辑推论了。所以消两个互补对的结果不是二元归结式。</td>
+        </tr>
+      </table>
+      <br>
+      　　在对子句作归结前，可先考虑子句内部的化简，这便提出了子句因子概念。<br>
+      　　设　C= P(x)∨P(f(x))∨～Q(x)<br>
+      　　令　σ={f(y)/x}<br>
+      　　置换σ使用于C，可使P(x),P(f(y))合一，Cσ较C来得简单了。<br>
+      　　如果一个子句C的几个文字有mguσ，那么C的例Cσ称作子句C的因子。
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="text">
+        <tr> 
+          <td width="30"><img src="../../../../images/text/tb/dingyi.gif" width="26" height="17" alt="定义"></td>
+          <td><b>定义</b></td>
+        </tr>
+        <tr> 
+          <td>&nbsp;</td>
+          <td>　若<img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absmiddle">,<img src="../../../../images/text/chap02/sec01/c2.gif" width="13" height="14" align="absmiddle"> 
+            是无公共变量的子句，作<br>
+            　(1) <img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absmiddle">,<img src="../../../../images/text/chap02/sec01/c2.gif" width="13" height="14" align="absmiddle">的二元归结式<br>
+            　(2) <img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absmiddle">的因子和<img src="../../../../images/text/chap02/sec01/c2.gif" width="13" height="14" align="absmiddle">的二元归结式<br>
+            　(3) <img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absmiddle">和<img src="../../../../images/text/chap02/sec01/c2.gif" width="13" height="14" align="absmiddle">的因子的二元归结式<br>
+            　(4) <img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absmiddle">的因子和<img src="../../../../images/text/chap02/sec01/c2.gif" width="13" height="14" align="absmiddle">的因子的二元归结式<br>
+            　这四种二元归结式都叫子句<img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absmiddle">,<img src="../../../../images/text/chap02/sec01/c2.gif" width="13" height="14" align="absmiddle"> 
+            的归结式，仍记作R(<img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absmiddle">,<img src="../../../../images/text/chap02/sec01/c2.gif" width="13" height="14" align="absmiddle">)。</td>
+        </tr>
+        <tr>
+          <td><img src="../../../../images/text/tb/liti.gif" width="26" height="25" alt="例题"></td>
+          <td><b>例5:</b></td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td>　<img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absmiddle"> 
+            =P(x)∨P(f(y))∨Q(g(y))<br>
+            　<img src="../../../../images/text/chap02/sec01/c2.gif" width="13" height="14" align="absmiddle"> 
+            =～P(f(g(a)))∨Q(b) <br>
+            　先作C1的因子，取σ={f(y)/x} 得C1的因子<br>
+            　　　　　　　　　<img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absmiddle">σ 
+            =P(f(y))∨Q(g(y))<br>
+            　于是有<img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absmiddle">,<img src="../../../../images/text/chap02/sec01/c2.gif" width="13" height="14" align="absmiddle"> 
+            的归结式<br>
+            　　　R(<img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absmiddle">,<img src="../../../../images/text/chap02/sec01/c2.gif" width="13" height="14" align="absmiddle">)=Q(g(g(a)))∨Q(b)<br>
+            　<img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absmiddle">,<img src="../../../../images/text/chap02/sec01/c2.gif" width="13" height="14" align="absmiddle"> 
+            到R(<img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absmiddle">,<img src="../../../../images/text/chap02/sec01/c2.gif" width="13" height="14" align="absmiddle">) 
+            的推理仍是正确的。</td>
+        </tr>
+      </table><br>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

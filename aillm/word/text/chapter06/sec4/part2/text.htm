@@ -1,0 +1,158 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第六章　实例学习</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <br>
+      　　<span class="part">6.4.2 Meta-DENDRAL</span><br>
+      <span class="text">　　化学家分析质谱仪得到的质谱就可以判断试样的分子结构。DENDRAL程序可以自动作到这一点。它首先检查质谱，从而得到一系列约束。然后产生满足约束的可能的化学分子结构。最后在质谱仪仿真程序中测试得到的结构。仿真程序中使用分裂规则集。<br>
+      　　Meta-DENDRAL是DENDRAL的学习环节，它为质谱仪仿真程序发现分子分裂规则。化学家发现，结构形式相同的分子在质谱仪中分裂的方式类似，结构差别很大的分子分裂方式也不同。因此，应按分子结构类型对分裂规则进行分类。Meta-DENDRAL 
+      的学习问题是对于某一类型分子结构发现分裂规则。问题可描述为：<br>
+      　　给定：（a） 描述分子结构和子结构的表示语言， <br>
+      　　　　　（b）选自单一类型分子的示教例子集及其结构和质谱。<br>
+      　　寻找：分裂规则集，描述这一类型分子在质谱仪中的特征。<br>
+      　　这个学习问题有两种歧义性。一方面是干扰问题。有时错误地观察到碎片，造成假的正例；有时未观察到有用的碎片，造成假的反例。另一方面是分裂规则不必完全符合例子。只要分裂规则可以预测大多数分子，就是可以接受的。从仿真的目的考虑，预测出不发生的分裂比没有预测出要发生的分裂更加安全。<br>
+      　　Meta-DENDRAL有两个观点。一个观点是先作粗略的搜索，再作精确的搜索。另一个观点是把学习多个概念问题化为一系列学习单个概念问题。<br>
+      　　1． Meta-DENDRAL的表示语言<br>
+      　　它的表示语言相当于化学家使用的球和杆模型。一个分子表示为一个无向图。其中节点表示原子，边表示化学键，但不表示氢原子。每个原子有四个特征：（1）原子类型（如碳、氮等），（2）非氢邻接点数目，（3）邻接的氢原子数目，（4）双键的数目。规则的条件部分是用上述特征描述的分子结构，规则的执行部分指出在质谱仪中发生分裂的键。图6.13表示一个典型的分裂规则。仿真程序是执行环节，它使用分裂规则。它首先检查是否符合条件部分的分子结构（键环境），若符合则分裂由*表示的键。</span><br>
+      <br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="30" valign="top"><img src="../../../../images/text/tb/tushi.gif" width="25" height="16" alt="图示"></td>
+          <td class="explaination" align="center"> 
+            <table width="70%" border="0" cellspacing="1" cellpadding="0" class="text" align="center" bgcolor="#000066">
+              <tr align="center" bgcolor="#BFDFFF"> 
+                <td colspan="5">X-Y-Z-W<span class="text">＝&gt;</span>X-Y*Z-W</td>
+              </tr>
+              <tr align="center" bgcolor="#FFFFFF"> 
+                <td>节点</td>
+                <td>原子类型</td>
+                <td>邻接接点数</td>
+                <td>H邻接接点</td>
+                <td>双键</td>
+              </tr>
+              <tr align="center" bgcolor="#FFFFFF"> 
+                <td>X<br>
+                  Y<br>
+                  Z<br>
+                  W</td>
+                <td>碳<br>
+                  碳<br>
+                  氮<br>
+                  碳</td>
+                <td>3<br>
+                  2<br>
+                  2<br>
+                  2</td>
+                <td>1<br>
+                  2<br>
+                  1<br>
+                  2</td>
+                <td>0<br>
+                  0<br>
+                  0<br>
+                  0</td>
+              </tr>
+            </table>
+            <br>
+            图6.13 一个分裂规则 </td>
+        </tr>
+      </table>
+      <span class="text"><br>
+      　　2． 解释例子子程序INTSUM　<br>
+      　　Meta-DENDRAL使用模型驱动的产生与测试方法来搜索分裂规则的空间。但是在搜索以前，它先用INTSUM子程序解释例子。示教例子的形式为：<br>
+      　　　　&lt;整个分子结构&gt;<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">&lt;质谱&gt;<br>
+      　　INTSUM把它转成最特殊的分裂规则，形式为：<br>
+      　　　　&lt;整个分子结构&gt;<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">&lt;指定打开的键&gt;<br>
+      　　为了进行这种转换，INTSUM要假设打开哪个键形成质谱中哪个尖峰。它使用简单的质谱半序理论作到这一点。半序理论把质谱仪的工作描述为分子的一系列分裂。一次分裂把分子分成两部分。以后的分裂再把一部分分成两个小的部分。每部分中的某个原子可能迁移到另一部分中去。半序理论对分裂和迁移过程施加一定的约束。对分裂的约束是：<br>
+      　　（1） 双键和三键不打开，<br>
+      　　（2） 芳香环中的键不打开，<br>
+      　　（3） 同一个原子的两个键不同时打开，<br>
+      　　（4） 不会同时打开多于三个键，<br>
+      　　（5） 至多发生两次分裂。<br>
+      　　（6） 至多分裂两个环，但要两次分裂。<br>
+      对迁移或丢失的约束是：<br>
+      　　（1） 至多两个氢原子迁移。<br>
+      　　（2） 至多丢失一个H2O。<br>
+      　　（3） 至多丢失一个CO　。<br>
+      INTSUM针对示教例子的分子结构进行仿真的分裂。若得到的仿真谱线符合例子中给出的谱线，则肯定这种分裂，否则去掉这种分裂。注意，这样转换的结果可能包含错误，这给规则空间的搜索造成了干扰。 
+      <br>
+      　　3． 规则空间的搜索<br>
+      　　Meta-DENDRAL分两步搜索规则空间。首先，RULEGEN子程序用产生与测试方法搜索。这是粗略的搜索，它可能得到过剩的或近似的规则。然后，RULEMOD子程序清理前一步产生的规则，使之更精确。<br>
+      　　（1） RULEGEN <br>
+      　　它按照由一般到特殊的次序搜索规则空间。算法反复产生新的假设规则集H，并使用INTSUM得到的示教正例测试它。<br>
+      　　第一步：初始的H确定为包含最一般的键环境。这个键环境匹配分子中每个键，并指出分裂每一个键。以后将对H进行特殊化。</span><br>
+      <br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="30" valign="top"><img src="../../../../images/text/tb/bg.gif" width="25" height="21" alt="表格"></td>
+          <td>
+            <table width="70%" border="0" cellspacing="1" cellpadding="0" class="text" align="center" bgcolor="#000066">
+              <tr align="center" bgcolor="#BFDFFF"> 
+                <td colspan="5">X*Y</td>
+              </tr>
+              <tr align="center" bgcolor="#FFFFFF"> 
+                <td>节点</td>
+                <td>原子类型</td>
+                <td>邻接接点数</td>
+                <td>H邻接接点</td>
+                <td>双键</td>
+              </tr>
+              <tr align="center" bgcolor="#FFFFFF"> 
+                <td>X<br>
+                  Y</td>
+                <td>任意<br>
+                  任意</td>
+                <td>任意<br>
+                  任意</td>
+                <td>任意<br>
+                  任意</td>
+                <td>任意<br>
+                  任意</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <span class="text"><br>
+      　　第二步：产生新的假设集。它改变在离开分裂的链（*键）一定距离处的原子，由此使H特殊化。这可以是增加新的邻接原子，也可以是确定原子特征。由于修改一定距离处的所有原子，所以它是粗糙的。<br>
+      　　第三步：用示教例子测试H。对每个键环境计算其准则。判定该环境是否比其双亲环境更合理（一个环境是其双亲环境特殊化的结果）。在H中保留比双亲合理的环境，从H去掉其它环境。如果一个双亲环境的所有子环境都不如双亲合理，则输出该双亲为新的分裂规则，并从H中去掉。<br>
+      　　第四步：重复二、三步，直到H为空。<br>
+      　　这种算法假设，改进的准则单调增大到单一的最大值，即它是单峰的。对质谱学习，这往往是正确的。这样，RULEGEN就可以看成沿单调上升的路径，通过规则空间的局部排序，直到准则达到局部最大值。<br>
+      　　（2） RULEMOD<br>
+      　　RULEGEN产生的规则是近似的，且未经反例检验。但这些规则大致上正确，即RULEGEN确定了规则空间中应仔细搜索的区域。<br>
+      　　第一步：选择重要规则的子集。RULEGEN可能产生解释相同数据的不同规则。RULEMOD　则力求找到较小的规则集。它用质谱仪仿真程序测试每个规则。规则按评价函数值排序，评价函数为<br>
+      　　　　(I×(P+U－2N))<br>
+      其中I是正确预测的峰的数目平均密度，P是正确预测峰的数目，U是仅由这一规则正确预测的峰的数目，N是不正确预测的峰的数目。选择排在最前面的规则，将该规则解释的峰去掉。上述排序和选择过程重复进行到所有正例被解释，或评分值低于门限。 
+      <br>
+      　　第二步：对规则特殊化以排除否定的根据。RULEMOD对每个规则填写未被RULEGEN确定的特征值，先检查规则预测的全部正例，得到可能的特征值的表，这些值通用于所有正例。它用爬山搜索选择可排除反例的特征值。把不相容的特征值从上述的表去掉。过程进行到所有反例都排除，或特征值无法再改进。<br>
+      　　第三步：对规则一般化以包括肯定根据。一般化方法是放松对特征值的要求。RULEMOD检查规则的键环境中每个原子，先检查离*键最远的原子。它检查是否可以去掉整个原子却不引起否定的根据。如果不可以去掉则尝试去掉原子的一个特征。过程尝试所有可能的变化。 
+      <br>
+      　　第四步：用第一步选择最终的规则子集。<br>
+      　　4． Meta-DENDRAL的优缺点<br>
+      　　它是有实用意义的学习系统。它对五种类型分子结构发现了分解规则。系统解决了解释例子问题和在干扰情况下的学习。它使用了很多论域知识，即程序中的半序理论。<br>
+      　　它的缺点是表示方法对论域专用。其次是把论域知识隐含在程序中。<br>
+      </span> </td>
+  </tr>
+</table>
+</body>
+</html>

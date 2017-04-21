@@ -1,0 +1,120 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第九章 句法分析</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <br>
+      <span class="part">　　9.4.2 上下文无关语法的分析算法</span><br>
+      <span class="text">　　用一部短语结构法来对一个句子进行句法分析，意味着寻找一个从起始符到该句子的推导－－一个产生式序。这个推导通常表现为一棵句法树歧义的（存在几种推导）好么将有几棵句法树。<br>
+      　　举例来说，如果我们的语法是：<br>
+      </span><span class="explaination">　　　　&lt;S&gt;∷＝&lt;NP&gt;&lt;VP&gt;<br>
+      　　　　&lt;NP&gt;∷＝&lt;<sup>*</sup>N&gt;|&lt;<sup>*</sup>PRO&gt;<br>
+      　　　　&lt;VP&gt;∷＝&lt;<sup>*</sup>TV&gt;|&lt;<sup>*</sup>TV&gt;&lt;NP&gt;</span><span class="text"><br>
+      那么句子：<br>
+      </span><span class="explaination">　　　　&quot;I like cheese.&quot; (我喜欢奶酪。)</span><span class="text"><br>
+      (其中&quot;I&quot;是PRO，&quot;like&quot;是TV，&quot;cheese&quot;是N)的最左推导是：<br>
+      　　　　S <img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">NP 
+      VP<br>
+      　　　　　<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">PRO 
+      VP<br>
+      　　　　　<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">PRO 
+      TV NP<br>
+      　　　　　<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">PRO 
+      TV N<br>
+      对应的句法树如图9.2(b)所示。<br>
+      　　句法分析器可分为自顶向下(top-down)和自底向上(bottom-up)两大类。一个自顶向下的句法分析器从树顶的根结点开始建立句法树；用推导的顺序来说，它从起始符开始向着这个句子来进行推导。相反，一个自底向上的句法分析器从树底部的叶结点(即词或词类)开始建立句法树；用推导的顺序来说，它从句子开始，应用归约(产生式被倒过来用)直至到达起始符。</span> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="30" valign="top"><img src="../../../../images/text/tb/tushi.gif" width="25" height="16" alt="图示"></td>
+          <td align="center" class="explaination"><img src="../../../../images/text/chap09/sec2/tu92b.gif" width="150" height="159"><br>
+            图9.2(b) 句子&quot;I like cheese&quot;的句法树</td>
+        </tr>
+      </table>
+      <span class="text"><br>
+      　　句法分析器还可以分类为回溯算法和并行算法。回溯算法每次只尝试一种推导，当这种推导失败时便&quot;返回&quot;以试验另一种推导。并行算法实际上同时进行所有的推导。<br>
+      　　1.自顶向下的回溯算法<br>
+      　　在各种上下文无关的句法分析器中，最普通的是采用自顶向下回溯算法的分析器。它逐个地枚举推导直至找到一个能生成输入句子的推导。我们可以把它作为一种串行算法描写如下。<br>
+      　　这个算法对如下形式的一个推导进行运算：<br>
+      　　　　S<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">z1<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">z2<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">…<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">zn<br>
+      一开始这个推导仅包含起始符S。假设左侧符号为A的产生式的排列顺序是：P<font size="1">A.1</font>，P<font size="1">A.2</font>，…<br>
+      　　(1)令zn中最左端的非终结符为B，用P<font size="1">B.1</font>来展开B(于是给推导增添一个元素，令n＝n+1)。<br>
+      　　(2)令zn中最左端的非终结符所处的位置为i(如果zn没有非终结符，则令i＝[zn的长度]+1)；如果Zn的前i一1个(终结)符号同输入句子的前i-1个词相匹配，则转至(3)，否则转至(5)。<br>
+      　　(3)如果Zn仍含有非终结符，转至(1)。<br>
+      　　(4)如果zn同被分析的句子匹配，把当前推导作为该句子的一个推导记下。<br>
+      　　(5)令最近应用于推导的产生式为PB.i；如果存在产生式PBi+1，那么用PB.i+1的应用结果去取代推导的上一步，并转至(2)，否则转至(6)。<br>
+      　　(6)从推导中删除最近的那条产生式，令n＝n-1；如果不再有产生式留下(推导只含有起始符)，则退出，否则转向(5)。<br>
+      　　这个算法可以处理任何不具有左递归 <a href="#"><img src="../../../../images/text/chap09/sec8/zhu.gif" width="21" height="12" align="texttop" alt="如果A为非终结符，A→AB，就是一条左递归的产生式。包含这种产生式的语法叫做左递归的语法。" border="0"></a> 
+      的语法。对于左递归语法，必须附加某些测试以避免陷入无限循环。<br>
+      　　对于上面那部只有三条规则的语法和句子&quot;I like cheese&quot;，应用上述算法推导将增长和收缩如下：<br>
+      　　S<br>
+      　　S<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">NP 
+      VP<br>
+      　　S<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">NP 
+      VP<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">N 
+      VP<br>
+      　　S<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">NP 
+      VP<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">PRO 
+      VP<br>
+      　　S<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">NP 
+      VP<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">PRO 
+      VP<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">PRO 
+      TV<br>
+      　　S<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">NP 
+      VP<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">PRO 
+      VP<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">PRO 
+      TV NP<br>
+      　　S<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">NP 
+      VP<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">PRO 
+      VP<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">PRO 
+      TV NP<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">PRO 
+      TV N<br>
+      　　　　　　　(把推导作为一个分析记录下来)<br>
+      　　S<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">NP 
+      VP<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">PRO 
+      VP<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">PRO 
+      TV NP<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">PRO 
+      TV PRO<br>
+      　　S<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">NP 
+      VP<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">PRO 
+      VP<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">PRO 
+      TV NP<br>
+      　　S<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">NP 
+      VP<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">PRO 
+      VP<br>
+      　　S<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">NP 
+      VP<br>
+      　　S<br>
+      这个过程也可以用一系列自顶向下生成的树来表示(见图9.3)。</span> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="30" valign="top"><img src="../../../../images/text/tb/tushi.gif" width="25" height="16" alt="图示"></td>
+          <td align="center" class="explaination"><img src="../../../../images/text/chap09/sec2/tu93.gif" width="350" height="251"><br>
+            <br>
+            图9.3 句子&quot;I like cheese&quot;的推导过程</td>
+        </tr>
+      </table>
+      <span class="text"><br>
+      </span> </td>
+  </tr>
+</table>
+</body>
+</html>

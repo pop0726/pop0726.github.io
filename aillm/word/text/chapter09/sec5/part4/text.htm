@@ -1,0 +1,233 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第九章 句法分析</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <span class="text"><br>
+      　　2.转换部件 <br>
+      　　仍用被动转换来开始我们对转换的讨论。从本质上来说，被动转换要做以下三件事： <br>
+      　　(1)把主语移入一个&quot;by&quot;短语的宾语位置；<br>
+      　　(2)把直接宾语移到主语位置；<br>
+      　　(3)把动词改变为&quot;be十过去分词。<br>
+      用下列一元转换规则来完成所有这三件事：</span> 
+      <table width="60%" border="0" cellspacing="0" cellpadding="0" align="center" class="text">
+        <tr> 
+          <td>结构索引：</td>
+          <td width="12%" align="center">NP</td>
+          <td width="12%" align="center">AUX</td>
+          <td align="center">V</td>
+          <td width="12%" align="center">NP</td>
+          <td width="12%" align="center">by</td>
+          <td width="12%" align="center">pass</td>
+        </tr>
+        <tr> 
+          <td>结构改变：</td>
+          <td width="12%" align="center">4</td>
+          <td width="12%" align="center">2</td>
+          <td align="center">be+en+3</td>
+          <td width="12%" align="center">0</td>
+          <td width="12%" align="center">5</td>
+          <td width="12%" align="center">1</td>
+        </tr>
+      </table>
+      <span class="text"><br>
+      图9.6和图9.7分别显示了一棵树在应用一条被动转换规则前后的情况，但忽略了在AUX底下的结点M。<br>
+      　　另一个需要稍作解释的问题是结构索引中的&quot;by pass&quot;。乍一想这条被动转换规则可以这样来改写：首先用&quot;by&quot;建立一个介词短语，然后把主语移到它里面去。但是我们所介绍的这种用于转换的形式体系不允许用一条转换规则来建立一种新结构，而且理论语言学家也不愿意给它增补这样一种能力，因为他们希望采用尽可能弱的语法机制，只要它们能足够描述某些语言就行。因此我们假设被动句的深层结构中包含了一个介词短语，后者在名词的位置上有一个&quot;位置寄存处&quot;(place holder)。<br>
+      　　下面我们来讨论一个稍微复杂一点的例子，即考察一下怎样把一个陈述句转换成是非问句。我们假设在一个疑问句的深层结构中S的第一个元素是一个特殊标记&quot;Q&quot;，除此之外，它同陈述句的结构就完全一样了。如果我们考虑的是一对简单的陈述-疑问句：<br>
+      </span><span class="explaination">　　　　John can chop wood. (约翰能够砍木头)<br>
+      　　　　Can John chop wood? (约翰能够砍木头吗?)</span><span class="text"><br>
+      看起来好象只需把AUX结点移到句子头上原先被标记Q占据的位置上去就行了。因此最初我们试图为疑问转换建立的规则是这样的：</span> 
+      <table width="63%" border="0" cellspacing="0" cellpadding="0" align="center" class="text">
+        <tr> 
+          <td>结构索引：</td>
+          <td width="20%" align="center">Q</td>
+          <td width="20%" align="center">NP</td>
+          <td align="center" width="20%">AUX</td>
+          <td width="20%" align="center">X</td>
+        </tr>
+        <tr> 
+          <td>结构改变：</td>
+          <td width="20%" align="center">3</td>
+          <td width="20%" align="center">2</td>
+          <td align="center" width="20%">0</td>
+          <td width="20%" align="center">4</td>
+        </tr>
+      </table>
+      <span class="text"><br>
+      遗憾的是它本身解释不了许多疑问句。例如：<br>
+      </span><span class="explaination">　　　　Caroly ate the cake. (卡洛里吃了蛋糕。)<br>
+      　　　　Did caroly eat the cake?(卡洛里吃蛋糕了吗?)</span><span class="text"><br>
+      在这个例子中在疑问句中突然冒出来一个&quot;did&quot;。我们可以用两种方式来处理这个问题。首先写一条转换规则来把&quot;do&quot;插入到没有助动词的句子结构里去，然后再用上面那条规则来实现转换。或者，我们可以假设深层结构中总有一个助动词，因此对于&quot;Caroly 
+      ate the cake.&quot;这个句子，其深层结构是：<br>
+      </span><span class="explaination">　　　　Caroly past do eat the cake.</span><span class="text"><br>
+      然后疑问转换规则移动&quot;past&quot;和&quot;do&quot;到句首，那么得到的疑问句就是正确的了。这时为了正确地生成陈述句，我们需要在疑问转换规则后面增加一条&quot;do删除&quot;转换规则，以便当&quot;do&quot;未曾被移走的情况下删除这个&quot;do&quot;。即有：</span> 
+      <table width="60%" border="0" cellspacing="0" cellpadding="0" align="center" class="text">
+        <tr> 
+          <td>结构索引：</td>
+          <td width="20%" align="center">X</td>
+          <td width="20%" align="center">do</td>
+          <td align="center" width="20%">V</td>
+          <td width="20%" align="center">x</td>
+        </tr>
+        <tr> 
+          <td>结构改变：</td>
+          <td width="20%" align="center">1</td>
+          <td width="20%" align="center">0</td>
+          <td align="center" width="20%">3</td>
+          <td width="20%" align="center">4</td>
+        </tr>
+      </table>
+      <span class="text"><br>
+      　　然而我们还要考虑第三种情况：具有&quot;have&quot;和／或&quot;be&quot;的句子。例如:<br>
+      </span><span class="explaination">　　　　Elaine is drinking an egg cream.<br>
+      　　　　Is Elaine drinking an egg cream?<br>
+      <br>
+      　　　　Judy has brought the lunch.<br>
+      　　　　Has Judy brought the lunch?<br>
+      <br>
+      　　　　Chester has been feeding the bear.<br>
+      　　　　Has Chester been feeding the bear?</span><span class="text"><br>
+      在这种情况下，就如同助动词那样&quot;have&quot;或&quot;be&quot;被移到句首。我们可以写出类似于疑问和do删除那样的附加转换规则。但是比较简单的办法还是写一条&quot;do置换&quot;转换规则，它说明如果助动词是&quot;do&quot;，而且&quot;do&quot;后面紧跟着一个&quot;have&quot;或&quot;be&quot;，则&quot;have&quot;和&quot;be&quot;应移进AUX以置换这个&quot;do&quot;：</span> 
+      <table width="63%" border="0" cellspacing="0" cellpadding="0" align="center" class="text">
+        <tr> 
+          <td>结构索引：</td>
+          <td width="20%" align="center">X</td>
+          <td width="20%" align="center">do</td>
+          <td align="center" width="20%">{have/be}</td>
+          <td width="20%" align="center">X</td>
+        </tr>
+        <tr> 
+          <td>结构改变：</td>
+          <td width="20%" align="center">1</td>
+          <td width="20%" align="center">3</td>
+          <td align="center" width="20%">0</td>
+          <td width="20%" align="center">4</td>
+        </tr>
+      </table>
+      <span class="text"><br>
+      其中的花括号表示这个索引能同&quot;have&quot;或者&quot;do&quot;匹配(你可以认为这是两条分离的转换规则的一种缩略表示)。这条转换规则必须排列在疑问转换规则的前面，以便使&quot;have&quot;或&quot;be&quot;能及时地进入AUX的位置，然后再发生AUX前移到句首的结构改变。<br>
+      　　第三组转换将考虑名词的修饰语。我们将通过转换从NP的COMP结点中的完整句结构S导出除限定词以外的所有这些修饰语。我们先考虑关系从句，它在结构上同一个完整句十分相似。我们的目的是从深层结构：<br>
+      </span><span class="explaination">　　The crocodile # the crocodile ate Peter#got 
+      indigestion. </span><span class="text"><br>
+      导出句子：<br>
+      </span><span class="explaination">　　The crocodile which ate Peter got indigestion.<br>
+      　　(吃了彼德的那条鳄鱼得了消化不良。)</span><span class="text"><br>
+      一般地来说，一个关系从句将通过从S删除一个与宿主(被修饰的词)相同的名词短语并插入&quot;which&quot;来导出，这是一个二元(或嵌入)转换：</span> 
+      <table width="80%" border="0" cellspacing="0" cellpadding="0" class="text" align="center">
+        <tr> 
+          <td class="text">结构索引：</td>
+          <td width="9%">X</td>
+          <td width="9%">DET</td>
+          <td width="9%">N</td>
+          <td width="9%">#</td>
+          <td width="9%">DET</td>
+          <td width="9%">N</td>
+          <td width="9%">AUX</td>
+          <td width="9%">VP</td>
+          <td width="9%">#</td>
+          <td width="9%">X</td>
+        </tr>
+        <tr> 
+          <td>结构改变：</td>
+          <td width="9%">1</td>
+          <td width="9%">2</td>
+          <td width="9%">3</td>
+          <td width="9%">0</td>
+          <td width="9%">which</td>
+          <td width="9%">0</td>
+          <td width="9%">7</td>
+          <td width="9%">8</td>
+          <td width="9%">0</td>
+          <td width="9%">10</td>
+        </tr>
+        <tr> 
+          <td colspan="11">同一性条件：2＝5 且 3＝6</td>
+        </tr>
+      </table>
+      <span class="text"><br>
+      这是第一条包含同一性条件的转换规则，用来保证成分句的DET和N同主句中一样。这条嵌入转换仅处理主语位置的删除；为了处理其他位置的删除，如句子：<br>
+      </span><span class="explaination">　　The crocodile which Peter ate gave him 
+      indigestion.<br>
+      　　(被彼德吃掉的那条鳄鱼使他消化不良。)</span><span class="text"><br>
+      还需要其他的转换规则。<br>
+      </span><span class="explaination">　　还可以从一个关系从句得到其他修饰语。例如，<br>
+      　　The red house (红房子) <br>
+      　　可以认为是<br>
+      　　The house which is red</span><span class="text"><br>
+      的一种简约形式。而<br>
+      </span><span class="explaination">　　The housr in the meadow (牧场中的房子)</span><span class="text"><br>
+      是<br>
+      </span><span class="explaination">　　the house which is in the meadow</span><span class="text"><br>
+      的-种简约形式。我们可以通过如下的转换规则来实现这种归约：</span> 
+      <table width="80%" border="0" cellspacing="0" cellpadding="0" class="text" align="center">
+        <tr> 
+          <td>结构索引：</td>
+          <td align="center">X</td>
+          <td align="center">DET</td>
+          <td align="center">N</td>
+          <td align="center">wh</td>
+          <td align="center">the</td>
+          <td align="center">pres</td>
+          <td align="center">be</td>
+          <td align="center" width="11%">{ADJ/PP}</td>
+          <td align="center">X</td>
+        </tr>
+        <tr> 
+          <td>结构改变：</td>
+          <td align="center">1</td>
+          <td align="center">2</td>
+          <td align="center">3</td>
+          <td align="center">0</td>
+          <td align="center">0</td>
+          <td align="center">0</td>
+          <td align="center">0</td>
+          <td align="center">8</td>
+          <td align="center">9</td>
+        </tr>
+      </table>
+      <span class="text"><br>
+      遗憾的是，这使形容词位于名词后面，所以我们需要用另一条转换规则来给形容词重新排序：</span> 
+      <table width="80%" border="0" cellspacing="0" cellpadding="0" align="center" class="text">
+        <tr> 
+          <td width="14%">结构索引：</td>
+          <td width="14%">X</td>
+          <td width="14%">DET</td>
+          <td width="14%">N</td>
+          <td width="14%">ADJ</td>
+          <td width="14%">X</td>
+        </tr>
+        <tr> 
+          <td width="14%">结构改变：</td>
+          <td width="14%">1</td>
+          <td width="14%">2</td>
+          <td width="14%">4+3</td>
+          <td width="14%">0</td>
+          <td width="14%">5</td>
+        </tr>
+      </table>
+      <span class="text"><br>
+      归约转换是可选的；因为不论这条转换规则是否被应用，我们都能得到一个满意的表层结构。重排转换和所有以前描述的转换都是强制的，即一旦结构索引匹配成功，转换就必须应用以获得合式的表层结构。<br>
+      </span></td>
+  </tr>
+</table>
+</body>
+</html>

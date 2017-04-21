@@ -1,0 +1,64 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body text="#000000" bgcolor="#FFFFFF">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td><span class="text"> <span class="text"><span class="text"> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第二章 归结推理方法</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      </span></span><br>
+      　　</span><span class="part">【章节小结】</span><span class="text"><br>
+      <br>
+      　　命题逻辑归结就是<br>
+      从G=A1∧A2∧A3∧～B出发,利用归结推理规则寻找矛盾,从而证明定理A1∧A2∧A3∧→B成立。命题逻辑归结过程<br>
+      　　　　1. 将证明A B化成G=A∧～B的不可满足的证明<br>
+      　　　　2. 将G化成合取范式<br>
+      　　　　3. 建立子句集<br>
+      　　　　4. 使用归结法并把归结式送入到S中，直到得到空子句 ，定理得证。<br>
+      空子句□是P,～P的归结结果，或说含有矛盾，这表明S是不可满足的，从而定理得证。<br>
+      　　谓词逻辑的归结法，要比命题逻辑复杂的多。原因是出现了变量和量词。如何建立G=A∧～B的子句形S，办法是消去存在量词，保留全称量词，得到SKOLEM标准形。进而得到G的子句形S。要注意的是G的子句形S与G并不等价,但他们在不可满足意义下是一致的。一阶谓词逻辑归结过程<br>
+      　　　1．将A B的证明化成G=A∧～B的不可满足的证明<br>
+      　　　2．将G化成前束范式，消去G的存在量词,略去全称量词，得到G的Skolem形<br>
+      　　　3．建立子句集S<br>
+      　　　4．使用归结法并把归结式送入S中，直到得到空子句 ，定理得证。<br>
+      定理若不成立，则归结过程不停机.<br>
+      　　Herbrand定理的引入是为了证明归结法的完备性。对于不可满足性的证明是复杂的，这是由于个体变量论域D的任意性，以及解释的个数的无限性。通过引入基于S的Herbrand域来解决这个难题，结论是只要S在H域上不可满足，便知道S是不可满足的。Herbrand定理给出了一阶谓词逻辑的半可判定算法，意思是说，只有当定理是成立时，使用该算法方可证明定理。若定理不成立，算法不停机，无结果。Herbrand定理把谓词逻辑问题化成了有限步骤内可证明的命题逻辑问题，从而可给出了机器能够实现的算法。<br>
+      　　一般说来，使用归结法证明定理效率是不高的，如何少做些归结仍能得到定理的证明是重要的。从而提出了归结过程的一些控制策略。如单元归结效率高，但并不完备。可以说，一种方法，虽不完备，但效率高，仍是可用的。<br>
+      　　由于归结法的效率低，即便采用了各种控制策略的归结推理过程，仍然避免不了产生大量的不必要的归结式，使得归结法不能处理复杂问题，导致人们研究非归结方法。<br>
+      　　Prolog语句都是Horn子句。Horn子句是一阶谓词公式的真子集，但有与一阶逻辑同样的表达能力。Prolog的解释过程是依归结法的。<br>
+      </span><span class="text"><br>
+      　　</span><span class="part">【课后习题】</span><span class="text"></span><span class="text"> 
+      <br>
+      <br>
+      　　1. 写出下面命题的前束范式和Skolem标准形<br>
+      　　　～((<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)( 
+      <img src="../../../../images/text/chap02/sec02/fh2.gif" width="8" height="9">y)P(a,x,y)→(<img src="../../../../images/text/chap02/sec02/fh2.gif" width="8" height="9">x)(～<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">y)Q(y,b)→R(x)))<br>
+      　　2. 写出下面命题的H域<br>
+      　　　S={p(a),～p(x)∨p(f(x))}<br>
+      　　3. 对于下面子句集，画出其语义树<br>
+      　　　S={P(x)∨Q(y),～P(a),～Q(b)}<br>
+      　　4. 利用归结法，证明下面命题<br>
+      　　(<img src="../../../../images/text/chap02/sec02/fh2.gif" width="8" height="9">x)P(x)→(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)((P(x)∨Q(x))→R(x))<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">(<img src="../../../../images/text/chap02/sec02/fh2.gif" width="8" height="9">x)(<img src="../../../../images/text/chap02/sec02/fh2.gif" width="8" height="9">y)(R(x)∧R(y))<br>
+      　　((<img src="../../../../images/text/chap02/sec02/fh2.gif" width="8" height="9">x)P(x)∧(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)Q(x))→(<img src="../../../../images/text/chap02/sec02/fh2.gif" width="8" height="9">x)(P(x)∧Q(x))<br>
+      　　5.说明归结法完备性的含义<br>
+      </span></td>
+  </tr>
+</table>
+</body>
+</html>

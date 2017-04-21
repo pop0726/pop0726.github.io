@@ -1,0 +1,162 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第三章 不确定和非单调推理方法</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <br>
+      　　<span class="part">3.2.3 证据理论</span><span class="text"><br>
+      　　Dempster 和 Shafer 提出的证据理论，可用来处理不知道所引起的不确定性。采用信任函数而不是概率作为不确定性度量，通过对一些事件的概率加以约束来建立信任函数而不必说明精确的难于获得的概率，当这种约束限制为严格的概率时，证据理论就退化为概率论了。<br>
+      　　1.证据的不确定性度量<br>
+      　　若用U表示所有可能的假设集合，而U的元素间是互斥的。对任一A<img src="../../../../images/text/chap02/sec03/fh2.gif" width="11" height="10">U，命题A表示了某些假设的集合（这样的命题间不再有互斥性）。针对医疗诊断问题， 
+      U就是所有可能疾病（假设）的集合，诊断的结果必是U中确定的元素构成的。A表示某一种（单元素）或某些种疾病。医生为了诊断所进行的各种检查就称作证据，有的证据所支持的常不只是一种疾病而是多种疾病，即U的一子集A。<br>
+      　　首先在U的幂集2<sup><font size="1">U</font></sup>上定义一个基本概率分配函数m：2<sup><font size="1">U</font></sup>→[0,1]<br>
+      　　满足　m(φ)=0<br>
+      　　　　　<img src="../../../../images/text/chap03/sec2/gs23.gif" width="20" height="31" align="absmiddle"> 
+      m(A)=1<br>
+      　　m(A)表示了证据对U的子集成立的一种信任的度量，取值于[0,1]，而且2<sup><font size="1">U</font></sup>中各元素信任的总和为1，不同于Bayes 
+      方法，因为Bayes 方法仅对U中单个元素赋予一种信任�D�D概率。<br>
+      　　信任函数<br>
+      　　　　　Bel：2<sup><font size="1">U</font></sup>→[0,1]<br>
+      　　　　　Bel(A)=<img src="../../../../images/text/chap03/sec2/gs24.gif" width="20" height="31" align="absmiddle"> 
+      m(B)<br>
+      　　即命题A的信任函数的值，是A的所有子集的基本概率分配函数会值的和，用来表示对A的总信任。知Bel(φ)＝0，Bel(U)=1 ,单元素集上m与Bel是相等的。<br>
+      　　</span><b class="explaination">似然函数</b><span class="text"><br>
+      　　PI：2<sup><font size="1">U</font></sup>→[0,1]<br>
+      　　Pl(A)=1-Bel(～A)=<img src="../../../../images/text/chap03/sec2/gs25.gif" width="32" height="32" align="absmiddle">m(B)<br>
+      　　表示不否定A的信任度，是所有与A相交的子集的基本概率分配函数值的和。<br>
+      　　显然有，0 ≤ Bel(A)≤ Pl(A)≤ 1<br>
+      　　而Pl(A)-Bel(A)表示了既不信任A也不信任～A的一种度量，可表示对不知道的度量，用区间（Bel (A),Pl(A)）来描述A的不确定性。Bel(A)表度量的下限，Pl(A)表度量的上限。实际上m,Bel,Pl只要知其一，必可求得另两个，但三个函数有不同含义。<br>
+      　　</span><b class="explaination">几个特殊值</b><span class="text"><br>
+      　　　(Bel(A),Pl(A))=(1,1)表示A为真，（这时Bel(A)=1,Bel(～A)=0）<br>
+      　　　(Bel(A),Pl(A)=(0,0)表示A为假，（这时Bel(A)=0,Bel(～A)=1）<br>
+      　　　(Bel(A),Pl(A))=(0,1)表示对A一无所知（这时Bel(A)=0,Bel(～A)=0）<br>
+      　　对Bel(A)的计算也是容易的，如<br>
+      　　Bel({a,b,c})=m({a,b,c})+m({a,b})+m({b,c})+m({c,a})+m({a})+m({b})+m({c})+m(φ)<br>
+      　　需指出，m不是概率，因为<br>
+      　　　　　m(A)≠ 1-m(～A)<br>
+      　　如 U={a,b,c,d}，可规定m({a,b})=0.6,m(U)=0.4,而对U的其它子集的m值均为0。而在概率论中，若P({a,b})=0.6，那么{a,b}的余集的概率必为0.4。<br>
+      　　除以区间(Bel(A),Pl(A)来作为证据A的不确定性度量外，还可以<br>
+      　　　　　<img src="../../../../images/text/chap03/sec2/gs26.gif" width="176" height="28"><br>
+      　　来度量。其中|A|，|U|分别表示A和U所含元素个数。f<font size="1">1</font>(A)具有性质<br>
+      　　　　　f<font size="1">1</font>(φ)=0,f<font size="1">1</font>(U)=1,0≤f<font size="1">1</font>(A)≤ 
+      1 对A<img src="../../../../images/text/chap02/sec03/fh2.gif" width="11" height="10">U。<br>
+      　　2.规则的不确定性度量<br>
+      　　设U={<font size="3">u</font><font size="1">1</font>,…,<font size="3">u</font><font size="1">n</font>},A,B为U的子集，如<br>
+      　　　　　A={<font size="2">a</font><font size="1">1</font>,…,<font size="2">a</font><font size="1">l</font>}<br>
+      　　　　　B={<font size="2">b</font><font size="1">1</font>,…,<font size="2">b</font><font size="1">k</font>}<br>
+      　　那么可以(<font size="2">c</font><font size="1">1</font>,…,<font size="2">c</font><font size="1">k</font>)来描述规则A→B的不确定性度量，要求c<font size="1">i</font>≥0,1≤i≤ 
+      k；<img src="../../../../images/text/chap03/sec2/gs27.gif" width="23" height="26" align="absmiddle">c<font size="1">j</font>≤1<br>
+      　　3.推理计算<br>
+      　　(1)<font size="2">f</font><font size="1">1</font>(<img src="../../../../images/text/chap02/sec01/a1.gif" width="15" height="11" align="absmiddle">∧<img src="../../../../images/text/chap02/sec01/a2.gif" width="16" height="11" align="absmiddle">)=min{<font size="2">f</font><font size="1">1</font>(<img src="../../../../images/text/chap02/sec01/a1.gif" width="15" height="11" align="absmiddle">),<font size="2">f</font><font size="1">1</font>(<img src="../../../../images/text/chap02/sec01/a2.gif" width="16" height="11" align="absmiddle">)}<br>
+      　　　 <font size="2">f</font><font size="1">1</font>(<img src="../../../../images/text/chap02/sec01/a1.gif" width="15" height="11" align="absmiddle">∨<img src="../../../../images/text/chap02/sec01/a2.gif" width="16" height="11" align="absmiddle">)=max{<font size="2">f</font><font size="1">1</font>(<img src="../../../../images/text/chap02/sec01/a1.gif" width="15" height="11" align="absmiddle">),<font size="2">f</font><font size="1">1</font>(<img src="../../../../images/text/chap02/sec01/a2.gif" width="16" height="11" align="absmiddle">)}<br>
+      　　(2)已知 <font size="2">f</font><font size="1">1</font>(A),A→B (<font size="2">c</font><font size="1">1</font>,…,<font size="2">c</font><font size="1">k</font>)来计算<font size="2">f</font><font size="1">1</font>(B)。<br>
+      　　为求得<font size="2">f</font><font size="1">1</font>(B),需先计算m(B),进而计算Bel(B),Pl(B)。<br>
+      　　规定 m({<font size="2">b</font><font size="1">1</font>},…,{<font size="2">b</font><font size="1">k</font>})=(<font size="2">f</font><font size="1">1</font>(A)・<font size="2">c</font><font size="1">1</font>,…,<font size="2">f</font><font size="1">1</font>(A)・<font size="2">c</font><font size="1">k</font>)<br>
+      　　　　　m(U) =1-<img src="../../../../images/text/chap03/sec2/gs28.gif" width="21" height="39" align="absmiddle"><font size="2">f</font><font size="1">1</font>(A)ci<br>
+      　　便可得<font size="2">f</font><font size="1">1</font>(B)。<br>
+      　　(3)已知　<img src="../../../../images/text/chap02/sec01/a1.gif" width="15" height="11" align="absmiddle">→B 
+      (<font size="2">c</font><font size="1">1</font>,…,<font size="2">c</font><font size="1">k</font>)<br>
+      　　　　　　 <img src="../../../../images/text/chap02/sec01/a2.gif" width="16" height="11" align="absmiddle">→B 
+      (<font size="2">c</font><font size="1">1'</font>,…,<font size="2">c</font><font size="1">k</font>')<br>
+      　　以及<font size="2">f</font><font size="1">1</font>(<img src="../../../../images/text/chap02/sec01/a1.gif" width="15" height="11" align="absmiddle">),<font size="2">f</font><font size="1">1</font>(<img src="../../../../images/text/chap02/sec01/a2.gif" width="16" height="11" align="absmiddle">)如何计算<font size="2">f</font><font size="1">1</font>(B) 
+      。需先讨论对基本概率分配函数<font size="2">m</font><font size="1">1</font>,<font size="2">m</font><font size="1">2</font>在U上的合成 
+      m=<font size="2">m</font><font size="1">1</font>�<font size="2">m</font><font size="1">2</font><br>
+      　　规定 m(Φ)=0<br>
+      　　　　 m(A)=K・<font size="2"><img src="../../../../images/text/chap03/sec2/gs29.gif" width="33" height="30" align="absmiddle">m</font><font size="1">1</font>(X)・<font size="2">m</font><font size="1">2</font>(Y)<br>
+      　　其中X，Y为U的子集。(这种规定称作Dempster组合规则，要求<font size="2">m</font><font size="1">1</font>,<font size="2">m</font><font size="1">2</font>提供的证据满足某种独立性条件)<br>
+      　　<img src="../../../../images/text/chap03/sec2/gs30.gif" width="222" height="33"><br>
+      　　若K<sup><font size="1">-1</font></sup>≠0,这样的m就确定一个概率分配函数，而在K<sup><font size="1">-1</font></sup>=0认为<font size="2">m</font><font size="1">1</font>,<font size="2">m</font><font size="1">2</font>矛盾，没有联合基本概率分配函数，常数K是根据<font size="2">m</font><font size="1">1</font>�<font size="2">m</font><font size="1">2</font>需对2U的所有元素的基本概率分配之和为1来确定的。 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="text">
+        <tr> 
+          <td width="30" class="text"><img src="../../../../images/text/tb/liti.gif" width="26" height="25" alt="例题"></td>
+          <td><b>例:</b></td>
+        </tr>
+        <tr> 
+          <td>&nbsp;</td>
+          <td>　U={a,b,c,d}<br>
+            <font size="2">　m</font><font size="1">1</font>：{b,c,d}→0.7 U→0.3<br>
+            　<font size="2">m</font><font size="1">2</font>：{a,b} →0.6 U→0.4<br>
+            　可列表求m =<font size="2">m</font><font size="1">1</font>�<font size="2">m</font><font size="1">2</font><br>
+            　　　　　<img src="../../../../images/text/chap03/sec2/table.gif" width="249" height="85"><br>
+            　于是 <font size="2">m</font><font size="1">1</font>�<font size="2">m</font><font size="1">2</font>：<br>
+            　　　{b}→0.42，{a,b}→0.18,{b,c,d}→0.28<br>
+            　　　U→0.12<br>
+            　　　(K-1=<img src="../../../../images/text/chap03/sec2/gs31.gif" width="34" height="33" align="absmiddle"><span class="text"><font size="2">m</font><font size="1">1</font></span>(X)・<span class="text"><font size="2">m</font><font size="1">2</font></span>(Y)=0.7(0.6+0.4)+0.3(0.6+0.4)=1)<br>
+            　有了<font size="2">m</font><font size="1">1</font>�<font size="2">m</font><font size="1">2</font>便可计算Bel<font size="1">1</font>�Bel<font size="1">2</font>,如<br>
+            　(Bel<font size="1">1</font>�Bel<font size="1">2</font>)({a,b})<br>
+            　=<img src="../../../../images/text/chap03/sec2/gs32.gif" width="39" height="34" align="absmiddle">m(B<font size="1">1</font>)<br>
+            　=m(Φ)+m({a})+m({b})+m({a,b})<br>
+            　=0+0+0.42+0.18=0.60<br>
+            　随之可计算Pl<font size="1">1</font>�Pl<font size="1">2</font>,从而可得<font size="2">f</font><font size="1">1</font>(B)</td>
+        </tr>
+      </table>
+      <br>
+      　　4. 举例<br>
+      　　(1) 已知 <font size="2">f</font><font size="1">1</font>(<img src="../../../../images/text/chap02/sec01/a1.gif" width="15" height="11" align="absmiddle">)=0.8,<font size="2">f</font><font size="1">1</font>(<img src="../../../../images/text/chap02/sec01/a2.gif" width="16" height="11" align="absmiddle">)=0.6<br>
+      　　|U|=20 <img src="../../../../images/text/chap02/sec01/a1.gif" width="15" height="11" align="absmiddle">∧<img src="../../../../images/text/chap02/sec01/a2.gif" width="16" height="11" align="absmiddle">→B={<font size="2">b</font><font size="1">1</font>,<font size="2">b</font><font size="1">2</font>} 
+      (<font size="2">c</font><font size="1">1</font>,<font size="2">c</font><font size="1">2</font>)=(0.3 
+      ,0.5)来计算<font size="2">f</font><font size="1">1</font>(B)<br>
+      　　先计算 <font size="2">f</font><font size="1">1</font>(<img src="../../../../images/text/chap02/sec01/a1.gif" width="15" height="11" align="absmiddle">∧<img src="../../../../images/text/chap02/sec01/a2.gif" width="16" height="11" align="absmiddle">)=min{<font size="2">f</font><font size="1">1</font>(<img src="../../../../images/text/chap02/sec01/a1.gif" width="15" height="11" align="absmiddle">),<font size="2">f</font><font size="1">1</font>(<img src="../../../../images/text/chap02/sec01/a2.gif" width="16" height="11" align="absmiddle">)}<br>
+      　　　　　　　　　　　=min{0.8,0.6}=0.6<br>
+      　　进而计算 m({<font size="2">b</font><font size="1">1</font>},{<font size="2">b</font><font size="1">2</font>})=(0.6×0.3, 
+      0.6×0.5)<br>
+      　　　　　　　　　　　　 ＝(0.18,0.3)<br>
+      　　于是有 Bel(B)=m(Φ)m({<font size="2">b</font><font size="1">1</font>})+m({<font size="2">b</font><font size="1">2</font>})+m({<font size="2">b</font><font size="1">1</font>,<font size="2">b</font><font size="1">2</font>})<br>
+      　　　　　　　　 =0+0.18+0.3+0=0.48<br>
+      　　(依<font size="2">c</font><font size="1">i</font>定义，m({<font size="2">b</font><font size="1">1</font>})=0.18,m({<font size="2">b</font><font size="1">2</font>})=0.3,随之有m(U)=1-(0.18+0.3=0.52而对U的其他子集的 
+      m 值均赋以零)<br>
+      　　　　　PI(B)=1-Bel(～B)=1-0=1<br>
+      　　最后得<br>
+      　　<img src="../../../../images/text/chap03/sec2/gs33.gif" width="182" height="64"><br>
+      　　(2)已知 <font size="2">f</font><font size="1">1</font>(<img src="../../../../images/text/chap02/sec01/a1.gif" width="15" height="11" align="absmiddle">)=0.53,<font size="2">f</font><font size="1">1</font>(<img src="../../../../images/text/chap02/sec01/a2.gif" width="16" height="11" align="absmiddle">)=05.2,|U|=20。以及<br>
+      　　　 <img src="../../../../images/text/chap02/sec01/a1.gif" width="15" height="11" align="absmiddle">→B={<font size="2">b</font><font size="1">1</font>,<font size="2">b</font><font size="1">2</font>,<font size="2">b</font><font size="1">3</font>},(<font size="2">c</font><font size="1">1</font>,<font size="2">c</font><font size="1">2</font>,<font size="2">c</font><font size="1">3</font>)=(0.1,0.5,0.3)<br>
+      　　　 <img src="../../../../images/text/chap02/sec01/a2.gif" width="16" height="11" align="absmiddle">→B={<font size="2">b</font><font size="1">1</font>,<font size="2">b</font><font size="1">2</font>,<font size="2">b</font><font size="1">3</font>},(<font size="2">c</font><font size="1">1</font>,<font size="2">c</font><font size="1">2</font>,<font size="2">c</font><font size="1">3</font>)= 
+      (0.4,0.2,0.1) 求 <font size="2">f</font><font size="1">1</font>(B)。<br>
+      　　先求<br>
+      　　<font size="2">m</font><font size="1">1</font>({<font size="2">b</font><font size="1">1</font>},{<font size="2">b</font><font size="1">2</font>},{<font size="2">b</font><font size="1">3</font>})=(0.53×0.1,0.53×0.5, 
+      0.53×0.3)<br>
+      　　　　　　　　　　　=(0.033,0.265,0.159)<br>
+      　　<font size="2">m</font><font size="1">1</font>(U)=1-(0.053+0.265+ 0.159)=0.524<br>
+      　　<font size="2">m</font><font size="1">2</font>({<font size="2">b</font><font size="1">1</font>},{<font size="2">b</font><font size="1">2</font>},{<font size="2">b</font><font size="1">3</font>})=(0.52×0.4,0.52×0.2,0.52×0.1)<br>
+      　　　　　　　　　　　=(0.208,0.104,0.052)<br>
+      　　<font size="2">m</font><font size="1">2</font>(U)=1-(0.208+ 0.104+ 0.052)=0.636<br>
+      　　以及 m= <font size="2">m</font><font size="1">1</font>�<font size="2">m</font><font size="1">2</font><br>
+      　　K<sup><font size="1">-1</font></sup>=<font size="2">m</font><font size="1">1</font>({<font size="2">b</font><font size="1">1</font>})<font size="2">m</font><font size="1">2</font>({<font size="2">b</font><font size="1">1</font>})+<font size="2">m</font><font size="1">1</font>({<font size="2">b</font><font size="1">1</font>})・<font size="2">m</font><font size="1">2</font>(U)+<font size="2">m</font><font size="1">1</font>({<font size="2">b</font><font size="1">1</font>})・<font size="2">m</font><font size="1">2</font>({<font size="2">b</font><font size="1">2</font>})+<font size="2">m</font><font size="1">1</font>({<font size="2">b</font><font size="1">2</font>})<font size="2">m</font><font size="1">2</font>(U) 
+      <br>
+      +<font size="2">m</font><font size="1">1</font>({<font size="2">b</font><font size="1">3</font>})<font size="2">m</font><font size="1">2</font>({<font size="2">b</font><font size="1">3</font>})+<font size="2">m</font><font size="1">1</font>({<font size="2">b</font><font size="1">3</font>})<font size="2">m</font><font size="1">2</font>(U)+<font size="2">m</font><font size="1">1</font>(U)<font size="2">m</font><font size="1">2</font>({<font size="2">b</font><font size="1">1</font>}) 
+      +<font size="2">m</font><font size="1">1</font>(U)<font size="2">m</font><font size="1">2</font>({<font size="2">b</font><font size="1">2</font>})+<font size="2">m</font><font size="1">1</font>(U)・<font size="2">m</font><font size="1">2</font>({<font size="2">b</font><font size="1">3</font>})+<font size="2">m</font><font size="1">1</font>(U)・<font size="2">m</font><font size="1">2</font>(U)<br>
+      　　　 =0.874<br>
+      　　得<br>
+      　　　<img src="../../../../images/text/chap03/sec2/gs34.gif" width="360" height="162"><br>
+      　　　m(U)=1-(0.176+0.299+0.157)=0.386<br>
+      　　于是 Bel(B)= m({<font size="2">b</font><font size="1">1</font>})+ m({<font size="2">b</font><font size="1">2</font>}) 
+      +m({<font size="2">b</font><font size="1">3</font>})<br>
+      　　　　　　　 =0.632<br>
+      　　　　 Pl(B)=1<br>
+      　　最后得<br>
+      　　　<img src="../../../../images/text/chap03/sec2/gs35.gif" width="179" height="61"><br>
+      　　从代数观点看，MYCIN EMYCIN PROSPECTOR D-S给出的不确定方法均可构成半群；MYCIN D－S方法还有单位元但无逆元；EMYCIN　PROSPECTOR　方法既有单位元又有逆元，从而可构成群。<br>
+      </span></td>
+  </tr>
+</table>
+</body>
+</html>

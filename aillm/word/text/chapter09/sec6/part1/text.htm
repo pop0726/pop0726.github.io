@@ -1,0 +1,54 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第九章 句法分析</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <br>
+      　　<span class="section">9.6 ATN语法</span><br>
+      <br>
+      　　<span class="text">扩充转移网络(augmented transition networks，简称ATN)这种形式体系是1970年W.Woods提出来的，并曾成功地应用于他的著名的LUNAR系统中(见8.3.1)。ATN语法属于一种增强的上下文无关语法，它的基本思想是继续采用上下文无关语法来描写句子的成分结构；但对语法中的个别产生式增添了某些功能，主要是描写某些必要的语法限制(见9.4.1)，和建立句子的深层结构。N.sager的语言串分析器中，也专门设计了一种限制语言(Restriction 
+      Language)用来描写各种语法限制，所以语言串分析器也是以增强的上下文无关语法为基础的句法分析器。只不过限制语言远没有象ATN语法那样被后来的自然语言理解系统所广泛采用；所以我们仍选用ATN语法作为典型来介绍这种基于增强的上下文无关语法的句法分析器。<br>
+      <br>
+      　　</span><span class="part">9.6.1 转移网络</span><span class="text"> <br>
+      　　扩充转移网络的概念来源于有限状态转移网络。在</span><span class="part">9.3.1</span><span class="text">中，我们曾指出，有限状态转移网络只能用来生成或识别正则(即3型)语言。<br>
+      　　一个有限状态转移网络由一组状态(即结点)和一组弧(用来把一种状态连向另一种状态)所组成：<br>
+      　　(1)其中的一个状态被指定为起始状态；<br>
+      　　(2)在每条弧上都标注着该语法的终结符(包括词或词类)。<br>
+      它表明必须在输入句子中找到这样一个词，才可以进行这条弧所规定的转移；<br>
+      　　(3)状态集中有一个名为结束状态的子集。如果输入句子(或短语)的头从起始状态开始，经过一系列的转移，句尾恰好达到结束状态，我们就说这个句子(或短语)被这个转移网络所接受(或识别)。</span><br>
+      　　<span class="text">图9.10表示以冠词&quot;the&quot;开头的一类名词短语NP的转移网络，它可以拥有零个或多个形容词；最后以一个名词结尾。</span>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="30" valign="top"><img src="../../../../images/text/tb/tushi.gif" width="25" height="16" alt="图示"></td>
+          <td align="center" class="explaination"><img src="../../../../images/text/chap09/sec2/tu910.gif" width="360" height="126"><br>
+            <br>
+            图9.10　一类名词短语的转移网络</td>
+        </tr>
+      </table>
+      <span class="text">　　假如输入的短语是：&quot;the pretty picture&quot;。从起始状态NP开始，它只有一条标注着&quot;the&quot;的外射弧，由于输入串中的第十个词能同它匹配；所以词&quot;the&quot;从输入串中被删除，过程则相应进入图中的，状态NP1。此时输入串是&quot;pretty 
+      picture&quot;，由于第一个&quot;pretty&quot;的词类是ADJ，同标注ADJ的弧匹配，于是&quot;pretty&quot;从输入串中被删除，但沿着ADJ弧转移的结果是再次回到这个NP1状态.此时输入串只剩下最后一个词&quot;picture&quot;，由于它是一个名词,因此发生了沿N弧前进到结束状态的转移。这时，输入串已成为空串，所以分析成功。<br>
+      　　应当指出的是：图9.10所示的这类名词短语总可以用正则语法的规则来描写，不过这里我们把自然语言的词和词类都看成是终结符，只有短语标记NP才被看作是非终结符。<br>
+      </span> </td>
+  </tr>
+</table>
+</body>
+</html>

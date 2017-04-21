@@ -1,0 +1,54 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td><span class="text"> </span>
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../../images/pic/bg0401.gif" height="18" align="right" class="chap">
+              <tr> 
+                <td> 
+                  <div align="center">第二章 归结推理方法</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <span class="text"><br>
+      　　</span><span class="section">2.6 归结法与Prolog 语言</span><span class="text"><br>
+      <br>
+      　　逻辑程序设计始于70年代，由Kowalski 和Colmerauer 引入的。逻辑对人工智能来说是一种重要的知识表示方法和推理方法，而且还可对逻辑给予一种过程解释，从而形成一种程序设计语言，如prolog。这种逻辑语言是一种描述性（表示问题）语言，其控制（如何求解）过程由逻辑程序设计系统本身实现，无需程序设计人员给出问题算法。Roussel于1972年在马赛大学实现了一种逻辑程序设计的解释程序prolog。这个系统的控制过程是基于归结原理的，当然作为一种逻辑程序设计系统来说不是必须基于归结方法的。<br>
+      <br>
+      　　</span><span class="part">2.6.1 Prolog 语句</span><span class="text"><br>
+      　　Prolog 有三种形式语句<br>
+      　　</span><b class="explaination">语句</b><span class="text">　　B←<img src="../../../../images/text/chap02/sec01/a1.gif" width="15" height="11" align="absmiddle">,…,<img src="../../../../images/text/chap02/sec01/an.gif" width="15" height="11" align="absmiddle"><br>
+      　　含义是<img src="../../../../images/text/chap02/sec01/a1.gif" width="15" height="11" align="absmiddle">∧…∧<img src="../../../../images/text/chap02/sec01/an.gif" width="15" height="11" align="absmiddle">→B，相当于子句～<img src="../../../../images/text/chap02/sec01/a1.gif" width="15" height="11" align="absmiddle">∨…∨～<img src="../../../../images/text/chap02/sec01/an.gif" width="15" height="11" align="absmiddle">∨B,可视作人工智能系统中的推理规则。可将该语句看作一个过程。B为过程头，是过程名，而{<img src="../../../../images/text/chap02/sec01/a1.gif" width="15" height="11" align="absmiddle">,…,<img src="../../../../images/text/chap02/sec01/an.gif" width="15" height="11" align="absmiddle">}为过程体。<br>
+      <br>
+      　　</span><b><span class="explaination">语句</span></b><span class="text">　　←<img src="../../../../images/text/chap02/sec01/a1.gif" width="15" height="11" align="absmiddle">,…,<img src="../../../../images/text/chap02/sec01/an.gif" width="15" height="11" align="absmiddle"><br>
+      　　含义是<img src="../../../../images/text/chap02/sec01/a1.gif" width="15" height="11" align="absmiddle">∧…∧<img src="../../../../images/text/chap02/sec01/an.gif" width="15" height="11" align="absmiddle">→F，相当于子句～<img src="../../../../images/text/chap02/sec01/a1.gif" width="15" height="11" align="absmiddle">∨…∨～<img src="../../../../images/text/chap02/sec01/an.gif" width="15" height="11" align="absmiddle">，可视作推理的目标，或称目标子句。实际的目标是(<img src="../../../../images/text/chap02/sec02/fh2.gif" width="8" height="9" align="absmiddle"><img src="../../../../images/text/chap02/sec02/x1.gif" width="12" height="8">)…(<img src="../../../../images/text/chap02/sec02/fh2.gif" width="8" height="9" align="absmiddle"><font size="2">x</font><font size="1">k</font>)(<img src="../../../../images/text/chap02/sec01/a1.gif" width="15" height="11" align="absmiddle">∧…∧<img src="../../../../images/text/chap02/sec01/an.gif" width="15" height="11" align="absmiddle">)，在使用归结法求解时，需对目标求否定再SKOLEM标准化得～<img src="../../../../images/text/chap02/sec01/a1.gif" width="15" height="11" align="absmiddle">∨…∨～<img src="../../../../images/text/chap02/sec01/an.gif" width="15" height="11" align="absmiddle">。这语句是个无名的过程，过程体为{<img src="../../../../images/text/chap02/sec01/a1.gif" width="15" height="11" align="absmiddle">,…,<img src="../../../../images/text/chap02/sec01/an.gif" width="15" height="11" align="absmiddle">}。<br>
+      <br>
+      　　</span><b><span class="explaination">语句</span></b><span class="text">　　B←<br>
+      　　含义是公式B无条件地为真。可视作已知事实，是过程体为空过程。<br>
+      　　另外空语句□表矛盾语句，相当于空子句，表停机语句。<br>
+      　　Prolog 解释过程是归结反演过程，归结的描述是若有语句<br>
+      　　　　　← <img src="../../../../images/text/chap02/sec01/a1.gif" width="15" height="11" align="absmiddle">,…,<img src="../../../../images/text/chap02/sec01/ai.gif" width="15" height="11" align="absmiddle">,…,<img src="../../../../images/text/chap02/sec01/an.gif" width="15" height="11" align="absmiddle"><br>
+      　　　　 B←<img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absmiddle">,…,<font size="2">C</font><font size="1">m</font><br>
+      　　其中B与<img src="../../../../images/text/chap02/sec01/ai.gif" width="15" height="11" align="absmiddle">有 
+      mguθ，则有归结式<br>
+      　　　　　←(<img src="../../../../images/text/chap02/sec01/a1.gif" width="15" height="11" align="absmiddle">,…,<img src="../../../../images/text/chap02/sec01/ai.gif" width="15" height="11" align="absmiddle"><font size="1">-1</font>,<img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absmiddle">,…,<font size="2">C</font><font size="1">m</font> 
+      ,<img src="../../../../images/text/chap02/sec01/ai.gif" width="15" height="11" align="absmiddle"><font size="1">+1</font>,…,<img src="../../../../images/text/chap02/sec01/an.gif" width="15" height="11" align="absmiddle">)θ<br>
+      　　如将←<img src="../../../../images/text/chap02/sec01/a1.gif" width="15" height="11" align="absmiddle">，…，<img src="../../../../images/text/chap02/sec01/an.gif" width="15" height="11" align="absmiddle">理解为目标，B←<img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absmiddle">,…,<font size="2">C</font><font size="1">m</font> 
+      理解为规则，则归结式就是新的目标了。<br>
+      </span></td>
+  </tr>
+</table>
+</body>
+</html>

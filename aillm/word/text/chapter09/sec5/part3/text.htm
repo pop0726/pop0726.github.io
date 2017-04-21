@@ -1,0 +1,64 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第九章 句法分析</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <span class="text"><br>
+      　　</span><span class="part">9.5.2 一部小型的转换语法</span><span class="text"><br>
+      　　为了说明怎样用转换来建立一部自然语言语法并表现语言的规律性，下面介绍一部非常小的英语转换语法，它的覆盖面当然是极其有限的。<br>
+      　　1.基础部件<br>
+      　　如前所述，一部转换语法有两个部件：基础部件和转换部件。我们这部转换语法的基础部件是这样的：<br>
+      </span><span class="explaination">　　&lt;S&gt;　　　　∷＝[Q]&lt;NP&gt;&lt;AUX&gt;&lt;VP&gt;<br>
+      　　&lt;AUX&gt;　　　∷＝&lt;TENSE&gt;&lt;*M&gt;<br>
+      　　&lt;TENSE&gt;　　∷＝past|pres <br>
+      　　&lt;VP&gt;　　　 ∷＝[have en][be ing]&lt;VP'&gt;<br>
+      　　&lt;VP'&gt;　　　∷＝&lt;*V&gt;[&lt;NP&gt;＝[&lt;PP&gt;＝|be&lt;*ADJ&gt;|be&lt;PP&gt;<br>
+      　　&lt;NP&gt;　　　 ∷＝[&lt;DET&gt;＝&lt;*N&gt;[(COMP&gt;)<br>
+      　　&lt;PP&gt;　　　 ∷＝&lt;*P&gt;&lt;NP&gt;|by pass <br>
+      　　&lt;DET&gt;　　　∷＝[wh]&lt;*T&gt;<br>
+      　　&lt;COMP&gt;　　 ∷＝#S#</span><span class="text"><br>
+      首先要对某些新标记法作一些解释。在BNF规则<br>
+      </span><span class="explaination">　　&lt;A&gt;∷＝&lt;B&gt;[&lt;C&gt;]&lt;D&gt;</span><span class="text"><br>
+      中的方括号表示元素C是一个可选的成分。换言之，这条产生式可以看作是产生式<br>
+      </span><span class="explaination">　　&lt;A&gt;∷＝&lt;B&gt;&lt;C&gt;&lt;D&gt;|&lt;B&gt;&lt;D&gt;</span><span class="text"><br>
+      的一种缩写形式。<br>
+      　　大多数词类已经在9.4节的串语法中出现过了：N是名词，V是动词，P是介词，T是冠词，ADJ是形容词。这里M代表情态助词：&quot;do&quot;，&quot;can&quot;，&quot;may&quot;等。某些非终结符也同串语法中的符号相对应：NP对应于NSTG，PP对应于PN，S对应于ASSERTION。<br>
+      　　另一方面，这里没有符号对应于SUBJECT，VERB或OBJECT。我们把这些符号引入串语法是为了归并不同的主语串和宾语串；然而在转换语法中，比较复杂的串是通过转换引入的，所以就不需要它们了。但是为了陈述某些转换规则，我们已经用符号VP(动词短语)把动词和它的宾语归并在一起了。<br>
+      　　对某些终结符也需要解释一下。基础部件只包含一种动词形式--不定式。基础部件不包含时态动词、现在分词和过去分词，而是生成以下的标记：pres代表现在时，past.代表过去时，ing代表现在分词，en代表过去分词。当转换完成之后，词法部件(morphological 
+      component)利用这些标记生成正确的屈折形式。pres加上紧跟在它后面的动词便用这个动词的现在时来置代；past、ing和en也按类似方式处理。例如，终结符序：<br>
+      </span><span class="explaination">　　John pres may have en eat the brownies.</span><span class="text"><br>
+      将被归约为：<br>
+      </span><span class="explaination">　　John may have eatenthe brownies.</span><span class="text"><br>
+      标记的安排是为了使之非常容易对英语中简单、完成和进行等各种句型作出解释。依据在规则VP右侧具体选择哪一个可选元素，我们可以得到：<br>
+      </span><span class="explaination">　　John pres may eat the brownies.<br>
+      　　　→John may eatthe brownies. 约翰可能吃巧克力小饼。<br>
+      　　John pres may be eat the brownies.<br>
+      　　　→John may be eating the brownies.<br>
+      　　John pres may have en eat the brownies.<br>
+      　　　→John may have eaten the brownies.<br>
+      　　John Pres may have en be ing eat the brownies.<br>
+      　　　→John may have been eating the brownies.<br>
+      </span> </td>
+  </tr>
+</table>
+</body>
+</html>

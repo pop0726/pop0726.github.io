@@ -1,0 +1,181 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td class="text"> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../../images/pic/bg0401.gif" height="18" align="right" class="chap">
+              <tr> 
+                <td> 
+                  <div align="center">第二章 归结推理方法</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <br>
+      　　<span class="part">2.4.4 归结法的完备性</span><br>
+      　　对于给的定理来说，我们使用归结方法建立了推理证明过程。问题是：若定理成立，是否使用归结方法必能得到证明呢？或对一个公理体系来说，使用归结法能推出的定理和所有成立的定理个数上看少不少？这就是归结法的完备性（值得注意的是完备性还有其他的理解）。结论是归结法是完备的。对一个推理方法而言尽管不是完备的，但能推出相当一部分定理，而且效率也较高，仍是可取的。一个推理方法提出后，困难的往往是完备性的证明，如一阶逻辑的公理系统的完备性就不容易证明。归结法完备性证明要使用 
+      Herbrand 定理，从这个意义上说，归结原理是建立在 Herbrand 定理之上的。 <br>
+      　　1． 归结与语义树&quot;倒塌&quot;过程<br>
+      　　我们以一个简单的例子来说明，对子句集S和相应的语义树T，当将S的任意两子句的归结式加入S后，相应的语义树T<sup><font size="1">(1)</font></sup>较T&quot;倒塌&quot;了两个分枝，随着不断地归结T就不断地&quot;倒塌&quot;，当S是不可满足的T将倒塌成只剩下根结点了。 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="text">
+        <tr>
+          <td width="30"><img src="../../../../images/text/tb/liti.gif" width="26" height="25" alt="例题"></td>
+          <td><b>例:</b></td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td>　　S＝{P,～P∨ Q,～P∨～Q}<br>
+            　　A＝{P,Q}<br>
+            　画出语义树T和相应的封闭树T<sup>*</sup>见 图2.4<br>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td width="30" valign="top"><img src="../../../../images/text/tb/tushi.gif" width="25" height="16" alt="图示"></td>
+                <td align="center"><img src="../../../../images/text/chap02/sec03/tu2.4.gif" width="420" height="170"><br>
+                  <br>
+                  <span class="explaination">图2.4语义树倒塌</span> </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    　　归结过程<br>
+      　　（1）P<br>
+      　　（2）～P∨ Q<br>
+      　　（3）～P∨～Q<br>
+      　　（4）～P 　　　(2)(3)归结<br>
+      　　（5）□　　　　(1)(4)归结<br>
+      　　从树T<sup>*</sup>上看，先观察N<font size="1">11</font>结点，有子结点N<font size="1">21</font>，N<font size="1">22</font>对应的<br>
+      　　I(N<font size="1">21</font>)={P，Q}　　使子句（3）为假。<br>
+      　　I(N<font size="1">22</font>)={P，～Q}　使子句（2）为假。<br>
+      　　从而N<font size="1">21</font>，N<font size="1">22</font>都是失败结点，因I(N<font size="1">11</font>)＝{P}不会使S的子句为假。N<font size="1">11</font>的特点是它有两个分枝对应的子结点N<font size="1">21</font>，N<font size="1">22</font>都是失败的结点，这时相应的子句(2)(3)必可做归结，有归结式～P。<br>
+      　　进而将～P并入S得S∪{～P}，这时的I(N<font size="1">11</font>)={P}，已使 S∪{～P}的子句～P为假了。从而N<font size="1">11</font>是S∪{～P}的语义树(同T)的失败结点了，其封闭树为T<sup><font size="1">(1)</font></sup>。这就是说作一次归结，就使封闭语义树倒塌两个分枝N<font size="1">11</font>N<font size="1">21</font>，N<font size="1">11</font>N<font size="1">22</font>，或说N<font size="1">11</font>N<font size="1">21</font>， 
+      N<font size="1">11</font>N<font size="1">22</font>被剪枝了。<br>
+      　　对T<sup><font size="1">(1)</font></sup>的结点N<font size="1">0</font>，有两个分枝对应的子结点N<font size="1">11，</font>N<font size="1">12</font>都是S∪{～P}的失败结点，又<br>
+      　　I(N<font size="1">21</font>)={P}　　　使子句（4）为假<br>
+      　　I(N<font size="1">22</font>)={～P}　　使子句（1）为假<br>
+      　　这时子句（1）（4）又可做归结，有归结式□。<br>
+      　　将□并入S∪{～P}得S∪{～P,□},N<font size="1">0</font>已是失败结点，其封闭树为T<sup><font size="1">(2)</font></sup>，是只剩下根结点N<font size="1">0</font>的树了。<br>
+      　　这个例子说明归结过程同语义树的倒塌过程是一回事。从而启发我们，若要有归结过程使由S可归结出□，就可从S的语义树T出发，说明必有两个失败结点所对应的子句做归结，将归结式放入S，就使T倒塌。重复这个过程直到语义树仅由树根组成为止。树根N<font size="1">0</font>是失败结点，I(N<font size="1">0</font>)＝Φ，必然是已归结出空子句□所致。<br>
+      　　然而上述从语义树入手的分析，仅能说明失败结点所对应的S的两个子句的基例可做归结。归结法完备性要求说明当S不可满足时，子句间必可做归结直到得出□。于是还需解决由基例间可做归结到怎样实现子句间的可做归结的问题，也就是由常量子句可做归结导出变量子句也可做归结的问题。这一步很重要，由提升引理给出。<br>
+      　　2． 提升引理<br>
+      　　<img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absmiddle">，<img src="../../../../images/text/chap02/sec01/c2.gif" width="13" height="14" align="absmiddle">是无公共变量的子句， 
+      C<font size="1">1</font>'，C<font size="1">2</font>'分别是<img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absmiddle">，<img src="../../../../images/text/chap02/sec01/c2.gif" width="13" height="14" align="absmiddle">的例，而R'是 
+      C<font size="1">1</font>'，C<font size="1">2</font>'的归结式，则存在<img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absmiddle">，<img src="../../../../images/text/chap02/sec01/c2.gif" width="13" height="14" align="absmiddle">的归结式R，使得R'是R的例。 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="text">
+        <tr>
+          <td width="30"><img src="../../../../images/text/tb/zhm.gif" width="25" height="17" alt="证明"></td>
+          <td><b>证明</b></td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td>（1） 依定义<br>
+            　　　R' ={ C<font size="1">1</font>'-{Φ'}}∪{ C<font size="1">2</font>'-{～Φ' 
+            }}<br>
+            　而　C<font size="1">1</font>' = <img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absmiddle">θ 
+            <br>
+            　　　C<font size="1">2</font>' = <img src="../../../../images/text/chap02/sec01/c2.gif" width="13" height="14" align="absmiddle">θ<br>
+            　　　置换θ中的分子项为常量<br>
+            （2）{Φ<font size="1">1,</font>…,Φ<font size="1">m</font>}是<img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absmiddle">中在θ下映射成Φ'的文字，即<br>
+            　　　Φ<font size="1">1</font>θ =…=Φ<font size="1">m</font>θ =Φ'<br>
+            　　 {～ψ<font size="1">1</font>,…,～ψ<font size="1">n</font>}是C2中在θ 下映射成～ψ'的文字，即<br>
+            　　　～ψ<font size="1">1</font>θ=… =～ψ<font size="1">n</font>θ=～ψ'=～Φ'<br>
+            （3）令σ是{Φ<font size="1">1,</font>…,Φ<font size="1">m</font>}的mgu <br>
+            　　 Φ<font size="1">1</font>σ=…=Φ<font size="1">m</font>σ=Φ″<br>
+            　　 τ是{～ψ<font size="1">1</font>,…,ψ<font size="1">n</font>}的mgu <br>
+            　　　～ψ<font size="1">1</font>τ=… =～ψ<font size="1">n</font>τ=～ψ″<br>
+            　　作δ=σ∪τ。<br>
+            （4）Φ'必是Φ″的例，ψ'必是ψ″的例<br>
+            　　于是Φ″和ψ″必有合一者。<br>
+            　　令r是Φ″，ψ″的mgu.<br>
+            （5）有<br>
+            　　　R={<img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absmiddle">δ・r-{Φ<font size="1">1</font>,…,Φ<font size="1">m</font>}δ・r}∪{<img src="../../../../images/text/chap02/sec01/c2.gif" width="13" height="14" align="absmiddle">δ・r-{～ψ<font size="1">1</font>,…,～ψ<font size="1">n</font>}δ・ 
+            r}<br>
+            　　　R'={<img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absmiddle">θ-{Φ<font size="1">1</font>,…,Φ<font size="1">m</font>}θ 
+            }∪{<img src="../../../../images/text/chap02/sec01/c2.gif" width="13" height="14" align="absmiddle">θ 
+            -{～ψ<font size="1">1</font>,…,～ψ<font size="1">n</font>}θ}<br>
+            　因　Φ'是Φ″和ψ″的例，θ不如δ・r更一般，可得<br>
+            　R'必是R的例，即　R'＝Rλ</td>
+        </tr>
+      </table>
+      <br>
+      　　今以<br>
+      　　　　<img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absmiddle">＝P(x)∨P(y)∨～Q(z)<br>
+      　　　　<img src="../../../../images/text/chap02/sec01/c2.gif" width="13" height="14" align="absmiddle">=～P(f(u))∨～P(f(b))∨W(v)<br>
+      　　为例来说明提升引理的证明过程。<br>
+      　　（1）θ＝{f(b)/x,f(b)/y,a/z,b/u,c/v}下，<br>
+      　　　　C<font size="1">1</font>'＝<img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absmiddle">θ＝P(f(b))∨P(f(b))∨～Q(a)=P(f(b))∨～Q(a),Φ'=P(f(b))<br>
+      　　　　C<font size="1">2</font>' =<img src="../../../../images/text/chap02/sec01/c2.gif" width="13" height="14" align="absmiddle">θ=～P(f(b))∨～P(f(b))∨W(c)=～P(f(b)) 
+      ∨ W(c),～ψ'=～Φ' =～ P(f(b))。<br>
+      　　　　R'＝～Q(a)∨W(c)。<br>
+      　　（2）Φ<font size="1">1</font>=P(x),Φ<font size="1">2</font>=P(y)是<img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absmiddle">中在θ下变为Φ'＝P（f(b)）的文字。<br>
+      　　　　～ψ<font size="1">1</font>=～P(f(u)),～ψ2=～P(f(b))是<img src="../../../../images/text/chap02/sec01/c2.gif" width="13" height="14" align="absmiddle">中在θ下变为～Φ'=～ψ'=～P(f(b))的文字。<br>
+      　　（3）σ为{Φ<font size="1">1</font>,Φ<font size="1">m</font>}的mgu,　∴σ＝{x/y}<br>
+      　　　　Φ<font size="1">1</font>σ=Φ<font size="1">2</font>σ=Φ″=P(x)<br>
+      　　　　τ为{～ψ1，～ψ2}的mgu ，∴τ＝{b/u}<br>
+      　　　　～ψ<font size="1">1</font>τ=～ψ<font size="1">2</font>τ=～ψ″=P(f(b))<br>
+      　　　　δ=σ∪τ={x/y,b/u}<br>
+      　　（4）Φ'=P(f(b))是　Φ″＝P(x)的例。<br>
+      　　　　 ψ'＝P(f(b))是　ψ″=P(f(b))的例。����<br>
+      　　　　 Φ″，ψ″必可合一，有mgu　r={f(b)/x}<br>
+      　　（5）R={<img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absmiddle">δ・r 
+      -{Φ<font size="1">1</font>,Φ<font size="1">2</font>}δ・r }∪{<img src="../../../../images/text/chap02/sec01/c2.gif" width="13" height="14" align="absmiddle">δ・r 
+      -{～ψ<font size="1">1</font>，～ψ<font size="1">2</font>}δ・r }<br>
+      　　　　　=～Q(z) ∨W(v)<br>
+      　　　　δ・r={x/y,b/u}・{f(b)/x}={f(b)/y,b/u,f(b)/x}<br>
+      　　　　R' =～Q(a)∨W(c)<br>
+      　　　　R' =R・λ 其中λ ={a/z,c/v}<br>
+      　　3．完备性定理
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="text">
+        <tr> 
+          <td width="30"><img src="../../../../images/text/tb/dingyi.gif" width="26" height="17" alt="定理"></td>
+          <td><b>定理</b></td>
+        </tr>
+        <tr> 
+          <td>&nbsp;</td>
+          <td class="explaination">　设S是不可满足的当且仅当存在一个使用归结推理规则的从S到空子句□的推理过程。</td>
+        </tr>
+        <tr>
+          <td><img src="../../../../images/text/tb/zhm.gif" width="25" height="17" alt="证明"></td>
+          <td><b>证明</b></td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td><img src="../../../../images/text/chap02/sec03/pic.gif" width="180" height="158" align="right">　若存在从S到□的使用归结规则的推理过程，由于两子句的归结式是这两个子句的逻辑推论，而空子句□是由形如P与～P这一对矛盾式导出的，从而S必是不可满足的。<br>
+            　若S是不可满足的，则<br>
+            　（1） 依Herbrand 定理必有S的有限封闭语义树T*。<br>
+            　（2） T<sup>*</sup>必有形如右图的树叉，其中N<font size="1">i+1</font>,N<font size="1">i+2</font>为失败结点。<br>
+            　（3） I(N<font size="1">i+1</font>),I(N<font size="1">i+2</font>)分别使S的基例C<font size="1">1</font>，C<font size="1">m</font>为假。<br>
+            　（4） C<font size="1">1</font>，C<font size="1">m</font> 必可做归结，有归结式R'(C<font size="1">1</font>,C<font size="1">m</font>)并将R'(C<font size="1">1</font>,C<font size="1">m</font>)并入S。<br>
+            　（5） I(N<font size="1">i</font>)或I(N<font size="1">j</font>)，N<font size="1">j</font>为N<font size="1">i</font>的父辈结点，必使R'(C<font size="1">1</font>,C<font size="1">m</font>)为假。从而Ni或Nj必是S∪{R'}的语义树的失败结点，这棵封闭语义树较T<sup>*</sup>倒塌了两枝。<br>
+            　（6） 重复（2）→（5）的过程，直到封闭语义树倒塌成仅由根结点N0构成为止，而N0是失败点。由于I(N<font size="1">0</font>)＝φ，这时的S∪{R',…}这有限集必含有□。<br>
+            　　从（1）→（6）表明了，当S是不可满足的时，必有从S到□的基例的归结过程。<br>
+            　（7） 依提升引理，S不可满足，必有从S到□的归结过程。<br>
+            　尚需指出有关归结法的完备性，如果所讨论的公式或子句集S中允许出现等号或不等号时，归结法就不完备了。如<br>
+            　　　　P(A)∧(A＝B)→P(B)<br>
+            这样简单的推理，使用归结法并不成功，原因是S中尚需表明有关等号的反身性、传递性、对称性和可替换性等公理，但这又过于繁琐了，如果在归结推理规则外，另外加入一条推理规则，即<br>
+            　　　若　<img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absmiddle">＝L(<font size="2">t</font><font size="1">1</font>)∨C<font size="1">1</font>' 
+            <br>
+            　　　　　<img src="../../../../images/text/chap02/sec01/c2.gif" width="13" height="14" align="absmiddle">= 
+            (<font size="2">t</font><font size="1">1</font>=<font size="2">t</font><font size="1">2</font>)∨C<font size="1">2</font>'<br>
+            　　　成立，必有　L(<font size="2">t</font><font size="1">2</font>)∨C<font size="1">1</font>'∨C<font size="1">2</font>'　成立。<br>
+            　　这时的归结法是完备的了。<br>
+            　　再有，若S并不是不可满足的，则使用归结法是得不到任何结果的。</td>
+        </tr>
+      </table>
+      <br>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

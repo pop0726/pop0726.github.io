@@ -1,0 +1,43 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第九章 句法分析</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+       
+      <span class="text"><br>
+      　　</span><span class="section">9.9 定子句语法</span><span class="text"><br>
+      <br>
+      　　</span><span class="part">9.9.1 逻辑语法</span><span class="text"><br>
+      　　符号逻辑是进行逻辑推理的一种形式化工具。如果-类问题的条件可以用某种逻辑形式表示成一组前提(premises)，而且待解问题可以用这种逻辑形式的一个陈述句来表示，那么通过构造一个从那些前提到这个问题语句的形式化证明，便可以找到一个解(逻辑推论)。<br>
+      　　对于-种语言来说，前提反映的是这种语言的语法规则，而待解问题的-般形式是：&quot;存在-个a，从而使a是合法语句u的一个分析(或解释)&quot;。对这个语句的一个构造性证明，不仅证明存在一个分析a，而且将提供a的实际值。于是这样一类构造性证明过程可以看作是-种计算装置，利用它可以为问题语句中的未知量求值。从这个意义上来讲，那些前提好比是一部程序，那个问题语句好比是这部程序的输入和输出参数，因此一个证明相当于调用这部程序来进行的一次计算。这就是逻辑语法和逻辑程序设计的基本思想。<br>
+      　　举例来说。下面这条上下文无关语法的规则：<br>
+      　　S∷＝NP VP<br>
+      可以用-条简单的一阶谓词表达式来描述：<br>
+      　　(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">u,v,w)NP(u)∧VP(v)∧conc(u,v,w)<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">S(w).<br>
+      其中&quot;<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">&quot;是全称量词，&quot;∧&quot;是合取(逻辑&quot;与&quot;)，&quot;<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">&quot;表示蕴涵。谓词conc(u,v,w)为真，当且仅当w是u和v顺序拼接的结果。因此这个逻辑表达式的意思是：任何-个名调短语u后面跟以任何-个动词短语v，将构成一个陈述句w＝uv。<br>
+      　　利用上面这种逻辑表达式来描写语法规则的形式化工具就叫做逻辑语法。逻辑语法最初是Colmerauer提出的，1980年英国爱丁堡大学Pereira和Warren发表了第一篇定子句语法(Definite 
+      Clause Grammar，简称DCG的论文。论文证明DCG是一种增强的上下文无关语法(Augmented Context-Free Grammar，简称ACFG)，它的效能至少不低于著名的ATN语法，尤其重要的是用定子句表达的语法规则本身就是逻辑程序设计语言Prolog的可执行程序，换句话说Prolog系统可以直接解释用DCG形式书写的语法规则，而无需象ATN那样另外再设计一个句法分析器(或规则解释程序)来完成这个任务。为了说明DCG，我们还需要介绍一下定子句和Prolog的概念。<br>
+      </span></td>
+  </tr>
+</table>
+</body>
+</html>

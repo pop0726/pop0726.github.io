@@ -1,0 +1,131 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td><span class="text"> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第四章 知识表示方法</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <br>
+      　　<span class="section">4.2 逻辑表示法</span><span class="text"><br>
+      <br>
+      　　</span>逻辑是一种重要的知识表示方法。从第二章归结推理方法的介绍容易理解这一点。使用逻辑法表示知识，需将以自然语言描述的知识，通过引入谓词、函数来加以形成描述，获得有关的逻辑公式，进而以机器内部代码表示。在逻辑法表示下可采用归结或其它方法进行准确的推理。当然一阶逻辑的表达能力是有限的，如具有归纳结构的知识、多层次的知识类型都难于用一阶逻辑来描述。<br>
+      　　由于对逻辑表示法在第二章已有详细介绍，这里仅举两个例子再做些说明。<br>
+      <br>
+      　　</span><span class="part">4.2.1 机器人搬弄积木块问题表示</span><span class="text"><br>
+      　　设在一个房间里，有一个机器人ROBOT ，一个壁室ALCOVE，一个积木块BOX，两个桌子A和B。机器人可把积木块BOX从一种状态变换成另一种状态。<br>
+      <br>
+      　　引入谓词<br>
+      </span><span class="explaination">　　　TABLE（A）　　　　　　　　表A是桌子<br>
+      　　　EMPTYHANDED（ROBOT）　　　表机器人双手是空的<br>
+      　　　AT（ROBOT，A）　　　　　　表机器人在A旁<br>
+      　　　HOLDS（ROBOT，BOX）　　　 表机器人拿着积木块<br>
+      　　　ON（BOX，A）　　　　　　　表积木块BOX在A上</span><span class="text"><br>
+      　　设定初始状态是　<br>
+      </span><span class="explaination">　　　AT（ROBOT，ALCOVE）<br>
+      　　　EMPTYHANDED　（ROBOT）<br>
+      　　　ON（BOX，A）<br>
+      　　　TABLE（A）<br>
+      　　　TABLE（B）</span><span class="text"><br>
+      　　目标状态是<br>
+      </span><span class="explaination">　　　AT（ROBOT，ALCOVE）<br>
+      　　　EMPTYHANDED（ROBOT）<br>
+      　　　ON（BOX，B）<br>
+      　　　TABLE（A）<br>
+      　　　TABLE（B）</span><span class="text"><br>
+      　　问题是依机器人可进行的操作，实现一个由初始状态到目标状态的机器人操作过程。<br>
+      　　机器人的每个操作的结果所引起的状态变化，可用对原状态的增添表和删除表来表示。如机器人由初始状态把BOX从A桌移到B桌上，然后仍回到壁室，这时同初始状态相比有<br>
+      　　增添表</span><span class="explaination">　　ON（BOX，B）</span><br>
+<span class="text">      　　删除表</span><span class="explaination">　　ON（BOX，A）</span><br>
+<span class="text">      　　又如机器人由初始状态，走近A桌，然后拿起BOX，这时同初始状态相比有<br>
+      　　增添表</span><span class="explaination">　　AT（ROBOT，A）<br>
+      　　　　　　　HOLDS（ROBOT，BOX）</span><span class="text"><br>
+      　　删除表　　</span><span class="explaination">AT（ROBOT，ALCOVE）<br>
+      　　　　　　　EMPTYHANDED（ROBOT）<br>
+      　　　　　　　ON（BOX，A）</span><span class="text"><br>
+      　　进一步说，机器人的每一操作还需有先决条件。如机器人拿起A桌上的BOX这一操作，先决条件是<br>
+      　　ON（BOX，A），AT（ROBOT　，A）<br>
+      　　EMPTYHANDED　（ROBOT）<br>
+      　　而先决条件成立与否的验证可使用归结法。如将初始状态视作已知条件，而将要验证的先决条件视作结论，便可使用归结法了。有如下归结过程：<br>
+      </span><span class="explaination">　　（1） AT（ROBOT，A）<br>
+      　　（2） EMPTYHANDED（ROBOT）<br>
+      　　（3） ON（BOX,A）<br>
+      　　（4） TABLE （A）<br>
+      　　（5） TABLE （B）<br>
+      　　（6） ～ON （BOX,A）∨～AT（ROBOT,A）<br>
+      　　　　　　　　　　　　∨～EMPTYHANDED（ROBOT）（先决条件的否定）<br>
+      　　（7）～AT(ROBOT,A)∨～EMPTYHANDED （ROBOT）(3,6)<br>
+      　　（8）～EMPTYHANDED （ROBOT）（1,7）<br>
+      　　（9）□ (2,8)</span><span class="text"><br>
+      　　于是验证了这一先决条件成立。 <br>
+      　　从初始状态出发，每实现机器人的一个操作都验证先决条件，并建立相应的增添表和删除表，便可逐步达到目标状态。这里仅是说明逻辑法可以描述这类问题。1972年FIKS建立的STRIPS机器人规划系统就是使用的逻辑法表示的。<br>
+      <br>
+      　　</span><span class="part">4.2.2 Honil 塔问题表示</span><span class="text"><br>
+      　　已知三个柱子1,2，3和三个盘子A，B,C(A比B小，B比C小)。初始状态下，A，B，C依次放在1柱上。目标状态是A，B，C依次放在柱子3上。条件是每次可移动一个盘子，盘子上方是空顶方可移动，而任何时候都不允许大盘在小盘之上。<br>
+      　　这个问题，使用逻辑法可作如下描述。<br>
+      　　（1） 常量　A,B,C,1,2,3而S表状态。 <br>
+      　　（2） 谓词　Disk(A)表A是盘子<br>
+      　　　　　　　　PEE（1）　表1是柱子<br>
+      　　　　　　　　Smaller(A,B) 表A比B小<br>
+      　　　　　　　　Free(x,s) 表状态S下，X空顶<br>
+      　　　　　　　　Legal(x,y,s) 表状态S下，x可向y上移动<br>
+      　　　　　　　　ON（A，B，S）表状态S下A在B上<br>
+      　　（3） 函数　move(A,B,S)表状态S下，A移到B上所得的新状态<br>
+      　　（4） 谓词和函数间的关系<br>
+      </span> 
+      <table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td colspan="2" class="text">(<img src="../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)(<img src="../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">y)(<img src="../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">z)(Smaller(x,y) 
+            ∧ Smaller(y,z)→Smaller (x,z))</td>
+        </tr>
+        <tr> 
+          <td width="33%">&nbsp;</td>
+          <td class="text">盘大小关系的传递性</td>
+        </tr>
+        <tr> 
+          <td colspan="2" class="text">(<img src="../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)(<img src="../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">s)(Free(x,s)→～(<img src="../../../images/text/chap02/sec02/fh2.gif" width="8" height="9" align="absmiddle">y)ON(x,y,s))</td>
+        </tr>
+        <tr> 
+          <td>&nbsp;</td>
+          <td class="text">s下，x是空顶必知s下无y在x上。</td>
+        </tr>
+        <tr> 
+          <td colspan="2" class="text">(<img src="../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)(<img src="../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">y)(<img src="../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">s)(Legal(x,y,s)←→Free(x,s)∧Free(y,s)∧Disk 
+            (x)∧Smaller(x,y))</td>
+        </tr>
+        <tr> 
+          <td>&nbsp;</td>
+          <td class="text">x可向y 上移动是合法的，当且仅当x,y空顶且x比y 小，x是盘。</td>
+        </tr>
+        <tr> 
+          <td colspan="2" class="text">(<img src="../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)(<img src="../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">y)(<img src="../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">s)(<img src="../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">s')(s'=move 
+            (x,y,s)→ON(x,y,s')∧(<img src="../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">z1)(<img src="../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">z2)((～(z1=x)∧～(z2=y))→(ON(z1,z2,s)=ON(z1,z2,s'))∧(<img src="../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">z)(ON(x,z,s)→Free(z,s'))))</td>
+        </tr>
+        <tr> 
+          <td>&nbsp;</td>
+          <td class="text">新状态s下，x移动到y上得新状态S'，那么没移动的盘ON关系没变动。而x下面的盘是空顶了。</td>
+        </tr>
+      </table>
+      <span class="text"><br>
+      　　有了这些关系，再给出初始状态和目标状态的谓词公式，便可使用归结法建立求解过程。<br>
+      </span></td>
+  </tr>
+</table>
+</body>
+</html>

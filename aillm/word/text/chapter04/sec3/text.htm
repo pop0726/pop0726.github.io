@@ -1,0 +1,86 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td><span class="text"> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第四章 知识表示方法</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <span class="text"><br>
+      　　</span><span class="section">4.3 产生式表示法</span><span class="text"><br>
+      <br>
+      　　</span>1943年美国数学家Post首先建立了一个产生式系统，是作为组合问题的形式化变换理<br>
+      论提出来的，其中产生式指符号的变换规则A→aA。产生式是一种知识表达方法，具有和Turing 机一样的表达能力，有的心理学家认为人对知识的存储就是产生式形式。<br>
+      <br>
+      <br>
+      　　</span><span class="part">4.3.1 事实与规则的表示</span><span class="text"><br>
+      　　产生式表示方法容易描述事实，规则以及它们的不确定性度量。<br>
+      　　事实可看成是断言一个语言变量的值或是多个语言变量间的关系的陈述句，语言变量的值或语言变量间的关系可以是一个词，不一定是数字。如雪是白色的，其中雪是语言变量，其值是白色的。约翰喜欢玛丽，其中约翰、玛丽是两个语言变量，两者的关系值是喜欢。<br>
+      　　一般使用三个元组（对象，属性，值）或（关系，对象1，对象2）来表示事实，其中对象就是语言变量，若考虑不确定性就成四元组表示了。这种表示的机器内部实现就是一个表。如事实老李年龄是35岁，便写成　<br>
+      </span><span class="explaination">　　　　（Lee Age 35）</span><span class="text"><br>
+      而老李、老张是朋友，可写成<br>
+      </span><span class="explaination">　　　　（Friend Lee Chang ）</span><span class="text"><br>
+      　　为求解过程查找的方便，在知识库中可将某类有关事实以网状、树状结构组织连在一起。<br>
+      　　对于规则。表示事物间的因果关系，以　<br>
+      　　　　&quot;if Condition then action&quot;<br>
+      的单一形式来描述，将规则作为知识的单位。其中的Condition 部分称作条件式前件或模式，而action 部分称作动作或后件或结论。条件部常是一些事实Ai的合取，而结论常是某一事实B，如果考虑不确定性，需另附可信度度量值。<br>
+      　　如MYCIN　系统中一条规则的表示。从专家那里获得的规则是：<br>
+      </span><span class="explaination">　　　　If：(1)The stain of organizm is gramnegative 
+      ,<br>
+      　　and (2)The morphology of the organizm is rop,<br>
+      　　and (3)The aerobicity of the organizm is anaerbic <br>
+      　　　　then：There is suggetive evidence(0.6)that the identity of the organizm 
+      is bacteroides </span><span class="text"><br>
+      而用Lisp实现的机器人内部表示为<br>
+      </span><span class="explaination">　　　　Premise：(And (same cntext gram gramneg)<br>
+      　　　　　　　　　　　(same cntext morph rod )<br>
+      　　　　　　　　　　　(same cntext air anaerobic))<br>
+      　　　　Action: (Conclude cntext zdent bacteroides tally 0.6)</span><span class="text"><br>
+      　　为便于规则的使用，在知识库中某些规则常按某观点组织起来放在一起。<br>
+      <br>
+      　　</span><span class="part">4.3.2 产生式系统的组成和推理</span><span class="text"><br>
+      　　多数较为简单的专家系统都是以产生式表示知识的，相应的系统称作产生式系统。 <br>
+      　　产生式系统，由知识库和推理机两部分组成，其中知识库由规则库和数据库组成。规则库是产生式规则的集合，数据库是事实的集合。<br>
+      　　规则库是某领域知识（规则）的存储器，规则是以产生式表示的，规则集蕴涵着将问题从初始状态转换解状态的那些变换规则，规则库是专家系统的核心。规则可表成与或树形式，基于数据库中事实对这与或树的求值过程就是推理。<br>
+      　　数据库存放输入的事实、外部数据库输入的事实以及中间结果（事实）和最后结果的工作区。<br>
+      　　推理机是一个程序，控制协调规则库与数据的运行，包含了推理方式和控制策略。 <br>
+      　　产生式系统推理机的推理方式有正向推理、反向推理和双向推理三种。<br>
+      　　</span><b class="explaination">正向推理</b><span class="text">　是从已知事实出发，通过规则求得结论。或称数据驱动方式也称作自底向上的方式。推理过程是<br>
+      　　（1） 规则集中的规则与数据库中的事实进行匹配，得匹配的规则集合。<br>
+      　　（2） 从匹配规则集合中选择一条规则作为使用规则。<br>
+      　　（3） 执行使用规则的后件。将该使用规则的后件送入数据库。<br>
+      　　重复这个过程直至达到目标。<br>
+      　　具体说如数据库中含有事实A，而规则库中有规则A→B，那么这条规则便是匹配规则，进而将后件B送入数据库。这样可不断扩大数据库直至包含目标便成功结束。如有多条匹配规则需从中选一条作为使用规则，不同的选择方法直接影响着求解效率，选规则的问题称作控制策略。正向推理会得出一些与目标无直接关系的事实，是有浪费的。 
+      <br>
+      　　</span><b class="explaination">反向推理</b><span class="text">　是从目标（作为假设）出发，反向使用规则，求得已知事实，或称目标驱动方式也称自顶向下的方式，推理过程是<br>
+      　　（1） 规则集中的规则后件与目标事实进行匹配，得匹配的规则集合。<br>
+      　　（2） 从匹配规则集中选择一条规则作为使用规则。<br>
+      　　（3） 将使用规则的前件作为子目标。<br>
+      　　重复这个过程直至各子目标均为已知事实成功结束。<br>
+      　　如果目标明确，使用反向推理方式效率较高，所以常为人们所使用。 <br>
+      　　</span><b class="explaination">双向推理</b><span class="text">　既自顶向下、又自底向上作双向推理，直至某个中间界面上两方向结果相符便成功结束。不难想像这种双向推理较正向或反向推理所形成的推理网络来得小，从而推理效率更高。<br>
+      <br>
+      　　</span><span class="part">4.3.3 产生式表示的特点</span><span class="text"><br>
+      　　产生式表示格式固定，形式单一，规则（知识单位）间相互较为独立，没有直接关系使知识库的建立较为容易，处理较为简单的问题是可取的。另外推理方式单纯，也没有复杂计算。特别是知识库与推理机是分离的，这种结构给知识库的修改带来方便，无需修改程序，对系统的推理路径也容易作出解释。基于这些说明，产生式表示知识常作为建造专家系统的第一选择的知识表示方法。 
+      <br>
+      </span></td>
+  </tr>
+</table>
+</body>
+</html>

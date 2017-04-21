@@ -1,0 +1,72 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td><span class="text"> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第四章 知识表示方法</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <br>
+      　　</span><span class="part">4.4.3 语义网络下的推理</span><br>
+      <span class="text">　　不同的知识表示方法相应的推理机理也是不同的。语义网络表示下的推理方法不像逻辑表示表示法和和生式表示法的推理方法那样明了。<br>
+      　　语义网络表示法是依匹配来进行推理的，根据提出的问题可构成局部网络，其中有的结点或弧的标注是空的，表示有待求解的。依这个局部网络来到知识库中寻找匹配的网络，以便求得问题的解答。当然这种匹配不是完全的匹配，需考虑匹配程度。<br>
+      　　最简单的isa关系下的推理是直接继承。如<br>
+      　　　　<img src="../../../../images/text/chap04/sec4/4.4.3.gif" width="186" height="40" align="absmiddle"> 
+      便有 <img src="../../../../images/text/chap04/sec4/4.4.3.2.gif" width="100" height="39" align="absmiddle"><br>
+      　　也还可将语义网络引入逻辑含义，表示出～,∨,∧关系，便可使用归结推理法。<br>
+      　　1977年Hendrix提出了网络的分块技术，将复杂问题分解成许多子问题，每个问题以一个语义网络表示，这样有助于推理。<br>
+      　　还有人将语义网络中的结点看成有限自动机，为寻求几个概念间的联系，起动相应的自动机，如有会合点便可求得解答。<br>
+      　　语义网络是一种重要的知识表示方法，然而相应的推理方法还不完善。<br>
+      <br>
+      　　</span><span class="part">4.4.4 语义网络的形式描述</span><span class="text"><br>
+      　　语义网络表示描述了知识的分层结构下的概念关系，主要推理形式是概念（结点）间属性的继承。这种分层的继承关系刻画了客观知识与人类常识，语义网络表示有实现系统，但一直缺乏理论基础。<br>
+      　　语义网络的表示和推理基础性研究有两种倾向。一是把语义网络作为一阶逻辑的一种等价变体，如Hayes、Schurber大的工作。一是建立语义网络的数学系统算法理论，如Fahiman，1979年建立的NETL系统。这两种途径都面临困难，主要是不能解决复杂情形下继承的冲突问题。1984年Touretzty 定义了一种继承系统严格的数学理论，标志着继承推理作为一个研究方向的开始。1986年Touretzty还直接建立了继承系统理论。1988年Etherington　应用非单调逻辑来描述继承系统，反过来，继承推理推进了非单调逻辑的研究。<br>
+      　　继承推理的形式化：</span>
+      <table width="230" border="0" cellspacing="0" cellpadding="0" align="right">
+        <tr> 
+          <td width="30" valign="top"><img src="../../../../images/text/tb/tushi.gif" width="25" height="16" alt="图示"></td>
+          <td align="center" class="explaination"><img src="../../../../images/text/chap04/sec4/tu4.5.gif" width="200" height="193"><br>
+            图　4.5 </td>
+        </tr>
+      </table>
+      <span class="text"> <br>
+      　　（1） 语义网络作为一种图式</span> <span class="text"><br>
+      　　如a为一只鸟，<img src="../../../../images/text/chap03/sec4/p1.gif" width="12" height="13" align="absmiddle">为麻雀，<img src="../../../../images/text/chap03/sec4/p2.gif" width="12" height="13" align="absmiddle">为企鹅，q为鸟，r为飞行物。这时描述鸟会飞的性质可用图4.5表示</span> 
+      <span class="text"><br>
+      　　记作Г={a→<img src="../../../../images/text/chap03/sec4/p1.gif" width="12" height="13" align="absmiddle">,a<img src="../../../../images/text/chap04/sec4/fh.gif" width="12" height="9"><img src="../../../../images/text/chap03/sec4/p2.gif" width="12" height="13" align="absmiddle">,<img src="../../../../images/text/chap03/sec4/p1.gif" width="12" height="13" align="absmiddle">→q,<img src="../../../../images/text/chap03/sec4/p2.gif" width="12" height="13" align="absmiddle">→q,q→r,<img src="../../../../images/text/chap03/sec4/p2.gif" width="12" height="13" align="absmiddle"><img src="../../../../images/text/chap04/sec4/fh.gif" width="12" height="9">r}，这种表示结构简单但不能描述具有例外的多重继承。当前语义网络的继承问题限于无循环有向图，即继承关系是一种严格的偏序情形。具有良好结构的继承，树就容易实现继承算法如NETL系统。<br>
+      　　（2） 语义网络作为一阶逻辑的变体<br>
+      　　许多研究者讨论了一阶逻辑的等阶形式，从而给出了语义网络的逻辑解释。<br>
+      　　令　Г1=Г-{q→r}可表示为<br>
+      　　{<img src="../../../../images/text/chap03/sec4/p1.gif" width="12" height="13" align="absmiddle">(a),～<img src="../../../../images/text/chap03/sec4/p2.gif" width="12" height="13" align="absmiddle">(a),(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)(<img src="../../../../images/text/chap03/sec4/p1.gif" width="12" height="13" align="absmiddle">(x)→q(x)),(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)(<img src="../../../../images/text/chap03/sec4/p2.gif" width="12" height="13" align="absmiddle">(x)→q(x)),(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)(<img src="../../../../images/text/chap03/sec4/p1.gif" width="12" height="13" align="absmiddle">(x)→r(x)),(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)(<img src="../../../../images/text/chap03/sec4/p2.gif" width="12" height="13" align="absmiddle">(x)→～r(x))}<br>
+      　　但是q→r不能表示为(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)(q(x)→r(x))，因为全称量词不能表示&quot;大多数鸟会飞&quot;。<br>
+      　　（3） 语义网络的一般描述<br>
+      　　设　继承语言　L＝(I,K,N)<br>
+      　　其中　I＝{a,b,…} 表个体、对象集<br>
+      　　　　　I∪K＝{x,y,z,…}<br>
+      　　　　　N={1,-1}<br>
+      　　一个继承网络是L上的一个网<br>
+      　　　　　Г＝(I×K×N)∪(K×K×N)<br>
+      可描述有向图，结点是个体或类，每条边有权1或－1，不存在指向个体的边。如Г的权为1的边形如&lt;x,y,1&gt;记作x→y表isa关系。权为－1的边&lt;x,y,-1&gt;记作x<img src="../../../../images/text/chap04/sec4/fh.gif" width="12" height="9">y表is 
+      not a 关系。<br>
+      　　系统中同时存在x→y,x<img src="../../../../images/text/chap04/sec4/fh.gif" width="12" height="9">y就是矛盾，因为常识推理允许存在矛盾，所以需要处理矛盾。若a→p,a<img src="../../../../images/text/chap04/sec4/fh.gif" width="12" height="9">p这时不允许a可推出任何结论（这是经典逻辑的平凡性）。值得指出的是继承推理具有非单调性，需要讨论例处的情形，从而非单调语义网中继承推理的研究引起人们的兴趣。矛盾继承是多重继承的一种特殊情形，多重继承冲突处理是重要的研究课题。<br>
+      </span></td>
+  </tr>
+</table>
+</body>
+</html>

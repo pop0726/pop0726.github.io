@@ -1,0 +1,65 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第六章　实例学习</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <span class="text"><br>
+      　　2.基于解释的详细说明法<br>
+      　　（Explanation-Based Specialization）<br>
+      　　1987年卡耐基-梅隆大学的Steven Minton和Jaime G.Carbonell利用这种方法开发了学习系统PRODIGY。它较好地克服了EBG方法中过份一般化的缺点。它从多种目标概念学习，其解释过程是对每个目标概念进行详细描述。解释过程结束后，把得到的有关目标概念的描述转换成一条相应的控制规则。可以用这些规则来选择合适的结点、子目标、算子及约束、具体方法如下。<br>
+      　　PRODIGY可以从四种目标概念学习，这些概念是：成功、失败、唯一的选择、目标互相制约。每当用户给定一个目标，以及它的一个例子，系统先反向分解目标至叶节点，得到相应的目标概念，然后分析问题求解轨迹，解释该例为何满足这个目标概念。<br>
+      　　例如，如果得到了解，则将学习关于成功概念的控制规则，如果无解，则学习关于失败概念的控制规则；如果某个选择是唯一的，则学习有关唯一的选择概念的控制规则；如果某个目标的成功须依赖别的目标，则学习目标互相制约概念的控制规则。<br>
+      　　（1）解释过程　<br>
+      　　PRODIGY系统中的解释过程就是详细说明过程。解释是使用训练例子提供的信息从知识库中寻找证明依据。解释过程等价于：以目标概念为根，生成一棵自顶向下的证明树。解释的每一步，从领域知识库中选择与所给例子一致的规则，生成一个结点。每条规则是对结点子目标的详细描述。解释算法如下：<br>
+      　　第一步：如果此概念是原语，则没有规则蕴含此概念，则不改变且返回，否则按第二步。<br>
+      　　第二步：访问与此概念相联的识别器（即连接目标概念与知识库的映射函数），取出与训练例子一致的规则。规则中每个非负的原子式为一个子概念。如果子概念没有详细描述过，则详细描述该子概念；且重新唯一地命名已经详细描述过的变量；且用详细描述置换子概念并简化之。<br>
+      　　第三步：返回。<br>
+      　　这时的目标概念已是完全详细描述过的概念。用它们去套相应的规则模式，便获得一条对应此目标概念的控制规则。<br>
+      　　（2） 学习控制规则<br>
+      　　在PRODIGY中，针对四种目标概念，有四种固定的控制规则模式。将某个目标概念的详细描述与规则模式匹配，就获得相应的控制规则。由成功概念学到preference 
+      rules，它表明什么情况下某选择是成功的。由失败概念学到rejection rules，它表明在这种情况下这种选择应该拒绝。如果其它选择都失败，则选择是唯一的，于是学到selection 
+      rulus。<br>
+      　　下面以失败概念为例，说明解释过程以及控制规则的形成。领域背景是积木世界的动作规划问题。对某个失败的规划动作的学习，产生的解释如下。<br>
+      　　　　(OPERATOR－FALLS　op goal node）if<br>
+      　　　　　(AND (MATCHES op (PICKUP x))<br>
+      　　　　　　(MATCHES goal (HOLDING x))<br>
+      　　　　　　(KNOWN node (NOT (ONTABLE x))))<br>
+      其中小写字符是变量。上式是用领域知识库中形式化的知识对失败动作进行详细说明后的结果。其语义是，如果当前节点不是&quot;ONTABLE x&quot;，而且当前目标是&quot;HOLDING 
+      x&quot;,当前算子是&quot;PICKUP x&quot;，则算子&quot;PICKUP x&quot;是一个失败算子。由这个失败概念学到相应的rejection 
+      rule是：<br>
+      　　　　(REJECT　OPERATOR　(PICKUP x))if<br>
+      　　　　　(AND (CURRENT-NODE node)<br>
+      　　　　　　(CURRENT-GOAL node (HOLDING x))<br>
+      　　　　　　(CANDIDATE-OPERATOR(PICKUP x)node)<br>
+      　　　　　　(OPERATE-FALLS op goal node)<br>
+      其中op=(PICKUP x)，goal=(HOLDING x)，node=(NOT ONTABLE x)。规则含义是：如果当前节点是（NOT（ONTABLE　x），当前目标是（HOLDING 
+      x），且该节点上侯选算子是（PICKUP x）,而且该算子在该节点和该目标下是失败的，则拒绝算子（PICKUP　x）。<br>
+      　　通过把控制规则传递到四个策略上，可以动态地改善问题求解器性能。这四个策略是：选择节点、子目标、算子和一组约束的方法。在以后求解类似问题时，先用selection 
+      rules选出适合的子集，然后用rejection rules过滤，最后由preference rules寻找启发性最好的选择，从而达到搜索的效果。<br>
+      　　（3）知识表示<br>
+      　　PRODIGY的知识库包括领域层公理和构筑层公理两类知识。前者是领域规则，后者是描述问题求解器的推理规则。二者都用陈述性逻辑语言表示，以便扩展和显式推理。<br>
+      　　PRODIGY虽然没有明显的概括化过程，但其领域规则，特别是问题求解器的推理规则实际上已经进行了概括化处理。它们不是由最原始的领域知识构成，所以实际上具有一定的概括性。另一方面，PRODIGY是使用详细说明的方法由规则来构成证明树形式的解释，所以解释的结果所获取的描述是对目标概念的特殊化，对例子的概括化。这样的结果既保证不过份概括，又具有一定一般性。<br>
+      </span></td>
+  </tr>
+</table>
+</body>
+</html>

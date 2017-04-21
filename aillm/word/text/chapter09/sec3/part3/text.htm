@@ -1,0 +1,53 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第九章 句法分析</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <br>
+      　　 <span class="part">9.3.3 上下文有关语法(1型语法)</span><span class="text"><br>
+      　　上下文有关语法是一种满足以下约束的短语结构语法：对于每一条形式为<br>
+      　　　　x→y<br>
+      的产生式，y的长度(即符号串y中的符号个数)总是大于或等于x的长度，而且x，y∈V<sup>*</sup>。因此， <br>
+      　　　　AB→CDE<br>
+      是上下文有关语法中一条合法的产生式，但<br>
+      　　　　ABC→DE<br>
+      不是。这一约束已足以保证上下文有关语言是递归的。<br>
+      　　有时也用另一种标记法来表示上下文有关语法。在这种标记法中，每一条产生式都采用如下形式<br>
+      　　　　A→y/x_z<br>
+      其中A∈N，y∈V<sup>+</sup>，x，z∈V<sup>*</sup>。这条产生式的意思是：如果A出现在上下文&quot;x_z&quot;中，即前面紧挨着符号串X，后面紧挨着符号串Z，则A可以重写为y。这等价于产生式<br>
+      　　　　xAz→xyz。<br>
+      　　第二种标记法强调了这样一个概念，即一个符号的重写依赖于其上下文，这也就是&quot;上下文有关&quot;这个名称的来由。你也许会注意到，这种标记法对于语法所施加的约束比我们为上下文有关语法所下的第一个定义更紧些。例如，形为<br>
+      　　　　AB→BA<br>
+      的产生式不能用第二种标记法重写。但是可以证明，能够被第一种形式的语法所定义的任何语言也可用第二种形式的语法定义。<br>
+      <br>
+      　　</span><span class="part">9.3.4 无约束短语结构语法(0型语法)</span><span class="text"><br>
+      　　如前所述，对于短语结构语法的重写规则如果没有附加任何限制，那么它就成为乔姆斯基体系中生成能力最强的一种形式体系，即O型语法。被这种无约束短语结构语法所定义的语言叫做O型语言，后者是可递归枚举的，但不一定是递归的。<br>
+      　　由于不可能设计一部程序来判别一个输入的符号串是否是0型语言中的一个句子，所以O型语法很少被用来处理自然语言。<br>
+      　　总而言之，在乔姆斯基体系中，如果一种语言可以被一部i型语法所生成，我们就称它为i型语言。<br>
+      　　由于在乔姆斯基体系中，语法的型号愈高，对重写规则所附加的限制也愈多，所以3型语言是2型语言的一个子集，2型语言又是1型语言的一个子集，依此类推，有<br>
+      　　O型语言<img src="../../../../images/text/chap09/sec2/fh3.gif" width="12" height="10">1型语言<img src="../../../../images/text/chap09/sec2/fh3.gif" width="12" height="10">2型语言<img src="../../../../images/text/chap09/sec2/fh3.gif" width="12" height="10">3型语言<br>
+      从语法的生成能力看，O型语法最强，依次递减，3型语法最弱。<br>
+      </span></td>
+  </tr>
+</table>
+</body>
+</html>

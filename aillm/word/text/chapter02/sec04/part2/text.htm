@@ -1,0 +1,166 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../../images/pic/bg0401.gif" height="18" align="right" class="chap">
+              <tr> 
+                <td> 
+                  <div align="center">第二章 归结推理方法</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <br>
+      　　<span class="part">2.4.1 置换与合一</span><br>
+      　　<span class="text">置换是形为　<br>
+      　　　　　　　{t<font size="1">1</font>/v<font size="1">1</font>,…,t<font size="1">n</font>/v<font size="1">n</font>}<br>
+      的一个有限集。其中vi是变量而t<font size="1">i</font>是不同于v<font size="1">i</font>的项(常量、变量、函数)，且v<font size="1">i</font>≠v<font size="1">j</font>(i≠j),i,j=1,2,…,n。<br>
+      　　例如{a/x,b/y,f(x)/z},{f(z)/x,y/z}都是置换。<br>
+      　　不含任何元素的置换为空置换，以ε表示。<br>
+      　　置换可作用于某个谓词公式上，也可作用于某个项上。令置换θ＝{t<font size="1">1</font>/v<font size="1">1</font>,… 
+      ,t<font size="1">n</font>/v<font size="1">n</font>}，而E是一谓词公式，那么θ作用于E，就是将E中出现的变量vi均以ti代入(i=1, 
+      …,n),结果以Eθ表示，并称为E的一个例。θ作用于项t也是将t中出现的变量vi以ti代入(i=1, …,n),结果以t・θ表示。</span> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="text">
+        <tr>
+          <td width="30"><img src="../../../../images/text/tb/liti.gif" width="26" height="25" alt="例题"></td>
+          <td><b>例:</b></td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td>　　θ＝{a/x,f(b)/y,u/z}<br>
+            　　E＝P(x,y,z)<br>
+            　　t=g(x,y)<br>
+            　那么　Eθ＝P(a,f(b),u)<br>
+            　　　　tθ=g(a,f(b))<br>
+            　显然，若E是子句集S的一个子句，置换θ的v<font size="1">1</font>,…,v<font size="1">n</font>含有E的所有变量，t<font size="1">i</font>又是H的元素时，Eθ便是S的子句E的基例。<br>
+            　常使用的置换间的运算是置乘法（合成）。<br>
+            　若　θ＝{t<font size="1">1</font>/x<font size="1">1</font>,…,t<font size="1">n</font>/x<font size="1">n</font>}<br>
+            　　　λ＝{u<font size="1">1</font>/y<font size="1">1</font>,…,u<font size="1">m</font>/y<font size="1">m</font>}<br>
+            　置换的乘积θ・λ是个新的置换，作用于E相当于先θ后λ对E的作用。为此可如下定义<br>
+            　先作置换<br>
+            　　　{t<font size="1">1</font>・λ/x<font size="1">1</font>,…,t<font size="1">n</font>λ・/x<font size="1">n</font> 
+            ,u<font size="1">1</font>/y<font size="1">1</font>,… ,u<font size="1">m</font>/y<font size="1">m</font>}<br>
+            　若　y<font size="1">i</font>∈{x<font size="1">1</font>,…,x<font size="1">n</font>}时，先从中删除u<font size="1">i</font>/y<font size="1">i</font><br>
+            　　　t<font size="1">i</font>・λ=x<font size="1">i</font> 时，再从中删除t<font size="1">i</font>・λ/x<font size="1">i</font><br>
+            所得的置换称作θ与λ的乘积，记作θ・λ。 </td>
+        </tr>
+      </table>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="text">
+        <tr> 
+          <td width="30"><img src="../../../../images/text/tb/liti.gif" width="26" height="25" alt="例题"></td>
+          <td><b>例:</b></td>
+        </tr>
+        <tr> 
+          <td>&nbsp;</td>
+          <td>　　θ＝{f(y)/x,z/y}<br>
+            　　λ＝{a/x, b/y, y/z}<br>
+            　求 λ・θ。<br>
+            　先作置换　{f(y)・λ/x,z・λ/y,a/x,b/y,y/z}={f(b)/x,y/y,a/x,b/y,y/z}<br>
+            　先删除　a/x,b/y,再删y/y得<br>
+            　　　θ・λ ＝{f(b)/x,y/z}<br>
+            　当　E =P(x,y,z) 时，<br>
+            　　　E(θ・λ)＝P(f(b),y,y)<br>
+            　而　Eθ = P(f(y),z,z)<br>
+            　　　(Eθ)λ＝P(f(b),y,y)=E(θ・λ)<br>
+            　　　一般地说有<br>
+            　　　(θ・λ)・μ=θ・(λ・μ)<br>
+            　　　ε・θ＝θ・ε＝θ<br>
+            　但交换律是不成产的。<br>
+            　下面介绍合一的概念，设有公式集合{E<font size="1">1</font>,…,E<font size="1">k</font>}和置换θ，使<br>
+            　　　E<font size="1">1</font>θ= E<font size="1">2</font>θ= …=E<font size="1">k</font>θ<br>
+            　便称E<font size="1">1</font>,…,E<font size="1">k</font>是可合一的，且θ称为合一置换。<br>
+            　若E<font size="1">1</font>,…,E<font size="1">k</font>有合一置换σ且对E<font size="1">1</font>,…,E<font size="1">k</font>的任一合一置换θ都有置换λ存在使得<br>
+            　　　θ =σ・λ<br>
+            　便说σ是 E<font size="1">1</font>,…,E<font size="1">k</font> 的最一般合一置换，记作 
+            mgu 。</td>
+        </tr>
+        <tr> 
+          <td><img src="../../../../images/text/tb/liti.gif" width="26" height="25" alt="例题"></td>
+          <td><b>例1:</b></td>
+        </tr>
+        <tr> 
+          <td>&nbsp;</td>
+          <td>　E<font size="1">1</font>＝P(a ,y) E<font size="1">2</font>=(x,f(b))<br>
+            　是可合一的，有合一置换θ ={a/x,f(b)/y},且θ也是E<font size="1">1</font>，E<font size="1">2</font> 
+            的 mgu 。</td>
+        </tr>
+        <tr> 
+          <td><img src="../../../../images/text/tb/liti.gif" width="26" height="25" alt="例题"></td>
+          <td><b>例2:</b></td>
+        </tr>
+        <tr> 
+          <td>&nbsp;</td>
+          <td>　E<font size="1">1</font>=P(x) E<font size="1">2</font>=P(f(y))<br>
+            　是可合一的，有合一置换θ＝{f(a)/x,a/y} 但θ不是E<font size="1">1</font>，E<font size="1">2</font> 
+            的 mgu 。<br>
+            　σ＝{f(y)/x}方是E<font size="1">1</font>，E<font size="1">2</font> 的mgu，也可以说E<font size="1">1</font>，E<font size="1">2</font> 
+            的 mgu 是最简单的合一置换。</td>
+        </tr>
+        <tr> 
+          <td><img src="../../../../images/text/tb/liti.gif" width="26" height="25" alt="例题"></td>
+          <td><b>例3:</b></td>
+        </tr>
+        <tr> 
+          <td>&nbsp;</td>
+          <td>　E<font size="1">1</font>＝P(x) E<font size="1">2</font>=P(y)<br>
+            显然{y/x}和{x/y}都是E<font size="1">1</font>，E<font size="1">2</font> 的 
+            mgu，这说明E<font size="1">1</font>，E<font size="1">2</font> 的 mgu 并不是唯一的。<br>
+            　对给定的公式E<font size="1">1</font>，E<font size="1">2</font> 来说，采用逐一比较找出不一致，并作相应的合一置换的办法便可求得 
+            mgu 。<br>
+            　mgu 算法<br>
+            　(1) 令W={E<font size="1">1</font>，E<font size="1">2</font>}<br>
+            　(2) 令K＝0，W<font size="1">0</font>＝W，σ<font size="1">0</font>＝ε<br>
+            　(3) 如果W<font size="1">k</font>已合一，停止，σ<font size="1">k</font> =mgu<br>
+            　　　否则找不一致集D<font size="1">k</font><br>
+            　(4) 若Dk中存在元素v<font size="1">k</font>，t<font size="1">k</font>，其中v<font size="1">k</font>不出现于t<font size="1">k</font>中做(5)，否则不可合一 
+            。<br>
+            　(5) 令σ<font size="1">k+1</font>=σ<font size="1">k</font>・{t<font size="1">k</font>/v<font size="1">k</font>}W<font size="1">k+1</font>=W<font size="1">k</font>{t<font size="1">k</font>/v<font size="1">k</font>}=Wσ<font size="1">k+1</font><br>
+            　(6) k+1→转(3)<br>
+            　可证明若E<font size="1">1</font>，E<font size="1">2</font>可合一，算法必停于(3)。</td>
+        </tr>
+        <tr>
+          <td><img src="../../../../images/text/tb/liti.gif" width="26" height="25" alt="例题"></td>
+          <td><b>例:</b></td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td>　W＝{P(a,x,f(g(y))),P(z,f(a),f(u))}<br>
+            其中 E<font size="1">1</font>=P(a,x,f(g(y))),E<font size="1">2</font>=P(z,f(a),f(u))<br>
+            　求　E<font size="1">1</font>，E<font size="1">2</font>的 mgu 。依算法<br>
+            　(1) W＝{P(a,x,f(g(y)))，P(z,f(a),f(u))}<br>
+            　(2) σ<font size="1">0</font>＝ε，W<font size="1">0</font>＝W，<br>
+            　(3) W<font size="1">0</font>未合一，从左到右找不一致集，有D<font size="1">0</font>＝{a,z}。<br>
+            　(4) 取v<font size="1">0</font>＝z,t<font size="1">0</font>＝a。<br>
+            　(5) 令 σ<font size="1">1</font>＝σ<font size="1">0</font>・(t0/v0）＝{a/z}<br>
+            　　　　 W<font size="1">1</font>＝W<font size="1">0</font> σ<font size="1">1</font>＝{P(a,x,f(g(y)))，P(a,f(a),f(u))}<br>
+            　(3)' W<font size="1">1</font> 未合一，从左到右找不一致集，有D<font size="1">1</font>={x,f(a)}<br>
+            　(4)' 取v<font size="1">1</font> =x t<font size="1">1</font>=f(a)<br>
+            　(5)' 令 σ<font size="1">2</font>=σ<font size="1">1</font>・{f(a)/x}={a/z,f(a)/x}<br>
+            　　　　　W<font size="1">2</font>＝W<font size="1">1</font>σ<font size="1">2</font>＝{P(a,a,f(g(y)))，P(a,f(a),f(w))}<br>
+            　(3)&quot; W<font size="1">2</font>未合一，从左到右找不一致集，有D<font size="1">2</font>={g(y),u}<br>
+            　(4)&quot; 取v<font size="1">2</font>=u，t<font size="1">2</font>=g(y)<br>
+            　(5)&quot; 令 <font size="2">σ</font><font size="1">3</font>=<font size="2">σ</font><font size="1">2</font>・{g(y)/u}={a/z,f(a)/x,g(y)/u}<br>
+            　　　　　W<font size="1">3</font>＝W<font size="1">2</font>σ<font size="1">3</font>＝{P(a,f(a),f(g(y)))，P(a,f(a),f(g(y)))}<br>
+            　(3)'&quot; W<font size="1">3</font> 已合一，这时<font size="2">σ</font><font size="1">3</font>={a/z,f(a)/x,g(y)/u}<br>
+            　便是E<font size="1">1</font>，E<font size="1">2</font> 的 mgu 。<br>
+            　算法的第4步，当出现不存在v<font size="1">k</font> 如 W＝{P(a,b,c),P(d,b,c)},或不存在t<font size="1">k</font>如W＝{P(a,b),P(x,y,z)},或出现不一致集为{x,f(x)}形。这都会导致不可合一。</td>
+        </tr>
+      </table>
+      <br>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

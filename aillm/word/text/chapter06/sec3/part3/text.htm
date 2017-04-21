@@ -1,0 +1,68 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td><span class="text"> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第六章　实例学习</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <br>
+      　　2． 两种改进算法</span><span class="text"><br>
+      　　两种改进的算法只由正例学习，它们类似于上述的修改S过程。<br>
+      　　第一种是冲突区配算法( Hayes-Roth 和 Mc Dormott ) 。它用于学习&quot;参数化结构表示&quot;所表达的概念。在上述的修改S过程中，总是对S作尽量少的一般化，以便覆盖新的正例。如果描述形式为谓词表达式，则这个过程相当于寻找最大的公共子表达式，这只需去掉最少的合取条件。例如，S集合为 
+      <br>
+      　　　　S= { BLOCK ( x ) ∧BLOCK (y ) ∧ SQUARE (y)<br>
+      　　　　　　∧ RECTANGLE ( x) ∧ ONTOP ( x , y )}<br>
+      这表示积木x为矩形，积木y为正方形，且x 在y 上。若下一个示教正例I1为<br>
+      　　　　<font size="2">I</font><font size="1">1</font>= { BLOCK ( w) ∧BLOCK(v) 
+      ∧SQUARE (w)<br>
+      　　　　　　∧RECTANGLE (v) ∧ ONTOP (w ,v)}<br>
+      这表示积木w为正方形，积木v 为矩形，且w 在v 上。<br>
+      　　经过修改S过程，将产生下列公共子集 <br>
+      　　　　S'={S1 ,S2 } <br>
+      　　其中<br>
+      　　　　<font size="2">S</font><font size="1">1</font>=BLOCK (a)∧BLOCK (b) ∧SQUARE 
+      (a) ∧RECTANGLE(b)<br>
+      　　　　<font size="2">S<font size="1">2</font></font>= BLOCK (c) ∧BLOCK (d) 
+      ∧ ONTOP (c,d)<br>
+      <font size="2">S</font><font size="1">1</font>相当于假设ONTOP这个位置关系与所求概念无关。<font size="2">S<font size="1">2</font></font>想当于假设积木形状与所求概念无关。应当注意，当x对应w 
+      且y 对应v 时，S 与I1的位置关系匹配，但形状特征不匹配。反之，当x 对应v而y 对应w时，S与I1的形状特征匹配。但位置关系不匹配。这种现象是在匹配中的冲突。为了解决冲突，在S' 
+      中用两个元素分别考虑这两个方面。<br>
+      　　第二种方法是最大的合一一般化(Vere, 1976)。这个算法用于寻找谓词表达式的最大的合一一般化。它类似于冲突匹配算法，但是它使用的表示语言允许在匹配中多对一的参数联系。<br>
+      　　3． 变型空间方法的缺点。<br>
+      　　(1) 抗干扰能力差<br>
+      　　所有数据驱动方法(包括变型空间方法)都难以处理有干扰的示教例子。由于算法得到的概念应满足每个示教例子的要求，所以一个错误例子也造成很大影响。有时错误例子使程序得到错误概念，有时得不到概念，这时H成为空集。<br>
+      　　Mitchell (1978) 提出的解决方法是保存多个G和S集合。例如，S0符合所有正例，S1 符合除一个正例外其它的正例，S2等类似。如果G0超过S0，则H0为空集。这说明没有任一概念符合全部例子。于是程序去找G1和S1，以便得到H1。如果H1也空，则找H2。<br>
+      　　(2) 学习析取概念<br>
+      　　变型空间方法不能发现析取的概念。有些概念是析取的。例如，PARENT可能是父亲的，PARENT也可能是母亲，这表示为 <br>
+      　　PARENT (x)=FATHER(x)∨PARENT(x)= MOTHER(x)<br>
+      由于G集和S集的元素都是合取形式，所以上述算法找不到析取概念。<br>
+      　　第一种解决方法使用不含析取联结词的表示语言。它重复多次进行消除候选元素工作，以找到覆盖全部例子的多个合取描述。算法的步骤是： <br>
+      　　第一步：S集合初始化为只含一个正例，G集合初始化为没有描述。<br>
+      　　第二步：对每个反例，进行修改G算法。<br>
+      　　第三步：在G中选择一个描述g ,把g作为解集合中的一个合取式。g 不覆盖任一反例，但会覆盖一部分正例。这时从正例集合中去掉比g 特殊的所有正例(即g覆盖的那些正例)。<br>
+      　　第四步：对剩余的正例和全部反例，重复一、二、三步，直到所有正例都被覆盖。于是，每次循环得到的g覆盖由它去掉的正例。注意，由于没有修改S过程，所以g 
+      不覆盖由全部正例，但g 至少覆盖第一步那个正例，所以g 至少去掉这一个正例。<br>
+      　　第二个方法称为Aq 算法(Michalski,1969和1977)。这类似于上一种算法，只是Aq算法在第一步用启发式方法选择一个正例，要求这个正例是前几个g都没有覆盖过的。Larson(1977)改进了Aq 
+      算法，把它用于推广的谓词演算表示。<br>
+      </span></td>
+  </tr>
+</table>
+</body>
+</html>

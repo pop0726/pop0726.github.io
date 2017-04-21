@@ -1,0 +1,61 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body text="#000000" bgcolor="#FFFFFF">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第九章 句法分析</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <br>
+      <span class="part">　　【章节小结】</span><span class="text"><br>
+      <br>
+      　　句法分析的两个主要任务是确定输入句子的结构和句法结构的规范化。在一个自然语言理解系统中，句法分析要不要作为一个独立的分析阶段存在？主要有两种处理办法，一是先句法后语义，二是句法-语义一体化(或并行)。这两种观点结合起来，或许能得到一个更理想的分析系统。<br>
+      　　一部短语结构语法G可用四元组来定义G=(T,N,S,P)，其中 T是终结符集合，N是非终结符集合，符号集 V=T∪N 且T∩N=<img src="../../../../images/text/chap09/sec8/kj.gif" width="12" height="12">，S是起始符，P是产生式规则集，产生式的形式为a→b，其中a∈V<sup>+</sup>,b 
+      V<sup>*</sup>。在一部短语结构语法中，基本运算就是把一个符号串重写为另一个符号串。如果a→b是一条产生式，我们就可以通过用b来置换a，重写任何一个包含子串a的符号串，并用符号==&gt;表示对符号串的这种运算，如果u,v∈V<sup>*</sup>，有 
+      uav<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">ubv，所以可以利用不同的产生式，产生不同的串。由一部短语结构语法定义的语言就是可以从起始符S推导出来的全部终结符串的集合。如果把句法G所定义的语言记作L(G)，则 
+      L(G)={W|W∈T<sup>*</sup>,且S<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">W}。意思是，对于所有符号串W，如果W是由终结符所组成的串，且用语法G可以从起始符S推导出W，则符号串W的集合就是由语法G 
+      所生成的语言L(G)。<br>
+      　　短语结构语法太强了，我们考虑受限短语结构语法，与此密切相关的是乔姆斯基体系，定义了以下四类语法 <br>
+      　　　　1. 无约束短语结构语法 又称0型语法<br>
+      　　　　2. 上下文有关语法 又称1型语法<br>
+      　　　　3. 上下文无关语法 又称2型语法<br>
+      　　　　4. 正则语法 又称3型语法<br>
+      型号越高，所受约束就越多，生成能力就越弱，能生成的语言集就越小。<br>
+      　　句法分析器可分为自顶向下和自底向上两大类。自顶向下的是从树顶的根结点开始建立句法树，由起始符开始依这个句子进行推导。自底向上是从树底部的叶结点开始建立句法树，从句子开始，应用归约直至达到起始符。<br>
+      　　自然语言上下文是有关的，用上下文无关句法分析不适合于处理上下文有关的句子，乔姆斯基为此又提出了转换语法，从转换语法看句子有深层结构和表层结构。 
+      <br>
+      　　转移网络语法可用转移网络表示为有向图。开始状态与输入句子的单词序列对应，若在输入序列的相应位置找到弧上的语法成分，就通过这个弧，从一状态转移到下一状态。如输入序列分析完了，正好对应图的终止状态，便可认为输入句子符合这条语法了，语法中的每条规则都有一个转移过程相关联。这种转移网络与上下文无关语法表达能力等价。进一步扩充转移网络的功能，如分析过程记忆和检测一些信息，就得到扩充转移网络ATN。<br>
+      　　对于多于一种选择的情况，非确定性算法采用的是猜测与回溯的策略，而确定性算法采用&quot;等着瞧&quot;的策略。<br>
+      <br>
+      　　</span><span class="part">【课后习题】</span><span class="text"> <br>
+      <br>
+      　　1.句法分析是要解决什么问题？<br>
+      　　2.什么是句子、语言、语法，什么是短语结构语法？<br>
+      　　　什么是递归枚举语言，什么是递归语言？<br>
+      　　　乔姆斯基体系是怎样的？<br>
+      　　3.他教我学习英语 <br>
+      　　　(prov)(v)(prov)(v)(N)<br>
+      　　　给出这个句子上下文无关语法规则，并画出语法树<br>
+      　　4.小兔在笼子里吃青草。<br>
+      　　　给出这个句子上下文无关语法规则，并画出语法树。<br>
+      </span></td>
+  </tr>
+</table>
+</body>
+</html>

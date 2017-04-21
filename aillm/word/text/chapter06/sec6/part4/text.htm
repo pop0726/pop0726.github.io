@@ -1,0 +1,51 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第六章　实例学习</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <span class="text"><br>
+      　　3.由外部指导来学习控制chunks<br>
+      　　1987年斯坦福大学Andrew Golding和Paul S.Rosenbloom与密西根大学的John E.Laird开发了Soar系统。它的学习机制是由外部专家的指导来学习一般的搜索控制知识。外部指导可以是直接劝告，也可以是给出一个直观的简单问题。系统把外部指导给定的高水平信息转化为内部表示，并学习搜索控制块(chunks)。<br>
+      　　(1)外部指导<br>
+      　　每当问题求解器不能顺利求解时，系统就进入劝告问题空间请求专家指导。专家以两种方式给以指导。<br>
+      　　</span><b class="explaination">一种是直接指令式</b><span class="text"> 这时系统展开所有的算子以及当时的状态。由专家根据情况指定一个算子。指定的算子要经过评估，即由系统建立一个子目标，用专家指定的算子求解。如果有解，则评估确认该算子是可行的，系统便接受该指令，并返回去求证用此算子求解的过程为何是正确的。总结求证过程，从而学到使用专家劝告的一般条件，即chunks。<br>
+      　　</span><b class="explaination">另一种是间接的简单直观形式</b><span class="text"> 这时系统先把原问题按语法分解成树结构的内部表示，并附上初始状态。然后请求专家劝告。专家通过外部指令给出一个直观的简单问题。它应该与原问题近似，系统建立一个子目标来求解这个简单问题。求解完后就得到算子序列，学习机制通过每个子目标求解过程学到chunks。用chunks直接求解原问题，不再需要请求指导。<br>
+      　　(2)chunking学习机制<br>
+      　　Soar系统中的chunking学习机制是学习的关键。它使用工作存储单元(working-memory-elements)来收集条件并构造chunks。当系统为评估专家的劝告，或为求解简单问题而建立一个子目标时，首先将当时的状态存入工作存储单元w-m-e。当子目标得到解以后，系统从w-m-e中取出于目标的初始状态，删去与求解结果无关的部份，保留必要的部分作为前件。并以专家指定的算子或求解简单问题所得出的解算子作为结论动作。由此生成产生式规则，这就是chunks。如果子目标与原问题的子目标充分类似，chunks就会被直接应用到原问题上，学习策略就把在一个问题上学到的经验用到另一个问题上。 
+      <br>
+      　　chunks形成的过程可以说是依据对于子目标的解释。而请求外部指导，然后将专家指令或直观的简单问题转化为机器可执行的形式，这运用了传授学习的方法。最后，求解直观的简单问题得到的经验(即chunks)被用到原问题，这涉及到类比学习的某些思想。因此可以说，Soar系统中的学习是几种学习方法的综合应用。<br>
+      　　(3)直接劝告的例子<br>
+      　　原问题(a・b＝－c－x)<br>
+      　　　[专家指导：选算子isolate(add,right)] <br>
+      　　→子目标(a・b+x＝-c)<br>
+      　　　[专家指导：选算子commute(1eft)]<br>
+      　　→子目标(x+a・b＝-c)<br>
+      　　　[专家指导：选算子isolate(substract，left)]<br>
+      　　→得到解(x＝-c-a・b)<br>
+      　　因为有解，就证明isolate(subtract，left)是正确的。于是学到chunk：&quot;如果方程式左边是二项式，且未知数是左变元，则最好的选择是拆开此二项式的算子。&quot;<br>
+      　　再验证前一个算子。学到chunk：&quot;如果左边为可交换群的二项式，且未知数是右变元，则最好的选择是交换左边。&quot;这就是算子commute(left)。<br>
+      　　最后验证第一个算子isolate(add,right)。学到chunk：&quot;如果右边是二项式，其逆运算可交换，且右变元是未知数，则最好的选择是拆开这个二项式。&quot;<br>
+      </span></td>
+  </tr>
+</table>
+</body>
+</html>

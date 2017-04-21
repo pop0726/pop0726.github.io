@@ -1,0 +1,142 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td class="text">
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第三章 不确定和非单调推理方法</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <br>
+      　　<span class="part">3.2.5 可性理论</span><span class="text"><br>
+      　　Zadeh1965年提出了模糊集合论，在此基础上1978年又建立了可能性理论，并将不确定性理解为可能性。<br>
+      　　1． 针对模糊概念建立模糊子集<br>
+      　　一个概念常由其内涵来定义，而由其外延来表现出来，外延是具有内涵属性全体个体构成的集合。<br>
+      　　对一个模糊概念（如年青、胖、高）也可用模糊集合来描述来表现。<br>
+      　　设论域为U，其上定义了一个模糊概念<img src="../../../../images/text/chap03/sec2/a_.gif" width="11" height="13" align="absmiddle">。如果对任意的u∈U依<img src="../../../../images/text/chap03/sec2/a_.gif" width="11" height="13" align="absmiddle">都规定一个数值<br>
+      　　　　　μ<img src="../../../../images/text/chap03/sec2/xb.gif" width="7" height="10" align="absbottom">(u)∈[0,1]<br>
+      　　作为u以A的隶属程度，这时<br>
+      　　　　　μ<img src="../../../../images/text/chap03/sec2/xb.gif" width="7" height="10" align="absbottom">：U→[0,1]<br>
+      　　就叫U上<img src="../../../../images/text/chap03/sec2/a_.gif" width="11" height="13" align="absmiddle">的隶属函数，定义了隶属函数的模糊概念<img src="../../../../images/text/chap03/sec2/a_.gif" width="11" height="13" align="absmiddle">称作U的一个模糊子集。用模糊子集来描述模糊概念。<br>
+      　　例如　U＝{a,b,c,d,e}，模糊概念为&quot;圆块块&quot;。<br>
+      　　μ<img src="../../../../images/text/chap03/sec2/xb.gif" width="7" height="10" align="absbottom">：a→1 
+      b→0.9 c→0.4 d→0.2 e→0<br>
+      　　模糊子集<br>
+      　　<img src="../../../../images/text/chap03/sec2/a_.gif" width="11" height="13" align="absmiddle">= 
+      ( 1,0.6, 0.4, 0.2, 0) 或<br>
+      　　　=(1/a+0.9/b+0.4/c+0.2/d+0/e 或<br>
+      　　　={(a,1),(b,0.9),(c,0.4),(d,0.2),(e,0)}<br>
+      　　<img src="../../../../images/text/chap03/sec2/a_.gif" width="11" height="13" align="absmiddle">便是&quot;圆块块&quot;这一模糊概念在U上的表现见图3.3。</span><br>
+      <br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td width="30" valign="top"><img src="../../../../images/text/tb/tushi.gif" width="25" height="16" alt="图示"></td>
+          <td align="center" class="explaination"><img src="../../../../images/text/chap03/sec2/tu3.3.gif" width="280" height="212"><br>
+            图3.3 </td>
+        </tr>
+      </table>
+      <br>
+      　　当μ<span class="text"><img src="../../../../images/text/chap03/sec2/a_.gif" width="11" height="13" align="absmiddle"></span>的值域退化为{0,1}时，<span class="text"><img src="../../../../images/text/chap03/sec2/a_.gif" width="11" height="13" align="absmiddle"></span>便退化为普通集合A了，这时的隶属函数就是普通集合A的特征函数了。<br>
+      　　给了模糊子集<span class="text"><img src="../../../../images/text/chap03/sec2/a_.gif" width="11" height="13" align="absmiddle"></span>，<img src="../../../../images/text/chap03/sec2/xb2.gif" width="9" height="11" align="absbottom">便可定义并集、交集和全集，而且有<br>
+      　　　　　μ<img src="../../../../images/text/chap03/sec2/xb.gif" width="7" height="10" align="absbottom"><font size="1">∪</font><img src="../../../../images/text/chap03/sec2/xb2.gif" width="9" height="11" align="absbottom">(u)=max{μ<img src="../../../../images/text/chap03/sec2/xb.gif" width="7" height="10" align="absbottom">(u),μ<img src="../../../../images/text/chap03/sec2/xb2.gif" width="9" height="11" align="absbottom">(u)}<br>
+      　　　　　μ<img src="../../../../images/text/chap03/sec2/xb.gif" width="7" height="10" align="absbottom"><font size="1">∩</font><img src="../../../../images/text/chap03/sec2/xb2.gif" width="9" height="11" align="absbottom">(u)=min{μ<img src="../../../../images/text/chap03/sec2/xb.gif" width="7" height="10" align="absbottom">(u),μ<img src="../../../../images/text/chap03/sec2/xb2.gif" width="9" height="11" align="absbottom">(u)}<br>
+      　　　　　μ<img src="../../../../images/text/chap03/sec2/xb.gif" width="7" height="10" align="absbottom"><sup><font size="1">C</font></sup>(u)=1-μ<img src="../../../../images/text/chap03/sec2/xb.gif" width="7" height="10" align="absbottom">(u)<br>
+      　　2.模糊推理举例<br>
+      　　通常的假言推理是<br>
+      　　　　　A∧(A→B)→B<br>
+      　　现在要讨论的是<img src="../../../../images/text/chap02/sec01/a1.gif" width="15" height="11" align="absmiddle">与A→B中的A并不完全一致时，能否也可得到有价值的结论？<br>
+      　　设论域　U上有模糊子集<img src="../../../../images/text/chap03/sec2/a_.gif" width="11" height="13" align="absmiddle"><br>
+      　　　　　　V上有模糊子集<img src="../../../../images/text/chap03/sec2/b_.gif" width="11" height="13" align="absmiddle"><br>
+      　　而<img src="../../../../images/text/chap03/sec2/a_.gif" width="11" height="13" align="absmiddle">→<img src="../../../../images/text/chap03/sec2/b_.gif" width="11" height="13" align="absmiddle">是U到V的一个模糊关系，即U×V上的一个模糊子集，其隶属函数定义为<br>
+      　　　　　(<img src="../../../../images/text/chap03/sec2/a_.gif" width="11" height="13" align="absmiddle">→<img src="../../../../images/text/chap03/sec2/b_.gif" width="11" height="13" align="absmiddle">)(u,v)=(<img src="../../../../images/text/chap03/sec2/a_.gif" width="11" height="13" align="absmiddle">(u)∧<img src="../../../../images/text/chap03/sec2/b_.gif" width="11" height="13" align="absmiddle">(v))∨(1-<img src="../../../../images/text/chap03/sec2/a_.gif" width="11" height="13" align="absmiddle">(u))<br>
+      　　其中符号∨表示max，∧表min。<br>
+      　　于是当已知有模糊子集<img src="../../../../images/text/chap02/sec01/a1.gif" width="15" height="11" align="absmiddle">时，可得出<br>
+      　　　　　<img src="../../../../images/text/chap03/sec2/b_.gif" width="11" height="13" align="absmiddle"><font size="1">1</font>(v)=<img src="../../../../images/text/chap03/sec2/gs36.gif" width="19" height="14" align="absmiddle">u∈U(<img src="../../../../images/text/chap02/sec01/a1.gif" width="15" height="11" align="absmiddle">(u)∧<img src="../../../../images/text/chap03/sec2/a_.gif" width="11" height="13" align="absmiddle">→<img src="../../../../images/text/chap03/sec2/b_.gif" width="11" height="13" align="absmiddle">(u,v))<br>
+      　　记作 <img src="../../../../images/text/chap03/sec2/b_.gif" width="11" height="13" align="absmiddle"><font size="1">1</font>=<img src="../../../../images/text/chap02/sec01/a1.gif" width="15" height="11" align="absmiddle">!*(<img src="../../../../images/text/chap03/sec2/a_.gif" width="11" height="13" align="absmiddle">→<img src="../../../../images/text/chap03/sec2/b_.gif" width="11" height="13" align="absmiddle">) 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="text">
+        <tr>
+          <td width="30"><span class="text"><img src="../../../../images/text/tb/liti.gif" width="26" height="25" alt="例题"></span></td>
+          <td><b>例如</b></td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td>　U＝V＝{1,2，3,4,5}，若u小则v大，已知u 较小，问v如何？<br>
+            　若<img src="../../../../images/text/chap03/sec2/a_.gif" width="11" height="13" align="absmiddle">表模糊概念小，<img src="../../../../images/text/chap03/sec2/a_.gif" width="11" height="13" align="absmiddle"><font size="1">1</font>模糊概念较小，而<img src="../../../../images/text/chap03/sec2/b_.gif" width="11" height="13" align="absmiddle">表模糊概念大。而且知<br>
+            　　　<img src="../../../../images/text/chap03/sec2/a_.gif" width="11" height="13" align="absmiddle">＝1/1+0.5/2<br>
+            　　　<img src="../../../../images/text/chap03/sec2/a_.gif" width="11" height="13" align="absmiddle"><font size="1">1</font>＝1/1+0.4/2+0.2/3<br>
+            　　　<img src="../../../../images/text/chap03/sec2/b_.gif" width="11" height="13" align="absmiddle">＝0.5/4+1/5<br>
+            　可计算得<img src="../../../../images/text/chap03/sec2/a_.gif" width="11" height="13" align="absmiddle">→<img src="../../../../images/text/chap03/sec2/b_.gif" width="11" height="13" align="absmiddle">的隶属函数为<br>
+            <br>
+            　　　<img src="../../../../images/text/chap03/sec2/gs38.gif" width="196" height="100"><br>
+            　进而求得<br>
+            　　　<img src="../../../../images/text/chap03/sec2/b_.gif" width="11" height="13" align="absmiddle"><font size="1">1</font>=<img src="../../../../images/text/chap03/sec2/a_.gif" width="11" height="13" align="absmiddle"><font size="1">1</font>・(<img src="../../../../images/text/chap03/sec2/a_.gif" width="11" height="13" align="absmiddle">→<img src="../../../../images/text/chap03/sec2/b_.gif" width="11" height="13" align="absmiddle">)<br>
+            　　　　=(1 ,0.4, 0.2 ,0 ,0 )・R<br>
+            　　　　=(0.4 ,0.4 ,0.4 ,0.5 ,1)<br>
+            　可理解为v较大。</td>
+        </tr>
+      </table>
+      <br>
+      　　3.U上模糊变量的可能性描述<br>
+      　　设x是取值U的变量，对它可定义一个相容性函数，使x的每个取值都对应于[0,1]中的一个数。相容性函数就是对变量x的一种约束。特别当<img src="../../../../images/text/chap03/sec2/a_.gif" width="11" height="13" align="absmiddle">是U上的模糊子集有隶属函数μA(x)时，可把<img src="../../../../images/text/chap03/sec2/a_.gif" width="11" height="13" align="absmiddle">与x联系起来，将μ<img src="../../../../images/text/chap03/sec2/a_.gif" width="11" height="13" align="absmiddle">(x)取作变量x的相容性函数，这时<img src="../../../../images/text/chap03/sec2/a_.gif" width="11" height="13" align="absmiddle">就是对x的一种约束了，如上例x表圆块块，这时便可说x=a的可能性为1，x=b的可能性为0.9,…。这样便给出了变量x的可能性分布，可记作<br>
+      　　　　　poss(x=a)=1, poss(x=b)=0.9,…<br>
+      　　值得注意的是poss与概率P是不同的。例如一个人早饭吃了x个鸡蛋的描述，x∈{1,2,3…}=U
+      <table width="70%" border="0" cellspacing="0" cellpadding="0" align="center" class="text">
+        <tr align="center"> 
+          <td>u=</td>
+          <td width="10%">1</td>
+          <td width="10%">2</td>
+          <td width="10%">3</td>
+          <td width="10%">4</td>
+          <td width="10%">5</td>
+          <td width="10%">6</td>
+          <td width="10%">7</td>
+          <td width="10%">8</td>
+        </tr>
+        <tr align="center"> 
+          <td>poss</td>
+          <td width="10%">1</td>
+          <td width="10%">1</td>
+          <td width="10%">1</td>
+          <td width="10%">1</td>
+          <td width="10%">0.8</td>
+          <td width="10%">0.6</td>
+          <td width="10%">0.4</td>
+          <td width="10%">0.2</td>
+        </tr>
+        <tr align="center"> 
+          <td>P</td>
+          <td width="10%">0.1</td>
+          <td width="10%">0.8</td>
+          <td width="10%">0.1</td>
+          <td width="10%">0</td>
+          <td width="10%">0</td>
+          <td width="10%">0</td>
+          <td width="10%">0</td>
+          <td width="10%">0</td>
+        </tr>
+      </table>
+    　　poss 表示能吃几个鸡蛋的一种能力，不是概率。poss大也不意味着P大，只对不可能事件两者取值相同。还可规定<br>
+      　　　　　poss =(x=a∨y=b)=max{poss(x=a),poss(x=b)}<br>
+      　　　　　poss =(x=a∧y =b)=min{poss(x=a),poss(x=b)}<br>
+      　　　　　poss(x≠a)=1- poss(x=a)<br>
+      　　若将不确定性以这种可能性来度量时，便可用可能性理论来讨论不确定性推理了。<br>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td><span class="text"><span class="text"> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第九章 句法分析</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <br>
+      　　</span><span class="section">9.3 乔姆斯基体系</span><span class="text"><br>
+      <br>
+      　　</span><span class="part">9.3.1 正则语法(3型语法)</span><span class="text"><br>
+      　　正则语法有两种形式：左线性语法(left-linear grammars)和右线性语法(right-linear grammars)。在一部左线性语法中，所有规则必须采用如下形式：<br>
+      　　　　A→Bt<br>
+      　　或<br>
+      　　　　A→t<br>
+      其中A，B∈N，t∈T，即A，B都是单独的非终结符，t是单独的终结符。而在一部右线性语法中，所有规则必须如下书写：<br>
+      　　　　A→tB<br>
+      　　或<br>
+      　　　　A→t<br>
+      举例来说，下面是一部右线性语法：<br>
+      　　　　S→aA<br>
+      　　　　A→bB<br>
+      　　　　B→cA<br>
+      　　　　B→d<br>
+      其中，S，A，B∈N，a，b，c，d∈T，S为起始符。这部语法所生成的句子由&quot;ab&quot;开头，后跟以零个或多&quot;cb&quot;，最后用一个&quot;d&quot;结尾。<br>
+      　　对于一部正则语法，我们总能用象图9.1那样的有限状态转移图(Finite-State Transition Diagram，简称FSTD)来表示。图上每个带标记的结点对应于一个非终结符，另外有一个特殊结点叫做最后结点，用带斜线的圆表示。每个结点对应于生成中的一个状态。对于每条形如<br>
+      　　　　A→tB<br>
+      的规则，便从结点A到结点B画一条弧；并在弧上标注终结符t。对每条形如<br>
+      　　　　A→t</span> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td width="30" valign="top"><img src="../../../../images/text/tb/tushi.gif" width="25" height="16" alt="图示"></td>
+          <td align="center"> 
+            <p><img src="../../../../images/text/chap09/sec2/tu91.gif" width="350" height="120"><br>
+              <span class="explaination">图9.1 一个有限状态转移图(FSTD)</span></p>
+            </td>
+        </tr>
+      </table>
+      <br>
+      的规则，则从结点A到最后结点画一条弧，并在弧上标注终结符t。<br>
+      　　为了生成被一部正则语法所定义的语言中的一个句子，只在与其对应的有限状态转移图上，从起始结点开始，沿着任何一条弧从当前结点转移到下一个新结点，并记下该弧上标注的符号。当到达最后结点时，我们所记下的符号串便是这种语言的一个句子。换言之，在状态转移图上每一条从起始结点到最后结点的路径都对应于被这部语法所生成的语言中的一个句子。 
+      <br>
+      　　因此，正则语法又叫做有限状态语法。&quot;有限状态&quot;指的是图中结点的数量是有限的。当我们处于一个句子的生成过程中，为了正确地结束这个句子，需要知道的唯一信息就是当前所处的状态(结点)，而无需了解已经生成的那部分句子的其他任何情况。<br>
+      　　正则语法之所以引人注目是因为有限状态网络提供了一种可用来生成和分析语言的简单机制。遗憾的是，许多有趣的语言不能由正则语法来生成。一个简单的例子是字母&quot;x&quot;两边围以任意数量的成对括号：<br>
+      　　　　x，(x)，((x))，(((x)))，((((x))))，…<br>
+      为了生成这种语言的一个句子，当生成到&quot;x&quot;时我们必须知道前面已经生成了多少个&quot;(&quot;，以便能生成同样数量的&quot;)&quot;。所以这种语言是不能由正则语法生成的。<br>
+      　　在英语中也有这种类似的嵌套构造。假设S<font size="1">1</font>，S<font size="1">2</font>，…是英语句子，我们可以利用如下的构造<br>
+      </span><span class="explaination">　　　　if S<font size="1">1</font> then S<font size="1">2</font><br>
+      　　　　either S<font size="1">1</font> or S<font size="1">2</font><br>
+      　　　　the man who said that S<font size="1">1</font>is arriving tomorrow</span><span class="text"><br>
+      来把它们组合成更大的句子。后者又可以以嵌套的方式形成甚至更大的句子，如<br>
+      </span><span class="explaination">　　　　if the man who said that either S<font size="1">1</font> 
+      or S<font size="1">2</font> is arriving tomorrow then S<font size="1">3</font></span><span class="text"><br>
+      因此一部用来生成英语句子的程序必须记住，当它经过S<font size="1">1</font>时前面曾经生成过什么样的构造，以便为同&quot;either&quot;匹配而生成&quot;or&quot;，为同&quot;if&quot;，匹配而生成&quot;then&quot;。这个问题同要生成成对的括号表达式类似。这样一类的构造说明，一个有限状态转移网络(正则语法)，就如同不适宜用来描写括号表达式一样，也不适宜用来描写象英语那样的自然语言。<br>
+      </span></td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td><span class="text"> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第十章 语义分析</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <br>
+      　　</span><span class="section">1O.2 LFL的形成规则</span><span class="text"><br>
+      <br>
+      　　LFL的谓词有两种：一种是以自然语言的词义为基础的，另一种是用来表达句子的时态和语气等信息的非词义谓词。<br>
+      　　由于LFL的多数谓词是基于词义的，所以它是依赖于特定语言的。下面介绍的例子都是以英语为背景的语义表示，例如句子：<br>
+      </span><span class="explaination">　　John believes that each man knows Bill.<br>
+      　　(约翰相信每个人都认识比尔。)</span><span class="text"><br>
+      的逻辑式语句可表为：<br>
+      </span><span class="explaination">　　believe1(john，each(man1(X)，know2(X，bill))).</span><span class="text"><br>
+      其中，belive1是动词&quot;believe&quot;的一个义项，man1是名词&quot;man&quot;的一个义项，等等。限定词&quot;each&quot;在LFL中用谓词each表示，它相当于一阶谓词中的量词。在上面这个逻辑式中一共出现了四个谓词：除man1是单目谓词以外，each，know2，believe1都是双目谓词。在这些谓词的变元中，凡是用小写英文字母开头的字符串(如john，bill)都是常量，用大写英文字母开头的字符串(如X)都是变量。双目谓词believe1的第一个变元john表示心理活动&quot;相信&quot;的主体，第二个变元表示&quot;相信&quot;的事实，它本身是用each命名的一个双目谓词。这个each谓词表示：对于变量X的每个例，如果它是人，它就应当认识bill。<br>
+      　　在LFL中还有少量用来表示句子时态和语气等信息的非词义谓词，如以下例句中表示过去时态的谓词past和表示是非疑问句的yesno：<br>
+      </span><span class="explaination">　　　　John saw Bill.(约翰看见了比尔。)<br>
+      　　　　past(see(john，bill)).<br>
+      　　　　Does John see Bill?(约翰看见比尔了吗?)<br>
+      　　　　yesno(see(john，X)，X＝bill).</span><span class="text"><br>
+      　　每个LFL谓词都具有固定数目的变元，这些变元可以是常量、变量或其他逻辑式。下面给出逻辑式(即LFL表达式)的形成规则：<br>
+      　　1.如果p是LFL的一个n目谓词，且变元x<sub>1</sub>,…,<font size="2">x</font><font size="1">n</font>是常量、变量或逻辑式，则p(<font size="2">x</font><font size="1">1</font>,…,<font size="2">x</font><font size="1">n</font>)是一个逻辑式。<br>
+      　　2.如果P和Q分别是逻辑式，则P&amp;Q也是逻辑式。<br>
+      　　3.如果P是逻辑式，E是变量,则P：E(读作&quot;通过E索引的 P&quot;)也是逻辑式。<br>
+      在规则3中，&quot;：&quot;叫做索引算子。如果P：E是逻辑式Q的一部分，且E在Q中到处被引用，则E可以看作是P及其&quot;语景&quot;的代表。这里的语景包括在自然语言中通常不予明确说明的有关时间和处所的指称。举例来说，假设P代表事件see(john,mary)，那么通过P：E就可以在整个逻辑式中用E来指称该事件。<br>
+      　　下面我们将针对英语中不同词类的词来讨论其语义的表达式。<br>
+      </span></td>
+  </tr>
+</table>
+</body>
+</html>

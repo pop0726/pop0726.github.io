@@ -1,0 +1,148 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第三章 不确定和非单调推理方法</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <br>
+      　　<span class="part">3.2.2 主观Bayes 方法</span><span class="text"><br>
+      　　以语义网络表示的 PROSPECTOR 系统，采用了主观 Bayes 方法来度量不确定性。引入两个数值(LS，LN)来作度量，LS 表现规则成立的充分性，LN 
+      表现规则成立的必要性，这种表示既考虑了 A 的出现对 B 的支持，又考虑了 A 的不出现对 B 的影响。<br>
+      　　1． 对规则的不确定性度量<br>
+      　　直接使用Bayes 公式来做度量时，在计算P(B|A)时需要已知P(A|B)，为避开这个困难，提出了主观Bayes 方法。<br>
+      　　对规则A→B的不确定性f(B,A)以(LS，LN)来描述。其中<br>
+      　　　　　<img src="../../../../images/text/chap03/sec2/gs7.gif" width="162" height="28"><br>
+      　　下面分析一下LS，LN 的意义。<br>
+      　　先建立几率函数<br>
+      　　　　　<img src="../../../../images/text/chap03/sec2/gs8.gif" width="69" height="23"><br>
+      　　表示的是证据X的出现概率与不出现概率之比，显然随P(X)的加大O(X)也加大，而且<br>
+      　　　　　P(X)=0 时 O(X)=0 <br>
+      　　　　　P(X)=1 时 O(X)=∞<br>
+      　　这样，取值[0,1]的P(X)放大为取值[0,∞]便得O(X)。<br>
+      　　不难验证<br>
+      　　　　　O(B|A)=LS・O(B)<br>
+      　　　　　O(B|～A)=LN・O(B)<br>
+      　　由于<br>
+      　　　　　<img src="../../../../images/text/chap03/sec2/gs9.gif" width="144" height="57"><br>
+      　　两者相比得<br>
+      　　　　　<img src="../../../../images/text/chap03/sec2/gs10.gif" width="153" height="31"><br>
+      　　这就是<br>
+      　　　　　O(B|A)=LS・O(B)<br>
+      　　相仿地也可得<br>
+      　　　　　O(B|～A)=LN・O(B)<br>
+      　　由这两个公式可看出，LS表示A真时，对B为真的影响程度，表示规则A→B成立充分性。LN表示A假时，对B为真的影响程度，表示规则A→B成立的必要性。<br>
+      　　几个特殊值<br>
+      　　<img src="../../../../images/text/chap03/sec2/gs11.gif" width="275" height="119"><br>
+      　　由LS，LN 的定义知，LS，LN均≥ 0,而且LS，LN不是独立取值的，只能出现LS&gt;1，LN&lt;1或LS&lt;1，LN&gt;1 
+      或LS＝LN＝1。但不能出现两者同时&gt;1或同时&lt;1。<br>
+      　　在实际系统中，LS，LN的值是由专家凭经验给出的，而不是依LS，LN的定义来计算的。<br>
+      　　2.证据的不确定性度量<br>
+      　　就以O(A)或P(A)表示证据A的不确定性，转换公式是<br>
+      　　　　<img src="../../../../images/text/chap03/sec2/gs12.gif" width="175" height="57"><br>
+      　　3.推理计算<br>
+      　　（1） 当A确定必出现时，可直接使用<br>
+      　　　　　O(B|A)＝LS・O(B)<br>
+      　　　　　O(B|～A)=LN・O(B)<br>
+      　　以求得使用规则A→B后，O(B)的更新值O(B/A),O(B/～A)。若需要以概率表示，再由<br>
+      　　　　　<img src="../../../../images/text/chap03/sec2/gs13.gif" width="79" height="26"><br>
+      　　计算出P(B|A),P(B|～A)。<br>
+      　　（2）当A是不确定的，即P(A)≠1时，需作如下考虑。<br>
+      　　设A'代表与A有关的所有观察，对规则A→B来说 Duda 1976年给出公式<br>
+      　　P(B|A')=P(B|A)・P(A|A)'+P(B|～A)・P(～A|A')<br>
+      　　问题是当P(B|A')，A→B (LS，LN)以及P(B)已知时，如何更新P(B)或说寻求P(B|A') 。<br>
+      　　当P(A|A')＝1时，证据A必然出现有<br>
+      　　　　　<img src="../../../../images/text/chap03/sec2/gs14.gif" width="173" height="25"><br>
+      　　不难验证这公式是成立的。<br>
+      　　<img src="../../../../images/text/chap03/sec2/gs15.gif" width="276" height="254"><br>
+      　　当P(A|A')=0时，证据A必然不出现经同样的推导得<br>
+      　　　　　<img src="../../../../images/text/chap03/sec2/gs16.gif" width="174" height="23"><br>
+      　　当P(A|A')=P(A)时，也即观察A'对A无影响。有<br>
+      　　　　　P(B|A')=P(B|A)・P(A)+P(B|～A)・P(～A)<br>
+      　　　　　　　　 =P(BA)+P(B・～A)<br>
+      　　　　　　　　 =P(B)<br>
+      　　这样已可确定P(A|A')为0，P(A)，1时相应的P(B|A')的值，便可得线性插值图见图3.1。<br>
+      <br>
+      </span> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td width="30" valign="top"><img src="../../../../images/text/tb/tushi.gif" width="25" height="16" alt="图示"></td>
+          <td align="center" class="explaination"><img src="../../../../images/text/chap03/sec2/tu3.1.gif" width="344" height="188"><br>
+            <br>
+            图3.1 线性插值图 </td>
+        </tr>
+      </table>
+      <span class="text">　　P(A|A')的其它取值下的P(B|A')，可通过线性插值图求得。<br>
+      　　（3） P(<img src="../../../../images/text/chap02/sec01/a1.gif" width="15" height="11" align="absmiddle">∧<img src="../../../../images/text/chap02/sec01/a2.gif" width="16" height="11" align="absmiddle">|A')=min{P(<img src="../../../../images/text/chap02/sec01/a1.gif" width="15" height="11" align="absmiddle">|A'),P(<img src="../../../../images/text/chap02/sec01/a2.gif" width="16" height="11" align="absmiddle">|A')}<br>
+      　　　　　P(<img src="../../../../images/text/chap02/sec01/a1.gif" width="15" height="11" align="absmiddle">∧<img src="../../../../images/text/chap02/sec01/a2.gif" width="16" height="11" align="absmiddle">|A')=max{P(<img src="../../../../images/text/chap02/sec01/a1.gif" width="15" height="11" align="absmiddle">|A'),P(<img src="../../../../images/text/chap02/sec01/a2.gif" width="16" height="11" align="absmiddle">|A')}<br>
+      　　（4） 若<img src="../../../../images/text/chap02/sec01/a1.gif" width="15" height="11" align="absmiddle">→B,<img src="../../../../images/text/chap02/sec01/a2.gif" width="16" height="11" align="absmiddle">→B而<img src="../../../../images/text/chap02/sec01/a1.gif" width="15" height="11" align="absmiddle">，<img src="../../../../images/text/chap02/sec01/a2.gif" width="16" height="11" align="absmiddle">相互独立，对<img src="../../../../images/text/chap02/sec01/a1.gif" width="15" height="11" align="absmiddle">，<img src="../../../../images/text/chap02/sec01/a2.gif" width="16" height="11" align="absmiddle">的有关观察分别为<img src="../../../../images/text/chap02/sec01/a1.gif" width="15" height="11" align="absmiddle">'，<img src="../../../../images/text/chap02/sec01/a2.gif" width="16" height="11" align="absmiddle">'便有<br>
+      　　　　　<img src="../../../../images/text/chap03/sec2/gs17.gif" width="213" height="27"><br>
+      　　4.举例<br>
+      　　当证据<img src="../../../../images/text/chap02/sec01/a1.gif" width="15" height="11" align="absmiddle">，<img src="../../../../images/text/chap02/sec01/a2.gif" width="16" height="11" align="absmiddle">，<img src="../../../../images/text/chap02/sec01/a3.gif" width="15" height="13" align="absmiddle">，<img src="../../../../images/text/chap02/sec02/a4.gif" width="15" height="13" align="absmiddle"> 
+      必然发生后，看B的概率变化。已知B的先验概率为0.03，而规则<br>
+      　　<font size="2">R</font><font size="1">1</font>：<img src="../../../../images/text/chap02/sec01/a1.gif" width="15" height="11" align="absmiddle">→B 
+      LS=20 LN=1<br>
+      　　<font size="2">R</font><font size="1">2</font>：<img src="../../../../images/text/chap02/sec01/a2.gif" width="16" height="11" align="absmiddle">→B 
+      LS=300 LN=1<br>
+      　　<font size="2">R</font><font size="1">3</font>：<img src="../../../../images/text/chap02/sec01/a3.gif" width="15" height="13" align="absmiddle">→B 
+      LS=75 LN=1<br>
+      　　<font size="2">R</font><font size="1">4</font>：<img src="../../../../images/text/chap02/sec02/a4.gif" width="15" height="13" align="absmiddle">→B 
+      LS=4 LN=1<br>
+      　　下面进行计算。<br>
+      　　（1）依P(B)＝0.03　便得<br>
+      　　　　　<img src="../../../../images/text/chap03/sec2/gs18.gif" width="147" height="23"><br>
+      　　（2）依<font size="2">R</font><font size="1">1</font>，有<br>
+      　　　　　O(B|<img src="../../../../images/text/chap02/sec01/a1.gif" width="15" height="11" align="absmiddle">)=LS 
+      OB(B) =20・(0.030927)=0.6185<br>
+      　　　　　<img src="../../../../images/text/chap03/sec2/gs19.gif" width="143" height="24"><br>
+      　　（3）依<font size="2">R</font><font size="1">2</font>有<br>
+      　　　　　O(B|<img src="../../../../images/text/chap02/sec01/a1.gif" width="15" height="11" align="absmiddle"><img src="../../../../images/text/chap02/sec01/a2.gif" width="16" height="11" align="absmiddle">)=300 
+      O(B|<img src="../../../../images/text/chap02/sec01/a1.gif" width="15" height="11" align="absmiddle">)=185.565<br>
+      　　　　　<img src="../../../../images/text/chap03/sec2/gs20.gif" width="161" height="23"><br>
+      　　　　　由于<img src="../../../../images/text/chap02/sec01/a2.gif" width="16" height="11" align="absmiddle">发生，使B的概率由0.328增到0.99464，对<img src="../../../../images/text/chap02/sec01/a3.gif" width="15" height="13" align="absmiddle">，<img src="../../../../images/text/chap02/sec02/a4.gif" width="15" height="13" align="absmiddle">的发生可同样计算。<br>
+      　　当证据A必然发生，已知<img src="../../../../images/text/chap03/sec2/b1.gif" width="12" height="14" align="absmiddle">的先验证概率为0.03，而规则<br>
+      　　<font size="2">R</font><font size="1">1</font>：A→<img src="../../../../images/text/chap03/sec2/b1.gif" width="12" height="14" align="absmiddle"> 
+      LS=20 LN=1<br>
+      　　<font size="2">R</font><font size="1">2</font>：<img src="../../../../images/text/chap03/sec2/b1.gif" width="12" height="14" align="absmiddle">→<img src="../../../../images/text/chap03/sec2/b2.gif" width="14" height="13" align="absmiddle"> 
+      LS=300 LN=0.0001<br>
+      　　又知P(<img src="../../../../images/text/chap03/sec2/b2.gif" width="14" height="13" align="absmiddle">)的先验概率为0.01时，如何计算P(<img src="../../../../images/text/chap03/sec2/b2.gif" width="14" height="13" align="absmiddle">|A)？问题是当使用<font size="2">R</font><font size="1">2</font>时，<img src="../../../../images/text/chap03/sec2/b1.gif" width="12" height="14" align="absmiddle">不是必然发生了，也是不确定的，这时需使用插值方法。<br>
+      　　（1） 依A必发生，由<font size="2">R</font><font size="1">1</font>得<br>
+      　　　　　P(<img src="../../../../images/text/chap03/sec2/b1.gif" width="12" height="14" align="absmiddle">|A)=0.382<br>
+      　　（2） 设P(<img src="../../../../images/text/chap03/sec2/b1.gif" width="12" height="14" align="absmiddle">|A)＝1，这时依<br>
+      　　　　　<img src="../../../../images/text/chap03/sec2/gs21.gif" width="144" height="81"><br>
+      　　（3） 设P(<img src="../../../../images/text/chap03/sec2/b1.gif" width="12" height="14" align="absmiddle">|A)＝P(<img src="../../../../images/text/chap03/sec2/b1.gif" width="12" height="14" align="absmiddle">)＝0.33有P(<font size="3">B</font><font size="1">3</font>)＝0.01于是可作插值图，见图3.2<br>
+      　　求得</span><br>
+      　　 <img src="../../../../images/text/chap03/sec2/gs22.gif" width="233" height="43"> 
+      <br>
+      <br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td width="30" valign="top"><img src="../../../../images/text/tb/tushi.gif" width="25" height="16" alt="图示"></td>
+          <td align="center" class="explaination"><img src="../../../../images/text/chap03/sec2/tu3.2.gif" width="336" height="179"><br>
+            <br>
+            图 3.2</td>
+        </tr>
+      </table>
+      <span class="text"><br>
+      </span></td>
+  </tr>
+</table>
+</body>
+</html>

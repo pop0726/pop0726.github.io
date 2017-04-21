@@ -1,0 +1,114 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第九章 句法分析</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <span class="text"><br>
+      　　</span><span class="section">9.4 语言串理论</span><span class="text"><br>
+      <br>
+      　　在以下的六节中将讨论自然语言句法分析的一些主要算法。其中的前三节着重介绍历史上最重要的三种分析算法：语言串分析器(即上下文无关分析器)；转换分析器和扩充转移网络分析器(即增强的上下文无关分析器)。然后再介绍一些近期的语法理论和分析算法。<br>
+      <br>
+      　　</span><span class="part">9.4.1 语言串分析器</span><span class="text"><br>
+      　　语言串分析器(Linguistic String Parser，简称LSP)是由美国纽约州立大学 N.Sager 所领导的研究小组设计的，系统的设计目标是处理为情报检索服务的大量科技文献，所以强调它所建立的英语语法系统应当有广泛的覆益面。这部以美国语言学家Z.Har-ris的语言串理论为基础的英语语法包括了大约250条上下文无关规则和200条限制。系统的词典收入9500词条。这个系统已经被用来分析医院的病历和医学、生理学方面的文献。我们选用这个系统来介绍上下文无关分析器，正是因为它所建立的英语语法属于迄今已建立的几个规模最大的语法系统之一，而且在实际应用中获得成功。<br>
+      　　语言串理论利用特定的句法范畴(名词、时态动词等)、一组基本串和规则来把某些基本串结合成为句串。最简单的句子仅由一个名为中心串(center 
+      string)的基本串组成。中心串的例子如：<br>
+      </span><span class="explaination">　　noun tensed-verb 如&quot;Tapes stretch&quot;(带子伸展)<br>
+      　　noun tensed-verb noun 如&quot;Users cause problems&quot;<br>
+      　　　　　　　　　　　　　(用户引起问题)</span><span class="text"><br>
+      通过对句子中某基本串的一个元素的左边或右边插入一个附加串(adjunct string)，任何句串都可以形成一个更复杂的句串。如句子：<br>
+      </span><span class="explaination">　　&quot;Programmers at our installation 
+      write lengthy code.&quot;<br>
+      　　(我们站的程序员写了长长的代码。)</span><span class="text"><br>
+      的中心串是&quot;programmers write code&quot;，通过在中心串的&quot;programmers&quot;右面接上&quot;at 
+      our installation&quot;，并在&quot;code&quot;的左面接上&quot;lengthy&quot;，便构成了上面这样的句串。句子还可以通过插入连接串(conjunct 
+      string)来得到扩充，例如把&quot;and debug&quot;插入到上面那个句子中&quot;write的右面，使得到：<br>
+      </span><span class="explaination">　　&quot;Programmers at our installation 
+      write and debug lengthy code.&quot;<br>
+      　　(我们站的程序员编写和调整长长的代码。)</span><span class="text"><br>
+      最后，串理论允许串中的一个元素被一个置换串(replacement string)所取代。例如在中心串中用what noun tensed-verb取代noun，便可形成句子：<br>
+      </span><span class="explaination">　　&quot;what linguists do is puzzling.&quot;<br>
+      　　(语言学家做的事情令人费解。) </span><span class="text"><br>
+      　　语言中的每个词都根据其语法特性注上一个或多个词类。例如，&quot;users&quot;和&quot;problems&quot;被注上名词，而&quot;cause&quot;被注上三个词类：时态动词，不定式动词和名词。据此每个词序将伴随着一个或多个词类序。语言串理论认为语言的每个句子至少有一个词类序是一个句串，即它是由一个中心串通过附加、连接和置换建立起来的。<br>
+      　　但是，并不是选自正确词类的词的任何一种组合被插入到一个句串便一定能形成一个合法的句子。有时在相同串或邻接串中只有那些带有相关语法特性的词才能被接受。举例来说，和&quot;Tape 
+      stretch&quot;相伴随的词类序中有一个是句串：noun tensed-verb，但是这个句子不符合语法，因为在这里一个单数名词和一个复数的时态动词被组合在一起了。以后我们还要提到几种这样的语法限制。<br>
+      　　对于下面所介绍的小规模的串语法，将采用表9.1所给出的词类。</span>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="30" valign="top"><img src="../../../../images/text/tb/bg.gif" width="25" height="21" alt="表格"></td>
+          <td align="center"> <span class="explaination">表　9.1</span><br>
+            <br>
+            <table width="80%" border="0" cellspacing="1" cellpadding="0" align="center" class="text" bgcolor="#003973">
+              <tr bgcolor="#d7ebff" align="center"> 
+                <td>词类</td>
+                <td>例</td>
+              </tr>
+              <tr bgcolor="#FFFFFF"> 
+                <td>　N　noun(名词)<br>
+                  　TV　tensed verb(时态动词)<br>
+                  　V　untensed(infinitive)verb<br>
+                  　(不定式动词)<br>
+                  　P　preposition(介词)<br>
+                  　T article(冠词)<br>
+                  　ADJ　adjective(形容词)<br>
+                  　D　adverb(副词)</td>
+                <td>　Tapes,stretch,users,cause,problems<br>
+                  　Is,are,tapes,stretch,code,write <br>
+                  　Be,tape,stretch,code,write <br>
+                  <br>
+                  　At,of<br>
+                  　A,an,the <br>
+                  　Lengthy,old<br>
+                  　Slowly,poorly</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <span class="text"><br>
+      　　为了遵循前面给出的形式语言理论，将按照上下文无关的短语结构来建立我们的串语法，并采用标准的BNF标记法。可以把有关词类的定义写成一组产生式：<br>
+      </span><span class="explaination">　　　　&lt;T&gt;∷＝a|an|the<br>
+      　　　　&lt;V&gt;∷be=|tape|stretch|code|write</span><span class="text"><br>
+      　　　　等等，<br>
+      并使它们成为这部语法的一部分。但是，把这些定义放到一部词典中去，对每个词列出其词类，而不是把有关的词都列在每个词类后面；也即把词典作为句法分析器的一个单独部件，通常更方便，而且符合传统的做法。于是，这些词类事实上变成了语法的终结符。为了在我们的BNF语法中对这些符号加以区别，我们在它们的名字左边加一个星号，譬如<br>
+      　　　　</span><span class="explaination">&lt;*ADJ&gt;</span><span class="text"><br>
+      　　我们的BNF语法以SENTENCE的定义开始，它由一个CENTER串后面跟一个句点组成：<br>
+      </span><span class="explaination">　　　　&lt;SENTENCE&gt;∷＝&lt;CENTER&gt;</span><span class="text"><br>
+      各种不同的中心串通常可以分为陈述、疑问和祈使。虽然我们的小语法只包含陈述句，我们还是包含了定义　<br>
+      </span><span class="explaination">　　　　&lt;CENTER&gt;∷＝&lt;ASSERTION&gt;</span><span class="text"><br>
+      以便提醒我们还存在其他类型的中心串。接下去我们可以定义ASSERTION为<br>
+      </span><span class="explaination">　　　　&lt;ASSERTION&gt;∷＝&lt;<sup>*</sup>N&gt;&lt;<sup>*</sup>TV&gt;|&lt;<sup>*</sup>N&gt;&lt;<sup>*</sup>TV&gt;&lt;<sup>*</sup>N&gt;</span><span class="text"><br>
+      为了在我们的语法中可以进行附加，必须用一个符号来代表附加串可以被插入的每个位置。某些附加串允许出现在词类为x的那些词的左面或右面，因此我们将用符号Lx和Rx来表示这位置，并且用符号LxR来表示某个词类x和它的附加串：<br>
+      　　如果X为名词N，就相应有<br>
+      　　　　</span><span class="explaination">&lt;LXR&gt;∷＝&lt;LX&gt;&lt;<sup>*</sup>X&gt;&lt;RX&gt;</span><span class="text">于是，</span><span class="explaination"><br>
+      　　　　&lt;LNR&gt;∷＝&lt;LN&gt;&lt;<sup>*</sup>N&gt;&lt;RN&gt;<br>
+      　　　　&lt;LN&gt;∷＝&lt;TPOS&gt;&lt;APOS&gt;<br>
+      　　　　&lt;TPOS&gt;∷＝&lt;<sup>*</sup>T&gt;|null<br>
+      　　　　&lt;APOS&gt;∷＝&lt;<sup>*</sup>ADJ&gt;|null<br>
+      　　　　&lt;RN&gt;∷＝&lt;PN&gt;|null<br>
+      　　　　&lt;PN&gt;∷＝&lt;<sup>*</sup>P&gt;&lt;<sup>*</sup>N&gt;</span><span class="text"><br>
+      表示一个名词的前面可能附加一个冠词和一个形容词（如&quot;the men&quot;,&quot;young men&quot;,&quot;the 
+      young men&quot;）,后面可能跟一个介词短语PN（如&quot;men from Philadelphia&quot;）。符号null表示空串，它的出现表示所有这些附加串都是可选的。然后我们就应当用LNR来取代在其他串（如ASSERTION和PN）中出现的每个N。<br>
+      </span></td>
+  </tr>
+</table>
+</body>
+</html>

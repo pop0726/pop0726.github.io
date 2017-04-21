@@ -1,0 +1,49 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td><span class="text"> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第九章 句法分析</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <br>
+      　　</span><span class="part">9.1.2 句法分析是否必要</span><span class="text"><br>
+      　　对于这个问题更准确的提法应当是：在一个自然语言理解系统中，句法分析要不要作为一个独立的分析阶段存在?在这个问题上同样是有争议的。在现有的系统中，我们看到不外乎是以下两种处理办法：<br>
+      　　1.先句法后语义<br>
+      　　即强调在语言分析过程中存在一个相对独立的句法分析阶段，它的输出结果是输入句子的一棵句法结构树。后者再经过语义分析模块的处理，获得该句子的某种意义表示。当然在句法分析中偶尔也需要利用附加在词和短语上的某些必要的语义信息，但它主要依据的是象句法范畴(即词类和短语标记等)那样的形式特征。实践证明，这类句法分析程序的设计可以不依赖于某个特定的应用领域，因而具有更好的可扩展性和可移植性。这是当前大多数系统所采用的分析策略。 
+      <br>
+      　　上一章8.3节介绍的LUNAR系统(见图8.1)采用的就是这种先句法后语义的分析策略。SHRDLU系统(见图8.3)虽然允许句法分析和语义分析两个模块之间有较多的相互作用，但仍然把句法结构树作为句法分析程序的输出保留下来，所以从总体上看还是先句法后语义。 
+      <br>
+      　　2.句法-语义一体化(或并行)<br>
+      　　在采用这种分析策略的系统中不再单独设置一个句法分析模块，也不出现句法结构树这样一种中间的分析结果。在这类系统中，句子分析所依据的形式特征与其说是句法范畴，还不如说是语义范畴(如语义语法那样)。<br>
+      　　持这种观点的研究人员中最著名的要算是以Schank为代表的美国耶鲁学派，他们创导的一体化概念分析方法，就是依据某些语义模式直接从输入句子生成其意义表示的。他们早期设计的MARGIE系统(见8.3.3)和后来设计的故事理解系统SAM和PAM等都采用了这种分析策略。一体化分析策略的主要论据是心理学方面的合理性，即面对那些有语法错误或信息不全的句子，人们往往可以根据语义线索来获得句子的解释，下面就是这样一类的句子：<br>
+      </span><span class="explaination">　　He go movies yesterday.(他昨天去看电影了。)</span><span class="text"><br>
+      　　正确的句子应当是：<br>
+      </span><span class="explaination">　　He went to the movies yesterday.</span><span class="text"><br>
+      他们的分析系统也确实能够处理这样一些传统的句法分析难于对付的句子。<br>
+      　　然而对于比较复杂的句子，尤其是那些包括连词和比较级的句子，没有句法指导，语义分析往往难于奏效。而且对于这种忽视句法分析的观点持批判态度的人也可以举出另外一些例子来说明重视句法的作用也同样具有心理学的根据，比如人们时常在不知道一个词的意义时仅仅根据句法规则来判明这个词在句子中的功能，例如句子：<br>
+      </span><span class="explaination">　　Isn't that man wearing a very frimple 
+      coat?</span><span class="text"><br>
+      (尽管&quot;frimple&quot;这个词的意思还不清楚，但它作为名词coat的定语，是一个形容词，这一点仍可依据句法知识作出判断。)<br>
+      　　综上所述，也许把上面提到的两种观点结合起来会得到一个更理想的分析系统，这个分析系统既可以从句法入手也可以从语义入手来进行分析，而且如实地承认无论从哪一头入手，它们各自所依据的信息都是不完全的，因此它们在分析过程中都需要得到对方的帮助。然而要实现这样一种设想的前提就是对句法分析和语义分析两方面都必需有一个扎实的认识。<br>
+      </span></td>
+  </tr>
+</table>
+</body>
+</html>

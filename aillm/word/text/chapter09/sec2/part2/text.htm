@@ -1,0 +1,46 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td><span class="text"> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第九章 句法分析</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <br>
+      　　</span><span class="part">9.2.2 递归语言</span><span class="text"><br>
+      　　对于刻画语言的特性来说，短语结构语法可以说是一种既简单又很强的形式体系。那么何谓形式体系的强与弱呢?我们认为，一种形式体系越强，它能定义的语言类型就越多；反之，一种形式体系越弱，它所能定义的语言就越少。举例来说，如果形式体系F<font size="1">1</font>可以定义10种不同的语言，形式体系F2可以定义20种不同的语言，而且其中包括了所有可以被F<font size="1">1</font>定义的那些语言，我们就说F<font size="1">2</font>比F<font size="1">1</font>更强。当然，任何值得一提的语法形式体系都可以定义无限多种语言，但这种子集和超集的概念依然存在。比如，若可以被F<font size="1">2</font>所定义的语言集是那些可以被F1定义的语言的一个超集，我们就说F<font size="1">2</font>比F<font size="1">1</font>更强。<br>
+      　　理论语言学家在描述句集(即语言)时，时常用到这样两个概念：递归语言(recursive　language)和可递归枚举的语言(recursively 
+      enumerable language)。如果能编写一部程序，使之能以某种顺序逐个地输出(即枚举)一种语言的句子，就说这种语言是可递归枚举的。如果能编写一部程序，它在读入一个符号串后能最终判断这个串是或不是某种语言的一个句子，就说这种语言是递归的。尽管这两个定义初看起来十分相似，但它们是不同的。一种语 
+      言是可递归枚举的，却不一定是递归的。假设给定某种可递归枚举的语言，并且存在某种机制来枚举这种语言的句子。如果现在又给定一个符号串，并要求回答这个串是否是这种语言中的一个句子。<br>
+      　　那么我们打开上述装置，然后把它生成的每个句子拿来同那个给定的符号串比较。若匹配成功，就可以说：&quot;这个符号串是这种语言的一个句子&quot;。但是，即使经过几年还没找到一次匹配，我们也不能肯定地说：&quot;这个符号串不是这种语言的一个句子&quot;。因为下一个被生成的句子将同这个输入串相匹配的机会仍然存在着。这说明一种语言可以是可递归枚举的，但却不是递归的。<br>
+      　　现在我们可以回过头来说，短语结构语法可以原来描述任何一种可递归枚举的语言。这意味着我们能用短语结构语法定义的某些语言不是递归的。也就是说，虽然我们可以建立一部语法，但却不可能写出一个程序来判定一个输入串究竟是不是被该语法所定义的语言中的一个句子。<br>
+      　　这说明这种形式体系&quot;太强&quot;了。我们如果想用计算机来处理语言，那么似乎应当能编写出一个程序，后者根据一部语法来确定一个输入的符号串是不是一个合乎语法的句子。但是对于任何无约束的短语结构语法来说，要编写出这样一部程序是不可能的。<br>
+      　　为此我们只能考虑受限短语结构语法(constrained phrase structure grammars)的可能性。通过对我们的形式体系施加某些约束，我们可以保证生成的语言是递归的，并且比较容易编写有效的程序来分析这些语言，容易的程度则取决于具体的约束。 
+      <br>
+      　　与我们关系最密切的受限短语结构语法都是乔姆斯基体系(Chomsky hierarchy)的成员。乔姆斯基(N.Chomsky)曾定义了以下四类语法:<br>
+      　　(1)无约束短语结构语法，如前所述，又叫做O型语法；<br>
+      　　(2)上下文有关语法(context-sensitive grammars)，又叫做1型语法；<br>
+      　　(3)上下文无关语法(context-free grammars)，又叫做2型语法；<br>
+      　　(4)正则语法(regular grammars)，又叫做3型语法。<br>
+      　　型号愈高所受约束就愈多(生成能力愈弱)，因此能生成的语言集也就愈小。下面我们将逐个讨论这几类语法。 <br>
+      </span></td>
+  </tr>
+</table>
+</body>
+</html>

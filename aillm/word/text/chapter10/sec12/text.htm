@@ -1,0 +1,70 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td><span class="text"> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第十章　语义分析</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <br>
+      　　</span><span class="section">10.12 索引算子<br>
+      </span><span class="text"><br>
+      　　自然语言的句子所描述的情景总伴随着一定的时间和处所，这就是情景语义学所说的一种伴随的时空域。如果我们说：<br>
+      </span><span class="explaination">　　John saw Mary.(约翰看见了玛丽)<br>
+      　　past (see(john，mary)).</span><span class="text"><br>
+      实际上是说，在现今之前存在着一个时空位置.使关系see(john，mary)为真。如果我们说：<br>
+      </span><span class="explaination">　　John toured Greece.(约翰游览了希腊)<br>
+      　　This took 3 weeks.(这持续了三周)</span><span class="text"><br>
+      其中的&quot;this&quot;指什么?显然，我们希望它指称第一个句子中所描述的同一个特定事件(情景)，而不是约翰游览希腊的一般关系。McCord曾提议在逻辑式中使用&quot;事件变量&quot;作为谓词的附加变元，以便描述事件或状态。因此tour(E，X，Y)表示宣是一个X对Y所作的一次游览事件。E的值可以想象为一个唯一的名字，用它来识别不同的事件。利用这样的定义，上面两个句子可以表达为：<br>
+      </span><span class="explaination">　　exist(E，tour(E，john，greece)&amp;past(E)&amp;<br>
+      　　　　　　duration(E，3.week)).</span><span class="text"><br>
+      但是如果我们说：<br>
+      </span><span class="explaination">　　Dr.Smith saw each of his patients.<br>
+      　　(史密斯大夫诊视了他的每个病人)<br>
+      　　This took 6 hours.(这用了6小时)</span><span class="text"><br>
+      首先，这里的&quot;seeing&quot;关系是指医生对病人的诊视(用谓词seeconsult表示)。其次，医生在同一时间里只能对一个病人进行诊视，但是&quot;this&quot;在这里显然不是指一个单独的诊视事件，而是指整个诊视序列。在LFI中我们可以对整个逻辑式使用索引算子，于是分析结果可以表为<br>
+      </span><span class="explaination">　　past(each(patient(X，dr.smith)，<br>
+      　　　　　　　see-consult(dr.smith，X)))：E<br>
+      　　&amp; duration(E，6.hour).</span><span class="text"><br>
+      　　在前面几节中已经看到了利用索引算子来描写包含聚焦功能的逻辑式的例子。这里不妨回顾一下：<br>
+      </span><span class="explaination">　　John always buys books at <b>Smith's</b>.<br>
+      　　always((book(X)&amp;buy(john，X))：E，at(smith，E)).<br>
+      <br>
+      　　John ran fastest <b>yeterday</b>. <br>
+      　　fastest(run(john)：E，yesterday(B)).</span><span class="text"><br>
+      利用这种索引方法，可以保证得到对同一情景的指称。 <br>
+      　　在某些自然语言的应用中(特别是某些数据库的应用中)，我们面临的是一个“没有时间”关系的世界.在这个世界里语景不起作用了。在这种领域中，我们可以把P：E看作是P在某一特例下为真，而E被约束为这个特例。因此可以在这类应用中用下面的Prolog规则来定义索引算子&quot;：&quot;，<br>
+      　　　　　　P：P：-P.<br>
+      　　为了说明当时空语景成为重要因素时我们应当怎么表达它们，暂时假设我们只关心时间这一因素，并假设所有事件都是瞬时事件。于是当我们说&quot;John 
+      sees Mary&quot;(或&quot;John saw Mary&quot;)，我们真正的意思是说，在某一时刻see(john，mary)为真，同时我们可以建立一个Prolog的数据库，它由逻辑式hold(P，T)的若干条目组成，意思是在时刻T，P为真。<br>
+      </span><span class="explaination">　　hold(see(john，mary)，10：00).<br>
+      　　hold(see(bill，joe)，11：00).<br>
+      　　…</span><span class="text"><br>
+      现在让我们来考虑句子：<br>
+      </span><span class="explaination">　　John saw Mary.(约翰看见了玛丽)<br>
+      　　This was before 11：00.(这发生在11点之前)</span><span class="text"><br>
+      于是其逻辑式(为了方便起见，暂时忽略时态)可以写成：<br>
+      </span><span class="explaination">　　see(john，mary)：E &amp; before(11：00，E).</span><span class="text"><br>
+      为了在Prolog中直接进行推理，我们可以将上式进一步翻译成：<br>
+      </span><span class="explaination">　　hold(see(john，mary)，T)&amp; T&lt;11：0O.</span><span class="text"><br>
+      </span></td>
+  </tr>
+</table>
+</body>
+</html>

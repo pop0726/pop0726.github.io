@@ -1,0 +1,94 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../../images/pic/bg0401.gif" height="18" align="right" class="chap">
+              <tr> 
+                <td> 
+                  <div align="center">第二章 归结推理方法</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <span class="text"><span class="text"><span class="section"><br>
+      </span><span class="text">　　</span></span></span><span class="section">2.2 
+      子句形</span><span class="text"><span class="text"><span class="text"><br>
+      <br>
+      　　设有由一阶谓词逻辑描述的公式<img src="../../../../images/text/chap02/sec01/a1.gif" width="15" height="11" align="absmiddle">,<img src="../../../../images/text/chap02/sec01/a2.gif" width="16" height="11" align="absmiddle">,<img src="../../../../images/text/chap02/sec01/a3.gif" width="15" height="13" align="absmiddle">和B，证明在<span class="text"><span class="text"><span class="text"><span class="text"><img src="../../../../images/text/chap02/sec01/a1.gif" width="15" height="11" align="absmiddle"></span></span>∧<span class="text"><span class="text"><img src="../../../../images/text/chap02/sec01/a2.gif" width="16" height="11" align="absmiddle"></span></span>∧<span class="text"><span class="text"><img src="../../../../images/text/chap02/sec01/a3.gif" width="15" height="13" align="absmiddle"></span></span>∧</span></span>成产的条件下有B成立。仍然采用反演法来证明<br>
+      <span class="text"><span class="text">　　　<img src="../../../../images/text/chap02/sec01/a1.gif" width="15" height="11" align="absmiddle"></span></span>∧<span class="text"><span class="text"><img src="../../../../images/text/chap02/sec01/a2.gif" width="16" height="11" align="absmiddle"></span></span>∧<span class="text"><span class="text"><img src="../../../../images/text/chap02/sec01/a3.gif" width="15" height="13" align="absmiddle"></span></span>∧～B　<br>
+      　　是不可满足的。和命题逻辑不同，首先遇到了量词问题，为此要将<span class="text"><span class="text"><span class="text"><span class="text"><img src="../../../../images/text/chap02/sec01/a1.gif" width="15" height="11" align="absmiddle"></span></span>∧<span class="text"><span class="text"><img src="../../../../images/text/chap02/sec01/a2.gif" width="16" height="11" align="absmiddle"></span></span>∧<span class="text"><span class="text"><img src="../../../../images/text/chap02/sec01/a3.gif" width="15" height="13" align="absmiddle"></span></span>∧</span></span>～B化成SKOLEM标准形，进而建立子句集，方可使用 
+      Herbrand 定理和归结原理来证明<span class="text"><span class="text"><span class="text"><span class="text"><img src="../../../../images/text/chap02/sec01/a1.gif" width="15" height="11" align="absmiddle"></span></span>∧<span class="text"><span class="text"><img src="../../../../images/text/chap02/sec01/a2.gif" width="16" height="11" align="absmiddle"></span></span>∧<span class="text"><span class="text"><img src="../../../../images/text/chap02/sec01/a3.gif" width="15" height="13" align="absmiddle"></span></span>∧</span></span>→B成立。</span><br>
+      <br>
+      　　</span></span><span class="part">2.2.1 SKOLEM 标准形</span><span class="text"><span class="text"><br>
+      　　对给定的一阶谓词逻辑公式<br>
+      　　　G＝<span class="text"><span class="text"><span class="text"><span class="text"><img src="../../../../images/text/chap02/sec01/a1.gif" width="15" height="11" align="absmiddle"></span></span>∧<span class="text"><span class="text"><img src="../../../../images/text/chap02/sec01/a2.gif" width="16" height="11" align="absmiddle"></span></span>∧<span class="text"><span class="text"><img src="../../../../images/text/chap02/sec01/a3.gif" width="15" height="13" align="absmiddle"></span></span></span></span>～B<br>
+      　　首先化成与其等值的前束范式<br>
+      　　(Q1x1)<span class="text">…</span>(Qn xn)M(x<font size="1">1</font>,<span class="text">…</span>,xn)<br>
+      　　其中Qi(i=1,<span class="text">…</span>,n)是存在量词或全称量词，而母式M(x<font size="1">1</font>,<span class="text">…</span>,xn)中不再含有量词。<br>
+      　　进而可将M(x1,<span class="text">…</span>,xn)化成等值的合取范式。<br>
+      　　最后将所有存在量词消去，便得公式G的SKOLEM标准形了。消存在量词的过程如下：<br>
+      　　设　(Qr xr) 1≤ r ≤n是第一个出现于<br>
+      　　　　(Q<font size="1">1</font>x<font size="1">1</font>)… (Qrxr) <span class="text">…</span>(Qnxn) 
+      M(x<font size="1">1</font>,<span class="text">…</span>,xn)<br>
+      　　中的存在量词，即Q1,…,Qr-1　均为全称量词。<br>
+      　　若r＝1，则将M(x<font size="1">1</font>,<span class="text">…</span>,xn)中的所有变量x<font size="1">1</font>均以某个常量C代之，但要求C不同于已出现在M(x1,<span class="text">…</span>,xn)中的任一常量。然后便可消去这个存在量词(Q1x1)即($x1)。<br>
+      　　若1≤ r ≤n，(QrXr)的左边有全称量词　<br>
+      　　　　(Qs<font size="1">1</font>xs<font size="1">1</font>), … ,(Qsmxsm) <br>
+      　　而1≤s<font size="1">1</font>&lt;s<font size="1">2</font>&lt;…&lt;sm&lt;r 
+      则将M(x<font size="1">1</font>,…,xr,<span class="text">…</span>xn)中的所有变量xr均以变量xs<font size="1">1</font>,… 
+      ,xsm的某个函数如f(xs1, …,xsm)代之，但要求f不同于已出现在M(x1,┅xn)中的任一函数，而对f的具体形式没有要求。然后消去这个存在量词(QrXr)。<br>
+      　　反复使用这种方法于(Q<font size="1">1</font>x<font size="1">1</font>)…(Qnxn) M(x<font size="1">1</font>,<span class="text">…</span>,xn)，便可消去其中所有的存在量词，所得之公式称作公式G的 
+      SKOLEM 标准形。</span></span> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td width="30"><img src="../../../../images/text/tb/liti.gif" width="26" height="25" alt="例题"></td>
+          <td><span class="text"><span class="text"><b>例1:</b></span></span></td>
+        </tr>
+        <tr> 
+          <td>&nbsp;</td>
+          <td>　<span class="text"><span class="text">G＝(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)(<img src="../../../../images/text/chap02/sec02/fh2.gif" width="8" height="9" align="absmiddle">y)(<span class="text"><img src="../../../../images/text/chap02/sec02/fh2.gif" width="8" height="9" align="absmiddle"></span>z)((～P(x,y)∧Q(x 
+            ,z))∨R(x,y,z)),G已是前束形了，需将M(x ,y ,z)化成合取范式。<br>
+            <span class="text">　M(x,y,z)=(～P(x,y)∧Q(x,z))∨R(x,y,z)<span class="text">=(～P(x 
+            ,y)∨R(x ,y ,z))∧(Q(x ,y)∨R(x ,y ,z))</span><br>
+            　于是　G＝(<span class="text"><img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle"></span>x)(<span class="text"><img src="../../../../images/text/chap02/sec02/fh2.gif" width="8" height="9" align="absmiddle"></span>y)(<span class="text"><img src="../../../../images/text/chap02/sec02/fh2.gif" width="8" height="9" align="absmiddle"></span>z)((～P(x,y)∧R(x,y,z))∧(Q(x,z)∨R(x,y,z)))<br>
+            先消去(<span class="text"><img src="../../../../images/text/chap02/sec02/fh2.gif" width="8" height="9" align="absmiddle"></span>y)，因其左边只有全称量词(<span class="text"><span class="text"><img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle"></span></span>x)，于是引入f(x)代入M(x 
+            ,y ,z)中的所有变量y。再消去(<span class="text"><span class="text"><img src="../../../../images/text/chap02/sec02/fh2.gif" width="8" height="9" align="absmiddle"></span></span>z)，它左边也只有(<span class="text"><span class="text"><span class="text"><img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle"></span></span></span>x)，也引入一个不同于f(x)的g(x)代入M(x 
+            ,y ,z)中的所有变量z。最后得　<br>
+            　　(<span class="text"><span class="text"><span class="text"><span class="text"><img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle"></span></span></span></span>x)((～P(x,f(x))∨R(x 
+            ,f(x),g(x))∧<span class="text">(Q,x,g(x))∨R(x,f(x),g(x)))</span><br>
+            　便是G的 SKOLEM 标准形，其中f(x),g(x)称作 SKOLEM 函数。</span> </span></span></td>
+        </tr>
+        <tr>
+          <td><img src="../../../../images/text/tb/liti.gif" width="26" height="25" alt="例题"></td>
+          <td><span class="text"><span class="text"><b>例2:</b></span></span></td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td><span class="text"><span class="text">　 G＝(<span class="text"><img src="../../../../images/text/chap02/sec02/fh2.gif" width="8" height="9" align="absmiddle"></span>x)(<span class="text"><img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle"></span>y)(<span class="text"><img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle"></span>z)(<span class="text"><span class="text"><img src="../../../../images/text/chap02/sec02/fh2.gif" width="8" height="9" align="absmiddle"></span></span>u)(P(x 
+            ,y ,z ,u))<br>
+            　G已是前束形，M(x ,y ,z ,u)=P(x ,y ,z ,u)也已是合取范式。<br>
+            　先消去(<span class="text"><span class="text"><img src="../../../../images/text/chap02/sec02/fh2.gif" width="8" height="9" align="absmiddle"></span></span>x)，因其左边没有全称量词，于是引入常量c代入P(x 
+            ,y ,z ,u)中的所有变量x。再消去(<span class="text"><span class="text"><img src="../../../../images/text/chap02/sec02/fh2.gif" width="8" height="9" align="absmiddle"></span></span>u)，它左边有全称量词(<span class="text"><span class="text"><img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle"></span></span>y)(<span class="text"><span class="text"><img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle"></span></span>z)，于是需引入一个二元函数f(y,z)代入P(x,y,z,u)中的变量u得G的 
+            SKOLEM 标准形<br>
+            　　(<span class="text"><span class="text"><span class="text"><img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle"></span></span></span>y)(<span class="text"><span class="text"><span class="text"><img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle"></span></span></span>z)P(c 
+            ,y ,z ,f(y ,z))</span></span></td>
+        </tr>
+      </table>
+      <span class="text"><span class="text"><br>
+      </span></span></td>
+  </tr>
+</table>
+</body>
+</html>

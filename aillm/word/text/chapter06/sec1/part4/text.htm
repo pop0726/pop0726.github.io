@@ -1,0 +1,84 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td><span class="text"> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第六章　实例学习</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <br>
+      　　2. 对规则空间的要求<br>
+      　　对规则空间的要求有三方面。（1）规则表示方法应适应归纳推理。（2）规则的表示与例子的表示的一致性。（3）规则空间应包含要求的规则。前两个要求涉及到归纳过程的难易，第三个要求涉及到是否能归纳出要求的规则。<br>
+      　　（1）规则形式适应归纳推理<br>
+      　　上面介绍了四种归纳推理方法。从中可见，不同的归纳推理方法要求不同的规则表示方法。常量化为变量的方法要使用自由变量，增加选择的方法要使用析取联结词。总之，上述的前三种归纳方法要求用谓词逻辑方法表示规则，第四种归纳方法要求用状态矢量表示例子，并用代数方程表示规则。<br>
+      　　此外，如果规则空间描述语言的表达能力较弱，那么可以使用的归纳方法就比较少，规则空间的搜索范围就比较小，搜索就比较容易。但这种规则空间包含的规则较少，它能解决的问题就较少。学习系统的设计师应该在规则空间表达能力和规则空间搜索难度之间进行权衡。 
+      <br>
+      　　（2）规则与例子形式的统一<br>
+      　　如果示教例子和规则的表示形式相差很大，那么解释例子和选择例子的过程就很复杂。因此最好采用同样的形式表示规则和示教例子。例如要程序学习&quot;对牌&quot;的概念，对牌是两张点数相同的牌。希望系统学习表示对牌的规则，这是下列的规则5。<br>
+      　　</span><b class="explaination">规则5</b><span class="text">　RANK(<img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absbottom">,x)∧RANK(<img src="../../../../images/text/chap02/sec01/c2.gif" width="13" height="14" align="absbottom">,x)<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">PAIR<br>
+      　　为了学习规则5，提供下列例9。</span> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="text">
+        <tr> 
+          <td width="30"><img src="../../../../images/text/tb/liti.gif" width="26" height="25" alt="例题"></td>
+          <td class="text"><b>例9:</b></td>
+        </tr>
+        <tr> 
+          <td>&nbsp;</td>
+          <td class="text">(2,clubs ),(3,diamonds),(2,hearts),(6,spades),(K ,hearts)<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">PAIR</td>
+        </tr>
+      </table>
+      <span class="text"><br>
+      规则和例子表示形式的差异使归纳过程比较困难。把例9改用谓词形式表示为例10。</span> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="text">
+        <tr> 
+          <td width="30"><img src="../../../../images/text/tb/liti.gif" width="26" height="25" alt="例题"></td>
+          <td class="text"><b>例10:</b></td>
+        </tr>
+        <tr> 
+          <td>&nbsp;</td>
+          <td class="text">　RANK(<img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absbottom">,2)∧SUIT(<img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absbottom">,clubs)<br>
+            　∧RANK (<img src="../../../../images/text/chap02/sec01/c2.gif" width="13" height="14" align="absbottom">,3)∧SUIT 
+            (<img src="../../../../images/text/chap02/sec01/c2.gif" width="13" height="14" align="absbottom">,diamonds)<br>
+            　∧RANK (<img src="../../../../images/text/chap02/sec03/c3.gif" width="12" height="12" align="absbottom">,2)∧SUIT 
+            (<img src="../../../../images/text/chap02/sec03/c3.gif" width="12" height="12" align="absbottom">,hearts)<br>
+            　∧RANK (<img src="../../../../images/text/chap02/sec03/c4.gif" width="12" height="12" align="absbottom">,6)∧SUIT 
+            (<img src="../../../../images/text/chap02/sec03/c4.gif" width="12" height="12" align="absbottom">,spades)<br>
+            　∧RANK (<img src="../../../../images/text/chap06/sec1/c5.gif" width="12" height="12" align="absbottom">,K)∧SUIT 
+            (<img src="../../../../images/text/chap06/sec1/c5.gif" width="12" height="12" align="absbottom">,hearts)<br>
+            　<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">PAIR</td>
+        </tr>
+      </table>
+      <span class="text"><br>
+      由例10归纳出规则5的过程比较简单的。首先去掉五个SUIT条件，然后去掉C2、C4和C5的RANK条件。最后把常量2改为变量x。由于例10和规则5采用同样的表示形式，所以可以由例10直接归纳，不必进行解释例子。<br>
+      　　（3）规则空间引入新术语。<br>
+      　　有些实例学习问题中，要求的规则不在规则空间中，即规则空间的描述语言不能表示要求的规则。这时就要引入新术语，也就是扩充规则空间的描述语言。例如上面用RANK和SUIT谓词表示了同花和对牌等概念。但它们不能表示&quot;顺牌&quot;的概念。顺牌是五张点数相连的牌。例如8，9，10，J，Q就是一个相连的点数。为此要引入新的谓词SUCC。定义谓词SUCC为：<br>
+      　　　SUCC(2,3)∨SUCC(3,4)∨…<br>
+      　　　∨SUCC(10,J)∨SUCC(J ,Q)∨SUCC(Q ,K)∨SUCC(K,A)<br>
+      用扩充的描述语言可以写出表示顺牌的规则如下。<br>
+      　　</span><b class="explaination">规则6</b><span class="text">　RANK(<img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absbottom">，<font size="2">R</font><font size="1">1</font>)∧RANK(<img src="../../../../images/text/chap02/sec01/c2.gif" width="13" height="14" align="absbottom">，<font size="2">R</font><font size="1">2</font>)<br>
+      　　　　　　∧RANK (<img src="../../../../images/text/chap02/sec03/c3.gif" width="12" height="12" align="absbottom">，<font size="2">R</font><font size="1">3</font>)∧(RANK(<img src="../../../../images/text/chap02/sec03/c4.gif" width="12" height="12" align="absbottom">，<font size="2">R</font><font size="1">4</font>)<br>
+      　　　　　　∧RANK(<img src="../../../../images/text/chap06/sec1/c5.gif" width="12" height="12" align="absbottom">,<font size="2">R</font><font size="1">5</font>)∧SUCC(<font size="2">R</font><font size="1">1</font>，<font size="2">R</font><font size="1">2</font>)<br>
+      　　　　　　∧SUCC(<font size="2">R</font><font size="1">2</font>,<font size="2">R</font><font size="1">3</font>)∧SUCC(<font size="2">R</font><font size="1">3</font>,<font size="2">R</font><font size="1">4</font>)<br>
+      　　　　　　∧SUCC(<font size="2">R</font><font size="1">4</font>,<font size="2">R</font><font size="1">5</font>)<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">CONT(<img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absbottom">,<img src="../../../../images/text/chap02/sec01/c2.gif" width="13" height="14" align="absbottom">,<img src="../../../../images/text/chap02/sec03/c3.gif" width="12" height="12" align="absbottom">,<img src="../../../../images/text/chap02/sec03/c4.gif" width="12" height="12" align="absbottom">,<img src="../../../../images/text/chap06/sec1/c5.gif" width="12" height="12" align="absbottom">)<br>
+      BACON 程序（Langley,1980）和AM程序（Lenat,1976）都具有通过组合或改进现有术语来产生新术语的操作方法。<br>
+      </span></td>
+  </tr>
+</table>
+</body>
+</html>

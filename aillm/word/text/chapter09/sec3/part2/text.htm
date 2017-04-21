@@ -1,0 +1,95 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第九章 句法分析</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <br>
+      　　<span class="part">9.3.2 上下文无关语法(2型语法)</span><span class="text"><span class="text"><br>
+      　　在乔姆斯基体系中生成能力略强于正则语法的是上下文无关语法。在一部上下文无关语法中，每一条规则都采用如下的形式<br>
+      　　　　A→x<br>
+      其中，A∈N，x∈V<sup>*</sup>，即每条产生式的左侧必须是一个单独的非终结符。在这种形式体系中，规则被应用时不依赖于符号A所处的上下文，因此称为上下文无关语法。在</span></span><span class="part">9.2.1</span><span class="text"><span class="text">中给出的第一部短语结构语法<br>
+      　　　　S<span class="text">→</span>aSc<br>
+      　　　　S<span class="text">→</span>b<br>
+      就是上下文无关语法的一例。如果我们稍微改变一下规则中的符号，令<br>
+      　　　　S<span class="text">→</span>(S)<br>
+      　　　　S<span class="text">→</span>x<br>
+      便可以生成前面提到的成对括号表达式：<br>
+      　　　　x，(x)，((x))，(((x)))，((((x)))),…<br>
+      上下文无关语法正是以这种方式解决了正则语法所不可能解决的嵌套结构。<br>
+      　　上下文无关语法被广泛应用于程序设计语言和自然语言的描写中；在专业文献中，我们时常看到用所谓巴科斯-诺尔范式(BNF)来表达上下文无关语法，它同迄今我们用来表示短语结构语法的标记方法略有不同。在BNF中，我们用尖括号来标明非终结符，用符号&quot; 
+      &quot;代替&quot;→&quot;。此外，如果有两条或更多的产生式具有相同的左侧，它们可以作为一条单独的BNF定义被聚集在一起，并用符号&quot;|&quot;分隔。因此我们那两条用来生成对括号表达式的产生式规则可以用一条单独的BNF定义来表示：<br>
+      　　　　&lt;S&gt;∷＝(&lt;S&gt;)＝|x<br>
+      在符号&quot;<span class="text">∷</span>＝&quot;右面用&quot;<span class="text">|</span>&quot;隔开的两个串叫做定义的选择项，所以上式中S的定义有两个选择项。<br>
+      　　除了表达上下文无关语法以外，我们还时常需要表达句子的推导(derivations)。推导显示出一个特定句子是怎样根据语法规则来生成的。我们可以把推导表示为产生式应用的一个线性序。<br>
+      举例来说，如果有语法<br>
+      　　&lt;SENTENCE&gt;<span class="text">∷</span>＝&lt;SUBJECT&gt;&lt;VERBPHRASE&gt; 
+      (1)<br>
+      　　&lt;SUBJECT&gt;<span class="text">∷</span>＝John<span class="text">|</span>Mary 
+      (2)<br>
+      　　&lt;VERBPHRASE&gt;<span class="text">∷</span>＝&lt;VERB&gt;&lt;OBJECT&gt; 
+      (3)<br>
+      　　&lt;VERB&gt;<span class="text">∷</span>＝eats<span class="text">|</span>drinks 
+      (4)<br>
+      　　&lt;OBJECT<span class="text">&gt;</span><span class="text">∷</span>＝wine<span class="text">|</span>cheese 
+      (5)<br>
+      我们可以把句子&quot;Mary eats cheese&quot;的推导表示如下：<br>
+      　　&lt;SENTENCE&gt;<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">&lt;SUBJECT&gt;&lt;VERBPHRASE&gt; 
+      (1)<br>
+      　　　　　　　　<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">Mary&lt;VBRBPHRASE&gt; 
+      (2)<br>
+      　　　　　　　　<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">Mary&lt;VERB&gt;&lt;OBJECT&gt; 
+      (3)<br>
+      　　　　　　　　<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">Mary 
+      eats&lt;OBJECT&gt; (4)<br>
+      　　　　　　　　<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">Mary 
+      eats cheese (5)<br>
+      但是，如果我们把这种推导表示为一棵句法树(见图9.2(a))，也许会更清楚一些。</span></span> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="30" valign="top"><img src="../../../../images/text/tb/tushi.gif" width="25" height="16" alt="图示"></td>
+          <td align="center" class="explaination"> <img src="../../../../images/text/chap09/sec2/tu92a.gif" width="300" height="235"> 
+            <br>
+            图9.2(a) 句子&quot;Mary eats cheese&quot;的句法分析树</td>
+        </tr>
+      </table>
+      <span class="text"><br>
+      　　起始符总是出现在树的根上，终结符则出现在树的叶子上。由于图上并未指明符号被重写的顺序，所以严格地讲这棵树所对应的推导不是唯一的。例如，下面的推导同样可以和这棵树对应：<br>
+      　　&lt;SENTENCE&gt;<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">&lt;SUBJECT&gt;&lt;VERBPHRASE&gt; 
+      (1)<br>
+      　　　　　　　　<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">&lt;SUBJECT&gt;&lt;VERB&gt;(OBJECT) 
+      (3)<br>
+      　　　　　　　　<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">&lt;SUBJECT&gt;eats&lt;OBJECT&gt; 
+      (4)<br>
+      　　　　　　　　<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">Mary 
+      eats&lt;OBJECT&gt; (2)<br>
+      　　　　　　　　<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">Mary 
+      eats cheese (5)<br>
+      　　在确定一个句子的推导时，通常对这些顺序上的变化不感兴趣，所以要规定某种标准顺序，并且只生成符合这种顺序的推导。<br>
+      　　所谓最左推导(leftmost derivation)便是这类标准顺序中的一种，在这种规定下在每一步中总是重写最左边的那个非终结符。对于句子&quot;Mary 
+      eats cheese&quot;所给出的第一个推导就是这种最左推导的一个例子。每一棵句法分析树都严格地对应于一个最左推导。 <br>
+      　　一般来讲，这样一类语法总是比那些较强的语法更容易处理。<br>
+      　　但是在某些情况下确实需要对一条产生式可以被应用的上下文加以限制，这就是乔姆斯基体系中的下一类语法,即上下文有关语法。<br>
+      </span></td>
+  </tr>
+</table>
+</body>
+</html>

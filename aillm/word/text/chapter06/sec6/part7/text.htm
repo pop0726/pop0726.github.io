@@ -1,0 +1,106 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第六章　实例学习</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <span class="text">　　3.学习概括规则 <br>
+      　　EBKAS的另一个重要部分是学习概括规则。在获取不同初始状态下的各种求解控制步骤后，系统以这些步骤及其相应的初始状态为例子集，进行归纳学习，从中提取出该领域中一般原理性控制知识。EBKAS的概括学习方法比文献中介绍的方法有较好的通用性。学习概括规则有下列几步。<br>
+      　　(1)收集例子 <br>
+      　　为建立例子集，系统变换出不同的初始状态，经过多次解释学习，获取不同的求解步骤。先把它们存在临时学习库中，经过归纳学习后才正式放入知识库。<br>
+      　　例如对猴子香蕉问题，选择了有代表性的六种初始状态，由此得到由六个例子组成的例子集。<br>
+      　　(2)提取有用信息<br>
+      　　上面得到的例子集中的信息一般太笼统，不能确切反映猴子m、梯子1和香蕉b三者之间的实质性关系。因此在这一步先对它们进行分析整理，提取有用信息。有用信息包括m、1、b相互间的位置关系，b是否在天花板上，m是在地板上还是在某物体上。提取出与这些信息有关的五个特征，例子集就成为：</span><br>
+      <br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="30" valign="top"><img src="../../../../images/text/tb/bg.gif" width="25" height="21" alt="表格"></td>
+          <td>
+            <table width="85%" border="0" cellspacing="1" cellpadding="0" class="text" align="center" bgcolor="#7D1B8B">
+              <tr align="center" bgcolor="#F1DDF4"> 
+                <td>例子</td>
+                <td width="60%">特 征</td>
+                <td width="35%">求 解 步 骤</td>
+              </tr>
+              <tr align="center" bgcolor="#FFFFFF"> 
+                <td><font size="3">e</font>1<br>
+                  <font size="3">e</font>2<br>
+                  <font size="3">e</font>3<br>
+                  <font size="3">e</font>4<br>
+                  <font size="3">e</font>5<br>
+                  <font size="3">e</font>6</td>
+                <td width="60%">b on ceiling m=l m≠b l≠b H1＝floor<br>
+                  b on ceiling m≠l m≠b l＝b H1＝floor<br>
+                  b on ceiling m＝l m≠b l＝b H1＝body<br>
+                  b on cei1ing m＝l m＝b l＝b H1＝floor<br>
+                  b on ceiling m≠l m≠b l≠b H1＝body<br>
+                  b on ceiling m≠l m≠b l≠b H1＝floor</td>
+                <td width="35%">carry climb grab<br>
+                  walk climb grab<br>
+                  jump walk climb grab<br>
+                  climb grab<br>
+                  jump walk carry climb grab<br>
+                  walk carry climb grab</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <span class="text"><br>
+      　　(3)归纳学习<br>
+      　　在这一步，对例子空间应用因果联系归纳法，根据特征与规则序列间的逻辑规律，推出一般性规则。这就是通过比较分析，找出不同初态产生不同求解步骤的关键因素。把这些因素收集起来形成规则，就可获得一般性的控制知识。<br>
+      　　第一步是抽取共同特征。<br>
+      　　定义两个函数TR和SUB。函数TR(d)表示具有d特征的所有例子的集，SUB(E)表示例子集E中各例子的公共特征的集合。<br>
+      　　例如在d=climb时，<br>
+      　　TR(climb)=(<font size="3">e</font>1,<font size="3">e</font>2,<font size="3">e</font>3,<font size="3">e</font>4,<font size="3">e</font>5,<font size="3">e</font>6)<br>
+      　　SUB(<font size="3">e</font>1,<font size="3">e</font>2,<font size="3">e</font>3,<font size="3">e</font>4,<font size="3">e</font>5,<font size="3">e</font>6)=(b 
+      on ceiling)<br>
+      这表明，有climb特征的是全部6个例子，而且6个例子公共特征是b on ceiling。于是可得到一条一般性规则。<br>
+      　　R1：if(b on ceiling) then (climb)<br>
+      　　又如在d＝carry时，<br>
+      　　TR(carry)＝(<font size="3">e</font>1，<font size="3">e</font>5，<font size="3">e</font>6)<br>
+      　　SUB(<font size="3">e</font>1，<font size="3">e</font>5，<font size="3">e</font>6)＝(m≠b，l≠b)<br>
+      这表明carry规则的条件应考虑m≠b和l≠b。这一步的映射过程突出了各个关键因素，可以缩小下一步学习的搜索范围。<br>
+      　　第二步是比较不同部分和抽取关键特征。<br>
+      　　从上面抽取的共同特征出发，比较不同部分，确定在形成规则时用的关键特征。以carry规则为例，前面初步确定了carry规则的前提条件是(m≠b，l≠b)。但是这还要确认。确认方法是这些前提与不含carry的例子比较。把m≠b、l≠b放在例子<font size="3">e</font>2，<font size="3">e</font>3，<font size="3">e</font>4中比较，发现<font size="3">e</font>2、<font size="3">e</font>3也含有特征m≠b，而l≠b未在<font size="3">e</font>2、<font size="3">e</font>3、<font size="3">e</font>4中出现。于是以l≠b为carry的前提，去掉条件m≠b，得到一条一般性控制规则。<br>
+      　　R2：if(l≠b) then add(carry)<br>
+      　　类似可以得到另外两条一般性规则。<br>
+      　　R3：if (m≠l) then add(walk)<br>
+      　　R4：if(H1＝body) then add(jump)<br>
+      　　与常量转成变量的归纳方法比较，这种方法比较安全、可靠。但是如果例子数目少，也容易出错。 <br>
+      　　4.使用所获得的控制知识<br>
+      　　用上述方法学到的控制知识，是和领域规则分别存放的。在以后求解类似问题时，按下列步骤取出应用。<br>
+      　　(1)直接使用问题求解步骤<br>
+      　　在给定初始状态和目标后，先查找全局问题求解步骤的知识库，如果库中有相应的初始状态和目标，则直接使用保存的求解步骤。否则转下一步。 <br>
+      　　(2)使用一般性控制规则<br>
+      　　先分析给定的初始状态，抽取有关特征。再对比一般性控制规则。如果符合条件，则选用相应的一般性控制规则。 <br>
+      　　例如初始状态为 <br>
+      　　((b　on ceiling at C)(l at A)(m on box at A)) <br>
+      则抽取出特征 <br>
+      　　(b on ceiling,m＝l，l≠b，m≠b，H1＝box) <br>
+      对比一般性规则，由(b on ceiling )特征选用了climb规则，由(b≠1)特征选用了carry规则，由(H1=box)特征选用了jump规则。这三条规则加上所有初始状态下都要有的grab动作，就构成所需的规则集。然后转下一步。<br>
+      　　(3)使用局部控制chunks <br>
+      　　在缩小的规则集中，可直接使用已经获取的chunks来求解问题。<br>
+      </span></td>
+  </tr>
+</table>
+</body>
+</html>

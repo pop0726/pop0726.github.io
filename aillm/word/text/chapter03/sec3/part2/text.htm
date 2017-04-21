@@ -1,0 +1,144 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第三章 不确定和非单调推理方法</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <br>
+      　　<span class="part">3.3.2 谓词完备化法</span><span class="text"><br>
+      　　（1）△仅包含P(a)的情形<br>
+      　　　　P(a)等价于<br>
+      　　　　　　(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)(x=a→P(x))<br>
+      　　这时，对P的完备化公式是<br>
+      　　　　　　(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)(P(x)→x=a)<br>
+      　　从而使得△对P完备。（若△＝A→B，那么～(B→A)是由△推不出来的，所以B→A∈△asm。从而△∪△asm=A←→B）。<br>
+      　　△和其完备化公式的合取称作△对P的完备化，如以COMP[△,P]表示，便有<br>
+      　　　　　　COMP[△,P]=(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)(Px)→x=a)∧△<br>
+      　　　　　　　　　　　=(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)(P(x)←→x=a)<br>
+      这个例子的谓词完备化同CWA方法有同样的结果。<br>
+      　　（2） △含两个公式的情形<br>
+      　　如△包含P(a)和P(b)。这时对P的完备化公式是<br>
+      　　　　　　(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)(P(x)→(x=a)∨(x=b))<br>
+      这个例子的谓词完备化同CWA方法也有同样的结论。<br>
+      　　如果△中出现谓词P和其它谓词的析取，或P中含有变量时，谓词完备化就复杂些。<br>
+      　　（3）△是对P单一子句情形<br>
+      　　一个子句集对P是单一的，如果其中的每个带有正文字P的子句最多出现一次P。对P是单一的子句对P也是Horn 子句，但反过来并不一定对。如Q(a)∨～P(b)∨P(a)对P是Horn子句但对P不是单一的。<br>
+      　　下面仅讨论对P是单一的子句的完备化问题。<br>
+      　　设△是对P单一的子句集，可将△中每个含有正文字P的那些子句写成<br>
+      　　　　　　(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">y)((Q<font size="1">1</font>∧…∧Qm)→P(t))<br>
+      　　其中t是项（t<font size="1">1</font>,… t<font size="1">n</font>）,Qi是不含P的文字，Qi和t都可含变量y。<br>
+      　　上式可写成<br>
+      　　　　　　(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">y)(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)(((x=t)∧Q<font size="1">1</font>∧…∧Qm)→P(x))<br>
+      其中x是不出现于t中的边元，x=t即<font size="2">x</font><font size="1">1</font>= t<font size="1">1</font>,… 
+      <font size="2"> x</font><font size="1">n</font> = <font size="2">t</font><font size="1">n</font> 
+      。<br>
+      　　由于y不出现在蕴涵式的右端，该公式又等价于<br>
+      　　　　　　(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)(((<img src="../../../../images/text/chap02/sec02/fh2.gif" width="8" height="9">y)((x=t)∧Q<font size="1">1</font>∧… 
+      Qm))→P(x))<br>
+      (这里使用了公式(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)(A(x)→B)(<img src="../../../../images/text/chap02/sec02/fh2.gif" width="8" height="9">x)A(x)→B)这种形式可视作一种标准形。<br>
+      　　设△中有K个子句含有正文字P，这些子句的标准形为<br>
+      　　　　　　(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)(E<font size="1">1</font>→P(x))<br>
+      　　　　　　　　　　　…<br>
+      　　　　　　(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)(E<font size="1">k</font>→P(x))<br>
+      而Ei是由存在量词约束的一些文字的合取。 <br>
+      　　将这些公式写成一个蕴涵式得<br>
+      　　　　　　(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)((E<font size="1">1</font>∨E<font size="1">2</font>∨…∨E<font size="1">k</font>)→P(x))<br>
+      　　这时便可得对P的完备化公式<br>
+      　　　　　　(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)(P(x)→(E<font size="1">1</font>∨E<font size="1">2</font>∨…∨E<font size="1">k</font>))<br>
+      　　于是<br>
+      　　　　　　COMP[△,P]=(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)(P(x)←→(E<font size="1">1</font>∨…∨E<font size="1">k</font>)∧△</span> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="text">
+        <tr>
+          <td width="30"><span class="text"><img src="../../../../images/text/tb/liti.gif" width="26" height="25" alt="例题"></span></td>
+          <td><b>例3:</b></td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td>　Δ是<br>
+            　　<span class="text">(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)</span>(Ostrich(x)→Bird(x))<br>
+            　　Bird(Tweety)<br>
+            　　～Ostrich(Sam)<br>
+            其中Δ对Bird 是单一的。对Bird实现完备化，先写成标准形得<br>
+            　<span class="text">　(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)</span>((Ostrich(x)∨(x=Tweety))) 
+            →Bird(x))<br>
+            　于是 <br>
+            　　COMP[△,bird]<br>
+            　　=Δ∧(<span class="text"><img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle"></span>x)→(Bird(x)<span class="text">←→</span>(Ostrich(x)∨(x=Tweety))) 
+            <br>
+            在这个完备化公式集下，可证明～Bird(Sam)。</td>
+        </tr>
+      </table>
+      <span class="text"><br>
+      　　这个例子中，Δ告诉我们Tweety是鸟，Sam 不是驼鸟，所有的驼鸟都是鸟。而Δ对Bird 的完备化是提出一种假设的方法，指出了除Δ中的说明之外再没有别的鸟了，即只有Tweety 
+      和Ostrich是鸟。引入这个假设后进行推理可知Sam不是鸟。<br>
+      　　谓词完备化法对已知信任集Δ的扩充仅是一种最小的扩充。如Δ＝E(x)→P(x),所扩充的仅是使P(x)→E(x)成立的那些个体。<br>
+      　　如果不限制Δ对P是单一的，这种完备化过程可能出现对P的循环定义，从而并没有给出新的假设。对P是Horn 的子句集也可使用这种完备化。<br>
+      　　尽管在简单情形下，谓词完备化与CWA方法有同样的结果，但一般情况下它们是不同的。例如，Δ仅含P(a)，且可含有常量b时，CWA法的假设集包含～P(b)，而谓词完备化公式是(<span class="text"><img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle"></span>x)(P(x)←→(x=a))，这两个结果是不等价的。<br>
+      　　（4）谓词完备化同CWA一样是非单调的<br>
+      　　如果例3中增加了条件<br>
+      　　　　　　Penguin(x)→Bird(x)<br>
+      　　那么对Bird 的完备化公式为<br>
+      　　　　　　Bird(x)→Ostrich(x)∨(x=Tweety)∨Penguin(x)<br>
+      　　这时便不能证明原有结论～Bird(Sam)了，因为Sam虽不是驼鸟但可能是Penguin.从而使结论减少了。</span>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="text">
+        <tr> 
+          <td width="30"><img src="../../../../images/text/tb/dingyi.gif" width="26" height="17" alt="定理"></td>
+          <td><b>定理3</b></td>
+        </tr>
+        <tr> 
+          <td>&nbsp;</td>
+          <td class="explaination">　如果Δ是对P单一的子句集，而且是一致的，那么Δ对P的完备化也是一致的。</td>
+        </tr>
+      </table>
+      <span class="text">　　还可以平行的实现几个谓词的谓词完备化。在一个谓词集的平行谓词完备化中，每个谓词可分别在不考虑其它谓词的情况下被完备化，然后将这些分别完备化的公式的合取加入Δ。<br>
+      　　对P是单一的子句集中，可将那些含有正文字P的子句组合成标准形<br>
+      　　　　　　(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)(E<font size="1">1</font>∨…∨E<font size="1">k</font>→P(x))<br>
+      　　简记为 (<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)(E→P(x)),P不出现在E中。<br>
+      　　对Δ中的谓词集π＝{P<font size="1">1</font>,…,Pn}来实现平行完备化，可先写出标准形<br>
+      　　　　　　(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)(E<font size="1">1</font>→P<font size="1">1</font>(x))<br>
+      　　　　　　　　…<br>
+      　　　　　　(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)(En→Pn(x))<br>
+      平行完备化就是将<br>
+      　　　　　　(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)(P<font size="1">i</font>(x)→Ei) 
+      i=1,…,n<br>
+      加到Δ中。<br>
+      　　循环问题会出现。如Δ中有<br>
+      　　　　　　P(x)→Q(x),Q(x)→R(x),R(x)→P(x)<br>
+      　　那么对{P，Q，R}平行完备化得<br>
+      　　　　　　P(x)←→Q(x)←→R(x)←→P(x)<br>
+      出现循环，使对Δ的完备化并不产生新的信息。 <br>
+      　　为避免对Pi的循环，需将π＝{P<font size="1">1</font>,…,Pn}排序，使得每个Ei中不出现{P<font size="1">1</font>,…,Pn}中的任一个，也不出现{P<font size="1">1</font>,…,P<font size="1">i-1</font>}的任一负文字。如果能办这一点就说Δ中这个些子句对π是有序的。</span>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="text">
+        <tr> 
+          <td width="30"><b><img src="../../../../images/text/tb/dingyi.gif" width="26" height="17" alt="定理"></b></td>
+          <td><b>定理4</b></td>
+        </tr>
+        <tr> 
+          <td>&nbsp;</td>
+          <td class="explaination">　如果Δ是一致的且对π是有序的，则Δ对π的平行完备化也是一致的。</td>
+        </tr>
+      </table>
+      <span class="text"><br>
+      </span></td>
+  </tr>
+</table>
+</body>
+</html>

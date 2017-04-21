@@ -1,0 +1,70 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第九章 句法分析</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <span class="part"><br>
+      　　9.6.3 扩充转移网络(ATN)</span><br>
+      <span class="text">　　ATN在以下三方面对RTN作了扩展和增强：<br>
+      　　(1)添置了一组寄存器(registers)，用来存储分析过程中得到的中间结果(如局部句法树)和有关信息(如名词短语的人称和数。某些成分的语义特征等)；<br>
+      　　(2)每条弧上除了用句法范畴(如词类和短语标记)来标注以外，可以附加任意的测试(tests)，只有当弧上的这种溯试成功之后才能通过这条弧；<br>
+      　　(3)每条弧上还可以附加某些动作(actions)，当通过一条弧时，相应的动作便被依次执行，这些动作主要用来设置或修改寄存器的内容。<br>
+      设置哪些寄存器完全取决于句法分析的需要，并没有硬性的规定。 例如有关句型的信息：陈述句(DCL)，疑问句(Q)，祈使句(IMP)，可以存放在名为TYPE的寄存器中；动词信息及其局部结构可存放在名为V的寄存器中；当然也可设置象主语(SUBJ)、谓语(PRED)、宾语(OBJ)一类的寄存器来存储各种句子成分的信息以及它们的局部结构。所有这些寄存器都可以看作是程序设计中变量，它们从属于被设置的那个ATN子网络。对于ATN的后继弧来说，这些寄存器的内容可以被访问，并且根据附加在后继弧上的动作可以被复制、修改或组合。<br>
+      　　下面是用BNF定义的ATN形式体系：<br>
+      </span><span class="explaination">　　&lt;transition-network&gt;∷＝(&lt;arc-set&gt;&lt;arc-set&gt;<sup>*</sup>)<br>
+      　　&lt;arc-set&gt;∷＝(&lt;state&gt;&lt;arc&gt;<sup>*</sup>)<br>
+      　　&lt;arc&gt;∷＝(CAT&lt;category&gt;&lt;test&gt;&lt;action&gt;<sup>*</sup>(TO&lt;next-state&gt;)))<br>
+      　　　　　　　|(TST&lt;label&gt;&lt;test&gt;&lt;action&gt;<sup>*</sup>(TO&lt;next-state&gt;))<br>
+      　　　　　　　[(PUSH&lt;state&gt;&lt;test&gt;&lt;pre-action&gt;<sup>*</sup>&lt;action&gt;<sup>*</sup><br>
+      　　　　　　　(TO&lt;next-state&gt;)<br>
+      　　　　　　　|(POP&lt;form&gt;&lt;test&gt;&lt;pre-action&gt;<sup>*</sup>)<br>
+      　　　　　　　|(JUMP&lt;next-state&gt;&lt;test＝&lt;acti011&gt;<sup>*</sup>)<br>
+      　　&lt;action&gt;∷＝(SETR&lt;register&gt;&lt;form&gt;) <br>
+      　　　　　　　|(SENDR&lt;register&gt;&lt;form&gt;)<br>
+      　　　　　　　|(LIFTR&lt;register&gt;&lt;form&gt;)<br>
+      　　　　　　　J(ADDL&lt;registcr&gt;&lt;form&gt;)<br>
+      　　　　　　　|(ADDR&lt;register&gt;&lt;form&gt;)<br>
+      　　&lt;form&gt;∷＝(GETR&lt;register&gt;)<br>
+      　　　　　　　|(GETF&lt;feature&gt;&lt;word&gt;)<br>
+      　　　　　　　|(BUILDQ&lt;template&gt;&lt;form&gt;<sup>*</sup>)<br>
+      　　　　　　　|LEX <br>
+      　　　　　　　|<sup>*</sup><br>
+      　　　　　　　|&lt;1isp-function&gt;<br>
+      　　&lt;test&gt;∷＝(x-AGREE&lt;form1&gt;&lt;form2&gt;)<br>
+      　　　　　　　|(x-START)|…</span><span class="text"><br>
+      　　在BNF的定义中，尖括号及其内部的英文小写字母串表示非终结符；定义式右侧的圆括号和英文大写字母串都是终结符。&quot;*&quot;号有两种用法：当它出现在非终结符后面，表示这个非终结符可以出现零次或有限多次；当它单独出现时，表示输入串中的当前词，在JUMP或POP弧上，它同LEX的值一样，其词形同输入串一致；在一条CAT弧上，它取该词的词根形式。因此，如果LEX＝&quot;stopped&quot;，*＝&quot;stop&quot;。在一条PUSH弧上，对于测试&lt;test&gt;和准备动作&lt;pre-action&gt;来说，*等于当前词，但在该弧后继的动作&lt;action&gt;中，它又代表被这条PUSH弧启动的那个子网络(即下一层)的回送值。<br>
+      　　定义中设置了五种基本的弧型，它们分别是：判类弧CAT，测试弧TST，下推运算弧PUSH，下推返回弧POP和跳弧JUMP。 CAT弧要求当前词必须具有该弧第二个元素＜category)所指定的句法范畴，并满足第三个元素&lt;test&gt;所规定的条件，否则不能通过；当一条CAT弧被通过时，输入串中相应的当前词被&quot;消耗&quot;，即导致输入指针前移到下一个词。JUMP弧不同于CAT弧，它不消耗输入串中的当前词，因此伴随着JUMP弧的转移可以在不对输入串进行任何处理的情况下发生。<br>
+      　　一条PUSH弧意味着一次网络的逆归调用，它的第二个元素&lt;state&gt;指明了转向的新网络的名字，后者也是当前分析所要寻找的一个指定成分。发生这种网络转移的情况时，原网络的状态及其计算结果(它们被分别储存在这个网络的许多寄存器中)必须保存在一个堆栈中，以便在新网络的处理结束后(体现在这个新网络的一条POP弧上)能返回原来的状态，并恢复原寄存器的内容。图9.12说明了在一条包括一次网络递归调用的分析路径上，各条弧被通过的顺序。这种情况同子程序的调用十分类似。</span><br>
+      <br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="30" valign="top"><img src="../../../../images/text/tb/tushi.gif" width="25" height="16" alt="图示"></td>
+          <td align="center" class="explaination"><img src="../../../../images/text/chap09/sec2/tu912.gif" width="300" height="147"><br>
+            <br>
+            图9.12 PUSH弧和pop弧的操作</td>
+        </tr>
+      </table>
+      　</td>
+  </tr>
+</table>
+</body>
+</html>

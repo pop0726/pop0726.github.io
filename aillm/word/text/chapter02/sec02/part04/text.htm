@@ -1,0 +1,203 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../../images/pic/bg0401.gif" height="18" align="right" class="chap">
+              <tr> 
+                <td> 
+                  <div align="center">第二章 归结推理方法</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <span class="text"><span class="text"><span class="section"><br>
+      </span>　　</span></span><span class="part">2.2.5 建立子句集举例</span><br>
+      <br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="text">
+        <tr> 
+          <td width="30"><img src="../../../../images/text/tb/liti.gif" width="26" height="25" alt="例题"></td>
+          <td><b>例1:</b></td>
+        </tr>
+        <tr> 
+          <td>&nbsp;</td>
+          <td>　若群F中任一元素x都有<br>
+            　　　x・x =e (单位元)<br>
+            　那么F是交换群。<br>
+            　这是个代数定理，为实现机器的自动证明，首先需给出这个定理的逻辑描述，进而化成子句形之后再作推理，这里仅限于建立起子句形。由于机器不知群的定义，所以证明之前需将有关定义的内容一一加以描述，并作为定理条件。<br>
+            　设论域为F，谓词P(x ,y ,z)表示x・y = z，依群的定义有<br>
+            　<img src="../../../../images/text/chap02/sec01/a1.gif" width="15" height="11" align="absmiddle">：若 
+            x,y∈F 则 x・y ∈F<br>
+            　　　可形式描述为<br>
+            　　　　　　　　　(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">y)(<img src="../../../../images/text/chap02/sec02/fh2.gif" width="8" height="9" align="absmiddle">z)P(x,y,z)<br>
+            　<img src="../../../../images/text/chap02/sec01/a2.gif" width="16" height="11" align="absmiddle">：若x,y,z 
+            ∈F 则(x・y)・z =x・(y・z)<br>
+            　　　可形式描述为<br>
+            　　　　　　　　　(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">y)(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">z)(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">u)(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">v)(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">w)<br>
+            　　　　　　　　　[(P(x,y,u)∧P(y,z,v)∧P(u,z,w)→P(x,v,w))<br>
+            　　　　　　　　　　∧(P(x,y,u)∧P(y,z,v)∧P(x,v,w)→P(u,z,w))]<br>
+            　<img src="../../../../images/text/chap02/sec01/a3.gif" width="15" height="13" align="absmiddle">：若e 
+            为单位元　则x・e = e・x = x 对任一x∈ F<br>
+            　　　可形式描述为<br>
+            　　　　　　　　　(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)(P(x,e,x)∧P(e,x,x))<br>
+            　<img src="../../../../images/text/chap02/sec02/a4.gif" width="15" height="13" align="absmiddle">：若 
+            x∈F 必有 x<sup><font size="1">-1</font></sup>∈ F 使x・x<sup><font size="1">-1</font></sup>= 
+            x<sup><font size="1">-1</font></sup>・x = e 成立。<br>
+            　　　可形式描述为<br>
+            　　　　　　　　　(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)P(x,x<sup><font size="1">-1</font></sup>,e)∧P(x<sup><font size="1">-1</font></sup>,x 
+            e,))<br>
+            　所要证明的定理B是，对x,y∈ F 如果 x・x=e 必有<br>
+            　　　　　　　　　 x・y =y・x<br>
+            　可形式描述为<br>
+            　(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x 
+            P(x,x,e)→(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">u)(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">v)(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">w)(P(u,v,w)→P(v,u,w))<br>
+            　这样我们要证明的定理是<br>
+            　　　　　　<img src="../../../../images/text/chap02/sec01/a1.gif" width="15" height="11" align="absmiddle">∧<img src="../../../../images/text/chap02/sec01/a2.gif" width="16" height="11" align="absmiddle">∧<img src="../../../../images/text/chap02/sec01/a3.gif" width="15" height="13" align="absmiddle">∧<img src="../../../../images/text/chap02/sec02/a4.gif" width="15" height="13" align="absmiddle">→B<br>
+            　为此需将<img src="../../../../images/text/chap02/sec01/a1.gif" width="15" height="11" align="absmiddle">，<img src="../../../../images/text/chap02/sec01/a2.gif" width="16" height="11" align="absmiddle">，<img src="../../../../images/text/chap02/sec01/a3.gif" width="15" height="13" align="absmiddle">，<img src="../../../../images/text/chap02/sec02/a4.gif" width="15" height="13" align="absmiddle">和～B 
+            分别化成 SKOLEM 标准形，进而分别写出子句形c，<img src="../../../../images/text/chap02/sec02/sa2.gif" width="16" height="10" align="absmiddle">,<img src="../../../../images/text/chap02/sec02/sa3.gif" width="17" height="10" align="absmiddle">,<img src="../../../../images/text/chap02/sec02/sa4.gif" width="18" height="10" align="absmiddle">,S<sub><font size="1">～B</font></sub>再求其并集，便得子句集（用到2.2.4）<br>
+            　不难计算出<br>
+            　<img src="../../../../images/text/chap02/sec02/sa1.gif" width="17" height="10" align="absmiddle">：{P(x,y,f(x,y))}<br>
+            　<img src="../../../../images/text/chap02/sec02/sa2.gif" width="16" height="10" align="absmiddle">：{～P(x,y,u) 
+            ∨～P(y,z,v) ∨ ～P(u,z,w) ∨ P(x,v,w),<br>
+            　　　　～P(x,y,u) ∨ ～P(y,z,v) ∨～P(x,v,w) ∨ P(u, z,w)}<br>
+            　<img src="../../../../images/text/chap02/sec02/sa3.gif" width="17" height="10" align="absmiddle">：{P(x,e,x),P(e,x,x)}<br>
+            　<img src="../../../../images/text/chap02/sec02/sa4.gif" width="18" height="10" align="absmiddle">：{P(x,x<sup><font size="1">-1</font></sup>,e)},P(x<sup><font size="1">-1</font></sup>,x,e)}<br>
+            　S<sub><font size="1">～B</font></sub>：{P(x,x,e),P(a,b,c),～P(b,a,c)}<br>
+            　从而S=<img src="../../../../images/text/chap02/sec02/sa1.gif" width="17" height="10" align="absmiddle">∪<img src="../../../../images/text/chap02/sec02/sa2.gif" width="16" height="10" align="absmiddle">∪<img src="../../../../images/text/chap02/sec02/sa3.gif" width="17" height="10" align="absmiddle">∪<img src="../../../../images/text/chap02/sec02/sa4.gif" width="18" height="10" align="absmiddle">∪S<sub><font size="1">～B</font></sub>共含有10个子句。</td>
+        </tr>
+        <tr> 
+          <td><img src="../../../../images/text/tb/liti.gif" width="26" height="25" alt="例题"></td>
+          <td><b>例2:</b></td>
+        </tr>
+        <tr> 
+          <td>&nbsp;</td>
+          <td>　证明梯形的对角线与上下底构成的内错角相等。<br>
+            　这是个初等几何问题，为实现机器的自动证明，像例1一样先给出逻辑描述，建立子句集。<br>
+            　设已给梯形的顶点依次为a ,b ,c ,d 。引入谓词<br>
+            　T(x ,y,u,v)表示以xy为上底，uv为下底的梯形。<br>
+            　P(x,y,u,v)表示x y‖u v<br>
+            　　　E(x ,y ,z,u ,v ,w)表 ∠xyz=∠uvw<br>
+            　问题的逻辑描述和相应的子句集为<br>
+            　<img src="../../../../images/text/chap02/sec01/a1.gif" width="15" height="11" align="absmiddle">：(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">y)(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">u)(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">v)(T(x,y,u,v)→P(x,y,u,v))<br>
+            　　　　　　　　　　　　 (梯形上下底平行)<br>
+            　<img src="../../../../images/text/chap02/sec02/sa1.gif" width="17" height="10" align="absmiddle">：～T(x,y,u,v)∨P(x,y,u,v)<br>
+            　<img src="../../../../images/text/chap02/sec01/a2.gif" width="16" height="11" align="absmiddle">：(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">y)(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">u)(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">v)(P(x,y,u,v)→E(x,y,v,u,v,y))<br>
+            　　　　　　　　　　　　 (平行内错角相等)<br>
+            　<img src="../../../../images/text/chap02/sec02/sa2.gif" width="16" height="10" align="absmiddle">：～P(x,y,u,v)∨E(x,y,v,u,v,y)<br>
+            　<img src="../../../../images/text/chap02/sec01/a3.gif" width="15" height="13" align="absmiddle">：T(a,b,c,d) 
+            (已知)<br>
+            　<img src="../../../../images/text/chap02/sec02/sa3.gif" width="17" height="10" align="absmiddle">：T(a,b,c,d)<br>
+            　B：E(a,b,d,c,d,b) (要证的结论)<br>
+            　S<sub><font size="1">～B</font></sub>：～E(a,b,d,c,d,b)<br>
+            　从而S＝<img src="../../../../images/text/chap02/sec02/sa1.gif" width="17" height="10" align="absmiddle">∪<img src="../../../../images/text/chap02/sec02/sa2.gif" width="16" height="10" align="absmiddle">∪<img src="../../../../images/text/chap02/sec02/sa3.gif" width="17" height="10" align="absmiddle">∪<img src="../../../../images/text/chap02/sec02/sa4.gif" width="18" height="10" align="absmiddle">∪S<sub><font size="1">～B</font></sub>共含有10个子句。</td>
+        </tr>
+        <tr> 
+          <td>&nbsp;</td>
+          <td> 　　例1和例2是代数和几何的定理证明问题，只要把定理描述清楚了，建立起子句集，然后作推理给出定理成立与否的证明就够了，这是一类只需回答正确与否的问题，另一类如机器人动作问题(例3)，对所做的推理要求给出一系列的动作，程序设计自动化(例4)也属这类问题。</td>
+        </tr>
+        <tr> 
+          <td><img src="../../../../images/text/tb/liti.gif" width="26" height="25" alt="例题"></td>
+          <td><b>例3:</b></td>
+        </tr>
+        <tr> 
+          <td>&nbsp;</td>
+          <td>　猴子香蕉问题<br>
+            　已知一串香蕉挂在天花板上，猴子直接去拿是够不到的，但猴子可以走动且可以搬着梯子走动，也可以爬上梯子来达到吃香蕉的目的。对这个问题的描述，不可忽视动作的先后次序，需体现出时间概念。常用的方法是引入状态S来区分动作的先后，以不同的状态表现不同的时间，而状态间的转换由一些算子(函数)来实现。<br>
+            　首先引入谓词<br>
+            　 P(x,y,z,s)表示猴子位于x处，香蕉位于y 处，梯子位于z处，相应的状态为s。或说猴子在x 处，香蕉在y 处，梯子在z处，而状态又为s时，谓词P(x,y,z,s)方为真。<br>
+            　R(s)表示s状态下猴子吃到香蕉。<br>
+            　ANS(s)表示形式谓词 ，只是为求得回答的动作序列而虚设的。<br>
+            　其次引入状态转移函数。<br>
+            　Walk (y,z,s)表示原状态s下，在walk作用下猴子从y走到z 处所建立的一个新状态。<br>
+            　Carry(y,z,s)表示原状态s 下，在Carry 作用下猴子搬着梯子从y走到z 处建立的一个新状态。<br>
+            　Climb(s) 表示原状态s下，在Climb作用下猴子爬上梯子所建立的一个新状态。<br>
+            　设初始状态为S<sub><font size="1">0</font></sub>,猴子位于a,香蕉位于b ,梯子位于c。<br>
+            　问题可描述如下：<br>
+            　<img src="../../../../images/text/chap02/sec01/a1.gif" width="15" height="11" align="absmiddle">：(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">y)(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">z)(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">s)(P(x,y,z,s)→P(z,y,z,walk(x,z,s)))<br>
+            　　　　　　　　　　　　　　　　　　　(猴子走到梯子处)<br>
+            　<img src="../../../../images/text/chap02/sec02/sa1.gif" width="17" height="10" align="absmiddle">：～P(x,y,z,s)∨(P(z,y,z,walk(x,z,s))<br>
+            　<img src="../../../../images/text/chap02/sec01/a2.gif" width="16" height="11" align="absmiddle">：(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">y)(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">s)(P(x,y,x,s)→P(y,y,y,carry(x,y,s)))<br>
+            　　　　　　　　　　　　　　　　　(猴子搬着梯子到y)<br>
+            　<img src="../../../../images/text/chap02/sec02/sa2.gif" width="16" height="10" align="absmiddle">：～P(x,y,x,s)∨P(y,y,y,carry(x,y,s))<br>
+            　<img src="../../../../images/text/chap02/sec01/a3.gif" width="15" height="13" align="absmiddle">：(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">s)(P(b,b,b,s)→R(climb(s)))<br>
+            　　　　　　　　　　　　(猴子爬上梯子吃到香蕉)<br>
+            　<img src="../../../../images/text/chap02/sec02/sa3.gif" width="17" height="10" align="absmiddle">：～P(b,b,b,s)∨R(climb(x)))<br>
+            　<img src="../../../../images/text/chap02/sec02/a4.gif" width="15" height="13" align="absmiddle">：P(a,b,c,<font size="2">s</font><sub><font size="1">0</font></sub>)<br>
+            　<img src="../../../../images/text/chap02/sec02/sa4.gif" width="18" height="10" align="absmiddle">：P(a,b,c,<font size="2">s</font><sub><font size="1">0</font></sub>)<br>
+            　B：(<img src="../../../../images/text/chap02/sec02/fh2.gif" width="8" height="9" align="absmiddle">s)R(s)<br>
+            　S<sub><font size="1">～B</font></sub>：～R(s)∨ANS(s)<br>
+            　其中ANS(s)是人为附加的，在推理过程中ANS(s)的变量s 同R(s)的变量将作同样的变换，当证明结束时，ANS(s)中变量s便给出所要求的整个动作序列。<br>
+            　子句集S={<img src="../../../../images/text/chap02/sec02/sa1.gif" width="17" height="10" align="absmiddle">,<img src="../../../../images/text/chap02/sec02/sa2.gif" width="16" height="10" align="absmiddle">,<img src="../../../../images/text/chap02/sec02/sa3.gif" width="17" height="10" align="absmiddle">,<img src="../../../../images/text/chap02/sec02/sa4.gif" width="18" height="10" align="absmiddle">,S<sub><font size="1">～B</font></sub>}</td>
+        </tr>
+        <tr> 
+          <td><img src="../../../../images/text/tb/liti.gif" width="26" height="25" alt="例题"></td>
+          <td><b>例4:</b></td>
+        </tr>
+        <tr> 
+          <td>&nbsp;</td>
+          <td> 　简单的程序综合问题<br>
+            　若一台计算机有寄存器a,b,c和累加器A，要求自动设计实现<br>
+            　　　(a)+(b)→c 的程序。<br>
+            　引入谓词<br>
+            　P(u,x,y,z,s)表示累加器A、寄存器a,b,c分别存入u,x,y,z时相应的状态为s。<br>
+            　已知的函数(机器指令)：<br>
+            　load(x,s)表示状态s下，对任一寄存器x来说，实现(x)→A后的新状态。<br>
+            　add(x,s)表示状态s下，对任一寄存器x来说(x)+(A)→A后的新状态。<br>
+            　store(x,s)表示状态s下，对任一寄存器x来说，实现(A)→x后的新状态。<br>
+            　问题可描述为<br>
+            　<img src="../../../../images/text/chap02/sec01/a1.gif" width="15" height="11" align="absmiddle">：(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">u)(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">y)(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">z)(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">s)P(u,x,y,z,s)<br>
+            　　　　→P(x,x,y,z,load(a,s)))　((a)→A)<br>
+            　<img src="../../../../images/text/chap02/sec02/sa1.gif" width="17" height="10" align="absmiddle">：～P(u,x,y,z,s)∨P(x,x,y,z,load(a,s))<br>
+            　<img src="../../../../images/text/chap02/sec01/a2.gif" width="16" height="11" align="absmiddle">：(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">u)(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">y)(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">z)(P(u,x,y,z,s)<br>
+            　　　　→P(u+y,x,y,z,add(b,s))) ((b)+(A)→A)<br>
+            　<img src="../../../../images/text/chap02/sec02/sa2.gif" width="16" height="10" align="absmiddle">：～P(u,x,y,z,s)∨P(u+y,x,y,z,add(b,s))<br>
+            　<img src="../../../../images/text/chap02/sec01/a3.gif" width="15" height="13" align="absmiddle">：(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">u)(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">y)(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">z)(P(u,x,y,z,s)<br>
+            　　　　→P(u,x,y,u,store(c,s))) ((A)→c)<br>
+            　<img src="../../../../images/text/chap02/sec02/sa3.gif" width="17" height="10" align="absmiddle">：～P(u,x,y,z,s)∨ 
+            P(u,x,y,u,store(c,s))<br>
+            　<img src="../../../../images/text/chap02/sec02/a4.gif" width="15" height="13" align="absmiddle">：P(1,2,3,4,d)<br>
+            　　　　　　　　　(初状态d下，累加器A与寄存器a,b,c中的数值)<br>
+            　<img src="../../../../images/text/chap02/sec02/sa4.gif" width="18" height="10" align="absmiddle">：P(1,2，3,4，d)<br>
+            　B：(<img src="../../../../images/text/chap02/sec02/fh2.gif" width="8" height="9" align="absmiddle">u)(<img src="../../../../images/text/chap02/sec02/fh2.gif" width="8" height="9" align="absmiddle">x)(<img src="../../../../images/text/chap02/sec02/fh2.gif" width="8" height="9" align="absmiddle">y)(<img src="../../../../images/text/chap02/sec02/fh2.gif" width="8" height="9" align="absmiddle">s)P(u,x,y,x+y,s)<br>
+            　S<sub><font size="1">～B</font></sub>：～P(u,x,y,x+y,s)∨ANS(s)<br>
+            　子句集S={<img src="../../../../images/text/chap02/sec02/sa1.gif" width="17" height="10" align="absmiddle">,<img src="../../../../images/text/chap02/sec02/sa2.gif" width="16" height="10" align="absmiddle">,<img src="../../../../images/text/chap02/sec02/sa3.gif" width="17" height="10" align="absmiddle">,<img src="../../../../images/text/chap02/sec02/sa4.gif" width="18" height="10" align="absmiddle">,S<sub><font size="1">～B</font></sub>}<br>
+            　除例1.2和例3.4两类问题外，另一类问题是要求就某一问题给出具体的答案(例5)。如回答是……，谁在何处 ……等，这也可以用逻辑推理来求解。</td>
+        </tr>
+        <tr>
+          <td><img src="../../../../images/text/tb/liti.gif" width="26" height="25" alt="例题"></td>
+          <td><b>例5:</b></td>
+        </tr>
+        <tr> 
+          <td>&nbsp;</td>
+          <td>　对所有的x,y,z来说，如果y是x的父亲，z又是y的父亲，则z是x的祖父。又知每个人都有父亲，试问对某个人来说谁是他的祖父？<br>
+            　引入谓词<br>
+            　P(x,y) 表示x是y的父亲。<br>
+            　Q(x,y) 表示x是y的祖父。<br>
+            　于是有<br>
+            　<img src="../../../../images/text/chap02/sec01/a1.gif" width="15" height="11" align="absmiddle">：(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">y)(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">z)(P(x,y)∧P(y,z)→Q(x,z))<br>
+            　<img src="../../../../images/text/chap02/sec02/sa1.gif" width="17" height="10" align="absmiddle">：～P 
+            (x,y) ∨ ～P(y,z) ∨ Q(x,z)<br>
+            　<img src="../../../../images/text/chap02/sec01/a2.gif" width="16" height="11" align="absmiddle">：(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">y)(<img src="../../../../images/text/chap02/sec02/fh2.gif" width="8" height="9" align="absmiddle">x)P(x,y)<br>
+            　<img src="../../../../images/text/chap02/sec02/sa2.gif" width="16" height="10" align="absmiddle">：P(f(y),y)<br>
+            　B：(<img src="../../../../images/text/chap02/sec02/fh2.gif" width="8" height="9" align="absmiddle">x)(<img src="../../../../images/text/chap02/sec02/fh2.gif" width="8" height="9" align="absmiddle">y)Q(x,y)<br>
+            　S<sub><font size="1">～B</font></sub>：～Q(x,y)∨ANS(x)<br>
+            　相应的子句集S={<img src="../../../../images/text/chap02/sec02/sa1.gif" width="17" height="10" align="absmiddle">,<img src="../../../../images/text/chap02/sec02/sa2.gif" width="16" height="10" align="absmiddle">,S<sub><font size="1">～B</font></sub>}</td>
+        </tr>
+      </table>
+      <span class="text"><span class="text"><span class="text">　　通过这几个例子，可看出一阶逻辑所能描述的问题，以及子句集建立的过程。待介绍归结方法后，对S做推理便可求得例题的解答。<br>
+      </span></span></span></td>
+  </tr>
+</table>
+</body>
+</html>

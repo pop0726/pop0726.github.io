@@ -1,0 +1,87 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td><span class="text"> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第六章　实例学习</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <br>
+      　　1． 消除候选元素算法</span><span class="text"><br>
+      　　Mitchell 的算法称为消除候选元素算法。它利用边界集合G和S表示集合H。集合H称为变型空间，H中所有的概念描述都满足至此已提供的全部正例，且不满足至此已提供的任一反例。<br>
+      　　开始时，H是整个规则空间。在接受示教正例后，程序进行一般化，从H中去掉一些较特殊的概念，使S集上移。在接受示教反例后，程序进行特殊化，从H中去掉一些较一般的概念，使G集下移。二者都从H中消除一些候选概念。算法过程可分四步。<br>
+      　　(1) 正规的初始H集是整个规则空间，这时S包含所有可能的示教正例(最特殊的概念)。这时S集规模太大。实际算法的初始S集只包念第一个示教正例。这种H就不是全空间了。<br>
+      　　(2) 接收一个新的示教例子。如果这是正例，则首先由G中去掉不覆盖新正例的概念，然后修改S为由新正例和S原有元素共同归纳出的最特殊的结果(这就是尽量少修改S，但要求S覆盖新正例)。如果这是反例，则首先由S中去掉覆盖该反例的概念，然后修改G为由新反例和G原有元素共同作特殊化的最一般的结果(这就是尽量少修改G，但要求G不覆盖新反例)。<br>
+      　　(3) 若G=S且是单元素集，则转(4)，否则转(2)。<br>
+      　　(4) 输出H中的概念(即G和S)。<br>
+      　　下面给出一个实例。用特征向量描述物体，每个物体有两个特征：大小和形状。物体的大小可以是大的(lg)或小的(sm)。物体的形状可以是圆的(cir)、方的(squ)或三角的(tri)。要教给程序&quot;圆&quot;的概念，这可以表示为(x,cir)，其中x表示任何大小。<br>
+      　　初始H集是规则空间。G和S集分别是<br>
+      　　　　 G={ (x,y) }<br>
+      　　　　S={ (sm squ ),(sm cir ) ,(sm tri )，<br>
+      　　　　　( lg squ ), (lg cir ),(lg tri)<br>
+      初始变型空间H如图 6.4所示</span>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="30" valign="top"><img src="../../../../images/text/tb/tushi.gif" width="25" height="16" alt="图示"></td>
+          <td align="center" class="explaination"><img src="../../../../images/text/chap06/sec3/tu6.4.gif" width="400" height="191"><br>
+            <br>
+            图6.4 初始变型空间</td>
+        </tr>
+      </table>
+      <span class="text"> <br>
+      　　第一示教例子是正例 (sm cir )，表示小圆的圆。经过修改S算法后得到<br>
+      　　　　 G={ (x , y ) }<br>
+      　　　　S= { (sm cir ) }<br>
+      图6.5表示第一个示教例子后的变型空间。图中由箭头线连接的四个概念组成变型空间。满足第一个示教例子的正是这四个概念，并仅有这四个。实际算法中以这个作为初始变型空间，而不用图6.4 
+      。</span>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="30" valign="top"><img src="../../../../images/text/tb/tushi.gif" width="25" height="16" alt="图示"></td>
+          <td align="center" class="explaination"><img src="../../../../images/text/chap06/sec3/tu6.5.gif" width="400" height="166"><br>
+            <br>
+            图6.5 第一个示教例子后的变型空间 </td>
+        </tr>
+      </table>
+      <span class="text">第二个示教例子是反例( lg tri )。这表示大三角不是圆。这一步对G集进行特殊化，得到<br>
+      　　　　G={(x cir), (sm y )}<br>
+      　　　　S={(sm cir)}<br>
+      图6.6表示第二个示教例子后的变型空间。这时H仅含三个概念。它们是满足上一正例但不满足这一反例的全部概念。</span>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="30" valign="top"><img src="../../../../images/text/tb/tushi.gif" width="25" height="16" alt="图示"></td>
+          <td align="center" class="explaination"><img src="../../../../images/text/chap06/sec3/tu6.6.gif" width="400" height="167"><br>
+            <br>
+            图6.6 第二个示教例子后的变型空间 </td>
+        </tr>
+      </table>
+      <span class="text">　　第三个示教例子是例( lg cir )。这表示大圆是圆。这一步首先从G中去掉不满足此正例的概念(sm 
+      y)。再对S和该正例作一般化，得到<br>
+      　　　　G= { ( x cir ) }<br>
+      　　　　S= { (x cir ) }<br>
+      　　这时算法结束，输出概念 (x cir )。<br>
+      　　对这个算法再补充说明几点。<br>
+      　　(1) 对G和S集合的理解。对于符合所求概念的新例子，S集是其充分条件的集合，G集是其必要条件的集合。例如在第一个示教例子后， (sm cir 
+      ) 是充分条件，即小圆一定满足所求概念。当时程序还不知道大圆是否满足。又如在第二个示教例子后， ( x cir )和( sm y)是必要条件，即满足所求概念的例子或者是圆，或者是小的。算法结束时， 
+      G=S，即找到了充要条件。<br>
+      　　(2) 学习正例时，对S进行一般化，这往往扩大S。学习反例时，对G进行特殊化，这往往扩大G。G和S 的规模过大会给算法的实用造成困难。算法是在示教例子引导下，对规则空间进行宽度优先搜索。对大的规则空间，算法慢得无法接受。<br>
+      </span></td>
+  </tr>
+</table>
+</body>
+</html>

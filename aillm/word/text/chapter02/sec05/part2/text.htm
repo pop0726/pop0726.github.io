@@ -1,0 +1,94 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td class="text"><span class="text"> </span>
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../../images/pic/bg0401.gif" height="18" align="right" class="chap">
+              <tr> 
+                <td> 
+                  <div align="center">第二章 归结推理方法</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <span class="text"><br>
+      　　</span><span class="part">2.5.2 语义归结</span><span class="text"><br>
+      　　一种语义归结策略是将子句S分成两部分，约定每部分内的子句间不允许做归结，还引入了文字次序，约定归结时其中的一个子句的被归结文字只能是该子句中&quot;最大&quot;的文字<br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="text">
+        <span class="text"> 
+        <tr> 
+          <td width="30"><span class="text"><img src="../../../../images/text/tb/liti.gif" width="26" height="25" alt="例题"></span></td>
+          <td><b>例:</b></td>
+        </tr>
+        <tr> 
+          <td>&nbsp;</td>
+          <td>　S＝{～P∨～Q∨R,P∨R,Q∨R,～R}<br>
+            　我们先规定S中出现的文字的次序，如依次为P，Q，R或记作P&gt;Q&gt;R。再选取S的一个解释I，如令<br>
+            　　I＝{～P,～Q,～R}<br>
+            　用它来将S分成两个部分。规定在I下为假的子句放入S<font size="1">1</font>'中，在I下为真的子句放入S<font size="1">2</font>'中。于是有<br>
+            　　<span class="text">S<font size="1">1</font>'</span>={P∨R,Q∨R}<br>
+            　　<span class="text">S<font size="1">2</font>'</span>＝{～P∨～Q∨R,～R}<br>
+            　规定<span class="text"><span class="text">S<font size="1">1</font>'</span></span>内部的子句不允许归结，<span class="text"><span class="text">S<font size="1">1</font>'</span></span>与<span class="text"><span class="text">S<font size="1">2</font>'</span></span>子句间的归结必须是S 
+            中的最大文字方可进行。这样所得的归结式，仍按I来放入S 或<span class="text"><span class="text">S<font size="1">2</font>'</span></span>。<br>
+            　归结过程<br>
+            　(1) ～P∨～Q∨ R ∈<span class="text"><span class="text">S<font size="1">2</font>'</span></span><br>
+            　(2) P∨R ∈<span class="text"><span class="text"><span class="text">S<font size="1">1</font>'<br>
+            　(3)</span></span></span> Q<span class="text">∨</span>R<span class="text"> 
+            ∈</span><span class="text"><span class="text"><span class="text">S<font size="1">1</font>'</span></span></span><br>
+            　(4) ～R ∈<span class="text"><span class="text">S<font size="1">2</font>'</span></span><br>
+            　(5) ～Q∨R 　　 (2)(1)<span class="text">归结</span> ∈<span class="text"><span class="text">S<font size="1">2</font>'</span></span><br>
+            　(6) ～P∨R 　　 (3)(1)<span class="text">归结</span> ∈<span class="text"><span class="text">S<font size="1">2</font>'</span></span><br>
+            　(7) R 　　　　　(2)(6)<span class="text">归结</span> ∈<span class="text"><span class="text"><span class="text">S<font size="1">1</font>'</span></span></span><br>
+            　(8) R 　　　　　(3)(5)<span class="text">归结</span> ∈<span class="text"><span class="text"><span class="text">S<font size="1">1</font>'</span></span></span><br>
+            　(9) □ 　　　　 (7)(4)<span class="text">归结</span><br>
+            　这是采用了语义归结策略下的盲目全面归结过程。明显地减少归结次数。阻止了(1)(4)的归结，也阻止了(2)(4)的归结。</td>
+        </tr>
+        </span> 
+      </table>
+      　　</span>另一语义归结称支持集策略。想法是简单，想要证明<br>
+      　　　　　<img src="../../../../images/text/chap02/sec01/a1.gif" width="15" height="11" align="absmiddle">∧<img src="../../../../images/text/chap02/sec01/a2.gif" width="16" height="11" align="absmiddle">∧<img src="../../../../images/text/chap02/sec01/a3.gif" width="15" height="13" align="absmiddle">→B　　　成立<br>
+      　　或　　<img src="../../../../images/text/chap02/sec01/a1.gif" width="15" height="11" align="absmiddle">∧<img src="../../../../images/text/chap02/sec01/a2.gif" width="16" height="11" align="absmiddle">∧<img src="../../../../images/text/chap02/sec01/a3.gif" width="15" height="13" align="absmiddle">∧～B　　不可满足<br>
+      　　分析一下出现矛盾的原因，不会在<img src="../../../../images/text/chap02/sec01/a1.gif" width="15" height="11" align="absmiddle">，<img src="../../../../images/text/chap02/sec01/a2.gif" width="16" height="11" align="absmiddle">，<img src="../../../../images/text/chap02/sec01/a3.gif" width="15" height="13" align="absmiddle">间发生，自然是出于～B的引入，于是不必在找不到矛盾的<img src="../../../../images/text/chap02/sec01/a1.gif" width="15" height="11" align="absmiddle">，<img src="../../../../images/text/chap02/sec01/a2.gif" width="16" height="11" align="absmiddle">，<img src="../../../../images/text/chap02/sec01/a3.gif" width="15" height="13" align="absmiddle">间做归结了。<br>
+      　　设S的子集T，说T是支持集，如果S－T是可满足的。<br>
+      　　支持集归结策略，指的是从S到□的归结过程中，只选取不同时属于S－T的子句间进行归结。说得准确些每次做归结，至少有一个子句来自于T或由T导出的归结式。<br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="text">
+        <tr>
+          <td width="30"><span class="text"><img src="../../../../images/text/tb/liti.gif" width="26" height="25" alt="例题"></span></td>
+          <td><b>例:</b></td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td>　S＝{P∨Q,～P∨R,～Q∨R，～R}<br>
+            　取T＝{～R}<br>
+            　支持集归结过程<br>
+            　(1) P∨Q<br>
+            　(2) ～P∨R<br>
+            　(3) ～Q∨R<br>
+            　(4) ～R<br>
+            　(5) ～P 　　(2)(4)<br>
+            　(6) ～Q 　　(3)(4)<br>
+            　(7) Q 　　　(1)(5)<br>
+            　(8) P 　　　(1)(6)<br>
+            　(9) R 　　　(3)(7)<br>
+            　(10) □ 　　(6)(7)<br>
+            　这是采用了支持集策略的全面归结过程。<br>
+            　所介绍的这两种语义归结都是完备的。</td>
+        </tr>
+      </table>
+      <br>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

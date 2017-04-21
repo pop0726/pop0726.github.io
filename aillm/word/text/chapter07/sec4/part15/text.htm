@@ -1,0 +1,77 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td><span class="text"> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第七章 其它学习方法</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <br>
+      　　 3.分析物质成分的AC系统<br>
+      　　AC系统的输入是一系列化学反应，系统把各规则作用于问题空间，从而得到各物质的组成。<br>
+      <br>
+      　　AC系统的求解过程如下：<br>
+      </span><b class="explaination">初始状态</b><span class="text"> 有关物质的一系列化学反应。<br>
+      </span><b class="explaination">目标状态</b><span class="text"> 每个化合物的成分。<br>
+      </span><b class="explaination">中间状态</b><span class="text"> 某些物质的成分，修改的反应式。<br>
+      </span><b class="explaination">规则</b><span class="text"> 定成份规则：确定一个物质的成份。 
+      <br>
+      　　　化简规则：去掉反应式两边同时出现的物质。 <br>
+      　　　替换规则：在反应式中，把化合物换成其成份。<br>
+      </span><b class="explaination">启发式</b><span class="text"> 各规则按一定次序和条件循环作用于问题空间。<br>
+      </span><b class="explaination">搜索策略</b><span class="text"> 无&quot;回溯&quot;的深度优先搜索。<br>
+      　　有关各规则相互关系的启发式是AC系统的特点。在使用替换规则时，需要有关物质成份的知识。为了确定物质成份，对复杂的反应来说又要事先进行替换和化简。这种规则间相互依赖的关系，使得某规则得到的结论可以用来得到更多的结论，直到得不出新结论为止。规则间的关系如图 
+      7.16所示。<br>
+      <br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td width="30" valign="top"><img src="../../../../images/text/tb/tushi.gif" width="25" height="16" alt="图示"></td>
+          <td align="center" class="explaination"><img src="../../../../images/text/chap07/sec4/tu7.16.gif" width="389" height="126"><br>
+            <br>
+            图7.16 规则间的关系 </td>
+        </tr>
+      </table>
+      <br>
+      　　4.确定物质结构及化学方程式的SM系统<br>
+      　　Dalton的原子假说理论认为所有物质都是由原子组成的，并且力求发现每种物质中原子的数目。他的出发点是在物质守恒基础上寻求最简的结构形式。Avogadro则利用Gay 
+      Lussac的数据，认为同样体积气体含有同样数目的分子，从而确定气体反应时各种气体分子数之比。由于知识背景不同，他们对&quot;氢气+氧气→水气&quot;反应的解释不尽相同。但他们都认为氢气是单原子分子，这个结论是错误的。SM系统考虑了多个反应，从而得到正确的结论。<br>
+      <br>
+      　　(1)SM系统的实现<br>
+      　　SM系统的求解过程如下：<br>
+      </span><b class="explaination">初始状态</b><span class="text"> 一系列化学反应的描述。<br>
+      </span><b class="explaination">目标状态</b><span class="text"> 确定反应的模型，即物质的分子数和分子中的原子数。有关物质分子式的知识库(MS)。<br>
+      </span><b class="explaination">中间状态</b><span class="text"> 反应的部分模型。<br>
+      </span><b class="explaination">规则</b><span class="text"> 定分子数规则：确定某物质在反应中出现的次数。<br>
+      　　 定原子数规则：确定分子中某原子个数。<br>
+      　　 守恒规则：根据守恒原则确定所剩的原子数。<br>
+      </span><b class="explaination">启发式</b><span class="text"> 对&quot;定分子数规则&quot;：利用气体体积之比等于分子数之比<br>
+      　　　 对&quot;定原子数规则&quot;：先考虑简单模型。<br>
+      </span><b><span class="explaination">搜索策略</span></b><span class="text"> 
+      带&quot;回溯&quot;的深度优先策略。<br>
+      　　由气体体积比得出分子数目之比，可以利用公因子法。实验得到的各物质的体积数一般都不会是整数。但其比应为小整数之比，这考虑到化学方程式中分子个数的特殊含义。由于得到的数据存在误差，所以采用尝试法找出小整数比，并认为若数x与某整数I之差在误差范围内就取x＝I。 
+      <br>
+      　　处理多个反应式时，同一个分子可能出现不同的分子式。所以存在知识一致性问题。当SM系统运行中出现这种情况时，它要修改分子式知识库和引起矛盾的那些方程式，直到所提供的分子式能适用于所有反应为止。 
+      <br>
+      　　(2)系统的运行<br>
+      　　在不同知识背景下，SM系统对同一个反应也可能提供不同的模型，这与化学史是一致的。按Dalton假说，SM系统对生成水气的反应提供如下模型：H+O＝HO。考虑Avogadro原理以后，SM系统提出一个新的模型：2H+0<font size="1">2</font>＝2HO。然后，再让SM考虑生成氨的反应，它提出如下模型：3H<font size="1">2</font>+N<font size="1">2</font>＝2NH<font size="1">3</font>，并且修改前一个反应的模型为：2H<font size="1">2</font>十O<font size="1">2</font>＝2H<font size="1">2</font>O。这完全符合现代化学知识。继续考虑&quot;氮十氧&quot;分别生成N<font size="1">2</font>O、NO、N0<font size="1">2</font>的反应，都得出正确的化学方程式。<br>
+      </span> </td>
+  </tr>
+</table>
+</body>
+</html>

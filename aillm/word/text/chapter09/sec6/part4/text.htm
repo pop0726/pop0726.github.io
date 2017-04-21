@@ -1,0 +1,64 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td><span class="text"> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第九章 句法分析</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <br>
+      <span class="text">　　SETR，SENDR和LIFTR是一部ATN语法中的基本动作，它们分别用来对不同层次上的寄存器进行存取操作，如图9.13所示。每一个子网络都有自己的一张寄存器表。SETR把本层寄存器表中一个指定寄存器的内容设置为＜form＞的值。SENDR是一个仅用于PUSH弧的准备动作，它使得被这条PUSH弧所启动的下<br>
+      <br>
+      </span> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td width="30" valign="top"><img src="../../../../images/text/tb/tushi.gif" width="25" height="16" alt="图示"></td>
+          <td class="explaination" align="center"><img src="../../../../images/text/chap09/sec2/tu913.gif" width="250" height="105"><br>
+            <br>
+            图9.13 对不同层次的寄存器进行存取的动作</td>
+        </tr>
+      </table>
+      <br>
+      一层寄存器表中指定寄存器的内容被设置为&lt;form&gt;的值。如果把被PUSH弧所启动的新阿络看作是一个子程序的话，那么SENDR的作用就如同是向这个子程序传递参数。LIFTR是SENDR的逆操作，它把&lt;form&gt;的值赋与上一层寄存器表中某个指定的寄存器。对本层寄存器进行操作的其他两个动作是ADDL和ADDR，前者把&lt;form&gt;的值添加到指定寄存器的头上(即表左)，后者把同样的内容附加到指定寄存器的尾端(即表右)。<br>
+      　　在每个动作中可以使用许多不同的&lt;form&gt;，其中最基本的是变量*和LEX，以及函数GETR，GETF，BUILDQ和其他人ISP函数。<br>
+      　　变量LEX的值总是等于输入串中的当前词，其词形保持和输入串中一样，也即维持词法分析以前的原始形式。变量*是指输入的当前项，它的值已在前面介绍过了。<br>
+      　　函数GETR回送的是本层寄存器表中指定寄存器的当前内容，如果该寄存器未曾赋值，其回送值为NIL。GETF检查指定词&lt;word&gt;的词典条目，并回送该条目中指定特征&lt;feature&gt;的值。如果&lt;word&gt;省缺，就默认是输入串中的当前词。因此，(GETF 
+      NUMBER)回送的是当前词的&quot;数&quot;特征--SG(单数)或PL(复数)。 <br>
+      　　BUILDQ是一个用来建造局部结构的函数，它的第一个变元是一个由常量和特殊标记组成的任意样板，第二个变元是＜form＞。它通过用＜form＞的值去依次取代样板中那些特殊标记，然后把所得结果作为局部结构回送出来。在样板(template)中用到的特殊标记有如下几种：<br>
+      　　+　它预期相应的&lt;form&gt;是一个寄存器的名字，并要求用该寄存器的内容去取代这个特殊标记。<br>
+      　　#　它预期相应的&lt;form&gt;是一个LISP表达式，要求对这个表达式求值，然后用这个值去取代标记#。<br>
+      　　*　要求用变量*的值来取代它，它不需要有相应的&lt;form&gt;。<br>
+      　　@　出现在表达式(@X1X2…Xn)中，它利用LISP的APPEND函数把子表X1…Xn拼接成一张大表，它也不需要有相应的&lt;form&gt;出现。<br>
+      　　举例来说，假设寄存器DET的内容是表：(DET THE)，同时在一条CAT弧上的当前词是&quot;books&quot;，则表达式：<br>
+      </span><span class="explaination">　　(BUILDQ (NP+(N *) (NU#)) DET (GETF NUMBER))</span><span class="text"><br>
+      回送的结构为： <br>
+      </span><span class="explaination">　　(NP(DET THE)(N BOOK)(NU PL))。</span><span class="text"><br>
+      如果除了刚才提到的寄存器以外，寄存器ADJS已被设置为：<br>
+      </span><span class="explaination">　　((ADJ OLD)(ADJ DUSTY)(ADJ RED))那么表达式：<br>
+      　　(BUILDQ(@(NP+)+((N *)(NU#)))<br>
+      　　　　　　DET ADJS(GETF NUMBER))</span><span class="text"><br>
+      将产生如下结构作为回送值：<br>
+      </span><span class="explaination">　　(NP(DET THE)(ADJ OLD)(AU DUSTY)(ADJ 
+      RED)<br>
+      　　　　(N BOOK)(NU PL))</span><span class="text"><br>
+      </span></td>
+  </tr>
+</table>
+</body>
+</html>

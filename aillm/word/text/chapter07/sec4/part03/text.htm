@@ -1,0 +1,61 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td class="text"> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第七章 其它学习方法</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <br>
+      　　(6)稀疏性<br>
+      　　令E*表示事件空间，事件集合E<img src="../../../../images/text/chap02/sec03/fh2.gif" width="11" height="10">E<sup>*</sup>表示被聚类的对象。则事件e∈E称为已观察的，事件e<img src="../../../../images/text/chap02/sec03/fh3.gif" width="10" height="12" align="absmiddle">E称为未观察的。在复合<img src="../../../../images/text/chap07/sec4/d.gif" width="8" height="10">中事件总数写为t(<img src="../../../../images/text/chap07/sec4/d.gif" width="8" height="10">)，<img src="../../../../images/text/chap07/sec4/d.gif" width="8" height="10">中已观察事件数写为p(<img src="../../../../images/text/chap07/sec4/d.gif" width="8" height="10">)， 
+      中未观察事件数写为s(<img src="../../../../images/text/chap07/sec4/d.gif" width="8" height="10">)，并称为在E<sup>*</sup>中<img src="../../../../images/text/chap07/sec4/d.gif" width="8" height="10">的绝对稀疏性。<img src="../../../../images/text/chap07/sec4/d.gif" width="8" height="10">的相对稀疏性r(<img src="../../../../images/text/chap07/sec4/d.gif" width="8" height="10">)定义为<br>
+      　　　　　<img src="../../../../images/text/chap07/sec4/gs2.gif" width="96" height="34"><br>
+      如果相对稀疏性是0，则这个复合只复盖已观察的事件，它的一般性程度最小。相对稀疏性的最大值是1，这时复合只覆盖未观察的事件。一个复合是一个合取概念的描述。复合的相对稀疏性表示该复合在已观察事件上一般性适用程度。<br>
+      　　下面介绍的聚类算法产生互不相交的复合的集合，这称为不相交聚类。它把所有已观察事件划分进几个不相交的类。在不相交聚类和已观察事件间的符合可以由聚类的相对稀疏性来测量，聚类的相对稀疏性定义为聚类中各复合的相对稀疏性的平均值。因为在一个聚类中各复合是不相交的，而且已观察事件总数不变，所以如果以绝对稀疏性代替相对稀疏性，则聚类符合程度的排列不会变化。以下用稀疏性代表符合的测度。 
+      <br>
+      　　用稀疏性作为符合测度的优点是简单，缺点是要考虑整个事件空间。为此引入另一种测度，这是投影稀疏性。它是在事件空间的子空间中评价聚类，该子空间由特殊选定的变量确定。因为不相交聚类中的复合是互不相交的，所以任意一对复合都至少有一个变量有不相交的基准。这种变量称为聚类的判别变量。考虑聚类： 
+      <br>
+      　　　　　{[(X<font size="1">1</font>≥3][X<font size="1">2</font>＝1∨2][X<font size="1">3</font>＝1]，<br>
+      　　　　　[X<font size="1">1</font>&lt;3][X<font size="1">3</font>＝2∨3][X<font size="1">4</font>＝3]，<br>
+      　　　　　[X<font size="1">1</font>＝1][X<font size="1">4</font>≤2]}<br>
+      它的判别变量是X<font size="1">1</font>，X<font size="1">3</font>，X<font size="1">4</font>。仅在判别变量上生成的事件空间称为聚类的投影事件空间。聚类的投影稀疏性是在投影事件空间中各复合的绝对稀疏性之和。<br>
+      　　(7)合并操作<br>
+      　　合并操作(refunion操作)又称为RU操作，它把几个事件和几个复合合并成一个复合。对每个变量，在每个事件和复合中变量的值都作为新复合中的值(这相当于它们的并集作为新复合的基准)。例如：<br>
+      　　　　　<font size="2">e</font><font size="1">1</font>＝(2,3,0,1)<br>
+      　　　　　<font size="2">e</font><font size="1">2</font>＝(0,2,1,1)<br>
+      　　　　　＝[X<font size="1">1</font>＝2∨3][X<font size="1">2</font>＝4][X<font size="1">3</font>＝0][X<font size="1">4</font>＝2]<br>
+      则它们的合并操作就得到复合<br>
+      　　　　　RU(<font size="2">e</font><font size="1">1</font>,<font size="2">e</font><font size="1">2</font>,<img src="../../../../images/text/chap07/sec4/d.gif" width="8" height="10">)＝ 
+      1<br>
+      　　　　　＝[X<font size="1">1</font>＝0∨2∨3][X<font size="1">２</font>＝2∨3∨4][X<font size="1">３</font>＝O∨1][X<font size="1">４</font>＝1∨2]<br>
+      　　(8)一般化操作<br>
+      　　一般化操作又称为GEN操作，这个操作对一个给定的复合进行简化和一般化。它对复合中每个选择器应用适当的一般化规则。对线性的选择器，使用&quot;封闭区间&quot;规则。这个规则把基准封闭为一个或多个不相交的区间，条件是区间中未观察值的数目与区间宽度之比小于等于给定的稀疏性阈值。例如若阈值是3/8，则基准1∨2∨3∨7∨8可以封闭为区间1…8。对结构的选择器，使用&quot;攀登一般化体系&quot;规则。对于有多个值的基准，换成这些值的公共父节点中最特殊的节点。对图 
+      7.6的例子，基准&quot;三角形∨矩形&quot;可以换成&quot;多边形&quot;。使用这两个规则以后，对所有选择器使用&quot;丢掉条件&quot;规则。如果欠缺的基准值的数目与论域中值的总数之比小于一定的稀疏性阈值，就去掉这个选择器。<br>
+      　　例如，<font size="2">X</font><font size="1">1</font>和<font size="2">X</font><font size="1">2</font>是线性的。<font size="2">X</font><font size="1">3</font>是结构的，在其一般化体系中0，1，2的父节点是small。<font size="2">X</font><font size="1">4</font>是名称的，其论域是{0,1,2}。设稀疏性阈值都是0.5。则复合<br>
+      　　　　　<img src="../../../../images/text/chap07/sec4/d.gif" width="8" height="10">1＝[<font size="2">X</font><font size="1">1</font>＝0∨4][<font size="2">X</font><font size="1">2</font>＝1∨3][<font size="2">X</font><font size="1">3</font>＝0∨l][<font size="2">X</font><font size="1">4</font>＝∨2]<br>
+      的一般化操作得到复合<br>
+      　　　　　GEN(<img src="../../../../images/text/chap07/sec4/d.gif" width="8" height="10">1)＝<img src="../../../../images/text/chap07/sec4/d.gif" width="8" height="10">2<br>
+      　　　　　　　　 ＝[<font size="2">X</font><font size="1">1</font>＝0∨4][<font size="2">X</font><font size="1">2</font>＝1…3][<font size="2">X</font><font size="1">3</font>＝small]<br>
+      其中<font size="2">X</font><font size="1">2</font>用封闭区间规则，<font size="2">X</font><font size="1">3</font>用攀登一般化体系规则，<font size="2">X</font><font size="1">4</font>用丢掉条件规则。<br>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

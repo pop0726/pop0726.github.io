@@ -1,0 +1,64 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td><span class="text"> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第十章 语义分析</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <br>
+      </span><span class="explaination">　　Mary owns a cat.<br>
+      　　ex(cat(X)，own(mary，X)).</span><span class="text"><br>
+      　　量词ex可以用Prolog的规则定义为：<br>
+      　　ex(P，Q)：-P，Q.<br>
+      在其他场合下，最好把不定冠词对逻辑式的贡献看作是&quot;零&quot;，并让管辖其中心名词的真正量词来担当量化作用。例如：<br>
+      </span><span class="explaination">　　A cat always likes Mary.(猫总是喜欢玛丽)<br>
+      　　always(cat(X)，1ike(X，mary)).</span><span class="text"><br>
+      它的意思同&quot;All cats like Mary&quot;(所有的猫都喜欢玛丽)基本一样。在上面这个例句中，不定冠词&quot;a&quot;的贡献为零，逻辑式的真正量词来自副词&quot;always&quot;。这个例句的意思同&quot;cats 
+      always like Mary&quot;也一样，但后一句的主语名词是复数且没有限定词。同理，在前面给出的例子：<br>
+      </span><span class="explaination">　　Each man that owns a car washes it.<br>
+      　　each(man(x)&amp;car(Y)&amp;own(X，Y)，wash(X，Y)).</span><span class="text"><br>
+      中，&quot;a&quot;的贡献也为零，而让&quot;each&quot;控制整个逻辑式。<br>
+      　　定冠词&quot;the&quot;是英语中最常用的词之一。the(P，Q)的基本意思是：P唯一地为真，且Q也为真。所以在某些应用中the可以这样定义：<br>
+      　　the(P，Q)：-card(P，1)，P，Q.<br>
+      利用这条定义来分析的例句如：<br>
+      </span><span class="explaination">　　John likes the cat that Bill owns.(约翰喜欢比尔的猫)<br>
+      　　the(cat(X)&amp;own(bill，X)，like(john，X)).</span><span class="text"><br>
+      但在&quot;the&quot;的许多应用中谓词the的基在字面上其实不能唯一地取真值。例如下面这一对句子：<br>
+      </span><span class="explaination">　　A cat came to our house last night.<br>
+      　　(昨晚一只猫来到我们家)<br>
+      　　The cat was starving.(那只猫在挨饿)</span><span class="text"><br>
+      在这种情况下为了获得一个准确的逻辑式，可以在以下三种方式中挑选一种解决办法：<br>
+      　　(1)定名词短语的贡献可以看作是一个到处被量化的变量，<br>
+      　　例如：<br>
+      </span><span class="explaination">　　John owns a cat.(约翰有一只猫)<br>
+      　　John likes the cat.(约翰喜欢那只猫)<br>
+      　　ex(cat(X)，own(john，X)&amp;like(john，X)).</span><span class="text"><br>
+      　　(2)定名词短语的贡献可以是一个用来指称它的常量。<br>
+      　　(3)填补必要的信息，从而使谓词the的基唯一地取真值。对于除&quot;the&quot;以外的限定词来说，如果发生名词短语描写不充分的情况.也必须采用这种方式来解决。<br>
+      定冠词&quot;the&quot;的另一个复杂性表现在，使&quot;the&quot;时预设了它的基的存在性和唯-性，而不是明确地宣布它们。举例来说，如果有人问：<br>
+      </span><span class="explaination">　　Is the cat Bill owns Siamese?<br>
+      　　(比尔的猫是不是叫塞厄梅斯?)</span><span class="text"><br>
+      而比尔没有猫或有不只一只猫，那么回答'不是&quot;将是错误的。这里我们不可能深入讨论预设的问题，但是在某些应用中仅仅忽略谓词the的唯一性条件就可以了，这时the可以定义为：<br>
+      　　the(P，Q)：-P，Q.<br>
+      </span></td>
+  </tr>
+</table>
+</body>
+</html>

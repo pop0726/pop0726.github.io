@@ -1,0 +1,57 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td><span class="text"> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="50%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第八章 自然语言理解的任务和发展简史</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <br>
+      　　</span><span class="part">8.3.3 MARGIE</span><span class="text"><br>
+      　　MARGIE(Meaning Analysis，Response Generation，and Inference on English)是由R.Schank及其学生们在美国斯坦福大学的人工智能实验室里建立的一个系统，目的是提供一种自然语言理解过程的直觉模型。 
+      <br>
+      　　用LISP语言实现的MARGIE系统由以下三个模块组成：<br>
+      　　(1)概念分析器(conceptual analyzer)<br>
+      　　它的任务是把输入的英语句子转换成一种机器内部的概念从属表示。概念从属理论是R.Schank本人在1973年提出来的，概念从属是句子和短语意义的一种表示。这部分程序是C.Riesbeck完成的。概念分析器的特点是把句法和语义的分析融为一体，即在句子的分析过程中不再单独设置一个句法分析阶段，因而也不产生句法结构树这样的中间结果。在这一点上它既不同于LUNAR系统，也不同于SHRDLU系统。MARGIE首创的这种概念分析方法后来被称为一体化的语言分析方法。<br>
+      　　具体来讲，概念分析程序是&quot;预期&quot;驱动的。每个预期包含两部分：一组测试条件和一组行动。前者用来在输入句子中进行搜索，测试的内容可以是一个特定的词，也可以是某个概念内容，如果测试成功便执行相应的行动。这些行动可能包含如下的信息：(a)在输入句子中下一步要寻找的是什么；(b)对于输入中刚才找到的项要做什么；(c)如何组织句子或其成分的概念表示。这种形式化的灵活性使得系统能够在不特别依赖于句法的情况下来完成句子的解释。 
+      <br>
+      　　(2)推理器(inferencer)<br>
+      　　这部分程序是C.Rieger设计的。它从上一个模块那里接受到一个用概念从属表示的命题，然后根据当前语景中的其他命题来演绎出大量事实。设计者认为，人类从一个句子中所领悟到的东西远比这个句子显式表现的东西多。因此推理器的任务是把句子所蕴涵的事实尽可能多地挖掘出来。MARGIE能识别16种推理，其中包括原因、效果、说明、功能等等。例如根据输入句子：<br>
+      </span><span class="explaination">　　John hit Mary.(约翰打了玛丽。)</span><span class="text"><br>
+      系统可以推论出：<br>
+      </span><span class="explaination">　　John was angry with Mary.(约翰生玛丽的气。)<br>
+      　　Mary might hit John back.(玛丽可能还击了约翰。)<br>
+      　　Mary might got hurt.(玛丽可能受伤了。)</span><span class="text"><br>
+      　　(3)篇章生成模块<br>
+      　　这部分由N.Goldman编写。这个模块通过以下两个过程把一种内部的概念从属表示转换成为英语的输出：<br>
+      　　(a)利用一个甄别网络来区别不同的词义。这使得系统能用英语的语景标准来选择单词(特别是动词)；<br>
+      　　(b)利用一部ATN语法来生成英语的句子。 <br>
+      　　MARGIE可以以推理或释义等两种方式运行。如前所述，在推理方式下它接受用户输入的一个句子，然后利用推理器生成这个句子所蕴涵的许多事实。在释义方式下，它将以尽可能多的等价方式来复述输入的句子。比如，输入句子为： 
+      <br>
+      </span><span class="explaination">　　John killed Mary by choking her.(约翰扼杀了玛丽。)</span><span class="text"><br>
+      系统可复述出如下的句子：<br>
+      </span><span class="explaination">　　John strangled Mary.(约翰勒死了玛丽。)<br>
+      　　John choked Mary and she died because she was unable to breathe.(约翰扼住玛丽的脖子，她因为不能呼吸就死了。)</span><span class="text"><br>
+      　　MARGIE系统的一个重要特点是把概念从属表示当作一种与语种无关的中间语言来使用。一旦句子经过分析得到其内部的概念表示，句子的表层结构就被丢弃，以后的处理都是依据这种概念表示来完成的。由于意义相同的许多句子只对应于一种规范的表示，使得象推理、释义和问答这样的任务变得更加方便。对此持批判态度的研究人员则认为概念表示丢失了许多有用的表层信息，而且取消相对独立的句法分析阶段使得这种分析技术难于在较大范围的应用领域中推广。 
+      <br>
+      </span> </td>
+  </tr>
+</table>
+</body>
+</html>

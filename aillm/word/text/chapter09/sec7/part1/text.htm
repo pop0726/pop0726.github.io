@@ -1,0 +1,63 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td><span class="text"> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第九章 句法分析</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <br>
+      <span class="text">　　</span></span><span class="section">9.7 句法分析的确定性算法</span><span class="text"><span class="text"><br>
+      <br>
+      　　</span></span><span class="part">9.7.1 Marcus确定性算法的主要特性</span><span class="text"><span class="text"><br>
+      　　1977年美国麻省理工学院的M.Marcus在他的博士论文中，大胆地提出了英语句法分析的确定性假设。鉴于当时能够在大范围内适用的自然语言句法分析程序全部是非确定性的(nondeterministic).他提出的挑战实际上结束了句法分析发展史上非确定性算法的一统天下。<br>
+      　　Marcus算法的最大特点，在于确保任何情况下，关于输入句子的任何-个局部结构一旦构造出来，便不再更改并成为这个句子最终结构的一部分。换言之，在任何情况下只允许有-种选择；对于多于一种选择的局面.非确定性算法采取的是猜测与回溯的策略。而他建议采用&quot;等着瞧&quot;(wait 
+      and see)策略。<br>
+      　　Marcus认为-个采用确定性算法的句法分析系统至少应有如下三条特性：<br>
+      　　(1)至少部分地由数据驱动；<br>
+      　　(2)根据分析过程中已建立的局部结构，可以引伸出对后继分析过程的预期； <br>
+      　　(3)通过&quot;向前看&quot;(look-ahead)来取代回溯。 <br>
+      这些特性是Marcus的句法分析程序PARSIFAL的设计思想。特性之(1)和(2)反映了自底向上：(数据驱动)和自顶向下(预期驱动)相结合的分析策略；特性(3)则是PARSIFAI区别于非确定性句法分析器的一个根本特征。即充分利用输入句子的上下文信息来指导分析过程。看准了再操作，从而完全废除了回溯。<br>
+      　　Marcus曾经通过以下几个例句来阐明上述特性对于确定性算法的必要性。例如：<br>
+      </span></span><span class="explaination">　　(1a)John went　to　the store.<br>
+      　　　　(约翰去商店了。)<br>
+      　　(1b)How much is the doggie in the window?<br>
+      　　　　(橱窗里有多少红肠?)</span><span class="text"><span class="text"><br>
+      这样的句子不可能由一个纯粹自顶向下(即假设驱动)的句法分析器来实现确定性的分析。因为这样的分析器要么把一个输入句子当作一个陈述句(以一个NP开头)来分析，要么把它当作一个疑问句(以一个疑问词或助动词开头)来分析。这样的假设至少对于某些输入句子来说是错误的，并因此引起回溯。<br>
+      　　但一个确定性的分析器又不能仅仅依靠自底向上的方式来完成全部分析。因为纯粹自底向上的分析器最初必然会对以下这对例句中的一个作出错误的判断：<br>
+      </span></span><span class="explaination">　　(2a)I called[NP John][S　to make 
+      Sue　feel　better].<br>
+      　　　　(我叫约翰是为了想让休好受些。)<br>
+      　　(2b)I wanted[S John　to make Sue　feel better].<br>
+      　　　　(我希望约翰能使休好受些。)</span><span class="text"><span class="text"><br>
+      问题在于串&quot;John to make Sue feel better&quot;可以有两种分析结果：即象(2b)那样作为一个单独的不定式补语；或者象(2a)那样被看作是两个独立的成分，NP&quot;John&quot;是动词&quot;called，，的宾语，短语&quot;to 
+      make Sue feel better&quot;则是句子的目的状语。然而如果分析程序能够从词典的信息中知道&quot;want&quot;通常要求有一个不定式补语，而&quot;call&quot;则不能后接这样一类补语，那么这两个句子的结构区别是可以预见的。所以一个确定性的分析程序，必须有能力根据分析过程中已经建立的任何结构来收集和利用这一类&quot;预期&quot;信息，以便指 
+      导剩余输入串的分析。 <br>
+      　　最后，一个确定性的分析程序如果要正确地分析下面这样的句对：<br>
+      </span></span><span class="explaination">　　(3a)Have[S the students take 
+      the exam today].<br>
+      　　　　(让学生们在今天考试。) <br>
+      　　(3b)Have[NP the students][VP taken the exam today]?<br>
+      　　　　(学生们是否在今天考试?)</span><span class="text"><span class="text"><br>
+      那么它就不能单纯依靠一次从左到右的扫描来完成句子的分析，因为在分析进行到紧跟在NP&quot;the students&quot;后面的动词&quot;take／taken&quot;之前，这两个句子的结构是不可区分的。但是如果分析器有一个足够大的&quot;窗口&quot;能观察到这个动词的话，那么在句子的开头便可以判断它们的结构归属了。如果这个动词象(3b)那样取过去分词形式.那么可以判定句子是是非疑问句，不然便是一个祈使句。设置这样的观察窗口正是为了赋与分析器某种&quot;向前看&quot;的能<span class="text">力。这也是实现确定性句法分析的关键所在。</span><br>
+      </span></span></td>
+  </tr>
+</table>
+</body>
+</html>

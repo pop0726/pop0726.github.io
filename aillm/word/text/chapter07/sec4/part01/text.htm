@@ -1,0 +1,123 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第七章 其它学习方法</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <br>
+      　　<span class="section">7.4 观察与发现学习</span><br>
+      <br>
+      　　<span class="text">观察与发现学习(Learning　from Observation and Discovery)属于归纳学习。实例学习也是归纳学习。但是实例学习是由正反例学习，这些正反例都是由施教者给出分类的例子。所以实例学习是有示教的归纳学习。观察与发现学习是由环境提供的观察来学习。这些观察是未经施教者分类的例子。施教者只提供给系统少量初始知识。所以观察与发现学习是无示教的归纳学习。 
+      <br>
+      　　观察与发现学习可以按照与外部环境互作用的程度划分为两类。一类是被动观察，学习者被动接受各种观察并给出分类。另一类是主动试验。学习者给环境以扰动并观察扰动的后果。试验可能是随机的，是按一般准则安排的，也可能是由理论指导的。在系统假设某个理论时，它必须验证或否认这个理论。因此需要主动选择观察和试验。这种学习过程包括产生例子、测试假设和获取概念。<br>
+      <br>
+      　　</span><span class="part">7.4.1 概念聚类</span><span class="text"><br>
+      　　概念聚类就是一种观察学习；人类观察周围的事物，对比各种物体的特性，把它们划分成动物、植物和非生物，并给出每一类的定义。这种把观察的事物划分成几类并建立相应概念的过程就是概念聚类。<br>
+      　　传统的聚类分析方法是基于对象相似性的数值测度。这种测度没有考虑到综合特征或描述类型的概念。因此得到的分类缺乏概念描述，并且难以解释。为解决这个问题，产生了概念聚类方法。下面介绍合取概念聚类。这种概念的描述都是对象特征和关系的合取(与)。这种方法把对象划分到由合取式描述的几个类型。合取概念聚类程序CLUSTER／2(Michalski和Stepp，1981)可以构造西班牙民歌的分类体系。<br>
+      　　合取概念聚类问题定义为：<br>
+      　　</span><b class="explaination">给定</b><span class="text"><br>
+      　　(1)对象的集合(实际的或抽象的)；<br>
+      　　(2)描述对象的特征的集合；<br>
+      　　(3)背景知识(包括问题约束、特征的性质和评价分类质量的准则)。<br>
+      　　</span><b class="explaination">寻找</b><span class="text"><br>
+      　　对象的分类体系。每一类由一个合取式描述。任一父类型的各个子类型的描述应是逻辑上不相交的。分类体系应使聚类质量准则最优(分类体系是一个概念的网络。网络的节点是描述类型的概念，网络的链表示类型间的关系。) 
+      <br>
+      　　下面介绍CLUSTER/2的原理。基本符号和操作如图7.4所示。<br>
+      　　1.概念内聚<br>
+      　　传统的聚类分析中，两个对象间的相似性用一个数量描述。这个数量只取决于两个对象的特性，与周围环境无关，因此是上下文无关的。另一类相似性描述同时还考虑邻近的对象的特性，这种描述就比较完善了。但是这类描述还没有考虑聚类概念的整体特性。例如图 
+      7.5中点的聚类问题。人们往往认为图中的点排成两个正方形。虽然点A和B相距最近，但分在不同的类中。因为人们不是按距离分类，而是按概念的成员分类。</span><br>
+      <br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="30" valign="top"><img src="../../../../images/text/tb/tushi.gif" width="25" height="16" alt="图示"></td>
+          <td align="center"><span class="text"> 
+            <table width="60%" border="0" cellspacing="1" cellpadding="0" align="center" class="text" bgcolor="#003366">
+              <tr bgcolor="#d7ebff"> 
+                <td>　　符号</td>
+                <td width="60%">　说明</td>
+              </tr>
+              <tr bgcolor="#FFFFFF"> 
+                <td bgcolor="#FFFFFF">　　&amp;<br>
+                  　　∨<br>
+                  <font size="2">　　e</font><font size="1">i</font><br>
+                  　　LEF<br>
+                  　　DOM(P)<br>
+                  　　δ(<font size="2">e</font><font size="1">1</font>,<font size="2">e</font><font size="1">2</font>)<br>
+                  　　<img src="../../../../images/text/chap03/sec4/d.gif" width="7" height="9"><br>
+                  　　l-complex<br>
+                  　　s-complex<br>
+                  　　E<br>
+                  　　s(<img src="../../../../images/text/chap03/sec4/d.gif" width="7" height="9">)<br>
+                  　　p(<img src="../../../../images/text/chap03/sec4/d.gif" width="7" height="9">)<br>
+                  　　t(<img src="../../../../images/text/chap03/sec4/d.gif" width="7" height="9">)<br>
+                  　　K<br>
+                  　　RU(<font size="2">e</font><font size="1">1</font>,…,<img src="../../../../images/text/chap03/sec4/d.gif" width="7" height="9"><font size="1">1</font>,…)<br>
+                  　　GEN(<img src="../../../../images/text/chap03/sec4/d.gif" width="7" height="9">)<br>
+                  　　COV(<font size="2">E</font><font size="1">1</font>|<font size="2">E</font><font size="1">2</font>)<br>
+                  　　G(e|<font size="2">E</font><font size="1">0</font>)<br>
+                  　　RG(e|<font size="2">E</font><font size="1">0</font>) <br>
+                  　　RG(e|<font size="2">E</font><font size="1">0</font>,m)</td>
+                <td width="60%">　　合取（逻辑积，与）<br>
+                  　　析取（逻辑和，或）<br>
+                  　　时间（对象的描述）<br>
+                  　　评价函数<br>
+                  　　变量P的论域<br>
+                  　　<font size="2">e</font><font size="1">1</font>和<font size="2">e</font><font size="1">2</font>的句法距离<br>
+                  　　复合<br>
+                  　　逻辑复合<br>
+                  　　集合复合<br>
+                  　　事件空间（事件集合）<br>
+                  　　复合<img src="../../../../images/text/chap03/sec4/d.gif" width="7" height="9">中未观察的事件数目<br>
+                  　　复合<img src="../../../../images/text/chap03/sec4/d.gif" width="7" height="9">中已观察的事件数目<br>
+                  　　复合<img src="../../../../images/text/chap03/sec4/d.gif" width="7" height="9">中事件总数<br>
+                  　　子句数目<br>
+                  　　合并操作（refunion操作）<br>
+                  　　复合<img src="../../../../images/text/chap03/sec4/d.gif" width="7" height="9">的一般化<br>
+                  　　事件集合E1对E2的覆盖<br>
+                  　　事件e对事件集合E0的星<br>
+                  　　事件e对事件集合E0的简化星<br>
+                  　　有界限m的限制简化星</td>
+              </tr>
+            </table>
+            </span><span class="explaination"><br>
+            图7.4　符号表<br>
+            </span></td>
+        </tr>
+      </table>
+      <span class="text"> </span> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td width="30" valign="top"><img src="../../../../images/text/tb/tushi.gif" width="25" height="16" alt="图示"></td>
+          <td align="center" class="explaination"><br>
+            <img src="../../../../images/text/chap07/sec4/tu7.5.gif" width="214" height="83"><br>
+            <br>
+            图7.5　概念聚类的例子</td>
+        </tr>
+      </table>
+     
+      <p class="text">　　A和B的相似性称为概念内聚。这不仅取决于对象A和B，也取决于周围对象E和概念集合C。这可以写为<br>
+        　　　　概念内聚(A,B)＝f(A,B,E,C)<br>
+      </p>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

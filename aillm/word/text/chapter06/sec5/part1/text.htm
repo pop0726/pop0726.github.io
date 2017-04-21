@@ -1,0 +1,71 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第六章　实例学习</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <br>
+      　　<span class="section">6.5 学习多步任务</span><span class="text"><br>
+      <br>
+      　　一类很重要的学习任务是学习如何完成多步任务，完成多步任务就是选择一个规则（规则序列）去完成任务。下棋和符号积分是多步任务的例子。这些系统使用前向搜索的问题求解去完成任务，它们的执行环节可以看成产生式系统。系统的知识库包括产生式规则集。学习环节的任务是确定在什么条件下使用指定的行动。这类似于学习多个概念。<br>
+      　　1． 学习多步任务的两个难点<br>
+      　　第一个难点是由于规则必须一起使用，所以在修改知识库时要考虑规则的互相影响。例如在LEX系统中，学习环节可能确定把积分式∫cf(x)dx 中的c提出积分号外，这表示为一条产生式规则<br>
+      　　OP03　变∫cf(x)dx　为c∫f(x)dx<br>
+      　　但是当c=0或c=1时，这是不合理的。这时应该使用<br>
+      　　　　　OP08　变1・f(x) 为f(x)<br>
+      　　　　　OP15　变0・f(x) 为0<br>
+      　　所以在学习OP03时，应考虑与OP08和OP15的互相影响。这时应把OP03改为<br>
+      　　　　　OP03　变∫cf(x)dx　c≠1 c≠0 为c∫f(x)dx<br>
+      　　第二点难点是奖惩分配问题。在执行单步任务时（不论是单个概念还是多个概念），可以用执行标准直接确定使用规则推出的结论是否正确，从而肯定或否定规则。例如在医疗诊断系统中，可以用专家的确诊作为执行标准，以此衡量规则的正确性。有时把执行标准直接放入学习过程。例如在变型空间方法中，根据正确的分类来修改变型空间。<br>
+      　　但是在执行多步任务时，执行任务是选择规则的序列，执行标准也只能直接确定整个规则序列的正确性。实际上，我们更关心序列中每个规则的使用是否正确。由规则序列的正确性确定每个规则的正确性就是奖惩分配问题。例如一盘棋的全局，但往往只有一步几步走错而造成了失败，序列中大多数步还是正确的。我们要求找出那几个造成失败的错误走法。<br>
+      　　2． 执行环节的透明度<br>
+      　　透明的执行环节可以提供给学习环节它实际执行的和它考虑过的所有行动踪迹。执行环节的透明度有两个意义。一方面它有助于学习环节进行奖惩分配。学习环节知道了选用每条规则的过程后，就有利于确定各规则的正确性。另一方面它有助于把新规则加入到知识库中。学习环节知道了选用规则的细节后，就有利于把新规则放入规则集中适当的位置。<br>
+      　　3． 由执行踪迹提取局部示教例子<br>
+      　　如果提供给学习环节一个全局示教例子（例如提供一个棋局并指出胜负结果），它还不能直接由这个例子学习。学习环节执行这个任务（下这一局棋），并比较它的执行结果和例子给出的执行标准。然后由此进行奖惩分配，确定哪些走步是好的，哪些是不好的。这就得到了若干局部示教例子。<br>
+      　　例如在符号积分系统中，提供的一个全局示教例子是积分式∫2x<sup><font size="1">2</font></sup>dx可解，且取值为<img src="../../../../images/text/chap06/sec4/gs1.gif" width="8" height="24" align="absmiddle">x<sup><font size="1">2</font></sup>它的执行踪迹如图 
+      6.14所示。分析执行踪迹可以发现三个局部示教例子。</span><br>
+      <br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td class="explaination" width="30" valign="top" align="center"><img src="../../../../images/text/tb/tushi.gif" width="25" height="16" alt="图示"></td>
+          <td class="explaination" align="center"><img src="../../../../images/text/chap06/sec5/tu6.14.gif" width="196" height="144"><br>
+            图6.14 实例执行踪迹 </td>
+          <td class="text">∫2x<sup><font size="1">2</font></sup>dx　用OP12　　（反例）<br>
+            ∫2x<sup><font size="1">2</font></sup>dx　用OP03　　（正例）<br>
+            2∫x<sup><font size="1">2</font></sup>dx　用OP02　　（正例）</td>
+        </tr>
+      </table>
+      <span class="text">　　考虑到学习环节需要分析执行踪迹，以提取局部示教例子。所以把学习系统的模型修改为图 6.15所示的形式。图中环境提供全局示教例子，执行踪迹提供局部示教例子。</span><br>
+      <br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="30" valign="top"><img src="../../../../images/text/tb/tushi.gif" width="25" height="16" alt="图示"></td>
+          <td class="explaination" align="center"><img src="../../../../images/text/chap06/sec5/tu6.15.gif" width="255" height="144"><br>
+            <br>
+            图6.15　修改的学习系统模型 </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+</body>
+</html>

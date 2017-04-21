@@ -1,0 +1,86 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td><span class="text"> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第十章 语义分析</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <br>
+      　　</span><span class="section">10.4 名 词</span><span class="text"><br>
+      <br>
+      　　一般来说，为了区分不同的实体，名词的词义用单目谓词就足以表示了，如man(x)。但有些名词涉及到两个事物间的关系，就要用双目谓词来表示，如：<br>
+      </span><span class="explaination">　　brother(X，Y)</span><span class="text"><br>
+      　　读作：&quot;X是Y的兄弟&quot;。<br>
+      　　另外，许多名词是从动词演变过来的，这类名词通常都带有与动词类似的补足语结构，如：<br>
+      </span><span class="explaination">　　John's belief that Mary knows Bill.<br>
+      　　(约翰对玛丽认识比尔的信心。)<br>
+      　　belief(john，know(mary，bill).</span><span class="text"><br>
+      　　在LFL中，专有名词对应于常量。在绝大多数情况下这些专有名词可以用Prolog的原子或数字来表示；当专有名词具有某种结构时，也可以用Prolog的复合项来表示。<br>
+      <br>
+      　　</span><span class="section">10.5 限 定 词</span><span class="text"><br>
+      <br>
+      　　在英语中，名词的前置修饰成分有限定词、形容词和名词等几类。限定词构成一个封闭类，例如：<br>
+      </span><span class="explaination">　　a ，an ， the，<br>
+      　　each，a11，some，no，few，many，…<br>
+      　　his，her，its，… <br>
+      　　this，that， these，those，<br>
+      　　which，What，whose,…</span><span class="text"><br>
+      　　从语义上来看，限定词相当于量词，在LFL中通常用双目谓词表示，其基本形式为：<br>
+      </span><span class="explaination">　　determiner (Base，Focus)</span><span class="text"><br>
+      第一个变元叫做限定词的基，用来说明该限定词量化的范围；第二个变元叫做限定词的焦点，表达言谈的中心，在口语中句子的这部分往往被重读。下面是限定词&quot;each&quot;的几个例子：<br>
+      </span><span class="explaination">　　Each man knows Bill.(每个人都认识比尔)<br>
+      　　each(man(X)，know(X，bill)).<br>
+      　　Each boy eats several apples.(每个男孩吃几个苹果)<br>
+      　　each(boy(X)，several(apple(Y)，eat(x，Y))).<br>
+      　　Each man that knows Mary knows Bill.<br>
+      　　(每个认识玛丽的人也都认识比尔)<br>
+      　　each(man(X)&amp; know(X，Mary)，know(X，bill)).<br>
+      　　Each man that owns a car washes it.<br>
+      　 (每个有汽车的人都擦洗它)<br>
+      　　each(man(X)&amp;car(Y)&amp; own＜X，Y)，wash(X，Y)).</span><span class="text"><br>
+      　　下面说明LFL的量词与一阶逻辑中的标准量词相比有什么区别。在一阶逻辑中，标准的全称量词all(X，P)含有两个运算对象，X是它所量化的单一变量，P是它的辖域。表达式的意思是：&quot;对变量x的每一个值，谓词P都将保持为真&quot;。采用这样的标准量词，语义表达式将改写如下：<br>
+      </span><span class="explaination">　　Each man knows Bill.<br>
+      　　a11(X，man(X)→know(X，bill)).</span><span class="text"><br>
+      　　LFL量词与此不同：(1)LFL量词的辖域被分割为基和焦点两部分，因此可以用a11（P，Q)或each(P，Q)取代标准的全称量词all(X，P→Q)；(2)LFL量词可以同时对几个变量进行量化，例如上面给出的例句：&quot;Each 
+      man that owns a car washes it&quot;，在量词each的基中出现的两个变量X和Y就被同时量化。 <br>
+      　　LFL量词的以上特点在表达象&quot;few&quot;和&quot;most&quot;这样一些自然语言的量词时，显得更加必要。因为few(P，Q)的意思是：相对来说使P&amp;Q为真的例比使P为真的例少得多，于是下面的例句可以用LFL量词分析为：<br>
+      </span><span class="explaination">　　Few tigers are tame.(几乎没有老虎是驯服的)<br>
+      　　few(tiger(X)，tame(X)). 并进而对few的基和焦点给出如下合理的定义：<br>
+      　　few(Base，Focus)：－card(Base，B)，<br>
+      　　　　　　　　　　　　card(Base &amp; Focus，BF)，<br>
+      　　　　　　　　　　　　small(BF，B).</span><span class="text"><br>
+      其中card(P，N)读作：&quot;P的基数为N&quot;，其定义为：<br>
+      </span><span class="explaination">　　card(P，N) ：-set_of(P，P，S)，<br>
+      　　　　　　　　　length(S，N).</span><span class="text"><br>
+      谓词set-of(X，P，S)的意思是：使P为真的全体X的集合叫做S。small(M，N)可以定义为要求商M/N小于某个指定的分数。<br>
+      　　回过头来，如果沿用标准全称量词的模式，那么上述例句将分析为：<br>
+      </span><span class="explaination">　　few(X，tiger(X)→tame(X)).</span><span class="text"><br>
+      根据蕴涵&quot;→&quot;的定义，式中第二个变元所表示的命题对于宇宙中的绝大多数事物(只要它们不是老虎)都将取真值。这个意思同原句的意思大相径庭。<br>
+      　　另一方面，从下面的例句可以看到对几个变量同时进行量化是必要的：<br>
+      </span><span class="explaination">　　Most people writing a letter mail it.<br>
+      　　(大多数写信的人都会寄走它)<br>
+      　　most(person(X)&amp;letter(Y)&amp;write(X，Y)，mail(X，Y)).</span><span class="text"><br>
+      most(Base，Focus)的定义同few(Base，Focus)类似，只不过要求Base &amp;Focus取真的情况在Base取真的情况中应占很大的比重。这里量词most应管辖&quot;写信的人&quot;，而不是分别管辖&quot;人&quot;或&quot;信&quot;。<br>      　　冠词&quot;a&quot;(及其变体&quot;an&quot;)和&quot;the&quot;的情况比较复杂。有趣的是在某些自然语言(如中文、日文和俄文)中，并不存在相应的冠词。不定冠词"a"有时可以用存在量词ex来表示：
+<br>
+      </span></td>
+  </tr>
+</table>
+</body>
+</html>

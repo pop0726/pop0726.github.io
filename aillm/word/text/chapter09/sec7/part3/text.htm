@@ -1,0 +1,89 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td><span class="text"> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第九章 句法分析</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      </span><span class="part"><br>
+      　　9.7.3 采用确定性算法的汉语句法分析</span><span class="text"><br>
+      　　朱德熙先生在《语法答问》一书中曾精辟地指出，和印欧语相比汉语的主要特点是：<br>
+      　　(1)汉语的词类缺乏形式标记；<br>
+      　　(2)汉语词类跟句法成分之间不存在简单的一一对应关系。<br>
+      试看在英语中：<br>
+      <table width="50%" border="0" cellspacing="0" cellpadding="0" align="center" class="text">
+        <tr align="center"> 
+          <td>主宾语</td>
+          <td>谓语</td>
+          <td>定语</td>
+          <td>状语</td>
+        </tr>
+        <tr align="center"> 
+          <td>|</td>
+          <td>|</td>
+          <td>|</td>
+          <td>|</td>
+        </tr>
+        <tr align="center"> 
+          <td>名词</td>
+          <td>动词</td>
+          <td>形容词</td>
+          <td>副词</td>
+        </tr>
+      </table>
+      <br>
+      而在汉语中，这种关系变成了多对多关系：</span> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td align="center" class="text"><img src="../../../../images/text/chap09/sec2/pic1.gif" width="200" height="67"></td>
+        </tr>
+      </table>
+      <span class="text"><br>
+      　　(3)汉语句子的构造原则跟短语(即词组)的构造原则基本-致。例如拿动词采说，在英语的短语中。不允许有限定动词出现，如果要出现动词的话，只能是动词的不定式或分词形式；只有句子及其包孕的子句才能有-个限定动词充当主要动词。可是汉语的情形完全不同，动词和动词结构不论在句子的哪个位置上出现。形式完全一样。<br>
+      　　汉语的这些特点对于用计算机来进行句法分析是极其不利的。对于采用非确定性算法的系统来说，这些引起句法歧义的因素必将导致大量的回溯，从而大大增加计算的开支。根据近年来的实践，我们有理由相信采用确定性算法来实现汉语的句法分析是适宜的。<br>
+      　　1989年清华大学计算机系用确定性算法实现了一个双语句法分析器DEPACH(Deterministic Parser for Chinese)。这个句法分析器有以下几个特点： 
+      <br>
+      　　(1)词典的信息采用复杂特征集来描写，每个词条的登录格式如下：<br>
+      </span><span class="explaination">　　(&lt;entry&gt;{((S　　(#))<br>
+      　　　　　　　(SE　 (#))<br>
+      　　　　　　　(CAS　(#))<br>
+      　　　　　　　(A　　(#))))}<br>
+      　　　　　　　(C　　(#))<br>
+      　　　　　　　(1R　 (#)))</span><span class="text"><br>
+      其中，S表示句法属性;SE是语义标记；CAS是动词格关系的选择性限制；A是搭配信息；大括号{}表示其中的内容可重复多次，以便描述兼类词的情况：C是惯用法，如框式介词词组及其他格式等；IR是专属该词条的句法规则(即个性规则)。<br>
+      　　(2)数据驱动和预期驱动相结合。确定性分析的成败取决于每一步是否有充分的信息和知识来支持当前的决策。所以DEPACH采用了自底向上的分析策略，这样不仅可以根据输入句子 
+      中的词直接从词典中取得它们的静态信息，而且还可以在词(或词组)的归并过程中形成大量的动态信息。在这些信息中。不论是静态的还是动态的，都包含着可以用来指导后继分析过程的预期。<br>
+      　　(3)不同于Marcus的-次从左到右扫描，分析过程是通过两次从左到右的从扫描和-次从有到左的主扫描来完成的。从扫描相当于预处理。它的任务是把汉语中某些粘附性强、易产生边界干扰、优先级高或由个性规则加以处理的词组先捆起来，以便为主描扫清道路。从扫描所避循的原则是：当前可以确认的归并立即加以归并，否则便留待以后去处理。主扫描从右向左进行，是考虑到虽然自然语言都是上下文有关的，但汉语对&quot;下文&quot;尤其敏感。主扫描要处理的主要是主谓、述宾、双宾、兼语和连动等典型词组。并决定整个句子的层次和结构。多次扫描和从右向左的主扫描是DEPACH算法的-个鲜明特色。<br>
+      　　(4)用-个工作寄存器(wm)和一个指针(Pt)取代了Marcus原来的堆饯(ans)和三单元缓冲器(3bf)。wm是一张有序表，起初存放的是输入句子的词串，每个词相当于一个结点，结点上附加着有关该词的全部信息；pt所指的结点称为当前结点(cu-node)。后者是当前分析的焦点。分析器正是根据cu-node的信息激活有关的处理子模块。cu-node两边的所有结点都是随时可访问的：以cu-node为座标原点，左边的结点依次为l1-node，l2-node…，右边的结点依次为r1-node，r2-node，…。可见，观察窗口可以根据要任意伸缩。这是一个优点；此外；简单地移动pt就可以达到原先反复移动ans和3bf中的内容的相同效果；这是又一个优点。在整个分析过程中，不论是从扫描还是主扫描，对于cu-node的操作都基本-样，过程如下：<br>
+      　　1.cu-node是否导致了某种归并?<br>
+      　　2.如果是，令新归并出来的结点为cu-node，并相应调整个wm和pt;<br>
+      　　3.否则，对从扫描令Pt←Pt十1，<br>
+      　　　　　　对主扫描令pt←pt-1，<br>
+      　　　　　　且cu-node←node(pt)；<br>
+      　　4.转步骤1。<br>
+      其中node(pt)的值是pt所指的结点。<br>
+      　　DEPACH是用GCLISP语言编写的，运行在IBM-PC/AT微机上，系统词典现装1200词条，收入句法规则约150条。系统对代表汉语基本句型的166个实际例句进行考核的结果是：除两句出错外，164句正确；平均分析速度为3.6秒/句(平均句长8.4词/句)。系统对一份含1000字以上的军事情报篇章进行考核的结果是：句法分析完全正确；平均分析速度7.9秒/句(平均句长21.7词/句)。<br>
+      　　DEPACH作为一个句法分析的主要模块已经应用于清华大学设计的军事情报理解系统TUSMI(Text Understanding System 
+      for Military Information)中。<br>
+      </span></td>
+  </tr>
+</table>
+</body>
+</html>

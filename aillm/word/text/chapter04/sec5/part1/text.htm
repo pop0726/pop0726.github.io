@@ -1,0 +1,97 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td><span class="text"> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第四章 知识表示方法</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <br>
+      　　</span><span class="section">4.5 框架表示法</span><span class="text"><br>
+      <br>
+      　　</span><span class="part">4.5.1 框架理论</span><span class="text"><br>
+      　　1975年，Minsky的论文&quot;A　framework for representing knowledge&quot;中提出了框架理论，引起了人工智能学者的重视。他是针对人们在理解情景、故事时提出的心理学模型，论述的是思想方法不是具体实现。框架理论的基本观点是人脑已存储有大量的典型情景，当人面临新的情景时，就从记忆中选择（粗匹配）一个称作框架的基本知识结构，这个框架是以前记忆的一个知识空框，而其具体内容依新的情景而改变，对这空框的细节加工修改和补充，形成对新情景的认识又记忆于人脑中。框架理论将框架视作知识的单位，将一组有关的框架连结起来便形成框架系统。系统中不同框架可以有共同结点，系统的行为由系统内框架的变化来表现的。推理过程是由框架间的协调来完成的。 
+      <br>
+      　　产生式系统中知识单位是规则，这种知识单位过小，难于处理复杂问题，而且产生式系统的知识库与推理是相互分离的。框架表示法是一种适应性强、概括性高、结构化良好、推理方式灵活、又能把陈述性知识与过程性知识相结合的知识表示方法。<br>
+      <br>
+      　　</span><span class="part">4.5.2 框架结构</span><span class="text"><br>
+      　　框架是由若干个结点和关系（统称为槽）构成的网络。是语义网络的一般化形式化的一种结构，同语义网络没有本质的区别。<br>
+      　　框架是表示某一类情景的结构化的一种数据结构。框架的最顶层是固定的一类事物，基于概念的抽象程度表现出自上而下的分层结构。框架由框架名和一些槽组成，每个槽有一些值，槽值可以是逻辑的、数字的，可以是程序、条件、默认值或是一个子框架。槽值含有如何使用框架信息、下一步可能发生的信息、预计未实现该如何做的信息等。<br>
+      　　如将语义网络表示的<br>
+      　　　　　　<img src="../../../../images/text/chap04/sec4/4.4.1.3.gif" width="228" height="74"><br>
+      表示成<br>
+      　　　　　　<img src="../../../../images/text/chap04/sec4/4.5.2.1.gif" width="345" height="50"><br>
+      也即将结点间弧上的标注也放入槽内就成了框架表示形式。<br>
+      　　框架一般可表示成如下格式<br>
+      　　框架名<br>
+      　　<font color="#003060">＜槽名1＞</font><br>
+      　　　<font color="#0000FF">＜侧面11＞</font><br>
+      　　　　<font color="#CA00CA">＜值111＞</font></span><span class="text"><font color="#CC00CC">…＜值11k1＞</font><br>
+      　　　　　<img src="../../../../images/text/chap04/sec5/fh.gif" width="6" height="15"><br>
+      　　　<font color="#0000FF">＜侧面1n1＞</font><br>
+      　　　　<font color="#CC00CC">＜值1n11＞…＜值1n1kn1＞</font><br>
+      　　<font color="#003366">＜槽名2＞</font><br>
+      　　　<font color="#0000FF">＜侧面12＞</font><br>
+      　　　　<font color="#CC00CC">＜值121＞…＜值1211＞</font><br>
+      　　　　　<img src="../../../../images/text/chap04/sec5/fh.gif" width="6" height="15">　<br>
+      　　　<font color="#0000FF">＜侧面1n2＞</font><br>
+      　　　　<font color="#CC00CC">＜值1n21＞…＜值1n21n2＞</font><br>
+      　　…</span> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="text">
+        <tr> 
+          <td width="30"><img src="../../../../images/text/tb/liti.gif" width="26" height="25" alt="例题"></td>
+          <td><b>例1:</b></td>
+        </tr>
+        <tr> 
+          <td>&nbsp;</td>
+          <td>　一个教室A的框架表示<br>
+            　教室A框架的上层依次是<br>
+            　　事物－－物体�D�D房间�D�D教室�D�D教室A<br>
+            　其框架表示如图4.6（一）。<br>
+            　其中范围槽的槽值是个条件值，30 人数 50而用途槽的槽值是个默认值，一般上课用。这个例子上下层是Part-of关系，如黑板是教室A的一部分，但黑板的结构、性能是与教室完全不同的</td>
+        </tr>
+        <tr> 
+          <td valign="top"><img src="../../../../images/text/tb/tushi.gif" width="25" height="16" alt="图示"></td>
+          <td align="center"><img src="../../../../images/text/chap04/sec5/tu4.61.gif" width="378" height="316"><br>
+            <br>
+            <span class="explaination"> 图4.6（一）</span></td>
+        </tr>
+        <tr> 
+          <td><img src="../../../../images/text/tb/liti.gif" width="26" height="25" alt="例题"></td>
+          <td><b>例2:</b></td>
+        </tr>
+        <tr> 
+          <td>&nbsp;</td>
+          <td>　动物分类框架如图4.6（二）<br>
+            　上述例子上下层关系属isa型。各层仅存有特有的信息。如金丝鸟就不必填入金丝鸟框<br>
+            架的槽中，因为金丝鸟是鸟，依属性可知具有鸟的属性。</td>
+        </tr>
+        <tr>
+          <td valign="top"><img src="../../../../images/text/tb/tushi.gif" width="25" height="16" alt="图示"></td>
+          <td align="center"><img src="../../../../images/text/chap04/sec5/tu4.62.gif" width="450" height="346"><br>
+            <br>
+            <span class="explaination">图　4.6（二）</span></td>
+        </tr>
+      </table>
+      <span class="text">
+      </span></td>
+  </tr>
+</table>
+</body>
+</html>

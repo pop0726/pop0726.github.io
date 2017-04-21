@@ -1,0 +1,61 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第九章 句法分析</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <br>
+      <span class="text">　　</span><span class="part">9.6.2 递归转移网络</span><span class="text"><br>
+      　　递归转移网络(recursive transition networks，简称RTN)是对有限状态转移网络的一种扩展，在RTN中每条弧的标注不仅可以是一个终结符(词或词类)，而且可以是一个用来指明另一个网络名字的非终结符。 
+      <br>
+      　　例如，下面是一部上下文无关语法：<br>
+      </span><span class="explaination">　　　　S ∷＝NP V NP PP<sup>*</sup><br>
+      　　　　NP∷＝T ADJ<sup>*</sup> N PP<sup>*</sup><br>
+      　　　　PP∷＝P NP </span><span class="text"><br>
+      其中X<sup>*</sup>表示符号X可以出现零次或多次。这三条语法规则可以用图9.11所示的递归转移网络来表示。</span> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="30" valign="top"><img src="../../../../images/text/tb/tushi.gif" width="25" height="16" alt="图示"></td>
+          <td align="center" class="explaination"><img src="../../../../images/text/chap09/sec2/tu911a.gif" width="400" height="99"><br>
+            <img src="../../../../images/text/chap09/sec2/tu911b.gif" width="300" height="59"><br>
+            <img src="../../../../images/text/chap09/sec2/tu911c.gif" width="300" height="106"> 
+            <br>
+            图9.11 用来表示S，NP和：PP等三条上下文无关语法规则的递归转移网络</td>
+        </tr>
+      </table>
+      <span class="text"><br>
+      　　值得注意的是，在RTN中任何一个子网络都可以调用包括它自己在内的任何其他子网络。例如，在图 9.11中，表示名词短语NP的子网络中包含了介词短语PP，而在表示PP的子网络中又包括了NP。用数学的术语采说；这叫做递归定义，即在NP的定义中包含了NP自身。<a href="#"><img src="../../../../images/text/chap09/sec8/zhu.gif" width="21" height="12" align="texttop" alt="如自然数N的阶乘N!是这样定义的：N!=1，当N=0；N!=N・(N-1)!，当N≥1." border="0"></a><br>
+      　　假设输入句子是：<br>
+      </span><span class="explaination">　　&quot;The little boy in the swimsuit 
+      kicked the red ball。&quot;<br>
+      　　(穿游泳衣的小男孩踢了那个红球。)</span><span class="text"><br>
+      用图9.11的RTN可以分析出以下几个短语：<br>
+      </span><span class="explaination">　　NP： The little boy in the swimsuit<br>
+      　　PP： in the swimsuit<br>
+      　　IVP： the swimsuit<br>
+      　　V： kicked<br>
+      　　NP： the red ball</span><span class="text"><br>
+      　　从生成能力来看，递归转移网络等价于上下文无关语法。但是要用它来分析自然语言，还必须在功能上予以增强，以便它可以描写各式各样的语法限制(如英语中主语和谓语动词之间的一致关系等)以及在识别过程中同时构造出输入句子的句法结构(即句法树)。经过增强的RTN就是扩充转移网络。</span><br>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

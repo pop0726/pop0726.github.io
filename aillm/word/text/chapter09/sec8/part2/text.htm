@@ -1,0 +1,74 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td><span class="text"> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第九章 句法分析</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      </span> <span class="text"> 　　</span><span class="part">9.8.2 合一</span><span class="text"><br>
+      　　合一(unification)有点象集合论中的并(union)。并集所取的是各个集合里所有不同元素组成的集合，如<br>
+      　　　　{A,B}∪{C,B}={A,B,C}<br>
+      值得注意的是，在集合运算中总是把集合中的元素看作是不可分解的原子。即使其中的元素是有序对，如(fi，vi)表示特征fi的值为vi，求并集时它们仍被当作不可再分的个体来看待；而不考虑它们的内部结构。假设<br>
+      　　　　α＝{(<font size="2">f</font><font size="1">1</font>，<font size="2">v</font><font size="1">1</font>)，(<font size="2">f</font><font size="1">2</font>，<font size="2">v</font>2)}<br>
+      　　　　β＝{(<font size="2">f</font><font size="1">1</font>，<font size="2">v</font><font size="1">1</font>')}<br>
+      而且<font size="2">v</font><font size="1">1</font>≠<font size="2">v</font><font size="1">1</font>'，表示集合α和β所表达的信息是互相抵触的，因为特征<font size="2">f</font><font size="1">1</font>不允许同时拥有两个不相同的值。但是它们的并集仍为：<br>
+      　　　　γ=α∪β={(<font size="2">f</font><font size="1">1</font>，<font size="2">v</font><font size="1">1</font>)，(<font size="2">f</font><font size="1">1</font>，<font size="2">v</font><font size="1">1</font>')，(<font size="2">f</font><font size="1">2</font>，<font size="2">v</font>2)}<br>
+      不过从信息组合与传递的观点来看，并集Y所表达的信息是毫无意义的。<br>
+      　　从谓词演算中借用过来的&quot;合一&quot;概念，在这一点上不同于并。因为根据定义，当两个集合所表达的信息发生冲突时，其合一结果为空集φ。表示合一失败。如果用符号&quot;<img src="../../../../images/text/chap09/sec8/gs2.gif" width="8" height="14" align="absmiddle">&quot;表示合一，则上例中<br>
+      　　　　α<img src="../../../../images/text/chap09/sec8/gs2.gif" width="8" height="14" align="absmiddle">β=φ</span>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="text">
+        <tr> 
+          <td width="30"><img src="../../../../images/text/tb/dingyi.gif" width="26" height="17" alt="定义"></td>
+          <td><b>定义</b></td>
+        </tr>
+        <tr> 
+          <td></td>
+          <td>合一<br>
+            　1.若a与b均为原子，则 a<span class="text"> <img src="../../../../images/text/chap09/sec8/gs2.gif" width="8" height="14" align="absmiddle"> 
+            </span>b＝a，<br>
+            　　当且仅当a＝b；否则a<span class="text"> <img src="../../../../images/text/chap09/sec8/gs2.gif" width="8" height="14" align="absmiddle"> 
+            </span>b＝φ。<br>
+            　2.若α与β均为复杂特征集，则<br>
+            　　(1) 若a(f)＝v，而β(f)的值未定义，<br>
+            　　　　则f＝v属于α<span class="text"><img src="../../../../images/text/chap09/sec8/gs2.gif" width="8" height="14" align="absmiddle"></span>β；<br>
+            　　(2) 若β(f)＝v.而α(f)的值未定义，<br>
+            　　　　则f＝v属于α<span class="text"><img src="../../../../images/text/chap09/sec8/gs2.gif" width="8" height="14" align="absmiddle"></span>β；<br>
+            　　(3) 若α(f)＝v，β(f)＝v'，<br>
+            　　　　则f＝(v<span class="text"> <img src="../../../../images/text/chap09/sec8/gs2.gif" width="8" height="14" align="absmiddle"> 
+            </span>v')属于α<span class="text"><img src="../../../../images/text/chap09/sec8/gs2.gif" width="8" height="14" align="absmiddle"></span>β；<br>
+            　　　　否则α<span class="text"><img src="../../../../images/text/chap09/sec8/gs2.gif" width="8" height="14" align="absmiddle"></span>β＝φ</td>
+        </tr>
+      </table>
+      <span class="text"><br>
+      从以上定义的2(3)来看，这是一个递归定义。由于f的值v和v'本身又可以是复杂特征集，因此仅当v和v'可以合一时α和β才能合一。<br>
+      　　如果把自然语言看作是-个信息传递系统，并且承认自然语言的合成性(compositionality)假设，即无论是句法成分还是语义成分都是按由小到大的方式逐步组合出来的，那么采用合一作为句法和语义分析的基本运算是非常理想的。因为：<br>
+      　　(1)一个句子或其他语法单位所承载的信息总是分布在它的各个成分中。所以每个成分承载的是局部信息。<br>
+      　　(2)通过合-运算把小成分组合成更大成分的过程中，每个小成分所承载的信息也同时被传递和累加成为更大成分所承载的信息。在这个过程中信息只增不减。 
+      <br>
+      　　(3)由于句法和语义都以合一为基本运算，不仅某些句法结构的歧义可以通过语义手段来排除，而且在句子的句法结构和语义表示之间找到了-种更自然的衔接方式。<br>
+      　　(4)由定义可知，合一运算是无序的，即不论合-从哪个方向开始，也不管其运算的先后次序如何，合一结果都相同。合-的无序性不仅适宜于并行处理，而且使我们有可能自由地选择分析算法和语法理论。<br>
+      　　FD1：<br>
+      　<img src="../../../../images/text/chap09/sec8/gs3.gif" width="424" height="307"><br>
+      　<img src="../../../../images/text/chap09/sec8/gs4.gif" width="406" height="225"><br>
+      </span></td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td><span class="text"> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第七章 其它学习方法</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      </span><span class="text"><br>
+      　　2.AM在两个空间的搜索<br>
+      　　AM的工作过程就是重复下列步骤：第一步是选择所考虑的概念，产生它的例子。第二步是按例子寻找规则，再由规则产生新概念、产生新猜想或修改概念关心程度的评价。第三步是把知识传送给其它概念。按照实例学习的两个空间模型，第一步是搜索例子空间，第二步是搜索概念空间和猜想空间，第三步是保存知识。<br>
+      　　(1)搜索例子空间<br>
+      　　在AM开始运行时，它的115个初始概念的框架还未填写例子槽。因此，它的第一个任务是收集概念的例子。大约30条启发式规则指导例子的产生，它们采用下列方法：<br>
+      　　第一种：定义的符号示例。这是由定义得到例子。对递归定义的概念，可以用递归的基始示例。例如SET(集合)的定义是<br>
+      　　(lambda (s)<br>
+      　　　(or(＝s{})<br>
+      　　　　　　(set-definition<br>
+      　　　　　　　(remove(any-member s) s))))<br>
+      则由定义得到，空集{}是集合的例子。<br>
+      　　第二种：产生和测试。由知识库中&quot;附近&quot;的概念产生例子，再由定义测试它。例如，可以找比C更一般的概念的例子，再测试它是否C的例子。<br>
+      　　第三种：例子的继承。如果一个例子满足比C更特殊的概念，它一定满足C。如果一个例子不满足比C更一般的概念，它一定不满足C。 <br>
+      　　第四种：利用概念的运算。有些概念是运算。例如,SETUNION就是求并集的运算。它们有算法，在给定论域中的变元后，可以由算法得到运算结果。例如，若(A)和(B)是集合，则SETUNION产生集合(A，B)。并且以表＜ 
+      ＞为SETUNION的正例。<br>
+      　　第五种：由观察或类比推理。概念的VIEWS槽提供的算法把一个概念的例子变成另一概念的例子。ANALOGIES槽提供的不精确信息把不同概念的例子联系起来。AM用这两个槽把已有的例子变成新概念的例子。<br>
+      　　对每个概念用上述方法填写例子，过程直到找到26个例子或达到时间空间限制为止。<br>
+      　　AM例子空间的一个特点是它可以找到概念的边界例子。它有五种例子：一般正例、一般反例、边界正例、边界反例和明显奇异的例子(数据结构错误)。大多数例子是一般正例和一般反例。边界反例是由于某些例子的产生方法不完善，偶然产生出的反例。例如，SETS(集合)框架的VIEWS槽指出，只要把表示包的[]括号改为表示集合的{}括号，就可以把包看作集合。但把[a，b，a]改为{a，b，a}时，由于包含的元素有重复，所以它是集合的反例。这是集合的一个边界反例。有些方法可以找到边界正例。首先，由递归定义的基始得到的正例总是边界正例。其次，逐步改变一般正例，直到不能满足定义为止，这可以找到边界正例。因此，边界例子在某种意义下指出了概念的外延边界。 
+      <br>
+      　　(2)搜索规则空间 <br>
+      　　AM用改进假设方法搜索概念空间。这类似于BACON和ID3使用的方法。当前的概念框架的集合可以看作当前的假设集合。通过产生新概念和新猜想，反复改进和扩充这些假设。AM有约40条启发式规则可以产生新概念。这可以分为两类：一类产生任何概念；另一类只产生函数和关系。<br>
+      　　AM产生任何概念的方法有：<br>
+      　　</span><b class="explaination">第一种：一般化</b><span class="text"> AM使用的一般化方法有：去掉条件、增加选择、把常量化为变量等。它也采用把否定的合取特殊化的方法。 
+      例如，若C比B特殊，则A∧～B比A∧～C特殊。对于有量词的谓词表达式，它也可以一般化，例如，若S1<img src="../../../../images/text/chap02/sec03/fh5.gif" width="12" height="9">S，则把<img src="../../../../images/text/chap02/sec02/fh2.gif" width="8" height="9">x∈S：P(x) 
+      一般化为<img src="../../../../images/text/chap02/sec02/fh2.gif" width="8" height="9">x∈S1：P(x)。AM还有对递归概念一般化的规则。<br>
+      　　</span><b class="explaination">第二种：特殊化</b><span class="text"> 这是一般化的逆处理。<br>
+      　　</span><b class="explaination">第三种：处理例外</b><span class="text"> 如果一个现有概念有许多例外(边界反例)，就可以产生新概念，使其正例为原概念的例外。有时，新概念的正例只包含原概念的一般正例，不含边界正例。<br>
+      　　</span><b class="explaination">第四种：由类比推理</b><span class="text"><br>
+      <br>
+      　　AM产生函数和关系的方法有： <br>
+      　　</span><b class="explaination">第一种：一般化</b><span class="text"> 扩大适用范围。<br>
+      　　</span><b class="explaination">第二种：特殊化</b><span class="text"> 缩小适用范围。<br>
+      　　</span><b class="explaination">第三种：转化</b><span class="text"> 产生现有关系的转化。例如一个区域子集的转换图像。 
+      <br>
+      　　</span><b class="explaination">第四种：合成</b><span class="text"> 把两个函数F(x)和G(x)合成为F(G(x))或G(F(x))。 
+      <br>
+      　　</span><b class="explaination">第五种：投影</b><span class="text"> 多元函数F可以向其变元集的子集投影。例如，Proj2(F(x，y))就是y。<br>
+      　　</span><b class="explaination">第六种：统一</b><span class="text"> 把F(x，y)的变元统一，从而产生G(x)＝F(x，x)。<br>
+      　　</span><b class="explaination">第七种：规范化</b><span class="text"> 对两个谓词P1和P2，定义函数F，使得P1(x，y)＝P2(F(x)，F(y))。如果x和y是概念C的例子，那么F就把C映射到规范化C的集。于是，加于规范化C的P2就与加于概念C的P1相同。AM使用这种操作发现了NUMBERS，它取SAME-SIZE(x，y)为P1，取EQUAL(x，y)为P2，并把它们作用于包，以产生规范化函数SIZE-OF(x)和概念CANONICAL-BAGS。<br>
+      　　</span><b class="explaination">第八种：重复替换和重复结合</b><span class="text"> 有几种操作可以由重复应用旧概念产生新概念。例如，可以由重复加法产生乘法。<br>
+      　　</span><b class="explaination">第九种：交换</b><span class="text"> 可以交换函数或关系的变元，以便产生新函数或新关系。<br>
+      　　</span><b class="explaination">第十种：笛卡儿积</b><span class="text"> 由原有概念的笛卡儿积产生新概念。<br>
+      　　(3)表示和提出猜想<br>
+      　　AM有约30条启发式规则可以提出猜想。猜想有下列形式：(a)<img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absmiddle">是<img src="../../../../images/text/chap02/sec01/c2.gif" width="13" height="14" align="absbottom">的例子，(b)<img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absmiddle">是<img src="../../../../images/text/chap02/sec01/c2.gif" width="13" height="14" align="absbottom">的特殊化(或一般化)，(c)<img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absmiddle">等价于<img src="../../../../images/text/chap02/sec01/c2.gif" width="13" height="14" align="absbottom">，(d)<img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absmiddle">通过谓词X与<img src="../../../../images/text/chap02/sec01/c2.gif" width="13" height="14" align="absbottom">相关，(e)运算<img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absmiddle">的论域是D而值域是R。AM通过对例子的统计比较发现猜想。如果<img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absmiddle">所有的例子都是<img src="../../../../images/text/chap02/sec01/c2.gif" width="13" height="14" align="absbottom">的例子，就猜想<img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absmiddle">是<img src="../../../../images/text/chap02/sec01/c2.gif" width="13" height="14" align="absbottom">的特殊化。如果在<img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absmiddle">值域内所有的例子都是数，就猜想<img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absmiddle">的值域是数集。猜想一旦提出，就为AM相信。它改变相应的槽，并扩展到其它概念。<br>
+      　　(4)扩展获得的知识<br>
+      　　AM有几种启发式规则把新知识扩展到整个框架网络。扩展过程使用三种继承链：<br>
+      　　IS-AN-EXAMPLE-OF和EXAMPLES，<br>
+      　　SPECIALIZATIONS和GENERALIZATIONS，<br>
+      　　DOMAIN和RANGE<br>
+      </span></td>
+  </tr>
+</table>
+</body>
+</html>

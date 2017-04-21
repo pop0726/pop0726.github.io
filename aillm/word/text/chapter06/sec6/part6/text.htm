@@ -1,0 +1,55 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第六章　实例学习</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <span class="part"><br>
+      　　6.6.4 基于解释的知识获取系统EBKAS</span><span class="text"><br>
+      　　1988年我们实现了一个基于解释的知识获取系统EBKAS。它模仿人类学习经验的过程，所采用的概括方法是可以避免只由一个例子把常量转成变量的过于概括化的问题。系统的主要功能有：<br>
+      　　(1)解释问题求解过程中每个步骤是否适当，由解释结构学习搜索控制块(chunks)；<br>
+      　　(2)由解释学习问题求解控制步骤；<br>
+      　　(3)获取领域的普遍性控制规则。<br>
+      　　1.形成解释和学习chunks<br>
+      　　EBKAS采用边解边学的方式，其解释按递向推理方式形成。用户提交给系统一个目标后，推理机到规则库中寻找其结论部分包含了此目标的规则。找到后，先标注因果链，表明此规则是使该目标实现的原因，再取规则的所有前提为子目标，往下扩展。推理机采用宽度优先搜索策略，自上向下进行搜索，建立证明树形式的解释结构，树根是用户提交的目标，各节点是领域规则的前件，叶节点是初始状态。解释结构存在数组中。 
+      <br>
+      　　在形成解释结构后，系统对解释进行分析和整理，从中抽取chunks。具体方法是：取出解释结构，沿着因果关系遍历证明树。对每个子目标，查看激发它的是哪些分枝，以这些分枝的合取为前件，以子目标为后件，形成一条产生式规则。这就是chunk。chunks的构成因初始状态和目标状态的不同而不同。<br>
+      　　例如在猴子香蕉问题中，初始状态为：<br>
+      　　　((monkey at A)<br>
+      　　　　(ladder at B)<br>
+      　　　　(banana on ceiling at C))<br>
+      目标状态为：<br>
+      　　　　(monkey holds banana)<br>
+      这时的局部控制规则是下列的chunks：<br>
+      　　　　initial∧carry∧climb→grab<br>
+      　　　　initial→walk<br>
+      　　　　initial∧walk→carry<br>
+      　　　　carry→climb<br>
+      　　chunks描述了通过激发执行某些规则就可导致另一规则的激发执行。它使规则推理明显化，并给出了问题求解的局部控制。在局部范围内，系统可不经搜索，直接按chunks给出的控制信息达到目标，从而提高效率。<br>
+      　　2.学习求解控制步骤 <br>
+      　　获取局部控制chunks后，EBKAS可以进-步学习，获取面向问题初始状态的求解控制步骤。求解控制步骤以初始状态为前提，以问题求解过程中用到的规则序列为结论部分，形成另一类产生式规则。它明确地指出，在已知初始状态下应执行的规则序列。以后求解同一初始状态的问题时，可以由此规则序列直接得到解。<br>
+      　　由于推理机采用宽度优先搜索策略，所以在没有加入学习知识时，问题求解的结果就是最佳解，只是搜索代价很大，但是经过学习获得问题求解步骤后，就可不经搜索直接得到最佳解。<br>
+      EBKAS对猴子香蕉问题的六种不同初始状态学习并获取了各自的问题求解步骤。<br>
+      </span></td>
+  </tr>
+</table>
+</body>
+</html>

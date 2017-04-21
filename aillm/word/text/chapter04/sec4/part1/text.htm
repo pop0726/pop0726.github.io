@@ -1,0 +1,151 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td><span class="text"> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第四章 知识表示方法</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <span class="text"><br>
+      　　</span><span class="section">4.4 语义网络表示法</span><span class="text"><br>
+      <br>
+      　　</span>语义网络是1968年Quillian在研究人类联想记忆时提出的心理学模型，认为记忆是由概含间的联系实现的。1972年Simmous 
+      首先将语义网络表示法用于自然语言理解系统。<br>
+      　　逻辑和产生式表示方法常用于表示有关论域中各个不同状态间的关系，然而用于一个事物同其各个部分间分类知识就不方便了。而槽和填槽表示方法便于表示这种分类知识，这种表示方法包括语义网络、框架、概念从属和脚本，语义网络是其中最简单的，它是这类表示法的先驱，同一阶逻辑有相同的表达能力。<br>
+      　　框架是将一个特殊个体类同其所有有关断言连结起来。<br>
+      　　概念从属是将一个动作或一个事件同其所有有关断言连结起来。<br>
+      　　脚本是将一个特殊的事件序列同其所有有关断言连结起来。<br>
+      　　这种分类表示方法，不只是便于存储，更重要的是提出了槽和填槽结构。<br>
+      <br>
+      　　</span><span class="part">4.4.1 语义网络的结构</span><br>
+      　　<span class="text">语义网络是对知识的有几图表示方法。一个语义网络是由一些以有几图表示的三元组<br>
+      　　　　　（结点1，弧，结点2）<br>
+      连结而成。<br>
+      　　结点表示概念、事物、事件、情况等。<br>
+      　　弧是有方向的有标注的。方向体现主次，结点1为主，结点2为辅。弧上的标注表示结点1的属性或结点1和结点之间的关系。 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="text">
+        <tr> 
+          <td width="30">&nbsp;</td>
+          <td>这三元组的图表示为</td>
+        </tr>
+        <tr> 
+          <td width="30"><img src="../../../../images/text/tb/tushi.gif" width="25" height="16" alt="图示"></td>
+          <td align="center"><img src="../../../../images/text/chap04/sec4/4.4.1.1.gif" width="167" height="66"></td>
+        </tr>
+        <tr> 
+          <td width="30">&nbsp;</td>
+          <td><br>
+            这样一个语义网络的表示为：</td>
+        </tr>
+        <tr> 
+          <td width="30" valign="top"><img src="../../../../images/text/tb/tushi.gif" width="25" height="16" alt="图示"></td>
+          <td align="center"><img src="../../../../images/text/chap04/sec4/4.4.1.2.gif" width="285" height="191"></td>
+        </tr>
+        <tr> 
+          <td width="30">&nbsp;</td>
+          <td><br>
+            如事实雪是白色的，可表示成</td>
+        </tr>
+        <tr> 
+          <td width="30"><img src="../../../../images/text/tb/tushi.gif" width="25" height="16" alt="图示"></td>
+          <td align="center"><img src="../../../../images/text/chap04/sec4/4.4.1.3.gif" width="228" height="74"></td>
+        </tr>
+        <tr> 
+          <td width="30">&nbsp;</td>
+          <td><br>
+            而规则R含义是&quot;如果A那么B&quot;，可表成</td>
+        </tr>
+        <tr> 
+          <td width="30"><img src="../../../../images/text/tb/tushi.gif" width="25" height="16" alt="图示"></td>
+          <td align="center"><img src="../../../../images/text/chap04/sec4/4.4.1.1.gif" width="167" height="66"></td>
+        </tr>
+      </table>
+      　　这样事实与规则的语义网络表示是相同的，区别仅是弧上的标注有别。<br>
+      　　从逻辑表示法来看，一个语义网络相当于一组二元谓词。因为三元组（结点1，弧，结点2）可写成P（个体1，个体2），其中个体1、个体2对应结点1、结点2，而弧及其上标注的结点1与结点2的关系由谓词P来体现。<br>
+      　　语义网络视作一种知识的单位，人脑的记忆是由存储了大量的语义网络来体现的，而产生式表示法是以一条产生式规则作为知识的单位，而各条产生式规则没有直接的联系。<br>
+      　　结点间的isa、part-of、is 型关系<br>
+      　　（1） isa链用来表示具体抽象关系，或说表示一种隶属关系，体现某种层次分类。<br>
+      　　特点是具体层结点可继承抽象层结点的属性。<br>
+      　　如鸟类是动物，可表成</span>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="30"><img src="../../../../images/text/tb/tushi.gif" width="25" height="16" alt="图示"></td>
+          <td align="center"><img src="../../../../images/text/chap04/sec4/4.4.1.4.gif" width="202" height="71"></td>
+        </tr>
+      </table>
+      <span class="text"><br>
+      　　如动物具有吃食物、需要呼吸等属性，鸟类是一类具体的动物，从而鸟类也吃食物、需要呼吸。反过来鸟类会飞、有羽毛，而有的动物就不具有这种属性。<br>
+      　　同样，顾员是人，可表成</span> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="30"><img src="../../../../images/text/tb/tushi.gif" width="25" height="16" alt="图示"></td>
+          <td align="center"><img src="../../../../images/text/chap04/sec4/4.4.1.5.gif" width="202" height="71"></td>
+        </tr>
+      </table>
+      <span class="text"> <br>
+      　　顾员具有人的所有属性。<br>
+      　　（2）Part-of 链用来表示部分――全体关系，或说表示包含关系。<br>
+      　　特点是Part-of关系下各层结点的属性可能是很不相同的。<br>
+      　　如两只手是人体的一部分，可表成</span> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="30"><img src="../../../../images/text/tb/tushi.gif" width="25" height="16" alt="图示"></td>
+          <td align="center"><img src="../../../../images/text/chap04/sec4/4.4.1.6.gif" width="273" height="72"></td>
+        </tr>
+      </table>
+      <span class="text"><br>
+      　　其中两只手不一定具有人体的某些属性。<br>
+      　　如在教室里，正面墙上有黑板，可表示成 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td width="30"><img src="../../../../images/text/tb/tushi.gif" width="25" height="16" alt="图示"></td>
+          <td align="center"><img src="../../../../images/text/chap04/sec4/4.4.1.7.gif" width="228" height="70"></td>
+        </tr>
+      </table>
+      <br>
+      　　但黑板的属性几乎与墙的属性毫无共同之处。<br>
+      　　(3) is 链用于表示一个结点是另一结点的属性。<br>
+      　　如老张是40岁，老李很胖，可分别表示成</span> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td width="30"><img src="../../../../images/text/tb/tushi.gif" width="25" height="16" alt="图示"></td>
+          <td align="center"><img src="../../../../images/text/chap04/sec4/4.4.1.8.gif" width="221" height="139"></td>
+        </tr>
+      </table>
+      <span class="text"><br>
+      　　isa 、part-of、is 连结的是两个名词或名词短语间的关系、结点的关系是复杂的、多种多样的，这儿只列举了几个常用的关系。<br>
+      　　event 结点的表示<br>
+      　　event　结点表示一个动作或一个事件。描述event 结点，常由表示动作施主的agent结点、表示对象的object结点、表示动作位置的location结点、表示动作时间的time 
+      结点等组成。<br>
+      　　如John Punch Tom 这一事件，可表示成</span> <br>
+      　　　　<img src="../../../../images/text/chap04/sec4/4.4.1.9.gif" width="272" height="115"><span class="text"><br>
+      　　如果还知道John 是顾员，Tom 是老板，那么语义网络表示如下
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td width="30"><img src="../../../../images/text/tb/tushi.gif" width="25" height="16" alt="图示"></td>
+          <td align="center"><img src="../../../../images/text/chap04/sec4/4.4.1.10.gif" width="370" height="228"><br>
+          </td>
+        </tr>
+      </table>
+      <br>
+    </span></td>
+  </tr>
+</table>
+</body>
+</html>

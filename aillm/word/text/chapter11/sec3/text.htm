@@ -1,0 +1,84 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td><span class="text"> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第十一章 神经网络</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      </span><span class="section"><br>
+      　　5．感知机</span><br>
+      <span class="text"><br>
+      　　感知机是在1957年由Rosenbllatt提出的，它是一种由单层神经元组成的神经网络。以两类情况(A和B)的分类问题为例，设输入为n维样本<font size=2>x</font><font size=1>o</font>,<font size=2>x</font><font size=1>1</font>,…<font size=2>x</font><font size=1>n</font>，感知机如图<br>
+      <br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td width="30" valign="top"><img src="../../../images/text/tb/tushi.gif" width="25" height="16" alt="图示"></td>
+          <td align="center"><img src="../../../images/text/chap11/sec2/pic3.gif" width="352" height="132"></td>
+        </tr>
+      </table>
+      　　其中<font size=2>w</font><font size=1>o</font>,<font size=2>w</font><font size=1>1</font>,…,<font size=2>w</font><font size=1>n-1</font>为个输入到神经元的权值，y为输出信号。上述模型可描述为<br>
+      　　　　<img src="../../../images/text/chap11/sec2/gs2.gif" width="208" height="76"><br>
+      　　分类的判别准则为：<br>
+      　　　　y=1→A类<br>
+      　　　　y=-1→B类<br>
+      　　分类器相当于在n维样本空间建立一个超平面<br>
+      　　　　<img src="../../../images/text/chap11/sec2/gs3.gif" width="89" height="34"><br>
+      　　作为决策面，二维样本的情况如图所示，若输入样本落入超平面正侧，即使上述左侧为正，则判决为A类；若输入样本落入超平面负侧，即使上述左侧为负，则判决为B类。为简单起见，可定义广义输入样本X和广义权值为n+1维向量：<br>
+      　　　　<img src="../../../images/text/chap11/sec2/gs4.gif" width="121" height="101"><br>
+      　　感知机可描述为<br>
+      　　　　　　net=W<sup>T</sup>X<br>
+      　　　　　　y=f(net)=sgn(net)<br>
+      　　其中，T表示矩阵的转置。分类器的超平面方程变为线性齐次方程：<br>
+      　　　　　　W<sup>T</sup>X=0<br>
+      　　此时，决策面变成n+1维空间的一个通过原点的超平面。<br>
+      　　感知机的学习问题归结为如下问题：<br>
+      　　已知：一组有类别标志的广义样本集X={<font size=2>X</font><font size=1>1</font>,<font size=2>X</font><font size=1>2</font>,…<font size=2>X</font><font size=1>n</font>}<br>
+      　　　　　准则函数J(W)<br>
+      　　求解：使准则函数J(W)最优的极值解<br>
+      　　　　不同的准则函数和最优化酸法可得到不同的学习算法。这里我们取准则函数为<br>
+      　　　　　　<img src="../../../images/text/chap11/sec2/gs5.gif" width="182" height="33"><br>
+      　　其中，<font size=2>d</font><font size=1>k</font>和<font size=2>y</font><font size=1>k</font>分别为第k个样本对应的正确输出和实际输出。显然，上式仅针对错误划分的样本求和。错误划分有两种情况：<br>
+      　　(1) A类误判为B类，即<font size=2>d</font><font size=1>k</font>=1,<font size=2>y</font><font size=1>k</font>=-1。此时有<br>
+      　　　　　　<img src="../../../images/text/chap11/sec2/gs6.gif" width="130" height="15"><br>
+      　　　　因此<br>
+      　　　　　　<img src="../../../images/text/chap11/sec2/gs7.gif" width="121" height="16"><br>
+      　　(2) B类误判为A类，即dk=-1,yk=1。此时有<br>
+      　　　　　　<img src="../../../images/text/chap11/sec2/gs8.gif" width="127" height="18"><br>
+      　　　　因此<br>
+      　　　　　　<img src="../../../images/text/chap11/sec2/gs9.gif" width="121" height="18"><br>
+      　　在两种情况下，Jp(W)中求和号内各项均为非负，且误分越少，准则函数Jp(W)就越小，Jp(W)为0时全部正确分类。最优化酸法采用剃度下降法，样本集合和线性可分时，这个算法是收敛的。<br>
+      　　综上所述，感知机的学习算法如下：<br>
+      　　(1) 初始化<br>
+      　　　　设t=1,及广义权值向量 W1={<font size=2>w</font><font size=1>o</font>,<font size=2>w</font><font size=1>1</font>,…,<font size=2>w</font><font size=1>n-1</font>,-θ}<sup>T</sup>的各分量为小的随机数。<br>
+      　　(2) 提供新的输入和理想输出<br>
+      　　　　新的输入表示为广义向量Xt={<font size=2>x</font><font size=1>o</font>,<font size=2>x</font><font size=1>1</font>,…<font size=2>x</font><font size=1>n-1</font>,-1 }<sup>T</sup>,理想输出为d<br>
+      　　　　　　<img src="../../../images/text/chap11/sec2/gs10.gif" width="154" height="30"><br>
+      　　(3) 计算实际输出<br>
+      　　　　　　yt=sgn(Wt<sup>T</sup>Xt)<br>
+      　　(4) 调整权值<br>
+      　　　　　　Wt+1=Wt+ t(dt-yt)Xt<br>
+      　　　　　　其中ηt≤1<br>
+      　　(5) 若全部样本都已正确分类或迭代达到预定次数，则结束；否则，t→t+1，转(2)<br>
+      　　感知机只能解决线性可分的问题，对简单的异或问题也无能为力。可以证明，在输入层和输出层之间再加一层隐单元，即可解决异或问题。若假两层隐单元，即可对任意复杂的分布进行分类。需要解决的是多层网络的学习问题。<br>
+      </span></td>
+  </tr>
+</table>
+</body>
+</html>

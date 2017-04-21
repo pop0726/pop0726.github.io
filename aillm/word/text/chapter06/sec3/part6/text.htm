@@ -1,0 +1,135 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第六章　实例学习</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <span class="part"><br>
+      　　6.3.4 方案示例方法</span><br>
+      <span class="text">　　方案示例方法是另一种模型驱动方法。它常用于理解性任务，如图象理解、语音理解和自然语言理解。如果学习系统中的大量约束可以组合起来形成方案（即抽象的框架规则），学习系统就可以用这种方法。这样，规则空间的搜索可以局限于符合一定方案的子空间。下面介绍SPARC系统（Dietterich, 
+      1979 ）。<br>
+      　　1． 用SPARC系统发现Eleusis 游戏规则<br>
+      　　Eleusis是一种扑克游戏，它要求牌手发现由发牌者确定的秘密规则。秘密规则规定出牌的线性序列。牌手出的牌应按规则延伸这个序列，否则要受罚（再拿一张牌）。发牌者只是指出每人出的牌是否符合规则。最先出完手中牌的人取胜。图6.10是一次出牌过程的示意图。其中主行记录出对了的牌，侧行记录出错了的牌。下面给出秘密规则。两张黑牌是S（黑桃）和C（梅花），两种红牌是H（红心）和D（方块）。出牌次是9S，JD，5D，4C，….。首张牌是3H。第一张正确是9S，第二张和第三张是错牌JD和5D。</span><br>
+      <br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="30" valign="top"><img src="../../../../images/text/tb/tushi.gif" width="25" height="16" alt="图示"></td>
+          <td><span class="text">　　　　主行：　3H　9S　4C　9D　2C　10D　8H　7H　2C　5H┅<br>
+            　　　　侧行：　　　JD　 　　AH　AS　　　　　　10H<br>
+            　　　　　　　　　　5D　　　 8H　10S<br>
+            　　　　　　　　　　　　　　 QD<br>
+            　　　　规则：若上一张牌是奇数，则出黑牌；<br>
+            　　　　　　　若上一张牌是偶数，则出红牌；<br>
+            <br>
+            　　　　　　　　</span><span class="explaination">　图6.10　一次出牌过程 </span></td>
+        </tr>
+      </table>
+      <span class="text"><br>
+      　　2． Eleusis中的方案<br>
+      　　Eleusis游戏中有三类规则，对每一类规则规定参数化的方案。三类规则的方案如下。<br>
+      　　（1） 周期性规则<br>
+      　　这类规则描述有重复性质的序列，这类规则的方案可以用N元组的合取描述为<br>
+      　　　　(<font size="2">C</font><font size="1">1</font> ,<font size="2">C</font><font size="1">2</font>,…,<font size="2">C</font><font size="1">N</font>)<br>
+      　　其中参数N是重复周期。例如，规则&quot;轮流出红牌和黑牌&quot;就是周期性规则。这条规则可以表示为<br>
+      　　　　(RED(rardi),BLACK(cardi))<br>
+      　　更复杂的周期性规则可能涉及以前的周期。例如规则&quot;交替增大和减小的序列&quot;。这可以表示为<br>
+      　　　　(RANK(cardi) ≥ RANK ( cardi-1),<br>
+      　　　　RANK(card i)≤RANK (card i-1))<br>
+      　　这相当于<br>
+      　　　　card2≥ card1, card3≤ card2,<br>
+      　　　　card4≥ card3, card5≤ card4,<br>
+      　　　　…<br>
+      　　（2） 分解规则<br>
+      　　它使用if-then 形式的规则描述序列。例如，规则&quot;如果上一张是奇数就出黑牌，如果上一张是偶数就出红牌&quot;就是分解规则。它可以表示为两条规则<br>
+      　　　　ODD(cardi-1)<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">BLACK(cardi)<br>
+      　　和<br>
+      　　　　EVEN(cardi-1)<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">RED(cardi) 
+      <br>
+      　　要求各规则的if和then 部分只有单个合取，而且各if 部分互不相容，共同覆盖所有可能情况。<br>
+      　　（3） 析取规则<br>
+      　　它表示为单个合取的析取（析取范式DNF）。例如，规则&quot;出的牌与上一张同样点数或同样花�&quot;就是析取规则。它可以表示为<br>
+      　　　　RANK(cardi)=RANK(cardi-1)<br>
+      　　　　∨SUIT(cardi)=SUIT(cardi-1)<br>
+      　　上述每种方案都有控制其用法的参数。周期性方案的参数是N。它还有一个参数L，称为回顾参数。这指出要考虑过去的L张牌。<br>
+      　　3． 利用方案搜索规则空间<br>
+      　　上述三类方案各有自己的规则空间。SPARC算法的过程是：<br>
+      　　第一步：对方案参数化。选择方案，并选择参数值。<br>
+      　　第二步：解释示教例子。把示教例子（牌的一个序列）转换为符合选定方案的具体的规则。<br>
+      　　第三步：对方案示例。使用特定方案的算法，对符合该方案的示教例子进行一般化。<br>
+      　　第四步：评价被示例的方案。确定各方案符合例子的情况，去掉那些符合例子情况不好的规则。<br>
+      　　SPARC在所有方案的所有参数的空间中进行深度优先搜索，直到达到对参数幅度的限制为止。<br>
+      　　例如，处理图6.10所示的序列时，第一步选择L＝1的分解规则方案。第二步把示教例子转换成在规则空间中的具体规则，前五张牌产生下列四个示教例子。每张牌的特征向量表示是<br>
+      　　　　（RANK，SUIT，COLOR，PARITY）<br>
+      　　（SPARC使用24个特征来描述示教例子，这里只用了4个）</span>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="text">
+        <tr>
+          <td width="30"><img src="../../../../images/text/tb/liti.gif" width="26" height="25" alt="例题"></td>
+          <td><b>例1:</b></td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td>　正例 (3,hearts, red ,odd)<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">(9,spades, 
+            black, odd)</td>
+        </tr>
+        <tr>
+          <td><img src="../../../../images/text/tb/liti.gif" width="26" height="25" alt="例题"></td>
+          <td><b>例2:</b></td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td>　反例 (9,spades, black, odd)<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">(J,diamonds, 
+            red,oodd)</td>
+        </tr>
+        <tr>
+          <td><img src="../../../../images/text/tb/liti.gif" width="26" height="25" alt="例题"></td>
+          <td><b>例3:</b></td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td>　反例 (9,spades, black, odd)<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">(5,diamonds, 
+            red, odd)</td>
+        </tr>
+        <tr>
+          <td><img src="../../../../images/text/tb/liti.gif" width="26" height="25" alt="例题"></td>
+          <td><b>例4:</b></td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td>　正例 (9,spades, black, odd)<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">(4,clubs, 
+            black,eren)</td>
+        </tr>
+      </table>
+      <span class="text"><br>
+      　　第三步产生下列被示例的方案（其中用*表示无关的特征）。<br>
+      　　　　(*,*,*,odd)<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">(*,*,black, 
+      *)<br>
+      　　和　(*,*,*,even)<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">(*,*,red 
+      , *)<br>
+      　　第四步判定这两条规则完全符合示教例子，而且句法是简单的。于是就认为这是秘密规则。<br>
+      　　在第三步中，由于适当的方案提供了很多约束，所以限制了规则空间的大小。<br>
+      　　4． SPARC 的优缺点<br>
+      　　方案示例方法的优点是可以很快找到要求的规则。其次是抗干扰性好，可以用统计测量指导对规则空间的搜索。 <br>
+      　　它的缺点首先是难以划分出几种方案。在SPARC中的三种方案虽然覆盖了大多数规则，但也有些规则难以覆盖。其次是对每种方案要研究专用的算法，这使它难以应用于新领域。最后是每种方案使用不同解释方法。<br>
+      </span></td>
+  </tr>
+</table>
+</body>
+</html>

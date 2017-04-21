@@ -1,0 +1,69 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td class="text">
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第三章 不确定和非单调推理方法</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <br>
+      　　<span class="part">3.2.7 关联式方法</span><span class="text"><br>
+      　　</span>Bundy 1984年提出了以某一个集合来度量不确定性的观点。而将这个集合称作关联式或发生率（Incidence）。由于不确定性的数值处理方法直接或间接的会与概率发生关系，常遇到命题间的独立性要求而影响了推理计算。原因是独立性数值描述常是不合适的，而使用关联式来描述可避免独立性的要求。<br>
+      　　例如　已知　P(A)＝0.75<br>
+      　　　　　　　　P(～A)=0.25<br>
+      　　(其中P(A)表命题A发生的概率)。<br>
+      　　于是　P(A∩～A)=P(A)・P(～A)＝0.1875<br>
+      　　　　　P(A∪～A)=P(A)+P(～A)-P(A∩～A)=0.8125<br>
+      　　但依概率公理　P(A∩～A)=0,P(A∪～A)=1<br>
+      　　所出现的这种矛盾，可通过引入对命题间的相互关联性来加以处理，但需要给出所有命题各种可能组合的相互关联性。因为无法由基本命题的相互关联性计算出复杂命题的相关性来。而关联式方法较好地解决了这种矛盾。
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="text">
+        <tr>
+          <td width="30"><span class="text"><img src="../../../../images/text/tb/liti.gif" width="26" height="25" alt="例题"></span></td>
+          <td><b>例:</b></td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td>　做一个试验，掷一个骰子和一硬币，来考虑所有可能的出现的状态。<br>
+            　W＝{(1，正)，(1，反)，…，(6，正)，(6，反)}<br>
+            　设命题A由集合W的一个子集来给出，如A表示&quot;出2点&quot;的命题，便有<br>
+            　i(A)={(2,正)，(2，反)}<br>
+            　这个集合就称为命题A的关联式，i(A)是由W中使A为真的那写元素构成的集合。<br>
+            　一般地说，设W为论域，A，B，…为其子集，关联式满足<br>
+            　(1) i(T)=W<br>
+            　(2) i(F)=φ<br>
+            　(3) i(～A)=W-i(A)<br>
+            　(4) i(A∧B)=i(A)∩i(B)<br>
+            　(5) i(A∨B)=i(A)∪i(B)<br>
+            　其中(4)式的成立不要求A，B有独立性的条件，这正是关联式这种表示方法的优越性。两个命题间的相互关联性可由他们的关联式的交集来表示。<br>
+            　如果需要数字度量，仍可从概率观点对i(A)加以度量。若U＝i(A)是一关联式，P(U)表示U在W中出现的概率，那么当V是一组关联式的集合时，有<br>
+            　　　<img src="../../../../images/text/chap03/sec2/gs37.gif" width="91" height="24"><br>
+            　关联式的推理计算<br>
+            　若命题A的关联式为i(A),又有推理规则A→B，问命题B的关联式如何？<br>
+            　这时只能给出i(B)的下界，也即<br>
+            　　　i(A)<img src="../../../../images/text/chap02/sec03/fh2.gif" width="11" height="10">i(B)<br>
+            　而当有规则　<img src="../../../../images/text/chap02/sec01/a1.gif" width="15" height="11" align="absmiddle">→B，<img src="../../../../images/text/chap02/sec01/a2.gif" width="16" height="11" align="absmiddle">→B，<img src="../../../../images/text/chap02/sec01/a3.gif" width="15" height="13" align="absmiddle">→B出现时，也有<br>
+            　　　i(<img src="../../../../images/text/chap02/sec01/a1.gif" width="15" height="11" align="absmiddle">)∪i(<img src="../../../../images/text/chap02/sec01/a2.gif" width="16" height="11" align="absmiddle">)∪i(<img src="../../../../images/text/chap02/sec01/a3.gif" width="15" height="13" align="absmiddle">)<img src="../../../../images/text/chap02/sec03/fh2.gif" width="11" height="10">i(B)</td>
+        </tr>
+      </table>
+      <br>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td class="text">
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../../images/pic/bg0401.gif" height="18" align="right" class="chap">
+              <tr> 
+                <td> 
+                  <div align="center">第二章 归结推理方法</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <br>
+      　　<span class="part">2.7.2 Mating 法</span><br>
+      　　Mating 推理方法是Andrews 提出的，与归结法有相同又有不同之处。<br>
+      　　归结方法的主要问题之一是需将有关公式依分配律化成子句形。如<br>
+      　　　　P∨(Q∧R)=(P∧Q)(P∧R)<br>
+      　　然而这带来了新的问题，文字P在公式左端仅出现一次而在右端的子句形中都出现了两次，自然对归结推理过程是不利的。<br>
+      　　像Church类型定理：f是一个函数，A和B是f的定义域的子集，那么A和B并集A∪B在f 下的映象必等于A，B在f下映象的并集。这定理的形式描述只出现20个文字，但其子句形则有104个文字出现了。而且子句化后原定理的基本逻辑结构也消失了。<br>
+      　　自然演绎法虽有不少优点，但和归结法一样也要将原公式&quot;打碎&quot;，这样将注意力集中于各个子公式上面看不到整体结构。<br>
+      　　Mating 方法不化成子句形又有整体观念。<br>
+      　　我们结合一例子来说明这种方法的推理步聚。<br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="text">
+        <tr> 
+          <td width="30"><span class="text"><img src="../../../../images/text/tb/liti.gif" width="26" height="25" alt="例题"></span></td>
+          <td><b>例:</b></td>
+        </tr>
+        <tr> 
+          <td>&nbsp;</td>
+          <td>　证明　(<img src="../../../../images/text/chap02/sec02/fh2.gif" width="8" height="9">x)(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">y)(P(x)←→P(y))→((<img src="../../../../images/text/chap02/sec02/fh2.gif" width="8" height="9">x)P(x)←→(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">y)P(y))<br>
+            　证明步骤：<br>
+            　(1) 将要证的定理取否定，消去→、←→（这同归归结法）。<br>
+            　　(<img src="../../../../images/text/chap02/sec02/fh2.gif" width="8" height="9">x)(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">y)[(～P(x) 
+            ∨ P(y)) ∧(～P(y) ∨P(x))]<br>
+            　　∧ [(<img src="../../../../images/text/chap02/sec02/fh2.gif" width="8" height="9">x)P(x) 
+            ∧(<img src="../../../../images/text/chap02/sec02/fh2.gif" width="8" height="9">y)～P(y)] 
+            ∨[(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">y)P(y) 
+            ∧ (<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)～P(x)]<br>
+            　(2) SKOLEM　化消去存在量词<br>
+            　　(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">y)[(～P(c) 
+            ∨ P(y)) ∧(～P(y) ∨P(c))]<br>
+            　　∧ [P(d)∧～P(e)] ∨[(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">z)P(z) 
+            ∧(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)～P(x) 
+            ]<br>
+            　　（不同于归结法的是没有前束化和再作合取范式而得子句形）。<br>
+            　(3) 列写二维表<br>
+            　　　　<img src="../../../../images/text/chap02/sec07/gs1.gif" width="167" height="89"><br>
+            　表中水平方向公式间是析取关系，垂直方向公式间是合取关系。这种表给出了公式的总体结构，观察起来也是方便的。<br>
+            　(4) 变量二倍化例化<br>
+            　　　　<img src="../../../../images/text/chap02/sec07/gs2.gif" width="151" height="121"><br>
+            　这一步包括二倍化（按需要可进行多次）<br>
+            　(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">y)((～P(c) 
+            ∨P(y)) ∧(～P(y) ∨P(c)))<br>
+            　=(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">y)((～P(c) 
+            ∨ P(y)) ∧(～P(y) ∨ P(c)))<br>
+            　∧(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">y)((～P(c) 
+            ∨P(y)) ∧(～P(y) ∨P(c)))<br>
+            　变量易名使无共同变量<br>
+            　(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">y)((～P(c) 
+            ∨P(y)) ∧(～P(y) ∨P(c)))<br>
+            　∧(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">w)((～P(c) 
+            ∨ P(w)) ∧(～P(w) ∨ P(c)))<br>
+            　∧(P(d)∧～P(e))∨((<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">z)P(z)∧(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)～P(x))<br>
+            　再消去全称量词，在置换θ＝{d/x,d/y,c/z,e/w}下便得上面的例化后的二维表。<br>
+            　(5) 判断例化后二维表的矛盾。<br>
+            　可以一个更简单的例子来说明，二维表<br>
+            　　　　<img src="../../../../images/text/chap02/sec07/gs3.gif" width="64" height="67"><br>
+            　相当于公式<br>
+            　<img src="../../../../images/text/chap02/sec07/gs4.gif" width="272" height="80"><br>
+            　要说明这公式为假，必须所有的合取项均为假，也即每个（・∧・∧・）项中都含有互补对。这直接由二维表观察过P1的四条路径，P<font size="1">1</font>，Q<font size="1">1</font>，R<font size="1">1</font> 
+            ；P<font size="1">1</font>，Q<font size="1">1</font>，R<font size="1">2</font>；P<font size="1">1</font>，Q<font size="1">2</font>，R<font size="1">1</font>；P<font size="1">1</font>，Q<font size="1">2</font>，R<font size="1">2</font>；来检验是否有互补对，对过P<font size="1">2</font>的四条路径也同样要求。这样寻求矛盾的方法就避免了化成子句所带来的不方便。如果二倍化例化尚找不到矛盾，需做新的多倍化例化。只要定理成立总能用这种方法找出矛盾的。</td>
+        </tr>
+      </table>
+      <br>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

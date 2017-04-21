@@ -1,0 +1,130 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../../images/pic/bg0401.gif" height="18" align="right" class="chap">
+              <tr> 
+                <td> 
+                  <div align="center">第二章 归结推理方法</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <span class="text"><span class="text"><span class="section"><br>
+      </span>　　</span></span><span class="section">2.3 Herbrand 定理</span><span class="text"><span class="text"> 
+      <br>
+      <br>
+      　　对一个所谓词公式来说，不可满足性的证明是困难的。这是由于个体变量论域D的任意性，以及解释的个数的无限性。如果对一个具体的谓词公式能找到一个比较简单的特殊的论域，使得只要在这个论域上该公式是不可满足的，便能保证该公式在任一论域上也是不可满足的，这将是十分有益的。所要建立的 
+      Herbrand 域(简称H域)就具有这样的性质。<br>
+      <span class="text"><br>
+      　　</span></span></span><span class="part">2.3.1 H域</span><span class="text"><span class="text"><span class="text"><br>
+      　　设G是已给的公式，定义在论域D上，令<span class="text"><span class="text">H<sub><font size="1">0</font></sub></span></span>是G中所出现的常量的集合。若G中没有常量出现，就任取常量a∈D，而规定H<sub><font size="1">0</font></sub>={a}。<br>
+      　　H<font size="1">i</font>= H<font size="1">i-1</font>∪{所有形如f(t<font size="1">1</font>,…,t<font size="1">n</font>)的元素}<br>
+      　　其中f(<span class="text"><span class="text">t<font size="1">1</font>,…,t<font size="1">n</font>)</span></span>是出现于G中的任一函数符号，而<span class="text"><span class="text">t<font size="1">1</font>,…,t<font size="1">n</font></span></span> 
+      是H<font size="1">i-1</font>的元素，i=1,2,…。<br>
+      　　规定H<sub>∞</sub>为G的H域(或说是相应的子句集S的H域)。<br>
+      　　不难看出，H域是直接依赖于G的最多只有可数个元素。</span></span></span>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="text">
+        <tr> 
+          <td width="30"><img src="../../../../images/text/tb/liti.gif" width="26" height="25" alt="例题"></td>
+          <td><b>例1:</b></td>
+        </tr>
+        <tr> 
+          <td>&nbsp;</td>
+          <td> 　S={P(a),～P(x)∨P(f(x))}<br>
+            　依定义有<br>
+            　<span class="text"><span class="text"><span class="text"><span class="text"><span class="text">H<sub><font size="1">0</font></sub></span></span></span></span></span>={a}<br>
+            　H<font size="1">1</font>={a}∪{f(a)}={a,f(a)}<br>
+            　H<font size="1">2</font>={a,f(a)}∪{f(a),f(f(a))}={a,f(a),f(f(a))}<br>
+            　…<br>
+            　<span class="text"><span class="text"><span class="text">H<sub>∞</sub></span></span></span>={a,f(a),f(f(a)),…}</td>
+        </tr>
+        <tr> 
+          <td><img src="../../../../images/text/tb/liti.gif" width="26" height="25" alt="例题"></td>
+          <td><b>例2:</b></td>
+        </tr>
+        <tr> 
+          <td>&nbsp;</td>
+          <td>　S={～P(z),P(x)∨～Q(y)}<br>
+            　依定义有<br>
+            　<span class="text"><span class="text"><span class="text"><span class="text"><span class="text">H<sub><font size="1">0</font></sub></span></span></span></span></span>={a} 
+            　a是论域D中一常量。<br>
+            　H<font size="1">1</font>= <span class="text"><span class="text"><span class="text"><span class="text"><span class="text">H<sub><font size="1">0</font></sub></span></span></span></span></span><br>
+            　H<font size="1">2</font>= H<font size="1">1</font><br>
+            　…<br>
+            　<span class="text"><span class="text"><span class="text">H<sub>∞</sub></span></span></span>={a}</td>
+        </tr>
+        <tr> 
+          <td><img src="../../../../images/text/tb/liti.gif" width="26" height="25" alt="例题"></td>
+          <td><b>例3:</b></td>
+        </tr>
+        <tr> 
+          <td>&nbsp;</td>
+          <td>　S={P(f(x),a,g(y),b)}<br>
+            　依定义有<br>
+            　<span class="text"><span class="text"><span class="text"><span class="text"><span class="text">H<sub><font size="1">0</font></sub></span></span></span></span></span>={a,b}<br>
+            　H<font size="1">1</font>={a,b,f(a),g(a),f(b),g(b)}<br>
+            　H<font size="1">2</font>=(a,b,f(a),g(a),f(b),g(b),f(f(a)), f(g(a)),f(f(b)),f(g(b)),g(f(a)),g(g(a)),g(f(b)),g(g(b))}<br>
+            　…<br>
+            　<span class="text"><span class="text"><span class="text">H<sub>∞</sub></span></span></span>=<span class="text"><span class="text"><span class="text"><span class="text"><span class="text">H<sub><font size="1">0</font></sub></span></span></span></span></span>∪H<font size="1">1</font>∪H<font size="1">2</font> 
+            …</td>
+        </tr>
+      </table>
+      <span class="text"><span class="text"><span class="text">　　如果在S中出现函数形如f(x,a)仍视为f(<img src="../../../../images/text/chap02/sec02/x1.gif" width="12" height="8">,<img src="../../../../images/text/chap02/sec02/x2.gif" width="12" height="8">)的形式，这时若<span class="text"><span class="text"><span class="text"><span class="text">H<sub><font size="1">0</font></sub></span></span></span></span>={a,b},则H1中除有f(a,a),f(b,a)外，还出现f(a,b),f(b,b)。<br>
+      　　为了研究子句集S的不可满足性，除引入个体域H外，还需讨论H域上S中各谓词的真值。令集合<br>
+      　　　　A={所有形如P(t<font size="1">1</font>,…,t<font size="1">n</font>)的元素}<br>
+      　　称作子句集S(或公式G)的原子集。<br>
+      　　其中P(<span class="text"><span class="text"><img src="../../../../images/text/chap02/sec02/x1.gif" width="12" height="8"></span></span>,…,<img src="../../../../images/text/chap02/sec02/xn.gif" width="12" height="7">)是出现于S中的任一谓词符号，而t<font size="1">1</font>,…,t<font size="1">n</font>是 
+      S的H域的任意元素。<br>
+      　　就上述例1、例2、例3来说，相应的S的原子集分别是<br>
+      　　A={P(a),P(f(a)),P(f(f(a))),…}<br>
+      　　A={P(a),Q(a)}<br>
+      　　和 A={P(a,a,a,a),P(a,a,a,b)…P(f(a),a,a,a)…}</span></span></span>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="text">
+        <tr>
+          <td width="30"><img src="../../../../images/text/tb/liti.gif" width="26" height="25" alt="例题"></td>
+          <td><b>例4:</b></td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td>　S={P(x)∨Q(x),R(f(y))}<br>
+            　依定义有<br>
+            　H={a,f(a),f(f(a)),…}<br>
+            　A={P(a),Q(a),R(a),P(f(a)),Q(f(a)),R(f(a)),P(f(f(a))),<br>
+            　Q(f(f(a))),R(f(a))),…}<br>
+            　由于S中谓词个数是有限的，而H是可数集，必然有A也是可数集。</td>
+        </tr>
+      </table>
+      <span class="text"><span class="text"><span class="text">　　论域D上公式G或S的H 域的建立，仅依赖于S中出现的几个函数符号，以及S中出现的D的几个常量符号，或D中的一个常量符号，这是可数的H域较一般论域D来得简单的原因。<br>
+      　　下面介绍几个术语。对原子、文字、子句和子句集均已定义，进而将没有变量出现的原子、文字、子句和子句集，分别称作基原子、基文字、基子句和基子句集。它们在讨论子句集S的不可满足性时占有重要位置。<br>
+      　　特别当将S中的某子句C中所有变量符号均以S的H域的元素代入时，所得的基子句C′称作C的一个基例。</span></span></span>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="text">
+        <tr>
+          <td width="30"><img src="../../../../images/text/tb/liti.gif" width="26" height="25" alt="例题"></td>
+          <td><b>例:</b></td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td> 　S={P(x),Q(f(y))∨R(y)}<br>
+            　有H={a,f(a),f(f(a)),…}<br>
+            　对任一b∈D子句P(b),Q(f(b))∨R(b)都叫基子句。<br>
+            　而P(a),P(f(a))都称作子句C=P(x)的基例。同样Q(f(a))∨R(a),Q(f(f(a)))∨R(f(a))都是子句Q(f(y))∨R(y)的基例。</td>
+        </tr>
+      </table>
+      <span class="text"><span class="text"></span></span></td>
+  </tr>
+</table>
+</body>
+</html>

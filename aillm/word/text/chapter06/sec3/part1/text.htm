@@ -1,0 +1,67 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td><span class="text"> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第六章　实例学习</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <br>
+      　　</span><span class="section">6.3 学习单个概念</span><span class="text"><br>
+      <br>
+      　　什么是概念呢？在采用谓词逻辑的知识表示时，一个概念就是一个谓词公式。它对正例取值为TRUE，对反例取值为FALSE。因此，概念就是把例子空间划分成正例子集和反例子集的谓词公式。例如上面介绍的&quot;同花&quot;和&quot;对牌&quot;等概念。<br>
+      　　学习单个概念问题就是提供给系统一个概念的若干正例和反例，系统由此归纳出表示这个概念的谓词公式。学习单个概念问题可以描述为：<br>
+      　　给定：（1）概念表示语言。它隐含地定义了规则空间，也就是用该语言可以表示规则空间中所有规则。<br>
+      　　（2）示教正例和反例的集合。大部分研究认为例子没有干扰。<br>
+      寻找：规则空间中的一条规则，它覆盖所有正例，但不覆盖任何反例。<br>
+      　　实际的学习系统总要学习多个概念，学习单个概念的实用价值不大。但是因为学习单个概念最简单，所以这一节以它为背景介绍四种搜索规则空间方法。介绍的方法很容易推广到更复杂的学习问题中去。<br>
+      <br>
+      　　</span><span class="part">6.3.1 变型空间方法</span><span class="text">　<br>
+      　　变型空间方法以整个规则空间为初始的假设规则集合H。依据示教例子中的信息，它对集合H进行一般化或特殊化处理，逐步缩小集合H。最后使H收敛为只含有要求的规则。由于被搜索的空间H逐步缩小，故称为变型空间。<br>
+      　　Mitchell(1977)指出，规则空间中的点之间可以按其一般性程度建立偏序关系。在图6.2中表示了一个规则空间中偏序关系的一部分。其中TRUE表示没有任何条件，这是最一般的概念。概念<img src="../../../../images/text/chap02/sec02/fh2.gif" width="8" height="9">x：CLUBS 
+      (x)表示至少有一张梅花牌，它比前者更特殊。概念<img src="../../../../images/text/chap02/sec02/fh2.gif" width="8" height="9">x,y：CLUBS(x)∧HEARTS（y）表示至少有一张梅花牌且至少有一张红心牌，它比前两个概念都特殊。图中的箭头是从较特殊的概念指向较一般的概念。</span>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="30" valign="top"><img src="../../../../images/text/tb/tushi.gif" width="25" height="16" alt="图示"></td>
+          <td class="explaination" align="center"><img src="../../../../images/text/chap06/sec3/tu6.2.gif" width="327" height="141"><br>
+            <br>
+            图6.2 一个规则空间的偏序关系 </td>
+        </tr>
+      </table>
+      <span class="text"><br>
+      　　一般规则空间排序后的示意是图6.3。图中最上面的一个点是最一般的规则（概念），是没有描述的点，即没有条件的点。所有例子都符合这一概念。图中最下面一行的各点是示教正例直接对应的概念。每个点的概念中只符合一个正例。例如，每个例子都是一张牌C的花色和点数，一个例子是<br>
+      　　　　SUIT(C，clubs)∧RANK(C,7)<br>
+      这是一个示教正例，又是一个最特殊的概念。概念RANK(C，7)是在规则空间中部的点。它比没有描述更特殊，但比示教正例更一般。</span> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="30" valign="top"><img src="../../../../images/text/tb/tushi.gif" width="25" height="16" alt="图示"></td>
+          <td align="center" class="explaination"><img src="../../../../images/text/chap06/sec3/tu6.3.gif" width="212" height="250"><br>
+            <br>
+            图6.3　一般规则空间排序示意图 </td>
+        </tr>
+      </table>
+      <span class="text"><br>
+      　　在搜索规则空间时，使用一个可能合理的假设规则的集合H。H是规则空间的子集，它是规则空间中间一段。H中最特殊的元素组成的子集称为S集合。在规则空间中，H是上界G和下界S之间的一段。因此可以用G和S表示集合H。<br>
+      　　变型空间方法的初始G集是最上面的一个点（最一般的概念），初始S集是最下面的直线上的点（示教正例），初始H集是整个规则空间。在搜索过程中，G集逐步下移(进行特殊化)，S集逐步上移(进行一般化)，H 
+      逐步缩小。最后H收敛为只含一个要求的概念。下面分别介绍几种算法。<br>
+      </span></td>
+  </tr>
+</table>
+</body>
+</html>

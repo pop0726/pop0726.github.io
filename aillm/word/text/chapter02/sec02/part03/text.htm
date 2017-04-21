@@ -1,0 +1,132 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../../images/pic/bg0401.gif" height="18" align="right" class="chap">
+              <tr> 
+                <td> 
+                  <div align="center">第二章 归结推理方法</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <span class="text"><span class="text"><span class="section"><br>
+      </span>　　</span></span><span class="part">2.2.3 G是不可满足的当且仅当S是不可满足的</span><span class="text"><span class="text"><br>
+      　　公式G与其子句集S并不等值，但它们在不可满足的意义下是一致的。从而要证明<img src="../../../../images/text/chap02/sec01/a1.gif" width="15" height="11" align="absmiddle">∧<span class="text"><img src="../../../../images/text/chap02/sec01/a2.gif" width="16" height="11" align="absmiddle"></span>∧<span class="text"><img src="../../../../images/text/chap02/sec01/a3.gif" width="15" height="13" align="absmiddle"></span>→B只需证明G＝<span class="text"><img src="../../../../images/text/chap02/sec01/a1.gif" width="15" height="11" align="absmiddle">∧<span class="text"><img src="../../../../images/text/chap02/sec01/a2.gif" width="16" height="11" align="absmiddle"></span>∧<span class="text"><img src="../../../../images/text/chap02/sec01/a3.gif" width="15" height="13" align="absmiddle"><span class="text"><span class="text">∧</span></span></span></span>～B的子句集S是不可满足的，这正是引入子句集的目的。我们将这个要结果叙述成定理。</span></span><br>
+      <br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td width="30"><img src="../../../../images/text/tb/dingyi.gif" width="26" height="17" alt="定理"></td>
+          <td><b class="text">定理</b></td>
+        </tr>
+        <tr> 
+          <td>&nbsp;</td>
+          <td class="explaination">若G是给定的公式，而相应的子句集为S，则G是不可满足的当且仅当S是不可满足的。</td>
+        </tr>
+        <tr> 
+          <td>&nbsp;</td>
+          <td><span class="text"><span class="text">　　先作点讨论再作证明。给了公式G，可令<br>
+            　　G＝(<img src="../../../../images/text/chap02/sec02/q1.gif" width="11" height="10" align="absmiddle"><img src="../../../../images/text/chap02/sec02/x1.gif" width="12" height="8">)…(<img src="../../../../images/text/chap02/sec02/qr.gif" width="11" height="10" align="absmiddle"><img src="../../../../images/text/chap02/sec02/xr.gif" width="11" height="7">)…(<img src="../../../../images/text/chap02/sec02/qn.gif" width="12" height="10" align="absmiddle"><img src="../../../../images/text/chap02/sec02/xn.gif" width="12" height="7">) 
+            M(<img src="../../../../images/text/chap02/sec02/x1.gif" width="12" height="8">,<span class="text"><span class="text">…</span></span>,<img src="../../../../images/text/chap02/sec02/xn.gif" width="12" height="7">)<br>
+            　　这里G已为前束形，M(<span class="text"><img src="../../../../images/text/chap02/sec02/x1.gif" width="12" height="8">,<span class="text"><span class="text">…</span></span>,<img src="../../../../images/text/chap02/sec02/xn.gif" width="12" height="7"></span>)已为合取范式形式。因为将G化成前束形，M<span class="text">(<span class="text"><img src="../../../../images/text/chap02/sec02/x1.gif" width="12" height="8">,<span class="text"><span class="text">…</span></span>,<img src="../../../../images/text/chap02/sec02/xn.gif" width="12" height="7"></span>)</span>化成合取范式形式是容易实现的等值演算。<br>
+            　　又设(<span class="text"><img src="../../../../images/text/chap02/sec02/qr.gif" width="11" height="10" align="absmiddle"><img src="../../../../images/text/chap02/sec02/xr.gif" width="11" height="7"></span>)是第一个出现的存在量词，为化成 
+            SKOLEM 形需先消去这个(<span class="text"><img src="../../../../images/text/chap02/sec02/xr.gif" width="11" height="7"></span>)，并引入SKOLEM函数得　<br>
+            　　　　G<font size="1">1</font>＝(<span class="text"><img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle"><img src="../../../../images/text/chap02/sec02/x1.gif" width="12" height="8"></span>)…(<span class="text"><img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle"></span><img src="../../../../images/text/chap02/sec02/xr_1.gif" width="17" height="7">)(<img src="../../../../images/text/chap02/sec02/qr1.gif" width="20" height="11" align="absmiddle"><img src="../../../../images/text/chap02/sec02/xr1.gif" width="18" height="8">)…(<span class="text"><img src="../../../../images/text/chap02/sec02/qn.gif" width="12" height="10" align="absmiddle"><img src="../../../../images/text/chap02/sec02/xn.gif" width="12" height="7"></span>)<span class="text">M（<img src="../../../../images/text/chap02/sec02/x1.gif" width="12" height="8">,…,<img src="../../../../images/text/chap02/sec02/xr_1.gif" width="17" height="7">,f(<span class="text"><span class="text"><img src="../../../../images/text/chap02/sec02/x1.gif" width="12" height="8"></span></span>,…,<span class="text"><span class="text"><img src="../../../../images/text/chap02/sec02/xr_1.gif" width="17" height="7"></span></span>),<span class="text"><span class="text"><img src="../../../../images/text/chap02/sec02/xr.gif" width="11" height="7"></span></span>,…,<span class="text"><span class="text"><img src="../../../../images/text/chap02/sec02/xn.gif" width="12" height="7"></span></span>）</span><br>
+            　　而　G＝(<span class="text"><span class="text"><img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle"></span></span><span class="text"><img src="../../../../images/text/chap02/sec02/x1.gif" width="12" height="8"></span>)…<span class="text">(<span class="text"><img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle"></span><span class="text"><img src="../../../../images/text/chap02/sec02/xr_1.gif" width="17" height="7"></span>)</span>(<span class="text"><span class="text"><img src="../../../../images/text/chap02/sec02/fh2.gif" width="8" height="9" align="absmiddle"></span></span>xr)(<span class="text"><img src="../../../../images/text/chap02/sec02/qr1.gif" width="20" height="11" align="absmiddle"><img src="../../../../images/text/chap02/sec02/xr1.gif" width="18" height="8"></span>)…(<span class="text"><img src="../../../../images/text/chap02/sec02/qn.gif" width="12" height="10" align="absmiddle"><img src="../../../../images/text/chap02/sec02/xn.gif" width="12" height="7"></span>)<span class="text">M(<span class="text"><span class="text"><img src="../../../../images/text/chap02/sec02/x1.gif" width="12" height="8"></span></span>,…,<span class="text"><span class="text"><span class="text"><span class="text"><img src="../../../../images/text/chap02/sec02/xr.gif" width="11" height="7"></span></span></span></span>,…,<span class="text"><span class="text"><span class="text"><span class="text"><img src="../../../../images/text/chap02/sec02/xn.gif" width="12" height="7"></span></span></span></span>)</span><br>
+            　　只须证明G不可满足<img src="../../../../images/text/chap02/sec02/deng.gif" width="16" height="10" align="absmiddle">G<font size="1">1</font>不可满足便可得定理。<br>
+            　　因为同理可将G<font size="1">1</font>中的第一个出现的存在量词消去并引入 SKOLEM 函数得公式G<font size="1">2</font>，依G不可满足<span class="text"><img src="../../../../images/text/chap02/sec02/deng.gif" width="16" height="10" align="absmiddle"></span>G<font size="1">1</font>不可满足的证明方法便有　　<br>
+            　　　G<font size="1">1</font>不可满足<span class="text"><img src="../../../../images/text/chap02/sec02/deng.gif" width="16" height="10" align="absmiddle"></span>G<font size="1">2</font>不可满足<br>
+            　　重复这个过程直到 G<font size="1">m</font> 为 G 的 SKOLEM 标准形为止（G<font size="1">m</font>中不再有存在量词），而有<br>
+            　　　G<font size="1">m-1</font>不可满足<span class="text"><img src="../../../../images/text/chap02/sec02/deng.gif" width="16" height="10" align="absmiddle"></span> 
+            G<font size="1">m</font> 不可满足<br>
+            　　回顾S只不过是 <span class="text">G<font size="1">m</font></span> 的种集合的表示形式，自然有　<br>
+            　　　G<font size="1">m</font> 不可满足<span class="text"><img src="../../../../images/text/chap02/sec02/deng.gif" width="16" height="10" align="absmiddle"></span>S不可满足　<br>
+            　　现在证明　G不可满足<span class="text"><img src="../../../../images/text/chap02/sec02/deng.gif" width="16" height="10" align="absmiddle"></span>G<font size="1">1</font>不可满足<br>
+            　　先证明<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10" align="absmiddle"><br>
+            　　知 G 是不可满足的，而假设 G<font size="1">1 </font>是可满足。于是便有某个解释I<font size="1">G1</font>使G<font size="1">1</font>|<font size="1">IG1</font>＝T。即对任意的<span class="text"><span class="text"><img src="../../../../images/text/chap02/sec02/x1.gif" width="12" height="8">,…,<img src="../../../../images/text/chap02/sec02/xr_1.gif" width="17" height="7"></span></span>在I<font size="1">G1</font>的设定下有(<span class="text"><img src="../../../../images/text/chap02/sec02/qr1.gif" width="20" height="11" align="absmiddle"><img src="../../../../images/text/chap02/sec02/xr1.gif" width="18" height="8"></span>)…(<span class="text"><span class="text"><img src="../../../../images/text/chap02/sec02/qn.gif" width="12" height="10" align="absmiddle"><img src="../../../../images/text/chap02/sec02/xn.gif" width="12" height="7"></span></span>)M(<span class="text"><span class="text"><img src="../../../../images/text/chap02/sec02/x1.gif" width="12" height="8">,…,<img src="../../../../images/text/chap02/sec02/xr_1.gif" width="17" height="7"></span></span>,f(<span class="text"><span class="text"><img src="../../../../images/text/chap02/sec02/x1.gif" width="12" height="8">,…,<img src="../../../../images/text/chap02/sec02/xr_1.gif" width="17" height="7"></span></span>),<img src="../../../../images/text/chap02/sec02/xr1.gif" width="18" height="8">,…,<img src="../../../../images/text/chap02/sec02/xn.gif" width="12" height="7">)为真。也就是对任意的<span class="text"><span class="text"><img src="../../../../images/text/chap02/sec02/x1.gif" width="12" height="8">,…,<img src="../../../../images/text/chap02/sec02/xr_1.gif" width="17" height="7"></span></span>都有一个f(<span class="text"><span class="text"><img src="../../../../images/text/chap02/sec02/x1.gif" width="12" height="8">,…,<img src="../../../../images/text/chap02/sec02/xr_1.gif" width="17" height="7"></span></span>)使(<span class="text"><span class="text"><img src="../../../../images/text/chap02/sec02/qr1.gif" width="20" height="11" align="absmiddle"></span></span><span class="text"><img src="../../../../images/text/chap02/sec02/xr1.gif" width="18" height="8"></span>)…(<span class="text"><span class="text"><img src="../../../../images/text/chap02/sec02/qn.gif" width="12" height="10" align="absmiddle"><img src="../../../../images/text/chap02/sec02/xn.gif" width="12" height="7"></span></span>)M(<span class="text"><span class="text"><img src="../../../../images/text/chap02/sec02/x1.gif" width="12" height="8">,…,<img src="../../../../images/text/chap02/sec02/xr_1.gif" width="17" height="7"></span></span>,f(<span class="text"><span class="text"><img src="../../../../images/text/chap02/sec02/x1.gif" width="12" height="8">,…,<img src="../../../../images/text/chap02/sec02/xr_1.gif" width="17" height="7"></span></span>),<span class="text"><img src="../../../../images/text/chap02/sec02/xr1.gif" width="18" height="8">,…,<img src="../../../../images/text/chap02/sec02/xn.gif" width="12" height="7"></span>)为真。这便是I<font size="1">G1</font>下<br>
+            　　　(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle"><img src="../../../../images/text/chap02/sec02/x1.gif" width="12" height="8">)…(<span class="text"><img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle"></span>)(<img src="../../../../images/text/chap02/sec02/fh2.gif" width="8" height="9" align="absmiddle"><span class="text"><img src="../../../../images/text/chap02/sec02/xr.gif" width="11" height="7"></span>)(<span class="text"><span class="text"><img src="../../../../images/text/chap02/sec02/qr1.gif" width="20" height="11" align="absmiddle"><img src="../../../../images/text/chap02/sec02/xr1.gif" width="18" height="8"></span></span>)…(<span class="text"><span class="text"><img src="../../../../images/text/chap02/sec02/qn.gif" width="12" height="10" align="absmiddle"><img src="../../../../images/text/chap02/sec02/xn.gif" width="12" height="7"></span></span>)<br>
+            　　　M(<span class="text"><span class="text"><span class="text"><span class="text"><img src="../../../../images/text/chap02/sec02/x1.gif" width="12" height="8"></span></span>,…,<span class="text"><span class="text"><span class="text"><span class="text"><img src="../../../../images/text/chap02/sec02/xr.gif" width="11" height="7"></span></span></span></span>,…,<span class="text"><span class="text"><span class="text"><span class="text"><img src="../../../../images/text/chap02/sec02/xn.gif" width="12" height="7"></span></span></span></span></span></span>)<br>
+            　　为真，也即　G|<font size="1">IG1</font>＝T。<br>
+            　　但这与假设G是不可满足的相矛盾，从而G不可满足必有G<font size="1">1</font>不可满足。<br>
+            　　再证明<img src="../../../../images/text/chap02/sec02/tui2.gif" width="16" height="10" align="absmiddle"><br>
+            　　知G<font size="1">1</font>是不可满足的，而假设G是可满足的。于是便有某个解释I<font size="1">G</font>使G|<font size="1">IG</font>＝T。即对任意的<span class="text"><span class="text"><img src="../../../../images/text/chap02/sec02/x1.gif" width="12" height="8">,…,<img src="../../../../images/text/chap02/sec02/xr_1.gif" width="17" height="7"></span></span>在IG的设定下都可找到一个<span class="text"><img src="../../../../images/text/chap02/sec02/xr.gif" width="11" height="7"></span>使<br>
+            　　　　(<span class="text"><span class="text"><img src="../../../../images/text/chap02/sec02/qr1.gif" width="20" height="11" align="absmiddle"><img src="../../../../images/text/chap02/sec02/xr1.gif" width="18" height="8"></span></span>) 
+            …(<span class="text"><span class="text"><span class="text"><img src="../../../../images/text/chap02/sec02/qn.gif" width="12" height="10" align="absmiddle"><img src="../../../../images/text/chap02/sec02/xn.gif" width="12" height="7"></span></span></span>) 
+            M(<span class="text"><span class="text"><span class="text"><span class="text"><img src="../../../../images/text/chap02/sec02/x1.gif" width="12" height="8"></span></span>,…,<span class="text"><span class="text"><span class="text"><span class="text"><img src="../../../../images/text/chap02/sec02/xr.gif" width="11" height="7"></span></span></span></span>,…,<span class="text"><span class="text"><span class="text"><span class="text"><img src="../../../../images/text/chap02/sec02/xn.gif" width="12" height="7"></span></span></span></span></span></span>)<br>
+            为真。对G<font size="1">1</font>来说不管怎样设定函数f(<span class="text"><span class="text"><img src="../../../../images/text/chap02/sec02/x1.gif" width="12" height="8">,…,<img src="../../../../images/text/chap02/sec02/xr_1.gif" width="17" height="7"></span></span>)都可构成I<font size="1">G1</font>令数f(<span class="text"><span class="text"><img src="../../../../images/text/chap02/sec02/x1.gif" width="12" height="8">,…,<img src="../../../../images/text/chap02/sec02/xr_1.gif" width="17" height="7"></span></span>)的值就取找到的这个<img src="../../../../images/text/chap02/sec02/xr.gif" width="11" height="7">。这样由IG再考虑到f(<span class="text"><span class="text"><img src="../../../../images/text/chap02/sec02/x1.gif" width="12" height="8">,…,<img src="../../../../images/text/chap02/sec02/xr_1.gif" width="17" height="7"></span></span>)=<span class="text"><img src="../../../../images/text/chap02/sec02/xr.gif" width="11" height="7"></span>的设定便构成公式G<font size="1">1</font>的一个解释I<font size="1">G1</font>，且在I<font size="1">G1</font>下对任意的 
+            <span class="text"><span class="text"><img src="../../../../images/text/chap02/sec02/x1.gif" width="12" height="8">,…,<img src="../../../../images/text/chap02/sec02/xr_1.gif" width="17" height="7"></span></span> 
+            都有　<br>
+            　　　　(<span class="text"><span class="text"><img src="../../../../images/text/chap02/sec02/qr1.gif" width="20" height="11" align="absmiddle"><img src="../../../../images/text/chap02/sec02/xr1.gif" width="18" height="8"></span></span>)…(<span class="text"><span class="text"><span class="text"><img src="../../../../images/text/chap02/sec02/qn.gif" width="12" height="10" align="absmiddle"><img src="../../../../images/text/chap02/sec02/xn.gif" width="12" height="7"></span></span></span>)M(<span class="text"><span class="text"><img src="../../../../images/text/chap02/sec02/x1.gif" width="12" height="8">,…,<img src="../../../../images/text/chap02/sec02/xr_1.gif" width="17" height="7"></span></span>,f(<span class="text"><span class="text"><img src="../../../../images/text/chap02/sec02/x1.gif" width="12" height="8">,…,<img src="../../../../images/text/chap02/sec02/xr_1.gif" width="17" height="7"></span></span>),<span class="text"><img src="../../../../images/text/chap02/sec02/xr1.gif" width="18" height="8">,…,<img src="../../../../images/text/chap02/sec02/xn.gif" width="12" height="7"></span>)<br>
+            为真。这便是G|<font size="1">IG1</font>＝T，但这与假设G<font size="1">1</font>是不可满足相矛盾，从而G<font size="1">1</font>不可满足必有G不可满足。<br>
+            　　定理得证。</span></span></td>
+        </tr>
+        <tr> 
+          <td><img src="../../../../images/text/tb/liti.gif" width="26" height="25" alt="例题"></td>
+          <td><span class="text"><span class="text"><b>例1:</b></span></span></td>
+        </tr>
+        <tr> 
+          <td>&nbsp;</td>
+          <td><span class="text"><span class="text">　　G=(<span class="text"><img src="../../../../images/text/chap02/sec02/fh2.gif" width="8" height="9" align="absmiddle"></span>x)P(x)的SKOLEM 
+            标准形与G并不是等值的。<br>
+            　　考虑论域为D＝{1,2}，这时　<br>
+            　　　　　　G＝(<span class="text"><span class="text"><img src="../../../../images/text/chap02/sec02/fh2.gif" width="8" height="9" align="absmiddle"></span></span>x)P(x)=P(1)∨P(2)<br>
+            　　取IG：　P(1)＝F　P(2)＝T<br>
+            　　有　　　G|<font size="1">IG</font>＝T<br>
+            　　而G的 SKOLEM 标准形<br>
+            　　　　　　G<font size="1">1</font>＝P(a)<br>
+            　　若取a 为1这时G<font size="1">1</font>＝F，与G不等值。<br>
+            　　直观地说，G<font size="1">1</font>是G的一个具体的例化，考虑到存在量词有&quot;或&quot;的含义，自然不能保证G真必有G<font size="1">1</font>真。(<span class="text"><span class="text"><img src="../../../../images/text/chap02/sec02/fh2.gif" width="8" height="9" align="absmiddle"></span></span>x)P(x)为真，只要在论域D中找到一个个体x<sub><font size="1">0</font></sub>使P(<span class="text">x<sub><font size="1">0</font></sub></span>)为真。而G<font size="1">1</font>＝P(a)是从论域中选定一个个体a,这样不能保证P(a)为真。</span></span></td>
+        </tr>
+        <tr> 
+          <td><img src="../../../../images/text/tb/liti.gif" width="26" height="25"></td>
+          <td><span class="text"><span class="text"><b>例2:</b></span></span></td>
+        </tr>
+        <tr> 
+          <td>&nbsp;</td>
+          <td><span class="text"><span class="text">　　G＝(<span class="text"><span class="text"><img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle"></span></span>x)(<span class="text"><span class="text"><img src="../../../../images/text/chap02/sec02/fh2.gif" width="8" height="9" align="absmiddle"></span></span>y)P(x,y)　<br>
+            　　G1＝(<span class="text"><span class="text"><span class="text"><img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle"></span></span></span>x)P(x,f(x))<br>
+            　　考虑G与G1的逻辑关系。仍在论域D＝{1,2}上讨论。便有　<br>
+            　　　　　G＝(P(1,1)∨P(1,2))∧(P(2,1)∨P(2,2))<br>
+            　　取IG: P(1,1)=T,P(1,2)=F ,P(2,1)=F ,P(2,2)=T<br>
+            　　有　G|<font size="1">IG</font>　＝T<br>
+            　　　　G<font size="1">1</font>＝P(1,f(1))∧P(2,f(2))<br>
+            　　显然I<font size="1">G</font>下不能决定G1的真值，因为尚需对 SKOLEM 函数f(1),f(2)做设定。或说IG不是公式G1的解释。若设定f(1)=2,f(2)=2方构成G1的一个解释<br>
+            　　I<font size="1">G1</font>= I<font size="1">G</font>∪{f(1)=2 ,f(2)=2} 
+            <br>
+            　　然而　G<font size="1">1</font>|<font size="1">IG1</font>=F。同例1一样，G<font size="1">1</font>只是G的一个示例，不能保证G真G<font size="1">1</font>必真。<br>
+            　　然而反过来却有　G<font size="1">1</font>|<font size="1">IG1</font>=T<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10" align="absmiddle">G|<font size="1">IG</font>=T<br>
+            　　也即　G<font size="1">1</font><span class="text"><img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10" align="absmiddle"></span> 
+            G　<br>
+            　　一般情形下有　S<span class="text"><img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10" align="absmiddle"></span> 
+            G<br>
+            　　总之，S与G并不等值，但在不可满足的意义下是一致的。而且G是S的逻辑推论，反过来不成立。</span></span></td>
+        </tr>
+      </table>
+      <span class="text"><span class="text"><br>
+      <span class="text">　　</span></span><span class="part">2.2.4　G＝G<font size="1">1</font>∧…∧Gn的子句形</span><span class="text"><span class="text"><br>
+      　　设S<font size="1">i</font>是G<font size="1">i</font> i=1…n的子句形，不难看出，公式G的子句形S<font size="1">G</font>不是S<font size="1">1</font>∪…∪S<font size="1">n</font> 
+      ，而且S<font size="1">G</font>常较<span class="text"><span class="text">S<font size="1">1</font>∪…∪S<font size="1">n</font> 
+      </span></span>来得复杂得多。令人满意的是<span class="text"><span class="text">S<font size="1">1</font>∪…∪S<font size="1">n</font> 
+      </span></span>与S<font size="1">G</font>在不可满足的意义上说是一致的，也就是说S<font size="1">G</font>不可满足<img src="../../../../images/text/chap02/sec02/deng.gif" width="16" height="10" align="absmiddle"><span class="text"><span class="text"> 
+      S<font size="1">1</font>∪…∪S<font size="1">n</font> </span></span>不可满足<br>
+      　　这样对S<font size="1">G</font>的讨论，可以较为简单的<span class="text"><span class="text">S<font size="1">1</font>∪…∪S<font size="1">n</font> 
+      </span></span>来代替，为方便也称<span class="text"><span class="text">S<font size="1">1</font>∪…∪S<font size="1">n</font> 
+      </span></span>为G的子句形。下面这些例子所建立的子句集，都是<span class="text"><span class="text">S<font size="1">1</font>∪…∪S<font size="1">n</font> 
+      </span></span>。<br>
+      </span></span></span></td>
+  </tr>
+</table>
+</body>
+</html>

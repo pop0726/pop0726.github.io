@@ -1,0 +1,57 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td><span class="text"> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第六章　实例学习</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <br>
+      　　实例学习是归纳学习的一类。环境提供给系统一些特殊的实例，这些实例事先由施教者划分为正例和反例。实例学习系统由此进行归纳推理，得到一般的规则。环境提供给学习环节的正例和反例是低水平的信息，这是在特殊情况下执行环节的行为。学习环节归纳出的规则是高水平的信息，可以在一般情况下用这些规则指导执行环节的工作。<br>
+      　　例如教给一个程序&quot;狗&quot;的概念，提供给程序各种动物和各种其它物体，说明每个物体的特点，并说明它们不是狗。这些是狗的正例和反例。程序由此推出根据物体特征识别狗的规则。又如教给一个程序下棋的方法，可以提供给程序一些具体棋局及相应的正确走法和错误走法。程序总结这些具体走法，发现一般的下棋策略。<br>
+      　　早在50年代，实例学习就引起人工智能学者的注意。实例学习是在机器学习领域中研究最充分成果最丰富的一个分支。实例学习在某些系统中的应用已经成为机器学习走向实用的先导。PROSPECTOR系统就具有实例学习的功能。McCarthy说过：&quot;我们的最终目标是要创造象人那样有效地由经验学习的程序&quot;。当然，要达到这个目标还要做长期的努力。<br>
+      <br>
+      　　</span><span class="section">6.1 实例学习的两个空间模型</span><span class="text"><br>
+      <br>
+      　　Wimon和Lea(1974)在有关归纳的论文中把实例学习看作利用示教例子来指导对规则的搜索，并给出实例学习的两个空间模型。他们把全部示教例子的集合称为&quot;例子空间&quot;，把全部规则的集合称为&quot;规则空间&quot;。他们的基本观点是：实例学习系统应在规则空间中搜索要求的规则；系统还应从例子空间选出一些示教例子，以便解决规则空间中某些规则的二义性；系统的工作过程就是交替进行在例子空间和规则空间中的搜索，最终找到要求的规则。图6.1表示实例学习的两个空间模型。</span> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="30" valign="top"><img src="../../../../images/text/tb/tushi.gif" width="25" height="16" alt="图示"></td>
+          <td class="explaination" align="center"><img src="../../../../images/text/chap06/sec1/tu6.1.gif" width="287" height="183"><br>
+            <br>
+            图6.1　实例学习的两个空间模型 </td>
+        </tr>
+      </table>
+      <span class="text"><br>
+      　　在这个模型中，首先由施教者提供例子空间中的一些初始示教例子。然后，程序进行解释例子这一步。由于示教例子的形式往往不同于规则的形式，所以有必要对例子进行解释。此后，利用解释后的示教例子去搜索规则空间。往往不能一次就从规则空间中找到要求的规则，因此需要寻找和使用一些新的示教例子。这就是选择例子。程序选择对搜索规则空间最有用的例子。对这些示教例子重复上述循环。如此循环多次，直到找到要求的规则。<br>
+      　　例如，要教给程序在扑克游戏中&quot;同花&quot;的概念。同花是指五张同一花色的牌组成的一手牌。例子空间是五张牌的全部各手牌的集合。每个例子是五张牌的一手牌，可以表示为五个有序对的集合。每个有序对表示一张牌的点数和花色。如同花的一个正例是<br>
+      　　　　{(2,clubs), (3,clubs), (5,clubs), (J,clubs), (A,clubs)}<br>
+      规则空间是描述一手牌的全部谓词表达式的集合。这些表达式使用下列描述符号：谓词SUIT（花色）和RANK（点数）；表示牌的变量<img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absmiddle">，<img src="../../../../images/text/chap02/sec01/c2.gif" width="13" height="14" align="absmiddle">，<img src="../../../../images/text/chap02/sec03/c3.gif" width="12" height="12" align="absmiddle">，<img src="../../../../images/text/chap02/sec03/c4.gif" width="12" height="12" align="absmiddle">和<img src="../../../../images/text/chap06/sec1/c5.gif" width="12" height="12" align="absmiddle">；必要的其它变量；常量A、2、3、4、5、6、7、8、9、10、J、Q、K、clubs(梅花)、diamonds(方块)、hearts(红心)、spades(黑桃)；合取联结词∧和存在量词 
+      。如同花的概念可以表示为下列规则：<br>
+      　　　　<img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absmiddle">，<img src="../../../../images/text/chap02/sec01/c2.gif" width="13" height="14" align="absmiddle">，<img src="../../../../images/text/chap02/sec03/c3.gif" width="12" height="12" align="absmiddle">，<img src="../../../../images/text/chap02/sec03/c4.gif" width="12" height="12" align="absmiddle">，<img src="../../../../images/text/chap06/sec1/c5.gif" width="12" height="12" align="absmiddle">：SUIT(<img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absmiddle">，x)<br>
+      　　　　∧SUIT(<img src="../../../../images/text/chap02/sec01/c2.gif" width="13" height="14" align="absmiddle">,x) 
+      ∧SUIT(<img src="../../../../images/text/chap02/sec03/c3.gif" width="12" height="12" align="absmiddle">,x)<br>
+      　　　　∧SUIT(<img src="../../../../images/text/chap02/sec03/c4.gif" width="12" height="12" align="absmiddle">,x) 
+      ∧SUIT(<img src="../../../../images/text/chap06/sec1/c5.gif" width="12" height="12" align="absmiddle">,x)<br>
+      　　下面按模型中四个部分的工作次序依次介绍这四部分。<br>
+      </span></td>
+  </tr>
+</table>
+</body>
+</html>

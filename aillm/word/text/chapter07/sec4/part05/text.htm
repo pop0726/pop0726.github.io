@@ -1,0 +1,46 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td class="text"> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第七章 其它学习方法</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <br>
+      　　 3.聚类质量的准则<br>
+      　　判定聚类质量是困难的。但可以给出两个主要准则。一个是对聚类的描述应该简单。但这个准则可能导致无意义的聚类。另一个是类型描述应符合实际数据。但要达到精确的符合会使描述很复杂。因此这两个准则间有矛盾。还可以给出其它准则。CLUSTER/2使用了组合的准则，它包括下列基本准则。<br>
+      　　(1)聚类与事件的符合。<br>
+      　　(2)聚类描述简单。<br>
+      　　(3)互相聚类差异。<br>
+      　　(4)辨别指标。<br>
+      　　(5)维数减小。<br>
+      　　聚类与数据的符合可以用两种方式计算，分别用T和P表示。T是聚类稀疏性的相反数。P是复合的投影稀疏性之和的相反数。使用相反数是因为稀疏性越小则匹配程度越好。聚类描述的简单性定义为描述中选择器总数的相反数。互相聚类差异是聚类中每一对复合之间不相交程度之和。一对复合的不相交程度是去掉相交的选择器后两个复合中的选择器数。例如，复合 
+      <br>
+      　　　　[color＝red][size＝medium][shape＝circle]<br>
+      和复合<br>
+      　　　　[color＝red][size＝medium ú large]<br>
+      的不相交程度是3。这要求各种类型有很多不同的特性，相当于类型间有较大距离。辨别指标是在所有聚类中分别辨别的变量数，即在每个聚类描述中有不同值的变量数。维数减小是基本维数的相反数，基本维数是为区分所有复合所需的变量的最小数目。这些基本准则的值增加表示改善聚类质量。<br>
+      　　上述基本准则的组合采用LEF方法(有容限的字典编辑评价泛函)(Michalski，1980)。LEF定义了一系列准则容限对<br>
+      　　　　<img src="../../../../images/text/chap07/sec4/gs6.gif" width="135" height="15"><br>
+      其中Ci是选定的基本准则，τi是Ci的容限阈值(τi∈{1…100%})。首先用C<font size="1">1</font>评价所有聚类，保留那些得分最好或在阈值τ1范围之内的聚类。其次对保留的聚类用C<font size="1">2</font>和τ2评价。依此类推。若过程进行到只保留一个聚类，这就是最佳聚类。若过程用完全部n个准则容限时，则保留的多个聚类质量相当，可从中任选。基本准则的选定和排序，容限的确定是由人确定的。<br>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

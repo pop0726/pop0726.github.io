@@ -1,0 +1,157 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第三章 不确定和非单调推理方法</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <br>
+      　　<span class="part">3.3.4　限制方法</span><br>
+      　　<span class="text">限制（Circumscription）是表达常识性知识和常识性推理时时常用的方法。直观地说，是在处理问题时总要做些假设来进行的，这种假设就是一种限制。CWA和谓词完备化方法对信任集的扩充都是依古典完备性观点来进行的，然而也可以从某种最小化原则来理解。例如：<br>
+      　　 　　　Δ＝(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)(E→P(x))<br>
+      　　而谓词完备化公式为<br>
+      　　　　　(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)(P(x)→E)<br>
+      这种扩充仅限于满足P的个体必须是E，也即除使Δ中E→P(x)成立的个体外，不能再有个体满足P了。这就是P的一种最小扩充。<br>
+      　　严格地说，限制像谓词完备化那样是一个过程，这个过程是来寻求一个公式作为假设，以便扩充已知的信任集Δ，要求对所做的假设加以约束，使满足某谓词的那些个体，仅只是Δ中使该谓词成立的那些个体。<br>
+      　　1． 最小模型<br>
+      　　对已知的信任集Δ，M和M<sup>*</sup>是Δ的两个模型（使Δ成立的解释），满足<br>
+      　　（1）M、M<sup>*</sup>有相同的个体域。<br>
+      　　（2）M、M<sup>*</sup>对Δ中除P而外的所有其它谓词和常项有同样的设定。<br>
+      　　（3）M<sup>*</sup>中满足P的个体集是M中满足P的个体集的子集。<br>
+      　　便有　M<sup>*</sup>≤ <font size="1">p</font>M<br>
+      　　如论域　D＝{1,2}上<br>
+      　　　　　　Δ＝(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)(<img src="../../../../images/text/chap02/sec02/fh2.gif" width="8" height="9">y)(Py)∧Q(x,y))<br>
+      　　　　　　　=[(P(1)∧Q(1,1))∨(P(2)∧Q(1,2))]∧[(P(1)∧Q(2,1))∨(P(2)∧Q(2,2))]<br>
+      　　若 
+      <table width="70%" border="0" cellspacing="0" cellpadding="0" align="center" class="text">
+        <tr align="center"> 
+          <td>M：</td>
+          <td>P(1)</td>
+          <td>P(2)</td>
+          <td>Q(1,1)</td>
+          <td>Q(1,2)</td>
+          <td>Q(2,1)</td>
+          <td>Q(2,2)</td>
+        </tr>
+        <tr align="center"> 
+          <td>&nbsp;</td>
+          <td>T</td>
+          <td>T</td>
+          <td>F</td>
+          <td>T</td>
+          <td>F</td>
+          <td>T</td>
+        </tr>
+        <tr align="center"> 
+          <td><span class="text">M<sup>*</sup></span>：</td>
+          <td>P(1)</td>
+          <td>P(2)</td>
+          <td>Q(1,1)</td>
+          <td>Q(1,2)</td>
+          <td>Q(2,1)</td>
+          <td>Q(2,2)</td>
+        </tr>
+        <tr align="center"> 
+          <td>&nbsp;</td>
+          <td>F</td>
+          <td>T</td>
+          <td>F</td>
+          <td>T</td>
+          <td>F</td>
+          <td>T</td>
+        </tr>
+      </table>
+      　　显然有△|M＝T，△|M<sup>*</sup>＝T所以M，M<sup>*</sup>都是△的模型。M，M<sup>*</sup>对Q的真值设定是相同的，而对P来说，M中有{1,2}中的元素使P为真，而M*中仅有{2}中的2使P为真，{2}<img src="../../../../images/text/chap02/sec03/fh2.gif" width="11" height="10">{1,2}。<br>
+      　　于是有　M<sup>*</sup> ≤ <font size="1">p</font>M<br>
+      　　如果　M<sup>*</sup> ≤ <font size="1">p</font>M　而且 M<sup>*</sup>≠M，则有 M<sup>*</sup> 
+      ＜<font size="1">p</font>M<br>
+      　　对△来说，如果对任一 M<sup>*</sup> ≤ <font size="1">p</font>M，必有M＝Mm时，就说Mm是P的最小模型。对任一个△来说，最小模型不一定总存在。<br>
+      　　2． 依最小化原则建立假设<br>
+      　　给了含有谓词P的信任集△（为简单仅考虑△中的谓词P），来寻找对△的假设（扩充）公式Φp，使得对△∧Φp的任一模型M，不存在△的模型M<sup>*</sup>满足<br>
+      　　　　　　M<sup>*</sup> ＜<font size="1">p</font>M<br>
+      或说扩充后△∧Φp的模型对P来说不能比原来△的模型来得大，是一种最小的扩充。依这最小化原则所得的△∧Φp便是△对P的限制。<br>
+      　　设P<sup>*</sup>是某个谓词常项，它与P有同样的变元个数，由P来构造Φp，可指出<br>
+      　　(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)(P<sup>*</sup>(x)→P(x))∧～(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)(P(x)→(P<sup>*</sup>(x))∧△(P<sup>*</sup>)<br>
+      的任一模型都不是△对P的最小模型。从而<br>
+      　　～((<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)(P<sup>*</sup>(x)→P(x))∧～(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)(P(x)→P<sup>*</sup>(x))∧△(P<sup>*</sup>))<br>
+      的任一模型是△对P的最小模型。于是<br>
+      　　Φp=(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">P<sup>*</sup>)～((<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)(P<sup>*</sup>(x)→P(x))∧～<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x(P(x)→P<sup>*</sup>(x)∧△(P<sup>*</sup>))<br>
+      为△对P的限制公式。有<br>
+      　　CIRC[△,P]<br>
+      　　=△∧(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">P<sup>*</sup>)～((<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)P<sup>*</sup>(x)→P(x))∧～(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)(P(x)→P<sup>*</sup>(x)∧△(P<sup>*</sup>)))<br>
+      　　=△∧(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">P<sup>*</sup>)((△(P<sup>*</sup>)∧(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)P<sup>*</sup>(x)→P(x)))→(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)(P(x)→P<sup>*</sup>(x)))<br>
+      　　这个公式是高阶逻辑公式，因为量词 作用于谓词P*了，但在很多情形可化为一阶逻辑公式。公式<br>
+      　　Φp=(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">P<sup>*</sup>)((△(P<sup>*</sup>)∧(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)(P<sup>*</sup>(x)→P(x)))→(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)(P(x)→P(x<sup>*</sup>)))<br>
+      是说，如果求得P<sup>*</sup>使△(P<sup>*</sup>)成立，又满足(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)(P<sup>*</sup>(x)→P(x)那么(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)(P(x)→P<sup>*</sup>(x))便可作为推理的结论。</span> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="text">
+        <tr>
+          <td width="30"><span class="text"><img src="../../../../images/text/tb/liti.gif" width="26" height="25" alt="例题"></span></td>
+          <td><b>例:</b></td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td>　△＝is Block(a)∧isBlock(b)∧is Block(c)<br>
+            　谓词P(x)=is Block(x), △可写成△(P)或△(is Block)。于是有<br>
+            　Φp=(△P<span class="text"><sup>*</sup></span>)∧<span class="text">(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)</span>(P<span class="text"><sup>*</sup></span>(x)→is 
+            block(x))→<span class="text">(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)</span>(is 
+            Block(x)→P<span class="text"><sup>*</sup></span>(x))<br>
+            　选取 P<span class="text"><sup>*</sup></span>(x)=(x=a)∨(x=b)∨(x=c)<br>
+            　　　△(P<span class="text"><sup>*</sup></span>)=((a=a)∨(a=b)∨(a=c))∧((b=a)∨(b=b)∨(b=c))∧((c=a)∨(c=b)∨(c=c))<br>
+            　　　　　　=T。<br>
+            　而　<span class="text">(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)</span>(P<span class="text"><sup>*</sup></span>(x)→ 
+            is Block(x))＝T，于是有<br>
+            　　　(<span class="text"><img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)</span>(is 
+            Block(x)→((x=a)∨(x=B)∨(x=c)))<br>
+            这样在限制方法中，引入Φp后便可推出<br>
+            　　　is Block(x)→((x=a)∨(x=b)∨(x=c))<br>
+            这一结论。这是非单调的，因将其它积木块加入△中，该结论就不成立了。</td>
+        </tr>
+      </table>
+      <span class="text">　　CIR[△,P]还可成另一种形式。将P<sup>*</sup>记作P∧P'（P'是与P的变元个数相同的谓词常项），于是有<br>
+      　　Φp=△(P∧P')∧(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)(P(x)∧P'(x)→P(x))→(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)(P(x)→P(x)∧P'(x))<br>
+      从而得<br>
+      　　　　　　△(P∧P')→(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)(P(x)→P'(x))<br>
+      　　若将　(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)(P<sup>*</sup>(x)→P(x)) 
+      记作 P<sup>*</sup>≤P，而<br>
+      　　　　　P<sup>*</sup>&lt;P 表示(P<sup>*</sup>≤P)∧～(P≤P<sup>*</sup>)<br>
+      　　　　　P<sup>*</sup>=P 表示(P<sup>*</sup>≤P)∧(P≤P<sup>*</sup>)<br>
+      于是φp就是<br>
+      　　　　　(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">P<sup>*</sup>)(△(P<sup>*</sup>)∧(P<sup>*</sup>≤P)→(P≤P<sup>*</sup>))<br>
+      得　　　　(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">P<sup>*</sup>)(△(P<sup>*</sup>)→～(P<sup>*</sup>&lt;P))<br>
+      　　　　　=～(<img src="../../../../images/text/chap02/sec02/fh2.gif" width="8" height="9" align="absmiddle">P<sup>*</sup>)(△(P<sup>*</sup>)∧(P<sup>*</sup>&lt;P))<br>
+      　　这就更明显地可看出，最小模型限制表明，不存在P*满足△而且使P*成立的外延是P成立外延的真子集。</span> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="text">
+        <tr> 
+          <td width="30"><img src="../../../../images/text/tb/dingyi.gif" width="26" height="17" alt="定理"></td>
+          <td><b>定理 5</b></td>
+        </tr>
+        <tr> 
+          <td>&nbsp;</td>
+          <td class="explaination">　已知谓词P和信任集△(P)，对任一P'来说，如果<br>
+            　△(P)├△(P')∧(P'≤P) 则<br>
+            　CIRC[△,P]= △(P)∧(P=P')</td>
+        </tr>
+      </table>
+      <span class="text">　　这定理是说，如果△(P)能证明△(P')∧ (P'≤P) 那么P＝P'就是△对P的限制公式。<br>
+      </span></td>
+  </tr>
+</table>
+</body>
+</html>

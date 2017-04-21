@@ -1,0 +1,104 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td><span class="text"> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第九章 句法分析</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <br>
+      <span class="text">　　用于弧上测试的谓词很多，例如X-AGREE代表着DET-N-AGREE，SUBJ-V-AGREE等一组用来检查两个表达式之间某种一致关系的谓词。x-START是另一组所谓&quot;向前看谓词&quot;，通常用于JUMP和PUSH弧。例如，IMP-START用在起始状态为S的一条外射的JUMP弧上，以便测试输入句子的开头有没有一个无时态动词；Q-START用来检查句子是否以一个疑问词作为开头。PP-START用在一条(PUSH 
+      PP/…)的弧上，以便测试下一个词是否为介词。此外，LISP语言的布尔函数AND，OR，NOT和EQUAL等也可以作为测试的谓词来使用；NIL是一个LISP常量，表示测试失败，通常用采作为谓词失败时的回送值；T是另一个LISP常量，意思为真。当T作为&lt;test&gt;出现在-条弧上的时候，表示这条弧的测试条件自动得到满足。但是在LISP中，任何一个非NIL的值都可以用来表示布尔值&quot;真&quot;，所以任何函数都有可能被当作谓词来使用。例如，(GETR 
+      SUBJ)这个&lt;form&gt;不仅可以用来提取寄存器SUBJ的内容，而且可以当作谓词来使用，后者测试寄存器SUBJ是否曾经被赋值。<br>
+      　　下面我们通过一个名词短语(NP)的ATN语法来具体解释语法的描述。NP的转移网络如图9.14所示：</span> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td width="30" valign="top"><img src="../../../../images/text/tb/tushi.gif" width="25" height="16" alt="图示"></td>
+          <td align="center" class="explaination"><img src="../../../../images/text/chap09/sec2/tu914.gif" width="440" height="151"><br>
+            <br>
+            图中ART为冠词，QUANT为数量词，PREP为介词。<br>
+            图9.14 一个名词短语的转移网络</td>
+        </tr>
+      </table>
+      <br>
+      　　以下是用LISP形式给出的这部ATN语法的细节。在以下的语法描述中，转移网络上的每个状态都用一张表来表示，它相当于BNF定义中的&lt;arc-set&gt;，表的第一个元素是该状态的名字，表的其他元素分别对应于该状态的每-条外射弧。描述中的注释用%号后面的中文给出。<br>
+      </span><span class="explaination">　　(NP/<br>
+      　　　　(CAT ART T %T是一个谓词，它总为真，%<br>
+      　　　　　　(SETR ART (BUILDQ((ART*))))<br>
+      　　　　　　(TO NP/ART))<br>
+      　　　　(JUMP NP/ART T))<br>
+      　　(NP/ART<br>
+      　　　　(CAT QUANT T<br>
+      　　　　　　(SETR QUANT (BUIIDQ ((QUANT *))))<br>
+      　　　　　　(TO NP/QUANT))<br>
+      　　　　(JUMP NP/QUANT T))<br>
+      　　(NP/QUANT<br>
+      　　　　(CAT ADJ T<br>
+      　　　　　　(ADDR ADJS (BUILDQ (@ (ADJ) # (*))<br>
+      　　　　　　　　(GETF DEGREE)))</span><span class="text"><br>
+      %DEGREE是形容词的比较级特征，如当前词为&quot;biggest&quot;，则记入寄存器ADJS的结构为(ADJ SUPERLATIVE 
+      BIG)，如当前词为&quot;big&quot;，就记入(ADJ BIG)。</span><span class="explaination">%</span><span class="text"><br>
+      </span><span class="explaination">　　　　　　(TO NP/QUANT))<br>
+      　　　　(JUMP NP/ADJ T))<br>
+      　　(NP/ADJ<br>
+      　　　　(CAT N T<br>
+      　　　　　　(SETR N *)<br>
+      　　　　　　(SETR NU (GETF NUMBER))<br>
+      　　　　　　(TO NP/N))<br>
+      　　　　(CAT N T<br>
+      　　　　　　(ADDL ADJS(BUILDQ(ADJ (NP(N*)<br>
+      　　　　　　　　　　　　　　　　　(NU#)))<br>
+      　　　　　　　　　　　　　(GETF NUMBER)))<br>
+      %在由&quot;名词-名词&quot;组成的名词短语中，把前-名词看作是后-名词的定语，所以把有关它的信息也存储在寄存器ADJS中。<br>
+      　　　　　　%<br>
+      　　　　　　(TO NP/ADJ)))<br>
+      　　(NP/N<br>
+      　　　　(PUSH PP/ (PP-START)<br>
+      　　　　　　(ADDL NMODS *)<br>
+      %这个动作要求把下一层子网络PP/的回送值加到本层寄存器NMODS内容的前头。%<br>
+      　　　(TO NP/N))<br>
+      　　(POP(BUILDQ(@(NP)+++(N+))((NU+))+)<br>
+      　　　　　　　　ART QUANT ADJS N NU<br>
+      　　　　NMODS)<br>
+      　　　　(DET-N-AGREE ART NU)))</span><span class="text"><br>
+      %谓词DET-N-AGREE用来测试ART和NU两个寄存器之间<br>
+      的一致关系，以便排除象&quot;a books&quot;，&quot;an　table&quot;那样的不合法搭配。<br>
+      </span><span class="explaination">　　%<br>
+      　　(PP/<br>
+      　　　　(CAT PREP T<br>
+      　　　　　　(SETR PREP *)<br>
+      　　　　　　(TO PP/PREP))) <br>
+      　　(PP/PREP<br>
+      　　　　(FUSH NP/(NP-START)</span><span class="text"><br>
+      %如果下一个词不能作为一个NP的头，则谓词NP-START失败。％<br>
+      </span><span class="explaination">　　　　(SETR：NP　*)</span><span class="text"><br>
+      %这个动作要求用下一层子网络NP/的回送值来设置本层寄存器NP。％ <br>
+      </span><span class="explaination">　　　　(TO PP%NP)))<br>
+      　　(PP%NP <br>
+      　　　(POP(BUILDQ(PP(PREP十)十)PREP NP)T))</span><span class="text"><br>
+      　　这部名词短语的ATN语法可以用来生成或接受如下的短语： <br>
+      </span><span class="explaination">　　the new red　law books<br>
+      　　each beautiful picture in the recent exibit<br>
+      　　men with wives in Professional careers<br>
+      　　the tallest boy in a gorup of students.<br>
+      </span> </td>
+  </tr>
+</table>
+</body>
+</html>

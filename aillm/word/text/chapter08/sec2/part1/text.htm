@@ -1,0 +1,75 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td><span class="text"> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="50%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第八章 自然语言理解的任务和发展简史</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <br>
+      　　</span><span class="section">8.2 以关键词匹配为主流的早期历史</span><span class="text"><br>
+      　　<br>
+      　　60年代开发的自然语言理解系统，大都没有真正意义上的语法分析，而主要依靠关键词匹配技术来识别输入句子的意义。在这些系统中设计者事先存放了大量包含某些关键词的模式，每个模式都与一个或多个解释(又叫响应式)相对应。系统将当前输入句子同这些模式逐个进行匹配，一旦匹配成功便立即得到了这个句子的解释，而不再考虑句子中那些不属于关键词的成分对句子意义会有什么影响。所以这是一种近似匹配技术，它的最大优点是允许输入句子不一定要遵循规范的语法，甚至可以是文理不通的。但是这种分析技术的不精确性也正是这种方法的主要弱点，因为它往往会导致错误的分析。 
+      <br>
+      　　下面介绍这一时期的几个著名系统。<br>
+      　　</span><span class="part">8.2.1 SIR</span><span class="text"><br>
+      　　SIR(Semantic Information Retrieval)是1968年B.Raphael完成的，这是他在美国麻省理工学院的博士论文研究工作的一部分。系统用LISP语言编程。这是一个理解机器的原型，因为它能把用户通过英语告诉它的事实记住，然后通过对这些事实的演绎来回答用户提出的问题。<br>
+      　　SIR有能力接受英语的一个受限子集，它把输入句子同如下类型的24种关键词模式进行匹配：<br>
+      </span><span class="explaination">　　　　* is *<br>
+      　　　　* is part of *<br>
+      　　　　Is * * ?<br>
+      　　　　How many * does * have?<br>
+      　　　　What is the * of *　?</span><span class="text"><br>
+      当符号&quot;*&quot;同输入句子中的一个名词相匹配时，该名词前面允许带有像a，the，every,each等冠词、量词或数词的修饰语。每当匹配到一种模式，便会在程序中触发相应的动作。下面是用户和SIR系统所进行的对话(英文大写表示机器的响应):<br>
+      <br>
+      </span><span class="explaination">　　Every boy is a person (每个男孩都是人)<br>
+      　　I UNDERSTAND (知道了)<br>
+      <br>
+      　　A finger is part of a hand (手指是手的一部分)<br>
+      　　I UNDERSTAND (知道了)<br>
+      <br>
+      　　There are two hands on each Person (每个人有两只手)<br>
+      　　I UNDERSTAND (知道了)<br>
+      <br>
+      　　How many fingers does John have? (约翰有几个手指?)<br>
+      　　THE ABOVE SENTENCE IS AMBIGUOUS BUT I ASSUME(has)MEANS(has as parts) (上面那个句子有歧义，但我推测(has)的意思(has 
+      as parts))<br>
+      I DON'T KNOW WHETHER FINGER IS PART OF JOHN (我不知道手指是不是约翰身体的一部分)<br>
+      <br>
+      　　John is a boy (约翰是一个男孩)<br>
+      　　I UNDERSTAND (知道了)<br>
+      <br>
+      　　How many fingers does John have? (约翰有几个手指?)<br>
+      　　THE ABOVE SENTENCE IS AMBIGUOUS BUT I ASSUME(has)MEANS(has as parts)<br>
+      　　HOW MANY FINGERS PER HAND? (每只手有几个手指?)<br>
+      <br>
+      　　Every hand has 5 fingers (每只手有五个手指) <br>
+      　　THE ABOVE SENTENCE IS AMBIGUOUS BUT I ASSUME(has)MEANS(has as parts)<br>
+      　　THE ANSWER IS 10 (约翰有十个手指)<br>
+      <br>
+      　　Who is president of the United States? (谁是美国的总统)<br>
+      　　STATEMENT FORM NOT RECOGNIZED (句型无法识别)</span><span class="text"><br>
+      <br>
+      　　这段对话表明SIR有能力从用户输入的英语句子中提取有关的知识，比如当系统已被告知：每个男孩都是人，每个人有两只手，手指是手的一部分，但仍不能回答&quot;约翰有几个手指?&quot;。当用户接着告诉它：约翰是一个男孩，而且每只手有五个手指，这时系统便根据已掌握的事实进行推理，得到正确的回答。 
+      <br>
+      </span> </td>
+  </tr>
+</table>
+</body>
+</html>

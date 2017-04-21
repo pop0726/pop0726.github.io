@@ -1,0 +1,90 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第九章 句法分析</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+       
+      <span class="text"><br>
+      　　</span><span class="part">9.9.2 定子句和Prolog</span><span class="text"><br>
+      　　一阶谓词&lt;FOL&gt;是一种逻辑语言，它由谓词、函数符号和常量构成表示原子命题的原子公式。一个原子公式是一个形为：<br>
+      　　　　　p(<font size="2">t</font><font size="1">1</font>,…,<font size="2">t</font><font size="1">k</font>) 
+      <br>
+      的表达式，p是一个具有k个变元的谓词，每个变元ti是一个项。一个项(term)是一个常量、一个变量或一个复合项：<br>
+      　　　　　f(<font size="2">t</font><font size="1">1</font>,…,<font size="2">t</font><font size="1">m</font>)<br>
+      其中f是一个具有m个变元的函数符号，<font size="2">t</font><font size="1">j</font>是项。目前我们暂不考虑FOL中的函数符号和复合项。<br>
+      　　FOL的合式公式(wff)，是指由原子公式通过各种运算符(operators)所形成的复杂公式。这些运算符包括：合取(∧)，析取(∨)，否定(<img src="../../../../images/text/chap09/sec8/fd.gif" width="11" height="6" align="absmiddle">)，蕴涵(<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">)，以及全称量词(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">)，存在量词(<img src="../../../../images/text/chap02/sec02/fh2.gif" width="8" height="9">)。<br>
+      　　合式公式可以用如下的递归定义来描述：如果φ和ψ是wff，x是-个变量，则φ∧ψ，φ∨ψ，<img src="../../../../images/text/chap09/sec8/fd.gif" width="11" height="6" align="absmiddle">φ，φ<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">ψ，(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)φ和(<img src="../../../../images/text/chap02/sec02/fh2.gif" width="8" height="9">x)φ都是wff。在(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)φ和(<img src="../../../../images/text/chap02/sec02/fh2.gif" width="8" height="9">x)φ中，公式φ是该量词的辖域，x则是被该量词所约束的变量。如果在一个wff中出现的每一个变量都是受约束的，就称这个wff是封闭的。<br>
+      　　许多重要的自动演绎方法，尤其是作为Prolog基础的那些演绎方法，并非运作于一般的FOL公式，而仅仅运作于其中的子句形公式。-个子句形公式是-些文字的析取式，其中的每个文字或是一个原子公式，或是一个原子公式的否定。在这个析取式中的全体变量都被辖域为整个析取式的全称量词所约束。因此一个子句可以写成如下形式：<br>
+      　　　　　<font size="2">P</font><font size="1">0</font>∨<font size="2">P</font><font size="1">1</font>∨…∨<img src="../../../../images/text/chap09/sec8/fd.gif" width="11" height="6" align="absmiddle"><font size="2">N</font><font size="1">0</font>∨<img src="../../../../images/text/chap09/sec8/fd.gif" width="11" height="6" align="absmiddle"><font size="2">N</font><font size="1">1</font>∨…<br>
+      其中<font size="2">P</font>i是正文字，<img src="../../../../images/text/chap09/sec8/fd.gif" width="11" height="6" align="absmiddle">Ni是反文字。由于按照惯例全体变量都被最外层的全称量词所约束，所以在上述子句型公式中不再标注这些全称量词。<br>
+      　　子句形公式的应用价值在于：任何-个封闭公式φ，都可以通过机械方式转换成-个子句的合取式P，而且φ是永假的当且仅当P是永假的。应当指出，一般来说φ和P并非等价，因为在转换成子句形的过程中有可能引入辅助函数(即Skolem函数)来消除存在量词。但是由于采用子句形公式的真正意图是实现反演证明，所以保持永假性对我们来说已经足够了。 
+      <br>
+      　　利用deMorgan定律：<br>
+      　　　　　<img src="../../../../images/text/chap09/sec8/fd.gif" width="11" height="6" align="absmiddle">PV<img src="../../../../images/text/chap09/sec8/fd.gif" width="11" height="6" align="absmiddle">Q<img src="../../../../images/text/chap09/sec8/fd.gif" width="11" height="6" align="absmiddle"> 
+      当且仅当<img src="../../../../images/text/chap09/sec8/fd.gif" width="11" height="6" align="absmiddle">(P∧Q)<br>
+      以及用否定和析取来定义蕴涵的公式： <br>
+      　　　　　PQ 当且仅当 <img src="../../../../images/text/chap09/sec8/fd.gif" width="11" height="6" align="absmiddle">(P∨Q)<br>
+      我们可以把上面那个子句重新表达成-个单独的蕴涵式：<br>
+      　　　　　(<font size="2">N</font><font size="1">0</font>∧<font size="2">N<font size="1">1</font></font>∧…)<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10"><font size="2">(P</font><font size="1">0</font>∨<font size="2">P</font><font size="1">1</font>∨…)<br>
+      这个蕴涵式左边是它的前件，右边是它的后件。此后我们就把Ni和Pi称为组成这个子句的文字，尽管严格地讲，该于句的反文字是<img src="../../../../images/text/chap09/sec8/fd.gif" width="11" height="6" align="absmiddle">Ni而不是Ni。 
+      <br>
+      　　根据蕴涵式的定义，如果-个蕴涵式为真，而且它的前件中全体原子公式均为真，那么其后件中至少有一个原子公式必须同时为真。特别是，如果-个子句不含有任何反文字，那么当它写成相应的蕴涵式时，其前件为空。而且前件为空应当解释为真值，因为要使这样一个子句为真，在任何条件下其后件中至少有一个原子公式必须为真。 
+      <br>
+      　　反之，如果一个子句不包含任何正文字，那么要使这个子句为真，其前件中至少有一个公式必须为假，或者说构成其前件的那个原子公式合取式必须为假。把这样的子句表示成蕴涵式时.它的后件是空的。根据蕴涵式的定义，如果一个蕴涵式的后件为假，那么这个蕴涵式与其前件之否定等价。可见空的后件应解释为假值。<br>
+      最后，空子句(即前件和后件均为空)对应于蕴涵式：真<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">假，所以空子句等价于假值。<br>
+      　　一阶逻辑的定理证明。包括子句形一阶逻辑的定理证明，是一个困难的计算问题。为了使这样一类计算问题可以实现，逻辑程序设计语言Prolog并非基于完整的子句形，而是基于所谓的Horn子句，后者是子句形的一个子集。因此只存在以下三种Horn子句： 
+      <br>
+      　　(1)单位子句：有一个正文字，不含反文字，其形式为：<font size="2">P</font><font size="1">0</font>(或等价于：<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10"><font size="2">P</font>o)。 
+      <br>
+      　　(2) 非单位子句：有一个正文字和一个或多个反文字，其形式为：<font size="2">P</font><font size="1">0</font>∨<img src="../../../../images/text/chap09/sec8/fd.gif" width="11" height="6" align="absmiddle"><font size="2">N</font><font size="1">0</font>∨<img src="../../../../images/text/chap09/sec8/fd.gif" width="11" height="6" align="absmiddle"><font size="2">N</font><font size="1">1</font>∨…(或等价于：<font size="2">N</font><font size="1">0</font>∧<font size="2">N</font><font size="1">1</font>∧…<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10"><font size="2">P</font><font size="1">0</font>)。<br>
+      　　(3) 反子句：没有正文字，但含有一个或多个反文字，其形式为：<img src="../../../../images/text/chap09/sec8/fd.gif" width="11" height="6" align="absmiddle"><font size="2">N</font><font size="1">0</font>∨<img src="../../../../images/text/chap09/sec8/fd.gif" width="11" height="6" align="absmiddle"><font size="2">N</font><font size="1">1</font>∨…(或等价于：<font size="2">N</font><font size="1">0</font>∧<font size="2">N</font><font size="1">1</font>∧…<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10"><font size="2"></font>)。<br>
+      　　前两类Horn子句又合称为定子句(definite clauses)，因为它们严格地只含有一个正文字。这对于相应的蕴涵式来说，它们的后件中只包含一个单独的原子公式，因此具有确定性结论.而不象一般子句那样可能带有析取形式的不确定性结论。<br>
+      　　在一个特定问题的公理化中，上述三类Horn子句分别担当着不同的作用。形如Po的单位子句又称为事实,它无条件地宣称后件为真。一个非单位子句被当作一般的规则，它所表达的信息是：如果其前件为真，那么其后件为真。最后，一个反子句：<br>
+      　　　　　<font size="2">N</font><font size="1">0</font>∧<font size="2">N</font><font size="1">1</font>∧…<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10"><font size="2"></font><br>
+      等价于形式<br>
+      　　　　　<img src="../../../../images/text/chap09/sec8/fd.gif" width="11" height="6" align="absmiddle">(<font size="2">N</font><font size="1">0</font>∧<font size="2">N</font><font size="1">1</font>∧…)。<font size="2"></font>� 
+      <br>
+      可见，-个反子句是其前件的否定。反子句可以看作是-个关于在什么条件下它们的前件为真的询问。<br>
+      　　假设我们有一组事实和规则P(即一部程序)和一个合取式<br>
+      <font size="2">　　　　　N</font><font size="1">0</font>∧<font size="2">N</font><font size="1">1</font>∧…　　　　　　　　　(1)<br>
+      然后想确定式(1)中变量的值，从而能使(1)成为P的一个逻辑推论。换言之，我们要根据P求得如下所示的构造性证明：<br>
+      　　　　　(<img src="../../../../images/text/chap02/sec02/fh2.gif" width="8" height="9"><font size="2">x</font><font size="1">0</font>…<font size="2">x</font><font size="1">k</font>)(<font size="2">N</font><font size="1">0</font>∧<font size="2">N</font><font size="1">1</font>∧…)　　　　(2)<br>
+      　　证明式(2)的一种办法是通过矛盾(即不相容)，也就是证明P中的子句和式(2)的否定所组成的合取式为永假式。因为根据这个合取式的永假性，我们可以推论式(2)逻辑上遵从P，理由是P自己作为-组定子句不可能自相矛盾。 
+      <br>
+      　　式(2)的否定可以表达为：<br>
+      　　　　　(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle"><font size="2">x</font><font size="1">0</font>…<font size="2">x</font><font size="1">k</font>)<img src="../../../../images/text/chap09/sec8/fd.gif" width="11" height="6" align="absmiddle">(<font size="2">N</font><font size="1">0</font>∧<font size="2">N</font><font size="1">1</font>∧…)　　　(3)<br>
+      这也就是反子句的另一种写法： <br>
+      　　　　　<font size="2">N</font><font size="1">0</font>∧<font size="2">N</font><font size="1">1</font>∧…<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10"><font size="2"></font>　　　　　　　　 
+      (4)<br>
+      关于式(3)和P永假性的一个构造性证明，将给全称语句(3)提供-个反例。它为变量xo,…,xk分别找到值Vo,…,vk，从而用vi置换Xi后，可以使<br>
+      　　　　　P∨<img src="../../../../images/text/chap09/sec8/fd.gif" width="11" height="6" align="absmiddle">(<font size="2">N</font><font size="1">0</font>∧<font size="2">N</font><font size="1">1</font>∧…)　　　　　　 
+      (5)<br>
+      为假。<br>
+      　　由于我们要证明(3)和P永假.所以证明结果为假值。不难看出，根据式(5)取假值的证明，如果用相同的值去置换(1)的变量，那么(1)就是P的-个逻辑推论。因为假设F为真，那么<img src="../../../../images/text/chap09/sec8/fd.gif" width="11" height="6" align="absmiddle">(<font size="2">N</font><font size="1">0</font>∧<font size="2">N</font><font size="1">1</font>∧…)必须为假，也就是说式(1)中的变量在这些给定值下保证该式为真。这样就结束了依据程序P对原先的存在性询问的&quot;一次构造性证明。所以反子句(4)可以看作是其前件(1)关于程序P的真值的一个询问。<br>
+      　　由于一个存在性语句的证明是通过反驳该语句的否定式来实现的，我们把这种证明方法叫做反演(refutation)。<br>
+      　　实现逻辑程序设计的Prolog系统正是严格遵循这种反演定理证明方式来推理的。在Prolog语言中，事实和规则也分别通过单位子句和非单位子句这两种定子句来表示，询问则以反子句来表示。唯一的区别是：在prolog中合取算符用&quot;：-&quot;表示；蕴涵算符用&quot;-&quot;表示，而且把蕴涵式的前件和后件倒置。因此P<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">Q被写作Q：-P(读作if 
+      P then Q)，而P<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">记作：-P。对于某个目标的一个Prolog证明其实就是对该目标中的变量进行赋值，从而使它为给定程序的一个逻辑推论。这样一来选择&quot;：-G&quot;这样的形式来表示询问的意图就明朗化了，因为这样可以直接向Prolog系统提供这个目标语句的否定式。<br>
+      </span></td>
+  </tr>
+</table>
+</body>
+</html>

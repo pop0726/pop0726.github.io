@@ -1,0 +1,139 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第三章 不确定和非单调推理方法</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <br>
+      　　<span class="part">3.4.3　进程方法</span><span class="text"><br>
+      　　1．量空间<br>
+      　　物理系统的参量称作量，量由数量和导数组成。Am,As分别表示数量的值和符号，Dm，Ds分别表示数量导数的值和符号。<br>
+      　　一个量的所有可能的取值构成量空间，量空间的元素有半序关系。<br>
+      　　如果<font size="2">Q</font><font size="1">1</font>＝f(<font size="2">Q</font><font size="1">2</font>)是单调上升的，便说Q1与Q2定性成比例记作<font size="2">Q</font><font size="1">1</font>∝<font size="2">Q</font><sup><font size="1">+</font></sup><font size="2">Q</font><font size="1">2</font>。如果<font size="2">Q</font><font size="1">1</font>＝f(<font size="2">Q</font><font size="1">2</font>)是单调下降的，也说<font size="2">Q</font><font size="1">1</font>与<font size="2">Q</font><font size="1">2</font>定性成比例记作<font size="2">Q</font><font size="1">1</font>∝<font size="2">Q</font><sup><font size="1">-</font></sup><font size="2">Q</font><font size="1">2</font>。<br>
+      　　2.进程<br>
+      　　一个物理进程P是由一组个体、一组前提条件、一组数量条件、一组参量关系和一组影响组成的。一个进程的具体示例称作进程例记作PI。<br>
+      　　其中的影响，说明什么能引起参量的变化。影响有直接和间接之分。如果某时刻有一进程影响量Q便称直接影响。若数n直接影响Q，且影响为正、负、无、分别记作1+(Q，n),1-(Q,n),1±(Q,n)。而Q是其它量的函数时，称Q受间接影响。如定性成比例∝Q就属间接影响。<br>
+      　　某一领域可能出现的全部进程叫进程表。<br>
+      　　一个物理过程可由一些进程来描述，这就是定性推理进程方法的基本想法。<br>
+      　　例如一个热流进程可如下说明。</span> 
+      <table width="90%" border="0" cellspacing="0" cellpadding="0" class="explaination" align="center">
+        <tr> 
+          <td width="60%">process heat-flow<br>
+            Individuals:</td>
+          <td width="40%">热流进程<br>
+            一组个体</td>
+        </tr>
+        <tr> 
+          <td width="60%">src an object ,Has-Quantity (src,heat)</td>
+          <td width="40%">src是热源</td>
+        </tr>
+        <tr> 
+          <td width="60%">dst an object ,Has-Quantity (dst,heat)</td>
+          <td width="40%">dst是热源</td>
+        </tr>
+        <tr> 
+          <td width="60%">path a heat-path,Heat-Connection (Path ,src ,dst)<br>
+            <br>
+          </td>
+          <td width="40%">path 是热流路径将src,dst连结起来。把热传给dst。</td>
+        </tr>
+        <tr> 
+          <td width="60%">Preconditions:</td>
+          <td width="40%">一组前提条件</td>
+        </tr>
+        <tr> 
+          <td width="60%">Heat-Aligned (path)</td>
+          <td width="40%">热流路径安排好</td>
+        </tr>
+        <tr> 
+          <td width="60%">Quantity Conditions:</td>
+          <td width="40%">一组数量条件</td>
+        </tr>
+        <tr> 
+          <td width="60%">A[temperature (src)]&gt;A[temperature(dst)]<br>
+          </td>
+          <td width="40%">src 温度高于dst温度</td>
+        </tr>
+        <tr> 
+          <td width="60%">Relations: </td>
+          <td width="40%">一组参量关系</td>
+        </tr>
+        <tr> 
+          <td width="60%">Let folow-rate be a quantity</td>
+          <td width="40%">热流量flow-rate是一个数量</td>
+        </tr>
+        <tr> 
+          <td width="60%">A[flow-rate ]&gt;Zero</td>
+          <td width="40%">flow-rate 值&gt;0</td>
+        </tr>
+        <tr> 
+          <td width="60%">folw-rate∝<font size="2">Q</font><sup><font size="1">+</font></sup>(temperature(src)-temperature(dst))</td>
+          <td width="40%">flow-rate 与src　,dst 的温差定性成比例。</td>
+        </tr>
+        <tr> 
+          <td width="60%">Influences:<br>
+            l-(heat (src),A[flow-rate])</td>
+          <td width="40%">flow-rate 的值直接影响heat(src),而且是负影响。</td>
+        </tr>
+        <tr> 
+          <td width="60%">l+(heat (src),A[flow-rate])</td>
+          <td width="40%">flow-rate 的值直接影响heat(dst),而且是正影响。</td>
+        </tr>
+      </table>
+      <span class="text"><br>
+      　　3．演绎过程<br>
+      　　(1)选进程　<br>
+      　　对一组已知的个体来说，在进程表中依各进程对个体的说明寻找出相匹配的那些进程例PI。<br>
+      　　(2)确定激活的PI<br>
+      　 　依前提条件数量条件，从已匹配的那些进程例中确定出被激活的PI。激活的PI叫进程结构。<br>
+      　　(3)确定量的变化<br>
+      　　个体的变化由相应量的Ds值来表示。量的变化可由进程直接影响，也可由<font size="2">∝</font><font size="1">Q</font>间接影响。<br>
+      　　(4)确定进程结构变化<br>
+      　　量的变化将会引起进程结构变化，确定这种变化也叫限制分析，依Ds来确定量在量空间中的变化，首先在量空间中找出当前值的相邻，如果相邻是限制点，则某些进程便停止，某些进程开始。与限制点有关的半序关系的所有可能变化确定了当前激活进程的变化路径。<br>
+      　　步骤（1）－（4）建立了一个PI，同时进入了下一个PI。重复这些步骤便可对一个物理过程给出一串进程描述。这就是进程法定性推理的结果。<br>
+      　　4.举例：锅炉加热过程的进程描述<br>
+      　　锅炉有一个装水的容器，盖子密封，热源是火且温度不变。如何使用进程方法来描述<br>
+      这加热过程。<br>
+      　　图3.5中，PS表进程结构，LH是限制假设（附加量的假设），IS是个体。<br>
+      　　锅炉加热的进程描述： <br>
+      　从①开始，进程结构只有heat-flow.由PS：（heat-fow）可导出②和③<br>
+      　　②是水温与热源温度相等情形。这时heat-flow进程结束。<br>
+      　　③是水开始沸腾情形。由进程（heat-flow,boiling）描述，并可引起④⑦⑧⑨．<br>
+      　　④是水烧干的情形。可导至⑤，⑥。<br>
+      　　⑤出现爆炸。<br>
+      　　⑥蒸汽温度达到热源温度，结束。<br>
+      　　⑦水沸腾使压力上升，水沸点提高，会使水温低于沸点，会返回③。<br>
+      　　⑧水温达到热源温度，结束。<br>
+      　　⑨容器压力过高出现爆炸。</span> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="30" valign="top"><img src="../../../../images/text/tb/tushi.gif" width="25" height="16" alt="图示"></td>
+          <td align="center"><img src="../../../../images/text/chap03/sec4/pic4.gif" width="433" height="424"><br>
+            <span class="explaination"> <br>
+            图3.5 锅炉加热过程的进程描述</span></td>
+        </tr>
+      </table>
+      <span class="text"><br>
+      </span></td>
+  </tr>
+</table>
+</body>
+</html>

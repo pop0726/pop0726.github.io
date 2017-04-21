@@ -1,0 +1,106 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td><span class="text"> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第七章 其它学习方法</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <br>
+      　　2.学习概念的CL系统<br>
+      　　在科学发展史上，定性关系的发现往往先于定量关系。在化学发展中尤为突出。在十七到十八世纪中，人们通过大量实验，以物质的味道、质地等物理性质和物质间的化学反应为基础，总结出了物质的分类。酸(ACID)、碱(ALKALI)、盐(SALT)概念的获得及分类就是一个例子。CL系统就是模拟这一过程的。它的输入是对于物质的物理化学性质的描述，系统由此抽象出酸、碱、盐的概念，并输出这些概念所包含的物质及其物理化学性质。也可以包括若干与酸、碱、盐无关的物质及性质，这不会妨碍系统的工作。 
+      <br>
+      <br>
+      　　(1)CL系统的实现<br>
+      　　CL系统可以看作若干规则在启发式指导下搜索问题空间。 <br>
+      　　CL系统的求解过程如下：<br>
+      </span><b class="explaination">初始状态</b><span class="text"> 一系列具体物质的物理与化学性质的描述。<br>
+      </span><b class="explaination">目标状态</b><span class="text"> 产生抽象类别(概念)，并定义概念的物理与化学性质的描述。<br>
+      </span><b class="explaination">中间状态</b><span class="text"> 对具体物质和抽象概念的物理与化学性质的混合的描述。 
+      <br>
+      </span><b class="explaination">规则</b><span class="text"> 归类规则：形成一个类别，并用类别名替换具体物质。<br>
+      　　 量化规则：在性质描述中，确定对抽象名是用存在量词还是用全称量词。<br>
+      </span><b class="explaination">启发式</b><span class="text"> 对&quot;归类规则&quot;：选择相同性质出现次数最多的一类物质集合归类。<br>
+      　　　 对&quot;量化规则&quot;：若某个概念包含的全部具体物质都符合某个性质，则为全称量词。 <br>
+      </span><b class="explaination">搜索策略</b><span class="text"> 无&quot;回溯&quot;的深度优先搜索。<br>
+      　　为了实现上述过程，采用下列步骤：<br>
+      　　第一步：对物理与化学性质分别采用如下的知识表示形式：<br>
+      　　　(NIL(INPUTS(HCl NaOH))(OUTPUTS(NaC1)))<br>
+      　　　(NIL(OBJ(NaCl))(TAS(SALTY)))<br>
+      为了方便，物质名称用分子式表示。表中NIL处开始为空，以后存放量词。<br>
+      　　第二步：引进频率函数，用以计算各性质的重复次数，以便发现概括力最强的概念。<br>
+      　　第三步：归类、替换、量化的函数。在频率函数的基础上实现归纳、抽象。<br>
+      　　第四步：对中间状态重复第二、三步，直到不能归纳出新类为止。 <br>
+      <br>
+      　　(2)CL系统发现酸、碱、盐概念的过程<br>
+      　　<b>初始状态</b><br>
+      </span><span class="explaination">FACTS1：([NIL(INPUTS(HCl NaOH))(OUTPUTS(NaCl]<br>
+      　　　　 [NIL(INPUTS(HO KOH))(OUTPUTS(KCl]<br>
+      　　　　 [NIL(1NPUTS (HNO3 NaOH)) (OUTPUTS (NaN0<font size="1">3</font>]<br>
+      　　　　 [NIL (INPUTS (HNO3 KOH)) (OUTPUTS (KNO<font size="1">3</font>])<br>
+      FACTS2：([NIL(OBJ(HCl))(TAS(SOUR]<br>
+      　　　　 [NIL(OBJ(HNO3))(TAS(SOUR]<br>
+      　　　　 [NIL(OBJ(Na C1))(TAS(SALTY]<br>
+      　　　　 [NIL(0BJ(KCl))(TAS(SALTY]<br>
+      　　　　 [NIL(OBJ(NaNO3))(TAS(SALTY]<br>
+      　　　　 [NIL(OBJ(KNO3))(TAS(SALTY]<br>
+      　　　　 [NIL(OBJ(NaOH))(TAS(BITTER]<br>
+      　　　　 [NIL(OBJ(KOH))(TAS(BITTER])<br>
+      FACTS3：NIL</span><span class="text"><br>
+      　　<b>状态1</b><br>
+      </span><span class="explaination">FACTS1：([<img src="../../../../images/text/chap07/sec4/fh2.gif" width="8" height="9">SALT(INPUTS(HCl 
+      NaOH)) (OUTPUTS(SALT]<br>
+      　　　　 [<img src="../../../../images/text/chap07/sec4/fh2.gif" width="8" height="9">SALT 
+      (INPUTS (HCl KOH)) (OUTPUTS(SALT]<br>
+      　　　　 [<img src="../../../../images/text/chap07/sec4/fh2.gif" width="8" height="9">SALT(INPUTS(HNO3NaOH))(OUTPUTS(SALT]<br>
+      　　　　 [<img src="../../../../images/text/chap07/sec4/fh2.gif" width="8" height="9">SALT(INPUTS(HNO3KOH))(OUTPUTS(SALT])<br>
+      FACTS2：([NIL(OBJ(HCl))(TAS(SOUR]<br>
+      　　　　 [NII(OBJ(HNO3))(TAS(SOUR)<br>
+      　　　　 [<img src="../../../../images/text/chap07/sec4/fh.gif" width="10" height="11">SALT 
+      (OBJ(SALT))(TAS(SALTY]<br>
+      　　　　 [NIL(OBJ(NaOH))(TAS(BITTER]<br>
+      　　　　 [NIL(OBJ(KOH))(TAS(BITTER)<br>
+      FACTS3：([SALT(NaCl KCl NaN03 KN03)])</span><span class="text"><br>
+      　　<b>状态2</b><br>
+      </span><span class="explaination">FACTS1：([<img src="../../../../images/text/chap07/sec4/fh.gif" width="10" height="11">ACID,<img src="../../../../images/text/chap07/sec4/fh2.gif" width="8" height="9">SALT(INPUTS(ACID 
+      NaOH))(OUTPUTS(SALT]<br>
+      　　　　 [<img src="../../../../images/text/chap07/sec4/fh.gif" width="10" height="11">ACID,<img src="../../../../images/text/chap07/sec4/fh2.gif" width="8" height="9">SALT(INPUTS(ACID 
+      KOH))(OUTPUTS(SALT])<br>
+      FACTS2：([<img src="../../../../images/text/chap07/sec4/fh.gif" width="10" height="11">ACID(OBJ(ACID))(TAS(SOUR)<br>
+      　　　　 [<img src="../../../../images/text/chap07/sec4/fh.gif" width="10" height="11">SAIT 
+      (OBJ(SALT))(TAS(SALTY]<br>
+      　　　　 [NIL(OBJ(NaOH))(TAS(BITTER]<br>
+      　　　　 [NIL(OBJ(KOH))(TAS(BITTER])<br>
+      FACTS3：([SALT(NaCl KCl NaNO<font size="1">3</font> KNO<font size="1">3</font>)]<br>
+      　　　　 [ACID(HCl HNO3)])</span><span class="text"><br>
+      　　<b>状态3</b><br>
+      </span><span class="explaination">FACTS1：([<img src="../../../../images/text/chap07/sec4/fh.gif" width="10" height="11">ALKALI,<img src="../../../../images/text/chap07/sec4/fh.gif" width="10" height="11">ACID,<img src="../../../../images/text/chap07/sec4/fh2.gif" width="8" height="9">SALT 
+      (INPUTS(ACID ALKALI))(OUTPUTS (SALT))<br>
+      FACTS2：([<img src="../../../../images/text/chap07/sec4/fh.gif" width="10" height="11">ACID(OBJ(ACID))(TAS,(SOUR)<br>
+      　　　　 [<img src="../../../../images/text/chap07/sec4/fh.gif" width="10" height="11">SALT(OBJ(SALT))(TAS(SALTY)<br>
+      　　　　 [<img src="../../../../images/text/chap07/sec4/fh.gif" width="10" height="11">ALKALI(OBJ(ALKALI))(TAS(BITTER))<br>
+      FACTS3：([SALT(NaCl KCl NaN0<font size="1">3</font> KNO<font size="1">3</font>]<br>
+      　　　　 [ACID(HCl HNO<font size="1">3</font>]<br>
+      　　　　 [ALKALI(NaOH KOH])</span><span class="text"><br>
+      　　在初始状态，频率函数发现盐味这一性质出现得最多，则把有盐味的NaCl、KCl、NaNO<font size="1">3</font>、KNO<font size="1">3</font>归为一类，称为SALT。替换是直接的，凡出现这四个物质的地方，全部用SALT代替。对于量化，在HCl+NaOH→NaCl的反应中，NaCl换成KCl不成立，所以用存在量词。而有盐味对四个物质全成立，所以用全称量词。<br>
+      </span> </td>
+  </tr>
+</table>
+</body>
+</html>

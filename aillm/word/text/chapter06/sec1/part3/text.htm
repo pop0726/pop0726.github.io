@@ -1,0 +1,142 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td><span class="text"> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第六章　实例学习</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <br>
+      　　</span><span class="part">6.1.3　规则空间</span><span class="text"><br>
+      　　定义规则空间就是规定表示规则的各种算符和术语，也就是说规定的描述语言可以表示的所有规则的集合是规则空间。与规则空间有关的两个问题是对规则空间的要求和规则空间的搜索方法。因为规则空间表示方法应该支持归纳推理，所以下面先介绍几种归纳推理方法，再介绍对规则空间的要求和搜索方法。<br>
+      　　1． 归纳推理方法<br>
+      　　归纳推理是由特殊到一般的推理。规则空间表示方法应便于通过简单的操作实现归纳。下面介绍几种归纳推理方法。<br>
+      　　（1） 把常量化为变量<br>
+      　　为了学习扑克牌中同花的概念，提供两个正例如下：</span> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="text">
+        <tr> 
+          <td width="30"><img src="../../../../images/text/tb/liti.gif" width="26" height="25" alt="例题"></td>
+          <td class="text"><b>例1:</b></td>
+        </tr>
+        <tr> 
+          <td>&nbsp;</td>
+          <td class="text">　SUIT(<img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absbottom">,clubs)∧SUIT(<img src="../../../../images/text/chap02/sec01/c2.gif" width="13" height="14" align="absbottom">,clubs)<br>
+            　∧SUIT(<img src="../../../../images/text/chap02/sec03/c3.gif" width="12" height="12" align="absbottom">,clubs)∧SUIT(<img src="../../../../images/text/chap02/sec03/c4.gif" width="12" height="12" align="absbottom">,clubs)<br>
+            　∧SUIT(<img src="../../../../images/text/chap06/sec1/c5.gif" width="12" height="12" align="absbottom">,clubs)<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">FLUSH(<img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absbottom">,<img src="../../../../images/text/chap02/sec01/c2.gif" width="13" height="14" align="absbottom">,<img src="../../../../images/text/chap02/sec03/c3.gif" width="12" height="12" align="absbottom">,<img src="../../../../images/text/chap02/sec03/c4.gif" width="12" height="12" align="absbottom">,<img src="../../../../images/text/chap06/sec1/c5.gif" width="12" height="12" align="absbottom">)</td>
+        </tr>
+        <tr> 
+          <td><img src="../../../../images/text/tb/liti.gif" width="26" height="25" alt="例题"></td>
+          <td class="text"><b>例2:</b></td>
+        </tr>
+        <tr> 
+          <td>&nbsp;</td>
+          <td class="text">　SUIT(<img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absbottom">,spades)∧SUIT(<img src="../../../../images/text/chap02/sec01/c2.gif" width="13" height="14" align="absbottom">,spades)<br>
+            　∧SUIT(<img src="../../../../images/text/chap02/sec03/c3.gif" width="12" height="12" align="absbottom">,spades)∧SUIT(<img src="../../../../images/text/chap02/sec03/c4.gif" width="12" height="12" align="absbottom">,spades)<br>
+            　∧SUIT(<img src="../../../../images/text/chap06/sec1/c5.gif" width="12" height="12" align="absbottom">,spades)<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">FLUSH(<img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absbottom">,<img src="../../../../images/text/chap02/sec01/c2.gif" width="13" height="14" align="absbottom">,<img src="../../../../images/text/chap02/sec03/c3.gif" width="12" height="12" align="absbottom">,<img src="../../../../images/text/chap02/sec03/c4.gif" width="12" height="12" align="absbottom">,<img src="../../../../images/text/chap06/sec1/c5.gif" width="12" height="12" align="absbottom">)</td>
+        </tr>
+      </table>
+      <span class="text"><br>
+      其中例1表示五张梅花牌是同花，例2表示有五张黑桃牌是同花，谓词FLUSH表示同花。把常量clubs和spades换成变量x（代表任何花色），就归纳出一条假设的规则。<br>
+      　　</span><b class="explaination">规则1</b><span class="text">　SUIT(<img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absbottom">,x)∧SUIT(<img src="../../../../images/text/chap02/sec01/c2.gif" width="13" height="14" align="absbottom">,x)∧SUIT(<img src="../../../../images/text/chap02/sec03/c3.gif" width="12" height="12" align="absbottom">,x)∧SUIT(<img src="../../../../images/text/chap02/sec03/c4.gif" width="12" height="12" align="absbottom">,x)∧SUIT(<img src="../../../../images/text/chap06/sec1/c5.gif" width="12" height="12" align="absbottom">,x)<br>
+      　　　　　　<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">FLUSH(<img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absbottom">,<img src="../../../../images/text/chap02/sec01/c2.gif" width="13" height="14" align="absbottom">,<img src="../../../../images/text/chap02/sec03/c3.gif" width="12" height="12" align="absbottom">,<img src="../../../../images/text/chap02/sec03/c4.gif" width="12" height="12" align="absbottom">,<img src="../../../../images/text/chap06/sec1/c5.gif" width="12" height="12" align="absbottom">)<br>
+      　　（2）去掉条件<br>
+      　　为了学习同花概念，可以提供下列正例。</span> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="text">
+        <tr> 
+          <td width="30"><img src="../../../../images/text/tb/liti.gif" width="26" height="25" alt="例题"></td>
+          <td class="text"><b>例3:</b></td>
+        </tr>
+        <tr> 
+          <td>&nbsp;</td>
+          <td class="text">　SUIT(<img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absbottom">,clubs)∧RANK(C1,3)<br>
+            　∧SUIT(<img src="../../../../images/text/chap02/sec01/c2.gif" width="13" height="14" align="absbottom">,clubs)∧RANK(<img src="../../../../images/text/chap02/sec01/c2.gif" width="13" height="14" align="absbottom">,5)<br>
+            　∧SUIT(<img src="../../../../images/text/chap02/sec03/c3.gif" width="12" height="12" align="absbottom">,clubs)∧RANK(<img src="../../../../images/text/chap02/sec03/c3.gif" width="12" height="12" align="absbottom">,7)<br>
+            　∧SUIT(<img src="../../../../images/text/chap02/sec03/c4.gif" width="12" height="12" align="absbottom">,clubs)∧RANK(<img src="../../../../images/text/chap02/sec03/c4.gif" width="12" height="12" align="absbottom">,10)<br>
+            　∧SUIT(<img src="../../../../images/text/chap06/sec1/c5.gif" width="12" height="12" align="absbottom">,clubs)∧RANK(<img src="../../../../images/text/chap06/sec1/c5.gif" width="12" height="12" align="absbottom">,K)<br>
+            　<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">FLUSH(<img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absbottom">,<img src="../../../../images/text/chap02/sec01/c2.gif" width="13" height="14" align="absbottom">,<img src="../../../../images/text/chap02/sec03/c3.gif" width="12" height="12" align="absbottom">,<img src="../../../../images/text/chap02/sec03/c4.gif" width="12" height="12" align="absbottom">,<img src="../../../../images/text/chap06/sec1/c5.gif" width="12" height="12" align="absbottom">)</td>
+        </tr>
+      </table>
+      <span class="text"><br>
+      为了得到上述的规则1，不但要把常量clubs化为变量x，而且要去掉所有的RANK 谓词。去掉条件的归纳方法是从合取条件中去掉一个条件。如此例中去掉RANK谓词。<br>
+      　　（3）增加选择<br>
+      　　例如要程序学习&quot;人面牌&quot;的概念，而人面牌是一张点数为J、Q、K的牌。提供的两个正例是</span> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="text">
+        <tr> 
+          <td width="30"><img src="../../../../images/text/tb/liti.gif" width="26" height="25" alt="例题"></td>
+          <td class="text"><b>例4:</b></td>
+        </tr>
+        <tr> 
+          <td>&nbsp;</td>
+          <td class="text">　RANK(<img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absbottom">,J)<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">FACE(<img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absbottom">)</td>
+        </tr>
+        <tr> 
+          <td height="16"><img src="../../../../images/text/tb/liti.gif" width="26" height="25" alt="例题"></td>
+          <td height="16" class="text"><b>例5:</b></td>
+        </tr>
+        <tr> 
+          <td>&nbsp;</td>
+          <td class="text">　RANK(<img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absbottom">，K)<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">FACE(<img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absbottom">)<br>
+            　合并两个正例后等价地得到　<br>
+            　RANK(<img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absbottom">,J)∨RANK(<img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absbottom">，K)<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">FACE(<img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absbottom">)</td>
+        </tr>
+      </table>
+      <span class="text">如果在析取条件中增加一种选择，就得到要求的规则。<br>
+      　　</span><b class="explaination">规则2</b><span class="text">　RANK(<img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absbottom">,J)∨RANK(<img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absbottom">,Q)∨RAND(C1,K)<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">FACE(<img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absbottom">)<br>
+      　　增加选择就是在析取条件中增加一个新的析取项，如上例中的RANK(<img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absbottom">,Q)。<br>
+      上述三种方法中，去掉条件就是去掉合取项，也就是去掉部分约束；增加选择就是增加析取项，也就是扩大范围。这二者是对偶的两种方法，二者都是扩大条件适用范围。方法（1）和（3）都是直接扩大范围，但方法（1）更强，归纳过快，因此更容易出错。方法（3）较弱，不易出错，但归纳较慢。例如对例4和例5使用方法（1）就会得到下列的错误。<br>
+      　　</span><b class="explaination">规则3（错误）</b><span class="text"> RANK(<img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absbottom">,x)<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">FACE(<img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absbottom">)<br>
+      　　这个结果说明归纳过程很容易出错。归纳推理不是保真的，是保假的。这就是说，如果前提真，则由归纳推理得到的结果不一定真；如果前提假，则由归纳推理得到的结果一定假（这里的前提是示教例子，归纳的结果是规则）。实例学习中归纳推理的非保真性是因为：少数示教例子所含的信息往往少于确定规则所需的信息。归纳过程就是从多种归纳方法中选择正确的方法，以得到正确的结果。因此归纳过程就是搜索过程。归纳中出错后就要回溯。发现错误的方法往往是选用新的例子去否定归纳出的错误规则。这正如在两个空间模型中表示的那样。 
+      <br>
+      　　（4）曲线拟合<br>
+      　　对数值问题的归纳可以用曲线（或曲面）拟合法。例如系统试图由实例归纳出输出z与输入x和y的关系。提供的每个正例是表示输入与出输出的三元组，形式为（x,y,z）。例如提供三个示才教例子。</span> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="text">
+        <tr> 
+          <td width="30"><img src="../../../../images/text/tb/liti.gif" width="26" height="25" alt="例题"></td>
+          <td class="text"><b>例6:</b></td>
+        </tr>
+        <tr> 
+          <td>&nbsp;</td>
+          <td class="text">(0,2,7)</td>
+        </tr>
+        <tr> 
+          <td><img src="../../../../images/text/tb/liti.gif" width="26" height="25" alt="例题"></td>
+          <td class="text"><b>例7:</b></td>
+        </tr>
+        <tr> 
+          <td>&nbsp;</td>
+          <td class="text">(6,－1,10)</td>
+        </tr>
+        <tr> 
+          <td><img src="../../../../images/text/tb/liti.gif" width="26" height="25" alt="例题"></td>
+          <td class="text"><b>例8:</b></td>
+        </tr>
+        <tr> 
+          <td>&nbsp;</td>
+          <td class="text">(－1,－5,－16)</td>
+        </tr>
+      </table>
+      <span class="text"><br>
+      系统用最小二乘回归法拟合出下列平面，该平面就是表示x,y,z间关系的规则。<br>
+      　　</span><b><span class="explaination">规则</span></b><span class="explaination"><b>4</b></span><span class="text">　z=2x+3y+1<br>
+      　　如果同时提供多于三个例子，也可用此方法归纳出规则。<br>
+      </span></td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td><span class="text"> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第七章 其它学习方法</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <br>
+      　　</span><span class="part">7.4.2 数学发现系统AM</span><span class="text"><br>
+      　　发现学习是由系统的初始知识和观察的数据学习数学、物理和化学等方面的概念和规律。它也使用归纳推理，但是在学习过程中除了初始知识外施教者不进行指导，所以它也是无示教的归纳学习。一类发现系统是数学发现系统，典型的系统是AM。本文将介绍这个系统。另一类发现系统是发现物理化学规律的系统。有些这种系统主要由观察的数据学习，这些观察可以看作正例。所以它们也可以作为实例学习。第二类系统的例子有：发现定量规律的系统BACON.6，发现定性规律的系统GLAUBER，确定化学反应用物质成分的系统STAHL和形成化学反应结构模型的系统DALTON。<br>
+      　　AM(Douylas Lenat，1976)与多数学习系统不同，它不是学习执行任务中的概念，而是学习数学概念。它用改进假设方法搜索数学概念空间。在AM开始运行时，知识库中有115个有限集合论的基本概念。AM在运行时，收集概念的例子，产生新概念，并对概念间的联系进行推测。在几个CPU小时的运行中，它发现了约200个新概念，其中约一半是有意义的。例如自然数的概念。另一个概念是自然数具有唯一的素数因式分解。<br>
+      　　1.AM的结构<br>
+      　　AM使用了三种有效的方法：框架表示法、产生式系统和启发式的最佳优先搜索。<br>
+      　　(1)框架表示法<br>
+      　　AM使用的和发现的概念都用框架表示。每个框架包含同样的一些槽。这些槽是：定义、已知的正反例、与更一般和更特殊的概念的联系、概念的价值以及其它内容。DEFINITIONS槽是最主要的，它包括几个用谓词表示的定义。SPECIALIZATIONS(特殊化)和GENERALIZATIONS(一般化)槽表示概念之间的联系。CONJECTURES(猜想)槽表示和概念有关的假设。每个槽中还可以包含启发式规则，这些规则构成产生式系统，用于填写概念槽或检查概念。下面是素数概念的框架表示，其中省略了各槽中的启发式规则。<br>
+      　　NAME：Prime Numbers<br>
+      　　DEFINITl0NS：<br>
+      　　　ORIGIN：Number-of-divisors-of(x)＝2<br>
+      　　　PREDICATE-CALCULUS：Prime(x)<br>
+      　　　　　　　　<img src="../../../../images/text/chap07/sec4/gs10.gif" width="172" height="13"><br>
+      　　　ITERATIVE:(for x&gt;1):For i from 2 to ,i|x<br>
+      　　EXAMPLES：2，3，5，7，11，13，17<br>
+      　　　BOUNDARY：2，3<br>
+      　　　BOUNDARY-FAILURES：0，1<br>
+      　　　FAILURES：12<br>
+      　　GENERALIZATIONS：Nos.，Nos. with an even no.of divisors<br>
+      　　SPECIALIZATIONS： Odd Primes， Prime Pairs， Prime Uniquely-addables<br>
+      　　CONJECS：Unique factorization，Goldbach's conjec，Extrema of No-of-　divisors-of<br>
+      　　ANALOGIES：<br>
+      　　　Maximally divisible numbers are converse extremes of Number-of-divisors-of<br>
+      　　　Factor a non-simple group into simple groups<br>
+      　　INTEREST：Conjectures associating Primes with Times and with Divisors-of<br>
+      　　WORTH：800<br>
+      　　(2)产生式系统<br>
+      　　在AM知识库的概念槽中共有242条启发式规则。规则的条件部分指出在什么条件下使用该规则，规则的行为部分指出产生新概念或寻找已有概念的例子。例如在ANY-CONCEPT框架的EXAMPLES槽中有一条规则：<br>
+      　　IF：The current task is&quot;Fill in examples of&quot;X&quot;and X is a 
+      specialization of Some concept Y，<br>
+      　　THEN：Apply the definition of x to each of the examples of Y and retain 
+      those that satisfy the definition.<br>
+      AM执行规则是有选择性的。它执行的任务是&quot;填写或检查概念C的槽S&quot;，每个任务具有数字的评价(关心程度)。AM选择有意义的任务，收集启发式信息，执行可用的规则。<br>
+      　　对于一项任务&quot;填写或检查概念C的槽S&quot;，为了找到与此任务有关的启发式信息，AM首先检查C的槽S是否有启发信息。 如果有就执行该启发式信息，如果没有就检查与C有关的概念，看看它们的启发式信息是否可以用于C。<br>
+      　　AM的启发式规则可以完成下列工作：<br>
+      　　第一种：填写概念的槽S。这包括寻找新例子，提出准则，修改WORTH槽。<br>
+      　　第二种：检查概念C的槽S。这包括证实概念的正确性，发现有意义的现象。例如，一个规则注意到概念X所有的例子也是更特殊的概念Y的例子，它就猜测X和Y等价。<br>
+      　　第三种：产生新概念。这包括加入新的框架，填写其DEFINITIONS槽和WORTH槽等。<br>
+      　　第四种：加入新任务。例如，产生概念X的规则要建议新任务&quot;填写X的例子&quot;。<br>
+      　　第五种：修改一项任务的关心程度(数字评价)。任务的关心程度是由引起该任务的原因来计算。<br>
+      　　(3)最佳优先搜索<br>
+      　　AM的最佳优先搜索体现在它始终选择最关心的任务。AM有59个启发式规则来评价概念和任务的关心程度。如果没有启发式的指导和安排，AM新概念的组合爆炸就无法容忍。然而，它只产生了200个新概念，而且半数可以为数学家接收。这说明它的搜索受到合理的限制。<br>
+      </span></td>
+  </tr>
+</table>
+</body>
+</html>

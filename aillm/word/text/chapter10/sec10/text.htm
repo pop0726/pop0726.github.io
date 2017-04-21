@@ -1,0 +1,75 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td><span class="text"> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第十章 语义分析</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <br>
+      　　</span><span class="section">10.10 连 词</span><span class="text"><br>
+      <br>
+      　　连词是封闭类词，它由并列连词和从属连词组成。它们的词义谓词中两个变元都是逻辑式。<br>
+      　　并列连词有&quot;and&quot;，&quot;or&quot;，&quot;nor&quot;和&quot;but&quot;。首先要注意的是，自然语言的&quot;and&quot;并不总是翻译成逻辑的6L(它是LFL的一个算子)。在例句： 
+      <br>
+      </span><span class="explaination">　　John opened the door and entered the 
+      room。<br>
+      　　(约翰打开门走进房间)<br>
+      　　past(and(the(door(X)，open(john；x))，<br>
+      　　　　　　the(room(Y)，enter(john，Y)))). </span><span class="text"><br>
+      &quot;and&quot;在这里的意思是&quot;and then&quot;(随后，隐含着一个时间序列)。上面那句话同<br>
+      </span><span class="explaination">　　John entered the room and opened the 
+      door.<br>
+      　　(约翰走进房间打开门)</span><span class="text"><br>
+      是不同的。因此谓词and(P，Q)与P&amp;Q不同。但有时把&quot;and&quot;翻译成&amp;是正确的，例如：<br>
+      </span><span class="explaination">　　John likes Mary and loves Sue.<br>
+      　　(约翰喜欢玛丽，并且爱休)<br>
+      　　like(john，mary)&amp; love(john，sue).</span><span class="text"><br>
+      　　众所周知，在自然语言中&quot;or&quot;既可以表示&quot;兼或&quot;，又可以表示&quot;异或&quot;，所以应当分别对应于谓词or和exor。连词&quot;nor&quot;总是和&quot;neither&quot;连用，它们的组合应翻译成not(or(P，Q))。but(P，Q)的意思类似于and(P，Q)，但表示P和Q之间存在-种对比。<br>
+      　　处理并列连词时所遇到的困难在于两个被连接的短语中可能会出现省略。例如在上面那个例句中，第二个分句的主&quot;John&quot;被省略。在逻辑式中&quot;John&quot;必须补上，但如果被省略的材料含有一个量词，一般不需在逻辑式中重复这个量词。句子：<br>
+      </span><span class="explaination">　　Somebody likes Mary and loves Sue.<br>
+      　　(有人喜欢玛丽并爱休)<br>
+      　　some(person(X)，1ike(X，mary)&amp;love(X，sue)).</span><span class="text"><br>
+      并不等价于句子：<br>
+      </span><span class="explaination">　　Somebody likes Mary and Somebodyloves 
+      Sue.<br>
+      　　(有人喜欢玛丽，有人爱休)<br>
+      　　some(person(X)，like(X，mary))&amp;<br>
+      　　　some(person(Y)，love(Y，sue)).</span><span class="text"><br>
+      　　从属连词包括&quot;if&quot;，&quot;when&quot;，&quot;before&quot;，&quot;after&quot;，&quot;as&quot;，&quot;a1though&quot;，等等。它们对应的都是双目谓词，并取逻辑式作为变元。第一个变元对应于在一个较大子句中的从句，第二个变元对应于剩余的子句。<br>
+      </span><span class="explaination">　　When John arrived，he was tired.<br>
+      　　(当约翰抵达时，他累极了。)<br>
+      　　past(when(arrive(john)，tired(john))).</span><span class="text"><br>
+      公式when(P，Q)同always(P，Q)或all(P，Q)关系密切。试比较下列近似的释义：<br>
+      </span><span class="explaination">　　When a cat is hungry,it purrs.<br>
+      　　(当猫饥饿时，它咕噜咕噜叫)<br>
+      　　when(cat(X)&amp; hungry(X)，purr(X)).<br>
+      <br>
+      　　A hungry cat always purrs.(饥饿的猫总是咕噜咕噜叫)<br>
+      　　always(cat(X)&amp;hungry(X)；Purr(X)).</span><span class="text"><br>
+      在上&quot;when&quot;句中，最好把&quot;cat&quot;的名词短语看作是全称量化，从而使代词&quot;it&quot;与&quot;cat&quot;构成互参关系。<br>
+      　　逻辑式if(P，Q)也类似于always(P，Q)，它们之间的区别在于后者预设存在着一种使P为真的情况(对于when(P，Q)也是如此)。<br>
+      　　谓词after和before类似于when，但要求它们的变元所表示的事件在时间上不等。 <br>
+      </span><span class="explaination">　　After a cat eats，it sleeps.(猫吃过以后便睡觉)<br>
+      　　after(cat(x)&amp;eat(X)，slecp(X)).<br>
+      </span> </td>
+  </tr>
+</table>
+</body>
+</html>

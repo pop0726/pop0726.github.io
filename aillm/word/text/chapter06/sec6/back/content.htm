@@ -1,0 +1,93 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body text="#000000" bgcolor="#FFFFFF">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td><span class="text"> <span class="text"><span class="text"> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第六章　实例学习</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      </span></span><br>
+      　　</span><span class="part">【章节小结】</span><span class="text"><br>
+      <br>
+      　　实例学习是一种归纳学习，给定概念的一些实例，并告知哪些是正例，哪些是反例，通过归纳学习给出这一概念（规则）的描述，要求这概念能覆盖所有正例，而不覆盖任一反例。<br>
+      　　在实例学习的两个空间模型中，首先由施教者提供例子空间中的一些初始示教例子，然后，程序进行解释例子，即将例子空间中的表示转换为规则空间中的表示，利用解释后的例子去搜索规则空间，往往不能一次从规则空间中找到要求的规则，因此，需要寻找和使用一些新的例子，这就是选择例子。<br>
+      　　按规则空间搜索方法，实例学习可以分为变型空间方法、改进假设方法、产生与测试方法、方案示例方法。<br>
+      　　变型空间方法以整个规则空间为初始的假设规则集合H。依据施教例子中的信息，对H进而进行一般化或特殊化处理，逐步缩小集合H。最后使H收敛为只含有要求的规则。变型空间方法的缺点抗干扰能力差、不能学习某些析取概念。改进假设方法是一种数据驱动方法，用改进操作来修改规则空间中的假设，根据示教例子用启发式方法选择这些操作。产生与测试方法是一种模型驱动方法，具有抗干扰性好的优点，但不能逐步接受新例子并修改概念。主要有INDUCE1.2算法，是由示教正例学习单个概念。方案示例方法是另一种模型驱动方法，常用于理解性任务。方案示例方法的优点是可以很快找到要求的规则、抗干扰性好，缺点是难以划分出几种方案，需要有专用算法等。 
+      <br>
+      　　在学习多个概念时，由环境提供给程序几个概念各自的示教例子，程序由此得到几个概念。学习多个概念中的主要问题是概念描述的重迭，也就是各规则条件部分的重迭。学习如何完成多步任务就是选择一个规划去完成任务。学习多步任务有两个难点，一个是由于规则必须一起使用，所以在修改知识库时要考虑规则间的相互影响。另一个难点是奖惩分配问题。AQ11和ID3是有代表性的实例学习算法。<br>
+      　　基于解释的学习是近年出现的一种机器学习方法，是一种分析式学习，只通过一个实例，依领域知识库，来构造求解过程的因果解释，从而取得控制知识。实际上，这个解释过程是依知识库的知识来证明该实例属于某个概念。但这基本上是演绎推理，只是在一般化时采用了归纳原理。获得控制规则过程中，涉及到可操作性的概念，满足可用和效应这两点的知识才是可操作的。<br>
+      </span><span class="text"><br>
+      　　</span><span class="part">【课后习题】</span><span class="text"></span><span class="text"> 
+      <br>
+      <br>
+      　　1． 实例学习有几个环节构成？<br>
+      　　　　各有什么作用？<br>
+      　　　　怎样通过正例和反例在规则空间中求得规则？<br>
+      　　2． 有4个实例</span>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="30"><img src="../../../../images/text/tb/bg.gif" width="25" height="21" alt="表格"></td>
+          <td>
+            <table width="350" border="0" cellspacing="1" cellpadding="0" align="center" bgcolor="#6C6C6C">
+              <tr bgcolor="#FFFFFF"> 
+                <td><span class="text">A<sub>1</sub>:</span></td>
+                <td><span class="text">江苏人</span></td>
+                <td><span class="text">数学家</span></td>
+                <td><span class="text">科学家</span></td>
+                <td><span class="text">中国人</span></td>
+              </tr>
+              <tr bgcolor="#FFFFFF"> 
+                <td><span class="text">A<sub>2</sub>:</span></td>
+                <td><span class="text">江西人</span></td>
+                <td><span class="text">华东地区人</span></td>
+                <td><span class="text">物理学家 科学家</span></td>
+                <td><span class="text">中国人</span></td>
+              </tr>
+              <tr bgcolor="#FFFFFF"> 
+                <td><span class="text">A<sub>3</sub>:</span></td>
+                <td><span class="text">湖北人</span></td>
+                <td><span class="text">华中地区人</span></td>
+                <td><span class="text">地学家 科学家</span></td>
+                <td><span class="text">中国人</span></td>
+              </tr>
+              <tr bgcolor="#FFFFFF"> 
+                <td><span class="text">A<sub>4</sub>:</span></td>
+                <td><span class="text">浙江人</span></td>
+                <td><span class="text">华东地区</span></td>
+                <td><span class="text">气象学家 科学家</span></td>
+                <td><span class="text">中国人</span></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <span class="text"><br>
+      　　　　能给个算法归纳出A1, A2, A3, A4的共同属性吗？<br>
+      　　3． 试以四张扑克牌的输入集为正反例，依变形空间的搜索方法来学习同花概念的过程。<br>
+      　　4． 怎样通过正例和反例在规则空间求得规则<br>
+      　　5． 归纳原理体现在哪些方面<br>
+      　　6． BACON是怎样发现开普勒定律的<br>
+      　　7． AQ11学得多个概念的原理是什么<br>
+      　　　　ID3学习算法的基本思想。<br>
+      　　8．解释学习怎样求得控制知识的<br>
+      </span></td>
+  </tr>
+</table>
+</body>
+</html>

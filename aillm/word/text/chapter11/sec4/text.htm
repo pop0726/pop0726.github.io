@@ -1,0 +1,52 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td><span class="text"> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第十一章 神经网络</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <br>
+      </span><span class="section">　　6.多层前向网络</span><span class="text"><br>
+      <br>
+      　　1985年Rumelhart等人提出了多层前向网络的反向学习算法，即BP算法，解决了多层网络的学习问题。多层前向网络由输入层、一个或多个隐层和一个输出层组成。在多层前向网络中，输入层由输入结点组成，隐层和输出层由神经单元组成，输入结点和神经元统称为单元。<br>
+      　　设输入样本序列为X={<font size=2>X</font><font size=1>1</font>,<font size=2>X</font><font size=1>2</font>,…<font size=2>X</font><font size=1>k</font>}，第k个样本为<font size=2>X</font><font size=1>k</font>，为n维向量Xk={<font size=2>X</font><font size=1>ko</font>,<font size=2>X</font><font size=1>k1</font>,…<font size=2>X</font><font size=1>k(n-1)</font>}<sup>T</sup>，第j个神经元的输入输出特性可描述为<br>
+      　　　　　　<img src="../../../images/text/chap11/sec2/gs11.gif" width="123" height="27"><br>
+      　　　　　　y<sub>kj</sub>=f<sub>j</sub>(net<sub>kj</sub>)<br>
+      　　其中，w<sub>ij</sub>为第i个单元到第j个单元的连接权值。y<sub>kj</sub>为输入第k个样本时第i个单元的输出，若第i个单元为输入结点，则y<sub>ki</sub>为输入样本X<sub>k</sub>的第i个元素X<sub>ki</sub>。 
+      j为第j个神经元的偏移值。非线性函数f<sub>j</sub>应为非下降的且处处有导数的函数。显然阈值型和分线段型是不符合要求的，一般取S型函数。<br>
+      　　为实现最优化算法，取准则函数为误差平方函数，第k个输入样本引起的误差为<br>
+      　　　　　　<img src="../../../images/text/chap11/sec2/gs12.gif" width="123" height="36"><br>
+      　　其中，dkj和ykj分别为第k个样本对应的第j个神经元的正确输出和实际输出。总误差为<img src="../../../images/text/chap11/sec2/gs13.gif" width="54" height="17" align="absmiddle"><br>
+      　　多层前向网络的学习算法可总结如下：<br>
+      　　（1） 确定网络的结构和允许误差<br>
+      　　网络结构是指网络的层次数目和每层的单元数，其中输入单元数等于输入样本维数，输出层单元数等于输出个数m。允许误差可采用最大平方误差和平均平方误差两种。<br>
+      　　（2） 初始化<br>
+      　　权值和偏移的初始值可取为小的随机数，迭代次数k=1<br>
+      　　（3） 提供输入和期望的输出<br>
+      　　输入样本可循环排列，第k个样本为n维向量Xk={<font size=2>X</font><font size=1>ko</font>,<font size=2>X</font><font size=1>k1</font>,…<font size=2>X</font><font size=1>k(n-1)</font>}<sup>T</sup>。期望的输出为n维向量Dk={<font size=2>d</font><font size=1>ko</font>,<font size=2>d</font><font size=1>k1</font>,…<font size=2>d</font><font size=1>k(m-1)</font>}<sup>T</sup><br>
+      　　（4） 计算实际输出<br>
+      　　第k个样本对应的实际输出为Yk={<font size=2>y</font><font size=1>ko</font>,<font size=2>y</font><font size=1>k1</font>,…<font size=2>y</font><font size=1>k(m-1)</font>}<sup>T</sup><br>
+      　　（5） 调整权值<br>
+      　　（6） 如果误差小于允许误差，则停止；否则k k+1,并转（3）。<br>
+      </span></td>
+  </tr>
+</table>
+</body>
+</html>

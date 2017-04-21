@@ -1,0 +1,112 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第九章 句法分析</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <br>
+      　　<span class="text">某些所谓的句附加（sentence adjuncts）可以出现在一个中心串的前头、后头或任何两个元素之间。这类句附加可以是副词（如&quot;generally&quot;）和介词短语（如&quot;on 
+      Wednesday&quot;,&quot;in Rome&quot;）,我们用符号SA来代表它们：<br>
+      </span><span class="explaination">　　　　&lt;SA&gt;∷＝&lt;<sup>*</sup>D&gt;|&lt;PN&gt;|null</span><span class="text"><br>
+      并把它放到ASSERTION串的各个位置上去：<br>
+      </span><span class="explaination">　　　　&lt;ASSERTION&gt;∷＝&lt;SA&gt;&lt;LNR&gt;&lt;SA&gt;&lt;LTVR&gt;&lt;SA&gt;|&lt;SA&gt;&lt;LNR&gt;&lt;SA&gt;&lt;LTVR&gt;&lt;SA&gt;&lt;LNR&gt;&lt;SA&gt;</span><span class="text"><br>
+      　　如果用符号OBJECT来代表可以出现在一个动词后面的东西，上面那个定义就可以缩短：<br>
+      </span><span class="explaination">　　　　&lt;ASSERTION&gt;∷＝&lt;SA&gt;&lt;LNR&gt;&lt;SA&gt;&lt;LTVR&gt;&lt;SA&gt;&lt;OBJECT&gt;&lt;SA&gt;<br>
+      　　　　&lt;OBJECT&gt;∷＝&lt;LNR&gt;|null</span><span class="text"><br>
+      接下去我们要把这部语法稍微增大下点，使之包括宾语序to十V十OBJECT，如在句子：&quot;I 1iketo eat fish&quot;(我喜欢吃鱼)中的宾语&quot;to 
+      eat fish&quot;。即让<br>
+      </span><span class="explaination">　　　　&lt;OBJECT&gt;∷＝&lt;LNR&gt;|&lt;TOVO&gt;|null<br>
+      　　　　&lt;TOVO&gt;∷＝to&lt;LVR&gt;&lt;SA&gt;&lt;OBJECT&gt;&lt;SA&gt;</span><span class="text"><br>
+      为了统一起见，我们也将为ASSERTION的其他元素引入一些熟悉的符号，即使在我们这部语法中它们可能只有一个值：<br>
+      </span><span class="explaination">　　　　&lt;ASSERTION&gt;∷＝&lt;SA&gt;&lt;SUBJECT&gt;&lt;SA&gt;&lt;VERB&gt;&lt;SA&gt;&lt;OBECT&gt;&lt;SA&gt;<br>
+      　　　　&lt;SUBJECT&gt;∷＝&lt;LNR&gt;<br>
+      　　　　&lt;VERB&gt;∷＝&lt;LTVR&gt;<br>
+      　　　　&lt;OBJECT&gt;∷＝&lt;LNR&gt;|&lt;TOVO&gt;|null</span><span class="text"><br>
+      作为置换串的例子，我们将把形为what十N十TV(如&quot;what John likes&quot;约翰所喜欢的东西)作为名词的置换者。为此，我们用一个新符号NSTG(名词串)来代表一个名词或其置换串：<br>
+      </span><span class="explaination">　　　　&lt;NSTG&gt;∷＝&lt;LNR&gt;|&lt;NREP&gt;<br>
+      　　　　&lt;NREP&gt;∷＝what&lt;SUBJECT&gt;&lt;SA&gt;&lt;VERB&gt;&lt;SA&gt;</span><span class="text"><br>
+      把以上的定义集中起来就得到如下的一部上下文无关语法：<br>
+      </span><span class="explaination">　　　　&lt;SENTENCE&gt;∷＝&lt;CENTER&gt;。<br>
+      　　　　&lt;CENTER&gt;∷＝&lt;ASSERTION&gt;<br>
+      　　　　&lt;ASSERTION&gt;∷＝&lt;SA&gt;&lt;SUBJECT&gt;&lt;SA&gt;&lt;VERB)&lt;SA&gt;<br>
+      　　　　&lt;OBJECT&gt;∷＝&lt;SA&gt;<br>
+      　　　　&lt;SA&gt;∷＝&lt;*D&gt;|&lt;*PN&gt;＝|null<br>
+      　　　　&lt;PN&gt;∷＝&lt;*P&gt;&lt;NSTG&gt;<br>
+      　　　　&lt;SUBJECT&gt;∷＝&lt;NSTG&gt;<br>
+      　　　　&lt;NSTG&gt;∷＝&lt;LNR&gt;|&lt;NREP&gt;<br>
+      　　　　&lt;LNR&gt;∷＝&lt;LN&gt;&lt;*N&gt;&lt;RN&gt;<br>
+      　　　　&lt;LN&gt;∷＝&lt;TPOS&gt;&lt;LAPOS&gt;<br>
+      　　　　&lt;TPOS&gt;∷＝&lt;*T&gt;|null<br>
+      　　　　&lt;APOS&gt;∷＝&lt;*ADJ&gt;|null<br>
+      　　　　&lt;RN&gt;∷＝&lt;PN&gt;|null<br>
+      　　　　&lt;NREP&gt;∷＝what&lt;SUBJECT&gt;&lt;SA&gt;&lt;VERB＝&lt;SA&gt;<br>
+      　　　　&lt;VERB&gt;∷&lt;LTVR&gt;<br>
+      　　　　&lt;LTVR&gt;∷＝&lt;LV&gt;&lt;*TV&gt;&lt;RV&gt;<br>
+      　　　　&lt;LV&gt;∷＝&lt;*D&gt;|null<br>
+      　　　　&lt;RV&gt;∷＝&lt;*D&gt;|&lt;PN&gt;|null<br>
+      　　　　&lt;LVR&gt;∷＝&lt;LV&gt;&lt;*V&gt;&lt;RV&gt;<br>
+      　　　　&lt;OBJECT&gt;∷＝&lt;NSTG&gt;|&lt;TOV0&gt;|null<br>
+      　　　　&lt;TOVO&gt;∷＝to&lt;LVR&gt;&lt;SA&gt;&lt;OBJECT&gt;&lt;SA&gt;</span><span class="text"><br>
+      　　如前所述，并非所有由这部语法所生成的词序都是可接受的英语句子。下面是这部语法未能加以考虑的基本语法限制：<br>
+      　　(1)数的一致关系：主语和动词之间，以及名词和它的冠词或数量词之间必须满足数的一致关系。前者如：<br>
+      </span><span class="explaination">　　　　&quot;Men eat.&quot; (男人们吃。)<br>
+      　　　　<sup>*</sup>&quot;Men eats.&quot;</span><span class="text"><br>
+      　　后者如：<br>
+      </span><span class="explaination">　　　　<sup>*</sup>&quot;A men eat.&quot;</span><span class="text"><br>
+      　　(2)可数名词：某些名词(一般指可数事物的名词)当以单数形式出现时要求有一个前置的冠词。如：<br>
+      </span><span class="explaination">　　　　&quot;The cat eats.&quot; (猫吃。)<br>
+      　　　　<sup>*</sup>&quot;Cat eats.&quot;</span><span class="text"><br>
+      　　(3)次范畴化(subcategorization)：每个动词都只能带OBJECT可能值的一个子集作为宾语，如：<br>
+      </span><span class="explaination">　　　　&quot;The cat wants to eat.&quot; 
+      (猫想吃。)<br>
+      　　　　<sup>*</sup>&quot;The cat sleeps　to eat.&quot; (<sup>*</sup>猫睡觉吃。)</span><span class="text"><br>
+      　　(4)选择：在正常的使用情况里，某些动词要求主语是&quot;人&quot;，如：<br>
+      </span><span class="explaination">　　　　<sup>*</sup>&quot;The cat argued.&quot; 
+      (<sup>*</sup>猫争论。)</span><span class="text"><br>
+      某些动词要求主语是&quot;有生命的&quot;，如：<br>
+      </span><span class="explaination">　　　　<sup>*</sup>&quot;The rock slept.&quot; 
+      (<sup>*</sup>石头睡了。)</span><span class="text"><br>
+      同前面几种语法限制相比，这种限制可以认为是一种语义限制。在比喻或童话故事中，有时违反选择限制的句子也可以被接受。<br>
+      　　在原则上，这些限制都可以在上下文无关语法的框框里解决。但是为此而需要增加的产生式数量相当大。例如，为了把主语和动词的数一致关系加到上面这部语法中来。那么这个限制要求单数主语跟一个单数动词，而复数主语跟一个复数动词： 
+      <br>
+      </span><span class="explaination">　　&lt;ASSERTION&gt;∷＝&lt;SA&gt;&lt;SINGULAR-SUBJECT&gt;&lt;SA&gt;<br>
+      　　　　　　　　&lt;SINGULAR-VERB&gt;&lt;SA&gt;&lt;OBJECT&gt;&lt;SA&gt;|<br>
+      　　　　　　　　&lt;SA&gt;&lt;PLURAL-SUBJECT&gt;&lt;SA&gt;<br>
+      　　　　　　　　&lt;PLURAL-VERB&gt;&lt;SA&gt;&lt;OBJECT&gt;&lt;SA&gt;</span><span class="text"><br>
+      因而我们必须定义SINGULAR-SUBJECT和PLURAL-SUBJECT：<br>
+      </span><span class="explaination">　　&lt;SINGULAR-SUBJECT&gt;∷＝&lt;SINGULAR-NSTG&gt;<br>
+      　　&lt;PLURAL-SUBJECT&gt;∷＝&lt;PLURAL-NSTG&gt;<br>
+      　　&lt;SINGLAR－NSTG&gt;∷＝&lt;SINGULAR-LNR&gt;|&lt;NREP&gt;<br>
+      　　&lt;PLURAL-NSTG&gt;∷＝&lt;PLURAL-LNR&gt;|&lt;NREP&gt;<br>
+      　　&lt;SINGULAR-LNR&gt;∷＝&lt;LN&gt;&lt;<sup>*</sup>SINGULAR-N&gt;&lt;RN&gt;<br>
+      　　&lt;PLURAL-LNR&gt;∷＝&lt;LN&gt;&lt;<sup>*</sup>PLURAL-N&gt;&lt;RN&gt;</span><span class="text"><br>
+      以及SINGULAR-VERB和PLURAL-VERB：<br>
+      </span><span class="explaination">　　&lt;SINGULAR-VERB&gt;∷＝&lt;SINGULAR-LTVR&gt;<br>
+      　　&lt;PLURAL－VERB&gt;∷＝&lt;PLURAL－LTVR&gt;<br>
+      　　&lt;SINGULAR－LTVR&gt;∷＝&lt;LV&gt;&lt;<sup>*</sup>SINGULAR－TV&gt;&lt;RV&gt;<br>
+      　　&lt;PLURAL－LTVR&gt;∷＝&lt;LV&gt;&lt;<sup>*</sup>PLURAL－TV&gt;&lt;RV&gt;</span><span class="text"><br>
+      其他限制也可以用类似方式。但是应当指出，如果两种限制包含相同的构造，产生式的数量便会成倍地递增，结果语法会迅速变成十分庞大。在</span><span class="part">9.5.2</span><span class="text">节中我们将介绍一些更好的办法来考虑一部语法中的这些限制。 
+      <br>
+      </span></td>
+  </tr>
+</table>
+</body>
+</html>

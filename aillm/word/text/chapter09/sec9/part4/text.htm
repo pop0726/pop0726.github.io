@@ -1,0 +1,117 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第九章 句法分析</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <br>
+      <span class="part">　　9.9.4 定子句语法(DCG)</span><br>
+      <span class="text">　　我们先来看一部简单的上下文无关语法是怎样用定子句语法这种形式体系来描述的：<br>
+      </span><span class="explaination">　　sentence-→noun-phrase，verb-phrase.<br>
+      　　noun-phrase-→determiner，adjective，noun.<br>
+      　　noun-phrase-→noun.<br>
+      　　Verb-phrase-→trans-verb，noun-phrase.<br>
+      　　determiner-→[the].<br>
+      　　adjective-→[old].<br>
+      　　noun-→[man].<br>
+      　　noun-→[wine].<br>
+      　　trans-verb-→[likes].</span><span class="text"><br>
+      这些规则的形式看上去和产生式非常相似。Prolog系统可以把这样书写的DCG规则直接翻译成Prolog可执行程序，如：<br>
+      </span><span class="explaination">　　sentence(X,Y)：－noun-phrase(X.Z),<br>
+      　　　　　　　　　　　verb-phrase(Z，Y).<br>
+      　　noun-phrase(X,Y)：－determiner(X，A)，<br>
+      　　　　　　　　　　　　 adjective(A，B)，<br>
+      　　　　　　　　　　　　 noun(B，Y).<br>
+      　　noun-phrase(X,Y)：－noun(X，Y).<br>
+      　　verb-phrase(X,Y)：－trans-verb(X，A)，<br>
+      　　　　　　　　　　　　 noun-phrase(A，Y).<br>
+      　　determiner([the |X],X).<br>
+      　　adjective([old|X],X).<br>
+      　　noun([man |X],X).<br>
+      　　noun ([wine|X] ,X).<br>
+      　　trans-verb ([likes |X],X).</span><span class="text"><br>
+      在Prolog的规则中，每个非终结符都被改写成具有两个变元的复合项。其中每个变元都是一张表，而且第二个变元是第一个变元的余表。例如，输入句子：<br>
+      </span><span class="explaination">　　The old man likes wine.</span><span class="text"><br>
+      可表示为目标：<br>
+      </span><span class="explaination">　　? －sentence ([the,old ,man,likes ,wine],[]).<br>
+      　　　　yes<br>
+      　　? －noun-phrase ([the,old ,man,likes ,wine] ,X ).<br>
+      　　　　X= [likes,wine]</span><span class="text"><br>
+      第一个问题是问词串[the，old,man,1ikes。Wine]是不是-个句子；第二个问题问在同一个词串中，扣除什么以后就能构成-个名词短语，机器回答：扣除余串[likes，wine]之后。子串[the,old,man]是一个名词短语。<br>
+      　　对于DCG的终结符：[the],[old],[man]等，分别用以它们的词类为函子名的双变元复合项表示。第二个变元依然足第-个变元的余表，只是终结符将出现在第一个变元表的头上。<br>
+      　　为了使这部语法能回送象句法树这样的结构，而不仅仅回答&quot;yes&quot;或&quot;no&quot;，就需要在规则中引入额外的变元用来表示所要建立的结构。下面是它的Prolog扩充形式：<br>
+      </span><span class="explaination">　　sentence(s(Np,Vp),X ,Y)：－noun-phrase 
+      (Np,X,Z)<br>
+      　　　　　　　　　　　　　　　 verb _phrase (Vp,Z,Y).<br>
+      　　noun-phrase(np(det(Det),adj(Adj),n(N)) ,X.Y)<br>
+      　　　　　　　　：- determiner (Det,X ,A) ,<br>
+      　　　　　　　　　　adjective(Adj ,A ,B) ,<br>
+      　　　　　　　　　　noun (N,B,Y).<br>
+      　　noun-phrase (np(n(N)),X,Y)：－noun (N,X.Y).<br>
+      　　verb-phrase(vp(v(V),np(Np)),X,Y)<br>
+      　　　　　　　　：- trans-verb(V,X,A) ,<br>
+      　　　　　　　　　　noun-phrase (Np ,A ,Y).<br>
+      　　determiner(the,[the|X],X).<br>
+      　　adjective (old ,[old|X] ,X).<br>
+      　　noun (man,[man|X],X).<br>
+      　　noun (wine, [wine|X],X).<br>
+      　　trans-verb (likes ,[likes|X],X).</span><span class="text"><br>
+      通过引入新的变元.这部分Prolog程序可以在回答中给出输入句子的句法结构。例如：<br>
+      </span><span class="explaination">　　? - sentence (S,[the,old,man,likes ,wine],[ 
+      ]).<br>
+      　　　S=s(np(det(the) ,adj(old) ,n(man)) ,<br>
+      　　　　　vp(v(likes) ,np(n(wine))))</span><span class="text"><br>
+      　　进而可以通过其他附加变元来携带和检查上下文的信息，从而使得语法增添了上下文有关的描述能力。例如determiner(冠词)，noun(名词)和trans-verb(及物动词)之间数的一致关系，可以通过附加的变元Num来加以约束。下面只给出语法的Prolog扩充形式：<br>
+      </span><span class="explaination">　　sentence (s(Np,Vp) ,Num,X,Y) <br>
+      　　　　　　：- noun-phrase (Np,Num,X,Z) ,<br>
+      　　　　　　　　verb-phrase (Vp ,Num,Z,Y). <br>
+      　　noun-phrase (np det(Det) ,adj(Adj) ,n(N) ) ,Num ,X,Y)<br>
+      　　　　　　：- determiner (Det,Num ,X,A) ,<br>
+      　　　　　　　　adjective (Adj,A,B) ,<br>
+      　　　　　　　　noun (N,Num,B,Y).<br>
+      　　noun-phrase (np(n(N)) ,Num,X,Y)<br>
+      　　　　　　：- noun(N,Num,X,Y).<br>
+      　　verb phrase (vp(v(V) ,np(Np)) ,Num,X,Y)<br>
+      　　　　　　：- trans-verb (V,Num,X,A) ,<br>
+      　　　　　　　　noun－phrase(NP,_,A，Y).<br>
+      　　determiner(the,-,[the|X]，X).<br>
+      　　adjective(old,[old|X]，X).<br>
+      　　noun(man，singular,[man|X]，X).<br>
+      　　noun(men,plural,[men|X],X)<br>
+      　　noun(wine,-,[wine|X],X).<br>
+      　　trnas_verb(likes,singular,[likes|X],X).</span><span class="text"><br>
+      这部语法对于例句&quot;The old man likes wine&quot;，除了在sentence的第一变量中回答句子的句法结构以外，还将在其第二个变量中回答句子主语和谓语动词的数&quot;singular&quot;，并拒绝象&quot;Men 
+      likes wine&quot;这样的病句。下面是这段程序对一个输入句子作出的分析： <br>
+      </span><span class="explaination">　　? - sentence(X,Y，[the，old，man，likes，wine]，[]).<br>
+      　　　　X＝s(np(det(the)，adj(old)，n(man))，<br>
+      　　　　　　 vp(v(likes)，np(n(wine))))<br>
+      　　　　Y＝singular</span><span class="text"><br>
+      　　综上所述，DCG对上下文无关语法进行了以下两方面的扩充：<br>
+      　　(1)非终结符可以是带多个变元的复合项，如sentence(S. Num)，noun-phrase(Np,Num)等。从而使得句法及语义信息(特征、属性等)可以作为变元在定义内部传递。<br>
+      　　(2)在规则右侧可以通过花括号对来引入不属于语法本身的测试条件和动作。例如规则<br>
+      </span><span class="explaination">　　noun(R)- →[W]，{root form(W，R)，is-noun(R)}.</span><span class="text"><br>
+      可读作：被识别为名词的短语R可以由单独的词W组成，其中R是W的词根，而且R是一个名词。<br>
+      　　每一条这样的DCG规则都可以机械地翻译成为Prolog 程序。<br>
+      </span> </td>
+  </tr>
+</table>
+</body>
+</html>

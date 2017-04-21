@@ -1,0 +1,76 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第九章 句法分析</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <span class="text"><br>
+      　　3.如何在基础部件中引入语法限制?<br>
+      　　通过前面的几个例子已经可以看到转换如何比短语结构语法更简明地刻画符合英语语法的词序。转换语法在描述某些语法限制方面也有优势。 <br>
+      　　在考虑这些限制时，你可能首先想到它们可以用上下文有关的短语结构语法来简明地表述。例如为了表达某些动词只取有生命的主语，或只取无生命的主语这样一种选择性限制，我们可以引入新的名词范畴：<br>
+      </span><span class="explaination">　　　　&lt;<sup>*</sup>animate-N&gt; (如strudent，John)<br>
+      　　　　&lt;<sup>*</sup>inanimate-N&gt; (如rock，cloud)</span><span class="text"><br>
+      和动词范畴：<br>
+      </span><span class="explaination">　　　　&lt;<sup>*</sup>V-taking-animate-subject&gt; 
+      (如sleep，invent)<br>
+      　　　　&lt;<sup>*</sup>V-taking-inanimate-subject&gt; (如occur，result)</span><span class="text"><br>
+      许多动词既可以取有生命的主语，又可以取无生命的主语，那么就要标上这两种范畴。然后我们可以写如下的规则：<br>
+      </span><span class="explaination">　　　　&lt;N&gt;∷＝&lt;*animate-N&gt;|&lt;<sup>*</sup>inanmate-N&gt;<br>
+      　　　　&lt;V&gt;∷＝&lt;<sup>*</sup>V-taking-animate-subject&gt;/&lt;*animate-N&gt;－|<br>
+      　　　　　　　　&lt;<sup>*</sup>V-taking-inanimate-subject&gt;/&lt;*inanimate-N&gt;_</span><span class="text"><br>
+      以便接受句子如： <br>
+      </span><span class="explaination">　　　　John inVented the gizmo.(约翰发明了这件小玩意儿。)</span><span class="text"><br>
+      而拒绝句子如：<br>
+      </span><span class="explaination">　　　　The cloud invented the gizmo.(云发明了这件小玩意儿。)</span><span class="text"><br>
+      遗憾的是，在一部描述表层结构的语法中这些规则不大好用，因&quot;逻辑主语&quot;虽然参加主语选择但不一定只出现在动词的左边。一个被动句中逻辑主语将出现在动词后面的一个&quot;by&quot;短语中，如：<br>
+      </span><span class="explaination">　　　　The gizmo was invented by Johno.<br>
+      　　　　<sup>*</sup>The gizmo was invented by the cloud.</span><span class="text"><br>
+      在一个关系从句中，主语可能被一个关系代词所取代，如：<br>
+      </span><span class="explaination">　　　　…the students that invented the gizmo…<br>
+      　　　　<sup>*</sup>…the cloud that invented the gizmo…</span><span class="text"><br>
+      然而在深层结构中情况就完全不同了，因为逻辑主语总是恰好位于动词的左边，因此上述规则可以作为基础部件的一部分来使用。<br>
+      　　也可以在基础中使用这一类上下文有关的短语结构规则来表达选择、可数名词和次范畴化(述宾串)等限制。但是每一条附加的限制都会引起终结符和上下文有关规则的数量成倍增加。举例来说，为了把宾语选择也考虑进来，就需要增设&lt;V-taking-animate-subject&gt;和&lt;V-taking-inanimate-subject&gt;等两个新的非终结符和以下四条产生式： 
+      <br>
+      </span><span class="explaination">　　&lt;V-taking-animate-subject&gt;∷=<br>
+      　　　&lt;V-taking-animate-subject-and-animate-object&gt;/-&lt;<sup>*</sup>animate-N&gt;|<br>
+      　　　&lt;V-taking-animate-subject-and-inanimate-object&gt;/-&lt;<sup>*</sup>inanimate-N&gt;<br>
+      　　&lt;V-taking-inanimate-subject&gt;∷＝<br>
+      　　　&lt;V-taking-inanimate-subject-and-animate-object&gt;/-&lt;<sup>*</sup>aninlate-N&gt;|<br>
+      　　　&lt;V-taking-inanimate-subject-and-inanimate-object&gt;/-&lt;<sup>*</sup>inanimate-N&gt;</span><span class="text"><br>
+      　 这说明我们的形式体系不大合适，必须用某种方式来独立地表达这些限制，以免发生这种组合爆炸。一种办法是采用复合符(complex symbols)来取代上述这些单一的长名符号。一个复合符是一个特征集，而每个特征要么取&quot;+&quot;要么取&quot;-&quot;。例如，&lt;<sup>*</sup>ani-mate-N&gt;变成特征对：[+N，+Animate],而&lt;<sup>*</sup>inanimate-N&gt;变成[+N，-Animate]。我们的基础部件经过修改后，仍有这小节开头时列出的产生式，但&lt;<sup>*</sup>V&gt;被[+V]取代，&lt;<sup>*</sup>N&gt;被[十N]取代，等等。除此之外，它还要引入一种新型的规则，专门用来对一个复合符号进行测试以及增补个别特征。例如: 
+      <br>
+      [+V]→[+[+Animate]一Object]/-[+N.+Animate]<br>
+      表示如果一个动词后面直接跟着一个有生命的名词，就给它增补特征:+[+Animate]一object。因此，对于有生命／无生命的选择来说，规则将变成：<br>
+      </span><span class="explaination">　　[+V]→[+[+Animate]-subject]/[+N，+Animate]-<br>
+      　　[+V]→[+[-Animate]-Subject]/[+N，-Animate]-<br>
+      　　[+V]→[+[+Animate]-Object]/-[+N，+Animate]<br>
+      　　[+V]→[+[-Animate]-Object]/-[+N，-Animate]</span><span class="text"><br>
+      对于严格的次范畴化也可以写出类似的规则，如：<br>
+      </span><span class="explaination">　　[+V]→[+V，+Transitive]/-&lt;NP&gt;</span><span class="text"><br>
+      最后，词典中的每个词都伴随有一个或多个复合符号。例如，名词&quot;teacher&quot;可以登录为<br>
+      </span><span class="explaination">　　[+N，+Animate]， </span><span class="text"><br>
+      动词&quot;invent&quot;则被描述为<br>
+      </span><span class="explaination">　　[+V，+Transitive，+[+Animate]一Subject，+[-Animate]-Object].</span><span class="text"><br>
+      </span></td>
+  </tr>
+</table>
+</body>
+</html>

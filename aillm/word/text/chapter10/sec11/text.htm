@@ -1,0 +1,62 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td><span class="text"> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第十章 语义分析</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <br>
+      　　</span><span class="section">10.11 LFI中的非词义谓词</span><span class="text"><br>
+      <br>
+      　　某些非词义谓词采自词形的变化。其中的一例就是前面已提到过的past。谓词past(P)表示P在过去为真。Past的辖域可以包括其他谓词，例如：<br>
+      </span><span class="explaination">　　John knew all Mary's friendds.(约翰认识了玛丽的所有朋友)<br>
+      　　past(a11(friend(X，mary)，know(john，X))).</span><span class="text"><br>
+      　　同词形变化有关的另一个重要的非词义谓词是plural.这个量词的意思类似于several.<br>
+      </span><span class="explaination">　　John met people.(约翰会见了群众)<br>
+      　　past(plural(Person(X)，meet(john，X))).</span><span class="text"><br>
+      　　复数词形变化有一个类似于不定冠词&quot;a&quot;的&quot;弱点&quot;，它不总是把它自已的量词(plural)带进逻辑式，而可能服从于其他量词。例如： 
+      <br>
+      </span><span class="explaination">　　All cats have tails.(所有的猫都有尾巴)<br>
+      　　all(cat(X)，ex(tail(Y)，have-Part(X，Y))).<br>
+      <br>
+      　　Cats always have tails.(猫总是有尾巴)<br>
+      　　always(cat(X)，ex(tail(Y)，have-part(X，Y)<br>
+      <br>
+      　　A cat alway has a tail。<br>
+      　　always(cat(X)，ex(tail(Y)，have-part(X，Y))).</span><span class="text"><br>
+      　　还有一种非词义谓词叫做generic，它经常与复数和不确定性相伴随。逻辑式generic(P,Q)的意思与typically(P，Q)本质上相同，即对于P的任何一种典型情况，Q为真。<br>
+      </span><span class="explaination">　　Cats have tails.(猫有尾巴)<br>
+      　　generic(cat(X)，ex(tail(Y)，have-part(X,Y))).<br>
+      <br>
+      　　A Cat has a tail.<br>
+      　　generic(cat(X)，ex(tail(Y)，have-part(X，Y))).</span><span class="text"><br>
+      　　某些非词义谓词与句法结构或重读有关，并具有聚焦性。其中之一是用来指明是非疑问句的yesno当提问一个yesno(P，Q)问题时，它预设P为真，而查看P&Q是否为真。假设言谈者根据某种理由预设约翰昨天见到了几个人,他可能提问：<br>
+      </span><span class="explaination">　　Did John see Mary yesterday?<br>
+      　　(约翰昨天见到玛丽了吗?)<br>
+      　　yesno(yesterday(see(john，X))，X＝mary).</span><span class="text"><br>
+      　　把yesno的两个变元(基和焦点)分割开是重要的。如果恰好约翰昨天没有看见什么人，那么对上述问题回答&quot;否&quot;将是错误的。<br>
+      　　对于陈述句也有-个非词义谓词dcl(P，Q)，它与yesno(P，Q)类似。基P是预设，P&amp;Q是断言。dcl的基又叫做主题或已知信息，而焦点又叫做陈述或新信息。如果言谈者仍预设约翰昨天见到了几个人，他可能作出如下的陈述：<br>
+      </span><span class="explaination">　　John saw <b>Mary</b> yesterday.(约朔昨天见到了玛丽)<br>
+      　　dcl(yesterday(see(john，X))，X＝mary).<br>
+      </span> </td>
+  </tr>
+</table>
+</body>
+</html>

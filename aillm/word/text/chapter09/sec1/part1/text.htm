@@ -1,0 +1,55 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td><span class="text"> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第九章 句法分析</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <br>
+      　　</span><span class="section">9.1 句法分析的地位</span><span class="text"><br>
+      <br>
+      　　</span><span class="part">9.1.1 句法分析的任务</span><span class="text"><br>
+      　　对于自然语言的分析来说，句法分析有以下两个主要任务：<br>
+      　　1.确定输入句子的结构<br>
+      　　句法分析要求识别构成句子的各个成分以及它们之间的相互关系，例如确定每个动词的主语和宾语，以及每个修饰性的词或短语所修饰的成分。通常这是通过给每个输入句子构造一棵句法树来完成的。<br>
+      　　2.句法结构的规范化<br>
+      　　如果我们能把大量可能的输入结构映射为数量较少的结构，那么后继的处理(例如语义分析)就得以简化。下面是几个结构规范化的例子：<br>
+      　　(1)句子中时常有些成分(在下面的例句中用方括号表示)可以被省略或&quot;零化&quot;：<br>
+      </span><span class="explaination">　　　John ate cake and Mary[ate]cookies.<br>
+      　　　…five or more[than five]radishes…<br>
+      　　　He talks faster than John[talks].</span><span class="text"><br>
+      所谓句子结构的规范化就是把这类零化的信息重新补上。<br>
+      　　(2)各种转换可以把表层结构不同的句子联系起来，如主动语气和被动语气：<br>
+      </span><span class="explaination">　　　I Crushed those grapes. <br>
+      　　　Those grapes were crushed by me. </span><span class="text"><br>
+      正常词序和所谓分裂结构：<br>
+      </span><span class="explaination">　　　That I like wine is evident.<br>
+      　　　It is evident that I like wine.</span><span class="text"><br>
+      名词性结构和动词性结构：<br>
+      </span><span class="explaination">　　　the barbarians'destruction of Rome<br>
+      　　　the barbarians destroyed Rome</span><span class="text"><br>
+      等等。这样一类的转换使得后继的处理只需考虑数量少得多的结构。除此以外，如果在句法分析中选择的结构是恰当的话，那么象主谓、述宾一类的关系都可以在这个分析阶段的结果中搞清楚。<br>
+      　　关于结构规范化是否应当由句法分析模块来完成一直是有争议的。理论语言学倾向于限制由句法分析模块来完成的关系类型，尤其是认为词法过程(象名物化)一般不再由句法规则来处理。某些计算语言学家则完全放弃了句法结构的规范化，而让语义分析模块直接去处理各式各样的句子结构。在这一类系统中，句法结构的规范化实际上被包含在语义分析过程中了。但是这样做确实要求更复杂的语义规则，因此在自然语言处理系统中一般的做法仍然包含这样一种结构规范化的模块。 
+      <br>
+      </span></td>
+  </tr>
+</table>
+</body>
+</html>

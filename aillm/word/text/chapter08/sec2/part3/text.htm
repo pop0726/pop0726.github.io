@@ -1,0 +1,149 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td><span class="text"> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="50%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第八章 自然语言理解的任务和发展简史</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <br>
+      　　</span><span class="part">8.2.3 ELIZA</span><span class="text"><br>
+      　　1968年，J.Weizenbaum在美国麻省理工学院设计的ELIZA系统，或许是这些基于&quot;模式匹配&quot;的自然语言系统中最有名一个。系统模拟一位心理治疗医生(机器)同一位患者(用户)的谈话：<br>
+      <br>
+      </span><span class="explaination">　　Men are all alike。 (男人都一样。) <br>
+      　　IN WHAT WAY (怎么一样法?) </span> 
+      <p class="explaination"> 　　They're always bugging us about something or 
+        other.<br>
+        　　(他们总是用这样或那样的事情来烦扰我们。)<br>
+        　　CAN YOU THINK OF A SPECIFIC EXAMPLE<br>
+        　　(你能举一个例子吗?) </p>
+      <p class="explaination"> 　　Well，my boyfriend made me come here<br>
+        　　(您看，我男朋友叫我到您这儿来。)<br>
+        　　YOUR BOYFRIEND MADE YOU COME HERE<br>
+        　　(啊!您男朋友叫您到我这儿来?)</p>
+      <p class="explaination"> 　　He says I'm depressed much of the time.<br>
+        　　(他说我总是情绪消沉。)<br>
+        　　I AM SORRY TO HEAR YOU ARE DEPRESSED<br>
+        　　(听说您情绪消沉，我很遗憾。) <br>
+        <br>
+        　　It's true.I am unhappy。<br>
+        　　(是啊，我心情不好。) <br>
+        　　DO YOU THINK COMING HERE WILL HELP YOU NOT TO BE UNHAPPY<br>
+        　　(您认为上我这儿来会让你高兴起来吗?)</p>
+      <p class="explaination"> 　　I need some help，that much seems certain.<br>
+        　　((那当然啦，我需要帮助。)<br>
+        　　WHAT WOULD　IT MEAN TO YOU IF　YOU GOT SOME HELP<br>
+        　　(如果您得到帮助，对您来说，这意味着什么呢?)<br>
+        <br>
+        　　Perhaps I could led learn to get along with my mother.<br>
+        　　(也许我能学会同我妈妈相处好。)<br>
+        　　TELL ME MORE ABOUT YOUR FAMILY <br>
+        　　(多告诉我-些您家的事儿，好吗?)</p>
+      <p><span class="text"> 　　ELIZA同前面的两个系统相比，并没有引入更多的智能机制，但其随机应变的对话却显示出惊人的真实性，几乎达到乱真的程度。下面就是ELIZA用来解释输入句子的脚本片断：<br>
+        </span><span class="explaination">　　(HOW DO YOU DO.PLEASE TELL ME YOUR 
+        PROBLEM) 您好，告诉我您有些什么问题、<br>
+        　　START<br>
+        　　(ME＝YOU) 见到&quot;me&quot;就翻译成&quot;you&quot;<br>
+        　　(I＝YOU) 见到&quot;I&quot;就翻译成&quot;you&quot;<br>
+        　　(REMEMBER 5 &quot;remember&quot;这个词的优先级是5<br>
+        　　　((0 YOU REMEMBER 0) &quot;0&quot;是一个通配符<br>
+        　　　　(DO YOU OFTEN THINK OF 4) 您时常想到4吗?<br>
+        　　　　(DOES THINKING OF 4 BRING ANYTHING ELSE TO MIND) 提到4让您想起些什么?<br>
+        　　　　(WHAT ELSE DO YOU REMEMER) 您还回忆起些什么别的事儿?<br>
+        　　　　(WHY DO YOU REMEMBER 4 JUST NOW) 为什么您刚才想起4?<br>
+        　　　　(WHAT IS THE CONNECTION BETWEEN ME AND 4))我和4之间有什么联系?<br>
+        　　　　((0 Do I REMEMBER 0) <br>
+        　　　(DID YOU THINK I WOULD FORGET 5) 您认为我会忘记5吗?<br>
+        　　　　(WHY DO YOU THINK I SHOULD RECALL 5 NOW)) 为什么您认为现在我应当想起5?<br>
+        　　　(PERHAPS((0) <br>
+        　　　　　　　 (YOU DOH'T SEEM QUITE CERTAIN) 看来您不大肯定。<br>
+        　　　　　　　 (WHY THE UNCERTAIN TONE))) 您为什么不大肯定?<br>
+        　　　　　　　 (COMPUTER 50 &quot;computer&quot;这个词的优先级是50<br>
+        　　　　　　　　((0)<br>
+        　　　　　　　　 (Do COMPUTERS WORRY YOU) 计算机让您心烦吗？<br>
+        　　　　　　　　 (WHY DO YOU MENTION COMPUTERS) 您为什么提到计算机?<br>
+        　　　　　　　　 (DON'T YOU THINK COMPUTERS CAN HELP PEOPLE))) 您是否认为计算机能帮助人?<br>
+        　　　　　　　　(MACHINE 50(＝COMPUTER))<br>
+        　　　　　　　　(MOTHER DLIST(/NOUN FAMIIY)) &quot;mother&quot;属于词类FAMILY<br>
+        　　　　　　　　(MOM＝MOTHER DLIST(/FAMILY))<br>
+        　 　　　　　　 (DAD＝FATHER DLIST(/NOUN FAMILY))<br>
+        　　　　　　　　(FATHER DLIST(/FAMILY))<br>
+        　　　　　　　　(MY＝YOUR 2<br>
+        　　　　　　　　　((0 YOUR 0(/FAMILY)0)<br>
+        　　　　　　　　　 (TELL ME MORE ABOUT YOUR FAMILY) 多告诉我一些您家的事儿，好吗?<br>
+        　　　　　　　　　 (WHO ELSE IN YOUR FAMILY 5) 您家里5还有谁? <br>
+        　　　　　　　　　 (YOUR 4))<br>
+        　　　　　　　　　((0 YOUR 0) <br>
+        　　　　　　　　　 (YOUR 3) <br>
+        　　　　　　　　　 (WHY DO YOU SAY YOUR 3) 您为什么提到您的3?<br>
+        　　　　　　　　　 (IS IT IMPORTANT TO YOU THAT 23))) 23对您来说重要吗?<br>
+        　　　　((0)<br>
+        　　　　 (YOU SAY l) 您说1 <br>
+        　　　　 (CAN YOU ELABORATEON THAT) 您能否详细谈谈这个问题? <br>
+        　　　　 (THAT'S QUITE INTERESTING)) 这很有趣。</span><span class="text"><br>
+        <br>
+        　　ELIZA同前面的两个系统相比，并没有引入更多的智能机制，但其随机应变的对话却显示出惊人的真实性，几乎达到乱真的程度。下面就是ELIZA用来解释输入句子的脚本片断：<br>
+        <br>
+        </span><span class="explaination">　　(HOW DO YOU DO.PLEASE TELL ME YOUR 
+        PROBLEM) 您好，告诉我您有些什么问题<br>
+        　　START<br>
+        　　(ME＝YOU) 见到&quot;me&quot;就翻译成&quot;you&quot;<br>
+        　　(I＝YOU) 见到&quot;I&quot;就翻译成&quot;you&quot;<br>
+        　　(REMEMBER 5 &quot;remember&quot;这个词的优先级是5<br>
+        　　　((0 YOU REMEMBER 0) &quot;0&quot;是一个通配符<br>
+        　　　(DO YOU OF TEN THINK OF 4) 您时常想到4吗?<br>
+        　　　(DOES THINKING OF 4 BRING ANYTHING ELSE TO MIND) 提到4让您想起些什么?<br>
+        　　　(WHAT ELSE DO YOU REMEMER) 您还回忆起些什么别的事儿?<br>
+        　　　(WHY DO YOU REMEMBER 4 JUST NOW) 为什么您刚才想起4?<br>
+        　　　(WHAT IS THE CONNECTION BETWEEN ME AND 4))，&quot;我和4之间有什么联系?<br>
+        　　((0 Do I REMEMBER 0) <br>
+        　　　(DID YOU THINK I WOULD FORGET 5) 您认为我会忘记5吗?<br>
+        　　　(WHY Do YOU THINK I SHOULD RECALL 5 NOW)) 为什么您认为现在我应当想起5?<br>
+        　　(PERHAPS((0) <br>
+        　　　(YOU DOH'T SEEM QUITE CERTAIN) 看来您不大肯定。<br>
+        　　　(WHY THE UNCERTAIN TONE))) 您为什么不大肯定?<br>
+        　　(COMPUTER 50 &quot;computer&quot;这个词的优先级是50<br>
+        　　　((0)<br>
+        　　　　(Do COMPUTERS WORRY YOU) 计算机让您心烦吗？<br>
+        　　　　(WHY DO YOU MENTION COMPUTERS) 您为什么提到计算机?<br>
+        　　　　(DON'T YOU THINK COMPUTERS CAN HELP PEOPLE))) 您是否认为计算机能帮助人?<br>
+        　　(MACHINE 50(＝COMPUTER))<br>
+        　　(MOTHER DLIST(/NOUN FAMIIY)) &quot;mother&quot;属于词类FAMILY<br>
+        　　(MOM＝MOTHER DLIST(/FAMILY))<br>
+        　　(DAD＝FATHER DLIST(/NOUN FAMILY))<br>
+        　　(FATHER DLIST(/FAMILY))<br>
+        　　(MY＝YOUR 2<br>
+        　　　((0 YOUR 0(/FAMILY)0)<br>
+        　　　　(TELL ME MORE ABOUT YOUR FAMILY) 多告诉我一些您家的事儿，好吗?<br>
+        　　　　(WHO ELSE IN YOUR FAMILY 5) 您家里5还有谁? <br>
+        　　　　(YOUR 4))<br>
+        　　　((0 YOUR 0) <br>
+        　　　　(YOUR 3) <br>
+        　　　　(WHY DO YOU SAY YOUR 3) 您为什么提到您的3?<br>
+        　　　　(IS IT IMPORTANT TO YOU THAT 23))) 23对您来说重要吗?<br>
+        　　((0)<br>
+        　　　(YOU SAY l) 您说1 <br>
+        　　　(CAN YOU ELABORATEON THAT) 您能否详细谈谈这个问题? <br>
+        　　　(THAT'S QUITEINTERESTING)) 这很有趣。</span><span class="text"><br>
+        </span></p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

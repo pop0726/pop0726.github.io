@@ -1,0 +1,119 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td class="text">
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../../images/pic/bg0401.gif" height="18" align="right" class="chap">
+              <tr> 
+                <td> 
+                  <div align="center">第二章 归结推理方法</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <span class="text"><br>
+      　　</span><span class="part">2.3.4 Herbrand 定理</span><span class="text"><span class="text"><br>
+      　　回顾针对一阶谓词描述下的<br>
+      　　　　<img src="../../../../images/text/chap02/sec01/a1.gif" width="15" height="11" align="absmiddle">∧<span class="text"><img src="../../../../images/text/chap02/sec01/a2.gif" width="16" height="11" align="absmiddle"></span>∧<span class="text"><img src="../../../../images/text/chap02/sec01/a3.gif" width="15" height="13" align="absmiddle"></span>→B<br>
+      的证明问题，我们已经作了足够的准备。首先将这个证明问题化成<br>
+      　　　　G＝<span class="text"><img src="../../../../images/text/chap02/sec01/a1.gif" width="15" height="11" align="absmiddle">∧<span class="text"><img src="../../../../images/text/chap02/sec01/a2.gif" width="16" height="11" align="absmiddle"></span>∧<span class="text"><img src="../../../../images/text/chap02/sec01/a3.gif" width="15" height="13" align="absmiddle"></span></span>∧～B<br>
+      的不可满足问题，进而将G化成 SKOLEM 标准形建立了相应的子句集S，并将一般论域D上的讨论简化成H域上的讨论，最后还引入了语义树。现在就可阐明 
+      Herbrand 给出的两个定理了。</span></span>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="text">
+        <tr> 
+          <td width="30"><img src="../../../../images/text/tb/dingyi.gif" width="26" height="17" alt="定理"></td>
+          <td><b>定理</b></td>
+        </tr>
+        <tr> 
+          <td>&nbsp;</td>
+          <td>　<span class="explaination">2.3.4(1)子句集S是不可满足的，当且仅当对应于S的完全语义树都是一棵有限的封闭语义树。</span></td>
+        </tr>
+        <tr> 
+          <td><img src="../../../../images/text/tb/zhm.gif" width="25" height="17" alt="证明"></td>
+          <td><b>证明</b></td>
+        </tr>
+        <tr> 
+          <td>&nbsp;</td>
+          <td>　设S是不可满足的。<br>
+            　先作出S的完全树T。<br>
+            　令B是T的任一分枝，IB是对应B分枝上S的一个解释。依S的不可满足性，I<font size="1">B</font>必使S的某子句的某基例为假。这样，B上必有结点N，而N是T的失败结点。<br>
+            　需说明的是失败结点N必离T的根结点只有有限步。这是由于I<font size="1">B</font>中文字个数是可数的，而S中子句个数有限，每个子句所含有的文字也有限。<br>
+            　又由于语义树T是个二叉树，每个结点仅有有限的两个子结点。这样从T的根结点计起，直到所有分枝上的失败结点所构成的封闭树必是有限的。<br>
+            　反过来，已知S有限的封闭语义树。<br>
+            　设I是S的任一解释，I必落在T的某分枝B上，知B上必有失败结点如N。而I(N)已使S的某个子句的某基例C'为假了。<br>
+            　但是I(N)I，自然有I使C'为假。由I是S的任一解释，故S是不可满足的。<br>
+            　定理证毕。</td>
+        </tr>
+        <tr> 
+          <td><img src="../../../../images/text/tb/dingyi.gif" width="26" height="17" alt="定理"></td>
+          <td><b>定理 2.3.4(2)</b></td>
+        </tr>
+        <tr> 
+          <td>&nbsp;</td>
+          <td>　<span class="explaination">S是不可满足的，当且仅当存在不可满足的S的有限基例集。</span></td>
+        </tr>
+        <tr>
+          <td><img src="../../../../images/text/tb/zhm.gif" width="25" height="17" alt="证明"></td>
+          <td><b>证明</b></td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td>　设S是不可满足的。<br>
+            　从而依定理2.3.4(1)，S的完全语义树T必是一棵有限的封闭语义树。设T共有n个失败结点N<font size="1">1</font>,…,N<font size="1">n</font>，而且I(N<font size="1">i</font>)使S的某子句C<font size="1">i</font>的基例C<font size="1">i</font>′为假。<br>
+            　令　S'={C<font size="1">1</font>',…,C<font size="1">n</font>'}<br>
+            　需证明S'是不可满足的。对S'的任一解释I'必有S的某个解释I，使得I<img src="../../../../images/text/chap02/sec03/fh.gif" width="12" height="8">I'。由于S是不可满足的，I必使S的某子句的某基例C<font size="1">j</font>'为假，但是I中使C<font size="1">j</font>'为假的文字均包含于I'中，于是I'也使C<font size="1">j</font>'为假，从而S'是不可满足的。<br>
+            　反过来，知S'是不可满足的有限基例集。<br>
+            　设I是S的任一解释，必有S'的解释I'使I<img src="../../../../images/text/chap02/sec03/fh.gif" width="12" height="8">I'。然而I'已使S'的某个C<font size="1">j</font>'为假，于是I也使C<font size="1">j</font>'为假，从而使S为假。故S是不可满足的。<br>
+            　定理得证。</td>
+        </tr>
+      </table>
+      <br>
+      　　应该指出 Herbrand 定理给出了一阶逻辑的半可判定算法。其中的&quot;半&quot;字指的是有条件下的判定算法，即仅当被证定理是成立的，使用该算法方可得证。而当被证定理并不成立时，使用该算法得不出任何结果。说是算法，那指的是有限步内是可实现的。因为无论从有限的封闭树观点，还是从不可满足的有限基例集观点都是可判定的，因为这已是有限的命题逻辑问题了。<br>
+      　　使用 Herbrand 定理，来证明定理或S是不可满足的，或是寻找有限的封闭树或是寻找有限的不可满足的基例集。<br>
+      　　一个具体实现证明的方法是，对S的H域中的Hi做出基例集S<font size="1">i</font>'，即将Hi中的元素依次代入S中的各子句便构成了S<font size="1">i</font>'，若S<font size="1">i</font>'是不可满足的必有S是不可满足的，或说相应的定理成立。若被证定理成立，必可在有限步内证明某个S'<font size="1">N</font>是不可满足的。<br>
+      　　1960年 Gilmore 编制了生成Si'的程序，进而将Si'化成析取范式，当每个析取项都含有互补对时便知S<font size="1">i</font>'是不可满足的。然而化成析取范式并不是好方法，如下规则可简化计算过程（由于Herbrand 
+      定理已将证明问题化成了命题逻辑问题，所以只需在命题逻辑范围来简化）。<br>
+      　　<b><span class="explaination">重言式子句可删除规则</span></b><br>
+      　　S中的重言式子句，不会为S的不可满足提供任何信息，应该删除。<br>
+      　　如　　S＝{P∨～P,<img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absmiddle">,<img src="../../../../images/text/chap02/sec01/c2.gif" width="13" height="14" align="absbottom">}<br>
+      　　那么S的逻辑含义是(P∨～P)∧<img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absmiddle">∧<img src="../../../../images/text/chap02/sec01/c2.gif" width="13" height="14" align="absbottom">=<img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absmiddle">∧<img src="../../../../images/text/chap02/sec01/c2.gif" width="13" height="14" align="absbottom">，从而删去重言式P∨～P，不影响S的真值。<br>
+      　　<b class="explaination">单文字删除规则</b><br>
+      　　如S＝{L ,L∨<img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absmiddle">,～L∨<img src="../../../../images/text/chap02/sec01/c2.gif" width="13" height="14" align="absbottom">,<img src="../../../../images/text/chap02/sec03/c3.gif" width="12" height="12" align="absmiddle">,<img src="../../../../images/text/chap02/sec03/c4.gif" width="12" height="12" align="absmiddle">}<br>
+      　　其中C3,C4不含L和～L。先作S'再作S&quot;,<br>
+      　　S'：{～L∨<img src="../../../../images/text/chap02/sec01/c2.gif" width="13" height="14" align="absbottom">,<img src="../../../../images/text/chap02/sec03/c3.gif" width="12" height="12" align="absmiddle">,<img src="../../../../images/text/chap02/sec03/c4.gif" width="12" height="12" align="absmiddle">}是从S中删除含L的子句而得。<br>
+      　　S&quot;：{<img src="../../../../images/text/chap02/sec01/c2.gif" width="13" height="14" align="absmiddle">,<img src="../../../../images/text/chap02/sec03/c3.gif" width="12" height="12" align="absmiddle">,<img src="../../../../images/text/chap02/sec03/c4.gif" width="12" height="12" align="absmiddle">}是从S'中删除文字～L而得。<br>
+      　　那么　若S'为空集，便知S是可满足的。<br>
+      　　 　　 若S'非空，便知S与S&quot; 同时是不可满足的。<br>
+      　　这个结论是不难证明的。如S'为空集，那么S形如{L，L∨<img src="../../../../images/text/chap02/sec01/c1.gif" width="13" height="13" align="absmiddle">，～L∨<img src="../../../../images/text/chap02/sec01/c2.gif" width="13" height="14" align="absbottom">}， 
+      即每个子句都含文字L。若取L=T，必有S为T，所以S是可满足的。如果S'不是空集，若S是不可满足的而S&quot;是可满足的，就有解释I&quot;使<br>
+      　　　　S&quot;|<font size="1">I&quot;</font>=T　即　<img src="../../../../images/text/chap02/sec01/c2.gif" width="13" height="14" align="absmiddle">∧<img src="../../../../images/text/chap02/sec03/c3.gif" width="12" height="12" align="absmiddle">∧<img src="../../../../images/text/chap02/sec03/c4.gif" width="12" height="12" align="absmiddle">|<font size="1">I&quot;</font> 
+      =T<br>
+      那么令 I= I&quot;∪{L，…}，这时必有S|<font size="1">I</font>=T，这与S不可满足是矛盾的。反过来设S&quot;是不可满足的而S是可满足的，有I使<br>
+      　　　　S|<font size="1">I</font>=T<br>
+      其中I必含L，而且(～L∨<img src="../../../../images/text/chap02/sec01/c2.gif" width="13" height="14" align="absmiddle">)∧<img src="../../../../images/text/chap02/sec03/c3.gif" width="12" height="12" align="absmiddle">∧<img src="../../../../images/text/chap02/sec03/c4.gif" width="12" height="12" align="absmiddle">|<font size="1">I</font>=T，从而 
+      <img src="../../../../images/text/chap02/sec01/c2.gif" width="13" height="14" align="absmiddle">∧<img src="../../../../images/text/chap02/sec03/c3.gif" width="12" height="12" align="absmiddle">∧<img src="../../../../images/text/chap02/sec03/c4.gif" width="12" height="12" align="absmiddle">|<font size="1">I</font>=T，这与S&quot;不可满足性相矛盾。<br>
+      　　<b class="explaination">纯文字删除规则</b><br>
+      　　当文字L出现于S中，而～L不出现于S中，便说L为S的纯文字。若从S中删除含L的子句得S'，而为空集，那么S是可满足的。而当S'非空，那么S'与S同时是不可满足的。<br>
+      　　<b class="explaination">分离规则</b><br>
+      　　若　S＝(L∨A<font size="1">1</font>)∧…∧(L∨A<font size="1">m</font>)∧(～L∨B<font size="1">1</font>)∧…∧(～L∨B<font size="1">n</font>)∧R<br>
+      　　其中R是不含L和～L的子句集。<br>
+      　　令　　S'＝{A<font size="1">1</font>,…,A<font size="1">m</font>,R}<br>
+      　　　　　S&quot;＝{B<font size="1">1</font>,…,B<font size="1">n</font>,R}<br>
+      　　则S不可满足当且仅当S'和S&quot; 同时是不可满足的。<br>
+      　　这几条删除规则的使用，将会简化S不可满足的证明过程。纯文字和分离规则可同单文字规则一样得到证明。<br>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

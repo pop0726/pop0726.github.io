@@ -1,0 +1,76 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第三章 不确定和非单调推理方法</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <br>
+      　　<span class="part">3.4.2　定性方程法</span><span class="text"><br>
+      　　1.变量的定性值及其运算<br>
+      　　若已知物理系统的微分方程、代数方程，首先需定义变量的定性值集合以及相应地定性运算，进而建立通常的运算转换为定性运算的方法。<br>
+      　　定性值集合的元素是由对数轴的划分而得到的，通常最简单的办法是将(- ∞,∞)划分成(- ∞,0)，0,(0,∞)三段相应的定性值规定为－，0，+。这时定性值集合就是{－，0，+}。<br>
+      　　变量x 的定性值记为[x]，定义为<br>
+      　　　　[x]= <img src="../../../../images/text/chap03/sec4/gs2.gif" width="70" height="47" align="absmiddle"><br>
+      另外用<img src="../../../../images/text/chap03/sec4/d.gif" width="7" height="9">x表示<img src="../../../../images/text/chap03/sec4/gs3.gif" width="16" height="31" align="absmiddle">的定性值，即<br>
+      <br>
+      　　　　<img src="../../../../images/text/chap03/sec4/gs4.gif" width="48" height="28" align="absmiddle"><br>
+      <br>
+      　　定性值的加乘运算分别以<img src="../../../../images/text/chap03/sec4/pic1.gif" width="10" height="10"><img src="../../../../images/text/chap03/sec4/pic2.gif" width="10" height="11">表示，可分别按下表定义：</span> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td align="center" class="text"><img src="../../../../images/text/chap03/sec4/pic3.gif" width="276" height="118"></td>
+        </tr>
+      </table>
+      <span class="text"><br>
+      　　表中出现的？表示不确定或无定义。<br>
+      　　<img src="../../../../images/text/chap03/sec4/pic1.gif" width="10" height="10"><img src="../../../../images/text/chap03/sec4/pic2.gif" width="10" height="11">的运算规律：<br>
+      　　[0]<img src="../../../../images/text/chap03/sec4/pic1.gif" width="10" height="10">[<font size="2">e</font><font size="1">1</font>]<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">[<font size="2">e</font><font size="1">1</font>]<br>
+      　　[0]<img src="../../../../images/text/chap03/sec4/pic2.gif" width="10" height="11">[<font size="2">e</font><font size="1">1</font>]<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">[0]<br>
+      　　[+]<img src="../../../../images/text/chap03/sec4/pic2.gif" width="10" height="11">[<font size="2">e</font><font size="1">1</font>]<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">[<font size="2">e</font><font size="1">1</font>]<br>
+      　　[-]<img src="../../../../images/text/chap03/sec4/pic2.gif" width="10" height="11">[<font size="2">e</font><font size="1">1</font>]<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">-[<font size="2">e</font><font size="1">1</font>]<br>
+      　　由+，×到? 的转换规律：<br>
+      　　[<font size="2">e</font><font size="1">1</font>+<font size="2">e</font><font size="1">2</font>]<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">[<font size="2">e</font><font size="1">1</font>]<img src="../../../../images/text/chap03/sec4/pic1.gif" width="10" height="10">[<font size="2">e</font><font size="1">2</font>]<br>
+      　　[<font size="2">e</font><font size="1">1</font>×<font size="2">e</font><font size="1">2</font>]<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">[<font size="2">e</font><font size="1">1</font>]<img src="../../../../images/text/chap03/sec4/pic2.gif" width="10" height="11">[<font size="2">e</font><font size="1">2</font>]<br>
+      　　依这些规律不难将代数方程、微分方程定性化。在得到定性方程后做出解释便是整个的定性推理过程。de Kleer 建立了一个ENVISION　定性推理系统。<br>
+      　　2.举例　压力调节器定性分析<br>
+      　　压力调节器是通过弹簧来控制阀门流量，以使流量为某设定值而不受流入的流量和负载变化的影响。<br>
+      　　依物理学有<br>
+      　　　Q＝CA<img src="../../../../images/text/chap03/sec4/gs5.gif" width="43" height="19" align="texttop"> 
+      P&gt;0<br>
+      　　　<img src="../../../../images/text/chap03/sec4/gs6.gif" width="192" height="39"><br>
+      其中Q为通过阀门的物质流量，P是压力，A是阀门开起的面积，而C是常系数，ρ是物质的质量密度。<br>
+      　　依运算和转换规则容易得到定性方程<br>
+      　　[Q]=[P]<br>
+      　　<img src="../../../../images/text/chap03/sec4/d.gif" width="7" height="9">Q=<img src="../../../../images/text/chap03/sec4/d.gif" width="7" height="9">A+<img src="../../../../images/text/chap03/sec4/d.gif" width="7" height="9">P(如果A&gt;0)<br>
+      依物理上的一致性连续性原理还可建立其它定性方程。<br>
+      　　由这些定性方程便可给出物理过程的定性解释。如可用定性方程描述该调节器的三种特殊状态：<br>
+      　　</span><b class="explaination">OPEN 状态</b><span class="text">　A＝A<sub>MAX</sub>。这时定性方程为<br>
+      　　　　　[P]=0 <img src="../../../../images/text/chap03/sec4/d.gif" width="7" height="9">P=0<br>
+      　　</span><b class="explaination">WORKING 状态</b><span class="text">　0&lt;A&lt;A<sub>MAX</sub>。这时定性方程为<br>
+      　　　　　[P]=[Q] <img src="../../../../images/text/chap03/sec4/d.gif" width="7" height="9">P+<img src="../../../../images/text/chap03/sec4/d.gif" width="7" height="9">A=<img src="../../../../images/text/chap03/sec4/d.gif" width="7" height="9">Q<br>
+      　　</span><b class="explaination">CLOSED 状态</b><span class="text">　A＝0。这时定性方程为<br>
+      　　　　　[Q]=0 <img src="../../../../images/text/chap03/sec4/d.gif" width="7" height="9">Q=0<br>
+      　　还可用定性方程讨论三种状态间的转换。<br>
+      </span></td>
+  </tr>
+</table>
+</body>
+</html>

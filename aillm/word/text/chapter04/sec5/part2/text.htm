@@ -1,0 +1,81 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第四章 知识表示方法</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <br>
+      <span class="part">　　4.5.3 框架表示下的推理</span><span class="text"><br>
+      　　框架表示法没有固定的推理机理。但框架系统的推理和语义网络一样遵循匹配和继承的原则，而且框架中如if need、if added等槽的槽值是附加过程，在推理过程中起重要作用。<br>
+      若将一个子框架视作知识单位，有如一条产生式规则，这样可将一个问题的求解，通过匹配分散为各有关的子框架的协调过程，当然实现起来较为困难。这个过程可描述为<br>
+      　　　　<img src="../../../../images/text/chap04/sec5/pic1.gif" width="320" height="70"><br>
+      　　附加过程在推理中的作用，可由例子来说明，如确定一个人的年龄，已匹配的知识库中的框架为<br>
+      　　槽名<br>
+      　　　年龄　　　　　NIL<br>
+      　　　If needed　　 ASK<br>
+      　　　If added　　　CHECK<br>
+      这时便自动启动if needed槽的附加过程ASK，而ASK是个程序，如表示的是向用户询问，并等待输入。当用户输入&quot;25&quot;后便将25设定为所要求的年龄了，进而启动if 
+      added槽执行附加过程CHECK程序，用来检查该年龄值是否合适。如果这框架有默认值，而值为20，那就默认年龄为20了。<br>
+      <br>
+      　　</span><span class="part">4.5.4 框架产生式表示法的比较</span><span class="text"><br>
+      　　为加深对框架表示的认识理解，同产生式表示法作一简要比较是有益的。</span><br>
+      <br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td width="30" valign="top"><img src="../../../../images/text/tb/bg.gif" width="25" height="21" alt="表格"></td>
+          <td>
+            <table width="76%" border="0" cellspacing="1" cellpadding="0" align="center" class="text" bgcolor="#7d1b8b">
+              <tr bgcolor="#ffbbff"> 
+                <td>&nbsp;</td>
+                <td>　　产生式系统</td>
+                <td>　　框架系统</td>
+              </tr>
+              <tr> 
+                <td bgcolor="#FFFFFF">　　知识表示单位<br>
+                  　　推理机理<br>
+                  　　建立知识库<br>
+                  　　通用性<br>
+                  　　应用<br>
+                  　　用户 <br>
+                </td>
+                <td bgcolor="#FFFFFF">　　规则<br>
+                  　　固定、与知识库独立<br>
+                  　　容易<br>
+                  　　低<br>
+                  　　简单问题<br>
+                  　　初学者 </td>
+                <td bgcolor="#FFFFFF">　　框架<br>
+                  　　可变、与知识库成一体<br>
+                  　　困难<br>
+                  　　高<br>
+                  　　复杂问题<br>
+                  　　专家 </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <br>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

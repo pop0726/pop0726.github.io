@@ -1,0 +1,105 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td><span class="text"> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第九章 句法分析</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <span class="text"><br>
+      　　</span></span><span class="part">9.7.2 PARSIFAL的数据结构</span><span class="text"><span class="text"><br>
+      　　为了实现确定性算法。句法分析器PARSIFAL采用了以下两个数据结构：<br>
+      　　(1)激活结点堆栈(active node stack，简称ans)：用来存放未完成的成分。堆栈的工作方式是后进-先出；<br>
+      　　(2)三单元成分缓冲器(three-place constituent buffer，简称3bf)：每个单元存放的可以是-个词，也可以是一个上位句法功能尚未确定的成分。缓冲器的工作方式是先进-先出。<br>
+      　　输入句子中的每个词按从左至右的顺序被处理，每当一个词经过词法分析后便连同它的词典信息一起被装入缓冲器最左面的一个空单元。如果根据ans栈顶和3bf的当前状态，能够应用一条规则来构造出某种局部结构，便实行这种归并(如果栈顶成分参加这次归并，就意味着它被弹出堆栈)，并把归并结果存放在3bf的第一个单元里，然后重复上述归并过程；否则就把3bf第一单元的内容暂时推入ans寄存，并通过把新词装入3bf来重新开始新的一轮归并过程。直至3bf为空，且ans中只存有一个根结点S为止。 
+      <br>
+      　　举例来说，输入句子为<br>
+      </span></span><span class="explaination">　　&quot;John should have scheduled 
+      the meeting.&quot;<br>
+      　　(约翰应当安排好会议的日程。)</span><span class="text"><span class="text"><br>
+      当&quot;scheduled&quot;-词被装入缓冲器时，ans和3bf的状态可表示如下：<br>
+      　　　<img src="../../../../images/text/chap09/sec2/ans.gif" width="19" height="9">：<br>
+      　　栈底 </span></span><span class="explaination">S1 (S DCL MAJOR S)/(PARSE-AUX 
+      CPOOL)<br>
+      　　　　　　NP：(John)<br>
+      　　　　　　(MODAL，PAST VSPL AUX)/(BuILD-AUX)</span><span class="text"><span class="text"><br>
+      　　栈顶 </span></span><span class="explaination">MODAL：(should)</span><span class="text"><span class="text"><br>
+      　　AUX1<br>
+      　　　<img src="../../../../images/text/chap09/sec2/3bf.gif" width="20" height="13" align="absmiddle">：<br>
+      　　　第1单元：</span></span><span class="explaination">WORD3(*HAVE VERB TENSELESS 
+      AUXVERB PRES V-3S)：(have)</span><span class="text"><span class="text"><br>
+      　　　第2单元：</span></span><span class="explaination">WORD4(*SCHEDULE COMP-OBJ 
+      VERB INF OBJ V-35 ED＝EN EN PART PAST ED)：(scheduled)</span><span class="text"><span class="text"><br>
+      　　可以看到，在(ans中现在有两个成分,一个是栈底的根结点S1及其子结点NP(John，另一个是栈顶的结点AUX1及其子结点MODAL(should)；在结点S1和AUX1右面斜杠后的括号里记载着用来处理这个特定成分的规则包。处在栈顶位置的结点又叫做当前激活结点(本例中是AUX1)，只有与它相伴随的规则包才处于激活状态，也即收藏在这个规则包(本例中是助动词处理规则包BUILD-AUX)中的规则将被分析器优先使用来归并栈顶和缓冲器中的诸成分。与栈底结点S1相伴随的规则包PARSEAUX和CPOOL目前还不能应用，只有当S1重新出现在栈顶位置时，这两个规则包才被激活。<br>
+      　　PARSIFAL的句法规则一般由三个成分组成，它们依次是优先级(一个正整数)，匹配模式和动作。下面是句法规则的书写形式：</span></span> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="30" valign="top"><img src="../../../../images/text/tb/bg.gif" width="25" height="21" alt="表格"></td>
+          <td>
+            <table width="80%" border="0" cellspacing="1" cellpadding="0" align="center" class="text" bgcolor="#7d1b8b">
+              <tr align="center" bgcolor="#FFFFFF"> 
+                <td colspan="2">优先级</td>
+                <td colspan="4">匹配模式</td>
+                <td colspan="2">动作</td>
+              </tr>
+              <tr align="center" bgcolor="#FFFFFF"> 
+                <td>&nbsp;</td>
+                <td>ans栈顶</td>
+                <td>3bf单元：</td>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+              </tr>
+              <tr align="center" bgcolor="#FFFFFF"> 
+                <td>5:<br>
+                  10:<br>
+                  15:</td>
+                <td>[]<br>
+                  []<br>
+                  <br>
+                </td>
+                <td>&nbsp;</td>
+                <td>[]<br>
+                  []<br>
+                  []</td>
+                <td>[]<br>
+                  <br>
+                  []</td>
+                <td>[]<br>
+                  <br>
+                  []</td>
+                <td>→<br>
+                  →<br>
+                  →</td>
+                <td>&lt;action1&gt;<br>
+                  &lt;action2&gt;<br>
+                  &lt;action3&gt;</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <span class="text"><span class="text"><br>
+      </span></span></td>
+  </tr>
+</table>
+</body>
+</html>

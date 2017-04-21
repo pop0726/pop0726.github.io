@@ -1,0 +1,67 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td><span class="text"> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第十章 语义分析</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <br>
+      　　</span><span class="section">10.9 介 词</span><span class="text"><br>
+      <br>
+      　　介词是封闭类词，用来引出介词短语。常用的介词如：&quot;Of&quot;，&quot;in&quot;，&quot;out&quot;，&quot;on&quot;，&quot;off&quot;，&quot;to&quot;，&quot;from&quot;，&quot;with&quot;，&quot;without&quot;等等。介词短语可以用来修饰开放类词---动词、名词、副词和形容词。<br>
+      　　介词的词义用双目谓词来表示，第-个变元对应于紧跟在该介词后面的名词短语，第二变元对应于被这个介词短语修饰的短语。例如：<br>
+      </span><span class="explaination">　　John sees the man with Mary.<br>
+      　　(约翰看见同玛丽在一起的那个男人)<br>
+      　　the(man(X)&amp;with一loc(mary，X)，see(john，X)).</span><span class="text"><br>
+      　　当介词短语修饰的是动词时，谓词的第二个变元将是一个逻辑式。<br>
+      </span><span class="explaination">　　John sees the star with a telescope.<br>
+      　　(约翰用望远镜看那颗星星)<br>
+      　　the(star(X)，ex(telescope(Y)， with-use(Y，sce(john，X)))).</span><span class="text"><br>
+      　　由于可以拥有逻辑式作为变元，使得介词的辖域高于其他谓词，例如：<br>
+      </span><span class="explaination">　　In the book John wrote，everybody knows 
+      everybody.<br>
+      　　(在约翰写的书中，每个人都互相认识)<br>
+      　　the(book(X)＆write(john，X)，<br>
+      　　　in-context(X，all(person(Y)，<br>
+      　　　　　　　　　　all(person(Z)，know(Y，Z))))).<br>
+      　　In 1975，John knew all Mary's friends.<br>
+      　　(在1975年，约翰认识了玛丽的所有朋友)<br>
+      　　in-time(1975，a11(friend(X，mary)，know(john，X))).</span><span class="text"><br>
+      　　当一个介词短语修饰动词时，它可能是一个补足语，也可能是一个附加语。例如：<br>
+      </span><span class="explaination">　　John decided on a car.(补足语)(约翰选定了一辆车)<br>
+      　　past(decide-on(john，car(X)，))，</span><span class="text"><br>
+      </span><span class="explaination"><br>
+      　　John decided onthetrain.(附加语)<br>
+      　　(约翰在火车上下了决心)<br>
+      　　Past(the(train(X)，on，-loc(X，decide(John，X)))).</span><span class="text"><br>
+      如前所述，介词引出的短语究竟是不是动词附加语，取决于它是否有自己独立的意义。在&quot;decided on the train&quot;中，显然下决心的处所是&quot;在&quot;(on)火车上；而在&quot;decided 
+      on a car&quot;中，&quot;on&quot;没有独立的意义。事实上&quot;decide on&quot;同&quot;select&quot;(选择)意思相近，它需要后接一个补足语(直接宾语)。但有时这些情况是难于区分的。<br>
+      　　对于动作动词，&quot;to&quot;和&quot;from&quot;通常引出动作的终点和起点，因此我们认为这些介词引出的是附加语。<br>
+      </span><span class="explaination">　　John went to Chicago.(约翰去了芝加哥)<br>
+      　　past(to(chicago，go(john))).<br>
+      　　Flight 205 goes from Boston to New York.<br>
+      　　(205航班从波士顿去纽约)<br>
+      　　from(boston，to(new.york，go(flight.205))).</span><span class="text"><br>
+      谓词from(X，P)的意思是：X是一个动作事件的起点，而这个事件是通过逻辑式P来描述的。表达式P自身可能被修饰语(如to)进一步限定，但依据谓词from总可以找到那个基本的事件。<br>
+      </span></td>
+  </tr>
+</table>
+</body>
+</html>

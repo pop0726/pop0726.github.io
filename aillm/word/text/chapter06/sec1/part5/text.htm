@@ -1,0 +1,48 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第六章　实例学习</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <br>
+      <span class="text">　　3．搜索规则空间的方法<br>
+      　　下面介绍搜索规则空间的四种方法。这些方法都具有一个假设规则的集合H。各种方法的区别在于怎样改进假设规则集H，以便得到要求的规则。<br>
+      　　（1） 变型空间方法<br>
+      　　变型空间方法（Version-space Method）是一种数据驱动方法（Data-driven Method）。这种方法使用统一的形式表示规则和例子。初始的假设规则集H包括满足第一个示教正例的所有规则。在得到下一个示教例子时，对集合H进行一般化或特殊化处理。最后使集合H收敛为只含要求的规则。<br>
+      　　（2） 改进假设方法<br>
+      　　改进假设方法（Hypothesis-refinement Method ）也是一种数据驱动方法。这种方法表示规则和例子的形式不统一。程序根据例子选择一种操作，用该操作去改进假规则集H中规则。AM系统（Lenat, 
+      1976）是该方法应用的实例。<br>
+      　　（3） 产生与测试方法<br>
+      　　产生与测试方法（Generate and Test）是一种模型驱动方法。（Model-driven Method）。这种方法针对示教例子反复产生和测试假设的规则。在产生假设的规则时，使用基于模型的知识，以便只产生可能合理的假设。该方法的实例是Meta-DENDRAL 
+      程序（Buchanan和Mitchell, 1978）。<br>
+      　　（4） 方案示例方法<br>
+      　　方案示例方法（Schema Instantiation） 也是一种模型驱动方法。它使用规则方案的集合来限制可能合理的规则的型式。最符合示教例子的规则方案被认为是最合理的规则。SPARC程序（Dietterich，1978）。使用了这种方法。<br>
+      　　数据驱动方法的优点是可以逐步接受示教例子逐步学习。特别是变型空间方法，它很容易修改集合H，不要求程序回溯就可以考虑新的例子。反之，模型驱动方法难以进行逐步学习。它通过检查全部例子来测试和放弃假设。在使用新例子时，它必须回溯或重新搜索规则空间。因为原来对假设的测试已不适用于新例子加入后的情况。<br>
+      　　模型驱动方法的优点是抗干扰较好。由于使用整个例子集合，程序就可以对假设进行统计测量。在用错误例子测试假设时，它不因一两个错误例子而放弃正确的假设。反之，数据驱动方法当前的例子去修改集合H，因此一个错误例子就会造成集合H的混乱。解决方法是每次用新例子修改集合H时只作较小的修改。这可以减小错误例子的影响，当然也使学习过程变慢了。<br>
+      <br>
+      　　</span><span class="part">6.1.4 选择例子</span><span class="text"><br>
+      　　学习环节根据一批示教例子来搜索规则空间，由此产生出可能合理的假设规则的集合H。此后，系统需要获取新的例子来检验和改进集合H。选择例子这一步的任务就是确定需要哪些新的例子和怎样得到这些例子。<br>
+      　　例如，一个遗传学的学习系统试图发现在DNA中哪一部分最重要，系统为了测试几个高级假设（即假设的规则），要安排复杂的试验（即新的示教例子）。这些试验合成DNA的特殊成分，并把它插入适当的细菌细胞，以便观察所引起的细胞属性。又如AM程序也要选择例子。在AM产生一个新概念后，它必须再获取该概念的实例，以便评价和修改概念。AM用几种方法选择例子。其中一种是用启发式方法选择边界例子。<br>
+      </span></td>
+  </tr>
+</table>
+</body>
+</html>

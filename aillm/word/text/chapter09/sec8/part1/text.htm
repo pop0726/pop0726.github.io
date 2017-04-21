@@ -1,0 +1,59 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td><span class="text"> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第九章 句法分析</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      </span><br>
+      　　<span class="section">9.8 基于合一的语法理论</span> 
+      <p><span class="text"> 　　对现代语言学影响最大的当然是以Chomsky为代表的转换语法理论(见9.5节)，但它适合于生成，用它来分析不仅困难而且效率很低，所以在实际的句法分析系统中很少得到真正的应用。进入八十年代以来，计算语言学界陆续提出了一批新的语法理论，其中最引人注目的有J.Bresnan和R.M.Kaplan的词汇功能语法(Lexical 
+        Functional Grammar，简称LFG，M.Kay的功能合一语法(Functional Unification Grammar，简称FUG)，Gazdar等人的广义短语结构语法(Generalized 
+        Phrase Structure Grammar，简称GPSG)，此外还有核驱动短语结构语法(Head-Driven Phrase Structure 
+        Grammar，简称HPSG)，形形式式的逻辑语法(Logic Grammar，简称LG)等等。国内外的权威人士曾不止-次次地预言，这些新的语法理论将对自然语言的计算机分析和生成产生巨大的影响。 
+        <br>
+        　　这些形式各异的语法理论有两个共同特点：一是避免在分析中沿用转换规则，因而被称为&quot;非转换语法理论&quot;(non-transformational 
+        grammar theories)；二是以复杂特征集和合一运算作为形式体系的基础，所以又叫做&quot;基于合一的语法&quot;(unificationbased 
+        grammars)。<br>
+        　　下面先解释一下复杂特征集和合-这两个基本概念，然后扼要介绍FUG和LFG。<br>
+        </span><span class="part"><br>
+        　　9.8.1 复杂特征集</span></p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td width="30"><img src="../../../../images/text/tb/dingyi.gif" width="26" height="17" alt="定义"></td>
+          <td class="text"><b>定义</b></td>
+        </tr>
+        <tr> 
+          <td>&nbsp;</td>
+          <td class="text">a为一复杂特征集.当且仅当a可用<br>
+            　<img src="../../../../images/text/chap09/sec8/gs1.gif" width="54" height="81"><br>
+            的形式来表示。n≥1；而且特征名f为原子，特征值vi为原子或复杂特征集。式<br>
+            　　　α(fi)＝vi；<br>
+            读作：集α中特征fi的值等于vi。 </td>
+        </tr>
+      </table>
+      <span class="text"><br>
+      　　在</span><span class="part">9.7.3</span><span class="text">中，确定性汉语句法分析器DEPACH所采用的词典信息登录格式。其实就是一种复杂特征集。其中分别记录了-个词条的词法、句法、语义、搭配、惯用型、个性规则等各类信息。在现代的句法分析器中，不仅词条信息采用复杂特征集的形式来描述,而且随着句法分析过程的推进，在机器为输入句子建立起来的局部或完整的句法树上、新产生的每个非终结点上也都将用复杂特征集来标注。后者既可以在短语归并过程中从今心调的复杂标记那里直接继承过来，也可以通过规则动态地生成。在句法结构的表示中对每个结点附加上这些复杂标记，而不象原先的短语结构语法那样只标注句法范畴一类的单一标记，不仅有效地解决了原先只能通过转换才能解决的某些语言现象，而且为句法和语义分析的有机结合创造了条件。<br>
+      　　众所周知，Chomsky曾宣称短语结构语法不适于描述自然语言。Gazdar等人对此提出了异议，他们认为Chomsky之所以得出这样的结论，是由于他对短语结构语法的形式体系强加了不必要的限制，尤其是排除了复杂标记的使用。Gazdar等人相信.在采用复杂特征集的情况下，GPSG将一方面拥有转换语法的普遍性和生成能力，另-方面却保留了上下文无关语法的许多优点。<br>
+      </span></td>
+  </tr>
+</table>
+</body>
+</html>

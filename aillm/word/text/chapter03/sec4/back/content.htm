@@ -1,0 +1,77 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body text="#000000" bgcolor="#FFFFFF">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td><span class="text"> <span class="text"><span class="text"> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第三章 不确定和非单调推理方法</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      </span></span><br>
+      　　</span><span class="part">【章节小结】</span><span class="text"><br>
+      <br>
+      　　在知识库中有大量的不完全的专家经验知识，这样的知识不可避免地带有模糊性、随机性、不可靠性或不知道等不确定因素。一般说来，不确定性是来自知识的客观现实和对知识的主观认识水平。人们在日常生活中要处理大量的不确定问题，现实世界中充满了大量的不确定性问题。<br>
+      　　不确定性推理的模型包括不确定性的表示、计算和语义解释。<br>
+      　　以产生式为知识表示的MYCIN系统中，证据的不确定性用CF表示, 规则A B的不确定性用CF(B,A)表示。PROSPECTOR系统规则的不确定性表示为(LS,LN)，证据的不确定性表示为O(A)。与CF不同的是用两个参量LS、LN来表示规则不确定性，分别表明了A成立与A不成立对B成立的影响程度。证据理论是数学上更严谨的一种不确定性推理方法，证据理论可处理由不知道引起的不确定性，以信任函数Bel、似然函数PI来表示不确定性，不确定性计算主要依据基本概率函数m。<br>
+      　　常识是人工智能研究的重要内容，常识和常识推理的形式化引起人工智能界的关注，常识推理的基本特征是在知识不完全的情况下进行的，不完全知识下的推理要求作出假设，对不知道的知识作一种猜测，随知识的增加可能出现证据，表明猜测不成立，要求修改所作的假设和相应的结论，这就是非单调性。非单调性刻画了常识推理的一般特征，非单调推理过程就是不断提出假设，进行标准逻辑下的推理，寻找不一致，进行回溯，消除不正确假设及其影响，进而再提出新的假设。 
+      <br>
+      　　定性推理方法也是一种常识推理，仿照人类对物理现象的描述和解释来建立的。定性方程法、进程方法和定性模拟法是三种基本的定性推理方法。<br>
+      </span><span class="text"><br>
+      　　</span><span class="part">【课后习题】</span><span class="text"></span><span class="text"> 
+      <br>
+      <br>
+      　　1． 已知<br>
+      　　　　R1:A1→X CF(X,A1)=0.7<br>
+      　　　　R2:A2→X CF(X,A2)=0.55<br>
+      　　　　R3:X∧A3→Y CF(Y,X∧A3)=0.95<br>
+      　　　　初始：<br>
+      　　　　CF(A1)=CF(A2)=CF(A3)=1<br>
+      　　　　CF(X)=CF(Y)=0<br>
+      　　　　求CF(X),CF(Y)的更新值<br>
+      　　2． 当A1,A2必然发生后，看X的概率变化，已知X的先验概率为0.02,而<br>
+      　　　　R1:A1→X LS=25 LN=1<br>
+      　　　　R2:A2→X LS=200 LN=1<br>
+      　　　　求：O(X|A1),P(X|A1)<br>
+      　　　　　　O(X|A1A2),P(X|A1A2) <br>
+      　　3． 若A必然发生，X的先验概率为0.02，而规则<br>
+      　　　　R1:A→X LS=90 LN=1<br>
+      　　　　R2:X→Y LS=350 LN=0.001<br>
+      　　　　又知P(Y)的先验概率为0.01，计算<br>
+      　　　　P(Y|A)<br>
+      　　4． 已知f1(A1)=0.7 f1(A2)=0.5 |V|=30 A1∧A2 B={b1,b2}<br>
+      　　　　(c1,c2)= (0.4,0.5)<br>
+      　　　　用证据理论计算f1(B)<br>
+      　　5.从耶鲁射击问题<br>
+      　　　甲在时刻t1活着，乙在时刻t2&gt;t1把子弹送入枪膛，乙在时刻t3&gt;t2举枪对甲射击，问题：<br>
+      　　　甲在时刻t4&gt;t3还活着吗？<br>
+      　　　来分析推理的非单调性。<br>
+      　　6.举几个常识推理中非单调性的例子<br>
+      　　7.求解定性方程组（如果有解的话）<br>
+      　　　　<img src="../../../../images/text/chap03/secb/gs1.gif" width="84" height="49"><br>
+      　　8.求解定性方程组（如果有解的话）<br>
+      　　　　<img src="../../../../images/text/chap03/secb/gs2.gif" width="102" height="52"><br>
+      　　9.求解定性方程组（如果有解的话）<br>
+      　　　　<img src="../../../../images/text/chap03/secb/gs3.gif" width="117" height="49"><br>
+      　　10.对一个在圆弧形槽内来回滚动的球进行定性分析<br>
+      　　　　<img src="../../../../images/text/chap03/secb/pic1.gif" width="177" height="93"><br>
+      <br>
+      </span></td>
+  </tr>
+</table>
+</body>
+</html>

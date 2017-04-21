@@ -1,0 +1,56 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../../images/pic/bg0401.gif" height="18" align="right" class="chap">
+              <tr> 
+                <td> 
+                  <div align="center">第二章 归结推理方法</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <span class="text"><span class="text"><br>
+      　　</span></span><span class="section">2.4 归结原理</span><span class="text"><br>
+      <br>
+      　　虽然Herbrand 定理给出了推理算法，但这种方法需逐次生成基例集S<font size="1">0</font>',S<font size="1">1</font>', 
+      …再检验S<font size="1">i</font>'的不可满足性，这常常是难以实现的。</span> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td width="30"><img src="../../../../images/text/tb/liti.gif" width="26" height="25" alt="例题"></td>
+          <td class="text"><b>例:</b></td>
+        </tr>
+        <tr> 
+          <td>&nbsp;</td>
+          <td class="text">　S＝{P(x,g(x),y,h(x,y),z,k(x,y,z)),～P(u,v,e(v),w,f(v,w),x)}<br>
+            　有H<font size="1">0</font>＝{a}<br>
+            　　S<font size="1">0</font>'＝{P(a,g(a),a,h(a,a),a,k(a,a,a)),～P(a,a,e(a),a,f(a,a),a)}<br>
+            　　H<font size="1">1</font>={a,g(a),h(a,a),k(a,a,a),e(a),f(a,a)}共含6个元素。<br>
+            　　S<font size="1">1</font>'：对S中文字P的变量x,y,z均可取值于H1的6个元素，从而对文字P可构成63种可能的形式。对文字～P的变量u,v,w,x也可取值于H1的6个元素。从而对文字～P可构成64种可能的形式。故S 
+            有63+64=1512个元素。而S<font size="1">0</font>'， S<font size="1">1</font>'是可满足的基例集，必需建立S<font size="1">2</font>'。由于变量最多的函数是k(x,y,z),三个变量都可取值于H1的6个元素，于是<br>
+            　　H<font size="1">2</font>：元素个数有6<sup><font size="1">3</font></sup>数量级<br>
+            　　S<font size="1">2</font>'：元素个数有(6<sup><font size="1">3</font></sup>)<sup><font size="1">4</font></sup>数量级<br>
+            由于S 是可满足的基例集，还要继续这个过程，建立S<font size="1">3</font>',S<font size="1">4</font>',直到S<font size="1">5</font>'才是不可满足。然而S<font size="1">5</font>'元素个数已达(10<sup>64</sup>)<sup>4</sup>＝10256的数量级上，这是当今计算机无法处理的。 
+          </td>
+        </tr>
+      </table>
+      <span class="text"><br>
+      　　这样简单的例子，直接使用Herbrand 定理都是不能处理的。也就是说Herbrand定理所给的算法尚不能直接应用。<br>
+      　　1965年 Robinson 提出了归结原理，是对自动推理的重大突破。例如上面给出的例子，使用归结方法，只需做一次归结便可证明S是不可满足的。谓词逻辑下的归结方法比命题逻辑要复杂多，主要是需处理变量，为此尚要引入置换与合一概念后才能介绍归结法。<br>
+      </span></td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第九章 句法分析</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <br>
+      <span class="part">　　9.9.3 Prolog语言的句法</span><br>
+      <span class="text"> 　　Prolog语言的数据对象叫做项。-个项是-个常量、-个变量或一个复合项。<br>
+      　　常量包括整数，如0，1，99，和原子，如a，sentence，noun-phrase，＝，[],'Algol-68'，→等等。常量用来指明确定的基本对象。<br>
+      　　变量的第一个字符必须是一个英文大写字母，如X,Value,Al等。一个变量用来表示某个特指的未确定对象。<br>
+      　　复合项是一种结构化的数据对象。-个复合项由-个函子和若干变元组成。一个函子则由其名字和变元数来描述。例如函子名为point、变元数为3的一个复合项可记作：<br>
+      　　point(X，Y，Z)<br>
+      你可以把函子看作是-个记录类型，把复合项的变元看作是-个记录中的域。复合项通常可以用树来表示。例如项<br>
+      　　S (np (john)， vp (v (likes), np (mary))) <br>
+      可以表示成图9.16所示的结构。在Prolog中复合项有时可以用中缀标记法来代替前缀标记法。例如前缀式：<br>
+      　　+(X，Y) ；(P，Q)&lt;(X，Y) <br>
+      可以分别用中绍式表示为： <br>
+      　　X+Y　　　P；Q　　　X&lt;Y<br>
+      　　(X加Y)　(P)或Q)　　(X小于Y)<br>
+      <br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td width="30" valign="top"><img src="../../../../images/text/tb/tushi.gif" width="25" height="16" alt="图示"></td>
+          <td align="center"> 
+            <p><img src="../../../../images/text/chap09/sec2/tu916.gif" width="150" height="160"><span class="explaination"><br>
+              图9.16 复合项s(np(john),vp(v(likes),np(mary)))的树形图</span></p>
+          </td>
+        </tr>
+      </table>
+      <br>
+      此外原子可以看作是变元数为零的函子。 <br>
+      　　表是Prolog的一种重要的数据结构，其本质同Lisp语言中的表-样。一个表要么是一个原子&quot;[]&quot;，表示空表：要么是一个函子名为&quot;・&quot;的复合项，它有两个变元，分别代表一个表的头和尾。因此由整数1，2，3组成的表具有如图9.17所示的结构。如果用Prolog的标准句法表示.它应当是<br>
+      　　・(1， ・ (2， ・ (3，[])))，<br>
+      但通常我们用如下的简单标记如表示它：<br>
+      　　[1，2，3]。<br>
+      当一个表的尾是一个变量时，可以用如下的方式来表示：<br>
+      　　[X|L] <br>
+      或<br>
+      　　[a，b| L]。<br>
+      它们分别对应于图9.18(a)和(b))的结构。<br>
+      　　下面是Prolog的一段简单程序，它包括<br>
+      　　事实：</span><span class="explaination">likes(mary，food).<br>
+      　　　　　likes(mary，wine).<br>
+      　　　　　likes(john，wine).</span><span class="text"><br>
+      　　规则：</span><span class="explaination">likes(john，X) ：-likes(X，wine).</span><br>
+      <br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="30" valign="top"><img src="../../../../images/text/tb/tushi.gif" width="25" height="16" alt="图示"></td>
+          <td class="explaination" align="center"> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" class="explaination">
+              <tr align="center"> 
+                <td><img src="../../../../images/text/chap09/sec2/tu917.gif" width="120" height="120"><br>
+                  图9.17 表[1，2，3]的结构</td>
+                <td><img src="../../../../images/text/chap09/sec2/tu918a.gif" width="100" height="70"><img src="../../../../images/text/chap09/sec2/tu918b.gif" width="120" height="101"><br>
+                  <br>
+                  图9.18 表尾为变量时的表结构 </td>
+              </tr>
+            </table>
+            <br>
+            (john喜欢任何一个喜欢酒的人。) </td>
+        </tr>
+      </table>
+      <span class="text"><br>
+      以上构成了Prolog的数据库，下面是用户输入的询问和机器的回答： <br>
+      </span><span class="explaination">　　? －likes(mary，mony)，<br>
+      　　　　no <br>
+      　　? －1ikes(mary，wine).<br>
+      　　　　yes<br>
+      　　? - likes(mary，X).<br>
+      　　　　(有什么东西是mary喜欢的?)<br>
+      　　　　X＝food：<br>
+      　　　　X＝wine；<br>
+      　　　　no (more answers)<br>
+      　　? －1ikes(mary，X)，likes(john，X).<br>
+      　　　　(有什么东西是mary和john都喜欢的?)<br>
+      　　　　X＝wine;<br>
+      　　　　no (more answers)<br>
+      　　? - likes(john，X).<br>
+      　　　　X＝wine;<br>
+      　　　　X＝mary;<br>
+      　　　　X＝john；<br>
+      　　　　no (more answers)<br>
+      </span> </td>
+  </tr>
+</table>
+</body>
+</html>

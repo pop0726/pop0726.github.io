@@ -1,0 +1,87 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td><span class="text"> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第十章 语义分析</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <br>
+      　　</span><span class="section">lO.7 副 词</span><span class="text"><br>
+      <br>
+      　　副词是由可以用来修饰动词、形容词和其他副词的词所组成的一个开放类。它们的谓词形式都是内涵的，即均以逻辑式作为其变元。有的副词用单目谓词表示，用以说明变元中逻辑式的时间，<br>
+      如：<br>
+      </span><span class="explaination">　　Yesterday John bought a car.(昨天约翰买了一辆汽车)<br>
+      　　yesterday(ex(car(X)，buy(john，X))).</span><span class="text"><br>
+      但是象&quot;always&quot;，&quot;often&quot;，&quot;usually&quot;，&quot;sometimes&quot;，&quot;seldom&quot;和&quot;never&quot;这样一些量化的副词，在意思上与大多数量化的限定词十分相似，所以它们的词义谓词也采用以下形式：<br>
+      　　　　　　adverb(Base，Focus)<br>
+      其中的基表示量化的范围，焦点表示言谈的中心。为了解释焦点的意思，在下面给出的每组例句中，第一句含有一个聚焦性副词，二句是用相关的限定词给出的释义，每个句子都给出了相应的逻辑式。 
+      <br>
+      </span><span class="explaination">　　John always buys books at <b>Smith's</b>.<br>
+      　　(约翰总是在史密斯商店买书)<br>
+      　　always((book(X)&amp;buy(john，X))：E，at(smith，E)).<br>
+      　　All John's book purchases are at Smith's.<br>
+      　　all((book(X)&amp;purchase(john，X))：E，at(smith，E)).<br>
+      <br>
+      　　John always buys <b>books</b> at Smith's.<br>
+      　　(约翰总是在史密斯商店买书)<br>
+      　　always(at(smith，buy(john，X))，book(X)).<br>
+      　　All John's purchases at Simth's are books.<br>
+      　　(He could buy books elsewhere too.)<br>
+      　　(他也可以在别的地方买书。)<br>
+      　　all(at(smith,buy(john，X))，book(X)).<br>
+      <br>
+      　　John often buys books at <b>Smith's</b>.<br>
+      　　(约翰时常在史密斯商店买书)<br>
+      　　often((book(X)&amp;buy(john，X))：E，at(smith，E)).<br>
+      　　Many of John's book purcllases are at Smith's.<br>
+      　　many((book(X)&amp; purchase(john，X))：E，at(smith，E)).<br>
+      <br>
+      　　John often buys <b>books</b> at Smith's.<br>
+      　　(约翰时常在史密斯商店买书)<br>
+      　　often(at(smith，buy(john，X))，book(X)).<br>
+      　　Many of John's purchaseS at Smitll's are books.<br>
+      　　many(at(smith，purchase(john，X))，book(X)).</span><span class="text"><br>
+      　　这些例子表明，由同样词序组成的两个句子，如果焦点不同则意思也不同，因此如何在逻辑式中表达这些差异就是一个重要的问题。<br>
+      　　类似的聚焦性副词还有&quot;only&quot;，&quot;even&quot;，&quot;just&quot;，&quot;too&quot;和&quot;also&quot;等。对&quot;Only&quot;和&quot;even&quot;来说，语音上的重读尤其应当注意。下面的例子还说明&quot;only&quot;和&quot;always&quot;的相似性。<br>
+      </span><span class="explaination">　　John only buys books at <b>Smith's</b>.<br>
+      　　(约翰只在史密斯商店买书)<br>
+      　　only((book(X)&amp;buy(john，X))：E，at(smith，E)).<br>
+      
+      　　John only buys <b>books</b> at Smith's.<br>
+      　　Only(at(smith，buy(john，X))，book(X))，</span><span class="text"><br>
+      事实上only(P，Q)的意思在本质上同always(P，Q)以及all(P，Q)一样，差异仅在预设上。always(P，Q)通常预设存在一种使P为真的情景，而only(P，Q)通常含有更强的预设，认为存在一种能使P&amp;Q为真的情景。<br>
+      　　许多副词和形容词被用来描述按照某种尺度所进行的比较或程度。这些程度副词和形容词也具有聚焦性。这些词义谓词的基用来说明比较的基准，其焦点则指明被比较的事物。这一点在词的最高级形式中表现得最清楚。请看下面这个例句中的副词&quot;fastest&quot;:<br>
+      </span><span class="explaination">　　John ran fastest yesterday.</span><span class="text"><br>
+      如果言谈焦点在&quot;yesterday&quot;，则它的意思是：在有关约翰赛跑的所有事件中(这是基)，昨天他跑得最快。与此相应的逻辑式为：<br>
+      </span><span class="explaination">　　fastest(run(john)：E，yesterday(E)).</span><span class="text"><br>
+      例句的另一种解释是把焦点放到&quot;John&quot;上，那么句子的意思是：在所有昨天的赛事中，约翰跑得最快，相应的逻辑式应表为：<br>
+      </span><span class="explaination">　　fastest(yesterday(run(X))，X＝John).</span><span class="text"><br>
+      　　程度副词的原形(如&quot;fast&quot;)也-样有聚焦性，只不过相应的重读不那么明显了。对于句子：<br>
+      </span><span class="explaination">　　John ran fast yesterday.(昨天约翰跑得快)</span><span class="text"><br>
+      可以得到三种不同的分析结果：<br>
+      </span><span class="explaination">　　fast(run(john)：E，yesterday(E)).<br>
+      　　fast(yesterday(run(X))，X：＝john).<br>
+      　　fast(run(X)：E，yesterday(E)&amp;X＝john).</span><span class="text"><br>
+      在这里fast(Base，Focus)的意思是：同基事件的速度相比.焦点事件的速度更高。<br>
+      </span></td>
+  </tr>
+</table>
+</body>
+</html>

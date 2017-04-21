@@ -1,0 +1,78 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第六章　实例学习</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <br>
+      　　<span class="part">6.5.2 符号积分程序LEX</span><span class="text"> 
+      <p>　　LEX是Thomas Mitchell (1981)设计的系统。它由经验学习简单的符号符积分问题。它的初始知识库有大约50种积分和化简操作。其中部分操作是：<br>
+        　　　　　OP02　变 ∫x<sup>r</sup>dx 为 x<sup>r+1</sup>/(r+1)<br>
+        　　　　　OP03　变 ∫rf(x) 为r∫f(x)dx<br>
+        　　　　　OP06　变 ∫sinxdx 为-cosx <br>
+        　　　　　OP08　变　1・f(x) 为f(x)<br>
+        　　　　　OP10　变 ∫cosxdx 为sinx<br>
+        　　　　　OP12　变 ∫udv 为uv -∫vdu<br>
+        　　　　　OP15　变 ∫0・f(x)dx 为0<br>
+        　　LEX 的目标是发现何时使用这些操作的启发式信息，即发现下列形式的产生式规则。<br>
+        　　　　　&lt;情况i&gt;<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">使用操作Opi<br>
+        　　其中左边是与当前积分匹配的模式。例如OP12的启发式规则可能是：<br>
+        　　　　　∫f(x)・transc(x)・d(x)<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10"><br>
+        　　　　　以u=f(x) 和dv=transc(x)dx　用OP12<br>
+        　　其中transc(x)表示超越函数<br>
+        如果没有这些启发式信息，执行环节将在合法操作的空间盲目搜索。例如积分 <br>
+        　　　　　∫3x・cosx・dx<br>
+        可以由OP12得到<br>
+        　　　　　3x・sinx -∫3・sinx・dx<br>
+        再由OP03得到<br>
+        　　　　　3・sinx - 3∫sinx・dx <br>
+        再由OP06得到<br>
+        　　　　　3x・sinx - 3(-cosx)<br>
+        它也以由OP03得到<br>
+        　　　　　3∫x・cosx・dx <br>
+        再由OP12得到<br>
+        　　　　　3[x<sup><font size="1">2</font></sup>/2・cosx - ∫-x<sup><font size="1">2</font></sup>/2・sinx・dx]<br>
+        这就误入了歧途。<br>
+        　　学习启发式规则左边的任务可以看成是学习多个概念问题。LEX试图发现每个OPi 的适用情况，它追踪执行环节的行动，发现适用和不适用的操作，以此作为正例和反例，指导对规则空间的搜索。LEX用清除候选元素方法搜索规则空间，但对规则左边不一定找到唯一的模式。因此启发式规则的形式为：<br>
+        　　　　　&lt;以S和G集表示的变型空间&gt; =&gt; 应用OPi<br>
+        例如对OP12的启发式信息可能表示为下列的变型空间：<br>
+        　　　　　G=∫f(x)・g(x)・dx<img src="../../../../images/text/chap02/sec02/tui.gif" width="16" height="10">OP12<br>
+        　　　　　　　　令 u=f(x) 和dv=g(x)dx<br>
+        　　　　　S=∫3x・cos x・dx=&gt;OP12<br>
+        　　　　　　　　令 u=3x和dv = cos x・dx<br>
+        显然G过于一般，可能包含反例。S过于特殊，可能不覆盖某些正例。<br>
+        　　1． LEX的结构<br>
+        　　LEX包括四个互作用的程序，它的结构如图6.18所示。它符合学习多步任务的模型。 </p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td width="30" valign="top"><img src="../../../../images/text/tb/tushi.gif" width="25" height="16" alt="图示"></td>
+          <td align="center"><img src="../../../../images/text/chap06/sec5/tu6.18.gif" width="267" height="125"><br>
+            <p class="explaination">图6.18 LEX的结构</p>
+          </td>
+        </tr>
+      </table>
+      <p>　　&quot;问题求解器&quot;是执行环节，它使用当时的操作集和启发式信息解决符号积分问题，在成功地解决了一个积分后，&quot;评论器&quot;检查执行情况的追踪，对各步决策进行奖惩分配，从而提取出使用操作的正例(适当的)和反例(不适当的)。&quot;归纳器&quot;用这些示教例子来寻找启发式信息。最后，&quot;问题产生器&quot;检查知识库内容，由此产生新的积分问题，提交问题求解器解决。其中评论器和归纳器组成学习环节。<br>
+      </p>
+      </span></td>
+  </tr>
+</table>
+</body>
+</html>

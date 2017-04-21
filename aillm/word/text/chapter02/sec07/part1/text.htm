@@ -1,0 +1,223 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td class="text"> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" background="../../../../images/pic/bg0401.gif" height="18" align="right" class="chap">
+              <tr> 
+                <td> 
+                  <div align="center">第二章 归结推理方法</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <br>
+      　　<span class="section">2.7 非归结方法</span><span class="text"><span class="text"><br>
+      <br>
+      　　</span>包括采用了各种控制策略的归结推理过程，仍然避免不了产生大量的归结式，使得归结法还不能处理复杂问题，甚至对人来说较容易得到的一些结果也难于使用归结法得到证明。<br>
+      　　从归结法本身来看，采用的是以消去联结词→而引入子句形为出发点的，这是不自然的。因为以P→Q的形式描述因果关系比以子句形～P∨Q要直接，或说子句描述失去了因果信息。再者，子句形描述将定理的条件和结论完全同一化了，无法区分了，这给推理过程引入启发信息人－机交互带来了困难。<br>
+      　　由于归结法的弱点，导致人们研究非归结方法，70年代就出现了以Bledsoe的自然演绎法为代表的一些推理方法。<br>
+      <br>
+      　　</span><span class="part">2.7.1 Bledsoe 自然演绎法</span><span class="text"><br>
+      　　自然演绎法是效率较高的一种推理方法。如微积分中连续函数的和仍连续的定理，采用归结法归结出10万个子句尚无结果，而使用了Bledsoe自然演绎法仅27步就得到了证明。<br>
+      　　这种方法是保留了联结词→下进行推理的。<br>
+      　　消去量词仍是重要的，与归结法不同的是要消去全称量词（&quot;x），而消去量词后的公式的变量认为是在存在量词作用下的。<br>
+      　　自然演绎法引入了多条推理规则，这也是效率高的原因之一，不像归结法那样仅使用一条归结推理规则，规则形式常是要找置换θ，使得某公式在θ下成立，从而有…结论。这同公式中的变量受存在量词作用是有关的。<br>
+      　　推理过程不是反演法，不要化成子句形，从而目标与条件是明显地区分开来了。将问题依推理规则化成一些子问题来证明。<br>
+      　　1． 一些简单公式的标准化<br>
+      　　有如归下的SKOLEM标准形，这里我们称为SKOLEM<sup>*</sup>标准形</span>
+      <table width="90%" border="0" cellspacing="0" cellpadding="0" class="text" align="center">
+        <tr> 
+          <td width="50%">原公式</td>
+          <td><span class="text">SKOLEM<sup>*</sup>标准形</span> </td>
+        </tr>
+        <tr> 
+          <td>(<img src="../../../../images/text/chap02/sec02/fh2.gif" width="8" height="9" align="absmiddle">x)<font size="2">P</font>(x)<br>
+          </td>
+          <td>P(x)</td>
+        </tr>
+        <tr>
+          <td>Q→(<img src="../../../../images/text/chap02/sec02/fh2.gif" width="8" height="9" align="absmiddle">x)<font size="2">P</font>(x)</td>
+          <td>Q→P(x)</td>
+        </tr>
+        <tr>
+          <td>(<img src="../../../../images/text/chap02/sec02/fh2.gif" width="8" height="9" align="absmiddle">x)(Q→P(x))</td>
+          <td>Q→P(x)</td>
+        </tr>
+        <tr>
+          <td>(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)P(x)→C</td>
+          <td>P(x)→c</td>
+        </tr>
+        <tr>
+          <td>(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)P(x)</td>
+          <td>P(<font size="2">x</font><font size="1">0</font>)</td>
+        </tr>
+        <tr>
+          <td>Q→(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)P(x)</td>
+          <td>Q→P(<font size="2">x</font><font size="1">0</font>)</td>
+        </tr>
+        <tr>
+          <td>(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)(Q→P(x))</td>
+          <td>Q→P(<font size="2">x</font><font size="1">0</font>)</td>
+        </tr>
+        <tr>
+          <td>(<img src="../../../../images/text/chap02/sec02/fh2.gif" width="8" height="9" align="absmiddle">x)P(x)→C</td>
+          <td>P(<font size="2">x</font><font size="1">0</font>)→c</td>
+        </tr>
+        <tr>
+          <td>(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)(<img src="../../../../images/text/chap02/sec02/fh2.gif" width="8" height="9" align="absmiddle">y)P(x,y)→C</td>
+          <td>P(x,g(x))→c</td>
+        </tr>
+        <tr>
+          <td>H→(<img src="../../../../images/text/chap02/sec02/fh2.gif" width="8" height="9" align="absmiddle">u)(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">v)Q(u,v)</td>
+          <td>H→Q(u,h(u))</td>
+        </tr>
+        <tr>
+          <td>(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)(<img src="../../../../images/text/chap02/sec02/fh2.gif" width="8" height="9" align="absmiddle">y)P(x,y)→(<img src="../../../../images/text/chap02/sec02/fh2.gif" width="8" height="9" align="absmiddle">u)(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">v)Q(u,v)</td>
+          <td>P(x,g(x))→Q(u,h(u))</td>
+        </tr>
+        <tr>
+          <td>(<img src="../../../../images/text/chap02/sec02/fh2.gif" width="8" height="9" align="absmiddle">y)(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)P(x,y)→(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">v)(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">u)Q(u,v)</td>
+          <td>P(<font size="2">x,y</font><font size="1">0</font>)→Q(u,<font size="2">v</font><font size="1">0</font>)</td>
+        </tr>
+      </table>
+      <span class="text">　　SKOLEM<sup>*</sup>标准形中保留了联结词→，而且也没要求化成前束形。其中的g(x),h(u)等仍称作为SKOLEM 
+      函数。所得的SKOLEM<sup>*</sup>标准形中的变量认为是受存在量词作用的。<br>
+      　　2． 符号规则<br>
+      　　为对一般公式SKOLEM<sup>*</sup>标准形，需定义公式的正负概念以及公式间的符号规则。<br>
+      　　对一个公式E来说，其正负如何依赖于它的子公式的正负，有如下规定：<br>
+      　　(1)如果A∧B是正(负)，那么A和B均为正(负)。<br>
+      　　(2)如果A∨B是正(负)，那么A和B均为正(负)。<br>
+      　　(3)如果～A是正(负)，那么A是负(正)。<br>
+      　　(4)如果A→B是正(负)，那么A是负(正)而B是正(负)。<br>
+      　　(5)如果(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)A是正(负)，那么A是正(负)而<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">是正(负)量词。<br>
+      　　(6)如果(<img src="../../../../images/text/chap02/sec02/fh2.gif" width="8" height="9">x)A是正(负)，那么A是正(负)而<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">是负(正)量词。<br>
+      <br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="text">
+        <tr> 
+          <td width="30"><span class="text"><img src="../../../../images/text/tb/liti.gif" width="26" height="25" alt="例题"></span></td>
+          <td><b>例:</b></td>
+        </tr>
+        <tr> 
+          <td>&nbsp;</td>
+          <td>　设E＝(H→(C→～D))→(～A∨(B→F))<br>
+            　若E是正（总是这样设定），由(4)<br>
+            　(～A∨(B→F))为正，(H→(C→～D))为负。<br>
+            　再依(2)有　～A,(B→F)为正<br>
+            　依(4)有　H为正，(C→～D)为负。<br>
+            　最后依(4)(3)有　A，B，C为负，F，～D为正。</td>
+        </tr>
+      </table>
+      　　 </span><span class="text">3． 消量词规则<br>
+      　　(1) 对只有一个量词的简单公式，规定</span><br>
+      　　　<img src="../../../../images/text/chap02/sec06/pic.gif" width="213" height="93"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="text">
+        <tr> 
+          <td width="30"><span class="text"><img src="../../../../images/text/tb/liti.gif" width="26" height="25" alt="例题"></span></td>
+          <td><b>例1:</b></td>
+        </tr>
+        <tr> 
+          <td>&nbsp;</td>
+          <td>　Q→(<img src="../../../../images/text/chap02/sec02/fh2.gif" width="8" height="9">x)P(x)<br>
+            　先设为正，依符号规则Q为负而(<img src="../../../../images/text/chap02/sec02/fh2.gif" width="8" height="9">x)P(x)为正，从而(<img src="../../../../images/text/chap02/sec02/fh2.gif" width="8" height="9">x)P(x)应化为P(x)。<br>
+            　于是Q→(<img src="../../../../images/text/chap02/sec02/fh2.gif" width="8" height="9">x)P(x)的<span class="text">SKOLEM<sup>*</sup></span>形为<br>
+            　　Q→P(x)</td>
+        </tr>
+        <tr>
+          <td><span class="text"><img src="../../../../images/text/tb/liti.gif" width="26" height="25" alt="例题"></span></td>
+          <td><b>例2:</b></td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td> 　(<img src="../../../../images/text/chap02/sec02/fh2.gif" width="8" height="9">x)P(x)→C<br>
+            　先设为正，依符号规则(<img src="../../../../images/text/chap02/sec02/fh2.gif" width="8" height="9">x)P(x)为负，从而(<img src="../../../../images/text/chap02/sec02/fh2.gif" width="8" height="9">x)P(x)的<span class="text">SKOLEM<sup>*</sup></span>形为P(<font size="2">x</font><font size="1">0</font>)<br>
+            　于是(<img src="../../../../images/text/chap02/sec02/fh2.gif" width="8" height="9">x)P(x)→C的<span class="text">SKOLEM<sup>*</sup></span>形为<br>
+            　　 P(<font size="2">x</font><font size="1">0</font>)→C</td>
+        </tr>
+      </table>
+      <span class="text">　　(2) 一般情形（不含情形(1)），若公式E中变量x由正量词所约束，而该量词左边所有负量词为<br>
+      　　　　<img src="../../../../images/text/chap02/sec06/gs1.gif" width="97" height="13"><br>
+      　　当r=0时，则x以常量代入。<br>
+      　　当r≠0时，则x 以f(<img src="../../../../images/text/chap02/sec06/xs1.gif" width="15" height="8">,…,<img src="../../../../images/text/chap02/sec06/xsr.gif" width="13" height="8">)代入，其中f是E中未出现过的函数符号。<br>
+      　　对E中所有变量依次做这样的代入，便可消去全部量词，便得E的SKOLEM<sup>*</sup>形。</span>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="text">
+        <tr>
+          <td width="30"><span class="text"><img src="../../../../images/text/tb/liti.gif" width="26" height="25" alt="例题"></span></td>
+          <td><b>例3:</b></td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td>　E＝(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)(<img src="../../../../images/text/chap02/sec02/fh2.gif" width="8" height="9">y)P(x,y)→(<img src="../../../../images/text/chap02/sec02/fh2.gif" width="8" height="9">u)(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">v)Q(u,v)<br>
+            　设E为正，有<br>
+            　(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)(<img src="../../../../images/text/chap02/sec02/fh2.gif" width="8" height="9">y)P(x,y)为负，从而(<span class="text"><img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle"></span>x)为负，(<img src="../../../../images/text/chap02/sec02/fh2.gif" width="8" height="9">y)P(x,y)也为负，于是(<img src="../../../../images/text/chap02/sec02/fh2.gif" width="8" height="9">y)为正，这样变量y为正量词所约束，而(<img src="../../../../images/text/chap02/sec02/fh2.gif" width="8" height="9">y)左边有负量词(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)，从而(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">x)(<img src="../../../../images/text/chap02/sec02/fh2.gif" width="8" height="9">y)P(x,y)应化为P(x,f(x))。又有(<img src="../../../../images/text/chap02/sec02/fh2.gif" width="8" height="9">u)(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">v)Q(u,v)为正，从而(<img src="../../../../images/text/chap02/sec02/fh2.gif" width="8" height="9">u)为负，(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">v)为正。这样v是正量词所约束的，而(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">v)左边有负量词(<img src="../../../../images/text/chap02/sec02/fh2.gif" width="8" height="9">u),从而(<img src="../../../../images/text/chap02/sec02/fh2.gif" width="8" height="9">u)(<img src="../../../../images/text/chap02/sec02/fh.gif" width="10" height="11" align="absmiddle">v)Q(u,v)应化为Q(u,g(u))。<br>
+            　故E的<span class="text">的SKOLEM<sup>*</sup>形</span>为　P(x,f(x))→Q(u,g(u))</td>
+        </tr>
+      </table>
+      <br>
+      　　4.推理规则<br>
+      　　自然演绎法不同于归结法的反演推理法，是直接来证明公式的成立。例如要证明(<img src="../../../../images/text/chap02/sec02/fh2.gif" width="8" height="9">x)P(x),只需论域中有个<font size="2">x</font><font size="1">0</font>，使P(<font size="2">x</font><font size="1">0</font>)成立。在这种观点下，把(<img src="../../../../images/text/chap02/sec02/fh2.gif" width="8" height="9">x)P(x)化成了SKOLEM*形，得P(x)而认为x是受存在量词约束。这种理解下可引入一条推理规则，若有置换θ使Pθ为真就有P(x)为真。也即(<img src="../../../../images/text/chap02/sec02/fh2.gif" width="8" height="9">x)P(x)得证。这样就不难理解下述规则了。符号[E]，表示规则应用于E是成立的。<br>
+      　　(1) MATCH：[H→C]<br>
+      　　如果Hθ＝Cθ　则θ为所求。<br>
+      　　这是最简单的规则了，要求目标C同假设H匹配，如果找到一个置换θ使Hθ＝Cθ 。 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="text">
+        <tr> 
+          <td width="30"><span class="text"><img src="../../../../images/text/tb/liti.gif" width="26" height="25" alt="例题"></span></td>
+          <td><b>例:</b></td>
+        </tr>
+        <tr> 
+          <td>&nbsp;</td>
+          <td>　P(x)→P(a) (已是SKOLEM*形)是成立的，因θ＝{a/x}下有<br>
+            　　P(x)θ =P(a)θ<br>
+            　这个θ可通过合一算法求得。</td>
+        </tr>
+      </table>
+    　　(2) AND－SPLIT：[H→A∧B]<br>
+      　　如果[H→A]在θ下而[H→Bθ]在λ下成立则θ・λ为所求。
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="text">
+        <tr> 
+          <td width="30"><span class="text"><img src="../../../../images/text/tb/liti.gif" width="26" height="25" alt="例题"></span></td>
+          <td><b>例:</b></td>
+        </tr>
+        <tr> 
+          <td>&nbsp;</td>
+          <td>　P(x)→P(a)∧(Q(x)→P(a)) (已是SKOLEM*形)成立。因有θ＝{a/x}和λ＝{a/x},使<br>
+            　[P(x)→P(a)],[P(x)→(Q(a)→P(a))]成立。</td>
+        </tr>
+      </table>
+    　　(3) CASES：[<font size="2">H</font><font size="1">1</font>∨<font size="2">H</font><font size="1">2</font> 
+      →C]<br>
+      　　如果[<font size="2">H</font><font size="1">1</font>→C]在θ下，而[<font size="2">H</font><font size="1">2</font>θ→C] 
+      在λ下成立，则θ・λ为所求。<br>
+      　　(4) OR－FORK：[A∧B→C]<br>
+      　　如果[A→C]在θ下成立则θ为所求，否则需证[B→C]成立。<br>
+      　　(5) BACK-CHAIN:[H ∧(A→B)→C]<br>
+      　　如果[B→C]在θ下，而且[H→Aθ]在λ下成立则θ・λ为所求。<br>
+      　　我们仅介绍这几条规则。<br>
+      　　5． 举例<br>
+      　　使用自然演绎方法来证明<br>
+      　　　　(P(a)∧( x)(P(x)→Q(x))→Q(a)<br>
+      　　先将这公式化成SKOLEM*形　<br>
+      　　　　(P(a) ∧(P(x)→Q(x)))→Q(a)<br>
+      　　依规则BACK-CHAIN,有θ＝{a/x},使<br>
+      　　　　Q(x)θ →Q(a)θ ,即Q(a)→Q(a)<br>
+      　　令λ空置换，有<br>
+      　　　　P(a)λ →P(x)θ・λ 即P(a)→P(a)<br>
+      　　成立。从而有　θ・λ＝θ＝{a/x},使　<br>
+      　　　　(P(a) ∧ (P(x)→Q(x)))→Q(a)<br>
+      　　成立。<br>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

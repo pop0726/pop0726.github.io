@@ -1,0 +1,64 @@
+<html>
+<head>
+<title>人工智能原理</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/text.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="right">
+  <tr>
+    <td><span class="text"> 
+      <table width="100%" border="0" cellspacing="3" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="40%" border="0" cellspacing="0" cellpadding="0" height="18" align="right">
+              <tr> 
+                <td class="pt10" background="../../../../images/pic/bg0401.gif"> 
+                  <div align="center" class="chap">第七章 其它学习方法</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      </span><span class="text"><br>
+      　　 5.发现多变元多项式关系的MP系统 <br>
+      　　发现数值间的关系在科学发现中占有重要地位。BACON.2 和BACON.4系统可以发现形如y＝f(x)的两变元多项式关系。MP系统提供了发现多变元间多项式函数关系的算法。<br>
+      　　(1)多变元多项式关系的发现 <br>
+      　　先看三变元的例子。设z＝f(x,y)为多项式关系。它可改写为<br>
+      　　　　　z＝g<sub>n</sub>(x)y<sup>n</sup>+…+g<sub><font size="1">1</font></sub>(x)・y+g<sub><font size="1">0</font></sub>(x)<br>
+      关于y的多项式中的系数是x的多项式。先固定x，得出y2间的一个关系。再改变x值，对x不同值得到y与z间一系列关系。最后确定g<sub>i</sub>(x)的形式。 
+      <br>
+      　　要发现形如y＝f(<img src="../../../../images/text/chap02/sec02/x1.gif" width="12" height="8">，<img src="../../../../images/text/chap02/sec02/x2.gif" width="12" height="8">，…，xm)的多项式关系，方法与三变元情况类似。y可写为<br>
+      　　　　　<img src="../../../../images/text/chap07/sec4/gs11.gif" width="221" height="16"><br>
+      其中g<sub>i</sub>(<img src="../../../../images/text/chap02/sec02/x1.gif" width="12" height="8">，<img src="../../../../images/text/chap02/sec02/x2.gif" width="12" height="8">，…，xm<font size="1">-1</font>)也可表示为类似形式，直到为两变元关系才止。对于n可变这种一般情况，要解决下面三个相关联的问题：输入数据的表达及输入的方式；各中间过程的系数的形成及存放；由最后的系数表转化为-般代数表达式。<br>
+      　　发现两变元n次多项式关系至少需要(n+2)组数据。所以为确定y＝f(<img src="../../../../images/text/chap02/sec02/x1.gif" width="12" height="8">,<img src="../../../../images/text/chap02/sec02/x2.gif" width="12" height="8">,…,xm)这个多项式关系，需要多组数据。这些数据存在一个数组中，数组每个元素为一组数据，形式为(y,<img src="../../../../images/text/chap02/sec02/x1.gif" width="12" height="8">,<img src="../../../../images/text/chap02/sec02/x2.gif" width="12" height="8">,…,xm)。例如，(7,1,2,3)表示f(1,2,3)＝7。 
+      <br>
+      　　中间函数各系数的形成与存放采用递归的方法。由于采用多维矩阵保存系统中的数据，就为递归调用提供了方便。例如对y＝f(x<font size="1">1</font>,x<font size="1">2</font>,x<font size="1">3</font>)，由前面形成了数据矩阵A。设有：<br>
+      　　　　　A(I,J,K)＝(y',x'<font size="1">1</font>,x'<font size="1">2</font>,x'<font size="1">3</font>) 
+      <br>
+      则对每一个固定的向量(x'<font size="1">1</font>,x'<font size="1">2</font>)，都可以归纳出一个在y'和x'3间的多项式关系。其系数表可以写为<br>
+      　　　　　cf(y，x<font size="1">3</font>)＝(a<font size="1">3n</font>,a<font size="1">3(n一1)</font>,…,a<font size="1">31</font>,a<font size="1">30</font>)<br>
+      把数组元素(y',x'<font size="1">1</font>,x'<font size="1">2</font>,x'<font size="1">3</font>)变成(cf(y,x<font size="1">3</font>),x'<font size="1">1</font>,x'<font size="1">2</font>)，并存到A(I,J,0)中。而对每一个x'<font size="1">1</font>，都可归纳出x'<font size="1">2</font>和a<font size="1">3K</font>间的多项式关系。依此类推进行递归调用，直到所有变元都考虑完为止。在递归中，数据信息每次都压缩一维。最后，总的系数表存在数组元素A(0,0,0)中。<br>
+      　　下面举例说明如何由总系数表转化为一般表达式。设<br>
+      　　　　　A(0，0,0)＝(((1 2 1)(3-12))<br>
+      　　　　　　　　　　 ((4 6 7) (8 9)))<br>
+      则转化为<br>
+      　　<img src="../../../../images/text/chap07/sec4/gs12.gif" width="383" height="17"><br>
+      　　(2)对MP系统的评价<br>
+      　　P.Langley和H.A.Simon等人研制的BACON.1到BACON.6这六个系统是发现数值经验定律的系统。但从数据环境中发现规律的功能这一点来看，BACON系统存在以下问题：<br>
+      　　第一、对多变元没有一般的处理方法。<br>
+      　　第二、在复杂的数据环境中，缺乏对有用变元进行选择的能力，从而表现出人为设计的味道。<br>
+      　　第三、抗干扰能力差。<br>
+      　　第四、能发现的函数类型很有限，除了受初等函数限制外，它也不能发现复合函数的一般关系。 <br>
+      　　MP系统正是在考察了BACON系统后，部分解决了以上问题。MP系统重新发现了理想气体状态方程、欧姆定律等可表示为多项式关系的物理学定律。如果加上一定的启发式，对变元作适当变换，并加强抗干扰能力，MP系统将能发现BACON系统能发现的绝大部分经验定律。<br>
+      　　MP系统的能力仍然相当有限。实际上，找出一种经验关系是一个建立模型的过程。这个模型在MP系统中就是一个函数。它概括了用户提供的一系列自变元与函数值的关系。但是数值环境中的模型决不限于初等函数。例如，在物理、化学和其它科学中，在定量分析一个动态过程时，一般都用微分方程描述。如何建立微分方程还有待进一步研究。 
+      <br>
+      　　6.结论<br>
+      　　基于归纳的发现，系统CASM以模型思想为指导，把定量与定性分析结合起来，模拟了化学史上若干发现过程。它强调知识的获取、应用与完善的统一，同时提出了多变元多项式关系发现的一般方法。<br>
+      </span> </td>
+  </tr>
+</table>
+</body>
+</html>
