@@ -1,0 +1,173 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<STYLE TYPE="text/css">
+<!--
+BODY {background-image:   url(../../../images/htmls/Slicebg.jpg);
+background-position: right bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body  leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr> 
+    <td valign="top" height="20">&nbsp; </td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr> 
+          <td class="text" valign="top"> 
+            <p>　<b>　</b>这里给出Cannon矩阵乘法例子。计算任务描述如下：<br>
+              　　A,B为n×n维的稠密矩阵。计算A，B的积，并存放到C，即：<br>
+              　　　　　　　C = A × B<br>
+              　　Cannon的矩阵乘法算法把p个处理器看成是一个二维的网格，各处理器在网格的坐标记为p(i, j)，其中i,j = 0, 1, 
+              ...,<img src="../../../images/img_text/ch07/7.gif" width="28" height="27" align="absmiddle">-1。并将A,B,C分别划分为<img src="../../../images/img_text/ch07/8.gif" width="99" height="27" align="absmiddle">的块，对各块编号，将A(i,j),B(i,j),C(i,j)分给p(i,j)。当完成数据初始赋值后，Cannon的算法按步进行，在每一步中，每个处理器完成本地的A(i,j)和B(i,j)(它们都是<img src="../../../images/img_text/ch07/8.gif" width="99" height="27" align="absmiddle">的矩阵)的乘法，然后将A发送给自己左边的处理器，B发送给自己上边的处理器（边界上的处理器回绕）。算法完成后，C的值按块分布在各个处理器上。 
+              <br>
+              　　<font color="#000000">//Canno's MM algorithm.<br>
+              　　#include &lt;stdlib.h&gt;<br>
+              　　#include &lt;mpi.h&gt;</font></p>
+            <p><font color="#000000">　　//将处理器的网格坐标转换为处理器号<br>
+              　　int CartToRank(int row, int col, int npdim)<br>
+              　　{<br>
+              　　　return ((row+npdim)%npdim)*npdim + (col+npdim)%npdim;<br>
+              　　}</font></p>
+            <p><font color="#000000">　　//块矩阵相乘<br>
+              　　void MatrixMultiply(int nlocal, double *a, double *b, double *c)<br>
+              　　{<br>
+              　　　int i,j,k;<br>
+              　　　for( i = 0; i &lt; nlocal; i++ )<br>
+              　　　　for( j = 0; j &lt; nlocal; j++ )<br>
+              　　　　　for( k =0; k &lt; nlocal; k++ )<br>
+              　　　　　{<br>
+              　　　　　　c[i,j] += a[i,k] * b[k,j];<br>
+              　　　　　}<br>
+              　　　}</font></p>
+            <p><font color="#000000">　　void main(int argc, char **argv)<br>
+              　　{<br>
+              　　　int i;<br>
+              　　　int n, nlocal;<br>
+              　　　double *a, *b, *c, *wspace;<br>
+              　　　int npes, npdim;<br>
+              　　　int myrank, myrow, mycol;<br>
+              　　　MPI_Status status;</font></p>
+            <p><font color="#000000"> 　　　/* 初始化，得到系统信息 */<br>
+              　　　MPI_Init(&amp;argc, &amp;argv);<br>
+              　　　MPI_Comm_size(MPI_COMM_WORLD, &amp;npes);<br>
+              　　　MPI_Comm_rank(MPI_COMM_WORLD, &amp;myrank);</font></p>
+            <p><font color="#000000"> 　　　if (argc != 2) { <br>
+              　　　　//需要给出矩阵的维数<br>
+              　　　　if (myrank == 0)<br>
+              　　　　　printf(&quot;Usage: %s &lt;the dimension of the matrix&gt;\n&quot;, 
+              argv[0]);<br>
+              　　　　MPI_Finalize();<br>
+              　　　exit(0);<br>
+              　　}<br>
+              　　//矩阵的维数<br>
+              　　n = atoi(argv[1]);</font></p>
+            <p><font color="#000000"> 　　//处理器网格每一维的处理器数 <br>
+              　　npdim = sqrt(npes);<br>
+              　　if (npdim*npdim != npes) { <br>
+              　　　//处理器数目必须是平方数<br>
+              　　　if (myrank == 0)<br>
+              　　　　　printf(&quot;The number of processes must be a perfect square.\n&quot;);<br>
+              　　　MPI_Finalize();<br>
+              　　　exit(0);<br>
+              　　}</font></p>
+            <p><font color="#000000">　　//本地的块矩阵的维数<br>
+              　　nlocal = n/npdim;</font></p>
+            <p><font color="#000000">　　//根据处理器号得到自己在处理器网格的坐标（myrow, mycol）<br>
+              　　myrow = myrank/npdim;<br>
+              　　mycol = myrank%npdim;</font></p>
+            <p><font color="#000000">　　//分配本地计算所需的空间<br>
+              　　a = (double *)malloc(nlocal*nlocal*sizeof(double));<br>
+              　　b = (double *)malloc(nlocal*nlocal*sizeof(double));<br>
+              　　c = (double *)malloc(nlocal*nlocal*sizeof(double));</font></p>
+            <p><font color="#000000"> 　　wspace = (double *)malloc(nlocal*nlocal*sizeof(double));</font></p>
+            <p><font color="#000000"> 　　//给矩阵赋初值（a,b的内容实际上没有实际意义）。<br>
+              　　srand48((long)myrank);<br>
+              　　for (i=0; i&lt;nlocal*nlocal; i++) {<br>
+              　　　a[i] = b[i] = drand48();<br>
+              　　　c[i] = 0.0;<br>
+              　　}<br>
+              　<br>
+              　　/* Perform the initial matrix alignment. First for a and then 
+              for b */<br>
+              　　/* 进行初始对齐，先a再b。设处理器坐标为（i,j），则本地的a将传给 p(i, j-i),<br>
+              　　即左移i列，b将传给p(i-j,j)，即上移j列*/<br>
+              　　/* MPI_Sendrecv的形式<br>
+              　　int MPI_Sendrecv(void *sendbuf, int sendcount, MPI_Datatype senddatatype,<br>
+              　　　　　　　int dest, int sendtag, void *recvbuf, int recvcount,<br>
+              　　　　　　　MPI_Datatype recvdatatype, int source, int recvtag,<br>
+              　　　　　　　MPI_Comm comm, MPI_Status *status)<br>
+              　　*/<br>
+              　　MPI_Sendrecv(a, nlocal*nlocal, MPI_DOUBLE, <br>
+              　　　　　　　CartToRank(myrow, mycol-myrow, npdim),<br>
+              　　　　　　　1, wspace, nlocal*nlocal, MPI_DOUBLE,<br>
+              　　　　　　　CartToRank(myrow, mycol+myrow, npdim), <br>
+              　　　　　　　1, MPI_COMM_WORLD, &amp;status);<br>
+              　　memcpy(a, wspace, nlocal*nlocal*sizeof(double));</font></p>
+            <p><font color="#000000"> 　　MPI_Sendrecv(b, nlocal*nlocal, MPI_DOUBLE, 
+              <br>
+              　　　　　　　CartToRank(myrow-mycol, mycol, npdim),<br>
+              　　　　　　　1, wspace, nlocal*nlocal, MPI_DOUBLE,<br>
+              　　　　　　　CartToRank(myrow+mycol, mycol, npdim), <br>
+              　　　　　　　1, MPI_COMM_WORLD, &amp;status);<br>
+              　　memcpy(b, wspace, nlocal*nlocal*sizeof(double));</font></p>
+            <p><font color="#000000"> 　　/* 主循环*/<br>
+              　　for (i=0; i&lt;npdim; i++) {<br>
+              　　　MatrixMultiply(nlocal, a, b, c); /* c = c + a*b */</font></p>
+            <p><font color="#000000"> 　　/* a左移 */<br>
+              　　　MPI_Sendrecv(a, nlocal*nlocal, MPI_DOUBLE, <br>
+              　　　　　　　CartToRank(myrow, mycol-1, npdim),<br>
+              　　　　　　　1, wspace, nlocal*nlocal, MPI_DOUBLE,<br>
+              　　　　　　　CartToRank(myrow, mycol+1, npdim),<br>
+              　　　　　　　1, MPI_COMM_WORLD, &amp;status);<br>
+              　　memcpy(a, wspace, nlocal*nlocal*sizeof(double));</font></p>
+            <p><font color="#000000"> 　　/* b 上移1 */<br>
+              　　MPI_Sendrecv(b, nlocal*nlocal, MPI_DOUBLE, <br>
+              　　　　　　　CartToRank(myrow-1, mycol, npdim),<br>
+              　　　　　　　1, wspace, nlocal*nlocal, MPI_DOUBLE,<br>
+              　　　　　　　CartToRank(myrow+1, mycol, npdim),<br>
+              　　　　　　　1, MPI_COMM_WORLD, &amp;status);<br>
+              　　memcpy(b, wspace, nlocal*nlocal*sizeof(double));<br>
+              　　}<br>
+              　　/*得到原来的a,b,不是必须，但可以检验算法实现 */<br>
+              　　MPI_Sendrecv(a, nlocal*nlocal, MPI_DOUBLE, <br>
+              　　　　　　　CartToRank(myrow, mycol+myrow, npdim),<br>
+              　　　　　　　1, wspace, nlocal*nlocal, MPI_DOUBLE,<br>
+              　　　　　　　CartToRank(myrow, mycol-myrow, npdim), <br>
+              　　　　　　　1, MPI_COMM_WORLD, &amp;status);<br>
+              　　memcpy(a, wspace, nlocal*nlocal*sizeof(double));</font></p>
+            <p><font color="#000000"> 　　MPI_Sendrecv(b, nlocal*nlocal, MPI_DOUBLE, 
+              <br>
+              　　　　　　　CartToRank(myrow+mycol, mycol, npdim),<br>
+              　　　　　　　1, wspace, nlocal*nlocal, MPI_DOUBLE,<br>
+              　　　　　　　CartToRank(myrow-mycol, mycol, npdim), <br>
+              　　　　　　　1, MPI_COMM_WORLD, &amp;status);<br>
+              　　memcpy(b, wspace, nlocal*nlocal*sizeof(double));</font></p>
+            <p><font color="#000000">　　//算法完成<br>
+              　　if (myrank == 0)<br>
+              　　　printf(&quot;Done multiplying the matrices!\n&quot;);</font></p>
+            <p><font color="#000000"> 　　free(a);<br>
+              　　free(b);<br>
+              　　free(c);<br>
+              　　free(wspace);</font></p>
+            <p><font color="#000000"> 　　MPI_Finalize();<br>
+              　　}<br>
+              </font> </p>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

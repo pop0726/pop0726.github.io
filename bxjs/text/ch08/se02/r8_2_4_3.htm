@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<STYLE TYPE="text/css">
+<!--
+BODY {background-image:   url(../../../images/htmls/Slicebg.jpg);
+background-position: right bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body  leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr> 
+    <td valign="top" height="20">&nbsp; </td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr> 
+          <td class="text" valign="top"> 
+            <p>　　<b>SINGLE指导语句</b><br>
+              <br>
+              　　形式如下：</p>
+            <p>　　!$OMP SINGLE [clause[[,] clause]...]<br>
+              　　block<br>
+              　　!$OMP END SINGLE [end_single_modifier]</p>
+            <p>　　SINGLE可以附带的子句如下：</p>
+            <p>　　PRIVATE(list)<br>
+              　　FIRSTPRIVATE( list)</p>
+            <p>　　END SINGLE可以附带的子句为：</p>
+            <p>　　COPYPRIVATE(list)[[,]COPYPRIVATE(list)...]<br>
+              　　NOWAIT</p>
+            <p>　　由SINGLE说明的任务（block）只能由一个线程完成，其余的线程则在END SINGLE处等待（当NOWAIT给出时，这些线程不用等待而直接执行下面的任务）。<br>
+              　<br>
+              　　一个简单的SINGLE的例子如下：</p>
+            <p>　　!$OMP PARALLEL DEFAULT(SHARED)<br>
+              　　　　CALL WORK(X)<br>
+              　　!$OMP BARRIER<br>
+              　　!$OMP SINGLE<br>
+              　　　　CALL OUTPUT(X)<br>
+              　　　　CALL INPUT(Y)<br>
+              　　!$OMP END SINGLE<br>
+              　　　　CALL WORK(Y)<br>
+              　　!$OMP END PARALLEL</p>
+            <p>　　<b>WORKSHARE指导语句</b><br>
+              　　对它的形式与用法在本文中不做介绍，请参照标准中的说明。</p>
+          </td>
+        </tr>
+      </table>
+      <br>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

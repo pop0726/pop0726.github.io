@@ -1,0 +1,48 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<STYLE TYPE="text/css">
+<!--
+BODY {background-image:   url(../../../images/htmls/Slicebg.jpg);
+background-position: right bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body  leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr> 
+    <td valign="top"> <br>
+      <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr> 
+          <td class="text" valign="top"> 
+            <p>　　缩行存储格式（简称CSR存储格式）也用三个一维数组来存储矩阵信息，与坐标存储格式不同的是，它在行方向进行了简单压缩，进一步缩小了存储空间。具体来说（见图6.4.2）：<br>
+              <br>
+              　　√ 第一个数组V存放各个非零元素的值，并且各个元素按照行从小到大的顺序放置（这隐含了同一行的元素要放在一起），同一行的各个元素之间按照任意顺序排列。<br>
+              　　√ 第二个数组J存放V中各个元素的列坐标。<br>
+              　　√ 第三个数组I存放J（或V）中各个行第一个项目的首位置。<br>
+              <br>
+              　　因此，V和J中各有q（矩阵中非零元素的个数）个项目，而I中的项目数等于矩阵的行数。<br>
+　　　　　<img src="../../../images/img_text/ch06/6_4_2.gif" width="362" height="153"><br>
+              　　　　　　　图6.4.2 CSR存储格式（稀疏矩阵见图6.4.1(a)）</p>
+            <p>　　仍然沿用6.4.1.1小节的矩阵基本参数，得到CSR存储格式的空间占用情况：<br>
+              　　　　　　　　　<img src="../../../images/img_text/ch06/85.gif" width="106" height="21" align="absmiddle"><br>
+              　　对照上式与坐标存储格式的空间占用表达式，可以知道，CSR存储格式不一定比坐标存储格式节省空间，只有当行数小于矩阵中非零元素个数的时候才是这样。<br>
+              <br>
+              　　根据对称性，也有缩列存储格式（CSC：Compressed Sparse Col Format），其空间占用为：<br>
+              　　　　　　　　　<img src="../../../images/img_text/ch06/86.gif" width="106" height="21"></p>
+            </td>
+        </tr>
+      </table>
+      <br>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,266 @@
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<link rel="stylesheet" href="../../css/text.css" type="text/css">
+<style type="text/css">
+<!--
+.bodybg {
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-position: right bottom;
+}
+-->
+</style>
+</head>
+
+<body class="bodybg" bgcolor="#FFFFFF" background="../../../../../images/htmls/openwin/bg.jpg" text="#000000" leftmargin="0" topmargin="0" rightmargin="0" bottommargin="0" marginwidth="0" marginheight="0" >
+<center><table width="95%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+      <td class=text> 
+        <p><b>一、 问答题答案</b></p>
+        <p>问答第1题<br>
+          1 #include ＜stdlib.h＞ <br>
+          2 #include ＜mpi.h＞<br>
+          3<br>
+          4 void main(int argc, char *argv[]) <br>
+          5 { <br>
+          6 int i; <br>
+          7 int n, nlocal; <br>
+          8 double *a, *b, *c;<br>
+          9 int npes, dims[2], periods[2];<br>
+          10 int myrank, my2drank, mycoords[2]; <br>
+          11 int uprank, downrank, leftrank, rightrank, coords[2];<br>
+          12 int shiftsource, shiftdest;<br>
+          13 MPI_Status status; <br>
+          14 MPI_Comm comm_2d; <br>
+          15 <br>
+          16 /* Initialize MPI and get system information */ <br>
+          17 MPI_Init(&argc, &argv);<br>
+          18 MPI_Comm_size(MPI_COMM_WORLD, &npes);<br>
+          19 MPI_Comm_rank(MPI_COMM_WORLD, &myrank);<br>
+          20<br>
+          21 if (argc != 2) { /* Exit, if wrong number of command-line arguments 
+          */ <br>
+          22 if (myrank == 0)<br>
+          23 printf("Usage: %s <the dimension of the matrix>\n", argv[0]);<br>
+          24 MPI_Finalize(); <br>
+          25 exit(0);<br>
+          26 }<br>
+          27 n = atoi(argv[1]); <br>
+          28 <br>
+          29 /* Setup the Cartesian Topology */ <br>
+          30 dims[0] = sqrt(npes); /* Compute the size of the square grid */ <br>
+          31 dims[1] = npes/dims[0];<br>
+          32 <br>
+          33 if (dims[0] != dims[1]) { /* Exit if not a square grid */<br>
+          34 if (myrank == 0) <br>
+          35 printf("The number of processes must be a perfect square.\n");<br>
+          36 MPI_Finalize(); <br>
+          37 exit(0); <br>
+          38 }<br>
+          39<br>
+          40 periods[0] = periods[1] = 1; /* Set the periods for wrap-arround 
+          connections */<br>
+          41<br>
+          42 /* Create the Cartesian topology, with rank reordering */<br>
+          43 MPI_Cart_create(MPI_COMM_WORLD, 2, dims, periods, 1, &comm_2d); <br>
+          44<br>
+          45 MPI_Comm_rank(comm_2d, &my2drank); /* Get my rank in the new topology 
+          */ <br>
+          46 MPI_Cart_coords(comm_2d, my2drank, 2, mycoords); /* Get my coordinates 
+          */<br>
+          47 <br>
+          48 nlocal = n/dims[0]; <br>
+          49 <br>
+          50 a = malloc(nlocal*nlocal*sizeof(double)); <br>
+          51 b = malloc(nlocal*nlocal*sizeof(double));<br>
+          52 c = malloc(nlocal*nlocal*sizeof(double)); <br>
+          53<br>
+          54 srand48((long)myrank);<br>
+          55 for (i=0; i＜nlocal*nlocal; i++) { <br>
+          56 a[i] = b[i] = drand48();<br>
+          57 c[i] = 0.0;<br>
+          58 }<br>
+          59 <br>
+          60 /* Perform the initial matrix alignment. First for a and then for 
+          b */<br>
+          61 MPI_Cart_shift(comm_2d, 0, -mycoords[0], &shiftsource, &shiftdest); 
+          <br>
+          62 MPI_Sendrecv_replace(a, nlocal*nlocal, MPI_DOUBLE, shiftdest, 1, 
+          <br>
+          63 shiftsource, 1, comm_2d, &status);<br>
+          64<br>
+          65 MPI_Cart_shift(comm_2d, 1, -mycoords[1], &shiftsource, &shiftdest);<br>
+          66 MPI_Sendrecv_replace(b, nlocal*nlocal, MPI_DOUBLE, shiftdest, 1,<br>
+          67 shiftsource, 1, comm_2d, &status);<br>
+          68 <br>
+          69 /* Compute ranks of the up and left shifts */ <br>
+          70 MPI_Cart_shift(comm_2d, 0, -1, &rightrank, &leftrank);<br>
+          71 MPI_Cart_shift(comm_2d, 1, -1, &downrank, &uprank);<br>
+          72<br>
+          73 /* Get into the main computation loop */ <br>
+          74 for (i=0; idims[0]; i++) { <br>
+          75 MatrixMultiply(nlocal, a, b, c); /* c = c + a*b */ <br>
+          76 <br>
+          77 /* Shift matrix a left by one */<br>
+          78 MPI_Sendrecv_replace(a, nlocal*nlocal, MPI_DOUBLE, leftrank, 1,<br>
+          79 rightrank, 1, comm_2d, &status); <br>
+          80 <br>
+          81 /* Shift matrix b up by one */<br>
+          82 MPI_Sendrecv_replace(b, nlocal*nlocal, MPI_DOUBLE, uprank, 1,<br>
+          83 downrank, 1. comm_2d, &status); <br>
+          84 }<br>
+          85 <br>
+          86 /* Restore the original distribution of a and b */<br>
+          87 MPI_Cart_shift(comm_2d, 0, +mycoords[0], &shiftsource, &shiftdest);<br>
+          88 MPI_Sendrecv_replace(a, nlocal*nlocal, MPI_DOUBLE, shiftdest, 1,<br>
+          89 shiftsource, 1, comm_2d, &status); <br>
+          90 <br>
+          91 MPI_Cart_shift(comm_2d, 1, +mycoords[1], &shiftsource, &shiftdest);<br>
+          92 MPI_Sendrecv_replace(b, nlocal*nlocal, MPI_DOUBLE, shiftdest, 1, 
+          <br>
+          93 shiftsource, 1, comm_2d, &status);<br>
+          94 <br>
+          95 MPI_Comm_free(&comm_2d); /* Free up communicator */<br>
+          96<br>
+          97 if (myrank == 0) <br>
+          98 printf("Done multiplying the matrices!\n"); <br>
+          99 <br>
+          100 free(a);<br>
+          101 free(b); <br>
+          102 free(c); <br>
+          103<br>
+          104 MPI_Finalize();<br>
+          105 } <br>
+          <br>
+          问答第2题<br>
+          1 #include ＜stdlib.h＞ <br>
+          2 #include ＜mpi.h＞ <br>
+          3<br>
+          4 void main(int argc, char *argv[]) <br>
+          5 {<br>
+          6 int i, j;<br>
+          7 int n, nlocal; <br>
+          8 double *a[2], *b[2], *c; <br>
+          9 int npes, dims[2], periods[2]; <br>
+          10 int myrank, my2drank, mycoords[2]; <br>
+          11 int uprank, downrank, leftrank, rightrank, coords[2];<br>
+          12 int shiftsource, shiftdest; <br>
+          13 MPI_Comm comm_2d;<br>
+          14 MPI_Status status;<br>
+          15 MPI_Request reqs[4];<br>
+          16<br>
+          17 /* Initialize MPI and get system information */ <br>
+          18 MPI_Init(&argc, &argv); <br>
+          19 MPI_Comm_size(MPI_COMM_WORLD, &npes);<br>
+          20 MPI_Comm_rank(MPI_COMM_WORLD, &myrank); <br>
+          21<br>
+          22 if (argc != 2) { /* Exit, if wrong number of command-line arguments 
+          */<br>
+          23 if (myrank == 0)<br>
+          24 printf("Usage: %s <dimension of the matrix>\n", argv[0]);<br>
+          25 MPI_Finalize();<br>
+          26 exit(0);<br>
+          27 }<br>
+          28 n = atoi(argv[1]);<br>
+          29<br>
+          30 /* Setup the Cartesian Topology */ <br>
+          31 dims[0] = sqrt(npes); /* Compute the size of the square grid */ <br>
+          32 dims[1] = npes/dims[0];<br>
+          33<br>
+          34 if (dims[0] != dims[1]) { /* Exit if not a square grid */ </p>
+        <p>35 if (myrank == 0)<br>
+          36 printf("The number of processes must be a perfect square.\n");<br>
+          37 MPI_Finalize(); <br>
+          38 exit(0);<br>
+          39 }<br>
+          40<br>
+          41 periods[0] = periods[1] = 1; /* Set the periods for wrap-arround 
+          connections */<br>
+          42<br>
+          43 /* Create the Cartesian topology, with rank reordering */ <br>
+          44 MPI_Cart_create(MPI_COMM_WORLD, 2, dims, periods, 1, &comm_2d);<br>
+          45 <br>
+          46 MPI_Comm_rank(comm_2d, &my2drank); /* Get my rank in the new topology 
+          */ <br>
+          47 MPI_Cart_coords(comm_2d, my2drank, 2, mycoords); /* Get my coordinates 
+          */ <br>
+          48 <br>
+          49 nlocal = n/dims[0];<br>
+          50 <br>
+          51 a[0] = (double *)malloc(nlocal*nlocal*sizeof(double)); <br>
+          52 a[1] = (double *)malloc(nlocal*nlocal*sizeof(double)); <br>
+          53 b[0] = (double *)malloc(nlocal*nlocal*sizeof(double)); <br>
+          54 b[1] = (double *)malloc(nlocal*nlocal*sizeof(double)); <br>
+          55 c = malloc(nlocal*nlocal*sizeof(double));<br>
+          56 <br>
+          57 srand48((long)myrank);<br>
+          58 for (i=0; i＜nlocal*nlocal; i++) {<br>
+          59 a[0][i] = b[0][i] = drand48(); <br>
+          60 c[i] = 0.0;<br>
+          61 }<br>
+          62<br>
+          63 /* Perform the initial matrix alignment. First for a and then for 
+          b */ <br>
+          64 MPI_Cart_shift(comm_2d, 0, -mycoords[0], &shiftsource, &shiftdest); 
+          <br>
+          65 MPI_Sendrecv_replace(a[0], nlocal*nlocal, MPI_DOUBLE, shiftdest, 
+          1,<br>
+          66 shiftsource, 1, comm_2d, &status); <br>
+          67<br>
+          68 MPI_Cart_shift(comm_2d, 1, -mycoords[1], &shiftsource, &shiftdest);<br>
+          69 MPI_Sendrecv_replace(b[0], nlocal*nlocal, MPI_DOUBLE, shiftdest, 
+          1,<br>
+          70 shiftsource, 1, comm_2d, &status);<br>
+          71<br>
+          72 /* Compute ranks of the up and left shifts */ <br>
+          73 MPI_Cart_shift(comm_2d, 0, -1, &rightrank, &leftrank); <br>
+          74 MPI_Cart_shift(comm_2d, 1, -1, &downrank, &uprank);<br>
+          75 <br>
+          76 /* Get into the main computation loop */<br>
+          77 for (i=0; idims[0]; i++) { <br>
+          78 MPI_Isend(a[i%2], nlocal*nlocal, MPI_DOUBLE, leftrank, 1, comm_2d, 
+          &reqs[0]);<br>
+          79 MPI_Isend(b[i%2], nlocal*nlocal, MPI_DOUBLE, uprank, 1, comm_2d, 
+          &reqs[1]);<br>
+          80 MPI_Irecv(a[(i+1)%2],nlocal*nlocal,MPI_DOUBLE,rightrank,1,comm_2d,&reqs[2]);<br>
+          81 MPI_Irecv(b[(i+1)%2],nlocal*nlocal,MPI_DOUBLE, downrank, 1,comm_2d,&reqs[3]);<br>
+          82 <br>
+          83 MatrixMultiply(nlocal, a[i%2], b[i%2], c); /* c = c + a*b */ <br>
+          84<br>
+          85 for (j=0; j<4; j++)<br>
+          86 MPI_Wait(&reqs[j], &status);<br>
+          87 }<br>
+          88 <br>
+          89 /* Restore the original distribution of a and b */ <br>
+          90 MPI_Cart_shift(comm_2d, 0, +mycoords[0], &shiftsource, &shiftdest);<br>
+          91 MPI_Sendrecv_replace(a[i%2], nlocal*nlocal, MPI_DOUBLE, shiftdest, 
+          1,<br>
+          92 shiftsource, 1, comm_2d, &status);<br>
+          93<br>
+          94 MPI_Cart_shift(comm_2d, 1, +mycoords[1], &shiftsource, &shiftdest);<br>
+          95 MPI_Sendrecv_replace(b[i%2], nlocal*nlocal, MPI_DOUBLE, shiftdest, 
+          1,<br>
+          96 shiftsource, 1, comm_2d, &status);<br>
+          97 <br>
+          98 MPI_Comm_free(&comm_2d); /* Free up communicator */<br>
+          99<br>
+          100 if (myrank == 0)<br>
+          101 printf("Done multiplying the matrices!\n"); <br>
+          102 <br>
+          103 free(a[0]);<br>
+          104 free(a[1]);<br>
+          105 free(b[0]);<br>
+          106 free(b[1]);<br>
+          107 free(c); <br>
+          108 <br>
+          109 MPI_Finalize();<br>
+          110 } </p>
+        </td>
+  </tr>
+</table>
+  </center>
+
+</body>
+</html>

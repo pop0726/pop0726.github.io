@@ -1,0 +1,70 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<STYLE TYPE="text/css">
+<!--
+BODY {background-image:   url(../../../images/htmls/Slicebg.jpg);
+background-position: right bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body  leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr> 
+    <td valign="top" height="20">&nbsp; </td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr> 
+          <td class="text" valign="top"> 
+            <p> 　　<b>PRAM模型的定义<a name="01"></a></b><br>
+              　　PRAM（Parallel Random Access Machine，随机存取并行机器）模型，也称为共享存储的SIMD模型，是一种抽象的并行计算模型，它是从串行的RAM模型直接发展起来的。在这种模型中，假定存在一个容量无限大的共享存储器，有有限个或无限个功能相同的处理器，且他们都具有简单的算术运算和逻辑判断功能，在任何时刻个处理器都可以通过共享存储单元相互交互数据。根据处理器对共享存储单元同时读、同时写的限制，PRAM模型可以分为下面几种：<br>
+              　　● 不允许同时读和同时写（Exclusive-Read and Exclusive-Write）的PRAM模型，简称为PRAM-EREW；<br>
+              　　● 允许同时读但不允许同时写（Concurrent-Read and Exclusive-Write）的PRAM模型，简称为PRAM-CREW；<br>
+              　　● 允许同时读和同时写（Concurrent-Read and Concurrent-Write）的PRAM模型，简称为PRAM-CRCW。<br>
+              <br>
+              　　显然，允许同时写是不现实的，于是又对PRAM-CRCW模型做了进一步约定，于是形成了下面几种模型：<br>
+              　　● 只允许所有的处理器同时写相同的数，此时称为公共（common）的PRAM-CRCW，简称为CPRAM-CRCW；<br>
+              　　● 只允许最优先的处理器先写，此时称为优先（Priority）的PRAM-CRCW，简称为PPRAM-CRCW；<br>
+              　　● 允许任意处理器自由写，此时称为任意（Arbitrary）的PRAM-CRCW，简称为APRAM-CRCW。<br>
+              　　● 往存储器中写的实际内容是所有处理器写的数的和，此时称为求和（Sum）的PRAM-CRCE，将称为SPRAM-CRCW。<br>
+              上面的模型中，PRAM-EREW是功能最弱的计算模型，而PRAM-CRCW则是最强的计算模型，令TM表示某一并行算法在并行计算模型M上的运行时间，则有<br>
+              　　　　　<img src="../../../images/img_text/ch04/3.gif" width="279" height="48"><br>
+              <br>
+              　　其中，p为处理器的数目，它的含义是，一个具有时间复杂度为TCREW或者TCRCW的算法，在PRAM-EREW模型上要花费logp倍的时间去模拟实现。<br>
+              　　<br>
+              　　<b>PRAM模型的优点<a name="02"></a></b><br>
+              　　PRAM模型特别适合于并行算法的表达、分析和比较，使用简单，很多关于并行计算机的底层细节，比如处理器间通信、存储系统管理和进程同步都被隐含在模型中；易于设计算法和稍加修改便可以运行在不同的并行计算机系统上；根据需要，可以在PRAM模型中加入一些诸如同步和通信等需要考虑的内容。<br>
+              <br>
+              　　<b>PRAM模型的缺点<a name="03"></a></b><br>
+              　　(1)模型中使用了一个全局共享存储器，且局存容量较小，不足以描述分布主存多处理机的性能瓶颈，而且共享单一存储器的假定，显然不适合于分布存储结构的MIMD机器；<br>
+              　　(2)PRAM模型是同步的，这就意味着所有的指令都按照锁步的方式操作，用户虽然感觉不到同步的存在，但同步的存在的确很耗费时间，而且不能反映现实中很多系统的异步性<br>
+              　　(3)PRAM模型假设了每个处理器可在单位时间访问共享存储器的任一单元，因此要求处理机间通信无延迟、无限带宽和无开销，假定每个处理器均可以在单位时间内访问任何存储单元而略去了实际存在的，合理的细节，比如资源竞争和有限带宽，这是不现实的；<br>
+              　　(4) PRAM模型假设处理机有限或无限，对并行任务的增大无开销；<br>
+              　　(5)未能描述所线程技术和流水线预取技术，而这两种技术又是当今并行体系结构用的最普遍的技术。</p>
+            <p><b>　　PRAM模型的推广<a name="04"></a></b><br>
+              　　随着人们对PRAM模型理解的深入，在使用它的过程中对它做了一些推广，以使它能更靠近实际的并行计算机，主要的有<br>
+              　　● 存储竞争模型，它把存储器分成一些模块，每个模块一次均可以处理一个访问，从而可在存储模块级处理存储器的竞争； <br>
+              　　● 延迟模型，它考虑了信息的产生和可以提供的时刻之间的通信延迟；<br>
+              　　● 局部PRAM模型，这个模型考虑了通信带宽，它假定每个处理器均具有无限的局部存储器，而相对而言，访问全局存储器是比较昂贵的；<br>
+              　　● 分层存储模型，它把存储器看作分层的存储模块，每个模块用大小和传输时间来表征，多处理器被组织成一个模块树，单个处理器为树的叶子节点；<br>
+              　　● 异步PRAM模型，各处理器之间没有统一的全局时钟。<br>
+              <br>
+              　　尽管PRAM是一个很不实际的并行计算模型，但在算法分析中，它已经被广泛接受和使用。 <br>
+            </p>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

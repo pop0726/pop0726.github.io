@@ -27,4 +27,6 @@
 [https://pop0726.github.io/vr/]
 ### cg 计算机图形学
 [https://pop0726.github.io/cg/]
+### bxjs 并行计算
+[https://pop0726.github.io/bxjs/]
 # to be continued

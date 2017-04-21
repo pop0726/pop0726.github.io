@@ -1,0 +1,50 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<STYLE TYPE="text/css">
+<!--
+BODY {background-image:   url(../../../images/htmls/Slicebg.jpg);
+background-position: right bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body  leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr> 
+    <td valign="top" height="20">&nbsp; </td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr> 
+          <td class="text" valign="top"> 
+            <p>　<font color="#000000">　</font>前面给出了开销最优的定义，这里再强调一次：如果一个并行系统的处理器-时间积与单处理器上的已知最快得串行算法的执行时间成比例，那么这个并行系统就是一个开销最优的并行系统，用公式表示为<br>
+              　　　　　　　　　　　　　<img src="../../../images/img_text/ch05/79.gif" width="87" height="25" align="absmiddle"><br>
+              　　将左边的处理器-时间积用问题规模和额外开销的函数表示，可以得到下面的公式<br>
+              　　　　　　　　　　　　　<img src="../../../images/img_text/ch05/80.gif" width="145" height="72" align="absmiddle"><br>
+              　　上面的公式说明，一个并行系统是开销最优的充分必要条件是它的额外开销函数不渐近的超过问题规模。这个条件与增加处理器数目而保持等效率的条件是非常相似的。如果等效率函数为f(p)，那么当一个并行系统扩大规模时，为了保证系统开销最优，必须要满足<img src="../../../images/img_text/ch05/81.gif" width="92" height="21" align="absmiddle">。下面的例子说明了开销最优与等效率函数的关系。 
+              <br>
+              <br>
+              　　<font color="#000000">一个例子<br>
+              　　开销最优与等效率函数的关系。<br>
+              　　考虑p处理器的超立方体上n个数的加法，一个非开销最优的并行系统的并行算法有<img src="../../../images/img_text/ch05/82.gif" width="101" height="21" align="absmiddle">的时间用于通信，它的额外开销函数是<img src="../../../images/img_text/ch05/83.gif" width="71" height="21" align="absmiddle">，n个数的加法的问题规模为<img src="../../../images/img_text/ch05/84.gif" width="36" height="21" align="absmiddle">，这个并行系统的等效率函数并不存在，因为不存在常数K（也就是E）使得等效率公式成立，额外开销总是要大于问题规模，因此，这个系统是不可扩展的并行系统。<br>
+              <br>
+              　　下面考虑这个问题的开销最优的并行系统，对这个并行系统，有<br>
+              　　　　　　　　　　　　　<img src="../../../images/img_text/ch05/85.gif" width="105" height="45" align="absmiddle"><br>
+              　　这样，它的等效率函数为<img src="../../../images/img_text/ch05/86.gif" width="73" height="21" align="absmiddle">，而前面的例子中已经得出结论，这个并行系统开销最优的条件是<img src="../../../images/img_text/ch05/87.gif" width="105" height="21" align="absmiddle">，可以很清楚地看到它们之间的等价性。<br>
+              </font> </p>
+            </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<STYLE TYPE="text/css">
+<!--
+BODY {background-image:   url(../../../images/htmls/Slicebg.jpg);
+background-position: right bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body  leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr> 
+    <td valign="top" height="20">&nbsp; </td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr> 
+          <td class="text" valign="top"> 
+            <p>　　<b>超立方体互联结构上的矩阵转置</b><br>
+              <br>
+              　　转置也可以递归地进行，称为递归转置算法（Recursive Transposition Algorithm）。基本思路是一个n×n的矩阵先分成4个子矩阵，把每个子矩阵看作一个整体对整个大矩阵进行转置；然后每个子矩阵再分成4个更小的矩阵，逐次递归，参见图6.3.5。<br>
+              <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="500" height="550"><param name="wmode" value="transparent">
+                <param name=movie value="../../../swf/S-6-3-5.swf">
+                <param name=quality value=high>
+                <embed src="../../../swf/S-6-3-5.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="500" height="550">
+                </embed> 
+              </object><br>
+              　　　<br>
+              　　　　　　　　 　　　　 8×8矩阵的递归转置<br>
+              <br>
+              　　这种递归跟超立方体的递归构建过程很像。利用这一点可以在超立方体上实现矩阵转置。如图6.3.6所示，先把n×n的矩阵分成4个(n/2)×(n/2)的子矩阵，相应地，一个具有p个处理器的超立方体可以看作是4个p/4超立方体所构成。递归一直到每个子超立方体只含有一个处理器为止。来分析算法的运行时间，经过<img src="../../../images/img_text/ch06/48.gif" width="40" height="19" align="absmiddle">次后递归结束，此时各个子块的大小为<img src="../../../images/img_text/ch06/46.gif" width="104" height="23" align="absmiddle">，这些子块内部转置的时间量级为n<sup>2</sup>/p。每个待通信的子块大小为n<sup>2</sup>/p，使用存储转发选路所需的时间为2(<img src="../../../images/img_text/ch06/44.gif" width="68" height="22" align="absmiddle">)，递归<img src="../../../images/img_text/ch06/48.gif" width="40" height="19" align="absmiddle">次的总通信时间为<img src="../../../images/img_text/ch06/49.gif" width="249" height="22" align="absmiddle">。这样，算法总的运行时间为：<br>
+              　　　　　　　<img src="../../../images/img_text/ch06/50.gif" width="178" height="40"><br>
+              <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="500" height="550">
+                <param name="wmode" value="transparent">
+                <param name=movie value="../../../swf/S-6-3-6.swf">
+                <param name=quality value=high>
+                <embed src="../../../swf/S-6-3-6.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="500" height="550">
+                </embed> 
+              </object>　 　　　　<br>
+              　　　　　　 　　16个处理器的超立方体上所进行的并行矩阵递归转置<br>
+              　　　　　<br>
+            </p>
+            </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

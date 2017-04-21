@@ -1,0 +1,40 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<STYLE TYPE="text/css">
+<!--
+BODY {background-image:   url(../../../images/htmls/Slicebg.jpg);
+background-position: right bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body  leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr> 
+    <td valign="top"> <br>
+      <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr> 
+          <td class="text" valign="top"> 
+            <p>　　对角线存储格式用一个小的值矩阵V和一个偏移向量OFFSET来存储稀疏矩阵的信息，它用于矩阵的非空元素集中于若干对角线上的情形。假设稀疏矩阵的非零元素都集中在m个对角线上，矩阵的行数为r，则值矩阵V是一个r×m的矩阵（即值矩阵V的行数等于矩阵行数，列数为m）。原矩阵某非零对角线的元素值存在值矩阵V的某列，原矩阵特定行的数据仍然存在值矩阵的特定行。OFFSET向量长度为m，存储值矩阵V各个列所对应的对角线到主对角线的偏移量。见图6.4.3。<br>
+　　　　　　　<img src="../../../images/img_text/ch06/6_4_3.gif" width="451" height="172"><br>
+              　　　　　　　　　　 　　图6.4.3 稀疏矩阵及其对角线存储格式</p>
+            <p>　<font color="#000000">　对角线存储格式所占用的存储空间为：<br>
+              　　　　　　　<img src="../../../images/img_text/ch06/87.gif" width="218" height="22"><br>
+              <br>
+              　　根据对称性，也可以按对角线和列存储，形成一个m×c的值矩阵；也不一定按照主对角线方向，副对角线也是可能的选择。</font></p>
+            </td>
+        </tr>
+      </table>
+      <br>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

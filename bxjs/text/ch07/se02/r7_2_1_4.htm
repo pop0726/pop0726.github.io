@@ -1,0 +1,44 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<STYLE TYPE="text/css">
+<!--
+BODY {background-image:   url(../../../images/htmls/Slicebg.jpg);
+background-position: right bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body  leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr> 
+    <td valign="top" height="20">&nbsp; </td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr> 
+          <td class="text" valign="top"> 
+            <p>　　<b>MPI程序的一些惯例</b><br>
+              <br>
+              　　<b>MPI命名规范</b><br>
+              　　所有MPI的名字都有前缀&quot;MPI_&quot;，不管是常量、变量还是函数调用的名字都是这样。而在用户程序中自己定义的常量、变量、过程和函数调用不要以&quot;MPI_&quot;开头，以免造成错误。<br>
+              <br>
+              　　FORTRAN形式的MPI调用，一般全为大写（虽然FORTRAN语法不区分大小写），而C形式的MPI调用，则为MPI_Xxxx_xxx的形式。</p>
+            <p>　<b>　MPI返回值</b><br>
+              　　所有MPI的FORTRAN子程序在最后的参数中都有一个返回代码，对于成功的函数调用，返回代码包含的值为MPI_SUCCESS，对于失败的函数调用，其错误代码依赖于具体的MPI实现。一些MPI操作是函数，没有这个参数，对MPI的C语言绑定，这个返回代码由函数的返回值直接给出，而不再作为参数。<br>
+            </p>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

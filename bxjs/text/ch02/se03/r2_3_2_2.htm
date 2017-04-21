@@ -1,0 +1,52 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<STYLE TYPE="text/css">
+<!--
+BODY {background-image:   url(../../../images/htmls/Slicebg.jpg);
+background-position: right bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body  leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr> 
+    <td valign="top" height="20">&nbsp; </td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr> 
+          <td class="text" valign="top"> 
+            <p>　　（2）<b>切通寻径</b>（Cut-Through） 在切通寻径中，包被分成更小的片进行传输。虫蚀寻径（Wormhole）是切通寻径的一种方式。<b>虫蚀寻径</b>方式是Dally于1986年提出的。在这种寻径方式中，片是最小的信息单位。头片包含了这个包的所有寻径信息，其它片是数据片。与结点相连的硬件寻径器中有<b>片缓冲区</b>。同一个包中所有的片像不可分离的同伴一样以流水方式顺序地传送。包可以看作是一列火车，由火车头（头片）和被牵引的车厢（数据片）组成。<br>
+              <br>
+              　　只有头片知道包将发往何处，所有的数据片都必须跟着头片。不同的包可以交替地传送，但不同包的片不能交叉，否则它们可能被送到错误的目的地。 
+              <br>
+              <br>
+              　　包中的片以流水方式在网络中向前&quot;蠕动&quot;。每个片相当于虫的一个节，&quot;蠕动&quot;是以节为单位顺序地向前爬行。<br>
+              <br>
+              　　当包的头片到达一个结点A的<b>寻径器</b>后，寻径器根据头片的寻径信息立即作出路由选择：如果所选择的通道空闲而且所选择的下一结点B的片缓冲区可用，那么这个头片直接通过结点A传向结点B，而其它片跟着向前&quot;蠕动&quot;一步。当包的尾片（该包的最后一片）向前&quot;蠕动&quot;一步后，它刚才所占用的缓冲区就被放弃了；如果所选择的通道非空闲或所选择的下一结点B的片缓冲区不可用，那么这个头片就必须在结点A的片缓冲区中等待，直到上述两者都可用为止。其它片也在各自所在的结点上等待。此时这个包不从网络中移去，片也不放弃它所占有的结点和通道。可以证明，虫蚀寻径方式下，通信时延几乎与包经过的路径长度无关。 
+              <br>
+              <br>
+              　　在不同的网络中片的大小不同。如果片的长度很小，控制电路就需要以很高的速度工作；反之如果片的长度很大，每个结点上就需要较大的片缓冲区。<font color="#000000">CM-5的片长为4bit，J-Machine的片长为8bit，Cray 
+              T3D和Paragon中片长为16bit，Cray T3E中片长为64bit</font>。<br>
+              <br>
+              　　虫蚀寻径方式的优点是：每个结点的缓冲区的需求量小，易于VLSI实现；通信时延与传输距离无关；其对通道的预约和释放是结合在一起的，有了一段新通道后立刻放弃用过的一段旧通道，对通道的利用率高；通过寻径器复制消息包的片并把它们从多个输出通道输出就可以方便地实现选播和广播。下面是几种寻径方式的时空图。(S表示源，D表示目的，I表示中间结点)<br>
+              　　<img src="../../../images/img_text/ch02/p2_3_2.gif" width="407" height="275"><br>
+              　　<img src="../../../images/img_text/ch02/p2_3_3.gif" width="404" height="300"><br>
+            </p>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<link rel="stylesheet" href="../../css/text.css" type="text/css">
+<style type="text/css">
+<!--
+.bodybg {
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-position: right bottom;
+}
+-->
+</style>
+</head>
+
+<body class="bodybg" bgcolor="#FFFFFF" background="../../../../../images/htmls/openwin/bg.jpg" text="#000000" leftmargin="0" topmargin="0" rightmargin="0" bottommargin="0" marginwidth="0" marginheight="0" >
+<center><table width="95%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+      <td class=text> 
+        <p><b>一、 问答题答案</b></p>
+        <p>问答第1题<br>
+          &nbsp;&nbsp;&nbsp;&nbsp; 名词解释见本章的各节。总线与线性阵列是不同的。线性阵列允许不同的源和目的结点对同时使用线性阵列中的不同链路（通信链路不能有重叠）。总线在某一时刻只允许有一对源和目的结点通信。当某结点在总线上发送信号时，连在总线上的所有结点都能收到。但线性阵列无此性质。<br>
+          <br>
+          问答第2题<br>
+          &nbsp;&nbsp;&nbsp;&nbsp; 第11号处理器的二进制地址为01011。 <br>
+          &nbsp;&nbsp;&nbsp;&nbsp; （1）cube<sub>3</sub>(01011)=00111，因此当互连函数为cube<sub>3</sub>时，第11号处理器与第3号处理器相连。 
+          <br>
+          &nbsp;&nbsp;&nbsp;&nbsp; （2）σ(01011)=10110 ，因此当互连函数为均匀洗牌时，第11号处理器与第22号处理器相连。 
+          <br>
+          &nbsp;&nbsp;&nbsp;&nbsp; （3）σ<sup>-1</sup>(01011)=10101，因此当互连函数为逆均匀洗牌时，第11号处理器与第21号处理器相连。 
+          <br>
+          &nbsp;&nbsp;&nbsp;&nbsp; （4）<em>β</em>(01011)=11010，因此当互连函数为蝶式置换时，第11号处理器与第26号处理器相连。 
+          <br>
+          &nbsp;&nbsp;&nbsp;&nbsp; （5）<em>PM</em><sub>+3</sub>(11)=11+3=19mod32，因此当互连函数为<em>PM</em>2<sub>+3</sub>时，第11号处理器与第19号处理器相连。 
+          <br>
+          <br>
+          问答第3题<br>
+          &nbsp;&nbsp;&nbsp;&nbsp; 设带环立方体的维数为n，则它可以看成将n-立方体的每个顶点换成n个结点组成的环得到的。n-立方体的结点度为n，这是因为一个结点在每维上都与一条边关联，共有n维。在带环立方体中，每个结点要与它所在的环中的两条边关联。同时，它还要与原来n-立方体中的一条边关联（该边与被替换掉的原n-立方体的顶点关联）。因此带环立方体的结点度为3。带环立方体含有N=n2<sup>n</sup> 
+          个结点。先不考虑重复计算，则带环立方体中应有3N 条链路。但是每条链路被从其两个端点重复计数了两次。因此带环立方体中的链路数为3N/2 
+          。<br>
+          <br>
+          问答第4题<br>
+          <center>
+<img src="../../images/gongshi/4da-1.gif" width="380" height="150"> 
+</center>
+          <br>
+          &nbsp;&nbsp;&nbsp;&nbsp; 将转置结果按顺序写出，并观察元素在转置前后的位置移动情况，可以发现：元素位置的变化与4路洗牌完成的置换相同。所以使用4路洗牌网络即可。若A为8×8矩阵，则有64个元素。此时应使用8路洗牌：将输入端按顺序均匀分成8段，每段8个元素。将输出端的64个位置也按顺序均匀分成8段，每段8个位置。则8路洗牌的结果是：输出端第<em>i</em>(1≤<em>i</em>≤8) 
+          段上第<em>j</em>(1≤<em>j</em>≤8) 个位置上的元素是输入端第<em>j</em>段上的第<em>i</em>个元素。<br>
+          <br>
+          问答第5题<br>
+          &nbsp;&nbsp;&nbsp;&nbsp; 在题目的条件下，处理器不可以直接将需要写的数据块更新。必须先由系统将正确的数据块调入其Cache，然后再写入。记本地处理器为A。不能直接更新的原因在于：本地的数据块处于"无效"状态说明其它处理器曾经更新过该数据块。假设最近一次更新是处理器B进行的，更新操作是将该数据块中的变量x的值由<em>a</em>&nbsp;改为了<em>a</em>' 
+          。假设处理器A所要作的更新是将该数据块中的变量y的值由<em>b</em>&nbsp;改为<em>b</em>'，并且x与y不是同一个变量。由于此时处理器A的Cache中的数据块处于"无效"状态，该数据块中变量x的值仍为a。若处理器A直接写入，则写入后，该数据块中变量x的值仍为"过时"的，而处理器B及其它处理器的Cache中该数据块的副本中变量y的值是"过时"的。最终的结果是系统中该数据块的所有拷贝都不正确。因此在题设条件下，必须先更新本地数据块，再写入。<br>
+          <br>
+          问答第6题<br>
+          路径为：0110110→0110100→0111100→0101100→0001100→1001100。<br>
+          <br>
+          问答第7题<br>
+          &nbsp;&nbsp;&nbsp;&nbsp; SMP中各处理器地位平等，使用共享存储器。 <br>
+          &nbsp;&nbsp;&nbsp;&nbsp; MPP规模庞大，处理器数目多，存储器一般为私有，使用消息传递方式通信。 <br>
+          &nbsp;&nbsp;&nbsp;&nbsp; DSM的存储器在物理上是分布的，但它通过硬件和软件的方法，把这些存储器虚拟为一个共享存储器，给用户提供一个单一地址的编程空间。 
+          <br>
+          &nbsp;&nbsp;&nbsp;&nbsp; COW的每个结点是完整的计算机（可能没有鼠标、显示器等外设），使用商品网络。<br>
+          &nbsp;&nbsp;&nbsp;&nbsp; SMP、MPP、DSM，COW的其它特点请见本章各节。
+          <!--czp-wenda-daan-->
+          <br>
+          <br>
+          　</p>
+      </td>
+  </tr>
+</table>
+  </center>
+
+</body>
+</html>

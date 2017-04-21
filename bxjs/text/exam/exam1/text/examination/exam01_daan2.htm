@@ -1,0 +1,128 @@
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<link rel="stylesheet" href="../../css/text.css" type="text/css">
+<style type="text/css">
+<!--
+.bodybg {
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-position: right bottom;
+}
+-->
+</style>
+</head>
+
+<body class="bodybg" bgcolor="#FFFFFF" background="../../../../../images/htmls/openwin/bg.jpg" text="#000000" leftmargin="0" topmargin="0" rightmargin="0" bottommargin="0" marginwidth="0" marginheight="0" >
+<center><table width="95%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+      <td class=text> <p><br>
+          第一题<br>
+          MIMD <br>
+          并行计算机的类型。MIMD计算机，没有统一的控制部件，含有多个处理器，各处理器可以独立地执行不同的指令，每个处理器都有控制部件，各处理器通过互连网络进行通信。<br>
+          <br>
+          CC-NUMA <br>
+          并行计算机的访存模式。CC-NUMA结构的并行机实际上是将一些SMP机作为结点互连起来而构成的并行机，绝大多数商用CC-NUMA多处理机系统使用基于目录的高速缓存一致性协议；它的存储器在物理上是分布的，所有的局部存储器构成了共享的全局地址空间。<br>
+          <br>
+          存储转发 <br>
+          一种网络寻径方式，在这种方式下，消息被分成包来传送，包是信息传输的基本单位。包从源结点通过一系列中间结点到达目的结点，每个结点有一个包缓冲区。当包到达一个中间结点A时，A把整个包全部接收下来放入其包缓冲区中，然后在寻径算法的控制下选择下一个中间结点B，当从A到B的通道空闲并且B的包缓冲区可用时，A把包发向B。不断地存储和转发，包就可以到达目的结点。所有的包到达目的结点后，目的结点再把包组装成原来的消息。<br>
+          <br>
+          交叉开关 <br>
+          是一种高带宽网络，它可以在输入端和输出端之间建立动态连接，在每个输入端和输入端的交叉点上都有交叉点开关。该开关可以根据需要置为"开"或"关"状态，从而使不同的输入端和输出端导通。 
+          交叉开关允许 对源和目的同时用互不重叠的通道进行通信，也允许一个输入端向多个输出端同时发送信息。在并行系统中，交叉开关可以用来连接处理器和处理器，也可以用来连接处理器和存储器。<br>
+          <br>
+          递归分解 <br>
+          任务分解的一种方法，通常用来对采用Divide-and-conquer(分治)方法的问题进行任务分解。这种方法将任务分解为独立的子任务，这个分解的过程会递归的进行。问题的答案是所有的子任务的答案的组合。 
+          <br>
+          <br>
+          第二题<br>
+        </p>
+        <p>
+          <center>
+            <img src="../../images/dat1_1.gif" width="380" height="150"> 
+          </center>
+          &nbsp;&nbsp;&nbsp;&nbsp; 将转置结果按顺序写出，并观察元素在转置前后的位置移动情况，可以发现：元素位置的变化与4路洗牌完成的置换相同。所以使用4路洗牌网络即可。<br>
+          <br>
+          第三题<br>
+          &nbsp;&nbsp;&nbsp;&nbsp; 这是一个SPMD的程序。<br>
+          &nbsp;&nbsp;&nbsp;&nbsp; 这个算法的主要结构和上一题的算法等价。首先对程序中出现的函数作简要的说明。<br>
+          &nbsp;&nbsp;&nbsp;&nbsp; bsp_pid：得到进程（处理器）本身的标识（进程号）； <br>
+          &nbsp;&nbsp;&nbsp;&nbsp; bsp_nprocs：得到处理器的数目；<br>
+          &nbsp;&nbsp;&nbsp;&nbsp; bsp_put：在处理器间通信；<br>
+          &nbsp;&nbsp;&nbsp;&nbsp; bsp_sync：障碍同步；<br>
+          &nbsp;&nbsp;&nbsp;&nbsp; bsp_begin：BSP系统初始化； <br>
+          &nbsp;&nbsp;&nbsp;&nbsp; bsp_end：BSP系统结束。 <br>
+          &nbsp;&nbsp;&nbsp;&nbsp; 需要注意的是程序中的循环部分，它清楚的体现出了BSP模型的特点：计算、通信、障碍同步相间隔的结构。<br>
+          <br>
+          第四题<br>
+          证明：<br>
+          &nbsp;&nbsp;&nbsp;&nbsp; 这是一个问题规模固定的加速比问题，所以是Amdahl定律讨论的范围。<br>
+          &nbsp;&nbsp;&nbsp;&nbsp; 根据Amdahl定律，这个系统的加速比可以表示成下面的公式 <br>
+          <center>
+            <img src="../../images/dat1_2.gif" width="139" height="43"> <br>
+          </center>
+          &nbsp;&nbsp;&nbsp;&nbsp; 随着p的增大，这是一个递增的函数，但这个函数有上限，当<img src="../../images/dat1_3.gif" width="48" height="16" align="absmiddle">时，有 
+          <br>
+          <br>
+          <center>
+            <img src="../../images/dat1_4.gif" width="80" height="36"> <br>
+          </center>
+          &nbsp;&nbsp;&nbsp;&nbsp; 这就是这个并行系统的加速比上限，在讨论Amdahl定律时实际上已经讨论过，固定规模的问题得加速比的极限由问题的串行部分比例f确定，它就等于1/f，上面的答案和这个结论是一致的。 
+          <br>
+          <br>
+          第五题<br>
+          如图，假设用p个处理器对一个n×n的矩阵进行并行转置运算，设采用行方向的块带状划分（列方向与行方向完全对称）。每个处理器分配n/p行，从图上可以看出，每个处理器需要与其它所有处理器进行通信以便交换相应的矩阵元素，通信量都是一个(n/p)×(n/p)大小的方阵。通信完毕后，每个处理器还要对每个子块进行局部置换，每个子块的置换时间的量级为<img src="../../images/dat1_5.gif" width="48" height="24" align="absmiddle">（或写作<img src="../../images/dat1_6.gif" width="53" height="23" align="absmiddle">，差别仅仅是单位时间所取的标准不同，在量级上没有差别，最终只差一个常数），故p个子块在单个处理器上串行完成置换的时间总共为<img src="../../images/dat1_7.gif" width="39" height="23" align="absmiddle">。对通信的分析需要联系到具体的网络结构和路由机制。当采用超立方体网络结构和切通路由（cut-through 
+          routing）机制时，本算法的通信时间为 <br>
+          <center>
+            <img src="../../images/dat1_8.gif" width="191" height="32"> 
+          </center>
+          &nbsp;&nbsp;&nbsp;&nbsp; 因此算法总的运行时间大约为： <br>
+          <center>
+            <img src="../../images/dat1_9.gif"> 
+          </center>
+          <br>
+          第六题<br>
+          解：<br>
+          方法一：<br>
+          &nbsp;&nbsp;&nbsp;&nbsp; 一种简单的并行化算法<br>
+          &nbsp;&nbsp;&nbsp;&nbsp; 在串行快速排序中，首先根据一个界把所有元素分成两部分，然后对两个部分再分别按照同样的方法递归处理。利用这一点可以进行简单的并行化，方法是把分成的两个子序列分别放到两个处理器上并行完成排序工作，然后每个处理器负责的子序列再分成两个子序列并分到不同的处理器上，如此递归。设对一个长度为n的序列按上述算法进行并行排序需要花费的时间为T(n)，则有<img src="../../images/dat1_10.gif" width="145" height="21" align="absmiddle"> 
+          ，因此：<br>
+          <center>
+            <img src="../../images/dat1_11.gif" width="223" height="105"> <br>
+          </center>
+          &nbsp;&nbsp;&nbsp; 这样算法的开销是：<br>
+          <center>
+            <img src="../../images/dat1_12.gif" width="83" height="25"> 
+          </center>
+          &nbsp;&nbsp;&nbsp;&nbsp; 这大于快速排序的平均串行处理时间<img src="../../images/dat1_13.gif" width="66" height="20" align="absmiddle"> 
+          。可见这种算法没有充分利用处理器的潜力。 <br>
+          <br>
+          方法二 ：<br>
+          &nbsp;&nbsp;&nbsp;&nbsp; 超立方体上的并行化 <br>
+          &nbsp;&nbsp;&nbsp;&nbsp; 一个d维的超立方体可以看作是由两个d-1维的超立方体互联而成的，利用这一点，可以把一个d维的超立方体中存储的一个序列划分成两个子序列而分别存放到两个d-1维的超立方体上，使得每个d-1维立方体的每个处理器都跟另外一个立方体的某处理器直接相连。这样，根据一个大于界的子序列与小于界的子序列可以分别放在不同的超立方体上。<br>
+          &nbsp;&nbsp;&nbsp;&nbsp; 设处理器个数p=2<sup>d</sup> 构成一个d维的超立方体，处理器按照从0到2<sup>d</sup> 
+          进行二进制编码；n个元素所构成的序列均匀分布到各个处理器上，使得每个处理器上有n/p个元素。现在选择一个界元素，并将它的值广播到各个处理器，各个处理器中最高位编码值为1的处理器与最高位编码值为0的处理器之间进行元素的部分交换，使得最高位编码值为1的处理器上的所有元素均大于界值，最高位编码值为0的处理器上的所有元素均小于或等于界值。这样就把维数为d的超立方体划分成了两个独立的维数为d-1的超立方体。对每个维数为d-1的超立方体重复上面的操作。<br>
+          &nbsp;&nbsp;&nbsp;&nbsp; 从上面的算法描述可以看出，界的选择对于算法的性能有着直接的影响。界把序列分割得越均匀，则算法性能越好。一个相对比较好的界选择方式是处理器在自己拥有的所有元素中值元素作为界值。按照这种界选择策略，算法每次迭代可以分四步：局部排序；界选择；界值广播；元素交换。局部排序的时间复杂度为<img src="../../images/dat1_14.gif" width="69" height="31" align="absmiddle"> 
+          ；排序排序后再选择界的时间复杂度为<img src="../../images/dat1_15.gif" width="32" height="20" align="absmiddle">；第i次迭代需要消耗的通信时间是<img src="../../images/dat1_16.gif" width="68" height="14" align="absmiddle"> 
+          ，d次迭代共消耗<img src="../../images/dat1_18.gif" width="66" height="23" align="absmiddle">的时间；由于交换只可能发生在相邻的处理器之间，每次迭代的时间最多为<img src="../../images/dat1_19.gif" width="53" height="20" align="absmiddle">，d次迭代共花费<img src="../../images/dat1_20.gif" width="66" height="31" align="absmiddle">。因此总的并行处理时间为：<br>
+          <br>
+          <center>
+            <img src="../../images/dat1_21.gif" width="257" height="31"> 
+          </center>
+          <br>
+          &nbsp;&nbsp;&nbsp;&nbsp; 由于串行处理时间为<img src="../../images/dat1_22.gif" width="66" height="20" align="absmiddle">，因此算法的加速比S与效率E分别为： 
+          <br>
+          <!--czp-wenda-daan-->
+          <center>
+            <img src="../../images/dat1_23.gif" width="253" height="55"><br>
+            <br>
+            　<img src="../../images/dat1_24.gif" width="198" height="64"> 
+          </center>
+      </td>
+  </tr>
+</table>
+  </center>
+
+</body>
+</html>

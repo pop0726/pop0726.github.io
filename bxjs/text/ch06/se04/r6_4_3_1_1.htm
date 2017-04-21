@@ -1,0 +1,61 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<STYLE TYPE="text/css">
+<!--
+BODY {background-image:   url(../../../images/htmls/Slicebg.jpg);
+background-position: right bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body  leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr> 
+    <td valign="top"> <br>
+      <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr> 
+          <td class="text" valign="top"> 
+            <p>　　<b>并行化方案一：矩阵条带状分割</b><br>
+              <br>
+              　　先考虑一个简单直接的并行化方案：矩阵条带状分割，参见图6.4.8。假设处理器数目为p，这样n×5的矩阵按照行方向条带状分割后每个处理器上有5n/p个矩阵元素和n/p个向量元素。对于处理器上的每一个向量元素，要在进行乘积运算，处理器必须获得此向量元素对应行的5个矩阵元素。按照这5个元素所在的对角线分情况讨论。主对角线上的元素与对应的同一行的向量元素已经在一个处理器上，不用做额外的工作。对于紧靠主对角线的两个对角线上的元素，与对应的行上的向量刚好错了一位，但由于每个处理器上有<img src="../../../images/img_text/ch06/95.gif" width="16" height="38" align="absmiddle">行，所以总有<img src="../../../images/img_text/ch06/95.gif" width="16" height="38" align="absmiddle">-1行是对的，所以每个处理器只需要向其相邻（左邻居或右邻居）传送一个矩阵元素。每个对角线需要的通信时间是t<sub>s</sub>+t<sub>w</sub>。<br>
+              <br>
+              　　再来考虑剩下的两条对角线上的元素，这是最复杂的一种情况。与对紧靠主对角线的两个对角线元素的分析类似，剩下两个对角线上的元素需要移动<img src="../../../images/img_text/ch06/93.gif" width="22" height="21" align="absmiddle">位。分两种情况讨论：n/p≥<img src="../../../images/img_text/ch06/93.gif" width="22" height="21" align="absmiddle">和n/p＜<img src="../../../images/img_text/ch06/93.gif" width="22" height="21" align="absmiddle">，即p≤<img src="../../../images/img_text/ch06/93.gif" width="22" height="21" align="absmiddle"> 
+              和p＞<img src="../../../images/img_text/ch06/93.gif" width="22" height="21" align="absmiddle">。当n/p≥<img src="../../../images/img_text/ch06/93.gif" width="22" height="21" align="absmiddle">时，对于每条对角线，只需要每个处理器把矩阵的<img src="../../../images/img_text/ch06/93.gif" width="22" height="21" align="absmiddle">个元素发送给相邻的处理器即可，所花费的时间是t<sub>s</sub>+t<sub>w</sub><img src="../../../images/img_text/ch06/93.gif" width="22" height="21" align="absmiddle">。当n/p＜<img src="../../../images/img_text/ch06/93.gif" width="22" height="21" align="absmiddle">时，源处理器和目标处理器不再相邻，而是距离为p/<img src="../../../images/img_text/ch06/93.gif" width="22" height="21" align="absmiddle">。当底层的网络互联结构为超立方体时，这种通信需要花费的时间是t<sub>s</sub>+t<sub>w</sub>n/p+t<sub>h</sub>logp。<br>
+              <br>
+              　　现在可以在各个处理器上并行地进行乘法和加法运算了，设单位乘法和加法运算需要花费tc的时间，则计算部分所花费的时间是5t<sub>c</sub>n/p。<br>
+              <br>
+              　　综合考虑通信和计算，整个并行处理时间T<sub>p</sub>可以分情况表达为：<br>
+              <br>
+              　　当p≤<img src="../../../images/img_text/ch06/93.gif" width="22" height="21" align="absmiddle">时，<br>
+              　　　　　　　　<img src="../../../images/img_text/ch06/96.gif" width="217" height="39" align="absmiddle"> 
+              <br>
+              　　当p＞<img src="../../../images/img_text/ch06/93.gif" width="22" height="21" align="absmiddle">时，<br>
+              　　　　　　　　<img src="../../../images/img_text/ch06/97.gif" width="268" height="39"><br>
+              <br>
+              　　简单讨论一下算法的效率和可扩展性。当p≤<img src="../../../images/img_text/ch06/93.gif" width="22" height="21" align="absmiddle">时，从上面的表达式可以看到并行算法的成本<img src="../../../images/img_text/ch06/98.gif" width="72" height="23" align="absmiddle">；而当p＞<img src="../../../images/img_text/ch06/93.gif" width="22" height="21" align="absmiddle">时：<br>
+              　　　　　　　　<img src="../../../images/img_text/ch06/99.gif" width="253" height="23"><br>
+              　　从上式可以看到，维持成本为O(n)只需要plogp≤n。可见算法的可扩展性比较好。<br>
+              <br>
+              　　当p＞<img src="../../../images/img_text/ch06/93.gif" width="22" height="21" align="absmiddle">时，算法的效率为：<br>
+              　　　　　　　　<img src="../../../images/img_text/ch06/100.gif" width="226" height="42"><br>
+              　　可以看到，效率不会超过<img src="../../../images/img_text/ch06/101.gif" width="57" height="42" align="absmiddle">，可见当通信延迟比较大时，算法的效率较低。<br>
+              <br>
+              　　　<img src="../../../images/img_text/ch06/6_4_8.gif" width="393" height="456"><br>
+              　　　　　　　图6.4.8 分块三对角矩阵条带状分割时的矩阵向量乘积<br>
+            </p>
+            </td>
+        </tr>
+      </table>
+      <br>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

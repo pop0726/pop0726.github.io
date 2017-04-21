@@ -1,0 +1,44 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<STYLE TYPE="text/css">
+<!--
+BODY {background-image:   url(../../../images/htmls/Slicebg.jpg);
+background-position: right bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body  leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr> 
+    <td valign="top"> 
+      <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr> 
+          <td class="text" valign="top"> 
+            <p>　　Cannon乘法的矩阵分块方式与简单分块矩阵法完全一样，但它没有等到所有的块A<sub>ik</sub>与B<sub>kj</sub>（<img src="../../../images/img_text/ch06/61.gif" width="71" height="18" align="absmiddle">）都存储到本机后才进行C<sub>ij</sub>的计算，而是每拿到一个A<sub>ik</sub>和B<sub>kj</sub>就进行乘法计算，小块计算完毕后就可以腾出空间给别的矩阵块使用。<br>
+              <br>
+              　　算法的分为准备阶段和循环阶段，在准备阶段，块A<sub>ij</sub>向左循环移动i步，B<sub>ij</sub>向上循环移动j步。在循环阶段的每个循环中，处理器P<sub>ij</sub>计算它上面两个当前块A<sub>ij</sub>和B<sub>ij</sub>的乘积，然后将A<sub>ij</sub>向左循环移动一步，B<sub>ij</sub>向上循环移动一步。所谓循环移动一步，就是移动一步之后取模，与算术移动相对应（可以联想到汇编语言中的循环移位）。<br>
+              <br>
+              　　图6.3.12演示了在16个处理器上完成两个4×4矩阵A和B相乘的过程。在准备阶段，矩阵A的第0行（A<sub>00</sub>到A<sub>03</sub>）不动，即向左移动0步；A<sub>10</sub>至A<sub>13</sub>向左循环移动一位；A<sub>20</sub>至A<sub>23</sub>向左循环移动2位；A<sub>30</sub>至A<sub>33</sub>向左循环移动3位。矩阵B的第0列（B<sub>00</sub>到B<sub>30</sub>）向上移动0位；B<sub>01</sub>至B<sub>31</sub>向上循环移动一位；B<sub>02</sub>至B<sub>32</sub>向上循环移动2位；B<sub>03</sub>至B<sub>33</sub>向上循环移动3位。在循环阶段，每计算一次块矩阵的乘法就把用过的块矩阵A移动给左邻居，把块矩阵B移动给上邻居。<br>
+              　　<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="450" height="300"><param name="wmode" value="transparent">
+                <param name=movie value="../../../swf/S-6-3-12.swf">
+                <param name=quality value=high>
+                <embed src="../../../swf/S-6-3-12.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="450" height="300">
+                </embed> 
+              </object><br>
+              　　Cannon算法的性能分析可以参照简单分块矩阵法给出，在此省略。</p>
+            </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

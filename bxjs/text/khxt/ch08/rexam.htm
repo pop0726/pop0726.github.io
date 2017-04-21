@@ -1,0 +1,631 @@
+<html>
+<head>
+<STYLE TYPE="text/css">
+<!--
+BODY {background-image:   url(../../../images/htmls/Slicebg.jpg);
+background-position: right bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+<title>【课后习题】</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<link rel="stylesheet" href="css/text.css" type="text/css">
+<script language="JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+</head>
+<script language="JavaScript">
+function getresultcheck(form)
+{var mykeys=new Array();
+//  mykeys[0]="B";
+//czp-select-answer
+var answer=new Array();
+for(var I=0;I<mykeys.length;I++) answer[I]="";
+
+var every=form.elements;
+
+<!--czp-select-count-->
+for(var I=0;I<every.length;I++)
+{
+	if(every[I].type=="radio")
+	{
+		
+		if(every[I].checked)
+		{	
+	
+			var item=parseInt(every[I].name.substr(0));
+		
+			answer[item-1]+=every[I].value;
+		}
+	}				
+}
+
+var newcount="<html><head>
+<STYLE TYPE="text/css">
+<!--
+BODY {background-image:   url(../../../images/htmls/Slicebg.jpg);
+background-position: right bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE><title>谢谢您!</title></head><body ><center><h2><font color=red>您的测试结果</font></h2></center>";
+var totalscore=0;
+for(var I=0;I<answer.length;I++)
+{
+	if(answer[I]==mykeys[I])
+	{
+		var rstr="<font size=2>第"+(I+1)+"题答案正确!</font><br>";
+		newcount+=rstr;
+		totalscore+=1/(answer.length)*100;//每题分数
+	}else
+	{
+		var rstr="<font size=2>第"+(I+1)+"题答案错误!正确答案为"+mykeys[I]+"</font><br>";
+		newcount+=rstr;
+	}
+
+}
+
+newcount+="<br>您的总成绩为:";
+newcount+=Math.ceil(totalscore);
+newcount+="分";
+newwin=window.open("","","height=200,width=300,scrollbars=yes,resizable=no");
+newwin.document.write(newcount);}
+
+
+
+function getresultcheck1(form)
+{var mykeys=new Array();
+//  mykeys[0]="B";
+//czp-mulselect-answer
+var answer=new Array();
+for(var I=0;I<mykeys.length;I++) answer[I]="";
+
+var every=form.elements;
+
+<!--czp-mulselect-count-->
+for(var I=0;I<every.length;I++)
+{
+	if(every[I].type=="checkbox")
+	{
+		
+		if(every[I].checked)
+		{	
+	
+			var item=parseInt(every[I].name.substr(0));
+		
+			answer[item-1]+=every[I].value;
+		}
+	}				
+}
+
+var newcount="<html><head>
+<STYLE TYPE="text/css">
+<!--
+BODY {background-image:   url(../../../images/htmls/Slicebg.jpg);
+background-position: right bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE><title>谢谢您!</title></head><body ><center><h2><font color=red>您的测试结果</font></h2></center>";
+var totalscore=0;
+for(var I=0;I<answer.length;I++)
+{
+	if(answer[I]==mykeys[I])
+	{
+		var rstr="<font size=2>第"+(I+1)+"题答案正确!</font><br>";
+		newcount+=rstr;
+		totalscore+=1/(answer.length)*100;//每题分数
+	}else
+	{
+		var rstr="<font size=2>第"+(I+1)+"题答案错误!正确答案为"+mykeys[I]+"</font><br>";
+		newcount+=rstr;
+	}
+
+}
+
+newcount+="<br>您的总成绩为:";
+newcount+=Math.ceil(totalscore);
+newcount+="分";
+newwin=window.open("","","height=200,width=300,scrollbars=yes,resizable=no");
+newwin.document.write(newcount);}
+
+
+
+
+
+
+
+
+
+
+
+
+function check(){
+var mykeys=new Array();
+//czp-tiankong-answer
+//mykeys[0]="B";
+var answer=new Array();
+for(var I=0;I<mykeys.length;I++) answer[I]="";
+
+var every=zfl.elements;
+for(var I=0;I<every.length;I++)
+{
+if(every[I].type=="text")
+{
+ if(every[I].value!==null)
+ {
+ //var item=parseInt(every[I].name.substr(1))
+//  answer[item-1]+=every[I].value;
+  answer[I]+=every[I].value;
+  }
+ }
+}
+
+
+var newcount="<html><head>
+<STYLE TYPE="text/css">
+<!--
+BODY {background-image:   url(../../../images/htmls/Slicebg.jpg);
+background-position: right bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE><title>谢谢您!</title></head><body ><center><h2><font face=\"隶书\" size=\"5\" color=\"#000099\">您的测试结果</font></h2></center>";
+var totalscore=0;
+for(var i=0;i<answer.length;i++)
+{
+	if(answer[i]==mykeys[i])
+	{
+		var rstr="<font face=\"宋体\" size=2>第"+(i+1)+"个空答案正确!</font><br>";
+		newcount+=rstr;
+		totalscore+=1/(answer.length)*100;
+	}else
+	{
+		var rstr="<font face=\"宋体\" size=2>第"+(i+1)+"个空答案错误!正确答案为"+mykeys[i]+"</font><br>";
+		newcount+=rstr;
+	}
+
+}
+
+newcount+="<br><font face=\"宋体\" size=3><b>您的总成绩为:</b></font><font face=\"宋体\" size=3 color=red>";
+newcount+=Math.ceil(totalscore);
+newcount+="分</font><br>";
+newwin=window.open("","","height=400,width=400,scrollbars=yes,resizable=no");
+newwin.document.write(newcount);
+}
+
+</script>
+<body  bgcolor="#FFFFFF" text="#000000" topmargin=0>
+
+<center>
+  <br><b>
+  【课后习题】</b><br>
+  <br>
+  <table width="95%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+      <td class=text> 
+        <form>
+         
+        </form>
+        <form>
+        </form><form>
+          
+          <p><b>一、程序填空题</b></p>
+          <p> 程序填空第1题<br>
+            1、用OpenMP Fortran API并行化下面的程序：<br>
+            <br>
+            
+          <p>! This program implements a simple molecular dynamics simulation,!<br>
+            &nbsp;&nbsp; using the velocity Verlet time integration scheme. The 
+            particles<br>
+            !&nbsp;&nbsp; interact with a central pair potential.<br>
+            !<br>
+            ! Author:&nbsp;&nbsp; Bill Magro, Kuck and Associates, Inc. (KAI), 
+            1998<br>
+            !<br>
+            ! Parallelism is implemented via OpenMP directives.<br>
+            ! THIS PROGRAM USES THE FORTRAN90 RANDOM_NUMBER FUNCTION AND ARRAY 
+            <br>
+            !&nbsp;&nbsp; SYNTAX<br>
+            !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; program md<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; implicit none<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ! simulation parameters<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; integer ndim&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            ! dimensionality of the physical space<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; integer nparts&nbsp;&nbsp;&nbsp;&nbsp; 
+            ! number of particles<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; integer nsteps&nbsp;&nbsp;&nbsp;&nbsp; 
+            ! number of time steps in the simulation<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; parameter(ndim=3,nparts=500,nsteps=1000)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; real*8 mass&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            ! mass of the particles<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; real*8 dt&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            ! time step<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; real*8 box(ndim)&nbsp;&nbsp; ! dimensions 
+            of the simulation box<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; parameter(mass=1.0,dt=1.0e-4)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ! simulation variables<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; real*8 position(ndim,nparts)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; real*8 velocity(ndim,nparts)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; real*8 force(ndim,nparts)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; real*8 accel(ndim,nparts)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; real*8 potential, kinetic, E0<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; integer i<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; box(1:ndim) = 10.<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ! set initial positions, velocities, 
+            and accelerations<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; call initialize(nparts,ndim,box,position,velocity,accel)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; print *,&quot;initialize successful&quot;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ! compute the forces and energies<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; call compute(nparts,ndim,box,position,velocity,mass,force,potential,kinetic)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; print *,&quot;compute successful&quot;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; E0 = potential + kinetic<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ! This is the main time stepping loop<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; do i=1,nsteps<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; call compute(nparts,ndim,box,position,velocity,mass,force,potential,kinetic)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; write(*,*) 
+            potential, kinetic,(potential + kinetic - E0)/E0<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; call update(nparts,ndim,position,velocity,force,accel,mass,dt)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; enddo<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; end<br>
+            !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!<br>
+            ! Compute the forces and energies, given positions, masses,<br>
+            ! and velocities<br>
+            !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; subroutine compute(np,nd,box,pos,vel,mass,f,pot,kin)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; implicit none<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; integer np<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; integer nd<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; real*8&nbsp; box(nd)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; real*8&nbsp; pos(nd,np)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; real*8&nbsp; vel(nd,np)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; real*8&nbsp; f(nd,np)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; real*8&nbsp; mass<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; real*8&nbsp; pot<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; real*8&nbsp; kin<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; real*8 dotr8<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; external dotr8<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; real*8 v, dv, x<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; integer i, j, k<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; real*8&nbsp; rij(nd)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; real*8&nbsp; d<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; real*8&nbsp; PI2<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; parameter(PI2=3.14159265d0/2.0d0)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ! statement function for the pair potential 
+            and its derivative<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ! This potential is a harmonic well 
+            which smoothly saturates to a<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ! maximum value at PI/2.<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; v(x) = sin(min(x,PI2))**2.<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; dv(x) = 2.*sin(min(x,PI2))*cos(min(x,PI2))<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pot = 0.0<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; kin = 0.0<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ! The computation of forces and energies 
+            is fully parallel.<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            <input name="text9" type=text  style="border-color: black black #000000; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 1px; border-left-width: 0px" size=20>
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            <input name="text8" type=text  style="border-color: black black #000000; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 1px; border-left-width: 0px" size=20>
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            <input name="text7" type=text  style="border-color: black black #000000; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 1px; border-left-width: 0px" size=20>
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            <input name="text6" type=text  style="border-color: black black #000000; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 1px; border-left-width: 0px" size=20>
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; do i=1,np<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ! compute potential energy 
+            and forces<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; f(1:nd,i) = 0.0<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; do j=1,np<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            if (i .ne. j) then<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            call dist(nd,box,pos(1,i),pos(1,j),rij,d)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            ! attribute half of the potential energy to particle 'j'<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            pot = pot + 0.5*v(d)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            do k=1,nd<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            f(k,i) = f(k,i) - rij(k)*dv(d)/d<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            enddo<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            endif<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; enddo<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ! compute kinetic energy<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; kin = kin + dotr8(nd,vel(1,i),vel(1,i))<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; enddo<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            <input name="text5" type=text  style="border-color: black black #000000; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 1px; border-left-width: 0px" size=20>
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; kin = kin*0.5*mass<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; end<br>
+            !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!<br>
+            ! Initialize the positions, velocities, and accelerations.<br>
+            ! The Fortran90 random_number function is used to choose positions.<br>
+            !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; subroutine initialize(np,nd,box,pos,vel,acc)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; implicit none<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; integer np<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; integer nd<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; real*8&nbsp; box(nd)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; real*8&nbsp; pos(nd,np)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; real*8&nbsp; vel(nd,np)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; real*8&nbsp; acc(nd,np)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; integer i, j<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; real*8 x<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; do i=1,np<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; do j=1,nd<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; call random_number(x)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pos(j,i) = 
+            box(j)*x<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; vel(j,i) = 
+            0.0<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; acc(j,i) = 
+            0.0<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; enddo<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; enddo<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; end<br>
+            ! Compute the displacement vector (and its norm) between two particles.<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; subroutine dist(nd,box,r1,r2,dr,d)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; implicit none<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; integer nd<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; real*8 box(nd)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; real*8 r1(nd)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; real*8 r2(nd)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; real*8 dr(nd)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; real*8 d<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; integer i<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; d = 0.0<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; do i=1,nd<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; dr(i) = r1(i) - r2(i)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; d = d + dr(i)**2.<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; enddo<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; d = sqrt(d)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; end<br>
+            ! Return the dot product between two vectors of type real*8 and length 
+            n<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; real*8 function dotr8(n,x,y)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; implicit none<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; integer n<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; real*8 x(n)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; real*8 y(n)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; integer i<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; dotr8 = 0.0<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; do i = 1,n<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; dotr8 = dotr8 + x(i)*y(i)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; enddo<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; end<br>
+            !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!<br>
+            ! Perform the time integration, using a velocity Verlet algorithm<br>
+            !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; subroutine update(np,nd,pos,vel,f,a,mass,dt)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; implicit none<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; integer np<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; integer nd<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; real*8&nbsp; pos(nd,np)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; real*8&nbsp; vel(nd,np)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; real*8&nbsp; f(nd,np)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; real*8&nbsp; a(nd,np)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; real*8&nbsp; mass<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; real*8&nbsp; dt<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; integer i, j<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; real*8&nbsp; rmass<br>
+            &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;rmass = 1.0/mass<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ! The time integration is fully parallel<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            <input name="text4" type=text  style="border-color: black black #000000; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 1px; border-left-width: 0px" size=20>
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            <input name="text3" type=text  style="border-color: black black #000000; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 1px; border-left-width: 0px" size=20>
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            <input name="text2" type=text  style="border-color: black black #000000; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 1px; border-left-width: 0px" size=20>
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; do i = 1,np<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; do j = 1,nd<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pos(j,i) = 
+            pos(j,i) + vel(j,i)*dt + 0.5*dt*dt*a(j,i)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; vel(j,i) = 
+            vel(j,i) + 0.5*dt*(f(j,i)*rmass + a(j,i))<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; a(j,i) = f(j,i)*rmass<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; enddo<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; enddo<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            <input name="text" type=text  style="border-color: black black #000000; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 1px; border-left-width: 0px" size=20>
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; end <br>
+            <br>
+            2、用OpenMP Fortran API 并行化下面的程序。 <br>
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; program 
+    main <br>************************************************************<br>* program to solve a finite difference 
+    <br>* discretization of Helmholtz equation 
+    :&nbsp; <br>* (d2/dx2)u + (d2/dy2)u - alpha u 
+    = f <br>* using Jacobi iterative method. 
+    <br>*<br>* Modified: Sanjiv Shah,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    Kuck and Associates, Inc. (KAI), 1998<br>* Author:&nbsp;&nbsp; Joseph Robicheaux, 
+    Kuck and Associates, Inc. (KAI), 1998<br>* <br>* Directives are used in this code 
+    to achieve paralleism. <br>* All do loops are parallized with 
+    default 'static' scheduling.<br>* <br>* Input :&nbsp; n - grid dimension 
+    in x direction <br>*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    m - grid dimension in y direction<br>*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    alpha - Helmholtz constant (always greater than 0.0)<br>*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    tol&nbsp;&nbsp; - error tolerance for iterative solver<br>*&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;relax 
+    - Successice over relaxation parameter<br>*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    mits&nbsp; - Maximum iterations for iterative solver<br>*<br>* On output <br>*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    : u(n,m) - Dependent variable (solutions)<br>*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    : f(n,m) - Right hand side function <br>*************************************************************<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; implicit 
+    none <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; integer 
+    n,m,mits <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; double 
+    precision tol,relax,alpha <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; common 
+    /idat/ n,m,mits<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; common 
+    /fdat/tol,alpha,relax<br>* <br>* Read info <br>* <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; write(*,*) 
+    &quot;Input n,m - grid dimension in x,y direction &quot; <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; read(5,*) 
+    n,m <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; write(*,*) 
+    &quot;Input alpha - Helmholts constant &quot; <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; read(5,*) 
+    alpha<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; write(*,*) 
+    &quot;Input relax - Successive over-relaxation parameter&quot;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; read(5,*) 
+    relax <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; write(*,*) 
+    &quot;Input tol - error tolerance for iterative solver&quot; <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; read(5,*) 
+    tol <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; write(*,*) 
+    &quot;Input mits - Maximum iterations for solver&quot; <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; read(5,*) 
+    mits<br>*<br>* Calls a driver routine <br>* <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; call 
+    driver () <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; stop<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; end 
+    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; subroutine 
+    driver ( ) <br>*************************************************************<br>* Subroutine driver () <br>* This is where the arrays are allocated 
+    and initialzed. <br>*<br>* Working varaibles/arrays <br>*&nbsp;&nbsp;&nbsp;&nbsp; dx&nbsp; 
+    - grid spacing in x direction <br>*&nbsp;&nbsp;&nbsp;&nbsp; dy&nbsp; 
+    - grid spacing in y direction <br>*************************************************************<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; implicit 
+    none <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; integer 
+    n,m,mits,mtemp <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; double 
+    precision tol,relax,alpha <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; common 
+    /idat/ n,m,mits,mtemp<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; common 
+    /fdat/tol,alpha,relax<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; double 
+    precision u(n,m),f(n,m),dx,dy<br>* Initialize data<br>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;call 
+    initialize (n,m,alpha,dx,dy,u,f)<br>* Solve Helmholtz equation<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; call 
+    jacobi (n,m,dx,dy,alpha,relax,u,f,tol,mits)<br>* Check error between exact solution<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; call&nbsp; 
+    error_check (n,m,alpha,dx,dy,u,f)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return 
+    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; end 
+    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; subroutine 
+    initialize (n,m,alpha,dx,dy,u,f) <br>******************************************************<br>* Initializes data <br>* Assumes exact solution is u(x,y) 
+    = (1-x^2)*(1-y^2)<br>*<br>******************************************************<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; implicit 
+    none <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; integer 
+    n,m<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; double 
+    precision u(n,m),f(n,m),dx,dy,alpha<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; integer 
+    i,j, xx,yy<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; double 
+    precision PI <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; parameter 
+    (PI=3.1415926)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; dx 
+    = 2.0 / (n-1)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; dy 
+    = 2.0 / (m-1)<br>* Initilize initial condition and 
+    RHS<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            <input name="text" type=text  style="border-color: black black #000000; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 1px; border-left-width: 0px" size=20><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; do 
+    j = 1,m<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    do i = 1,n<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    xx = -1.0 + dx * dble(i-1)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ! -1 
+    &lt; x &lt; 1<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    yy = -1.0 + dy * dble(j-1)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ! -1 
+    &lt; y &lt; 1<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    u(i,j) = 0.0 <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            f(i,j) = -alpha *(1.0-xx*xx)*(1.0-yy*yy) - 2.0*(1.0-xx*xx)-2.0*(1.0-yy*yy)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    enddo<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; enddo<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            <input name="text" type=text  style="border-color: black black #000000; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 1px; border-left-width: 0px" size=20><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return 
+    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; end 
+    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; subroutine 
+    jacobi (n,m,dx,dy,alpha,omega,u,f,tol,maxit)<br>******************************************************************<br>* Subroutine HelmholtzJ<br>* Solves poisson equation on rectangular 
+    grid assuming : <br>* (1) Uniform discretization in each 
+    direction, and <br>* (2) Dirichlect boundary conditions 
+    <br>* <br>* Jacobi method is used in this routine 
+    <br>*<br>* Input : n,m&nbsp;&nbsp; Number 
+    of grid points in the X/Y directions <br>*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    dx,dy Grid spacing in the X/Y directions <br>*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    alpha Helmholtz eqn. coefficient <br>*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    omega Relaxation factor <br>*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    f(n,m) Right hand side function <br>*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    u(n,m) Dependent variable/Solution<br>*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    tol&nbsp;&nbsp;&nbsp; Tolerance for iterative solver <br>*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    maxit&nbsp; Maximum number of iterations <br>*<br>* Output : u(n,m) - Solution <br>*****************************************************************<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; implicit 
+    none <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; integer 
+    n,m,maxit<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; double 
+    precision dx,dy,f(n,m),u(n,m),alpha, tol,omega<br>*<br>* Local variables <br>* <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; integer 
+    i,j,k,k_local <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; double 
+    precision error,resid,rsum,ax,ay,b<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; double 
+    precision error_local, uold(n,m)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; real 
+    ta,tb,tc,td,te,ta1,ta2,tb1,tb2,tc1,tc2,td1,td2<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; real 
+    te1,te2<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; real 
+    second<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; external 
+    second<br>*<br>* Initialize coefficients <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ax 
+    = 1.0/(dx*dx) ! X-direction coef <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ay 
+    = 1.0/(dy*dy) ! Y-direction coef<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; b&nbsp; 
+    = -2.0/(dx*dx)-2.0/(dy*dy) - alpha ! Central coeff&nbsp; <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; error 
+    = 10.0 * tol <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; k 
+    = 1<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; do 
+    while (k.le.maxit .and. error.gt. tol) <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    error = 0.0&nbsp;&nbsp;&nbsp; <br>* Copy new solution into old<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            <input name="text" type=text  style="border-color: black black #000000; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 1px; border-left-width: 0px" size=20><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            <input name="text" type=text  style="border-color: black black #000000; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 1px; border-left-width: 0px" size=20><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    do j=1,m<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    do i=1,n<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    uold(i,j) = u(i,j) <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    enddo<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    enddo<br>* Compute stencil, residual, &amp; 
+    update<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            <input name="text" type=text  style="border-color: black black #000000; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 1px; border-left-width: 0px" size=20><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    do j = 2,m-1<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    do i = 2,n-1 <br>*&nbsp;&nbsp;&nbsp;&nbsp; Evaluate 
+    residual <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            resid = (ax*(uold(i-1,j) + uold(i+1,j))&amp; +&nbsp; ay*(uold(i,j-1) 
+            + uold(i,j+1))&amp;&nbsp;+ b * uold(i,j) - f(i,j))/b<br>
+            * Update solution <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    u(i,j) = uold(i,j) - omega * resid<br>* Accumulate residual error<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    error = error + resid*resid <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    end do<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    enddo<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            <input name="text" type=text  style="border-color: black black #000000; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 1px; border-left-width: 0px" size=20><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            <input name="text" type=text  style="border-color: black black #000000; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 1px; border-left-width: 0px" size=20><br>* Error check <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    k = k + 1<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    error = sqrt(error)/dble(n*m)<br>*<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; enddo&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    ! End iteration loop <br>*<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; print 
+    *, 'Total Number of Iterations ', k <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; print 
+    *, 'Residual&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    ', error <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return 
+    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; end 
+    <br>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;subroutine 
+    error_check (n,m,alpha,dx,dy,u,f) <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; implicit 
+    none <br>************************************************************<br>* Checks error between numerical 
+    and exact solution <br>*<br>************************************************************ 
+    <br>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;integer 
+    n,m<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; double 
+    precision u(n,m),f(n,m),dx,dy,alpha <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; integer 
+    i,j<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; double 
+    precision xx,yy,temp,error <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; dx 
+    = 2.0 / (n-1)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; dy 
+    = 2.0 / (m-1)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; error 
+    = 0.0 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            <input name="text" type=text  style="border-color: black black #000000; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 1px; border-left-width: 0px" size=20><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; do 
+    j = 1,m<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    do i = 1,n<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    xx = -1.0d0 + dx * dble(i-1)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    yy = -1.0d0 + dy * dble(j-1)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    temp&nbsp; = u(i,j) - (1.0-xx*xx)*(1.0-yy*yy)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    error = error + temp*temp <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    enddo<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; enddo<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; error 
+    = sqrt(error)/dble(n*m)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; print 
+    *, 'Solution Error : ',error<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return 
+    </p>
+          <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; end <br>
+            <br>
+           
+            <!--czp-program-timu-->
+            <br>
+            <input type=button name=Button value=答案 案 onClick="MM_openBrWindow('text/examination/exam01_pop5.htm','','width=466,height=384')" class=pbox>
+            <input type='reset' name='Submit3' value='重置' class=pbox>
+          </p>
+          </form>
+      </td>
+  </tr>
+</table></center>
+
+</body>
+</html>

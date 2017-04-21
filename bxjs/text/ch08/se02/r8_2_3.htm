@@ -1,0 +1,73 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<STYLE TYPE="text/css">
+<!--
+BODY {background-image:   url(../../../images/htmls/Slicebg.jpg);
+background-position: right bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body  leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr> 
+    <td valign="top" height="20">&nbsp; </td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr> 
+          <td class="text" valign="top"> 
+            <p>　　并行块指导语句的形式如下：</p>
+            <p> 　　!$OMP parallel [clause[[,] clause]...]<br>
+              　　block<br>
+              　　!$OMP end parallel</p>
+            <p>　　其中的可能的子句如下：</p>
+            <p>　　PRIVATE(list)<br>
+              　　SHARED(list)<br>
+              　　DEFAULT(PRIVATE | SHARED | NONE)<br>
+              　　FIRSTPRIVATE(list)<br>
+              　　REDUCTION({operator|intrinsic_procedure_name}:list)<br>
+              　　IF(scalar_logical_expression)<br>
+              　　COPYIN(list)<br>
+              　　NUM_THREADS(scalar_integer_expression)</p>
+            <p>　　PARALLEL指导语句的基本语义如下：当程序执行到PARALLEL的时候，程序的主线程为程序产生一组线程（当然是否产生还依赖于其他的条件），线程组中的线程称为工作线程。所有的工作线程并行执行block的内容。当到达end 
+              parallel的时候，除了主线程外，其它工作线程都会结束运行。<br>
+              　　<br>
+              　　关于PRIVATE，SHARED，DEFAULT，FIRSTPRIVATE，REDUCTION，COPYIN是数据属性说明子句，PRIVATE用来指出某个变量是一个私有变量，需要由工作线程在自己的堆栈中分配（也就是说这个变量每个线程各有一个不相关的副本，线程间彼此不可见），而SHARED用来申明某个变量是在共享地址空间中的变量，所有线程都需要访问同一个变量），Default用来指出各变量的缺省属性。他们的详细含义我们将在后面介绍。<br>
+              <br>
+              　　IF子句称为条件并行子句，当一个PARALLEL带有条件并行子句时，仅当条件子句所带的scalar_logical_expression为.TRUE.时，这个并行块会并行执行，否则并行块被串行执行。这给OpenMP程序提供了有限的运行时并行化（程序多版本）的能力。<br>
+              <br>
+              　　NUM_THREADS子句给出了这个并行块对应的线程组中应该包含的线程数。<br>
+              <br>
+              　　需要注意的是，block必须是一个结构化的程序块（也就是说不能有其他入口），下面讨论的其它指导语句中的block也同样必须满足这个要求。</p>
+            <p>　　<font color="#000000">下面的小例子hello先打印出系统中可用的处理器数目，然后每个工作线程打印Hello和自己的线程号。</font></p>
+            <p><font color="#000000"> 　　PROGRAM hello<br>
+              　　IMPLICIT NONE<br>
+              　　INTEGER :: inode, nnode<br>
+              　　INTEGER, EXTERNAL :: omp_get_num_procs, &amp;<br>
+              　　&amp; omp_get_thread_num<br>
+              　　nnode=omp_get_num_procs()<br>
+              　　PRINT *, 'Running for',nnode,'Processors'<br>
+              　　CALL omp_set_num_threads(nnode)<br>
+              　　!$OMP parallel default(private) shared(nnode)<br>
+              　　inode=omp_get_thread_num()<br>
+              　　PRINT *, 'Hello From ', inode<br>
+              　　!$OMP end parallel<br>
+              　　END PROGRAM hello</font></p>
+            </td>
+        </tr>
+      </table>
+      <br>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

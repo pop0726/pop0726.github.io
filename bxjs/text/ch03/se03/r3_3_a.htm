@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<STYLE TYPE="text/css">
+<!--
+BODY {background-image:   url(../../../images/htmls/Slicebg.jpg);
+background-position: right bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body  leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr> 
+    <td valign="top" height="20">&nbsp; </td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr> 
+          <td class="text" valign="top"> 
+            <p>　　上一节中讨论的分解算法可以用来识别出问题中可以提供的并行性，并且把计算分解为可以并行执行的子任务。要完成对问题的计算，下一步是将这些子任务分配给可用的处理器来执行。给出一个子任务集和一个可用处理器集，有很多种可能的方法来在它们之间建立某种映射关系，为了判断哪种映射更好，我们需要使用下面的评价标准：<br>
+              <br>
+              　　☆ 分配给每个处理器的计算任务应该均衡，这样才能减少处理器因为等待其他处理器完成计算任务而造成的空闲；<br>
+              　　☆ 不同处理器之间的交互应该最少，这样处理器可以用更多的时间去完成有效的工作。<br>
+              <br>
+              　　不幸的是，这两个目标经常会相互冲突。比如，最小化处理器间交互可以用下面的方法很容易的达到：将需要交互的子任务分配到同一个处理器上。有些情况下（很少），这种方法对负载平衡影响不大，但更多的时候，它会带来系统的负载不均衡。同样的，为了均衡负载，有时候会把关系密切（需要很多的交互）的任务分配到不同的处理器。<br>
+              <br>
+              　　由于这种冲突的存在，使得任务的分配变的更像一种艺术，而不是技术。通常采用的一种策略是在任务分配中，先集中目标使负载尽量均衡，然后再对任务分配进行调整，使得交互尽量少。<br>
+              <br>
+              　　<font color="#000000">对很多的问题来说，在处理器中均匀分配计算任务并不一定能保证所有处理器都被有效的使用。对具有依赖关系的任务来说，尤其如此。比如采用递归分解的快速排序算法，递归树中每一层的计算量都是O(n)，但如果我们将每一层的任务分配给一个不同的处理器，这样看起来每个处理器具有相同的计算量，但由于下层的任务需要在上层的任务结束后完成，所以，实际上这种分配导致了全局的串行计算。因此，任务之间的依赖关系是任务分配的主要约束关系，在调度的时候必须考虑这一点。</font></p>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

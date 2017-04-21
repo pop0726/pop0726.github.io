@@ -1,0 +1,75 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<STYLE TYPE="text/css">
+<!--
+BODY {background-image:   url(../../../images/htmls/Slicebg.jpg);
+background-position: right bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body  leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr> 
+    <td valign="top" height="20">&nbsp; </td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr> 
+          
+<td class="text" valign="top"> 
+<p> 　　<b>BSP模型中的基本参数<a name="01"></a></b><br>
+　　BSP模型作为计算机语言和体系结构之间的桥梁，并以下述三个参数描述的分布存储的多计算机模型：<br>
+　　● 处理器/存储器模块，模型中用p表示处理器/存储器模块数目<br>
+　　● 处理器/存储器模块之间点对点传递消息的路由器，模型中用g表示路由器吞吐率（也称为带宽因子）；<br>
+　　● 执行时间间隔L为周期的障碍同步的障碍同步器，其中L表示全局同步之间的时间间隔；<br>
+<br>
+　　<b>BSP模型中的计算<a name="02"></a></b><br>
+　　BSP模型的可以用下面的图表示。在BSP模型中，计算由一系列用全局同步分开的周期为L的计算组成，这些计算称为超级步（SuperStep）。在各超级步中，每个处理器均执行局部计算，并通过选路器接受和发送消息；然后作一全局检查，以确定该超步是否已由所有的处理器完成；若是，则进行到下一超级步，否则下一个L周期被分配给未曾完成的超级步。<br>
+<br>
+　　<img src="../../../images/img_text/ch04/10.gif" width="473" height="407"><br>
+<br>
+　　<b>BSP模型中的成本分析<a name="03"></a></b><br>
+　　在BSP的一个超级计算步中，可以抽象出BSP的成本模型如下：<br>
+　　一个超级计算步成本=<img src="../../../images/img_text/ch04/11.gif" width="172" height="29" align="absmiddle"> 
+<br>
+<br>
+　　其中，wi是进程I的局部计算时间，hi是进程I发送或接收的最大通信包数，g是带宽的倒数（时间步/通信包），L是障碍同步时间（注意，在BSP成本模型中，并没有考虑到I/O的时间）。所以，在BSP计算中，如果用了s个超级步，则总的运行时间为：<br>
+　 　　　<img src="../../../images/img_text/ch04/12.gif" width="172" height="45"><br>
+　　这个性能公式对算法和程序分析是很简单方便的。<br>
+<br>
+　　<b>BSP模型的性质和特点<a name="04"></a></b><br>
+　　BSP模型是个分布存储的MIMD计算模型，其特点是：<br>
+　　● 它将处理器和路由器分开，强调了计算任务和通信任务的分开，而路由器仅仅完成点到点的消息传递，不提供组合、复制和广播等功能，这样做既掩盖具体的互连网络拓扑，又简化了通信协议；<br>
+　　● 采用障碍同步的方式以硬件实现的全局同步是在可控的粗粒度级，从而提供了执行紧耦合同步式并行算法的有效方式，而程序员并无过分的负担；<br>
+　　● 在分析BSP模型的性能时，假定局部操作可以在一个时间步内完成，而在每一个超级步中，一个处理器至多发送或接收h条消息（称为h-relation）。假定s是传输建立时间，所以传送h条消息的时间为gh+s，如果<img src="../../../images/img_text/ch04/13.gif" width="53" height="21" align="absmiddle"> 
+，则L至少应该大于等于gh。很清楚，硬件可以将L设置尽量小（例如使用流水线或大的通信带宽使g尽量小），而软件可以设置L的上限（因为L越大，并行粒度越大）。在实际使用中，g可以定义为每秒处理器所能完成的局部计算数目与每秒路由器所能传输的数据量之比。如果能够合适的平衡计算和通信，则BSP模型在可编程性方面具有主要的优点，而直接在BSP模型上执行算法（不是自动的编译它们），这个优点将随着g的增加而更加明显；<br>
+　　● 为PRAM模型所设计的算法，都可以采用在每个BSP处理器上模拟一些PRAM处理器的方法来实现。理论分析证明，这种模拟在常数因子范围内是最佳的，只要并行宽松度（Parallel 
+Slackness），即每个BSP处理器所能模拟的PRAM处理器的数目足够大。在并发情况下，多个处理器同时访问分布式的存储器会引起一些问题，但使用散列方法可以使程序均匀的访问分布式存储器。在PRAM-EREW情况下，如果所选用的散列函数足够有效，则L至少是对数的，于是模拟可以达到最佳，这是因为我们想在p个物理处理器的BSP模型上，模拟<img src="../../../images/img_text/ch04/14.gif" width="75" height="21" align="absmiddle">个虚拟处理器，可将<img src="../../../images/img_text/ch04/15.gif" width="81" height="21" align="absmiddle">个虚拟处理器分配个每个物理处理器。在一个超级步内，v次存取请求可以均匀分布，每个处理器大约v/p次，因此计算机执行本次超级步的最佳时间为O(v/p)，且概率是高的。同样，在v个处理器的PRAM-CRCW模型中，能够在p个处理器（如果<img src="../../../images/img_text/ch04/16.gif" width="96" height="24" align="absmiddle"> 
+），和<img src="../../../images/img_text/ch04/17.gif" width="64" height="21" align="absmiddle">的BSP模型上用O(v/p)的时间也可以达到最佳模拟。<br>
+<br>
+　　<b>对BSP模型的评价<a name="05"></a></b><br>
+　　● 在并行计算时，Valiant试图也为软件和硬件之间架起一座类似于冯o诺伊曼机的桥梁，它论证了BSP模型可以起到这样的作用，正是因为如此，BSP模型也常叫做桥模型；<br>
+　　● 一般而言，分布存储的MIMD模型的可编程性比较差，但在BSP模型中，如果计算和通信可以合适的平衡（例如g=1），则它在可编程方面呈现出主要的优点；<br>
+　　● 在BSP模型上，曾直接实现了一些重要的算法（如矩阵乘、并行前序运算、FFT和排序等），他们均避免了自动存储管理的额外开销；<br>
+　　● BSP模型可以有效的在超立方体网络和光交叉开关互连技术上实现，显示出，该模型与特定的技术实现无关，只要路由器有一定的通信吞吐率；<br>
+　　● 在BSP模型中，超级步的长度必须能够充分的适应任意的h-relation，这一点是人们最不喜欢的；<br>
+　　● 在BSP模型中，在超级步开始发送的消息，即使网络延迟时间比超级步的长度短，它也只能在下一个超级步才能使用；<br>
+　　● BSP模型中的全局障碍同步假定是用特殊的硬件支持的，这在很多并行机中可能没有相应的硬件；<br>
+　　● Valiant所提出的编程模拟环境，在算法模拟时的常数可能不是很小的，如果考虑到进程间的切换（可能不仅要设置寄存器，而且可能还有部分高速缓存），则这个常数可能很大。</p>
+            </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

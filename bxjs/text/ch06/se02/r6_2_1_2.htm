@@ -1,0 +1,58 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<STYLE TYPE="text/css">
+<!--
+BODY {background-image:   url(../../../images/htmls/Slicebg.jpg);
+background-position: right bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body  leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr> 
+    <td valign="top" height="20">&nbsp; </td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr> 
+          <td class="text" valign="top"> 
+            <p>　　<b>2. 不同处理器上的元素如何进行大小比较</b><br>
+              <br>
+              　　比较操作和位置交换操作是排序算法中的基本操作，它们在串行程序中都很容易实现，因为要比较大小或交换位置的两个元素都在存储空间中。而在并行算法中，这些操作并不是想象的那么容易，因为两个元素分别位于不同的结点上。<br>
+              <br>
+              　　考虑一种极端的情况，待排序的元素与处理器的个数一样多，这样每个处理器上存储一个待排序元素。假定在算法执行过程中，两个处理器P<sub>i</sub>和P<sub>j</sub>要比较它们的元素a<sub>i</sub>和a<sub>j</sub>，比较结束后，P<sub>i</sub>上要存储两个元素中较小的一个，而P<sub>j</sub>则存储较大的一个。如何完成比较呢？两个处理器可以分别把自己所存储的元素发送给对方，然后每个处理器收到对方的数据后开始在本地完成比较，P<sub>i</sub>留下较小的一个，而P<sub>j</sub>则留下较大的一个，见图6.2.1。可见，并行算法中每个比较+交换操作需要一个比较步骤和一个通信步骤。<br>
+              　　　　　<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="400" height="250"><param name="wmode" value="transparent">
+                <param name=movie value="../../../swf/S-6-2-1.swf">
+                <param name=quality value=high>
+                <embed src="../../../swf/S-6-2-1.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="400" height="250">
+                </embed> 
+              </object><br>
+              　　设通信启动时间为T<sub>s</sub>，传输单位数据所消耗的时间是Tw（见前面的章节）。两个相邻的处理器之间交换一个元素需要T<sub>s</sub>+T<sub>w</sub>的通信时间（设待排序数据的大小为一个字）。通信时间相比元素比较时间而言占主导地位，所以以这种方式进行并行排序效率很低。<br>
+              <br>
+              　　再来考虑处理器数目比较少的情况，这是每个处理器上存储多个待排序元素。设处理器个数为p，待排序元素数目为n，则每个处理器上平均有n/p个元素。定义每个处理器上的所有元素为一个超元素，定义超元素之间的大小关系。当一个超元素E<sub>1</sub>中的所有元素都不大于另一个超元素E<sub>2</sub>中的任何元素时，定义为E<sub>1</sub>≤E<sub>2</sub>。同理定义等于（=）、小于等于（≥）等关系。与普通元素不同的是，两个超元素之间可能不是≥、＝、≤中的任何一个。容易验证，超元素之间的≤关系满足传递性。来看两个编号相邻的处理器之间如何进行元素比较。与每个处理器上一个元素的情形类似，每个处理器把超元素发给对应的处理器，每个处理器在接受到对方的超元素后，合并两个超元素并排序（归并排序），然后P<sub>i</sub>取值较小的一半，而P<sub>j</sub>则取值较大的一半。整个过程分四步：通信-比较-合并-拆分，参见图6.2.2。<br>
+              　　　<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../../../../../../../download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="400" height="150"><param name="wmode" value="transparent">
+                <param name=movie value="../../../swf/S-6-2-2.swf">
+                <param name=quality value=high>
+                <embed src="../../../swf/S-6-2-2.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="400" height="150">
+                </embed> 
+              </object><br>
+              <br>
+              　　假设任何两个相邻编号处理器在通信网络层次上都相邻，则每次比较操作的通信开销是T<sub>s</sub>+T<sub>w</sub><sup>*</sup>n/p。当待排序的元素数目n与处理器数目p的比值足够大时，T<sub>s</sub>可以忽略不计，对两个内部已经排序的超元素进行分布式归并排序的开销是 
+              。</p>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

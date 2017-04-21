@@ -1,0 +1,141 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<STYLE TYPE="text/css">
+<!--
+BODY {background-image:   url(../../../images/htmls/Slicebg.jpg);
+background-position: right bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body  leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr> 
+    <td valign="top" height="20">&nbsp; </td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr> 
+          <td class="text" valign="top"> 
+            <p>　　<b>运行时函数接口实例</b><br>
+              <br>
+              　　通常，这些接口被包含在Fortran头文件omp_lib.h中。下面是omp_lib.h的一个实例，来自于Intel Fortran90编译器所带的头文件（经过修改）。</p>
+            <p>　　MODULE IFLOMP<br>
+              　　!<br>
+              　　!提供用于线程管理的OpenMP运行函数接口<br>
+              　　!</p>
+            <p>　　! Intel compilers have a default INTEGER kind of 4, for 4 byte 
+              INTEGERs<br>
+              　　　INTEGER,PARAMETER :: omp_lock_kind = 4<br>
+              　　　INTEGER,PARAMETER :: omp_nest_lock_kind = 4<br>
+              　　　! _OPENMP gets macro-substituted by preprocessor<br>
+              　　　INTEGER,PARAMETER :: openmp_version = 199910</p>
+            <p> 　　　INTERFACE</p>
+            <p>　　!设置线程数目（不能在Parallel内部调用）<br>
+              　　　SUBROUTINE OMP_SET_NUM_THREADS(NP)<br>
+              　　　　INTEGER NP<br>
+              　　　END SUBROUTINE</p>
+            <p>　　!返回当前线程组所执行的Parallel块的工作线程数<br>
+              　　　INTEGER FUNCTION OMP_GET_NUM_THREADS()<br>
+              　　　END FUNCTION</p>
+            <p>　　! 得到可以允许创建的最大线程数,上面的这组调用允许程序员对<br>
+              　　! 线程数目进行运行时控制<br>
+              　　　　INTEGER FUNCTION OMP_GET_MAX_THREADS()<br>
+              　　　　END FUNCTION</p>
+            <p>　　! 返回当前线程的线程号，主线程号为0，取值范围为[0，nthread-1]<br>
+              　　　　INTEGER FUNCTION OMP_GET_THREAD_NUM()<br>
+              　　　　END FUNCTION</p>
+            <p>　　! 返回当前Parallel块可用的处理器数目<br>
+              　　　　INTEGER FUNCTION OMP_GET_NUM_PROCS()<br>
+              　　　　END FUNCTION</p>
+            <p>　　! 判断当前线程是否正在执行Parallel任务（是返回.TRUE.）<br>
+              　　　　LOGICAL FUNCTION OMP_IN_PARALLEL()<br>
+              　　　　END FUNCTION</p>
+            <p>　　! 设置动态线程数目调整开关，如果FLAG = .TRUE.，允许运行时库<br>
+              　　! 对Parallel块产生的工作线程数目进行动态调整，否则禁止<br>
+              　　　　SUBROUTINE OMP_SET_DYNAMIC(FLAG)<br>
+              　　　　LOGICAL FLAG<br>
+              　　　　END SUBROUTINE</p>
+            <p>　　! 得到动态线程数目调整开关的当前设置<br>
+              　　　　LOGICAL FUNCTION OMP_GET_DYNAMIC()<br>
+              　　　　END FUNCTION</p>
+            <p>　　! 嵌套并行开关设置。.TRUE.时允许嵌套并行，否则以串行模式执行嵌套并行块<br>
+              　　　　SUBROUTINE OMP_SET_NESTED(FLAG)<br>
+              　　　　　LOGICAL FLAG<br>
+              　　　　END SUBROUTINE</p>
+            <p>　　! 初始化简单锁<br>
+              　　　　SUBROUTINE OMP_INIT_LOCK(LOCK)<br>
+              　　　　　POINTER(LOCK,IL)<br>
+              　　　　　INTEGER IL<br>
+              　　　　END SUBROUTINE</p>
+            <p>　　! 初始化嵌套锁<br>
+              　　　　SUBROUTINE OMP_INIT_NEST_LOCK(NLOCK)<br>
+              　　　　　POINTER(NLOCK,NIL)<br>
+              　　　　　INTEGER NIL<br>
+              　　　　END SUBROUTINE</p>
+            <p>　　! 删除简单锁<br>
+              　　　　SUBROUTINE OMP_DESTROY_LOCK(LOCK)<br>
+              　　　　　POINTER(LOCK,IL)<br>
+              　　　　　INTEGER IL<br>
+              　　　　END SUBROUTINE</p>
+            <p>　　! 删除嵌套锁<br>
+              　　　　SUBROUTINE OMP_DESTROY_NEST_LOCK(NLOCK)<br>
+              　　　　　POINTER(NLOCK,NIL)<br>
+              　　　　　INTEGER NIL<br>
+              　　　　END SUBROUTINE</p>
+            <p>　　! 简单锁加锁（需要经过初始化），阻塞等待加锁完成<br>
+              　　　　SUBROUTINE OMP_SET_LOCK(LOCK)<br>
+              　　　　　POINTER(LOCK,IL)<br>
+              　　　　　INTEGER IL<br>
+              　　　　END SUBROUTINE</p>
+            <p>　　! 嵌套锁加锁（需要经过初始化），锁计数器加1<br>
+              　　　　SUBROUTINE OMP_SET_NEST_LOCK(NLOCK)<br>
+              　　　　　POINTER (NLOCK, NIL)<br>
+              　　　　　INTEGER NIL<br>
+              　　　　END SUBROUTINE</p>
+            <p>　　! 简单锁解锁<br>
+              　　　　SUBROUTINE OMP_UNSET_LOCK(LOCK)<br>
+              　　　　　POINTER(LOCK,IL)<br>
+              　　　　　INTEGER IL<br>
+              　　　　END SUBROUTINE</p>
+            <p>　　! 嵌套锁解锁（锁计数器减1）<br>
+              　　　　SUBROUTINE OMP_UNSET_NEST_LOCK(NLOCK)<br>
+              　　　　　POINTER(NLOCK,NIL)<br>
+              　　　　　INTEGER NIL<br>
+              　　　　END SUBROUTINE</p>
+            <p>　　! 非阻塞加锁<br>
+              　　　　LOGICAL FUNCTION OMP_TEST_LOCK(LOCK)<br>
+              　　　　　POINTER (LOCK,IL)<br>
+              　　　　　INTEGER IL<br>
+              　　　　END FUNCTION <br>
+              　<br>
+              　　! 非阻塞加锁，如果对嵌套锁没有拥有权，返回0<br>
+              　　　　INTEGER FUNCTION OMP_TEST_NEST_LOCK(NLOCK)<br>
+              　　　　　POINTER(NLOCK,NIL)<br>
+              　　　　　INTEGER NIL<br>
+              　　　　END FUNCTION</p>
+            <p>　　! 返回墙钟时间（线程时间，各线程不要求一致）<br>
+              　　　　DOUBLE PRECISION FUNCTION OMP_WTIME()<br>
+              　　　　END FUNCTION</p>
+            <p>　　! 返回两个Tick之间所经过的时间长度（秒）<br>
+              　　　　DOUBLE PRECISION FUNCTION OMP_WTICK()<br>
+              　　　　END FUNCTION</p>
+            <p> 　　　　END INTERFACE<br>
+              　　　　END MODULE IFLOMP </p>
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+</body>
+</html>

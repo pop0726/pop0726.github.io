@@ -1,0 +1,46 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<STYLE TYPE="text/css">
+<!--
+BODY {background-image:   url(../../../images/htmls/Slicebg.jpg);
+background-position: right bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body  leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr> 
+    <td valign="top" height="20">&nbsp; </td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr> 
+          <td class="text" valign="top"> 
+            <p>　　给定一个存储受限问题，假定在单节点上使用了全部存储容量M并在相应于W的计算时间内求解，此时工作负载W=fW+(1-f)W。在p个节点的并行系统上，能够求解较大规模的问题是因为存储容量可以增加到pM。用因子G(p)来反映存储容量增加p倍时工作负载的增加量，所以增加后的工作负载W=fW+(1-f)G(p)W。那么，存储受限的加速比公式为：<br>
+              <img src="../../../images/img_text/ch05/22.gif" width="456" height="71"> 
+              <br>
+              　　Sun和Ni定律的几何意义可以清楚的用下面的图来表示：<br>
+              <img src="../../../images/img_text/ch05/23.gif" width="486" height="267"> 
+              <br>
+              　　如果考虑到并行程序运行时的额外开销W<sub>o</sub>，则上面的公式应该作相应的修改：<br>
+              　　<img src="../../../images/img_text/ch05/24.gif" width="367" height="120"><br>
+              <br>
+              　　当G(p)=1时，它变为<img src="../../../images/img_text/ch05/25.gif" width="96" height="44" align="absmiddle"> 
+              ，这就是Amdahl定律，当G(p)=p时，它变为f+p(1-f)，这就是Gustafson定律，当G(p)&gt;p时，它相应于计算负载比存储要求增加得快，此时Sun和Ni定律指出的加速比比Amdahl和Gustafson定律指出的都要高。</p>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

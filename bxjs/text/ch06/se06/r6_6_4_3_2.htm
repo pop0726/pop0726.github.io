@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<STYLE TYPE="text/css">
+<!--
+BODY {background-image:   url(../../../images/htmls/Slicebg.jpg);
+background-position: right bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body  leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr> 
+    <td valign="top"> <br>
+      <table width="94%" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr> 
+          <td class="text" valign="top"> 
+            <p>　　<b>并行Floyd算法</b><br>
+              <br>
+              　　设处理器个数为p，可以把D<sup>(k)</sup>划分到p个处理器上，通过并行计算其各个元素的值来完成并行化。作为一个矩阵，D<sup>(k)</sup>有多种划分方式，这里只讨论分块棋盘划分。<br>
+              <br>
+              　　利用分块棋盘划分，D(k)划分为p个<img src="../../../images/img_text/ch06/225.gif" width="59" height="41" align="absmiddle">的矩阵块并分别分配给p个处理器。在第k次迭代中，每个处理器Pij都需要矩阵第k行和第k列的元素来完成计算，因此保存有第k行和第k列元素的处理器需要分别在列方向和行方向进行1到多的广播，把数据传送给同列（或同行）的其它<img src="../../../images/img_text/ch06/226.gif" width="24" height="23" align="absmiddle">个处理器。当处理器采用超立方体互联结构并采用切通路由（Cut-Through 
+              Routing）方式进行通信时，把<img src="../../../images/img_text/ch06/227.gif" width="39" height="23" align="absmiddle">个元素广播给<img src="../../../images/img_text/ch06/226.gif" width="24" height="23" align="absmiddle">个处理器处理器需要花费<img src="../../../images/img_text/ch06/228.gif" width="89" height="23" align="absmiddle">的时间。每次迭代时各个处理器需要一个同步操作，这需要花费时间<img src="../../../images/img_text/ch06/229.gif" width="52" height="18" align="absmiddle">。每次迭代每个处理器上计算n<sup>2</sup>/p个元素的值所花费的时间是<img src="../../../images/img_text/ch06/230.gif" width="55" height="21" align="absmiddle">。因此整个并行处理时间（即n次迭代所花费的总时间）为：<br>
+              　　　　　　　　　　　　　　<img src="../../../images/img_text/ch06/231.gif" width="153" height="43" align="absmiddle"><br>
+              　　其中第一项是计算时间，第二项是通信时间。由于串行处理时间为<img src="../../../images/img_text/ch06/166.gif" width="38" height="21" align="absmiddle">，因此并行算法的加速比和效率分别为：<br>
+              　　　　　　　　　　　　　　<img src="../../../images/img_text/ch06/232.gif" width="158" height="63"><br>
+              　　　　　　　　　　　　　　<img src="../../../images/img_text/ch06/233.gif" width="120" height="57"></p>
+            </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+</body>
+</html>

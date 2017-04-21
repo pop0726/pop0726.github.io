@@ -1,0 +1,63 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<STYLE TYPE="text/css">
+<!--
+BODY {background-image:   url(../../../images/htmls/Slicebg.jpg);
+background-position: right bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body  leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr> 
+    <td valign="top" height="20">&nbsp; </td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr> 
+          <td class="text" valign="top"> 
+            <p> 　　C<sup>3</sup>模型假定处理机不能同时发送和接收消息，它对超步的性能分析分为两部分：计算单元CU，依赖于本地计算量；通信单元COU，依赖与处理机发送和接收数据的多少、消息的延迟及通信引起的拥挤量。该模型考虑了两种路由（存储转发路由和虫蚀寻径路由）和两种发送/接收原语（阻塞和无阻塞）对COU的影响。 
+              <br>
+              <br>
+              　<b>　C<sup>3</sup>模型的5个参数<a name="01"></a></b><br>
+              　　(1) p 处理器个数<br>
+              　　(2) h 网络延迟<br>
+              　　(3) b 网络的对分宽度<br>
+              　　(4) S 启动时间，及建立一个消息时的开销<br>
+              　　(5) L 消息包的长度，即消息包所含字节数</p>
+            <p>　　<b>C<sup>3</sup> 模型的开销</b><a name="02"></a><br>
+              　　C<sup>3</sup>模型用2个量C和La来描述网络的拥挤，其中，C表示参与通信的处理机对的数目， La表示处理机间路由消息包的平均数目，则有<br>
+              　　(1) 连接上的拥挤量Cl=La*C/b<br>
+              　　(2) 处理机上的拥挤量Cp=La*C/b*h<br>
+              　　在一个超步中，若Si与Ri分别表示第i 个处理机总的发送和接收时间，则有<br>
+              　　　　　COU=max(Si+Ri)+Cl+Cp, 0&lt;i&lt;p-1<br>
+              <br>
+              　　<b>C<sup>3</sup> 模型的特点</b><a name="03"></a><br>
+              　　(1)用Cl和Cp来度量网络的拥挤对算法性能的影响；<br>
+              　　(2)考虑了不同路由和不同发送或接收原语对通信的影响；<br>
+              　　(3)不需要用户指定调度细节，就可以评估超步的时间复杂性；<br>
+              　　(4)类似于H-PRAM模型的层次结构，C3模型给编程者提供了K级路由算法的思路，即系统被分为K级子系统，各级子系统的操作相互独立，用超步代替了H-PRAM中的Sub 
+              PRAM进行分割。<br>
+              <br>
+              　　<b>C<sup>3</sup> 模型的不足之处</b><a name="04"></a><br>
+              　　(1)Cl度量的前题假设为同一通信对中的2个处理机要分别位于网络对分后的不同子网络内；<br>
+              　　(2)模型假设了网络带宽等于处理机带宽，这影响了正确描述可扩展系统；<br>
+              　　(3)在K级算法中，处理机间顺序可以由多种排列，但C<sup>3</sup>模型不能区分不同排列的难易程度。<br>
+            </p>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

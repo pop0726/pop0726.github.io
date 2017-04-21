@@ -1,0 +1,55 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<STYLE TYPE="text/css">
+<!--
+BODY {background-image:   url(../../../images/htmls/Slicebg.jpg);
+background-position: right bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body  leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr> 
+    <td valign="top" height="20">&nbsp; </td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr> 
+          <td class="text" valign="top"> 
+            <p>　<b>　向量数据类型的生成<br>
+              <br>
+              </b>　　它的形式如下：</p>
+            <p>　　MPI_TYPE_VECTOR( count, blocklength, stride, oldtype, newtype 
+              )<br>
+              　　IN count 块的数目<br>
+              　　IN blocklength 块中（基类型）元素个数<br>
+              　　IN stride 相邻两块起始位置之间距离（以可容纳的（基类型）元素个数衡量<br>
+              　　IN oldtype 基类型<br>
+              　　OUT newtype 新的数据类型</p>
+            <p>　　int MPI_Type_vector( int count, int blocklength, int stride,<br>
+              　　MPI_Datatype oldtype, MPI_Datatype *newtype)；<br>
+              　<br>
+              　　在构造新类型时，构造器首先构造块，块是由blocklength个基类型（oldtype）数据构成的CONTIGUOUS类型。然后用count个块构成newtype类型。相邻的块之间的间距由stride给出，这个数据表示相邻的两块的起始位置之间能够容纳的oldtype类型的元素的个数（注意，需要包含因为地址对齐的要求所加入的填塞数据）。<br>
+              <br>
+              　　例子：基类型{（double, 0）,(char, 8)}, <br>
+              　　MPI_TYPE_VECTOR(2，2，3，...)的结果为<br>
+              　　{（double,0）,(char,8),(double,16),(char,24),(double,48),(char,56),(double 
+              ,64),(char,72)}。注意（double,32）,(char,40)没有包含在里面。<br>
+              　　（思考，如何将MPI_TYPE_CONTIGUOUS用MPI_TYPE_VECTOR调用表示）</p>
+            </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

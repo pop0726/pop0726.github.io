@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<STYLE TYPE="text/css">
+<!--
+BODY {background-image:   url(../../../images/htmls/Slicebg.jpg);
+background-position: right bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body  leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr> 
+    <td valign="top" height="20">&nbsp; </td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr> 
+          <td class="text" valign="top"> 
+            <p>　<b>　发送消息</b></p>
+            <p> 　　MPI_SEND( buf, count, datatype, dest, tag, comm )<br>
+              　　IN buf<br>
+              　　IN count<br>
+              　　IN datatype<br>
+              　　IN dest<br>
+              　　IN tag<br>
+              　　IN comm</p>
+            <p>　　int MPI_Send( void* buf, int count, MPI_Datatype datatype, <br>
+              　　int dest, int tag, MPI_Comm comm )</p>
+            <p>　　这是MPI的基本发送函数。MPI_SEND函数将发送缓冲区buf中的count个datatype数据类型的数据发送到目的进程dest（目的进程在通信域comm中的进程号），tag为消息标签，通过使用它，可以把本次发送的消息与这两个进程间其他的消息区分开。<br>
+              <br>
+              　　MPI_SEND操作中指定的发送缓冲区buf是一个count个类型为datatype的数据组成的连续的数据块，buf是这个数据块的首地址。需要注意的是count不是字节数。<br>
+              <br>
+              　　其中的data_type数据类型可以是MPI的预定义类型，也可以是用户在MPI预定义类型基础上构造出来的自定义类型。<br>
+            </p>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

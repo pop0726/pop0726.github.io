@@ -1,0 +1,71 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<STYLE TYPE="text/css">
+<!--
+BODY {background-image:   url(../../../images/htmls/Slicebg.jpg);
+background-position: right bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body  leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr> 
+    <td valign="top" height="20">&nbsp; </td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr> 
+          <td class="text" valign="top"> 
+            <p>　　<b>管理运行环境：<a name="01"></a></b><br>
+              　　· omp_set_num_threads(nthread); <br>
+              　　· INTEGER omp_get_num_threads()；<br>
+              　　· INTEGER omp_get_max_threads(); <br>
+              　　· INTEGER omp_get_thread_num(); <br>
+              　　· INTEGER omp_get_num_procs(); <br>
+              　　· LOGICAL omp_in_parallel(); <br>
+              　　· omp_set_dynamic(logical_expression); <br>
+              　　· LOGICAL omp_get_dynamic(); <br>
+              　　· omp_set_nested(logical_expression); <br>
+              　　· LOGICAL omp_get_nested(). <br>
+              <br>
+              　　<b>锁的管理：<a name="02"></a></b><br>
+              　　锁的类型可能说明如下：<br>
+              　　· INTEGER (KIND=OMP_LOCK_KIND) :: lck<br>
+              　　· INTEGER (KIND=OMP_NEST_LOCK_KIND) :: nlck<br>
+              　<br>
+              　　简单锁：<br>
+              　　· omp_init_lock(lck); <br>
+              　　· omp_destroy_lock(lck); <br>
+              　　· omp_set_lock(lck); <br>
+              　　· omp_unset_lock(lck); <br>
+              　　· omp_test_lock(lck). <br>
+              　<br>
+              　　嵌套锁：<br>
+              　　· omp_init_nest_lock(nlck); <br>
+              　　· omp_destroy_nest_lock(nlck); <br>
+              　　· omp_set_nest_lock(nlck); <br>
+              　　· omp_unset_nest_lock(nlck); <br>
+              　　· omp_test_nest_lock(nlck). <br>
+              <br>
+              　　<b>时间函数：<a name="03"></a></b><br>
+              　　· DOUBLE PRECISION omp_get_wtime(); <br>
+              　　· DOUBLE PRECISION omp_get_wtick(). <br>
+              　　</p>
+            </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+</body>
+</html>

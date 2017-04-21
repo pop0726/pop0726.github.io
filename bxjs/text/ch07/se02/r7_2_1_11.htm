@@ -1,0 +1,67 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<STYLE TYPE="text/css">
+<!--
+BODY {background-image:   url(../../../images/htmls/Slicebg.jpg);
+background-position: right bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body  leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr> 
+    <td valign="top" height="20">&nbsp; </td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr> 
+          <td class="text" valign="top"> 
+            <p>　<b>　消息接收</b></p>
+            <p>　　MPI_RECV( buf, count, datatype, source, tag, comm, status )<br>
+              　　OUT buf<br>
+              　　IN count<br>
+              　　IN datatype<br>
+              　　IN source<br>
+              　　IN tag<br>
+              　　IN comm<br>
+              　　OUT status</p>
+            <p>　　int MPI_Recv( void *buf, int count, MPI_Datatype datatype, int 
+              source<br>
+              　　int tag, MPI_Comm comm, MPI_Status *status )</p>
+            <p>　　这是MPI的基本接收函数。MPI_RECV从指定的通信域comm中进程号为source的进程接收count个数据类型为datatype的数据，接收的数据被存放在接收缓冲区buf中，所接收的消息的消息标志必须为tag。 
+              status 用来向调用者返回本次接收操作的状态。<br>
+              <br>
+              　　<font color="#000000">需要注意的是，调用者在调用这个函数以前，需要事先为接收缓冲区分配空间，buf是这个缓冲区的首地址。需要注意的是，接收缓冲区的大小必须足以容纳接收到的消息，否则MPI会发生缓冲区溢出，从而出错。在MPI函数向缓冲区中写入消息时，只有对应于所接收消息的缓冲区会被修改，其余部分不会改变。</font><br>
+              <br>
+              　　数据类型datatype和count的含义和上面的MPI_SEND相同。</p>
+            <p>　　看下面的简单例子。<br>
+              　　<img src="../../../images/img_text/ch07/1.gif" width="490" height="183"><br>
+              <br>
+              　　上面的例子中进程号为奇数的处理器发送数组a的内容给下一个处理器（进程号比自己大1的处理器，对进程号为npes-1的处理器，对应为处理器0），然后从上一个处理器（进程好比自己小1的处理器，对处理器0，对应为处理器npes-1）接收数据到数组b；对于进程号为偶数的处理器则正好相反，先接收b再发送a。如下图所示（为了方便，假设npes 
+              = 4）。<br>
+              　　<img src="../../../images/img_text/ch07/7_2_3.gif" width="441" height="204"><br>
+            </p>
+            <p> 　　<font color="#000000">上面的例子中进程号为奇数的处理器发送数组a的内容给下一个处理器（进程号比自己大1的处理器，对进程号为npes-1的处理器，对应为处理器0），然后从上一个处理器（进程好比自己小1的处理器，对处理器0，对应为处理器npes-1）接收数据到数组b；对于进程号为偶数的处理器则正好相反，先接收b再发送a。如下图所示（为了方便，假设npes 
+              = 4）。</font></p>
+            <p>最后的效果是每个处理器的b的内容都是上一个处理器的a的内容。</p>
+            <p>（<font color="#CC6633">思考，上面的程序为什么不写成下面的简单形式？注意上面得通信操作是阻塞的。</font>）<br>
+              <img src="../../../images/img_text/ch07/2.gif" width="490" height="99"><br>
+              （<font color="#CC6633">答案：死锁</font>）<br>
+            </p>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

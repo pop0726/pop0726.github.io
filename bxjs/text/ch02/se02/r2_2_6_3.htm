@@ -1,0 +1,57 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<STYLE TYPE="text/css">
+<!--
+BODY {background-image:   url(../../../images/htmls/Slicebg.jpg);
+background-position: right bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body  leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr> 
+    <td valign="top" height="20">&nbsp; </td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr> 
+          <td class="text" valign="top"> 
+            <p>　　（3）<b>多级互连网络</b> 为了构造大型网络，可以把交叉开关级联起来，构成多级互连网络（Multistage Interconnection 
+              Network, MIN）。下图是一种一般的多级互连网络的构造方式。每一级都用了多个a×b开关，相邻的各级开关之间是固定的级间连接（ISC）。通过设置交叉开关的状态就可以建立所需要的输入和输出之间的连接。<br>
+              　　<img src="../../../images/img_text/ch02/p2_2_31.gif" width="415" height="229"><br>
+              <br>
+              　　各种多级网络的区别就在于所用的交叉开关、控制方式和级间连接模式不同。<b>控制方式</b>是指对各个交叉开关进行控制的方式，它有3种：级控制，单元控制和部分级控制。<b>级控制</b>是指每一级的所有开关用一个控制信号控制，从而同一级的所有开关只能处于同一种状态；<b>单元控制</b>是指每一个开关都有独立的控制信号来控制，从而所有的开关可以处于不同的状态；<b>部分级控制</b>介于前两种控制方式之间，它是指几个开关合用一个控制信号。常用的级间连接模式有均匀洗牌、蝶式、多路洗牌（比如四路洗牌就是把输入端平均分为4份，然后对这4份分别进行均匀洗牌）、纵横交叉、立方体连接等。<br>
+              <br>
+              　　<b><img src="../../../images/img_text/ch02/89.gif" width="15" height="15" align="absmiddle">网络</b>（即Omega网络）是一种著名的多级互连网络。伊利诺依大学的Cedar多处理机、IBM的RP3和纽约大学的Ultracomputer都使用了<b><img src="../../../images/img_text/ch02/89.gif" width="15" height="15" align="absmiddle"></b>网络。<b><img src="../../../images/img_text/ch02/89.gif" width="15" height="15" align="absmiddle"></b>网络级间连接采用均匀洗牌。下图是使用2×2交叉开关和均匀洗牌构成的8×8<b><img src="../../../images/img_text/ch02/89.gif" width="15" height="15" align="absmiddle"></b>网络。<br>
+              　　<img src="../../../images/img_text/ch02/p2_2_32.gif" width="446" height="269"><br>
+              　　每个交叉开关有直送、交叉、上播、下播四种连接方式，如下图所示。<br>
+              　　<img src="../../../images/img_text/ch02/p2_2_33.gif" width="431" height="284"><br>
+              <br>
+              　　通过切换各个交叉开关的状态就可以改变<img src="../../../images/img_text/ch02/89.gif" width="15" height="15" align="absmiddle">的连接状态，实现一对一的连接和广播等多种功能。<br>
+              <br>
+              　　一般地，用2×2交叉开关构造的n个输入端的<img src="../../../images/img_text/ch02/89.gif" width="15" height="15" align="absmiddle">网络有<img src="../../../images/img_text/ch02/90.gif" width="36" height="19" align="absmiddle">级，每一级有n/2个交叉开关,采用单元控制。如果将输入端和输出端从上到下依次用二进制编号（最上的输入端和输出端编号为0），将各级从输入级到输出级依次编号为0到<img src="../../../images/img_text/ch02/90.gif" width="36" height="19" align="absmiddle">-1，则可以通过检查地址编号来寻径：当目的地址编号从高位开始的第i位为0时，第i级的2×2开关的输入端与上输入端连接，否则与下输出端连接。<br>
+              <br>
+              　　也可以使用其它规格的交叉开关构造<img src="../../../images/img_text/ch02/89.gif" width="15" height="15" align="absmiddle">网络，此时级间连接方式也要相应地改变。下图是使用4×4交叉开关构造的<img src="../../../images/img_text/ch02/89.gif" width="15" height="15" align="absmiddle">网络，级间连接方式为4路洗牌。4路洗牌相当于把16个输入端均匀分成4个子组，然后对这4个子组均匀洗牌。<br>
+              　　<img src="../../../images/img_text/ch02/p2_2_34.gif" width="391" height="274"><br>
+              　　另一种著名的多级互连网络是蝶式网络（Butterfly switch network）。下图是一种64个输入端的蝶式网络。它包含2级，每级有8个8×8交叉开关。两级之间用8路洗牌连接。<br>
+              　　 　　　　<img src="../../../images/img_text/ch02/p2_2_35.gif" width="311" height="244"><br>
+              　　蝶式网络不允许广播连接，它是一种特殊的<img src="../../../images/img_text/ch02/89.gif" width="15" height="15" align="absmiddle">网络。<br>
+              <br>
+            </p>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

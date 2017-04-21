@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<STYLE TYPE="text/css">
+<!--
+BODY {background-image:   url(../../../images/htmls/Slicebg.jpg);
+background-position: right bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body  leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr> 
+    <td valign="top" height="20">&nbsp; </td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr> 
+          <td class="text" valign="top"> 
+            <p>　　对阻塞操作来说，每次处理器进行SEND和RECEIVE调用时它需要等待的时间不仅包括传输数据所需的时间，还包括对应的处理器对匹配的操作进行调用的时间。因此在消息传递过程中，除非SEND和RECEIVE操作同时调用，总有一些处理器处在等待状态，这增加了程序执行的额外开销。参见下面的图：<br>
+              　　　<img src="../../../images/img_text/ch07/7_1_2.gif" width="412" height="226"><br>
+              <br>
+              　　<font color="#000000">上面的图中，由于RECEIVE操作比SEND操作要晚，所以调用SEND操作的处理器需要等待一段时间。事实上，这段等待时间不是必要的，因为它的后续计算并不依赖于SEND的结束（当然有例外情况）。</font>因此，SEND和RECEIVE操作通常有另外一种形式，称为非阻塞式通信。一个非阻塞SEND和RECEIVE操作并不等待实际的消息传送完全结束（只要底层系统保证会完成剩下的工作就行），它们就开始执行下面的操作（当然这些操作不能和SEND/RECEIVE的结果有依赖关系）。在适当的时候，处理器可以检查刚才的非阻塞SEND/RECEIVE调用是否完成了，以决定下一步的操作（当然，这部分代码是程序员的任务）。非阻塞通信的提供为计算与通信的重叠提供了可能，对某些类型的程序，这的确能够极大的减少通信的开销。比如下面的图（图例如上图），用非阻塞通信来逐步替换上面例子中的阻塞通信调用（Send/Receive为阻塞调用，而Isend/Ireceive为非阻塞调用），可以清楚的看到如何用非阻塞通信来减少等待的额外开销。<br>
+              <img src="../../../images/img_text/ch07/7_1_3.gif" width="481" height="216"><br>
+              <br>
+              　　在上面的例子中，我们假设消息的传递不能与计算并发的进行（对同一个处理器），但事实上，只要提供适当的硬件支持，<b>计算和通信的重叠</b>（真正的重叠）是完全可能的（有很多实际的系统都这样）。因此，这种情况下，通过使用非阻塞调用可以达到下面的效果（图例如前）。<br>
+              <img src="../../../images/img_text/ch07/7_1_4.gif" width="477" height="217">　　　<br>
+              <br>
+              　　非阻塞的通信操作并不总会增加程序的复杂性，有些情况下甚至可以用非阻塞RECEIVE来简化并行程序的设计。<font color="#000000">考虑下面的情形：一个处理器需要从几个其他的处理器接收数据，而这些数据到达的顺序是无法事先无法确定的。采用非阻塞RECEIVE操作使得可以采用轮询（polling）的方式来接收第一个到达的消息（而不用事先知道它是从哪个处理器发送过来的）。</font></p>
+            </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

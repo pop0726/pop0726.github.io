@@ -1,0 +1,327 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<STYLE TYPE="text/css">
+<!--
+BODY {background-image:   url(../../../images/htmls/Slicebg.jpg);
+background-position: right bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body  leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr> 
+    <td valign="top" height="20">&nbsp; </td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr> 
+          <td class="text" valign="top"> 
+            <p>　　<b>静态互连网络小结</b> 下表列出了各种静态互连网络的特性。大多数网络的结点度都小于4，这是比较理想的。全连接网络和星形网络的结点度比较高。超立方体的结点度随着<img src="../../../images/img_text/ch02/81.gif" width="41" height="19" align="absmiddle">值增大而增大，当N值很大时，其结点度也很高。<br>
+              <br>
+              　　网络直径的变化范围很大。但是，随着硬件寻径技术的发展（例如虫蚀寻径技术的出现），源结点和目的结点之间的距离已经不是影响通信延迟的主要因素。在使用了类似于流水线操作的技术后（例如虫蚀寻径），任意两结点间的通信延迟几乎是相同的。链路数决定了实际使用的物理线路的数量，从而会影响网络的价格。网络的价格随结点度和链路数的增大而上升。等分宽度会影响网络的带宽。对称性会影响可扩展性和寻径效率。直径可以体现出两结点之间距离的上限，但是结点之间的平均距离可能能够更好地反映任意两结点之间的距离。 
+              <br>
+            </p>
+            <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#000000">
+              <tr bgcolor="#CCCCCC"> 
+                <td class="text"> 
+                  <div align="center"><b>网络名称</b></div>
+                </td>
+                <td class="text"> 
+                  <div align="center"><b>网络规模</b></div>
+                </td>
+                <td class="text"> 
+                  <div align="center"><b>结点度</b></div>
+                </td>
+                <td class="text"> 
+                  <div align="center"><b>网络直径</b></div>
+                </td>
+                <td class="text"> 
+                  <div align="center"><b>对分宽度</b></div>
+                </td>
+                <td class="text"> 
+                  <div align="center"><b>是否对称</b></div>
+                </td>
+                <td class="text"> 
+                  <div align="center"><b>链路数</b></div>
+                </td>
+              </tr>
+              <tr bgcolor="#FFFFFF"> 
+                <td class="text"> 
+                  <div align="center">线性阵列</div>
+                </td>
+                <td class="text"> 
+                  <div align="center">N个结点</div>
+                </td>
+                <td class="text"> 
+                  <div align="center">2</div>
+                </td>
+                <td class="text"> 
+                  <div align="center">N-1</div>
+                </td>
+                <td class="text"> 
+                  <div align="center">1</div>
+                </td>
+                <td class="text"> 
+                  <div align="center">否</div>
+                </td>
+                <td class="text"> 
+                  <div align="center">N-1</div>
+                </td>
+              </tr>
+              <tr bgcolor="#FFFFFF"> 
+                <td class="text"> 
+                  <div align="center">环</div>
+                </td>
+                <td class="text"> 
+                  <div align="center">N个结点</div>
+                </td>
+                <td class="text"> 
+                  <div align="center">2</div>
+                </td>
+                <td class="text"> 
+                  <div align="center"><img src="../../../images/img_text/ch02/68.gif" width="40" height="21" align="absmiddle">(双向环） 
+                    <br>
+                    N-1（单向环）</div>
+                </td>
+                <td class="text"> 
+                  <div align="center">2</div>
+                </td>
+                <td class="text"> 
+                  <div align="center">是</div>
+                </td>
+                <td class="text"> 
+                  <div align="center">N</div>
+                </td>
+              </tr>
+              <tr bgcolor="#FFFFFF"> 
+                <td class="text"> 
+                  <div align="center">全连接</div>
+                </td>
+                <td class="text"> 
+                  <div align="center">N个结点</div>
+                </td>
+                <td class="text"> 
+                  <div align="center">N-1</div>
+                </td>
+                <td class="text"> 
+                  <div align="center">1</div>
+                </td>
+                <td class="text"> 
+                  <div align="center"><img src="../../../images/img_text/ch02/84.gif" width="44" height="21"></div>
+                </td>
+                <td class="text"> 
+                  <div align="center">是</div>
+                </td>
+                <td class="text"> 
+                  <div align="center">N(N-1)/2</div>
+                </td>
+              </tr>
+              <tr bgcolor="#FFFFFF"> 
+                <td class="text"> 
+                  <div align="center">二叉树</div>
+                </td>
+                <td class="text"> 
+                  <div align="center">N个结点,<br>
+                    树高<br>
+                    <img src="../../../images/img_text/ch02/82.gif" width="62" height="19" align="absmiddle"> 
+                  </div>
+                </td>
+                <td class="text"> 
+                  <div align="center">3</div>
+                </td>
+                <td class="text"> 
+                  <div align="center">2(h-1)</div>
+                </td>
+                <td class="text"> 
+                  <div align="center">1</div>
+                </td>
+                <td class="text"> 
+                  <div align="center">否</div>
+                </td>
+                <td class="text"> 
+                  <div align="center">N-1</div>
+                </td>
+              </tr>
+              <tr bgcolor="#FFFFFF"> 
+                <td class="text"> 
+                  <div align="center">星形</div>
+                </td>
+                <td class="text"> 
+                  <div align="center">N个结点</div>
+                </td>
+                <td class="text"> 
+                  <div align="center">N-1</div>
+                </td>
+                <td class="text"> 
+                  <div align="center">2</div>
+                </td>
+                <td class="text"> 
+                  <div align="center"><img src="../../../images/img_text/ch02/68.gif" width="40" height="21" align="absmiddle"></div>
+                </td>
+                <td class="text"> 
+                  <div align="center">否</div>
+                </td>
+                <td class="text"> 
+                  <div align="center">N-1</div>
+                </td>
+              </tr>
+              <tr bgcolor="#FFFFFF"> 
+                <td class="text"> 
+                  <div align="center">二维网格</div>
+                </td>
+                <td class="text"> 
+                  <div align="center"><img src="../../../images/img_text/ch02/72.gif" width="59" height="21" align="absmiddle"><br>
+                    个结点</div>
+                </td>
+                <td class="text"> 
+                  <div align="center">4</div>
+                </td>
+                <td class="text"> 
+                  <div align="center"><img src="../../../images/img_text/ch02/74.gif" width="59" height="22" align="absmiddle"></div>
+                </td>
+                <td class="text"> 
+                  <div align="center"><img src="../../../images/img_text/ch02/75.gif" width="26" height="21"></div>
+                </td>
+                <td class="text"> 
+                  <div align="center">否</div>
+                </td>
+                <td class="text"> 
+                  <div align="center"><img src="../../../images/img_text/ch02/74.gif" width="59" height="22"></div>
+                </td>
+              </tr>
+              <tr bgcolor="#FFFFFF"> 
+                <td class="text"> 
+                  <div align="center">Illiac网</div>
+                </td>
+                <td class="text"> 
+                  <div align="center"><img src="../../../images/img_text/ch02/72.gif" width="59" height="21" align="absmiddle"><br>
+                    个结点</div>
+                </td>
+                <td class="text"> 
+                  <div align="center">4</div>
+                </td>
+                <td class="text"> 
+                  <div align="center"><img src="../../../images/img_text/ch02/77.gif" width="43" height="21"></div>
+                </td>
+                <td class="text"> 
+                  <div align="center"><img src="../../../images/img_text/ch02/85.gif" width="33" height="21"></div>
+                </td>
+                <td class="text"> 
+                  <div align="center">否</div>
+                </td>
+                <td class="text"> 
+                  <div align="center">2N</div>
+                </td>
+              </tr>
+              <tr bgcolor="#FFFFFF"> 
+                <td class="text"> 
+                  <div align="center">二维环绕网格</div>
+                </td>
+                <td class="text"> 
+                  <div align="center"><img src="../../../images/img_text/ch02/72.gif" width="59" height="21" align="absmiddle"><br>
+                    个结点</div>
+                </td>
+                <td class="text"> 
+                  <div align="center">4</div>
+                </td>
+                <td class="text"> 
+                  <div align="center"><img src="../../../images/img_text/ch02/76.gif" width="56" height="23"></div>
+                </td>
+                <td class="text"> 
+                  <div align="center"><img src="../../../images/img_text/ch02/85.gif" width="33" height="21"></div>
+                </td>
+                <td class="text"> 
+                  <div align="center">是</div>
+                </td>
+                <td class="text"> 
+                  <div align="center">2N</div>
+                </td>
+              </tr>
+              <tr bgcolor="#FFFFFF"> 
+                <td class="text"> 
+                  <div align="center">超立方体</div>
+                </td>
+                <td class="text"> 
+                  <div align="center">N=2<sup>n</sup>个结点</div>
+                </td>
+                <td class="text"> 
+                  <div align="center">n</div>
+                </td>
+                <td class="text"> 
+                  <div align="center">n</div>
+                </td>
+                <td class="text"> 
+                  <div align="center">N/2</div>
+                </td>
+                <td class="text"> 
+                  <div align="center">是</div>
+                </td>
+                <td class="text"> 
+                  <div align="center">nN/2</div>
+                </td>
+              </tr>
+              <tr bgcolor="#FFFFFF"> 
+                <td class="text"> 
+                  <div align="center">带环立方体</div>
+                </td>
+                <td class="text"> 
+                  <div align="center">N=n2<sup>n</sup>个结点</div>
+                </td>
+                <td class="text"> 
+                  <div align="center">3</div>
+                </td>
+                <td class="text"> 
+                  <div align="center"><img src="../../../images/img_text/ch02/78.gif" width="81" height="21"></div>
+                </td>
+                <td class="text"> 
+                  <div align="center">N/2n</div>
+                </td>
+                <td class="text"> 
+                  <div align="center">是</div>
+                </td>
+                <td class="text"> 
+                  <div align="center">3N/2</div>
+                </td>
+              </tr>
+              <tr bgcolor="#FFFFFF"> 
+                <td class="text"> 
+                  <div align="center">K元n-立方体</div>
+                </td>
+                <td class="text"> 
+                  <div align="center">N=k<sup>n</sup>个结点</div>
+                </td>
+                <td class="text"> 
+                  <div align="center">2n</div>
+                </td>
+                <td class="text"> 
+                  <div align="center"><img src="../../../images/img_text/ch02/83.gif" width="43" height="21" align="absmiddle"></div>
+                </td>
+                <td class="text"> 
+                  <div align="center">2k<sup>n-1</sup></div>
+                </td>
+                <td class="text"> 
+                  <div align="center">是</div>
+                </td>
+                <td class="text"> 
+                  <div align="center">nN</div>
+                </td>
+              </tr>
+            </table>
+            
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

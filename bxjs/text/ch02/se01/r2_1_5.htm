@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<STYLE TYPE="text/css">
+<!--
+BODY {background-image:   url(../../../images/htmls/Slicebg.jpg);
+background-position: right bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body  leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr> 
+    <td valign="top" height="20">&nbsp; </td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr> 
+          
+<td class="text" valign="top"> 
+<p>　　<b>UMA<a name="01"></a></b> UMA是Uniform 
+Memory Access（均匀存储访问）模型的缩写。在这种并行机中所有的处理器均匀共享物理存储器。所有处理器访问任何存储字需要相同的时间（此即为均匀存储访问名称的来源）。每台处理器可以有私有高速缓存。UMA的结构如下图所示。其中P表示处理器，SM表示共享存储器。<br>
+</p>
+<center>
+<img src="../../../images/img_text/ch02/p2_1_7.gif" width="487" height="271"> 
+</center>
+<p> <br>
+<br>
+　　<b>NUMA<a name="02"></a></b> NUMA是Non-Uniform 
+Memory Access（非均匀存储访问）模型的缩写。在NUMA中，共享存储器在物理上是分布的，所有的本地存储器构成了全局地址空间。NUMA与UMA的区别在于处理器访问本地存储器和群内共享存储器比访问远程存储器或全局共享存储器快（此即非均匀存储访问名称的由来）。下图中（a）表示共享本地存储器的NUMA结构，（b）为层次式机群NUMA结构。LM表示本地存储器，GSM表示全局共享存储器，P表示处理器，CSM表示群内共享存储器，CIN表示机群互连网络。<br>
+</p>
+<center>
+<img src="../../../images/img_text/ch02/p2_1_8.gif" width="490" height="389"> 
+</center>
+<p> <br>
+</p>
+<center>
+<img src="../../../images/img_text/ch02/p2_1_8_b.gif" width="485" height="458"> 
+</center>
+<p> <br>
+<br>
+　　<b>COMA<a name="03"></a></b> COMA是Cache-Only 
+Memory Architecture（全高速缓存存储结构）模型的缩写。COMA实际是NUMA的一种特例，将NUMA中的分布存储器换成高速缓存就得到了COMA。在COMA中，每个结点上没有存储层次结构，所有的高速缓存构成了全局地址空间。访问远程高速缓存要借助分布的高速缓存目录。COMA结构如下图所示。D表示高速缓存目录，C表示高速缓存，P表示处理器。<br>
+　　</p>
+<center>
+<img src="../../../images/img_text/ch02/p2_1_9.gif" width="489" height="280"> 
+</center>
+<p><br>
+<br>
+　　<b>CC-NUMA<a name="04"></a></b> CC-NUMA是Cache-Coherent 
+Non-Uniform Memory Access（高速缓存一致性非均匀存储访问）模型的缩写。CC-NUMA结构的并行机实际上是将一些SMP机作为结点互连起来而构成的并行机。这样可以改善SMP机的可扩展性。绝大多数商用CC-NUMA多处理机系统使用基于目录的高速缓存一致性协议；它的存储器在物理上是分布的，所有的局部存储器构成了共享的全局地址空间（所以它实际上是一个DSM系统），因此它保留了SMP易于编程的优点。它最显著的优点是程序员无需明确地在结点上分配数据，系统的硬件和软件开始时自动在各结点分配数据。在程序运行过程中，高速缓存一致性硬件会自动地将数据移至需要它的地方。CC-NUMA注重开拓数据的局部性和增强系统的可扩展性。在实际应用中，大多数的数据访问都可在本结点内完成，网络上传输的主要是高速缓存无效性信息而不是数据。<font color="#000000">CC-NUMA和COMA的共同特点是它们都对高速缓存一致性提供硬件支持，而在另一种访存模型NCC-NUMA（Non-Cache 
+Coherent Non-Uniform Memory Access）中，则没有对高速缓存的一致性提供硬件支持。<br>
+</font><br>
+　　<b>NORMA<a name="05"></a></b> NORMA是No-Remote 
+Memory Access（非远程存储访问）模型的缩写。在NORMA中，所有的存储器都是处理器私有的，仅能由其处理器访问。各处理器之间通过消息传递方式通信。MPP多采用这种结构。<br>
+</p>
+            </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

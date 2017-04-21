@@ -1,0 +1,42 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<STYLE TYPE="text/css">
+<!--
+BODY {background-image:   url(../../../images/htmls/Slicebg.jpg);
+background-position: right bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body  leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr> 
+    <td valign="top" height="20">&nbsp; </td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr> 
+          <td class="text" valign="top"> 
+            <p>　　一种可能的方法是，交互提前开始，这样，它可以在与交互有关的计算（需要交互的数据）开始前就结束，而不至于让计算等待。为了在程序中完成这一点，我们必须得到计算和交互的依赖关系，这样，通过仔细的安排操作的次序，就有可能使交互在实际的计算前进行。<br>
+              <br>
+              　　为了达到交互与计算重叠的目的，底层的系统（硬件系统和并行程序运行环境）必须能提供一种机制使得计算和交互能够同时进行。对消息传递的系统，一种这样的机制是非阻塞消息传递原语的使用（在第7章中将会介绍）。在共享存储的计算机系统中，计算和通信的重叠可以通过预取机制来完成，只是这种机制同样需要硬件的支持。 
+              <br>
+              <br>
+              　　实际上，计算和通信重叠的方法中，关键的一点是，在因为交互而出现的等待时间里，能够让对应的处理器执行其它有用的计算，所以另外一种方法是为每个处理器提供多个计算流，这样，当一个计算流由于交互的原因等待的时候，处理器可以处理其它的计算流，而不是消极的等待交互的结束。通常通过多线程的方式来提供这种多计算流。这种方法的优点是通信和计算的重叠完全由调度完成，不需要我们在程序中作显式地说明。但由于需要把计算分解为多个线程，这不总是可以办到的，而且，多个线程在同一个处理器上并发的运行，也很容易对Cache的内容造成污染（指令Cache和数据Cache都是如此），可能会大大降低Cache的命中率，从而导致总体的性能下降。为了支持这种方案，系统需要能够同时运行多个程序，或者处理器本身能够支持多线程。<br>
+            </p>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<STYLE TYPE="text/css">
+<!--
+BODY {background-image:   url(../../../images/htmls/Slicebg.jpg);
+background-position: right bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body  leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr> 
+    <td valign="top" height="20">&nbsp; </td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr> 
+          <td class="text" valign="top"> 
+            <p>　<font color="#000000">　</font>等效率标准是在保持效率不变的前提下，研究问题规模W如何随处理器个数p而变化；等速度度量标准是在保持平均速度不变的前提下，研究处理器p增多是应该相应地增加多少工作量W；平均延迟度量标准则是在效率E不变的前提下，用平均延迟的比值来标志随着处理器数p的增加需要增加的工作量W。三种评价可扩展性的标准的基本出发点都是抓住了影响算法可扩展性的基本参数T<sub>o</sub>，只是等效率指标是采用解析计算的方法得到T<sub>o</sub>；等速度指标是将T<sub>o</sub>隐含在所测量的执行时间中；而平均延迟指标则是保持效率为恒值时，通过调节W与p来测量并行和串行执行时间，最终通过平均延迟反映出T<sub>o</sub>，所以等速度与平均延迟指标都是以测试手段得到有关的性能参数（如速度与时间等）来评价可扩展性；而等效率标准是通过解析计算额外开销函数T<sub>o</sub>的方法来评价可扩展性。平均速度 
+              两个物理量的引入，目的几乎一样：<br>
+              <br>
+              　　<img src="../../../images/img_text/ch05/113.gif" width="93" height="45" align="middle"> 
+              保持不变，表示T<sub>o</sub>随p变化很小；<br>
+              　　<img src="../../../images/img_text/ch05/114.gif" width="108" height="45" align="middle">保持不变，也表示T<sub>o</sub>随p变化很小；<br>
+              　　事实上，<b>三种度量可扩展性的指标彼此时等价的</b>，这可以用下面简单的推导如下：<br>
+              　　由于运行在p个处理器上的问题规模为W的程序串行执行时间为W<sub>tc</sub>（其中tc为常数），效率为<br>
+              　　　　　　　　　　　　　　<img src="../../../images/img_text/ch05/115.gif" width="63" height="48" align="absmiddle">，<br>
+              　　而程序的平均速度为<br>
+              　　　　　　　　　　　　　　<img src="../../../images/img_text/ch05/116.gif" width="63" height="47" align="absmiddle">，<br>
+              　　所以有<br>
+              　　　　　　　　　　　　　　<img src="../../../images/img_text/ch05/117.gif" width="136" height="27" align="absmiddle"><br>
+              　　这表明等效率与等速度两种可扩展性度量指标在物理意义上一致的。<br>
+              　　由于平均速度<img src="../../../images/img_text/ch05/118.gif" width="63" height="47" align="absmiddle">，而<img src="../../../images/img_text/ch05/119.gif" width="91" height="25" align="absmiddle">，且<img src="../../../images/img_text/ch05/120.gif" width="99" height="27" align="absmiddle">，<img src="../../../images/img_text/ch05/121.gif" width="57" height="24" align="absmiddle">，所以有<br>
+              　　　　　　　<img src="../../../images/img_text/ch05/122.gif" width="371" height="47" align="absmiddle"><br>
+              　　由此可以推导出<br>
+              　　　　　　　　　　　　　<img src="../../../images/img_text/ch05/123.gif" width="143" height="44" align="absmiddle"><br>
+              　　当<img src="../../../images/img_text/ch05/124.gif" width="16" height="23" align="absmiddle">保持不变时，<img src="../../../images/img_text/ch05/125.gif" width="43" height="43" align="absmiddle">为常数，所以<br>
+              　　　　　　　<img src="../../../images/img_text/ch05/126.gif" width="256" height="48" align="absmiddle"><br>
+              　　这个公式表明从等速度度量指标可以导出平均延迟度量指标，两者是完全一致的。<br>
+            </p>
+            </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

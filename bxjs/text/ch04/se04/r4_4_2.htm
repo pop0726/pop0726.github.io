@@ -1,0 +1,42 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<STYLE TYPE="text/css">
+<!--
+BODY {background-image:   url(../../../images/htmls/Slicebg.jpg);
+background-position: right bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body  leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr> 
+    <td valign="top" height="20">&nbsp; </td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr> 
+          <td class="text" valign="top"> 
+            <p> 　　BSP把所有的计算和通信视为一个整体行为而不是一个单独的进程和通信的个体行为，它采用各进程延迟通信的办法，将单独的消息组合成一个尽可能大的通信实体，然后进行路由和传输，这就是所谓的整体大同步。它简化了算法（程序）的设计和分析，但在同时也牺牲了运行时间，因为延迟通信意味着所有的进程都必须等待着它们中最慢的进程。一种改进的方法是采用子集同步，即将所有的进程按快慢程度分成若干个子集，于是整体的大同步就演变成子集内的同步。如果子集小到每个集合只包含消息的发送/接收者，则它就变成了异步的个体同步，这也就是LogP模型所描述的情形。也就是说，如果BSP中考虑到个体通信所造成的开销（Overhead）而去掉障碍同步就变成了LopP，这可以用下面的公式来说明：<br>
+              　　　　　　　　　　　　　<b>BSP+Overhead-Barrier=LogP</b><br>
+              <br>
+              　　BSP模型的创始人L.G.Valiant曾从理论上论证并行计算不必优化在单一通信级（Single-Message Level），他认为整体大同步能够大大的简化并行计算（算法和程序设计）的设计、分析、验证、性能预测和具体实现，而基于成对消息传递的个体异步并行计算（例如LogP模型），在时间上的收益比起计算性能上难以分析和预测的缺点来说，并不合算。目前，对BSP模型的质疑主要集中在两点，即延迟通信到某一个特点的通信点以及频繁的障碍同步，会不会成为性能下降的主要原因，从而使成本过高。BSP模型的支持者们对这两个问题进行了研究，他们认为，延迟通信能提供更多的优化通信的机会，采用通信聚集和全局通信调度能减少拥挤和竞争；而障碍同步对采用共享存储结构的系统是并不太费时的，而对分布存储结构的系统，造成障碍同步比较昂贵的主要原因是，目前底层软件绝大多数都不支持对相应的硬件的访问，但不论怎样，障碍同步的成本可以折合到全局通信中，从而可以部分的抵消。<br>
+              <br>
+              　　BSP模型和LogP模型在本质上是等效的，它们可以相互模拟：用BSP去模拟LogP所进行的计算时，通常会慢常数倍，而用LogP去模拟BSP所进行的计算时，通常会慢对数倍。直观上讲，BSP为算法（和程序）设计和分析提供了很多的方便，而LogP模型却提供了更强大的机器资源的控制能力。BSP在精确度方面带来的损失比起它所能提供的更结构化的编程风格的优点来说，是可以接受的。总之，BSP模型由于它的简明性、性能的可预测性、可移植性和编程的结构性，赢得了更多的青睐。<br>
+            </p>
+            </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

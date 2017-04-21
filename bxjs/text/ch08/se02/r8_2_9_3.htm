@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<STYLE TYPE="text/css">
+<!--
+BODY {background-image:   url(../../../images/htmls/Slicebg.jpg);
+background-position: right bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body  leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr> 
+    <td valign="top" height="20">&nbsp; </td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr> 
+          <td class="text" valign="top"> 
+            <p>　　<b>利用运行时函数的例子</b><br>
+              <br>
+              　　<font color="#000000">下面的例子采用运行时调用来完成π的计算</font></p>
+            <p><font color="#000000"> 　　PROGRAM pie<br>
+              　　IMPLICIT NONE<br>
+              　　INTEGER :: n,i,nnode,nthread,inode,counter<br>
+              　　INTEGER :: lck<br>
+              　　INTEGER, EXTERNAL :: omp_get_num_procs,omp_get_thread_num<br>
+              　　INTEGER, EXTERNAL :: omp_get_num_threads<br>
+              　　LOGICAL, EXTERNAL :: omp_test_lock<br>
+              　　REAL(8) :: w,x,sum,pi<br>
+              　　WRITE(6,'('' program pi running on columbus'')')<br>
+              　　nnode=omp_get_num_procs()<br>
+              　　WRITE(6,'('' number of processors = '',i2)')nnode<br>
+              　! read in number of strips<br>
+              　　WRITE(6,'('' enter number of strips to use for integration '')')<br>
+              　　READ(5,*)n<br>
+              　　w=1.0d0/REAL(n)<br>
+              　　sum=0.0d0<br>
+              　　WRITE(6,'('' enter number of threads to use '')')<br>
+              　　READ(5,*)nthread<br>
+              　　CALL omp_set_num_threads(nthread)<br>
+              　! create a pointer to a lock using variable lck<br>
+              　　CALL omp_init_lock(lck)<br>
+              　　counter=0<br>
+              　! $OMP parallel default(shared) private(i,x,inode) reduction(+:sum)<br>
+              　　nthread=omp_get_num_threads()<br>
+              　　WRITE(6,'('' num threads = '',i4)')nthread<br>
+              　　inode=omp_get_thread_num()<br>
+              　　WRITE(6,'('' hello world from '',i2)')inode<br>
+              　　DO WHILE(counter&lt;n)<br>
+              　! spin loop waiting for lock<br>
+              　　DO WHILE(.NOT.omp_test_lock(lck))<br>
+              　　END DO<br>
+              　! got it <br>
+              　　counter=counter+1<br>
+              　　i=counter<br>
+              　! release lock<br>
+              　　CALL omp_unset_lock(lck)<br>
+              　! $OMP barrier<br>
+              　　WRITE(6,'('' thread '',i2,'' doing i= '',i4)')inode,i<br>
+              　　x=w*(REAL(i)-0.5d0)<br>
+              　　sum=sum+4.0d0/(1.0d0+x*x)<br>
+              　　END DO<br>
+              　! $OMP end parallel<br>
+              　　CALL omp_destroy_lock(lck)<br>
+              　　pi=w*sum<br>
+              　　WRITE(6,'('' pi = '',g17.10)')pi<br>
+              　　END PROGRAM pie</font></p>
+            <p>　　需要注意的是，并不是所有的OpenMP编译器（运行时库）都提供这些接口，在这种情况下，用户可以直接调用Pthread的函数来完成相关的任务。</p>
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<STYLE TYPE="text/css">
+<!--
+BODY {background-image:   url(../../../images/htmls/Slicebg.jpg);
+background-position: right bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body  leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr> 
+    <td valign="top" height="20">&nbsp; </td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr> 
+          <td class="text" valign="top"> 
+            <p>　　欲使用借用法时，要注意观察问题的特征和算法的结构、形式，联想与本问题相似的已有算法。可以注意寻找要解决的问题与某些著名问题之间的相似性或本问题的算法与某些著名算法之间的相似性。同时，借来的方法使用起来效率要高。成功地&quot;借用&quot;不是件容易的事。<br>
+              <br>
+              　　下面介绍求解图中任意两结点间最短路的并行算法。它是通过借用矩阵乘法算法设计的。<br>
+              <br>
+              　　设在一有向图中，各弧都赋予了非负整数权。图中一条路径的<b>长度</b>定义为该路径上所有的弧的权的和。图中两结点之间的<b>最短路径</b>是指它们之间长度最短的路径。<br>
+              <br>
+              　<font color="#000000">　设G为一个含有n个结点的有向图。矩阵W=(w<sub>ij</sub>)是G中各弧上的权构成的矩阵，即W的元素w<sub>ij</sub>是G中结点v<sub>i</sub>到结点v<sub>j</sub>的弧上的权（如果v<sub>i</sub>到v<sub>j</sub>无弧，则令w<sub>ij</sub>=∞）。我们的目的是计算G中所有结点对之间的最短路。为此，记d<sub>ij</sub>为结点v<sub>i</sub>到结点v<sub>j</sub>的最短路长，并记D=(d<sub>ij</sub>)。用d<sub>ij</sub><sup>k</sup>表示从v<sub>i</sub>到v<sub>j</sub>至多经过k-1个中间结点的所有路径的长度的最小值，记D<sup>k</sup>=(d<sub>ij</sub><sup>k</sup>) 
+              。因此d<sub>ij</sub><sup>1</sup>=w<sub>ij</sub>（i≠j），d<sub>ij</sub><sup>1=</sup>0。如果假设G中不包含权为负的有向圈，则d<sub>ij</sub>=d<sub>ij</sub><sup>n-1</sup>，D=D<sup>n-1</sup>。<br>
+              <br>
+              　　根据组合最优原理（Combinatorial Optimization Principle）有<br>
+              　　　　　　　<img src="../../../images/img_text/ch03/17.gif" width="152" height="31" align="absmiddle">。<br>
+              <br>
+              　　从而可以从D<sup>1</sup>开始，逐次计算出D<sup>2</sup>，D<sup>4</sup>，D<sup>8</sup>，…，D<sup>n-1=D</sup>。为了从D<sup>k/2</sup>计算D<sup>k</sup>，可以借用标准的矩阵乘法。矩阵乘法执行的计算是<br>
+              。<br>
+              　　　　　　　<img src="../../../images/img_text/ch03/18.gif" width="88" height="45" align="absmiddle"><br>
+              　　只需将矩阵乘法中的乘法操作换成加法操作，把矩阵乘法中的求和换&quot;求最小值&quot;操作即可。</font></p>
+            <p> 　　<b>小结</b> 以上介绍的三种并行程序设计方法显然不能涵盖并行程序设计的全部。算法设计是很灵活而无定规可循的。以上介绍的三种方法只是为并行算法设计提供了三条可以尝试的思路。</p>
+            </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

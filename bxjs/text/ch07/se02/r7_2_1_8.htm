@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<STYLE TYPE="text/css">
+<!--
+BODY {background-image:   url(../../../images/htmls/Slicebg.jpg);
+background-position: right bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body  leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr> 
+    <td valign="top" height="20">&nbsp; </td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr> 
+          <td class="text" valign="top"> 
+            <p>　　<b>得到当前进程号</b></p>
+            <p> 　　MPI_COMM_RANK( comm, rank )<br>
+              　　IN comm <br>
+              　　OUT rank</p>
+            <p>　　int MPI_Comm_rank( MPI_Comm comm, int *rank )</p>
+            <p>　　其中comm为通信域描述符，rank返回调用进程在这个通信域中的进程号。对MPI的C语言绑定来说，进程号从0开始。同一MPI程序中的所有进程被系统赋予不同的进程号，这个进程号使得进程可以进行自我定位，将自己和其他的进程区别开，从而同一程序中的各进程可以相互协作共同完成计算任务。在SPMD中，它通常和MPI_COMM_SIZE调用结合起来来确定每个工作进程的任务分配。<br>
+              <br>
+              　　由于在MPI中，对一个MPI应用程序，通常在一个处理器上只运行一个这个程序的进程，所以在本文后面并不严格区分MPI进程和该进程所在的处理器，因此提到进程和处理器，进程号和处理器号，编号为x的进程与编号为x的处理器时，他们的含义相同。</p>
+            </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

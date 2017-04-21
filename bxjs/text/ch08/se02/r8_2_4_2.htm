@@ -1,0 +1,63 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<STYLE TYPE="text/css">
+<!--
+BODY {background-image:   url(../../../images/htmls/Slicebg.jpg);
+background-position: right bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body  leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr> 
+    <td valign="top" height="20">&nbsp; </td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr> 
+          <td class="text" valign="top"> 
+            <p>　　<b>SECTIONS指导语句</b><br>
+              <br>
+              　　它的形式如下：</p>
+            <p>　　!$OMP SECTIONS [clause[[,] clause]...]<br>
+              　　[!$OMP SECTION]<br>
+              　　block<br>
+              　　[!$OMP SECTION<br>
+              　　block]<br>
+              　　. . .<br>
+              　　!$OMP END SECTIONS [NOWAIT]</p>
+            <p>　　它可附加的子句包括：</p>
+            <p>　　PRIVATE(list)<br>
+              　　FIRSTPRIVATE(list)<br>
+              　　LASTPRIVATE(list)<br>
+              　　REDUCTION({ operator|intrinsic_procedure_name}:list)</p>
+            <p>　　SECTIONS指导语句更像一种并行任务说明。每个SECTION子句给出的block由一个线程来完成，也就是说，各SECTION说明的block中的任务是可以并行执行的。一个简单的例子如下：</p>
+            <p>　　!$OMP PARALLEL<br>
+              　　!$OMP SECTIONS<br>
+              　　!$OMP SECTION<br>
+              　　　　CALL XAXIS( )<br>
+              　　!$OMP SECTION<br>
+              　　　　CALL YAXIS( )<br>
+              　　!$OMP SECTION<br>
+              　　　　CALL ZAXIS( )<br>
+              　　!$OMP END SECTIONS<br>
+              　　!$OMP END PARALLEL<br>
+            </p>
+          </td>
+        </tr>
+      </table>
+      <br>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

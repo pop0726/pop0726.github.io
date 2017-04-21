@@ -1,0 +1,228 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>并行计算</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+<link rel="stylesheet" href="../../css/style.css" type="text/css">
+<style type="text/css">
+<!--
+.rightbg {
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-position: right bottom;
+}
+-->
+</style>
+</head>
+
+<body leftmargin="0" topmargin="0" rightmargin="0" bottommargin="0" marginwidth="0" marginheight="0" onLoad="MM_preloadImages('../../images/htmls/Slice12-.gif','../../images/htmls/Slice14-.gif','../../images/htmls/Slice16-.gif','../../images/htmls/Slice18-.gif','../../images/htmls/Slice20-.gif','../../images/htmls/Slice34-.gif','../../images/htmls/Slice35-.gif','../../images/htmls/Slice36-.gif','../../images/htmls/mulu/mulu2_23.gif','../../images/htmls/mulu/mulu2_26.gif','../../images/htmls/mulu/mulu2_27.gif','../../images/htmls/mulu/mulu2_28.gif','../../images/htmls/mulu/mulu2_29.gif','../../images/htmls/mulu/mulu2_30.gif')">
+<table width="100%" height="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+<td align="left" valign="top">
+<table width="100%" height="44" border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td width="30%">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td><img src="../../images/htmls/Slice01.gif" width="218" height="44"></td>
+<td width="100%" background="../../images/htmls/Slice02.gif"><img src="../../images/htmls/spacer.gif"></td>
+</tr>
+</table>
+</td>
+<td width="70%"> 
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="49"><img src="../../images/htmls/Slice03.gif" width="49" height="44"></td>
+<td width="365"><img src="../../images/htmls/Slice04.gif" width="365" height="44"></td>
+<td width="100%" background="../../images/htmls/Slice05.gif"><img src="../../images/htmls/spacer.gif"></td>
+<td width="133"><img src="../../images/htmls/Slice06.gif" width="133" height="44"></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+    <td height="100%" background="../../images/htmls/mulu/right_bg.jpg"> 
+      <table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td width="30%">
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td height="28" background="../../images/htmls/mulu/mulu_03.gif"><img src="../../images/htmls/mulu/mulu_03.gif" width="12" height="28"></td>
+</tr>
+<tr>
+<td height="100%">
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td width="100%"><img src="../../images/htmls/mulu/spacer.gif"></td>
+<td>
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+                          <tr>
+<td height="12"><img src="../../images/htmls/mulu/mulu_12.gif" width="12" height="38"></td>
+<td><img src="../../images/htmls/mulu/mulu_13.gif" width="89" height="38"></td>
+</tr>
+<tr>
+<td height="100%" background="../../images/htmls/mulu/mulu_19.gif"><img src="../../images/htmls/mulu/mulu_19.gif" width="12" height="3"></td>
+                            <td height="100%" background="../../images/htmls/mulu/mulu_20.gif"> 
+                              <table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+<tr>
+                                  <td><a href="#"><img src="../../images/htmls/mulu/mulu_23.gif" name="Image1" width="89" height="37" border="0" id="Image1" onClick="MM_openBrWindow('../openwin/ckzl.html','','width=466,height=385')" onMouseOver="MM_swapImage('Image1','','../../images/htmls/mulu/mulu2_23.gif',1)" onMouseOut="MM_swapImgRestore()"></a></td>
+</tr>
+<tr>
+                                  <td><a href="#"><img src="../../images/htmls/mulu/mulu_26.gif" name="Image2" width="89" height="40" border="0" id="Image2" onClick="MM_openBrWindow('../openwin/xxmb.html','','width=466,height=385')" onMouseOver="MM_swapImage('Image2','','../../images/htmls/mulu/mulu2_26.gif',1)" onMouseOut="MM_swapImgRestore()"></a></td>
+</tr>
+<tr>
+                                  <td><a href="#"><img src="../../images/htmls/mulu/mulu_27.gif" name="Image3" width="89" height="35" border="0" id="Image3" onClick="MM_openBrWindow('../openwin/kcyq.html','','width=466,height=385')" onMouseOver="MM_swapImage('Image3','','../../images/htmls/mulu/mulu2_27.gif',1)" onMouseOut="MM_swapImgRestore()"></a></td>
+</tr>
+<tr>
+                                  <td><a href="#"><img src="../../images/htmls/mulu/mulu_28.gif" name="Image4" width="89" height="35" border="0" id="Image4" onClick="MM_openBrWindow('../openwin/nzd.html','','width=466,height=385')" onMouseOver="MM_swapImage('Image4','','../../images/htmls/mulu/mulu2_28.gif',1)" onMouseOut="MM_swapImgRestore()"></a></td>
+</tr>
+<tr>
+                                  <td><a href="../exam/index.htm"><img src="../../images/htmls/mulu/mulu_29.gif" name="Image5" width="89" height="40" border="0" id="Image5" onMouseOver="MM_swapImage('Image5','','../../images/htmls/mulu/mulu2_29.gif',1)" onMouseOut="MM_swapImgRestore()"></a></td>
+</tr>
+<tr>
+                                  <td><a href="../../index.htm" target="_self"><img src="../../images/htmls/mulu/mulu_30.gif" name="Image6" width="89" height="35" border="0" id="Image6" onMouseOver="MM_swapImage('Image6','','../../images/htmls/mulu/mulu2_30.gif',1)" onMouseOut="MM_swapImgRestore()"></a></td>
+</tr>
+<tr>
+<td height="100%"><img src="../../images/htmls/mulu/spacer.gif" width="1" height="1"></td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td height="93"><img src="../../images/htmls/mulu/mulu_31.gif" width="12" height="93"></td>
+<td height="93"><img src="../../images/htmls/mulu/mulu_32.gif" width="89" height="93"></td>
+</tr>
+</table></td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td background="../../images/htmls/mulu/mulu_38.gif"><img src="../../images/htmls/mulu/mulu_38.gif" width="12" height="3"></td>
+</tr>
+</table>
+</td>
+          <td width="45%"><table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+              <tr>
+                <td height="21">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td width="41"><img src="../../images/htmls/mulu/mulu_05.gif" width="41" height="28"></td>
+                      <td><table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+                          <tr>
+                            <td width="50%" background="../../images/htmls/mulu/mulu_09.gif"><img src="../../images/htmls/mulu/mulu_09.gif" width="1" height="28"></td>
+                            <td><img src="../../images/htmls/mulu/mulu_07.gif" width="120" height="28"></td>
+                            <td width="50%" background="../../images/htmls/mulu/mulu_09.gif"><img src="../../images/htmls/mulu/mulu_09.gif" width="1" height="28"></td>
+                          </tr>
+                        </table></td>
+                      <td width="55"><img src="../../images/htmls/mulu/mulu_10.gif" width="55" height="28"></td>
+                    </tr>
+                  </table></td>
+              </tr>
+              <tr>
+                <td height="100%"><table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+                    <tr>
+                      <td width="19">
+<table width="19" height="100%" border="0" cellpadding="0" cellspacing="0">
+                          <tr>
+                            <td><img src="../../images/htmls/mulu/mulu_14.gif" width="19" height="38"></td>
+                          </tr>
+                          <tr>
+                            <td height="100%" background="../../images/htmls/mulu/mulu_21.gif"><img src="../../images/htmls/mulu/mulu_21.gif" width="19" height="3"></td>
+                          </tr>
+                          <tr>
+                            <td><img src="../../images/htmls/mulu/mulu_34.gif" width="19" height="96"></td>
+                          </tr>
+                        </table></td>
+                      <td><table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+                          <tr>
+                            <td height="100%"><iframe src="mulu1.htm" name="left" frameborder="0" width="100%" height="100%" align="default"></iframe><br>
+</td>
+                          </tr>
+                          <tr>
+                            <td background="../../images/htmls/mulu/mulu_36.gif"><img src="../../images/htmls/mulu/mulu_36.gif" width="1" height="17"></td>
+                          </tr>
+                        </table></td>
+                      <td width="24">
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+                          <tr>
+                            <td><img src="../../images/htmls/mulu/mulu_18.gif" width="24" height="38"></td>
+                          </tr>
+                          <tr>
+                            <td height="100%" background="../../images/htmls/mulu/mulu_22.gif"><img src="../../images/htmls/mulu/mulu_22.gif" width="24" height="3"></td>
+                          </tr>
+                          <tr>
+                            <td><img src="../../images/htmls/mulu/mulu_35.gif" width="24" height="96"></td>
+                          </tr>
+                        </table></td>
+                    </tr>
+                  </table></td>
+              </tr>
+            </table> </td>
+<td width="25%">
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+              <tr>
+<td background="../../images/htmls/mulu/mulu_03.gif"><img src="../../images/htmls/mulu/mulu_03.gif" width="12" height="28"></td>
+</tr>
+<tr>
+                <td height="100%" align="right" valign="bottom"  class="rightbg" ><table border="0" cellspacing="0" cellpadding="5">
+                    <tr>
+                      <td><img src="../../images/htmls/mulu/tb_qhtf.gif" width="79" height="18"></td>
+                    </tr>
+                  </table></td>
+</tr>
+<tr>
+<td background="../../images/htmls/mulu/mulu_38.gif"><img src="../../images/htmls/mulu/mulu_38.gif" width="12" height="3"></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td height="20" background="../../images/htmls/Slice33.gif">
+<table width="100%" height="20" border="0" cellpadding="0" cellspacing="0">
+<tr> 
+<td align="center" valign="middle"> <img src="../../images/htmls/Slice39.gif" width="301" height="11"></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</body>
+</html>
+

@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<STYLE TYPE="text/css">
+<!--
+BODY {background-image:   url(../../../images/htmls/Slicebg.jpg);
+background-position: right bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body  leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr> 
+    <td valign="top" height="20">&nbsp; </td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr> 
+          <td class="text" valign="top"> 
+            <p>　<b>　1． MPI程序</b>：<br>
+              　　SPMD执行模式：一个程序同时启动多份，形成多个独立的进程，在不同的处理机上运行，拥有独立的内存空间，进程间通信通过调用MPI函数来实现；每个进程开始执行时，将获得一个唯一的序号（rank）。例如启动P个进程，序号依次为0，1，…，P-1；<br>
+              <br>
+              　　<b>2．MPI重要概念</b><br>
+              　　● 进程号（rank）；各进程通过函数MPI_Comm_rank()获取各自的序号;<br>
+              　　● 消息标签：消息的标号；<br>
+              　　● 通信域(Communicator)：1)理解为一类进程的集合，且在该集合内，进程间可以相互通信；类比：邮局、电话局、国际网；2)任何MPI通信函数均必须在某个通信器内发生；3) 
+              MPI系统提供省缺的通信器MPI_COMM_WORLD，所有启动的MPI进程通过调用函数MPI_Init()包含在该通信器内；4)各进程通过函数MPI_Comm_size()获取通信器包含的(初始启动)的MPI进程个数;<br>
+              　　● 消息：分为数据（data）和信封（envelope）两个部分，其中，包装由接收进程序号、发送进程序号、消息标号和通信域四部分组成，数据包含用户将要传递的内容；<br>
+              　　● 进程组：一类进程的集合，在它的基础上，可以定义新的通信器；<br>
+              　　● 基本数据类型：对应于FORTRAN和C语言的内部数据类型（INTEGER，REAL，DOUBLE PRECISION，COMPLEX，LOGICAL，CHARACTER），MPI系统提供已定义好的对应数据类型（MPI_INTEGER，MPI_REAL，MPI_DOUBLE_PRECISION， 
+              MPI_COMPLEX，MPI_LOGICAL，MPI_CHARACTER）;<br>
+              　　● 派生数据类型：基于基本数据类型，用户自己定义的数据类型；<br>
+              　　● MPI对象: MPI系统内部定义的数据结构，包括数据类型、进程组、通信器等，它们对用户不透明。<br>
+              　　● MPI句柄（handle）：联接MPI对象和用户的桥梁，用户可以通过它访问和参与相应MPI对象的具体操作；例如，MPI系统内部提供的通信器MPI_COMM_WORLD；在FORTRAN语言中，MPI句柄均被说明为&quot;整型变量INTEGER&quot;；<br>
+              　　● 进程拓扑结构：进程组内部进程之间的一种相互连接结构，如3′3 网格， <br>
+              　　　　　　　　　　<img src="../../../images/img_text/ch07/xiaojie.gif" width="187" height="142"> 
+            </p>
+            <p>　　　　　　　　　　　　　3×3 网格拓扑结构</p>
+            <p>　　● 静态进程个数：进程数由命令&quot;mpirun -np xxx&quot;初始确定为xxx个，程序执行过程中不能动态改变进程的个数;<br>
+              　　● 消息缓存区：应用程序产生的消息包含的数据所处的内存空间；<br>
+              　　● 标准输入：所有进程的标准输入read(*,*)均省缺为当前终端屏幕，且只能由0号进程执行该操作，其他进程需要这些输入参数，只能由0号进程执行数据广播操作；<br>
+              　　● 标准输出：所有进程可以独立执行标准输出write（*，*），但其省缺为当前终端屏幕；<br>
+              <br>
+              　　<b>3．MPI函数格式</b>：<br>
+              　　● FORTAN语言中，最后一个参数为该函数调用是否成功的标志：0表示成功，其它表示各种可能的错误； <br>
+              　　● C语言中，该标志又函数参数返回；<br>
+              　　　C ： ierr=MPI_Comm_rank(myrank)<br>
+              　　　F ： MPI_Comm_rank(myrank,ierr)<br>
+              <br>
+              　　<b>4．常用的MPI网络资源</b>：<br>
+              　　<a href="../../../../../../../../www.mpi-forum.org/default.htm" target="_blank">http://www.mpi-forum.org</a> 
+              MPI论坛主页　　<br>
+              　　<a href="../../../../../../../../www.netlib.org/mpi/index.html" target="_blank">http://www.netlib.org/mpi/index.html</a> 
+              netlib中与MPI有关的软件<br>
+              　　<a href="../../../../../../../../www.mcs.anl.gov/mpi/mpich" target="_blank">http://www.mcs.anl.gov/mpi/mpich</a> 
+              mpich实现<br>
+              　　<a href="../../../../../../../../www.mpi.nd.edu/lam" target="_blank">http://www.mpi.nd.edu/lam</a> 
+              lam-mpi实现　　　<br>
+              　　<a href="../../../../../../../../www-unix.mcs.anl.gov/mpi/tutorial/default.htm" target="_blank">http://www-unix.mcs.anl.gov/mpi/tutorial/</a> 
+              MPI辅导材料　　<br>
+              <br>
+              　　<b>5．参考书目</b><br>
+              　　☆ 都志辉等. 高性能计算并行编程技术--MPI并行程序设计。清华大学出版社，2001。<br>
+              　　☆ William Gropp, Ewing Lusk, Anthony Skjellum. Using MPI : portable 
+              parallel programming with the message-passing 　　　interface. Cambridge, 
+              Mass. : MIT Press, 1999.<br>
+              　　☆ William Gropp, Ewing Lusk, Anthony Skjellum. Using MPI-2 : advanced 
+              features of the message-passing interface. 　　　　Cambridge, Mass. 
+              : MIT Press, 1999.<br>
+              　　☆ MPI: A Message-Passing Interface standard. MPI Forum, 1995.</p>
+            </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

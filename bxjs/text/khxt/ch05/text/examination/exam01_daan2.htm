@@ -1,0 +1,84 @@
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<link rel="stylesheet" href="../../css/text.css" type="text/css">
+<style type="text/css">
+<!--
+.bodybg {
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-position: right bottom;
+}
+-->
+</style>
+</head>
+
+<body class="bodybg" bgcolor="#FFFFFF" background="../../../../../images/htmls/openwin/bg.jpg" text="#000000" leftmargin="0" topmargin="0" rightmargin="0" bottommargin="0" marginwidth="0" marginheight="0" >
+<center><table width="95%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+      <td class=text height="1317"> 
+        <p><b>一</b><b>、 问答题答案</b></p>
+        <p>问答第1题<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;这是一个问题规模固定的加速比问题，所以是Amdahl定律讨论的范围。<br>
+          &nbsp;&nbsp;&nbsp;&nbsp; 根据Amdahl定律，这个系统的加速比可以表示成下面的公式<br>
+          <center>
+            <img src="../../images/gongshi/1da-1.gif" width="147" height="45"> 
+          </center>
+          <br>
+          &nbsp;&nbsp;&nbsp;&nbsp;随着p的增大，这是一个递增的函数，但这个函数有上限，当 <img src="../../images/gongshi/1da-2.gif" width="51" height="17" align="absmiddle">时，有<br>
+          <center>
+            <img src="../../images/gongshi/1da-3.gif" width="89" height="45"> 
+          </center>
+          <br>
+          &nbsp;&nbsp;&nbsp;&nbsp;这就是这个并行系统的加速比上限，在讨论Amdahl定律时实际上已经讨论过，固定规模的问题得加速比的极限由问题的串行部分比例<em>f</em>确定，它就等于1/<em>f</em>，上面的答案和这个结论是一致的。 
+          <br>
+          问答第2题<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;将树的节点如下的编号：<br>
+          <center>
+<img src="../../images/gongshi/2da-1.gif" width="350" height="200"> 
+</center>
+          <br>
+          &nbsp;&nbsp;&nbsp;&nbsp;串行搜索算法的节点访问顺序为：<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;1→2→4→8→4→9→4→2→5→10→5→11→5→2→1→3→6→12→6→13 
+          <br>
+          &nbsp;&nbsp;&nbsp;&nbsp;共需要访问19个弧，搜索时间为19个单位时间；<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;并行搜索时， 第一个处理器的搜索顺序为：<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;1→2→4→8→4→9→4→2→5→10→5→11<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;第二个处理器的搜索顺序为：<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;1→3→6→12→6→13 <br>
+          &nbsp;&nbsp;&nbsp;&nbsp;假设两个处理器速度相当，那么，5个单位时间后，第二个处理器已经找到了解，并行算法顺利结束，此时并行算法的加速比为 
+          <br>
+          <center>
+            <img src="../../images/gongshi/2da-2.gif" width="109" height="41"> 
+          </center>
+          <br>
+          &nbsp;&nbsp;&nbsp;&nbsp;表现出超线性加速比。出现超线性加速比的原因是并行搜索时的问题规模实际上比串行搜索时的问题规模减小了，所以出现了超线性加速比。 
+          <br>
+          <br>
+          问答第3题<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;算法的执行过程如下图所示。图一表示非局部计算，需要处理器间通信，图二表示局部和相加，不需要处理器间通信。<br>
+          &nbsp;&nbsp;&nbsp;&nbsp; 从图中可以清楚地看到，计算共需要8个通信步，每个通信步包含一次通信和一次加法，通信步的计算时间长度为11个单位时间。 
+          <br>
+          &nbsp;&nbsp;&nbsp;&nbsp; 处理器0上的4个局部和的加法共需要做3次加法，所以，整个并行计算的运行时间为：<br>
+          <center>
+            <img src="../../images/gongshi/3da-1.gif" width="145" height="25"> 
+          </center>
+          <br>
+          &nbsp;&nbsp;&nbsp;&nbsp; 对一般情况，用p个物理处理器来对n个虚拟处理器进行仿真时，采用螺旋分布，完成处理器间的加法，可以分为logp个阶段，每个阶段需要n/p个通信步，所以计算时间为 
+          <img src="../../images/gongshi/3da-2.gif" width="101" height="21" align="absmiddle">，完成局部和相加需要时间为 
+          <img src="../../images/gongshi/3da-3.gif" width="56" height="21" align="absmiddle">，所以总的计算时间为 
+          <img src="../../images/gongshi/3da-4.gif" width="101" height="21" align="absbottom">。<br>
+          <center>
+<img src="../../images/gongshi/3da-5.gif" width="336" height="889"> 
+<!--czp-wenda-daan-->
+</center>
+        </p>
+      </td>
+  </tr>
+</table>
+  
+</center>
+
+</body>
+</html>

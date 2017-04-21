@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<STYLE TYPE="text/css">
+<!--
+BODY {background-image:   url(../../../images/htmls/Slicebg.jpg);
+background-position: right bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body  leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr> 
+    <td valign="top"> <br>
+      <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr> 
+          <td class="text" valign="top"> 
+            
+<p>　　<img src="../../../images/img_text/ch06/6_4_7.gif" width="480" height="300"><br>
+              　　　图6.4.7 一个16×16的分块三对角稀疏矩阵，非零元素用&quot;×&quot;表示<br>
+              <br>
+              　　图6.4.7是一个典型的分块三对角稀疏阵，其特点是：<br>
+              　　1) 所有的非零元素都分布在与主对角线平行（或重合）的5个对角线上。<br>
+              　　2) 5个对角线种包括主对角线。<br>
+              　　3) 其中有两条对角线紧靠着主对角线。<br>
+              　　4) 剩下的两条对角线距离主对角线的数值或水平距离是<img src="../../../images/img_text/ch06/93.gif" width="22" height="21" align="absmiddle">，其中n是矩阵的长和宽。<br>
+              <br>
+              　　这样的矩阵在解线性方程组时经常见到，它来源于用有限差分法来解偏微分方程。<br>
+              　　鉴于分块三对角稀疏矩阵的特点，采用对角线存储格式是自然的选择，这样得到一个n×5的值矩阵V和一个长度为5的偏移向量OFFSET。由于偏移向量中存放的5个偏移量（-<img src="../../../images/img_text/ch06/93.gif" width="22" height="21" align="absmiddle">，－1，0，1，<img src="../../../images/img_text/ch06/93.gif" width="22" height="21" align="absmiddle">）为已知，所以偏移向量可以省略。分块三对角稀疏阵与向量乘积的串行算法比较简单，只需要把值矩阵V的各列经过一个偏移后与向量X分别作内积即可，算法执行时间为<img src="../../../images/img_text/ch06/94.gif" width="79" height="18" align="absmiddle">。</p>
+            </td>
+        </tr>
+      </table>
+      <br>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

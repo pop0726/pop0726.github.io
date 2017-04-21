@@ -1,0 +1,59 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<STYLE TYPE="text/css">
+<!--
+BODY {background-image:   url(../../../images/htmls/Slicebg.jpg);
+background-position: right bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body  leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr> 
+    <td valign="top" height="20">&nbsp; </td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr> 
+          
+<td class="text" valign="top"> 
+<p>　　一下只讨论块棋盘划分和映射的情况，循环棋盘划分和映射的情况类似。<br>
+　　还是从最极端的情况p=n<sup>2</sup>开始，见图6.3.9。此时每个处理器存放矩阵的一个元素，最初某些（n个）处理器中存放有向量的一个元素。设向量X的元素X<sub>i</sub>存放在处理器P<sub>ii</sub>中，如果不是这样，则本行的某处理器通过一对一通信将向量元素传送到P<sub>ii</sub>。然后处理器P<sub>ii</sub>需要把元素X<sub>i</sub>传送给本列的其它处理器，这样每个处理器就都可以进行并行地进行元素相乘了。元素相乘的结果再按照行累加起来，并交给每行的一个处理器。<br>
+　　　　　</p>
+<center>
+<img src="../../../images/img_text/ch06/6_3_9_1-1.gif" width="399" height="345"><br>
+(a) 初始划分和通信； 　　　　　　　　　<br>
+<br>
+<img src="../../../images/img_text/ch06/6_3_9_1-2.gif" width="370" height="356"><br>
+　　(b) 沿着列方向传送元素；
+</center>
+<center>
+<img src="../../../images/img_text/ch06/6_3_9_2-1.gif" width="400" height="336"><br>
+(c) 元素相乘和结果按行累加<br>
+<img src="../../../images/img_text/ch06/6_3_9_2-2.gif" width="400" height="336"><br>
+(d) 结果向量的分布<br>
+图6.3.9 并行矩阵向量乘法（p=n2；块棋盘划分）<br>
+<br>
+　　处理器个数p&lt;n<sup>2</sup>的情况与上述过程非常类似。下面只分析二维网格互联和切通路由（Cut-Through 
+Routing）情况下的时间性能。<br>
+<br>
+　　参照图6.3.9来说明问题。首先，步骤(a)所花费的通信时间为<img src="../../../images/img_text/ch06/55.gif" width="123" height="48" align="absmiddle">；步骤(b)的时间为<img src="../../../images/img_text/ch06/56.gif" width="212" height="48" align="absmiddle">；步骤(c)的通信时间为<img src="../../../images/img_text/ch06/57.gif" width="212" height="48" align="middle">，乘法计算时间为n<sup>2</sup>/p。将这几项相加，总的时间大约是：<br>
+　　　　　　　　　　<img src="../../../images/img_text/ch06/58.gif" width="285" height="51">
+</center>
+</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

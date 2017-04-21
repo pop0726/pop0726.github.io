@@ -1,0 +1,61 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<STYLE TYPE="text/css">
+<!--
+BODY {background-image:   url(../../../images/htmls/Slicebg.jpg);
+background-position: right bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body  leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr> 
+    <td valign="top" height="20">&nbsp; </td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr> 
+          <td class="text" valign="top"> 
+            <p>　　对并行计算机的分类有多种方法，其中最著名的是1966年由M.J.Flynn提出的分类法，称为Flynn分类法。Flynn分类法是从计算机的运行机制进行分类的。首先作如下定义：<br>
+              <br>
+              　　指令流（instruction stream）：机器执行的指令序列；<br>
+              <br>
+              　　数据流（data stream）：由指令流调用的数据序列，包括输入数据和中间结果。<br>
+              <br>
+              　　Flynn根据指令流和数据流的不同组织方式，把计算机系统的结构分为以下四类：<br>
+              　　（1）<b>单指令流单数据流</b>（Single Instruction stream Single Data stream, 
+              SISD）；<br>
+              　　（2）<b>单指令流多数据流</b>（Single Instruction stream Multiple Data stream, 
+              SIMD）；<br>
+              　　（3）<b>多指令流单数据流</b>（Multiple Instruction stream Single Data stream, 
+              MISD）；<br>
+              　　（4）<b>多指令流多数据流</b>（Multiple Instruction stream Multiple Data stream, 
+              MISD）。<br>
+              <br>
+              　　<font color="#000000">SISD就是普通的顺序处理的串行机。SIMD和MIMD是典型的并行计算机。MISD在实际中代表何种计算机，也存在不同的看法，甚至有学者认为根本不存在MISD。有的文献把流水线结构的计算机看成MISD结构。</font><br>
+              <br>
+              　　在一台SIMD计算机中，有一个控制部件（又称为控制单元，control unit）和许多处理单元（processing unit）。大量的处理单元通常构成阵列，因此SIMD计算机有时也称为阵列处理机。所有的处理单元在控制部件的统一控制下工作。控制部件向所有的处理单元广播同一条指令，所有的处理单元同时执行这条指令，但是每个处理单元操作的数据不同。控制部件可以有选择地屏蔽掉一些处理单元，被屏蔽掉的处理单元不执行控制部件广播的指令。典型的SIMD计算机有Illiac 
+              IV, Goodyear MPP, DAP, CM-2, MasPar MP-1和MasPar MP-2等。<br>
+              <br>
+              　　在MIMD计算机中没有统一的控制部件。在MIMD中，各处理器可以独立地执行不同的指令。实际上，在SIMD机中，各处理单元执行的是同一个程序，而在MIMD机上，各处理器可以独立执行不同的程序。在MIMD中，每个处理器都有控制部件，各处理器通过互连网络进行通信。MIMD结构比SIMD结构更加灵活。SIMD计算机通常要求实际问题包含大量的对不同数据的相同运算（例如向量运算和矩阵运算）才能发挥其优势。而MIMD计算机则无此要求，它可以适应更多的并行算法，因此可以更加充分地开掘实际问题的并行性。SIMD所使用的CPU通常是专门设计的，而MIMD可以使用通用CPU。后面将会介绍各种MIMD计算机。<br>
+              <br>
+              　　随着并行计算技术的不断发展，近来又出现了SPMD，MPMD等概念。SPMD是指单程序多数据（Single Program Multiple 
+              Data），MPMD是指多程序多数据（Single Program Multiple）。在SPMD机制中，各处理器有自己的控制部件。各处理器并行地执行同一个程序，但所操作的数据不一定相同。与相比SIMD，在SPMD模式下，各处理器只在需要时进行同步，而不是同步地执行每一条指令。在某一时刻，不同的处理器执行的指令可能不相同。SPMD易于在机群系统和MPI（一种并行编程环境）的支持下得以实现，因此被广泛使用。<br>
+            </p>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

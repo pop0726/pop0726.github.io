@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<STYLE TYPE="text/css">
+<!--
+BODY {background-image:   url(../../../images/htmls/Slicebg.jpg);
+background-position: right bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body  leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr> 
+    <td valign="top" height="20">&nbsp; </td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr> 
+          <td class="text" valign="top"> 
+            <p>　　<b>直观印象--简单的MPI程序实例</b></p>
+            <p>　　<b>一个简单的MPI程序的例子(FORTRAN)</b></p>
+            <p>　　！simple.f<br>
+              　　program main<br>
+              　　include 'mpif.h'<br>
+              　　character*(MPI_MAX_PROCESSOR_NAME) processor_name<br>
+              　　integer myid, numprocs, namelen, rc, ierr</p>
+            <p>　　! MPI initialization phase<br>
+              　　call MPI_INIT( ierr )<br>
+              　　call MPI_COMM_RANK( MPI_COMM_WORLD, myid, ierr )<br>
+              　　call MPI_COMM_SIZE( MPI_COMM_WORLD, numprocs, ierr )<br>
+              　　call MPI_GET_PROCESSOR_NAME( processor_name, namelen, ierr )</p>
+            <p>　　! MPI working phase<br>
+              　　print *, &quot;This is Process&quot;, myid, &quot;of&quot;,numprocs,&quot;on&quot;, 
+              processor_name</p>
+            <p>　　! MPI finalization phase<br>
+              　　call MPI_FINALIZE( rc )<br>
+              　　end</p>
+            <p>　　用mpif90命令将这个程序编译：<br>
+              　　mpif90 -o simple simple.f<br>
+              <br>
+              　　然后用mpirun来运行这个程序（假定已经设置好了配置文件）。<br>
+              　　mpirun -np 4 simple<br>
+              <br>
+              　　为这个程序指定四个工作进程，如果这个程序在一个集群系统的某台计算机cluster1上运行，它的输出结果（可能）如下：<br>
+              　　This is Process 0 of 4 on cluster1<br>
+              　　This is Process 2 of 4 on cluster1<br>
+              　　This is Process 1 of 4 on cluster1<br>
+              　　This is Process 3 of 4 on cluster1<br>
+              <br>
+              　　如果这个程序在一个集群系统的四台不同计算机cluster1-cluster4上运行，它的输出结果（可能）如下：<br>
+              　　This is Process 0 of 4 on cluster1<br>
+              　　This is Process 2 of 4 on cluster3<br>
+              　　This is Process 1 of 4 on cluster2<br>
+              　　This is Process 3 of 4 on cluster4</p>
+            <p>　　<b>这个程序的C语言版本如下</b>：<br>
+              　　// simple.c<br>
+              　　#include &quot;mpi.h&quot;<br>
+              　　#inlucde &lt;stdio.h&gt;<br>
+              　　#include &lt;math.h&gt;</p>
+            <p>　　int main( int argc, char **argv)<br>
+              　　{<br>
+              　　　int myid, numprocs;<br>
+              　　　int namelen;<br>
+              　　　char processor_name[ MPI_MAX_PROCESSOR_NAME ];<br>
+              　　<br>
+              　　　// MPI Initialization phase<br>
+              　　　MPI_Init( &amp; argc, &amp;argv );<br>
+              　　　MPI_Comm_rank( MPI_COMM_WORLD, &amp;myid );<br>
+              　　　MPI_Comm_size( MPI_COMM_WORLD, &amp;numprocs );<br>
+              　　　MPI_Get_processor_name( processor_name, &amp;namelen );</p>
+            <p> 　　　// The working phase<br>
+              　　　Printf(&quot;This is Process %d of %d on %s\n&quot;, myid, numprocs, 
+              processor_name );</p>
+            <p> 　　　// MPI Finalization phase<br>
+              　　　MPI_Finalize( );<br>
+              　　}</p>
+            <p>　　用mpicc命令将这个程序编译：<br>
+              　　mpicc -o simple simple.c<br>
+              　　<br>
+              　　然后用mpirun来运行这个程序（假定已经设置好了配置文件）。<br>
+              　　mpirun -np 4 simple</p>
+            <p>　　这个程序的运行结果和上面的Fortran程序相似。本节中将采用c语言对MPI的编程规范进行说明。 这两个程序的运行过程可以用下面的图来表示：<br>
+              <img src="../../../images/img_text/ch07/7_2_1.gif" width="610" height="442"> 
+            </p>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

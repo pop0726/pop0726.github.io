@@ -1,0 +1,224 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<STYLE TYPE="text/css">
+<!--
+BODY {background-image:   url(../../../images/htmls/Slicebg.jpg);
+background-position: right bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body  leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr> 
+    <td valign="top" height="20">&nbsp; </td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr> 
+          <td class="text" valign="top"> 
+            <p>　　<b>共享存储体系结构的特点</b><br>
+              <br>
+              　　在讨论OpenMP之前，我们需要先看一看它所面向的系统结构：共享存储多处理器系统（SMP）。通常的SMP结构如下图所示（SGI的PowerChallenge）：<br>
+              <img src="../../../images/img_text/ch08/p8_1_1.gif" width="470" height="232"> 
+              <br>
+              <br>
+              　　在流行的SMP集群系统中，作为节点的SMP机器通常只有2-4个处理器，但结构并无不同。从图中可以清楚的看出SMP的一些特点。</p>
+            <p>　　在很长的一段时间里，SMP计算机系统都由很少的处理器构成（<font color="#CC6633">思考，从体系结构出发，试着回答为什么。</font>）通常情况下，SMP体系结构被看作一种扩展性不好的结构（当然，对基于总线的SMP系统的确是这样），直到今天，这种可扩展性的问题仍然没有很好的解决。共享存储体系结构的另外一个主要问题是Cache的一致性问题。由于通常情况下各处理器都有自己的Cache，所以系统（无论是硬件还是软件）必须对处理器共享的数据维护这些Cache的一致性。通过增加数据局部性的方法可以缓解Cache一致性操作带来的问题（<font color="#CC6633">注意是缓解不是消除</font>），对某些类型的应用，这种措施很有效，他们的确在SMP上得到了很好的性能。<br>
+              <br>
+              　　下面的表给出了一些SMP体系结构的计算机的配置，<font color="#000000">事实上，在高性能计算领域，越来越倾向于使用SMP作为基本的构造节点来组成更大规模的集群计算机（ASCI计划中的计算机大多都是这种结构）。这也就是为什么我们在讨论了消息传递并行程序后还要单独介绍OpenMP。</font><br>
+            </p>
+            <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#000000">
+              <tr bgcolor="#CCCCCC"> 
+                <td colspan="5" class="text"> 
+                  <div align="center"><b>一些由SMP节点构成的并行计算机系统</b></div>
+                </td>
+              </tr>
+              <tr bgcolor="#CCCCCC"> 
+                <td width="15%" class="text"> 
+                  <div align="center"><b>生产商</b></div>
+                </td>
+                <td width="15%" class="text"> 
+                  <div align="center"><b>计算机名称</b></div>
+                </td>
+                <td width="30%" class="text"> 
+                  <div align="center"><b>处理器类型</b></div>
+                </td>
+                <td width="20%" class="text"> 
+                  <div align="center"><b>每个SMP节点中包含的处理器数</b></div>
+                </td>
+                <td width="20%" class="text"> 
+                  <div align="center"><b>系统中最大的处理器数目</b></div>
+                </td>
+              </tr>
+              <tr bgcolor="#FFFFFF"> 
+                <td width="15%" class="text"> 
+                  <div align="center">IBM</div>
+                </td>
+                <td width="15%" class="text"> 
+                  <div align="center">Winterhawk</div>
+                </td>
+                <td width="30%" class="text"> 
+                  <div align="center">RS/6000 Power3</div>
+                </td>
+                <td width="20%" class="text"> 
+                  <div align="center">2</div>
+                </td>
+                <td width="20%" class="text"> 
+                  <div align="center"></div>
+                </td>
+              </tr>
+              <tr bgcolor="#FFFFFF"> 
+                <td width="15%" class="text"> 
+                  <div align="center">IBM</div>
+                </td>
+                <td width="15%" class="text"> 
+                  <div align="center">Nighthawk</div>
+                </td>
+                <td width="30%" class="text"> 
+                  <div align="center">RS/6000 Power3</div>
+                </td>
+                <td width="20%" class="text"> 
+                  <div align="center">8</div>
+                </td>
+                <td width="20%" class="text"> 
+                  <div align="center">4096</div>
+                </td>
+              </tr>
+              <tr bgcolor="#FFFFFF"> 
+                <td width="15%" class="text"> 
+                  <div align="center">SGI</div>
+                </td>
+                <td width="15%" class="text"> 
+                  <div align="center">Origin2000</div>
+                </td>
+                <td width="30%" class="text"> 
+                  <div align="center">MIPS R10k</div>
+                </td>
+                <td width="20%" class="text"> 
+                  <div align="center">64</div>
+                </td>
+                <td width="20%" class="text"> 
+                  <div align="center">256</div>
+                </td>
+              </tr>
+              <tr bgcolor="#FFFFFF"> 
+                <td width="15%" class="text"> 
+                  <div align="center">Compaq</div>
+                </td>
+                <td width="15%" class="text"> 
+                  <div align="center">Wildfire</div>
+                </td>
+                <td width="30%" class="text"> 
+                  <div align="center">DEC EV6</div>
+                </td>
+                <td width="20%" class="text"> 
+                  <div align="center"></div>
+                </td>
+                <td width="20%" class="text"> 
+                  <div align="center"></div>
+                </td>
+              </tr>
+              <tr bgcolor="#FFFFFF"> 
+                <td width="15%" class="text"> 
+                  <div align="center">HP</div>
+                </td>
+                <td width="15%" class="text"> 
+                  <div align="center">V2500</div>
+                </td>
+                <td width="30%" class="text"> 
+                  <div align="center">PA 8500</div>
+                </td>
+                <td width="20%" class="text"> 
+                  <div align="center">128</div>
+                </td>
+                <td width="20%" class="text"> 
+                  <div align="center">2048</div>
+                </td>
+              </tr>
+              <tr bgcolor="#FFFFFF"> 
+                <td width="15%" class="text"> 
+                  <div align="center"></div>
+                </td>
+                <td width="15%" class="text"> 
+                  <div align="center">Exemplar</div>
+                </td>
+                <td width="30%" class="text"> 
+                  <div align="center"></div>
+                </td>
+                <td width="20%" class="text"> 
+                  <div align="center"></div>
+                </td>
+                <td width="20%" class="text"> 
+                  <div align="center"></div>
+                </td>
+              </tr>
+              <tr bgcolor="#FFFFFF"> 
+                <td width="15%" class="text"> 
+                  <div align="center">SUN</div>
+                </td>
+                <td width="15%" class="text"> 
+                  <div align="center">HPC 10000</div>
+                </td>
+                <td width="30%" class="text"> 
+                  <div align="center">UltraSPARC-III</div>
+                </td>
+                <td width="20%" class="text"> 
+                  <div align="center">64</div>
+                </td>
+                <td width="20%" class="text"> 
+                  <div align="center">256</div>
+                </td>
+              </tr>
+              <tr bgcolor="#FFFFFF"> 
+                <td width="15%" class="text"> 
+                  <div align="center"></div>
+                </td>
+                <td width="15%" class="text"> 
+                  <div align="center">StarFire</div>
+                </td>
+                <td width="30%" class="text"> 
+                  <div align="center"></div>
+                </td>
+                <td width="20%" class="text"> 
+                  <div align="center"></div>
+                </td>
+                <td width="20%" class="text"> 
+                  <div align="center"></div>
+                </td>
+              </tr>
+              <tr bgcolor="#FFFFFF"> 
+                <td width="15%" class="text"> 
+                  <div align="center">NEC</div>
+                </td>
+                <td width="15%" class="text"> 
+                  <div align="center">SX5</div>
+                </td>
+                <td width="30%" class="text"> 
+                  <div align="center">CMOS vector</div>
+                </td>
+                <td width="20%" class="text"> 
+                  <div align="center"></div>
+                </td>
+                <td width="20%" class="text"> 
+                  <div align="center"></div>
+                </td>
+              </tr>
+            </table>
+            
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

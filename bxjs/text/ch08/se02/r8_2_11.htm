@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<STYLE TYPE="text/css">
+<!--
+BODY {background-image:   url(../../../images/htmls/Slicebg.jpg);
+background-position: right bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body  leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr> 
+    <td valign="top" height="20">&nbsp; </td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr> 
+          <td class="text" valign="top"> 
+            <p>　　<font color="#000000">程序如下：</font></p>
+            <p><font color="#000000"> 　　PROGRAM ffttest<br>
+              　　USE clips_library<br>
+              　　IMPLICIT NONE<br>
+              　　INTEGER, PARAMETER :: maxn=10000,mfax=13,nvol=1000000<br>
+              　! real and imag parts<br>
+              　　REAL(8), ALLOCATABLE, DIMENSION(:,:) :: a,b<br>
+              　　REAL(8), DIMENSION(maxn) :: trigs<br>
+              　　INTEGER, DIMENSION(mfax) :: ifax<br>
+              　　INTEGER :: irep,nrep,n,isign,i,j<br>
+              　　INTEGER :: nloop,nend,nnode,ier,istart,nthread<br>
+              　　REAL(8) :: cputm,t1,t2,t,ops,ainv<br>
+              　　INTEGER, EXTERNAL :: omp_get_num_procs,omp_get_num_threads<br>
+              　　nnode=omp_get_num_procs()<br>
+              　　WRITE(6,'('' ffttest with '',i2,'' processors '')')<br>
+              　　WRITE(6,'('' how many threads to use ? '')')<br>
+              　　READ(5,*)nthread<br>
+              　　CALL omp_set_num_threads(nthread)<br>
+              　　OPEN(5,FILE='gpfa.con',STATUS='unknown')<br>
+              　　WRITE(6,300)<br>
+              　　300 FORMAT(' n nrep nops time Mflop')<br>
+              　! single sequence<br>
+              　　WRITE(6,'('' single sequence results '')')<br>
+              　　DO WHILE(.TRUE.)<br>
+              　　READ(5,*,END=998) n,nrep<br>
+              　　nrep=nvol/n<br>
+              　　ALLOCATE(a(n,nrep),STAT=ier)<br>
+              　　ALLOCATE(b(n,nrep),STAT=ier)<br>
+              　　a=1.0d0; b=0.0d0<br>
+              　　ainv=1.0d0/REAL(n)<br>
+              　! initialise Fourier transform routines<br>
+              　! New Temperton GPFA<br>
+              　　CALL setgpfa(trigs,n)<br>
+              　　t1=clips_time()<br>
+              　! $OMP parallel default(shared) private(irep,i,istart)<br>
+              　! nthread=omp_get_num_threads()<br>
+              　! WRITE(6,'('' nthreads = '',i2)')nthread<br>
+              　! $OMP do<br>
+              　　DO irep=1,nrep<br>
+              　! New Temperton GPFA<br>
+              　　CALL gpfa(a(:,irep),b(:,irep),trigs,1,n,n,1,1)<br>
+              　　CALL gpfa(a(:,irep),b(:,irep),trigs,1,n,n,1,-1)<br>
+              　! need to normalise<br>
+              　　　a(:,irep)=a(:,irep)*ainv<br>
+              　　　b(:,irep)=b(:,irep)*ainv<br>
+              　　END DO<br>
+              　! $OMP end parallel<br>
+              　　t2=clips_time()<br>
+              　! assume 5nLOG2(n) ops - really only for radix 2<br>
+              　! and its done it twice!<br>
+              　　ops=log(1.0d0*n)/log(2.0d0)*n*nrep*10<br>
+              　　DO i=1,n<br>
+              　　　IF(abs(a(i,1)-1.0d0)+abs(b(i,1)-0.0d0)&gt;1.0d-4)THEN<br>
+              　　　　WRITE(6,'('' error in result'',i4,2g12.5)')i,a(i,1)<br>
+              　　　　STOP<br>
+              　　　END IF<br>
+              　　END DO<br>
+              　　t=t2-t1<br>
+              　　WRITE(6,200) n,nrep,ops,t,ops/(t*1.0D6)<br>
+              200 FORMAT(i5,i6,3(1pe12.3))<br>
+              　　DEALLOCATE(a,b)<br>
+              　　END DO<br>
+              998 WRITE(6,*) 'end of data reached'</font></p>
+            <p><font color="#000000">　　END PROGRAM ffttest</font></p>
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<STYLE TYPE="text/css">
+<!--
+BODY {background-image:   url(../../../images/htmls/Slicebg.jpg);
+background-position: right bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body  leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr> 
+    <td valign="top"> <br>
+      <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr> 
+          <td class="text" valign="top"> 
+            <p>　　锯齿对角存储格式首先把矩阵按照每行非零元素的个数进行排序，然后按照近似对角线的格式进行存储。这种格式采用三个向量：伪对角线元素值向量V、列序号向量J、起始位置向量I。这种存储方式首先在原矩阵的基础上通过行置换构造一个新的矩阵，使得矩阵的行是按照非零元素的数目从上到下一次减少，然后基于这个中间矩阵来设置存储格式。V是一个长度为q的向量，其中q是矩阵中非零元素的数目。值向量V中首先顺次存放中间矩阵各行的第一个非零元素，然后是各行的第二个元素，依次类推。向量J存放V中各个元素的列坐标。向量I存放各个锯齿对角线的其实位置。示例见图6.4.5。<br>
+              　　<img src="../../../images/img_text/ch06/6_4_5_1.gif" width="383" height="165"><br>
+              　　　　　　　(a) 　　　　　　　　　　　　　(b)<br>
+　　<img src="../../../images/img_text/ch06/6_4_5_2.gif" width="390" height="153"><br>
+              <br>
+              　　　　　　　　　　　　　　　　(c)<br>
+              　　　　　　　　　　图6.4.5 锯齿对角存储格式示例<br>
+              　　　(a) 稀疏矩阵；(b) 行调整之后的中间矩阵；(c) 锯齿对角存储方式</p>
+            <p>　　<font color="#000000">设各行中非零元素的最大数目是m，则值向量V和列序号向量J的存储量分别是qf和qd，向量I的存储量是md，总的存储量是：<br>
+              　　　　　　　　<img src="../../../images/img_text/ch06/89.gif" width="112" height="21"></font></p>
+          </td>
+        </tr>
+      </table>
+      <br>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<STYLE TYPE="text/css">
+<!--
+BODY {background-image:   url(../../../images/htmls/Slicebg.jpg);
+background-position: right bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body  leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr> 
+    <td valign="top"> <br>
+      <table width="94%" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr> 
+          <td class="text" valign="top"> 
+            
+<p>　　　　　<img src="../../../images/img_text/ch06/181.gif" width="458" height="368"><br>
+              　　　　　　　图6.6.5 矩阵A和最短路向量d在各个处理器的分布<br>
+              <br>
+              　　设处理器个数为p，图G中共有n个结点，采用邻接矩阵的存储方式存储于矩阵A中。对矩阵A进行列方向的条带状划分，使得每个处理器上存储n/p列，参见图6.6.5。最短路向量d也按照各个元素对应的结点分布到相应的处理器上。<br>
+              <br>
+              　　对于每次迭代，各个处理器上所进行的计算主要是求最小值和更新向量d，这需要消耗<img src="../../../images/img_text/ch06/182.gif" width="48" height="18" align="absmiddle">的时间。每次迭代中求最短边需要各个处理器之间的通信，并且新插入的最小树中的结点u也要通知给所有的处理器，这就需要一个全局求极值的通信过程和一个一到多广播的通信过程。<br>
+              <br>
+              　　对于超立方体互联结构，求全局极值和一到多广播所需要的通信时间都是<img src="../../../images/img_text/ch06/183.gif" width="77" height="21" align="absmiddle">，这样n次迭代总的时间（包括计算时间和通信时间）为：<br>
+              　　　　　　　　<img src="../../../images/img_text/ch06/184.gif" width="138" height="40" align="absmiddle"><br>
+              　　由于串行处理时间为<img src="../../../images/img_text/ch06/185.gif" width="38" height="18" align="absmiddle">，因此加速比为：<br>
+              　　　　　　　　<img src="../../../images/img_text/ch06/186.gif" width="134" height="60"><br>
+              　　效率为：<br>
+              　　　　　　　　<img src="../../../images/img_text/ch06/187.gif" width="108" height="54"><br>
+              　　算法的成本为：<br>
+              　　　　　　　　<img src="../../../images/img_text/ch06/188.gif" width="153" height="23" align="absmiddle"><br>
+              　　对于二维网格互联结构，求全局极值和一对多通信需要的时间都是<img src="../../../images/img_text/ch06/189.gif" width="43" height="23" align="absmiddle">，因此n次迭代总的时间（包括计算时间和通信时间）为：<br>
+              　　　　　　　　<img src="../../../images/img_text/ch06/190.gif" width="128" height="40" align="absmiddle"><br>
+              　　由于串行处理时间为 ，因此加速比为：<br>
+              　　　　　　　　<img src="../../../images/img_text/ch06/191.gif" width="124" height="60"><br>
+              　　效率为：<br>
+              　　　　　　　　<img src="../../../images/img_text/ch06/192.gif" width="91" height="55"><br>
+              　　算法的成本为：<br>
+              　　　　　　　　<img src="../../../images/img_text/ch06/193.gif" width="134" height="23"><br>
+            </p>
+            </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+</body>
+</html>

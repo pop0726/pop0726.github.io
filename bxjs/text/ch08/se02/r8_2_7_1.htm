@@ -1,0 +1,183 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<STYLE TYPE="text/css">
+<!--
+BODY {background-image:   url(../../../images/htmls/Slicebg.jpg);
+background-position: right bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body  leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr> 
+    <td valign="top" height="20">&nbsp; </td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr> 
+          <td class="text" valign="top"> 
+            <p>　　<b>REDUCTION变量说明</b><br>
+              <br>
+              　　REDUCTION的概念我们在第七章中已经介绍过，但主要偏重于集合通信中的通信部分。（思考：既然对共享存储的计算机系统来说，程序员不用考虑通信，为什么还要提供一个REDUCTION操作？）。由于对很多的循环，REDUCTION操作是造成它们不可并行化的一个重要原因，所以，OpenMP提供了对REDUCTION变量的说明机制，来解决这种问题。和消息通信程序中的REDUCTION操作一样，在实现的时候，OpenMP中的REDUCTION操作也是先由各工作线程先并行算出自己的局部结果（思考：为什么可以这么做？），然后再合并这些局部结果最后在主线程处得到最后的结果）。 
+              <br>
+              <br>
+              　　REDUCTION变量是作为一些指导语句的子句出现的，它的形式如下：</p>
+            <p>　　REDUCTION({操作符|intrinsic函数名}：变量列表)</p>
+            <p>　　可以被说明为REDUCTION变量的变量所出现的语句只能是下面的形式：</p>
+            <p>　　● x = x operator expr<br>
+              　　● x = expr operator x (减法操作除外)<br>
+              　　● x = intrinsic_procedure_name( x, expr_list )<br>
+              　　● x = intrinsic_procedure_name( expr_list, x )</p>
+            <p>　　其中，x是一个基本数据类型的标量变量，<br>
+              　　operator是归约操作符，它可以取如下的值：<br>
+              　　● +<br>
+              　　● -<br>
+              　　● *<br>
+              　　● .AND.<br>
+              　　● .OR.<br>
+              　　● .EQV.<br>
+              　　● .NEQV.<br>
+              　　expr为一个标量表达式，在expr中不能再出现归约变量x;<br>
+              <br>
+              　　intrinsic_procedure_name是intrinsic函数名称，它可以是如下的操作：<br>
+              　　● MAX<br>
+              　　● MIN<br>
+              　　● IAND<br>
+              　　● IOR<br>
+              　　● IEOR<br>
+              　　expr_list是一个逗号分割的，非空的标量表达式列表，其中的表达式不能再包含x，当intrinsic_procedure_name为IAND, 
+              IOR或者IEOR的时候，expr_list中只能出现一个表达式。<br>
+              <br>
+              　　有的时候，一些归约操作可以以其它的形式出现，比如，一个标准的MAX归约操作可能会以下面的形式出现：<br>
+              　　　IF( x .LT. expr ) x = expr<br>
+              　<br>
+              　　有的时候，归约操作可能会被包含在子过程调用中，因此，在说明归约操作属性的时候，用户需要确定被说明的变量满足归约操作的类型。 
+              <br>
+              <br>
+              　　各种归约变量的通常情况下的初始值由下表给出：<br>
+            </p>
+            <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#000000">
+              <tr bgcolor="#CCCCCC"> 
+                <td class="text" width="50%"> 
+                  <div align="center"><b>操作名称</b></div>
+                </td>
+                <td class="text" width="50%"> 
+                  <div align="center"><b>初始值（实际的初始值与类型有关）</b></div>
+                </td>
+              </tr>
+              <tr bgcolor="#FFFFFF"> 
+                <td class="text" width="50%"> 
+                  <div align="center">+</div>
+                </td>
+                <td class="text" width="50%"> 
+                  <div align="center">0</div>
+                </td>
+              </tr>
+              <tr bgcolor="#FFFFFF"> 
+                <td class="text" width="50%"> 
+                  <div align="center">*</div>
+                </td>
+                <td class="text" width="50%"> 
+                  <div align="center">1</div>
+                </td>
+              </tr>
+              <tr bgcolor="#FFFFFF"> 
+                <td class="text" width="50%"> 
+                  <div align="center">-</div>
+                </td>
+                <td class="text" width="50%"> 
+                  <div align="center">0</div>
+                </td>
+              </tr>
+              <tr bgcolor="#FFFFFF"> 
+                <td class="text" width="50%"> 
+                  <div align="center">.AND</div>
+                </td>
+                <td class="text" width="50%"> 
+                  <div align="center">.TRUE.</div>
+                </td>
+              </tr>
+              <tr bgcolor="#FFFFFF"> 
+                <td class="text" width="50%"> 
+                  <div align="center">.OR.</div>
+                </td>
+                <td class="text" width="50%"> 
+                  <div align="center">.FALSE.</div>
+                </td>
+              </tr>
+              <tr bgcolor="#FFFFFF"> 
+                <td class="text" width="50%"> 
+                  <div align="center">.EQV.</div>
+                </td>
+                <td class="text" width="50%"> 
+                  <div align="center">.TRUE.</div>
+                </td>
+              </tr>
+              <tr bgcolor="#FFFFFF"> 
+                <td class="text" width="50%"> 
+                  <div align="center">.NEQV.</div>
+                </td>
+                <td class="text" width="50%"> 
+                  <div align="center">.FALSE.</div>
+                </td>
+              </tr>
+              <tr bgcolor="#FFFFFF"> 
+                <td class="text" width="50%"> 
+                  <div align="center">MAX</div>
+                </td>
+                <td class="text" width="50%"> 
+                  <div align="center">系统最小数（与类型有关）</div>
+                </td>
+              </tr>
+              <tr bgcolor="#FFFFFF"> 
+                <td class="text" width="50%"> 
+                  <div align="center">MIN</div>
+                </td>
+                <td class="text" width="50%"> 
+                  <div align="center">系统最大数（与类型有关）</div>
+                </td>
+              </tr>
+              <tr bgcolor="#FFFFFF"> 
+                <td class="text" width="50%"> 
+                  <div align="center">IAND</div>
+                </td>
+                <td class="text" width="50%"> 
+                  <div align="center">所有位均为1</div>
+                </td>
+              </tr>
+              <tr bgcolor="#FFFFFF"> 
+                <td class="text" width="50%"> 
+                  <div align="center">IOR</div>
+                </td>
+                <td class="text" width="50%"> 
+                  <div align="center">0</div>
+                </td>
+              </tr>
+              <tr bgcolor="#FFFFFF"> 
+                <td class="text" width="50%"> 
+                  <div align="center">IEOR</div>
+                </td>
+                <td class="text" width="50%"> 
+                  <div align="center">0</div>
+                </td>
+              </tr>
+            </table>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+</body>
+</html>

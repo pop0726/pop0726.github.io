@@ -1,0 +1,93 @@
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<link rel="stylesheet" href="../../css/text.css" type="text/css">
+<style type="text/css">
+<!--
+.bodybg {
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-position: right bottom;
+}
+-->
+</style>
+</head>
+
+<body class="bodybg" bgcolor="#FFFFFF" text="#000000" background="../../../../../images/htmls/openwin/bg.jpg" text="#000000" leftmargin="0" topmargin="0" rightmargin="0" bottommargin="0" marginwidth="0" marginheight="0">
+<center><table width="95%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+      <td class=text> 
+        <p><b>一、 问答题答案</b></p>
+        <p>问答第1题<br>
+          &nbsp;&nbsp;&nbsp;&nbsp; 设<img src="../../images/da3_1_1.gif" width="55" height="15" align="absmiddle"> 
+          。 <br>
+          &nbsp;&nbsp;&nbsp;&nbsp; 根据输出数据划分：<br>
+          &nbsp;&nbsp;&nbsp;&nbsp; C 的(i,j) 位置上的元素是A 的第i 行和B 的第j 列相应元素相乘并相加的结果。只要知道了A 
+          的一行和B 的一列，就可以计算C 中相应的元素。因此，可以将计算C 中的每个元素作为一个子任务，共m×k个子任务。<br>
+          &nbsp;&nbsp;&nbsp;&nbsp; 另一方面，C 的第j 列可以看成是A 与B 的第j 列（按照矩阵乘法）相乘得到的。因此，可以将计算C 
+          的每一列作为一个子任务，共有k个子任务。同理，可将计算C 的各行作为子任务。<br>
+          &nbsp;&nbsp;&nbsp;&nbsp; 根据输入数据划分：<br>
+          &nbsp;&nbsp;&nbsp;&nbsp; 以A 为9×5矩阵，B 为5×8矩阵为例来说明。此时C 为9×8矩阵。从输入数据的角度，可将A 
+          分为一些"块行"、将B 分为一些"块列"进行相乘。例如将A 的每3行看成一个块，这样A 被分为3块，每块是一个3×5矩阵。将B 每2列看成一个"块列"，B 
+          被分成4块，每块是一个5×2矩阵。A 的一块和B 的一块相乘，得到C 的一块。于是可以将原问题分成12个任务，每个任务计算A 的一块与B 
+          的一块相乘得到C 中的一块，然后再将各计算结果拼成完整的C 。<br>
+          <br>
+          问答第2题<br>
+          &nbsp;&nbsp;&nbsp;&nbsp; 在第 <img src="../../images/da3_2_1.gif" width="132" height="21" align="absmiddle">轮计算结束后结点 
+          <img src="../../images/da3_2_2.gif" width="213" height="23" align="absmiddle">上的部分和与结点<img src="../../images/da3_2_3.gif" width="38" height="23" align="absmiddle">上的部分和分为一个组，在下一轮中相加。<br>
+          <br>
+          问答第3题&nbsp;&nbsp;&nbsp;&nbsp; <br>
+          &nbsp;&nbsp;&nbsp;&nbsp; "先求和，后广播"法：求和过程如下图所示 <br>
+        </p>
+        <center>
+          <img src="../../images/da3_3_1.gif" width="387" height="245"> 
+        </center>
+        <p><br>
+          &nbsp;&nbsp;&nbsp;&nbsp; 因为<img src="../../images/da3_3_2.gif" width="46" height="20" align="absmiddle">，所以该图中共有<img src="../../images/da3_3_3.gif" width="32" height="18" align="absmiddle">层"结点"。设最上一层为第0层，从上向下依次编号，则第<img src="../../images/da3_3_4.gif" width="11" height="13" align="absmiddle">层有<img src="../../images/da3_3_5.gif" width="12" height="11">个结点。除了最下面一层中的结点，每个结点对应于在一个处理器上进行一次加法。因此共需<br>
+          <center>
+            <img src="../../images/da3_3_6.gif" width="126" height="37"> 
+          </center>
+          次加法。第<img src="../../images/da3_3_4.gif" width="11" height="13" align="absmiddle">层和第<img src="../../images/da3_3_7.gif" width="30" height="16" align="absmiddle">层之间有<img src="../../images/da3_3_5.gif" width="12" height="11" align="absmiddle">个通信，因此共需<br>
+          <center>
+            <img src="../../images/da3_3_8.gif" width="148" height="37"> 
+          </center>
+          次通信。但是，因为同一层中的加法可以并行执行，所以全部加法实际只需要<em>K</em> 次加法的时间。同理，同一层中的通信也可以并行执行，因此通信需要<em>K</em> 
+          次通信的时间。<br>
+          &nbsp;&nbsp;&nbsp;&nbsp; 在广播结果阶段，显然需要<img src="../../images/da3_3_9.gif" width="47" height="18" align="absmiddle">次通信。由于同一层中的通信可以并行执行，只需要<em>K</em> 
+          次通信的时间。<br>
+          &nbsp;&nbsp;&nbsp;&nbsp; 如果采用第二种算法，除了最下面一层外，每个结点仍对应一次加法，因此需要<em>KN</em> 
+          次加法。每轮中，每个处理器要进行1次通信，因此共需<em>KN</em> 次通信。由于同一层中的加法可以并行，因此所有加法只需要<em>K</em> 
+          次加法的时间。同一层中的通信也能并行执行，但每个处理器既要发送也要接收，这两个操作不一定能并行执行，因此实际的通信开销与并行的方式有关。 
+          <br>
+          <br>
+          问答第4题<br>
+          &nbsp;&nbsp;&nbsp;&nbsp; 5点格式的迭代公式为 <br>
+          <center>
+            <img src="../../images/da3_4_1.gif" width="431" height="35"> 
+          </center>
+          &nbsp;&nbsp;&nbsp;&nbsp; 设在二维网格上实现迭代。对区域进行2维划分，每个格点的计算任务（即计算X<sub>ij</sub> 
+          ）分配给处于(i,j) 位置上的处理器。于是，(i,j) 位置上的处理器要与其上、下、左、右的邻居处理器通信以获得 <img src="../../images/da3_4_2.gif" width="63" height="17" align="absmiddle"> 
+          ，<img src="../../images/da3_4_3.gif" width="64" height="17" align="absmiddle"> 
+          ，<img src="../../images/da3_4_4.gif" width="63" height="17" align="absmiddle"> 
+          ，<img src="../../images/da3_4_5.gif" width="64" height="17" align="absmiddle"> 
+          。算法可以具体设计如下：开始时各处理器被赋予初值，然后开始迭代。迭代由若干轮组成。第<em>K</em> 轮开始时先进行数值传递：所有的处理器同时将自己的值向右传递，并接收左方处理器传来的数值。然后用同样的方法，每个处理器将自己的数值分别传递给左、上、下方的邻居。此时每个处理器上已经有了上、下、左、右邻居处理器的数值，即(i,j) 
+          位置的处理器上有了<img src="../../images/da3_4_6.gif" width="63" height="17" align="absmiddle"> 
+          ，<img src="../../images/da3_4_7.gif" width="64" height="17" align="absmiddle"> 
+          ，<img src="../../images/da3_4_8.gif" width="63" height="17" align="absmiddle"> 
+          ，<img src="../../images/da3_4_9.gif" width="64" height="17" align="absmiddle"> 
+          。然后各处理器同时计算<img src="../../images/da3_4_10.gif" width="38" height="24" align="absmiddle"> 
+          ，并在计算结束时所有处理器进行同步。然后开始第<img src="../../images/da3_4_11.gif" width="32" height="18" align="absmiddle"> 
+          轮。<br>
+          &nbsp;&nbsp;&nbsp;&nbsp; 性能分析：在每一轮中，每个处理器要进行4次通信。 <br>
+          <!--czp-wenda-daan-->
+          <br>
+          <br>
+          　</p>
+      </td>
+  </tr>
+</table>
+  </center>
+
+</body>
+</html>

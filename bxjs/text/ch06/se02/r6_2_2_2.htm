@@ -1,0 +1,53 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<STYLE TYPE="text/css">
+<!--
+BODY {background-image:   url(../../../images/htmls/Slicebg.jpg);
+background-position: right bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body  leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr> 
+    <td valign="top" height="20">&nbsp; </td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr> 
+          <td class="text" valign="top"> 
+            
+<p>　　<b> 　　　　　　　　　<img src="../../../images/img_text/ch06/6_2_7.gif" width="300" height="262"></b><br>
+              　　图6.2.7 用格雷码把一个链映射到超立方体上（带箭头的粗实线表示链）<br>
+              <br>
+              　　设有n个元素待排序，p=2<sup>d</sup> 个处理器构成一个超立方体结构，则每个处理器上分布有n/p个元素。处理器之间虚拟为一个链状结构并沿着链从0到2<sup>d</sup>-1进行编号，然后根据格雷码（Gray-code）把处理器映射到一个超立方体上，见图6.2.7。算法分三个阶段：本地操作、远程交换、奇偶置换冒泡。<br>
+              <br>
+              　　第一阶段，各个处理器对本地的n/p个元素进行排序操作，复杂度为<img src="../../../images/img_text/ch06/21.gif" width="67" height="38" align="absmiddle">。<br>
+              <br>
+              　　第二个阶段分d个步骤。第1个步骤虚拟链上编号为0的处理器与编号为2<sup>d</sup>-1的处理器之间进行元素比较和交换操作，编号为1与2<sup>d</sup>-1的处理器之间进行元素比较和交换，……。总之是编号之和为2<sup>d</sup>-1的处理器之间两两进行元素比较和交换。第2个步骤把虚拟连拆成两个长度相等的子链，第一条链编号从0到2<sup>d-1</sup>-1，第二条链编号从2<sup>d-1</sup>到2<sup>d</sup>-1。然后对这两条链分别进行类似第一步的操作。第3个步骤在把步骤2的两条子链等拆分共形成4条链，每条子链进行步骤1的元素比较和交换操作。每一步骤需要花费<img src="../../../images/img_text/ch06/14.gif" width="48" height="18" align="absmiddle">的时间，<img src="../../../images/img_text/ch06/22.gif" width="56" height="18" align="absmiddle">步的时间花费为<img src="../../../images/img_text/ch06/23.gif" width="65" height="38" align="absmiddle">。<br>
+              <br>
+              　　第三个阶段按照上一小节所述的奇偶置换冒泡排序相类似的步骤，所不同的是当处理器之间没有元素交换时则终止循环。因为第一步操作使得距离自己本来的位置较远的元素移动到了较近的位置，所以第二步奇偶置换操作的循环次数将大大减少。设循环次数为r，则本阶段的复杂度为<img src="../../../images/img_text/ch06/24.gif" width="43" height="38" align="absmiddle">。<br>
+              <br>
+              　　把三个阶段的时间相加，得到整个算法的并行处理时间：<br>
+              　　　<img src="../../../images/img_text/ch06/25.gif" width="221" height="38" align="absmiddle"><br>
+              <br>
+              　　<font color="#000000">在n和p为定值的情况下，算法的效率决定于r。如果r很小，则本算法优于奇偶置换算法。如果r与p为同一量级，则本算法与奇偶置换算法的性能类似。</font><br>
+              <br>
+            </p>
+            </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

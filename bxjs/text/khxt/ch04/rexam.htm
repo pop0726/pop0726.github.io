@@ -1,0 +1,304 @@
+<html>
+<head>
+<STYLE TYPE="text/css">
+<!--
+BODY {background-image:   url(../../../images/htmls/Slicebg.jpg);
+background-position: right bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+<title>【课后习题】</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<link rel="stylesheet" href="css/text.css" type="text/css">
+<script language="JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+</head>
+<script language="JavaScript">
+function getresultcheck(form)
+{var mykeys=new Array();
+//  mykeys[0]="B";
+//czp-select-answer
+var answer=new Array();
+for(var I=0;I<mykeys.length;I++) answer[I]="";
+
+var every=form.elements;
+
+<!--czp-select-count-->
+for(var I=0;I<every.length;I++)
+{
+	if(every[I].type=="radio")
+	{
+		
+		if(every[I].checked)
+		{	
+	
+			var item=parseInt(every[I].name.substr(0));
+		
+			answer[item-1]+=every[I].value;
+		}
+	}				
+}
+
+var newcount="<html><head><STYLE TYPE=\"text/css\"><!--BODY {background-image:   url(../../../images/htmls/Slicebg.jpg);background-position: right bottom;background-repeat: no-repeat;background-attachment: fixed;}--></STYLE><title>谢谢您!</title></head><body ><center><h2><font color=red>您的测试结果</font></h2></center>";
+var totalscore=0;
+for(var I=0;I<answer.length;I++)
+{
+	if(answer[I]==mykeys[I])
+	{
+		var rstr="<font size=2>第"+(I+1)+"题答案正确!</font><br>";
+		newcount+=rstr;
+		totalscore+=1/(answer.length)*100;//每题分数
+	}else
+	{
+		var rstr="<font size=2>第"+(I+1)+"题答案错误!正确答案为"+mykeys[I]+"</font><br>";
+		newcount+=rstr;
+	}
+
+}
+
+newcount+="<br>您的总成绩为:";
+newcount+=Math.ceil(totalscore);
+newcount+="分";
+newwin=window.open("","","height=200,width=300,scrollbars=yes,resizable=no");
+newwin.document.write(newcount);}
+
+
+
+function getresultcheck1(form)
+{var mykeys=new Array();
+//  mykeys[0]="B";
+//czp-mulselect-answer
+var answer=new Array();
+for(var I=0;I<mykeys.length;I++) answer[I]="";
+
+var every=form.elements;
+
+<!--czp-mulselect-count-->
+for(var I=0;I<every.length;I++)
+{
+	if(every[I].type=="checkbox")
+	{
+		
+		if(every[I].checked)
+		{	
+	
+			var item=parseInt(every[I].name.substr(0));
+		
+			answer[item-1]+=every[I].value;
+		}
+	}				
+}
+
+var newcount="<html><head><STYLE TYPE=\"text/css\"><!--BODY {background-image:   url(../../../images/htmls/Slicebg.jpg);background-position: right bottom;background-repeat: no-repeat;background-attachment: fixed;}--></STYLE><title>谢谢您!</title></head><body ><center><h2><font color=red>您的测试结果</font></h2></center>";
+var totalscore=0;
+for(var I=0;I<answer.length;I++)
+{
+	if(answer[I]==mykeys[I])
+	{
+		var rstr="<font size=2>第"+(I+1)+"题答案正确!</font><br>";
+		newcount+=rstr;
+		totalscore+=1/(answer.length)*100;//每题分数
+	}else
+	{
+		var rstr="<font size=2>第"+(I+1)+"题答案错误!正确答案为"+mykeys[I]+"</font><br>";
+		newcount+=rstr;
+	}
+
+}
+
+newcount+="<br>您的总成绩为:";
+newcount+=Math.ceil(totalscore);
+newcount+="分";
+newwin=window.open("","","height=200,width=300,scrollbars=yes,resizable=no");
+newwin.document.write(newcount);}
+
+
+
+
+
+
+
+
+
+
+
+
+function check(){
+var mykeys=new Array();
+//czp-tiankong-answer
+//mykeys[0]="B";
+var answer=new Array();
+for(var I=0;I<mykeys.length;I++) answer[I]="";
+
+var every=zfl.elements;
+for(var I=0;I<every.length;I++)
+{
+if(every[I].type=="text")
+{
+ if(every[I].value!==null)
+ {
+ //var item=parseInt(every[I].name.substr(1))
+//  answer[item-1]+=every[I].value;
+  answer[I]+=every[I].value;
+  }
+ }
+}
+
+
+var newcount="<html><head><STYLE TYPE=\"text/css\"><!--BODY {background-image:   url(../../../images/htmls/Slicebg.jpg);background-position: right bottom;background-repeat: no-repeat;background-attachment: fixed;}--></STYLE><title>谢谢您!</title></head><body ><center><h2><font face=\"隶书\" size=\"5\" color=\"#000099\">您的测试结果</font></h2></center>";
+var totalscore=0;
+for(var i=0;i<answer.length;i++)
+{
+	if(answer[i]==mykeys[i])
+	{
+		var rstr="<font face=\"宋体\" size=2>第"+(i+1)+"个空答案正确!</font><br>";
+		newcount+=rstr;
+		totalscore+=1/(answer.length)*100;
+	}else
+	{
+		var rstr="<font face=\"宋体\" size=2>第"+(i+1)+"个空答案错误!正确答案为"+mykeys[i]+"</font><br>";
+		newcount+=rstr;
+	}
+
+}
+
+newcount+="<br><font face=\"宋体\" size=3><b>您的总成绩为:</b></font><font face=\"宋体\" size=3 color=red>";
+newcount+=Math.ceil(totalscore);
+newcount+="分</font><br>";
+newwin=window.open("","","height=400,width=400,scrollbars=yes,resizable=no");
+newwin.document.write(newcount);
+}
+
+</script>
+<body  bgcolor="#FFFFFF" text="#000000" topmargin=0>
+
+<center>
+  <br>
+  【课后习题】<br>
+  <br>
+  <table width="95%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+      <td class=text> 
+        <form>
+          
+        </form>
+        <form name="zfl">
+        </form>
+          <form>
+          <p><b>一、 问答题</b><br>
+            <br>
+            <br>
+            1、在讨论PRAM-CRCW时，我们说CRCW是最强的PRAM模型，还给出了四种不同的CRCW模型：公共PRAM-CRCW，任意PRAM-CRCW，优先PRAM-CRCW，求和PRAM-CRCW。可以在其他的PRAM模型上对一个PRAM-CRCW模型进行仿真，假设t是优先PRAM-CRCW上一个算法的运行时间，请给出这个算法在下面的模型上的运行时间上限： 
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;(1) 公共PRAM-CRCW <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;(2) 任意PRAM-CRCW <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;(3) PRAM-CREW <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;(4) PRAM-EREW <br>
+            <textarea name=jianda cols=50 rows=5></textarea>
+            <br>
+            <br>
+            <br>
+            <br>
+            2、考虑如下的PRAM-EREW模型：p个处理器，m个存储器。我们可以在一个p个处理器，每个处理器有m/p个存储器的消息传递结构的并行计算机上模拟这个模型。如果一个算法在这种PRAM-EREW上的运行时间是t，请给出这个算法在下面的体系结构上的运行时间上限：<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;(1) p处理器的环（ring）<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;(2) p处理器的二维网格（mesh）<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;(3) p处理器的超立方体（hypercube） <br>
+            <textarea name=jianda cols=50 rows=5></textarea>
+            <br>
+            <br>
+            <br>
+            <br>
+            3、假定处理器P<sub>i</sub>（1≤i≤n ）开始时存有数据di，所谓的前序累加求和（Prefix-Sum）指用 <img src="images/gongshi/2-1.gif" width="40" height="47" align="middle">来代替P<sub>i</sub>中的原始数据d<sub>i</sub> 
+            ，下面的算法给出了PRAM模型上的前序累加求和的算法：<br>
+            前序累加求和算法 <br>
+            输入：P<sub>i</sub>中保存有d<sub>i</sub> ，1≤i≤n<br>
+            输出：P<sub>i</sub>中的内容为 <br>
+            Program Prefix_sum <br>
+            Begin <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;for j=0 to <i>log</i>n - 1 do <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for k = 2j + 1 to 
+            n par-do <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            （i） &nbsp;&nbsp;P<sub>i</sub> = d<sub>i</sub> - 2<sup>j</sup> <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            （ii）&nbsp;&nbsp;d<sub>i</sub> = d<sub>i</sub> + d<sub>i</sub> - 2<sup>j</sup> 
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;endfor <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;endfor <br>
+            End. <br>
+            <br>
+            其中，Par-do表示不同的循环变量对应的计算可以并行执行 <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;(1) 以n = 8为例，按照上面的算法逐步计算出累加和。<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;(2) 分析算法时间复杂度。<br>
+            <textarea name=jianda cols=50 rows=5></textarea>
+            <br>
+            <br>
+            <br>
+            <br>
+          </p>
+          4、试分析以下用BSPLib并行求4个整数1，2，3，4的前序累加和的过程（参见图）。<br>
+          <br>
+<center>
+<img src="images/gongshi/4-1.gif" width="352" height="250"> 
+</center>
+<br>
+          <br>
+          程序如下：<br>
+          <p>/*用BSPLib求前序累加和*/<br>
+            #include "bsp.h"<br>
+            int bsp_allsums ( int x ) {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;int j, left, right;<br>
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;bsp_push_reg(&right, sizeof(int));<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;bsp_push_reg(&left, sizeof(int));<br>
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;right = x;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;for( j = 1 ; j < bsp_nprocs(); j * = 2) {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ( bsp_pid ( ) + 
+            j < bsp_nprocs ( ) )<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bsp_put ( bsp_pid( 
+            ) + j , &right, & left ,0 ,sizeof ( int ));<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bsp_sync( );<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if( bsp_pid ( ) > 
+            = j ) right + = left;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;bsp_pop_reg( &right );<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;bsp_pop_reg( &left );<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;return right ; <br>
+            }<br>
+            <br>
+            void main ( ) {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;bsp_begin ( bsp_nprocs( ) );<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf(" On %d sum 
+            is %d \n", bsp_pid( ), bsp_allsums (1 + bsp_pid ( ) ) );<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;bsp_end ( ) ;<br>
+            } </p>
+          <p>&nbsp; </p>
+          <p><br>
+            <textarea name=jianda cols=50 rows=5></textarea>
+            <br>
+            <br>
+            <br>
+            <!--czp-wenda-timu-->
+            <br>
+            <input type=button name=Button value=答案 案 onClick="MM_openBrWindow('text/examination/exam01_pop2.htm','','width=466,height=384')" class=pbox>
+            <input type='reset' name='Submit3' value='重置' class=pbox>
+            <br>
+          </p>
+          </form><form>
+        </form>
+        <form>
+        </form>
+      </td>
+  </tr>
+</table></center>
+
+</body>
+</html>

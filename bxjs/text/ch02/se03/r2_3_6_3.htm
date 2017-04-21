@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<STYLE TYPE="text/css">
+<!--
+BODY {background-image:   url(../../../images/htmls/Slicebg.jpg);
+background-position: right bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body  leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr> 
+    <td valign="top" height="20">&nbsp; </td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr> 
+          <td class="text" valign="top"> 
+            <p>　　<b>监听总线协议</b><br>
+              <br>
+              　　用来维护Cache一致性的协议（Cache一致性协议）通常可分为两类：监听总线协议和基于目录的协议。它们的区别在于监听总线协议需要并行机中的互连网络可以实现广播功能。监听总线协议（snoopy 
+              protocol）是指所有处理器都监听总线，当某个处理器修改了私有Cache中的数据后，它在总线上广播无效信息或更新后的数据，以使其它副本无效或更新其它副本。不难看出，这种协议可以使用在任何支持广播功能的并行系统中。写一次协议（write-once）是一种监听总线协议。下面我们以写一次协议为例，说明维护Cache一致性的具体过程。<br>
+              <br>
+              　　写一次协议是1983年由James Goodman提出的。这种协议综合了写直达和写回策略的优点。在Cache第一次更新数据时采用写直达策略，以后再次更新数据时则采用写回策略。在写一次协议中，Cache中的数据块有&quot;有效&quot;、&quot;无效&quot;、&quot;保留&quot;、&quot;重写&quot;四种状态。它们分别表示：<br>
+              　　&quot;有效&quot;（valid）：本数据块是系统中&quot;最新&quot;的数据，且没有被本地处理器重写过。<br>
+              　　&quot;无效&quot;（invalid）：本数据块已过时。<br>
+              　　&quot;保留&quot;（reserved）：本数据块读入Cache后只被写过一次，本数据块与存储器中的拷贝是一致的并且是正确的。<br>
+              　　&quot;重写&quot;（dirty）：本数据块不止一次被重写过，它是系统中唯一正确的数据块。此时存储器中的数据块也是过时的。<br>
+              <br>
+              　　当处理器读Cache时可能发生两种情况：（1）在Cache中有该数据块并且可以使用，比如该数据块处于&quot;有效&quot;、&quot;保留&quot;或&quot;重写&quot;状态。这时处理器直接读出数据块，数据块的状态不变；（2）在Cache中没有所需要的数据块或虽然该数据块存在但处于&quot;无效&quot;状态。总之，没有可以使用的数据块。此时触发&quot;读缺失&quot;（read-miss）事件，系统需将可使用的数据块调入Cache。具体步骤是：首先判断系统中是否存在处于&quot;有效&quot;、&quot;保留&quot;或&quot;重写&quot;状态的数据块。如果存在，将其调入Cache；如果不存在，则说明存储器中的数据块是唯一的拷贝，也是正确的拷贝。这时直接从存储器将数据块调入Cache。无论哪种情况，调入Cache中的数据块都被置为&quot;有效&quot;状态。<br>
+              <br>
+              　　当处理器写Cache时可能发生三种情况：（1）若所写的数据块在Cache中存在且处于&quot;有效&quot;状态，则采用写直达策略，即在写入Cache的同时更新存储器的相应数据块，并把Cache中数据块的状态置为&quot;保留&quot;，同时把其它Cache中这一数据块的副本置为&quot;无效&quot;状态；（2）若所写的数据块在Cache中存在且处于&quot;保留&quot;或&quot;重写&quot;状态，则将Cache中的数据块更新，但不更新存储器中的拷贝。此种情况下其它Cache中的拷贝必处于&quot;无效&quot;状态，因此不用向其它Cache发送无效命令；（3）所写的数据块在Cache中不存在或它在Cache中存在但处于&quot;无效&quot;状态，此时触发&quot;写缺失&quot;（write-miss）事件。此时系统首先要将正确的数据块调入Cache（调入的方法同&quot;读缺失&quot;情况），然后再写Cache。因为是第一次写，使用写直达策略，即同时更新存储器。然后将本地Cache中的数据块置为&quot;保留&quot;状态，将其它Cache中的数据块置为&quot;无效&quot;状态。<br>
+              <br>
+              　　还有其它的监听总线协议，比如Berkeley协议，Synapse协议，Firefly协议等。</p>
+            </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

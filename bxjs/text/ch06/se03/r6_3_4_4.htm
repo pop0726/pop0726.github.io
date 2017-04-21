@@ -1,0 +1,76 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<STYLE TYPE="text/css">
+<!--
+BODY {background-image:   url(../../../images/htmls/Slicebg.jpg);
+background-position: right bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body  leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr> 
+    <td valign="top"> 
+      <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr> 
+          
+<td class="text" valign="top"> 
+<p>　　本小节所介绍的DNS算法能够在p（p&lt;<span class="text">n<sup>3</sup></span>/logn）个处理器上得到<span class="text">n<sup>3</sup></span>/p的并行处理时间；在不小于<span class="text">n<sup>3</sup></span>/logn个处理器上得到logn的并行处理时间。算法是由Dekel，Nassimi和Sahni三个人提出的，以他们名字的首字母命名。<br>
+<br>
+　　先分析CREW PRAM体系结构上处理器个数p=<span class="text">n<sup>3</sup></span>的情况。由于矩阵相乘一共要进行<span class="text">n<sup>3</sup></span>次乘法运算，可以考虑给每个处理器分配一个乘法运算。分配办法是把a[i, 
+k]×b[k, j]分配给处理器<img src="../../../images/img_text/ch06/72.gif" width="113" height="22" align="absmiddle">。然后每个处理器独立地进行乘法运算。下一步是把处理器<img src="../../../images/img_text/ch06/73.gif" width="116" height="22" align="absmiddle">的内容加起来得到C[i, 
+j]，这可以在logn时间内完成。由于是PRAM结构，无需考虑通信开销，因此算法完成需要一个单位时间的乘法运算和logn时间的加法运算，即算法的并行执行时间为logn。<br>
+<br>
+　　进一步，为了得到更实用的算法，我们把网络互联结构考虑进去，以超立方体为例展开讨论。设处理器个数P=n<sup>3</sup>=2<sup>3d</sup>，为了说明问题，把处理器看成n个平面，每个平面上有n×n个处理器，参见图6.3.14。从图上可以看到，每个平面对应一个不同的k值。最初，对于参与乘积计算的两个矩阵A、B来说，每个矩阵都把自己的n<sup>2</sup>个元素分布在对应于k值为0的平面上，处理器P<sub>i,j,0</sub>存储A[i, 
+j]和B[i, j]。<br>
+<br>
+　　仍然象在CREW PRAM上那样，处理器P<sub>i,j,*</sub>计算行A[I, 
+*]和列B[*, j]的点积。不同的是，在CREW PRAM上，由于每个处理器都可以通过访问共享内存而获得计算所需要的数据，而超立方体结构中则需要通过处理器之间的通信把计算所需要的数据传送到目标处理器，使得处理器P<sub>i,j,k</sub>上存储有数据A[i, 
+k]和B[k, j]。<br>
+<br>
+　　把数据放置到合适的处理器上可以通过两个通信步骤来实现。第一步把数据从k=0的平面复制到其它平面；第二步各个平面内部的数据扩散。第一步的数据复制机制可以用一句话来概括：把A[*, 
+j]复制到第k=j的平面；把B[i, *]复制到k=i的平面。第二步的数据扩散方式是：矩阵A的元素沿着j方向一对多通信复制；矩阵B的元素沿着i方向一对多通信复制。实例演示见图6.3.14。<br>
+<br>
+　　经过这两个通信步骤后，A[i, k]和B[k, j]的乘积就可以在处理器P<sub>i,j,k</sub>上进行了。处理器P<sub>i,j,*</sub>上的乘积求和后在P<sub>i,j,0</sub>上收集。<br>
+　　<br>
+　　很容易知道，上述两步通信过程加一步乘法计算和求和结果需要的时间是<img src="../../../images/img_text/ch06/74.gif" width="50" height="18" align="absmiddle">。因此，利用DNS并行算法在n<sup>3</sup>个处理器上需要<img src="../../../images/img_text/ch06/74.gif" width="50" height="18" align="absmiddle">的时间。<br>
+</p>
+<center>
+<img src="../../../images/img_text/ch06/6_3_14_1.gif" width="500" height="285"><br>
+(a) 　　　　&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp; 　　　　　(b)<br>
+<img src="../../../images/img_text/ch06/6_3_14_2.gif" width="500" height="285"><br>
+(c) 　　　&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+　　　　　　　　　　　(d) 
+</center>
+<p><br>
+　　图6.3.14 DNS算法的演示（在64个处理器上完成两个4×4矩阵的相乘运算）<br>
+<br>
+　　当处理器个数p&lt;n<sup>3</sup>时，推理过程与上述相似。现在基于超立方体结构和切通路由（Cut-Through 
+Routing）来进行其时间性能分析。在前两步通信操作中，第一步对每个矩阵需要花费<img src="../../../images/img_text/ch06/75.gif" width="129" height="22" align="absmiddle">的时间；第二个通信步骤中每个矩阵需要花费<img src="../../../images/img_text/ch06/76.gif" width="134" height="22" align="absmiddle">的时间；最后一步乘法计算需要(n/q)<sup>3</sup>的时间，而结果收集需要的通信时间是<img src="../../../images/img_text/ch06/77.gif" width="134" height="22" align="absmiddle">。上述时间求和，得DNS矩阵乘法的时间大约为：<br>
+　　　　　　　　　<img src="../../../images/img_text/ch06/78.gif" width="200" height="38" align="absmiddle"><br>
+　　又因为q=p1/3，因此有：<br>
+　　　　　　　　　<img src="../../../images/img_text/ch06/79.gif" width="183" height="41" align="absmiddle"><br>
+　　成本为：<br>
+　　　　　　　　　<img src="../../../images/img_text/ch06/80.gif" width="206" height="23" align="absmiddle"><br>
+<br>
+　　<font color="#000000">从上式可以知道，当<img src="../../../images/img_text/ch06/81.gif" width="95" height="21" align="absmiddle">时，<img src="../../../images/img_text/ch06/82.gif" width="75" height="23" align="absmiddle">，这说明当<img src="../../../images/img_text/ch06/81.gif" width="95" height="21" align="absmiddle">时，DNS算法能够在p（</font>p&lt;<font color="#000000"><span class="text">n<sup>3</sup></span></font>/logn<font color="#000000">）个处理器上得到<span class="text">n<sup>3</sup></span></font>/p<font color="#000000">的并行处理时间。</font></p>
+            </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

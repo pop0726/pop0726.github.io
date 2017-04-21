@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<STYLE TYPE="text/css">
+<!--
+BODY {background-image:   url(../../../images/htmls/Slicebg.jpg);
+background-position: right bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body  leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr> 
+    <td valign="top" height="20">&nbsp; </td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr> 
+          <td class="text" valign="top"> 
+            <p>　<b>　缓冲通信模式</b><br>
+              <br>
+              　　由于（系统）缓冲区的申请和管理是由开销的，有的时候用户可能需要对这个缓冲区的直接控制，在这种情况下，缓冲区的申请和释放都由用户负责。这种通信模式称为缓冲通信模式。<br>
+              <br>
+              　　这种模式主要包括三个函数：<br>
+              　　MPI_BSEND( buf, count, datatype, dest, tag, comm)<br>
+              　　IN buf<br>
+              　　IN count<br>
+              　　IN datatype<br>
+              　　IN dest<br>
+              　　IN tag<br>
+              　　IN comm</p>
+            <p>　　int MPI_Bsend( void *buf, int count, MPI_Datatype datatype, int 
+              dest,<br>
+              　　int tag, MPI_Comm comm)；</p>
+            <p>　　除了缓冲区（不是指buf）的差别外，MPI_BSEND的参数含义和MPI_SEND完全相同。对缓冲通信模式，没有提供专门的接收函数，接收进程应该使用标准的MPI_RECV调用。</p>
+            <p>　　MPI_BUFFER_ATTACH( buffer, size )<br>
+              　　IN buffer 缓冲区起始地址<br>
+              　　IN size 缓冲区的容量</p>
+            <p>　　int MPI_Buffer_attach( void *buffer, int size )；</p>
+            <p>　　这个调用将用户已分配空间的缓冲区buffer提交给MPI系统，作为(系统)数据发送缓冲区。因此，在调用这个操作以前，用户必须保证已经成功的得到了（分配了）size大小空间的一块连续缓冲区。在使用MPI_Bsend前必须使用这个调用。</p>
+            <p>　　MPI_BUFFER_DETACH( buffer, size )<br>
+              　　OUT buffer<br>
+              　　OUT size</p>
+            <p>　　int MPI_Buffer_detach( void **buffer, int *size )；</p>
+            <p>　　这个调用会收回缓冲区的空间（但不会释放掉这部分内存，因此在使用完后需要对buffer进行空间的释放操作），在收回空间前，这个调用会保证缓冲区内的消息都被发送出去，因此这个调用也可以被用来作为I/O操作中的flush函数来使用。<br>
+            </p>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

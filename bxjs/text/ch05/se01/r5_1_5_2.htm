@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<STYLE TYPE="text/css">
+<!--
+BODY {background-image:   url(../../../images/htmls/Slicebg.jpg);
+background-position: right bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body  leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr> 
+    <td valign="top" height="20">&nbsp; </td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr> 
+          <td class="text" valign="top"> 
+            
+<p>　　<img src="../../../images/img_text/ch05/33.gif" width="490" height="500"><br>
+              <br>
+              　　虚拟处理器j（从0开始编号）用标号为j mod p的物理处理器来模拟。原算法的logn个步骤中的前logp个步骤由p个处理器进行仿真，共(n/p)logp个步骤，在其余的步骤中，不再进行通信，因为需要通信的虚拟处理器现在都由同一个物理处理器进行仿真，因此，剩下的数据都在局部进行计算。这个算法需要<img src="../../../images/img_text/ch05/34.gif" width="101" height="21" align="absmiddle">个通信步骤，这以后，一个处理器需要将n/p个数据进行累加，这需要<img src="../../../images/img_text/ch05/35.gif" width="56" height="21" align="absmiddle"> 
+              个时间步，因此，这个并行系统的总的并行运行时间为<img src="../../../images/img_text/ch05/36.gif" width="101" height="21" align="absmiddle">，而开销为<img src="../../../images/img_text/ch05/37.gif" width="71" height="21" align="absmiddle">，这要比串行的累加n个数的开销<img src="../../../images/img_text/ch05/38.gif" width="36" height="21" align="absbottom">要高，因此，这个并行系统并不是开销最优的。<br>
+              <br>
+              　　用n处理器的超立方体完成n个数的累加需要的时间为<img src="../../../images/img_text/ch05/39.gif" width="59" height="21" align="absmiddle">，当用p个处理器对n个处理器（p 
+              &lt; n）进行仿真时，预期的并行运行时间为<img src="../../../images/img_text/ch05/40.gif" width="100" height="21" align="absmiddle">，然而，在上面的例子中，并行运行时间为<img src="../../../images/img_text/ch05/41.gif" width="101" height="21" align="absmiddle">，这是因为原算法中的有些通信步骤是不用仿真的，虚拟处理器之间的通信有时由同一个物理处理器来进行仿真，比如，对第三和第四个步骤的仿真并不需要任何的通信。然而，通信的减少并不足以使算法变成开销最优的，下面的例子中采用更恰当的数据分布方案，得到的算法是开销最优的。</p>
+            </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

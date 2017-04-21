@@ -1,0 +1,39 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<STYLE TYPE="text/css">
+<!--
+BODY {background-image:   url(../../../images/htmls/Slicebg.jpg);
+background-position: right bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body  leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr> 
+    <td valign="top" height="20">&nbsp; </td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr> 
+          <td class="text" valign="top"> 
+            <p>　　<b>消息</b>（Message）是结点间通信的逻辑单位。它由任意数目的长度固定的包组成。包（Packet）是包含寻径目的地址的基本单位。包的长度由使用的协议决定。由于不同的包可能异步地到达目的结点，因此属于一个消息的每个包需要一个唯一的序号，以便在目的结点可以将包按照正确的顺序重新装配起来。进一步可以将包分成一些固定长度的片（flit）。寻径信息和序号形成头片，其余的片是数据片。它们的关系如下图所示。<br>
+              　　<img src="../../../images/img_text/ch02/p2_3_1.gif" width="467" height="178"><br>
+              <br>
+              　　如果源结点和目的结点不相邻，则源结点发送的消息需要通过若干中间结点中转才能到达目的结点。决定究竟由哪些中间结点来中转，就相当于确定出一条从源结点到目的结点的路径。决定消息从源结点到目的结点的路径的算法称为<b>网络寻径算法</b>。网络寻径算法可以分为<b>最短路算法</b>和<b>非最短路算法</b>。最短路算法总是选择一条源结点和目的结点之间的最短路径来传递消息。非最短路算法选择的通信路径则不一定是最短路。寻径算法还可以分为<b>确定性算法</b>和<b>可适应算法</b>。确定性算法是指路径的选择只依赖于消息的源结点和目的结点，与网络当时的状态无关，亦即，寻找的路径是预先唯一确定的。可适应算法则根据网络当时的情况选择路径。因此即使对于相同的源结点和目的结点，每次选择的路径也可能不同。</p>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

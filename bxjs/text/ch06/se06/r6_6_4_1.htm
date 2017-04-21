@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<STYLE TYPE="text/css">
+<!--
+BODY {background-image:   url(../../../images/htmls/Slicebg.jpg);
+background-position: right bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body  leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr> 
+    <td valign="top"> <br>
+      <table width="94%" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr> 
+          
+<td class="text" valign="top"> 
+<p>　　矩阵相乘法的核心思想是通过n次迭代，第k次迭代得到任意两个结点间边的条数最多为k时的最短路径。图采用赋权邻接矩阵的存储结构，邻接矩阵的各个元素实际上是两个结点间直接连线的权重。设<img src="../../../images/img_text/ch06/194.gif" width="28" height="25" align="middle">是从结点v<sub>i</sub>到v<sub>j</sub>的最短路，前提是路径最多包含k条边；并设<img src="../../../images/img_text/ch06/195.gif" width="27" height="25" align="middle">是<img src="../../../images/img_text/ch06/194.gif" width="28" height="25" align="middle">的长度。设<img src="../../../images/img_text/ch06/194.gif" width="28" height="25" align="middle">的倒数第二个结点是v<sub>m</sub>，则有：<img src="../../../images/img_text/ch06/196.gif" width="139" height="25" align="middle">。这样得到下面的递推式：<br>
+　　　　　　　　　<img src="../../../images/img_text/ch06/197.gif" width="288" height="35"><br>
+　　又因为结点到自己的最短路径为0，因此上式简化为：<br>
+　　　　　　　　　<img src="../../../images/img_text/ch06/198.gif" width="197" height="33"><br>
+　　设D<sup>(k)</sup>=(<img src="../../../images/img_text/ch06/195.gif" width="27" height="25" align="middle">)，因为G任意两点之间的最短路径不会超过图的边数（否则会出现环，必不为最短），因此D<sup>(n-1)</sup>为问题的解。在上面的递归表达式中，如果把加法看成乘法，把求最小值看成加法，则形式上等同于矩阵相乘，即形式上可以表达为： 
+<br>
+　　　　　　　　　<img src="../../../images/img_text/ch06/199.gif" width="106" height="19"><br>
+　　这样，问题就转化为利用特殊的加法和乘法求A<sup>n-1</sup>。利用折半乘法（<img src="../../../images/img_text/ch06/200.gif" width="270" height="34" align="middle">）可以只需要进行logn次矩阵乘法运算，见图6.6.6。由于每次矩阵乘法运算需要<img src="../../../images/img_text/ch06/166.gif" width="38" height="21" align="middle">的时间（这里仅仅考虑最简单的矩阵相乘算法，而不考虑快速算法），因此整个串行算法的时间复杂度为<img src="../../../images/img_text/ch06/201.gif" width="72" height="23" align="middle">。<br>
+　　　　<img src="../../../images/img_text/ch06/202.gif" width="500" height="499"><br>
+　　　　　　　　　　　图6.6.6 用矩阵自乘法求任意两点间最短距离的演示<br>
+</p>
+            </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+</body>
+</html>

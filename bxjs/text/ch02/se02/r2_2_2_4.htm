@@ -1,0 +1,60 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<STYLE TYPE="text/css">
+<!--
+BODY {background-image:   url(../../../images/htmls/Slicebg.jpg);
+background-position: right bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body  leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr> 
+    <td valign="top" height="20">&nbsp; </td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr> 
+          <td class="text" valign="top"> 
+            <p>　　（4）<b>均匀洗牌置换</b> 均匀洗牌置换是把输入端分成数目相等的两半，前一半和后一半按原顺序相间排列的置换。<font color="#000000">这种置换很像洗扑克牌时将整副牌分成相等的两叠来洗，以达到一张隔一张的均匀状况，由此而得名</font>。其表达式为<br>
+              　　<img src="../../../images/img_text/ch02/23.gif" width="325" height="32" align="absmiddle">，<br>
+              　　即均匀洗牌置换是将输入端地址的二进制编号循环左移一位的置换。它完成的变换如下图所示。<br>
+              　　　　　　<img src="../../../images/img_text/ch02/p2_2_4.gif" width="248" height="209">　　<br>
+              　　<br>
+              　　此外还可以定义子洗牌（subshuffle）<img src="../../../images/img_text/ch02/24.gif" width="37" height="34" align="absmiddle">和超洗牌（supershuffle）<img src="../../../images/img_text/ch02/25.gif" width="39" height="28" align="absmiddle">如下：<br>
+              　　<img src="../../../images/img_text/ch02/26.gif" width="279" height="51" align="absmiddle">，<br>
+              　　<img src="../../../images/img_text/ch02/27.gif" width="324" height="55" align="absmiddle">。<br>
+              　　可以看出，<img src="../../../images/img_text/ch02/24.gif" width="37" height="34" align="absmiddle">就是将输入端地址的二进制编号的低<img src="../../../images/img_text/ch02/28.gif" width="44" height="25" align="absmiddle">位循环左移1位，而<img src="../../../images/img_text/ch02/25.gif" width="39" height="28" align="absmiddle">就是将输入端地址的二进制编号的高<img src="../../../images/img_text/ch02/28.gif" width="44" height="25" align="absmiddle">位循环左移1位。显然有<br>
+              　　<img src="../../../images/img_text/ch02/29.gif" width="231" height="35" align="absmiddle"><br>
+              　　<img src="../../../images/img_text/ch02/30.gif" width="178" height="35" align="absmiddle"><br>
+              　　 <img src="../../../images/img_text/ch02/18.gif" width="55" height="25" align="absmiddle">，<img src="../../../images/img_text/ch02/19.gif" width="48" height="25" align="absmiddle">时<img src="../../../images/img_text/ch02/31.gif" width="35" height="34" align="absmiddle">与<img src="../../../images/img_text/ch02/32.gif" width="35" height="28" align="absmiddle">的变换情况如下图所示。　　　　　　<br>
+              　　　　　　　　　<img src="../../../images/img_text/ch02/p2_2_5_1.gif" width="247" height="244" align="absmiddle"><br>
+              　　　　　　　　　<img src="../../../images/img_text/ch02/p2_2_5_2.gif" width="249" height="243"><br>
+              <br>
+              　　从上图可以看出，子洗牌是将所有地址分成若干子组，对每个子组进行均匀洗牌变换。超洗牌虽然仍是对整组地址进行均匀洗牌变换，但是增加了变换的移位量。<br>
+              <br>
+              　　逆均匀洗牌是均匀洗牌的逆函数，即将输入端二进制地址循环右移1位。其函数表达式为<br>
+              　　　　　<img src="../../../images/img_text/ch02/33.gif" width="330" height="34" align="absmiddle"><br>
+              　　它所完成的变换如下图所示。与均匀洗牌相比，它们的输入端和输出端恰好互换了位置。<br>
+              　　　　　　　　<img src="../../../images/img_text/ch02/p2_2_6.gif" width="249" height="206"><br>
+              <br>
+              　　均匀洗牌和逆均匀洗牌是两种十分有用的互连函数，以它们与交换置换组合起来可构成Omega网络（即<img src="../../../images/img_text/ch02/34.gif" width="23" height="23" align="absmiddle">网络）与逆Omega网络（<img src="../../../images/img_text/ch02/35.gif" width="35" height="26" align="absmiddle">网络）。 
+              函数在实现多项式求值、矩阵转置和FFT（快速傅立叶变换）等并行运算以及并行排序等方面都有广泛的应用。<br>
+            </p>
+            </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

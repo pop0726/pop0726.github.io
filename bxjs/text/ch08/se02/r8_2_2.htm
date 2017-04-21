@@ -1,0 +1,99 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<STYLE TYPE="text/css">
+<!--
+BODY {background-image:   url(../../../images/htmls/Slicebg.jpg);
+background-position: right bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+-->
+</STYLE>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body  leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr> 
+    <td valign="top" height="20">&nbsp; </td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr> 
+          <td class="text" valign="top"> 
+            <p>　　OpenMP指导语句在程序中以特殊格式的程序注释出现。它的格式如下：</p>
+            <p>　　　　sentinel directive_name [clause[[,]clause]...]</p>
+            <p>　　它包含三个部分。sentinel是OpenMP指导语句的辨识符。directive_name给出指导语句的名称，clause是该指导语句的附加子句，子句之间用空格分隔。<br>
+              <br>
+              　　Sentinel以程序的注释标记符开头（<font color="#CC6633">思考：这有什么好处？答案：可以使一般的编译器也可以顺利编译OpenMP程序，只不过生成的是普通的串行程序</font>）。<br>
+              <br>
+              　　对固定程序格式的Fortran，sentinel可以是如下的三种形式：<br>
+              　　　　!$OMP<br>
+              　　　　C$OMP<br>
+              　　　　*$OMP<br>
+              　　<br>
+              　　它从程序的第一列开始，中间不能有空格。其他的固定程序格式的Fortran中的格式规则，比如程序行长度，大小写规则，空格，续行等等都适用于指导语句。这种形式下，指导语句的第六行必须是空格或0，续行符也必须出现在第六行。指导语句的关键字之间可以不用有空格。<br>
+              <br>
+              　　比如下面的例子：</p>
+            <p>　　C23456789(程序列标志：前九列)<br>
+              　　!$OMP PARALLEL DO SHARED(A,B,C)</p>
+            <p>　　C$OMP PARALLEL DO<br>
+              　　C$OMP+SHARED(A,B,C)</p>
+            <p>　　C$OMP PARALLELDOSHARED(A,B,C)</p>
+            <p>　　上面的三种形式在固定格式下具有相同的含义</p>
+            <p>　　对自由格式的Fortran程序，sentinel只能是下面的形式<br>
+              　　!$OMP<br>
+              　　它可以从程序中的任意列开始（只要它前面的列都是空白字符--空格和Tab字符就可以），它中间不能插入空格。其它的自由程序格式的Fortran程序的格式规则也同样适用于OpenMP指导语句。指导语句的续行符为&amp;，可以出现在指导语句整行的末尾，也可以出现在下一行的sentinel的后边。<br>
+              <br>
+              　　比如下面的例子：</p>
+            <p>　　!23456789<br>
+              　　　!$OMP PARALLEL DO &amp;<br>
+              　　　　!$OMP SHARED(A,B,C)</p>
+            <p>　　!$OMP PARALLEL &amp;<br>
+              　　!$OMP&amp;DO SHARED(A,B,C)</p>
+            <p>　　!$OMP PARALLEL DO SHARED(A,B,C)</p>
+            <p>　　上面三种形式等价。<br>
+              　　指导语句的关键字之间用空白字符分隔。但下面的关键字之间可以没有（也可以有）空白字符：</p>
+            <p>　　END CRITICAL<br>
+              　　END DO<br>
+              　　END MASTER<br>
+              　　END ORDERED<br>
+              　　END PARALLEL<br>
+              　　END SECTIONS<br>
+              　　END SINGLE<br>
+              　　END WORKSHARE<br>
+              　　PARALLEL DO<br>
+              　　PARALLEL SECTIONS<br>
+              　　PARALLEL BLOCK<br>
+              <br>
+              　　<b>OpenMP标准支持的条件编译</b><br>
+              　　条件编译语句在程序中也以注释的形式出现，他们只对OpenMP编译器有意义，其他不支持OpenMP的编译器会将它忽略。这是为解决非指导语句（比如OpenMP运行时函数调用和其他相关的语句）的可移植性而提出来的。<br>
+              <br>
+              　　对固定格式的Fortran程序，条件编译语句以<br>
+              　　　!$<br>
+              　　　C$<br>
+              　　　*$<br>
+              　　开头。其它的规则请详细阅读标准。下面是一个例子。</p>
+            <p>　　　C23456789<br>
+              　　　!$ 10 IAM = OMP_GET_THREAD_NUM +<br>
+              　　　!$ &amp; INDEX</p>
+            <p>　　　#ifdef _OPENMP<br>
+              　　　10 IAM = OMP_GET_THREAD_NUM +<br>
+              　　　&amp; INDEX<br>
+              　　　#endif</p>
+            <p>　　这两种形式等价。自由形式的Fortran程序条件编译语句以!$开头，这里不再详细描述。为了讨论方便，本文中采用自由形式的指导语句。 
+              <br>
+            </p>
+          </td>
+        </tr>
+      </table>
+      <br>
+    </td>
+  </tr>
+</table>
+</body>
+</html>
