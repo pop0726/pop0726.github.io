@@ -1,0 +1,66 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　7.2.2 图的邻接表存储表示</span><br>
+      <br>
+      　　类似于树的孩子链表，将和同一顶点&quot;相邻接&quot;的所有邻接点链接在一个单链表中，单链表的头指针则和顶点信息一起存储在一个一维数组中。<br>
+      <br>
+      <img src="../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle" alt="算法"> 
+      <span class="zhushi">图的邻接表存储表示 </span><br>
+      　　<b>const</b> MAX_VERTEX_NUM = 20;<br>
+      　　<b>typedef struct</b> ArcNode <b>{</b> <font face="Times New Roman, Times, serif">　　　//</font> 
+      弧结点的结构<br>
+      　　　<b>int</b> adjvex; <font face="Times New Roman, Times, serif">　　　　　　　　　//</font> 
+      该弧所指向的顶点的位置<br>
+      　　　<b>struct</b> ArcNode <b>*</b>nextarc;　<font face="Times New Roman, Times, serif">　　//</font> 
+      指向下一条弧的指针<br>
+      　　　VRType weight;　<font face="Times New Roman, Times, serif">　　　　　　　//</font> 
+      与弧相关的权值，无权则为0<br>
+      　　　InfoType <b>*</b>info; <font face="Times New Roman, Times, serif">　　　　　　　//</font> 
+      指向该弧相关信息的指针<br>
+      　　<b>}</b> ;<br>
+      　　<b>typedef struct</b> VNode <b>{</b><font face="Times New Roman, Times, serif">　　　　//</font> 
+      顶点结点的结构<br>
+      　　　VertexType data;　<font face="Times New Roman, Times, serif">　　　　　　//</font> 
+      顶点信息<br>
+      　　　ArcNode <b>*</b>firstarc;　<font face="Times New Roman, Times, serif">　　　　　//</font> 
+      指向第一条依附该顶点的弧<br>
+      　　<b>}</b> AdjList[MAX_VERTEX_NUM];<br>
+      　　<b>typedef struct {</b> <font face="Times New Roman, Times, serif">　　　　　　//</font> 
+      图的邻接表结构定义<br>
+      　　　AdjList vertices;<font face="Times New Roman, Times, serif">　　　　　　//</font> 
+      顶点数组<br>
+      　　　<b>int</b> vexnum, arcnum;<font face="Times New Roman, Times, serif">　　　　　//</font> 
+      图的当前顶点数和弧数<br>
+      　　　GraphKind kind;<font face="Times New Roman, Times, serif">　　　　　　　//</font> 
+      图的种类标志<br>
+      　　<b>}</b> ALGraph;<br>
+    </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      　按下页算法7.1建立的无向图G2<br>
+      　　　　<img src="../../../images/pic/chapter07/7_02.gif" width="150" height="113" align="top"><br>
+      <br>
+      　的邻接表如下所示：<br>
+      　　<img src="../../../images/pic/chapter07/7_13.gif" width="222" height="185" align="top"><br>
+      <br>
+      　依次输入的数据为：<br>
+      　　6 7 AG <br>
+      　　A B C D E F<br>
+      　　AB AE BE BF CD CF DF<br>
+      <br>
+      　　从算法可见，每生成一个弧的结点之后是按在第2章中惯用的&quot;倒插&quot;方法插入到相应顶点的邻接表中的。并且对于无向图，每输入一条边需要生成两个结点，分别插入在这条边的两个顶点的链表中。即无向图的邻接表中弧结点的个数为图中边的数目的两倍。<br>
+    </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

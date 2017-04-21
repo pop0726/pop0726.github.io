@@ -1,0 +1,84 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><br>
+      　　<span class="part">查找表</span>（Search Table）是由一些具有相同可辨认特性的数据元素（或记录）构成的集合。<br>
+      <br>
+      　　对查找表经常进行的操作有：<br>
+      　　（1）查询某个&quot;特定的&quot;数据元素是否在表中；<br>
+      　　（2）检索某个&quot;特定的&quot;数据元素的各种属性；<br>
+      　　（3）在查找表中插入一个数据元素；<br>
+      　　（4）从查找表中删除某个数据元素。<br>
+      <br>
+      　　在实际应用中的查找表通常可分两类：其中一类查找表在使用时主要作前两种统称为&quot;查找&quot;的操作，称此类查找表为<span class="part">静态查找表</span>（<b>S</b>tatic 
+      <b>S</b>earch <b>T</b>able）。<br>
+      <br>
+      　　若在对查找表进行查找的过程中，同时需要随时插入当前查找表中不存在的数据元素，或者从当前的查找表中删除已存在的某个数据元素，则称此类查找表为<span class="part">动态查找表</span>（<b>D</b>ynamic 
+      <b>S</b>earch <b>T</b>able）。<br>
+      　</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      　　由于&quot;集合&quot;中的数据元素之间的关系未作限定，因此在集合中查询或检索一个&quot;特定的&quot;数据元素时，无规律可遵循，只能对集合中的元素一一加以辨认直至找到为止。而这样的&quot;查询&quot;或&quot;检索&quot;是任何计算机应用系统中使用频度都很高的操作，因此设法提高查找表的查找效率，是本章讨论问题的出发点。<br>
+      <br>
+      　　在日常生活中，人们几乎每天都要进行&quot;查找&quot;工作。例如，在电话号码簿中查阅&quot;某单位&quot;或&quot;某人&quot;的电话号码，在字典中查阅某个&quot;字&quot;的读音和意义等等。&quot;电话号码簿&quot;和&quot;字典&quot;都可看作是静态查找表，而旅馆中留宿旅客的名单则是一个动态查找表。在各种系统软件或应用软件中，查找表是最常用的数据结构之一，如编译程序的符号表，信息处理系统的信息表等等。 
+    </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"> 　　<span class="part">关键字</span>（key）是数据元素中某个数据项的值，用它可以标识（识别）一个数据元素。若此关键字可以唯一地标识一个元素，则称此关键字为<span class="part">主关键字</span>（Primary 
+      key）（对不同的元素，其主关键字均不同）。反之，称用以识别若干元素的关键字为<span class="part">次关键字</span>（secondary 
+      key）。当数据元素只有一个数据项时，其关键字即为该数据元素的值。<br>
+      <br>
+      　　<span class="part">查找</span>（searching）根据给定的某个值，在查找表中确定一个其关键字等于给定值的数据元素。若表中存在这样的一个元素，则称查找是成功的，此时查找的结果为给出整个数据元素的信息，或指示该数据元素在查找表中的位置；若表中不存在这样的元素，则称查找不成功，此时查找的结果可给出一个&quot;<b>null</b>&quot;元素（或空指针）。<br>
+      <br>
+      　　如何评价查找算法的时间效率？由于查找算法中为确定其关键字等于给定值的数据元素的基本操作为&quot;关键字和给定值相比&quot;，因此通常以查找过程中关键字和给定值比较的平均次数作为比较查找算法的度量依据。<br>
+      <br>
+      　　<span class="zhushi">定义：</span>查找过程中先后和给定值进行比较的关键字个数的期望值称作查找算法的<span class="point"><b>平均查找长度</b>(<b>A</b>verage 
+      <b>S</b>earch <b>L</b>ength)</span>。<br>
+      <br>
+      　　对于含有 n 个记录的查找表，查找成功时的平均查找长度为<br>
+      　　　<img src="../../../images/pic/chapter09/gs_1.gif" width="106" height="42"><br>
+      　　其中：<img src="../../../images/pic/chapter09/pi.gif" width="15" height="12" align="absbottom"> 
+      为查找表中第 i 个记录的概率，且<br>
+      　　　<img src="../../../images/pic/chapter09/gs_2.gif" width="68" height="45"><br>
+      <br>
+      　　<img src="../../../images/pic/chapter09/ci.gif" width="13" height="17" align="absmiddle"> 
+      为找到表中第 i 个记录（其关键字等于给定值）时，曾和给定值进行过比较的关键字的个数，显然，<img src="../../../images/pic/chapter09/ci.gif" width="13" height="17" align="absmiddle"> 
+      的值将随查找过程的不同而不同。<br>
+      <br>
+    </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　　为了便于讨论，必须对&quot;查找&quot;和&quot;特定的&quot;数据元素给出确切的含义。 
+      <p>　<br>
+        　<br>
+        　<br>
+        　　可以想像得到，如果能有目标地进行查找肯定是比在一大堆事物中瞎摸要有效得多，因此为提高查找效率，一个办法就是在构造查找表时，在集合中的数据元素之间人为地加上某种确定的约束关系。本章正是讨论查找表的各种组织方法及其查找过程的实施。<br>
+        　<br>
+        　<br>
+        　<br>
+        　<br>
+        　　在本章以后各节讨论中涉及的数据元素(记录)将统一定义为如下描述的类型：<br>
+        <span class="point"><font color="#339900">　　<b>typedef struct</b><br>
+        　<b>{</b><br>
+        　　KeyType key; <font face="Times New Roman, Times, serif">　　　//</font> 
+        关键字项<br>
+        　　……<font face="Times New Roman, Times, serif">　　　　　　　//</font> 其它数据项<br>
+        　<b>}</b> ElemType; <font face="Times New Roman, Times, serif">　　　　//</font> 
+        数据元素类型</font></span><br>
+        <br>
+        　　其中的关键字类型可以为整型、实型、字符型、串类型等。 </p>
+    </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<script language=JavaScript src="../../chapter02/section1/hpmain.js"></script>
+<script language=JavaScript src="../../chapter02/section1/showhidden.js"></script>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　5.1.2 数组的顺序存储表示</span><br>
+      <br>
+      　　类似地，假设三维数组 R[p][m][n] 中每个数据元素占 L 个存储地址，并以 LOC(i,j,k) 表示下标为(i,j,k) 的数据元素的存储地址，则该数组中任何一对下标(i,j,k) 
+      对应的数据元素在&quot;以行为主&quot;的顺序映象中的存储地址为：<br>
+      　　　LOC(i,j,k) = LOC(0,0,0) + (i×m×n + j×n+k)×L<br>
+      <br>
+      　推广到 N 维数组，则得到<br>
+      　　　LOC( <img src="../../../images/pic/chapter05/gs/j1.gif" width="10" height="15" align="absmiddle">,<img src="../../../images/pic/chapter05/gs/j2.gif" width="10" height="15" align="absmiddle">,...,<img src="../../../images/pic/chapter05/gs/jn.gif" width="14" height="15" align="absmiddle"> 
+      ) = LOC(0,0,...,0) + ( <img src="../../../images/pic/chapter02/gs/b2.gif" width="11" height="13" align="absmiddle">×...×<font size="1"><img src="../../../images/pic/chapter02/gs/bn.gif" width="11" height="13" align="absmiddle"></font>×<img src="../../../images/pic/chapter05/gs/j1.gif" width="10" height="15" align="absmiddle">＋<img src="../../../images/pic/chapter05/gs/b3.gif" width="14" height="17" align="absmiddle">×...×<font size="1"><img src="../../../images/pic/chapter02/gs/bn.gif" width="11" height="13" align="absmiddle"></font>×<img src="../../../images/pic/chapter05/gs/j2.gif" width="10" height="15" align="absmiddle">＋...＋<font size="1"><img src="../../../images/pic/chapter02/gs/bn.gif" width="11" height="13" align="absmiddle"></font>×<img src="../../../images/pic/chapter05/gs/jn_1.gif" width="19" height="15" align="absmiddle"> 
+      +<img src="../../../images/pic/chapter05/gs/jn.gif" width="14" height="15" align="absmiddle"> 
+      )×L<br>
+      　　= <img src="../../../images/pic/chapter05/gs/gs_18.gif" width="221" height="37" align="absmiddle"><br>
+      <br>
+      　可缩写成<br>
+      　　　<img src="../../../images/pic/chapter05/gs/gs_19.gif" width="259" height="38"><br>
+      <br>
+      　其中 <img src="../../../images/pic/chapter05/gs/cn.gif" width="10" height="14" align="absmiddle"> 
+      = L，<img src="../../../images/pic/chapter05/gs/ci_1.gif" width="16" height="14" align="absmiddle"> 
+      = <font size="1"><img src="../../../images/pic/chapter02/gs/bi.gif" width="12" height="18" align="absmiddle"></font>×<img src="../../../images/pic/chapter05/gs/ci.gif" width="10" height="14" align="absmiddle">, 
+      1 &lt; i≤N。<br>
+    </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"> 
+      <br>
+      <table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td bgcolor="#ECEEFF" height="14" class="explaination" width="8">&nbsp;</td>
+                <td bgcolor="#ECEEFF" height="14" class="explaination"><img src="../../../images/tubiao/wt.gif" width="23" height="23" align="absmiddle" alt="思考题"> 
+                  反之，你将二维的映象公式应用到一维的情况，结果如何？</td>
+                <td width="15" bgcolor="#ECEEFF" valign="top"><span id="bb"><img border=0 
+                              id=HPFrameHLTab3 
+                              onClick="showHideContent('HPFrameHL');hidden();"
+							   src="../../../images/html/expand.gif" style="CURSOR: hand" width="15" height="14"></span></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <div id=HPFrameHLContent 
+           style="WIDTH: 100%;visibility: hidden;background-color:#ECEEFF" > 
+              <table width="94%" border="0" cellspacing="0" cellpadding="0" align="center">
+                <tr> 
+                  <td class="explaination">　显然你得到的是和顺序表相同的映象公式 。这就是为什么可以用一维数组来描述其它线性结构的顺序存储映象的道理。　　</td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+      </table>
+      <br>
+      　　称这个地址映象公式为N维数组的映象函数。容易看出，数组元素的存储位置是其下标的线性函数，一旦确定了数组各维的长度，<img src="../../../images/pic/chapter05/gs/cil.gif" width="10" height="14" align="absmiddle"> 
+      就是常数。由于计算各个元素存储位置的时间相等，所以存取数组中任一元素的时间也相等。我们称具有这一特点的存储结构为随机存储结构。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

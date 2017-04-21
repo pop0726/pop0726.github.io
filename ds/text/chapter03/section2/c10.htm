@@ -1,0 +1,76 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　3.2.5 递归函数的实现</span><br>
+      <br>
+      　　一个递归函数的运行过程类似于多个函数的嵌套调用，差别仅在于&quot;调用函数和被调用函数是同一个函数&quot;。为了保证&quot;每一层的递归调用&quot;都是对&quot;本层&quot;的数据进行操作，在执行递归函数的过程中需要一个&quot;递归工作栈&quot;。它的作用是:一、将递归调用时的实在参数和函数返回地址传递给下一层执行的递归函数；二、保存本层的参数和局部变量，以便从下一层返回时重新使用它们。<br>
+      <br>
+      　　递归过程执行过程中所占用的数据区，称之为<span class="point">递归工作栈</span>。<br>
+      　　每一层的递归参数等数据合成一个记录，称之为<span class="point">递归工作记录</span>。<br>
+      　　栈顶记录指示当前层的执行情况，称之为<span class="point">当前活动记录</span>。<br>
+      　　递归工作栈的栈顶指针，称之为<span class="point">当前环境指针</span>。<br>
+      <br>
+      　　递归函数执行过程中递归工作栈的工作情况可用大家熟悉的&quot;梵塔函数&quot;为例，请看动画演示。<a href="javascript:;" onClick="MM_openBrWindow('../../../flash/chap03/3-3-9.swf','数据结构','width=400,height=300')"><img src="../../../images/tubiao/dh.gif" alt="动画" width="25" height="24" border="0" align="absmiddle"></a><br>
+      　</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">&nbsp;</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><img src="../../../images/tubiao/cxd.gif" width="25" height="24" alt="算法" align="absmiddle"> 
+      <span class="zhushi">算法3.3</span><br>
+      　　<b>void</b> hanoi (<b>int</b> n, <b>char</b> x, <b>char</b> y, <b>char</b> 
+      z, <b>int</b> <b><font face="Times New Roman, Times, serif">&amp;</font></b>i 
+      )<br>
+      <span class="zhushi">　　<font face="Times New Roman, Times, serif">//</font> 
+      将塔座 x 上按直径由小到大且至上而下编号为1至 n<br>
+      　　<font face="Times New Roman, Times, serif">//</font> 的 n 个圆盘按规则搬到塔座 z 
+      上，y 可用作辅助塔座。</span><br>
+      1 <b>{</b><br>
+      2　<b>if </b>(n==1)<br>
+      3　<b>{</b> <br>
+      4　　move(x, 1, z); <font face="Times New Roman, Times, serif">　　　//</font> 
+      将编号为1的圆盘从 x 移到 z<br>
+      5　　i++; <br>
+      6　<b>}</b> <br>
+      7　<b>else {</b><br>
+      8　　hanoi(n-1, x, z, y); <font face="Times New Roman, Times, serif">//</font> 
+      将 x 上编号为1至 n-1 的圆盘移到 y,z 作辅助塔<br>
+      9　　move(x, n, z); <font face="Times New Roman, Times, serif">　　　//</font> 
+      将编号为 n 的圆盘从 x 移到 z<br>
+      10　 i++;<br>
+      11　 hanoi(n-1, y, x, z); <font face="Times New Roman, Times, serif">//</font> 
+      将 y 上编号为1至 n-1 的圆盘移到 z,x 作辅助塔<br>
+      12 <b>}</b><br>
+      13<b>}</b></td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      　　在此，称调用递归函数的主函数为&quot;第0层&quot;，则从主函数调用递归函数被称为进入递归函数的 &quot;第1层&quot; ，从递归函数的&quot;第i层&quot;递归调用本函数被称为进入递归函数的&quot;第 
+      i+1 层&quot;。显然，当递归函数执行到第 i 层时，从第1层到第 i-1 层的数据都必须被保存下来，以便一层一层退回时继续使用。递归函数执行过程中每一层所占用的内存数据区合起来就是一个 
+      &quot;递归工作栈&quot;。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

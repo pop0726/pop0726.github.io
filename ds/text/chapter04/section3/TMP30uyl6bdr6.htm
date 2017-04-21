@@ -1,0 +1,142 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<script language=JavaScript src="../../chapter02/section1/hpmain.js"></script> 
+<script language=JavaScript src="../../chapter02/section1/showhidden.js"></script> 
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%"> 
+<tr> <td width="8">&nbsp;</td><td class="white" valign="top"> <span class="part">　4.3.2 
+串的模式匹配的改进算法</span><br> <br> 　　上页中第二个动画演示的匹配过程正是本节要讨论的模式匹配的改进算法，它是由三位计算机学者 D.E.Knuth 
+与 V.R.Pratt 和 J.H.Morris 同时发现的，因此人们通常简称它为 KMP 算法。可以证明它的时间复杂度为<I><FONT FACE="Times New Roman, Times, serif">O</FONT></I>(m+n)，直观地看，是因为在匹配过程中指针 
+i 没有回溯。KMP算法的核心思想是利用已经得到的部分匹配信息来进行后面的匹配过程。 <p> 　　回顾上页所举实例，假设主串为 <img src="../../../images/pic/chapter04/gs/s0.gif" width="10" height="18" align="absmiddle"> 
+<img src="../../../images/pic/chapter04/gs/s1.gif" width="10" height="12" align="absmiddle"> 
+<img src="../../../images/pic/chapter04/gs/s2.gif" width="11" height="12" align="absmiddle"> 
+<img src="../../../images/pic/chapter04/gs/s3.gif" width="11" height="12" align="absmiddle"> 
+<img src="../../../images/pic/chapter04/gs/s4.gif" width="11" height="12" align="absmiddle"> 
+<img src="../../../images/pic/chapter04/gs/s5.gif" width="11" height="12" align="absmiddle"> 
+<img src="../../../images/pic/chapter04/gs/s6.gif" width="11" height="18" align="absmiddle"> 
+<img src="../../../images/pic/chapter04/gs/s7.gif" width="10" height="12" align="absmiddle">，模式串为 
+<font size="2"><img src="../../../images/pic/chapter04/gs/t0.gif" width="9" height="18" align="absmiddle"> 
+<img src="../../../images/pic/chapter04/gs/t1.gif" width="9" height="18" align="absmiddle"> 
+<img src="../../../images/pic/chapter04/gs/t2.gif" width="8" height="11" align="absmiddle"> 
+<img src="../../../images/pic/chapter04/gs/t3.gif" width="8" height="11" align="absmiddle"> 
+<img src="../../../images/pic/chapter04/gs/t4.gif" width="8" height="11" align="absmiddle"> 
+</font>，当 <img src="../../../images/pic/chapter04/gs/s2.gif" width="11" height="12" align="absmiddle"><img src="../../../images/pic/chapter04/t4.gif" width="9" height="8"><font size="2"><img src="../../../images/pic/chapter04/gs/t2.gif" width="8" height="11" align="absmiddle"></font> 
+时，按简单算法接着应进行<img src="../../../images/pic/chapter04/gs/s1.gif" width="10" height="12" align="absmiddle"> 
+和 <font size="2"><img src="../../../images/pic/chapter04/gs/t0.gif" width="9" height="18" align="absmiddle"></font> 
+的比较，由于我们在这之前的匹配过程中已经得到了 &quot;<img src="../../../images/pic/chapter04/gs/s1.gif" width="10" height="12" align="absmiddle">=<font size="2"><img src="../../../images/pic/chapter04/gs/t1.gif" width="9" height="18" align="absmiddle"></font>&quot; 
+的信息，而从模式串本身又得到了 &quot;<font size="2"><img src="../../../images/pic/chapter04/gs/t1.gif" width="9" height="18" align="absmiddle"></font><img src="../../../images/pic/chapter04/t4.gif" width="9" height="8"><font size="2"><img src="../../../images/pic/chapter04/gs/t0.gif" width="9" height="18" align="absmiddle"></font>&quot; 
+的信息，由此可得结论：<img src="../../../images/pic/chapter04/gs/s1.gif" width="10" height="12" align="absmiddle"><img src="../../../images/pic/chapter04/t4.gif" width="9" height="8"><font size="2"><img src="../../../images/pic/chapter04/gs/t0.gif" width="9" height="18" align="absmiddle"></font>，也就没有必要进行 
+<img src="../../../images/pic/chapter04/gs/s1.gif" width="10" height="12" align="absmiddle"> 
+和 <font size="2"><img src="../../../images/pic/chapter04/gs/t0.gif" width="9" height="18" align="absmiddle"></font> 
+的比较，而直接进行 <img src="../../../images/pic/chapter04/gs/s2.gif" width="11" height="12" align="absmiddle"> 
+和 <font size="2"><img src="../../../images/pic/chapter04/gs/t0.gif" width="9" height="18" align="absmiddle"></font> 
+的比较。同理当 <img src="../../../images/pic/chapter04/gs/s6.gif" width="11" height="18" align="absmiddle"><img src="../../../images/pic/chapter04/t4.gif" width="9" height="8"><font size="2"><img src="../../../images/pic/chapter04/gs/t4.gif" width="8" height="11" align="absmiddle"></font> 
+时，只要直接进行 <img src="../../../images/pic/chapter04/gs/s6.gif" width="11" height="18" align="absmiddle"> 
+和 <font size="2"><img src="../../../images/pic/chapter04/gs/t1.gif" width="9" height="18" align="absmiddle"></font> 
+的比较即可。换句话说，在进行了<img src="../../../images/pic/chapter04/gs/s6.gif" width="11" height="18" align="absmiddle"> 
+和 <font size="2"><img src="../../../images/pic/chapter04/gs/t4.gif" width="8" height="11" align="absmiddle"></font> 
+的比较并且知道两者不等之后，可将T串直接向右滑动到和 <img src="../../../images/pic/chapter04/gs/s5.gif" width="11" height="12" align="absmiddle"> 
+对齐的起始位置进行下一轮的匹配，这是由于T串本身的特性和之前的匹配过程决定的。<br> <br> 　　一般情况下，若 &quot;<font size="2"><img src="../../../images/pic/chapter04/gs/t0.gif" width="9" height="18" align="absmiddle"></font><font size="2"> 
+<img src="../../../images/pic/chapter04/gs/t1.gif" width="9" height="18" align="absmiddle"></font>...<img src="../../../images/pic/chapter04/gs/tk_1.gif" width="21" height="12" align="absmiddle">&quot;=&quot;<img src="../../../images/pic/chapter04/gs/tj_k.gif" width="20" height="13" align="absmiddle"> 
+<img src="../../../images/pic/chapter04/gs/tj_k1.gif" width="30" height="13" align="absmiddle">...<img src="../../../images/pic/chapter04/gs/tj_1.gif" width="19" height="13" align="absmiddle">&quot;，并且不可能存在 
+k'&gt;k 满足此式，又从匹配过程中得到 &quot;<font size="2"><img src="../../../images/pic/chapter04/gs/t0.gif" width="9" height="18" align="absmiddle"></font><font size="2"> 
+<img src="../../../images/pic/chapter04/gs/t1.gif" width="9" height="18" align="absmiddle"></font>...<img src="../../../images/pic/chapter04/gs/tj_1.gif" width="19" height="13" align="absmiddle">&quot;=&quot;<img src="../../../images/pic/chapter04/gs/si_j.gif" width="22" height="12" align="absmiddle"> 
+<img src="../../../images/pic/chapter04/gs/si_j1.gif" width="30" height="12" align="absmiddle">...<img src="../../../images/pic/chapter04/gs/si_1.gif" width="20" height="12" align="absmiddle">&quot; 
+和 <font face="Times New Roman, Times, serif">'</font><img src="../../../images/pic/chapter04/gs/tj.gif" width="9" height="13" align="absmiddle">'<img src="../../../images/pic/chapter04/t4.gif" width="9" height="8"> 
+<font face="Times New Roman, Times, serif">'</font><img src="../../../images/pic/chapter04/gs/si.gif" width="9" height="18" align="absmiddle">'，这就是说，从前面的匹配过程已经得到结果 
+&quot;<font size="2"><img src="../../../images/pic/chapter04/gs/t0.gif" width="9" height="18" align="absmiddle"></font><font size="2"> 
+<img src="../../../images/pic/chapter04/gs/t1.gif" width="9" height="18" align="absmiddle"></font>...<img src="../../../images/pic/chapter04/gs/tk_1.gif" width="21" height="12" align="absmiddle">&quot;=&quot;<font size="3"><img src="../../../images/pic/chapter04/gs/si_k.gif" width="22" height="12" align="absmiddle"> 
+<img src="../../../images/pic/chapter04/gs/si_k1.gif" width="32" height="18" align="absmiddle"></font>...<img src="../../../images/pic/chapter04/gs/si_1.gif" width="20" height="12" align="absmiddle">&quot; 
+并且不可能存在 k'&gt;k 满足此式，那么下一步只需要继续进行 <font face="Times New Roman, Times, serif">'</font><img src="../../../images/pic/chapter04/gs/tk.gif" width="11" height="12" align="absmiddle"><font face="Times New Roman, Times, serif">'</font> 
+和 <font face="Times New Roman, Times, serif">'</font><img src="../../../images/pic/chapter04/gs/si.gif" width="9" height="18" align="absmiddle"><font face="Times New Roman, Times, serif">'</font> 
+的比较即可。称&quot;k&quot;为模式串中字符 <font face="Times New Roman, Times, serif">'</font><img src="../../../images/pic/chapter04/gs/tj.gif" width="9" height="13" align="absmiddle"><font face="Times New Roman, Times, serif">'</font> 
+的 next 函数值。<br> 　</p></td><td background="../../../images/html/mid.gif" width="18">&nbsp;</td><td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br> 
+　　从上页同样一个实例的两个匹配过程可见，简单算法之所以时间复杂度会在最坏情况下达到&quot;二次级&quot; 是因为，当进行&quot;两个子串的比较&quot;过程中，不管是 
+T 串的第几个字符发生&quot;不等&quot;的情况，指针 i 都必须 &quot;回溯&quot; 到S串中原来开始进行比较的字符的下一个位置。而在第二个匹配过程中，当发生两个串中字符比较不等时指针 
+i 不需要回溯，而只要将 T 串向右滑动到一定位置继续进行字符间的比较。如上例中，S串中除了第3、7和10个字符和T串中的字符比较了两次之外，其它字符和T串中的字符均只进行了一次比较。<br> 
+<br> <table width="90%" border="0" cellspacing="0" cellpadding="0" align="center"> 
+<tr> <td> <table width="100%" border="0" cellspacing="0" cellpadding="0"> <tr> 
+<td bgcolor="#ECEEFF" height="14" class="explaination" width="8">&nbsp;</td><td bgcolor="#ECEEFF" height="14" class="explaination"><img src="../../../images/tubiao/wt.gif" width="23" height="23" align="absmiddle" alt="思考题"> 
+你知道是因为什么原因吗？</td><td width="15" bgcolor="#ECEEFF" valign="top"><span id="bb"><img border=0 
+                              id=HPFrameHLTab3 
+                              onClick="showHideContent('HPFrameHL');hidden();"
+							   src="../../../images/html/expand.gif" style="CURSOR: hand" width="15" height="14"></span></td></tr> 
+</table></td></tr> <tr> <td> <div id=HPFrameHLContent 
+           style="WIDTH: 100%;visibility: hidden;background-color:#ECEEFF" > <table width="94%" border="0" cellspacing="0" cellpadding="0" align="center"> 
+<tr> <td class="explaination">　因为已经得到的匹配信息是:<img src="../../../images/pic/chapter04/gs/s2_l.gif" width="11" height="12" align="absmiddle">=<img src="../../../images/pic/chapter04/gs/t0_l.gif" width="9" height="12" align="absmiddle">，<img src="../../../images/pic/chapter04/gs/s3_l.gif" width="11" height="18" align="absmiddle">= 
+<img src="../../../images/pic/chapter04/gs/t1_l.gif" width="9" height="18" align="absmiddle">，<img src="../../../images/pic/chapter04/gs/s4_l.gif" width="11" height="12" align="absmiddle">=<img src="../../../images/pic/chapter04/gs/t2_l.gif" width="8" height="11" align="absmiddle">，<img src="../../../images/pic/chapter04/gs/s5_l.gif" width="11" height="18" align="absmiddle">=<img src="../../../images/pic/chapter04/gs/t3_l.gif" width="8" height="18" align="absmiddle">，<img src="../../../images/pic/chapter04/gs/s6_l.gif" width="11" height="12" align="absmiddle"><img src="../../../images/pic/chapter04/t3.gif" width="9" height="8"><img src="../../../images/pic/chapter04/gs/t4_l.gif" width="8" height="11" align="absmiddle">，而从T串本身得到的信息是：<img src="../../../images/pic/chapter04/gs/t1_l.gif" width="9" height="18" align="absmiddle"><img src="../../../images/pic/chapter04/t3.gif" width="9" height="8"><img src="../../../images/pic/chapter04/gs/t0_l.gif" width="9" height="12" align="absmiddle">，<img src="../../../images/pic/chapter04/gs/t2_l.gif" width="8" height="11" align="absmiddle"><img src="../../../images/pic/chapter04/t3.gif" width="9" height="8"><img src="../../../images/pic/chapter04/gs/t0_l.gif" width="9" height="12" align="absmiddle">，<img src="../../../images/pic/chapter04/gs/t3_l.gif" width="8" height="18" align="absmiddle">=<img src="../../../images/pic/chapter04/gs/t0_l.gif" width="9" height="12" align="absmiddle">，这就是说，不可能存在一个从<img src="../../../images/pic/chapter04/gs/s2_l.gif" width="11" height="12" align="absmiddle"> 
+或<img src="../../../images/pic/chapter04/gs/s3_l.gif" width="11" height="18" align="absmiddle"> 
+或<img src="../../../images/pic/chapter04/gs/s4_l.gif" width="11" height="12" align="absmiddle"> 
+开始的子串和T串相等，但可能存在从<img src="../../../images/pic/chapter04/gs/s5_l.gif" width="11" height="18" align="absmiddle"> 
+开始的子串和T串相等，并且由于已经得到的&quot;<img src="../../../images/pic/chapter04/gs/s5_l.gif" width="11" height="18" align="absmiddle">=<img src="../../../images/pic/chapter04/gs/t3_l.gif" width="8" height="18" align="absmiddle">，<img src="../../../images/pic/chapter04/gs/t3_l.gif" width="8" height="18" align="absmiddle">=<img src="../../../images/pic/chapter04/gs/t0_l.gif" width="9" height="12" align="absmiddle">&quot;信息就不需要再进行 
+<img src="../../../images/pic/chapter04/gs/s5_l.gif" width="11" height="18" align="absmiddle"> 
+和 <img src="../../../images/pic/chapter04/gs/t0_l.gif" width="9" height="12" align="absmiddle"> 
+的比较，而直接进行 <img src="../../../images/pic/chapter04/gs/s6_l.gif" width="11" height="12" align="absmiddle"> 
+和 <img src="../../../images/pic/chapter04/gs/t1_l.gif" width="9" height="18" align="absmiddle"> 
+的比较即可。</td></tr> </table></div></td></tr> </table>　<br> </td><td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td></tr> 
+<tr> <td width="8">&nbsp;</td><td class="white" valign="top">　定义：<br> 　　<img src="../../../images/pic/chapter04/gs/gs_1.gif" width="425" height="62"><br> 
+<br> 　　例如，下列所示为模式串的 next 函数值的两个例子。<br> <br> <table width="200" border="0" cellspacing="1" cellpadding="0" align="center" bgcolor="#FFFFFF"> 
+<tr bgcolor="#4A5594"> <td class="white" width="56"> <div align="center">j</div></td><td class="white" width="27"> 
+<div align="center">0</div></td><td class="white" width="28"> <div align="center">1</div></td><td class="white" width="28"> 
+<div align="center">2</div></td><td class="white" width="26"> <div align="center">3</div></td><td class="white" width="28"> 
+<div align="center">4</div></td></tr> <tr bgcolor="#4A5594"> <td class="white" width="56"> 
+<div align="center">模式串</div></td><td class="white" width="27"> <div align="center">a</div></td><td class="white" width="28"> 
+<div align="center">b</div></td><td class="white" width="28"> <div align="center"> 
+c</div></td><td class="white" width="26"> <div align="center"> a</div></td><td class="white" width="28"> 
+<div align="center"> c</div></td></tr> <tr bgcolor="#4A5594"> <td class="white" width="56"> 
+<div align="center">next[j]</div></td><td class="white" width="27"> <div align="center">-1</div></td><td class="white" width="28"> 
+<div align="center"> 0</div></td><td class="white" width="28"> <div align="center"> 
+0</div></td><td class="white" width="26"> <div align="center"> 0</div></td><td class="white" width="28"> 
+<div align="center"> 1</div></td></tr> </table><br> <table width="300" border="0" cellspacing="1" cellpadding="0" align="center" bgcolor="#FFFFFF"> 
+<tr bgcolor="#4A5594"> <td class="white" width="56"> <div align="center">j</div></td><td class="white" width="27"> 
+<div align="center">0</div></td><td class="white" width="28"> <div align="center">1</div></td><td class="white" width="28"> 
+<div align="center">2</div></td><td class="white" width="26"> <div align="center">3</div></td><td class="white" width="28"> 
+<div align="center">4</div></td><td class="white" width="28"> <div align="center">5</div></td><td class="white" width="28"> 
+<div align="center">6</div></td><td class="white" width="28"> <div align="center">7</div></td><td class="white" width="28"> 
+<div align="center">8</div></td></tr> <tr bgcolor="#4A5594"> <td class="white" width="56"> 
+<div align="center">模式串</div></td><td class="white" width="27"> <div align="center">a</div></td><td class="white" width="28"> 
+<div align="center">b</div></td><td class="white" width="28"> <div align="center"> 
+a</div></td><td class="white" width="26"> <div align="center"> b</div></td><td class="white" width="28"> 
+<div align="center"> c</div></td><td class="white" width="28"> <div align="center">a</div></td><td class="white" width="28"> 
+<div align="center">a</div></td><td class="white" width="28"> <div align="center">b</div></td><td class="white" width="28"> 
+<div align="center">c</div></td></tr> <tr bgcolor="#4A5594"> <td class="white" width="56"> 
+<div align="center">next[j]</div></td><td class="white" width="27"> <div align="center">-1</div></td><td class="white" width="28"> 
+<div align="center"> 0</div></td><td class="white" width="28"> <div align="center"> 
+0</div></td><td class="white" width="26"> <div align="center"> 1</div></td><td class="white" width="28"> 
+<div align="center"> 2</div></td><td class="white" width="28"> <div align="center">0</div></td><td class="white" width="28"> 
+<div align="center">1</div></td><td class="white" width="28"> <div align="center">1</div></td><td class="white" width="28"> 
+<div align="center">2</div></td></tr> </table>　</td><td background="../../../images/html/mid.gif" width="18">&nbsp;</td><td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"> 
+　　next 函数值的含义是：当出现 <img src="../../../images/pic/chapter04/gs/si_l.gif" width="9" height="12" align="absmiddle"><img src="../../../images/pic/chapter04/t3.gif" width="9" height="8"><img src="../../../images/pic/chapter04/gs/tj_l.gif" width="9" height="13" align="absmiddle"> 
+时，下一次的比较应该在 <img src="../../../images/pic/chapter04/gs/si_l.gif" width="9" height="12" align="absmiddle"> 
+和 <img src="../../../images/pic/chapter04/gs/tn_l.gif" width="31" height="12" align="absmiddle"> 
+之间进行。</td><td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td></tr> 
+<tr> <td width="8">&nbsp;</td><td class="white" valign="top"><br> <img src="../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle" alt="算法"> 
+<span class="zhushi">算法 4.8</span><br> 　　int Index_KMP(char S[], char T[], int 
+pos)<br> 　<b>{</b><br> <span class="zhushi">　　<font face="Times New Roman, Times, serif">//</font> 
+利用模式串T的next函数求T在主串S中第pos个字符之后第一次<br> 　　<font face="Times New Roman, Times, serif">//</font> 
+出现的位置的KMP算法。其中1≤pos≤StrLength(S)</span><br> 　　i = pos-1; j = 0;<br> 　　<b>while</b> 
+( S[i] != <font face="Times New Roman, Times, serif">'</font>\0<font face="Times New Roman, Times, serif">' 
+</font><b><font face="Times New Roman, Times, serif">&amp;&amp;</font></b> T[j] 
+!= <font face="Times New Roman, Times, serif">'</font>\0<font face="Times New Roman, Times, serif">' 
+</font><b><font face="Times New Roman, Times, serif"></font></b>)<br> 　　　<b>if</b> 
+(j = = -1 || S[i] = = T[j]) <br> 　　　　<b>{</b> ++i; ++j; <b>}</b> <font face="Times New Roman, Times, serif">　　　　　　　　　//</font> 
+继续比较后继字符<br> 　　　<b>else</b> j = next[j]; <font face="Times New Roman, Times, serif">　　　　　　　　//</font> 
+模式串向右移动<br> 　　<b>}</b><font face="Times New Roman, Times, serif">//</font>while<br> 
+　　<b>if </b>( T[j] == <font face="Times New Roman, Times, serif">'</font>\0<font face="Times New Roman, Times, serif">' 
+</font><b><font face="Times New Roman, Times, serif"></font></b>) <b>return</b> 
+(i-j); <font face="Times New Roman, Times, serif">　　//</font> 匹配成功<br> 　　<b>else 
+return</b> 0;<br> 　<b>}</b> <font face="Times New Roman, Times, serif">　　　　　　　　　　　　　　　　　//</font> 
+Index_KMP<br> </td><td background="../../../images/html/mid.gif" width="18">&nbsp;</td><td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　　仔细比较算法4.8和4.7，你一定会发现这两个算法只有两个地方不同，一是当 
+S[i]<img src="../../../images/pic/chapter04/t3.gif" width="9" height="8">T[j] 
+时，在算法4.7中指针 i 回溯到 i-j+1 的位置，指针 j 重又指向第 1 个字符，而在算法4.8中，指针i不变，而指针 j=next[j]；二是 if 
+语句的条件中多了一种情况(j==-1)，那么这是一种什么情况呢？<br> <br> 　　从 next 函数值的定义看，next[0]=-1，因此while 
+循环中出现j=-1的情况，只能是在 S[i]<img src="../../../images/pic/chapter04/t3.gif" width="9" height="8">T[0] 
+之后，即T串中的第一个字符和S串中某个字符比较不等，显然，此时应将T串向右滑动。</td><td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td></tr> 
+</table>
+</body>
+</html>

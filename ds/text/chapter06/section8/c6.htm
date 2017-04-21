@@ -1,0 +1,67 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%"> 
+<tr> <td width="10" height="1595">&nbsp;</td><td class="white" valign="top"><br> <SPAN CLASS="part"> 
+【编程练习题】</SPAN><br> <p>　　本章编程练习题中的二叉树和树的二叉链表的类型定义如下：<br> 　　<strong>struct</strong> 
+BiTNode <font face="Arial, Helvetica, sans-serif">//</font> 二叉树结点<br> 　　<strong>{</strong><br> 
+　　　ElemType data ;<br> 　　　BiTLink lchild,rchild;<br> 　　<strong>}</strong>;<br> 
+　　<strong>typedef</strong> BiTLink BiTree; <font face="Arial, Helvetica, sans-serif">//</font> 
+二叉树链表</p><p> <SPAN CLASS="zhushi">　<font face="Arial, Helvetica, sans-serif">//</font>----- 
+树的二叉链表(孩子-兄弟）存储表示 -----</SPAN><br> 　　<strong>typedef struct</strong> CSNode<strong>{</strong><br> 
+　　　ElemType data;<br> 　　　<strong>struct</strong> CSNode *firstchild, *nextsibling;<br> 
+　　<strong>}</strong> CSNode, *CSTree;</p><p>　1. 编写递归算法，在二叉树中求位于先序序列中第 k 个位置的结点的值。<br> 
+　　<strong>bool</strong> pre_Order_K ( BiTree bt, int k, ElemType<font face="Times New Roman, Times, serif"><strong>&amp;</strong></font> 
+x )<br> 　<font face="Arial, Helvetica, sans-serif">//</font> 已知 bt 为指向二叉链表(二叉树)的根指针，若 
+k&gt;0 且不大于<br> 　<font face="Arial, Helvetica, sans-serif">//</font> 二叉树中的结点数，则以 
+x 带回该二叉树的先序序列中第 k 个<br> 　<font face="Arial, Helvetica, sans-serif">//</font> 数据元素并返回 
+true，否则返回 false</p><p> 　2. 编写递归算法，将二叉树中所有结点的左、右子树相互交换。<br> 　　<strong>void</strong> 
+Exchange( BiTree<font face="Times New Roman, Times, serif"><strong>&amp;</strong></font> 
+bt )<br> 　<font face="Arial, Helvetica, sans-serif">//</font> 已知 bt 为指向二叉链表(二叉树)的根指针，<br> 
+　<font face="Arial, Helvetica, sans-serif">//</font> 本函数实现该二叉树上所有结点的左、右子树互换</p><p>　3. 
+编写递归算法：对于二叉树中每一个元素值为 x 的结点，删去以它为根的子树，并释放相应的空间。<br> 　　<strong>void</strong> ReleaseX( 
+BiTree<font face="Times New Roman, Times, serif"><strong>&amp;</strong></font> 
+bt, ElemType x )<br> 　<font face="Arial, Helvetica, sans-serif">//</font> 已知 bt 
+为指向二叉链表(二叉树)的根指针，若二叉树上存在其数据元素<br> 　<font face="Arial, Helvetica, sans-serif">//</font> 
+和 x 相同的结点，则均删除之。</p><p>　4. 编写按层次顺序(同一层自左至右)遍历二叉树的算法。<br> 　　<strong>void</strong> 
+LevelOrder( BiTree bt, <strong>char</strong> ss[], <strong>int</strong><font face="Times New Roman, Times, serif"><strong>&amp;</strong></font> 
+n )<br> 　<font face="Arial, Helvetica, sans-serif">//</font> bt 为指向（以二叉链表表示的）二叉树的根的指针，按层序遍历二叉树，<br> 
+　<font face="Arial, Helvetica, sans-serif">//</font> 以字符数组 ss[0..n-1] 返回遍历所得二叉树的层序序列，<br> 
+　<font face="Arial, Helvetica, sans-serif">//</font> n 为二叉树中所含结点的数目，其初值为 0</p><p>　5. 
+假设以如下说明的三元组 (F、C、L/R) 序列输入一棵二叉树的诸边(其中 F 表示双亲结点的标识，C 表示孩子结点标识，L/R 表示 C 为 F 的左孩子或右孩子)，且在输入的三元组序列中，C 
+是按层次顺序出现的。设结点的标识是字符类型。F='＾'时 C 为根结点标识，若 C 亦为'＾'，则表示输入结束。<br> 　　<strong>struct</strong> 
+Tuple <font face="Arial, Helvetica, sans-serif">//</font> 三元组(father,child,tag)<br> 
+　　<strong>{</strong><br> 　　　<strong>char</strong> f,c,tag;<br> 　　<strong>}</strong>;<br> 
+　　<strong>typedef</strong> Tuple TupleList[32]; <font face="Arial, Helvetica, sans-serif">//</font> 
+三元组序列</p><p>　　<B>void</B> Create_BiTree(BiTree <font face="Times New Roman, Times, serif"><strong>&amp;</strong></font>BT, 
+TupleList tlist) <br> 　<font face="Arial, Helvetica, sans-serif">//</font> 按由 
+tlist 给定的三元组序列建二叉树的二叉链表存储结构</p><p>　6. 编写算法完成下列操作：无重复地输出以孩子兄弟链表存储的树 T 中所有的边。输出的形式为(k<sub>1</sub>,k<sub>2</sub>),…,(k<sub>i</sub>,k<sub>j</sub>),…，其中，k<sub>i</sub> 
+和 k<sub>j</sub> 为树结点中的结点标识。 <br> 　　<strong>void</strong> Out_Edge(CSTree T, <strong>char</strong> 
+str[], <strong>int<font face="Times New Roman, Times, serif">&amp;</font></strong> 
+n)<br> 　<font face="Arial, Helvetica, sans-serif">//</font> 按先根次序输出以孩子-兄弟链表表示的树 
+T 中各条边，<br> 　<font face="Arial, Helvetica, sans-serif">//</font> 并以题集中原题约定的形式存放在字符数组 
+str[] 中，<br> 　<font face="Arial, Helvetica, sans-serif">//</font> n 为字符数组中（最后所得结果）的字符个数，其初值为 
+0。</p><p>　7. 假设有n个结点的树T采用了如下说明的双亲存储表示，写出由此建立树的孩子-兄弟链表的算法。<br> 　<span class="zhushi"><font face="Arial, Helvetica, sans-serif">//</font>----- 
+树的双亲存储表示 -----</span><br> 　　<strong>typedef struct</strong> PTNode <strong>{</strong><br> 
+　　　ElemType data;<br> 　　　<strong>int</strong> parent; <font face="Arial, Helvetica, sans-serif">//</font> 
+双亲位置域<br> 　　<strong>}</strong> PTNode;<br> 　　<strong>typedef struct {</strong><br> 
+　　　PTNode nodes[MAX_TREE_SIZE];<br> 　　　<strong>int</strong> n, r; <font face="Arial, Helvetica, sans-serif">//</font> 
+结点数和根结点的位置<br> 　　<strong>}</strong> PTree;</p><p>　　CSTree CreateCSTree( PTree 
+T ) <br> 　<font face="Arial, Helvetica, sans-serif">//</font> 已知树 T 的双亲表示，返回树的孩子-兄弟链表(指向根结点)的根指针</p><p>　8. 
+已知一棵树的由根至叶子结点按层次输出的结点序列及每个结点的度（每层中自左至右输出）(如下所示定义)，试写出构造此树的孩子-兄弟链表的算法。<br> 　　<strong>struct</strong> 
+Dual<br> 　　<strong>{</strong><br> 　　　<strong>char</strong> data; <font face="Arial, Helvetica, sans-serif">//</font> 
+结点信息<br> 　　　<strong>int</strong> deg; <font face="Arial, Helvetica, sans-serif">　//</font> 
+结点的度<br> 　　<strong>}</strong>;<br> 　　<strong>typedef</strong> Dual DualList[64];</p><p>　　<strong>void</strong> 
+CreateCSTree( CSTree<font face="Times New Roman, Times, serif"><strong>&amp;</strong></font> 
+T, DualList tlists )<br> 　<font face="Arial, Helvetica, sans-serif">//</font> 
+由一棵树的结点和度的层序序列 tlists ，构造该树的孩子-兄弟链表，<br> 　<font face="Arial, Helvetica, sans-serif">//</font> 
+T 为指向根结点的指针若根结点的信息为 '#'，则为空树</p>　 </td><td background="../../../images/html/mid.gif" width="18">&nbsp;</td><td background="../../../images/html/right_di4.gif" class="explaination" valign="top" width="281"><br> 
+【编程练习题】</td><td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td></tr> 
+</table>
+</body>
+</html>

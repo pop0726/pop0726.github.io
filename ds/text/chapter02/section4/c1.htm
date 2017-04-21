@@ -1,0 +1,83 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　2.4.1 有序表的定义</span><br>
+      <br>
+      　　若线性表中的数据元素相互之间可以比较，并且数据元素在线性表中依值非递减或非递增有序排列，即 <img src="../../../images/pic/chapter02/gs/ai.gif" width="10" height="10"> 
+      ≥ <img src="../../../images/pic/chapter02/gs/ai_1.gif" width="20" height="10"> 
+      或 <img src="../../../images/pic/chapter02/gs/ai.gif" width="10" height="10"> 
+      ≤ <img src="../../../images/pic/chapter02/gs/ai_1.gif" width="20" height="10"> 
+      (i = 2,3,…,n)，则称该线性表为<span class="part">有序表(Ordered List)</span>。<br>
+      　　有序表的&quot;有序&quot;特性可以给某些操作带来很大方便，在某些应用问题中，如果用有序表而不是线性表将使算法的时间复杂度下降。<br>
+      　</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      <br>
+      <br>
+      　　严格地说，有序表是另一种数据类型。在有序表类型的定义中需限定数据对象中数据元素所属集合为&quot;有序集&quot;，即集合中任意两个元素之间都可以进行比较，并在数据关系中加上 
+      <img src="../../../images/pic/chapter02/gs/ai_1_l.gif" width="20" height="10">≤<img src="../../../images/pic/chapter02/gs/ai_l.gif" width="10" height="10"> 
+      的条件。<br>
+      　</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><img src="../../../images/tubiao/lt.gif" width="28" height="27" align="absmiddle"> 
+      <span class="zhushi">例2-10</span> 编写算法删除有序顺序表中&quot;多余&quot;的数据元素，即使操作之后的有序顺序表中所有元素的值都不相同。<br>
+      　<br>
+      <img src="../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle"> 
+      <span class="zhushi">算法2.24</span><br>
+      　　<b>void</b> purge_OL(SqList <b><font face="Times New Roman, Times, serif">&amp;</font></b>L )<br>
+      　<b>{</b><br>
+      <span class="zhushi">　　<font face="Times New Roman, Times, serif">//</font> 
+      删除有序顺序表L中的冗余元素，即使操作之后的有序顺序表中<br>
+      　　<font face="Times New Roman, Times, serif">//</font> 只保留操作之前表中所有值都不相同的元素 
+      </span> <br>
+      　　k = -1;　　　　　　　　　　　　<font face="Times New Roman, Times, serif">//</font> 
+      k 指示新表的表尾<br>
+      　　<b>for</b> (i=0; i&lt;L.length-1; ++i)　<font face="Times New Roman, Times, serif">//</font> 
+      顺序考察表中每个元素<br>
+      　　<b>{</b><br>
+      　　　<b>if</b> ( k==-1 || L.elem[k]!=L.elem[i])<br>
+      　　　L.elem[++k] = L.elem[i]; <font face="Times New Roman, Times, serif">//</font> 
+      在新表中不存在和L.elem[i]相同的元素<br>
+      　　<b>} </b><font face="Times New Roman, Times, serif">// </font>for<br>
+      　　L.length = k+1;　　　　　　　<font face="Times New Roman, Times, serif"> //</font> 
+      修改表长<br>
+      　<b>} </b><font face="Times New Roman, Times, serif">// </font>purge_OL<br>
+      <br>
+      　　显然，此算法的<span class="point">时间复杂度</span>为<b><span class="point"><font face="Times New Roman, Times, serif"><i>O</i> 
+      (ListLength(L))</font></span></b>。 </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　<span class="zhushi"><font color="#339900">解题分析：</font></span><br>
+      　　仍采用例2-6的算法思想，存储结构也相同，所不同的仅是&quot;如何判别在&quot;新表&quot;中是否存在和当前考察的元素相同的元素&quot;。<br>
+      　　由于在有序表中的数据元素是依值从小到大依次排列的，则&quot;相同的&quot;元素必定连续排列在一起，因此，如果&quot;新表&quot;中已存在和当前考察的元素相同的元素，那必定是&quot;新表&quot;中的最后一个元素。由此，不需要在&quot;新表&quot;中从头至尾地查询，而只需要和&quot;新表&quot;中当前最后一个元素比较即可。<br>
+      　<br>
+      　例如：(2,2,3,3,3,4,4,5,5,5,5,7)经操作后变成(2,3,4,5,7) <a href="javascript:;" onClick="MM_openBrWindow('../../../flash/chap02/2-3-8.swf','数据结构','width=400,height=300')"><img src="../../../images/tubiao/dh.gif" alt="动画" width="25" height="24" border="0" align="absmiddle"></a><br>
+      　<br>
+      　　读者可以对算法2.21进行改写，同样可以得到一个时间复杂度为<font face="Times New Roman, Times, serif"><i>O 
+      </i>(Listlength(L)) </font>的算法，但必须注意，应将当前考察的元素<b>插入在&quot;新表&quot;的表尾</b>，以保持链表的有序性。 
+      <p>　　前面已经谈到，例2-6和例2-9是例2-2的算法在不同存储结构上的实现，例2-10则可以看成是对例2-2的同样问题，由于采用了不同的数据结构(有序表)，因而有了不同的算法。<br>
+        <br>
+        　　从这个例子可以看到&quot;有序表&quot;优越性。</p>
+    </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

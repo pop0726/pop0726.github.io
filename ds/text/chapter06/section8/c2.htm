@@ -1,0 +1,43 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　6.8.2 最优树的构造方法</span><br>
+      <br>
+      　　赫夫曼最早给出了一个构造最优树的带有一般规律的算法，俗称<span class="point">赫夫曼算法</span>。现以最优二叉树为例叙述如下：<br>
+      <br>
+      　　(1) 根据给定的 n 个权值{<img src="../../../images/pic/chapter06/w1.gif" width="16" height="13" align="absmiddle">,<img src="../../../images/pic/chapter06/w2.gif" width="17" height="13" align="absmiddle">,…<img src="../../../images/pic/chapter06/wn.gif" width="17" height="12" align="absmiddle">}，构成 
+      n 棵二叉树的集合 F={<img src="../../../images/pic/chapter06/t1.gif" width="16" height="19" align="absmiddle">,<img src="../../../images/pic/chapter06/t2.gif" width="16" height="19" align="absmiddle">,…,<img src="../../../images/pic/chapter06/tn.gif" width="16" height="19" align="absmiddle">}，其中每棵二叉树 
+      <img src="../../../images/pic/chapter06/ti.gif" width="14" height="19" align="absmiddle"> 
+      中只有一个带权为<img src="../../../images/pic/chapter06/wi.gif" width="17" height="14" align="absmiddle"> 
+      的根结点，其左右子树均空。<br>
+      <br>
+      　　(2) 在 F 中选取两棵根结点的权值最小的树作为左右子树，构造一棵新的二叉树，且置新的二叉树的根结点的权值为其左、右子树上根结点的权值之和。<br>
+      <br>
+      　　(3) 在 F 中删除这两棵树，同时将新得到的二叉树加入 F 中。<br>
+      <br>
+      　　重复(2)和(3)，直到 F 只含一棵树为止。这棵树便是所求的赫夫曼树。<br>
+    </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      <br>
+      　　例如，对5个权值 {5,6,2,9,7} 构造最优二叉树的过程如动画所示。<a href="javascript:;" onClick="MM_openBrWindow('../../../flash/chap06/6-8-1.swf','数据结构','width=400,height=300')"><img src="../../../images/tubiao/dh.gif" alt="动画" width="25" height="24" border="0" align="absmiddle"></a></td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

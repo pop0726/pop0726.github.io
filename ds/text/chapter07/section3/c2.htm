@@ -1,0 +1,90 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+<script language="JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　7.3.1 深度优先搜索遍历图</span><br>
+      <br>
+      <span class="zhushi">　二、非连通图的遍历</span><br>
+      <br>
+      　　对于非连通图，如何确保每个顶点都能被访问到？那就只能对图中所有顶点巡查一遍&quot;挨个检查&quot;，即从第一个顶点起，如果该顶点未被访问，则从该顶点出发进行深度优先遍历，否则接着检查下一顶点，直至所有顶点都被访问到为止。<br>
+      <br>
+      　　以下是以邻接表为存储结构的深度优先搜索遍历的算法。<br>
+      <br>
+      <img src="../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle"> 
+      <span class="zhushi">算法7.4</span><br>
+      　　<b>void</b> DFSTraverse(ALGraph G) <br>
+      　<b>{</b><br>
+      <span class="zhushi">　　<font face="Times New Roman, Times, serif">//</font> 
+      对以邻接表表示的图G作深度优先遍历</span><br>
+      　　<b>bool</b> visited[G.vexnum]; <font face="Times New Roman, Times, serif">　　　//</font> 
+      附设访问标识数组<br>
+      　　<b>for</b> (v=0; v&lt;G.vexnum; ++v)<br>
+      　　　visited[v] = <b>FALSE</b>; <font face="Times New Roman, Times, serif">　　　　//</font> 
+      访问标识数组初始化<br>
+      　　<b>for</b> (v=0; v&lt;G.vexnum; ++v) <br>
+      　　　<b>if</b> (<b>!</b>visited[v]) DFS(G, v); <font face="Times New Roman, Times, serif">//</font> 
+      对尚未访问的顶点调用DFS<br>
+      　<b>}</b></td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　<br>
+      　<br>
+      　<br>
+      　<br>
+      　<br>
+      　　例如对下列非连通图 G3 进行深度优先搜索遍历，得到顶点的访问序列为：<br>
+      　　　　　a→c→h→d→k→f→e→b→g<br>
+      <br>
+      <a href="javascript:;" onClick="MM_openBrWindow('../../../flash/chap07/7-3-2.swf','数据结构','width=400,height=300')"><img src="../../../images/tubiao/dh.gif" alt="动画" width="25" height="24" border="0"></a><img src="../../../images/pic/chapter07/7_20.gif" width="220" height="176" align="top"><br>
+      　　　　　　　　　　(图G3)<br>
+      　　</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">　　<b>void</b> DFS(ALGraph G, <b>int</b> v)<br>
+      　<b>{</b><br>
+      <span class="zhushi">　　<font face="Times New Roman, Times, serif">//</font> 
+      从第v个顶点出发递归地对图G进行深度优先搜索</span><br>
+      　　VisitFunc(G.vertices[v].data); <font face="Times New Roman, Times, serif">　//</font> 
+      访问第 v 个顶点<br>
+      　　visited[v] = <b>TRUE</b>; <font face="Times New Roman, Times, serif">　　　　　　//</font> 
+      设访问标志<br>
+      　　<b>for</b> ( p=G.vertices[ v ].firstarc; p; p=p-&gt;nextarc; )<br>
+      　　<b>{</b> <font face="Times New Roman, Times, serif">　　　　　　　　　　　　　　//</font> 
+      p 为指向弧结点的指针<br>
+      　　　w = p-&gt;adjvex;<br>
+      　　　<b>if</b> (<b>!</b>visited[w]) DFS(G, w);<font face="Times New Roman, Times, serif">//</font> 
+      对v的尚未访问过的邻接顶点w递归调用DFS<br>
+      　　<b>}</b><font face="Times New Roman, Times, serif"> //</font> for<br>
+      　<b>} </b><font face="Times New Roman, Times, serif">//</font> DFS<br>
+      <br>
+      　　算法7.4的时间复杂度为<font face="Times New Roman, Times, serif"><i>O(n+e)</i></font>。从算法7.4可见，在遍历图时，对图中每个顶点至多调用DFS一次，因为一旦某个顶点被标识成已被访问，就不再从它出发进行搜索，而DFS过程中耗费的时间主要在于找邻接点的时间，对邻接表而言，它是<img src="../../../images/pic/chapter07/gs_14.gif" width="34" height="18" align="absmiddle">。<br>
+    </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　　依次检查图中各个顶点，若未被访问，则从它出发进行深度优先搜索遍历。<br>
+      　<br>
+      　　VisitFunc() 为顶点的访问函数。 
+      <p><br>
+        　　对照7.2.2节中讨论的邻接表结构，可见指针 p 在第 v 个顶点的邻接点链表中移动，p 的值为空表示不存在邻接点或者没有下一个邻接点。<br>
+        <br>
+        　　虽然在此以无向图为例，然而算法7.4同样适用于有向图的深度优先搜索遍历。</p>
+    </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

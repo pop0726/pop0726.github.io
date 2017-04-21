@@ -1,0 +1,110 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">
+      <p><span class="part">　9.2.2 顺序表-静态查找表的实现方法之一</span><br>
+        <br>
+        　　实现静态查找表的最简单的方法是以&quot;顺序存储结构的线性表-顺序表&quot;表示之。即将集合中的数据元素构成一个序列，此时的查找过程极为简单，只要从第一个或最后一个数据元素起，逐个进行&quot;比较&quot;直至其中某个数据元素的关键字等于给定值为止，其算法描述类似于2.2.1节中的算法2.5。<br>
+      </p>
+      <p><img src="../../../images/tubiao/cxd.gif" width="25" height="24" alt="算法" align="absmiddle"><br>
+        　　<b>int</b> Search(SSTable ST, KeyType kval)<br>
+        　<b>{</b><br>
+        <span class="zhushi">　　<font face="Times New Roman, Times, serif">//</font> 
+        在顺序表ST中查找其关键字等于给定值的数据元素，<br>
+        　　<font face="Times New Roman, Times, serif">//</font> 若找到，则返回其在ST中的位序，否则返回0</span><br>
+        　　i = 1; <font face="Times New Roman, Times, serif">　　　　　　　　//</font> 
+        i 的初值为第1个元素的位序<br>
+        　　<b>while</b> (i &lt;= ST.length <b><font face="Times New Roman, Times, serif">&amp;&amp;</font></b> <b><span class="point">(ST.elem[i].key 
+        != kval)</span></b>)<br>
+        　　　++i; <font face="Times New Roman, Times, serif">　　　　　　　　//</font> 依次进行判定<br>
+        　　<b>if</b> (i &lt;= ST.length) <b>return</b> i; <br>
+        　　　　　　　　　　　　　　<font face="Times New Roman, Times, serif">//</font> 找到满足判定条件的数据元素为第 
+        i 个元素<br>
+        　　<b>else return</b> 0; <font face="Times New Roman, Times, serif">　　　//</font> 
+        该查找表中不存在满足判定的数据元素<br>
+        　<b>}</b><font face="Times New Roman, Times, serif"> //</font> Search<br>
+        <br>
+        　　可以利用留空的0号单元改写上列算法。<br>
+        <br>
+        <img src="../../../images/tubiao/cxd.gif" width="25" height="24" alt="算法" align="absmiddle"> 
+        <span class="zhushi">算法 9.1</span><br>
+        　　<b>int</b> Search (SSTable ST, KeyType kval) <br>
+        　<b>{</b><br>
+        <span class="zhushi">　　<font face="Times New Roman, Times, serif">//</font> 
+        在顺序表ST中顺序查找其关键字等于 kval 的数据元素，<br>
+        　　<font face="Times New Roman, Times, serif">//</font> 若找到，则函数值为该元素在表中的位置，否则为0</span><br>
+        　　ST.elem[0].key = kval; <font face="Times New Roman, Times, serif">　　　　　　　　　　　　　//</font> 
+        设置&quot;哨兵&quot;<br>
+        　　<b>for</b> (i=ST.length; <span class="point">ST.elem[i].key <b>!</b>= 
+        kval</span>; --i); <font face="Times New Roman, Times, serif">　//</font> 
+        从后往前查找<br>
+        　　<b>return</b> i; <font face="Times New Roman, Times, serif">　　　　　　　　　　　　　　　　　　 
+        //</font> 找不到时，i 为0<br>
+        　<b>}</b><font face="Times New Roman, Times, serif">　　　　　　　　　　　　　　　　　　　　　　　　//</font> 
+        Search<br>
+        <br>
+        　　容易看出，在顺序表中进行(顺序)查找查找成功的平均查找长度为：<br>
+        　　　<img src="../../../images/pic/chapter09/gs_3.gif" width="293" height="72"> 
+      </p>
+      <p></p>
+      <p>　　若查找表中每个记录的查找概率相等，即<br>
+        　　　<img src="../../../images/pic/chapter09/gs_4.gif" width="53" height="38"><br>
+        　</p>
+    </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　<br>
+      　<br>
+      顺序表的类型描述如下：<br>
+      　<b>typedef struct</b> <br>
+      <b>{</b><br>
+      　ElemType <b>*</b>elem; <font face="Times New Roman, Times, serif">//</font> 
+      数据元素存储空间基址，建表<br>
+      <font face="Times New Roman, Times, serif">　　　　　　　//</font> 时按实际长度分配，0号单元留空<br>
+      　<b>int</b> length; <font face="Times New Roman, Times, serif">//</font> 
+      表中元素个数<br>
+      <b>}</b> SSTable;<br>
+      <br>
+      　　算法2.5中的主要操作是进行&quot;判定(关键字的比较)&quot;，其时间复杂度为<font face="Times New Roman, Times, serif"><i>O 
+      </i>(ListLength(ST))</font>。但同时为了考虑查找不成功的情况,在每次进行关键字的比较之前，首先要判断循环变量 i 是否出界，这对算法来说是必要的，但对于静态查找表查找结果是成功的情况是多余的，并且在表长大于1000的情况下，经验告诉我们，它将使查找算法的时间几乎增加一倍。<br>
+      <br>
+      　　容易看出，在算法9.1中只是作了一点程序设计技术上的处理，利用在0号单元所设的&quot;监视哨&quot;控制住了循环变量 i 的出界，即在查找表中不存在其关键字等于给定值的数据元素时，i 
+      必等于0,而这样的处理并不影响查找成功的情况。<br>
+      <br>
+      　例如，在顺序表<br>
+      　　(21,37,88,19,92,05,64,56,80,75,13)<br>
+      　　中顺序查找64和60的过程如动画所示。<a href="javascript:;" onClick="MM_openBrWindow('../../../flash/chap09/9-2-1.swf','数据结构','width=400,height=300')"><img src="../../../images/tubiao/dh.gif" alt="动画" width="25" height="24" border="0" align="absmiddle"></a></td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">　　则等概率查找时顺序查找的平均查找长度为 <br>
+      　　　<img src="../../../images/pic/chapter09/gs_5.gif" width="235" height="42"> 
+      <br>
+      <p></p>
+      <p>　　可以证明，在不等概率查找的情况下，<b><i>ASLss</i></b> 在 <img src="../../../images/pic/chapter09/gs_6.gif" width="144" height="22" align="absmiddle"><i> 
+        </i>时取极小值，这就是说，如果事先已经知道查找表中各个关键字的查找概率的话，则应该按照关键字的查找概率从小而大存放数据元素。但是还有很多情况是各个数据元素的查找概率既不同，但又无法事先估计，则应该改变顺序查找的算法，令每个找到的数据元素移动到表尾位置，显然此时应该采用链式存储结构。<br>
+      </p>
+    </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　　和其它查找方法相比，顺序查找的缺点是其平均查找长度较大，特别是当表中记录数 
+      n 很大时，查找效率较低。反之，它的优点是算法简单且适应面广，无论表中记录是否按关键字有序排列均可应用，而且，上述讨论对链式存储的线性表也同样适用。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

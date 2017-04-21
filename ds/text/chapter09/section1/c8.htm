@@ -1,0 +1,97 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+<script language="JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　9.2.5 次优查找树-静态查找表的实现方法之四</span><br>
+      <br>
+      <img src="../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle" alt="算法"> 
+      <span class="zhushi">算法 9.3</span><br>
+      　　<b>void</b> SecondOptimal(BiTree <b><font face="Times New Roman, Times, serif">&amp;</font></b>T, ElemType R[], <b>float</b> 
+      sw[],<br>
+      　　　　　　　　　　　　　　　　　　　　　　<b>int</b> low, <b>int</b> high) <br>
+      　<b>{</b><br>
+      <span class="zhushi">　　<font face="Times New Roman, Times, serif">//</font> 
+      由有序表R[low..high]及其累计权值表sw(其中sw[0]==0)<br>
+      　　<font face="Times New Roman, Times, serif">//</font> 递归构造次优查找树T</span><br>
+      　　i=low; min= abs(sw[high]-sw[low]); dw = sw[high]+sw[low-1];<br>
+      　　<b>for</b> (j=low+1; j&lt;=high; ++j) <font face="Times New Roman, Times, serif">　　　　　　//</font> 
+      选择最小的ΔPi值<br>
+      　　　<b>if</b> abs(dw-sw[j]-sw[j-1]) &lt; min) <b>{</b><br>
+      　　　　i = j; min = abs(dw-sw[j]-sw[j-1]);<br>
+      　　　<b>} </b><font face="Times New Roman, Times, serif">//</font> if<br>
+      　　T = <b>new</b> BiTNode;<br>
+      　　T-&gt;data = R[i];<font face="Times New Roman, Times, serif">　　　　　　　　　　　　//</font> 
+      生成根结点<br>
+      　　<b>if</b> (i==low) T-&gt;lchild = <b>NULL</b>; <font face="Times New Roman, Times, serif">　　　　 
+      //</font> 左子树空<br>
+      　　<b>else</b> SecondOptimal(T-&gt;lchild, R, sw, low, i-1);<b></b><font face="Times New Roman, Times, serif">//</font> 
+      递归构造左子树<br>
+      　　<b>if</b> (i==high) T-&gt;rchild = NULL; <font face="Times New Roman, Times, serif">　　　　 
+      //</font> 右子树空<br>
+      　　<b>else</b> SecondOptimal(T-&gt;rchild, R, sw, i+1, high);<b></b><font face="Times New Roman, Times, serif">//</font> 
+      递归构造右子树<br>
+      　<b>}</b><font face="Times New Roman, Times, serif"> //</font> SecondOptimal 
+      <p>　　<b>typedef</b> BiTree SOSTree; <font face="Times New Roman, Times, serif">　　//</font> 
+        次优查找树采用二叉链表的存储结构<br>
+        <img src="../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle" alt="算法"> 
+        <span class="zhushi">算法 9.4</span><br>
+        　　<b>void</b> CreateSOSTree(SOSTree <b><font face="Times New Roman, Times, serif">&amp;</font></b>T, SSTable ST)<br>
+        　<b>{</b><br>
+        <span class="zhushi">　　<font face="Times New Roman, Times, serif">//</font> 
+        由有序表ST构造一棵次优查找树T，ST的数据元素中含有权域weight</span><br>
+        　　<b>if</b> (ST.length = 0) T = <b>NULL</b>;<br>
+        　　<b>else {</b><br>
+        　　　FindSW(sw, ST);<b></b><font face="Times New Roman, Times, serif">//</font> 
+        按照有序表ST中各数据元素的weight域求累计权值表sw<br>
+        　　　SecondOpiamal(T, ST.elem, sw, 1, ST.length);<br>
+        　　<b>}</b><br>
+        　<b>}</b><font face="Times New Roman, Times, serif"> //</font> CreateSOSTree<br>
+        <br>
+        　　算法9.4的<span class="point">时间复杂度</span>为<b><span class="point"><font face="Times New Roman, Times, serif"><i>O</i> 
+        (nlogn)</font></span></b>。<br>
+        <br>
+        　　在次优查找树上进行查找的过程类似于折半查找，给定值首先和根结点的关键字进行比较，若相等，则查找成功，否则依给定值小于或大于根结点关键字继续在左子树或右子树中进行查找，直至找到和给定值相同的关键字或相应子树为空，其时间复杂度为 
+        <i><font face="Times New Roman, Times, serif">O</font></i>(logn)。</p>
+    </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　<br>
+      　<br>
+      　　例如，已知含7个关键字的有序表及其相应的权值如下：<br>
+      　　关键字　A　B　C　D　E　F　G<br>
+      　　权　值　2　1　5　3　4　3　5<br>
+      <br>
+      　　则按算法9.4和9.3构造次优查找树的过程如下所示：<br>
+      <a href="javascript:;" onClick="MM_openBrWindow('../../../flash/chap09/9-2-5.swf','数据结构','width=400,height=300')"><img src="../../../images/tubiao/dh.gif" alt="动画" width="25" height="24" border="0"></a><img src="../../../images/pic/chapter09/9_03.gif" width="241" height="182" align="top"><br>
+      　 <br>
+      <br>
+      　　构造所得次优查找树以及对此有序表进行折半查找的判定树如下所示。如果将关键字的权值视作对该关键字进行的查找次数，则从两者在查找时所需进行 &quot;给定值和关键字比较&quot;的总次数可见，当各关键字查找概率不等时，次优查找树的查找性能优于折半查找。<br>
+      <br>
+      　　<img src="../../../images/pic/chapter09/9_04.gif" width="233" height="169" align="top"><br>
+      <br>
+      　　需要补充说明的是，由于在确定次优查找树的根结点时，仅考虑其左右子树权值和之差的绝对值为最小，而没有考察单个关键字的权值大小，因此有可能出现被选为根结点的关键字的权值较其左右相邻关键字的权值小得多，此时尚需作适当调整。 
+      <br>
+      <br>
+      　　例如，已知7个关键字的相应权值为：<br>
+      　　2,1,5,1,4,3,3，容易看出，Δ<img src="../../../images/pic/chapter09/p4l.gif" width="12" height="19" align="absmiddle"> 
+      是所有的<img src="../../../images/pic/chapter09/gs_20.gif" width="65" height="17" align="absmiddle"> 
+      中的最小值，然而，<font size="3">w</font><font size="1">4</font> 较 <font size="3">w</font><font size="1">3 
+      </font>和<font size="3"> w</font><font size="1">5</font> 均小得多，由此，应将根结点调整为第3个关键字。由此构造所得次优查找树的PH值等于43。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　6.6.2 树的孩子表示法</span><br>
+      <br>
+      <img src="../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle"> 
+      <span class="zhushi">树的孩子链表存储表示</span><br>
+      　　<b>typedef struct</b> CTNode <b>{</b><font face="Times New Roman, Times, serif">　　　//</font> 
+      孩子结点<br>
+      　　　<b>int</b> child;<br>
+      　　　<b>struct</b> CTNode *next;<br>
+      　　<b>}</b> *ChildPtr;<br>
+      　　<b>typedef struct {</b><br>
+      　　　ElemType data; <font face="Times New Roman, Times, serif">　　　　　　　//</font> 
+      结点的数据元素<br>
+      　　　ChildPtr firstchild; <font face="Times New Roman, Times, serif">　　　　//</font> 
+      孩子链表头指针<br>
+      　　<b>}</b> CTBox;<br>
+      　　<b>typedef struct {</b><br>
+      　　　CTBox nodes[MAX_TREE_SIZE];<br>
+      　　　<b>int</b> n, r; <font face="Times New Roman, Times, serif">　　　　　　　　　//</font> 
+      结点数和根结点的位置<br>
+      　　<b>}</b> CTree;<br>
+      　<br>
+    </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　<br>
+      　<br>
+      　　让每个结点的&quot;子树根&quot;构成一个线性表，以链表作它的存储结构，令其头指针和结点的数据元素构成一个结点，并将所有这样的结点存放在一个地址连续的存储空间里，所构成的树的存储结构称为树的孩子链表。当然，在需要的情况下，也可以如同双亲链表，在结点结构中加上双亲的&quot;地址号&quot;。<br>
+      <br>
+      　　注意，&quot;孩子结点&quot;中的&quot;子树根&quot;只存放该结点在一维数组中的下标。由于整个结构无法用一个&quot;指针&quot;表示，所以对整个树结构当然还需要给出结点数目和根的位置。<br>
+      　</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><div align="center"><img src="../../../images/pic/chapter06/6_21.gif" width="265" height="269" align="top"></div></td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　　例如，下列图示树的孩子链表如左图所示。<br>
+      　　 <img src="../../../images/pic/chapter06/6_22.gif" width="200" height="147" align="top"><br>
+    </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

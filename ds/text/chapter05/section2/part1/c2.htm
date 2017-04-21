@@ -1,0 +1,52 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　5.2.2 稀疏矩阵的压缩存储方法</span><br>
+      <br>
+      　　如果矩阵中只有少量的非零值元，并且这些非零值元在矩阵中的分布没有一定规律，则称为随机稀疏矩阵，简称为稀疏矩阵。至于矩阵中究竟含多少个零值元才被称为是稀疏矩阵，目前还没有一个确切的定义，它只是一个凭人的直觉来了解的概念。假设在 
+      m<img src="../../../../images/pic/chapter04/t5.gif" width="7" height="7">n 
+      的矩阵中有 t 个非零值元，令 <img src="../../../../images/pic/chapter05/gs/gs_2.gif" width="58" height="31" align="absmiddle">，称<img src="../../../../images/pic/chapter05/gs/gs_4.gif" width="8" height="11">为矩阵的稀疏因子，则通常认定<img src="../../../../images/pic/chapter05/gs/gs_4.gif" width="8" height="11">≤0.05的矩阵为稀疏矩阵。 
+      <br>
+      　</td>
+    <td background="../../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">&nbsp;</td>
+    <td background="../../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">　　如何存储稀疏矩阵中的非零值元？<br>
+      <br>
+      　　首先应该分析一下，如果仍然采用二维数组表示稀疏矩阵，那么它的弊病是什么？<br>
+      <br>
+      　　一、浪费空间，二、浪费时间。<br>
+      <br>
+      　　前者是指存放了大量没有用的零值元素，后者是指在进行矩阵的运算中进行了很多与零元素的运算。<br>
+      <br>
+      　　由此解决稀疏矩阵压缩存储的目标是：1)尽可能减少或不存储零值元；2)尽可能不作和零值元进行的运算；3)便于进行矩阵运算，即易于从一对行列号<img src="../../../../images/pic/chapter05/gs/i_j.gif" width="31" height="21" align="absmiddle">找到矩阵的元，易于找到同一行或同一列的非零值元。<br>
+      <br>
+      　　由于压缩存储的基本宗旨是只存放矩阵中的非零值元，则在存储非零元的值的同时必须记下它在矩阵中的位置<img src="../../../../images/pic/chapter05/gs/i_j.gif" width="31" height="21" align="absmiddle">，反之，一个三元组 
+      <img src="../../../../images/pic/chapter05/gs/gs_20.gif" width="51" height="21" align="absmiddle"> 
+      唯一确定了矩阵A中的一个非零值元,由此可以&quot;其数据元素为上述三元组的线性表&quot;表示稀疏矩阵，并且非零元在三元组线性表中是&quot;以行为主&quot;有序排列的。相应于线性表的两种存储结构可得到稀疏矩阵的不同压缩存储方法。</td>
+    <td background="../../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　　对稀疏矩阵进行压缩存储时不存或少存零值元是自然的，由于存储不是最后目的，重要的尚需对矩阵进行运算，因此在进行压缩存储时必须考虑到运算的方便。首先必须容易从<img src="../../../../images/pic/chapter05/gs/ij.gif" width="31" height="21" align="absmiddle">找到矩阵的元(包括零值元)，其次，很多矩阵运算是按行或按列进行的，因此需要方便地找到同一行或同一列中紧接着出现的 
+      &quot;下一个&quot; 非零值元。<br>
+      <br>
+      　例如表示矩阵<br>
+      　　　<img src="../../../../images/pic/chapter05/gs/gs_5.gif" width="158" height="104"> 
+      <br>
+      的三元组线性表为：<br>
+      　((1,3,9),(1,5,-7),(3,4,8),(4,1,5),<br>
+      　　　　　　　　　　　　　　(4,6,2),(5,2,16))</td>
+    <td background="../../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

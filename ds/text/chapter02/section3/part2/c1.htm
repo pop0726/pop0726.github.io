@@ -1,0 +1,77 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<script language=JavaScript src="hpmain.js"></script>
+<script language=JavaScript src="showhidden.js"></script>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　2.3.2 单链表中基本操作的实现</span><br>
+      <br>
+      　　以下重点讨论线性表的五个基本操作在链式存储结构中的实现。<br>
+      <br>
+      　<span class="zhushi">一、初始化操作</span><br>
+      <br>
+      　　根据上一节的约定，初始化建一个空的链表即为建立一个只有头结点的链表。<br>
+      <br>
+      <span class="zhushi"><img src="../../../../images/tubiao/cxd.gif" width="25" height="24" align="absbottom" alt="算法"> 
+      算法2.13</span><br>
+      　　<b>void</b> InitList( SLink <b><font face="Times New Roman, Times, serif">&amp;</font></b>L )<br>
+      　<b>{</b><br>
+      <span class="zhushi">　　<font face="Times New Roman, Times, serif">//</font> 
+      创建一个带头结点的空链表,L 为指向头结点的指针</span><br>
+      　　L = <b>new</b> LNode;<br>
+      　　<b>if</b> (!L) <b>exit</b>(1); <font face="Times New Roman, Times, serif">　//</font> 
+      存储空间分配失败<br>
+      　　L-&gt;next = <b>NULL</b>;<br>
+      　<b>} </b><font face="Times New Roman, Times, serif">//</font> nitList 
+      <p>　　算法的<span class="point">时间复杂度</span>为<b><span class="point"><font face="Times New Roman, Times, serif"><i>O</i> 
+        (1)</font></span></b>。</p>
+    </td>
+    <td background="../../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"> 
+      <br>
+      <br>
+      <table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td bgcolor="#ECEEFF" height="14" class="explaination" width="8">&nbsp;</td>
+                <td bgcolor="#ECEEFF" height="14" class="explaination"><img src="../../../../images/tubiao/wt.gif" width="23" height="23" align="absmiddle" alt="思考题"> 
+                  &quot;空&quot;链表的头指针是否为NULL?</td>
+                <td width="15" bgcolor="#ECEEFF" valign="top"><span id="bb"><img border=0 
+                              id=HPFrameHLTab3 
+                              onClick="showHideContent('HPFrameHL');hidden();"
+							   src="../../../../images/html/expand.gif" style="CURSOR: hand" width="15" height="14"></span></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <div id=HPFrameHLContent 
+           style="WIDTH: 100%;visibility: hidden;background-color:#ECEEFF" > 
+              <table width="94%" border="0" cellspacing="0" cellpadding="0" align="center">
+                <tr> 
+                  <td class="explaination">　若链表不带头结点，则以头指针L=NULL表示空表，在带头结点的情况下，则需建立一个其指针域的指针为NULL的头结点，并令头指针指向该结点。</td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+      </table>
+      <br>
+      <br>
+      <br>
+      　　链表是一个进行动态存储管理的结构，因此在初始化时不需要按照线性表实际所需最大容量进行预分配。 </td>
+    <td background="../../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%"> 
+<tr> <td width="8">&nbsp;</td><td class="white" valign="top"><br> 　　若以弧表示活动，且弧上的权值表示进行该项活动所需时间，而以顶点表示&quot;事件&quot;，称这种有向图为活动在弧上的网络，简称<span class="point">活动边网络</span>，简称为<span class="point"><b>AOE</b>(<b>A</b>ctivity 
+<b>O</b>n <b>V</b>ertex)<b>网</b></span>。所谓事件是一个关于某(几)项活动开始或完成的断言：指向它的弧表示的活动已经完成，而从它出发的弧表示的活动开始进行。因此整个有向网也表示了活动之间的优先制约关系，显然，这样的有向网中也是不允许存在有向环的，除此之外，工程的负责人还关心的是整个工程完成的最短时间以及哪些子工程将是影响整个工程如期完成的关键所在。<br> 
+<br> 　　例如右图所示为表示一项假想工程的AOE网络，其中<img src="../../../images/pic/chapter02/gs/ai.gif" width="10" height="10"> 
+表示第i(i=1,2,…,11)项活动，括弧内的数字表示完成该项活动所需时间（天数）。a 表示整个工程开始的事件，k 表示整个工程结束的事件，e 则表示活动<font size="3">a</font><font size="1">1</font>继而<font size="3">a</font><font size="1">4</font>和活动<font size="3">a</font><font size="1">2</font>继而<font size="3">a</font><font size="1">5</font>完成同时活动<font size="3">a</font><font size="1">7</font>和<font size="3">a</font><font size="1">8</font>开始进行的事件。显然表示工程开始事件的顶点的入度为零（称作源点），表示工程结束事件的顶点的出度为零（称作汇点），一个工程的AOE网应是只有一个单源点和单汇点的有向无环图。右图的AOE网将告诉人们该项工程从开始到完成需要18天，其中<font size="3">a</font><font size="1">1</font>，<font size="3">a</font><font size="1">4</font>，<font size="3">a</font><font size="1">8</font>和<font size="3">a</font><font size="1">11</font>这四项子工程必须按时开始并计划完成，否则将延误整个工程的工期，即使整个工程不能在18天内完成。称<font size="3">a</font><font size="1">1</font>，<font size="3">a</font><font size="1">4</font>，<font size="3">a</font><font size="1">8</font>和<font size="3">a</font><font size="1">11</font>为此AOE网的关键活动，称由它们构成的路径{<font size="3">a</font><font size="1">1</font>,<font size="3">a</font><font size="1">4</font>,<font size="3">a</font><font size="1">8</font>,<font size="3">a</font><font size="1">11</font>}为关键路径。<br> 
+<br> 　　在AOE网络中，一条路径上各弧权值之和称为该路径的<span class="point">带权路径长度</span>。由于AOE网络中某些活动可以并行进行，则完成整个工程的最短时间即为从源点到汇点最长的带权路径长度的值，这条路径便称为<span class="point">关键路径</span>，构成关键路径的弧即为<span class="point">关键活动</span>。<br> 
+</td><td background="../../../images/html/mid.gif" width="18">&nbsp;</td><td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br> 
+　<img src="../../../images/pic/chapter07/7_36.gif" width="250" height="232" align="top"><br> 
+　　　　　　　　　(AOE网示例) </td><td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td></tr> 
+</table>
+</body>
+</html>

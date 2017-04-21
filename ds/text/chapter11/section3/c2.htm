@@ -1,0 +1,49 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　11.3.2 B-树</span><br>
+      <br>
+      <span class="zhushi">　一、B树的定义</span><br>
+      <br>
+      　　一棵&quot;m 阶的B树&quot;或为空树，或为具有以下特性的 m 叉查找树：<br>
+      <br>
+      　　（1）树中每个结点至多有 m 棵子树；<br>
+      <br>
+      　　（2）除根以外的所有非叶结点至少有 <img src="../../../images/pic/chapter11/l1.gif" width="5" height="16" align="absmiddle">m/2<img src="../../../images/pic/chapter11/l2.gif" width="6" height="16" align="absmiddle"> 
+      棵子树，根结点若是非叶结点，则至少有两棵子树；<br>
+      <br>
+      　　（3）所有的非叶结点中含有如下信息：<br>
+      　　　　　(n,A<font size="1">0</font>,(K<font size="1">1</font>,D<font size="1">1</font>),A<font size="1">1</font>,(K<font size="1">2</font>,D<font size="1">2</font>),……，A<font size="1">n-1</font>,(K<font size="1">n</font>,D<font size="1">n</font>),A<font size="1">n</font>)<br>
+      　　其中：(K<font size="1">i</font>,D<font size="1">i</font>)(i=1,…，n)为索引项，且 
+      K<font size="1">i</font>&lt;K<font size="1">i+1</font>(i=1,…，n-1)；<br>
+      　　　A<font size="1">i</font>(i=0,…，n) 为指向子树根结点的指针，且 A<font size="1">i-1</font> 
+      所指子树中所有索引项的关键码小于 K<font size="1">i</font>(i=1,…，n)，A<font size="1">n</font> 
+      所指子树中索引项的关键码大于 K<font size="1">n</font>，n(<img src="../../../images/pic/chapter11/l1.gif" width="5" height="16" align="absmiddle">m/2<img src="../../../images/pic/chapter11/l2.gif" width="6" height="16" align="absmiddle">-1≤n≤m-1) 
+      为结点中索引项的个数；<br>
+      <br>
+      　　（4）所有叶结点都在同一层上，且不含任何信息。<br>
+      <br>
+      　<img src="../../../images/pic/chapter11/11_07.gif" width="410" height="218" align="top"><br>
+      <br>
+      　　如图所示为一棵4阶的B树，其深度为4（即第4层为不带任何信息的叶子结点），图中省却了物理记录的指针 D<font size="1">i</font>。<br>
+    </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      <br>
+      <br>
+      <br>
+      　　可见，和二叉查找树类似，B树也是一种查找树，其本身是一种有序结构，因此建立索引之后不需要再排序，并从下一页B树操作的叙述可见，插入或删除记录时修改索引也很方便。<br>
+    </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

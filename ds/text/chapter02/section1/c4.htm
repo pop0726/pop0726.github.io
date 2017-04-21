@@ -1,0 +1,47 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">　<span class="part">2.1.2 线性表类型的应用</span><br>
+      <br>
+      　　如果已经实现了上述定义的线性表类型，那么在应用问题的求解中就可以利用类型中定义的各种操作。下面将举三个例子说明之。<br>
+    </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      　　由于上述各个操作的定义仅对抽象的线性表而言，就目前来说，还无法在程序设计中加以引用，但可以利用它进行算法的研究，并由此可以看出以上对线性表类型的定义是否&quot;完整&quot;，即能否利用线性表的操作实现应用问题的算法设计。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>&nbsp;</td>
+    <td class="white" valign="top"> <img src="../../../images/tubiao/lt.gif" width="28" height="27" align="absmiddle"> 
+      <span class="zhushi">例2-1</span> 已知集合 A 和 B，求两个集合的并集，使 A＝A∪B，且 B 不再单独存在。<br>
+      <p>　　从集合的观点看，此问题求解的方法很简单，只要对集合 B 中的所有元素一个一个地检查，看看在集合 A 中是否存在相同元素，若不存在，则将该元素插入到集合 
+        A，否则舍弃之。<br>
+        　　要在计算机中求解，首先要确定&quot;如何表示集合&quot;。集合可以有多种表示方法，对上述集合求并的问题可以用线性表表示集合。<br>
+        　　现假设以线性表 LA 和 LB 分别表示集合 A 和 B，即构造两个线性表 LA 和 LB，它们的数据元素分别为集合 A 和 B 中的成员。<br>
+        　　由此，上述集合求并的问题便可演绎为：要求对线性表作如下操作：扩大线性表 LA，<span class="point">将<b>存在于线性表 
+        LB 中</b>而<b>不存在于线性表 LA 中</b>的数据元素<b>插入到线性表 LA 中</b>去。</span><br>
+        <br>
+        　　具体操作步骤为：<br>
+        　　1．从线性表 LB 中<span class="point">取出</span>一个数据元素；<br>
+        　　2．依值在线性表 LA 中进行<span class="point">查询</span>；<br>
+        　　3．若不存在，则将它<span class="point">插入</span>到 LA 中。<br>
+        <br>
+        　　重复上述三步直至 LB 为空表止。<br>
+        <br>
+        　　那么，其中的每一步能否利用上述线性表类型中定义的基本操作来完成呢？</p>
+    </td>
+    <td background="../../../images/html/mid.gif">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">&nbsp;</td>
+    <td background="../../../images/html/right_di3.gif">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

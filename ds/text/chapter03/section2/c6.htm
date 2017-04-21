@@ -1,0 +1,101 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+<script language="JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<script language=JavaScript src="../../chapter02/section1/hpmain.js"></script>
+<script language=JavaScript src="../../chapter02/section1/showhidden.js"></script>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　3.2.4 表达式求值问题</span><br>
+      <br>
+      　例如：<br>
+      　　若 <img src="../../../images/pic/chapter03/4_2_1.gif" width="193" height="17" align="absmiddle">　则它的<br>
+      　　前缀式为： <img src="../../../images/pic/chapter03/4_2_2.gif" width="143" height="16" align="absmiddle"><br>
+      　　中缀式为： <img src="../../../images/pic/chapter03/4_2_3.gif" width="142" height="15" align="absmiddle"><br>
+      　　后缀式为： <img src="../../../images/pic/chapter03/4_2_4.gif" width="143" height="16" align="absmiddle"><br>
+      　</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　<br>
+      　<br>
+      <br>
+      　　因为表达式是递归定义的，则它的转换也是递归的，如此例的后缀式的转换过程如动画演示所示。<br>
+      　　<a href="javascript:;" onClick="MM_openBrWindow('../../../flash/chap03/3-3-4.swf','数据结构','width=400,height=300')"><img src="../../../images/tubiao/dh.gif" width="25" height="24" alt="动画" border="0"></a></td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">　综合比较它们之间的关系可得下列<span class="point">结论</span>：<br>
+      　1．三式中的 <b><span class="point">&quot;操作数之间的相对次序相同&quot;</span></b>；<br>
+      　2．三式中的 <b><span class="point">&quot;运算符之间的的相对次序不同&quot;</span></b>；<br>
+      　3．中缀式丢失了括弧信息，致使运算的次序不确定；<br>
+      　4．<b>前缀式的运算规则</b>为：<b><span class="point">连续出现的两个操作数和在它们之前且紧靠它们的运算符构成一个最小表达式；</span></b><br>
+      　5．<b>后缀式的运算规则</b>为：<br>
+      <b><span class="point">　　・运算符在式中出现的顺序恰为表达式的运算顺序；<br>
+      　　・每个运算符和在它之前出现且紧靠它的两个操作数构成一个最小表达式；</span></b><br>
+      　　以下就分&quot;如何按后缀式进行运算&quot;和&quot;如何将原表达式转换成后缀式&quot;两个问题进行讨论。<br>
+      　</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　1．即转换过程中不改变原表达式中操作数之间的相对次序；<br>
+      　2．即转换过程主要是改变原表达式中各个运算符之间的相对次序；<br>
+      　3．因此，中缀式没什么用；<br>
+      　4．虽然前缀式中已经没有原表达式中的括弧，但它已经包含了原表达式中运算的规则；<br>
+      　5．若将原表达式转换成它的后缀式，那么我们就可以按后缀式中运算符出现的先后次序来对表达式进行运算了。<br>
+      　</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">　　如何按后缀式进行运算？<br>
+      　　可以用两句话来归纳它的求值规则：<br>
+      　　&quot;先找运算符，后找操作数。&quot; <a href="javascript:;" onClick="MM_openBrWindow('../../../flash/chap03/3-3-5.swf','数据结构','width=400,height=300')"><img src="../../../images/tubiao/dh.gif" width="25" height="24" align="absmiddle" alt="动画" border="0"></a><br>
+      <br>
+      　　从这个例子的运算过程可见，运算过程为：对后缀式从左向右&quot;扫描&quot;，遇见操作数则暂时保存，遇见运算符即可进行运算；此时参加运算的两个操作数应该是在它之前刚刚碰到的两个操作数，并且先出现的是第一操作数，后出现的是第二操作数。由此可见，在运算过程中保存操作数的结构应该是个栈。</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">
+      <table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td bgcolor="#ECEEFF" height="14" class="explaination" width="8">&nbsp;</td>
+                <td bgcolor="#ECEEFF" height="14" class="explaination"><img src="../../../images/tubiao/wt.gif" width="23" height="23" align="absmiddle" alt="思考题"> 
+                  这个算法不难吧？你头脑中是不是已经有了这个算法的大致模样了？</td>
+                <td width="15" bgcolor="#ECEEFF" valign="top"><span id="bb"><img border=0 
+                              id=HPFrameHLTab3 
+                              onClick="showHideContent('HPFrameHL');hidden();"
+							   src="../../../images/html/expand.gif" style="CURSOR: hand" width="15" height="14"></span></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <div id=HPFrameHLContent 
+           style="WIDTH: 100%;visibility: hidden;background-color:#ECEEFF" > 
+              <table width="94%" border="0" cellspacing="0" cellpadding="0" align="center">
+                <tr> 
+                  <td class="explaination">　如果你觉得还没有思路，那么可以看一下这个动画演示 <a href="javascript:;" onClick="MM_openBrWindow('../../../flash/chap03/3-3-6.swf','数据结构','width=400,height=300')"><img src="../../../images/tubiao/dh.gif" alt="动画" width="25" height="24" border="0" align="absmiddle"></a>，不然课后你就可以上机做算法设计题3.22了。</td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

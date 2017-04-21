@@ -1,0 +1,105 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<script language=JavaScript src="../../chapter02/section1/hpmain.js"></script>
+<script language=JavaScript src="../../chapter02/section1/showhidden.js"></script>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　7.2.4 无向图(网)的邻接多重链表存储表示</span><br>
+      <br>
+      　　建立多重链表的算法类似于建立图的邻接表，只要依次输入图的顶点和边的信息即可。<br>
+      <br>
+      <img src="../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle"> 
+      <span class="zhushi">算法 7.2</span><br>
+      　　<b>void</b> CreateGraph(AMLGraph <b><font face="Times New Roman, Times, serif">&amp;</font></b>G)<br>
+      　<b>{</b><br>
+      <span class="zhushi">　　<font face="Times New Roman, Times, serif">//</font> 
+      生成无向图G的存储结构-邻接多重表</span><br>
+      　　<b>cin</b> &gt;&gt; G.vexnum &gt;&gt; G.edgenum &gt;&gt;G.kind;　<font face="Times New Roman, Times, serif">//</font> 
+      输入顶点数、边数和类型<br>
+      　　<b>for</b> (i=0; i&lt;G.vexnum; ++i) <b>{</b> <font face="Times New Roman, Times, serif">　　　　　//</font> 
+      构造顶点数组<br>
+      　　　<b>ci</b>n &gt;&gt; G.adjmulist[i].data;<font face="Times New Roman, Times, serif">　　　　　//</font> 
+      输入顶点<br>
+      　　　G.adjmulist[i].firstedge = <b>NULL</b>; <font face="Times New Roman, Times, serif">　　//</font> 
+      初始化链表头指针为&quot;空&quot;<br>
+      　　<b>}</b><font face="Times New Roman, Times, serif">//</font>for<br>
+      　　<b>for</b> (k=0; k&lt;G.edgenum; ++k) <b>{</b><font face="Times New Roman, Times, serif">　　　　　//</font> 
+      输入各边并构造邻接多重表<br>
+      　　　<b>cin</b> &gt;&gt; <img src="../../../images/pic/chapter07/vi.gif" width="13" height="17" align="absmiddle"> 
+      &gt;&gt; <img src="../../../images/pic/chapter07/vj.gif" width="14" height="18" align="absmiddle">;<font face="Times New Roman, Times, serif">　　　　　　　　　　//</font> 
+      输入一条边的两个顶点<br>
+      　　　ipos = LocateVex(G,<img src="../../../images/pic/chapter07/vi.gif" width="13" height="17" align="absmiddle">); 
+      jpos = LocateVex(G, <img src="../../../images/pic/chapter07/vj.gif" width="14" height="18" align="absmiddle">); 
+      <br>
+      　　　　　　　　　　　<font face="Times New Roman, Times, serif">//</font> 确定<img src="../../../images/pic/chapter07/vi.gif" width="13" height="17" align="absmiddle">和<img src="../../../images/pic/chapter07/vj.gif" width="14" height="18" align="absmiddle">在G中位置，即顶点在G.adjmulist中的序号<br>
+      　　　p = <b>new</b> ArcNode; <br>
+      　　　if (!pi) exit(1);<font face="Times New Roman, Times, serif">　　　　　　　　　　//</font> 
+      存储分配失败<br>
+      　　　p-&gt;mark = unvisited;<br>
+      　　　p -&gt; ivex = ipos; p-&gt;jvex = jpos; <font face="Times New Roman, Times, serif">　　//</font> 
+      对弧结点赋顶点&quot;位置&quot;<br>
+      　　　<b>if</b> (G.kind==AN)<br>
+      　　　　<b>cin</b> &gt;&gt; w &gt;&gt; p;<font face="Times New Roman, Times, serif">　　　　　　　　　　//</font> 
+      输入权值和其它信息存储地址</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">&nbsp;</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">　　　<b>else {</b> w=0; p=<b>NULL</b>; <b>}</b><br>
+      　　　p-&gt;weight = w; p-&gt;info = p;<br>
+      　　　p-&gt;ilink = G.adjmulist[ipos].firstedge;<br>
+      　　　G.adjmulist[ipos].firstedge = p; <font face="Times New Roman, Times, serif">　　//</font> 
+      插入顶点<img src="../../../images/pic/chapter07/vi.gif" width="13" height="17" align="absmiddle"> 
+      的链表<br>
+      　　　p-&gt;jlink = G.adjmulist[jpos].fistedge;<br>
+      　　　G.adjmulist[jpos].firstedge = p; <font face="Times New Roman, Times, serif">　　//</font> 
+      插入顶点<img src="../../../images/pic/chapter07/vj.gif" width="14" height="18" align="absmiddle"> 
+      的链表<br>
+      　　<b>} </b><font face="Times New Roman, Times, serif">//</font>for<br>
+      　<b>} </b><font face="Times New Roman, Times, serif">//</font> CreateGraph</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">
+      <table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td bgcolor="#ECEEFF" height="14" class="explaination" width="8">&nbsp;</td>
+                <td bgcolor="#ECEEFF" height="14" class="explaination"><img src="../../../images/tubiao/wt.gif" width="23" height="23" align="absmiddle" alt="思考题"> 
+                  算法7.2的时间复杂度是什么？是<img src="../../../images/pic/chapter07/gs_13.gif" width="56" height="17" align="absmiddle">，对吗？</td>
+                <td width="15" bgcolor="#ECEEFF" valign="top"><span id="bb"><img border=0 
+                              id=HPFrameHLTab3 
+                              onClick="showHideContent('HPFrameHL');hidden();"
+							   src="../../../images/html/expand.gif" style="CURSOR: hand" width="15" height="14"></span></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <div id=HPFrameHLContent 
+           style="WIDTH: 100%;visibility: hidden;background-color:#ECEEFF" > 
+              <table width="94%" border="0" cellspacing="0" cellpadding="0" align="center">
+                <tr> 
+                  <td class="explaination">　虽然算法中的控制结构，从形式上看只是两个单循环，但在建立边结点时每次都需查询顶点的&quot;位置&quot;。</td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

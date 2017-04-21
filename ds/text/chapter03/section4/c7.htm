@@ -1,0 +1,34 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%"> 
+<tr> <td width="10">&nbsp;</td><td class="white" valign="top"><BR><SPAN CLASS="part">【基础知识题】</SPAN><BR><br> 
+　1．若按3.1.1节中所示铁道进行车厢调度(注意：两侧铁道均为单向行驶道)，则请回答：<BR> 　(1) 如果进站的车厢序列为123，则可能得到的出站车厢序列是什么?<BR> 
+　(2) 如果进站的车厢序列为123456，则能否得到435612和135426的出站序列，并请说明为什么不能得到或者如何得到(即写出以'S'表示进栈和以'X'表示出栈的栈操作序列)。<P>　2．简述栈和线性表的差别。</P><P>　3．写出下列程序段的输出结果（栈的元素类型 
+SElemType 为 char）。<BR> 　　<B>void</B> main( )<B>{</B><BR> 　　　Stack S;<BR> 　　　<B>char</B> 
+x, y;<BR> 　　　InitStack(S);<BR> 　　　x='c'; y='k';<BR> 　　　Push(S, x); Push(S, 'a'); 
+Push(S, y);<BR> 　　　Pop(S, x); Push(S, 't'); Push(S, x);<BR> 　　　Pop(S, x); Push(S, 
+'s'); <BR> 　　　<B>while</B> (<B>!</B>StackEmpty(S)) <B>{</B> Pop(S, y); printf(y); 
+<B>}</B>;<BR> 　　　printf(x);<BR> 　　<B>}</B></P><P>　4．简述以下算法的功能（栈的元素类型 SElemType 
+为 int ）。<BR> 　(1) <B>status</B> algo1(Stack S) <B>{</B><BR> 　　　　<B>int</B> i, 
+n, A [255];<BR> 　　　　n=0;<BR> 　　　　<B>while</B> (!StackEmpty(S) ) <B>{</B> n++; 
+Pop(S, A[n]); <B>}</B>;<BR> 　　　　<B>for</B> ( i=1; i&lt;= n ; i++) Push(S, A[i]);<BR> 
+　　　<B>}</B><BR> 　(2) <B>status</B> algo2(Stack S, <B>int</B> e) <B>{</B><BR> 　　　　Stack 
+T; int d;<BR> 　　　　InitStack(T);<BR> 　　　　<B>while</B> (!StackEmpty(S)) <B>{ </B><BR> 
+　　　　　Pop(S, d); <BR> 　　　　　<B>if</B> (d!=e ) Push(T, d);<BR> 　　　　<B>}</B> <BR> 
+　　　　<B>while</B> (!StackEmpty(T)) <B>{</B><BR> 　　　　　Pop(T, d);<BR> 　　　　　Push(S, 
+d);<BR> 　　　　<B>}</B><BR> 　　　<B>}</B><BR><BR>　5．简述队列和栈这两种数据类型的相同点和差异处。</P><P>　6．简述以下算法的功能（栈和队列的元素类型均为 
+int）。<BR> 　　<B>void</B> algo3(Queue <FONT FACE="Times New Roman, Times, serif"><B>&amp;</B></FONT>Q) 
+<BR> 　　<B>{</B><BR> 　　　Stack S; <B>int</B> d;<BR> 　　　InitStack (S);<BR> 　　　<B>while</B> 
+(!QueueEmpty(Q)) <BR> 　　　<B>{</B><BR> 　　　　DeQueue(Q, d); Push(S, d);<BR> 　　　<B>}</B><BR> 
+　　　<B>while</B> (!StackEmpty(S)) <BR> 　　　<B>{</B><BR> 　　　　Pop(S, d); EnQueue(Q, 
+d);<BR> 　　　<B>}</B> <BR> 　　<B>}</B><br> 　</P></td><td background="../../../images/html/mid.gif" width="18">&nbsp;</td><td background="../../../images/html/right_di4.gif" class="explaination" valign="top" width="281"><br> 
+【基础知识题】 </td><td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td></tr> 
+</table>
+</body>
+</html>

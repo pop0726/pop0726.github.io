@@ -1,0 +1,56 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><br>
+      　　树型结构是一类重要的非线性结构，正如在课前思考题所看到的，树型结构广泛用于描述家族谱系以及其它社会组织结构。在计算机领域中，如编译程序中的语法结构和数据库中的信息组织也都需要借用树来描述。本章将讨论树和二叉树两种树型结构。<br>
+      　</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">&nbsp;</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">　 树的抽象数据类型的定义如下：<br>
+      <br>
+      <b>ADT Tree {</b><br>
+      　<span class="zhushi">数据对象：</span>D是具有相同特性的数据元素的集合。<br>
+      <br>
+      　<span class="zhushi">数据关系：</span><br>
+      　　若 D 为空集，则称为空树；<br>
+      　　若 D 中仅含一个数据元素，则关系R为空集；<br>
+      　　否则 R={H}，<br>
+      　　 (1) 在D中存在唯一的称为根的数据元素 root，它在关系H下无前驱；<br>
+      　　 (2) 当n&gt;1时，其余数据元素可分为 m(m&gt;0) 个互不相交的(非空)有限集 T<font size="1">1</font>,T<font size="1">2</font>,…,T<font size="1">m</font>, 
+      其中每一个子集本身又是一棵符合本定义的<b>树</b>，称为根 root 的子树，每一棵子树的根<font size="2"> x</font><font size="1">i 
+      </font>都是根 root 的后继，即 &lt;root,<font size="2">x</font><font size="1">i</font>&gt; 
+      H,i=1,2,…,m。<br>
+      <br>
+      　　　<img src="../../../images/pic/chapter06/6_01.gif" width="369" height="221" align="top"></td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　　例如所示图为含13个数据元素的集合，其中，<font color="#FF0000">A</font> 
+      为&quot;<font color="#FF0000">根</font>&quot;，其余12个数据元素分为3个互不相交的子集<font color="#FF0000"> 
+      T<sub>1</sub>={B,E,F,K,L}</font>、<font color="#FF0000">T<sub>2</sub>={C,G}</font>和<font color="#FF0000">T<sub>3</sub>={D,H,I,J,M}</font>，每个子集都是一棵树，称为<b>A的子树</b>，它们的根结点都是 
+      <b>A的后继</b>。这是一个递归的定义，如在子树T<font size="1">1</font>中，<b>B是根</b>，其余元素分为2个互不相交的子集<b>T<font size="1">11</font>={E}</b>和 
+      <b>T<font size="1">12</font>={F,K,L}</b>，每个子集构成一棵B的子树，子树中的根结点是B的后继，依次类推。换句话说，在这13 
+      个数据元素之间存在下列关系：<br>
+      R=<b>{&lt;A,B&gt;,&lt;A,C&gt;,&lt;A,D&gt;,&lt;B,E&gt;,&lt;B,F&gt;,&lt;C,G&gt;,<br>
+      　&lt;D,H&gt;,&lt;D,I&gt;,&lt;D,J&gt;,&lt;F,K&gt;,&lt;F,L&gt;,&lt;J,M&gt;}</b>。<br>
+      <br>
+      　　可见，这是一棵<b>&quot;有向树&quot;</b>，虽然图上的线条没有标上箭头，但实际上存在着有向关系。因此，树是一种层次分明的结构，约定根的层次为1，其余元素层次的定义为：若根的层次为<img src="../../../images/pic/chapter06/l.gif" width="7" height="12" align="absmiddle">，则子树根的层次为<img src="../../../images/pic/chapter06/l.gif" width="7" height="12">+1。<br>
+      　　然而，子树之间可能存在两种情况，如果子树之间映射客观存在的次序关系，则为&quot;有序树&quot;，否则为 &quot;无序树&quot;。<br>
+      　　称根和子树根之间的连线为<b>&quot;分支&quot;</b>，则数据元素和所有指向子树根的分支构成树中一个<b>&quot;结点&quot;</b>，其分支的个数定义为<b>&quot;结点的度&quot;</b>，如结点B的度为2，D 
+      的度为3。树中所有结点度的最大值定义为<b>&quot;树的度&quot;</b>。称度为零的结点为<b>&quot;叶子&quot;</b>或<b>&quot;终端结点&quot;</b>，如结点 
+      K,L,G 等，反之所有度不为零的结点被称作<b>&quot;分支结点&quot;</b> ，如结点 F,J 等。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,255 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　6.6.1 树的双亲表示法</span><br>
+      <br>
+      <img src="../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle"> 
+      <span class="zhushi">树的双亲链表存储表示</span><br>
+      　　<b>const</b> MAX_TREE_SIZE = 100; <br>
+      　　<b>typedef struct {</b> <font face="Times New Roman, Times, serif">　　　　　　//</font> 
+      结点结构<br>
+      　　　ElemType data;<br>
+      　　　<b>int</b> parent;<font face="Times New Roman, Times, serif">　　　　　　　　　//</font> 
+      双亲位置域<br>
+      　　<b>}</b> PTNode;<br>
+      　　<b>typedef struct {</b> <font face="Times New Roman, Times, serif">　　　　　　//</font> 
+      树结构<br>
+      　　　PTNode nodes[MAX_TREE_SIZE];<br>
+      　　　<b>int</b> r, n;<font face="Times New Roman, Times, serif">　　　　　　　　　　//</font> 
+      根的位置和结点数<br>
+      　　<b>}</b> PTree;<br>
+      <br>
+      　<img src="../../../images/pic/chapter06/6_20.gif" width="280" height="209" align="top"></td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　<br>
+      　<br>
+      　　和二叉树的双亲链表相类似，结点中只设一个指向双亲的指针，并对无序树不需要设子树位置的标志。所有结点存储在一个地址连续的存储空间中。<br>
+      <br>
+      　　例如，左图所示树的双亲链表如下所示。<br>
+      <br>
+      <table width="180" border="0" cellspacing="0" cellpadding="0" align="center" height="260">
+        <tr> 
+          <td width="30" class="explaination" height="20"> 
+            <div align="center"></div>
+          </td>
+          <td width="57" class="explaination" height="20"> 
+            <div align="center">data</div>
+          </td>
+          <td width="57" class="explaination" height="20"> 
+            <div align="center">parent</div>
+          </td>
+          <td width="36" class="explaination" height="20"> 
+            <div align="center"></div>
+          </td>
+        </tr>
+        <tr> 
+          <td width="30" class="explaination" height="20"> 
+            <div align="center">0</div>
+          </td>
+          <td rowspan="12" colspan="2"> 
+            <table width="114" border="0" cellspacing="1" cellpadding="0" bgcolor="#003399" height="240">
+              <tr> 
+                <td background="../../../images/html/right_di4.gif" class="explaination" width="55" height="20"> 
+                  <div align="center">A</div>
+                </td>
+                <td background="../../../images/html/right_di4.gif" class="explaination" width="56" height="20"> 
+                  <div align="center">-1</div>
+                </td>
+              </tr>
+              <tr> 
+                <td background="../../../images/html/right_di4.gif" class="explaination" width="55" height="20"> 
+                  <div align="center">B</div>
+                </td>
+                <td background="../../../images/html/right_di4.gif" class="explaination" width="56" height="20"> 
+                  <div align="center">0</div>
+                </td>
+              </tr>
+              <tr> 
+                <td background="../../../images/html/right_di4.gif" class="explaination" width="55" height="20"> 
+                  <div align="center">E</div>
+                </td>
+                <td background="../../../images/html/right_di4.gif" class="explaination" width="56" height="20"> 
+                  <div align="center">1</div>
+                </td>
+              </tr>
+              <tr> 
+                <td background="../../../images/html/right_di4.gif" class="explaination" width="55" height="20"> 
+                  <div align="center">H</div>
+                </td>
+                <td background="../../../images/html/right_di4.gif" class="explaination" width="56" height="20"> 
+                  <div align="center">2</div>
+                </td>
+              </tr>
+              <tr> 
+                <td background="../../../images/html/right_di4.gif" class="explaination" width="55" height="20"> 
+                  <div align="center">I</div>
+                </td>
+                <td background="../../../images/html/right_di4.gif" class="explaination" width="56" height="20"> 
+                  <div align="center">2</div>
+                </td>
+              </tr>
+              <tr> 
+                <td background="../../../images/html/right_di4.gif" class="explaination" width="55" height="20"> 
+                  <div align="center">J</div>
+                </td>
+                <td background="../../../images/html/right_di4.gif" class="explaination" width="56" height="20"> 
+                  <div align="center">2</div>
+                </td>
+              </tr>
+              <tr> 
+                <td background="../../../images/html/right_di4.gif" class="explaination" width="55" height="20"> 
+                  <div align="center">C</div>
+                </td>
+                <td background="../../../images/html/right_di4.gif" class="explaination" width="56" height="20"> 
+                  <div align="center">0</div>
+                </td>
+              </tr>
+              <tr> 
+                <td background="../../../images/html/right_di4.gif" class="explaination" width="55" height="20"> 
+                  <div align="center">D</div>
+                </td>
+                <td background="../../../images/html/right_di4.gif" class="explaination" width="56" height="20"> 
+                  <div align="center">0</div>
+                </td>
+              </tr>
+              <tr> 
+                <td background="../../../images/html/right_di4.gif" class="explaination" width="55" height="20"> 
+                  <div align="center">F</div>
+                </td>
+                <td background="../../../images/html/right_di4.gif" class="explaination" width="56" height="20"> 
+                  <div align="center">7</div>
+                </td>
+              </tr>
+              <tr> 
+                <td background="../../../images/html/right_di4.gif" class="explaination" width="55" height="20"> 
+                  <div align="center">G</div>
+                </td>
+                <td background="../../../images/html/right_di4.gif" class="explaination" width="56" height="20"> 
+                  <div align="center">7</div>
+                </td>
+              </tr>
+              <tr> 
+                <td background="../../../images/html/right_di4.gif" class="explaination" width="55" height="20"> 
+                  <div align="center">K</div>
+                </td>
+                <td background="../../../images/html/right_di4.gif" class="explaination" width="56" height="20"> 
+                  <div align="center">9</div>
+                </td>
+              </tr>
+              <tr> 
+                <td background="../../../images/html/right_di4.gif" class="explaination" width="55" height="20"> 
+                  <div align="center"></div>
+                </td>
+                <td background="../../../images/html/right_di4.gif" class="explaination" width="56" height="20"> 
+                  <div align="center"></div>
+                </td>
+              </tr>
+            </table>
+          </td>
+          <td width="36" class="explaination" height="20"> 
+            <div align="center"></div>
+          </td>
+        </tr>
+        <tr> 
+          <td width="30" class="explaination" height="20"> 
+            <div align="center">1</div>
+          </td>
+          <td width="36" class="explaination" height="20"> 
+            <div align="center"></div>
+          </td>
+        </tr>
+        <tr> 
+          <td width="30" class="explaination" height="20"> 
+            <div align="center">2</div>
+          </td>
+          <td width="36" class="explaination" height="20"> 
+            <div align="center">r=0</div>
+          </td>
+        </tr>
+        <tr> 
+          <td width="30" class="explaination" height="20"> 
+            <div align="center">3</div>
+          </td>
+          <td width="36" class="explaination" height="20"> 
+            <div align="center">n=11</div>
+          </td>
+        </tr>
+        <tr> 
+          <td width="30" class="explaination" height="20"> 
+            <div align="center">4</div>
+          </td>
+          <td width="36" class="explaination" height="20"> 
+            <div align="center"></div>
+          </td>
+        </tr>
+        <tr> 
+          <td width="30" class="explaination" height="20"> 
+            <div align="center">5</div>
+          </td>
+          <td width="36" class="explaination" height="20"> 
+            <div align="center"></div>
+          </td>
+        </tr>
+        <tr> 
+          <td width="30" class="explaination" height="20"> 
+            <div align="center">6</div>
+          </td>
+          <td width="36" class="explaination" height="20"> 
+            <div align="center"></div>
+          </td>
+        </tr>
+        <tr> 
+          <td width="30" class="explaination" height="20"> 
+            <div align="center">7</div>
+          </td>
+          <td width="36" class="explaination" height="20"> 
+            <div align="center"></div>
+          </td>
+        </tr>
+        <tr> 
+          <td width="30" class="explaination" height="20"> 
+            <div align="center">8</div>
+          </td>
+          <td width="36" class="explaination" height="20"> 
+            <div align="center"></div>
+          </td>
+        </tr>
+        <tr> 
+          <td width="30" class="explaination" height="20"> 
+            <div align="center">9</div>
+          </td>
+          <td width="36" class="explaination" height="20"> 
+            <div align="center"></div>
+          </td>
+        </tr>
+        <tr> 
+          <td width="30" class="explaination" height="20"> 
+            <div align="center">10</div>
+          </td>
+          <td width="36" class="explaination" height="20"> 
+            <div align="center"></div>
+          </td>
+        </tr>
+        <tr> 
+          <td width="30" class="explaination" height="20"> 
+            <div align="center"></div>
+          </td>
+          <td width="36" class="explaination" height="20"> 
+            <div align="center"></div>
+          </td>
+        </tr>
+      </table>
+    </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

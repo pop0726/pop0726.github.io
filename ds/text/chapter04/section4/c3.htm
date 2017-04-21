@@ -1,0 +1,37 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%"> 
+<tr> <td width="10">&nbsp;</td><td class="white" valign="top"><BR><SPAN CLASS="part">【基础知识题】</SPAN><BR><br> 
+　1. 简述空串和空格串(或称空格符串)的区别。<P>　2. 对于4.1.2节中所述串的各个基本操作，讨论是否可由其它基本操作构造而得?如何构造?</P><P>　3. 
+设s = 'I AM A STUDENT', t = 'GOOD', q = 'WORKER'。<BR>　　求：StrLength(s), StrLength(t), 
+SubString(s,8,7), SubString(t,2,1),<BR> 　　　　Index(s,'A'), Index(s,t), Replace(s, 
+'STUDENT',q), <BR> 　　　　Concat(SubString(s,6,2),Concat(t,SubString(s,7,8)))。</P><P>　4. 
+已知下列字符串<BR> 　　a = 'THIS', f = 'A SAMPLE', c = 'GOOD', d ='NE', b = ' ', <BR> 　　s 
+= Concat(a,Concat(SubString(f,2,7),Concat(b,SubString(a,3,2)))),<BR> 　　t = Replac(f,SubString(f,3,6),c),<BR> 
+　　u = Concat(SubString(c,3,1),d), g = 'IS',<BR> 　　v = Concat(s,Concat(b,Concat(t,Concat(b,u)))),<BR> 
+　　试问: s, t, v, StrLength(s), Index(v,g), Index(u,g) 各是什么 ? </P><P>　5. 试问执行以下函数会产生怎样的输出结果?<BR> 
+　　<B>void</B> demonstrate( )<BR> 　　<B>{ </B><BR> 　　　StrAssign(s, 'THIS IS A BOOK');<BR> 
+　　　Replace(s, SubString(s, 3, 7), 'ESE ARE');<BR> 　　　StrAssign(t, Concat(s, 'S'));<BR> 
+　　　StrAssign(u, 'XYXYXYXYXYXY');<BR> 　　　StrAssign(v, SubString(u, 6, 3));<BR> 
+　　　StrAssign(w, 'W');<BR> 　　　printf('t=', t, 'v=', v, 'u=', Replace(u, v, w));<BR> 
+　　<B>}</B> <FONT FACE="Arial, Helvetica, sans-serif">// </FONT>demonstrate</P><P>　6. 
+已知：s='(XYZ)+* '，t='(X+Z)*Y'。试利用联接、求子串和置换等基本运算，将 s 转化为 t。</P><P>　7. 令 s='aaab'，t='abcabaa'，u='abcaabbabcabaacbacba'。试分别求出它们的 
+next 函数值和 nextval 函数值。</P><P>　8. 已知主串 s = 'ADBADABBAABADABBADADA',<BR> 　　模式串 pat 
+= 'ADABBADADA',<BR>　　写出模式串的 nextval 函数值，并由此画出 KMP 算法匹配的全过程。</P><P>　9. 编写对串求逆的递推算法。</P><P>　10. 
+编写算法，从串 s 中删除所有和串 t 相同的子串。</P><P>　11. 编写算法，实现串的基本操作 Replace(<FONT FACE="Times New Roman, Times, serif">&amp;</FONT>S,T,V)。</P><P>　12. 
+假设以块链结构作串的存储结构。试编写判别给定串是否具有对称性的算法，并要求算法的时间复杂度为 <I><FONT FACE="Times New Roman, Times, serif">O</FONT></I>(StrLength(S))。</P><P>　13. 
+假设以结点大小为1(带头结点)的链表结构表示串，则在利用 next 函数值进行串匹配时，在每个结点中需设三个域：数据域 chdata，指针域 succ 和指针域 
+next。其中 chdata 域存放一个字符；succ 域存放指向同一链表中后继结点的指针；next 域在主串中存放指向同一链表中前驱结点的指针；在模式串中，存放指向当该结点的字符与主串中的字符不等时，模式串中下一个应进行比较的字符结点(即与该结点字符的 
+next 函数值相对应的字符结点)的指针，若该结点字符的 next 函数值为零，则其 next 域的值应指向头结点。试按上述定义的结构改写求模式串的 next 
+函数值的算法。</P><P>　14. 假设以定长顺序存储结构表示串，试设计一个算法，求串 s 中出现的第一个最长重复子串及其位置，并分析你的算法的时间复杂度。</P>　<br> 
+　</td><td background="../../../images/html/mid.gif" width="18">&nbsp;</td><td background="../../../images/html/right_di4.gif" class="explaination" valign="top" width="281"><br> 
+【基础知识题】 </td><td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td></tr> 
+</table>
+</body>
+</html>

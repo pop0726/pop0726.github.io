@@ -1,0 +1,140 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/style.css" type="text/css">
+<script language="JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<script language=JavaScript src="../part2/hpmain.js"></script>
+<script language=JavaScript src="../part2/showhidden.js"></script>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　2.3.3 单链表其它算法举例</span><br>
+      <br>
+      <img src="../../../../images/tubiao/lt.gif" alt="例题" width="28" height="27" align="absmiddle"> 
+      <span class="zhushi">例2-9</span> 编写算法删除单链表中&quot;多余&quot;的数据元素，即使操作之后的单链表中所有元素的值都不相同。<br>
+      <span class="zhushi">　解题分析：</span><br>
+      　　可以和顺序表采用同样算法，即设想新建一个链表，然后顺序考察原链表中每一个结点的数据元素，在&quot;新表&quot;中进行查找，如果有相同的则舍弃之，否则就插入到新表中。<br>
+      　</td>
+    <td background="../../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">&nbsp;</td>
+    <td background="../../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><img src="../../../../images/tubiao/cxd.gif" alt="算法" width="25" height="24" align="absmiddle"> 
+      <span class="zhushi">算法2.21</span><br>
+      　　<b>void</b> purge_L(SLink <b><font face="Times New Roman, Times, serif">&amp;</font></b>L )<br>
+      　<b>{</b><br>
+      <span class="zhushi">　　<font face="Times New Roman, Times, serif">//</font> 
+      删除单链表L中的冗余元素，即使操作之后的单链表中只保留<br>
+      　　<font face="Times New Roman, Times, serif">//</font> 操作之前表中所有值都不相同的元素 
+      </span> <br>
+      　　p = L-&gt;next;<br>
+      　　L-&gt;next = <b>NULL</b>;;　　　　　<font face="Times New Roman, Times, serif">//</font> 
+      设新表为空表<br>
+      　　<b>while</b> ( p )　　　　　　　 <font face="Times New Roman, Times, serif">//</font> 
+      顺序考察原表中每个元素<br>
+      　　<b>{</b><br>
+      　　　succ = p-&gt;next;　　　　　<font face="Times New Roman, Times, serif">//</font> 
+      记下结点 *p 的后继<br>
+      　　　q = L-&gt;next;　　　　　　 <font face="Times New Roman, Times, serif">//</font> 
+      q 指向新表的第一个结点<br>
+      　　　<b>while</b>( q <b><font face="Times New Roman, Times, serif">&amp;&amp;</font></b> p-&gt;data!=q-&gt;data ) q = q-&gt;next; 
+      <br>
+      　　　　　　　　　　　　　　　<font face="Times New Roman, Times, serif">//</font> 在新表中查询是否存在和p-&gt;data相同的元素<br>
+      　　　<b>if</b> ( !q )　　　　　　　 <font face="Times New Roman, Times, serif">//</font> 
+      将结点 *p 插入到新的表中<br>
+      　　　<b>{</b><br>
+      　　　　p-&gt;next = L-&gt;next;<br>
+      　　　　L-&gt;next = p;<br>
+      　　　<b>}</b><br>
+      　　　<b>else delete</b> p;　　　　<font face="Times New Roman, Times, serif">//</font> 
+      释放结点 *p<br>
+      　　　p = succ;<br>
+      　　<b>} </b><font face="Times New Roman, Times, serif">// </font>for<br>
+      　<b>} </b><font face="Times New Roman, Times, serif">//</font> purge_L<br>
+      <br>
+      　　此算法的<span class="point">时间复杂度</span>为<b><span class="point"><font face="Times New Roman, Times, serif"><i>O</i> 
+      (ListLength<sup><font size="1">2</font></sup>(L))</font></span></b>。</td>
+    <td background="../../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">
+      <table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td bgcolor="#ECEEFF" height="14" class="explaination" width="8">&nbsp;</td>
+                <td bgcolor="#ECEEFF" height="14" class="explaination"><img src="../../../../images/tubiao/wt.gif" width="23" height="23" align="absmiddle" alt="思考题"> 
+                  假设已知链表中的数据元素为(5,2,5,3,3,4,2,5,7,5,4,3),则经算法2.21操作之后的链表表示的线性表是什么？</td>
+                <td width="15" bgcolor="#ECEEFF" valign="top"><span id="bb"><img border=0 
+                              id=HPFrameHLTab3 
+                              onClick="showHideContent('HPFrameHL');hidden();"
+							   src="../../../../images/html/expand.gif" style="CURSOR: hand" width="15" height="14"></span></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <div id=HPFrameHLContent 
+           style="WIDTH: 100%;visibility: hidden;background-color:#ECEEFF" > 
+              <table width="94%" border="0" cellspacing="0" cellpadding="0" align="center">
+                <tr> 
+                  <td class="explaination">　是(7,4,3,2,5)。因为算法中的&quot;插入&quot;操作是将元素&quot;倒序&quot;插入新表中的，由于考虑集合中的元素没有次序关系，而&quot;倒插&quot;不需要加辅助指针变量。<a href="javascript:;" onClick="MM_openBrWindow('../../../../flash/chap02/2-3-4.swf','数据结构','width=400,height=300')"><img src="../../../../images/tubiao/dh.gif" alt="动画" width="25" height="24" border="0" align="absmiddle"></a></td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+      </table>
+      <br>
+      <br>
+      　<br>
+      <br>
+      <br>
+      <table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td bgcolor="#ECEEFF" height="14" class="explaination" width="8">&nbsp;</td>
+                <td bgcolor="#ECEEFF" height="14" class="explaination"><img src="../../../../images/tubiao/wt.gif" width="23" height="23" align="absmiddle" alt="思考题"> 
+                  试比较算法2.21和算法2.12，你将得出什么结论？</td>
+                <td width="15" bgcolor="#ECEEFF" valign="top"><span id=dd><img border=0 
+                              id=HPFrameDLTab3 
+                              onClick="showHideContent('HPFrameDL');hiddenL();"
+							   src="../../../../images/html/expand.gif" style="CURSOR: hand" width="15" height="14"></span></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <div id=HPFrameDLContent 
+           style="WIDTH: 100%;visibility: hidden;background-color:#ECEEFF"> 
+              <table width="95%" border="0" cellspacing="0" cellpadding="0" align="center">
+                <tr> 
+                  <td class="explaination">　你一定发现这两个算法极为相似，因为它们处理的是例2-2提出的同一个问题。由此可见，顺序表和链表只是存储结构的不同，不影响问题求解的算法。</td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+      </table>
+      <br>
+      　　由于对原表中每个元素都需要在新的链表中进行查询，因此最坏情况下的时间复杂度仍为平方级的，和顺序表相同，正好说明这个时间复杂度是由算法决定的。</td>
+    <td background="../../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

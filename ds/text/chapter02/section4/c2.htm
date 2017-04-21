@@ -1,0 +1,135 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+<script language="JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<script language=JavaScript src="../section1/hpmain.js"></script>
+<script language=JavaScript src="../section1/showhidden.js"></script>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　2.4.1 有序表的定义</span><br>
+      <br>
+      <span class="zhushi"><img src="../../../images/tubiao/lt.gif" width="28" height="27" align="absmiddle" alt="例题"> 
+      例2-11</span> 已知两个链表（头指针分别为 La 和 Lb）中的数据元素均自小至大有序，编写算法将这两个链表归并为一个链表。<br>
+    </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      　　再看一个有序表操作的例子。<br>
+      <br>
+      　<span class="zhushi"><font color="#339900">解题分析：</font></span><br>
+      　　通常容易想到的这个题的做法是，将 Lb 表中的各个结点插入到 La 表中的相应位置中去。即按照有序关系首先查找插入位置，然后修改相应指针。另一种做法是，受例2-9中分析的启发，试设想新建一个空的链表，然后将已知两个链表中的结点依从小到大的次序逐个插入到这个新的链表中。<a href="javascript:;" onClick="MM_openBrWindow('../../../flash/chap02/2-3-9.swf','数据结构','width=400,height=300')"><img src="../../../images/tubiao/dh.gif" alt="动画" width="25" height="24" border="0" align="absmiddle"></a><br>
+      　</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><img src="../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle" alt="算法"> 
+      <span class="zhushi">算法2.25</span><br>
+      　　<b>void</b> MergeList_L(LinkList <b><font face="Times New Roman, Times, serif">&amp;</font></b>La, LinkList <b><font face="Times New Roman, Times, serif">&amp;</font></b>Lb, 
+      LinkList <b><font face="Times New Roman, Times, serif">&amp;</font></b>Lc) <br>
+      　<b>{</b><br>
+      <span class="zhushi">　　<font face="Times New Roman, Times, serif">//</font> 
+      已知单链线性表 La 和 Lb 的元素按值非递减排列。本算法<br>
+      　　<font face="Times New Roman, Times, serif">//</font> 归并 La 和 Lb 得到新的单链线性表 
+      Lc，Lc 的元素也按<br>
+      　　<font face="Times New Roman, Times, serif">//</font> 值非递减排列。操作之后 La 和 
+      Lb 消失</span><br>
+      　　pa = La-&gt;next; pb = Lb-&gt;next;<br>
+      　　Lc = rc = new LNode;　　　　<font face="Times New Roman, Times, serif">//</font> 
+      建空表，Lc 为头指针</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      　　pa 和 pb 分别指向 La 表和 Lb 表中第一个结点，rc 指示 Lc 表当前的表尾结点。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">　　<b>while</b> (pa <b><font face="Times New Roman, Times, serif">&amp;&amp;</font></b> pb) <br>
+      　　<b>{</b><br>
+      　　　<b>if</b> (pa-&gt;data &lt;= pb-&gt;data)<br>
+      　　　<b>{</b><font face="Times New Roman, Times, serif">　　　　　　　　　　　 //</font> 
+      将 *pa 插入Lc表，指针 pa 后移<br>
+      　　　　rc-&gt;next = pa; rc = pa; pa = pa-&gt;next;<br>
+      　　　<b>} </b><font face="Times New Roman, Times, serif">//</font> if<br>
+      　　　<b>else</b><br>
+      　　　<b>{</b><font face="Times New Roman, Times, serif">　　　　　　　　　　　//</font> 
+      将 *pb 插入Lc表，指针 pb 后移<br>
+      　　　　rc-&gt;next = pb; rc = pb; pb = pb-&gt;next; <br>
+      　　　<b>} </b><font face="Times New Roman, Times, serif">//</font> else<br>
+      　　<b>} </b><font face="Times New Roman, Times, serif">// </font>while</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      <br>
+      　　比较结点 *pa 和 *pb 中的数据元素，并将其中&quot;小者&quot;链接到 Lc 表的表尾直至其中一个表为空止。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">　　rc-&gt;next = pa <b>?</b> pa <b>:</b> pb;　<font face="Times New Roman, Times, serif">//</font> 
+      插入剩余段<br>
+      　　<b>delete</b>(La); <b>delete</b>(Lb); <font face="Times New Roman, Times, serif">//</font> 
+      释放 La 和 Lb 的头结点<br>
+      　<b>} </b><font face="Times New Roman, Times, serif">//</font> MergeList_L 
+      <br>
+      <br>
+      　　显然，此算法的<span class="point">时间复杂度</span>为<b><span class="point"><font face="Times New Roman, Times, serif"><i>O</i> 
+      (ListLength(La)+ListLength(Lb))</font></span></b>。</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　　最后一个&quot;剩余段&quot;只要直接链入即可。<br>
+      <br>
+      <table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td bgcolor="#ECEEFF" height="14" class="explaination" width="8">&nbsp;</td>
+                <td bgcolor="#ECEEFF" height="14" class="explaination"><img src="../../../images/tubiao/wt.gif" width="23" height="23" align="absmiddle" alt="思考题"> 
+                  不知你是否注意到，算法中没有设置Lc表表尾的语句，那么，在算法结束之后，Lc的表尾是否&quot;正常&quot;结束了呢？</td>
+                <td width="15" bgcolor="#ECEEFF" valign="top"><span id="bb"><img border=0 
+                              id=HPFrameHLTab3 
+                              onClick="showHideContent('HPFrameHL');hidden();"
+							   src="../../../images/html/expand.gif" style="CURSOR: hand" width="15" height="14"></span></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <div id=HPFrameHLContent 
+           style="WIDTH: 100%;visibility: hidden;background-color:#ECEEFF" > 
+              <table width="94%" border="0" cellspacing="0" cellpadding="0" align="center">
+                <tr> 
+                  <td class="explaination">　不论什么情况，语句<br>
+                    　　pc-&gt;next = pa ? pa : pb; <br>
+                    都使Lc表中最后一个结点的指针为&quot;NULL&quot;。</td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

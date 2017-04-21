@@ -1,0 +1,209 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/style.css" type="text/css">
+<script language="JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<script language=JavaScript src="../part2/hpmain.js"></script>
+<script language=JavaScript src="../part2/showhidden.js"></script>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　2.3.3 单链表其它算法举例</span><br>
+      <br>
+      <img src="../../../../images/tubiao/lt.gif" alt="例题" width="28" height="27" align="absmiddle"> 
+      <span class="zhushi">例2-8</span> 以链表作存储结构解例2-5的问题，即将线性表 ( <img src="../../../../images/pic/chapter02/gs/a1.gif" width="11" height="10">,<img src="../../../../images/pic/chapter02/gs/a2.gif" width="12" height="10" align="absmiddle">,…,<img src="../../../../images/pic/chapter02/gs/am.gif" width="14" height="10" align="absmiddle">,<img src="../../../../images/pic/chapter02/gs/b1.gif" width="10" height="13" align="absmiddle">,<img src="../../../../images/pic/chapter02/gs/b2.gif" width="11" height="13" align="absmiddle">,…,<img src="../../../../images/pic/chapter02/gs/bn.gif" width="11" height="13" align="absmiddle"> 
+      ) 改变成 ( <img src="../../../../images/pic/chapter02/gs/b1.gif" width="10" height="13" align="absmiddle">,<img src="../../../../images/pic/chapter02/gs/b2.gif" width="11" height="13" align="absmiddle">,…,<img src="../../../../images/pic/chapter02/gs/bn.gif" width="11" height="13" align="absmiddle">,<img src="../../../../images/pic/chapter02/gs/a1.gif" width="11" height="10">,<img src="../../../../images/pic/chapter02/gs/a2.gif" width="12" height="10">,…,<img src="../../../../images/pic/chapter02/gs/am.gif" width="14" height="10"> 
+      ) 。<br>
+      <br>
+      　<span class="zhushi">解题分析：</span><br>
+      　　因为对链表来说，&quot;插入&quot;和&quot;删除&quot;仅需修改指针即可完成，并且由于前 m 个元素之间和后 n 个元素之间的链接关系分别都不需要改变，则算法的实际操作为：<a href="javascript:;" onClick="MM_openBrWindow('../../../../flash/chap02/2-3-3.swf','数据结构','width=460,height=180')"><img src="../../../../images/tubiao/dh.gif" alt="动画" width="25" height="24" border="0" align="absmiddle"></a><br>
+      <br>
+      　　(1) 从链表中删除( <img src="../../../../images/pic/chapter02/gs/a1.gif" width="11" height="10">,<img src="../../../../images/pic/chapter02/gs/a2.gif" width="12" height="10">,…,<img src="../../../../images/pic/chapter02/gs/am.gif" width="14" height="10"> 
+      )；<br>
+      <br>
+      　　(2) 将( <img src="../../../../images/pic/chapter02/gs/b1.gif" width="10" height="13" align="absmiddle">,<img src="../../../../images/pic/chapter02/gs/b2.gif" width="11" height="13" align="absmiddle">,…,<img src="../../../../images/pic/chapter02/gs/bn.gif" width="11" height="13" align="absmiddle"> 
+      )链接到头结点之后；<br>
+      <br>
+      　　(3) 将( <img src="../../../../images/pic/chapter02/gs/a1.gif" width="11" height="10">,<img src="../../../../images/pic/chapter02/gs/a2.gif" width="12" height="10">,…,<img src="../../../../images/pic/chapter02/gs/am.gif" width="14" height="10"> 
+      )链接到 <img src="../../../../images/pic/chapter02/gs/bn.gif" width="11" height="13" align="absmiddle"> 
+      之后。<br>
+      　<br>
+    </td>
+    <td background="../../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"> 
+      <br>
+      <br>
+      <table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td bgcolor="#ECEEFF" height="14" class="explaination" width="8">&nbsp;</td>
+                <td bgcolor="#ECEEFF" height="14" class="explaination"><img src="../../../../images/tubiao/wt.gif" width="23" height="23" align="absmiddle" alt="思考题"> 
+                  在以顺序表作存储结构时，我们曾分析过它的一个简单算法就是，将从 <img src="../../../../images/pic/chapter02/gs/b1_l.gif" width="10" height="13" align="absmiddle"> 
+                  起到 <img src="../../../../images/pic/chapter02/gs/bn_l.gif" width="11" height="13" align="absmiddle"> 
+                  的数据元素从原地删除后再插入到 <img src="../../../../images/pic/chapter02/gs/a1_l.gif" width="11" height="10"> 
+                  之前，而在以顺序表作存储结构时因为需要大量移动元素而不能采用。那么在以链表作存储结构时能否采用这个算法呢？</td>
+                <td width="15" bgcolor="#ECEEFF" valign="top"><span id="bb"><img border=0 
+                              id=HPFrameHLTab3 
+                              onClick="showHideContent('HPFrameHL');hidden();"
+							   src="../../../../images/html/expand.gif" style="CURSOR: hand" width="15" height="14"></span></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <div id=HPFrameHLContent 
+           style="WIDTH: 100%;visibility: hidden;background-color:#ECEEFF" > 
+              <table width="94%" border="0" cellspacing="0" cellpadding="0" align="center">
+                <tr> 
+                  <td class="explaination">　可以，理由见解题分析。　　</td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+      </table>
+      　<br>
+      　 </td>
+    <td background="../../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><img src="../../../../images/tubiao/cxd.gif" alt="算法" width="25" height="24" align="absmiddle"> 
+      <span class="zhushi">算法2.20</span><br>
+      　　<b>void</b> exchange_L( SLink <b><font face="Times New Roman, Times, serif">&amp;</font></b>L，<b>int</b> m )<br>
+      　<b>{</b><br>
+      <span class="zhushi">　　<font face="Times New Roman, Times, serif">//</font> 
+      本算法实现单链表中前 <font face="Times New Roman, Times, serif">m</font> 个结点和后 n 个结点的互换</span><br>
+      　　<b>if</b> ( m <b><font face="Times New Roman, Times, serif">&amp;&amp;</font></b> 
+      L-&gt;next ) <font face="Times New Roman, Times, serif">　　　　//</font> 链表不空且 
+      m!=0 <br>
+      　　<b>{</b><br>
+      　　　p = L-&gt;next; k = 1;<br>
+      　　　<b>while</b>( k&lt; m <b><font face="Times New Roman, Times, serif">&amp;&amp;</font></b> 
+      p )<font face="Times New Roman, Times, serif">　　　　//</font> 查找 <img src="../../../../images/pic/chapter02/gs/am.gif" width="14" height="10"> 
+      所在结点<br>
+      　　　<b>{</b><br>
+      　　　　p = p-&gt;next; ++k; <br>
+      　　　<b>} </b><font face="Times New Roman, Times, serif">// </font>while</td>
+    <td background="../../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">
+      <table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td bgcolor="#ECEEFF" height="14" class="explaination" width="8">&nbsp;</td>
+                <td bgcolor="#ECEEFF" height="14" class="explaination"><img src="../../../../images/tubiao/wt.gif" width="23" height="23" align="absmiddle" alt="思考题"> 
+                  循环的条件中为什么要有p!=NULL的判断？</td>
+                <td width="15" bgcolor="#ECEEFF" valign="top"><span id=dd><img border=0 
+                              id=HPFrameDLTab3 
+                              onClick="showHideContent('HPFrameDL');hiddenL();"
+							   src="../../../../images/html/expand.gif" style="CURSOR: hand" width="15" height="14"></span></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <div id=HPFrameDLContent 
+           style="WIDTH: 100%;visibility: hidden;background-color:#ECEEFF"> 
+              <table width="95%" border="0" cellspacing="0" cellpadding="0" align="center">
+                <tr> 
+                  <td class="explaination">　因为单链表的长度是个隐含值，在此无法如顺序表那样事先判别参数 m 是否合法，如果参数不合适，则在没有找到第 
+                    m 个结点时，p=NULL，while 循环中的语句就会出问题。</td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+      </table>
+      <br>
+      　　由于参数中没有给出 n 的值，只有在找到 <img src="../../../../images/pic/chapter02/gs/am_l.gif" width="14" height="10" align="absmiddle"> 
+      之后加以判别。<br>
+      　</td>
+    <td background="../../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">　　　<b>if</b> (p <b><font face="Times New Roman, Times, serif">&amp;&amp;</font></b> 
+      p-&gt;next) <font face="Times New Roman, Times, serif">　　　　//</font> n!=0 
+      时才需要修改指针<br>
+      　　　<b>{</b><br>
+      　　　　ha = L-&gt;next; <font face="Times New Roman, Times, serif">　　　　　 //</font> 
+      以指针 ha 记 <img src="../../../../images/pic/chapter02/gs/a1.gif" width="11" height="10"> 
+      结点的位置<br>
+      　　　　L-&gt;next = p-&gt;next;<font face="Times New Roman, Times, serif">　　　 
+      //</font> 将 <img src="../../../../images/pic/chapter02/gs/b1.gif" width="10" height="13" align="absmiddle"> 
+      结点链接在头结点之后<br>
+      　　　　p-&gt;next = NULL;　<font face="Times New Roman, Times, serif">　　　　//</font> 
+      设 <img src="../../../../images/pic/chapter02/gs/am.gif" width="14" height="10"> 
+      的后继为空<br>
+      　　　　q = L-&gt;next;<font face="Times New Roman, Times, serif">　　　　　　 //</font> 
+      令q 指向 <img src="../../../../images/pic/chapter02/gs/b1.gif" width="10" height="13" align="absmiddle"> 
+      结点<br>
+      　　　　<b>while</b> (q-&gt;next) q = q-&gt;next; <font face="Times New Roman, Times, serif">//</font> 
+      查找 <img src="../../../../images/pic/chapter02/gs/bn.gif" width="11" height="13" align="absmiddle"> 
+      结点<br>
+      　　　　q-&gt;next = ha; <font face="Times New Roman, Times, serif">　　　　　 //</font> 
+      将 <img src="../../../../images/pic/chapter02/gs/a1.gif" width="11" height="10"> 
+      结点链接到 <img src="../../../../images/pic/chapter02/gs/bn.gif" width="11" height="13" align="absmiddle"> 
+      结点之后<br>
+      　　　<b>}</b><font face="Times New Roman, Times, serif"> //</font> if(p)<br>
+      　　<b>} </b><font face="Times New Roman, Times, serif">//</font> if(m)<br>
+      　<b>} </b><font face="Times New Roman, Times, serif">//</font> exchange_L 
+      <p>　　算法的<span class="point">时间复杂度</span>为<b><span class="point"><font face="Times New Roman, Times, serif"><i>O 
+        </i>(ListLength(L))</font></span></b>。</p>
+    </td>
+    <td background="../../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">
+      <table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td bgcolor="#ECEEFF" height="14" class="explaination" width="8">&nbsp;</td>
+                <td bgcolor="#ECEEFF" height="14" class="explaination"><img src="../../../../images/tubiao/wt.gif" width="23" height="23" align="absmiddle" alt="思考题"> 
+                  如果这里不加 p-&gt;next 是否为空的判别条件，下面哪一个语句会出问题？</td>
+                <td width="15" bgcolor="#ECEEFF" valign="top"><span id=cc><img border=0 
+                              id=HPFrameMLTab3 
+                              onClick="showHideContent('HPFrameML');hiddenP();"
+							   src="../../../../images/html/expand.gif" style="CURSOR: hand" width="15" height="14"></span></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <div id=HPFrameMLContent 
+           style="WIDTH: 100%;visibility: hidden;background-color:#ECEEFF"> 
+              <table width="95%" border="0" cellspacing="0" cellpadding="0" align="center">
+                <tr> 
+                  <td class="explaination">　算法执行到 q-&gt;next 时会出问题，因为当p-&gt;next=NULL 
+                    时，q=NULL，q-&gt;next 也就不成立了。这种情况对初学链表的人是最容易出问题的地方，但千万要注意避免。</td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+      </table>
+      <br>
+      　　整个算法就是对链表从头巡视到尾，两个单循环次数之和恰为表长。因此算法的时间复杂度为<font face="Times New Roman, Times, serif"><i>O</i>(ListLength(L))</font>。<br>
+      　　此例充分显示了用&quot;指针&quot;指示&quot;后继&quot;的灵活性。</td>
+    <td background="../../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

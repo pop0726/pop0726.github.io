@@ -1,0 +1,228 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<script language=JavaScript src="../section1/hpmain.js"></script>
+<script language=JavaScript src="../section1/showhidden.js"></script>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　2.5.2 集合运算的实现</span><br>
+      <br>
+      　　以下讨论：当以有序表表示集合时，如何利用上述定义的有序链表类型的操作进行集合的并、交、差运算。<br>
+      <br>
+      <img src="../../../images/tubiao/lt.gif" width="28" height="27" align="absmiddle"> 
+      <span class="zhushi">例2-12</span> 假设以两个有序表分别表示集合A和B，试求集合C=A∪B。<br>
+      <br>
+      　　算法的基本思想为：顺序考察有序表A和B，比较当前考察的元素 <img src="../../../images/pic/chapter02/gs/ai.gif" width="10" height="10"> 
+      和 <img src="../../../images/pic/chapter02/gs/bj.gif" width="11" height="14" align="absmiddle"> 
+      ，将两者之中值&quot;较小&quot;者插入到C表中。<br>
+      　<br>
+    </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      <br>
+      　<span class="zhushi"><font color="#339900">解题分析：</font></span><br>
+      　　假设在解题过程中，已由有序表<br>
+      　　　A =( <img src="../../../images/pic/chapter02/gs/a1_l.gif" width="11" height="10">, 
+      …, <img src="../../../images/pic/chapter02/gs/ai_1_l.gif" width="20" height="10">, 
+      <img src="../../../images/pic/chapter02/gs/ai_l.gif" width="10" height="10">, 
+      …, <img src="../../../images/pic/chapter02/gs/am_l.gif" width="14" height="10"> 
+      ) 和<br>
+      　　　B =( <img src="../../../images/pic/chapter02/gs/b1_l.gif" width="10" height="13" align="absmiddle">, 
+      …, <img src="../../../images/pic/chapter02/gs/bj_1_l.gif" width="21" height="15" align="absmiddle">, 
+      <img src="../../../images/pic/chapter02/gs/bj_l.gif" width="11" height="14" align="absmiddle">, 
+      …, <img src="../../../images/pic/chapter02/gs/bn_l.gif" width="11" height="13" align="absmiddle"> 
+      )<br>
+      　　求得有序表<br>
+      　　　C =( <img src="../../../images/pic/chapter02/gs/c1_l.gif" width="9" height="10">, 
+      …, <img src="../../../images/pic/chapter02/gs/ck_1_l.gif" width="20" height="10"> 
+      )<br>
+      　　当前C中所含元素是A的子集{ <img src="../../../images/pic/chapter02/gs/a1_l.gif" width="11" height="10">, 
+      …, <img src="../../../images/pic/chapter02/gs/ai_1_l.gif" width="20" height="10">}和B的子集{ 
+      <img src="../../../images/pic/chapter02/gs/b1_l.gif" width="10" height="13" align="absmiddle">, 
+      …, <img src="../../../images/pic/chapter02/gs/bj_1_l.gif" width="21" height="15" align="absmiddle"> 
+      }的并集，那么下一个插入到有序表C中的元素应该是哪一个呢？<br>
+      <br>
+      　　显然， <img src="../../../images/pic/chapter02/gs/gs_7.gif" width="126" height="44" align="top"><br>
+      　　　<br>
+      例如：假设<br>
+      　　 A = {3, 5, 6, 8, 9}<br>
+      　　 B = {2, 4, 5, 8, 10}<br>
+      　则 C = {2, 3, 4, 5, 6, 8, 9, 10}</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="zhushi"><img src="../../../images/tubiao/cxd.gif" alt="算法" width="25" height="24" align="absmiddle"> 
+      算法2.26</span><span class="text"><br>
+      　　<b>void</b> union ( OrderLinkList A, OrderLinkList B, OrderLinkList <b><font face="Times New Roman, Times, serif">&amp;</font></b>C 
+      )<br>
+      <b>　{</b><br>
+      　　</span><span class="zhushi"><font face="Times New Roman, Times, serif">//</font> 
+      已知有序链表 A 和 B 分别表示两个集合，<br>
+      　　<font face="Times New Roman, Times, serif">//</font> 本算法求得有序链表 C 中所含元素是 
+      A 和 B 的并集</span><span class="text"><br>
+      　　<b>if</b> ( InitList(C) )　　　　　　　　　 　　　 <font face="Times New Roman, Times, serif">//</font> 
+      初始化建空表 <br>
+      　　<b>{</b><br>
+      　　　m = ListLength(A); n = Listlength(B);　　 <font face="Times New Roman, Times, serif">//</font> 
+      分别求得表长<br>
+      　　　i = 1; j = 1; <br>
+      　　　<b>while</b> ( i &lt;= m || j &lt;= n )　　 　　　　　<font face="Times New Roman, Times, serif">//</font> 
+      顺序考察表中元素<br>
+      　　<b>　{　</b></span></td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      <br>
+      <br>
+      <br>
+      <br>
+      　　只在存储分配失败时才会出现&quot;FALSE&quot;的情况。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="text">　　　<b>　if</b> ( GetPos(A,i) 
+      <b><font face="Times New Roman, Times, serif">&amp;&amp;</font></b> GetPos(B,j) 
+      )<br>
+      　　　<b>　{</b> <font face="Times New Roman, Times, serif">　　　　　　 　　　　 　　　　//</font> 
+      两个表中都还有元素未曾考察到<br>
+      　　　 　　GetCurElem(A,ea); GetCurElem(B,eb ); <br>
+      　　　 <b>　　if</b> ( ea &lt;= eb ) <br>
+      　　　　　　<b>{</b> <font face="Times New Roman, Times, serif">　　　　　　　　　　　　　　　 
+      //</font> 插入和 <img src="../../../images/pic/chapter02/gs/ai.gif" width="10" height="10"> 
+      相同的元素 <br>
+      　　　　　　　<b>if</b> ( !MakeNode( s,ea ) ) <b>exit</b>(1);<br>
+      　　　　　　　++i; <br>
+      　　　　　　　<b>if</b> ( ea == eb )<br>
+      　　　　　　　++j;　<b>　</b>　　　　<b>　　</b>　　　　　　<font face="Times New Roman, Times, serif">//</font> 
+      舍弃B表中相同元素 <br>
+      　　　　　　<b>}</b> </span></td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　　GetPos(A,i) 
+      和 GetPos(B,j) 都为&quot;真&quot;说明i和j都没有超出表长的范围。<br>
+      <br>
+      　　<img src="../../../images/pic/chapter02/gs/ai_l.gif" width="10" height="10"> 
+      &lt;= <img src="../../../images/pic/chapter02/gs/bj_l.gif" width="11" height="14" align="absmiddle"> 
+      时将 <img src="../../../images/pic/chapter02/gs/ai_l.gif" width="10" height="10"> 
+      插入到C表，并在相等时过滤掉 <img src="../../../images/pic/chapter02/gs/bj_l.gif" width="11" height="14" align="absmiddle"> 
+      。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="text">　　　　　<b>else</b><br>
+      　　　　　<b>{</b> <font face="Times New Roman, Times, serif">　　　　　　　 　　　　　 　　　//</font> 
+      插入和 <img src="../../../images/pic/chapter02/gs/bj.gif" width="11" height="14" align="absmiddle"> 
+      相同的元素<br>
+      　　　　　　<b>if</b> ( !MakeNode( s,eb ) ) <b>exit</b>(1);<br>
+      　　　　　　++j; <br>
+      　　　<b>　　}</b> <br>
+      　 　 <b> 　}</b><font face="Times New Roman, Times, serif">//</font>if<br>
+      　　　　<b>else if</b> ( GetPos(A,i) ) 　　　　　　　<font face="Times New Roman, Times, serif">// 
+      </font>A表中尚有元素未曾插入 <br>
+      　　　　<b>{</b> <br>
+      　　　　　GetCurElem( A,ea ); <br>
+      　　　　　<b>if</b> ( !MakeNode( s,ea ) ) <b>exit</b>(1); <br>
+      　　　　　++i; <br>
+      　　　　<b>}</b><font face="Times New Roman, Times, serif">//</font>else<br>
+      　　　　<b>else</b> <font face="Times New Roman, Times, serif">　　　　　　　　　　　　　　　 
+      //</font> B表中尚有元素未曾插入 <br>
+      　　　　<b>{</b><br>
+      　　　　　GetCurElem( B,eb ); <br>
+      　　　　　<b>if</b> ( !MakeNode( s,eb ) ) <b>exit</b>(1);<br>
+      　　　　　++j; <br>
+      　　　　<b>}</b><font face="Times New Roman, Times, serif">//</font>else<br>
+      　　　　InsAfter(C,s); <font face="Times New Roman, Times, serif">　　　　　　　　　 
+      　　//</font> 插入到C表 <br>
+      　　<b>}</b><br>
+      　<b>} </b><font face="Times New Roman, Times, serif">//</font> union <br>
+      <br>
+      　　算法</span><span class="point">时间复杂度</span><span class="text">为：<b class="point"><font face="Times New Roman, Times, serif"><i>O</i> 
+      (Listlength(A)+ListLength(B))</font></b>。</span></td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　　<img src="../../../images/pic/chapter02/gs/ai_l.gif" width="10" height="10"> 
+      &gt; <img src="../../../images/pic/chapter02/gs/bj_l.gif" width="11" height="14" align="absmiddle"> 
+      时将 <img src="../../../images/pic/chapter02/gs/bj_l.gif" width="11" height="14" align="absmiddle"> 
+      插入到C表<br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      　　此时可能是(i&gt;m)或者(j&gt;n)。<br>
+      <br>
+      <table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td bgcolor="#ECEEFF" height="14" class="explaination" width="8">&nbsp;</td>
+                <td bgcolor="#ECEEFF" height="14" class="explaination"><img src="../../../images/tubiao/wt.gif" width="23" height="23" align="absmiddle" alt="思考题"> 
+                  试设想，如果不是以有序表表示集合，而是以线性表表示集合，那么求集合并的算法时间复杂度该是什么？</td>
+                <td width="15" bgcolor="#ECEEFF" valign="top"><span id="bb"><img border=0 
+                              id=HPFrameHLTab3 
+                              onClick="showHideContent('HPFrameHL');hidden();"
+							   src="../../../images/html/expand.gif" style="CURSOR: hand" width="15" height="14"></span></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <div id=HPFrameHLContent 
+           style="WIDTH: 100%;visibility: hidden;background-color:#ECEEFF" > 
+              <table width="94%" border="0" cellspacing="0" cellpadding="0" align="center">
+                <tr> 
+                  <td class="explaination">　将是<br>
+                    　　O(Listlength<sup><font size="1">2</font></sup>(A)+ListLength<sup><font size="1">2</font></sup>(B))</td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+      </table>
+      <br>
+      <table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td bgcolor="#ECEEFF" height="14" class="explaination" width="8">&nbsp;</td>
+                <td bgcolor="#ECEEFF" height="14" class="explaination"><img src="../../../images/tubiao/wt.gif" width="23" height="23" align="absmiddle" alt="思考题"> 
+                  将算法2.25和2.26作一比较，你有什么看法？</td>
+                <td width="15" bgcolor="#ECEEFF" valign="top"><span id=dd><img border=0 
+                              id=HPFrameDLTab3 
+                              onClick="showHideContent('HPFrameDL');hiddenL();"
+							   src="../../../images/html/expand.gif" style="CURSOR: hand" width="15" height="14"></span></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <div id=HPFrameDLContent 
+           style="WIDTH: 100%;visibility: hidden;background-color:#ECEEFF"> 
+              <table width="94%" border="0" cellspacing="0" cellpadding="0" align="center">
+                <tr> 
+                  <td class="explaination">　这两个算法的基本思想是相同的，不同处有三点：<br>
+                    1.算法2.25是直接对链表进行操作，2.26是利用有序链表类型的操作实现的算法；<br>
+                    2.算法2.25是&quot;归并&quot;两个表，归并之后的表中可能存在相同的元素，即如果La和Lb中有相同元素，则两个元素均被归并到Lc表中去了，而算法2.26是求集合的&quot;并&quot;，则相同的元素只要复制一个即可；<br>
+                    3.算法2.25是利用已有的两个链表中的结点重新组合成一个新的链表，因此操作之后，原来的两个链表都不存在了，而算法2.26是新建一个有序表，操作中不破坏原来的表。</td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

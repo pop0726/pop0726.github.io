@@ -1,0 +1,45 @@
+<html>
+<head>
+<title>数据结构</title> <meta http-equiv="Content-Type" content="text/html; charset="utf-8""> 
+<link rel="stylesheet" href="../../../css/style.css" type="text/css"> <script language="JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%"> 
+<tr> <td width="8">&nbsp;</td><td class="white" valign="top"><span class="part">　10.3.1 
+起泡排序</span><br> <br> 　　起泡排序是交换类排序方法中的一种简单排序方法。其基本思想为：依次比较相邻两个记录的关键字，若和所期望的相反，则互换这两个记录。如右图所示，在第i趟起泡排序之前，区段 
+R[n-i+2..n] 中的记录已按关键字从小到大有序排列，而区段 R[1..n-i+1] 中的记录不一定有序，但该区段中所有记录的关键字均不大于有序序列中记录的关键字(即小于或等于R[n-i+2].key)，则第i趟起泡排序的操作为，从第1个记录起，逐个和相邻记录的关键字进行比较，若第j(1≤j≤n-i)个记录的关键字大于第j+1个记录的关键字，则互换记录，由此可将区段 
+R[1..n-i+1] 中关键字最大的记录&quot;交换&quot;到 R[n-i+1] 的位置上，从而使有序序列的长度增1。显然，如果第i趟起泡排序的过程中，没有进行任何记录的交换，则表明区段 
+R[1..n-i+1] 中的记录已经按关键字从小到大有序排列，由此不再需要进行下一趟的起泡，即起泡排序已经完成，可见排序结束的条件是(i=n-1)或者（第i趟的起泡中没有进行记录交换），如算法10.7所示。<br> 
+　</td><td background="../../../images/html/mid.gif" width="18">&nbsp;</td><td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br> 
+　<br> <A HREF="javascript:;" ONCLICK="MM_openBrWindow('../../../flash/chap10/10-3-1.swf','数据结构','width=400,height=300')"><IMG SRC="../../../images/tubiao/dh.gif" ALT="动画" WIDTH="25" HEIGHT="24" BORDER="0" ALIGN="TEXTTOP"></A><img src="../../../images/pic/chapter10/10-24.gif" width="250" height="157" align="top"></td><td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td></tr> 
+<tr> <td width="8">&nbsp;</td><td class="white" valign="top"><img src="../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle"> 
+<span class="zhushi">算法 10.7</span><br> 　　<b>void</b> BubbleSort(SqList <b><font face="Times New Roman, Times, serif">&amp;</font></b>L)<br> 
+　<b>{</b><br> <span class="zhushi">　　<font face="Times New Roman, Times, serif">//</font> 
+对顺序表L作起泡排序</span><br> 　　<b>for</b> (i=L.length, change=TRUE; i&gt;1 <b><font face="Times New Roman, Times, serif">&amp;&amp;</font></b> 
+change; --i) <b>{</b><br> 　　　change = FALSE;<br> 　　　<b>for</b> (j=1; j&lt;i; ++j)<br> 
+　　　　<b>if</b> (L.r[j].key &gt; L.r[j+1].key)<br> 　　　　　<b>{</b> L.r[j]←→L.r[j+1]; 
+change = TRUE <b>}</b><br> 　　<b>}</b><font face="Times New Roman, Times, serif">//</font> 
+for i<br> 　<b>}</b> <font face="Times New Roman, Times, serif">//</font> BubbleSort<br> 
+<br> 　　分析起泡排序的时间复杂度：和直接插入相似，排序过程中所进行的&quot;比较&quot; 和 &quot;移动&quot; 操作的次数取决于待排记录序列的状态，在待排记录处于&quot;正序&quot;时取最小值，此时只需进行一趟起泡排序，反之，在待排记录处于&quot;逆序&quot;时取最大值，此时需进行 
+n-1趟起泡，列表如下： <br> <br> <table width="320" border="0" cellspacing="1" cellpadding="0" align="center" bgcolor="#FFFFFF"> 
+<tr bgcolor="#4A5594"> <td class="zhushi"> <div align="center">待排记录状态</div></td><td class="zhushi"> 
+<div align="center">&quot;比较&quot;次数</div></td><td class="zhushi"> <div align="center"> 
+&quot;移动&quot;次数</div></td></tr> <tr bgcolor="#4A5594"> <td class="white"> <div align="center">正序</div></td><td class="white"> 
+<div align="center">n-1</div></td><td class="white"> <div align="center"> 0</div></td></tr> 
+<tr bgcolor="#4A5594"> <td class="white"> <div align="center">逆序</div></td><td class="white"> 
+<div align="center"><img src="../../../images/pic/chapter10/gs_6.gif" width="53" height="37"></div></td><td class="white"> 
+<div align="center"><img src="../../../images/pic/chapter10/gs_7.gif" width="59" height="38"></div></td></tr> 
+</table></td><td background="../../../images/html/mid.gif" width="18">&nbsp;</td><td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　　算法中设立了一个标志一趟起泡中是否进行了交换记录操作的布尔型变量change，在每一趟起泡之前均将它设为&quot;FALSE&quot;，一旦进行记录交换，则将它改为&quot;TRUE&quot;，因此 
+change=TRUE 是进行下一趟起泡的必要条件。 <p>　　当待排序列中的记录已按关键字有序排列时，显然，在进行n-1次关键字的比较，而不需要交换记录；然而，当待排序列中的记录按关键字逆序排列时，需进行 
+n-1 趟起泡，并且每一趟起泡都需进行所有记录的互换，因此进行的关键字比较的总数为：<br> 　　　<img src="../../../images/pic/chapter10/gs_8.gif" width="122" height="41">，<br> 
+　　进行的记录移动的总数为：<br> 　　　<img src="../../../images/pic/chapter10/gs_9.gif" width="135" height="42">。</p></td><td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td></tr> 
+</table>
+</body>
+</html>

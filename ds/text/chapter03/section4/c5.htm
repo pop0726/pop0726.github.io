@@ -1,0 +1,101 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8" height="254">&nbsp;</td>
+    <td class="white" valign="top" height="254"><br>
+      <img src="../../../images/tubiao/lt.gif" width="28" height="27" align="absmiddle" alt="例题"> 
+      <span class="zhushi">例二</span> 排队问题的系统模拟<br>
+      <br>
+      <img src="../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle"> 
+      <span class="zhushi">算法3.6</span><br>
+      　　<b>void</b> CustomerArrived(eventList evL, Queue Q, Event en )<br>
+      　<b>{</b> <span class="zhushi"><font face="Times New Roman, Times, serif">//</font> 
+      处理顾客进门事件</span> <br>
+      　　Random(durtime, intertime);<br>
+      　　nextAT = en.occurTime + intertime; <font face="Times New Roman, Times, serif">　　　//</font> 
+      下一顾客到达时刻 <br>
+      　　<b>if</b> (nextAT&lt;closeTime) <b>{</b><br>
+      　　　newAEvent = ( nextAT, 'A'); <font face="Times New Roman, Times, serif">　　　　　//</font> 
+      新的进门事件<br>
+      　　　MakeNode(newp, newAEvent);<br>
+      　　　LocateElem(evL, newAEvent, compare);<br>
+      　　　Insafter(evL, newp); <font face="Times New Roman, Times, serif">　　　　　　　　//</font> 
+      插入事件表 <br>
+      　　<b>}</b></td>
+    <td background="../../../images/html/mid.gif" width="18" height="254">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top" height="254"><br>
+      　<br>
+      　　evL 为事件表，表中的第1个事件为(0,'A')。　<br>
+      <br>
+      　　durtime 为当前进门的顾客理发所需时间，intertime 为下一个顾客即将进门的间隔时间。 </td>
+    <td background="../../../images/html/right_di3.gif" width="13" height="254">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">　　<b>if</b> (freeChair) <b>{</b><font face="Times New Roman, Times, serif">　　　　　　　　　　　//</font> 
+      顾客即刻开始理发<br>
+      　　　dT = en.occurTime + durtime;<br>
+      　　　newDEvent = (dT, 'D'); <font face="Times New Roman, Times, serif">　　　　　　　//</font> 
+      新的出门事件<br>
+      　　　MakeNode(newp, newDEvent);<br>
+      　　　LocateElem(evL, newDEvent, compare);<br>
+      　　　Insafter(evL, newp); <font face="Times New Roman, Times, serif">　　　　　　　　//</font> 
+      插入事件表</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　　freeChair 
+      的初值即为 chairNum。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">　　　totalTime += durtime;　<font face="Times New Roman, Times, serif">　　　　　　　//</font> 
+      累计逗留时间<br>
+      　　　<b>--f</b>reeChair;<br>
+      　　<b>}</b> <br>
+      　　<b>else {</b><font face="Times New Roman, Times, serif">　　　　　　　　　　　　　　　//</font> 
+      顾客排队等候<br>
+      　　　newCustomer = (en.occuTime, durtime);<br>
+      　　　EnQueue(Q, newCustomer); <br>
+      　　<b>}</b><br>
+      　　++customerNum;<font face="Times New Roman, Times, serif">　　　　　　　　　　　 //</font> 
+      统计顾客总人数<br>
+      　　totalQLength += QueueLength(Q); <font face="Times New Roman, Times, serif">　　　//</font> 
+      累计排队的长度<br>
+      　<b>}</b> <font face="Times New Roman, Times, serif">//</font> CustomerArrived<br>
+      <br>
+      <img src="../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle"> 
+      <span class="zhushi">算法3.7</span><br>
+      　　<b>void</b> CustomerDeparture(eventList evL, Queue Q, Event en)<br>
+      　<b>{</b> <span class="zhushi"><font face="Times New Roman, Times, serif">//</font> 
+      处理顾客出门事件</span><br>
+      　　<b>if</b> (!DeQueue(Q, cm)) ++FreeChair; <font face="Times New Roman, Times, serif">　　//</font> 
+      无人等候理发 <br>
+      　　<b>else {</b> <font face="Times New Roman, Times, serif">　　　　　　　　　　　　　　//</font> 
+      排头顾客出列开始理发<br>
+      　　　dT = en.occurTime + cm.duration;<br>
+      　　　newDEvent = (dT, 'D'); <font face="Times New Roman, Times, serif">　　　　　　//</font> 
+      新的出门事件<br>
+      　　　MakeNode(newp, newDEvent);<br>
+      　　　LocateElem(evL, newDEvent, compare);<br>
+      　　　Insafter(evL, newp); <font face="Times New Roman, Times, serif">　　　　　　　//</font> 
+      插入事件表<br>
+      　　　totalTime += (dT - cm.arrivalTime); <font face="Times New Roman, Times, serif">//</font> 
+      累计逗留时间 <br>
+      　　<b>}</b> totalFreeChair += freeChair; <font face="Times New Roman, Times, serif">　　　//</font> 
+      累计空椅数<br>
+      　<b>}</b> <font face="Times New Roman, Times, serif">//</font> CustomerDeparture</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　　TotalTime、customerNum 
+      和 totalQLength 的初值均为0。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

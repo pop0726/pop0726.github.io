@@ -1,0 +1,48 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+<script language="JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　3.3.2 队列的存储表示和操作的实现</span><br>
+      <br>
+      <span class="zhushi">　二、循环队列</span><br>
+      <br>
+      　　和顺序栈相类似，在利用顺序分配存储结构实现队列时，除了用一维数组描述队列中数据元素的存储区域之外，尚需设立两个指针 front 和 rear 
+      分别指示&quot;队头&quot;和&quot;队尾&quot;的位置。为了叙述方便，在此约定：初始化建空队列时，令 front=rear=0，每当插入一个新的队尾元素后，头指针 
+      front 增1；每当删除一个队头元素之后，尾指针增1。因此，在非空队列中，头指针始终指向队头元素，而尾指针指向队尾元素的&quot;下一个&quot;位置。如下图所示。 
+      <br>
+      <br>
+      <div align="center">　<img src="../../../images/pic/chapter03/3_4.gif" width="225" height="81" align="top"></div>
+      <br>
+        　　假设在这之后又有两个元素 f 和 g 相继入队列，而队列中的元素 b 和 c 又相继出队列。则队头指针指向元素 d，队尾指针则指到数组&quot;之外&quot;的位置上去了，致使下一个入队操作无法进行(请注意此时队列空间并未满)。为此，设想这个数组的存储空间是个&quot;环&quot;，认定&quot;7&quot;的下一个位置是&quot;0&quot;。如下图所示。<br>
+        <br>
+      <div align="center"><img src="../../../images/pic/chapter03/3_5.gif" width="223" height="84" align="top"> 
+      </div>
+    </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　<br>
+      　<br>
+      <br>
+      　　循环队列是队列的一种顺序存储表示。那么为什么要称作&quot;循环队列&quot;而不说是&quot;顺序队列&quot;呢？<br>
+      <br>
+      　　这是由于队列操作（在队尾插入元素，而在队头删除元素）的特殊性造成的。这好比我们在食堂排队买饭，因为柜台是固定位置不动的，则每次排头的人买完离开队伍之后，后面的人依次往前&quot;移动&quot;一个位置，为了避免&quot;移动&quot;可以改一种方式。让吃饭的人围着圆桌&quot;依次&quot;入座，而食堂的师傅推着小车围着圆桌按先后落座的次序&quot;依次&quot;卖饭，并假定&quot;先来的先走&quot; 
+      。则就是&quot;循环队列&quot;的一种模拟。<a href="javascript:;" onClick="MM_openBrWindow('../../../flash/chap03/3-3-13.swf','','width=600,height=400')"><img src="../../../images/tubiao/dh.gif" alt="动画" width="25" height="24" align="absmiddle" border="0"></a><br>
+    </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

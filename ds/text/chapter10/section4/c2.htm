@@ -1,0 +1,65 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　10.4.2 堆排序</span><br>
+      <br>
+      　　何谓&quot;堆&quot;？<br>
+      <br>
+      　　若含n个元素的序列 {<img src="../../../images/pic/chapter10/k1.gif" width="12" height="16" align="absmiddle">,<img src="../../../images/pic/chapter10/k2.gif" width="13" height="16" align="absmiddle">,…,<img src="../../../images/pic/chapter10/kn.gif" width="15" height="16" align="absmiddle">} 
+      满足下列关系则称作&quot;小顶堆&quot; 或&quot;大顶堆&quot; 。&quot;堆顶&quot; 元素为序列中的&quot;最小值&quot;或&quot;最大值&quot;。<br>
+      　　　<img src="../../../images/pic/chapter10/gs_11.gif" width="297" height="47"> 
+      <br>
+      <p></p>
+      <p> 　　例如，{12, 39, 20, 65, 47, 34, 98, 81, 73, 56}为&quot;小顶堆&quot;；<br>
+        　　　　　{98, 81, 34, 73, 56, 12, 20, 39, 65, 47}为&quot;大顶堆&quot;。<br>
+        <br>
+        　　若将上述数列视作为一个完全二叉树，则堆顶元素 <img src="../../../images/pic/chapter10/k1.gif" width="12" height="16" align="absmiddle"> 
+        即为二叉树的根结点，<img src="../../../images/pic/chapter10/k2i.gif" width="17" height="17" align="absmiddle"> 
+        和 <img src="../../../images/pic/chapter10/k2i1.gif" width="28" height="17" align="absmiddle"> 
+        分别为 <img src="../../../images/pic/chapter10/ki.gif" width="13" height="17" align="absmiddle"> 
+        的&quot;左子树根&quot;和&quot;右子树根&quot;，如右图所示。<br>
+        <br>
+        　　利用堆的特性进行的排序方法即为&quot;堆排序&quot;，其排序过程如下：<br>
+        <br>
+        　假设待排关键字序列为： <b><span class="point">{ 34, 39, 20, 65, 47, 12, 98, 73, 
+        81, 56 }</span></b><span class="point"><br>
+        <br>
+        　1）先将它调整为大顶堆：<b>{ 98, 81, 34, 73, 56, 12, 20, 39, 65, 47 }</b><font color="#97C594"><br>
+        <br>
+        　</font>2）互换&quot;堆顶&quot;和待排序列中<br>
+        　　　　 的最后的关键字：<b>{</b><b> <font color="#00FFFF">47</font></b><b>, 81, 34, 
+        73, 56, 12, 20, 39, 65,</b><b> <font color="#FFCC00" class="zhushi">98</font> 
+        </b><b>}</b><br>
+        <br>
+        　3）在待排序列中舍去最大关键字，将其余部<br>
+        　　　　 分重新调整为堆：<b>{ </b><b><font color="#00FFFF">81</font></b><b>, </b><b><font color="#00FFFF">73</font></b><b>, 
+        34, </b><b><font color="#00FFFF">65</font></b><b>, 56, 12, 20, 39,</b><b> 
+        <font color="#00FFFF">47</font></b><b> } </b></span><b><font color="#FFCC00"><span class="zhushi">98</span></font></b><span class="point"><br>
+        <br>
+        　4）重复2）和3）直至待排序列中只剩一个关键字为止。<br>
+        <br>
+        　　可见，堆排序的两个关键问题是：<br>
+        　　1） 如何将一个无序序列调整为堆？<br>
+        　　2）如何在互换堆顶之后重新调整为堆？</span></p>
+    </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      <br>
+      <br>
+      　　&quot;堆排序&quot;也是一种选择类的排序方法，每一趟从记录的无序序列中选出一个关键字最大或最小的记录，和简单选择所不同的是，在第一趟选最大或最小关键字记录时先&quot;建堆&quot;，从而减少之后选择次大或次小关键字等一系列记录时所需的比较和移动次数。<br>
+      <br>
+      　<img src="../../../images/pic/chapter10/10-29.gif" width="250" height="179" align="top"> 
+    </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

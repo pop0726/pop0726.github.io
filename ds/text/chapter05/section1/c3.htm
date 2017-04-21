@@ -1,0 +1,103 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+<script language="JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　5.1.2 数组的顺序存储表示</span><br>
+      <br>
+      　　由于数组类型不作插入和删除的操作，因此只需要通过&quot;顺序映象&quot;得到它的存储结构，即借助数据元素在存储器中的相对位置来表示数据元素之间的逻辑关系。<br>
+      <br>
+      　　通常有两种映象方法：即&quot;以行(序)为主(序)&quot;的映象方法和&quot;以列(序)为主(序)&quot;的映象方法。<br>
+      <br>
+      　　以图示的二维数组为例，&quot;以行为主&quot;的存储结构是对二维数组进行&quot;按行切分&quot;，即将数组中的数据元素&quot;按行依次排放&quot;在存储器中；&quot;以列为主&quot;的存储结构是对二维数组进行&quot;按列切分&quot;，即将数组中的数据元素&quot;按列依次排放&quot;在存储器中。<br>
+      <br>
+      　　假设二维数组 R[m][n] 中每个数据元素占L个存储地址，并以 LOC(i,j) 表示下标为 (i,j) 的数据元素的存储地址，则该数组中任何一对下标 
+      (i,j) 对应的数据元素在&quot;以行为主&quot;的顺序映象中的存储地址为：<br>
+      　　　LOC(i,j) = LOC(0,0) + (i<img src="../../../images/pic/chapter04/t5.gif" width="7" height="7">n+j) 
+      <img src="../../../images/pic/chapter04/t5.gif" width="7" height="7"> L<br>
+      <br>
+      　　在&quot;以列为主&quot;的顺序映象中的存储地址为：<br>
+      　　　LOC(i,j) = LOC(0,0) + (j<img src="../../../images/pic/chapter04/t5.gif" width="7" height="7">m+i) 
+      <img src="../../../images/pic/chapter04/t5.gif" width="7" height="7"> L<br>
+      <br>
+      　　其中 LOC(0,0) 是二维数组中第一个数据元素（下标为(0,0)）的存储地址，称为数组的 &quot;基地址&quot; 或&quot;基址&quot;。</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      　　由于数组中的数据元素之间是一个&quot;多维&quot;的关系，而存储地址是一维的，因此数组的顺序存储表示要解决的是一个&quot;如何用一维的存储地址来表示多维的关系&quot;的问题。<br>
+      <br>
+      　 二维数组：<br>
+      <table width="120" border="0" cellspacing="1" cellpadding="0" align="center" bgcolor="#003399">
+        <tr> 
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">A</div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center"> B</div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">C</div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">D</div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">E</div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">M</div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">N</div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">O</div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">P</div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">Q</div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">U</div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">V</div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">X</div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">Y</div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">Z</div>
+          </td>
+        </tr>
+      </table>
+      <br>
+      　　<a href="javascript:;" onClick="MM_openBrWindow('../../../flash/chap05/5_1_1.swf','','width=500,height=300')"><img src="../../../images/tubiao/dh.gif" width="25" height="24" border="0"></a>　<a href="javascript:;" onClick="MM_openBrWindow('../../../flash/chap05/5_1_2.swf','','width=500,height=300')"><img src="../../../images/tubiao/dh.gif" width="25" height="24" border="0"></a><br>
+      <br>
+      　　现有的高级语言中的大多数都是按&quot;以行为主&quot;实现数组类型的。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<script language=JavaScript src="hpmain.js"></script>
+<script language=JavaScript src="showhidden.js"></script>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　2.3.2 单链表中基本操作的实现</span><br>
+      <br>
+      <span class="zhushi">　二、销毁结构操作</span><br>
+      <br>
+      <span class="zhushi"><img src="../../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle" alt="算法"> 
+      算法2.14</span><br>
+      　　<b>void</b> DestroyList( SLink <b><font face="Times New Roman, Times, serif">&amp;</font></b>L)<br>
+      　<b>{</b><br>
+      　　<span class="zhushi"><font face="Times New Roman, Times, serif">//</font> 
+      销毁以L为头指针的单链表，释放链表中所有结点空间</span><br>
+      　　<b>while</b> (L)<br>
+      　　<b>{</b><br>
+      　　　p = L;<br>
+      　　　L = L-&gt;next;<br>
+      　　　<b>delete</b> p;<br>
+      　　<b>} </b><font face="Times New Roman, Times, serif">//</font> while<br>
+      　　L = <b>NULL</b>;<br>
+      　<b>}</b><font face="Times New Roman, Times, serif"> //</font> DestroyList<br>
+      <br>
+      　　算法的<span class="point">时间复杂度</span>为<b><span class="point"><font face="Times New Roman, Times, serif"><i>O</i> 
+      (Listlength(L))</font></span></b>。</td>
+    <td background="../../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      <br>
+      <br>
+      　　&quot;销毁结构&quot;的操作是在该链表的使命已经完成之后进行的，则应将它占有的空间&quot;释放&quot;。但在C++语言中，析构函数是在类对象生命期结束的时候由系统自动调用。<br>
+      <br>
+      <table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td bgcolor="#ECEEFF" height="14" class="explaination" width="8">&nbsp;</td>
+                <td bgcolor="#ECEEFF" height="14" class="explaination"><img src="../../../../images/tubiao/wt.gif" width="23" height="23" align="absmiddle" alt="思考题"> 
+                  算法中为什么要加上L=NULL 的语句？</td>
+                <td width="15" bgcolor="#ECEEFF" valign="top"><span id="bb"><img border=0 
+                              id=HPFrameHLTab3 
+                              onClick="showHideContent('HPFrameHL');hidden();"
+							   src="../../../../images/html/expand.gif" style="CURSOR: hand" width="15" height="14"></span></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <div id=HPFrameHLContent 
+           style="WIDTH: 100%;visibility: hidden;background-color:#ECEEFF" > 
+              <table width="94%" border="0" cellspacing="0" cellpadding="0" align="center">
+                <tr> 
+                  <td class="explaination">　虽然头结点占有的空间已经释放，但指针变量L中的值没有改变，为安全起见，置L为 
+                    &quot;空&quot;，以防止对系统空间的访问。</td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </td>
+    <td background="../../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<script language=JavaScript src="../part2/hpmain.js"></script>
+<script language=JavaScript src="../part2/showhidden.js"></script>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"> 
+      <span class="part">　2.3.4 循环链表</span><br>
+        <br>
+      　　<span class="part">循环链表(Circular Linked List)</span>是线性表的另一种形式的链式存储表示。它的特点是表中最后一个结点的指针域指向头结点，整个链表成为一个由链指针相链接的环，并且将头指针设成指向最后一个结点。空的循环链表由只含一个自成循环的头结点表示。<br>
+      <br>
+      <div align="center"><img src="../../../../images/pic/chapter02/2_8.gif" width="139" height="123"><br>
+        　</div>
+    </td>
+    <td background="../../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      <br>
+      　　头指针指向表尾的好处是既能立即找到链表的尾结点，也容易找到链表中的第一个结点。 </td>
+    <td background="../../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">
+        <div align="center"><img src="../../../../images/pic/chapter02/2_5.gif" width="273" height="91" align="top"></div>
+      <br>
+      <br>
+      　　循环链表的操作和单链表基本一致，差别仅在于，<span class="point">判别链表中最后一个结点的条件</span>不再是&quot;<b>后继是否为空</b>&quot;，而是&quot;<b><span class="point">后继是否为头结点</span></b>&quot;。</td>
+    <td background="../../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"> 
+      <br>
+      <table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td bgcolor="#ECEEFF" height="14" class="explaination" width="8">&nbsp;</td>
+                <td bgcolor="#ECEEFF" height="14" class="explaination"><img src="../../../../images/tubiao/wt.gif" width="23" height="23" align="absmiddle" alt="思考题"> 
+                  你能否举出用循环链表被单链表更有利的场合吗？</td>
+                <td width="15" bgcolor="#ECEEFF" valign="top"><span id="bb"><img border=0 
+                              id=HPFrameHLTab3 
+                              onClick="showHideContent('HPFrameHL');hidden();"
+							   src="../../../../images/html/expand.gif" style="CURSOR: hand" width="15" height="14"></span></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <div id=HPFrameHLContent 
+           style="WIDTH: 100%;visibility: hidden;background-color:#ECEEFF" > 
+              <table width="95%" border="0" cellspacing="0" cellpadding="0" align="center">
+                <tr> 
+                  <td class="explaination">　例一，串联两个链表；<br>
+                    　例二，当线性表中元素没有严格的&quot;次序&quot; 之分时，可以让头指针不固定在表尾，而随之操作过程在链表中&quot;游动&quot;，以有利于查询。<br>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </td>
+    <td background="../../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

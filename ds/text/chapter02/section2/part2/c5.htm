@@ -1,0 +1,92 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/style.css" type="text/css">
+<script language="JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　2.2.2 顺序表中基本操作的实现</span><br>
+      <br>
+      <b><span class="zhushi">　四、删除元素操作</span></b><br>
+      <br>
+      　　同样首先分析，&quot;删除元素&quot;使线性表的逻辑结构发生什么变化？<br>
+      　　假设删除线性表中第i个元素，使得线性表<br>
+      　　(<img src="../../../../images/pic/chapter02/gs/a1.gif" width="11" height="10">,…,<img src="../../../../images/pic/chapter02/gs/ai_1.gif" width="20" height="10">,<img src="../../../../images/pic/chapter02/gs/ai.gif" width="10" height="10">,<img src="../../../../images/pic/chapter02/gs/ai1.gif" width="20" height="10">,…,<img src="../../../../images/pic/chapter02/gs/an.gif" width="12" height="10">) 
+      改变为 (<img src="../../../../images/pic/chapter02/gs/a1.gif" width="11" height="10">,…,<img src="../../../../images/pic/chapter02/gs/ai_1.gif" width="20" height="10">,<img src="../../../../images/pic/chapter02/gs/ai1.gif" width="20" height="10">,…,<img src="../../../../images/pic/chapter02/gs/an.gif" width="12" height="10">)<br>
+      　即：<br>
+      　(1) 改变了表中元素之间的关系，使&lt;<img src="../../../../images/pic/chapter02/gs/ai_1.gif" width="20" height="10">,<img src="../../../../images/pic/chapter02/gs/ai.gif" width="10" height="10">&gt;和&lt;<img src="../../../../images/pic/chapter02/gs/ai.gif" width="10" height="10">,<img src="../../../../images/pic/chapter02/gs/ai1.gif" width="20" height="10">&gt; 
+      改变为&lt;<img src="../../../../images/pic/chapter02/gs/ai_1.gif" width="20" height="10">,<img src="../../../../images/pic/chapter02/gs/ai1.gif" width="20" height="10">&gt;<br>
+      <br>
+    </td>
+    <td background="../../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">&nbsp;</td>
+    <td background="../../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">　(2) 表长减1<br>
+      　　对顺序表而言，需要改变从第 i+1 个元素起到第 n 个元素的存储位置，即进行&quot;<span class="point">从第 i+1 
+      到第 n 个元素往前移动一个位置</span>&quot;。<a href="javascript:;" onClick="MM_openBrWindow('../../../../flash/chap02/2-2-4.swf','数据结构','width=400,height=300')"><img src="../../../../images/tubiao/dh.gif" width="25" height="24" alt="动画" border="0" align="absmiddle"></a><br>
+      　</td>
+    <td background="../../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　　</td>
+    <td background="../../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><img src="../../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle" alt="算法"> 
+      <span class="zhushi">算法 2.7</span><br>
+      　　<b>bool</b> ListDelete(SqList <b><font face="Times New Roman, Times, serif">&amp;</font></b>L, <b>int</b> pos, ElemType 
+      <b><font face="Times New Roman, Times, serif">&amp;</font></b>e)<br>
+      　<b>{</b><br>
+      <span class="zhushi">　　<font face="Times New Roman, Times, serif">//</font> 
+      若1≤pos≤Listlength(L)，则以 e 带回从顺序表 L 中删除的<br>
+      　　<font face="Times New Roman, Times, serif">//</font> 第 pos 个元素且返回 TRUE，否则返回 
+      FALSE</span><br>
+      　　<b>if</b> ((pos &lt; 1) || (pos &gt; L.length))<br>
+      　　<b>return FALSE</b> ; <font face="Times New Roman, Times, serif">　　　　　　　　//</font> 
+      删除位置不合法<br>
+      　　<b>for</b> (j = pos; j&lt;L.length; ++j) <br>
+      　　　L.elem[j-1] = L.elem[j]; <font face="Times New Roman, Times, serif">　　　 
+      //</font> 被删除元素之后的元素左移 </td>
+    <td background="../../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      <br>
+      <br>
+      　<br>
+      　算法2.7演示的动画所示。<a href="javascript:;" onClick="MM_openBrWindow('../../../../flash/chap02/2-2-5.swf','数据结构','width=400,height=230')"><img src="../../../../images/tubiao/dh.gif" width="25" height="24" alt="动画" border="0" align="absmiddle"></a><br>
+      <br>
+      <br>
+    </td>
+    <td background="../../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">　　--L.length; <font face="Times New Roman, Times, serif">　　　　　　　　　　 
+      //</font> 表长减1<br>
+      　　<b>return TRUE</b>;<br>
+      　<b>}</b><font face="Times New Roman, Times, serif"> //</font> ListDelete 
+      <br>
+      <br>
+      　　此算法的<span class="point">时间复杂度</span>为：<b><span class="point"><font face="Times New Roman, Times, serif"><i>O 
+      </i>(ListLength(L))</font></span></b></td>
+    <td background="../../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">算法时间复杂度的分析：<br>
+      　　算法中的基本操作是&quot;移动元素&quot;，for循环的执行次数在最坏的情况下(pos=1即删除第一个元素时)为L.length-1。<br>
+    </td>
+    <td background="../../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<script language=JavaScript src="../part2/hpmain.js"></script>
+<script language=JavaScript src="../part2/showhidden.js"></script>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　2.3.1 单链表和指针</span><br>
+      <br>
+      　　线性表的链式存储表示的特点是用一组<span class="point">任意的</span>存储单元存储线性表的数据元素（这组存储单元可以是连续的，也可以是不连续的）。因此，为了表示每个数据元素 
+      <img src="../../../../images/pic/chapter02/gs/ai.gif" width="10" height="10" align="absmiddle"> 
+      与其直接后继数据元素 <img src="../../../../images/pic/chapter02/gs/ai1.gif" width="20" height="10"> 
+      之间的逻辑关系，对数据元素 <img src="../../../../images/pic/chapter02/gs/ai.gif" width="10" height="10" align="absmiddle"> 
+      来说，<span class="point">除了存储其本身的信息之外，还需存储一个指示其直接后继的信息（即直接后继的存储位置）。</span>由这两部分信息组成一个&quot;结点&quot;（如下图所示），表示线性表中一个数据元素 
+      <img src="../../../../images/pic/chapter02/gs/ai.gif" width="10" height="10" align="absmiddle"> 
+      。<br>
+      <br>
+      <table width="155" border="0" cellspacing="1" cellpadding="0" bgcolor="#FFFFFF" align="center" height="29">
+        <tr bgcolor="#4A5594"> 
+          <td class="white"> 
+            <div align="center">数据域 data</div>
+          </td>
+          <td class="white"> 
+            <div align="center">指针域 next</div>
+          </td>
+        </tr>
+      </table>
+      <br>
+        　　其中存储数据元素信息的域称作<span class="point">数据域</span>（设域名为data），存储直接后继存储位置的域称为<span class="point">指针域</span>（设域名为next）。指针域中存储的信息又称做<span class="point">指针</span>或<b>链</b>。 
+        <br>
+        <br>
+        　　由分别表示<img src="../../../../images/pic/chapter02/gs/a1.gif" width="11" height="10">,<img src="../../../../images/pic/chapter02/gs/a2.gif" width="12" height="10">,…,<img src="../../../../images/pic/chapter02/gs/an.gif" width="12" height="10"> 
+        的N 个结点依次相链构成的链表，称为<b>线性表的链式存储表示</b>，由于此类链表的每个结点中只包含一个指针域，故又称<span class="part">单链表</span>或<b>线性链表</b>，如下图所示。<br>
+        　
+      <div align="center"><img src="../../../../images/pic/chapter02/2_3.gif" width="271" height="71" align="top"><br>
+        　 </div>
+    </td>
+    <td background="../../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      　　前面已经提到，由于在顺序表中插入或删除一个数据元素，平均约需移动表中一半元素。因此，对于需要经常进行插入和删除操作、表中元素相对不稳定的线性表，不应该采用顺序存储表示，而应该采用链式存储表示。 
+      <br>
+      <br>
+      <table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td bgcolor="#ECEEFF" height="14" class="explaination" width="8">&nbsp;</td>
+                <td bgcolor="#ECEEFF" height="14" class="explaination"><img src="../../../../images/tubiao/wt.gif" width="23" height="23" align="absmiddle" alt="思考题"> 
+                  何谓&quot;链式存储表示&quot;？</td>
+                <td width="15" bgcolor="#ECEEFF" valign="top"><span id="bb"><img border=0 
+                              id=HPFrameHLTab3 
+                              onClick="showHideContent('HPFrameHL');hidden();"
+							   src="../../../../images/html/expand.gif" style="CURSOR: hand" width="15" height="14"></span></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <div id=HPFrameHLContent 
+           style="WIDTH: 100%;visibility: hidden;background-color:#ECEEFF" > 
+              <table width="94%" border="0" cellspacing="0" cellpadding="0" align="center">
+                <tr> 
+                  <td class="explaination">　链式存储表示指的是以&quot;附加信息(指针)&quot; 表示数据元素之间的逻辑关系。</td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+      </table>
+      <br>
+      　　由于链式存储不要求线性表的元素依次&quot;紧挨&quot;存放，因此在进行插入和删除操作改变元素之间的关系时就不需要移动元素，因此它没有顺序存储结构所具有的弱点，但同时也失去了顺序表可随机存取的优点。 
+      <br>
+      　</td>
+    <td background="../../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">　　和顺序表类似，在链式存储结构中仍以第一个数据元素的存储地址作为线性表的基地址，通常称它为头指针，线性表中所有数据元素都可以从头指针出发找到。因为线性表的最后一个数据元素没有后继，因此最后一个结点中的&quot;指针&quot;是一个特殊的值 
+      &quot;<b>NULL</b>&quot; （在图上用∧表示），通常称它为&quot;<span class="point">空指针</span>&quot;。<br>
+      　</td>
+    <td background="../../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　　头指针的值为第一个结点的存储位置，第一个结点中的&quot;指针&quot;指向第二个结点，即它的值为第二个结点的存储位置，第二个结点中的&quot;指针&quot;指向第三个结点，……，依次类推，直至最后一个结点。</td>
+    <td background="../../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">　　 为了便于处理一些特殊情况，在第一个结点之前附加一个&quot;<span class="point">头结点</span>&quot;，令该结点中指针域的指针指向第一个元素结点，并令头指针指向头结点，如下图所示。<br>
+        　 <div align="center"><img src="../../../../images/pic/chapter02/2_6.gif" width="318" height="84" align="top"><br>
+        　</div>
+    </td>
+    <td background="../../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　　头结点的结构和链表中其它结点相同，只是它的数据域中不存放任何信息，但它的指针域存放的是第一个数据元素的存储地址，即线性表的基地址。此时称指向头结点的指针为头指针。通常称这类单链表为&quot;带头结点的单链表&quot;。<br>
+      　</td>
+    <td background="../../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">　　 值得注意的是，若线性表为空，在不带头结点的情况下，头指针为空(NULL)，但在带头结点的情况下，链表的头指针不为空，而是其头结点中指针域的指针为空，如下图所示。<br>
+        　 <div align="center"><img src="../../../../images/pic/chapter02/2_4.gif" width="288" height="87" align="top"> 
+      </div>
+    </td>
+    <td background="../../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　　如果不特别声明的话，那么以后各节中讨论的单链表都指的是这种带头结点的链表。</td>
+    <td background="../../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

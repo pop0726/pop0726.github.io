@@ -1,0 +1,163 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<script language=JavaScript src="../../chapter02/section1/hpmain.js"></script>
+<script language=JavaScript src="../../chapter02/section1/showhidden.js"></script>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　6.3.1 顺序存储结构</span><br>
+      <br>
+      　　用一组地址连续的存储单元存储二叉树中的数据元素。<br>
+      <br>
+      　二叉树的顺序存储结构的定义如下：<br>
+      　　<b>const</b> MAXSIZE = 100; <font face="Times New Roman, Times, serif">　//</font> 
+      暂定二叉树中结点数的最大值为100<br>
+      　　<b>typedef struct</b> <b>{</b><br>
+      　　　ElemType *data; <font face="Times New Roman, Times, serif">　　　//</font> 
+      存储空间基址(初始化时分配空间)<br>
+      　　　<b>int</b> nodeNum; <font face="Times New Roman, Times, serif">　　　　//</font> 
+      二叉树中结点数<br>
+      　　<b>} </b>SqBiTree; <font face="Times New Roman, Times, serif">　　　　　 //</font> 
+      二叉树的顺序存储结构 
+      <p>　　为了能在存储结构中反映出结点之间的逻辑关系，必须将二叉树中结点依照一定规律安排在这组存储单元中。<br>
+        <br>
+        　　对于完全二叉树，只要从根起按层序存储即可。根据上一节所述完全二叉树的特性,将完全二叉树上编号为 i 的结点元素存储在一维数组中下标为 i-1 
+        的分量中，如上两页图所示含10个结点的完全二叉树的顺序存储结构如下所示。<br>
+      </p>
+      <table width="380" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td class="white" width="30"> 
+            <div align="center">0</div>
+          </td>
+          <td class="white" width="30"> 
+            <div align="center">1</div>
+          </td>
+          <td class="white" width="30"> 
+            <div align="center">2</div>
+          </td>
+          <td class="white" width="30"> 
+            <div align="center">3</div>
+          </td>
+          <td class="white" width="30"> 
+            <div align="center">4</div>
+          </td>
+          <td class="white" width="30"> 
+            <div align="center">5</div>
+          </td>
+          <td class="white" width="30"> 
+            <div align="center">6</div>
+          </td>
+          <td class="white" width="30"> 
+            <div align="center">7</div>
+          </td>
+          <td class="white" width="30"> 
+            <div align="center">8</div>
+          </td>
+          <td class="white" width="30"> 
+            <div align="center">9</div>
+          </td>
+          <td class="white" width="50"> 
+            <div align="center"> 　</div>
+          </td>
+          <td class="white" width="30"> 
+            <div align="center">　</div>
+          </td>
+        </tr>
+        <tr> 
+          <td colspan="12"> 
+            <table width="380" border="0" cellspacing="1" cellpadding="0" bgcolor="#FFFFFF">
+              <tr bgcolor="#4A5594"> 
+                <td class="white" width="30"> 
+                  <div align="center"> a</div>
+                </td>
+                <td class="white" width="30"> 
+                  <div align="center">b</div>
+                </td>
+                <td class="white" width="30"> 
+                  <div align="center">c</div>
+                </td>
+                <td class="white" width="30"> 
+                  <div align="center">d</div>
+                </td>
+                <td class="white" width="30"> 
+                  <div align="center">e</div>
+                </td>
+                <td class="white" width="30"> 
+                  <div align="center">f</div>
+                </td>
+                <td class="white" width="30"> 
+                  <div align="center">g</div>
+                </td>
+                <td class="white" width="30"> 
+                  <div align="center">h</div>
+                </td>
+                <td class="white" width="30"> 
+                  <div align="center">i</div>
+                </td>
+                <td class="white" width="30"> 
+                  <div align="center">j</div>
+                </td>
+                <td class="white" width="50"> 
+                  <div align="center"></div>
+                </td>
+                <td class="white" width="30"> 
+                  <div align="center"></div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <p> 　　对于一般的二叉树，可对照完全二叉树的编号进行相应的存储，但在没有结点的分量中需填充空白字符。<span class="point">显然，这种存储表示方法只适合于完全二叉树，对于一般的二叉树将造成存储空间的很大浪费。因此二叉树的常用存储结构是链表。</span></p>
+    </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      <br>
+      　　按照数据结构的&quot;顺序存储映象&quot;的定义，在顺序存储结构中没有附加信息，因此对二叉树的顺序存储结构，也只是以一组地址连续的存储空间存放二叉树中的数据元素。只是不能以&quot;存储位置相邻&quot;来表示 
+      &quot;后继&quot;关系。 
+      <p>　　根据上节所述二叉树的特性五，可推出顺序存储结构中&quot;双亲&quot;和&quot;孩子&quot;的关系：<br>
+        　　假设 bt.data[i] 是完全二叉树上的一个结点，若 2i+1&lt;bt.nodeNum，则 bt.data[2i+1] 是它的左孩子，否则它的左子树为空树；若 
+        2i+2&lt;bt.nodeNum，则 bt.data[2i+2]是它的右孩子，否则它的右子树为空树。<br>
+      </p>
+      <table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td bgcolor="#ECEEFF" height="14" class="explaination" width="8">&nbsp;</td>
+                <td bgcolor="#ECEEFF" height="14" class="explaination"><img src="../../../images/tubiao/wt.gif" width="23" height="23" align="absmiddle" alt="思考题"> 
+                  一个深度为 k 且只有 k 个结点的右单支树需要的数组存储空间为多少？</td>
+                <td width="15" bgcolor="#ECEEFF" valign="top"><span id="bb"><img border=0 
+                              id=HPFrameHLTab3 
+                              onClick="showHideContent('HPFrameHL');hidden();"
+							   src="../../../images/html/expand.gif" style="CURSOR: hand" width="15" height="14"></span></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <div id=HPFrameHLContent 
+           style="WIDTH: 100%;visibility: hidden;background-color:#ECEEFF" > 
+              <table width="95%" border="0" cellspacing="0" cellpadding="0" align="center">
+                <tr> 
+                  <td class="explaination">　需要 2<sup>k</sup> -1 个结点的存储空间。</td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+      </table>
+      <p>&nbsp; </p>
+    </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/style.css" type="text/css">
+<script language="JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">2.2.2 顺序表中基本操作的实现</span><br>
+      <br>
+      <b><span class="zhushi">　二、元素定位操作</span></b><br>
+      <br>
+      　　在顺序表中&quot;查询&quot;是否存在一个和给定值满足判定条件的元素的最简单的办法是，<span class="point">依次取出结构中的每个元素和给定值进行比较</span>。<a href="javascript:;" onClick="MM_openBrWindow('../../../../flash/chap02/2-2-1.swf','数据结构','width=400,height=300')"><img src="../../../../images/tubiao/dh.gif" width="25" height="24" alt="动画" border="0" align="absmiddle"></a><br>
+      　</td>
+    <td background="../../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      <br>
+      <br>
+      <br>
+      　<br>
+      　</td>
+    <td background="../../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><img src="../../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle" alt="算法"> 
+      <span class="zhushi">算法 2.5</span><br>
+      　　<b>int</b> LocateElem(SqList L, ElemType e,<b><br>
+      　　　　　　　　　　void</b> (*compare)(ElemType, ElemType))<br>
+      <b>　{</b><br>
+      <span class="zhushi">　　<font face="Times New Roman, Times, serif">//</font> 
+      在顺序表L中查找第1个值与 e 满足判定条件compare( )的元素，<br>
+      　　<font face="Times New Roman, Times, serif">//</font> 若找到，则返回其在 L 中的位序，否则返回0。</span><br>
+      　　i = 1;<font face="Times New Roman, Times, serif">　　　　　　　　　//</font> i 
+      的初值为第1元素的位序<br>
+      　　p = L.elem; <font face="Times New Roman, Times, serif">　　　　　　//</font> 
+      p 的初值为第1元素的存储位置<br>
+      　　<b>while</b> (i &lt;= L.length <b>&amp;&amp; !</b><span class="point">(*compare)(*p++,e)</span>)<br>
+      　　　++i;<font face="Times New Roman, Times, serif">　 　　　　　　　//</font> 依次进行判定<br>
+      　　<b>if</b> (i &lt;= L.length) <b>return</b> i; <br>
+      <font face="Times New Roman, Times, serif">　　　　　　　　　　　　　//</font> 找到满足判定条件的数据元素为第 
+      i 个元素<br>
+      <b>　　else</b> <b>return</b> 0;　<font face="Times New Roman, Times, serif">　　　//</font> 
+      该线性表中不存在满足判定的数据元素<br>
+      　<b>}</b><font face="Times New Roman, Times, serif"> //</font> LocateElem 
+      <br>
+      <br>
+      　　此算法的<span class="point">时间复杂度</span>为：<font face="Times New Roman, Times, serif"><i><font color="#ffcc00">O</font></i><font color="#ffcc00"> 
+      ( ListLength(L))</font></font> </td>
+    <td background="../../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      <br>
+      <br>
+      <span class="section"> <img src="../../../../images/pic/chapter02/t2.gif" width="119" height="13" align="absmiddle" alt="如果你对这里的分析有疑问的话，请查看1.3.3节的有关叙述。"></span>：<br>
+      　　算法中的基本操作是&quot;判定&quot;，它出现在 while 循环中，而函数 compare() 的时间复杂度显然是个常量。因此执行判定的次数取决于元素在线性表中的　&quot;位序&quot;，至多和表长相同。<br>
+    </td>
+    <td background="../../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

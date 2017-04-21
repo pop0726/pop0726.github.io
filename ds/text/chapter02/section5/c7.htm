@@ -1,0 +1,82 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　2.5.2 集合运算的实现</span><br>
+      <br>
+      <img src="../../../images/tubiao/lt.gif" width="28" height="27" align="absmiddle" alt="例题"> 
+      <span class="zhushi">例2-13</span> 假设以两个有序表分别表示集合A和B，试求集合C=A∩B。<br>
+      <br>
+      <img src="../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle" alt="算法"> 
+      <span class="zhushi">算法2.27</span><span class="text"><br>
+      <b>　　void</b> Intersection (OrderLinkList A, <br>
+      　　　　　　　　　　　　OrderLinkList B, OrderLinkList <b><font face="Times New Roman, Times, serif">&amp;</font></b>C)<br>
+      　<b>{</b> <br>
+      </span><span class="zhushi"><font face="Times New Roman, Times, serif">　　//</font> 
+      已知有序链表 A 和 B 分别表示两个集合，<br>
+      <font face="Times New Roman, Times, serif">　　//</font> 本算法求得有序链表 C 中所含元素是 
+      A 和 B 的交集</span><span class="text"><br>
+      　　<b>if</b> ( InitList(C) )<font face="Times New Roman, Times, serif">　　　　　　　　　　//</font> 
+      初始化建空表 <br>
+      　　<b>{</b><br>
+      　　　m = ListLength(A); n = Listlength(B); <font face="Times New Roman, Times, serif">//</font> 
+      分别求得表长<br>
+      　　　i = 1; j = 1; </span></td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      <br>
+      　<span class="zhushi"><font color="#339900">解题分析：</font></span><br>
+      　　集合求&quot;交&quot;和集合求&quot;并&quot;的解法几乎是完全相同的，只是在求交时只需要将A和B中相同的元素插入C表即可。<br>
+      <br>
+      例如：假设<br>
+      　　 A = {3, 5, 6, 8, 9}<br>
+      　　 B = {2, 4, 5, 8, 10}<br>
+      　则 C = { 5, 8 }</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="text">　　　<b>while</b> ( i &lt;= 
+      m <b><font face="Times New Roman, Times, serif">&amp;&amp;</font></b> j 
+      &lt;= n )<font face="Times New Roman, Times, serif">　　　 　//</font> 顺序考察表中元素<br>
+      　　　<b>{</b><br>
+      　　　<b>　if</b> ( GetPos(A,i) <b><font face="Times New Roman, Times, serif">&amp;&amp;</font></b> 
+      GetPos(B,j) ) <br>
+      　　　　<b>{</b><font face="Times New Roman, Times, serif">　　　　　　　　　　　　　　　　//</font> 
+      两个表中都还有元素未曾考察 <br>
+      　　　　　GetCurElem( A,ea ); GetCurElem( B,eb );<br>
+      　　　　　<b>if</b> ( ea &lt; eb ) ++i; <br>
+      　　　　　<b>else if</b> ( ea &gt; eb ) ++j;<br>
+      　　　　　<b>else</b> <br>
+      　　　　　<b>{</b>　　　　 　　　　　　　　　　　　<font face="Times New Roman, Times, serif">//</font> 
+      插入和 <img src="../../../images/pic/chapter02/gs/ai.gif" width="10" height="10"> 
+      相同的元素 <br>
+      　　　　　　<b>if</b> ( !MakeNode( s,ea ) ) <b>exit</b>(1); <br>
+      　　　　　　++i;++j; <br>
+      　　　　　　InsAfter(C,s);<br>
+      　　　　<b>　} </b><font face="Times New Roman, Times, serif">//</font> else 
+      <br>
+      　　　　<b>} </b><font face="Times New Roman, Times, serif">//</font> if<br>
+      　　　<b>} </b><font face="Times New Roman, Times, serif">//</font> while <br>
+      　　<b>} </b><font face="Times New Roman, Times, serif">//</font> if<br>
+      　<b>} </b><font face="Times New Roman, Times, serif">//</font> Intersection<br>
+      <br>
+      　　算法</span><span class="point">时间复杂度</span><span class="text">为：</span><b><span class="point"><font face="Times New Roman, Times, serif"><i>O 
+      </i>(Listlength(A)+ListLength(B))</font></span></b><span class="text">。</span></td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"> 
+      　　显然，对集合求交的运算而言，只要有一个表已经没有元素可查时就不需要继续进行了。在此，这个条件自然满足。<br>
+      <br>
+    </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

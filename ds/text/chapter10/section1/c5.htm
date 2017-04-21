@@ -1,0 +1,76 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　10.2.3 表插入排序</span><br>
+      <br>
+      　　表插入排序是以静态链表作待排记录序列的存储结构实现的插入排序。这个静态链表由存储记录的顺序表和附加的指针数组构成，静态链表中的指针实际上指的是数组的下标。<br>
+      <br>
+      　　表插入排序分两步进行：首先构造一个有序链表；然后按照&quot;附加指针&quot;的指示将结点中的记录重新排列成一个有序序列。<br>
+      <br>
+      　　先看一个具体的例子。<a href="javascript:;" onClick="MM_openBrWindow('../../../flash/chap10/10-2-4.swf','数据结构','width=400,height=300')"><img src="../../../images/tubiao/dh.gif" alt="动画" width="25" height="24" border="0" align="absmiddle"></a><br>
+      <br>
+      　　从例子中可见，构成有序链表的过程和前面讨论的直接插入排序的过程基本相同，先生成一个只含一个记录的有序链表，之后将从第2个至最后一个记录逐个插入，差别仅在于查找插入位置是从前到后进行查询直至找到一个记录的关键字大于当前待插入的记录的关键字，因此在查询过程中应该保持一个指&quot;前驱&quot;结点的指针。其算法在此不再详述，请读者自行补充。<br>
+      <br>
+      　　所谓&quot;重排记录&quot;是将记录移动到正确位置（即按关键字从小至大有序排列）。在重排的过程中设置了三个指针：其中 i 指示当前需要&quot;归位&quot;的记录的正确位置；p 
+      指示该记录的原始位置；q 指示第 i+1 个记录（即指针 p 所指记录的后继）的原始位置。显然，重排的主要操作是互换 p 和 i 所指记录，以便使第 
+      i 小关键字记录归位至正确位置，但由于互换记录破坏了链表的链接关系，可利用和当前已归位记录相应的指针予以修补，由于 i 值从小至大变化，因此第 
+      i 个记录当前所在的原始位置 p 必定大于i，若当前 p 的值比 i 小，说明该位置的记录已被移走，可由相应指针值找到它当前所在位置。算法如下：<br>
+      <br>
+      <img src="../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle" alt="算法"> 
+      <span class="zhushi">算法 10.4</span><br>
+      　　<b>void</b> Arrange (SqList <b><font face="Times New Roman, Times, serif">&amp;</font></b>L，<b>int</b> Next[] ) <br>
+      　<b>{</b><br>
+      <span class="zhushi">　　<font face="Times New Roman, Times, serif">//</font> 
+      根据Next[]中的指针值调整记录位置，使得L中记录<br>
+      　　<font face="Times New Roman, Times, serif">//</font> 按关键字非递减有序顺序排列</span><br>
+      　　p = Next[0];<font face="Times New Roman, Times, serif">　　　　　　　 //</font> 
+      p 指示第一个记录的当前位置<br>
+      　　<b>for</b> ( i=1; i&lt;L.length-1; ++i ) <br>
+      　　<b>{</b> 　　　　　　　　　　　　　<font face="Times New Roman, Times, serif">//</font> 
+      SL.r[1..i-1]中记录已按关键字有序排列，<br>
+      　　　　　　　　　　　　　　　　<font face="Times New Roman, Times, serif">//</font> 第 i 
+      个记录 在L中的当前位置应不小于 i<br>
+      　　　<b>while</b> (p&lt;i) p = Next[p];<font face="Times New Roman, Times, serif"> 
+      //</font> 找到第i个记录，并用p指示其在L中当前位置<br>
+      　　　q = Next[p]; <font face="Times New Roman, Times, serif">　　　　　　//</font> 
+      q 指示尚未调整的后继记录<br>
+      　　　<b>if</b> ( p<b>!</b>= i ) <b>{</b><br>
+      　　　　L.r[p]←→L.r[i];<font face="Times New Roman, Times, serif">　　　//</font> 
+      交换记录，使第 i 个记录到位<br>
+      　　　　Next[i] = p; <font face="Times New Roman, Times, serif">　　　//</font> 
+      指向被移走的记录，使得以后可由while循环找回<br>
+      　　　<b>}</b><font face="Times New Roman, Times, serif"> // </font>if<br>
+      　　　p = q;<font face="Times New Roman, Times, serif">　　　　　　　　 //</font> p 
+      指向下一个将要调整的记录<br>
+      　　<b>} </b><font face="Times New Roman, Times, serif">//</font> for<br>
+      　<b>}</b><font face="Times New Roman, Times, serif"> //</font> Arrange<br>
+      <br>
+      　　容易看出，在重排过程中至多进行3(n-1)次移动记录，然而整个表插入排序过程也仅仅是减少了移动记录的时间，所以它的<span class="point">时间复杂度</span>仍为<b><span class="point"><font face="Times New Roman, Times, serif"><i>O 
+      </i>(n<sup><font size="1">2</font></sup>)</font></span></b>。 <br>
+    </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      　<br>
+      　　由于插入排序的基本作法是将待排记录逐个插入到一个有序的记录序列中，在顺序表中实现插入就不可避免要移动记录。因此若想减少排序过程中移动记录所花时间，只有采用链表作存储结构才行。<br>
+      <br>
+      　　但是排序的目的是为了使用以查找的记录序列是一个有序序列，以便可以进行折半查找，因此只能是在排序过程中将它视作链表，即在排序过程中以&quot;修改指针&quot;替代&quot;移动记录&quot;实现&quot;插入&quot;，排序的结果仍使记录序列按关键字有序。此时的链表由结点（记录+指针）的数组实现。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

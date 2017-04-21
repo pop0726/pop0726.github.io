@@ -1,0 +1,200 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">　　<br>
+      　　一个无环的有向图称作有向无环图，简称DAG图，它在工程计划和管理方面有着广泛而重要的应用。除最简单的情况之外，几乎所有的工程(project)都可分为若干个称作&quot;活动&quot;的子工程，并且这些子工程之间通常受着一定条件的约束，例如其中某些子工程必须在另一些子工程完成之后才能开始。对整个工程和系统，人们关心的是两方面的问题：一是工程能否顺利进行；二是完成整个工程所必须的最短时间。对应到有向图即为进行拓扑排序和求关键路径。本节和下一节将分别讨论这两个算法。<br>
+      　</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">&nbsp;</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">　　一项工程往往可以分解为一些具有相对独立性的子工程，通常称这些子工程为&quot;活动&quot;。子工程之间在进行的时间上有着一定的相互制约关系，例如，盖大楼的第一步是打地基，而房屋的内装修必须在房子盖好之后才能开始进行等。可用一个有向图表示子工程及其相互制约的关系，其中以顶点表示活动，弧表示活动之间的优先制约关系，称这种有向图为活动在顶点上的网络，简称<span class="point">活动顶点网络</span>，或<span class="point"><b>AOV</b>(<b>A</b>ctivity 
+      <b>O</b>n <b>V</b>ertex)<b>网</b></span>。<br>
+      <br>
+      　　例如，假设一个软件工程人员必须系统学习如右所列各门课程，每个接受培训的人都必须学完和通过计划中的全部课程才能颁发合格证书。整个培训过程就是一项工程，每门课程的学习就是一项活动，一门课程可能以其它若干门课程为先修基础，而它本身又可能是另一些课程的先修基础，各门课程之间的先修关系可以右图的活动顶点网络表示。 
+      <br>
+      <br>
+      　　在AOV网中不允许出现有向环，否则意味着某项子工程的开始以本身的完成为先决条件，显然这说明这个工程的施工设计图存在问题。而如果这个有向图表示的是数据流图的话，则表明存在着一个死循环。<br>
+      <br>
+      　　判别有向网中是否存在有向环的一个办法就是对此AOV网进行&quot;拓扑排序&quot;，即构造一个包含图中所有顶点的&quot;拓扑有序序列&quot;，如果在AOV网中存在一条从顶点a到顶点b之间的弧，则在拓扑有序序列中顶点 
+      a 必须领先于顶点 b，反之如果在AOV网中顶点a和顶点b之间没有弧，则在拓扑有序序列中这两个顶点的先后次序关系可以随意。例如根据描述课程学习顺序制约关系的AOV网，可以得到以下两个拓扑有序序列：<br>
+      　　　C<font size="1">9</font> C<font size="1">10</font> C<font size="1">2</font> 
+      C<font size="1">1</font> C<font size="1">11</font> C<font size="1">3</font> 
+      C<font size="1">8</font> C<font size="1">7</font> C<font size="1">5</font> 
+      C<font size="1">6</font> C<font size="1">4</font> C<font size="1">12</font><br>
+      　　和<br>
+      　　　C<font size="1">5</font> C<font size="1">4</font> C<font size="1">1</font> 
+      C<font size="1">3</font> C<font size="1">6</font> C<font size="1">7</font> 
+      C<font size="1">12</font> C<font size="1">8</font> C<font size="1">9</font> 
+      C<font size="1">10</font> C<font size="1">11</font> C<font size="1">2</font><br>
+      <br>
+      　　显然，如果AOV网中存在有向环，则不可能将所有顶点纳入到一个拓扑有序序列中，反之，如果从 AOV 网不能得到拓扑有序序列，则说明网中必定存在有向环。<br>
+    </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">
+      <table border="0" cellspacing="1" cellpadding="0" align="center" bgcolor="#003399" width="240">
+        <tr> 
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">课程编号</div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">课程名称</div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">先修课程</div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">C<font size="1">1</font></div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">程序设计基础</div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">无</div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">C<font size="1">2</font></div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">离散数学</div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">C<font size="1">9</font></div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">C<font size="1">3</font></div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">数据结构</div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">C<font size="1">1</font> C<font size="1">2</font></div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">C<font size="1">4</font></div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">微机原理</div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">C<font size="1">5</font></div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">C<font size="1">5</font></div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">计算机系统结构</div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">无</div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">C<font size="1">6</font></div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">操作系统</div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">C<font size="1">3</font> C<font size="1">5</font></div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">C<font size="1">7</font></div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">数据库应用</div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">C<font size="1">3</font></div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">C<font size="1">8</font></div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">编译原理</div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">C<font size="1">3</font> C<font size="1">1</font></div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">C<font size="1">9</font></div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">高等数学</div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">无</div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">C<font size="1">10</font></div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">线性代数</div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">C<font size="1">9</font></div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">C<font size="1">11</font></div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">数值分析</div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">C<font size="1">1</font> C<font size="1">9</font> 
+              C<font size="1">10</font></div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">C<font size="1">12</font></div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">计算机网络</div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">C<font size="1">5</font> C<font size="1">6</font> 
+              C<font size="1">7</font></div>
+          </td>
+        </tr>
+      </table>
+      <br>
+      　<img src="../../../images/pic/chapter07/7_33.gif" width="250" height="187" align="top"><br>
+      <br>
+      （当然，对上图的AOV网还可以得到更多的拓扑有序序列） </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

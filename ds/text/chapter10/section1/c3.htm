@@ -1,0 +1,72 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　10.2.1 直接插入排序</span><br>
+      <br>
+      　<span class="zhushi">直接插入排序的时间复杂度</span><br>
+      <br>
+      　　从上述排序过程可见，排序中的两个基本操作是：（关键字间的）<span class="point">比较</span>和（记录的）<span class="point">移动</span>。因此排序的时间性能取决于排序过程中这两个操作的次数。从直接插入排序的算法可见，这两个操作的次数取决于待排记录序列的状态，当待排记录处于&quot;正序&quot;(即记录按关键字从小到大的顺序排列)的情况时，所需进行的关键字比较和记录移动的次数最少，反之，当待排记录处于&quot;逆序&quot;(即记录按关键字从大到小的顺序排列)的情况时，所需进行的关键字比较和记录移动的次数最多，如下表所列。<br>
+      <br>
+      <table width="320" border="0" cellspacing="1" cellpadding="0" align="center" bgcolor="#FFFFFF">
+        <tr bgcolor="#4A5594"> 
+          <td class="zhushi"> 
+            <div align="center">待排记录序列状态</div>
+          </td>
+          <td class="zhushi"> 
+            <div align="center">&quot;比较&quot;次数</div>
+          </td>
+          <td class="zhushi"> 
+            <div align="center"> &quot;移动&quot;次数</div>
+          </td>
+        </tr>
+        <tr bgcolor="#4A5594"> 
+          <td class="white"> 
+            <div align="center">正序</div>
+          </td>
+          <td class="white"> 
+            <div align="center">n-1</div>
+          </td>
+          <td class="white"> 
+            <div align="center"> 0</div>
+          </td>
+        </tr>
+        <tr bgcolor="#4A5594"> 
+          <td class="white"> 
+            <div align="center">逆序</div>
+          </td>
+          <td class="white"> 
+            <div align="center"><img src="../../../images/pic/chapter10/gs_3.gif" width="88" height="37"></div>
+          </td>
+          <td class="white"> 
+            <div align="center"><img src="../../../images/pic/chapter10/gs_4.gif" width="86" height="37"></div>
+          </td>
+        </tr>
+      </table>
+      <br>
+      　　若待排记录序列处于随机状态，则可以最坏和最好的情况的平均值作为插入排序的时间性能的量度。一般情况下，直接插入排序的<span class="point">时间复杂度</span>为<b><span class="point"><font face="Times New Roman, Times, serif"><i>O</i> 
+      (n<sup><font size="1">2</font></sup>)</font></span></b>。 </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　<br>
+      　<br>
+      　　&quot;移动记录&quot;的次数包括监视哨的设置。<br>
+      <br>
+      　　先分析一趟直接插入排序的情况：<br>
+      　　若 L.r[i].key≥L.r[i-1].key，只进行&quot;1&quot;次比较，不移动记录；<br>
+      　　若 L.r[i].key＜L.r[1].key，需进行&quot;i&quot;次比较，i+1次移动。<br>
+      <br>
+      　　整个插入排序的过程中，i从2至 n，则得<br>
+      　　　<img src="../../../images/pic/chapter10/gs_5.gif" width="158" height="135"> 
+    </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

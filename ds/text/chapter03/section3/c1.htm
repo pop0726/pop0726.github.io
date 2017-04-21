@@ -1,0 +1,113 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">
+      <span class="part">　3.3.1 队列的类型定义</span><span class="text"><br>
+        <br>
+      　　</span><span class="part">队列（Queue）</span><span class="text">是限定只能在表的一端进行插入和在另一端进行删除操作的线性表。在表中，允许插入的一端称作&quot;</span><span class="point">队列尾</span><span class="text">(tail)&quot;，允许删除的另一端称作&quot;</span><span class="point">队列头</span><span class="text">(front)&quot;。<br>
+        　<div align="center"><img src="../../../images/pic/chapter03/3_2.gif" width="201" height="93" align="top"></div>
+      <br>
+        　其类型定义如下：<br>
+        </span><b><br>
+        ADT</b> Queue <b>{ </b><br>
+        　<span class="zhushi">数据对象：</span><span class="text">D＝{ <img src="../../../images/pic/chapter02/gs/ai.gif" width="10" height="10"> 
+        | <img src="../../../images/pic/chapter02/gs/ai.gif" width="10" height="10"> 
+        ∈ElemSet, i=1,2,...,n, n≥0} <br>
+        <br>
+        　</span><span class="zhushi">数据关系：</span><span class="text">R<font size="1">1</font>＝{ 
+        &lt; <img src="../../../images/pic/chapter02/gs/ai_1.gif" width="20" height="10">,<img src="../../../images/pic/chapter02/gs/ai.gif" width="10" height="10"> 
+        &gt; | <img src="../../../images/pic/chapter02/gs/ai_1.gif" width="20" height="10">, 
+        <img src="../../../images/pic/chapter02/gs/ai.gif" width="10" height="10"> 
+        ∈D, i=2,...,n}<br>
+        　　　　　　 约定其中 <img src="../../../images/pic/chapter02/gs/a1.gif" width="11" height="10"> 
+        端为队列头，<img src="../../../images/pic/chapter02/gs/an.gif" width="12" height="10"> 
+        端为队列尾。<br>
+        </span><span class="text">　</span>
+    </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　<br>
+      　　在日常生活中经常会遇到为了维护社会正常秩序而需要排队的情境，在计算机程序设计中也经常出现类似问题。数据结构&quot;队列&quot;与生活中的&quot;排队&quot;极为相似，也是按&quot;先到先办&quot;的原则行事的，并且严格限定：既不允许&quot;加塞儿&quot;，也不允许&quot;中途离队&quot;。<br>
+      <br>
+      　　如图所示，队列中的数据元素以 <img src="../../../images/pic/chapter02/gs/a1_l.gif" width="11" height="10">,<img src="../../../images/pic/chapter02/gs/a2_l.gif" width="12" height="10">,…,<img src="../../../images/pic/chapter02/gs/an_l.gif" width="12" height="10"> 
+      的次序依次进队列，则也只能依相同次序退出队列。即<img src="../../../images/pic/chapter02/gs/a1_l.gif" width="11" height="10"> 
+      是第一个出队列的元素，只有在 <img src="../../../images/pic/chapter02/gs/a1_l.gif" width="11" height="10">,<img src="../../../images/pic/chapter02/gs/a2_l.gif" width="12" height="10">,…,<img src="../../../images/pic/chapter02/gs/an_1_l.gif" width="20" height="10"> 
+      都离开队列之后，<img src="../../../images/pic/chapter02/gs/an_l.gif" width="12" height="10"> 
+      才能出队列。队列的修改是依&quot;先进先出&quot;的原则进行的，因此队列又称FIFO（First In First Out 的缩写）表。<br>
+    </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="text"> 　</span><span class="zhushi">基本操作：</span><span class="text"> 
+      <br>
+      　　InitQueue(<b><font face="Times New Roman, Times, serif">&amp;</font></b>Q)<br>
+      　　　操作结果：构造一个空队列 Q。 <br>
+      <br>
+      　　DestroyQueue(<b><font face="Times New Roman, Times, serif">&amp;</font></b>Q) <br>
+      　　　初始条件：队列 Q 已存在。<br>
+      　　　操作结果：队列 Q 被销毁，不再存在。<br>
+      <br>
+      　　ClearQueue(<b><font face="Times New Roman, Times, serif">&amp;</font></b>Q)<br>
+      　　　初始条件：队列 Q 已存在。<br>
+      　　　操作结果：将 Q 清为空队列。<br>
+      <br>
+      　　QueueEmpty(Q)<br>
+      　　　初始条件：队列 Q 已存在。<br>
+      　　　操作结果：若 Q 为空队列，则返回TRUE，否则返回FALSE。<br>
+      <br>
+      　　QueueLength(Q)<br>
+      　　　初始条件：队列 Q 已存在。 <br>
+      　　　操作结果：返回 Q 的元素个数，即队列的长度。<br>
+      　<br>
+      </span></td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      　　队列类型中的九个基本操作恰好和栈的九个操作是一一对应的。同样要求熟练掌握。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="text">　　GetHead(Q,<b><font face="Times New Roman, Times, serif">&amp;</font></b>e)<br>
+      　　　初始条件：Q 为非空队列。<br>
+      　　　操作结果：用 e 返回Q的队头元素。<br>
+      <br>
+      　　EnQueue(<b><font face="Times New Roman, Times, serif">&amp;</font></b>Q,e) 
+      <br>
+      　　　初始条件：队列 Q 已存在。<br>
+      　　　操作结果：插入元素 e 为 Q 的新的队尾元素。<br>
+      <br>
+      　　DeQueue(<b><font face="Times New Roman, Times, serif">&amp;</font></b>Q,<b><font face="Times New Roman, Times, serif">&amp;</font></b>e)<br>
+      　　　初始条件：Q 为非空队列。<br>
+      　　　操作结果：删除 Q 的队头元素，并用 e 返回其值。<br>
+      <br>
+      　　QueueTraverse(Q,visit( ))<br>
+      　　　初始条件：队列 Q 已存在且非空，visit( )为元素的访问函数。<br>
+      　　　操作结果：依次对 Q 的每个元素调用函数 visit( )，<br>
+      　　　　　　　　一旦 visit( ) 失败则操作失败。<br>
+      <br>
+      </span><b>} ADT </b>Queue</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"> 
+      <br>
+      　　这是取队头元素操作，用e返回队列中当前的队头元素，但不将它从队列中删除。<br>
+      　<br>
+      　<br>
+      　　这是入队列操作：在当前的队尾元素之后插入新的队尾元素。<br>
+      　<br>
+      　　这是出队列操作，用e返回当前的队头元素，并将它从队列中删除。<br>
+      　<br>
+      　　这是对队列进行从队头到队尾的&quot;遍历&quot;操作，应用较多的场合是，输出队列中所有数据元素。<br>
+      　</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

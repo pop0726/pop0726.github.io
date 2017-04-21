@@ -1,0 +1,144 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><br>
+      　<span class="zhushi">基本操作：</span><br>
+      <br>
+      　<b>{结构初始化}</b><br>
+      　　InitTree(<b><font face="Times New Roman, Times, serif">&amp;</font></b>T);<br>
+      　　　操作结果：构造空树 T。<br>
+      <br>
+      　　CreateTree(<b><font face="Times New Roman, Times, serif">&amp;</font></b>T,definition);<br>
+      　　　初始条件：definition 给出树T的定义。<br>
+      　　　操作结果：按 definition 构造树 T。<br>
+      <br>
+      　<b>{销毁结构}</b><br>
+      　　DestroyTree(<b><font face="Times New Roman, Times, serif">&amp;</font></b>T);<br>
+      　　　初始条件：树 T 存在。<br>
+      　　　操作结果：销毁树 T。<br>
+      <br>
+      　<b>{引用型操作}</b><br>
+      　　TreeEmpty(T);<br>
+      　　　初始条件：树 T 存在。<br>
+      　　　操作结果：若 T 为空树，则返回 TRUE，否则返回 FALSE。<br>
+      　<br>
+    </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      　　可以多种形式给出树的定义。例如，上页图所示树可由13个数据元素组成的集合和关系 R 唯一确定。<br>
+      <br>
+      　　此外，可从另一个角度来定义树。<br>
+      　　定义森林为 m(m≥0) 棵互不相交的树的集合。<br>
+      <br>
+      　　则可定义树是一个二元组<br>
+      　　　Tree = ( root,F )<br>
+      <br>
+      　　其中，root 是数据元素，称作树的根，F 是子树森林，记作<br>
+      　　　F=( T<font size="1">1</font>,T<font size="1">2</font>,…,T<font size="1">m</font> 
+      ),<br>
+      <br>
+      　　其中 T<font size="1">i</font>=(r<font size="1">i</font>,F<font size="1">i</font>) 
+      称作根 root 的第 i 棵(符合本定义的)子树，当 m≠0 是，在树根和其子树森林之间存在下列关系：<br>
+      　　RF={&lt;root,r<font size="1">i</font>&gt;|i=1,2,…,m, m&gt;0}</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"> 　　TreeDepth(T);<br>
+      　　　初始条件：树T存在。<br>
+      　　　操作结果：返回T的深度。<br>
+      <br>
+      　　Root(T);<br>
+      　　　初始条件：树 T 存在。<br>
+      　　　操作结果：返回 T 的根。<br>
+      <br>
+      　　Value(T, cur_e);<br>
+      　　　初始条件：树 T 存在，cur_e 是 T 中某个结点。<br>
+      　　　操作结果：返回 cur_e 的值。<br>
+      　<br>
+    </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      　　树的深度定义为树中叶子结点所在最大层次数。 
+      <p><br>
+        <br>
+        　　从树的定义可知，&quot;根&quot;即为树中没有前驱的结点。<br>
+      </p>
+    </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">　　Parent(T, cur_e);<br>
+      　　　初始条件：树 T 存在，cur_e 是 T 中某个结点。<br>
+      　　　操作结果：若 cur_e 是T的非根结点，则返回它的双亲，否则返回&quot;空&quot;。<br>
+      <br>
+      　　LeftChild(T, cur_e);<br>
+      　　　初始条件：树 T 存在，cur_e 是 T 中某个结点。<br>
+      　　　操作结果：若 cur_e 是T的非叶子结点，则返回它的最左孩子，<br>
+      　　　　　　　　否则返回&quot;空&quot;。<br>
+      　<br>
+    </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      　　称根结点为子树根的&quot;双亲&quot;。<br>
+      <br>
+      　　称子树根为根结点的&quot;孩子&quot;，所谓&quot;最左孩子&quot;指的是在存储结构中存放的第一棵子树的根。虽然无序树的子树之间逻辑上不存在次序关系，但一旦建立了存储结构，子树间的次序关系也就自然形成了。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">　　RightSibling(T, cur_e);<br>
+      　　　初始条件：树 T 存在，cur_e 是 T 中某个结点。<br>
+      　　　操作结果：若 cur_e 有右兄弟，则返回它的右兄弟，否则返回&quot;空&quot;。<br>
+      <br>
+      　　TraverseTree(T, visit());<br>
+      　　初始条件：树T存在，visit 是对结点操作的应用函数。<br>
+      　　操作结果：按某种次序对 T 的每个结点调用函数 visit() 一次且至多一次。<br>
+      　　　　　　　一旦 visit() 失败，则操作失败。<br>
+      <br>
+      　<b>{加工型操作}</b><br>
+      　　Assign(T, cur_e, value);<br>
+      　　　初始条件：树T存在，cur_e 是 T 中某个结点。<br>
+      　　　操作结果：结点 cur_e 赋值为 value。<br>
+      <br>
+      　　ClearTree(<b><font face="Times New Roman, Times, serif">&amp;</font></b>T);<br>
+      　　　初始条件：树 T 存在。<br>
+      　　　操作结果：将树 T 清为空树。<br>
+      　<br>
+    </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　　根的所有子树根互为&quot;兄弟&quot;。同前所述理由， 
+      &quot;右兄弟&quot;指存储结构中确定的有相同双亲的下一棵子树的根。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"> 　　InsertChild(<b><font face="Times New Roman, Times, serif">&amp;</font></b>T, <b><font face="Times New Roman, Times, serif">&amp;</font></b>p, 
+      i, c);<br>
+      　　　初始条件：树 T 存在，p 指向T中某个结点，1≤i≤p 所指结点的度＋1，<br>
+      　　　　　　　　非空树 c 与 T 不相交。<br>
+      　　　操作结果：插入 c 为 T 中 p 所指结点的第 i 棵子树。<br>
+      <br>
+      　　DeleteChild(<b><font face="Times New Roman, Times, serif">&amp;</font></b>T, <b><font face="Times New Roman, Times, serif">&amp;</font></b>p, i);<br>
+      　　　初始条件：树 T 存在，p 指向 T 中某个结点，1≤i≤p 指结点的度。<br>
+      　　　操作结果：删除 T 中 p 所指结点的第 i 棵子树。<br>
+      <br>
+      <b>} ADT Tree</b><br>
+    </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      　　对无序树而言，第i棵子树的概念也仅对存储结构中子树的次序而言。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

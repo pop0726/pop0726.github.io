@@ -1,0 +1,58 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><br>
+      　　矩阵是数值程序设计中经常用到的数学模型，它是由 m 行和 n 列的数值构成（m=n 时称为方阵）。在用高级语言编制的程序中，通常用二维数组表示矩阵，它使矩阵中的每个元素都可在二维数组中找到相对应的存储位置。然而在数值分析的计算中经常出现一些有下列特性的高阶矩阵，即矩阵中有很多值相同的元或零值元，为了节省存储空间，需要对它们进行&quot;压缩存储&quot;，即不存或少存这些值相同的元或零值元。<br>
+      <br>
+      <span class="part">　5.2.1 特殊矩阵的压缩存储方法</span><br>
+      <br>
+      　　如果矩阵中值相同的元素或零元素在矩阵中的分布有一定规律，则称之谓&quot;特殊矩阵&quot; 。大致有这样三类特殊矩阵：<br>
+      　1. 对称矩阵：若 n 阶方阵A中的元满足特性<br>
+      　　　<img src="../../../../images/pic/chapter05/gs/ai_j.gif" width="17" height="16" align="absmiddle"> 
+      = <img src="../../../../images/pic/chapter05/gs/aj_i.gif" width="18" height="16" align="absmiddle"> 
+      1≤i,j≤n<br>
+      　　则称为 n 阶对称矩阵；<br>
+      <br>
+      　2. 三角矩阵：若 n 阶方阵中下(上)三角(不包括对角线)中的元均为常量 c 或 0，则称为上(下)三角矩阵；<br>
+      <br>
+      　3. 对角矩阵：若n阶方阵中的非零值元都集中在以主对角线为中心的(由k条对角线组成的)带状区域中，则称为k对角矩阵。<br>
+      <br>
+      　　若为对称矩阵中的每一对值相同的元素分配一个存储空间，则可将矩阵中 n<sup><font size="1">2</font></sup> 个元压缩存储到 
+      n(n+1)/2 个存储空间中。<br>
+      <br>
+      　　假设以一维数组 sa[n(n+1)/2] 压缩存储n阶对称方阵A，则一维数组中的数据元素和方阵中的元 <img src="../../../../images/pic/chapter05/gs/ai_j.gif" width="17" height="16" align="absmiddle"> 
+      之间存在着下列一一对应的关系：<br>
+      <br>
+      　　　<img src="../../../../images/pic/chapter05/gs/gs_1.gif" width="161" height="69" align="top"><br>
+      <p></p>
+      <p></p>
+      <p> 　　对于任意给定一对行列号(i,j)，均可在 sa 中找到方阵的元 <img src="../../../../images/pic/chapter05/gs/ai_j.gif" width="17" height="16" align="absmiddle">，反之，对于所有的 
+        k=0,1,…,n(n+1)/2-1，都能确定sa[k] 中的元素在矩阵中的位置(i,j)。<br>
+      </p>
+    </td>
+    <td background="../../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      　　<img src="../../../../images/pic/chapter05/5-2.gif" width="236" height="163"> 
+      <br>
+      　　　　　　　　　三角矩阵示例<br>
+      <br>
+      　　 <img src="../../../../images/pic/chapter05/5-3.gif" width="221" height="146"> 
+      <br>
+      　　　　　　　　对角矩阵示例<br>
+      <br>
+      　　由于特殊矩阵中的非零值元素在矩阵中的分布有着一定的规律，则可将这些非零值元连续存储在一个一维数组中。即矩阵中的任何一个元和它们在一维数组中的位置之间存在着某种&quot;转换关系&quot;，并且这种转换关系可以用数学公式表示之。 
+      <p>　　显然，对于下(上)<b>三角矩阵和对角矩阵</b>也可得到类似对应关系。</p>
+    </td>
+    <td background="../../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

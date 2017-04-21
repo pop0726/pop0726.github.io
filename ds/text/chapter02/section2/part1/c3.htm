@@ -1,0 +1,68 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　2.2.1 顺序表</span><br>
+      <br>
+      　　以上定义的函数可在程序设计中引用，例如，上述<span class="zhushi">算法2.2</span>可改写为下列可在主函数中调用的函数。<br>
+      　<br>
+    </td>
+    <td background="../../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      <br>
+      　　当然，在调用前还需要对元素类型 ElemType 和作为参数的函数 equal() 加以明确定义。 </td>
+    <td background="../../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="text"><img src="../../../../images/tubiao/cxd.gif" width="25" height="24" alt="算法"><br>
+      　　<b>void</b> purge(SqList <b><font face="Times New Roman, Times, serif">&amp;</font></b>La, SqList Lb) <br>
+      　<b>{</b> </span><span class="zhushi"><font face="Times New Roman, Times, serif">//</font> 
+      构造顺序表 La，使其只包含 Lb 中所有值不相同的数据元素,<br>
+      　　<font face="Times New Roman, Times, serif">//</font> 算法不改变顺序表 Lb </span><span class="text"><br>
+      　　<b>bool</b> b; <b><br>
+      </b>　　<b>int</b> Lb_len = Listlength( Lb );　　　 <font face="Times New Roman, Times, serif">//</font> 
+      求线性表 Lb 的长度 <br>
+      　　InitList( La,Lb_len ); 　　　　　　　<font face="Times New Roman, Times, serif">//</font> 
+      创建一个空的线性表 La<br>
+      　　<b>int</b> La_len = 0;　　　　　　　　　　　<br>
+      　　<b>for</b> ( i = 1; i &lt;= Lb_len; i++ ) 　　 <font face="Times New Roman, Times, serif">//</font> 
+      依次处理 Lb 中每个元素<br>
+      　　<b>{</b><br>
+      　　　b = GetElem( Lb, i, e );　　　　　　<font face="Times New Roman, Times, serif">//</font> 
+      取Lb中第 i 个数据元素赋给 e<br>
+      　　　<b>if</b> ( !LocateElem( La, e, equal( ) ) )<br>
+      　　　<b>{</b> <br>
+      　　　　++La_len;<br>
+      　　　　b = ListInsert( La,La_len,e );　　<font face="Times New Roman, Times, serif">//</font> 
+      当 La 中不存在和 e 值相同的<br>
+      　　　<b>}</b> 　　　　　　　　　　　　　　　　　<font face="Times New Roman, Times, serif">//</font> 
+      数据元素时，进行插入<br>
+      　　<b>}</b> <font face="Times New Roman, Times, serif">//</font> for<br>
+      　<b>}</b> <font face="Times New Roman, Times, serif">//</font> purge </span></td>
+    <td background="../../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      <br>
+      <br>
+      <br>
+      <br>
+      　　La 中元素个数不超过 Lb 中的元素个数，故设 La 的最大空间和 Lb 相同。<br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      　学习了下一节讨论的内容之后将容易分析出，此算法的时间复杂度仅取决于操作 LocateElem 的时间复杂度。由于每次插入都在表尾进行，因此 ListInsert 
+      在此函数中实际的时间复杂度是常量级的，而其它操作对顺序表类型而言，显然都是常量级的。</td>
+    <td background="../../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,126 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+<script language="JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<script language=JavaScript src="../../chapter02/section1/hpmain.js"></script>
+<script language=JavaScript src="../../chapter02/section1/showhidden.js"></script>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　3.3.2 队列的存储表示和操作的实现</span><br>
+      <span class="zhushi"><br>
+      　一、链队列</span><br>
+      <b><img src="../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle" alt="算法"><br>
+      　　void</b> InitQueue (Queue <b><font face="Times New Roman, Times, serif">&amp;</font></b>Q)<br>
+      <b>　　{</b> <span class="zhushi"><font face="Times New Roman, Times, serif"><br>
+      　　//</font> 构造一个空队列 Q </span><br>
+      　　　Q.front=Q.rear=new LNode; <br>
+      　　　<b>if</b> (!Q.front) exit(1);　　<font face="Times New Roman, Times, serif">//</font> 
+      存储分配失败<br>
+      　　　Q.front-&gt;next=<b>NULL</b>; <br>
+      　　　Q.length=0;<br>
+      <b>　　}</b> <br>
+      　</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">&nbsp;</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><b><img src="../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle" alt="算法"><br>
+      　　void</b> EnQueue(Queue <b><font face="Times New Roman, Times, serif">&amp;</font></b>Q,ElemType 
+      e)<br>
+      <b>　　{</b> <font face="Times New Roman, Times, serif"><br>
+      <span class="zhushi">　　</span></font><span class="zhushi"><font face="Times New Roman, Times, serif">//</font></span><font face="Times New Roman, Times, serif"><span class="zhushi"></span></font><span class="zhushi"> 
+      在当前队列的尾元素之后，插入元素 e 为新的队列尾元素</span><br>
+      　　　s = new LNode; <br>
+      　　　<b>if</b> (!s) exit(1);　　<font face="Times New Roman, Times, serif">//</font> 
+      存储分配失败 <br>
+      　　　s-&gt;data=e; 　s-&gt;next = NULL;<br>
+      　　　Q.rear-&gt;next=s;　<font face="Times New Roman, Times, serif">//</font> 
+      修改尾结点的指针<br>
+      　　　Q.rear=s; 　　　<font face="Times New Roman, Times, serif"> //</font> 移动队尾指针<br>
+      　　　++Q.length; <font face="Times New Roman, Times, serif">　　 //</font> 队列长度增1<br>
+      <b>　　}<br>
+      　</b></td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      　插入元素 e 为新的队列尾元素。<a href="javascript:;" onClick="MM_openBrWindow('../../../flash/chap03/3-3-11.swf','数据结构','width=400,height=300')"><img src="../../../images/tubiao/dh.gif" width="25" height="24" alt="动画" border="0" align="absmiddle"></a></td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><b><img src="../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle" alt="算法"><br>
+      　　bool</b> DeQueue(Queue <b><font face="Times New Roman, Times, serif">&amp;</font></b>Q, 
+      ElemType <b><font face="Times New Roman, Times, serif">&amp;</font></b>e)<br>
+      <b>　 { </b><br>
+      <font face="Times New Roman, Times, serif"><span class="zhushi">　<font face="Arial, Helvetica, sans-serif">//</font></span></font><span class="zhushi"> 
+      若队列不空，则删除当前队列 Q 中的头元素，用 e 返回其值，<br>
+      <font face="Times New Roman, Times, serif">　//</font> 并返回 TRUE；否则返回 FALSE 
+      </span><br>
+      　<b>　if</b> ( Q.front == Q.rear ) 　　<font face="Times New Roman, Times, serif">//</font> 
+      链队列中只有一个头结点<br>
+      　　　return <b>FALSE</b>; <br>
+      　　p = Q.front-&gt;next; <br>
+      　　e = p-&gt;data;<font face="Times New Roman, Times, serif">　　　　　　　　//</font> 
+      返回被删元素<br>
+      　　Q.front-&gt;next=p-&gt;next;<font face="Times New Roman, Times, serif">　　　 
+      //</font> 修改头结点指针<br>
+      　　<span class="point"><b>if</b>(Q.rear == p) Q.rear = Q.front;</span><br>
+      　　<b>delete</b> p;<font face="Times New Roman, Times, serif">　　　　　　　　　//</font> 
+      释放被删结点<br>
+      　　<b>return</b> <b>TRUE</b>;<br>
+      <b>　 } </b><font face="Times New Roman, Times, serif">//</font> DeQueue<br>
+      <br>
+      　　链队列的基本操作的时间复杂度，除遍历之外，都是常量级的。 </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      　删除当前队列 Q 中的头元素。<a href="javascript:;" onClick="MM_openBrWindow('../../../flash/chap03/3-3-12-1.swf','数据结构','width=400,height=300')"><img src="../../../images/tubiao/dh.gif" alt="动画" width="25" height="24" border="0" align="absmiddle"></a><br>
+      <br>
+      <table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td bgcolor="#ECEEFF" height="14" class="explaination" width="8">&nbsp;</td>
+                <td bgcolor="#ECEEFF" height="14" class="explaination"><img src="../../../images/tubiao/wt.gif" width="23" height="23" align="absmiddle" alt="思考题"> 
+                  你是否注意到算法中那个黄色的语句？它是否多余？能否删去？</td>
+                <td width="15" bgcolor="#ECEEFF" valign="top"><span id="bb"><img border=0 
+                              id=HPFrameHLTab3 
+                              onClick="showHideContent('HPFrameHL');hidden();"
+							   src="../../../images/html/expand.gif" style="CURSOR: hand" width="15" height="14"></span></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <div id=HPFrameHLContent 
+           style="WIDTH: 100%;visibility: hidden;background-color:#ECEEFF" > 
+              <table width="94%" border="0" cellspacing="0" cellpadding="0" align="center">
+                <tr> 
+                  <td class="explaination">　请先看一个动画演示。<a href="javascript:;" onClick="MM_openBrWindow('../../../flash/chap03/3-3-12-2.swf','数据结构','width=400,height=300')"><img src="../../../images/tubiao/dh.gif" alt="动画" width="25" height="24" border="0" align="absmiddle"></a> 
+                    你一定看出问题来了吧!由于一般情况下，出队列的操作只涉及队头元素，因此不需要修改队尾指针，但当链队列中只有一个数据元素时，队头元素恰好也是队尾元素，当它被删除之后，队尾指针就&quot;悬空&quot;了，待下次再做入队操作时，就要产生指针的&quot;悬空访问&quot;的错误，因此在这种情况下必须同时修改尾指针。</td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

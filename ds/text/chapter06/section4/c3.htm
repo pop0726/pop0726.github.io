@@ -1,0 +1,82 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<script language=JavaScript src="../../chapter02/section1/hpmain.js"></script>
+<script language=JavaScript src="../../chapter02/section1/showhidden.js"></script>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　6.4.2 二叉树其它操作算法举例</span><br>
+      <br>
+      <span class="zhushi">　一、统计二叉树中叶子结点的个数</span><br>
+      <br>
+      　　容易想到，实现这个操作只要对二叉树&quot;遍历&quot;一遍，并在遍历过程中对&quot;叶子结点计数&quot;即可。显然这个遍历的次序可以随意，即先序或中序或后序均可，只是为了在遍历的同时进行计数，需要在算法的参数中设一个&quot;计数器&quot;。<br>
+      <br>
+      <img src="../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle"> 
+      <span class="zhushi">算法6.3</span><br>
+      　　<b>void</b> <font color="#00FFFF">CountLeaf</font> <font color="#97C594">(BiTree 
+      T, <b>int&amp;</b> count)</font><br>
+      　<b>{</b><br>
+      <span class="zhushi">　　<font face="Times New Roman, Times, serif">//</font> 
+      先序遍历二叉树，以 count 返回二叉树中叶子结点的数目 </span><br>
+      　　<b>if</b> ( T ) <b>{</b><br>
+      　　　<b>if</b> ((<b>!</b>T-&gt;Lchild)<b><font face="Times New Roman, Times, serif">&amp;&amp;</font></b> (<b>!</b>T-&gt;Rchild))<br>
+      　　　　count++; <font face="Times New Roman, Times, serif">　　　　　　　　　　　　　//</font> 
+      对叶子结点计数 <br>
+      　　　　<font color="#00FFFF">CountLeaf</font><font color="#97C594">( T-&gt;Lchild, 
+      count)</font>; <br>
+      　　　　<font color="#00FFFF">CountLeaf</font><font color="#97C594">( T-&gt;Rchild, 
+      count)</font>; <br>
+      　　<b>}</b> <font face="Times New Roman, Times, serif">//</font> if<br>
+      　<b>}</b> <font face="Times New Roman, Times, serif">//</font> CountLeaf</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      <br>
+      <br>
+      　　遍历二叉树是二叉树各种操作的基础，即很多操作可以在遍历过程中完成。根据遍历算法的程序框架，可以派生出很多关于二叉树的应用算法，如求结点的双亲、结点的孩子，判定结点所在层次等，甚至可以在遍历过程中生成结点，建立二叉树的存储结构。<br>
+      <br>
+      <table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td bgcolor="#ECEEFF" height="14" class="explaination" width="8">&nbsp;</td>
+                <td bgcolor="#ECEEFF" height="14" class="explaination"><img src="../../../images/tubiao/wt.gif" width="23" height="23" align="absmiddle" alt="思考题"> 
+                  能否将 count 设成函数中的局部变量，然后以 count 的值作为函数值返回？</td>
+                <td width="15" bgcolor="#ECEEFF" valign="top"><span id="bb"><img border=0 
+                              id=HPFrameHLTab3 
+                              onClick="showHideContent('HPFrameHL');hidden();"
+							   src="../../../images/html/expand.gif" style="CURSOR: hand" width="15" height="14"></span></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <div id=HPFrameHLContent 
+           style="WIDTH: 100%;visibility: hidden;background-color:#ECEEFF" > 
+              <table width="94%" border="0" cellspacing="0" cellpadding="0" align="center">
+                <tr> 
+                  <td class="explaination">　不能，因为算法需要在递归执行的过程中对叶子&quot;累加计数&quot;。<br>
+                    　但可以从另一角度分析此问题的算法：<br>
+                    　若二叉树为空，则叶子个数为0；<br>
+                    　若二叉树只有一个根结点，则叶子个数为1；<br>
+                    　否则二叉树中叶子个数为其左、右子树中叶子个数的和。<br>
+                    　显然，这是一个后序遍历的算法，函数的返回类型为整型。</td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

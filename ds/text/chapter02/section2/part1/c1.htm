@@ -1,0 +1,82 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<script language=JavaScript src="hpmain.js"></script>
+<script language=JavaScript src="showhidden.js"></script>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　2.2.1 顺序表</span><br>
+      <br>
+      　　<b class="part">顺序表</b>是线性表的顺序存储表示的简称，它指的是，&quot;用一组<b class="point">地址连续</b>的存储单元<b class="point">依次存放</b>线性表中的数据元素&quot;，即以&quot;<b class="point">存储位置相邻</b>&quot;表示&quot;<span class="point">位序相继的两个数据元素之间的前驱和后继的关系</span>(有序对&lt;<img src="../../../../images/pic/chapter02/gs/ai_1.gif" width="20" height="10">，<img src="../../../../images/pic/chapter02/gs/ai.gif" width="10" height="10">&gt;)&quot;，并以表中第一个元素的存储位置作为线性表的起始地址，称作<b class="point">线性表的基地址</b>。如下图所示。 
+      <br>
+      <br>
+      　<img src="../../../../images/pic/chapter02/2_1.gif" width="372" height="63" align="top"><br>
+      　</td>
+    <td background="../../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      <br>
+      　　若要在实际的程序设计中真正引用线性表的基本操作，首先必须实现线性表类型。即在计算机中确定它的存储结构并在此存储结构上实现类型中定义的所有基本操作。本节将讨论它的顺序存储结构以及在顺序存储结构中基本操作的实现。 
+    </td>
+    <td background="../../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">　　不失一般性，假设每个数据元素占据的存储量是一个常量 C，则后继元素的存储地址和其前驱元素相隔一个常量，<br>
+      　　即：LOC(<img src="../../../../images/pic/chapter02/gs/ai.gif" width="10" height="10">) 
+      = LOC(<img src="../../../../images/pic/chapter02/gs/ai_1.gif" width="20" height="10">) 
+      + <b>C</b> <br>
+      　　　　　　　　　　　　　　↑一个数据元素所占存储量 <br>
+      　</td>
+    <td background="../../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">
+	<table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td bgcolor="#ECEEFF" height="14" class="explaination" width="8">&nbsp;</td>
+                <td bgcolor="#ECEEFF" height="14" class="explaination"><img src="../../../../images/tubiao/wt.gif" width="23" height="23" align="absmiddle" alt="思考题"> 
+                  何谓顺序存储表示？</td>
+                <td width="15" bgcolor="#ECEEFF" valign="top"><span id="bb"><img border=0 
+                              id=HPFrameHLTab3 
+                              onClick="showHideContent('HPFrameHL');hidden();"
+							   src="../../../../images/html/expand.gif" style="CURSOR: hand" width="15" height="14"></span></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <div id=HPFrameHLContent 
+           style="WIDTH: 100%;visibility: hidden;background-color:#ECEEFF" > 
+              <table width="94%" border="0" cellspacing="0" cellpadding="0" align="center">
+                <tr> 
+                  <td class="explaination">　顺序存储表示指的是，以数据元素在存储器中的&quot;相对位置&quot;来表示数据元素之间的逻辑关系。你还记得吗？　　</td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+      </table></td>
+    <td background="../../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">　　由此，所有数据元素的存储位置均可由第一个数据元素的存储位置得到 <br>
+      　　　　LOC(<img src="../../../../images/pic/chapter02/gs/ai.gif" width="10" height="10">) 
+      = LOC(<img src="../../../../images/pic/chapter02/gs/a1.gif" width="11" height="10">) 
+      + (i-1)×C <br>
+      　　　　　　　　　　<b>↑基地址</b></td>
+    <td background="../../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　　以上对顺序表的描述是它在计算机内存中的物理状态。在第一章中我们已经声明本课程是在高级程序设计语言的层次上讨论各种数据结构的实现方法，因此需用语言中已经实现的数据类型来描述存储结构。</td>
+    <td background="../../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　11.4.2 B+树<br>
+      </span><br>
+      <span class="zhushi">　一、B<sup>+</sup>树的结构特点</span><br>
+      <br>
+      　　B<sup>+</sup>树是B树的一种变型树，其结构和B树的差异在于：<br>
+      <br>
+      　　(1) B<sup>+</sup>树的每个叶子结点中含有 n 个索引项(即 n 个关键码和 n 个指针)；并且，所有叶子结点彼此相链接构成一个有序链表，该有序链表的头指针指向含最小关键码的结点；<br>
+      <br>
+      　　(2) B<sup>+</sup>树上每个非叶结点中的关键码 K<font size="1">i</font> 是其相应指针 A<font size="1">i</font> 
+      所指子树的索引项，即该关键码为该子树中关键码的最大值；<br>
+      <br>
+      　　(3) 一棵m阶的B<sup>+</sup>树中每个结点至多含 m 个关键码(即至多有 m 棵子树)，除根结点至少含2个关键码外，其余结点至少含<img src="../../../images/pic/chapter11/l1.gif" width="5" height="16" align="absmiddle">m/2<img src="../../../images/pic/chapter11/l2.gif" width="6" height="16" align="absmiddle">个关键码，所有叶子结点都处在同一层次上。<br>
+      <br>
+      　　例如右图为一棵深度为3的4阶B<sup>+</sup>树。<br>
+      <br>
+      <span class="zhushi">　二、B<sup>+</sup>树的操作</span><br>
+      <br>
+      　　在B<sup>+</sup>树上，既可以进行从根结点开始的缩小范围的查找，也可以从最小关键码开始进行顺序查找；在进行缩小范围的查找时和B树稍有不同，不管查找成功与否，都必须查到叶子结点才能结束，在结点内进行查找时，若给定值≤K<font size="1">i</font>，则应继续在 
+      A<font size="1">i</font> 所指子树中进行查找。在B<sup>+</sup>树上进行插入和删除索引项时，则类似于B树，必要时也需要进行结点的&quot;分裂&quot;或&quot;合并&quot;操作，分裂和合并的规则和B树相同。</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      　<br>
+      　<br>
+      　<br>
+      <br>
+      　<img src="../../../images/pic/chapter11/11_03.gif" width="248" height="136" align="top"> 
+      <br>
+      　　　　　　　　4阶B+树示例 </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

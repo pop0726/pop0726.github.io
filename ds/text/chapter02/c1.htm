@@ -1,0 +1,155 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<script language=JavaScript src="../chapter01/hpmain.js"></script>
+<script language=JavaScript src="../chapter01/showhidden.js"></script>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td class="white"><span class="point"><br>
+      </span><span class="part">【学习目标】</span><br>
+      　1. 了解线性表的逻辑结构特性是数据元素之间存在着线性关系，在计算机中表示这种关系的两类不同的存储结构是顺序存储结构和链式存储结构。用前者表示的线性表简称为顺序表，用后者表示的线性表简称为链表。<br>
+      　2. 熟练掌握这两类存储结构的描述方法以及线性表的基本操作在这两种存储结构上的实现。<br>
+      　3. 能够从时间和空间复杂度的角度综合比较线性表两种存储结构的不同特点及其适用场合。<br>
+      　4. 结合线性表类型的定义增强对抽象数据类型的理解。<br>
+      　</td>
+    <td background="../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../images/html/right_di4.gif" class="explaination" valign="top" width="281"><br>
+      【学习目标】</td>
+    <td background="../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td class="white"><span class="part">【重点和难点】</span><br>
+      　　链表是本章的重点和难点。扎实的指<font color="#FF0000"><span class="part"><font color="#FFFFFF">针操作</font></span></font>和内存动态分配的编程技术是学好本章的基本要求，分清链表中指针 
+      p 和结点 *p 之间的对应关系，区分链表中的头结点、头指针和首元结点的不同所指以及循环链表、双向链表的特点等。<br>
+      　</td>
+    <td background="../../images/html/mid.gif">&nbsp;</td>
+    <td background="../../images/html/right_di4.gif" class="explaination" valign="top">【重点和难点】</td>
+    <td background="../../images/html/right_di3.gif">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td class="white"><span class="part">【知识点】</span><br>
+      　　线性表、顺序表、链表、有序表<br>
+      　</td>
+    <td background="../../images/html/mid.gif">&nbsp;</td>
+    <td background="../../images/html/right_di4.gif" class="explaination" valign="top">【知识点】</td>
+    <td background="../../images/html/right_di3.gif">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td class="white"><span class="part">【学习指南】</span><br>
+      　　正如课程概况中所提，学习数据结构的目标是为了编出质量更高的程序，因此重在&quot;实践&quot;。本章讨论的线性表是学习的第一种也是最简单的一种数据结构，是整个课程的基础，特别是熟练掌握链表的操作对以后各章的学习将有很大帮助。本章要求必须完成的算法设计题为：2.11，2.21，2.19，2.22，2.24，2.27，2.28，2.38。其中 
+      2.11 和 2.19 可以在学完顺序表之后练习，其余都建议在学完全章的内容之后进行。<br>
+      　</td>
+    <td background="../../images/html/mid.gif">&nbsp;</td>
+    <td background="../../images/html/right_di4.gif" class="explaination" valign="top">【学习指南】</td>
+    <td background="../../images/html/right_di3.gif">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td class="white"><span class="part">【课前思考】</span><br>
+      <table width="80%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td bgcolor="#ECEEFF" height="14" class="explaination" width="8">&nbsp;</td>
+                <td bgcolor="#ECEEFF" height="14" class="explaination"><img src="../../images/tubiao/wt.gif" width="23" height="23" align="absmiddle" alt="思考题"> 
+                  1. 抽象数据类型的定义由哪几部分组成？</td>
+                <td width="15" bgcolor="#ECEEFF" valign="top"><span id="bb"><img border=0 
+                              id=HPFrameHLTab3 
+                              onClick="showHideContent('HPFrameHL');hidden();"
+							   src="../../images/html/expand.gif" style="CURSOR: hand" width="15" height="14"></span></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <div id=HPFrameHLContent 
+           style="WIDTH: 100%;visibility: hidden;background-color:#ECEEFF" > 
+              <table width="94%" border="0" cellspacing="0" cellpadding="0" align="center">
+                <tr> 
+                  <td class="explaination">　数据对象、数据关系和基本操作三部分。</td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+      </table>
+      <br>
+      <table width="80%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td bgcolor="#ECEEFF" height="14" class="explaination" width="8">&nbsp;</td>
+                <td bgcolor="#ECEEFF" height="14" class="explaination"><img src="../../images/tubiao/wt.gif" width="23" height="23" align="absmiddle" alt="思考题"> 
+                  2. 按数据元素之间的逻辑关系不同，数据结构有哪几类？</td>
+                <td width="15" bgcolor="#ECEEFF" valign="top"><span id=dd><img border=0 
+                              id=HPFrameDLTab3 
+                              onClick="showHideContent('HPFrameDL');hiddenL();"
+							   src="../../images/html/expand.gif" style="CURSOR: hand" width="15" height="14"></span></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <div id=HPFrameDLContent 
+           style="WIDTH: 100%;visibility: hidden;background-color:#ECEEFF"> 
+              <table width="94%" border="0" cellspacing="0" cellpadding="0" align="center">
+                <tr> 
+                  <td class="explaination">　线性结构、树型结构、图状结构和集合四类。</td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+      </table>
+      <br>
+      <table width="80%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td bgcolor="#ECEEFF" height="14" class="explaination" width="8">&nbsp;</td>
+                <td bgcolor="#ECEEFF" height="14" class="explaination"><img src="../../images/tubiao/wt.gif" width="23" height="23" align="absmiddle" alt="思考题"> 
+                  3. 你能举出几个你熟悉的&quot;序列&quot;的例子来吗？</td>
+                <td width="15" bgcolor="#ECEEFF" valign="top"><span id=cc><img border=0 
+                              id=HPFrameMLTab3 
+                              onClick="showHideContent('HPFrameML');hiddenP();"
+							   src="../../images/html/expand.gif" style="CURSOR: hand" width="15" height="14"></span></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <div id=HPFrameMLContent 
+           style="WIDTH: 100%;visibility: hidden;background-color:#ECEEFF"> 
+              <table width="94%" border="0" cellspacing="0" cellpadding="0" align="center">
+                <tr> 
+                  <td class="explaination">　如：&quot;0，1，2，…，9&quot;,&quot;A，B，C，…，Z&quot;。</td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+    <td background="../../images/html/mid.gif">&nbsp;</td>
+    <td background="../../images/html/right_di4.gif" class="explaination" valign="top">【课前思考】</td>
+    <td background="../../images/html/right_di3.gif">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

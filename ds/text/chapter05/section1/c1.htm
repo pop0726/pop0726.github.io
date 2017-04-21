@@ -1,0 +1,85 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><br>
+      　　数组是所有高级编程语言中都已实现的固有数据类型，因此凡学习过高级程序设计语言的读者对数组都不陌生。但它和其它诸如整数、实数等原子类型不同，它是一种结构类型。换句话说，&quot;数组&quot;是一种数据结构。<br>
+      　</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">&nbsp;</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　5.1.1 数组的类型定义</span><br>
+      <br>
+      <b>ADT Array {</b><br>
+      　<span class="zhushi">数据对象：</span>D＝{<font size="3">a</font><font size="1">j1,j2,...,ji 
+      ,...jN</font> | <img src="../../../images/pic/chapter02/gs/ji.gif" width="11" height="16" align="absmiddle">=0,...,<img src="../../../images/pic/chapter02/gs/bi.gif" width="12" height="18" align="absmiddle">-1, 
+      i=1,2,..,N,<br>
+      　　　　　　　　称 N(&gt;0) 为数组的维数，<img src="../../../images/pic/chapter02/gs/bi.gif" width="12" height="18" align="absmiddle"> 
+      为数组第 i 维的长度，<br>
+      　　　　　　　　<img src="../../../images/pic/chapter02/gs/ji.gif" width="11" height="16" align="absmiddle"> 
+      为数组元素的第i维下标，<font size="3">a</font><font size="1">j1,...,jN</font> ∈ElemSet 
+      }<br>
+      <br>
+      　<span class="zhushi">数据关系：</span>R＝{R<font size="1">1</font>, R<font size="1">2</font>, 
+      ..., R<font size="1">N</font>}<br>
+      　　　　　　 R<font size="1">i</font>＝{&lt;<font size="3">a</font><font size="1">j1 
+      ,...ji ,...jN</font> , <font size="3">a</font><font size="1">j1 ,...,ji+1,...,jN</font> 
+      &gt; |<br>
+      　　　　　　　　　0≤<font size="2">j</font><font size="1">k</font>≤b<font size="1">k</font>-1, 
+      1≤k≤N 且k<img src="../../../images/pic/chapter04/t4.gif" width="9" height="8">i,<br>
+      　　　　　　　　　0≤<img src="../../../images/pic/chapter02/gs/ji.gif" width="11" height="16" align="absmiddle">≤b<font size="1">i</font>-2,<br>
+      　　　　　　　　　<font size="3">a</font><font size="1">j ,...,j ,...,j</font> , 
+      <font size="3">a</font><font size="1">j ,...j+1,...,j</font> ∈D, i=2,...,N 
+      }<br>
+    </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　　这是一个C语言风格的 
+      n 维数组的定义，数组中共有 <img src="../../../images/pic/chapter02/gs/b1_l.gif" width="10" height="13" align="absmiddle"> 
+      <img src="../../../images/pic/chapter04/t2.gif" width="7" height="7"> <img src="../../../images/pic/chapter02/gs/b2_l.gif" width="11" height="13" align="absmiddle"> 
+      <img src="../../../images/pic/chapter04/t2.gif" width="7" height="7">...<img src="../../../images/pic/chapter04/t2.gif" width="7" height="7"> 
+      <img src="../../../images/pic/chapter02/gs/bn_l.gif" width="11" height="13" align="absmiddle"> 
+      个元素，每个元素都处在 n 个关系中，但因为每个关系本身都是&quot;线性关系&quot;，所以数组也是线性结构。<br>
+      <br>
+      看一个二维数组的简单情况。<br>
+      　D={<img src="../../../images/pic/chapter05/gs/aij.gif" width="23" height="17" align="absmiddle">|0≤i≤m-1,0≤j≤n-1, 
+      <img src="../../../images/pic/chapter05/gs/aij.gif" width="23" height="17" align="absmiddle"> 
+      ElemType}<br>
+      　R={ROW,COL}<br>
+      其中：<br>
+      　ROW={&lt;<img src="../../../images/pic/chapter05/gs/ai_1j.gif" width="33" height="17" align="absmiddle"> 
+      ,<img src="../../../images/pic/chapter05/gs/aij.gif" width="23" height="17" align="absmiddle">&gt;|i=1,…,m-2, 
+      0≤j≤n-1,<br>
+      　　　　<img src="../../../images/pic/chapter05/gs/ai_1j.gif" width="33" height="17" align="absmiddle"> 
+      ,<img src="../../../images/pic/chapter05/gs/aij.gif" width="23" height="17" align="absmiddle"> 
+      ElemType}<br>
+      　(称作&quot;行关系&quot;)<br>
+      <br>
+      　COL={&lt;<img src="../../../images/pic/chapter05/gs/aij_1.gif" width="31" height="17" align="absmiddle"> 
+      ,<img src="../../../images/pic/chapter05/gs/aij.gif" width="23" height="17" align="absmiddle">&gt;|j=1,…,n-2, 
+      0≤i≤m -1,<img src="../../../images/pic/chapter05/gs/aij_1.gif" width="31" height="17" align="absmiddle">,<img src="../../../images/pic/chapter05/gs/aij.gif" width="23" height="17" align="absmiddle"> 
+      ElemType}<br>
+      　(称作&quot;列关系&quot;)<br>
+      <br>
+      　　上述定义的二维数组中共有 m<img src="../../../images/pic/chapter04/t2.gif" width="7" height="7">n 
+      个元素，每个元素<img src="../../../images/pic/chapter05/gs/aij.gif" width="23" height="17" align="absmiddle"> 
+      同时处于&quot;行&quot;和&quot;列&quot;的两个关系中，它既在&quot;行关系ROW&quot;中是<img src="../../../images/pic/chapter05/gs/ai_1j.gif" width="33" height="17" align="absmiddle">(i&gt;0)的后继，又在&quot;列关系COL&quot;中是<img src="../../../images/pic/chapter05/gs/aij_1.gif" width="31" height="17" align="absmiddle">(j&gt;0)的后继。<br>
+      　　和线性表类似，数组中的每个元素都对应于一组下标(j<font size="1">1</font>,j<font size="1">2</font>,…j<font size="1">N</font>)，每个下标的取值范围是0≤<img src="../../../images/pic/chapter05/gs/ji.gif" width="11" height="16" align="absmiddle">≤<img src="../../../images/pic/chapter05/gs/bi_1.gif" width="21" height="18" align="absmiddle">，称 
+      <img src="../../../images/pic/chapter05/gs/bi.gif" width="12" height="18" align="absmiddle"> 
+      为第 i 维的长度(i=1,2,…,N)。因此，也可以将数组看成是由&quot;一组下标&quot;和&quot;元素值&quot;构成的二元组的集合。需要注意的是，在此给出的数组定义中，各维下标的下限均约定为常量 
+      0，这只是C语言的限定。在一般情况下，数组每一维的下标 <img src="../../../images/pic/chapter05/gs/ji.gif" width="11" height="16" align="absmiddle"> 
+      的取值范围均可设置为任意值的整数。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

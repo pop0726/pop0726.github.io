@@ -1,0 +1,98 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　9.4.4 开放定址的哈希表的查找和插入</span><br>
+      <br>
+      　　在利用开放定址处理冲突的哈希表中进行查找时，首先应计算给定值的哈希函数值，若表中该位置上没有记录，则表明关键字等于给定值的记录不存在；若该位置上的记录的关键字和给定值不等，则依据建表时设定的增量值寻找&quot;下一个&quot;地址，直至查找成功(即某个位置上的记录的关键字等于给定值)或查找不成功（哈希表中不存在关键字等于给定值的记录），并且在查找不成功的情况下，该地址恰为新的记录的插入位置。其算法如下：<br>
+      <br>
+      <img src="../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle" alt="算法"><span class="zhushi"> 
+      算法 9.8</span><br>
+      　　<b>Status</b> SearchHash (HashTable H, KeyType kval, <b>int</b> <b><font face="Times New Roman, Times, serif">&amp;</font></b>p, 
+      <b>int &amp;</b>c)<br>
+      　<b>{</b><br>
+      <span class="zhushi"><font face="Times New Roman, Times, serif">　　//</font> 
+      在开放定址哈希表H中查找关键码为kval的元素,若查找成功,以p指<br>
+      <font face="Times New Roman, Times, serif">　　//</font> 示待查记录在表中位置,并返回SUCCESS;否则,以p指示插入位置,并<br>
+      <font face="Times New Roman, Times, serif">　　//</font> 返回UNSUCCESS,c 用以计冲突次数,其初值置零,供建表插入时参考</span><br>
+      　　p = Hash(kval);<font face="Times New Roman, Times, serif">　　　　　　　　　　　//</font> 
+      求得哈希地址<br>
+      　　<b>while</b> ( H.elem[p].key <b>!</b>= NULLKEY <font face="Times New Roman, Times, serif">　　//</font> 
+      该位置中填有记录<br>
+      　　　　　　<b><font face="Times New Roman, Times, serif">&amp;&amp;</font></b> ( H.elem[p].key <b>!</b>= kval) ) <font face="Times New Roman, Times, serif">//</font> 
+      并且关键字不相等<br>
+      　　　collision(p, ++c);<font face="Times New Roman, Times, serif">　　　　　　　　 
+      //</font> 求得下一探查地址p<br>
+      　　<b>if</b> ( H.elem[p].key == kval )<br>
+      　　　<b>return</b> SUCCESS; <font face="Times New Roman, Times, serif">　　　　　　　　//</font> 
+      查找成功，p 返回待查记录位置<br>
+      　　<b>else return</b> UNSUCCESS; <br>
+      　　　　　　<font face="Times New Roman, Times, serif">//</font> 查找不成功(H.elem[p].key 
+      == NULLKEY)，p返回的是插入位置<br>
+      　<b>}</b> <font face="Times New Roman, Times, serif">//</font> SearchHash<br>
+      　</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　<br>
+      　<br>
+      　<br>
+      <img src="../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle" alt="算法"> 
+      <b>开放定址哈希表的存储结构</b><br>
+      　<b>int</b> hashsize[ ] = { 997, ... }; <br>
+      　　<font face="Times New Roman, Times, serif">//</font> 哈希表容量递增表，一个合适的素数序列<br>
+      　<b>typedef struct</b><br>
+      <b>{</b><br>
+      　ElemType *elem; <font face="Times New Roman, Times, serif">//</font> 记录存储基址，动态分配数组<br>
+      　<b>int</b> count; <font face="Times New Roman, Times, serif">　　//</font> 
+      当前表中含有的记录个数<br>
+      　<b>int</b> sizeindex; <br>
+      　　　 <font face="Times New Roman, Times, serif">//</font> hashsize[sizeindex]为当前哈希表的容量<br>
+      <b>}</b> HashTable; 
+      <p>　<b>const</b> SUCCESS = 1；<br>
+        　<b>const</b> UNSUCCESS = 0；<br>
+        　<b>const</b> DUPLICATE = -1；</p>
+      <p>　　因为参数 c 的初值为0，则查找结束时，c 的值即为产生冲突的次数。<br>
+      </p>
+    </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><img src="../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle" alt="算法"> 
+      <span class="zhushi">算法 9.9</span><br>
+      　　<b>Status</b> InsertHash (HashTable <b><font face="Times New Roman, Times, serif">&amp;</font></b>H, Elemtype e) <br>
+      　<b>{</b><br>
+      <span class="zhushi">　　<font face="Times New Roman, Times, serif">//</font> 
+      若开放定址哈希表H中不存在记录 e 时则进行插入，并返回OK；<br>
+      　　<font face="Times New Roman, Times, serif">//</font> 若在查找过程中发现冲突次数过大，则需重建哈希表</span><br>
+      　　c = 0;<br>
+      　　<b>if</b> ( HashSearch ( H, e.key, j, c ) == SUCCESS )<br>
+      　　　<b>return</b> DUPLICATE;<font face="Times New Roman, Times, serif">　　　　　//</font> 
+      表中已有与 e 有相同关键字的记录<br>
+      　　<b>else if</b> ( c &lt; hashsize[H.sizeindex]/2 ) <b>{</b><br>
+      　　　　　　　　　　　　　　　　　<font face="Times New Roman, Times, serif">//</font> 冲突次数c未达到上限，（阀值c可调）<br>
+      　　　H.elem[j] = e; ++H.count; <b>return</b> OK; <font face="Times New Roman, Times, serif">//</font> 
+      插入记录 e<br>
+      　　<b>} </b><font face="Times New Roman, Times, serif">// </font>if <br>
+      　　<b>else</b> RecreateHashTable(H); <font face="Times New Roman, Times, serif">　//</font> 
+      重建哈希表<br>
+      　<b>}</b><font face="Times New Roman, Times, serif"> //</font> InsertHash</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"> 
+      　<br>
+      　　和二叉查找树类似，哈希表作为动态查找表的一种组织方法，建表的过程也是从空表起，逐个插入记录的过程。左侧为在开放定址的哈希表中插入记录的算法。<br>
+      　<br>
+      　　有时也可能因为哈希函数不够好，以至当表中记录数较多时冲突次数大大增加，可在插入算法中设立一个冲突次数的上限，一旦冲突次数超过该上限，可重新构建哈希表。<br>
+      　<br>
+      　　链地址处理冲突的哈希表的查找和插入算法则更简单。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

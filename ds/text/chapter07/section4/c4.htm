@@ -1,0 +1,97 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+<script language="JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　二、普里姆算法</span><br>
+      <br>
+      　　<b>typedef struct {</b><br>
+      　　　VertexType adjvex;<br>
+      　　　VRType lowcost;<br>
+      　　<b>}</b>closedge[MAX_VERTEX_NUM];<br>
+      　　假设cost(u,w)表示边(u,w)上的权值，则对于集合 V-U 中每个顶点 w，<br>
+      　　　closedge[LocateVex(G, w)].lowcost = Min{cost(u,w)|u∈U}<br>
+      <br>
+      <img src="../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle"> 
+      <span class="zhushi">算法 7.9</span><br>
+      　　<b>void</b> MiniSpanTree_PRIM( MGraph G, VertexType u,SqList<b><font face="Times New Roman, Times, serif">&amp;</font></b> 
+      MSTree)<br>
+      　<b>{</b><br>
+      <span class="zhushi">　　<font face="Times New Roman, Times, serif">//</font> 
+      G 为数组存储表示的连通网，按普里姆算法从顶点 u 出发构<br>
+      　　<font face="Times New Roman, Times, serif">//</font> 造G的最小生成树，顺序表<font face="Times New Roman, Times, serif"> 
+      MSTree </font>中记录生成树的各条边</span><br>
+      　　k = LocateVex ( G, u );<br>
+      　　InitList(MSTree, G.vexnum); <font face="Times New Roman, Times, serif">　　　//</font> 
+      初始化生成树为空树<br>
+      　　<b>for</b> ( j=0; j&lt;G.vexnum; ++j ) <font face="Times New Roman, Times, serif">　　 
+      //</font> 辅助数组初始化<br>
+      　　　<b>if</b> (j<b>!</b>=k) closedge[j] = <b>{</b> u, G.arcs[k][j].adj <b>}</b>;<font face="Times New Roman, Times, serif">//</font>{adjvex,lowcost}<br>
+      　　　closedge[k].lowcost = 0; <font face="Times New Roman, Times, serif">　　　 
+      //</font> 初始状态，U＝{u}<br>
+      　　<b>for</b> (i=1; i&lt;G.vexnum; ++i) <b>{</b> <font face="Times New Roman, Times, serif">　　//</font> 
+      选择其余 G.vexnum-1 个顶点<br>
+      　　　k = minimum(closedge);　　　　　<font face="Times New Roman, Times, serif">//</font> 
+      求出T的下一个结点(图中第k顶点)<br>
+      　　　<font face="Times New Roman, Times, serif">//</font> 此时closedge[k].lowcost 
+      =<br>
+      　　　<font face="Times New Roman, Times, serif">//</font> Min{ closedge[vi].lowcost 
+      | closedge[vi].lowcost&gt;0, vi∈V-U }<br>
+      　　　e.vex1 = closedge[k].adjvex;<br>
+      　　　e.vex2 = G.vexs[k];<br>
+      　　　e.weight = closedge[k].lowcost;<br>
+      　　　b = ListInsert (MSTree, i, e);　<font face="Times New Roman, Times, serif">//</font> 
+      e 为生成树的一条边<br>
+      　　　closedge[k].lowcost = 0; <font face="Times New Roman, Times, serif">　　　//</font> 
+      第 k 顶点并入U集<br>
+      　　　<b>for</b> (j=0; j&lt;G.vexnum; ++j)<br>
+      　　　　<b>if</b> (G.arcs[k][j].adj &lt; closedge[j].lowcost) <br>
+      　　　　　　　　　　　　　　　　　　 <font face="Times New Roman, Times, serif">//</font> 
+      新顶点并入U后重新选择最小边<br>
+    </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      <br>
+      　普里姆算法构造生成树的过程如动画所示。<a href="javascript:;" onClick="MM_openBrWindow('../../../flash/chap07/7-4-3.swf','数据结构','width=400,height=400')"><img src="../../../images/tubiao/dh.gif" alt="动画" width="25" height="24" border="0" align="absmiddle"></a><br>
+      <br>
+      　<br>
+      <br>
+      　<br>
+      　<br>
+      <br>
+      　<br>
+      <br>
+      　<br>
+      <br>
+      　<br>
+      <br>
+      　<br>
+    </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">　　　　　closedge[j] = <b>{</b> G.vexs[k], G.arcs[k][j].adj 
+      <b>}</b>;<br>
+      　　　<b>} </b><font face="Times New Roman, Times, serif">//</font> for<br>
+      　<b>}</b><font face="Times New Roman, Times, serif"> //</font> MiniSpanTree</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　　普里姆算法的时间复杂度为O(n<sup><font size="1">2</font></sup>)。可见，普里姆算法适用于稠密图，而克鲁斯卡尔算法适用于稀疏图。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

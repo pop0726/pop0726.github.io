@@ -1,0 +1,23 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　11.4.1 索引顺序文件的特点<br>
+      </span><br>
+      　　若索引文件中的主文件按关键码有序，则称<span class="point">索引顺序文件</span>。它是目前大型文件和数据库广泛采用的数据组织形式。<br>
+      <br>
+      　　索引顺序文件中的索引是&quot;<span class="point">非稠密索引</span>&quot;，即对主文件中连续的一组记录建立一个索引项，它由这组记录中的最大关键码和这组记录的物理地址组成。索引的组织形式可分<span class="point">静态索引</span>和<span class="point">动态索引</span>两类，前者以<span class="point">ISAM文件</span>为代表，它是一种专为磁盘存取设计的文件组织方式，由索引区，数据区和溢出区三部分组成。索引区通常是与硬件层次一致的三级索引：总索引，柱面索引和磁道索引，溢出区用来存放后插入的记录。当文件主要用于检索时，ISAM文件效率高，既能随机查找，又能顺序查找，但若增删频繁，则存取效率退化，且需定期重组。动态索引以B+树为代表，其典型的文件组织为<span class="point">VSAM文件</span>，它既便于检索又便于更新。</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">&nbsp;</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

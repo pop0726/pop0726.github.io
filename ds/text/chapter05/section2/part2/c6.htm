@@ -1,0 +1,139 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<script language=JavaScript src="../../../chapter02/section2/part1/hpmain.js"></script>
+<script language=JavaScript src="../../../chapter02/section2/part1/showhidden.js"></script>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　5.2.2 稀疏矩阵的压缩存储方法</span><br>
+      <br>
+      <span class="zhushi">　三、十字链表</span><br>
+      <br>
+      <img src="../../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle" alt="算法"> 
+      <span class="zhushi">稀疏矩阵的十字链表存储表示</span><br>
+      　　<b>typedef struct OLNode {</b> <font face="Times New Roman, Times, serif">　　//</font> 
+      结点结构定义<br>
+      　　　<b>int</b> i, j; <font face="Times New Roman, Times, serif">//</font> 
+      该非零元的行和列下标<br>
+      　　　ElemType e;<br>
+      　　　<b>struct</b> OLNode *right, *down; <font face="Times New Roman, Times, serif">//</font> 
+      该非零元所在行表和列表的后继链域<br>
+      　　<b>}</b> *OLink;<br>
+      　　<b>typedef struct {</b><font face="Times New Roman, Times, serif">　　　　　　//</font> 
+      链表结构定义<br>
+      　　　OLink *rhead, *chead; <font face="Times New Roman, Times, serif">//</font> 
+      行和列链表头指针向量基址由CreateSMatrix分配<br>
+      　　　<b>int</b> rows, cols, terms;<font face="Times New Roman, Times, serif">　　　//</font> 
+      稀疏矩阵的行数、列数和非零元个数<br>
+      　　<b>}</b> CrossList;<br>
+      <br>
+      　　从上述结构定义可见，每个非零元以含5个域的结点表示，除了表示非零元信息的三元组(i,j,e)之外，添加了两个链域：一个是链接同一行下一个非零元结点的 
+      right 域，另一个是链接同一列下一个非零元结点的 down 域。每个非零元既是某个行链表中的一个结点，又是某个列链表中的一个结点，整个矩阵构成了一个十字交叉的链表，故称为十字链表，以两个分别存放行链表的头指针和列链表的头指针的一维数组表示之。<br>
+      <br>
+      　　例如矩阵 <img src="../../../../images/pic/chapter05/gs/gs_17.gif" width="90" height="84" align="absmiddle"> 
+      的十字链表如图所示。 </td>
+    <td background="../../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      <table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td bgcolor="#ECEEFF" height="14" class="explaination" width="8">&nbsp;</td>
+                <td bgcolor="#ECEEFF" height="14" class="explaination"><img src="../../../../images/tubiao/wt.gif" width="23" height="23" align="absmiddle" alt="思考题"> 
+                  你有没有发现以上讨论的矩阵运算有没有一个&quot;适于采用顺序结构&quot;的共同特点？<br>
+                </td>
+                <td width="15" bgcolor="#ECEEFF" valign="top"><span id="bb"><img border=0 
+                              id=HPFrameHLTab3 
+                              onClick="showHideContent('HPFrameHL');hidden();"
+							   src="../../../../images/html/expand.gif" style="CURSOR: hand" width="15" height="14"></span></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <div id=HPFrameHLContent 
+           style="WIDTH: 100%;visibility: hidden;background-color:#ECEEFF" > 
+              <table width="95%" border="0" cellspacing="0" cellpadding="0" align="center">
+                <tr> 
+                  <td class="explaination">　以上讨论的矩阵运算都不改变参与运算的矩阵本身，即在它的存储结构中没有进行插入、删除之类的操作。</td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+      </table>
+      <br>
+      　　反之，如果矩阵运算的结果将增加或减少已知矩阵中的非零元的个数，则显然不宜采用顺序存储结构，而应以链式映象作为三元组线性表的存储结构。本小节讨论的十字链表即为稀疏矩阵的一种链式映象。<br>
+      <br>
+      　 <img src="../../../../images/pic/chapter05/5_1.gif" width="202" height="289" align="top"> 
+    </td>
+    <td background="../../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">
+      <img src="../../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle" alt="算法"> 
+      <span class="zhushi">算法 5.4</span><br>
+      　　<b>bool</b> CreateSMatrix_OL (CrossList <b><font face="Times New Roman, Times, serif">&amp;</font></b>M) <br>
+      　<b>{</b><br>
+      <span class="zhushi">　　<font face="Times New Roman, Times, serif">//</font> 
+      创建稀疏矩阵M的十字链表存储结构,若存储分配失败，则返回FALSE</span><br>
+      　　<b>cin</b> &gt;&gt; M.rows &gt;&gt; M.cols &gt;&gt; M.terms;<font face="Times New Roman, Times, serif">//</font> 
+      输入M的行数、列数和非零元个数<br>
+      　　<b>if</b> (<b>!</b>(M.rhead = <b>new</b> OLink[M.rows+1]))<br>
+      　　　<b>return </b>FALSE; <font face="Times New Roman, Times, serif">　　　　　　　　　　　　　//</font> 
+      存储分配失败<br>
+      　　<b>if</b> (<b>!</b>(M.chead = <b>new</b> OLink[M.cols+1]))<br>
+      　　　<b>return </b>FALSE; <font face="Times New Roman, Times, serif">　　　　　　　　　　　　　//</font> 
+      存储分配失败<br>
+      　　M.rhead[] = M.chead[] = NULL ;<br>
+      　　　　　　　　　　　　　　<font face="Times New Roman, Times, serif">//</font> 初始化行列头指针向量；各行列链表为空链表<br>
+      　　<b>for</b> (scanf(<b><font face="Times New Roman, Times, serif">&amp;</font></b>r, <b><font face="Times New Roman, Times, serif">&amp;</font></b>c, <b><font face="Times New Roman, Times, serif">&amp;</font></b>v); i<b>!</b>=0; 
+      <b>scanf</b>(<b><font face="Times New Roman, Times, serif">&amp;</font></b>r, <b><font face="Times New Roman, Times, serif">&amp;</font></b>c, <b><font face="Times New Roman, Times, serif">&amp;</font></b>v)) <br>
+      　　<b>{</b> <font face="Times New Roman, Times, serif">　　　　　　　　　　　　　　　　　　　　//</font> 
+      按任意次序输入非零元<br>
+      　　　<b>if</b> (<b>!</b>(p = <b>new</b> OLNode)) <b>return</b> FALSE;<br>
+      　　　p-&gt;i = r; p-&gt;j = c; p-&gt;e = v; <font face="Times New Roman, Times, serif">　　　　　　//</font> 
+      生成结点<br>
+      　　　<b>if</b> (<b>!</b>M.rhead[r] || c &lt; M.rhead[r]-&gt;j) <b>{</b> <br>
+      　　　　p-&gt;right = M.rhead[r]; M.rhead[r] = p; <br>
+      　　　<b>}</b><br>
+      　　　<b>else</b> <b>{</b> <font face="Times New Roman, Times, serif">　　　　　　　　　　　　　　　　//</font> 
+      寻查在行表中的插入位置<br>
+      　　　　<b>for</b>( t = M.rhead[r];<b>!</b>t-&gt;right <b><font face="Times New Roman, Times, serif">&amp;&amp;</font></b> t-&gt;right-&gt;j 
+      &lt; c; t=t-&gt;right; );<br>
+      　　　　p-&gt;right = t-&gt;right; t -&gt;right = p;<br>
+      　　　<b>}</b><font face="Times New Roman, Times, serif">　　　　　　　　　　　　　　　　　　　//</font> 
+      完成行插入<br>
+      　　　<b>if</b> (<b>!</b>M.chead[c] || r &lt; M.chead[c]-&gt;i) <b>{</b> <br>
+      　　　　p-&gt;down = M.chead[c]; M.chead[c] = p; <br>
+      　　　<b>}</b><br>
+      　　　<b>else</b> <b>{</b> <font face="Times New Roman, Times, serif">　　　　　　　　　　　　　　　　//</font> 
+      寻查在列表中的插入位置<br>
+      　　　　<b>for</b>( q = M.chead[c];<b>!</b>q-&gt;down <b><font face="Times New Roman, Times, serif">&amp;&amp;</font></b> q-&gt;down-&gt;i 
+      &lt; r; q = q-&gt;down; );<br>
+      　　　　p-&gt;down = q-&gt;down; q-&gt;down = p;<br>
+      　　　<b>}</b><font face="Times New Roman, Times, serif">　　　　　　　　　　　　　　　　　　　//</font> 
+      完成列插入<br>
+      　　<b>}</b><font face="Times New Roman, Times, serif"> //</font> for<br>
+      　　<b>return</b> TRUE;<br>
+      　<b>}</b><font face="Times New Roman, Times, serif"> //</font> CreateSMatrix_OL</td>
+    <td background="../../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      　　对于每个输入的非零元，既要插入在行链表中，又要插入在列链表中，算法5.4没有限定输入顺序，因此对每个输入的非零元都需要在相应的行链表和列链表中查询结点的插入位置，因此算法5.3的时间复杂度为<font face="Times New Roman, Times, serif"><i>O</i> 
+      (t×s)</font>，其中 t 为所建矩阵中非零元的个数，s 为其行列的最大值。<br>
+      <br>
+      　　显然这种存储表示便于进行将改变其中非零元状态的矩阵运算，如将一个矩阵加到另一个矩阵上的运算等。</td>
+    <td background="../../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

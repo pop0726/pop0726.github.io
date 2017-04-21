@@ -1,0 +1,111 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　5.2.2 稀疏矩阵的压缩存储方法</span><br>
+      <br>
+      <span class="zhushi">　二、行逻辑链接的顺序表</span><br>
+      <br>
+      　　假设以行序为主序的次序（每一行按列序有序）输入稀疏矩阵的非零元（行下标、列下标、非零元的值），则建立该稀疏矩阵的行逻辑链接的顺序表的算法如下。<br>
+      <br>
+      <img src="../../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle"> 
+      <span class="zhushi">算法 5.2</span><br>
+      　　<b>void</b> Create_SM(RLSMatrix<b><font face="Times New Roman, Times, serif">&amp;</font></b> M)<br>
+      　<b>{</b><br>
+      <span class="zhushi">　　<font face="Times New Roman, Times, serif">//</font> 
+      以行序为主序的次序逐个输入非零元，<br>
+      　　<font face="Times New Roman, Times, serif">//</font> 建立稀疏矩阵的行逻辑链接顺序表</span><br>
+      　　cin &gt;&gt; M.rows&gt;&gt;M.cols&gt;&gt;M.terms;<br>
+      　　k = 1; curRow = 0;<br>
+      　　<b>for</b> (i=1; i&lt;= M.terms; i++) <b>{</b><br>
+      　　　cin&gt;&gt;M.data[k].i &gt;&gt; M.data[k].j &gt;&gt; M.data[k].e;<br>
+      　　　<b>while</b> (curRow &lt; M.data[k].i)<br>
+      　　　　M.rpos[++curRow]=k;<br>
+      　　　++k;<br>
+      　　<b>} </b><font face="Times New Roman, Times, serif">//</font> for<br>
+      　　<b>while</b> (curRow &lt; M.rows+1) <font face="Times New Roman, Times, serif">　　　　　　　　//</font> 
+      剩余的没有非零元的行 <br>
+      　　　M.rpos[++curRow]=k;<br>
+      　<b>}</b><br>
+      <br>
+      　　上述算法的控制结构只有一个for循环，显然它的<span class="point">时间复杂度</span>为<span class="point"><b><font face="Times New Roman, Times, serif"><i>O(M.terms)</i></font></b></span>。</td>
+    <td background="../../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      　　如何建立稀疏矩阵的行逻辑链接的顺序表？<br>
+      <br>
+      　　首先应该输入该矩阵的行数、列数以及非零元的个数，然后依次输入各个非零元的行号、列号和它的值，并在输入每一行的第一个非零元的同时为 rpos 
+      中相应分量赋值。显然，对于顺序结构应尽少进行 &quot;移动元素&quot;的操作，因此非零元的输入次序应对行有序，且同一行的非零元按列有序。<br>
+      <br>
+      　　算法中需要注意的是，可能存在某一行或连续几行都没有非零元的情况，则这些行的&quot;第一个非零元在顺序表中的位置&quot;应该和当前输入的那个非零元所在行相同。<br>
+      <br>
+      　　虽然，表面上 rpos 中各分量的值只是指示每一行的第一个非零元在 data 中的位置，实际上它还隐含着一个信息，即<br>
+      　&quot;第 k 行的非零元的个数=rpos[k+1]-rpos[k]&quot;。<br>
+      　 为了使这个公式也适用于最后一行，在 rpos 中增添一个下标为(行数+1)的分量。<br>
+      <br>
+      　　例如，按此算法得到的前面所举矩阵 M 的 rpos 值如下所示：<br>
+      <table width="180" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td class="explaination"> 
+            <div align="center">行号</div>
+          </td>
+          <td class="explaination" width="20"> 
+            <div align="center">1</div>
+          </td>
+          <td class="explaination" width="20"> 
+            <div align="center">2</div>
+          </td>
+          <td class="explaination" width="20"> 
+            <div align="center">3</div>
+          </td>
+          <td class="explaination" width="20"> 
+            <div align="center">4</div>
+          </td>
+          <td class="explaination" width="20"> 
+            <div align="center">5</div>
+          </td>
+          <td class="explaination" width="20"> 
+            <div align="center">6</div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="explaination">M.rpos</td>
+          <td colspan="6"> 
+            <table width="140" border="0" cellspacing="1" cellpadding="0" align="center" bgcolor="#003399">
+              <tr> 
+                <td class="explaination" background="../../../../images/html/right_di4.gif" width="21"> 
+                  <div align="center">1</div>
+                </td>
+                <td class="explaination" background="../../../../images/html/right_di4.gif" width="20"> 
+                  <div align="center">3</div>
+                </td>
+                <td class="explaination" background="../../../../images/html/right_di4.gif" width="20"> 
+                  <div align="center">3</div>
+                </td>
+                <td class="explaination" background="../../../../images/html/right_di4.gif" width="20"> 
+                  <div align="center">4</div>
+                </td>
+                <td class="explaination" background="../../../../images/html/right_di4.gif" width="20"> 
+                  <div align="center">6</div>
+                </td>
+                <td class="explaination" background="../../../../images/html/right_di4.gif" width="20"> 
+                  <div align="center">7</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <br>
+      　　显然如果非零元不是按它们所在行列有序的次序输入的话，算法5.2 的时间复杂度将是&quot;平方级别&quot; 的。</td>
+    <td background="../../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

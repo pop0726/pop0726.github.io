@@ -1,0 +1,91 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"> <span class="part">　3.1.2 栈的存储表示和操作的实现</span><br>
+      <br>
+      <b class="part">一、顺序栈类型的定义</b> <br>
+      <b><br>
+      <span class="zhushi"><font face="Times New Roman, Times, serif">//</font> 
+      结构定义：</span> </b><br>
+      <b> 　typedef struct</b> <b>{</b> <br>
+      　　ElemType *base; <font face="Times New Roman, Times, serif">//</font> 存储空间基址 
+      <br>
+      <b>　　int</b> top; 　　　　<font face="Times New Roman, Times, serif">//</font> 
+      栈顶指针 <br>
+      <b>　　int</b> stacksize; 　<font face="Times New Roman, Times, serif">//</font> 
+      允许的最大存储空间以元素为单位<br>
+      　<b>}</b> Stack; <span class="explaination"></span><br>
+      　</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      　　和线性表类似，栈也有两种存储表示，其顺序存储结构简称为顺序栈。<br>
+      　　和顺序表类似，对顺序栈也需要事先为它分配一个可以容纳最多元素的存储空间，base 为这个存储空间的基地址，也即一维数组的地址。<br>
+      　　从名称来讲，&quot;栈顶指针&quot;意为指示栈顶元素在栈中的位置，但它的值实际是栈中元素的个数，和顺序表中的 length 值的意义相同。 
+      <br>
+      　　为了应用方便，这个&quot;最大空间的容量&quot;应由使用这个顺序栈的程序员决定，它的默认值和顺序表的默认值相同。<br>
+      　</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="zhushi"><font face="Times New Roman, Times, serif">//</font> 
+      基本操作接口(函数声明)：</span><br>
+      　<b>void</b> InitStack (Stack <b><font face="Times New Roman, Times, serif">&amp;</font></b>S，<b>int</b> 
+      maxsize); <br>
+      <font color="#97c594">　<font face="Times New Roman, Times, serif">//</font>　构造一个最大存储容量为 
+      maxsize 的空栈S。</font><br>
+      <br>
+      　<b>void</b> DestroyStack (Stack <b><font face="Times New Roman, Times, serif">&amp;</font></b>S);<br>
+      <font color="#97c594">　<font face="Times New Roman, Times, serif">//</font>　销毁栈S，S 
+      不再存在。</font><br>
+      <br>
+      　<b>void</b> ClearStack (Stack <b><font face="Times New Roman, Times, serif">&amp;</font></b>S);<br>
+      <font color="#97c594">　<font face="Times New Roman, Times, serif">//</font>　将 
+      S 置为空栈。</font><br>
+      <br>
+      　<b>bool</b> StackEmpty (Stack S);<br>
+      <font color="#97c594">　<font face="Times New Roman, Times, serif">//</font>　若栈 
+      S 为空栈，则返回 TRUE，否则返回 FALSE。</font><br>
+      <br>
+      　<b>int</b> StackLength (Stack S);<br>
+      <font color="#97c594">　<font face="Times New Roman, Times, serif">//</font>　返回S的元素个数，即栈的长度。</font><br>
+      <br>
+      　<b>bool</b> GetTop (Stack S, ElemType <b><font face="Times New Roman, Times, serif">&amp;</font></b>e);<br>
+      <font color="#97c594">　<font face="Times New Roman, Times, serif">//</font>　若栈不空，则用 
+      e 返回S的栈顶元素，并返回TRUE；否则返回 FALSE。</font><br>
+      <br>
+      　<b>bool</b> Push (Stack <b><font face="Times New Roman, Times, serif">&amp;</font></b>S, 
+      ElemType e);<br>
+      <font color="#97c594">　<font face="Times New Roman, Times, serif">//</font>　若栈的存储空间不满，则插入元素 
+      e 为新的栈顶元素，并返回 TRUE；<br>
+      　<font face="Times New Roman, Times, serif">//</font>　否则返回FALSE。</font><br>
+      <br>
+      　<b>bool</b> Pop (Stack <b><font face="Times New Roman, Times, serif">&amp;</font></b>S, 
+      ElemType <b><font face="Times New Roman, Times, serif">&amp;</font></b>e);<br>
+      <font color="#97c594">　<font face="Times New Roman, Times, serif">//</font>　若栈不空，则删除S的栈顶元素，用e返回其值，并返回TRUE；否则返回FALSE。</font><br>
+      　</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">&nbsp;</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">　<b>void</b> StackTraverse(Stack S, <b>void</b> 
+      (*visit(ElemType ))<br>
+      <font color="#97c594">　<font face="Times New Roman, Times, serif">//</font>　依次对S的每个元素调用函数 
+      visit( )，一旦 visit( )失败，则操作失败。</font></td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　　在你学完了线性表之后，不难写出这些函数的定义，不妨试试，看看和下页中给出的是否一致。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

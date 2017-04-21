@@ -1,0 +1,123 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<script language=JavaScript src="../chapter01/hpmain.js"></script>
+<script language=JavaScript src="../chapter01/showhidden.js"></script>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td class="white" valign="top"><span class="point"><br>
+      </span><span class="part">【学习目标】</span><br>
+      　1. 理解&quot;串&quot;类型定义中各基本操作的特点，并能正确利用它们进行串的其它操作。<br>
+      　2. 理解串类型的各种存储表示方法。<br>
+      　3. 理解串匹配的各种算法。<br>
+      　</td>
+    <td background="../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../images/html/right_di4.gif" class="explaination" valign="top" width="281"><span class="point"><br>
+      </span>【学习目标】</td>
+    <td background="../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">【重点和难点】</span><br>
+      　　相对于其它各个知识点而言，本章非整个课程的重点，鉴于串已是多数高级语言中已经实现的数据类型，因此本章重点仅在于了解串类型定义中各基本操作的定义以及串的实现方法，并学会利用这些基本操作来实现串的其它操作。本章的难点是理解实现串匹配的KMP算法的思想，但它不属本章学习的基本要求，更不是重点学习内容。<br>
+      　</td>
+    <td background="../../images/html/mid.gif">&nbsp;</td>
+    <td background="../../images/html/right_di4.gif" class="explaination" valign="top">【重点和难点】</td>
+    <td background="../../images/html/right_di3.gif">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">【知识点】</span><br>
+      　　串的类型定义、串的存储表示、串匹配、KMP算法<br>
+      　</td>
+    <td background="../../images/html/mid.gif">&nbsp;</td>
+    <td background="../../images/html/right_di4.gif" class="explaination" valign="top">【知识点】</td>
+    <td background="../../images/html/right_di3.gif">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">【学习指南】</span><br>
+      　　虽然目前各常用的高级语言中都已经实现了串类型，但由于它是通过软件实现的，因此作为一个软件工作者还是应该了解串的实现方法。本章没有必须完成的算法设计题，如果有兴趣可以试试以下几个题:4.10，4.13，4.17，4.23，4.28,4.30。其中前2个是练习串的基本操作的应用，后2个是和KMP算法相关的练习。<br>
+      　</td>
+    <td background="../../images/html/mid.gif">&nbsp;</td>
+    <td background="../../images/html/right_di4.gif" class="explaination" valign="top">【学习指南】</td>
+    <td background="../../images/html/right_di3.gif">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">【课前思考】<br>
+      </span>
+      <table width="80%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td bgcolor="#ECEEFF" height="14" class="explaination" width="8">&nbsp;</td>
+                <td bgcolor="#ECEEFF" height="14" class="explaination"><img src="../../images/tubiao/wt.gif" width="23" height="23" align="absmiddle" alt="思考题"> 
+                  1. &quot;串就是线性表&quot;的结论是否正确？</td>
+                <td width="15" bgcolor="#ECEEFF" valign="top"><span id="bb"><img border=0 
+                              id=HPFrameHLTab3 
+                              onClick="showHideContent('HPFrameHL');hidden();"
+							   src="../../images/html/expand.gif" style="CURSOR: hand" width="15" height="14"></span></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <div id=HPFrameHLContent 
+           style="WIDTH: 100%;visibility: hidden;background-color:#ECEEFF" > 
+              <table width="94%" border="0" cellspacing="0" cellpadding="0" align="center">
+                <tr> 
+                  <td class="explaination">　从数据结构的观点来说，串是一种特殊的线性表;但就数据类型而言，串不是线性表。</td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+      </table>
+      <br>
+      <table width="80%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td bgcolor="#ECEEFF" height="14" class="explaination" width="8">&nbsp;</td>
+                <td bgcolor="#ECEEFF" height="14" class="explaination"><img src="../../images/tubiao/wt.gif" width="23" height="23" align="absmiddle" alt="思考题"> 
+                  2. 串和线性表的主要差别是什么？</td>
+                <td width="15" bgcolor="#ECEEFF" valign="top"><span id=dd><img border=0 
+                              id=HPFrameDLTab3 
+                              onClick="showHideContent('HPFrameDL');hiddenL();"
+							   src="../../images/html/expand.gif" style="CURSOR: hand" width="15" height="14"></span></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <div id=HPFrameDLContent 
+           style="WIDTH: 100%;visibility: hidden;background-color:#ECEEFF"> 
+              <table width="94%" border="0" cellspacing="0" cellpadding="0" align="center">
+                <tr> 
+                  <td class="explaination">　希望你带着这个问题开始这一章的学习，并能在学完这一章的内容之后能得出正确的结论。</td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+    <td background="../../images/html/mid.gif">&nbsp;</td>
+    <td background="../../images/html/right_di4.gif" class="explaination" valign="top">【课前思考】</td>
+    <td background="../../images/html/right_di3.gif">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

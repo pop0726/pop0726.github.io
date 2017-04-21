@@ -1,0 +1,129 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　5.2.2 稀疏矩阵的压缩存储方法</span><br>
+      <br>
+      <span class="zhushi">　一、三元组顺序表</span><br>
+      <br>
+      　　当以三元组顺序表表示稀疏矩阵时，是否仍然便于进行运算呢？在此以&quot;转置&quot;运算为例讨论算法。<br>
+      　　假设前面所列举的矩阵M的转置矩阵为 T，则按照矩阵转置的定义，<br>
+      　　　<img src="../../../../images/pic/chapter05/gs/gs_6.gif" width="140" height="125"> 
+      <br>
+      <br>
+      　　对比M和T，T的行数、列数和非零元的个数等于M的列数、行数和非零元的个数，且T中的每个非零元和M中的非零元相比，它们的值相同，但行列号互换。由于三元组表中元素的顺序约定为以行序为主序，即在 
+      T 中非零元的排列次序是以它们在 M 中的列号为主序的。因此转置的主要操作就是要确定M中的每个非零元在T的三元组顺序表中的位序，即分析两个矩阵中值相同的非零元分别在 
+      M.data 和 T.data 中的位序之间的关系是什么。<br>
+      <br>
+      　　例如：M.data 中第2个元素(1,5,-7)转置到T中的位序为4，为什么？因为该元在M中的列号为5，行号为1，又 M 中前4列中非零元的总数为3。换句话说，T 
+      中前4行中只有3个非零元，而值为-7的非零元是 T 中第5行的第一个非零元，当然在 T.data 中应该位居第4。<br>
+      <br>
+      　　由此，转置算法的操作步骤为：<br>
+      　　1.求 M 矩阵的每一列中非零元的个数；<br>
+      　　2.确定T的每一行中第一个非零元在 T.data 中的序号；<br>
+      　　3.将 M.data 中每个元素依次复制到 T.data 中相应位置。</td>
+    <td background="../../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      <br>
+      <br>
+      　M的三元组顺序表为：<br>
+      　　　<img src="../../../../images/pic/chapter05/gs/gs_7.gif" width="161" height="155"><br>
+      <p></p>
+      <p></p>
+      <p>　T 的三元组顺序表为：<br>
+        　　　<img src="../../../../images/pic/chapter05/gs/gs_8.gif" width="151" height="155"> 
+      </p>
+      <p></p>
+      <p></p>
+      <p>　　以下表格中的三行依次为：M 的列号、M 中各列非零元的总数和 T 中每一行第一个非零元在 T.data 中的序号：<br>
+      </p>
+      <table width="180" border="0" cellspacing="1" cellpadding="0" align="center" bgcolor="#003399">
+        <tr> 
+          <td class="explaination" width="63" background="../../../../images/html/right_di4.gif"> 
+            <div align="center">col</div>
+          </td>
+          <td class="explaination" width="19" background="../../../../images/html/right_di4.gif"> 
+            <div align="center">1</div>
+          </td>
+          <td class="explaination" width="18" background="../../../../images/html/right_di4.gif"> 
+            <div align="center">2</div>
+          </td>
+          <td class="explaination" width="18" background="../../../../images/html/right_di4.gif"> 
+            <div align="center">3</div>
+          </td>
+          <td class="explaination" width="17" background="../../../../images/html/right_di4.gif"> 
+            <div align="center">4</div>
+          </td>
+          <td class="explaination" width="20" background="../../../../images/html/right_di4.gif"> 
+            <div align="center">5</div>
+          </td>
+          <td class="explaination" width="17" background="../../../../images/html/right_di4.gif"> 
+            <div align="center">6</div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="explaination" width="63" background="../../../../images/html/right_di4.gif"> 
+            <div align="center">num[col]</div>
+          </td>
+          <td class="explaination" width="19" background="../../../../images/html/right_di4.gif"> 
+            <div align="center">1</div>
+          </td>
+          <td class="explaination" width="18" background="../../../../images/html/right_di4.gif"> 
+            <div align="center">0</div>
+          </td>
+          <td class="explaination" width="18" background="../../../../images/html/right_di4.gif"> 
+            <div align="center">1</div>
+          </td>
+          <td class="explaination" width="17" background="../../../../images/html/right_di4.gif"> 
+            <div align="center">1</div>
+          </td>
+          <td class="explaination" width="20" background="../../../../images/html/right_di4.gif"> 
+            <div align="center">2</div>
+          </td>
+          <td class="explaination" width="17" background="../../../../images/html/right_di4.gif"> 
+            <div align="center">1</div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="explaination" width="63" background="../../../../images/html/right_di4.gif"> 
+            <div align="center">rpos[col]</div>
+          </td>
+          <td class="explaination" width="19" background="../../../../images/html/right_di4.gif"> 
+            <div align="center">1</div>
+          </td>
+          <td class="explaination" width="18" background="../../../../images/html/right_di4.gif"> 
+            <div align="center">2</div>
+          </td>
+          <td class="explaination" width="18" background="../../../../images/html/right_di4.gif"> 
+            <div align="center">2</div>
+          </td>
+          <td class="explaination" width="17" background="../../../../images/html/right_di4.gif"> 
+            <div align="center">3</div>
+          </td>
+          <td class="explaination" width="20" background="../../../../images/html/right_di4.gif"> 
+            <div align="center">4</div>
+          </td>
+          <td class="explaination" width="17" background="../../../../images/html/right_di4.gif"> 
+            <div align="center">6</div>
+          </td>
+        </tr>
+      </table>
+      <p>　　表格中的 col 指示 M 中的列号，即 T 中的行号，则 rpos 中的值可递推求得：<br>
+        　　　rpos[1] = 1;<br>
+        　　　rpos[col] = rpos[col-1]+num[col-1]<br>
+        <br>
+        　　第一行的第一个非零元在 data 中的位置肯定是1，而之后其它各行的第一个非零元在 data 中的位置显然取决于它的前一行中的非零元的个数。<br>
+      </p>
+    </td>
+    <td background="../../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　2.2.3 顺序表其它算法举例</span><br>
+      <br>
+      <img src="../../../../images/tubiao/lt.gif" width="28" height="27" align="absmiddle"> 
+      <span class="zhushi">例2-4</span> 试编写算法&quot;比较&quot;两个顺序表的大小。<br>
+      <br>
+      　　算法的基本思想为：若 <img src="../../../../images/pic/chapter02/gs/aj.gif" width="12" height="11" align="absmiddle">=<img src="../../../../images/pic/chapter02/gs/bj.gif" width="11" height="14" align="absmiddle">，则 
+      j 增 1，之后继续比较后继元素；否则即可得出比较结果。显然，<b><span class="point">j 的初值应为 0，循环的条件是 j 
+      不超出其中任何一个表的范围</span></b>。若在循环内不能得出比较结果，则循环结束时有三种可能出现的情况需要区分。<br>
+      <br>
+      　　根据以上分析可得下列算法。 
+      <p><img src="../../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle" alt="算法"> 
+        <span class="zhushi">算法 2.9 </span><br>
+        　　<b>int</b> compare( SqList A, SqList B )<br>
+        　<b>{</b><br>
+        　　<span class="zhushi"><font face="Times New Roman, Times, serif">//</font> 
+        若 A&lt;B，则返回 -1；若 A=B，则返回 0；若 A&gt;B，则返回 1</span><br>
+        　　j=0;<br>
+        　　<b>while</b> ( j&lt;A.length <b><font face="Times New Roman, Times, serif">&amp;&amp;</font></b> j&lt;B.length )<br>
+        　　　<b>if</b> ( A.elem[j] &lt; B.elem[j] ) <b>return</b>(-1);<br>
+        　　　<b>else if</b> ( A.elem[j] &gt; B.elem[j] ) <b>return</b>(1);<br>
+        　　　<b>else</b> j++;<br>
+        　　<b>if</b> ( A.length == B.length ) <b>return</b> (0);<br>
+        　　<b>else if</b> ( A.length &lt; B.length ) <b>return</b>(-1);<br>
+        　　<b>else return</b>(1);<br>
+        　<b>}</b> <font face="Times New Roman, Times, serif">//</font> compare</p>
+      <p> 　　上述算法中只有一个 while 循环，它的执行次数依赖于待比较的顺序表的表长，因此，算法2.9 的<span class="point">时间复杂度</span>为 
+        <span class="point"><b><font face="Times New Roman, Times, serif"><i>O</i> 
+        (Min(A.length, B.length))</font></b></span>。</p>
+    </td>
+    <td background="../../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      <br>
+      何谓顺序表的&quot;大&quot;&quot;小&quot;？现作如下规定：<br>
+      　　设 A=(<font size="3">a</font><font size="1">1</font>,…,<font size="3">a</font><font size="1">m</font>)和 
+      B=(<font size="2">b</font><font size="1">1</font>,…,<font size="2">b</font><font size="1">n</font>)均为顺序表，又A'和B'分别为 
+      A 和 B中除去最大共同前缀后的子表（例如，A=(y,x,x,z,x,z)，<br>
+      B=(y,x,x,z,y,x,x,z)，则两者中最大的共同前缀为(y,x,x,z)，在两表中除去最大共同前缀后的子表分别为A'=(x,z)和 B'=(y,x,x,z)）。若A'=B'=空表，则 
+      A=B；若A'=空表，而B'≠空表，或者两者均不为空表，且A'的首元小于B'的首元，则 A&lt;B；否则 A&gt;B。<br>
+      <br>
+      　<b class="zhushi"><font color="#339900">解题分析：</font></b><br>
+      　(1) 算法要求对两个顺序表进行&quot;比较&quot;，是一种&quot;引用型&quot;操作，因此在<span class="point"><font color="#339900"><b>算法中不应该破坏已知表</b></font></span>。<br>
+      　(2) 按注解中的规定，只有在两个表的长度相等，且每个对应元素都相同时才相等；否则两个顺序表的大小主要取决于两表中除去最大公共前缀后的第一个元素。<br>
+      <br>
+      　　因此，比较两表的大小不应该先比较它们的长度，而应该<b><font color="#339900">设一个下标变量 j 同时控制两个表</font></b>，即对两表中&quot;位序相同&quot; 
+      的元素进行比较。 </td>
+    <td background="../../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

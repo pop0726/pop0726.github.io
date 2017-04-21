@@ -1,0 +1,93 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　1.2.2 数据结构</span><br>
+      <br>
+      　　存储结构是逻辑结构在存储器中的映象，它包含数据元素的映象和关系的映象。<br>
+      <br>
+      　　在计算机中表示信息的最小单位是&quot;位(bit)&quot;，任何一个数据元素都可以用一个 &quot;位串&quot; 表示，如，数值&quot;321&quot; 
+      可用位串 101000001 表示，字母&quot;A&quot;可用位串 001000001 表示。当数据元素由多个数据项构成时，每个数据项即为表示数据元素的位串中的一个&quot;子位串&quot;。<br>
+      　</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      　<br>
+      　　由于逻辑结构包括数据元素集合和关系的集合，则讨论存储结构只需要分别讨论数据元素和关系在计算机中如何表示即可。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">　　关系有两种表示方法：<br>
+      <br>
+      　　其一为&quot;<span class="point">顺序映象</span>&quot;。以 &quot;y 相对于 x 的存储位置&quot; 
+      表示 &quot;y 是x的后继&quot;，例如，令 y 的存储位置和 x 的存储位置之间相差一个预设常量C，C本身是个隐含值，由此得到的数据存储结构为&quot;<span class="point">顺序存储结构</span>&quot;。<br>
+      <br>
+      　　其二为&quot;链式映象&quot;。以和x绑定在一起的附加信息(指针)表示后继关系，这个指针即为 y 的存储地址，由此得到的数据存储结构为&quot;<span class="point">链式存储结构</span>&quot;。<br>
+      <br>
+      　　可见，在顺序存储结构中只包含数据元素本身的信息，而链式存储结构中以&quot;由数据元素 x 的存储映象和附加指针合成的结点&quot;表示数据元素。<br>
+      　</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　　关系的最小单位是一个&lt;x,y&gt;的有序对，则讨论关系的表示方法只需讨论这个有序对的表示方法即可，即如何表示 
+      &quot;y是x的后继&quot;。<br>
+      <br>
+      　顺序映象<br>
+      　　<img src="../../../images/pic/chapter01/01.gif" width="223" height="68"><br>
+      　链式映象 <br>
+      　<img src="../../../images/pic/chapter01/02.gif" width="213" height="100"> 
+    </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">　　存储结构的描述方法随编程环境的不同而不同，当用高级程序涉及的油印间相编程时，通常可用高级编程语言中提供的数据类型描述之。<br>
+      <br>
+      　　例如，当以&quot;顺序存储结构&quot;表示前述定义的长整数时，可将它定义为：<br>
+      　　　<b>typedef int</b> Long_int[3];<br>
+      <br>
+      　　同样，此时对数据元素也要借用高级编程语言中的数据类型描述之。<br>
+      <br>
+      　　对每一个数据结构而言，必定存在与它密切相关的一组操作。若操作的种类和数目不同，即使逻辑结构相同，数据结构能起的作用也不同。<br>
+      <br>
+      　　不同的数据结构其操作集不同，但下列操作必不可缺：<br>
+      　　1) 结构的生成；<br>
+      　　2) 结构的销毁；<br>
+      　　3) 在结构中查找满足规定条件的数据元素；<br>
+      　　4) 在结构中插入新的数据元素；<br>
+      　　5) 删除结构中已经存在的数据元素；<br>
+      　　6) 遍历。</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　例如，定义&quot;日期&quot;为：<br>
+      　　<b>typedef struct {</b><br>
+      　　　<b>int</b> y; <font face="Times New Roman, Times, serif">　　//</font> 
+      年号 Year<br>
+      　　　<b>int</b> m; <font face="Times New Roman, Times, serif">　　//</font> 
+      月号 Month<br>
+      　　　<b>int</b> d; <font face="Times New Roman, Times, serif">　　//</font> 
+      日号 Day<br>
+      　　<b>}</b> DateType; <font face="Times New Roman, Times, serif">　//</font> 
+      日期类型<br>
+      <br>
+      　定义&quot;学生&quot;为：<br>
+      　　<b>typedef struct {</b><br>
+      　　　<b>char</b> id[8]; <font face="Times New Roman, Times, serif">　　//</font> 
+      学号<br>
+      　　　<b>char</b> name[16];　<font face="Times New Roman, Times, serif">//</font> 
+      姓名<br>
+      　　　<b>char</b> sex; <font face="Times New Roman, Times, serif">　　　//</font> 
+      性别<br>
+      　　　DateType bdate;　<font face="Times New Roman, Times, serif">//</font> 
+      出生日期<br>
+      　　<b>}</b> Student;<font face="Times New Roman, Times, serif">　　　　//</font> 
+      学生类型</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

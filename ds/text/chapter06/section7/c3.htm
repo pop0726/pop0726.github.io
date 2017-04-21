@@ -1,0 +1,103 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<script language=JavaScript src="../../chapter02/section1/hpmain.js"></script>
+<script language=JavaScript src="../../chapter02/section1/showhidden.js"></script>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　6.7.2 森林的遍历</span><br>
+      <br>
+      <img src="../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle"> 
+      <span class="zhushi">算法6.12</span><br>
+      　　<b>void</b> InOrderTraverse_Tree(CSTree T，<b>void</b>(<b>*</b>visit)( 
+      CSTree ))<br>
+      　<b>{</b><br>
+      <span class="zhushi">　　<font face="Times New Roman, Times, serif">//</font> 
+      以孩子-兄弟链表作存储结构，中序遍历指针T所指森林<br>
+      　　<font face="Times New Roman, Times, serif">//</font> (或后根遍历T所指树)</span><br>
+      　　<b>if</b> (T) <b>{</b> <font face="Times New Roman, Times, serif">　　　　　　　　　　　　//</font> 
+      T=NULL时，森林为空，不做任何操作<br>
+      　　　InOrderTraverse_Tree(T-&gt;firstchild, visit); <font face="Times New Roman, Times, serif">//</font> 
+      中序遍历*T的子树森林<br>
+      　　　visit(T); <font face="Times New Roman, Times, serif">　　　　　　　　　　　//</font> 
+      通过函数指针 *visit 访问根结点 <br>
+      　　　InOrderTraverse_Tree(T-&gt;nextsibling, visit);<font face="Times New Roman, Times, serif">//</font> 
+      中序遍历其余树的森林<br>
+      　　<b>} </b><font face="Times New Roman, Times, serif">// </font>if<br>
+      　<b>}</b><br>
+      <br>
+      　　也可以将算法6.12改写成如下形式：<br>
+      <img src="../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle"><br>
+      　　<b>void</b> InOrderTraverse_Tree(CSTree T，<b>void</b>(<b>*</b>visit)( 
+      CSTree ))<br>
+      　<b>{</b><br>
+      <span class="zhushi">　　<font face="Times New Roman, Times, serif">//</font> 
+      以孩子-兄弟链表作存储结构，中序遍历指针T所指森林</span><br>
+      　　p=T; <font face="Times New Roman, Times, serif">　　　　　　　　　　　　　　　　　　　//</font> 
+      指针p指向第一棵树的根<br>
+      　　<b>while</b> (p) <b>{</b><br>
+      　　　InOrderTraverse_Tree(p-&gt;firstchild, visit); <font face="Times New Roman, Times, serif">//</font> 
+      中序遍历*p的子树森林<br>
+      　　　visit(p); <font face="Times New Roman, Times, serif">　　　　　　　　　　　//</font> 
+      通过函数指针*visit 访问根结点*p<br>
+      　　　p=p-&gt;nextsibling; <font face="Times New Roman, Times, serif">　　　　　　　　　　　　//</font> 
+      指针p移向下一棵树的根<br>
+      　　<b>} </b><font face="Times New Roman, Times, serif">//</font> while<br>
+      　<b>}</b></td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　<br>
+      　<br>
+      　<br>
+      　<br>
+      　　如果将上页后根遍历的例树视作只含一棵树的森林，则上页后根遍历的动画即为按算法6.12进行遍历的过程。<br>
+      　<br>
+      　<br>
+      　<br>
+      　　<br>
+      　<br>
+      　<br>
+      　<br>
+      　
+<table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td bgcolor="#ECEEFF" height="14" class="explaination" width="8">&nbsp;</td>
+                <td bgcolor="#ECEEFF" height="14" class="explaination"><img src="../../../images/tubiao/wt.gif" width="23" height="23" align="absmiddle" alt="思考题"> 
+                  你能否从树和森林的递归定义解说此算法？</td>
+                <td width="15" bgcolor="#ECEEFF" valign="top"><span id="bb"><img border=0 
+                              id=HPFrameHLTab3 
+                              onClick="showHideContent('HPFrameHL');hidden();"
+							   src="../../../images/html/expand.gif" style="CURSOR: hand" width="15" height="14"></span></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <div id=HPFrameHLContent 
+           style="WIDTH: 100%;visibility: hidden;background-color:#ECEEFF" > 
+              <table width="94%" border="0" cellspacing="0" cellpadding="0" align="center">
+                <tr> 
+                  <td class="explaination">　对森林的中序遍历即为从左到右依次后根遍历各棵树，while循环中的指针p依次指向每一棵树的根结点。而树的后根遍历即为先对其子树森林进行中序遍历，然后访问根结点。</td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+      </table>
+      <br>
+      <br>
+    </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

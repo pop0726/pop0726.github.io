@@ -1,0 +1,106 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<script language=JavaScript src="../../chapter02/section1/hpmain.js"></script>
+<script language=JavaScript src="../../chapter02/section1/showhidden.js"></script>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　9.3.2 二叉查找树</span><br>
+      <br>
+      <span class="zhushi">　一、二叉查找树的定义</span><br>
+      <br>
+      　　二叉查找树或者是一棵空树；或者是具有如下特性的二叉树：<br>
+      　　（1）若它的左子树不空，则左子树上所有结点的值均小于根结点的值；<br>
+      　　（2）若它的右子树不空，则右子树上所有结点的值均大于根结点的值；<br>
+      　　（3）它的左、右子树也都分别是二叉查找树。<br>
+      <br>
+      　　例如，右图所示是一棵二叉查找树。<br>
+      　<br>
+      　　通常情况下均以如下定义的二叉链表作为二叉查找树的存储结构。<br>
+      <img src="../../../images/tubiao/cxd.gif" width="25" height="24" alt="算法"><br>
+      　　<b>typedef struct</b> BiTNode <b>{</b><font face="Times New Roman, Times, serif">　　　　　//</font> 
+      结点结构<br>
+      　　　ElemType data;　<font face="Times New Roman, Times, serif">　　　　　　　　　//</font> 
+      数据元素<br>
+      　　　<b>struct</b> BiTNode <b>*l</b>child, <b>*r</b>child; <font face="Times New Roman, Times, serif">//</font> 
+      左右孩子指针<br>
+      　　<b>}</b> BiTNode, <b>*</b>BSTree;<br>
+    </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      　　　<img src="../../../images/pic/chapter09/9_05.gif" width="200" height="150" align="top"><br>
+      <br>
+      <table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td bgcolor="#ECEEFF" height="14" class="explaination" width="8">&nbsp;</td>
+                <td bgcolor="#ECEEFF" height="14" class="explaination"><div align="center"><img src="../../../images/tubiao/wt.gif" width="23" height="23" align="absmiddle" alt="思考题"> 
+                    下列二叉树是否也是二叉查找树呢？<br>
+                    <img src="../../../images/pic/chapter09/9_06.gif" width="180" height="135" align="top"></div></td>
+                <td width="15" bgcolor="#ECEEFF" valign="top"><span id="bb"><img border=0 
+                              id=HPFrameHLTab3 
+                              onClick="showHideContent('HPFrameHL');hidden();"
+							   src="../../../images/html/expand.gif" style="CURSOR: hand" width="15" height="14"></span></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <div id=HPFrameHLContent 
+           style="WIDTH: 100%;visibility: hidden;background-color:#ECEEFF" > 
+              <table width="94%" border="0" cellspacing="0" cellpadding="0" align="center">
+                <tr> 
+                  <td class="explaination">　你的结论是&quot;是&quot;还是&quot;否&quot;？<br>
+                    　正确的答案应该是&quot;否&quot;。<br>
+                    　注意定义中强调的是子树中&quot;所有&quot;结点而非仅仅是子树根的值大于或小于根结点的值。因此虽然此二叉树中左子树根的值小于根结点的值，右子树根的值大于根结点的值，且左子树和右子树也都是二叉查找树，但整棵树&quot;不是&quot;二叉查找树。</td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+      </table>
+      <br>
+      <table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td bgcolor="#ECEEFF" height="14" class="explaination" width="8">&nbsp;</td>
+                <td bgcolor="#ECEEFF" height="14" class="explaination"><img src="../../../images/tubiao/wt.gif" width="23" height="23" align="absmiddle" alt="思考题"> 
+                  那么，能否用一个更简单的方法来判别给定的二叉树是否是二叉查找树呢？试从&quot;遍历&quot;的角度考虑问题。</td>
+                <td width="15" bgcolor="#ECEEFF" valign="top"><span id=dd><img border=0 
+                              id=HPFrameDLTab3 
+                              onClick="showHideContent('HPFrameDL');hiddenL();"
+							   src="../../../images/html/expand.gif" style="CURSOR: hand" width="15" height="14"></span></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <div id=HPFrameDLContent 
+           style="WIDTH: 100%;visibility: hidden;background-color:#ECEEFF"> 
+              <table width="94%" border="0" cellspacing="0" cellpadding="0" align="center">
+                <tr> 
+                  <td class="explaination">　对了，我想你一定想到了，对二叉树进行&quot;中序遍历&quot;，如果得到的是一个有序序列，则为二叉查找树，否则就不是。因此二叉查找树实质上是一个&quot;有序表&quot;。</td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

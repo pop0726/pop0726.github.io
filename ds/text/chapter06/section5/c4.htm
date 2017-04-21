@@ -1,0 +1,118 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<script language=JavaScript src="../../chapter02/section1/hpmain.js"></script>
+<script language=JavaScript src="../../chapter02/section1/showhidden.js"></script>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　6.5.3 线索链表的生成</span><br>
+      <br>
+      <img src="../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle" alt="算法"> 
+      <span class="zhushi">算法6.10</span><br>
+      　　<b>void</b> InThreading(BiThrTree p，BiThrTree<b><font face="Times New Roman, Times, serif">&amp;</font></b> pre) <br>
+      　<b>{</b><br>
+      <span class="zhushi">　　<font face="Times New Roman, Times, serif">//</font> 
+      对 p 指向根结点的二叉树进行中序遍历，遍历过程中进行&quot;中序线索<br>
+      　　<font face="Times New Roman, Times, serif">//</font> 化&quot;。若 p 所指结点的左指针为空，则将它改为&quot;左线索&quot;，若 
+      pre<br>
+      　　<font face="Times New Roman, Times, serif">//</font> 所指结点的右指针为空，则将它改为&quot;右线索&quot;。指针 
+      pre 在遍历<br>
+      　　<font face="Times New Roman, Times, serif">//</font> 过程中紧随其后，即始终指向 p 所指结点在中序序列中的前驱。</span><br>
+      　　<b>if</b> (p) <b>{</b><br>
+      　　　InThreading(p-&gt;Lchild, pre);　<font face="Times New Roman, Times, serif">　　　　　　//</font> 
+      对左子树进行线索化<br>
+      <span class="point">　　　<b>if</b> (<b>!</b>p-&gt;Lchild) <br>
+      　　　　<b>{</b> p-&gt;LTag = Thread; p-&gt;Lchild = pre; <b>}</b><font face="Times New Roman, Times, serif">　//</font> 
+      建前驱线索<br>
+      　　　<b>if</b> (<b>!</b>pre-&gt;Rchild)<br>
+      　　　　<b>{</b> pre-&gt;RTag = Thread; pre-&gt;Rchild = p; <b>}</b><font face="Times New Roman, Times, serif">//</font> 
+      建后继线索<br>
+      　　　pre = p;<font face="Times New Roman, Times, serif">　　　　　　　　　　　　　　　　//</font> 
+      保持 pre 指向 p 的前驱</span><br>
+      　　　InThreading(p-&gt;Rchild, pre);　<font face="Times New Roman, Times, serif">　　　　　 
+      //</font> 对右子树进行线索化<br>
+      　　<b>}</b><font face="Times New Roman, Times, serif"> // </font>if<br>
+      　<b>}</b><font face="Times New Roman, Times, serif"> //</font> InThreading<br>
+      <br>
+      <img src="../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle" alt="算法"> 
+      <span class="zhushi">算法6.11</span><br>
+      　　<b>void</b> InOrderThreading(BiThrTree <b><font face="Times New Roman, Times, serif">&amp;</font></b>Thead, BiThrTree BT) 
+      <br>
+      　<b>{</b><br>
+      <span class="zhushi">　　<font face="Times New Roman, Times, serif">//</font> 
+      BT为指向二叉树根结点的指针，由此二叉链表建立二叉树<br>
+      　　<font face="Times New Roman, Times, serif">//</font> 的中序线索链表，Thead 指向线索链表中的头结点。</span><br>
+      　　BiThrTree pre;<br>
+      　　<b>if</b> (<b>!</b>(Thead = <b>new</b> BiThrNode)) <b>exit</b> (1); <font face="Times New Roman, Times, serif">//</font> 
+      存储分配失败<br>
+      　　Thead-&gt;LTag = Link; Thead-&gt;RTag =Thread;　<font face="Times New Roman, Times, serif">//</font> 
+      建头结点<br>
+      　　Thead-&gt;Rchild = Thead;<font face="Times New Roman, Times, serif">　　　　　　　　　//</font> 
+      右指针回指<br>
+      　　<b>if</b> (<b>!</b>BT) Thead-&gt;Lchild = Thead; <font face="Times New Roman, Times, serif">　　　　//</font> 
+      若二叉树空，则左指针回指<br>
+      　　<b>else</b> <b>{</b><br>
+      　　　Thead-&gt;Lchild = BT; pre = Thead;<br>
+      　　　InThreading(BT, pre); <font face="Times New Roman, Times, serif">　　　　　　　　//</font> 
+      中序遍历进行中序线索化<br>
+      　　　pre-&gt;Rchild = Thead; pre-&gt;RTag = Thead;<br>
+      　　　　　　　　　　　　　　　　　<font face="Times New Roman, Times, serif">//</font> 对中序序列中最后一个结点进行线索化<br>
+      　　　Thead-&gt;Rchild = pre; <font face="Times New Roman, Times, serif">　　　　　　　　//</font> 
+      建非空树的头结点的&quot;右线索&quot;<br>
+      　　<b>}</b><font face="Times New Roman, Times, serif"> //</font> else<br>
+      　<b>}</b><font face="Times New Roman, Times, serif"> //</font> InOrderThreading<br>
+    </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      <br>
+      　　请结合上例线索链表建立过程的动画演示 <a href="javascript:;" onClick="MM_openBrWindow('../../../flash/chap06/6-5-2.swf','数据结构','width=400,height=300')"><img src="../../../images/tubiao/dh.gif" alt="动画" width="25" height="24" border="0" align="absmiddle"></a> 
+      理解算法6.11和算法6.10的执行过程。特别注意，遍历过程中指针 p 和 pre 的变化过程。<br>
+      <br>
+      <table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td bgcolor="#ECEEFF" height="14" class="explaination" width="8">&nbsp;</td>
+                <td bgcolor="#ECEEFF" height="14" class="explaination"><img src="../../../images/tubiao/wt.gif" width="23" height="23" align="absmiddle" alt="思考题"> 
+                  建立先序线索链表或后序线索链表的算法和建立中序线索链表的算法有何不同？</td>
+                <td width="15" bgcolor="#ECEEFF" valign="top"><span id="bb"><img border=0 
+                              id=HPFrameHLTab3 
+                              onClick="showHideContent('HPFrameHL');hidden();"
+							   src="../../../images/html/expand.gif" style="CURSOR: hand" width="15" height="14"></span></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <div id=HPFrameHLContent 
+           style="WIDTH: 100%;visibility: hidden;background-color:#ECEEFF" > 
+              <table width="94%" border="0" cellspacing="0" cellpadding="0" align="center">
+                <tr> 
+                  <td class="explaination">　只要将线索化的过程改为先序遍历或后序遍历即可。但由于先序遍历中的&quot;访问&quot;操作在遍历左子树之前进行，由此还需对先序遍历的过程作相应修改。</td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

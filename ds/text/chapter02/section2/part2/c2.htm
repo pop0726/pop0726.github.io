@@ -1,0 +1,64 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　2.2.2 顺序表中基本操作的实现</span><br>
+      <br>
+      <b><span class="zhushi">　一、初始化操作</span></b><br>
+      <br>
+      　　对顺序表而言，&quot;初始化&quot;的实质是<span class="point">为它分配一个&quot;足够应用&quot;的元素存储空间</span>，由用户根据它对线性表的使用要求定义一个最大存储容量 
+      maxsize，并约定当用户没有提出特殊需求(maxsize=0) 时，按予设的最大存储量 MAXLISTSIZE 进行分配。<br>
+      　</td>
+    <td background="../../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      <br>
+      <br>
+      <br>
+      　　由于顺序存储结构需&quot;一次性&quot;地分配一个存储空间，为便于调用环境按实际需要有效利用存储空间，故在顺序表的初始化函数中增设一个&quot;最大存储容量&quot;的参数。 
+    </td>
+    <td background="../../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="explaination"><span class="explaination"><span class="text"><img src="../../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle" alt="算法"> 
+      </span></span></span><b class="part"><span class="zhushi">算法2.4</span></b><span class="explaination"><span class="text"><br>
+      　　</span></span><b>void</b> InitList(SqList <b><font face="Times New Roman, Times, serif">&amp;</font></b>L, <b>int</b> maxsize) 
+      <br>
+      　　<b>{</b><br>
+      　　　<span class="zhushi"><font face="Times New Roman, Times, serif">//</font></span><font face="Times New Roman, Times, serif"><span class="zhushi"></span></font><span class="zhushi"> 
+      构造一个空的线性表 L</span><br>
+      　　　<b>if</b> ( maxsize == 0 ) <br>
+      　　　　　 maxsize = MAXLISTSIZE; <br>
+      　　　L.elem = <b>new</b> ElemType[maxsize]; </td>
+    <td background="../../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">&nbsp;</td>
+    <td background="../../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">　　　<b>if</b> (<b>!</b>L.elem) 　<b>exit</b>(1);　　　 
+      <font face="Times New Roman, Times, serif">//</font> 存储分配失败<br>
+      　　　L.length = 0;　　　　　　　　　<font face="Times New Roman, Times, serif">//</font> 
+      顺序表的初始长度为0<br>
+      　　　L.listsize = maxsize;　　　　　<font face="Times New Roman, Times, serif">//</font> 
+      该顺序表可以存储元素的最大容量<br>
+      　　<b>}</b> <font face="Times New Roman, Times, serif">//</font> InitList<br>
+      <br>
+      　　此算法的<span class="point">时间复杂度</span>为<b class="point"><font face="Times New Roman, Times, serif"><i>O</i> 
+      (1)</font></b>。</td>
+    <td background="../../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"> 
+      　　&quot;存储分配失败&quot;是由于系统资源不足造成的。<br>
+      　　初始化后的顺序表是一个空表，显然表长为0。 </td>
+    <td background="../../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

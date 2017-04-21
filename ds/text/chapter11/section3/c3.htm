@@ -1,0 +1,49 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　11.3.2 B-树</span><br>
+      <br>
+      <span class="zhushi">　二、B树的操作</span><br>
+      <br>
+      　（1）按关键码进行查找<br>
+      　　假设要查找关键码等于 <b>kval </b>的记录，首先将根结点读入内存进行查找，若找到，即找到了该记录所对应的物理记录位置，算法结束；否则沿着指针所指，读入相应子树根结点继续进行查找，直至找到关键码等于kval的索引项或者顺指针找到某个叶子结点，前者可由索引项取得主文件中的记录，后者说明索引文件中不存在关键码等于 
+      kval 的记录。例如，上页图中的两条虚线表示在所示B树上查找关键码分别等于47和25的记录的过程。<br>
+      <br>
+      　（2）插入索引项<br>
+      　　插入是在查找的基础上进行的。若在B树上找到关键码等于 kval 的索引项，则不再进行插入，否则先将关键码等于 kval 的记录插入主文件，然后将索引项插入B树。插入索引项的结点应是查找路径上最后一个非叶结点，如关键码等于25的索引项应插入在上页图所示B树的物理地址为 
+      e 的结点中，由于 m 阶B树结点中的索引项不能超过 m-1，则当插入不能满足这个约定时，要对结点进行&quot;分裂&quot;操作，有时还会产生分裂连续发生直至生成新的根结点为止，如动画所示。<a href="javascript:;" onClick="MM_openBrWindow('../../../flash/chap11/11-3-1.swf','数据结构','width=400,height=300')"><img src="../../../images/tubiao/dh.gif" alt="动画" width="25" height="24" border="0" align="absmiddle"></a><br>
+      <br>
+      　（3）删除索引项<br>
+      　　删除关键码等于 kval 的记录同样也在查找的基础上进行。若在B树上没有找到关键码等于 kval 的索引项，不再进行删除操作，否则只要删除相应索引项即可。和B树的插入操作相反，在B树上删除索引项要受&quot;结点中索引项的个数不得少于<img src="../../../images/pic/chapter11/l1.gif" width="5" height="16" align="absmiddle">m/2<img src="../../../images/pic/chapter11/l2.gif" width="6" height="16" align="absmiddle">-1&quot;的约定，为此有时需进行&quot;合并&quot;结点的操作。</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      　<br>
+      　<br>
+      　<br>
+      　　可见在B树上进行查找是反复进行&quot;访问外存读入结点&quot;和&quot;在结点中进行查找&quot;这两个操作的过程，因此在B树上进行查找的效率取决于B树的深度，即访问外存的次数。可以证明，含N个索引项的 
+      m 阶B树的最大深度为 <br>
+      　　<img src="../../../images/pic/chapter11/gs_1.gif" width="125" height="53" align="absmiddle"> 
+      ；因此，在含N个索引项的 m 阶B树上进行查找访问外存的次数不超过<br>
+      　　<img src="../../../images/pic/chapter11/gs_2.gif" width="123" height="51" align="absmiddle">。<br>
+      <br>
+    </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

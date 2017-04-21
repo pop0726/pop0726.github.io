@@ -1,0 +1,50 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　6.2.2 二叉树的几个特性</span><br>
+      <br>
+      　<span class="zhushi">四、</span>具有n个结点的完全二叉树的深度为 <img src="../../../images/pic/chapter06/l1.gif" width="5" height="16" align="absmiddle">log<sub><font size="1">2</font></sub>n<img src="../../../images/pic/chapter06/l2.gif" width="6" height="16" align="absmiddle">+1。<br>
+      　　假设该完全二叉树的深度为 k，则根据特性二和完全二叉树的定义<br>
+      　　　2<sup>k-1</sup> -1 &lt;n ≤ 2<sup>k</sup> -1 或 2<sup>>k-1</sup> ≤ n &lt; 
+      2<sup>k</sup><br>
+      　　对后者取对数便得 k-1 ≤ log<sub><font size="1">2</font></sub>n &lt; k<br>
+      　　因为k是整数，所以 k=[log<sub><font size="1">2</font></sub>n]+1 。<br>
+      　</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      　不等式 k-1 ≤ log<sub><font size="1">2</font></sub>n &lt; k <br>
+      　表明：<br>
+      　　若 log<sub><font size="1">2</font></sub>n 是整数，则等于 k-1，<br>
+      　　若 log<sub><font size="1">2</font></sub>n 不是整数，则它大于 k-1 而小于 k。<br>
+      　　<img src="../../../images/pic/chapter06/r1.gif" width="5" height="16" align="absmiddle">log<sub><font size="1">2</font></sub>n<img src="../../../images/pic/chapter06/r2.gif" width="6" height="16" align="absmiddle"> 
+      表示仅取 log<sub><font size="1">2</font></sub>n 的整数部分，舍去它的小数部分。<br>
+      　</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">　<span class="zhushi">五、</span>如果对一棵有 n 个结点的完全二叉树（其深度为 
+      <img src="../../../images/pic/chapter06/l1.gif" width="5" height="16" align="absmiddle">log<sub><font size="1">2</font></sub>n<img src="../../../images/pic/chapter06/l2.gif" width="6" height="16" align="absmiddle">+1）的结点按层序（从第1层到第 
+      <img src="../../../images/pic/chapter06/l1.gif" width="5" height="16" align="absmiddle">log<sub><font size="1">2</font></sub>n<img src="../../../images/pic/chapter06/l2.gif" width="6" height="16" align="absmiddle">+1 
+      层，每层从左到右）从1起开始编号，则对任一编号为 i 的结点(1≤i≤n)，有<br>
+      　(1) 如果 i=1，则编号为 i 的结点是二叉树的根，无双亲；如果 i&gt;1，则其双亲结点 parent(i) 的编号是 <img src="../../../images/pic/chapter06/l1.gif" width="5" height="16" align="absmiddle">i/2<img src="../../../images/pic/chapter06/l2.gif" width="6" height="16" align="absmiddle">。<br>
+      　(2) 如果 2i&gt;n，则编号为 i 的结点无左孩子（编号为 i 的结点为叶子结点）；否则其左孩子结点 lChild(i) 的编号是 2i 
+      。<br>
+      　(3) 如果 2i+1&gt;n，则编号为 i 的结点无右孩子；否则其右孩子结点 rChild(i) 的编号是结点 2i+1。<br>
+      　　在此省略这个性质的证明，读者可以从图直观验证这个结果。<br>
+    </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　<img src="../../../images/pic/chapter06/6_05.gif" width="250" height="167" align="top"></td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

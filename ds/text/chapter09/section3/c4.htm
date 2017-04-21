@@ -1,0 +1,68 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+<script language="JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　9.3.2 二叉查找树</span><br>
+      <br>
+      <span class="zhushi">　三、二叉查找树的插入算法</span><br>
+      <br>
+      　　对于动态查找表，在查找不成功时尚需进行插入，即当二叉查找树中不存在其关键字等于给定值的结点时，需插入一个关键字定于给定值的数据元素。<br>
+      <br>
+      　　实际上，二叉查找树结构本身正是从空树开始逐个插入生成的。插入的原则为：若二叉查找树为<b>空树</b>，则插入的结点为<b>新的根结点</b>；否则，插入的结点必为一个<b>新的叶子结点</b>，其<b>插入位置</b>由查找过程确定。例如，若给定值序列为 
+      { 50,30,40,80,20,36,90,40,38 }，从空树起，逐个插入后构成的二叉查找树如右所示。<br>
+      <br>
+      　　插入算法如下所示。<br>
+      <br>
+      <img src="../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle" alt="算法"> 
+      <span class="zhushi">算法 9.6</span><br>
+      　　<b>bool</b> Insert BST(BiTree <b><font face="Times New Roman, Times, serif">&amp;</font></b>T, ElemType e ) <br>
+      　<b>{</b><br>
+      <span class="zhushi">　　<font face="Times New Roman, Times, serif">//</font> 
+      当二叉查找树T中不存在关键字等于 e.key 的数据元素时，<br>
+      　　<font face="Times New Roman, Times, serif">//</font> 插入 e 并返回 TRUE，否则返回 
+      FALSE</span><br>
+      　　<b>if</b> (<b>!</b>SearchBST ( T, e.key, NULL, p ) <b>{</b> <font face="Times New Roman, Times, serif">//</font> 
+      查找不成功<br>
+      　　　s = <b>new</b> BiTNode;<br>
+      　　　if (!s) exit(1);　　　　　　　　　　 <font face="Times New Roman, Times, serif">//</font> 
+      存储分配失败<br>
+      　　　s-&gt;data = e; s-&gt;lchild = s-&gt;rchild = <b>NULL</b>; <br>
+      <span class="point">　　　<b>if</b> ( <b>!</b>p ) T = s; <font face="Times New Roman, Times, serif">　　　　　　　　　//</font> 
+      插入 *s 为新的根结点<br>
+      　　　<b>else if</b> ( e.key &lt; p-&gt;data.key ) <br>
+      　　　　p-&gt;lchild = s;　　　　　　　　　　<font face="Times New Roman, Times, serif"> 
+      //</font> 插入 *s 为 *p 的左孩子<br>
+      　　　<b>else</b> p-&gt;rchild = s; <font face="Times New Roman, Times, serif">　　　　　　　 
+      //</font> 插入 *s 为 *p 的右孩子</span><br>
+      　　　<b>return TRUE</b>;<br>
+      　　<b>} </b><font face="Times New Roman, Times, serif">// </font>if<br>
+      　　<b>else return FALSE</b>; <font face="Times New Roman, Times, serif">　　　//</font> 
+      树中已有关键字相同的结点，不再插入<br>
+      　<b>}</b><font face="Times New Roman, Times, serif"> //</font> Insert BST</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      <br>
+      　<a href="javascript:;" onClick="MM_openBrWindow('../../../flash/chap09/9-3-3.swf','数据结构','width=400,height=300')"><img src="../../../images/tubiao/dh.gif" alt="动画" width="25" height="24" border="0"></a>　<img src="../../../images/pic/chapter09/9_09.gif" width="203" height="127" align="top"><br>
+      <br>
+      　 <br>
+      <br>
+      　　上面曾提及，由于对二叉查找树进行中序遍历得到的是一个有序序列，所以二叉查找树实质上是一个有序表。则由上述插入过程可见，可以通过生成一棵二叉查找树将一个&quot;无序序列&quot;变为一个&quot;有序序列&quot;，由此二叉查找树又称&quot;二叉排序树&quot;。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

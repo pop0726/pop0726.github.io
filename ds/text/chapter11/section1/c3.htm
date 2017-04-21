@@ -1,0 +1,48 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　11.1.2 有关文件的基本概念<br>
+      </span><br>
+      　　<span class="part">文件(File)</span>是由大量性质相同的记录组成的集合。可按记录的不同类型分为操作系统的文件和数据库的文件两类。<br>
+      <br>
+      　　操作系统中的文件仅是一维的连续字符序列，无结构、无解释。<br>
+      <br>
+      　　数据库中的文件是带有结构的记录的集合，此类记录由一个或多个&quot;<span class="point">数据项</span>&quot;组成，记录中能唯一确定(或识别)一个记录的数据项或数据项的组合，称为&quot;<span class="point">关键码</span>&quot;。若文件所含记录具有相同类型而且长度相等，则称&quot;<span class="point">定长文件</span>&quot;，反之，若文件中各记录的类型不同，或者类型相同而长度不等，则称为&quot;非定长文件&quot;或&quot;<span class="point">变长文件</span>&quot;。<br>
+      <br>
+      　　上述文件中的记录称为&quot;<span class="point">逻辑记录</span>&quot;，它是用户表示和存取信息的单位，&quot;<span class="point">物理记录</span>&quot;则指外存信息存取的单位(即一个页块内的信息)。在物理记录和逻辑记录之间可能存在下列三种关系：(1) 
+      一个物理记录存放一个逻辑记录；(2) 一个物理记录包含多个逻辑记录；(3) 多个物理记录表示一个逻辑记录。<br>
+      <br>
+      　　文件的操作有两类：<span class="point">检索</span>和<span class="point">修改</span>。<br>
+      <br>
+      　　检索可有三种方式：按记录的逻辑顺序号进行顺序存取或直接存取以及按关键码进行存取。按关键码进行存取时，可查询关键码等于给定值的记录，或查询关键码属某个区域的记录，或以关键码的某个函数作为查询条件，甚至可以根据多种条件的组合进行查询。<br>
+      <br>
+      　　修改则包括插入记录、删除记录或更新记录的某些数据项。 文件操作的方式可有联机(实时)随机处理和批处理两种。<br>
+      <br>
+      　　文件的<b>存储结构</b>指的是文件在外存储器中的不同组织方法：<br>
+      <br>
+      　　(1) <span class="point">顺序结构</span>。记录在外存储器中的存放顺序与记录在文件中的逻辑顺序完全一致，称按这种存储方式组织的文件为&quot;顺序文件&quot;。<br>
+      <br>
+      　　(2) <span class="point">计算寻址结构</span>。类似于哈希表，记录在外存储器中的存储位置由选定的哈希函数和处理冲突的方法确定。称按这种存储方式组织的文件为&quot;散列文件&quot;或&quot;直接存取文件&quot;。<br>
+      <br>
+      　　(3) <span class="point">索引结构</span>。为顺序文件中的每个记录建立一个索引项(由记录的关键码和记录的存储位置两项组成)，所有记录的索引项构成一个索引，由索引和顺序文件构成的文件为索引文件，若顺序文件中记录按关键码有序，则为索引顺序文件。 
+      <br>
+      <br>
+      　　(4) <span class="point">表结构</span>。类似于线性表的链表存储结构，记录之间利用&quot;指针&quot;进行相互链接。在此，&quot;指针&quot;通常指的是页块的物理地址。<br>
+      <br>
+      　　文件组织采用什么样的组织方式取决于对文件进行哪些操作和采用何种外存储介质。<br>
+    </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">&nbsp;</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

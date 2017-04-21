@@ -1,0 +1,47 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　5.2.2 稀疏矩阵的压缩存储方法</span><br>
+      <br>
+      <span class="zhushi">　一、三元组顺序表</span><br>
+      <br>
+      <img src="../../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle" alt="算法"> 
+      <span class="zhushi">稀疏矩阵的三元组顺序表的结构定义</span><br>
+      　　const MAXTERMS=12500;　　　　　 <font face="Times New Roman, Times, serif">//</font> 
+      假设非零元个数的最大值为12500<br>
+      　　<b>typedef struct {</b><br>
+      　　　<b>int</b> i, j; <font face="Times New Roman, Times, serif">　　　　　　　　　//</font> 
+      该非零元的行号和列号<br>
+      　　　ElemType e; <font face="Times New Roman, Times, serif">　　　　　　　　//</font> 
+      该非零元的值<br>
+      　　<b>}</b> Triple; <font face="Times New Roman, Times, serif">　　　　　　　　　　//</font> 
+      三元组<br>
+      　　<b>typedef struct {</b><br>
+      　　　Triple data[MAXTERMS + 1]; 　<font face="Times New Roman, Times, serif">//</font> 
+      非零元三元组表，data[0] 未用<br>
+      　　　<b>int</b> rows, cols, terms;　　　<font face="Times New Roman, Times, serif">//</font> 
+      矩阵的行数、列数和非零元的个数<br>
+      　　<b>}</b> TSMatrix;<font face="Times New Roman, Times, serif">　　　　　　　　　//</font> 
+      三元组顺序表</td>
+    <td background="../../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      <br>
+      　　以顺序存储结构作为三元组线性表的存储结构，由此得到的稀疏矩阵的一种压缩存储方法，称之谓三元组顺序表。<br>
+      <br>
+      　　显然，在三元组顺序表中容易从给定的行列号(i,j)找到对应的矩阵元。首先按行号 i 在顺序表中进行&quot;有序&quot;搜索,找到相同的 
+      i 之后再按列号进行有序搜索，若在三元组顺序表中找到行号和列号都和给定值相同的元素，则其中的非零元值即为所求，否则为矩阵中的零元。<br>
+      <br>
+      　　同一行的下一个非零元即为顺序表中的后继，搜索同一列中下一个非零元稍微麻烦些，但由于顺序表是以行号为主序有序的，则在依次搜索过程中遇到的下一个列号相同的元素即为同一列的下一个非零元。</td>
+    <td background="../../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

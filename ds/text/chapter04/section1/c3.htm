@@ -1,0 +1,64 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+<script language="JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><br>
+      <img src="../../../images/tubiao/cxd.gif" width="25" height="24" alt="算法" align="absmiddle"> 
+      <span class="zhushi">算法4.2</span><br>
+      　　<b>void</b> replace(String<b><font face="Times New Roman, Times, serif">&amp;</font></b> S, String T, String V)<br>
+      　<b>{</b><br>
+      <span class="zhushi">　　<font face="Times New Roman, Times, serif">//</font> 
+      以串V替代串S中出现的所有和串T相同的子串</span><br>
+      　　n=StrLength(S); m=StrLength(T); pos = 1;<br>
+      　　StrAssign(news, NullStr);　　　　　<font face="Times New Roman, Times, serif">//</font> 
+      初始化 news 串为空串<br>
+      　　i=1;<br>
+      　　<b>while</b> ( pos &lt;= n-m+1 <b><font face="Times New Roman, Times, serif">&amp;&amp;</font></b> i )<br>
+      　　<b>{</b><br>
+      　　　i=Index(S, T, pos);　　　　　　　<font face="Times New Roman, Times, serif">//</font> 
+      从pos指示位置起查找串T<br>
+      　　　<b>if</b> (i!=0) <b>{</b><br>
+      　　　　SubString(<span class="point">sub</span>, S, pos, i-pos); <font face="Times New Roman, Times, serif">//</font> 
+      不置换子串<br>
+      　　　　Concat(<span class="point">news</span>, news, sub); <font face="Times New Roman, Times, serif">　　　//</font> 
+      联接S串中不被置换部分<br>
+      　　　　Concat(news,news, V);　<font face="Times New Roman, Times, serif">　　　　//</font> 
+      联接V串<br>
+      　　　　pos = i+m; 　　　　　　　　　　<font face="Times New Roman, Times, serif">//</font> 
+      pos 移至继续查询的起始位置<br>
+      　　　<b>} </b><font face="Times New Roman, Times, serif">// </font>if<br>
+      　　<b>}</b><font face="Times New Roman, Times, serif"> // </font>while<br>
+      　　SubString(<span class="point">sub</span>, S, pos, n-pos+1); <font face="Times New Roman, Times, serif">　//</font> 
+      剩余串<br>
+      　　Concat( <span class="point">S</span>, news, sub );　<font face="Times New Roman, Times, serif">　　　　 
+      //</font> 联接剩余子串并将新的串赋给S<br>
+      　<b>}</b></td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      　　实现&quot;置换&quot;操作的基本思想为：由S和V生成一个新的串 news。首先将它初始化为一个空串，然后重复下列两步直至&quot;查找不成功&quot;为止：<br>
+      　1) 自 pos 位置起在串S中查找和T相同的子串；<br>
+      　2) 将S中不被置换的子串（即从 pos 起到和T相同子串在S中的位置之前的字符序列）和V相继联接到news 串上。<br>
+      <br>
+      　　最后尚需将S中不被置换的字符序列联接到 news 串中，并将所得的新串赋给串 S。<a href="javascript:;" onClick="MM_openBrWindow('../../../flash/chap04/4-1-2.swf','数据结构','width=400,height=300')"><img src="../../../images/tubiao/dh.gif" alt="动画" width="25" height="24" border="0" align="absmiddle"></a><br>
+      <br>
+      　　这里要注意的是，语句 Concat(news,news,V)<br>
+      的前提是不破坏V串。即在利用高级语言实现此算法时应注意看请语言使用手册中的说明。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

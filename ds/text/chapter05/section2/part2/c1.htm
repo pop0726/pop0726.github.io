@@ -1,0 +1,43 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　5.2.2 稀疏矩阵的压缩存储方法</span><br>
+      <br>
+      <span class="zhushi">　二、行逻辑链接的顺序表</span><br>
+      <br>
+      <img src="../../../../images/tubiao/cxd.gif" width="25" height="24" alt="算法" align="absmiddle"> 
+      <span class="zhushi">行逻辑链接的三元组顺序表的结构定义</span><br>
+      　　<b>const</b> MAXMN = 500; <font face="Times New Roman, Times, serif">　　　　　 
+      //</font> 矩阵行数和列数的最大值<br>
+      　　<b>const</b> MAXTERMS=12500;　　　　　<font face="Times New Roman, Times, serif">//</font> 
+      假设非零元个数的最大值为12500<br>
+      　　<b>typedef struct</b> <b>{</b><br>
+      　　　Triple data[MAXSIZE + 1]; <font face="Times New Roman, Times, serif">　 
+      //</font> 非零元三元组表，data[0] 未用<br>
+      　　　<b>int</b> rpos[MAXMN + 2];<font face="Times New Roman, Times, serif">　　　　//</font> 
+      指示各行第一个非零元在data中的位置<br>
+      　　　<b>int</b> rows, cols, terms;<font face="Times New Roman, Times, serif">　　　//</font> 
+      矩阵的行数、列数和非零元的个数<br>
+      　　<b>}</b> RLSMatrix; <font face="Times New Roman, Times, serif">　　　　　　　　//</font> 
+      行逻辑链接顺序表 
+      <p> 　　以下讨论行逻辑链接顺序表的两个算法。</p>
+    </td>
+    <td background="../../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      <br>
+      　　由于三元组顺序表以行序为主序存放矩阵的非零元，则为取得第i行的非零元，必须从第一个元素起进行搜索查询。而从上页讨论的矩阵转置算法可见，在算法过程中计算得到的 
+      rpos[M.cols+1] 中的值实际上起到了一个&quot;指示矩阵中每一行的第一个非零元在三元组表中的序号&quot;的作用，因此如果在建立稀疏矩阵的三元组顺序表的同时将这个信息固定在存储结构中，将便于随机存取稀疏矩阵中任意一行的非零元。可将 
+      rpos 中的值视作指向每一行第一个非零元的指针，故称这种表示方法为&quot;行逻辑链接&quot;的顺序表。</td>
+    <td background="../../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

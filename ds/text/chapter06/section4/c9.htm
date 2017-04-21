@@ -1,0 +1,132 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+<script language="JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　6.4.2 二叉树其它操作算法举例</span><br>
+      <br>
+      <span class="zhushi">　六、建表达式的二叉树</span><br>
+      <br>
+      　　由此，按原表达式建二叉链表算法的基本思想为：<br>
+      <br>
+      <span class="point">　　<b>if</b> (<b>当前识别的字符 </b>ch 是操作数)<br>
+      　　　<b>{</b> 建叶子结点; 暂存; <b>}</b><br>
+      　　<b>else if</b> (当前识别的字符ch是运算符)<br>
+      　　　<b>{ </b><br>
+      　　　　和前一个运算符比较优先数;<br>
+      　　　　若当前的优先数&quot;高&quot;，则暂存;<br>
+      　　　　否则以前一运算符为根建立一棵新的子树(最近建立的<br>
+      　　　　　　两棵子树分别为它的左右子树)并暂存;<br>
+      　　　<b>}</b></span><br>
+      <br>
+      　　<span class="point">显然，在这个算法中需要两个栈，一个是运算符栈，其作用和表达式转换为后缀式的算法中相同，另一个是暂存&quot;已经建好的子树根的指针&quot;栈。</span><br>
+      　<br>
+    </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      <img src="../../../images/tubiao/lt.gif" width="28" height="27" align="absmiddle" alt="例题"> 
+      <b>例一</b><br>
+      　　　原表达式：a × b / c × d - e + f<br>
+      　　　后 缀 式：a b × c / d × e - f +<br>
+      　　由于'×'&quot;领先&quot;于'/'，则'×'和分别先建好的左右子树(操作数a和b)构成一个子树，又由于'/'&quot;领先&quot;于在它之后出现的'×'，则(a×b)就成为'/'的左子树，而由操作数 
+      c 建成的叶子是它的右子树，依次类推，最后建成下列二叉树。<br>
+      　　<img src="../../../images/pic/chapter06/6_15.gif" width="200" height="208" align="top"><br>
+      <img src="../../../images/tubiao/lt.gif" width="28" height="27" align="absmiddle" alt="例题"> 
+      <b>例二</b><br>
+      　　　原表达式：a + b × c - d / e × f<br>
+      　　　后 缀 式：a b c × + d e / f × - <br>
+      　　同理，由于'×'&quot;领先&quot;于'+'，则'×'和分别先建好的左右子树(操作数b和c)构成一个子树，又由于'+'&quot;领先&quot;于在它之后出现的'-'，则(a×b)就成为'+' 
+      的右子树，而由操作数a建成的叶子是它的左子树，依次类推，最后建成下列二叉树。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><img src="../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle"> 
+      <span class="zhushi">算法6.8</span><br>
+      　　BiTree CrtExptree( char* exp )<br>
+      　<b>{</b><br>
+      <span class="zhushi">　　<font face="Times New Roman, Times, serif">//</font> 
+      建立由合法的表达式字符串 exp 确定的只含二元运算符的 <br>
+      　　<font face="Times New Roman, Times, serif">//</font> 非空表达式树，返回其存储结构二叉链表的根结点指针</span><br>
+      　　InitStack(S); Push(S,'#'); <font face="Times New Roman, Times, serif">//</font> 
+      S为暂存运算符的栈<br>
+      　　InitStack(PTRS);<font face="Times New Roman, Times, serif">　　　　　//</font> 
+      PTRS为暂存子树根指针的栈<br>
+      　　p=exp; ch=*p;<br>
+      　　<b>while</b>(<strong>!</strong>(GetTop(S)=='#'<strong>&amp;&amp;</strong> 
+      ch=='#'))<br>
+      　　<b>{</b><br>
+      　　　<b>if</b> (!IN(ch,OP)) CrtNode( t, ch ); <font face="Times New Roman, Times, serif">　//</font> 
+      建叶子结点<br>
+      　　　<b>else {</b><br>
+      　　　　<b>switch</b> (ch) <b>{</b><br>
+      　　　　　case'(': Push(S, ch); <b>break</b>;<br>
+      　　　　　<b>case</b>')': <b>{</b><br>
+      　　　　　　Pop(S,c);<br>
+      　　　　　　<b>while</b> (c!='(')<br>
+      　　　　　　<b>{</b> CrtSubtree(t,c); Pop(S,c);<b>}</b> <font face="Times New Roman, Times, serif">//</font> 
+      建子树直至运算符的栈顶为'('<br>
+      　　　　　　<b>break</b>;<br>
+      　　　　　<b>}</b><br>
+      　　　　　<b>defult:{</b><br>
+      　　　　　　<b>while</b> (!GetTop(S,c) <b><font face="Times New Roman, Times, serif">&amp;&amp;</font></b> (precede(c,ch)))<br>
+      　　　　　　<b>{</b> CrtSubtree(t,c); Pop(S,c);}<br>
+      　　　　　　　　　　　　　　　　<font face="Times New Roman, Times, serif">//</font> 建子树直至运算符栈顶运算符的优先数低<br>
+      　　　　　　<b>if</b> ( ch !='#') Push( S,ch);<br>
+      　　　　　　<b>break;</b><br>
+      　　　　　<b>} </b><font face="Times New Roman, Times, serif">//</font> defult<br>
+      　　　　<b>} </b><font face="Times New Roman, Times, serif">//</font> switch<br>
+      　　　<b>} </b><font face="Times New Roman, Times, serif">//</font> else<br>
+      　　　<b>if</b> (ch !='#') <b>{</b> p++; ch = *p; <b>}</b><br>
+      　　<b>}</b><font face="Times New Roman, Times, serif"> //</font> while<br>
+      　　Pop(S, c); Pop( PTRS, t ); <br>
+      　　DestroyStack(S); DestroyStack(PTRS);<br>
+      　　<b>return</b> t;<br>
+      　<b>} </b><font face="Times New Roman, Times, serif">//</font> CrtExptree 
+      <br>
+      <br>
+      　　算法的执行过程如动画所示。<a href="javascript:;" onClick="MM_openBrWindow('../../../flash/chap06/6-4-7.swf','','width=400,height=300')"><img src="../../../images/tubiao/dh.gif" width="25" height="24" align="absmiddle" border="0"></a></td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　　<img src="../../../images/pic/chapter06/6_16.gif" width="200" height="200" align="top"><br>
+      　<br>
+      　OP为运算符和括弧的集合，IN(ch,OP) 为 &quot;FALSE&quot; 时表示 ch 为操作数。<br>
+      <br>
+      <img src="../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle"> 
+      其中建叶子结点的算法为：<br>
+      　<b>void</b> CrtNode(BiTree<b><font face="Times New Roman, Times, serif">&amp;</font></b> T,<b>char</b> ch)<br>
+      <b>{</b><br>
+      　<b>if</b> (!(T= <b>new</b> BiTNode)) <br>
+      　　<b>exit</b>(OVERFLOW);<br>
+      　T-&gt;data = char;<br>
+      　T-&gt;Lchild = T-&gt;Rchild = NULL;<br>
+      　<b>Push(PTR,T);</b><br>
+      <b>}</b><br>
+      <br>
+      <img src="../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle"> 
+      建子树的算法为：<br>
+      <b>　void</b> CrtSubtree (Bitree<b><font face="Times New Roman, Times, serif">&amp;</font></b> T,<b>char</b> c)<br>
+      <b>{</b><br>
+      　if (!(T= new BiTNode)) <br>
+      　　exit(OVERFLOW);<br>
+      　T-&gt;data = c;<br>
+      　Pop(PTR, rc); T-&gt;Rchild = rc;<br>
+      　Pop(PTR, lc); T-&gt;Lchild = lc;<br>
+      　<strong>Push(PTR, T);</strong><b>}</b></td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

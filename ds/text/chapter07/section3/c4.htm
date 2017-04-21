@@ -1,0 +1,69 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　7.3.2 广度优先搜索遍历图</span><br>
+      <br>
+      <img src="../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle"> 
+      <span class="zhushi">算法 7.5</span><br>
+      　　<b>void</b> BFSTraverse(MGraph G) <br>
+      　<b>{</b><br>
+      <span class="zhushi">　　<font face="Times New Roman, Times, serif">//</font> 
+      对以数组存储表示的图G进行广度优先搜索遍历</span><br>
+      　　<b>bool</b> visited[G.vexnum];　<font face="Times New Roman, Times, serif">　　　　　　　　　　//</font> 
+      附设访问标识数组<br>
+      　　Queue Q;<font face="Times New Roman, Times, serif">　　　　　　　　　　　　　　　　　　//</font> 
+      附设队列 Q<br>
+      　　<b>for</b> (v=0; v&lt;G.vexnum; ++v) visited[v] = <b>FALSE</b>;<br>
+      　　InitQueue(Q，G.vexnum);<font face="Times New Roman, Times, serif">　　　　　　　　　　　//</font> 
+      设置空队列 Q<br>
+      　　<b>for</b> ( v=0; v&lt;G.vexnum; ++v )<br>
+      　　　<b>if</b> ( <b>!</b>visited[v]) <br>
+      　　　<b>{</b> <font face="Times New Roman, Times, serif">　　　　　　　　//</font> 
+      从每一个未被访问的顶点出发进行广度优先搜索</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　<br>
+      　<br>
+      　　由于广度优先搜索遍历要求先被访问的顶点的邻接点也先于后被访问的顶点的邻接点进行访问，因此在遍历过程中需要一个队列保存被访问顶点的次序，以便按照已被访问过的顶点的访问次序先后访问它们的未曾被访问过的邻接点。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">　　　　visited[v] = <b>TRUE</b>; VisitFunc(G.vexs[v]);　<font face="Times New Roman, Times, serif">//</font> 
+      访问图中第 v 个顶点<br>
+      　　　　EnQueue(Q, v); <font face="Times New Roman, Times, serif">　　　　　　　　　　　　　//</font> 
+      v 入队列<br>
+      　　　　<b>while</b> (<b>!</b>QueueEmpty(Q)) <b>{</b><br>
+      　　　　　DeQueue(Q, u); <font face="Times New Roman, Times, serif">　　　　　　　　　　　　//</font> 
+      队头元素出队并置为 u<br>
+      　　　　　<b>for</b> ( w=0; w&lt;G.vexnum; w++; )<br>
+      　　　　　　<b>if</b> ( G.arcs[u, w].adj <b><font face="Times New Roman, Times, serif">&amp;&amp;</font></b> <b>!</b> visited[w] 
+      ) <b>{</b><br>
+      　　　　　　　visited[w] = <b>TRUE</b>; VisitFunc(w);　　<font face="Times New Roman, Times, serif">//</font> 
+      访问图中第 w 个顶点<br>
+      　　　　　　　EnQueue(Q, w); <font face="Times New Roman, Times, serif">　　　　　　　　//</font> 
+      当前访问的顶点 w 入队列 Q<br>
+      　　　　　<b>}</b><font face="Times New Roman, Times, serif"> // </font>if<br>
+      　　　　<b>}</b><font face="Times New Roman, Times, serif"> // </font>while<br>
+      　　　<b>}</b><font face="Times New Roman, Times, serif"> // </font>if<br>
+      　　DestroyQueue(Q);<br>
+      　<b>}</b><font face="Times New Roman, Times, serif"> // </font>BFSTraverse</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　　第 
+      u 个顶点的邻接点应该是邻接矩阵中第 u 行的非零元所在的列号。<br>
+      <br>
+      　　由于队列中保存的是已被访问过的顶点，则待队列变空时说明所有已被访问的顶点的邻接点也都已经被访问过了。<br>
+      <br>
+      　　遍历图的过程实质上是通过边或弧找邻接点的过程，其消耗时间取决于所采用的存储结构，因此若采用同样的存储结构，广度优先遍历的时间复杂度和深度优先遍历相同，由于算法7.5中的存储结构为邻接矩阵，因此算法7.5的时间复杂度为<b><i><font face="Times New Roman, Times, serif">O</font></i></b>(n<sup><font size="1">2</font></sup>)。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

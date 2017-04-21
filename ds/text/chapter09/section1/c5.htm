@@ -1,0 +1,106 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+<script language="JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<script language=JavaScript src="../../chapter02/section1/hpmain.js"></script>
+<script language=JavaScript src="../../chapter02/section1/showhidden.js"></script>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　9.2.4 索引顺序表-静态查找表的实现方法之三</span><br>
+      <br>
+      　　和顺序表类似，以顺序存储结构的线性表存储静态查找表中的记录，但和顺序表又有所不同，要求线性表中的记录按关键字&quot;分段有序&quot;(如右图所示，称它为&quot;分块有序表&quot;)，并在建立这个&quot;分段有序&quot;的顺序表的同时，另建一个&quot;索引&quot;，索引为&quot;索引项&quot;的有序表，而每个索引项则由各分段的&quot;最大关键字&quot;和&quot;起始序号&quot;组成，由&quot;分块有序表&quot;和相应的&quot;索引&quot;构成一个&quot;<span class="point">索引顺序表</span>&quot;，也是静态查找表的一种实现方法。<br>
+      <br>
+      　　在索引顺序表中进行查找的过程为：首先在索引表中进行折半或顺序查找，以确定待查关键字在分块有序表中所在&quot;块&quot;，然后在&quot;块&quot;中进行顺序查找。这种查找方法被称为&quot;<span class="point">索引顺序查找</span>&quot;或&quot;<span class="point">分块查找</span>&quot;。<br>
+      <br>
+      　　例如右图所示例，当给定值为25时，由于21&lt;25&lt;40，则在索引中进行查找后得知，若顺序表中存在关键字等于给定值的数据元素，必在从&quot;5&quot;开始的区段中，由此给定值先后和顺序表中的关键字&quot;31&quot;，&quot;33&quot;，&quot;22&quot;和&quot;25&quot;进行比较直至查找成功。若给定值为66，类似地，由在索引中的查找确定若存在必在顺序表的第3块中，即在顺序表中进行顺序查找的范围是从&quot;10&quot;至&quot;13&quot;，显然，由于该块中的四个关键字均不等于给定值，由此查找不成功。可见，索引顺序查找也是一种&quot;缩小查找范围&quot;的查找方法。<br>
+      <br>
+      　　在索引顺序表中进行索引顺序查找的平均查找长度为查找索引的平均查找长度 <img src="../../../images/pic/chapter09/lb.gif" width="14" height="17" align="absmiddle"> 
+      和在顺序表中进行顺序查找的平均查找长度 Lw 之和。假设顺序表的表长为 n，并均匀地分成 b 块，设每块长度为 s，即 b=<img src="../../../images/pic/chapter11/l1.gif" width="5" height="16" align="absmiddle">n/s<img src="../../../images/pic/chapter11/l2.gif" width="6" height="16" align="absmiddle">，则在等概率查找并顺序查找索引的情况下，索引顺序查找的平均查找长度<br>
+      　　　<img src="../../../images/pic/chapter09/gs_10.gif" width="318" height="44"><br>
+      　 <br>
+      　　和前两节讨论的顺序表和有序表相比较，以索引顺序表表示静态查找表的优缺点是什么呢？<br>
+      <br>
+      　　容易看出，它的平均查找长度介于顺序表和有序表之间，其表的结构比较灵活，例如，存储记录的线性表可以采用链式存储结构，且整个表不需要有序，可便于插入和删除；又如索引顺序表中的&quot;索引&quot;不一定按&quot;块内最大值&quot;建立，而是可以根据静态查找表的特点建立&quot;分类索引&quot;；再如在查找表的记录数众多时还可建立&quot;多层索引&quot;等。 
+    </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      <a href="javascript:;" onClick="MM_openBrWindow('../../../flash/chap09/9-2-4.swf','数据结构','width=400,height=300')"><img src="../../../images/tubiao/dh.gif" alt="动画" width="25" height="24" border="0"></a><img src="../../../images/pic/chapter08/8_j7.gif" width="250" height="188" align="top"><br>
+      <br>
+      <table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td bgcolor="#ECEEFF" height="14" class="explaination" width="8">&nbsp;</td>
+                <td bgcolor="#ECEEFF" height="14" class="explaination"><img src="../../../images/tubiao/wt.gif" width="23" height="23" align="absmiddle" alt="思考题"> 
+                  如上所述索引顺序表必须是&quot;分段有序&quot;的，即其索引为有序表，那么如何保证它满足这个特性呢？</td>
+                <td width="15" bgcolor="#ECEEFF" valign="top"><span id="bb"><img border=0 
+                              id=HPFrameHLTab3 
+                              onClick="showHideContent('HPFrameHL');hidden();"
+							   src="../../../images/html/expand.gif" style="CURSOR: hand" width="15" height="14"></span></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <div id=HPFrameHLContent 
+           style="WIDTH: 100%;visibility: hidden;background-color:#ECEEFF" > 
+              <table width="94%" border="0" cellspacing="0" cellpadding="0" align="center">
+                <tr> 
+                  <td class="explaination">　实际上，索引顺序表是人为构造的，也就是说，是按照静态查找表中的关键字建立起来的，因此在建表之前首先应分析查找表中关键字的范围，确定各分段的索引项，然后&quot;逐个插入&quot;建立索引顺序表。　　</td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+      </table>
+      <br>
+      <table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td bgcolor="#ECEEFF" height="14" class="explaination" width="8">&nbsp;</td>
+                <td bgcolor="#ECEEFF" height="14" class="explaination"><img src="../../../images/tubiao/wt.gif" width="23" height="23" align="absmiddle" alt="思考题"> 
+                  你能否举出一个&quot;分类索引&quot;的例子？</td>
+                <td width="15" bgcolor="#ECEEFF" valign="top"><span id=dd><img border=0 
+                              id=HPFrameDLTab3 
+                              onClick="showHideContent('HPFrameDL');hiddenL();"
+							   src="../../../images/html/expand.gif" style="CURSOR: hand" width="15" height="14"></span></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <div id=HPFrameDLContent 
+           style="WIDTH: 100%;visibility: hidden;background-color:#ECEEFF"> 
+              <table width="94%" border="0" cellspacing="0" cellpadding="0" align="center">
+                <tr> 
+                  <td class="explaination">　例如，一个含全校学生的查找表首先可按系分类，每个系内按年级分类，年级内则按班分类。</td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

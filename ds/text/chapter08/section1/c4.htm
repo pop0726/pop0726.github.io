@@ -1,0 +1,58 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><br>
+      　　由于广义表中的数据元素可以是原子，也可以是广义表，显然难以用顺序存储结构表示之，并且为了在存储结构中便于分辩原子和子表，令表示广义表的链表中的结点为&quot;异构&quot;结点，如右侧图所示， 
+      结点中设有一个&quot;标志域tag&quot;， 并约定 tag=0 表示原子结点，tag=1 表示表结点。原子结点中的 data 域存储原子，表结点中指针域的两个值分别指向表头和表尾。用C语言描述上述广义表的结点结构如下：<br>
+      <br>
+      <span class="zhushi">　　<font face="Times New Roman, Times, serif">//</font> 
+      广义表的存储表示 </span><br>
+      　　<b>typedef</b> enum <b>{</b>ATOM<span class="point">=0</span>, LIST<span class="point">=1</span><b>}</b> 
+      ElemTag; <br>
+      　　　　　　　　　　　　　　　　 <font face="Times New Roman, Times, serif">//</font> ATOM(=<span class="point">0)标志</span>原子，LIST(=<span class="point">1)标志</span>子表<br>
+      　　<b>typedef struct</b> GLNode <b>{</b><br>
+      　　　ElemTag tag; <font face="Times New Roman, Times, serif">　　　　　　//</font> 
+      公共部分，用于区分原子结点和表结点<br>
+      　　　<b>union</b> <b>{</b> <font face="Times New Roman, Times, serif">　　　　　　　　//</font> 
+      原子结点和表结点的联合部分<br>
+      　　　　AtomType data; <font face="Times New Roman, Times, serif">　　　　//</font> 
+      data是原子结点的值域，AtomType由用户定义<br>
+      　　　　struct <b>{struct</b> GLNode *hp, *tp;<b>}</b> ptr;<br>
+      　　　　　　　　<font face="Times New Roman, Times, serif">//</font> ptr是表结点的指针域，ptr.hp和ptr.tp分别指向表头和表尾<br>
+      　　<b>}</b><br>
+      　<b>}</b> *GList; <font face="Times New Roman, Times, serif">　　　　　　　　　//</font> 
+      广义表类型<br>
+      <br>
+      　　例如，广义表 L=(a,(x,y),((z)) 的存储结构如右图所示。它可由对L进行表头和表尾的分析得到。<a href="javascript:;" onClick="MM_openBrWindow('../../../flash/chap08/8-2-1.swf','数据结构','width=400,height=300')"><img src="../../../images/tubiao/dh.gif" alt="动画" width="25" height="24" border="0" align="absmiddle"></a><br>
+    </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      　原子结点 <br>
+      　<img src="../../../images/pic/chapter08/8_j5.gif" width="120" height="38"> 
+      <br>
+      <br>
+      　表结点<br>
+      　　<img src="../../../images/pic/chapter08/8_j6.gif" width="100" height="63"><br>
+      <br>
+      　　<img src="../../../images/pic/chapter08/8_2.gif" width="232" height="146" align="top"> 
+    </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"> <span class="part">　3.1.2 栈的存储表示和操作的实现</span><br>
+      <br>
+      <b class="part">一、顺序栈类型的定义</b> <br>
+      <br>
+      <img src="../../../images/tubiao/cxd.gif" width="25" height="24" alt="算法"> 
+      <br>
+      <b>　　void</b> InitStack (Stack <b><font face="Times New Roman, Times, serif">&amp;</font></b>S，int maxsize)<br>
+      　<b>{</b><br>
+      　<span class="zhushi"><font face="Times New Roman, Times, serif">//</font> 
+      构造一个最大存储容量为 maxsize 的空栈 S</span><br>
+      　　<b>if</b> (maxsize == 0)<br>
+      　　　maxsize = MAXLISTSIZE;<br>
+      　　S.base = new SElemType[maxsize];<br>
+      　　<b>if</b> (!S.base) <b>exit</b>(1); 　　 <font face="Times New Roman, Times, serif">//</font> 
+      存储分配失败<br>
+      　　S.stacksize = maxsize;<br>
+      　　S.top = 0; 　　　　　　　　 <font face="Times New Roman, Times, serif">//</font> 
+      空栈中元素个数为0<br>
+      　<b>}</b><br>
+      　<br>
+    </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      　　在此只给出其中4个函数的定义。<br>
+      <br>
+      　　对顺序栈来说，空栈的初始化和顺序表的初始化完全相同。这不奇怪，因为它们的结构是一样的。也就是说，并非对栈而言取不到除栈顶之外的元素，而是对栈类型来说，不允许这种操作。<br>
+      <br>
+      　　在此定义中，栈顶指针的值恰为当前栈中元素个数，栈顶指针的初值为0和栈中元素个数为0是同一个含义。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><b><img src="../../../images/tubiao/cxd.gif" width="25" height="24" alt="算法"><br>
+      　　bool</b> GetTop (Stack S, ElemType <b><font face="Times New Roman, Times, serif">&amp;</font></b>e)<br>
+      　<b>{</b> <br>
+      　<span class="zhushi"><font face="Times New Roman, Times, serif">//</font> 
+      若栈不空，则用 e 返回S的栈顶元素，并返回TRUE；否则返回FALSE</span><br>
+      　　<b>if</b> (S.top == 0) <b>return</b> <b>FALSE</b>;<br>
+      　　e = *(S.base + S.top-1); <font face="Times New Roman, Times, serif">　　//</font> 
+      返回非空栈中栈顶元素<br>
+      　　<b>return TRUE</b>;<br>
+      　<b>}<br>
+      　</b></td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      <br>
+      <br>
+      <br>
+      　　*(S.base + S.top-1)是S.base[S.top-1] 的另一种写法，其实质相同。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="text"><b><img src="../../../images/tubiao/cxd.gif" width="25" height="24" alt="算法"><br>
+      　　bool</b> Push (Stack <b><font face="Times New Roman, Times, serif">&amp;</font></b>S, 
+      ElemType e)<br>
+      <b>　{</b></span><br>
+      <span class="zhushi"><font face="Times New Roman, Times, serif">　//</font> 
+      若栈的存储空间不满，则插入元素 e 为新的栈顶元素，<br>
+      </span><span class="zhushi"><span class="zhushi"><font face="Times New Roman, Times, serif">　//</font> 
+      </span>并返回 TRUE；否则返回 FALSE</span><br>
+      <span class="text">　<b>　if</b> (S.top == S.stacksize)　 <font face="Times New Roman, Times, serif">//</font> 
+      栈已满，无法进行插入 <br>
+      　<b>　　return</b> <b>FALSE</b>;<br>
+      　　*(S.base + S.top) = e; <font face="Times New Roman, Times, serif"> 　　 
+      //</font> 插入新的元素<br>
+      　　++S.top;　　　　　　　　　　<font face="Times New Roman, Times, serif">//</font> 
+      栈顶指针后移<br>
+      　　<b>return</b> <b>TRUE</b>;<br>
+      <b>　}</b></span><b><br>
+      　</b></td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　用图表示顺序栈如下：<br>
+      　　<img src="../../../images/pic/chapter03/3_1_2_2.gif" width="182" height="93" align="top"><br>
+      　　图中的顺序栈的最大容量为7，当前栈中元素个数为4，因此，我们也可认为栈顶指针总是指在栈顶元素的后面一个位置上。<br>
+      　</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="text"><img src="../../../images/tubiao/cxd.gif" width="25" height="24" alt="算法"><br>
+      　<b>　bool</b> Pop (Stack <b><font face="Times New Roman, Times, serif">&amp;</font></b>S, 
+      ElemType <b><font face="Times New Roman, Times, serif">&amp;</font></b>e)<br>
+      <b> 　{</b> </span><br>
+      <span class="zhushi"><font face="Times New Roman, Times, serif">　//</font> 
+      若栈不空，则删除S的栈顶元素，用 e 返回其值，<br>
+      <font face="Times New Roman, Times, serif">　//</font> 并返回 TRUE；否则返回 FALSE 
+      </span><br>
+      <span class="text">　<b>　if</b> (S.top == 0) <b>return FALSE</b>; <br>
+      　　e = *(S.base + S.top-1); <font face="Times New Roman, Times, serif">　 
+      //</font> 返回非空栈中栈顶元素 <br>
+      　　--S.top; <font face="Times New Roman, Times, serif">　　　　　　　　　//</font> 
+      栈顶指针前移<br>
+      　<b>　return TRUE</b>;<br>
+      <b>　}</b> </span></td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      <br>
+      <br>
+      <br>
+      <br>
+      　　和 GetTop 不同仅在于多一句移动指针的语句。 
+      <p>　　显然，顺序栈的基本操作的时间复杂度，除&quot;遍历&quot;之外，均为常量级的，即<b><font face="Times New Roman, Times, serif"><i>O 
+        </i>(1)</font></b>。</p>
+    </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　11.1.1 外存储器简介</span><br>
+      <br>
+      <span class="zhushi">　一、磁带存储器</span><br>
+      <br>
+      　　磁带是薄薄涂上一层磁性材料的一条窄带。现在使用的磁带大多数有1/2英寸宽，最长可达3000英尺，绕在一个卷盘上。使用时，将磁带盘放在磁带机上，驱动器控制磁带盘转动，带动磁带向前移动。通过读/写头读出磁带上的信息或者将信息写入磁带，如右图所示。<br>
+      <br>
+      　　磁带是一种启停设备，它可以根据读/写需要随时启动和停止。由于读/写信息应在旋转稳定状态下进行，而磁带从启动到稳定旋转或从旋转到静止都需要一个&quot;启停时间&quot;（即加速或减速的过渡时间），为了适应启停时间，信息在磁带上不能连续存放，而要在相邻两个&quot;字符&quot;之间留出一定长度（通常为 
+      1/4～1/3 英寸）的空白区，称为 &quot;间隙 IRG&quot;，两个间隙之间的字符组称为一个&quot;<span class="point">物理记录</span>&quot;或者&quot;<span class="point">页块</span>&quot;。页块是内外存信息交换的单位，内存中用来暂时存放一个页块的区域称&quot;<span class="point">缓冲区</span>&quot;。<br>
+      <br>
+      　　在磁带上存取一个页块信息所需时间由两部分组成：<br>
+      　　　<img src="../../../images/pic/chapter11/gs_5.gif" width="90" height="17"><br>
+      <br>
+      　　其中，<img src="../../../images/pic/chapter11/ta.gif" width="13" height="17" align="absmiddle">为延迟时间，即读/写头到达存取信息所在页块起始位置所需时间；t 
+      为存取一个字符的时间，n 为页块内的字符个数。<br>
+      <br>
+      　　显然，磁带信息存取时间主要化在将磁带转到所需位置上，和信息所在页块及读/写头当前的位置密切相关，差别很大，可从几十毫秒到几十分钟，与磁带录音机相似。</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      <br>
+      <br>
+      　　目前广泛使用的外存储器有磁带机和磁盘机两种。前者为顺序存取的存储设备，后者为直接存取的存储设备。 
+      <p><br>
+        　　　<img src="../../../images/pic/chapter11/11_00.gif" width="190" height="140" align="top"> 
+        <br>
+        　　　　　　　　磁带运动示意图 </p>
+    </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

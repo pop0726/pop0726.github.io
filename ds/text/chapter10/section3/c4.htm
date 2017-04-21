@@ -1,0 +1,114 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<script language=JavaScript src="../../chapter02/section1/hpmain.js"></script>
+<script language=JavaScript src="../../chapter02/section1/showhidden.js"></script>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　10.3.2 快速排序</span><br>
+      <br>
+      　　一趟快排也称&quot;一次划分&quot;，即将待排序列 R[s..t]&quot;划分&quot;为两个子序列R[s..i-1] 和 R[i+1..t]，i 
+      为一次划分之后的枢轴位置。可以取待排序列中任何一个记录作为枢轴，但为方便起见，通常取序列中第一个记录 R[s] 为枢轴，以它的关键字作为划分的依据。划分可如下进行：设置两个指针 
+      low 和 high，分别指向待排序列的低端 s 和高端 t。若 R[high].key&lt;R[s].key，则将它移动至枢轴记录之前；反之，若 
+      R[low].key&gt;R[s].key，则将它移动至枢轴记录之后，并为避免枢轴来回移动，可先将枢轴 R[s] 暂存在数组的闲置分量 R[0] 
+      中。如右侧所示为&quot;一次划分&quot;过程的一个例子。一次划分（一趟快速排序）的算法如下：<br>
+      <br>
+      <img src="../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle"> 
+      <span class="zhushi">算法 10.11</span><br>
+      　　<b>int</b> Partition ( RcdType R[], <b>int</b> low, <b>int</b> high) <br>
+      　<b>{</b><br>
+      <span class="zhushi">　　<font face="Times New Roman, Times, serif">//</font> 
+      对记录子序列 R[low..high] 进行一趟快速排序，并返回枢轴记录<br>
+      　　<font face="Times New Roman, Times, serif">//</font> 所在位置，使得在它之前的记录的关键字均不大于它的关键字，<br>
+      　　<font face="Times New Roman, Times, serif">//</font> 而在它之后的记录的关键字均不小于它的关键字</span><br>
+      　　R[0] = R[low];<font face="Times New Roman, Times, serif">　　　　　　　　　　　//</font> 
+      将枢轴记录移至数组的闲置分量<br>
+      　　pivotkey = R[low].key; <font face="Times New Roman, Times, serif">　　　　　　　//</font> 
+      枢轴记录关键字<br>
+      　　<b>while</b> (low&lt;high) <b>{</b><font face="Times New Roman, Times, serif">　　　　　　　　　//</font> 
+      从表的两端交替地向中间扫描<br>
+      　　　<b>while </b>(low&lt;high <b><font face="Times New Roman, Times, serif">&amp;&amp;</font></b> R[high].key&gt;=pivotkey)<br>
+      　　　　--high;<br>
+      　　　R[low++] = R[high];　<font face="Times New Roman, Times, serif">　　　　　　　//</font> 
+      将比枢轴记录小的记录移到低端<br>
+      　　　<b>while</b> (low&lt;high <b><font face="Times New Roman, Times, serif">&amp;&amp;</font></b> R[low].key&lt;=pivotkey) 
+      <br>
+      　　　　++low;<br>
+      　　　R[high--] = R[low];　<font face="Times New Roman, Times, serif">　　　　　　　//</font> 
+      将比枢轴记录大的记录移到高端<br>
+      　　<b>}</b> <font face="Times New Roman, Times, serif">//</font> while<br>
+      　　R[low] = R[0];　<font face="Times New Roman, Times, serif">　　　　　　　　　　//</font> 
+      枢轴记录移到正确位置<br>
+      　　return low; <font face="Times New Roman, Times, serif">　　　　　　　　　　　　//</font> 
+      返回枢轴位置<br>
+      　<b>}</b> <font face="Times New Roman, Times, serif">//</font> Partition<br>
+      <br>
+      　　可以推证，快速排序的平均<span class="point">时间复杂度</span>为<b class="point"><font face="Times New Roman, Times, serif"><i>O 
+      </i>(nlogn)</font></b>，在三者取中的前提下，对随机的关键字序列，快速排序是目前被认为是最好的排序方法，如果借用起泡排序中设置记录&quot;交换与否&quot;的布尔变量的作法，快速排序也适用于已经有序的记录序列，详情参见《数据结构题集》题10.9。<br>
+    </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      　<br>
+      　<br>
+      　<br>
+      <br>
+      　　&quot;一次划分&quot;过程：　<a href="javascript:;" onClick="MM_openBrWindow('../../../flash/chap10/10-3-4.swf','数据结构','width=400,height=300')"><img src="../../../images/tubiao/dh.gif" alt="动画" width="25" height="24" border="0" align="absmiddle"></a><br>
+      <br>
+      　 <br>
+      <table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td bgcolor="#ECEEFF" height="14" class="explaination" width="8">&nbsp;</td>
+                <td bgcolor="#ECEEFF" height="14" class="explaination"><img src="../../../images/tubiao/wt.gif" width="23" height="23" align="absmiddle" alt="思考题"> 
+                  试对上例中得到的子序列<br>
+                  　　( 90, 45, 39, 54, 68, 87, 76 )<br>
+                  继续进行快速排序，你是否发现什么特殊情况？<br>
+                </td>
+                <td width="15" bgcolor="#ECEEFF" valign="top"><span id="bb"><img border=0 
+                              id=HPFrameHLTab3 
+                              onClick="showHideContent('HPFrameHL');hidden();"
+							   src="../../../images/html/expand.gif" style="CURSOR: hand" width="15" height="14"></span></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <div id=HPFrameHLContent 
+           style="WIDTH: 100%;visibility: hidden;background-color:#ECEEFF" > 
+              <table width="94%" border="0" cellspacing="0" cellpadding="0" align="center">
+                <tr> 
+                  <td class="explaination">　由于枢轴记录的关键字&quot;90&quot;大于其它所有记录的关键字，致使一次划分之后得到的子序列(1)的长度为0，由此你可以想像得到，快速排序不适于对原本有序或基本有序的记录序列进行排序。　　</td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+      </table>
+      <br>
+      <br>
+      　　为避免出现枢轴记录关键字为&quot;最大&quot;或&quot;最小&quot;的情况，通常进行的快速排序采用&quot;三者取中&quot;的改进方案，即以 
+      R[s]、R[t] 和 R[(s+t)/2] 三者中关键字介于中值者为枢轴。只要将它和 R[s] 互换，一次划分的算法仍不变。<br>
+      <br>
+      　　关于快速排序时间复杂度的详细证明请读者查看教材所述。<br>
+    </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

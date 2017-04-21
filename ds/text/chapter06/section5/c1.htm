@@ -1,0 +1,71 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　6.5.1 二叉树的线索链表</span><br>
+      <br>
+      　　对二叉树进行遍历的过程即为沿着某一条搜索路径对二叉树中的结点进行一次且仅仅一次访问，换句话说，就是按一定规则将一个处于层次结构中的结点排列成一个线性序列之后进行依次访问，这个线性序列或是先序序列、或是中序序列或是后序序列，在这些线性序列中每个结点（除第一个和最后一个外）有且仅有一个直接前驱和直接后继（在不致于混淆的情况下，我们省去直接二字）。例如右图所示二叉树中的数据元素&quot;E&quot; 
+      在先序序列中的前驱是&quot;D&quot;，后继是&quot;G&quot;；而在中序序列中的前驱是&quot;G&quot;，后继是&quot;H&quot;；在后序序列中的前驱是&quot;H&quot;，后继是&quot;B&quot;。显然，这种信息是在遍历的动态过程中产生的，如果将这些信息在第一次遍历时就保存起来，则在以后再次需要对二叉树进行&quot;遍历&quot;时就可以将二叉树视作线性结构进行访问操作了。<br>
+      　</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      　　<img src="../../../images/pic/chapter06/6_17.gif" width="210" height="172" align="top"><br>
+      　　先序序列为： AB<a href="javascript:;"><span class="section"><font color="#003399">D</font><font color="#FF0000">E</font><font color="#003399">G</font></span></a>HCFIJ<br>
+      　　中序序列为： DB<a href="javascript:;"><span class="section"><font color="#003399">G</font><font color="#FF0000">E</font><font color="#003399">H</font></span></a>ACIJF<br>
+      　　后序序列为： DG<a href="javascript:;"><font color="#003399">H</font><font color="#FF0000">E</font><font color="#003399">B</font></a>JIFCA<br>
+      　</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">　　如何保存在遍历过程中得到的前驱和后继信息？最简单的办法是在结点中增加两个指针域分别指向该结点的前驱和后继，但如此做将使存储结构的存储密度大大降低。而另一方面，一个含 
+      n 个结点的二叉链表中有 n+1 个链域的值为&quot;NULL&quot;，可以利用这些空的指针域存放指向前驱和后继的信息，由此得到的二叉树的存储结构称作&quot;线索链表&quot;，其中指向前驱或后继的指针称作&quot;线索&quot;。<br>
+      <br>
+      　　线索链表的结构定义如下：<br>
+      <br>
+      <span class="zhushi"><img src="../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle"> 
+      <span class="zhushi"></span>二叉树的二叉线索链表存储表示 </span><br>
+      　　<b>typedef</b> enum PointerType<b>{</b> Link=0, Thread=1 <b>}</b>; <br>
+      　　　　　　　　　<font face="Times New Roman, Times, serif">//</font> 定义指针类型，以 Link 
+      表示指针，Thread 表示线索<br>
+      　　<b>typedef struct</b> BiThrNode<b>{</b><br>
+      　　　ElemType data;<br>
+      　　　<b>struct</b> BiThrNode <b>*</b>Lchild, <b>*</b>Rchild; <font face="Times New Roman, Times, serif">//</font> 
+      左右指针<br>
+      　　　PointerType LTag, RTag;<font face="Times New Roman, Times, serif">　　　　　　//</font> 
+      左右指针类型标志<br>
+      　　<b>}</b> <b>*</b>BiThrTree;<br>
+      <br>
+      　　例如，右图二叉树的中序线索链表如下所示（图中所有实线表示指针，虚线表示线索）。<br>
+      　<br>
+      　　从图中可见，在线索链表中添加了一个&quot;头结点&quot;，头结点的左指针指向二叉树的根结点，其右线索指向中序序列中的最后一个结点，中序序列中的第一个结点的左线索和中序序列中的最后一个结点的右线索均指向头结点。这就好比将二叉树中所有结点置于一个双向循环链表之中，即可以从头结点出发，依照中序遍历的规则对二叉树中的结点依次进行&quot;顺序&quot;（和中序序列相同的次序）访问，或&quot;逆序&quot;（和中序序列相反的次序）访问。<br>
+    </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">
+      存储密度=<br>
+      　　数据元素所占存储量/整个存储结构所占存储量 
+      <p>　<br>
+        　<br>
+        　<br>
+        　<br>
+        　<br>
+        　<br>
+        　<br>
+        　　若结点的左指针类型标志为&quot;Link&quot;，则 Lchild 指向它的左子树根结点，否则指向它的&quot;前驱&quot;；<br>
+        　　若结点的右指针类型标志为&quot;Link&quot;，则 Rchild 指向它的右子树根结点，否则指向它的&quot;后继&quot;。<br>
+        <br>
+        <br>
+        　<img src="../../../images/pic/chapter06/6_18.gif" width="259" height="203" align="top"></p>
+    </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

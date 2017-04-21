@@ -1,0 +1,106 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<script language=JavaScript src="../chapter01/hpmain.js"></script>
+<script language=JavaScript src="../chapter01/showhidden.js"></script>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td class="white" valign="top"><span class="point"><br>
+      </span><span class="part">【学习目标】</span><br>
+      　　1．理解排序的定义和各种排序方法的特点，并能加以灵活应用。排序方法有不同的分类方法，基于&quot;关键字间的比较&quot;进行排序的方法可以按排序过程所依据的不同原则分为插入排序、交换排序、选择排序、归并排序和计数排序等五类。<br>
+      　　2．掌握各种排序方法的时间复杂度的分析方法。能从&quot;关键字间的比较次数&quot;分析排序算法的平均情况和最坏情况的时间性能。按平均时间复杂度划分，内部排序可分为三类：<font face="Times New Roman, Times, serif"><i>O 
+      </i>(n<sup><font size="1">2</font></sup>)</font> 的简单排序方法，<font face="Times New Roman, Times, serif"><i>O</i> 
+      (n・logn)</font> 的高效排序方法和<font face="Times New Roman, Times, serif"><i>O 
+      </i>(d・n)</font>的基数排序方法。<br>
+      　　3．理解排序方法&quot;稳定&quot;或&quot;不稳定&quot;的含义，弄清楚在什么情况下要求应用的排序方法必须是稳定的。<br>
+      　</td>
+    <td background="../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../images/html/right_di4.gif" class="explaination" valign="top" width="281"><span class="point"><br>
+      </span>【学习目标】</td>
+    <td background="../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">【重点和难点】</span><br>
+      　　希尔排序、快速排序、堆排序和归并排序等高效方法是本章的学习重点和难点。<br>
+      　</td>
+    <td background="../../images/html/mid.gif">&nbsp;</td>
+    <td background="../../images/html/right_di4.gif" class="explaination" valign="top">【重点和难点】</td>
+    <td background="../../images/html/right_di3.gif">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">【知识点】</span><br>
+      　　排序、直接插入排序、折半插入排序、表插入排序、希尔排序、起泡排序、快速排序、简单选择排序、堆排序、2-路归并排序、基数排序、排序方法的综合比较。<br>
+      　</td>
+    <td background="../../images/html/mid.gif">&nbsp;</td>
+    <td background="../../images/html/right_di4.gif" class="explaination" valign="top">【知识点】</td>
+    <td background="../../images/html/right_di3.gif">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">【学习指南】</span><br>
+      　　本章学习的要点主要是了解各种排序方法实现时所依据的原则以及它们的主要操作（&quot;关键字间的比较&quot;和&quot;记录的移动&quot;）的时间分析。学习中应注意掌握各种排序方法实现的要点，可通过对基础知识题中算法的手工执行和比较分析，切实掌握各种排序过程的排序特点所在，注意同一排序方法在不同的教科书上可以有不同书写形式描述的算法。在学习本章过程中需练习的算法设计题为：10.23，10.25，10.32，10.34，10.38 
+      和 10.42。<br>
+      　</td>
+    <td background="../../images/html/mid.gif">&nbsp;</td>
+    <td background="../../images/html/right_di4.gif" class="explaination" valign="top">【学习指南】</td>
+    <td background="../../images/html/right_di3.gif">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">【课前思考】<br>
+      </span>
+      <table width="80%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td bgcolor="#ECEEFF" height="14" class="explaination" width="8">&nbsp;</td>
+                <td bgcolor="#ECEEFF" height="14" class="explaination"><img src="../../images/tubiao/wt.gif" width="23" height="23" align="absmiddle" alt="思考题"> 
+                  1. 你熟悉排序吗？你过去曾经学过哪些排序方法？</td>
+                <td width="15" bgcolor="#ECEEFF" valign="top"><span id="bb"><img border=0 
+                              id=HPFrameHLTab3 
+                              onClick="showHideContent('HPFrameHL');hidden();"
+							   src="../../images/html/expand.gif" style="CURSOR: hand" width="15" height="14"></span></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <div id=HPFrameHLContent 
+           style="WIDTH: 100%;visibility: hidden;background-color:#ECEEFF" > 
+              <table width="94%" border="0" cellspacing="0" cellpadding="0" align="center">
+                <tr> 
+                  <td class="explaination">　在第一章中曾以选择排序和起泡排序为例讨论算法实践复杂度，不知你还记得吗？</td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+      </table>
+      <br>
+      <table width="80%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td bgcolor="#ECEEFF" height="14" class="explaination" width="8">&nbsp;</td>
+          <td bgcolor="#ECEEFF" height="14" class="explaination"><img src="../../images/tubiao/wt.gif" width="23" height="23" align="absmiddle" alt="思考题"> 
+            2. 你自己有没有编过排序的程序？是用的什么策略？ </td>
+          <td width="15" bgcolor="#ECEEFF" valign="top">&nbsp;</td>
+        </tr>
+      </table>
+    </td>
+    <td background="../../images/html/mid.gif">&nbsp;</td>
+    <td background="../../images/html/right_di4.gif" class="explaination" valign="top">【课前思考】</td>
+    <td background="../../images/html/right_di3.gif">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>
+

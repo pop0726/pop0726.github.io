@@ -1,0 +1,56 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　2.2.2 顺序表中基本操作的实现</span><br>
+      <br>
+      <b><span class="zhushi">　</span></b><span class="zhushi">六、插入和删除操作的性能分析</span><br>
+      <br>
+      　　试问，在顺序表中任何一个合法位置上进行&quot;<span class="point">一次</span>&quot;插入或删除操作时，<span class="point">需要移动的元素个数的平均值</span>是多少？<br>
+      <br>
+      　　令<img src="../../../../images/pic/chapter02/gs/e_in.gif" width="38" height="18" align="absmiddle"> 
+      表示在长度为 n 的顺序表中进行一次插入操作时所需进行&quot;移动&quot;元素个数的期望值（即平均移动个数），则 <br>
+      　　　<img src="../../../../images/pic/chapter02/gs/gs_1.gif" width="131" height="37"><br>
+      <br>
+      　　其中，<img src="../../../../images/pic/chapter02/gs/gs_2_2.gif" width="16" height="12" align="absmiddle">是在第 
+      i 个元素之前插入一个元素的概率，n-i+1 是在第 i 个元素之前插入一个元素时所需移动的元素个数。由于可能插入的位置 i=1,2,3,…,n+1 
+      共 n+1 个，假设在每个位置上进行插入的机会均等，则<br>
+      　　　<img src="../../../../images/pic/chapter02/gs/gs_2.gif" width="68" height="42"><br>
+      <br>
+      　　由此，在上述等概率假设的情况下，<br>
+      　　　<img src="../../../../images/pic/chapter02/gs/gs_3.gif" width="162" height="41"><img src="../../../../images/pic/chapter02/gs/gs_3_2.gif" width="127" height="41"><br>
+      <p> </p>
+      <p>　　类似地，令<img src="../../../../images/pic/chapter02/gs/e_dl.gif" width="39" height="18" align="absmiddle"> 
+        表示在长度为 n 的顺序表中进行一次删除操作时所需进行&quot;移动&quot;元素个数的期望值（即平均移动个数），则<br>
+        　　　<img src="../../../../images/pic/chapter02/gs/gs_4.gif" width="108" height="38"><br>
+        <br>
+        　　其中，<img src="../../../../images/pic/chapter02/gs/gs_1_2.gif" width="13" height="14" align="absmiddle">是删除第 
+        i 个元素的概率，n-i 是删除第 i 个元素时所需移动元素的个数。同样假设在 n 个可能进行删除的位置 i=1,2,…,n 机会均等，则<br>
+        　　　<img src="../../../../images/pic/chapter02/gs/gs_5.gif" width="47" height="42"> 
+        <br>
+        <br>
+        　　由此，在上述等概率的假设下，<br>
+        　　　<img src="../../../../images/pic/chapter02/gs/gs_6.gif" width="122" height="41"><img src="../../../../images/pic/chapter02/gs/gs_6_2.gif" width="107" height="41"><br>
+        <br>
+        　　由此可见，在顺序存储表示的线性表中插入或删除一个数据元素，平均约需移动表中一半元素。这个数目在线性表的长度较大时是很可观的。这个缺陷完全是由于顺序存储要求线性表的元素依次紧挨存放造成的。因此，这种顺序存储表示仅适用于不常进行插入和删除操作、表中元素相对稳定的线性表。</p>
+      </td>
+    <td background="../../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      <br>
+      <br>
+      <br>
+      　　前面已经分析过，在顺序表中插入或删除一个数据元素的操作的时间复杂度为<font face="Times New Roman, Times, serif"><i>O</i> 
+      (ListLength(L))</font>，而实际上，基本操作(移动元素)的执行次数不仅和表长有关，还依赖于插入和删除的位置。由于插入和删除可能在线性表的任何位置上进行，则从统计意义上讲，考虑在顺序表的任一位置上进行插入或删除的&quot;平均时间特性&quot;更有实际意义。 
+    </td>
+    <td background="../../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

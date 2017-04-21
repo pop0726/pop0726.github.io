@@ -1,0 +1,68 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><br>
+      　　那么如何进行拓扑排序？步骤如下：<br>
+      　　（1） 在AOV网中选择一个没有前驱的顶点并输出；<br>
+      　　（2） 从AOV网中删除该顶点以及从它出发的弧；<br>
+      　　重复以上两步直至AOV网变空（即已输出所有顶点）或者剩余子图中不存在没有前驱的顶点。后一种情况则说明该AOV网中含有向环。<br>
+      <br>
+      　　例如，如右所示AOV网的拓扑排序的过程如动画所示。<a href="javascript:;" onClick="MM_openBrWindow('../../../flash/chap07/7-6-0.swf','数据结构','width=400,height=300')"><img src="../../../images/tubiao/dh.gif" alt="动画" width="25" height="24" border="0" align="absmiddle"></a> 
+      由于拓扑排序的结果是输出了所有的顶点，则说明该图中不存在有向环。但如果将图中从顶点 d 到顶点 e 的弧改为从顶点 e 到 d，此时图中存在一个有向环，则在拓扑排序输出顶点c之后就找不到&quot;没有前驱&quot;的顶点了。<a href="javascript:;" onClick="MM_openBrWindow('../../../flash/chap07/7-6-1.swf','数据结构','width=400,height=300')"><img src="../../../images/tubiao/dh.gif" alt="动画" width="25" height="24" border="0" align="absmiddle"></a><br>
+      <br>
+      　　在计算机中实现此算法时，需以&quot;入度为零&quot;作为&quot;没有前驱&quot;的量度，而&quot;删除顶点及以它为尾的弧&quot;的这类操作可不必真正对图的存储结构来进行，可用&quot;弧头顶点的入度减1&quot;的办法来替代。并且为了便于查询入度为零的顶点，在算法中可附设&quot;栈&quot;保存当前出现的入度为零的顶点。由此，拓扑排序的算法可如下描述：<br>
+      <img src="../../../images/tubiao/cxd.gif" width="25" height="24" alt="算法"><br>
+      　　建有向图的邻接表并统计各顶点的入度；<br>
+      　　InitStack(S); <font face="Times New Roman, Times, serif">　　　　　　　　　//</font> 
+      初始化S为空栈<br>
+      　　将当前所有入度为零的顶点入栈;<br>
+      　　m=0; <font face="Times New Roman, Times, serif">　　　　　　　　　　　　　//</font> 
+      以 m 记输出的顶点个数<br>
+      　　<b>while</b> (!StackEmpty(S)) <b>{</b> <font face="Times New Roman, Times, serif">　　　//</font> 
+      尚有入度为零的顶点存在<br>
+      　　　Pop(S,v);<br>
+      　　　<b>cout&lt;&lt;</b> v ; <b>++</b>m; <font face="Times New Roman, Times, serif">　　　　　　//</font> 
+      输出入度为零的顶点，并计数<br>
+      　　　w = FirstAdj(G,v);　<font face="Times New Roman, Times, serif">　　　　　//</font> 
+      w 为 v 的邻接点<br>
+      　　　<b>while</b> (w&lt;&gt;0) <b>{</b><font face="Times New Roman, Times, serif">　　　　　　　//</font> 
+      将v 的所有邻接点的入度减1<br>
+      　　　　inDegree[w]<b>--</b>; <font face="Times New Roman, Times, serif">　　　　　　//</font> 
+      w 的入度减一<br>
+      　　　　w = nextAdj(G,v,w);　<font face="Times New Roman, Times, serif">　　　//</font> 
+      取 v 的下一个邻接点<br>
+      　　　<b>} </b><font face="Times New Roman, Times, serif">// </font>while w<br>
+      　　<b>} </b><font face="Times New Roman, Times, serif">//</font> while S<br>
+      　　<b>if</b> (m&lt;n) <b>cout&lt;&lt;</b>(&quot;图中有回路); <font face="Times New Roman, Times, serif">//</font> 
+      输出的顶点数不足图中顶点数<br>
+      　　DestroyStack(S);</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"> 
+      <br>
+      　　显然，拓扑有序序列中的第一个顶点应该是在整个有向图中没有任何&quot;制约&quot;的顶点，即没有&quot;前驱&quot;。在输出该顶点之后，它在拓扑有序序列中必然&quot;领先&quot;于所有在它之后输出的顶点，由此&quot;删除从它出发的顶点&quot;表示在以后的拓扑排序过程中不需要再考虑这些制约因素。<br>
+      <br>
+      　　<img src="../../../images/pic/chapter07/7_34.gif" width="200" height="126" align="top"><br>
+      　　<img src="../../../images/pic/chapter07/7_35.gif" width="200" height="126" align="top"><br>
+      　<br>
+      　　由于拓扑排序中对图的主要操作是&quot;找从顶点出发的弧&quot;，并且AOV网多数情况下是稀疏图，因此存储结构取邻接表为宜。完整算法请查阅教材《数据结构(C有&quot;版)》第182页算法7.12 
+      。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

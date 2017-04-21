@@ -1,0 +1,75 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+<script language="JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　3.2.4 表达式求值问题</span><br>
+      <br>
+      　　如何由原表达式转换成后缀式？<br>
+      　　先分析一下&quot;原表达式&quot;和&quot;后缀式&quot;两者中运算符出现的次序有什么不同。<br>
+      <img src="../../../images/tubiao/lt.gif" width="28" height="27" align="absmiddle" alt="例题"> 
+      <span class="zhushi">例一</span><br>
+      　　原表达式：<img src="../../../images/pic/chapter03/4_4_1.gif" width="140" height="13"><br>
+      　　　后缀式：<img src="../../../images/pic/chapter03/4_4_2.gif" width="140" height="13"><br>
+      <img src="../../../images/tubiao/lt.gif" width="28" height="27" align="absmiddle" alt="例题"> 
+      <span class="zhushi">例二</span><br>
+      　　原表达式：<img src="../../../images/pic/chapter03/4_4_3.gif" width="139" height="13"><br>
+      　　　后缀式：<img src="../../../images/pic/chapter03/4_4_4.gif" width="140" height="13"><br>
+      　</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　<br>
+      　<br>
+      　　<br>
+      　　从这两个例子的结果你有没有看出什么名堂来？为什么在例一的后缀式中运算符出现的先后次序和原表达式中是相同的？而同样这几个运算，在例二的后缀式中运算符出现的次序就和原表达式中的不同呢？</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">　　例一原表达式中运算符出现的先后次序恰为运算的顺序，自然在后缀式中它们出现的次序和原表达式相同。但例二中运算符出现的先后次序不应该是它的运算顺序。按照算术运算规则，先出现的&quot;加法&quot;应在在它之后出现的&quot;乘法&quot;完成之后进行，而应该在后面出现的&quot;减法&quot;之前进行；同理，后面一个&quot;乘法&quot;应后于在它之前出现的&quot;除法&quot;进行，而先于在它之前的&quot;减法&quot;进行。<br>
+      <br>
+      　　这可能有点绕嘴，为此我们先引进一个运算符的&quot;优先数&quot;的概念。给每个运算符赋以一个优先数的值，如下所列：<br>
+      　　　运算符 <img src="../../../images/pic/chapter03/4_4_5.gif" width="141" height="15"><br>
+      　　　优先数　<img src="../../../images/pic/chapter03/4_4_6.gif" width="132" height="13"><br>
+      <br>
+      　　其&quot;**&quot;为乘幂运算，&quot;#&quot;为结束符。容易看出，优先数反映了算术运算中的优先关系，即优先数&quot;高&quot;的运算符应优先于优先数低的运算符进行运算。<br>
+      <br>
+      　　也就是说，对原表达式中出现的每一个运算符是否即刻进行运算取决于在它后面出现的运算符，如果它的优先数&quot;高或等于&quot;后面的运算，则它的运算先进行，否则就得等待在它之后出现的所有优先数高于它的&quot;运算&quot;都完成之后再进行。<br>
+      <br>
+      　　显然，保存运算符的结构应该是个栈，从栈底到栈顶的运算符的优先数是从低到高的，因此它们运算的先后应是从栈顶到栈底的。<br>
+      　<br>
+    </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">&nbsp;</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">　　因此，从原表达式求得后缀式的规则为：<a href="javascript:;" onClick="MM_openBrWindow('../../../flash/chap03/3-3-7.swf','数据结构','width=400,height=390')"><img src="../../../images/tubiao/dh.gif" alt="动画" width="25" height="24" border="0" align="absmiddle"></a><br>
+      　　1) 设立运算符<b>栈</b>；<br>
+      　　2) 设表达式的结束符为&quot;#&quot;，预设运算符栈的栈底为&quot;#&quot;；<br>
+      　　3) 若当前字符是操作数，则直接发送给后缀式；<br>
+      　　4) 若当前字符为运算符且优先数大于栈顶运算符，则进栈，否则退出栈顶运算符发送给后缀式；<br>
+      　　5) 若当前字符是结束符，则自栈顶至栈底依次将栈中所有运算符发送给后缀式；<br>
+      　　6) &quot;(&quot;对它之前后的运算符起隔离作用，则若当前运算符为&quot;(&quot;时进栈；<br>
+      　　7) &quot;)&quot;可视为自相应左括弧开始的表达式的结束符，则从栈顶起，依次退出栈顶运算符发送给后缀式直至栈顶字符为&quot;(&quot;止。<br>
+    </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

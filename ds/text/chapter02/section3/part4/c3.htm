@@ -1,0 +1,66 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/style.css" type="text/css">
+<script language="JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　2.3.5 双向链表</span><br>
+      <br>
+      　　在双向链表上进行操作基本上和单向链表相同，例如，查找结点也是要从头指针指示的头结点开始，但插入和删除时必须同时修改两个方向上的指针，它们的算法分别如下所示。<br>
+      　</td>
+    <td background="../../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">&nbsp;</td>
+    <td background="../../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><img src="../../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle" alt="算法"> 
+      <span class="zhushi">算法2.22</span><br>
+      　　<b>void</b> ListInsert_DuL(DuLink <b><font face="Times New Roman, Times, serif">&amp;</font></b>L, DuLNode* p, DuLNode* 
+      s ) <br>
+      　<b>{</b><br>
+      <span class="zhushi">　　<font face="Times New Roman, Times, serif">//</font> 
+      在带头结点的双向循环链表 L 中结点 *p 之后插入结点 *s</span><br>
+      　　s-&gt;next = p-&gt;next; p-&gt;next = s;<br>
+      　　s-&gt;next-&gt;prior = s; s-&gt;prior = p;<br>
+      　<b>}</b><font face="Times New Roman, Times, serif">//</font> ListInsert_DuL<br>
+      　<br>
+    </td>
+    <td background="../../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　算法2.22演示效果如动画所示。<a href="javascript:;" onClick="MM_openBrWindow('../../../../flash/chap02/2-3-6.swf','数据结构','width=400,height=300')"><img src="../../../../images/tubiao/dh.gif" width="25" height="24" alt="动画" border="0" align="absmiddle"></a></td>
+    <td background="../../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><img src="../../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle" alt="算法"> 
+      <span class="zhushi">算法2.23</span><br>
+      　　<b>void</b> ListDelete_DuL(DuLink <b><font face="Times New Roman, Times, serif">&amp;</font></b>L, DuNode* p, ElemType <b><font face="Times New Roman, Times, serif">&amp;</font></b>e) 
+      <br>
+      　<b>{</b><br>
+      <span class="zhushi">　　<font face="Times New Roman, Times, serif">//</font> 
+      删除带头结点的双向循环链表L中结点 *p 的后继，<br>
+      　　<font face="Times New Roman, Times, serif">//</font> 并以 e 返回它的数据元素</span><br>
+      　　q = p-&gt;next; e = q-&gt;data;<br>
+      　　p-&gt;next = q-&gt;next;<br>
+      　　p-&gt;next-&gt;prior = p;<br>
+      　　<b>delete</b> q; <br>
+      　<b>}</b> <font face="Times New Roman, Times, serif">//</font> ListDelete_DuL</td>
+    <td background="../../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　算法2.23演示效果如动画所示。<a href="javascript:;" onClick="MM_openBrWindow('../../../../flash/chap02/2-3-7.swf','数据结构','width=400,height=300')"><img src="../../../../images/tubiao/dh.gif" width="25" height="24" alt="动画" border="0" align="absmiddle"></a></td>
+    <td background="../../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

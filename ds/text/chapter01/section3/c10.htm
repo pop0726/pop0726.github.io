@@ -1,0 +1,41 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%"> 
+<tr> <td width="10">&nbsp;</td><td class="white" valign="top"><P><br> <span class="part">【基础知识题】</span><br> 
+　<BR>　1. 简述下列术语：数据、数据元素、数据对象、数据结构、存储结构、数据类型和抽象数据类型。<BR><BR>　2. 在程序设计中，常用下列三种不同的出错处理方式：<BR> 
+　(1) 用exit语句终止执行并报告错误；<BR> 　(2) 以函数的返回值区别正确返回或错误返回；<BR> 　(3) 设置一个整型变量的函数参数以区别正确返回或某种错误返回。<BR>　　试讨论这三种方法各自的优缺点，并编写算法，计算 
+i!×2<sup>i </sup>的值并存入数组 a[0..arrsize-1] 的第 i-1 个分量中(i=1,2,…,n)。假设计算机中允许的整数最大值为 
+<B>maxint</B>，则当 n&gt;arrsize 或对某个 k(1≤k≤n) 使 k!×2<sup>k</sup>&gt;maxint 时，应按出错处理。注意选择你认为较好的出错处理方法。 
+<BR><BR>　3. 在程序设计中，可采用下列三种方法实现输出和输入：<BR> 　(1) 通过 <B>scanf</B> 和 <B>printf</B> 
+语句；<BR> 　(2) 通过函数的参数显式传递；<BR> 　(3) 通过全局变量隐式传递。<BR>　　试讨论这三种方法的优缺点，并编写算法求一元多项式 <IMG SRC="../../../images/pic/exam/1_3.gif" WIDTH="103" HEIGHT="42" ALIGN="ABSMIDDLE"> 
+的值 <IMG SRC="../../../images/pic/exam/1_2.gif" WIDTH="35" HEIGHT="17" ALIGN="ABSMIDDLE">，并确定算法中每一语句的执行次数和整个算法的时间复杂度。注意选择你认为较好的输入和输出方法，本题的输入为 
+<IMG SRC="../../../images/pic/chapter02/gs/ai.gif" WIDTH="10" HEIGHT="10" ALIGN="ABSMIDDLE">(i=0,1,…,n)，<IMG SRC="../../../images/pic/exam/x0.gif" WIDTH="15" HEIGHT="13" ALIGN="ABSMIDDLE"> 
+和 n，输出为 <IMG SRC="../../../images/pic/exam/1_2.gif" WIDTH="35" HEIGHT="17" ALIGN="ABSMIDDLE">。<BR><BR> 
+　4. 设 n 为正整数。试确定下列各程序段中前置以记号 <FONT FACE="Arial, Helvetica, sans-serif">@</FONT> 
+的语句的频度：<BR> 　(1) i=1; k=0;<BR> 　　　<B>while</B> ( i&lt;=n-1) <B>{</B><BR> 　　　　<FONT FACE="Arial, Helvetica, sans-serif">@</FONT> 
+k += 10 * i;<BR> 　　　　　 i++;<BR> 　　　<B>}</B><BR><BR> 　(2) i=1; k=0;<BR> 　　　<B>do 
+{</B><BR> 　　　　<FONT FACE="Arial, Helvetica, sans-serif">@</FONT> k +=10 * i;<BR> 
+　　　　　 i++;<BR> 　　　<B>}</B> <B>while</B>(i&lt;=n-1); <BR><BR>　(3) i = 1; k = 0;<BR> 
+　　　<B>while</B> (i&lt;=n-1) <B>{</B> <BR> 　　　　　　i++ ;<BR> 　　　　 <FONT FACE="Arial, Helvetica, sans-serif">@</FONT> 
+k+= 10 * i;<BR> 　　　<B>}</B><BR><BR>　(4) k=0;<BR> 　　　<B>for</B>( i=1; i&lt;=n; 
+i++) <B>{</B><BR> 　　　　<B>for</B> (j=i ; j&lt;=n; j++)<BR> 　　　　 <FONT FACE="Arial, Helvetica, sans-serif">@</FONT> 
+k++;<BR> 　　　<B>}</B><BR><BR>　(5) <B>for</B>( i=1; i&lt;=n; i++) <B>{</B> <BR> 
+　　　　<B>for</B> (j=1; j&lt;=i; j++) <B>{</B><BR> 　　　　　<B>for</B> (k=1; k&lt;=j; 
+k++)<BR> 　　　　　 <FONT FACE="Arial, Helvetica, sans-serif">@</FONT> x += delta;<BR>　　　<B>　}</B><BR>　　　<B>}</B></P><P> 
+　(6) i=1; j=0;<BR> 　　　<B>while</B> (i+j&lt;=n) <B>{</B><BR> 　　　　<FONT FACE="Arial, Helvetica, sans-serif">@</FONT> 
+<B>if</B> (i&gt;j ) j++ ;<BR> 　　　　　 <B>else</B> i++ ;<BR> 　　　<B>}</B></P><P> 　(7) 
+x=n; y=0; <FONT FACE="Arial, Helvetica, sans-serif">//</FONT> n 是不小于1的常数<BR> 　　　<B>while</B> 
+(x&gt;=(y+1)*(y+1)) <B>{</B><BR> 　　　<FONT FACE="Arial, Helvetica, sans-serif">@</FONT> 
+y++;<BR> 　　　<B>}</B></P><P> 　(8) x=91; y=100;<BR> 　　　<B>while</B> (y&gt;0 ) <B>{</B><BR> 
+　　　<FONT FACE="Arial, Helvetica, sans-serif">@</FONT> <B>if</B> (x&gt;100 ) <B>{</B> 
+x -= 10; y- -; <B>}</B> <BR> 　　　　 <B>else</B> x++;<BR> 　　　<B>}</B><BR>　</P></td><td background="../../../images/html/mid.gif" width="18">&nbsp;</td><td background="../../../images/html/right_di4.gif" class="explaination" valign="top" width="281"><br> 
+【基础知识题】 </td><td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td></tr> 
+</table>
+</body>
+</html>

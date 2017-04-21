@@ -1,0 +1,33 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td class="white" valign="top"><br>
+      <span class="part">【本章小结】</span><br>
+      　　本章主要讨论各种内部排序的方法。学习本章的目的是了解各种排序方法的原理以及各自的优缺点，以便在编制软件时能按照情况所需合理选用。<br>
+      <br>
+      　　一般来说，在选择排序方法时，可有下列几种选择：<br>
+      <br>
+      　　1) 若待排序的记录个数n值较小（例如n&lt;30），则可选用插入排序法，但若记录所含数据项较多，所占存储量大时，应选用选择排序法。反之，若待排序的记录个数n值较大时，应选用快速排序法。但若待排序记录关键字有&quot;有序&quot;倾向时，就慎用快速排序，而宁可选用堆排序或归并排序，而后两者的最大差别是所需辅助空间不等。<br>
+      <br>
+      　　2) 快速排序和归并排序在n值较小时的性能不及直接插入排序，因此在实际应用时，可将它们和插入排序&quot;混合&quot;使用。如在快速排序划分子区间的长度小于某值时，转而调用直接插入排序；或者对待排记录序列先逐段进行直接插入排序，然后再利用&quot;归并操作&quot;进行两两归并直至整个序列有序为止。<br>
+      <br>
+      　　3) 基数排序的时间复杂度为<font face="Times New Roman, Times, serif"><i>O </i>(d×n)</font>，因此特别适合于待排记录数 
+      n 值很大，而关键字&quot;位数 d &quot;较小的情况。并且还可以调整&quot;基数&quot;（如将基数定为100或1000等）以减少基数排序的趟数d的值。<br>
+      <br>
+      　　4) 一般情况下，对单关键字进行排序时，所用的排序方法是否稳定无关紧要。但当按&quot;最次位优先&quot;进行多关键字排序时(除第一趟外)必须选用稳定的排序方法。</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" valign="top" width="281"><br>
+      【本章小结】 </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

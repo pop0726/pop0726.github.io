@@ -1,0 +1,96 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+<script language="JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　10.6.2 基数排序的两种实现方法</span><br>
+      <br>
+      <span class="zhushi">　二、利用&quot;计数&quot;和&quot;复制&quot;的方法实现的基数排序算法</span><br>
+      <br>
+      　　由于在排序的过程中利用了&quot;计数&quot;策略，故在此称它为&quot;计数基数排序&quot;，其算法如下所示。<br>
+      　<br>
+      <img src="../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle" alt="算法"> 
+      <span class="zhushi">算法10.21</span><br>
+      　　<b>void</b> RadixSort( SqList <b><font face="Times New Roman, Times, serif">&amp;</font></b>L ) <br>
+      　<b>{</b><br>
+      <span class="zhushi">　　<font face="Times New Roman, Times, serif">//</font> 
+      对顺序表 L 进行基数排序</span><br>
+      　　RcdType C[L.length+1]; <font face="Times New Roman, Times, serif">//</font> 
+      开设同等大小的辅助空间用于复制数据<br>
+      　　i= bitsnum-1;<br>
+      　　<b>while</b> ( i &gt;= 0 ) <b>{</b><br>
+      　　　RadixPass( L.r, C, L.length, i );<br>
+      　　　　　　　　　　　　　<font face="Times New Roman, Times, serif">//</font> 对L.r进行一趟基数排序，排序结果存入 
+      C<br>
+      　　　i--;<br>
+      　　<b>if</b> (i &gt;=0 ) <b>{</b><br>
+      　　　RadixPass( C, L.r, L.length, i );<br>
+      　　　　　　　　　　　　　<font face="Times New Roman, Times, serif">//</font> 对C进行一趟基数排序，排序结果存入 
+      L.r<br>
+      　　　i--;<br>
+      　　<b>}</b><font face="Times New Roman, Times, serif">//</font>if<br>
+      　　<b>else</b><br>
+      　　　<b>for</b> ( j=1; j&lt;=L.length; ++j ) L.r[j] = C[j];<br>
+      　　　　　　　　　　　　　<font face="Times New Roman, Times, serif">//</font> 排序后的结果在C中，复制至 
+      L.r 中<br>
+      　　<b>}</b><font face="Times New Roman, Times, serif">//</font> while<br>
+      　<b>}</b><font face="Times New Roman, Times, serif">//</font> RadixSort 
+      <br>
+      　<br>
+      <img src="../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle" alt="算法"> 
+      <span class="zhushi">算法 10.22</span><br>
+      　　<b>void</b> RadixPass( RcdType A[], RcdType B[], <b>int</b> n, <b>int</b> 
+      i ) <br>
+      　<b>{</b><br>
+      <span class="zhushi">　　<font face="Times New Roman, Times, serif">//</font> 
+      对数组 A 中记录关键字的&quot;第i位&quot;计数，并按计数数组<br>
+      　　<font face="Times New Roman, Times, serif">//</font> count[] 的值将数组 A 中记录复制到数组 
+      B 中</span><br>
+      　　<b>for</b> ( j=0; j&lt;RADIX; ++j ) count[j] = 0; <font face="Times New Roman, Times, serif">//</font> 
+      计数数组初始化为0<br>
+      　　<b>for</b> ( k=1; k&lt;=n ) count[ A[k].keys[i] ] ++; <br>
+      　　　　　　　　　　　　　　　　　　　　　　<font face="Times New Roman, Times, serif">//</font> 
+      对关键字的对第i位&quot;计数&quot;<br>
+      　　<b>for</b> ( j=1; j&lt;RADIX; ++j ) count[j] = count[j-1] + count[j]; 
+      <br>
+      　　　　　　　　　　　　　　　　　　　　　　<font face="Times New Roman, Times, serif">//</font> 
+      累加操作<br>
+      　　<b>for</b> ( k=n; k&gt;0; --k ) <b>{</b><font face="Times New Roman, Times, serif">　　　　　　　 
+      //</font> 从右端开始复制记录<br>
+      　　　j = A[k].keys[i];<br>
+      　　　B[ count[j] ] = A[k];<br>
+      　　　count[j]--;<br>
+      　　<b>}</b><font face="Times New Roman, Times, serif">//</font> for<br>
+      　<b>}</b><font face="Times New Roman, Times, serif">//</font> RadixPass<br>
+        <br>
+      　　显而易见，计数基数排序的<span class="point">时间复杂度</span>为<b><span class="point"><font face="Times New Roman, Times, serif"><i>O</i> 
+      (dn)</font></span></b>，<span class="point">空间复杂度</span>为<b><span class="point"><font face="Times New Roman, Times, serif"><i>O 
+      </i>(n)</font></span></b>。</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      <br>
+      　　基数排序也可以在顺序存储结构中实现，此时的&quot;分配&quot;即为统计该位关键字值分别为0，1，2，…，9的记录数，&quot;收集&quot;即为根据统计的结果将记录复制到合适位置。<br>
+      <br>
+      　　在算法中利用数组 count[] 统计并累加关键字取值从0至 k 的记录总数(k=0,1, 9)，则 count[k] 即为记录序列中最后一个&quot;关键字取值为k&quot;的记录在每一趟的分配和收集之后在序列中的正确位置。例如，右侧示例中第一趟对&quot;个位数&quot;进行排序，在对个位数进行统计和累加之后，count[]={1，1，1，4，4，6，6，6，7，9}，则最后一个&quot;个位数等于3&quot;(即关键字等于83)的记录应放在 
+      B[count[3]] 中，同时为了确定前一个&quot;个位数等于3&quot;的记录应放的位置，则在将&quot;83&quot;复制到B[4]之后，应将 
+      count[3] 的值&quot;减1&quot;。<br>
+      <br>
+      <a href="javascript:;" onClick="MM_openBrWindow('../../../flash/chap10/10-6-4.swf','数据结构','width=400,height=300')"><img src="../../../images/tubiao/dh.gif" alt="动画" width="25" height="24" border="0"></a><img src="../../../images/pic/chapter10/10-38.gif" width="250" height="161" align="top"></td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

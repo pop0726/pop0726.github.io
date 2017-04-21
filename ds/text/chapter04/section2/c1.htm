@@ -1,0 +1,91 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　4.2.1 串的定长顺序存储表示</span><br>
+      <br>
+      　　类似于线性表的顺序存储结构，可用一组地址连续的存储单元存储串值的字符序列。例如C和C++语言中串不是预定义的数据类型，而是以字符数组来表示串。如声明<br>
+      　　　<b>char</b> str[10];<br>
+      <br>
+      　　表明 str 是一个串变量。C语言中还规定了一个&quot;串的结束标志 <font face="Times New Roman, Times, serif">'</font>\0'&quot;（字符 
+      <font face="Times New Roman, Times, serif">'</font>\0'称为空终结符），即数组中在该结束标志之前的字符是串变量的有效字符，但结束标志本身要占一个字符的空间，因此串变量 
+      str 的值（字符序列）的实际长度可在这个定义范围内随意，但最大不能超过9。<br>
+      <br>
+      　　在这种表示方法下，实现串操作的基本操作是&quot;字符序列的复制&quot;。如下列算法4.1和4.2分别为串的联接和求子串。<br>
+      　<br>
+    </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      <br>
+      　　如果在程序设计语言中，串只是作为输入/输出的常量出现，则只需要存储这个串常量值，即字符序列即可。但在多数非数值处理的程序中，串也以变量的形式出现。则需要根据串操作的特点，合理地选择和设计串值的存储结构及其维护方式。<br>
+      <br>
+      　　这里介绍三种串的表示方法。<br>
+    </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><img src="../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle" alt="算法"> 
+      <span class="zhushi">算法 4.3</span><br>
+      　　<b>void</b> Concat( <b>char</b> S1[ ], <b>char</b> S2[ ], <b>char</b> 
+      T[ ])<br>
+      　<b>{</b><br>
+      <span class="zhushi">　　<font face="Times New Roman, Times, serif">//</font> 
+      以T返回由S1和S2联接而成的新串</span><br>
+      　　j=0; k=0; <br>
+      　　<b>while</b> ( S1[j] != <font face="Times New Roman, Times, serif">'</font>\0') 
+      T[k++] = S1[j++]; <font face="Times New Roman, Times, serif">　　//</font> 
+      复制串 S1<br>
+      　　j = 0;<br>
+      　　<b>while</b> ( S2[j] != <font face="Times New Roman, Times, serif">'</font>\0<font face="Times New Roman, Times, serif">'</font>) 
+      T[k++] = S2[j++]; <font face="Times New Roman, Times, serif">　　//</font> 
+      紧接着复制串 S2<br>
+      　　T[k] = <font face="Times New Roman, Times, serif">'</font>\0';<font face="Times New Roman, Times, serif">　　　　　　　　　　　　　　　 
+      //</font> 置结果串T的结束标志<br>
+      　<b>}</b><font face="Times New Roman, Times, serif"> //</font> Concat_Sq<br>
+      　</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      　　这种表示方法中，存储串值的数组空间都是静态分配的，此算法中串T的存储空间必须在调用此函数的程序中予以分配，即在该程序中必须为T分配足够的空间。否则将会出现&quot;数组越界&quot;的非法操作错误。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><img src="../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle" alt="算法"> 
+      <span class="zhushi">算法 4.4</span><br>
+      　　<b>bool</b> SubString ( <b>char</b> Sub[ ], <b>char</b> S, <b>int</b> 
+      pos, <b>int</b> len ) <br>
+      　<b>{</b><br>
+      <span class="zhushi">　　<font face="Times New Roman, Times, serif">//</font> 
+      若参数合法(即1≤pos≤StrLength(S) 且<br>
+      　　<font face="Times New Roman, Times, serif">//</font> 0≤len≤StrLength(S)-pos+1),则以Sub带回串S中第pos个<br>
+      　　<font face="Times New Roman, Times, serif">//</font> 字符起长度为len的子串，并返回TRUE，否则返回FALSE</span><br>
+      　　slen=StrLength(S); <font face="Times New Roman, Times, serif">　　　　　　　　　　　　　　//</font> 
+      求串S的长度<br>
+      　　<b>if</b> (pos &lt; 1 || pos &gt; slen || len &lt; 0 || len &gt; slen-pos+1)<br>
+      　　　<b>return</b> FALSE;<br>
+      　　<b>for</b> ( j = 0; j &lt; len; j++ ) Sub[ j ] = S[ pos + j - 1 ];<br>
+      　　　　　　　　　　　　　　　　　　　　　　<font face="Times New Roman, Times, serif">　　　　//</font> 
+      向子串Sub复制字符<br>
+      　　Sub[len] = <font face="Times New Roman, Times, serif">'</font>\0'; <font face="Times New Roman, Times, serif">　　　　　　　　　　　　　　　//</font> 
+      置串Sub的结束标志<br>
+      　　<b>return</b> TRUE;<br>
+      　<b>}</b><font face="Times New Roman, Times, serif"> //</font> SubString</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      　　同理，函数中Sub的存储空间由调用函数中的实参确定。 
+      <p>　　从这两个例子可见，用字符数组表示字符串时，串的操作容易进行，而且允许用数组名进行串的输入和输出，但由于在此用的是C语言中的静态数组，串值的存储空间必须进行预分配，致使它的应用受到一定限制。<br>
+      </p>
+    </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

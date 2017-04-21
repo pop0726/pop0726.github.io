@@ -1,0 +1,59 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">
+      <span class="part">　6.3.2 链式存储结构</span><br>
+        <br>
+        <span class="zhushi">　二、 三叉链表</span><br>
+        <br>
+        <span class="zhushi"><img src="../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle" alt="算法"> 
+        二叉树的三叉链表存储表示 </span><br>
+        　　<b>typedef struct</b> TriTNode <b>{</b> <br>
+        　　　ElemType data; <br>
+        　　　<b>struct</b> BiTNode *Lchild, *Rchild; <font face="Times New Roman, Times, serif">//</font> 
+        左、右孩子指针<br>
+        　　　<b>struct</b> BiTNode *parent;　<font face="Times New Roman, Times, serif">　　　　//</font> 
+        双亲指针<br>
+        　　<b>}</b> *TriTree;<br>
+        <br>
+        　　和二叉链表相同，表示整个二叉树只需要一个指向根结点的指针即可。和上页相同的二叉树的二叉链表如下图所示。<br>
+        <br>
+      <div align="center"><img src="../../../images/pic/chapter06/6_07.gif" width="325" height="251" align="top"> 
+      </div>
+    </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"> 
+      <br>
+      <br>
+      　三叉链表的结点结构：<br>
+      <br>
+      <table width="200" border="0" cellspacing="1" cellpadding="0" align="center" bgcolor="#003399">
+        <tr> 
+          <td background="../../../images/html/right_di4.gif" class="explaination" width="50"> 
+            <div align="center">parent</div>
+          </td>
+          <td background="../../../images/html/right_di4.gif" class="explaination" width="50"> 
+            <div align="center">Lchild</div>
+          </td>
+          <td background="../../../images/html/right_di4.gif" class="explaination" width="50"> 
+            <div align="center">data</div>
+          </td>
+          <td background="../../../images/html/right_di4.gif" class="explaination">
+            <div align="center">Rchild</div>
+          </td>
+        </tr>
+      </table>  <br>
+      　　类似于线性表的双向链表，在二叉树的三叉链表中既有指示&quot;后继&quot;的信息，也有指示&quot;前驱&quot;的信息。 </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　2.5.1 有序链表类型</span><br>
+      <br>
+      <span class="text"><span class="text"><img src="../../../images/tubiao/cxd.gif" width="25" height="24" alt="算法"><br>
+      　　<b>void</b> InsAfter ( LinkList <b><font face="Times New Roman, Times, serif">&amp;</font></b>L, SLink s )<br>
+      　<b>{</b> <br>
+      　　</span><span class="zhushi"><font face="Times New Roman, Times, serif">//</font> 
+      在有序链表L中当前指针所指结点之后插入一个新的结点 *s，<br>
+      </span><span class="text">　　</span><span class="zhushi"><font face="Times New Roman, Times, serif">//</font> 
+      并移动当前指针指向新插入的结点。</span><span class="text"><br>
+      　　L.curPtr -&gt; next = s;<br>
+      　　<b>if</b> ( L.tail == L.curPtr )<br>
+      　　　L.tail = s; 　　　　　　<font face="Times New Roman, Times, serif">//</font> 
+      若新结点插入在尾结点之后，则修改尾指针 <br>
+      　　L.curPtr = s; ++L.curPos; <font face="Times New Roman, Times, serif">//</font> 
+      移动当前指针 <br>
+      　　++L.length;　　　　　　　 <font face="Times New Roman, Times, serif">//</font> 
+      表长增 1<br>
+      　<b>}</b><br>
+      　</span></span><br>
+    </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      <br>
+      <br>
+      <br>
+      　　插入之前，当前指针在表中任何位置都是合法的。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="text"><span class="text"><span class="text"><img src="../../../images/tubiao/cxd.gif" width="25" height="24" alt="算法"></span><br>
+      　<span class="text">　</span></span><b>bool</b> DelAfter( LinkList <b><font face="Times New Roman, Times, serif">&amp;</font></b>L, 
+      ElemType<b><font face="Times New Roman, Times, serif">&amp;</font></b> e 
+      )<br>
+      　<b>{</b><br>
+      </span><span class="zhushi">　<font face="Times New Roman, Times, serif">//</font> 
+      若当前指针所指非单链表L中最后一个结点，<br>
+      　<font face="Times New Roman, Times, serif">//</font> 则删除当前指针所指结点之后的结点，以 
+      e 带回它的数据元素<br>
+      　<font face="Times New Roman, Times, serif">//</font> 并返回 TRUE，否则不进行删除操作且返回 
+      FALSE。</span><span class="text"><br>
+      　　<b>if</b> ( L.curPtr == L.tail )<br>
+      　　　<b>return</b> <b>FALSE</b>;<br>
+      　　p = L.curPtr -&gt; next; e = p -&gt; data;<br>
+      　　L.curPtr -&gt; next = p -&gt; next; 　 　　　　<font face="Times New Roman, Times, serif">//</font> 
+      修改当前结点的指针<br>
+      　　<b>if</b> ( L.tail == p ) <br>
+      　　　L.tail = L.curPtr;　　　　　　　　　　 <font face="Times New Roman, Times, serif">//</font> 
+      删除尾结点时修改尾指针<br>
+      　　<b>delete</b> p; 　　　　　　　　　　　　　　　<font face="Times New Roman, Times, serif">//</font> 
+      释放被删结点<br>
+      　　--L.length;　　　　　　　　　　　　　　　<font face="Times New Roman, Times, serif">//</font> 
+      表长减1<br>
+      　　<b>return</b> <b>TRUE</b>;<br>
+      　<b>} </b><font face="Times New Roman, Times, serif">//</font> DelAfter<b></b></span></td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      　　若当前指针已经指向最后一个结点，它没有后继，因此不能进行删除。 </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

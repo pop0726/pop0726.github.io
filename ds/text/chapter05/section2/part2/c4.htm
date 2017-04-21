@@ -1,0 +1,38 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　5.2.2 稀疏矩阵的压缩存储方法</span><br>
+      <br>
+      <span class="zhushi">　二、行逻辑链接的顺序表</span><br>
+      <br>
+      　　由此，两个稀疏矩阵相乘（Q＝M<img src="../../../../images/pic/chapter04/t5.gif" width="7" height="7">N）的过程可大致描述如下：<br>
+      <img src="../../../../images/tubiao/cxd.gif" width="25" height="24" alt="算法"><br>
+      　Q初始化;<br>
+      　　<b>if</b> Q是非零矩阵 <b>{</b> <font face="Times New Roman, Times, serif">　　　　　　　　　　　//</font> 
+      逐行求积<br>
+      　　　<b>for</b> (arow=1; arow&lt;=M.mu; ++arow) <br>
+      　　　<b>{</b> <font face="Times New Roman, Times, serif">　　　　　　　　　　　　　　　　　//</font> 
+      处理M的每一行<br>
+      　　　　ctemp[] = 0; <font face="Times New Roman, Times, serif">　　　　　　　　　　　//</font> 
+      累加器清零<br>
+      　　　　计算 Q 中第 arow 行的积并存入 ctemp[] 中；<br>
+      　　　　将 ctemp[] 中非零元压缩存储到 Q.data；<br>
+      　　　<b>}</b><font face="Times New Roman, Times, serif"> //</font> for arow<br>
+      　　<b>}</b><font face="Times New Roman, Times, serif"> //</font> if </td>
+    <td background="../../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      <br>
+    </td>
+    <td background="../../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

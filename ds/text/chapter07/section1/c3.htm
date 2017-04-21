@@ -1,0 +1,64 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><br>
+      　　介绍几个有关图的常用术语。<br>
+      <br>
+      　<span class="zhushi">顶点的度</span><br>
+      　　对无向图而言，邻接点的个数定义为顶点的度。例如右示无向图中顶点B的度为3，顶点C的度为2。对有向图而言，顶点的度为其出度和入度之和，其中出度定义为以该顶点为弧尾的弧的个数，入度定义为以该顶点为弧头的弧的个数。例如右示有向图中顶点D的度为3，其中出度为2，入度为1，顶点B的度为3，其中出度为1，入度为2。<br>
+      <br>
+      　<span class="zhushi">子图</span><br>
+      　　假设有两个图 G=(V,{E}) 和 G'=(V',{E'})，如果V'<img src="../../../images/pic/chapter07/less.gif" width="10" height="10">V 
+      且 E'<img src="../../../images/pic/chapter07/less.gif" width="10" height="10">E，则称 
+      G'为G的<span class="part">子图(subgraph)</span>。例如，右示是子图的一些例子。<br>
+      <br>
+      　<span class="zhushi">路径和回路</span><br>
+      　　若有向图 G 中 k+1 个顶点之间都有弧存在（即&lt;<img src="../../../images/pic/chapter07/v0.gif" width="15" height="18" align="absmiddle">,<img src="../../../images/pic/chapter07/v1.gif" width="14" height="18" align="absmiddle">&gt;,&lt;<font size="3">v</font><font size="1">1</font>,<img src="../../../images/pic/chapter07/v2.gif" width="14" height="18" align="absmiddle">&gt;，…&lt;<img src="../../../images/pic/chapter07/vk_1.gif" width="25" height="18" align="absmiddle">,<img src="../../../images/pic/chapter07/vk.gif" width="14" height="18" align="absmiddle">&gt;是图 
+      G 中的弧），则这个顶点的序列 { <img src="../../../images/pic/chapter07/v0.gif" width="15" height="18" align="absmiddle">,<img src="../../../images/pic/chapter07/v1.gif" width="14" height="18" align="absmiddle">,…,<img src="../../../images/pic/chapter07/vk.gif" width="14" height="18" align="absmiddle"> 
+      } 为从顶点<font size="3">v</font><font size="1">0</font>到顶点<font size="3">v</font><font size="1">k</font>的一条<span class="point">有向路径</span>，路径中弧的数目定义为<span class="point">路径长度</span>，若序列中的顶点都不相同，则为<span class="point">简单路径</span>。对无向图，相邻顶点之间存在边的 
+      k+1 个顶点序列构成一条长度为 k 的<span class="point">无向路径</span>。如果<img src="../../../images/pic/chapter07/v0.gif" width="15" height="18" align="absmiddle">和<img src="../../../images/pic/chapter07/vk.gif" width="14" height="18" align="absmiddle">是同一个顶点，则是一条由某个顶点出发又回到自身的路径，称这种路径为<span class="point">回路</span>或<span class="point">环</span>。例如右示有向图中顶点序列 
+      {A,E,C,D} 是一条路径长度为3的简单路径，顶点序列 {A,B,C,D,A} 是一条长度为4的简单回路。右示无向图中顶点序列 {A,B,F,C,D} 
+      是一条长度为4的无向路径。<br>
+      <br>
+      　<span class="zhushi">连通图和连通分量、强连通图和强连通分量 </span><br>
+      　　若无向图中任意两个顶点之间都存在一条无向路径，则称该无向图为连通图，否则称为非连通图。若有向图中任意两个顶点之间都存在一条有向路径，则称该有向图为强连通图。例如右上所示无向图和有向图分别为连通图和强连通图。<br>
+      　　非连通图中各个极大连通子图称作该图的连通分量。如右图为由两个连通分量构成的非连通图。非强连通的有向图中的极大强连通子图称作有向图的强连通分量。例如右图中的有向图含有三个强连通分量。<br>
+      <br>
+      　<span class="zhushi">生成树和生成森林</span><br>
+      　　一个含 n 个顶点的连通图的生成树是该图中的一个极小连通子图，它包含图中 n 个顶点和足以构成一棵树的 n-1 条边。如右图所示。若在无向图 
+      G2 中删除边 (B,F)，则成为一个非连通图，对于非连通图，对其每个连通分量可以构造一棵生成树，合成起来就是一个生成森林。如右图所示。<br>
+      <br>
+      　<span class="zhushi">无向网和有向网</span><br>
+      　　在实际应用中，图的弧或边往往与具有一定意义的数相关，称这些数为&quot;权&quot;，分别称带权的有向图和无向图为有向<span class="point">网</span>和无向网。<br>
+    </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      　　　<img src="../../../images/pic/chapter07/7_02.gif" width="150" height="113" align="top"><br>
+      　　　　　　(无向图G2) <br>
+      <br>
+      　　　<img src="../../../images/pic/chapter07/7_01.gif" width="150" height="113" align="top"><br>
+      　　　　　　(有向图G1) <br>
+      <br>
+      　　　 <img src="../../../images/pic/chapter07/7_05.gif" width="196" height="166" align="top"><br>
+      <br>
+      　　　　<img src="../../../images/pic/chapter07/7_06.gif" width="150" height="112" align="top"><br>
+      <br>
+      　　　　<img src="../../../images/pic/chapter07/7_07.gif" width="150" height="113" align="top"><br>
+      <br>
+      　　　　<img src="../../../images/pic/chapter07/7_08.gif" width="150" height="113" align="top"><br>
+      <br>
+      　　　　<img src="../../../images/pic/chapter07/7_09.gif" width="150" height="113" align="top"><br>
+    </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

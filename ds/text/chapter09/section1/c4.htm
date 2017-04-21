@@ -1,0 +1,95 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　9.2.3 有序表-静态查找表的实现方法之二</span><br>
+      <br>
+      　　如果顺序表中的数据元素按关键字有序排列，即以有序表表示静态查找表时，则可进行&quot;折半查找&quot;。<br>
+      <br>
+      　　<span class="point">折半查找(Binary Search)</span>又称<span class="point">二分查找</span>，其查找过程是，先确定待查记录所在范围（区间），然后逐步缩小范围直至找到该记录，或者当查找区间缩小到0也没有找到关键字等于给定值的记录为止。其算法描述如下所示：<br>
+      <br>
+      <img src="../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle" alt="算法"> 
+      <span class="zhushi">算法 9.2</span><br>
+      　　<b>int</b> Search_Bin ( SSTable ST, KeyType kval ) <br>
+      　<b>{</b><br>
+      <span class="zhushi">　　<font face="Times New Roman, Times, serif">//</font> 
+      在有序表ST中折半查找其关键字等于kval的数据元素，<br>
+      　　<font face="Times New Roman, Times, serif">//</font> 若找到，则函数值为该元素在表中的位置，否则为0。</span><br>
+      　　low = 1; high = ST.length; <font face="Times New Roman, Times, serif">　　　　　//</font> 
+      置区间初值<br>
+      　　<b>while</b> (low &lt;= high) <b>{</b><br>
+      　　　mid = (low + high) / 2;<br>
+      　　　<b>if</b> ( kval == ST.elem[mid].key )<br>
+      　　　　<b>return</b> mid;　　　　　　　　　　 <font face="Times New Roman, Times, serif">//</font> 
+      找到待查元素<br>
+      　　　<b>else</b> <br>
+      　　　　<b>if</b> ( kval &lt; ST.elem[mid].key )<br>
+      　　　　　high = mid - 1; <font face="Times New Roman, Times, serif">　　　　　　　//</font> 
+      继续在前半区间内进行查找<br>
+      　　　　<b>else</b> low = mid + 1;<font face="Times New Roman, Times, serif">　　　　　　//</font> 
+      继续在后半区间内进行查找<br>
+      　　<b>}</b><font face="Times New Roman, Times, serif"> // </font>while<br>
+      　　<b>return</b> 0; <font face="Times New Roman, Times, serif">　　　　　　　　　　　　//</font> 
+      有序表中不存在待查元素<br>
+      　<b>}</b><font face="Times New Roman, Times, serif"> //</font> Search_Bin<br>
+      　</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      <br>
+      　例如，在有序表<br>
+      　　(05,13,19,21,37,56,64,75,80,88,92)<br>
+      　　中进行折半查找的过程如动画所示。<a href="javascript:;" onClick="MM_openBrWindow('../../../flash/chap09/9-2-2.swf','数据结构','width=400,height=300')"><img src="../../../images/tubiao/dh.gif" alt="动画" width="25" height="24" border="0" align="absmiddle"></a><br>
+      <br>
+      　　从例子可见，折半查找的过程为:给定值首先和处于待查区间&quot;中间位置&quot;的关键字进行比较，若相等，则查找成功，否则将查找区间缩小到&quot;前半个区间&quot; 
+      或 &quot;后半个区间&quot; 之后继续进行查找。<br>
+    </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">　　直观上容易看出，在长度为n的有序表中进行折半查找，给定值至多只需要和 <img src="../../../images/pic/chapter06/l1.gif" width="5" height="16" align="absmiddle">log<sub><font size="1">2</font></sub>n<img src="../../../images/pic/chapter06/l2.gif" width="6" height="16" align="absmiddle">+1 
+      个关键字进行比较，显然比顺序查找要好，那么它的平均查找长度是多少呢？<br>
+      <br>
+      　　先看一个具体的情况，假设有序表的表长为11，则找到表中每个关键字时所需进行的给定值和关键字的比较次数如右表所列，假设表中各个关键字的查找概率相等，则在进行折半查找时的平均查找长度为：<br>
+      　<img src="../../../images/pic/chapter09/gs_7.gif" width="406" height="33"><br>
+      <br>
+      　　可如下作图：将只需经过1次比较即找到的关键字（序号）放在第1层（即作为根结点），需经过2次比较找到的关键字（序号）放置在第2层，依次类推，便可得到如右所示的一棵二叉树，由于这棵二叉树描述了对长度为11的有序表进行折半查找的过程，故称之谓（对长度为11的有序表进行折半查找的）<span class="point">判定树</span>。容易看出这棵判定树的深度应该和含11个元素的完全二叉树的深度相同，则对表长为 
+      n 的有序表进行折半查找的判定树的深度和含 n 个元素的完全二叉树的深度相同，也就是说，在长度为 n 的有序表中进行折半查找，所需进行给定值和关键字的比较次数至多为 
+      <img src="../../../images/pic/chapter06/l1.gif" width="5" height="16" align="absmiddle">log<sub><font size="1">2</font></sub>n<img src="../../../images/pic/chapter06/l2.gif" width="6" height="16" align="absmiddle">+1 
+      。<br>
+      <br>
+      　　假设表长 n=2<sup>h</sup>-1，则折半查找的判定树即为深度为h的满二叉树，树中第 j 层的结点数为 2<sup>j-1</sup>，并且找到和这些结点位置相应的关键字的比较次数为 
+      j，由此，在进行等概率(折半)查找时查找成功时的平均查找长度为：<br>
+      　　<img src="../../../images/pic/chapter09/gs_8.gif" width="373" height="50"> 
+      <br>
+      <p></p>
+      <p>　　在一般情况下，可以认为有如下近似结果：<br>
+        　　　<img src="../../../images/pic/chapter09/gs_9.gif" width="149" height="18"></p>
+    </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　<img src="../../../images/pic/chapter09/9_01.gif" width="250" height="187" align="top"><br>
+      <br>
+      　　结点6表示有序表中第6个关键字。在判定树上可以一目了然地看到在折半查找的过程中，先后和给定值进行比较的关键字的位置，例如，找到表长为11的有序表中第5个关键字时，给定值先后和第6,3,4和5个关键字进行比较，换句话说，折半查找有序表中任何一个关键字恰&quot;走了一条从根结点到该（关键字相应）结点的一条路径&quot;。<br>
+      <br>
+      　　判定树中的方形结点表示查找不成功的情况，例如，当给定值的值介于有序表中第6个和第7个关键字之间时，在给定值先后和表中第6,9和7个关键字进行比较之后，查找区间缩小到0，从判定树看，落到了⑦的左子树的位置上。<br>
+      <br>
+      　　通常称表示查找成功的圆形结点为判定树的&quot;内结点&quot;，而称表示查找不成功的方形结点为判定树的&quot;外结点&quot;。<a href="javascript:;" onClick="MM_openBrWindow('../../../flash/chap09/9-2-3.swf','数据结构','width=400,height=300')"><img src="../../../images/tubiao/dh.gif" alt="动画" width="25" height="24" border="0" align="absmiddle"></a></td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

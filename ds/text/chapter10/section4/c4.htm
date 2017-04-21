@@ -1,0 +1,62 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+<script language="JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　10.4.2 堆排序</span><br>
+      <br>
+      　　如何&quot;建堆&quot;？<br>
+      <br>
+      　　建堆的过程是一个&quot;从下到上&quot;调整堆的过程。显然，叶子结点是个堆，对记录无序系列中&quot;最后一个&quot;分支结点而言，满足筛选的前提，即除根结点之外，其左、右子树都是堆，由此可调用算法10.13将它调整为一个堆。类似地，&quot;从后往前&quot;看每个记录都满足筛选的前提，依次进行调整直至对以第1个记录为根的&quot;二叉树&quot;进行筛选之后，整个记录序列就是一个大顶堆了。例如右侧动画所示为对前述记录无序序列进行建堆的过程。<br>
+      <br>
+      <img src="../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle"> 
+      <span class="zhushi">算法 10.14 </span><br>
+      　　<b>void</b> HeapSort ( SqList <b><font face="Times New Roman, Times, serif">&amp;</font></b>H )<br>
+      　<b>{</b><br>
+      <span class="zhushi">　　<font face="Times New Roman, Times, serif">//</font> 
+      对顺序表H进行堆排序</span><br>
+      　　<b>for</b> ( i=H.length/2; i&gt;0; --i ) <font face="Times New Roman, Times, serif">　//</font> 
+      将 H.r[1..H.length] 建成大顶堆<br>
+      　　　HeapAdjust ( H, i, H.length );<br>
+      　　H.r[1] ←→ H.r[H.length]; <font face="Times New Roman, Times, serif">　　　//</font> 
+      互换&quot;堆顶&quot;和&quot;堆底&quot;的记录<br>
+      　　<b>for</b> ( i=H.length-1; i&gt;1; --i ) <b>{</b><br>
+      　　　HeapAdjust(H, 1, i);<font face="Times New Roman, Times, serif">//</font> 
+      从根开始调整，将 H.r[1..i] 重新调整为大顶堆<br>
+      　　　H.r[1] ←→ H.r[i]; <br>
+      　　　　　　　　　<font face="Times New Roman, Times, serif">//</font> 互换&quot;堆顶&quot;和当前的&quot;堆底&quot;，使已有序的记录沉积在底部<br>
+      　　<b>}</b><font face="Times New Roman, Times, serif">//</font>for<br>
+      　<b>}</b> <font face="Times New Roman, Times, serif">//</font> HeapSort<br>
+      <br>
+      　　可以证明，堆排序的<span class="point">时间复杂度</span>为<b><span class="point"><font face="Times New Roman, Times, serif"><i>O 
+      </i>(nlogn)</font></span></b>。和选择排序雷同，无论待排序列中的记录是正序还是逆序排列，都不会使堆排序处于&quot;最好&quot;或&quot;最坏&quot;的状态。</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      <br>
+      <br>
+      <br>
+      <a href="javascript:;" onClick="MM_openBrWindow('../../../flash/chap10/10-4-4.swf','数据结构','width=400,height=300')"><img src="../../../images/tubiao/dh.gif" alt="动画" width="25" height="24" border="0"></a><img src="../../../images/pic/chapter10/10-32.gif" width="250" height="137" align="top"><br>
+      <br>
+      　　算法10.14中第一个 for 循环调用 n/2 次筛选算法完成了建大顶堆的操作，选出序列中最大关键字记录，算法中第二个 for 循环调用 
+      n-2 次筛选算法依次选出序列中第2大，第3大，…，第 n-1 大关键字的记录，最后被交换到 H.r[1] 位置上的记录必为关键字最小记录。 
+      <p>　　时间复杂度的详细推导请参见教材所述。<br>
+      </p>
+    </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

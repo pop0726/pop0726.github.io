@@ -1,0 +1,35 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　11.5.2 文件的操作</span><br>
+      <br>
+      　　在散列文件中进行查找时，首先根据给定值kval求得桶号(即哈希函数值)i，先查桶目录文件，把包含第i个桶目录的目录页块调入内存，从而得到指向第 
+      i 个桶的第一个页块的指针，再调入该页块进行顺序查找，检查页块中是否有关键码等于给定值 kval 的记录，如果找不到，再按此页块尾部的指针，找到下一个页块，继续查找直至找到该记录。若顺链查遍全桶的每一个页块都未找到关键码等于给定值 
+      kval 的记录，则表示该记录不存在。<br>
+      <br>
+      　　插入时，首先查找该记录是否存在，是则出错，否则插入在最后一个尚未填满的页块中。若桶中所有页块都已被填满，则向系统申请一个新的页块，链入桶链表之链尾，然后将新记录存入其中。 
+      <br>
+      <br>
+      　　删除记录时，首先查找待删记录是否存在，不存在则出错，否则就删除之，腾出空位给在这之后插入的记录用。<br>
+      <br>
+      　　假设文件的记录数为n，散列文件中的桶数为m，每个页块可以存放 w 个记录，则散列文件的装填因子为<br>
+      　　　<img src="../../../images/pic/chapter11/gs_3.gif" width="60" height="34"><br>
+      <br>
+      　　则在哈希函数均匀的前提下，每进行一次按关键码的查询，平均只需访问外存<img src="../../../images/pic/chapter11/gs_4.gif" width="39" height="13" align="absmiddle">次。<br>
+      <br>
+      　　散列文件的优点是记录随机存放，存取速度快；不需要建多层索引，节省存储空间；容易实现文件的扩充。缺点是不适用于对文件进行顺序存取和批处理；在经过多次的插入、删除之后有可能造成文件结构不合理，即页块链表中的前几个页块中多数的记录被删除，此时需&quot;重组文件&quot;。</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">&nbsp;</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

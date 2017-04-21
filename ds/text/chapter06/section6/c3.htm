@@ -1,0 +1,84 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<script language=JavaScript src="../../chapter02/section1/hpmain.js"></script>
+<script language=JavaScript src="../../chapter02/section1/showhidden.js"></script>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　6.6.3 树和森林的孩子兄弟表示法 </span> 
+      <p> <img src="../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle"> 
+        <span class="zhushi">树和森林的二叉链表(孩子-兄弟）存储表示 </span><br>
+        　　<b>typedef struct</b> CSNode<b>{</b><br>
+        　　　ElemType data;<br>
+        　　　<b>struct</b> CSNode <b>*</b>firstchild, <b>*</b>nextsibling;<br>
+        　　<b>}</b> CSNode, <b>*</b>CSTree;<br>
+        　</p>
+    </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　<br>
+      　　树中每个结点都设有两个指针，<br>
+      　　其一，firstchild 指向该结点的&quot;第一个&quot;子树根结点，其二，nextsibling 指向它的&quot;下一个&quot;兄弟结点。<br>
+      　　这里的&quot;第一个&quot;和&quot;下一个&quot;都没有逻辑上的含义，只是在构造存储结构时自然形成的次序。<br>
+      　</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">　树的孩子-兄弟链表<br>
+      　<img src="../../../images/pic/chapter06/6_23.gif" width="348" height="291"><br>
+      　<br>
+      　森林的孩子-兄弟链表<br>
+      　<img src="../../../images/pic/chapter06/6_24.gif" width="348" height="291"></td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　　对森林来说，可认为各棵树的根结点之间是一个 
+      &quot;兄弟&quot;关系，因此无论树和森林都可以用这样的&quot;二叉链表&quot;表示。由于结点中的两个指针指示的分别为 &quot;孩子&quot;和&quot;兄弟&quot;的关系，故称为&quot;孩子-兄弟链表&quot; 
+      。<br>
+      <br>
+      　　例如，上页所示树的孩子-兄弟链表如左图所示。<br>
+      　　删除树中的根结点之后，可以得到下列图示的森林，它的孩子-兄弟链表则由指向结点B的指针表示，参见左窗口。<br>
+      　　<img src="../../../images/pic/chapter06/6_5F25.gif" width="199" height="112" align="top"><br>
+      <br>
+      <table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td bgcolor="#ECEEFF" height="14" class="explaination" width="8">&nbsp;</td>
+                <td bgcolor="#ECEEFF" height="14" class="explaination"><img src="../../../images/tubiao/wt.gif" width="23" height="23" align="absmiddle" alt="思考题"> 
+                  如果没有告诉你，这是上图所示的森林的存储结构，你是否会将它看成是一棵二叉树呢？</td>
+                <td width="15" bgcolor="#ECEEFF" valign="top"><span id="bb"><img border=0 
+                              id=HPFrameHLTab3 
+                              onClick="showHideContent('HPFrameHL');hidden();"
+							   src="../../../images/html/expand.gif" style="CURSOR: hand" width="15" height="14"></span></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <div id=HPFrameHLContent 
+           style="WIDTH: 100%;visibility: hidden;background-color:#ECEEFF" > 
+              <table width="94%" border="0" cellspacing="0" cellpadding="0" align="center">
+                <tr> 
+                  <td class="explaination">　确实是这样，因为也可将这个二叉链表看成是下列二叉树的存储结构。<br>
+                    　 <img src="../../../images/pic/chapter06/6_26.gif" width="190" height="128" align="top"> 
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+      </table>
+      <br>
+      　　由此，通过存储结构的一致性作为&quot;媒介&quot;，可建立森林和二叉树之间一一对应的关系。 </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

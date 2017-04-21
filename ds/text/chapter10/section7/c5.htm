@@ -1,0 +1,37 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%"><tr><td width="10">&nbsp;</td><td class="white" valign="top"><SPAN CLASS="part"><BR>【编程练习题】</SPAN><BR><BR>　　本章编程练习题中的顺序表和线性链表的类型和第9章相同。<P>　1. 
+试以 L.r[k+1] 作为监视哨改写10.2.1节中给出的直接插入排序算法。其中， L.r[1..k] 为待排序记录且 k&lt;MAXSIZE 。<BR>　　<B>void</B> 
+InsertSort(SSTable<FONT FACE="Times New Roman, Times, serif"><B>&amp;</B></FONT> 
+L)<BR> 　<FONT FACE="Arial, Helvetica, sans-serif">//</FONT> 对 L 中的元素按关键字递增次序进行直接插入排序(&quot;监视哨&quot;设在表尾)</P><P> 
+　2. 试编写如下说明的静态链表完成链表插入排序的算法。<BR>　　<B>typedef struct <BR>　　{</B><BR> 　　　KeyType 
+key;<BR>　　<B>}</B>SElemType; <FONT FACE="Arial, Helvetica, sans-serif">//</FONT> 
+元素类型</P><P>　　<B>typedef struct <BR>　　{</B><BR> 　　　SElemType rc;<BR> 　　　<B>int</B> 
+next;<BR>　　<B>}</B>SLNode; <FONT FACE="Arial, Helvetica, sans-serif">//</FONT> 
+静态链表结点结构</P><P>　　<B>typedef struct</B><BR>　　<B>{</B><BR> 　　　SLNode r[maxsize];<BR> 
+　　　<B>int</B> length;<BR>　　<B>}</B>SLinkList; <FONT FACE="Arial, Helvetica, sans-serif">//</FONT> 
+静态链表</P><P>　　<B>void</B> SLinkInsertSort(SLinkList <FONT FACE="Times New Roman, Times, serif"><B>&amp;</B></FONT>f)<BR> 
+　<FONT FACE="Arial, Helvetica, sans-serif">//</FONT> 对静态链表 f 进行表插入排序，并调用过程 Arrange 
+<BR> 　<FONT FACE="Arial, Helvetica, sans-serif">//</FONT> 对表中记录进行调整 f.r[0].rc.key 
+已赋最大关键字</P><P> 　3. 荷兰国旗问题：设有一个仅由红、白、兰这三种颜色的条块组成的条块序列。请编写一个时间复杂度为<I><FONT FACE="Times New Roman, Times, serif">O</FONT></I>(n)的算法，使得这些条块按红、白、兰的顺序排好，即排成荷兰国旗图案。<BR>　　<B>void</B> 
+HFlag(SSTable <FONT FACE="Times New Roman, Times, serif"><B>&amp;</B></FONT>F)<BR> 
+　<FONT FACE="Arial, Helvetica, sans-serif">//</FONT> 将顺序表 F 中的元素按关键字依次为红、白、兰的顺序排列成 
+3 色条块</P><P> 　4. 已知(k<sub>1</sub>,k<sub>2</sub>,…,k<sub>p</sub>)是堆，则可以写一个时间复杂度为 
+<I><FONT FACE="Times New Roman, Times, serif">O</FONT></I>(logn) 的算法将(k<sub>1</sub>,k<sub>2</sub>,…,k<sub>p</sub>,k<sub>p+1</sub>)调整为堆。试编写&quot;从 
+p=1 起，逐个插入建堆&quot;的算法，并讨论由此方法建堆的时间复杂度。<BR>　　<B>void</B> CreateHeap(SSTable <FONT FACE="Times New Roman, Times, serif"><B>&amp;</B></FONT>sa)<BR> 
+　<FONT FACE="Arial, Helvetica, sans-serif">//</FONT> 将无序序列 sa 按&quot;往堆中逐个插入元素&quot;的方法调整为小顶堆<BR>　<FONT FACE="Arial, Helvetica, sans-serif">//</FONT> 
+(依关键字的大小相比)</P><P> 　5. 2-路归并排序的另一策略是，先对待排序序列扫描一遍，找出并划分为若干个最大有序子列，将这些子列作为初始归并段。试写一个算法在链表结构上实现这一策略。<BR>　　<B>void</B> 
+SLinkMergeSort ( SLinkList <FONT FACE="Times New Roman, Times, serif"><B>&amp;</B></FONT>L 
+)<BR> 　<FONT FACE="Arial, Helvetica, sans-serif">//</FONT> 对静态链表 L 按题目要求进行归并排序，并调用 
+Arrange 函数进行重排</P><P> 　6. 序列的&quot;中值记录&quot;指的是：如果将此序列排序后，它是第<IMG SRC="../../../images/pic/exam/10_1.gif" WIDTH="26" HEIGHT="23" ALIGN="ABSMIDDLE">个记录。试写一个求中值记录的算法。<BR>　　KeyType 
+MiddleElem(SSTable L)<BR> 　<FONT FACE="Arial, Helvetica, sans-serif">//</FONT> 
+返回在 L 中值&quot;取中&quot;的关键字<BR></P></td><td background="../../../images/html/mid.gif" width="18">&nbsp;</td><td background="../../../images/html/right_di4.gif" class="explaination" valign="top" width="281"><BR>【编程练习题】</td><td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td></tr> 
+</table>
+</body>
+</html>

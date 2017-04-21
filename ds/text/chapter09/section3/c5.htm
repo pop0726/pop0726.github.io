@@ -1,0 +1,107 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　9.3.2 二叉查找树</span><br>
+      <br>
+      <span class="zhushi">　四、二叉查找树的删除算法</span><br>
+      <br>
+      　　在二叉查找树上删除一个结点之后应该仍是一棵二叉树，并保持其二叉查找树的特性。<br>
+      <br>
+      　　那么在二叉查找树上如何删除一个结点，即如何修改结点的指针？分三种情况讨论：<br>
+      　　(1) 被删结点为&quot;叶子&quot;，此时删除该结点不影响其它结点之间的关系，因此仅需修改其双亲结点的相应指针即可；<br>
+      <br>
+      　　(2) 被删结点只有左子树或右子树，则只需保持该结点的子树和其双亲之间原有的关系即可，即删除该结点之后，它的子树中的结点仍在其双亲的左子树或右子树上，因此只需要将其左子树或右子树直接链接到其双亲结点成为为其双亲的子树即可；<br>
+      <br>
+      　　(3) 被删结点的左右子树均不空。此时若将二叉查找树视作一个有序序列，为保持其左子树和其右子树间的有序关系，可将&quot;前驱&quot;替代被删数据元素，即将被删结点的数据元素赋值为它的&quot;前驱&quot;，然后从二叉查找树上删去这个&quot;前驱&quot;结点，使得删除一个结点之后的二叉查找树上其余结点之间的&quot;有序&quot;关系不变，而其前驱结点由于只有左子树容易删除。<br>
+      　<br>
+    </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　<br>
+      　<br>
+      　<br>
+      　<br>
+      　　在一棵二叉树上，删除其中某个结点将隔断其祖先和子孙的关系，因此在二叉树的抽象数据类型的定义中只有删除一棵子树的基本操作，而没有删除一个结点的基本操作。而对二叉查找树而言，由于它表示的是动态查找表，因此可以并有必要进行删除一个结点的操作。<a href="javascript:;" onClick="MM_openBrWindow('../../../flash/chap09/9-3-4.swf','数据结构','width=400,height=300')"><img src="../../../images/tubiao/dh.gif" alt="动画" width="25" height="24" border="0" align="absmiddle"></a></td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><img src="../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle"> 
+      <span class="zhushi">算法 9.7</span><br>
+      　　<b>bool</b> <span class="point">DeleteBST</span> (BiTree <b><font face="Times New Roman, Times, serif">&amp;</font></b><span class="point">T</span>, 
+      KeyType <span class="point">kval</span> ) <b>{</b><br>
+      <span class="zhushi">　　<font face="Times New Roman, Times, serif">//</font> 
+      若二叉查找树T中存在关键字等于 kval 的数据元素时，则删除<br>
+      　　<font face="Times New Roman, Times, serif">//</font> 该数据元素结点 *p，并返回 TRUE；否则返回 
+      FALSE</span><br>
+      　　<b>if</b> (<b>!</b>T) <b>return FALSE</b>;　　　　 <font face="Times New Roman, Times, serif">//</font> 
+      不存在关键字等于kval的数据元素<br>
+      　　<b>else {</b><br>
+      　　　<b>if</b> ( kval == T-&gt;data.key) ) <br>
+      　　　<b>{</b> DeleteNode (T);　　　　　　<font face="Times New Roman, Times, serif"> 
+      //</font> 找到关键字等于 kval 的数据元素<br>
+      　　　<b>　　return TRUE</b>;<b>}</b><br>
+      　　　<b>else if</b> ( kval &lt; T-&gt;data.key) <br>
+      　　　<b>　return </b><span class="point">DeleteBST ( T-&gt;lchild, kval )</span>;<br>
+      　　　　　　　　　　　　　　　　　　<font face="Times New Roman, Times, serif">//</font> 返回在左子树上查找的结果<br>
+      　　　<b>else <b>return </b></b> <span class="point">DeleteBST ( T-&gt;rchild, 
+      kval )</span>;<br>
+      <font face="Times New Roman, Times, serif">　　　　　　　　　　　　　　　　 //</font> 返回在右子树上查找的结果<br>
+      　　<b>} </b><font face="Times New Roman, Times, serif">// </font>else<br>
+      　<b>}</b><font face="Times New Roman, Times, serif"> //</font> DeleteBST<br>
+      <br>
+      　　其中删除操作过程如下所描述：<br>
+      <img src="../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle"><br>
+      　　<b>void</b> DeleteNode ( BiTree <b><font face="Times New Roman, Times, serif">&amp;</font></b>p )<b>{</b><br>
+      <span class="zhushi">　　<font face="Times New Roman, Times, serif">//</font> 
+      从二叉查找树中删除结点 p，并重接它的左或右子树</span><br>
+      　　<b>if</b> (<b>!</b>p-&gt;rchild) <b>{</b><font face="Times New Roman, Times, serif">　　　　　　　//</font> 
+      右子树空则只需重接它的左子树<br>
+      　　　q = p; p = p-&gt;lchild; delete q;<br>
+      　　<b>}</b> <br>
+      　　<b>else if</b> (<b>!</b>p-&gt;lchild) <b>{</b> <font face="Times New Roman, Times, serif">　　　　//</font> 
+      只需重接它的右子树<br>
+      　　　q = p; p = p-&gt;rchild; delete q;<br>
+      　　<b>}</b><br>
+      　　<b>else {</b><font face="Times New Roman, Times, serif">　　　　　　　　　　　　//</font> 
+      左右子树均不空<br>
+      　　　q = p; s = p-&gt;lchild;<br>
+      　　　<b>while</b> (<b>!</b>s-&gt;rchild) <b>{</b> q = s; s = s-&gt;rchild; 
+      <b>}</b><br>
+      　　　p-&gt;data = s-&gt;data; <font face="Times New Roman, Times, serif">　　　　　//</font> 
+      s 指向被删结点的前驱<br>
+      　　　<b>if</b> (q <b>!</b>= p ) q-&gt;rchild = s-&gt;lchild; <br>
+      　　　<b>else</b> q-&gt;lchild = s-&gt;lchild;　<font face="Times New Roman, Times, serif">//</font> 
+      重接 *q 的左子树<br>
+      　　　delete s; <br>
+      　　<b>}</b><br>
+      　<b>}</b><font face="Times New Roman, Times, serif"> //</font> Delete</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　　对算法9.7中的删除操作 
+      DeleteNode(T) 需作三点说明：<br>
+      　(1) 叶子结点的情况可归入到&quot;右子树空&quot;的情况，此时因左子树也空，自然 p=NULL；<br>
+      <br>
+      　(2) 注意，T在函数 DeleteBST 中是一个递归调用的引用型参数，第一次调用时的参数是指向根结点的指针，当继续在子树中进行查找时，自然就是双亲结点的左指针或右指针，因此在函数 
+      DeleteNode(p) 中修改指针 p，实际上修改的是被删结点的双亲结点的指针域；<a href="javascript:;" onClick="MM_openBrWindow('../../../flash/chap09/9-3-5.swf','数据结构','width=400,height=300')"><img src="../../../images/tubiao/dh.gif" alt="动画" width="25" height="24" border="0" align="absmiddle"></a><br>
+      <br>
+      　(3) 在被删结点的左右子树均不空时，需删除其 &quot;前驱结点&quot;*s，一般情况下应将 *s 的左子树接为其双亲的右子树，但当 
+      *s 即为被删结点的左子树根时，应将 *s 的左子树接为其双亲的左子树。<a href="javascript:;" onClick="MM_openBrWindow('../../../flash/chap09/9-3-6.swf','数据结构','width=400,height=300')"><img src="../../../images/tubiao/dh.gif" alt="动画" width="25" height="24" border="0" align="absmiddle"></a></td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　二、复制广义表</span><br>
+      <br>
+      　　类似于复制二叉树，复制广义表是求得由指针 Ls 所指广义表的一个复制品，即由指针 newLs 所指广义表。换句话说，求得 Ls 所指结点的复制品― 
+      newLs 所指结点，其中指针 newLs-&gt;ptr.hp 所指为 Ls-&gt;ptr.hp 所指表头的复制品，newLs-&gt;ptr.tp 
+      所指为 Ls-&gt;ptr.tp 所指表尾的复制品。<br>
+      <br>
+      　　由于广义表的表头和表尾也是广义表，由此可递归求解，递归的终结状态亦为&quot;空表&quot; 或 &quot;原子&quot;。<br>
+      　</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">&nbsp;</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><img src="../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle"> 
+      <span class="zhushi">算法8.2</span><br>
+      　　GList <font color="#00FFFF">CopyGList</font>(GList <font color="#33CC00">Ls</font>) 
+      <b>{</b><br>
+      <span class="zhushi">　　<font face="Times New Roman, Times, serif">//</font> 
+      L为广义表的头指针，求得和L结构完全相同的复制品，<br>
+      　　<font face="Times New Roman, Times, serif">//</font> 返回指向复制所得广义表的头指针</span><br>
+      　　<span class="zhushi">if (!</span><font color="#33CC00">Ls</font><span class="zhushi">) 
+      return NULL;</span> <font face="Times New Roman, Times, serif">　　　　　　　　　　　//</font> 
+      复制空表<br>
+      　　<b>else</b> <b>{</b><br>
+      　　　<span class="point">newLs = <b>new</b> GLNode;</span><font face="Times New Roman, Times, serif">　　　　　　　　　　　　　//</font> 
+      建表结点<br>
+      　　　<span class="point">newLs-&gt;tag </span>= <font color="#33CC00">Ls-&gt;tag</font>;<br>
+      　　　<b>if</b> (Ls-&gt;tag == ATOM) <span class="point">newLs-&gt;atom</span> 
+      = <font color="#33CC00">Ls-&gt;atom</font>; <font face="Times New Roman, Times, serif">　//</font> 
+      复制单原子<br>
+      　　　<b>else {</b><br>
+      　　　　<span class="point">newLs-&gt;ptr.hp</span> = <font color="#00FFFF">CopyGList(</font> 
+      <font color="#33CC00">Ls-&gt;ptr.hp</font><font color="#00FFFF">)</font>;<br>
+      　　　　　　　　　　　<font face="Times New Roman, Times, serif">//</font> 复制求得表头Ls-&gt;ptr.hp的一个副本newLs-&gt;ptr.hp<br>
+      　　　　<span class="point">newLs-&gt;ptr.tp</span> = <font color="#00FFFF">CopyGList(</font> 
+      <font color="#33CC00">Ls-&gt;ptr.tp</font><font color="#00FFFF">)</font>; 
+      <br>
+      　　　　　　　　　　　<font face="Times New Roman, Times, serif">//</font> 复制求得表尾Ls-&gt;ptr.tp的一个副本newLs-&gt;ptr.tp<br>
+      　　　<b>}</b><font face="Times New Roman, Times, serif"> //</font> else<br>
+      　　<b>}</b><font face="Times New Roman, Times, serif"> //</font> else<br>
+      　　<b>return</b> <span class="point">newLs</span>;<br>
+      　<b>}</b><font face="Times New Roman, Times, serif"> //</font> CopyGList</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　　想必读者对这个算法也不会觉得眼生，对比&quot;复制二叉树&quot;的算法，容易看出两者极其相似。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

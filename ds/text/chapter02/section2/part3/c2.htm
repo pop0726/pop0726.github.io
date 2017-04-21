@@ -1,0 +1,85 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/style.css" type="text/css">
+<script language="JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　2.2.3 顺序表其它算法举例</span><br>
+      <br>
+      <img src="../../../../images/tubiao/lt.gif" width="28" height="27" align="absmiddle"> 
+      <b class="zhushi">例2-5</b>　试设计一个算法，用尽可能少的辅助空间将顺序表中前 m 个元素和后 n 个元素进行互换，即将线性表(<font size="2"> 
+      <img src="../../../../images/pic/chapter02/gs/a1.gif" width="11" height="10" align="absmiddle"> 
+      </font>,<img src="../../../../images/pic/chapter02/gs/a2.gif" width="12" height="10" align="absmiddle">,…,<img src="../../../../images/pic/chapter02/gs/am.gif" width="14" height="10" align="absmiddle">,<img src="../../../../images/pic/chapter02/gs/b1.gif" width="10" height="13" align="absmiddle">,<img src="../../../../images/pic/chapter02/gs/b2.gif" width="11" height="13" align="absmiddle">,…,<img src="../../../../images/pic/chapter02/gs/bn.gif" width="11" height="13" align="absmiddle"> 
+      ) 改变成( <img src="../../../../images/pic/chapter02/gs/b1.gif" width="10" height="13" align="absmiddle">,<img src="../../../../images/pic/chapter02/gs/b2.gif" width="11" height="13" align="absmiddle">,…,<img src="../../../../images/pic/chapter02/gs/bn.gif" width="11" height="13" align="absmiddle">,<font size="2"><img src="../../../../images/pic/chapter02/gs/a1.gif" width="11" height="10" align="absmiddle"> 
+      </font>,<img src="../../../../images/pic/chapter02/gs/a2.gif" width="12" height="10" align="absmiddle">,…,<img src="../../../../images/pic/chapter02/gs/am.gif" width="14" height="10" align="absmiddle"> 
+      )。<br>
+      <br>
+      <img src="../../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle" alt="算法"> 
+      <span class="zhushi">算法2.10</span><br>
+      　　<b>void</b> invert( ElemType <b><font face="Times New Roman, Times, serif">&amp;</font></b>R[], <b>int</b> s, <b>int</b> 
+      t )<br>
+      　<strong>{</strong><br>
+      <span class="zhushi">　　<font face="Times New Roman, Times, serif">//</font> 
+      本算法将数组 R 中下标自 s 到 t 的元素逆置，即将<br>
+      　　<font face="Times New Roman, Times, serif">//</font> （Rs,Rs+1,…,Rt-1,Rt）改变为（Rt,Rt-1,…,Rs+1,Rs）</span><br>
+      　　<b>for</b> ( k=s; k&lt;=(s+t)/2; k++ )<br>
+      　　<b>{</b><br>
+      　　　w = R[k];<br>
+      　　　R[k] = R[t-k+s];<br>
+      　　　R[t-k+s] = w;<br>
+      　　<b>}</b><font face="Times New Roman, Times, serif"> //</font> for<br>
+      　<b>} </b><font face="Times New Roman, Times, serif"> //</font> invert <br>
+      <p><img src="../../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle" alt="算法"> 
+        <span class="zhushi">算法2.11</span><br>
+        　　<b>void</b> exchange ( SqList <b><font face="Times New Roman, Times, serif">&amp;</font></b>A,<b>int</b> 
+        m ) <br>
+        　<b>{</b><br>
+        <span class="zhushi">　　<font face="Times New Roman, Times, serif">//</font> 
+        本算法实现顺序表中前 <font face="Times New Roman, Times, serif">m</font> 个元素和后 n 
+        个元素的互换</span><br>
+        　　<b>if</b> ( m &gt; 0 <font face="Times New Roman, Times, serif"><b>&amp;&amp;</b></font> 
+        m &lt; A.length )<b><font face="Times New Roman, Times, serif">{</font></b><br>
+        　　　n = A.length - m;<br>
+        　　　invert( A.elem, 0, m+n-1 );<br>
+        　　　invert( A.elem, 0, n-1 );<br>
+        　　　invert( A.elem, n, m+n-1 );<br>
+        　　<b>}</b><br>
+        　<b>}</b><font face="Times New Roman, Times, serif"> //</font> exchange</p>
+    </td>
+    <td background="../../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　<b class="zhushi"><font color="#339900">解题分析：</font></b> 
+      <br>
+      　　此题的难点在于要求用尽可能少的辅助空间。如果没有这个限制，可以另设一个和已知顺序表空间大小相同的顺序表，然后进行元素复制即可。<br>
+      　<br>
+      　　此题的一种比较<span class="point"><font color="#339900">简单的算法</font></span>是，从表中第 
+      m+1 个元素起依次插入到元素 <font size="2"><img src="../../../../images/pic/chapter02/gs/a1_l.gif" width="11" height="10" align="absmiddle"></font> 
+      之前。则首先需将该元素 <img src="../../../../images/pic/chapter02/gs/bk_l.gif" width="12" height="14" align="absmiddle">(k=1，2，…，n)暂存在一个辅助变量中，然后将它之前的 
+      m 个元素(<font size="2"> <img src="../../../../images/pic/chapter02/gs/a1_l.gif" width="11" height="10" align="absmiddle"> 
+      </font>,<img src="../../../../images/pic/chapter02/gs/a2_l.gif" width="12" height="10" align="absmiddle">,…,<img src="../../../../images/pic/chapter02/gs/am_l.gif" width="14" height="10" align="absmiddle"> 
+      )依次后移一个位置。显然，由于对每一个 <img src="../../../../images/pic/chapter02/gs/bk_l.gif" width="12" height="14" align="absmiddle"> 
+      都需要移动 m 个元素，因此算法的<span class="point"><font color="#339900">时间复杂度为 <b><font face="Times New Roman, Times, serif"><i>O 
+      </i>(m×n)</font></b></font></span>。<a href="javascript:;" onClick="MM_openBrWindow('../../../../flash/chap02/2-2-6.swf','数据结构','width=400,height=300')"><img src="../../../../images/tubiao/dh.gif" width="25" height="24" alt="动画" border="0" align="absmiddle"></a><br>
+      <br>
+      　　也可采用<span class="point"><font color="#339900">另一种算法</font></span>为，对顺序表进行<b class="point"><font color="#339900">三次&quot;逆置&quot;</font></b>，第一次是对整个顺序表进行逆置，之后分别对前 
+      n 个和后 m 个元素进行逆置。<a href="javascript:;" onClick="MM_openBrWindow('../../../../flash/chap02/2-2-7.swf','数据结构','width=400,height=300')"><img src="../../../../images/tubiao/dh.gif" alt="动画" width="25" height="24" border="0" align="absmiddle"></a><br>
+      　<br>
+      　　由于逆置顺序表可以利&quot;交换&quot;相应元素进行，其时间复杂度为线性级别，则三次调用逆置算法完成的操作的<span class="point"><font color="#339900">时间复杂度</font></span>仍然是线性级别的，即为<br>
+      　　<b class="point"><font color="#339900" face="Times New Roman, Times, serif"><i>O 
+      </i>(m+n)</font></b>。 </td>
+    <td background="../../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

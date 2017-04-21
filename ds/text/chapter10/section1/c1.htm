@@ -1,0 +1,96 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+<script language="JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><br>
+      　　什么是&quot;排序&quot;？简单说，排序是将无序的记录序列调整为有序记录序列的一种操作。例如，将下列记录序列<br>
+      　　{ 52, 49, 80, 36, 14, 58, 61, 23, 97, 75 }<br>
+      <br>
+      　调整为序列<br>
+      　　{ 14, 23, 36, 49, 52, 58, 61, 75, 80, 97 }<br>
+      <br>
+      　一般情况下，对排序的定义为：<br>
+      　　假设含有n个记录的序列为：<br>
+      　　　{ <img src="../../../images/pic/chapter10/r1.gif" width="9" height="12" align="absmiddle">,<img src="../../../images/pic/chapter10/r2.gif" width="11" height="12" align="absmiddle">,…,<img src="../../../images/pic/chapter10/rn.gif" width="12" height="12" align="absmiddle"> 
+      } 　　　　　　　(10-1)<br>
+      <br>
+      　它们的关键字相应为<br>
+      　　　{ <img src="../../../images/pic/chapter10/k1.gif" width="12" height="16" align="absmiddle">,<img src="../../../images/pic/chapter10/k2.gif" width="13" height="16" align="absmiddle">,…,<img src="../../../images/pic/chapter10/kn.gif" width="15" height="16" align="absmiddle"> 
+      } <br>
+      <br>
+      　　对式（10-1）的记录序列进行排序就是要确定序号1，2，…，n的一种排列<br>
+      　　　<img src="../../../images/pic/chapter10/p1.gif" width="14" height="14" align="absmiddle">,<img src="../../../images/pic/chapter10/p2.gif" width="16" height="14" align="absmiddle">,…,<img src="../../../images/pic/chapter10/pn.gif" width="16" height="14" align="absmiddle">，<br>
+      <br>
+      　　使其相应的关键字满足如下的非递减（或非递增）的关系：<br>
+      　　　<img src="../../../images/pic/chapter10/gs_1.gif" width="148" height="25" align="absmiddle">　　　　(10-2)<br>
+      <br>
+      　　也就是使式(10-1)的记录序列重新排列成一个按关键字有序的序列<br>
+      　　　<img src="../../../images/pic/chapter10/gs_2.gif" width="171" height="23" align="absmiddle">　　(10-3)<br>
+      <br>
+      　　当待排序记录中的关键字 <img src="../../../images/pic/chapter10/ki.gif" width="13" height="17" align="absmiddle">(i=1,2,…,n)都不相同时，则任何一个记录的无序序列经排序后得到的结果是唯一的；反之，若待排序的序列中存在两个或两个以上关键字相等的记录，则排序所得到的结果不唯一。假设 
+      <img src="../../../images/pic/chapter10/ki.gif" width="13" height="17" align="absmiddle">=<img src="../../../images/pic/chapter10/kj.gif" width="15" height="19" align="absmiddle"> 
+      (1≤i≤n,1≤j≤n,i≠j)，且在排序前的序列中 <img src="../../../images/pic/chapter10/ri.gif" width="9" height="12" align="absmiddle"> 
+      领先于 <img src="../../../images/pic/chapter10/rj.gif" width="11" height="15" align="absmiddle"> 
+      (即i&lt;j)。若在排序后的序列中 <img src="../../../images/pic/chapter10/ri.gif" width="9" height="12" align="absmiddle"><font size="3"> 
+      </font>仍领先于 <img src="../../../images/pic/chapter10/rj.gif" width="11" height="15" align="absmiddle">，则称所用的排序方法是<b>稳定的</b>；反之，若可能使排序后的序列中 
+      <img src="../../../images/pic/chapter10/rj.gif" width="11" height="15" align="absmiddle"> 
+      领先于 <img src="../../../images/pic/chapter10/ri.gif" width="9" height="12" align="absmiddle">，则称所用的排序方法是<b>不稳定的</b>。在某些有特殊要求的应用问题中需要考虑所用排序方法的稳定性的问题。<br>
+      <br>
+      　　根据在排序过程中涉及的存储器不同，可将排序方法分为两大类：（1）<b>内部排序：</b>在排序进行的过程中不使用计算机外部存储器的排序过程。2）<b>外部排序：</b>在排序进行的过程中需要对外存进行访问的排序过程。本章仅讨论各种内部排序的方法。<br>
+      <br>
+      　　内部排序的过程是一个逐步扩大记录的&quot;有序序列&quot;区域的长度的过程。大多数排序方法在排序过程中将出现如动画所示&quot;有序&quot;和&quot;无序&quot;两个区域 
+      <a href="javascript:;" onClick="MM_openBrWindow('../../../flash/chap10/10-1-1.swf','数据结构','width=400,height=300')"><img src="../../../images/tubiao/dh.gif" alt="动画" width="25" height="24" border="0" align="absmiddle"></a>，其中有序区内的记录已按关键字非递减有序排列，而无序区内为待排记录，通常称&quot;使有序区中记录数目增加一个或几个&quot;的操作过程为&quot;一趟排序&quot;。按何种策略扩大有序区域将导致不同的排序方法。例如在无序区域中选取一个关键字最小记录加到有序区域中的排序方法称为&quot;选择类&quot;的排序法，除此之外还有插入类、交换类、归并类和计数类等排序方法。本章仅就各类介绍一二个典型算法。<br>
+      <br>
+      　　待排序的记录序列可以用顺序表表示，也可以用链表表示。本章讨论的排序算法一律以如右说明的顺序表为操作对象。<br>
+    </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      　　从第9章的讨论可见，有序表比顺序表的查找效率高，在第2章的讨论中也曾提到，对于进行并、交和差的集合，用有序表表示时其运算的时间复杂度要比线性表低一个数量级。如何将顺序表变成有序表？排序为常用的方法。 
+      <p>　　从排序的本意而言，排序可以对单个关键字进行，也可以对多个关键字的组合进行，可统称排序时所依赖的准绳为&quot;<b>排序码</b>&quot;。为讨论方便起，本章约定排序只对单个关键字进行，并约定排序结果为记录按关键字&quot;非递减&quot;的顺序进行排列。<br>
+        <br>
+        　<br>
+        　<br>
+        　<br>
+        　<br>
+        　<br>
+        <br>
+        　 </p>
+      <p>　<b>const</b> MAXSIZE = 20;<font face="Times New Roman, Times, serif"> 
+        //</font> 假设的顺序表最大长度<br>
+        　<b>typedef struct {</b><br>
+        　　<b>RcdType</b> r[MAXSIZE+1];<br>
+        　　<font face="Times New Roman, Times, serif">//</font> r[0]闲置或作为判别标志的&quot;哨兵&quot;单元<br>
+        　　<b>int</b> length; <font face="Times New Roman, Times, serif">　　　//</font> 
+        顺序表长度<br>
+        　<b>}</b> SqList；　<font face="Times New Roman, Times, serif">　　　　//</font> 
+        顺序表类型<br>
+        <br>
+        其中记录类型定义为：<br>
+        　<b>typedef struct {</b><br>
+        　　KeyType key; <font face="Times New Roman, Times, serif">　　　　　//</font> 
+        关键字项 <br>
+        　　InfoType otherinfo;　　 <font face="Times New Roman, Times, serif">//</font> 
+        其它数据项　<br>
+        <b>　}</b> RcdType; <font face="Times New Roman, Times, serif">//</font> 
+        记录类型并设定关键字为整型 <br>
+        <b>　typedef int</b> KeyType;</p>
+    </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

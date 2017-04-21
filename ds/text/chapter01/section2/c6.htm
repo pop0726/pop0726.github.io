@@ -1,0 +1,75 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　1.2.3 数据类型和抽象数据类型</span><br>
+      <br>
+      　　抽象数据类型的形式描述为：<br>
+      　　　ADT = ( D，S，P )<br>
+      　　其中：D 是数据对象，<br>
+      　　　　　S 是 D 上的关系集，<br>
+      　　　　　P 是 D 的基本操作集。<br>
+      　<br>
+      　　例如，抽象数据类型&quot;复数&quot;的定义为：<br>
+      　<br>
+    </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      <br>
+      　<br>
+      　<br>
+      　　其中(D，S)即为相应的数据结构的定义。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">
+      <b>ADT Complex {</b><br>
+      　<span class="zhushi">数据对象：</span>D = {e1,e2 | e1,e2 RealSet }<br>
+      <br>
+      　<span class="zhushi">数据关系：</span>R1 = {&lt;e1,e2&gt; | e1是复数的实部，e2是复数的虚部 
+      }<br>
+      　<br>
+    </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　　用两个实数来表示复数，将复数定义为两个实数的有序对，并约定实部是前驱，虚部是后继。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">　<span class="zhushi">基本操作：</span><br>
+      　　InitComplex( <b><font face="Times New Roman, Times, serif">&amp;</font></b>Z, v1, v2 )<br>
+      　　　操作结果：构造复数Z，其实部和虚部分别被赋以参数v1和v2的值。<br>
+      <br>
+      　　DestroyComplex( <b><font face="Times New Roman, Times, serif">&amp;</font></b>Z)<br>
+      　　　初始条件：复数已存在。<br>
+      　　　操作结果：复数Z被销毁。<br>
+      <br>
+      　　GetReal( Z, <b><font face="Times New Roman, Times, serif">&amp;</font></b>realPart )<br>
+      　　　初始条件：复数已存在。<br>
+      　　　操作结果：用 realPart 返回复数Z的实部值。<br>
+      <br>
+      　　GetImag( Z, <b><font face="Times New Roman, Times, serif">&amp;</font></b>ImagPart )<br>
+      　　　初始条件：复数已存在。<br>
+      　　　操作结果：用 ImagPart 返回复数Z的虚部值。 <br>
+      <br>
+      　　Add( z1,z2, <b><font face="Times New Roman, Times, serif">&amp;</font></b>sum )<br>
+      　　　初始条件：z1，z2 是复数。<br>
+      　　　操作结果：用sum返回两个复数z1，z2的和值。<br>
+      <br>
+      <b>} ADT Complex</b></td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"> 
+      　　这里仅指定复数的最小操作集，对外部用户来说，构造一个复数和从复数分别取得它们的实部和虚部是最基本的操作，没有这三个操作，这个抽象数据类型是没有实用价值的，而其它的操作可根据应用需求而定。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

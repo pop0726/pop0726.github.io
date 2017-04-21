@@ -1,0 +1,117 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<script language=JavaScript src="../../chapter02/section1/hpmain.js"></script>
+<script language=JavaScript src="../../chapter02/section1/showhidden.js"></script>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　4.3.1 串的模式匹配的简单算法</span><br>
+      <br>
+      　　此算法的思想是直截了当的，正如算法4.1中所描述的那样，将主串S中某个位置i起始的子串和模式串T相比较。即从 j=0 起比较 S[i+j] 
+      与 T[j]，若相等，则在主串 S 中存在以 i 为起始位置匹配成功的可能性，继续往后探索( j逐步增1 )，直至T串中最后一个字符比较相等为止，否则改从主串的下一个字符起重新开始进行下一轮的&quot;匹配&quot;，即将串T向后滑动一位，即 
+      i 增1，而 j 退回至0，重新开始新一轮的匹配。<a href="javascript:;" onClick="MM_openBrWindow('../../../flash/chap04/4-3-1.swf','数据结构','width=400,height=300')"><img src="../../../images/tubiao/dh.gif" alt="动画" width="25" height="24" border="0" align="absmiddle"></a><br>
+      　</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　<br>
+      　<br>
+      　　模式匹配的基本思想已经在算法4.1中描述清楚了，只是在算法4.1中利用了求子串和串比较等基本操作，在此则直接进行两个串中对应字符的比较。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><img src="../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle" alt="算法"> 
+      <span class="zhushi">算法 4.6</span><br>
+      　　<b>int</b> Index_BF ( <b>char</b> S [ ], <b>char</b> T [ ], <b>int</b> 
+      pos )<br>
+      　<b>{</b><br>
+      <span class="zhushi">　　<font face="Times New Roman, Times, serif">//</font> 
+      若串 S 中从第pos(1≤pos≤StrLength(S))个字符起存在和<br>
+      　　<font face="Times New Roman, Times, serif">//</font> 串 T 相同的子串，则称匹配成功，返回第一个这样的子串<br>
+      　　<font face="Times New Roman, Times, serif">//</font> 在串 S 中的位置，否则返回 0</span><br>
+      　　i = pos-1; j = 0;<br>
+      　　<b>while</b> ( S[i+j] != <font face="Times New Roman, Times, serif">'</font>\0'<b><font face="Times New Roman, Times, serif">&amp;&amp;</font></b> 
+      T[j] != <font face="Times New Roman, Times, serif">'</font>\0')<br>
+      　　　<b>if</b> ( S[i+j] == T[j] ) j ++; <font face="Times New Roman, Times, serif">　 
+      　　　　//</font> 继续比较后一字符<br>
+      　　　<b>else</b> <b>{</b> i ++; j = 0; <b>}</b> <font face="Times New Roman, Times, serif">　　　　　　　　//</font> 
+      重新开始新的一轮匹配<br>
+      　　<b>if</b> ( T[j] == <font face="Times New Roman, Times, serif">'</font>\0') 
+      <b>return</b> (i+1); <font face="Times New Roman, Times, serif">　　　　//</font> 
+      匹配成功</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      　　注意匹配成功时，函数返回的值是&quot;子串在主串中的位置&quot;，即子串中第1个字符在主串字符序列中的 &quot;位置&quot;，而非该字符在存储结构数组中的下标。<br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      　　因为在最坏情况下，对i的每个值，j++需执行n-1次。 </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">　　<b>else return</b> 0; <font face="Times New Roman, Times, serif">　//</font> 
+      串S中(第pos个字符起)不存在和串T相同的子串<br>
+      　<b>} </b><font face="Times New Roman, Times, serif">//</font> Index_BF<br>
+      　<br>
+      　　容易看出，此算法的时间复杂度为<i><font face="Times New Roman, Times, serif">O</font></i>(m 
+      <img src="../../../images/pic/chapter04/t5.gif" width="7" height="7"> n)，其中 
+      m 和 n 分别为S串和T串的长度。<br>
+      <br>
+      　　一般情况下，算法4.6的实际执行效率与字符 T[0] 在串S中是否频繁出现密切相关。对于一般文稿中串的匹配，算法4.6的时间复杂度可降为<font face="Times New Roman, Times, serif"><i>O 
+      </i>(m+n)</font>，因此在多数的实际应用场合下被应用。</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">
+      <table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td bgcolor="#ECEEFF" height="14" class="explaination" width="8">&nbsp;</td>
+                <td bgcolor="#ECEEFF" height="14" class="explaination"><img src="../../../images/tubiao/wt.gif" width="23" height="23" align="absmiddle" alt="思考题"> 
+                  你能否举出一个使算法4.6运行处最坏情况的例子？</td>
+                <td width="15" bgcolor="#ECEEFF" valign="top"><span id="bb"><img border=0 
+                              id=HPFrameHLTab3 
+                              onClick="showHideContent('HPFrameHL');hidden();"
+							   src="../../../images/html/expand.gif" style="CURSOR: hand" width="15" height="14"></span></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <div id=HPFrameHLContent 
+           style="WIDTH: 100%;visibility: hidden;background-color:#ECEEFF" > 
+              <table width="94%" border="0" cellspacing="0" cellpadding="0" align="center">
+                <tr> 
+                  <td class="explaination">　例如：S =&quot;aaaaaaaaaaab&quot;，T =&quot;aaab&quot;，pos 
+                    = 0，则算法4.6要执行 36 次对应位的比较才匹配成功。</td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+      </table>
+      <br>
+      　　例如，S是一般的英文文稿，T =&quot;a cat&quot;，S中有5% 的字母是 <font face="Times New Roman, Times, serif">'</font>a<font face="Times New Roman, Times, serif">'</font>，则在算法4.6执行过程中，对于95% 
+      的情况可以只进行一次对应位的比较就将T向右滑动一位，时间复杂度下降为<font face="Times New Roman, Times, serif"><i>O 
+      </i>(m)</font>。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

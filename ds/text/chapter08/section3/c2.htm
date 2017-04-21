@@ -1,0 +1,87 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<script language=JavaScript src="../../chapter02/section1/hpmain.js"></script>
+<script language=JavaScript src="../../chapter02/section1/showhidden.js"></script>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"> <span class="part">　一、求广义表的深度</span><br>
+      <br>
+      　　从前述广义表的深度的定义可知，<br>
+      　　　广义表的深度=Max{各个子表的深度}+1<br>
+      <br>
+      　　由于子表亦为广义表，则可递归求解，并且空表的深度为1，若子表为原子，则其深度为0。由此可得如下算法：<br>
+      <br>
+      <img src="../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle"> 
+      <span class="zhushi">算法8.1</span><br>
+      　　<b>int</b> GListDepth(GList L) <br>
+      　<b>{</b><br>
+      <span class="zhushi">　　<font face="Times New Roman, Times, serif">//</font> 
+      L为指向广义表的头指针，返回L所指广义表的深度</span><br>
+      　　<b><font color="#00FFFF">if</font></b><font color="#00FFFF"> (<b>!</b>L) 
+      <b>return</b> 1</font>; <font face="Times New Roman, Times, serif"> 　　　　　　　//</font> 
+      空表深度为1<br>
+      　　<b><font color="#00FFFF">if</font></b><font color="#00FFFF"> (L-&gt;tag 
+      == ATOM) <b>return</b> 0</font>; <font face="Times New Roman, Times, serif">　 
+      //</font> 原子深度为0<br>
+      　　<b>for</b> (max=0,<font color="#00CC00"> pp=L</font>; pp; <font color="#00CC00">pp=pp-&gt;ptr.tp</font>) 
+      <b>{</b><br>
+      　　　<span class="point">dep = GlistDepth(pp-&gt;ptr.hp);</span>　 <font face="Times New Roman, Times, serif">//</font> 
+      求以pp-&gt;ptr.hp为头指针的子表深度<br>
+      　　　<b>if</b> (dep &gt; max) max = dep;<br>
+      　　<b>}</b><font face="Times New Roman, Times, serif"> //</font> for<br>
+      　　<b><font color="#00FFFF">return</font></b><font color="#00FFFF"> max + 
+      1</font>;　　　　　　<font face="Times New Roman, Times, serif">//</font> 非空表的深度是各子表的深度的最大值加1<br>
+      　<b>}</b><font face="Times New Roman, Times, serif"> //</font> GlistDepth</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      　　从以上讨论容易看出，分治法特别适用于结构上可以分解的结构，由于广义表从结构上可以分解成 &quot;<font color="#339900">表头 
+      + 表尾</font>&quot;或者&quot;<font color="#339900">子表1 + 子表2 +・・・+ 子表n</font>&quot;，因此广义表的操作通常可用分治法求解。以下列三个操作为例。 
+      <p>　　在设计递归算法时，关键是&quot;调用参数的一致性&quot; ，由于求深度的函数中的参数为指向广义表的头指针，则求子表深度的语句中的参数就应该是相应子表的头指针。<br>
+        <br>
+        　　因此本算法的关键就是如何从已知的指针L得到各个子表的头指针。<br>
+        <br>
+        　<img src="../../../images/pic/chapter08/8_3.gif" width="242" height="148" align="top"><br>
+        　 
+      <table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td bgcolor="#ECEEFF" height="14" class="explaination" width="8">&nbsp;</td>
+                <td bgcolor="#ECEEFF" height="14" class="explaination"><img src="../../../images/tubiao/wt.gif" width="23" height="23" align="absmiddle" alt="思考题"> 
+                  你有没有觉得这个算法似曾相识？它和哪个算法类似？</td>
+                <td width="15" bgcolor="#ECEEFF" valign="top"><span id="bb"><img border=0 
+                              id=HPFrameHLTab3 
+                              onClick="showHideContent('HPFrameHL');hidden();"
+							   src="../../../images/html/expand.gif" style="CURSOR: hand" width="15" height="14"></span></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <div id=HPFrameHLContent 
+           style="WIDTH: 100%;visibility: hidden;background-color:#ECEEFF" > 
+              <table width="94%" border="0" cellspacing="0" cellpadding="0" align="center">
+                <tr> 
+                  <td class="explaination">　和求树的深度的算法非常相似，对吗？</td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+      </table>
+      <p>&nbsp; </p>
+    </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

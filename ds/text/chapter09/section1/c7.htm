@@ -1,0 +1,50 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　9.2.5 次优查找树-静态查找表的实现方法之四</span><br>
+      <br>
+      　　假设按关键字从小到大有序排列的记录序列为<br>
+      　　　{ <img src="../../../images/pic/chapter09/rl.gif" width="10" height="16" align="absmiddle">,<img src="../../../images/pic/chapter09/rl1.gif" width="19" height="15" align="absmiddle">,…,<img src="../../../images/pic/chapter09/rh.gif" width="12" height="15" align="absmiddle"> 
+      }<br>
+      <br>
+      　　其中 <img src="../../../images/pic/chapter09/rl.gif" width="10" height="16" align="absmiddle">.key 
+      &lt; <img src="../../../images/pic/chapter09/rl1.gif" width="19" height="15" align="absmiddle">.key 
+      &lt; … &lt; <img src="../../../images/pic/chapter09/rh.gif" width="12" height="15" align="absmiddle">.key<br>
+      　　与其相应的权值序列为<br>
+      　　　{ <img src="../../../images/pic/chapter09/wl.gif" width="15" height="15" align="absmiddle">,<img src="../../../images/pic/chapter09/wl1.gif" width="24" height="15" align="absmiddle">,…,<img src="../../../images/pic/chapter09/wh.gif" width="16" height="15" align="absmiddle"> 
+      }<br>
+      <br>
+      　　构造次优查找树的方法是：从关键字序列中选取第 <img src="../../../images/pic/chapter09/gs_17.gif" width="79" height="21" align="absmiddle"> 
+      个记录作为次优二叉树的&quot;根结点&quot;，要求 <br>
+      　　　<img src="../../../images/pic/chapter09/gs_15.gif" width="150" height="53"> 
+      <br>
+      <br>
+      　　取最小值，即　<img src="../../../images/pic/chapter09/gs_16.gif" width="105" height="31" align="absmiddle"><br>
+      <br>
+      　　然后分别对子序列 {<img src="../../../images/pic/chapter09/rl.gif" width="10" height="16" align="absmiddle">,<img src="../../../images/pic/chapter09/rl1.gif" width="19" height="15" align="absmiddle">,…,<img src="../../../images/pic/chapter09/ri_1.gif" width="18" height="15" align="absmiddle">}和{<img src="../../../images/pic/chapter09/ri1.gif" width="18" height="15" align="absmiddle">,<img src="../../../images/pic/chapter09/ri2.gif" width="21" height="15" align="absmiddle">,…,<img src="../../../images/pic/chapter09/rh.gif" width="12" height="15" align="absmiddle">} 
+      构造次优查找树，分别作为根的左子树和右子树。<br>
+      <br>
+      　　算法描述请见下页。</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　<br>
+      　<br>
+      　　为便于计算，引入记录序列的&quot;累计权值和&quot;为 <img src="../../../images/pic/chapter09/gs_18.gif" width="86" height="50" align="absmiddle">，并设<font size="3"> 
+      <img src="../../../images/pic/chapter09/wl_1.gif" width="24" height="16" align="absmiddle"></font>=0 
+      和 <img src="../../../images/pic/chapter09/gs_39.gif" width="51" height="16" align="absmiddle"><br>
+      <br>
+      　　则可得到如下的结果：<br>
+      　　<img src="../../../images/pic/chapter09/gs_19.gif" width="230" height="159"> 
+    </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

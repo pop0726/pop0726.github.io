@@ -1,0 +1,83 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><br>
+      　　与二叉树和树的遍历相同，图的&quot;遍历&quot;是对图中的每个顶点都进行一次访问且仅进行一次访问。但由于图结构较树和二叉树更为复杂，图中任意两个顶点之间都可能存在一条弧或边，反之也可能存在某个顶点和其它顶点之间都不存在弧或边。因此对图的遍历而言，除了要确定一条搜索路径之外，还要解决两个问题：(1)如何确保每个顶点都被访问到；(2)如何确保每个顶点只被访问一次。<br>
+      　</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">&nbsp;</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">
+      <span class="part">　7.3.1 深度优先搜索遍历图</span><br>
+        <br>
+        <span class="zhushi">　一、连通图的遍历</span><br>
+        <br>
+        　　从某个顶点V<font size="1">0</font>出发深度优先搜索遍历连通图的定义为：<br>
+        　　首先访问该顶点，然后依次从V<font size="1">0</font>的各个<span class="point">未被访问过的邻接点</span>出发进行深度优先搜索遍历。<br>
+      　　注意上述定义中对邻接点的&quot;未被访问过的&quot;修饰词语。例如下图所示的连通图 G，假设从图中顶点 V<font size="1">0 
+      </font>出发进行深度优先搜索遍历，顶点 V<font size="1">0</font> 有三个邻接点 <img src="../../../images/pic/chapter07/w1w.gif" width="16" height="17" align="absmiddle">、<img src="../../../images/pic/chapter07/w2w.gif" width="17" height="17" align="absmiddle"> 
+      和 <img src="../../../images/pic/chapter07/w3w.gif" width="18" height="17" align="absmiddle">，它们分别为 
+      G 的三个连通子图 G1、G2 和 G3 中的一个顶点，因此在访问 V<font size="1">0</font> 之后可依次从这三个邻接点出发(递归)进行深度优先搜索遍历，但由于 
+      G1 和 G2 相互连通，则在从<img src="../../../images/pic/chapter07/w1w.gif" width="16" height="17" align="absmiddle"> 
+      出发的遍历过程中已经访问了顶点 <img src="../../../images/pic/chapter07/w2w.gif" width="17" height="17" align="absmiddle">，由此不能再从<img src="../../../images/pic/chapter07/w2w.gif" width="17" height="17" align="absmiddle"> 
+      出发进行遍历了。<br>
+        
+      <div align="center"><img src="../../../images/pic/chapter07/7_19.gif" width="260" height="207" align="top"><br>
+      </div>
+      <p></p>
+      <p></p>
+      <p></p>
+      <p>　　因此对于图的遍历，为了确保每个顶点在遍历过程中只被访问一次，需要为每个顶点建立一个&quot;访问标志 visited[i]&quot;，在遍历开始之前，将它们设为 
+        &quot;FALSE&quot;，一旦第i个顶点被访问，则令 visited[i] 为 &quot;TRUE&quot;。<br>
+        　</p>
+    </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　<br>
+      　<br>
+      　<br>
+      　　由于二叉树和树中存在一个无前驱的&quot;根结点&quot;，其它所有结点都存在一条从根到该结点的路径，因此二叉树和树的遍历都只能也必须从根出发进行，而对连通图而言，图中任意两个顶点之间都有路径相通，因此可以从图中任意一个顶点出发进行遍历。<br>
+      <br>
+      　　容易看出图的深度优先搜索遍历的过程类似于树的先根遍历。可将 V<font size="1">0</font> 看作是树的根结点，<img src="../../../images/pic/chapter07/w1.gif" width="16" height="17" align="absbottom">、<img src="../../../images/pic/chapter07/w2.gif" width="17" height="17" align="absbottom"> 
+      和<img src="../../../images/pic/chapter07/w3.gif" width="18" height="17" align="absbottom"> 
+      可看成是它的三个&quot;子树根结点&quot;，如果 G1、G2 和 G3 分别为三个连通子图且相互之间不连通，则在访问 V<font size="1">0</font> 
+      之后可依次从 <img src="../../../images/pic/chapter07/w1.gif" width="16" height="17" align="absbottom">、<img src="../../../images/pic/chapter07/w2.gif" width="17" height="17" align="absbottom"> 
+      和 <img src="../../../images/pic/chapter07/w3.gif" width="18" height="17" align="absbottom"> 
+      出发对图进行深度优先搜索遍历。<br>
+      　</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><img src="../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle"> 
+      <span class="zhushi">算法7.3</span><br>
+      　　<b>void</b> DFS(Graph G, <b>int</b> v)<br>
+      　<b>{</b><br>
+      <span class="zhushi">　　<font face="Times New Roman, Times, serif">//</font> 
+      从顶点v出发递归地深度优先遍历图G</span><br>
+      　　visited[v] = <b>TRUE</b>; VisitFunc(v); <font face="Times New Roman, Times, serif">　　　　　　//</font> 
+      访问顶点 v<br>
+      　　<b>for</b> ( w=FirstAdjVex(G, v); w<b>!</b>=0; w=NextAdjVex(G, v, w) )<br>
+      　　　<b>if</b> (!visited[w]) DFS(G, w);<font face="Times New Roman, Times, serif">//</font> 
+      对v的尚未访问过的邻接顶点w递归调用DFS<br>
+      　<b>} </b><font face="Times New Roman, Times, serif">// </font>DFS<br>
+    </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　　注意这是一个伪码算法，其中参数 
+      G 是抽象数据类型的图，v 是出发顶点的代号，w 表示是 v 的某一个邻接点，w=0 表示没有邻接点或不存在&quot;下一个邻接点&quot;。算法中函数 
+      FirstAdjVex 和 NextAdjVex 的具体实现取决于图的存储结构。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

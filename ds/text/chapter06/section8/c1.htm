@@ -1,0 +1,74 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"> <span class="part">　6.8.1 最优树的定义</span><br>
+      <br>
+      　　最优树，又称<span class="part">赫夫曼树（Huffman Tree）</span>是一类带权路径长度最短的树，本节仅限于讨论最优二叉树。 
+      <br>
+      <br>
+      　　首先介绍路径和路径长度的概念。由从树的根结点到其余结点的分支构成一条<span class="point">路径</span>，路径上的分支数目称<span class="point">路径长度</span>。一般情况下，<span class="point">树的路径长度</span>指的是从树根到树中其余每个结点的路径长度之和。6.2.2节中定义的完全二叉树就是这种路径长度最短的二叉树。<br>
+      <br>
+      　　<span class="point">结点的带权路径长度</span>则定义为从树根到该结点之间的路径长度与该结点上所带权值的乘积。假设树上有 
+      n 个叶子结点，且每个叶子结点上带有权值为 <img src="../../../images/pic/chapter06/wk.gif" width="15" height="16" align="absmiddle">(k=1,2,…,n)，则<span class="point">树的带权路径长度</span>定义为树中所有叶子结点的带权路径长度之和，通常记作 
+      <br>
+      　　　<img src="../../../images/pic/chapter06/gs_3.gif" width="119" height="43"><br>
+      <br>
+      　　其中<font size="2">&nbsp; </font><img src="../../../images/pic/chapter06/lk.gif" width="14" height="17" align="absmiddle"> 
+      为带权 <img src="../../../images/pic/chapter06/wk.gif" width="15" height="16" align="absmiddle"> 
+      的叶子结点的带权路径长度。<br>
+      <br>
+      　　假设有 n 个权值{<img src="../../../images/pic/chapter06/w1.gif" width="16" height="13" align="absmiddle">，<img src="../../../images/pic/chapter06/w2.gif" width="17" height="13" align="absmiddle">，… 
+      <img src="../../../images/pic/chapter06/wn.gif" width="17" height="12" align="absmiddle">}，试构造一棵有 
+      n 个叶子结点的二叉树，每个叶子结点带权为<img src="../../../images/pic/chapter06/wi.gif" width="17" height="14" align="absmiddle">。显然，这样的二叉树可以构造出多棵，其中必存在一棵带权路径长度 
+      WPL 取最小的二叉树，称该二叉树为<span class="point">最优二叉树</span>。<br>
+      　</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　<br>
+      　<br>
+      　　最优树并不特指二叉树，但&quot;带权路径长度最短 &quot;是在&quot;度相同&quot;的树中比较而得的结果，因此有最优二叉树、最优三叉树之称等等。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><img src="../../../images/tubiao/lt.gif" width="28" height="27" align="absmiddle" alt="例题">例如，右图中的四棵二叉树，都有5个叶子结点且带相同权值5、6、2、9、7，它们的带权路径长度分别为<br>
+      　　WPL = 7 <img src="../../../images/pic/chapter04/t5.gif" width="7" height="7"> 
+      3 + 9 <img src="../../../images/pic/chapter04/t5.gif" width="7" height="7"> 
+      3 + 5 <img src="../../../images/pic/chapter04/t5.gif" width="7" height="7"> 
+      2 + 6 <img src="../../../images/pic/chapter04/t5.gif" width="7" height="7"> 
+      2 + 2 <img src="../../../images/pic/chapter04/t5.gif" width="7" height="7"> 
+      2 = 74 (左上图)<br>
+      　　WPL = 2 <img src="../../../images/pic/chapter04/t5.gif" width="7" height="7"> 
+      1 + 6 <img src="../../../images/pic/chapter04/t5.gif" width="7" height="7"> 
+      3 + 7 <img src="../../../images/pic/chapter04/t5.gif" width="7" height="7"> 
+      4 + 9 <img src="../../../images/pic/chapter04/t5.gif" width="7" height="7"> 
+      4 + 5 <img src="../../../images/pic/chapter04/t5.gif" width="7" height="7"> 
+      2 = 94 (右上图)<br>
+      　　WPL = 6 <img src="../../../images/pic/chapter04/t5.gif" width="7" height="7"> 
+      2 + 7 <img src="../../../images/pic/chapter04/t5.gif" width="7" height="7"> 
+      2 + 5 <img src="../../../images/pic/chapter04/t5.gif" width="7" height="7"> 
+      3 + 2 <img src="../../../images/pic/chapter04/t5.gif" width="7" height="7"> 
+      3 + 9 <img src="../../../images/pic/chapter04/t5.gif" width="7" height="7"> 
+      2 = 65 (左下图)<br>
+      　　WPL = 2 <img src="../../../images/pic/chapter04/t5.gif" width="7" height="7"> 
+      1 + 5 <img src="../../../images/pic/chapter04/t5.gif" width="7" height="7"> 
+      3 + 7 <img src="../../../images/pic/chapter04/t5.gif" width="7" height="7"> 
+      3 + 9 <img src="../../../images/pic/chapter04/t5.gif" width="7" height="7"> 
+      3 + 6 <img src="../../../images/pic/chapter04/t5.gif" width="7" height="7"> 
+      3 = 83 (右下图)<br>
+      <br>
+      　　其中以左下图中二叉树的带权路径长度为最小。可以验证，它恰为最优二叉树，即在所有叶子结点带权为5、6、2、9、7的二叉树中，带权路径长度的最小值为65。</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　<img src="../../../images/pic/chapter06/6_31.gif" width="250" height="189" align="top"></td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

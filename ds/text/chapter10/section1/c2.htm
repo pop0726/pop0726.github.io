@@ -1,0 +1,86 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　10.2.1 直接插入排序</span><br>
+      <br>
+      　　插入排序的准则是，在有序序列中插入新的记录以达到扩大有序区的长度的目的。一趟直接插入排序的基本思想则是:在对记录序列R[1..n]的排序过程中，区段R[1..i-1]中的记录已按关键字非递减的顺序排列，将 
+      R[i] 插入到有序序列 R[1..i-1] 中，使区段 R[1..i] 中的记录按关键字非递减顺序排列，如右图所示。<br>
+      <br>
+      　　由此实现一趟插入排序的步骤为：<br>
+      　　1) 在 R[1..i-1] 中查找 R[i] 的插入位置，即确定j(0≤j＜i)使得<br>
+      　　　　R[1..j].key≤R[i].key＜R[j+1..i-1].key<br>
+      　　2) 将 R[j+1..i-1] 中的记录后移一个位置；<br>
+      　　3) 将 R[i] 插入到 j+1 的位置。<br>
+      <br>
+      　　和9.2.2中讨论的顺序查找类似，为了避免在查找过程中判别循环变量是否出界，设置 R[0] 为监视哨，并在查找的同时进行&quot;记录后移&quot;，如动画演示所示。<a href="javascript:;" onClick="MM_openBrWindow('../../../flash/chap10/10-2-2.swf','数据结构','width=400,height=300')"><img src="../../../images/tubiao/dh.gif" alt="动画" width="25" height="24" border="0" align="absmiddle"></a><br>
+      <br>
+      <img src="../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle" alt="算法"> 
+      <span class="zhushi">算法 10.1</span><br>
+      　　<b>void</b> InsertPass( SqList <b><font face="Times New Roman, Times, serif">&amp;</font></b>L, <b>int</b> i ) <br>
+      　<b>{</b><br>
+      <span class="zhushi">　<font face="Times New Roman, Times, serif">//</font> 
+      已知L.r[1..i-1]中的记录已按关键字非递减的顺序有序排列,本算法实<br>
+      　<font face="Times New Roman, Times, serif">//</font> 现将L.r[i]插入其中,并保持L.r[1..i]中记录按关键字非递减顺序有序</span><br>
+      　　L.r[0] = L.r[i]; <font face="Times New Roman, Times, serif">　　　　　　　　　　　　//</font> 
+      复制为哨兵<br>
+      　　<b>for</b> ( j=i-1; L.r[0].key &lt; L.r[j].key; --j )<br>
+      　　　L.r[j+1] = L.r[j]; <font face="Times New Roman, Times, serif">　　　　　　　　　　//</font> 
+      记录后移<br>
+      　　L.r[j+1] = L.r[0]; <font face="Times New Roman, Times, serif">　　　　　　　　　　　//</font> 
+      插入到正确位置<br>
+      　<b>}</b><font face="Times New Roman, Times, serif"> //</font> InsertPass<br>
+      <br>
+      　　显然，只含一个记录的序列是有序的，因此令 i 从2起，逐个插入直到 n 便可实现整个插入排序，算法如下。<br>
+      　</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      <br>
+      　　R[1..n] 表示记录序列的长度为 n，1..n 表示它们的序号(下标)连续地从1至 n。 <br>
+      <br>
+      　<img src="../../../images/pic/chapter10/10-19.gif" width="250" height="145" align="top"></td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><img src="../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle" alt="算法"> 
+      <span class="zhushi">算法10.2</span><br>
+      　　<b>void</b> InsertSort ( SqList <b><font face="Times New Roman, Times, serif">&amp;</font></b>L) <br>
+      　<b>{</b><br>
+      <span class="zhushi">　　<font face="Times New Roman, Times, serif">//</font> 
+      对顺序表L作直接插入排序</span><br>
+      　　<b>for</b> ( i=2; i&lt;=L.length; ++i )<br>
+      　　　<b>if</b> ( L.r[i].key &lt; L.r[i-1].key ) <b>{</b> <font face="Times New Roman, Times, serif">// 
+      </font>将 L.r[i] 插入有序子表<br>
+      　　　　L.r[0] = L.r[i]; L.r[i]=L.r[i-1];<br>
+      　　　<b>　for</b> ( j=i-2; L.r[0].key &lt; L.r[j].key; --j )<br>
+      　　　　　L.r[j+1] = L.r[j]; <font face="Times New Roman, Times, serif">　　　　　　//</font> 
+      记录后移<br>
+      　　　　L.r[j+1] = L.r[0]; <font face="Times New Roman, Times, serif">　　　　　　　//</font> 
+      插入到正确位置<br>
+      　　　<b>}</b><font face="Times New Roman, Times, serif"> //</font> if<br>
+      　<b>}</b><font face="Times New Roman, Times, serif"> //</font> InsertSort<br>
+    </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　　如果 
+      L.r[i].key≥L.r[i-1].key，则 L.r[1..r]已经有序，不需要再进行查找和插入；反之，若已知 L.r[i].key＜L.r[i-1].key，查找插入位置可从 
+      i-2 开始。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

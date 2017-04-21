@@ -1,0 +1,45 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　10.6.2 基数排序的两种实现方法<br>
+      </span><br>
+      　　有的逻辑关键字可以看成由若干个关键字复合而成的。例如，若逻辑关键字k是数值，且其值都在0到999的范围内，则可把k中的每一个十进数字看成一个关键字，即认为k由三个关键字(K<sup>0</sup>,K<sup>1</sup>,K<sup>2</sup>) 
+      组成，其中K<sup>0</sup>是百位数，K<sup>1</sup>是十位数，K<sup>2</sup>是个位数；又若关键字k是由五个字母组成的单词，则可看成是由五个关键字(K<sup>0</sup>,K<sup>1</sup>,K<sup>2</sup>,K<sup>3</sup>,K<sup>4</sup>) 
+      组成，其中每个字母K<sup>j</sup>都是一个关键字，K<sup>0</sup>是最高位，K<sup>4</sup>是最低位。现依照&quot;LSD法&quot;进行排序，并且由于如此分解而得的每个关键字K<sup>j</sup>都在相同的范围内，则可以按&quot;分配&quot;和&quot;收集&quot;的方法进行。<br>
+      <br>
+      　　一般情况下，假设记录的逻辑关键字由 d 个&quot;关键字&quot;构成，每个关键字可能取 rd 个值，则只要从<b>最低位关键字</b>起，按关键字的不同值将记录&quot;分配&quot;到 
+      rd 个队列之后再&quot;收集&quot;在一起，如此重复 d 趟，最终完成整个记录序列的排序。按这种方法实现的排序称为&quot;<span class="point"><b>基数排序</b></span>&quot;，其中&quot;<b>基数</b>&quot;即 
+      rd 指的是&quot;关键字&quot;的取值范围，上述两种关键字的基数分别为&quot;10&quot;和&quot;26&quot;。<br>
+      　</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      <br>
+      　　<b>基数排序</b>是一种借助&quot;多关键字排序&quot;的思想来实现&quot;单逻辑关键字排序&quot;的内部排序算法。 </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">　　例如，对关键字为(78，09，63，30，74，89，94，25，05，69，18，83)的记录序列需进行两趟&quot;分配&quot;和&quot;收集&quot;。第一趟分配对&quot;个位数&quot;进行，根据每个记录关键字个位数的值(0,1, 
+      …,9)，将它们分配到10个队列中去，然后进行第一趟收集，即依个位数为0,1,…,9的顺序将记录联接在一起，之后再按关键字的&quot;十位数&quot;进行分配，第二趟收集的结果即为记录的有序序列。</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　　基数排序的过程如动画所示。<a href="javascript:;" onClick="MM_openBrWindow('../../../flash/chap10/10-6-2.swf','数据结构','width=400,height=300')"><img src="../../../images/tubiao/dh.gif" alt="动画" width="25" height="24" border="0" align="absmiddle"></a></td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

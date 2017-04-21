@@ -1,0 +1,525 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><br>
+      　　正文编辑程序是一个面向用户的系统服务程序，广泛用于源程序的输入和修改，甚至用于报刊和书籍的编辑排版以及办公室的公文书信的起草和润色等。正文编辑的实质是修改字符数据的形式或格式。无论是 
+      Microsoft word 还是 WPS，其工作的基础原理都是正文编辑。虽然各种正文编辑程序的功能强弱不同，但其基本功能大致相同，一般都包括串的查找、插入、删除和修改等基本操作。<br>
+      <br>
+      　　为了编辑方便起见，用户可以通过换页符和换行符将正文划分为若干页和若干行(或直接划分为若干行)。在编辑程序中，则可将整个正文看成是一个&quot;正文串&quot;，&quot;页&quot;是正文串的子串，而行则是页的子串。 
+      <br>
+      <br>
+      　　假设有下列一段C的源程序<br>
+      　　main(){<br>
+      　　　float a,b,max;<br>
+      　　　scanf(&quot;%f,%f&quot;,&amp;a,&amp;b);<br>
+      　　　if a&gt;b max=a;<br>
+      　　　else max=b;<br>
+      　　};<br>
+      　　我们将此源程序看成是一个正文串，输入内存后如图所示，图中&quot;�L&quot;为换行符。<br>
+      　　200<br>
+      <table width="400" border="0" cellspacing="1" cellpadding="0" bgcolor="#FFFFFF" align="center">
+        <tr bgcolor="#4A5594"> 
+          <td class="white" bgcolor="#4A5594" width="20"> 
+            <div align="center">m</div>
+          </td>
+          <td class="white" width="20"> 
+            <div align="center">a</div>
+          </td>
+          <td class="white" width="20"> 
+            <div align="center">i</div>
+          </td>
+          <td class="white" width="20"> 
+            <div align="center">n</div>
+          </td>
+          <td class="white" width="20"> 
+            <div align="center">(</div>
+          </td>
+          <td class="white" width="20"> 
+            <div align="center">)</div>
+          </td>
+          <td class="white" width="20"> 
+            <div align="center">{</div>
+          </td>
+          <td class="white" width="20"> 
+            <div align="center">�L</div>
+          </td>
+          <td class="white" width="20"> 
+            <div align="center"></div>
+          </td>
+          <td class="white" width="20"> 
+            <div align="center"></div>
+          </td>
+          <td class="white" width="20"> 
+            <div align="center"> f</div>
+          </td>
+          <td class="white" width="20"> 
+            <div align="center">l</div>
+          </td>
+          <td class="white" width="20"> 
+            <div align="center">o</div>
+          </td>
+          <td class="white" width="20"> 
+            <div align="center">a</div>
+          </td>
+          <td class="white" width="20"> 
+            <div align="center">t</div>
+          </td>
+          <td class="white" width="20"> 
+            <div align="center"></div>
+          </td>
+          <td class="white" width="20"> 
+            <div align="center">a</div>
+          </td>
+          <td class="white" width="20"> 
+            <div align="center">,</div>
+          </td>
+          <td class="white" width="20"> 
+            <div align="center">b</div>
+          </td>
+          <td class="white" width="20"> 
+            <div align="center">,</div>
+          </td>
+        </tr>
+        <tr bgcolor="#4A5594"> 
+          <td class="white"> 
+            <div align="center">m</div>
+          </td>
+          <td class="white"> 
+            <div align="center">a</div>
+          </td>
+          <td class="white"> 
+            <div align="center">x</div>
+          </td>
+          <td class="white"> 
+            <div align="center">;</div>
+          </td>
+          <td class="white"> 
+            <div align="center">�L</div>
+          </td>
+          <td class="white"> 
+            <div align="center"></div>
+          </td>
+          <td class="white"> 
+            <div align="center"></div>
+          </td>
+          <td class="white"> 
+            <div align="center">s</div>
+          </td>
+          <td class="white"> 
+            <div align="center">c</div>
+          </td>
+          <td class="white"> 
+            <div align="center">a</div>
+          </td>
+          <td class="white"> 
+            <div align="center">n</div>
+          </td>
+          <td class="white"> 
+            <div align="center">f</div>
+          </td>
+          <td class="white"> 
+            <div align="center">(</div>
+          </td>
+          <td class="white">&quot;</td>
+          <td class="white"> 
+            <div align="center">%</div>
+          </td>
+          <td class="white"> 
+            <div align="center">f</div>
+          </td>
+          <td class="white"> 
+            <div align="center">,</div>
+          </td>
+          <td class="white"> 
+            <div align="center">%</div>
+          </td>
+          <td class="white"> 
+            <div align="center">f</div>
+          </td>
+          <td class="white"> 
+            <div align="center">&quot;</div>
+          </td>
+        </tr>
+        <tr bgcolor="#4A5594"> 
+          <td class="white"> 
+            <div align="center">,</div>
+          </td>
+          <td class="white"> 
+            <div align="center">&amp;</div>
+          </td>
+          <td class="white"> 
+            <div align="center">a</div>
+          </td>
+          <td class="white"> 
+            <div align="center">,</div>
+          </td>
+          <td class="white"> 
+            <div align="center">&amp;</div>
+          </td>
+          <td class="white"> 
+            <div align="center">b</div>
+          </td>
+          <td class="white"> 
+            <div align="center">)</div>
+          </td>
+          <td class="white"> 
+            <div align="center">;</div>
+          </td>
+          <td class="white"> 
+            <div align="center">�L</div>
+          </td>
+          <td class="white"> 
+            <div align="center"></div>
+          </td>
+          <td class="white"> 
+            <div align="center"></div>
+          </td>
+          <td class="white"> 
+            <div align="center">i</div>
+          </td>
+          <td class="white"> 
+            <div align="center">f</div>
+          </td>
+          <td class="white"> 
+            <div align="center"></div>
+          </td>
+          <td class="white"> 
+            <div align="center">a</div>
+          </td>
+          <td class="white"> 
+            <div align="center">&gt;</div>
+          </td>
+          <td class="white"> 
+            <div align="center">b</div>
+          </td>
+          <td class="white"> 
+            <div align="center"></div>
+          </td>
+          <td class="white"> 
+            <div align="center"></div>
+          </td>
+          <td class="white"> 
+            <div align="center">m</div>
+          </td>
+        </tr>
+        <tr bgcolor="#4A5594"> 
+          <td class="white">
+            <div align="center">a</div>
+          </td>
+          <td class="white"> 
+            <div align="center">x</div>
+          </td>
+          <td class="white"> 
+            <div align="center">=</div>
+          </td>
+          <td class="white"> 
+            <div align="center">a</div>
+          </td>
+          <td class="white"> 
+            <div align="center">;</div>
+          </td>
+          <td class="white"> 
+            <div align="center">�L</div>
+          </td>
+          <td class="white"> 
+            <div align="center"></div>
+          </td>
+          <td class="white">&nbsp;</td>
+          <td class="white"> 
+            <div align="center">e</div>
+          </td>
+          <td class="white"> 
+            <div align="center">l</div>
+          </td>
+          <td class="white"> 
+            <div align="center">s</div>
+          </td>
+          <td class="white"> 
+            <div align="center">e</div>
+          </td>
+          <td class="white">&nbsp;</td>
+          <td class="white">&nbsp;</td>
+          <td class="white"> 
+            <div align="center">m</div>
+          </td>
+          <td class="white"> 
+            <div align="center">a</div>
+          </td>
+          <td class="white"> 
+            <div align="center">x</div>
+          </td>
+          <td class="white"> 
+            <div align="center">=</div>
+          </td>
+          <td class="white"> 
+            <div align="center">b</div>
+          </td>
+          <td class="white"> 
+            <div align="center">;</div>
+          </td>
+        </tr>
+        <tr bgcolor="#4A5594"> 
+          <td class="white"> 
+            <div align="center">�L</div>
+          </td>
+          <td class="white"> 
+            <div align="center">}</div>
+          </td>
+          <td class="white"> 
+            <div align="center">;</div>
+          </td>
+          <td class="white"> 
+            <div align="center">�L</div>
+          </td>
+          <td class="white"> 
+            <div align="center"></div>
+          </td>
+          <td class="white" bgcolor="#4A5594"> 
+            <div align="center"></div>
+          </td>
+          <td class="white"> 
+            <div align="center"></div>
+          </td>
+          <td class="white"> 
+            <div align="center"></div>
+          </td>
+          <td class="white"> 
+            <div align="center"></div>
+          </td>
+          <td class="white"> 
+            <div align="center"></div>
+          </td>
+          <td class="white"> 
+            <div align="center"></div>
+          </td>
+          <td class="white"> 
+            <div align="center"></div>
+          </td>
+          <td class="white"> 
+            <div align="center"></div>
+          </td>
+          <td class="white"> 
+            <div align="center"></div>
+          </td>
+          <td class="white"> 
+            <div align="center"></div>
+          </td>
+          <td class="white"> 
+            <div align="center"></div>
+          </td>
+          <td class="white"> 
+            <div align="center"></div>
+          </td>
+          <td class="white"> 
+            <div align="center"></div>
+          </td>
+          <td class="white"> 
+            <div align="center"></div>
+          </td>
+          <td class="white"> 
+            <div align="center"></div>
+          </td>
+        </tr>
+      </table>
+      　<br>
+    </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      　　正文编辑程序应用极其广泛，现有的编辑工具也很多，由于正文编辑中主要进行的是串操作，因此在此作为串的应用例子向读者简单介绍正文编辑的主要思想。但这里讨论的仅仅是进行正文编辑时内部的串操作，并不涉及目前常用的屏幕编辑中的图形操作。 
+    </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">　　为了管理正文串中的页和行，在进入正文编辑时，编辑程序先为正文串建立相应的页表和行表，页表的每一项列出页号和该页的起始行号，行表的每一项则指示每一行的行号、起始地址和该行子串的长度。假设此例正文串只占一页，起始行号为100，则该正文串的行表如右所示。<br>
+      <br>
+      　　在正文编辑程序中设立页指针、行指针和字符指针，分别指示当前操作的页、行和字符。如果在某行内插入或删除若干字符，则要修改行表中该行的长度，若该行长度因插入而超出了原分配给它的存储空间，则要为该行重新分配存储空间，并修改该行的起始位置。例如，对上述源程序进行编辑后，其中的105行修改成<br>
+      <br>
+      　　if (a&gt;b) max=a;<br>
+      　　108行修改成<br>
+      　　}<br>
+      　　修改后的行表如下所示。<br>
+      <br>
+      <table width="205" border="0" cellspacing="1" cellpadding="0" align="center" bgcolor="#FFFFFF">
+        <tr bgcolor="#4A5594"> 
+          <td class="zhushi"> 
+            <div align="center">行号</div>
+          </td>
+          <td class="zhushi"> 
+            <div align="center"> 起始地址</div>
+          </td>
+          <td class="zhushi"> 
+            <div align="center"> 长度</div>
+          </td>
+        </tr>
+        <tr bgcolor="#4A5594"> 
+          <td class="white"> 
+            <div align="center">100</div>
+          </td>
+          <td class="white"> 
+            <div align="center"> 200</div>
+          </td>
+          <td class="white"> 
+            <div align="center"> 8</div>
+          </td>
+        </tr>
+        <tr bgcolor="#4A5594"> 
+          <td class="white"> 
+            <div align="center">102</div>
+          </td>
+          <td class="white"> 
+            <div align="center"> 208</div>
+          </td>
+          <td class="white"> 
+            <div align="center"> 17</div>
+          </td>
+        </tr>
+        <tr bgcolor="#4A5594"> 
+          <td class="white"> 
+            <div align="center">104</div>
+          </td>
+          <td class="white"> 
+            <div align="center"> 225</div>
+          </td>
+          <td class="white"> 
+            <div align="center"> 24</div>
+          </td>
+        </tr>
+        <tr bgcolor="#4A5594"> 
+          <td class="point"> 
+            <div align="center">105</div>
+          </td>
+          <td class="point"> 
+            <div align="center"> 284</div>
+          </td>
+          <td class="point"> 
+            <div align="center"> 19</div>
+          </td>
+        </tr>
+        <tr bgcolor="#4A5594"> 
+          <td class="white"> 
+            <div align="center">106</div>
+          </td>
+          <td class="white"> 
+            <div align="center"> 266</div>
+          </td>
+          <td class="white"> 
+            <div align="center"> 15</div>
+          </td>
+        </tr>
+        <tr bgcolor="#4A5594"> 
+          <td class="point"> 
+            <div align="center">108</div>
+          </td>
+          <td class="point"> 
+            <div align="center"> 281</div>
+          </td>
+          <td class="point"> 
+            <div align="center"> 2</div>
+          </td>
+        </tr>
+      </table>
+      　<br>
+    </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"> 
+      <table width="205" border="0" cellspacing="1" cellpadding="0" align="center" bgcolor="#003399">
+        <tr> 
+          <td class="zhushi" background="../../../images/html/right_di4.gif"> 
+            <div align="center"><font color="#339900">行号</font></div>
+          </td>
+          <td class="zhushi" background="../../../images/html/right_di4.gif"> 
+            <div align="center"> <font color="#339900">起始地址</font></div>
+          </td>
+          <td class="zhushi" background="../../../images/html/right_di4.gif"> 
+            <div align="center"> <font color="#339900">长度</font></div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">100</div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center"> 200</div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center"> 8</div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">102</div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center"> 208</div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center"> 17</div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">104</div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center"> 225</div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center"> 24</div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">105</div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center"> 249</div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center"> 17</div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">106</div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center"> 266</div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center"> 15</div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">108</div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center"> 281</div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center"> 3</div>
+          </td>
+        </tr>
+      </table>
+    </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"> 　　当插入或删除一行时必须同时对行表也进行插入和删除，若被删除的&quot;行&quot;是所在页的起始行，则还要修改页表中相应页的起始行号（应修改成下一行的行号）。为了查找方便，行表是按行号递增的顺序安排的，因此对行表进行插入或删除时需移动操作之后的全部表项。页表的维护与行表类似，在此不再赘述。由于对正文的访问是以页表和行表作为索引的，因此在删除一页或一行时，可以只对页表或行表作相应修改，不必删除所涉及的字符，这可以节省不少时间。</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　　注意在正文编辑中，行表和页表与串值的存储是分开的。行表和页表反映了串值存储情况的扼要信息，相当是串值的一种查找索引，也称为串的存储映象。通过串的存储映象可以更方便地对串值进行大量的同类操作。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

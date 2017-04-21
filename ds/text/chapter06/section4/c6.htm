@@ -1,0 +1,70 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　6.4.2 二叉树其它操作算法举例</span><br>
+      <br>
+      <span class="zhushi">　四、建立二叉树的存储结构--二叉链表</span><br>
+      <br>
+      　　在输入数据正确的前提下，由此建立二叉链表的算法为：<br>
+      <br>
+      　若输入的字符是'#'，则建立空树；<br>
+      　否则<br>
+      　　建立根结点；<br>
+      　　递归建立左子树的二叉链表；<br>
+      　　递归建立右子树的二叉链表。<br>
+      <br>
+      <img src="../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle" alt="算法"> 
+      <span class="zhushi">算法 6.6</span> <br>
+      　　<b>void</b> CreateBiTree(BiTree <b><font face="Times New Roman, Times, serif">&amp;</font></b>T)<br>
+      　<b>{</b><br>
+      <span class="zhushi">　　<font face="Times New Roman, Times, serif">//</font> 
+      在先序遍历二叉树的过程中输入二叉树的&quot;先序字符串&quot;，<br>
+      　　<font face="Times New Roman, Times, serif">//</font> 建立根指针为 T的二叉链表存储结构。在先序字符串中，<br>
+      　　<font face="Times New Roman, Times, serif">//</font> 字符'#'表示空树，其它字母字符为结点的数据元素</span><br>
+      　　<b>cin</b> &gt;&gt; ch ；<br>
+      　　<b>if</b> (ch=='#') T=<b>NULL</b>;<font face="Times New Roman, Times, serif">　　　　　　　　//</font> 
+      建空树<br>
+      　　<b>else</b> <b>{</b><br>
+      　　　T = <b>new</b> BiTNode ; <font face="Times New Roman, Times, serif">　　　　　　　　//</font> 
+      &quot;访问&quot;操作为生成根结点<br>
+      　　　T-&gt;data = ch;<br>
+      　　　CreateBiTree(T-&gt;Lchild); <font face="Times New Roman, Times, serif">　　　　　//</font> 
+      递归建(遍历)左子树<br>
+      　　　CreateBiTree(T-&gt;Rchild); <font face="Times New Roman, Times, serif">　　　　　//</font> 
+      递归建(遍历)右子树<br>
+      　　<b>} </b><font face="Times New Roman, Times, serif">// </font>else<br>
+      　<b>} </b><font face="Times New Roman, Times, serif">//</font> CreateBiTree<br>
+    </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      <br>
+      <br>
+      　　对二叉树的不同定义可得不同的建二叉链表的算法。为简化问题，设二叉树中结点的元素均为一个单字符，并以&quot;#&quot;表示空树。假设二叉树以由&quot;根&quot;、&quot;左子树串&quot;和&quot;右子树串&quot; 
+      联接而成的字符串表示，则建立二叉链表的算法应该是一个&quot;先序遍历&quot;的过程，并且遍历过程中&quot;访问&quot;的操作应是&quot;识别输入的字符并作相应操作&quot;。<br>
+      <br>
+      　　例如，空树以&quot;#&quot;表示，只有一个根结点A的二叉树以&quot;A##&quot;表示，下列二叉树则以&quot;AB#CD###E#F##&quot;表示。<br>
+      　　　　<img src="../../../images/pic/chapter06/6_12.gif" width="185" height="161" align="top"><br>
+      <p></p>
+      <p></p>
+      <p>　　以此二叉树为例算法6.6的执行过程如动画所示。<a href="javascript:;" onClick="MM_openBrWindow('../../../flash/chap06/6-4-6.swf','数据结构','width=400,height=300')"><img src="../../../images/tubiao/dh.gif" alt="动画" width="25" height="24" border="0" align="absmiddle"></a></p>
+    </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

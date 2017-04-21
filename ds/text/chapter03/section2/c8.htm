@@ -1,0 +1,79 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+<script language="JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　3.2.4 表达式求值问题</span><br>
+      <br>
+      <img src="../../../images/tubiao/cxd.gif" width="25" height="24" alt="算法" align="absmiddle"> 
+      <span class="zhushi">算法3.2</span><br>
+      　　<b>void</b> transform(<b>char</b> suffix[], <b>char</b> exp[] ) <b>{</b><br>
+      　　<span class="zhushi"><font face="Times New Roman, Times, serif">//</font> 
+      从合法的表达式字符串 exp 求得其相应的后缀式 suffix</span><br>
+      　　InitStack(S); Push(S, # );<br>
+      　　p = exp; ch = *p;<br>
+      　　<b>while</b> (<b>!</b>StackEmpty(S)) <b>{</b></td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">&nbsp;</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">　　　<b>if</b> (<b>!</b>IN(ch, OP)) Pass( suffix, 
+      ch);　<font face="Times New Roman, Times, serif">//</font> 直接发送给后缀式<br>
+      　　　<b>else</b> <b>{</b><br>
+      　　　　<b>switch</b> (ch) <b>{</b><br>
+      　　　　　<b>case</b> ( <b>:</b> Push(S, ch); break;<br>
+      　　　　　<b>case</b> ) <b>: {</b><br>
+      　　　　　　Pop(S, c);<br>
+      　　　　　　<b>while</b> (c<b>!</b>= ( )<br>
+      　　　　　　<b>{</b> Pass( suffix, c); Pop(S, c) <b>}</b><br>
+      　　　　　　<b>break</b>; <b>}</b><br>
+      　　　　　<b>defult</b> : <b>{</b></td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"> 
+      　　OP 为运算符的集合，若 ch 是运算符，则函数 IN(ch,OP) 的值为&quot;TRUE&quot;。<br>
+      　　函数 Pass(suffix,ch) 的功能是将字符 ch 复制到数组 suffix 中。<br>
+      　　从&quot;(&quot;到&quot;)&quot;构成一个表达式。<br>
+      　</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">　　　　　　<b>while</b>(<b>!</b>Gettop(S, c) <b><font face="Times New Roman, Times, serif">&amp;&amp;</font></b> 
+      ( precede(c,ch)))<br>
+      　　　　　　<b>{</b> Pass( suffix, c); Pop(S, c); <b>}</b><br>
+      　　　　　　<b>if</b> ( ch<b>!</b>= # ) Push( S, ch); <br>
+      　　　　　　<b>break</b>;<br>
+      　　　　　<b>}</b><font face="Times New Roman, Times, serif"> //</font> defult<br>
+      　　　　<b>}</b><font face="Times New Roman, Times, serif"> //</font> switch<br>
+      　　　<b>}</b><font face="Times New Roman, Times, serif"> //</font> else<br>
+      　　　<b>if</b> ( ch<b>!</b>= # ) <b>{</b> p++; ch = *p; <b>}</b><br>
+      　　<b>}</b><font face="Times New Roman, Times, serif"> //</font> while<br>
+      　<b>}</b><font face="Times New Roman, Times, serif"> //</font> transform</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　　若c(栈顶运算符)的优先数大于或等于ch(当前运算符)的优先数，则函数precede(c,ch)值为&quot;TRUE&quot;。 
+      <p>　<br>
+        　　学员可以在表达式的<b>算法演示</b>中的对话框中输入你想观察的表达式。<a href="#"><img src="../../../images/tubiao/dh.gif" width="25" height="24" align="absmiddle" alt="动画" border="0" onClick="MM_openBrWindow('../../../java/Expression/Expression.htm','','width=700,height=400')"></a><br>
+        <br>
+        　　算法的时间复杂度为<font face="Times New Roman, Times, serif"><i>O</i> (n)</font>，其中 
+        n 为表达式字符串的长度。</p>
+      </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<script language=JavaScript src="../part2/hpmain.js"></script>
+<script language=JavaScript src="../part2/showhidden.js"></script>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　2.3.1 单链表和指针</span><br>
+      <br>
+      　　可以用 C 语言中的&quot;结构指针&quot;来描述链表结构。<br>
+      <br>
+      　　　<b>typedef struct</b> LNode <br>
+      　　<b> {</b><br>
+      　　　　ElemType data;<br>
+      　　　　struct LNode *next;<br>
+      　　　<b>}</b> *SLink;<br>
+      <br>
+      　 若设 LNode *p,*q;<br>
+      　　　　SLink H;<br>
+      　</td>
+    <td background="../../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      <br>
+      　　从C语言的类型定义可见，在链表中，&quot;结点&quot; 和 &quot;指针&quot; 是相互紧密关联的两个概念，不同的结点结构对应有不同的指针类型。<br>
+      <br>
+      <table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td bgcolor="#ECEEFF" height="14" class="explaination" width="8">&nbsp;</td>
+                <td bgcolor="#ECEEFF" height="14" class="explaination"><img src="../../../../images/tubiao/wt.gif" width="23" height="23" align="absmiddle" alt="思考题"> 
+                  如左对变量 p 和 q 定义之后，它们的值是什么？</td>
+                <td width="15" bgcolor="#ECEEFF" valign="top"><span id="bb"><img border=0 
+                              id=HPFrameHLTab3 
+                              onClick="showHideContent('HPFrameHL');hidden();"
+							   src="../../../../images/html/expand.gif" style="CURSOR: hand" width="15" height="14"></span></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <div id=HPFrameHLContent 
+           style="WIDTH: 100%;visibility: hidden;background-color:#ECEEFF" > 
+              <table width="94%" border="0" cellspacing="0" cellpadding="0" align="center">
+                <tr> 
+                  <td class="explaination">　和其它变量相同，在没有对它们进行赋值之前，它们是&quot;没有值&quot;的。</td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </td>
+    <td background="../../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">　　则 p，q 和 H 均为以上定义的指针型变量。若 p 的值非空，则表明 p 指向某个结点，p-&gt;data 
+      表示 p 所指结点中的数据域，p-&gt;next 表示 p 所指结点中的指针域，若非空，则指向其&quot;后继&quot;结点。<br>
+      　</td>
+    <td background="../../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"> 
+      　p-&gt;data 即为(*p).data，类似地，p-&gt;next 即为(*p).next。<br>
+      　注意：只有在 p &quot;有值&quot; 且&quot;值不为空&quot;的情况下，<br>
+      p-&gt;data 和 p-&gt;next 才有意义。<br>
+    </td>
+    <td background="../../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">　　指针型变量只能作同类型的指针赋值与比较操作。并且，指针型变量的&quot;值&quot;除了由同类型的指针变量赋值得到外，都必须用 
+      C 语言中的动态分配函数得到。例如，p = <b>new</b> LNode; 表示在运行时刻系统动态生成了一个 LNode 类型的结点，并令指针 
+      p &quot;指向&quot;该结点。反之，当指针 p 所指结点不再使用，可用 delete p; 释放此结点空间。</td>
+    <td background="../../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"> 
+      　<br>
+      　注意：一旦执行了delete p; 的语句，(*p)不再存在，自然 p-&gt;data 和 p-&gt;next 也就没有意义了。</td>
+    <td background="../../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

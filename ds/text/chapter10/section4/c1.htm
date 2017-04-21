@@ -1,0 +1,80 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+<script language=JavaScript src="../../chapter02/section1/hpmain.js"></script>
+<script language=JavaScript src="../../chapter02/section1/showhidden.js"></script>
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　10.4.1 简单选择排序<br>
+      </span><br>
+      　　选择排序的基本思想是，在待排区段的记录序列中选出关键字最大或最小的记录，并将它移动到法定位置。第 i(i=1,2,…,n-1)趟的简单选择排序（序列中前 
+      i-1 个记录的关键字均小于后 n-i+1 个记录的关键字）的作法是，在后 n-i+1 个记录中选出关键字最小的记录，并将它和第 i 个记录进行互换。如右图所示。<br>
+      <br>
+      <img src="../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle" alt="算法"> 
+      <span class="zhushi">算法 10.12</span><br>
+      　　<b>void</b> SelectSort (SqList <b><font face="Times New Roman, Times, serif">&amp;</font></b>L) <br>
+      　<b>{</b><br>
+      <span class="zhushi">　　<font face="Times New Roman, Times, serif">//</font> 
+      对顺序表L作简单选择排序</span><br>
+      　　<b>for</b> (i=1; i&lt;L.length; ++i) <b>{</b> <font face="Times New Roman, Times, serif">　　　//</font> 
+      选择第 i 小的记录，并交换到位<br>
+      　　　j = i;<br>
+      　　　<b>for</b> ( k=i+1; k&lt;=L.length; k++ )<br>
+      　　　　　　　　　　　　　　　<font face="Times New Roman, Times, serif">//</font> 在L.r[i..L.length]中选择关键字最小的记录<br>
+      　　　　<b>if</b> ( L.r[k].key &lt; L.r[j].key ) j =k ;<br>
+      　　　<b>if</b> ( i!=j ) L.r[j] ←→L.r[i]; <font face="Times New Roman, Times, serif">　//</font> 
+      与第 i 个记录互换<br>
+      　　<b>}</b><font face="Times New Roman, Times, serif">//</font> for<br>
+      　<b>}</b> <font face="Times New Roman, Times, serif">//</font> SelectSort<br>
+      <br>
+      　　无论待排序列处于什么状态，选择排序所需进行的&quot;比较&quot; 次数都相同，为 <img src="../../../images/pic/chapter10/gs_10.gif" width="139" height="33" align="absmiddle">，而 
+      &quot;移动&quot; 次数在待排序列为&quot;正序&quot; 时达最小为0，在 &quot;逆序&quot; 时达最大为 3(n-1)。</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      <br>
+      　　<img src="../../../images/pic/chapter10/10-28.gif" width="250" height="188" align="top"><br>
+      <br>
+      <table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td bgcolor="#ECEEFF" height="14" class="explaination" width="8">&nbsp;</td>
+                <td bgcolor="#ECEEFF" height="14" class="explaination"><img src="../../../images/tubiao/wt.gif" width="23" height="23" align="absmiddle" alt="思考题"> 
+                  选择排序是否也和插入排序或起泡排序相类似，在对&quot;正序&quot;和&quot;逆序&quot;的待排序列进行排序时，所需进行的&quot;比较&quot;和&quot;移动&quot; 
+                  次数有很大差别？<br>
+                </td>
+                <td width="15" bgcolor="#ECEEFF" valign="top"><span id="bb"><img border=0 
+                              id=HPFrameHLTab3 
+                              onClick="showHideContent('HPFrameHL');hidden();"
+							   src="../../../images/html/expand.gif" style="CURSOR: hand" width="15" height="14"></span></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <div id=HPFrameHLContent 
+           style="WIDTH: 100%;visibility: hidden;background-color:#ECEEFF" > 
+              <table width="94%" border="0" cellspacing="0" cellpadding="0" align="center">
+                <tr> 
+                  <td class="explaination">　无论待排序列处于什么状态，选择排序所需进行的&quot;比较&quot;次数都相同，为 
+                    <img src="../../../images/pic/chapter10/gs_18.gif" width="128" height="32" align="absmiddle">，而&quot;移动&quot;次数在待排序列为&quot;正序&quot;时达最小为0，在&quot;逆序&quot;时达最大为3(n-1)。</td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

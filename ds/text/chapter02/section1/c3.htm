@@ -1,0 +1,80 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">　<span class="part">2.1.1 抽象数据类型线性表的定义</span><br>
+      <br>
+      　　<strong>{加工型操作} </strong><br>
+    </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      <br>
+      　　容易看出以上7个操作的结果都没有改变线性表中的数据元素和数据元素之间的关系，因此它们都是&quot;引用型&quot;的操作，函数中的&quot;L&quot;是&quot;传值参数&quot;。而以下四个操作的结果或修改表中的数据元素，或修改元素之间的关系，被称为&quot;加工型&quot;的操作，为了便于返回操作的结果，用&quot;引用&quot; 
+      传递参数&quot;L&quot;，即在参数 L 之前加有符号&quot;&amp;&quot;。在以后的讨论中，我们均称它们为&quot;引用参数&quot;。<br>
+      　</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>&nbsp;</td>
+    <td class="white" valign="top">　　ClearList( <b><font face="Times New Roman, Times, serif">&amp;</font></b>L 
+      )<br>
+      　　　初始条件：线性表 L 已存在。<br>
+      　　　操作结果：将 L <span class="point">重置为空表</span>。<br>
+    </td>
+    <td background="../../../images/html/mid.gif">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　　值得注意的是，在进行了 
+      DestroyList(L) 操作之后，线性表 L 不再存在，即不能在以后的程序中再引用它，而在对线性表L进行 ClearList(L) 操作之后，仅是删除表中所有元素，在以后的程序中仍可对它进行某些&quot;合法&quot;操作，如判空、插入等。<br>
+      　</td>
+    <td background="../../../images/html/right_di3.gif">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>&nbsp;</td>
+    <td class="white" valign="top">　　PutElem( <b><font face="Times New Roman, Times, serif">&amp;</font></b>L, 
+      i, <b><font face="Times New Roman, Times, serif">&amp;</font></b>e )<br>
+      　　　初始条件：线性表L已存在，<span class="point">1≤i≤LengthList(L)</span>。<br>
+      　　　操作结果：L 中第 i 个元素<span class="point">赋值</span>同 e 的值。<br>
+      　</td>
+    <td background="../../../images/html/mid.gif">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　　和GetElem操作相同，i 
+      的值必须在线性表的长度范围内。</td>
+    <td background="../../../images/html/right_di3.gif">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>&nbsp;</td>
+    <td class="white" valign="top">　　ListInsert( <b><font face="Times New Roman, Times, serif">&amp;</font></b>L, 
+      i, e )<br>
+      　　　初始条件：线性表 L 已存在，1≤i≤LengthList(L)+1。<br>
+      　　　操作结果：在 L 的第 i 个元素之前<span class="point">插入</span>新的元素 e，L 的长度增1。<br>
+    </td>
+    <td background="../../../images/html/mid.gif">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　　可在线性表中任意一个元素之前插入一个新的数据元素，i=1 
+      意为在第一个元素之前插入一个新的数据元素，i=LengthList(L)+1 则为在最后一个元素之后插入一个新的数据元素。换句话说，操作结果是使新插入的数据元素成为插入之后的线性表中第 
+      i 个数据元素，显然，插入位置 i 的合法值应为<br>
+      <b>　　　1≤i≤LengthList(L)+1</b>。<br>
+      　</td>
+    <td background="../../../images/html/right_di3.gif">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>&nbsp;</td>
+    <td class="white" valign="top">　　ListDelete(<b><font face="Times New Roman, Times, serif"> 
+      &amp;</font></b>L, i, <b><font face="Times New Roman, Times, serif">&amp;</font></b>e 
+      )<br>
+      　　　初始条件：线性表 L 已存在且非空，<b><span class="point">1≤i≤LengthList(L)</span></b>。<br>
+      　　　操作结果：<b><span class="point">删除 </span></b>L 的第 i 个元素，并用 e 返回其值，L 的<b><span class="point">长度减1</span></b>。 
+      <p><b>} ADT </b>List</p>
+    </td>
+    <td background="../../../images/html/mid.gif">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　　被删除的元素必须是当前线性表中存在的元素，因此被删元素的位序应满足条件<br>
+      　　　<b>1≤i≤LengthList(L)</b>。</td>
+    <td background="../../../images/html/right_di3.gif">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

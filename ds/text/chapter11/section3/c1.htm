@@ -1,0 +1,30 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　11.3.1 索引文件的组织方法</span><br>
+      <br>
+      　　<span class="point">索引文件</span>由&quot;<span class="point">索引</span>&quot;和&quot;<span class="point">主文件</span>(顺序文件)&quot;两部分构成，其中索引为指示逻辑记录和物理记录之间对应关系的表，表中每一个记录称作<span class="point">索引项</span>，包含(逻辑记录的)关键码和物理记录位置两个数据项，索引按关键码有序。<br>
+      <br>
+      　　对索引文件可以进行直接存取或按关键码存取。按关键码存取时，首先在索引中进行查找，然后按索引项中指示的记录在主文件中的物理位置进行存取。插入记录时，记录本身可插入在主文件的末尾，同时将相应的索引项插入索引；删除记录仅需删除相应的索引项；更新记录时，可将更新后的记录插入主文件末尾，同时修改相应的索引项。 
+      <br>
+      <br>
+      　　组织索引文件的关键是如何组织索引。索引本身可以是顺序结构也可以是树型结构。由于大型文件的索引都相当大，则对顺序结构的索引需要建立多级索引，而树型结构本身就是一种&quot;层次&quot;结构，因此常用以作为索引文件的索引。本节主要介绍大型索引文件的索引--B树。</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      　<br>
+      　　&quot;索引&quot;是在建立主文件的同时生成的，即提取输入记录的关键码连同记录的物理地址构成一个索引项存入索引。可见，索引中的记录数目和主文件相同，称这类索引为&quot;<b>稠密索引</b>&quot;，它的优点可以进行&quot;预查找&quot;，即若在索引中没有找到待查的关键码，就不需要再到主文件中去进行查找了，它的缺点是占用存储空间较大。<br>
+      <br>
+      　　若更新后的记录的存储空间不增加，也可将更新后的记录存入原地，此时不需修改索引。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

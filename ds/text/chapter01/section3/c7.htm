@@ -1,0 +1,54 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　1.3.3 算法效率的衡量方法</span><br>
+      <br>
+      <img src="../../../images/tubiao/lt.gif" width="28" height="27" align="absmiddle"><span class="zhushi">例1.3</span> 
+      对 n 个整数的序列进行起泡排序。其中序列的&quot;长度&quot; n 为问题的规模。<br>
+      <br>
+      <img src="../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle"> 
+      <span class="zhushi">算法 1.3</span><br>
+      　　<b>void</b> bubble_sort(<b>int</b> a[], <b>int</b> n)<br>
+      　<b>{</b><br>
+      <span class="zhushi">　　<font face="Times New Roman, Times, serif">//</font> 
+      将 a 中整数序列重新排列成自小至大有序的整数序列。</span><br>
+      　　<b>for</b> (i=n-1, change=<b>TRUE</b>; i&gt;1 <b><font face="Times New Roman, Times, serif">&amp;&amp;</font></b> change; 
+      --i) <b>{</b><br>
+      　　　change = <b>FALSE</b>;<br>
+      　　　<b>for</b> (j=0; j&lt;i; ++j)<br>
+      　　　　<b>if</b> (a[j] &gt; a[j+1]) <br>
+      　　　　　<b>{</b> w = a[j]; a[j]= a[j+1]; a[j+1]= w; change = <b>TRUE</b> <b>}</b><br>
+      　　<b>}</b><br>
+      　<b>}</b> <font face="Times New Roman, Times, serif">//</font> bubble_sort<br>
+      <br>
+      　　算法的<span class="point">时间复杂度</span>为<b><span class="point"><font face="Times New Roman, Times, serif"><i>O 
+      </i>(n<sup>2</sup>)</font></span></b> 。<br>
+      <br>
+      　　从这三个例子可见，算法时间复杂度取决于最深循环内包含基本操作的语句的重复执行次数，称语句重复执行的次数为语句的&quot;<span class="point">频度</span>&quot;。 
+    </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      　<br>
+      　　起泡排序有两个结束条件，或i=1或&quot;一趟起泡&quot; 中没有进行过一次交换操作，后者说明该序列已经有序。因此起泡排序的算法执行时间和序列中整数的初始排列状态有关，它在初始序列本已从小到大有序时达最小值，而在初始序列从大到小逆序时达最大值，在这种情况下，通常以最坏的情况下的时间复杂度为准。<br>
+      <br>
+      　　起泡排序的两种过程如动画所示。<a href="javascript:;" onClick="MM_openBrWindow('../../../flash/chap01/1-3-1.swf','数据结构','width=400,height=300')"><img src="../../../images/tubiao/dh.gif" alt="动画" width="25" height="24" border="0" align="absmiddle"></a></td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

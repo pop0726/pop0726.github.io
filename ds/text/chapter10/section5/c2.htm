@@ -1,0 +1,78 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+<script language="JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　10.6.1 多关键字的排序<br>
+      </span><br>
+      　一般情况下，对多关键字排序的定义为：<br>
+      <br>
+      　　假设含有 n 个记录的序列为：<br>
+      　　　<img src="../../../images/pic/chapter10/o9.gif" width="124" height="19"><br>
+      <br>
+      　　每个记录 R<font size="1">i</font> 中含有 d 个关键字<img src="../../../images/pic/chapter10/gs_12.gif" width="117" height="21" align="absmiddle">，则称该记录序列对关键字<img src="../../../images/pic/chapter10/gs_12.gif" width="117" height="21" align="absmiddle">有序是指：对于序列中任意两个记录 
+      R<font size="1">i</font> 和 R<font size="1">j</font>（1≤i&lt;j≤n）都满足下列有序关系：<br>
+      　　　<img src="../../../images/pic/chapter10/gs_13.gif" width="251" height="24"> 
+      <br>
+      <br>
+      　　其中 K<sup>0</sup> 被称作最主位关键字，K<sup>d-1</sup> 被称作最次位关键字。<br>
+      <br>
+      　　通常实现多关键字排序可以有两种策略：一是最<b>主位优先</b>（<b>MSD</b>法），另一是<b>最次位优先</b>（<b>LSD</b>法）。<br>
+      <br>
+      　　最主位优先的作法是：先对最主位关键字K<sup>0</sup>进行排序，得到若干子序列，其中每个子序列中的记录都含相同的K<sup>0</sup>值，之后分别就每个子序列对关键字K<sup>1</sup>进行排序，致使K<sup>1</sup>值相同的记录构成长度更短的子序列，依次重复，直至就当前得到的各个子序列对 
+      K<sup>d-2</sup> 进行排序之后得到的每个子序列中都具有相同的关键字<img src="../../../images/pic/chapter10/gs_14.gif" width="117" height="21" align="absmiddle">，分别对这些子序列按 
+      K<sup>d-1</sup> 从小到大进行排序，最后由这些子序列依次相连所得序列便是排序的最后结果，即对关键字<img src="../../../images/pic/chapter10/gs_12.gif" width="117" height="21" align="absmiddle"> 
+      有序。<br>
+      　</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"> 
+      <br>
+      <br>
+      <table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td bgcolor="#ECEEFF" height="14" class="explaination" width="8">&nbsp;</td>
+          <td bgcolor="#ECEEFF" height="14" class="explaination"><img src="../../../images/tubiao/wt.gif" width="23" height="23" align="absmiddle" alt="思考题"> 
+            假如你手中有一副扑克牌，若要将它们排列成一个有序序列，你准备怎么做？<br>
+          </td>
+          <td width="8" bgcolor="#ECEEFF" valign="top">&nbsp;</td>
+        </tr>
+      </table>
+      <br>
+      　　你可能是先按不同&quot;花色&quot;<img src="../../../images/pic/chapter10/gs_15.gif" width="107" height="16" align="absmiddle">将它们分成有次序的四堆，然后分别对每一堆按&quot;面值&quot; 
+      大小（2&lt;3&lt;…&lt;A）排列有序。若将&quot;花色&quot;视作K<sup>0</sup>，将 &quot;面值&quot; 
+      视作K<sup>1</sup>，这种整理方法即为&quot;<b>MSD</b>&quot;的作法。<br>
+      <br>
+      　　那么你现在换一种方法试试，先将手中的牌按 &quot;面值&quot;<b>分成</b>13堆，然后将这13堆牌从大到小<b>收集</b>在一起（&quot;A&quot;在&quot;K&quot;之上，&quot;K&quot;在&quot;Q&quot;之上，……，最下面的是4张&quot;2&quot;），再重新按不同&quot;花色&quot;<b>分成</b>4堆，最后将这4堆牌按自小至大的次序<b>收集</b>在一起（<img src="../../../images/pic/chapter10/gs_17.gif" width="16" height="15" align="absmiddle">在最上面，<img src="../../../images/pic/chapter10/gs_16.gif" width="13" height="14" align="absmiddle">在最下面），此时你手中的牌已是从上到下有序的了。显然，这种整理方法即为&quot;<b>LSD</b>&quot;的作法。 
+      <br>
+      <br>
+      　　可见按最次位优先进行排序时，对每一位关键字的排序不一定要用前几节所述的内部排序方法进行，而是用先按类&quot;分配&quot;再依次&quot;收集&quot;的方法进行。 
+      <br>
+      　</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">　　最次位优先的作法是，在继续对&quot;前一位&quot;排序时不需要将当前所得对其后一位有序的序列分割成若干子序列进行，而是整个序列依次对 
+      K<sup>d-1</sup>、对 K<sup>d-2 </sup>直至对K<sup>0</sup>进行排序即可，如右侧示例所示。</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">
+      　　例如，对含（系别、班号和班内序列号）三个关键字的记录序列按&quot;最低位优先&quot;进行排序的过程如动画所示。<a href="javascript:;" onClick="MM_openBrWindow('../../../flash/chap10/10-6-1.swf','数据结构','width=400,height=300')"><img src="../../../images/tubiao/dh.gif" alt="动画" width="25" height="24" border="0" align="absmiddle"></a> 
+    </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

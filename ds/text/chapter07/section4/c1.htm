@@ -1,0 +1,54 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+<script language="JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><br>
+      　　如果用一个连通网表示 n 个居民点和各个居民点之间可能架设的通讯线路，则网中每一条边上的权值表示架设这条线路所需经费。由于在 n 个居民点间构建通讯网只需架设 
+      n-1 条线路，则工程队面临的问题是架设哪几条线路能使总的工程费用最低？类似此类的问题很多，如第1章中的铺设煤气管道问题等。这些问题均等价于，在含有 
+      n 个顶点的连通网中选择 n-1 条边，构成一棵极小连通子图，并使该连通子图中 n-1 条边上权值之和达到最小，则称这棵连通子图为连通网的<span class="point">最小生成树</span>。<br>
+      　</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      <br>
+      <br>
+      　　在此介绍求得最小生成树的两种算法。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　一、 克鲁斯卡尔(Kruskal)算法</span><br>
+      <br>
+      　　克鲁斯卡尔算法的基本思想为：为使生成树上总的权值之和达到最小，则应使每一条边上的权值尽可能地小，自然应从权值最小的边选起，直至选出 n-1 
+      条互不构成回路的权值最小边为止。具体作法如下：首先构造一个只含 n 个顶点的森林，然后依权值从小到大从连通网中选择<span class="point">不使森林中产生回路的边</span>加入到森林中去，直至该森林变成一棵树为止，这棵树便是连通网的最小生成树。<br>
+      <br>
+      　　由于生成树上不允许有回路，因此并非每一条居当前权值最小的边都可选，例如，对右图所示连通网G5，在依次选中了(e,f),(b,c),(e,d) 
+      和 (f,g) 的四条边之后，权值最小边为 (g,d)，由于 g 和 d 已经连通，若加上(g,d) 这条边将使生成树上产生回路，显然这条边不可取，同理边 
+      (f,d) 也不可取，之后则依次取 (a,g) 和 (a,b) 两条边加入到生成树。构造最小生成树的过程如动画所示。<a href="javascript:;" onClick="MM_openBrWindow('../../../flash/chap07/7-4-1.swf','数据结构','width=400,height=300')"><img src="../../../images/tubiao/dh.gif" alt="动画" width="25" height="24" border="0" align="absmiddle"></a><br>
+      <br>
+      　　那么在算法中如何判别当前权值最小边的两个顶点之间是否已经连通？从生成树的构造过程可见，初始态为 n 个顶点分属 n 棵树，互不连通，每加入一条边，就将两棵树合并为一棵树，在同一棵树上的两个顶点之间自然相连通。由此判别当前权值最小边是否可取只要判别它的两个顶点是否在同一棵树上即可。<br>
+      <br>
+      　　具体实现方法是以&quot;双亲表示法&quot;来表示树，并以各棵树的根结点作&quot;树&quot;的代号(详见《数据结构(C语言版)》算法6.10和6.11)。<br>
+    </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　 
+      　　<img src="../../../images/pic/chapter07/7_27.gif" width="181" height="136" align="top"><br>
+      　　　　　　　　　　(连通网G5)</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

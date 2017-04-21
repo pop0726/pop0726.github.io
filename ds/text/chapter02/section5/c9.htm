@@ -1,0 +1,24 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%"> 
+<tr> <td width="10">&nbsp;</td><td class="white" valign="top"><br> 　　在这一章我们向大家介绍了线性表的抽象数据类型的定义以及它的两种存储结构的实现。<br> 
+<br> 　　线性表是 n(n≥0) 个数据元素的序列，通常写成<br> 　　　( <img src="../../../images/pic/chapter02/gs/a1.gif" width="11" height="10">, 
+<img src="../../../images/pic/chapter02/gs/a2.gif" width="12" height="10">, …, 
+<img src="../../../images/pic/chapter02/gs/an.gif" width="12" height="10"> )<br> 
+<br> 　　因此线性表中除了第一个和最后一个元素之外都只有一个前驱和一个后继。线性表中每个元素都有自己确定的位置，即&quot;位序&quot;，因此线性表也可以看成是由 
+n 个 (i,<img src="../../../images/pic/chapter02/gs/ai.gif" width="10" height="10" align="absmiddle">) 
+构成的集合。<br> <br> 　　n=0时的线性表称为&quot;空表&quot;，它是线性表的一种特殊状态，因此在写线性表的操作算法时一定要考虑你的算法对空表的情况是否也正确。<br> 
+<br> 　　顺序表是线性表的顺序存储结构的一种别称。它的特点是以&quot;存储位置相邻&quot;表示两个元素之间的前驱后继关系。因此，顺序表的优点是可以随机存取表中任意一个元素，其缺点是每作一次插入或删除操作时，平均来说必须移动表中一半元素。常应用于主要是为查询而很少作插入和删除操作，表长变化不大的线性表。 
+<br> <br> 　　链表是线性表的链式存储结构的别称。它的特点是以&quot;指针&quot;指示后继元素，因此线性表的元素可以存储在存储器中任意一组存储单元中。它的优点是便于进行插入和删除操作，但不能进行随机存取，每个元素的存储位置都存放在其前驱元素的指针域中，为取得表中任意一个数据元素都必须从第一个数据元素起查询。由于它是一种动态分配的结构，结点的存储空间可以随用随取，并在删除结点时随时释放，以便系统资源更有效地被利用。这对编制大型软件非常重要，作为一个程序员在编制程序时必须养成这种习惯。 
+<br> <br> 　　由于线性表是一种应用很广的数据结构，链表的操作又很灵活，因此在C++等面向对象的程序设计语言中都已为程序员提供了链表类，读者在使用时应该首先充分了解它的操作接口。在自己实现链表类时，正如课程中所述，应该为链表结构设置合适的数据成员和恰当的操作接口，以便使每个基本操作的时间复杂度在尽可能低的级别上。<br> 
+　</td><td background="../../../images/html/mid.gif" width="18">&nbsp;</td><td background="../../../images/html/right_di4.gif" class="explaination" valign="top" width="281"><br> 
+【本章小结】 </td><td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td></tr> 
+</table>
+</body>
+</html>

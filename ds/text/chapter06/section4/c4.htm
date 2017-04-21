@@ -1,0 +1,99 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+<script language="JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<script language=JavaScript src="../../chapter02/section1/hpmain.js"></script>
+<script language=JavaScript src="../../chapter02/section1/showhidden.js"></script>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　6.4.2 二叉树其它操作算法举例</span><br>
+      <br>
+      <span class="zhushi">　二、求二叉树的深度</span><br>
+      <br>
+      　　二叉树的深度的定义和树的深度的定义相同，在6.1中曾定义树的深度为树中叶子结点所在层次的最大值。而结点的层次需从根结点起递推，根结点为第一层的结点，第 
+      k 层结点的子树根在第 k+1 层。由此需要在先序遍历二叉树的过程中求每个结点的层次数，并将其中的最大值设为二叉树的深度。<br>
+      <br>
+      <img src="../../../images/tubiao/cxd.gif" width="25" height="24" alt="算法" align="absmiddle"> 
+      <span class="zhushi">算法6.4</span><br>
+      　　<b>void</b> BiTreeDepth(BiTree T, <b>int</b> level, <b>int</b> <b><font face="Times New Roman, Times, serif">&amp;</font></b>depth)<br>
+      　<b>{</b><br>
+      <span class="zhushi">　　<font face="Times New Roman, Times, serif">//</font> 
+      T指向二叉树的根，level 为 T 所指结点所在层次， <br>
+      　　<font face="Times New Roman, Times, serif">//</font> 其初值为1，depth 为当前求得的最大层次,其初值为0</span><br>
+      　　<b>if</b> (T)<b>{</b><br>
+      　　　<b>if</b> (level&gt;depth) depth=level; <br>
+      　　　BiTreeDepth(T-&gt;Lchild, level+1, depth);<br>
+      　　　BiTreeDepth(T-&gt;Rchild, level+1, depth);<br>
+      　　<b>}</b><font face="Times New Roman, Times, serif">//</font> if<br>
+      　<b>}</b><font face="Times New Roman, Times, serif">//</font> BiTreeDepth<br>
+      <br>
+      　　假设在主函数中定义一个 BiTree 型的变量 r，则主函数中求 r 所指二叉树的深度的语句为：<br>
+      　　　　H=0;<br>
+      　　　　BiTreeDepth(r,1,H);<br>
+      <br>
+      　　若 r 所指为空树，则算法6.4什么也不做就结束，则 d 仍然等于0；对于非空树，算法6.4执行的过程如动画所示。<a href="javascript:;" onClick="MM_openBrWindow('../../../flash/chap06/6-4-3.swf','数据结构','width=400,height=300')"><img src="../../../images/tubiao/dh.gif" alt="动画" width="25" height="24" border="0" align="absmiddle"></a></td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"> 
+      <br>
+      <br>
+      <br>
+      <br>
+      　<br>
+      　<br>
+      　<br>
+      　　<br>
+      　<br>
+      　<br>
+      <br>
+      　<br>
+      <br>
+      <br>
+      <table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td bgcolor="#ECEEFF" height="14" class="explaination" width="8">&nbsp;</td>
+                <td bgcolor="#ECEEFF" height="14" class="explaination"><img src="../../../images/tubiao/wt.gif" width="23" height="23" align="absmiddle" alt="思考题"> 
+                  如果对二叉树的深度类似于上例计数的分析，即分析二叉树的深度和它的左右子树的深度之间的关系，那么求深度的算法应该在哪个序的遍历下进行？</td>
+                <td width="15" bgcolor="#ECEEFF" valign="top"><span id="bb"><img border=0 
+                              id=HPFrameHLTab3 
+                              onClick="showHideContent('HPFrameHL');hidden();"
+							   src="../../../images/html/expand.gif" style="CURSOR: hand" width="15" height="14"></span></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <div id=HPFrameHLContent 
+           style="WIDTH: 100%;visibility: hidden;background-color:#ECEEFF" > 
+              <table width="94%" border="0" cellspacing="0" cellpadding="0" align="center">
+                <tr> 
+                  <td class="explaination">　应该按后序遍历。算法思想如下：<br>
+                    　若二叉树为空，则深度为0；<br>
+                    　否则二叉树的深度为其左右子树深度的最大值加1。</td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

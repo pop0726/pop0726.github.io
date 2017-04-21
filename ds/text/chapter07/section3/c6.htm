@@ -1,0 +1,91 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　7.3.3 深度优先生成树和广度优先生成树</span><br>
+      <br>
+      　　由于生成森林中的边是在遍历过程中产生的，因此得到生成森林的算法只要对遍历的算法略加修改即可，即将对顶点的访问改为&quot;在生成树上插入结点&quot;即可。以下是生成深度优先森林的算法。<br>
+      <br>
+      <img src="../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle" alt="算法"> 
+      <span class="zhushi">算法 7.6</span><br>
+      　　<b>void</b> DFSForest(Graph G, CSTree <b><font face="Times New Roman, Times, serif">&amp;</font></b>T)<br>
+      　<b>{</b><br>
+      <span class="zhushi">　　<font face="Times New Roman, Times, serif">//</font> 
+      建立无向图 G 的深度优先生成森林的(最左)孩子<br>
+      　　<font face="Times New Roman, Times, serif">//</font> (右)兄弟链表，T 为孩子-兄弟链表的根指针</span><br>
+      　　T = <b>NULL</b>;<br>
+      　　<b>for</b> (v=0; v&lt;G.vexnum; ++v) visited[v] = <b>FALSE</b>;<br>
+      　　<b>for</b> (v=0; v&lt;G.vexnum; ++v)</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">&nbsp;</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">　　　<b>if</b> (<b>!</b>visited[v]) <b>{</b> 
+      <font face="Times New Roman, Times, serif">　　　　　　　　//</font> 第v顶点为新的生成树的根结点<br>
+      　　　　p = <b>new</b> CSNode;　<font face="Times New Roman, Times, serif">　　　　　　　　//</font> 
+      分配根结点<br>
+      　　　　<b>if</b> (!p) <b>exit</b>(1); <font face="Times New Roman, Times, serif">　　　　　　　　//</font> 
+      存储分配失败<br>
+      　　　　p-&gt;data = GetVex(G,v); <font face="Times New Roman, Times, serif">　　　　　 
+      //</font> 给该结点赋值<br>
+      　　　　p-&gt;firstchild = p-&gt;nextsibling = <b>NULL</b>;<br>
+      　　　　<b>if</b> (<b>!</b>T) T = p; <font face="Times New Roman, Times, serif">　　　　　　　　　//</font> 
+      是第一棵生成树的根(T的根)<br>
+      　　　　<b>else</b> q-&gt;nextsibling = p;<font face="Times New Roman, Times, serif">//</font> 
+      是其它生成树的根(前一棵的根的&quot;兄弟&quot;)<br>
+      　　　　q = p; <font face="Times New Roman, Times, serif">　　　　　　　　　　　　　//</font> 
+      q 指示当前生成树的根<br>
+      　　　　DFSTree(G,v,p);　<font face="Times New Roman, Times, serif">　　　　　　　　//</font> 
+      建立以 p 为根的生成树<br>
+      　　　<b>} </b><font face="Times New Roman, Times, serif">//</font> if<br>
+      　<b>}</b> <font face="Times New Roman, Times, serif">//</font> DFSForest<br>
+      <br>
+      <img src="../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle" alt="算法"> 
+      <span class="zhushi">算法 7.7</span><br>
+      　　<b>void</b> DFSTree(Graph G, <b>int</b> v, CSTree <b><font face="Times New Roman, Times, serif">&amp;</font></b>T)<br>
+      　<b>{</b><br>
+      <span class="zhushi">　　<font face="Times New Roman, Times, serif">//</font> 
+      从第 v 个顶点出发深度优先遍历图 G，建立以 T 为根的生成树</span><br>
+      　　visited[v] = <b>TRUE</b>; first =<b>TRUE</b>;<br>
+      　　<b>for</b> (w=FisrtAdjVex(G,v); w; w=NextAdjVex(G,v,w))<br>
+      　　　<b>if</b> (<b>!</b>visited[w]) <b>{</b><br>
+      　　　　p = <b>new</b> CSNode; <font face="Times New Roman, Times, serif">　　　　　　　　　　//</font> 
+      分配孩子结点<br>
+      　　　　if (!p) exit(1); <font face="Times New Roman, Times, serif">　　　　　　　　　　//</font> 
+      存储分配失败<br>
+      　　　　p-&gt;data = GetVex(G,w);<br>
+      　　　　p-&gt;firstchild = p-&gt;nextsibling = <b>NULL</b>;<br>
+      　　　　<b>if</b> (first) <b>{</b> <font face="Times New Roman, Times, serif">　　　　　　//</font> 
+      w 是 v 的第一个未被访问的邻接顶点<br>
+      　　　　　T-&gt;firstchild = p; first = <b>FALSE</b>;　<font face="Times New Roman, Times, serif">//</font> 
+      是根的左孩子结点<br>
+      　　　　<b>} </b><font face="Times New Roman, Times, serif">// </font>if<br>
+      　　　　<b>else</b> <b>{</b><font face="Times New Roman, Times, serif">　　　　　　　　　//</font> 
+      w 是 v 的其它未被访问的邻接顶点<br>
+      　　　　　q-&gt;nextsibling = p; <font face="Times New Roman, Times, serif">　　//</font> 
+      是上一邻接顶点的右兄弟结点<br>
+      　　　　<b>} </b><font face="Times New Roman, Times, serif">// </font>else<br>
+      　　　　q = p;<br>
+      　　　　DFSTree(G,w,q);<font face="Times New Roman, Times, serif">//</font> 
+      从第 w 个顶点出发深度优先遍历图G,建立以 q 为根的子树<br>
+      　　　<b>} </b><font face="Times New Roman, Times, serif">//</font> if<br>
+      　<b>}</b><font face="Times New Roman, Times, serif"> //</font> DFSTree<br>
+      <br>
+      　　类似地修改算法7.5便可得到构造广度优先生成森林的算法。显然，无论是深度优先森林或广度优先森林，算法的时间复杂度和遍历算法的时间复杂度相同。</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　　访问顶点 
+      v，将 DFS 中访问出发顶点的操作提前到此。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

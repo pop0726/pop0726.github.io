@@ -1,0 +1,74 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+<script language="JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　3.2.3 迷宫求解问题</span><br>
+      <br>
+      <span class="text">　求迷宫中一条从入口到出口的路径的伪码算法如下：<br>
+      <br>
+      　　设定当前位置的初值为入口位置； <br>
+      　　</span><span class="zhushi">do<b>{</b></span><span class="text"><br>
+      　　　 </span><span class="zhushi">若</span><span class="text">当前位置可通， <br>
+      　　　</span><span class="part"> </span><span class="zhushi">则</span><b class="part"><span class="zhushi">{</span></b><span class="text"><br>
+      　　　　　将当前位置插入栈顶； <font face="Times New Roman, Times, serif">　　　　　　//</font> 
+      纳入路径<b> <br>
+      </b>　　　　　</span><span class="zhushi">若</span><span class="text">该位置是出口位置，</span><span class="zhushi">则</span><span class="text">算法结束； 
+      <br>
+      　　　　　　<font face="Times New Roman, Times, serif">//</font> 此时栈中存放的是一条从入口位置到出口位置的路径<br>
+      　　　　　</span><span class="zhushi">否则</span><span class="text">切换当前位置的东邻方块为新的当前位置； 
+      <br>
+      　　　　 </span><b class="zhushi">}</b><span class="text"><br>
+      　　 　</span><span class="zhushi">否则</span><span class="text"><br>
+      　　<b> 　</b></span><b><span class="zhushi">{</span></b><span class="text"><b><br>
+      　　　　</b></span><span class="zhushi">若</span><span class="text">栈不空且栈顶位置尚有其他方向未被探索， 
+      <br>
+      　　　　</span><span class="zhushi">则</span><span class="text">设定新的当前位置为: 沿顺时针方向旋转找到的栈顶位置的下一相邻块；<br>
+      　　　　</span><span class="zhushi">若</span><span class="text">栈不空但栈顶位置的四周均不可通， 
+      <br>
+      　　　　</span><span class="zhushi">则</span><span class="text"><b>{</b> 删去栈顶位置； 
+      <font face="Times New Roman, Times, serif">　　　　　　　　//</font> 从路径中删去该通道块<br>
+      　　　　　　</span><span class="zhushi">若</span><span class="text">栈不空，</span><span class="zhushi">则</span><span class="text">重新测试新的栈顶位置， 
+      <br>
+      　　　　　　</span><span class="zhushi">直至</span><span class="text">找到一个可通的相邻块或出栈至栈空； 
+      <b><br>
+      　　　　　} <br>
+      　　　</b></span><b><span class="zhushi">}</span></b><span class="text"> <span class="part"><b><br>
+      </b></span></span><b><span class="zhushi">　　} </span></b><span class="zhushi">while 
+      (栈不空)；</span><span class="text"> <br>
+      　<br>
+      　　栈空则说明没有路径存在；<br>
+      　　更详细的算法以及它在运行过程中栈的变化情况请见迷宫的<b>算法演示</b>，学员可以自设迷宫以观察不同情况。<a href="#"><img src="../../../images/tubiao/dh.gif" width="25" height="24" alt="动画" border="0" onClick="MM_openBrWindow('../../../java/Maze/Maze.htm','数据结构','width=700,height=400')" align="absmiddle"></a></span></td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　<br>
+      　<br>
+      注意：所谓当前位置可通，指的是未曾走到过的通道块。不仅不是墙，而且是既不在当前路径上，也不是曾被纳入路径后又被从路径上删除的通道块。<br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+    </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

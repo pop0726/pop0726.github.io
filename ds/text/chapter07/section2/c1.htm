@@ -1,0 +1,98 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　7.2.1 图的数组存储表示</span><br>
+      <br>
+      　　假设图中顶点数为n，则邻接矩阵<img src="../../../images/pic/chapter07/gs_1.gif" width="78" height="16" align="absmiddle"> 
+      定义为 <br>
+      　　　<img src="../../../images/pic/chapter07/gs_2.gif" width="208" height="33"><br>
+      <br>
+      　　网的邻接矩阵的定义为，当<img src="../../../images/pic/chapter07/vi.gif" width="13" height="17" align="absmiddle">到<img src="../../../images/pic/chapter07/vj.gif" width="14" height="18" align="absmiddle">有弧相邻接时，<img src="../../../images/pic/chapter07/aij.gif" width="23" height="17" align="absmiddle"> 
+      的值应为该弧上的权值，否则为∞。<br>
+      　　将图的顶点信息存储在一个一维数组中，并将它的邻接矩阵存储在一个二维数组中即构成图的数组表示。<br>
+      <br>
+      <img src="../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle"> 
+      <span class="zhushi">图的数组(邻接矩阵)存储表示</span><br>
+      　　<b>const</b> INFINITY = INT_MAX; <font face="Times New Roman, Times, serif">　　　　//</font> 
+      最大值∞<br>
+      　　<b>const</b> MAX_VERTEX_NUM = 20;<font face="Times New Roman, Times, serif">　　　　//</font> 
+      最大顶点个数<br>
+      　　<b>typedef</b> enum <b>{</b>DG, DN, AG, AN<b>}</b> GraphKind; <br>
+      　　　　　　　　　　　　　　　<font face="Times New Roman, Times, serif">//</font> 类型标志{有向图,有向网,无向图,无向网}<br>
+      　　<b>typedef struct</b> ArcCell <b>{</b> <font face="Times New Roman, Times, serif">　　　　//</font> 
+      弧的定义 <br>
+      　　　VRType adj; <font face="Times New Roman, Times, serif">　　　　　　　　　　//</font> 
+      VRType是顶点关系类型。<br>
+      　　　　　　　　　<font face="Times New Roman, Times, serif">//</font> 对无权图，用1或0表示相邻否；对带权图，则为权值类型。<br>
+      　　　InfoType *info; <font face="Times New Roman, Times, serif">　　　　　　　　//</font> 
+      该弧相关信息的指针<br>
+      　　<b>}</b> AdjMatrix[MAX_VERTEX_NUM][MAX_VERTEX_NUM];<br>
+      　　<b>typedef struct {</b> <font face="Times New Roman, Times, serif">　　　　　　　//</font> 
+      图的定义<br>
+      　　　VertexType vexs[MAX_VERTEX_NUM]; <font face="Times New Roman, Times, serif">//</font> 
+      顶点信息<br>
+      　　　AdjMatrix arcs; <font face="Times New Roman, Times, serif">　　　　　　　　//</font> 
+      表示顶点之间关系的二维数组<br>
+      　　　<b>int</b> vexnum, arcnum; <font face="Times New Roman, Times, serif">　　　　　　//</font> 
+      图的当前顶点数和弧(边)数<br>
+      　　　GraphKind kind; <font face="Times New Roman, Times, serif">　　　　　　　　//</font> 
+      图的种类标志<br>
+      　　<b>}</b> MGraph;<br>
+      　</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      　　由于图结构中任意两个顶点之间都可能存在&quot;关系&quot;，因此无法以顺序存储映象表示这种关系，即图没有顺序存储结构。<br>
+      <br>
+      　　图的&quot;邻接矩阵&quot;是以矩阵这种数学形式描述图中顶点之间的关系。<br>
+      　</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><img src="../../../images/tubiao/lt.gif" width="28" height="27" align="absmiddle">例如，无向图G2的数组表示存储结构为：<br>
+      　　　<img src="../../../images/pic/chapter07/gs_11.gif" width="181" height="19"> 
+      <br>
+      　　　<img src="../../../images/pic/chapter07/gs_3.gif" width="213" height="219" align="absmiddle"> 
+      (忽略相关信息指针)<br>
+      　</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　　　<img src="../../../images/pic/chapter07/7_02.gif" width="150" height="113" align="top"><br>
+      　　　　　　(无向图G2) 
+      <p>　　容易看出，无向图的邻接矩阵为对称矩阵。每一行中&quot;1&quot;的个数恰为该顶点的&quot;度&quot;。<br>
+        　<br>
+        　　</p>
+    </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">　　有向图G1的数组表示存储结构为：<br>
+      　　　<img src="../../../images/pic/chapter07/gs_12.gif" width="166" height="20"> 
+      <br>
+      　　　<img src="../../../images/pic/chapter07/gs_4.gif" width="192" height="194" align="absmiddle"> 
+      (忽略相关信息指针) </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"> 
+      <p>　 　　　<img src="../../../images/pic/chapter07/7_01.gif" width="150" height="113" align="top"><br>
+        　　　　　　　　(有向图G1) <br>
+        <br>
+        　　有向图的邻接矩阵不一定对称。每一行中&quot;1&quot;的个数为该顶点的出度，反之，每一列中&quot;1&quot;的个数为该顶点的入度。<br>
+        <br>
+        　　顶点的&quot;第一个&quot;邻接点就应该是该顶点所对应的行中<b>值为非零元素的最小列号</b>，其&quot;下一个&quot;邻接点就是同行中<b>离它最近的值为非零元素的列号</b>。<br>
+        <br>
+        　　例如上列有向图中顶点A的第一个邻接点为&quot;顶点B&quot;(因为顶点A在顶点数组 G2.vexs 中的下标为0，又G2.arcs[0] 
+        中非零元素的最小列下标为1，而G2.vexs[1]=B)，同样理由，顶点A相对于邻接点B的下一个邻接点是&quot;顶点E&quot;。</p>
+    </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

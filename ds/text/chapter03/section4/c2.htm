@@ -1,0 +1,84 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="text"> <span class="zhushi"><br>
+      <img src="../../../images/tubiao/lt.gif" width="28" height="27" align="absmiddle"> 
+      例一　循环队列应用举例</span><br>
+      <br>
+      　　以下为计算杨辉三角的算法。<br>
+      <br>
+      <img src="../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle"></span><span class="zhushi"> 
+      算法3.4</span><span class="text"> <br>
+      　　<b>void</b> yanghui ( <b>int</b> n ) <br>
+      <b>　{</b> <br>
+      </span><span class="zhushi"><font face="Arial, Helvetica, sans-serif">　　//</font> 
+      打印输出杨辉三角的前 n( n&gt;0 )行</span><span class="text"><br>
+      　　Queue Q;<br>
+      　<b>　for</b>( i=1; i&lt;=n; i++)<br>
+      　<b>　cout</b>&lt;&lt; ' ';<br>
+      　<b>　cout</b>&lt;&lt; '1'&lt;&lt;<b>endl</b>;　　<font face="Times New Roman, Times, serif">　　　 
+      //</font> 在中心位置输出杨辉三角最顶端的&quot;1&quot;<br>
+      　　InitQueue(Q,n+2); <font face="Times New Roman, Times, serif">　　　　　 //</font> 
+      设置最大容量为 n+2 的空队列 <br>
+      　　EnQueue(Q,0 );　<font face="Times New Roman, Times, serif">　　　　　　 //</font> 
+      添加行界值 <br>
+      　　EnQueue( Q,1); <br>
+      　　EnQueue( Q,1 ); <font face="Times New Roman, Times, serif">　　　　　//</font> 
+      第一行的值入队列 <br>
+      　　k = 1; <br>
+      　　<b>while</b> ( k &lt; n ) <br>
+      　<b>　{</b><font face="Times New Roman, Times, serif">　　　　　　　　　　　　　//</font> 
+      通过循环队列输出前 n-1 行的值 <br>
+      　　<b>　for</b>( i=1; i&lt;=n-k; i++)<br>
+      　　　<b>　cout</b>&lt;&lt; ' ';　　　　　　　<font face="Times New Roman, Times, serif">//</font> 
+      输出n-k个空格以保持三角型 <br>
+      　　　EnQueue ( Q,0 ); <font face="Times New Roman, Times, serif">　　　　　//</font> 
+      行界值&quot;0&quot;入队列 <br>
+      　　<b>　do {</b> <font face="Times New Roman, Times, serif">　　　　　　 　　　 //</font> 
+      输出第 k 行，计算第 k+1 行 <br>
+      　　　　Dequeue( Q,s ); <br>
+      　　　　GetHead( Q,e ); <br>
+      　　　<b>　if</b> (e) cout&lt;&lt; e &lt;&lt; ' ';<br>
+      　　　<font face="Times New Roman, Times, serif">　//</font> 若e为非行界值0，则打印输出 
+      e 的值并加一空格 <br>
+      　　　　<b>else</b> cout &lt;&lt; endl;　 <font face="Times New Roman, Times, serif">　　//</font> 
+      否则回车换行，为下一行输出做准备<br>
+      　　　　EnQueue(Q,s+e); <br>
+      　　　　<b>}</b> <b>while</b> (e<b>!</b>=0); <br>
+      　　　k++; <br>
+      　<b>　} </b><font face="Times New Roman, Times, serif">//</font> while<br>
+      　　DeQueue ( Q,e );　<font face="Times New Roman, Times, serif">　　　　　 //</font> 
+      行界值&quot;0&quot;出队列 <br>
+      　<b>　while</b> (<b>!</b>QueueEmpty (Q) )<br>
+      　<b>　{</b> <font face="Times New Roman, Times, serif">　　　　　　　　　　　　 //</font> 
+      单独处理第 n 行的值的输出 <br>
+      　　　DeQueue ( Q,e ); <br>
+      　　<b>　cout</b>&lt;&lt;e&lt;&lt; ' '； <br>
+      　　<b>} </b><font face="Times New Roman, Times, serif">//</font> while<br>
+      <b>　}</b><font face="Times New Roman, Times, serif"> //</font> yanghui</span></td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">&nbsp;</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8" height="53">&nbsp;</td>
+    <td class="white" valign="top"><span class="text">　<br>
+      　　容易看出此算法的</span><span class="point">时间复杂度</span><span class="text">为</span><b><span class="point"><font face="Times New Roman, Times, serif"><i>O 
+      </i>(n<sup><font size="1">2</font></sup>)</font></span></b><span class="text">。</span></td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><span class="text">　　外循环的次数为 
+      n-1，内循环的次数分别为3,4,…,n+1等。<br>
+      　 </span></td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

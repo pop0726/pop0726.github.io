@@ -1,0 +1,143 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　10.6.2 基数排序的两种实现方法</span><br>
+      <br>
+      　　实现基数排序可以有两种不同算法。<br>
+      <br>
+      <span class="zhushi">　一、链式基数排序</span><br>
+      <br>
+      　　类似于表插入排序，附设指针数组将顺序表视作一个&quot;静态链表&quot;，利用&quot;修改指针&quot;实现分配和收集。同时设置rd个队列的头指针和尾指针，分别指示各队列的&quot;头结点&quot;和&quot;尾结点&quot;在链表中的位置。<br>
+      <br>
+      　　首先初始化空队列，即将每个队列的头指针 front[i] 和尾指针 rear[i] 均设为 &quot;0&quot;；&quot;分配&quot; 
+      时将记录&quot;插入&quot;队列，若队列为空，则仅需修改队列的头、尾指针，令它们指向该插入记录，否则在修改队列的尾指针的同时尚需修改当前队尾记录的指针； 
+      &quot;收集&quot;时依次头尾相接地链接各非空队列所指记录，即改变各非空队列尾指针所指记录的指针，令它们指向&quot;下一&quot;非空队列头指针所指记录，最后一个非空队列尾指针所指记录的指针应为&quot;空&quot;。<br>
+      <br>
+      <img src="../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle" alt="算法"> 
+      <span class="zhushi">算法 10.18</span><br>
+      　　<b>void</b> LRadixSort(SqList <b><font face="Times New Roman, Times, serif">&amp;</font></b>L)<br>
+      　<b>{</b><br>
+      <span class="zhushi">　　<font face="Times New Roman, Times, serif">//</font> 
+      附设指针数组，对L作链式基数排序，并最后将它调整为有序序列</span><br>
+      　　<b>int</b> Next[L.length+1];<br>
+      　　<b>for</b> (i=0; i&lt;L.length; ++i) Next[i] = i+1;<br>
+      　　Next[L.length] = 0;　<font face="Times New Roman, Times, serif">　　　　　　　//</font> 
+      将L视作静态(循环)链表<br>
+      　　<b>for</b> ( k=L.bitsnum-1; k&gt;=0; --k) <b>{</b> <br>
+      　　　　　　　　　　　　　<font face="Times New Roman, Times, serif">//</font> 按最低位优先依次对各关键字进行分配和收集<br>
+      　　　Distribute(L.r, k, f, e, Next);　<font face="Times New Roman, Times, serif">//</font> 
+      第 k 趟分配<br>
+      　　　Collect(L.r, k, f, e, Next); <font face="Times New Roman, Times, serif">　　//</font> 
+      第 k 趟收集<br>
+      　　<b>}</b><font face="Times New Roman, Times, serif">// </font>for<br>
+      　　Arrange(L, Next); <font face="Times New Roman, Times, serif">　　　　　　　　//</font> 
+      按 Next[] 的值调整 L 中的记录<br>
+      　<b>}</b> <font face="Times New Roman, Times, serif">//</font> LRadixSort<br>
+      　<br>
+      <img src="../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle" alt="算法"> 
+      <span class="zhushi">算法 10.19</span><br>
+      　　<b>void</b> Distribute (RcdType R[], <b>int</b> k, <b>int</b> f[], <b>int</b> 
+      e[])<br>
+      　<b>{</b><br>
+      <span class="zhushi">　<font face="Times New Roman, Times, serif">//</font> 
+      R 中记录已按(R.keys[k+1],...,R.keys[L.bitsnum-1]) 有序，<br>
+      　<font face="Times New Roman, Times, serif">//</font> 本算法按 R.keys[k] 建立 
+      RADIX 个子表，使同一子表中记录的<br>
+      　<font face="Times New Roman, Times, serif">//</font> keys[k] 相同。f[0..RADIX-1] 
+      和 e[0..RADIX-1] 分别指向各子<br>
+      　<font face="Times New Roman, Times, serif">//</font> 表中第一个和最后一个记录</span><br>
+      　　<b>for</b> (j=0; j&lt;Radix; ++j) f[j] = 0; <font face="Times New Roman, Times, serif">　//</font> 
+      各子表初始化为空表<br>
+      　　<b>for</b> (p=Next[0]; p; p=Next[p]) <b>{</b><br>
+      　　　j = ord(R[p].keys[k]); <br>
+      　　　　　　　　　　　<font face="Times New Roman, Times, serif">//</font> ord 将记录中的关键字keys[k]映射到[0..RADIX-1]中<br>
+      　　　<b>if</b> ( <b>!</b>f[j] ) f[j] = p;<br>
+      　　　<b>else</b> Next[e[j]] = p;<br>
+      　　　e[j] = p; <font face="Times New Roman, Times, serif">　　　　　　　　　　　//</font> 
+      将 p 所指的结点插入相应子表<br>
+      　　<b>}</b><font face="Times New Roman, Times, serif">//</font> for<br>
+      　<b>}</b> <font face="Times New Roman, Times, serif">//</font> Distribute<br>
+      　<br>
+      <img src="../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle" alt="算法"> 
+      <span class="zhushi">算法 10.20</span><br>
+      　　<b>void</b> Collect (RcdType R[], <b>int</b> k, <b>int</b> f, <b>int</b> 
+      e)<br>
+      　<b>{</b><br>
+      <span class="zhushi">　　<font face="Times New Roman, Times, serif">//</font> 
+      本算法按 R.keys[k] 自小至大地将 f[0..RADIX-1] 所指各子表<br>
+      　　<font face="Times New Roman, Times, serif">//</font> 依次链接成一个链表，e[0..RADIX-1] 
+      为各子表的尾指针</span><br>
+      　　<b>for</b> ( j=0; <b>!</b>f[j]; j=succ(j));<font face="Times New Roman, Times, serif">//</font> 
+      找第一个非空子表，succ 为求后继函数<br>
+      　　　Next[0] = f[j]; t = e[j];<br>
+      　　　　　　　　　　　　　　　　 <font face="Times New Roman, Times, serif">//</font> Next[0]指向第一个非空子表中第一个结点 
+      <br>
+      　　<b>while</b> ( j&lt;RADIX ) <b>{</b><br>
+      　　　<b>for</b> (j=succ(j); j&lt;RADIX-1 <b><font face="Times New Roman, Times, serif">&amp;&amp;</font></b> <b>!</b>f[j]; j=succ(j) 
+      );<font face="Times New Roman, Times, serif">//</font> 找下一个非空子表<br>
+      　　　<b>if</b> ( f[j] ) <b>{</b> r[t].next = f[j]; t = e[j]; <b>}</b> <font face="Times New Roman, Times, serif">//</font> 
+      链接两个非空子表<br>
+      　　<b>}</b><font face="Times New Roman, Times, serif">// </font>while<br>
+      　　Next[t] = 0;<font face="Times New Roman, Times, serif">　　　　　　　　//</font> 
+      t 指向最后一个非空子表中的最后一个结点<br>
+      　<b>}</b> <font face="Times New Roman, Times, serif">//</font> Collect<br>
+      <br>
+      　　链式基数排序的<span class="point">时间复杂度</span>为<b><span class="point"><font face="Times New Roman, Times, serif"><i>O</i> 
+      (d(n+rd))</font></span></b>，或简写为<b class="point"><font face="Times New Roman, Times, serif"><i>O</i> 
+      (dn)</font></b>。</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      <br>
+      　　链式基数排序的过程如动画所示。<a href="javascript:;" onClick="MM_openBrWindow('../../../flash/chap10/10-6-3.swf','数据结构','width=400,height=300')"><img src="../../../images/tubiao/dh.gif" alt="动画" width="25" height="24" border="0" align="absmiddle"></a><br>
+      <br>
+      　　显然，这不是最后的排序结果，和表插入类似，尚需利用函数 Arrange 将表中记录调整为按关键字有序排列。 
+      <p>　　在描述基数排序的算法之前，尚需重新定义记录和顺序表类型：<br>
+        <br>
+        　<b>const</b> MAX_NUM_OF_KEY = 8; <br>
+        　　　　　<font face="Times New Roman, Times, serif">//</font> 关键字项数的最大值，暂定为8<br>
+        　<b>const</b> RADIX = 10; <br>
+        　　　　　<font face="Times New Roman, Times, serif">//</font> 关键字基数，此为十进制整数的基数<br>
+        　<b>typedef struct {</b><br>
+        　　KeysType keys[MAX_NUM_OF_KEY]; <font face="Times New Roman, Times, serif">//</font> 
+        关键字<br>
+        　　InfoType otheritems; <font face="Times New Roman, Times, serif">//</font> 
+        其它数据项<br>
+        　<b>}</b> RcdType; <font face="Times New Roman, Times, serif">//</font> 
+        基数排序中的记录类型 <br>
+        　<b>typedef struct {</b><br>
+        　　RcdType r[MAXSIZE+1];<br>
+        　　<b>int</b> length; <font face="Times New Roman, Times, serif">　//</font> 
+        顺序表长度<br>
+        　　<b>int</b> bitsnum;　<font face="Times New Roman, Times, serif">//</font> 
+        关键字位数<br>
+        　<b>}</b> SqList;<font face="Times New Roman, Times, serif">　　　 //</font> 
+        顺序表类型</p>
+      <p><br>
+        　　分析链式基数排序的时间复杂度：假设 n 为记录个数，rd 为基数值，d 为构成逻辑关键字的关键字位数。由于每一趟的&quot;分配&quot;都是对全部记录处理一遍，因此它的时间复杂度是<font face="Times New Roman, Times, serif"><i>O 
+        </i>(n)</font>，而每一趟的&quot;收集&quot;只是巡查一遍队列，依次将各非空队列的队尾指针所指结点链接到下一个非空队列的队头指针所指结点，因此它的时间复杂度是<font face="Times New Roman, Times, serif"><i>O</i> 
+        (rd)</font>，因此一趟分配和收集的时间复杂度为<font face="Times New Roman, Times, serif"><i>O 
+        </i>(n+rd)</font>，对每一位关键字进行一趟分配和收集，因此总的时间复杂度为<font face="Times New Roman, Times, serif"><i><br>
+        O </i>(d(n+rd))</font>，一般情况下，相比 n 而言，rd 要小得多，因此可简写为<font face="Times New Roman, Times, serif"><i>O 
+        </i>(dn)</font>。换句话说，当待排序序列中的记录数量很大，而逻辑关键字的&quot;位数&quot;较小，此时用基数排序法进行排序将比快速排序的效率更高。<br>
+      </p>
+    </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

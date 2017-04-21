@@ -1,0 +1,70 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+<script language="JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　10.2.2 折半插入排序</span><br>
+      <br>
+      　　由于插入排序的基本思想是在一个有序序列中插入一个新的记录，则可以利用&quot;折半查找&quot;查询插入位置，由此得到的插入排序算法为&quot;折半插入排序&quot;。算法如下：<br>
+      <br>
+      <span class="zhushi"><img src="../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle" alt="算法"> 
+      算法 10.3</span><br>
+      　　<b>void</b> BInsertSort (SqList <b><font face="Times New Roman, Times, serif">&amp;</font></b>L) <br>
+      　<b>{</b><br>
+      <span class="zhushi">　　<font face="Times New Roman, Times, serif">//</font> 
+      对顺序表L作折半插入排序</span><br>
+      　　<b>for</b> ( i=2; i&lt;=L.length; ++i ) <br>
+      　　<b>{</b><br>
+      　　　L.r[0] = L.r[i];<font face="Times New Roman, Times, serif">　　　　　　　　　　　　　　//</font> 
+      将L.r[i]暂存到L.r[0]<br>
+      　　　low = 1; high = i-1;<br>
+      　　　<b>while</b> (low&lt;=high) <br>
+      　　　<b>{</b> <font face="Times New Roman, Times, serif">　　　　　　　　　　　//</font> 
+      在r[low..high]中折半查找有序插入的位置<br>
+      　　　　m = (low+high)/2; <font face="Times New Roman, Times, serif">　　　　　　　　　　　　//</font> 
+      折半<br>
+      　　　　<b>if</b> (L.r[0].key &lt; L.r[m].key)) high = m-1; <font face="Times New Roman, Times, serif">　//</font> 
+      插入点在低半区<br>
+      　　　　<b>else</b> low = m+1; <font face="Times New Roman, Times, serif">　　　　　　　　　　　　　//</font> 
+      插入点在高半区<br>
+      　　　<b>}</b> <font face="Times New Roman, Times, serif">// </font>while<br>
+      　　　<b>for</b> ( j=i-1; j&gt;=low; --j ) L.r[j+1] = L.r[j]; <font face="Times New Roman, Times, serif">//</font> 
+      记录后移<br>
+      　　　L.r[high+1] = L.r[0];<font face="Times New Roman, Times, serif">　　　　　　　　　　　　//</font> 
+      插入<br>
+      　　<b>}</b><br>
+      　<b>}</b><font face="Times New Roman, Times, serif"> //</font> BInsertSort<br>
+      <br>
+      　　但是，折半插入排序只能减少排序过程中关键字比较的时间，并不能减少记录移动的时间，因此折半插入排序的<span class="point">时间复杂度</span>仍为<b class="point"><font face="Times New Roman, Times, serif"><i>O 
+      </i>(n<sup><font size="1">2</font></sup>)</font></b>。</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      　<br>
+      　　从上一节的讨论可知，直接插入排序的算法简单易行，但由于它的时间复杂度为<font face="Times New Roman, Times, serif"><i>O</i> 
+      (n<sup><font size="1">2</font></sup>)</font>，因此对长度很大的记录序列宜采用性能更好的插入排序算法。<br>
+      <br>
+      <br>
+      　 <br>
+      <br>
+      　<a href="javascript:;" onClick="MM_openBrWindow('../../../flash/chap10/10-2-3.swf','数据结构','width=400,height=300')"><img src="../../../images/tubiao/dh.gif" alt="动画" width="25" height="24" border="0" align="absmiddle"></a> 
+      从动画演示可见，折半插入排序过程中的折半查找的目的是查询插入点，因此不论是否存在和给定值相同的关键字，结束查找过程的条件都是high&lt;low，并且插入位置为low指示的地方。<br>
+      <br>
+      　　&quot;折半插入&quot;不失为是一条减少关键字比较次数的途径，它是&quot;归并插入排序&quot;（可使排序过程中的关键字比较次数达到最少的一种排序方法）的基本依据。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

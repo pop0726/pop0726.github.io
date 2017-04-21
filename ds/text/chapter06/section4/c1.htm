@@ -1,0 +1,33 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><br>
+      　　从数据类型的定义得知，&quot;遍历&quot;的含义是对结构中的每个数据元素都访问一次且仅仅访问一次。因此进行遍历应该确定一条搜索路径，使得结构中的每个数据元素都出现在这条搜索路径上，才能确保每个数据元素都被访问到。<br>
+      <br>
+      　　由于二叉树中每个结点都有两个后继，则可以有三条搜索路径：<br>
+      　　1) 先左(子树)后右(子树)；<br>
+      　　2) 先右(子树)后左(子树)；<br>
+      　　3) 按层次从上到下。<br>
+      <br>
+      　　按层次从上到下的遍历比较简单，先访问第一层的结点(即根结点)，再访问第二层，第三层，…，直到最后一层，对每一层的结点则从左到右，即&quot;先被访问的父结点的孩子结点&quot;先于&quot;后被访问的父结点的孩子结点&quot;进行访问。例如，下列所示二叉树进行 
+      &quot;按层次遍历&quot;时，对结点访问的先后次序为：ABCDEFGHIJ。<br>
+      <br>
+      　　1) 和 2) 两条搜索路径相互对称，故以下重点讨论先左后右的遍历。</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      　　不知读者注意到没有，在以前各章的类型定义中都有&quot;遍历&quot;的基本操作，但从来没有专门提出来讨论过。而从另一方面看，很多操作是在遍历过程中进行的，如，在线性表中查询某个特定的数据元素，求链表的长度等等。这是因为线性结构是一个&quot;序列&quot;，每个数据元素只有一个后继，因此它的遍历只有一条搜索路径，即从第一个数据元素起，顺着&quot;后继&quot;直到最后一个数据元素止。<br>
+      <br>
+      　　而非线性结构中每个数据元素可以有多个后继，为保证&quot;遍历&quot;成功就需要确定合适的搜索路径。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　9.3.2 二叉查找树</span><br>
+      <br>
+      <span class="zhushi">　五、查找性能分析</span><br>
+      <br>
+      　　从二叉查找树的查找过程可见，二叉查找树的查找性能取决于它的深度，然而由于二叉查找树是在查找过程中逐个插入构成，因此它的深度取决于关键字先后插入的次序。例如，含关键字1,2,3,4,5的二叉查找树，其深度可能为3或4或5，若按1,2,3,4,5的次序得到的二叉查找树的深度为5，若按3,1,2,4,5的次序得到的二叉查找树的深度则为3，如动画所示。由此需要考察它的平均性能。<a href="javascript:;" onClick="MM_openBrWindow('../../../flash/chap09/9-3-7.swf','数据结构','width=400,height=300')"><img src="../../../images/tubiao/dh.gif" alt="动画" width="25" height="24" border="0" align="absmiddle"></a><br>
+      <br>
+      　　不失一般性，假设在 n 个关键字的序列中，k个关键字小于第1个关键字，n-k-1 个关键字大于第1个关键字，则由它生成的二叉查找树的左子树中含 
+      k 个结点，右子树中含 n-k-1 个结点，其平均查找长度是 n 和 k 的函数，设为 P(n,k) 0≤k≤n-1。<br>
+      <br>
+      　　假设含 n 个结点的二叉查找树的平均查找长度为 P(n)，并假设生成二叉查找树是一个&quot;随机&quot;序列（即 k 取0至 n-1 
+      中任一值的可能性相同），则<br>
+      　　　<img src="../../../images/pic/chapter09/gs_22.gif" width="135" height="42"> 
+      <br>
+      <br>
+      　　而在等概率查找的情况下， <br>
+      　　　<img src="../../../images/pic/chapter09/gs_37.gif" width="348" height="142"><br>
+      <br>
+      　　由此可得， <br>
+      　　　<img src="../../../images/pic/chapter09/gs_23.gif" width="347" height="82"><br>
+      <br>
+      　　这是一个递归方程，可求得其解为：<br>
+      　　　<img src="../../../images/pic/chapter09/gs_24.gif" width="198" height="38"> 
+      <br>
+      <br>
+      　　由此可见，在随机的情况下，二叉查找树的查找性能是和 logn 等数量级的。</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      <br>
+      　<img src="../../../images/pic/chapter09/9_12.gif" width="236" height="115" align="top"><br>
+      <br>
+      　　平均查找长度的含义即为进行一次查找所需进行 &quot;比较&quot;的平均次数，则 P(n) 表示在含有 n 个结点的二叉查找树上进行一次查找操作时和给定值进行比较的关键字个数，类似地，P(k) 
+      表示在含有 k 个结点的二叉查找树上进行一次查找所需进行的关键字和给定值比较的平均次数。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

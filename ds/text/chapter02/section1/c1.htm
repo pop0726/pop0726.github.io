@@ -1,0 +1,98 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"> <span class="part"><font color="#97C594"><b>　</b></font>2.1.1 
+      抽象数据类型线性表的定义</span> 
+      <p>　　通常可以下列&quot; n 个数据元素的序列&quot;表示<span class="part">线性表</span><b><span class="point"> 
+        </span></b><span class="point"><font color="#00FFFF">(Linear_List)</font></span><br>
+        　　　( <img src="../../../images/pic/chapter02/gs/a1.gif" width="11" height="10">,<img src="../../../images/pic/chapter02/gs/a2.gif" width="12" height="10">,...,<img src="../../../images/pic/chapter02/gs/ai.gif" width="10" height="10">,...,<img src="../../../images/pic/chapter02/gs/an.gif" width="12" height="10"> 
+        )<br>
+        　　序列中数据元素的个数 n 定义为线性表的<span class="point">表长</span>；n=0 时的线性表被称为<font color="#00FFFF" class="point">空表</font>。称 
+        i 为 <font size="1"><img src="../../../images/pic/chapter02/gs/ai.gif" width="10" height="10"></font> 
+        在线性表<span class="white">中的<font color="#00FFFF" class="point">位序</font>。</span><br>
+        　 </p>
+    </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" valign="top" width="281"><br>
+      <br>
+      <br>
+      　　由此，我们也可以将线性表看成是由 (i,<img src="../../../images/pic/chapter02/gs/ai_l.gif" width="10" height="10">) 
+      构成的集合。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>&nbsp;</td>
+    <td class="white" valign="top">　其抽象数据类型的定义如下：<br>
+      <b>ADT List {</b><br>
+      　<span class="zhushi"><b>数据对象：</b></span>D＝{ <font size="1"><img src="../../../images/pic/chapter02/gs/ai.gif" width="10" height="10"></font> 
+      | <font size="1"><img src="../../../images/pic/chapter02/gs/ai.gif" width="10" height="10"></font> 
+      ∈ ElemSet, i=1,2,...,n, n≥0 }<br>
+      　<br>
+    </td>
+    <td background="../../../images/html/mid.gif">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" valign="top" width="281">　　线性表中的数据元素可以是各种各样的，只要是属于同一个集合即可。<br>
+      　　例如，26个小写英文字母是一个线性表<br>
+      　　　　　(a,b,…,z)<br>
+      同一花色的13张扑克牌<br>
+      　　(2,3,4,5,6,7,8,9,10,J,Q,K,A)<br>
+      可以构成一个线性表。<br>
+      　<br>
+    </td>
+    <td background="../../../images/html/right_di3.gif">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>&nbsp;</td>
+    <td class="white" valign="top">　<span class="zhushi"><b>数据关系：</b></span>R1＝{ 
+      <span class="point">&lt;<font size="2">a</font><font size="1">i-1</font> 
+      ,<font size="2">a</font><font size="1">i</font> &gt;</span>| <img src="../../../images/pic/chapter02/gs/ai_1.gif" width="20" height="10"> 
+      ,<font size="1"><img src="../../../images/pic/chapter02/gs/ai.gif" width="10" height="10"></font>∈D, 
+      i=2,...,n }</td>
+    <td background="../../../images/html/mid.gif">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" valign="top" width="281">　　序偶 
+      &lt;<img src="../../../images/pic/chapter02/gs/ai_1_l.gif" width="20" height="10">,<img src="../../../images/pic/chapter02/gs/ai_l.gif" width="10" height="10">&gt; 
+      表示 <img src="../../../images/pic/chapter02/gs/ai_1_l.gif" width="20" height="10"> 
+      是 <img src="../../../images/pic/chapter02/gs/ai_l.gif" width="10" height="10"> 
+      的直接前驱，反之， <img src="../../../images/pic/chapter02/gs/ai_l.gif" width="10" height="10"> 
+      是 <img src="../../../images/pic/chapter02/gs/ai_1_l.gif" width="20" height="10"> 
+      的直接后继。<br>
+      　</td>
+    <td background="../../../images/html/right_di3.gif">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>&nbsp;</td>
+    <td class="white" valign="top">　<span class="zhushi"><b>基本操作：</b></span><br>
+      　　<strong>{结构初始化}</strong><br>
+      　　InitList( <b><font face="Times New Roman, Times, serif">&amp;</font></b>L )<br>
+      　　　操作结果：<span class="point">构造</span>一个空的线性表 L 。<br>
+      　<br>
+    </td>
+    <td background="../../../images/html/mid.gif">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" valign="top" width="281">　　线性表的操作很多，为讨论方便起见，在此将它归为四类。<br>
+      　　任何数据结构在被使用之前都必须进行&quot;初始化&quot; ，它类似于编程中使用的变量都必须先有定义。<br>
+      　<br>
+    </td>
+    <td background="../../../images/html/right_di3.gif">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>&nbsp;</td>
+    <td class="white" valign="top"> 　　<strong>{销毁结构}</strong><br>
+      　　DestroyList( <b><font face="Times New Roman, Times, serif">&amp;</font></b>L )<br>
+      　　　初始条件：线性表 L 已存在。<br>
+      　　　操作结果：销毁线性表 L 。<br>
+    </td>
+    <td background="../../../images/html/mid.gif">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" valign="top" width="281">　　任何数据结构不再使用时都必须进行&quot;结构销毁&quot; 
+      ，其实质为&quot;释放&quot;它所占有的存储空间。</td>
+    <td background="../../../images/html/right_di3.gif">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

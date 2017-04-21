@@ -1,0 +1,103 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　10.5.1 2-路归并排序</span><br>
+      <br>
+      　　归并排序的基本操作是将两个或两个以上的记录有序序列归并为一个有序序列。最简单的情况是，只含一个记录的序列显然是个有序序列，经过&quot;逐趟归并&quot;使整个序列中的有序子序列的长度逐趟增大，直至整个记录序列为有序序列止。<br>
+      <br>
+      　　2-路归并排序则是归并排序中的一种最简单的情况，它的基本操作是将两个相邻的有序子序列&quot;归并&quot;为一个有序序列，如右侧所示。这个操作对顺序表而言是极其容易实现的，只要依关键字从小到大进行&quot;复制&quot;即可，如下算法所示。<br>
+      <br>
+      <img src="../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle" alt="算法"> 
+      <span class="zhushi">算法 10.15</span><br>
+      　　<b>void</b> Merge (RcdType SR[], RcdType TR[], <b>int</b> i, <b>int</b> 
+      m, <b>int</b> n) <br>
+      　<b>{</b><br>
+      <span class="zhushi">　　<font face="Times New Roman, Times, serif">//</font> 
+      将有序的SR[i..m]和SR[m+1..n]归并为有序的TR[i..n]</span><br>
+      　　<b>for</b> (j=m+1, k=i; i&lt;=m <b><font face="Times New Roman, Times, serif">&amp;&amp;</font></b> j&lt;=n; ++k)<br>
+      　　<b>{</b> <font face="Times New Roman, Times, serif">　　　　　　　　　//</font> 
+      将SR中记录按关键字从小到大地复制到TR中<br>
+      　　　<b>if</b> (SR[i].key&lt;=SR[j].key) TR[k] = SR[i++];<br>
+      　　　<b>else</b> TR[k] = SR[j++];<br>
+      　　<b>}</b><br>
+      　　<b>while</b> (i&lt;=m) TR[k++] = SR[i++]; <font face="Times New Roman, Times, serif">　　//</font> 
+      将剩余的 SR[i..m] 复制到TR<br>
+      　　<b>while</b> (j&lt;=n) TR[k++] = SR[j++]; <font face="Times New Roman, Times, serif">　　//</font> 
+      将剩余的 SR[j..n] 复制到TR<br>
+      　<b>}</b> <font face="Times New Roman, Times, serif">//</font> Merge<br>
+      <br>
+      　　因此，2-路归并排序首先要得到这两个子序列，然后进行一次复制归并操作。显然产生有序子序列的简便方法即为对它们分别进行2-路归并排序，由此可得如下所示递归形式的2-路归并排序算法：<br>
+      　</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      <br>
+      　<img src="../../../images/pic/chapter10/10-33.gif" width="250" height="139" align="top"></td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"> <img src="../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle" alt="算法"> 
+      <span class="zhushi">算法 10.16</span><br>
+      　　<b>void</b> Msort ( RcdType SR[], RcdType TR1[], <b>int</b> s, <b>int</b> 
+      t ) <br>
+      　<b>{</b><br>
+      <span class="zhushi">　　<font face="Times New Roman, Times, serif">//</font> 
+      对SR[s..t]进行归并排序，排序后的记录存入TR1[s..t]</span><br>
+      　　<b>if</b> (s==t) TR1[s] = SR[s];<br>
+      　　<b>else {</b><br>
+      　　　m = (s+t)/2; <font face="Times New Roman, Times, serif">　　　　　//</font> 
+      将 SR[s..t] 平分为 SR[s..m] 和 SR[m+1..t]<br>
+      　　　Msort (SR,TR2,s,m);<font face="Times New Roman, Times, serif">　　//</font> 
+      递归地将 SR[s..m] 归并为有序的 TR2[s..m]<br>
+      　　　Msort (SR,TR2,m+1, t); <font face="Times New Roman, Times, serif">//</font> 
+      递归地将SR[m+1..t]归并为有序的TR2[m+1..t]<br>
+      　　　Merge (TR2,TR1,s,m,t); <font face="Times New Roman, Times, serif">//</font> 
+      将TR2[s..m]和TR2[m+1..t] 归并到 TR1[s..t]<br>
+      　　<b>}</b> <font face="Times New Roman, Times, serif">//</font> else<br>
+      　<b>}</b> <font face="Times New Roman, Times, serif">//</font> Msort<br>
+      　</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　　和快速排序相类似，算法10.16是一个递归函数，因此算法中必须引入一对递归参数 
+      s 和 t 分别表示待进行复制归并区域的上下界。在算法的递归调用过程执行中，这两个参数随着&quot;区域的划分&quot;而不断变化。对顺序表L进行2-路归并排序调用算法10.16时，s 
+      和 t 的初值应分别置为1和 L.length，如算法10.17所示。 
+      <p>　　这是算法10.16执行过程的一个例子。<a href="javascript:;" onClick="MM_openBrWindow('../../../flash/chap10/10-5-2.swf','数据结构','width=400,height=300')"><img src="../../../images/tubiao/dh.gif" alt="动画" width="25" height="24" border="0" align="absmiddle"></a></p>
+    </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><img src="../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle" alt="算法"> 
+      <span class="zhushi">算法 10.17</span><br>
+      　　<b>void</b> MergeSort (SqList <b><font face="Times New Roman, Times, serif">&amp;</font></b>L) <br>
+      　<b>{</b><br>
+      <span class="zhushi">　　<font face="Times New Roman, Times, serif">//</font> 
+      对顺序表L作2-路归并排序</span><br>
+      　　MSort(L.r, L.r, 1, L.length);<br>
+      　<b>}</b> <font face="Times New Roman, Times, serif">//</font> MergeSort<br>
+      <br>
+      　　容易看出，2-路归并排序的<span class="point">时间复杂度</span>为<b><span class="point"><font face="Times New Roman, Times, serif"><i>O 
+      </i>(nlogn)</font></span></b>。</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　　可如下简单分析2-路归并排序的时间复杂度：对一个长度为 
+      n 的记录序列需进行 <img src="../../../images/pic/chapter10/gs_19.gif" width="40" height="21" align="absmiddle"> 
+      趟的归并，而每一趟需进行关键字比较和记录移动的时间列和 n 成正比。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

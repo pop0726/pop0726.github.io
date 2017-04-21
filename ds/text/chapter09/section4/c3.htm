@@ -1,0 +1,77 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　9.4.2 构造哈希函数的方法</span><br>
+      <br>
+      <span class="zhushi">　四、折叠法</span><br>
+      <br>
+      　　若关键字的位数很多，且每一位上数字分布大致均匀，则可采用<b>移位叠加</b>或<b>间界叠加</b>，即将关键字分成若干部分，然后以它们的叠加和(舍去进位)作为哈希地址。移位叠加是将分割后的每一部分的最低位对齐，然后相加；间界叠加是从一端向另一端沿分割界来回折叠，然后对齐相加。<br>
+      　　例如，key = 110108780428895，则其移位叠加得到的哈希地址为321，间界叠加得到的哈希地址为410。(哈希表的表长为1000)<br>
+      　</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"> 
+      　<br>
+      　<br>
+      　<br>
+      <table width="120" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td class="explaination"> 
+            <div align="center">移位叠加</div>
+          </td>
+          <td class="explaination"> 
+            <div align="center">间界叠加</div>
+          </td>
+        </tr>
+        <tr> 
+          <td>
+            <div align="center"><img src="../../../images/pic/chapter09/gs_26.gif" width="36" height="104"></div>
+          </td>
+          <td>
+            <div align="center"><img src="../../../images/pic/chapter09/gs_27.gif" width="33" height="104"></div>
+          </td>
+        </tr>
+      </table>
+    </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="zhushi">　五、除留余数法</span><br>
+      <br>
+      　　以关键字被某个数p除后所得余数作为哈希地址。即<br>
+      　　　Hash(key) = key <b><font face="Times New Roman, Times, serif">MOD</font></b> 
+      p <br>
+      <br>
+      　　其中，<b><font face="Times New Roman, Times, serif">MOD</font></b>表示&quot;取模&quot;运算，p 
+      为不大于表长的素数或不包含小于20的质因素的合数。<br>
+      　</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　　若p为含质因子c 
+      的合数，则将使所有含质因子c 的关键字映象到&quot;c 的倍数&quot;的地址上，从而增加了冲突的可能性。<br>
+      　　例如，假设哈希表长为10，取 p=9，则关键字序列 {12,39,24,36,81,78,60} 对应的哈希地址依次为：3,3,6,0,0,6,6。显然，H(key)=key%9 
+      对这组关键字不是一个&quot;好&quot;的哈希函数。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"> <span class="zhushi">　六、随机数法</span><br>
+      <br>
+      　　当关键字不等长时，可取关键字的某个伪随机函数值作为哈希地址。<br>
+      　　　Hash(key) = random(key) <br>
+      <br>
+      　　对于非数值型关键字，则需先将它们转化为数字。实际造表时，<b>采用何种</b>构造哈希函数的<b>方法</b>取决于建表的关键字集合的情况(包括关键字的范围和形态)，总的原则是<b>使产生冲突的可能性降到尽可能地小</b>。</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">&nbsp;</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

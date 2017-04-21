@@ -1,0 +1,220 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><br>
+      　　当文件的记录中含多个关键码时，经常需要对记录的&quot;<span class="point">次码</span>&quot;（或<span class="point">辅键</span>，指记录的某些重要属性）或&quot;<span class="point">多码（多辅键）的组合</span>&quot;进行检索时，文件的组织方式应该同时考虑如何便于进行次码或多码组合的查询，称这类文件为&quot;<span class="point">多关键码文件</span>&quot;。如右侧所示为多关键码文件一例，其中&quot;考号&quot;为&quot;<span class="point">主码</span>&quot;，&quot;总分&quot;和&quot;数学&quot;成绩为次码。假设该文件为索引顺序文件，则当需按&quot;总分&quot;进行检索时，只能依次存取各个记录比较它们的&quot;总分&quot;是否满足条件直至找到相应记录。为此应该为这类文件在主文件之外另建立&quot;次码索引&quot;，例如右侧是为&quot;总分&quot;建立的次码索引表。可见次码索引的特点是，对应每个次码值的记录可能有多个，因此每个&quot;<span class="point">次码索引项</span>&quot;应该包含一个次码值和一个线性表，线性表中的记录含有相同的次码值。对线性表的不同组织方法得到两种不同的多关键码文件：&quot;<span class="point">倒排文件</span>&quot;和&quot;<span class="point">多重表文件</span>&quot;。<br>
+      <br>
+      　<b>・倒排文件</b><br>
+      　　在倒排文件中，为每个需要进行检索的次码建立一个&quot;<span class="point">倒排表</span>&quot;，倒排表中具有相同次码的记录构成一个顺序表。当按次码进行检索时，首先从相应的次码倒排表中得到记录的主码信息，然后从主索引存取相应记录。这种倒排表的优点是对于主文件的存储具有相对的独立性，无论主文件中记录的存储位置如何变化都不需要修改次码索引，对于多码组合查询，也可以先对由每个次码得到的多个主码集合进行集合运算，最后只要对得到的满足多码检索要求的主码进行存取。但如果主文件为散列文件，对文件进行的操作不改变记录的存储位置，则在次码倒排表中也可以不是记录的主码，而是记录所在的&quot;页块地址&quot;，其优点是可以根据倒排表直接存取记录，而不需要再按主码进行检索。<br>
+      <br>
+      　<b>・多重表文件</b><br>
+      　　多重表文件的特点是，主文件为&quot;<span class="point">串联文件</span>&quot;(即按主码顺序利用指针链接为表结构)，并建立主码的非稠密索引-主索引，对每一个次码建立次索引，所有具有同一次码值的记录链接为一个链表，链表的头指针和链表的长度以及次码值构成一个索引项。多重表易于构造和插入记录，但删除记录时要修改所有次索引链表。在进行多码组合查询时，应选择长度最短的次索引，依次存取记录直至找到满足所有条件的记录为止。 
+      <br>
+      　　多关键码文件中的次索引本身可以是顺序表（如上述的总分次索引），也可以是树表或哈希表。<br>
+    </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      <br>
+      <br>
+      <table width="230" border="0" cellspacing="1" cellpadding="0" align="center" bgcolor="#003399">
+        <tr> 
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center"><b>姓名</b></div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center"> <b>考号</b></div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center"> <b>总分</b></div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center"> <b>政治</b></div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center"> <b>数学</b></div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center"><b>英语</b></div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">王铭</div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">1801</div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center"> 259</div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center"> 98</div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center"> 66</div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center"> 95</div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">刘青</div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">1802</div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center"> 188</div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center"> 68</div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center"> 73</div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center"> 47</div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">张铭</div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">1803</div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center"> 254</div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center"> 90</div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center"> 78</div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center"> 86</div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">蔡勇</div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">1804</div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center"> 240</div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center"> 75</div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center"> 85</div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center"> 80</div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">章林</div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">1805</div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center"> 240</div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center"> 54</div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center"> 96</div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center"> 90</div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">…</div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">…</div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">…</div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">…</div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">…</div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">…</div>
+          </td>
+        </tr>
+      </table>
+      <br>
+      <table width="230" border="0" cellspacing="1" cellpadding="0" align="center" bgcolor="#003399">
+        <tr> 
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center"><b>次码值</b></div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center"> <b> 相应记录的主码</b></div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">≥270</div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            　1866，… …</td>
+        </tr>
+        <tr> 
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">≥260</div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            　1845，… …</td>
+        </tr>
+        <tr> 
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">≥250</div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            　1801，1803，… …</td>
+        </tr>
+        <tr> 
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">≥240</div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            　1804，1805，… …</td>
+        </tr>
+        <tr> 
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">…</div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            　… …</td>
+        </tr>
+      </table>
+    </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

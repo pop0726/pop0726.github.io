@@ -1,0 +1,79 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+<script language="JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　9.4.5 哈希表的查找性能</span><br>
+      <br>
+      　　以哈希表表示动态查找表原希望其平均查找长度为0，但由于构建哈希表时不可避免会产生冲突，因此在哈希表上进行查找还是需要通过&quot;比较&quot;来确定查找是否成功，因此仍然存在平均查找长度的问题。那么哈希表的平均查找长度是多少？先看一下前面构建好的哈希表的例子。<br>
+      <br>
+      　　假设查找是等概率的，即 <img src="../../../images/pic/chapter09/pi.gif" width="15" height="12" align="absmiddle">=1/9，则<br>
+      　　按线性探测再散列方法处理冲突构建的哈希表的平均查找长度为<br>
+      　　　<img src="../../../images/pic/chapter09/gs_29.gif" width="322" height="36"><br>
+      <br>
+      　　按平方探测再散列方法处理冲突构建的哈希表的平均查找长度为 <br>
+      　　　<img src="../../../images/pic/chapter09/gs_30.gif" width="322" height="35"><br>
+      <br>
+      　　按双散列函数探测再散列方法处理冲突构建的哈希表的平均查找长度为<br>
+      　　　<img src="../../../images/pic/chapter09/gs_31.gif" width="329" height="35"><br>
+      <br>
+      　　按链地址方法处理冲突构建的哈希表的平均查找长度为 <br>
+      　　　<img src="../../../images/pic/chapter09/gs_32.gif" width="277" height="33"><br>
+      <br>
+      　　一般情况下，在哈希函数为&quot;均匀&quot;的前提下，哈希表的平均查找长度仅取决于处理冲突的方法和哈希表的装填因子。<br>
+      　　哈希表的装填因子定义为：<br>
+      　　　<img src="../../../images/pic/chapter09/gs_33.gif" width="103" height="35"><br>
+      <br>
+      　　在等概率查找的情况下，可以证明：<br>
+      　　线性探测再散列的哈希表查找成功的平均查找长度为<br>
+      　　　<img src="../../../images/pic/chapter09/gs_34.gif" width="110" height="40"><br>
+      <br>
+      　　随机(或平方)探测再散列的哈希表查找成功的平均查找长度为<br>
+      　　　<img src="../../../images/pic/chapter09/gs_35.gif" width="117" height="36"><br>
+      <br>
+      　　链地址处理冲突的哈希表查找成功的平均查找长度为 <br>
+      　　　<img src="../../../images/pic/chapter09/gs_36.gif" width="68" height="32"><br>
+      　<br>
+      　　由此可见，由于哈希表的平均查找长度不是 n 的函数，而是α的函数，因此虽然不能做到平均查找长度为0，但可以设计一个哈希表，使它的平均查找长度控制在一个期望值之内。<br>
+      <br>
+      　　最后要说明的一点是，对开放定址的哈希表不能随意删除表中记录，而必须在该记录所在位置作一特殊标记，同时需修改前述查找算法添加识别已被删除记录。 
+    </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　<br>
+      　<a href="javascript:;" onClick="MM_openBrWindow('../../../flash/chap09/9-4-3.swf','数据结构','width=400,height=300')"><img src="../../../images/tubiao/dh.gif" alt="动画" width="25" height="24" border="0"></a> 
+      <img src="../../../images/pic/chapter09/9_15.gif" width="207" height="166" align="top"><br>
+      　 <br>
+      　从例子可以得出下列结论：<br>
+      　1)在哈希函数相同的情况下，处理冲突的方法不同，所得哈希表的平均查找长度也不同。<br>
+      <br>
+      　2)线性探测再散列处理冲突容易造成记录的&quot;二次聚集&quot;，即使得本不是同义词的关键字又产生新的冲突；<br>
+      <br>
+      　3)对开放定址处理冲突的哈希表而言，表长必须≥记录数，并且由于表中已填入的记录越多，继续插入记录发生冲突的可能性就越大，因此可以设想这样的哈希表不应该使&quot;表长=记录数&quot;。而链地址处理冲突的哈希表不会出现这种情况，它的平均查找长度主要取决于哈希函数本身。设想若表长仍取11，哈希函数和开放定址的一样，则链地址处理冲突的哈希表的平均查找长度为18/9。<br>
+      　<br>
+      　<br>
+      　<br>
+      　<br>
+      　<br>
+      　<br>
+      　<br>
+      <br>
+      <br>
+      　　从证明所得结论也可以看出，开放定址的哈希表的装填因子必定&lt; 1，且不能接近于1，而链地址的哈希表的表长可以&gt;1。 </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

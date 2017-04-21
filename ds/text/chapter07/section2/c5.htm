@@ -1,0 +1,69 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　7.2.4 无向图(网)的邻接多重链表存储表示</span><br>
+      <br>
+      　　类似于有向图的十字链表，若将无向图中表示同一条边的两个结点合在一起，将得到无向图的另一种表示方法--邻接多重表。<br>
+      <br>
+      　　例如，无向图G2的邻接多重表如下所示(忽略相关信息指针)：<a href="javascript:;" onClick="MM_openBrWindow('../../../flash/chap07/7-2-2.swf','数据结构','width=400,height=300')"><img src="../../../images/tubiao/dh.gif" width="25" height="24" border="0" align="absmiddle"></a> 
+      <p></p>
+      <p></p>
+      <p></p>
+      <p>　<img src="../../../images/pic/chapter07/7_18.gif" width="408" height="256" align="top"><br>
+        <br>
+        <img src="../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle"> 
+        <span class="zhushi">无向图的邻接多重表存储表示</span><br>
+        　　<b>const</b> MAX_VERTEX_NUM = 20;<br>
+        　　<b>typedef </b>emnu <b>{</b>unvisited, visited<b>}</b> VisitIf;</p>
+      <p>　　<b>typedef struct</b> EdgeNode<b>{</b> <font face="Times New Roman, Times, serif">　　　　//</font> 
+        边结点结构定义<br>
+        　　　VisitIf mark; <font face="Times New Roman, Times, serif">　　　　　　　　　//</font> 
+        访问标记<br>
+        　　　<b>int</b> ivex, jvex; <font face="Times New Roman, Times, serif">　　　　　　　　//</font> 
+        该边依附的两个顶点的位置<br>
+        　　　<b>struct</b> EdgeNode *ilink, *jlink; <font face="Times New Roman, Times, serif">//</font> 
+        分别指向依附这两个顶点的下一条边<br>
+        　　　VRType weight; <font face="Times New Roman, Times, serif">　　　　　　　　 
+        //</font> 与弧相关的权值，无权则为0<br>
+        　　　InfoType *info; <font face="Times New Roman, Times, serif">　　　　　　　　//</font> 
+        与该边相关信息的指针<br>
+        　　<b>}</b> ;<br>
+        　　<b>typedef struct {</b> <font face="Times New Roman, Times, serif">　　　　　　　//</font> 
+        顶点结点结构定义<br>
+        　　　VertexType data;<br>
+        　　　EdgeNode <b>*</b>firstedge;<font face="Times New Roman, Times, serif">　　　　　　//</font> 
+        指向第一条依附该顶点的边<br>
+        　　<b>}</b> VexNode;<br>
+        　　<b>typedef struct {</b> <font face="Times New Roman, Times, serif">　　　　　　　//</font> 
+        多重链表结构定义<br>
+        　　　VexNode adjmulist[MAX_VERTEX_NUM];<br>
+        　　　<b>int</b> vexnum, edgenum;　<font face="Times New Roman, Times, serif">　　　　　//</font> 
+        无向图的当前顶点数和边数<br>
+        　　　GraphKind kind; <font face="Times New Roman, Times, serif">　　　　　　　　//</font> 
+        图的种类标志<br>
+        　　<b>}</b> AMLGraph;</p>
+    </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      <br>
+      　　由于无向图的邻接表中每一条边有两个结点，给对图的边进行访问的操作带来不便。以无向图G2为例，当从顶点A出发访问了边(A,E)之后，为了下次不再对这条边进行访问，就需要找到表示这条边的另一个结点加上访问标志。由此可类似于有向图，只用一个结点表示一条边，即将该边的所有信息(边两端的两个顶点、与其中一个端点有相同端点的下一条边的信息等)放在一个结点中，由于无向图中的边是没有方向性的，因此所有有一个端点相同的边均链接在同一链表中，所以在顶点结点中只有一个链表的头指针。另一方面，因为每一条边有两个顶点，因此每个边结点都链接在两个链表中，但它们之间并不形成&quot;十字&quot;关系。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

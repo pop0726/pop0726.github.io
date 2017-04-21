@@ -1,0 +1,57 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　4.2.3 串的块链存储表示</span><br>
+      <br>
+      　　由于在一般情况下，串的操作都是从前往后进行的，因此串的链表通常不设双链，也不设头结点，但为了便于进行诸如串的联接等操作，链表中还附设有尾指针，并且由于串的长度不一定是结点大小的整数倍（链表中最后一个结点中的字符非都是有效字符），因此还需要一个指示串长的域。称如此定义的存储结构为串的块链存储结构，其定义如下：<br>
+      <br>
+      　　<b>const</b> CHUNKSIZE = 80; <font face="Times New Roman, Times, serif">　　　　//</font> 
+      可由用户定义的块（结点）大小<br>
+      　　<b>typedef struct</b> Chunk <b>{</b><font face="Times New Roman, Times, serif">　　　//</font> 
+      结点结构<br>
+      　　　<b>char</b> ch[CUNKSIZE];<br>
+      　　　<b>struct</b> Chunk *next;<br>
+      　　<b>}</b> Chunk;<br>
+      　　<b>typedef struct {</b> <font face="Times New Roman, Times, serif">　　　　　//</font> 
+      串的链表结构 <br>
+      　　　Chunk *head, *tail; <font face="Times New Roman, Times, serif">　　　　//</font> 
+      串的头指针和尾指针<br>
+      　　　<b>int</b> curlen; <font face="Times New Roman, Times, serif">　　　　　　　 
+      //</font> 串的当前长度<br>
+      　　<b>}</b> LString;<br>
+      　</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      　　和线性表的链式存储结构类似，也可用链表来存储串值。但由于串的结构的特殊性，即串的数据元素是一个字符，它只有8位二进制数，因此用链表存储串值时通常采用的办法是在一个结点中存放多个字符（如下图所示），因此称它为&quot;块链&quot;存储表示。图中的 
+      &quot;结点大小&quot; CHUNKSIZE=4。<br>
+      <br>
+      <br>
+      <img src="../../../images/pic/chapter04/4_1.gif" width="250" height="63" align="top"> 
+    </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">　　在以链表存储串值时，定义串的存储密度为 <br>
+      <br>
+      　　　<img src="../../../images/pic/chapter04/t1.gif" width="182" height="44"> 
+      <br>
+      <br>
+      　　显然，以块链作存储结构时实现串的操作很不方便，如在串中插入一个子串时可能需要分割结点，联接两个串时，若第一个串的最后一个结点没有填满时还需要添加其它字符等等。但在应用程序中，可将串的链表存储结构和串的定长结构结合使用。例如在正文编辑系统中，整个&quot;正文&quot;可以看成是一个串，每一行是一个子串，构成一个结点，即：同一行的串用定长结构（80个字符），而行和行之间用指针相链。</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      <br>
+      　　假设指针域 next 占16&quot;位(bit)&quot;，则上图中串的存储密度为2/3。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,186 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　9.4.1 何谓哈希表</span><br>
+      <br>
+      　　对于以上两节中讨论的各种结构，它们的平均查找长度不仅不可能为0，并且都随 n（关键字集合的大小）的增长而增长。因为无论是在表示静态查找表的顺序表和有序表中，还是动态查找树表中，数据元素在结构中的位置都是随机的，和它的关键字无关。在这样的结构中进行查找的主要操作就是将给定值和表中关键字进行依次比较，其查找效率取决于比较次数。如果希望不经过比较直接取得其关键字等于给定值的记录，只能是在确定知晓该关键字在表中位置的情况下。例如，某城市人口调查表中的关键字为&quot;年龄&quot;，当以表长为120的有序表表示时，查询年龄为60岁的人口数时只需要直接取表中第60项的记录即可，显然，此时的平均查找长度为0。一般情况下，可设记录在表中的位置为关键字的某个函数，通常称这种函数为&quot;<span class="point"><b>哈希函数</b></span>&quot;。<br>
+      <br>
+      　　例如，对于关键字序列{ Zhao,Qian,Sun,Li,Wu,Chen,Han,Ye,Dei }，可设关键字的哈希函数如下：<br>
+      　　　<img src="../../../images/pic/chapter09/gs_5F25.gif" width="307" height="25"><br>
+      <br>
+      　　其中，CH1 表示关键字中第1个字母，Ord 为字符的次序函数。则以表长为14的顺序表表示的查找表如右所示。显然，此查找表的平均查找长度为 
+      0，若给定值为 Qian，由上述关键字函数得到函数值为 8，即可从&quot;地址为8&quot;的表中取得该记录。但这样的函数并不容易设计，如果同时存在关键字 
+      Zhou，则上述函数不可取，换句话说，为使平均查找长度等于0，必须找到一个能将查找表中所有关键字都&quot;散列&quot;在表中不同位置的哈希函数。<br>
+      <br>
+      　　若关键字不同而函数值相同，则称这两个关键字（对于该哈希函数而言）为&quot;<span class="point">同义词</span>&quot;，并称这种现象为&quot;<span class="point">冲突</span>&quot;。对于动态查找表很难找到不存在同义词的哈希函数，唯一弥补的办法是，在发生冲突时设法解决之，例如将关键字Zhou存入表中地址为0的空缺中等。<br>
+      <br>
+      　　综合以上所述，可如下定义哈希表：<br>
+      　　根据设定的<b>哈希函数 H(key)</b>和所选中的<b>处理冲突</b>的方法，将一组关键字<b>映象到一个</b>有限的、地址连续的<b>地址集(区间)上</b>，并以关键字在地址集中的<b>&quot;象&quot;</b>作为相应记录在表中的存储位置，这种表被称为<b><span class="point">哈希表</span></b>，这一映象的过程亦被称为&quot;<b class="point">散列</b>&quot;。</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　<br>
+      　<br>
+      　　从以上讨论得知，平均查找长度是对查找效率的一种度量，其含义为，在查找表中进行一次查找所需进行的给定值和关键字比较次数的平均值。那么能否找到一种结构使它的平均查找长度为零呢？<br>
+      <br>
+      <br>
+      <table width="100" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td width="35" class="explaination"> 
+            <div align="center">0</div>
+          </td>
+          <td rowspan="14">
+            <table width="65" border="0" cellspacing="1" cellpadding="0" bgcolor="#003399">
+              <tr> 
+                <td background="../../../images/html/right_di4.gif" class="explaination"> 
+                  <div align="center">　</div>
+                </td>
+              </tr>
+              <tr> 
+                <td background="../../../images/html/right_di4.gif" class="explaination"> 
+                  <div align="center"><b>Chen</b></div>
+                </td>
+              </tr>
+              <tr> 
+                <td background="../../../images/html/right_di4.gif" class="explaination"> 
+                  <div align="center"><b>Dei</b></div>
+                </td>
+              </tr>
+              <tr> 
+                <td background="../../../images/html/right_di4.gif" class="explaination"> 
+                  <div align="center">　</div>
+                </td>
+              </tr>
+              <tr> 
+                <td background="../../../images/html/right_di4.gif" class="explaination"> 
+                  <div align="center"><b>Han</b></div>
+                </td>
+              </tr>
+              <tr> 
+                <td background="../../../images/html/right_di4.gif" class="explaination"> 
+                  <div align="center">　</div>
+                </td>
+              </tr>
+              <tr> 
+                <td background="../../../images/html/right_di4.gif" class="explaination"> 
+                  <div align="center"><b>Li</b></div>
+                </td>
+              </tr>
+              <tr> 
+                <td background="../../../images/html/right_di4.gif" class="explaination"> 
+                  <div align="center">　</div>
+                </td>
+              </tr>
+              <tr> 
+                <td background="../../../images/html/right_di4.gif" class="explaination"> 
+                  <div align="center"><b>Qian</b></div>
+                </td>
+              </tr>
+              <tr> 
+                <td background="../../../images/html/right_di4.gif" class="explaination"> 
+                  <div align="center"><b>Sun</b></div>
+                </td>
+              </tr>
+              <tr> 
+                <td background="../../../images/html/right_di4.gif" class="explaination"> 
+                  <div align="center">　</div>
+                </td>
+              </tr>
+              <tr> 
+                <td background="../../../images/html/right_di4.gif" class="explaination"> 
+                  <div align="center"><b>Wu</b></div>
+                </td>
+              </tr>
+              <tr> 
+                <td background="../../../images/html/right_di4.gif" class="explaination"> 
+                  <div align="center"><b>Ye</b></div>
+                </td>
+              </tr>
+              <tr> 
+                <td background="../../../images/html/right_di4.gif" class="explaination"> 
+                  <div align="center"><b>Zhao</b></div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr> 
+          <td width="35" class="explaination"> 
+            <div align="center">1</div>
+          </td>
+        </tr>
+        <tr> 
+          <td width="35" class="explaination"> 
+            <div align="center">2</div>
+          </td>
+        </tr>
+        <tr> 
+          <td width="35" class="explaination"> 
+            <div align="center">3</div>
+          </td>
+        </tr>
+        <tr> 
+          <td width="35" class="explaination"> 
+            <div align="center">4</div>
+          </td>
+        </tr>
+        <tr> 
+          <td width="35" class="explaination"> 
+            <div align="center">5</div>
+          </td>
+        </tr>
+        <tr> 
+          <td width="35" class="explaination"> 
+            <div align="center">6</div>
+          </td>
+        </tr>
+        <tr> 
+          <td width="35" class="explaination"> 
+            <div align="center">7</div>
+          </td>
+        </tr>
+        <tr> 
+          <td width="35" class="explaination"> 
+            <div align="center">8</div>
+          </td>
+        </tr>
+        <tr> 
+          <td width="35" class="explaination"> 
+            <div align="center">9</div>
+          </td>
+        </tr>
+        <tr> 
+          <td width="35" class="explaination"> 
+            <div align="center">10</div>
+          </td>
+        </tr>
+        <tr> 
+          <td width="35" class="explaination"> 
+            <div align="center">11</div>
+          </td>
+        </tr>
+        <tr> 
+          <td width="35" class="explaination"> 
+            <div align="center">12</div>
+          </td>
+        </tr>
+        <tr> 
+          <td width="35" class="explaination"> 
+            <div align="center">13</div>
+          </td>
+        </tr>
+      </table>
+      <br>
+      <br>
+      　　以下将分别讨论哈希函数的构造方法和处理冲突的方法。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

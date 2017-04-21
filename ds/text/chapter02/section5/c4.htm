@@ -1,0 +1,63 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　2.5.1 有序链表类型</span><br>
+      <br>
+      <img src="../../../images/tubiao/cxd.gif" width="25" height="24" alt="算法"> 
+      <br>
+      <span class="text">　　<b>bool</b> LocateElem ( OrderedLinkList L, ElemType 
+      e, <b><br>
+      　　　　　　　　　　 int</b> ( *compare )( ElemType, ElemType ) )<br>
+      　<b>{</b> <br>
+      　</span><span class="zhushi"><font face="Times New Roman, Times, serif">//</font> 
+      </span><span class="text"> </span><span class="zhushi">若有序链表L中存在和e相同的数据元素，则当前指针指向第1个<br>
+      </span><span class="text">　</span><span class="zhushi"><font face="Times New Roman, Times, serif">//</font> 
+      </span><span class="text"> </span><span class="zhushi"></span><span class="zhushi">和e相同的结点，并返回 
+      TRUE，<br>
+      </span><span class="text">　</span><span class="zhushi"><font face="Times New Roman, Times, serif">//</font> 
+      </span><span class="zhushi">否则当前指针指向第一个大于e 的元素的前驱，并返回FALSE。</span><span class="text"><br>
+      　　L.current = L.head; L.curPos = 0; <br>
+      　　<b>while</b> ( L.current -&gt; next <b><font face="Times New Roman, Times, serif">&amp;&amp;</font></b> 
+      <br>
+      　　　　　　　　　 compare( e,L.current -&gt; next -&gt; data )&gt; 0 ) <br>
+      　　<b>{</b><br>
+      　　　L.current = L.current -&gt; next;<font face="Times New Roman, Times, serif">　　//</font> 
+      指针后移，继续查询 <br>
+      　　　L.curPos ++; <br>
+      　　<b>}</b></span></td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      <br>
+      <br>
+      　　compare(ElemType,ElemType)函数的定义为：前一个元素&quot;大于&quot;、&quot;等于&quot;或&quot;小于&quot;后一个元素时分别返回1，0或-1。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="text">　　<b>if</b> ( L.current 
+      -&gt; next <b><font face="Times New Roman, Times, serif">&amp;&amp;</font></b> <br>
+      　　　　　　　　　 compare( e,L.current -&gt; next -&gt; data ) == 0 ) <br>
+      　　<b>{</b> <font face="Times New Roman, Times, serif">　　　　　　　　　　　　　 　　 //</font> 
+      查到和 e 相同元素，当前指针后移 <br>
+      　　　L.current = L.current -&gt; next; L.curPos ++; <br>
+      　　<b>　return</b> TRUE; <br>
+      　　<b>}</b><br>
+      　　<b>else return</b> FALSE; <font face="Times New Roman, Times, serif">　　　　　　　//</font> 
+      当前指针所指后继元素大于 e<br>
+      　<b>} </b><font face="Times New Roman, Times, serif">//</font> LocateElem</span></td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　　找到和 
+      e 相同的元素时，当前指针应该指向该结点，所以要移动当前指针到该元素结点，而没有找到时，应该指向&quot;插入位置&quot;，所以不需要再移动指针了。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

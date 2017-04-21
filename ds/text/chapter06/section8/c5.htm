@@ -1,0 +1,39 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%"> 
+<tr> <td width="10">&nbsp;</td><td class="white" valign="top"><BR> <SPAN CLASS="part">【基础知识题】</SPAN><BR> 
+<br> 　1. 已知一棵树边的集合为{&lt;I,M&gt;,&lt;I,N&gt;,&lt;E,I&gt;,&lt;B,E&gt;,&lt;B,D&gt;,&lt;A,B&gt;,&lt;G,J&gt;, 
+&lt;G,K&gt;,&lt;C,G&gt;,&lt;C,F&gt;,&lt;H,L&gt;,&lt;C,H&gt;,&lt;A,C&gt; }，请画出这棵树，并回答下列问题：<br> 
+　(1) 哪个是根结点?<br> 　(2) 哪些是叶子结点?<br> 　(3) 哪个是结点 G 的双亲?<br> 　(4) 哪些是结点 G 的祖先?<br> 
+　(5) 哪些是结点 G 的孩子?<br> 　(6) 哪些是结点E的子孙?<br> 　(7) 哪些是结点 E 的兄弟?哪些是结点F的兄弟?<br> 　(8) 
+结点 B 和 N 的层次号分别是什么 ?<br> 　(9) 树的深度是多少?<br> 　(10) 以结点 C 为根的子树的深度是多少?<br> <br> 　 
+2. 一棵度为 2 的树与一棵二叉树有何区别?<br> <br> 　 3. 试分别画出具有 3 个结点的树和 3 个结点的二叉树的所有不同形态。<br> <br> 
+　 4. 已知在一棵含有 n 个结点的树中，只有度为 k 的分支结点和度为 0 的叶子结点。试求该树含有的叶子结点的数目。<br> <br> 　 5. 试分别推导含 
+n 个结点和含 n<sub>0</sub> 个叶子结点的完全三叉树的深度 H。<br> <br> 　 6. 假设 n 和 m 为二叉树中两结点，用“1”、“0”或“ф”(分别表示肯定、恰恰相反或者不一定）填写下表：<br> 
+　　<img src="../../../images/pic/exam/6_1.gif" width="341" height="115"><br> <br> 
+　　注：如果(1)离 a 和 b 最近的共同祖先 p 存在，且(2)a 在 p 的左子树中，b 在 p 的右子树中，则称 a 在 b 的左方(即 b 在 a 
+的右方)。 <p>　7. 找出所有满足下列条件的二叉树:<br> 　(a) 它们在先序遍历和中序遍历时，得到的结点访问序列相同;<br> 　(b) 它们在后序遍历和中序遍历时，得到的结点访问序列相同;<br> 
+　(c) 它们在先序遍历和后序遍历时，得到的结点访问序列相同;</p><p>　8. 将下列二叉链表改为先序线索链表。<br> 　　<img src="../../../images/pic/exam/6_2.gif" width="399" height="103"></p><p>　9. 
+阅读下列算法，若有错，则改正之。<br> 　　BiTree InSucc( BiTree q ) <strong>{</strong><br> 　<font face="Arial, Helvetica, sans-serif">//</font> 
+已知 q 是指向中序线索二叉树上某个结点的指针，<br> 　<font face="Arial, Helvetica, sans-serif">//</font> 
+本函数返回指向 *q 的后继的指针。<br> 　　　r = q-&gt;rchild;<br> 　　　<strong>if </strong>( !r-&gt;rtag 
+) <br> 　　　<strong>while </strong>( !r-&gt;rtag ) r = r-&gt;rchild;<br> 　　　<strong>return</strong> 
+r;<br> 　　<strong>}</strong> <font face="Arial, Helvetica, sans-serif">//</font>InSucc<br> 
+　</p></td><td background="../../../images/html/mid.gif" width="18">&nbsp;</td><td background="../../../images/html/right_di4.gif" class="explaination" valign="top" width="281"><br> 
+【基础知识题】 </td><td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td></tr> 
+<tr> <td>&nbsp;</td><td class="white" valign="top">　10. 分别画出和右侧树对应的各个二叉树。</td><td background="../../../images/html/mid.gif">&nbsp;</td><td background="../../../images/html/right_di4.gif" class="explaination" valign="top">　<img src="../../../images/pic/exam/p6-19.gif" width="266" height="186"></td><td background="../../../images/html/right_di3.gif">&nbsp;</td></tr> 
+<tr> <td>&nbsp;</td><td class="white" valign="top">　11. 将右侧森林转换为相应的二叉树。</td><td background="../../../images/html/mid.gif">&nbsp;</td><td background="../../../images/html/right_di4.gif" class="explaination" valign="top"><img src="../../../images/pic/exam/p6-20.gif" width="280" height="167"></td><td background="../../../images/html/right_di3.gif">&nbsp;</td></tr> 
+<tr> <td>&nbsp;</td><td class="white" valign="top"><p>　12. 对于 10 题中给出的各树分别求出以下遍历序列：<br> 
+　(1) 先根序列； 　(2) 后根序列。</p><p>　13. 假设用于通讯的电文仅由 8 个字母组成，字母在电文中出现的频率分别为 0.07, 0.19, 
+0.02, 0.06, 0.32, 0.03, 0.21, 0.10。试为这 8 个字母设计哈夫曼编码。使用 0～7 的二进制表示形式是令一种编码方案。对于上述实例，比较两种方案的优缺点。</p><p>　14. 
+假设一棵二叉树的前序序列为 EBADCFHGIKJ 和中序序列为 ABCDEFGHIJK。请画出该树。</p><p>　15. 假设一棵二叉树的中序序列为 DCBGEAHFIJK 
+和后序序列为 DCEGBFHKJIA。请画出该树。</p>　</td><td background="../../../images/html/mid.gif">&nbsp;</td><td background="../../../images/html/right_di4.gif" class="explaination" valign="top">&nbsp;</td><td background="../../../images/html/right_di3.gif">&nbsp;</td></tr> 
+</table>
+</body>
+</html>

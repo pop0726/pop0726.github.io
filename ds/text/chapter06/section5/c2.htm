@@ -1,0 +1,81 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　6.5.2 以中序线索链表为存储结构的中序遍历</span><br>
+      <br>
+      　　如何在中序线索链表上进行遍历，关键问题有二：<br>
+      　　　一是如何找到访问的第一个结点？<br>
+      　　　二是如何找到每个结点在中序序列中的后继？<br>
+      <br>
+      　　首先，在中序线索链表上如何找到中序序列中的第一个结点？<br>
+      　　根据6.4.1节中对二叉树的中序遍历的定义可知，中序遍历访问的第一个结点必定是 &quot;其左子树为空&quot;的结点。若根结点没有左子树，则根结点即为中序遍历访问的第一个结点，若根结点的左子树不空，则访问的第一个结点应该是其左子树中&quot;最左下的结点&quot;，即从根结点出发，顺指针 
+      Lchild 找到其左子树直至某个结点的指针 Lchild 为&quot;线索&quot;止，该结点必为中序序列中的第一个结点。如右图所示例子中的&quot;结点D&quot;。<br>
+      <br>
+      　　如何在中序线索链表中找结点的后继？<br>
+      　　若结点没有右子树，即结点的右指针类型标志 Rtag 为&quot;Thread&quot;，则指针 Rchild 所指即为它的后继，如右图所示例子中的&quot;结点D&quot;、&quot;结点G&quot;等，若结点有右子树，则它的后继应该是其右子树中访问的第一个结点。和前面所述找二叉树的第一个结点一样，就应该从它的右子树根出发，顺指针 
+      Lcuild 直至没有左子树的结点为止，该结点即为它的后继。例如右图中结点B的后继为结点G。<br>
+      <br>
+      <img src="../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle"> 
+      <span class="zhushi">算法6.9</span><br>
+      　　<b>void</b> InOrderTraverse_Thr(BiThrTree Thead,<b>void</b> (<b>*</b>Visit)(ElemType 
+      e))<br>
+      　<b>{</b><br>
+      <span class="zhushi">　　<font face="Times New Roman, Times, serif">//</font> 
+      Thead 指向中序线索链表中的头结点，头结点的左指针 Lchild <br>
+      　　<font face="Times New Roman, Times, serif">//</font> 指向二叉树的根结点，头结点的右线索 
+      Rchild 指向中序遍历<br>
+      　　<font face="Times New Roman, Times, serif">//</font> 访问的最后一个结点。本算法对此二叉树进行中序遍历，对<br>
+      　　<font face="Times New Roman, Times, serif">//</font> 树中每个数据元素调用函数 Visit 
+      进行访问操作</span><br>
+      　　p = Thead-&gt;Lchild; 　　　　　　　　　　　<font face="Times New Roman, Times, serif">//</font> 
+      p 指向二叉树的根结点<br>
+      　　<b>while</b> (p<b>!</b>= Thead) <b>{</b>　　　　　<font face="Times New Roman, Times, serif">　　　　　//</font> 
+      空树或遍历结束时，p==Thead<br>
+      　　　<b>while</b> (p-&gt;LTag==Link) p = p-&gt;Lchild;<br>
+      　　　Visit(p-&gt;data); 　　　　　　　　　　　<font face="Times New Roman, Times, serif">//</font> 
+      访问其左子树为空的结点<br>
+      　　　<b>while</b> (p-&gt;RTag==Thread <b><font face="Times New Roman, Times, serif">&amp;&amp;</font></b> 
+      p-&gt;Rchild<b>!</b>=Thread) <b>{</b><br>
+      　　　　p = p-&gt;rchild; Visit(p-&gt;data);　　　<font face="Times New Roman, Times, serif">//</font> 
+      访问&quot;右线索&quot;所指后继结点<br>
+      　　　<b>}</b> <font face="Times New Roman, Times, serif">//</font> while<br>
+      　　　p = p-&gt;Rchild; 　　　　　　　　　　　 <font face="Times New Roman, Times, serif">//</font> 
+      p 进至其右子树根<br>
+      　　<b>}</b> <font face="Times New Roman, Times, serif">//</font> while<br>
+      　<b>}</b> <font face="Times New Roman, Times, serif">//</font> InOrderTraverse_Thr</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　<br>
+      　<br>
+      　　以线索链表作存储结构，即以指向线索链表中头结点的指针表示二叉树。由于在线索链表中已经包含有遍历得到的访问次序序列的信息，则在线索链表中进行遍历可以递推进行。即首先找到遍历中应该访问的&quot;第一个&quot;结点，而后接着顺每个结点的&quot;后继&quot;依次进行访问。在此仅以中序线索链表为例进行讨论。<br>
+      <br>
+      　<img src="../../../images/pic/chapter06/6_18.gif" width="259" height="203" align="top"><br>
+      <br>
+      　　因为结点B的 RTag=Link，则顺指针 Rchild 找到它的右子树根(结点E)，因为结点E的 LTag=Link，则顺指针 Lchild 
+      找到它的左子树根(结点G)，而因为结点 G 的 Ltag=Thread，说明G是结点B的右子树中&quot;最左下&quot; 的结点，所以结点G是结点B的后继。 
+      <p><br>
+        　　读者可以观看对上图的中序线索链表进行遍历的过程加深对算法6.9的理解。<a href="javascript:;" onClick="MM_openBrWindow('../../../flash/chap06/6-5-1.swf','数据结构','width=400,height=300')"><img src="../../../images/tubiao/dh.gif" alt="动画" width="25" height="24" border="0" align="absmiddle"></a><br>
+        <br>
+        　　可见，在线索化链表上进行遍历省去了递归栈。<br>
+        <br>
+        　　其它序线索链表的遍历算法也类似，关键在于找后继结点，只是在后序线索链表上找后继还需要知悉结点&quot;双亲&quot;的的位置。</p>
+    </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　11.4.3 VSAM文件的组织方法</span><br>
+      <br>
+      　　VSAM文件的结构示意图如页面右侧所示。它由<span class="point">索引集</span>、<span class="point">顺序集</span>和<span class="point">数据集</span>三部分组成。其中<b>数据集</b>即为主文件，而<b>顺序集</b>和<b>索引集</b>构成主文件的&quot;索引&quot;，是一棵B<sup>+</sup>树。其中顺序集中的每个结点即为B<sup>+</sup>树的叶子结点，包含主文件的全部索引项，索引集中的结点即为B<sup>+</sup>树的非叶结点，可看成是文件索引的高层索引。<br>
+      <br>
+      　　数据集由若干<span class="point">控制区间</span>组成，每个控制区间内含一个或多个记录，当含多个记录时，同一控制区间内的记录按关键码自小至大有序排列，且文件中第一个控制区间中记录的关键码值最小。在VSAM文件中，控制区间是用户进行一次存取的逻辑单位，可看成是一个&quot;<span class="point">逻辑磁道</span>&quot;（其实际大小和物理磁道无关），由若干控制区间和它们的索引项构成一个控制区域，可看成是一个&quot;<span class="point">逻辑柱面</span>&quot;。<br>
+      <br>
+      　　VSAM文件中没有溢出区，解决插入的办法是在初建文件时留有适当空间，一是每个控制区间内的记录数不足额定数，二是在控制区域内留有若干记录数为零的控制区间。插入记录时，首先由查找结果确定插入的控制区间，当控制区间中的记录数超过文件规定的大小时，要&quot;分裂&quot;控制区间，并修改顺序集中相应的索引项。必要时，还需要&quot;分裂&quot;控制区域，同时分裂顺序集中的结点（即B<sup>+</sup> 
+      树的叶子结点）。但通常由于控制区域较大，实际上很少发生分裂。在VSAM文件中删除一个记录时，必须&quot;真实地&quot;实现删除，因此要在控制区间内&quot;移动&quot;记录，一般情况下，不需要修改索引项，仅当控制区间中记录均被删除之后，才需要修改顺序集中相应的索引项。<br>
+      <br>
+      　　VSAM文件通常被作为大型索引顺序文件的标准组织方式。其优点是：动态地分配和释放空间，不需要重组文件，并能较快地实现对&quot;后插入&quot;的记录的检索；其缺点是：占有较多的存储空间，一般只能保持约75%的存储空间利用率。<br>
+    </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      　<br>
+      　<img src="../../../images/pic/chapter11/11_05.gif" width="250" height="175" align="top"> 
+      <br>
+      　　　　　　VSAM文件的结构示意图 </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

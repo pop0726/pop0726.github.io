@@ -1,0 +1,102 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<script language=JavaScript src="../../chapter02/section1/hpmain.js"></script>
+<script language=JavaScript src="../../chapter02/section1/showhidden.js"></script>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><br>
+      <img src="../../../images/tubiao/lt.gif" width="28" height="27" align="absmiddle"> 
+      <span class="zhushi">例一　循环队列应用举例</span><br>
+      　　编写一个打印二项式系数表（即杨辉三角）的算法。<br>
+      <br>
+      　　 　　 　 1 1<br>
+      　　　　　 1　2　1<br>
+      　　　　　1　3　3　1<br>
+      　　　　1　4　6　4　1<br>
+      　　　……………………<br>
+      <br>
+      　　这是一个初等数学中讨论的问题。系数表中的第 k行有 k+1个数，除了第一个和最后一个数为1之外，其余的数则为上一行中位其左、右的两数之和。<br>
+      <br>
+      　　这个问题的程序可以有很多种写法，一种最直接的想法是利用两个数组，其中一个存放已经计算得到的第 k 行的值，然后输出第 k 行的值同时计算第 
+      k+1行的值。如此写得的程序显然结构清晰，但需要两个辅助数组的空间，并且这两个数组在计算过程中需相互交换。如若引入&quot;循环队列&quot;，则可以省略一个数组的辅助空间，而且可以利用队列的操作将一&quot;琐碎操作&quot;屏蔽起来，使程序结构变得清晰，容易被人理解。<br>
+      　</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      　　队列在程序设计中的一个典型应用例子是作业排队问题。例如，在一个局域网上有一台共享的网络打印机，网上每个用户都可以将数据发送给网络打印机进行输出。为了保证不丢失数据，操作系统为网络的打印机生成一个&quot;作业队列&quot;，每个申请输出的&quot;作业&quot;应按先来后到的顺序排队，打印机从作业队列中逐个提取作业进行打印。<br>
+      <br>
+      　　在应用程序中，队列通常用以模拟排队情境，如本节中介绍的第二个应用例子，在此介绍的第一个例子则是借以说明循环队列应用的简单例子。<br>
+      　</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">　　如果要求计算并输出杨辉三角前 n 行的值，则队列的最大空间应为 n+2。假设队列中已存有第 
+      k 行的计算结果，并为了计算方便，在两行之间添加一个&quot;0&quot;作为行界值，则在计算第 k+1 行之前，头指针正指向第 k 行的&quot;0&quot;，而尾元素为第 
+      k+1 行的&quot;0&quot;。由此从左到右依次输出第 k 行的值，并将计算所得的第 k+1 行的值插入队列的基本操作为：<b></b><b><br>
+      <br>
+      <img src="../../../images/tubiao/cxd.gif" width="25" height="24" alt="算法"><br>
+      　　do</b> <b>{</b><br>
+      　　　DeQueue(Q, s);<font face="Times New Roman, Times, serif">　　//</font> 
+      s 为二项式系数表第 k 行中&quot;左上方&quot;的值<br>
+      　　　GetHead(Q, e);　　<font face="Times New Roman, Times, serif">//</font> 
+      e 为二项式系数表第 k 行中&quot;右上方&quot;的值<br>
+      　　　<b>cout</b>&lt;&lt;e；<font face="Times New Roman, Times, serif">　　　　//</font> 
+      输出 e 的值 <br>
+      　　　EnQueue(Q, s+e);　<font face="Times New Roman, Times, serif">//</font> 
+      计算所得第 k+1 行的值入队列<br>
+      <b>　　}</b> <b>while</b> (e!=0);</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　　例如，假设n=6，当前队列中存放的是第4行的值，计算第5行的值同时输出第4行的值的过程如动画演示所示。<a href="javascript:;" onClick="MM_openBrWindow('../../../flash/chap03/3-4-1.swf','数据结构','width=400,height=200')"><img src="../../../images/tubiao/dh.gif" alt="动画" width="25" height="24" border="0" align="absmiddle"></a><br>
+      <br>
+      <table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td bgcolor="#ECEEFF" height="14" class="explaination" width="8">&nbsp;</td>
+                <td bgcolor="#ECEEFF" height="14" class="explaination"><img src="../../../images/tubiao/wt.gif" width="23" height="23" align="absmiddle" alt="思考题"> 
+                  从动画演示你已经明白了算法的核心部分，那么要写出完整的算法的话，还需要补充哪些细节呢？</td>
+                <td width="15" bgcolor="#ECEEFF" valign="top"><span id="bb"><img border=0 
+                              id=HPFrameHLTab3 
+                              onClick="showHideContent('HPFrameHL');hidden();"
+							   src="../../../images/html/expand.gif" style="CURSOR: hand" width="15" height="14"></span></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <div id=HPFrameHLContent 
+           style="WIDTH: 100%;visibility: hidden;background-color:#ECEEFF" > 
+              <table width="94%" border="0" cellspacing="0" cellpadding="0" align="center">
+                <tr> 
+                  <td class="explaination">　1. 输出e是有条件的，对吗？即行末的 &quot;0&quot; 
+                    不需要输出；<br>
+                    　2. 一行计算结束之后需要补一个&quot;0&quot;，这个&quot;0&quot;值既是刚刚计算完的这行的&quot;尾0&quot;，又是即将开始计算的下一行的&quot;头0&quot;；<br>
+                    　3. 其它初始化和结尾(输出最后一行)等。</td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

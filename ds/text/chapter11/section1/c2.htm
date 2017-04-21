@@ -1,0 +1,41 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　11.1.1 外存储器简介</span><br>
+      <br>
+      <span class="zhushi">　二、磁盘存储器</span><br>
+      <br>
+      　　磁盘是一种直接存取的存储设备，既能顺序存取，又能随机存取。目前使用多为活动头磁盘如右图所示。<br>
+      <br>
+      　　由若干盘片组成一个盘片组，固定在一个主轴上，随着主轴顺一个方向高速旋转。除最顶上和最底下的两个外侧盘面外，其余用于存储数据的盘面称为&quot;记录盘面&quot;，简称&quot;<span class="point">记录面</span>&quot;，记录面上存储数据的同心圆称为&quot;<span class="point">磁道</span>&quot;。每个记录面有一个读/写磁头，所有读写头安装在一个活动臂装置上，可以一起作径向移动。当磁道在读/写头下通过时，便可以进行信息的读/写。<br>
+      <br>
+      　　各记录盘面上直径相同的磁道组成一个&quot;<span class="point">柱面</span>&quot;，一个磁道又可分为若干弧段，称为&quot;<span class="point">扇面</span>&quot;。磁盘信息存取的单位为一个扇面的字符组，称为一个&quot;<span class="point">页块</span>&quot;，因此需用一个三维地址来表明磁盘信息：柱面号、记录面号和页块号。<br>
+      <br>
+      　　为了访问一块信息，首先必须移动动臂使磁头移动到所需柱面（称为定位或寻查），然后等待页块起始位置转到读/写头下，最后读/写所需信息。所需时间由这三个动作所需时间组成：<br>
+      　　　T<font size="1">I/O</font> = <font size="2">t</font><font size="1">seek</font> 
+      + <font size="2">t</font><font size="1">la</font> + n・<font size="2">t</font>wm<br>
+      <br>
+      　　其中，<font size="2">t</font><font size="1">seek</font>为寻查时间；<font size="2">t</font><font size="1">la</font>为等待时间；<font size="2">t</font>wm 
+      为传输(一个字符)时间；n 为页块内字符数目。</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      <br>
+      <br>
+      <br>
+      <br>
+      　　　　<img src="../../../images/pic/chapter11/11_02.gif" width="172" height="317" align="top"> 
+      <br>
+      　　　　　　　　活动头盘示意图 </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

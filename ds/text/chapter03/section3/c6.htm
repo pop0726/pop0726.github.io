@@ -1,0 +1,86 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<script language=JavaScript src="../../chapter02/section1/hpmain.js"></script>
+<script language=JavaScript src="../../chapter02/section1/showhidden.js"></script>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　3.3.2 队列的存储表示和操作的实现</span><br>
+      <br>
+      <span class="zhushi">　二、循环队列</span><br>
+      <img src="../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle" alt="算法"> 
+      <br>
+      <span class="text">　　<b>bool</b> EnQueue (Queue <b><font face="Times New Roman, Times, serif">&amp;</font></b>Q,ElemType 
+      e)<br>
+      <b>　{</b><br>
+      </span><span class="zhushi"><font face="Times New Roman, Times, serif">　//</font> 
+      若当前队列不满，这在当前队列的尾元素之后，<br>
+      <font face="Times New Roman, Times, serif">　//</font> 插入元素 e 为新的队列尾元素,并返回TRUE,否则返回FALSE</span><span class="text"><br>
+      　<b>　if</b> ((Q.rear + 1) <b>%</b> Q.queuesize == Q.front ) <br>
+      　<b>　　return FALSE</b>;<br>
+      　　Q.elem[Q.rear] = e;<br>
+      　　Q.rear = (Q.rear+1) <b>%</b> Q.queuesize;<br>
+      　　<b>return TRUE</b>;<br>
+      <b>　}</b></span> <br>
+      　</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"> 
+      <br>
+      <table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td bgcolor="#ECEEFF" height="14" class="explaination" width="8">&nbsp;</td>
+                <td bgcolor="#ECEEFF" height="14" class="explaination"><img src="../../../images/tubiao/wt.gif" width="23" height="23" align="absmiddle" alt="思考题"> 
+                  由于顺序存储结构是一次性地分配空间，因此在入队列的操作中首先应该判别当前队列是否已经&quot;满&quot;了，那么队列满的判别条件又是什么呢？</td>
+                <td width="15" bgcolor="#ECEEFF" valign="top"><span id="bb"><img border=0 
+                              id=HPFrameHLTab3 
+                              onClick="showHideContent('HPFrameHL');hidden();"
+							   src="../../../images/html/expand.gif" style="CURSOR: hand" width="15" height="14"></span></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <div id=HPFrameHLContent 
+           style="WIDTH: 100%;visibility: hidden;background-color:#ECEEFF" > 
+              <table width="94%" border="0" cellspacing="0" cellpadding="0" align="center">
+                <tr> 
+                  <td class="explaination">　当队尾指针&quot;追上&quot;队头指针时，队列就&quot;满&quot; 
+                    了。尽管它和上面我们说的队列&quot;变空&quot;时的指针变化趋势不同，但对计算机程序来说，它只能判别一个静态的&quot;状态&quot;，因此不能再以 
+                    &quot;两个指针相等&quot;来作为队列满的条件。当然可以为循环队列另设一个&quot;满/空&quot;的标记以示区别。在此采用的是另一种方法，即牺牲一个元素单位的空间，以&quot;队列指针即将追上队头指针&quot;作为&quot;队列满&quot;的判别条件。因此对循环队列来说，它实际可以存放元素的&quot;最大值&quot;要比所设的最大值小1。</td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="text"><img src="../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle" alt="算法"><br>
+      　　<b>int</b> QueueLength (Queue Q)<br>
+      <b>　{</b><br>
+      </span><span class="zhushi"><font face="Times New Roman, Times, serif">　//</font> 
+      返回队列Q中元素个数，即队列的长度</span><span class="text"><br>
+      　　<b>return</b> ((Q.rear-Q.front+Q.queuesize) <b>%</b> Q.queuesize);<br>
+      <b>　}</b></span></td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"> 
+      　<br>
+      　　因为在循环队列中，队尾指针的&quot;数值&quot;有可能比队头指针的数值小，因此为避免在求队列长度两者相减时出现负值的情况，在作取模运算之前先加上一个最大容量的值。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

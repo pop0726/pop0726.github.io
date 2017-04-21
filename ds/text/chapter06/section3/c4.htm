@@ -1,0 +1,93 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　6.3.2 链式存储结构</span><br>
+      <br>
+      <span class="zhushi">　三、双亲链表</span><br>
+      <br>
+      <span class="zhushi"><img src="../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle" alt="算法"> 
+      二叉树的双亲链表存储表示 </span><br>
+      　　<b>const</b> MAXSIZE = 100;　　　　　　　　<font face="Times New Roman, Times, serif">//</font> 
+      暂定二叉树中结点数的最大值为100<br>
+      　　<b>typedef struct</b> BPTNode <b>{</b><font face="Times New Roman, Times, serif">　　　　　　　　//</font> 
+      结点结构<br>
+      　　　ElemType data;<br>
+      　　　<b>int</b> *parent;　<font face="Times New Roman, Times, serif">　　　　　　　　　　　　 
+      //</font> 指向双亲的指针 <br>
+      　　　<b>char</b> LRTag;　　　　　　　　　　　　　　　<font face="Times New Roman, Times, serif">//</font> 
+      左、右孩子标志域<br>
+      　　<b>}</b> BPTNode<br>
+      　　<b>typedef struct</b> BPTree<b>{</b><font face="Times New Roman, Times, serif">　　　　　　　　　//</font> 
+      树结构 <br>
+      　　　BPTNode *nodes; <font face="Times New Roman, Times, serif">　　　　　　　　　　　　//</font> 
+      初始化时分配存储空间<br>
+      　　　<b>int</b> nodeNum; <font face="Times New Roman, Times, serif">　　　　　　　　　　　　　//</font> 
+      结点数目 <br>
+      　　　<b>int</b> root;<font face="Times New Roman, Times, serif">　　　　　　　　　　　　　　　//</font> 
+      根结点的位置<br>
+      　　<b>}</b> BPTree<br>
+      　　　<b>cin</b>&gt;&gt;BT.nodeNum;<font face="Times New Roman, Times, serif">　　　　　　　　　　　 
+      //</font> 输入结点数目<br>
+      　　　BT.root=0;<br>
+      　　　<b>cin</b>&gt;&gt; BT.nodes[0].data; <font face="Times New Roman, Times, serif">　　　　　　　　//</font> 
+      输入根<br>
+      　　　BT.nodes[0].parent = -1;<font face="Times New Roman, Times, serif">　　　　　　　　//</font> 
+      根的双亲为空<br>
+      　　　BT.nodes[0].LRTag = 'L'; <br>
+      　　　<b>for</b> (i=1; i&lt;BT.nodeNum; i++)<br>
+      　　　{<br>
+      　　　　<b>cin</b>&gt;&gt; BT.nodes[i].data &gt;&gt; F &gt;&gt;BT.nodes[i].LRtag;<br>
+      　　　　k=i-1;<br>
+      　　　　<b>while</b> (k&gt;=0 <b><font face="Times New Roman, Times, serif">&amp;&amp;</font></b> 
+      BT.nodes[k].data != F) k--; <font face="Times New Roman, Times, serif">//</font> 
+      查询双亲<br>
+      　　　　<b>if</b> (k&lt;0) <b>return</b> FALSE; <font face="Times New Roman, Times, serif">　　　　　　　//</font> 
+      没有找到双亲<br>
+      　　　　BT.nodes[i].parent = k;<br>
+      　　　　<b>return</b> TRUE;<br>
+      　　　<b>}</b><br>
+      　　<b>}</b><br>
+    </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      　　显然，也可以只含双亲信息的链表表示二叉树，但由于二叉树的子树有左、右之分，因此在只含双亲指针的结点中还必须包含一个&quot;左右标志&quot;的信息。<br>
+      <br>
+      　　双亲链表的结点结构：<br>
+      <br>
+      <table width="180" border="0" cellspacing="1" cellpadding="0" align="center" bgcolor="#003399">
+        <tr> 
+          <td background="../../../images/html/right_di4.gif" class="explaination" width="60"> 
+            <div align="center">data</div>
+          </td>
+          <td background="../../../images/html/right_di4.gif" class="explaination" width="60"> 
+            <div align="center">parent</div>
+          </td>
+          <td background="../../../images/html/right_di4.gif" class="explaination"> 
+            <div align="center">LRTag</div>
+          </td>
+        </tr>
+      </table>
+      <br>
+      　　显然由这种结构的结点构成的链表无法只用一个指针来表示，所有的结点必须存放在一个地址连续的存储空间中，即在构造存储结构时首先需为结点动态分配存储空间。结点在数组中的存储位置由输入的先后次序自然形成。<br>
+      <br>
+      　　 <img src="../../../images/pic/chapter06/6_08.gif" width="190" height="147" align="top"><br>
+      <br>
+      　　例如上图所示二叉树的输入数据为：<br>
+      　6,A,(B,A,L),(C,B,R),(D,A,R),(E,D,R),(F,E,L)<br>
+      <br>
+      　　则按算法6.1建立的双亲链表如下所示。<br>
+      　　　　<img src="../../../images/pic/chapter06/gs_2.gif" width="166" height="210" align="top"> 
+    </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

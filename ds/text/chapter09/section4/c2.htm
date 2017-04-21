@@ -1,0 +1,495 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　9.4.2 构造哈希函数的方法</span><br>
+      <br>
+      　　若对于关键字集合中的任意一个关键字，经哈希函数映象到地址集合中任何一个地址的概率相等，则称此类哈希函数为<span class="point">均匀的</span>哈希函数。对数值型的关键字，常用的构造均匀的哈希函数的方法有如下几种：<br>
+      <br>
+      <span class="zhushi">　一、直接定址法</span><br>
+      <br>
+      　　取关键字本身或关键字的某个线性函数值作为哈希表的地址。<br>
+      　　即 Hash(key)=key 或 Hash(key)=a key+b （a 和 b 均为常数）<br>
+      　　直接定址所得地址集的大小和关键字集的大小相同，关键字和地址一一对应，决不会产生冲突。但实际应用中能采用直接定址的情况极少。<br>
+      　</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      <br>
+      　　从理论上讲，哈希函数的构造本无定则可言，因为Hash（哈希）的原义是&quot;杂凑&quot;。但从实用上说，设定的哈希函数不仅要求其函数值必须落在预设的表长范围内，而且应对当前所讨论的关键字集合尽可能少地产生冲突，称这样的哈希函数为&quot;好&quot;的哈希函数。 
+      <p>　　例如，对于关键字(学号)为02000至02999的哈希表，可取关键字的后三位为哈希函数。</p>
+    </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="zhushi">　二、数字分析法</span><br>
+      <br>
+      　　如果可能出现的关键字的数位相同，且取值事先知道，则可对关键字进行分析，取其中&quot;分布均匀&quot;的若干位或它们的组合作为哈希表的地址。<br>
+      　　例如已知80个记录的关键字为8位十进制数（右图列出其中部分），假设哈希表的表长为100，即地址为00～99。由于关键字中的第 1、2、3 和 
+      8 位取值集中在某几个数上，则应取其余四位中的任意两位或其中两位与另两位之叠加和（舍去进位）作为哈希地址。<br>
+    </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"> 
+      
+      <table border="0" cellspacing="0" cellpadding="0" width="200" align="center">
+        <tr> 
+          <td class="explaination"> 
+            <div align="center">①</div>
+          </td>
+          <td class="explaination"> 
+            <div align="center">②</div>
+          </td>
+          <td class="explaination"> 
+            <div align="center">③</div>
+          </td>
+          <td class="explaination"> 
+            <div align="center">④</div>
+          </td>
+          <td class="explaination"> 
+            <div align="center">⑤</div>
+          </td>
+          <td class="explaination"> 
+            <div align="center">⑥</div>
+          </td>
+          <td class="explaination"> 
+            <div align="center">⑦</div>
+          </td>
+          <td class="explaination"> 
+            <div align="center">⑧</div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="explaination"> 
+            <div align="center">0</div>
+          </td>
+          <td class="explaination"> 
+            <div align="center">2</div>
+          </td>
+          <td class="explaination"> 
+            <div align="center">1</div>
+          </td>
+          <td class="explaination"> 
+            <div align="center">4</div>
+          </td>
+          <td class="explaination"> 
+            <div align="center">6</div>
+          </td>
+          <td class="explaination"> 
+            <div align="center">5</div>
+          </td>
+          <td class="explaination"> 
+            <div align="center">3</div>
+          </td>
+          <td class="explaination"> 
+            <div align="center">2</div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="explaination"> 
+            <div align="center">0</div>
+          </td>
+          <td class="explaination"> 
+            <div align="center">2</div>
+          </td>
+          <td class="explaination"> 
+            <div align="center">1</div>
+          </td>
+          <td class="explaination"> 
+            <div align="center">7</div>
+          </td>
+          <td class="explaination"> 
+            <div align="center">2</div>
+          </td>
+          <td class="explaination"> 
+            <div align="center">2</div>
+          </td>
+          <td class="explaination"> 
+            <div align="center">4</div>
+          </td>
+          <td class="explaination"> 
+            <div align="center">2</div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="explaination"> 
+            <div align="center">0</div>
+          </td>
+          <td class="explaination"> 
+            <div align="center">2</div>
+          </td>
+          <td class="explaination"> 
+            <div align="center">2</div>
+          </td>
+          <td class="explaination"> 
+            <div align="center">8</div>
+          </td>
+          <td class="explaination"> 
+            <div align="center">7</div>
+          </td>
+          <td class="explaination"> 
+            <div align="center">4</div>
+          </td>
+          <td class="explaination"> 
+            <div align="center">2</div>
+          </td>
+          <td class="explaination"> 
+            <div align="center">7</div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="explaination"> 
+            <div align="center">0</div>
+          </td>
+          <td class="explaination"> 
+            <div align="center">2</div>
+          </td>
+          <td class="explaination"> 
+            <div align="center">2</div>
+          </td>
+          <td class="explaination"> 
+            <div align="center">0</div>
+          </td>
+          <td class="explaination"> 
+            <div align="center">1</div>
+          </td>
+          <td class="explaination"> 
+            <div align="center">3</div>
+          </td>
+          <td class="explaination"> 
+            <div align="center">6</div>
+          </td>
+          <td class="explaination"> 
+            <div align="center">7</div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="explaination"> 
+            <div align="center">0</div>
+          </td>
+          <td class="explaination"> 
+            <div align="center">2</div>
+          </td>
+          <td class="explaination"> 
+            <div align="center">2</div>
+          </td>
+          <td class="explaination"> 
+            <div align="center">2</div>
+          </td>
+          <td class="explaination"> 
+            <div align="center">8</div>
+          </td>
+          <td class="explaination"> 
+            <div align="center">8</div>
+          </td>
+          <td class="explaination"> 
+            <div align="center">1</div>
+          </td>
+          <td class="explaination"> 
+            <div align="center">7</div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="explaination"> 
+            <div align="center">0</div>
+          </td>
+          <td class="explaination"> 
+            <div align="center">2</div>
+          </td>
+          <td class="explaination"> 
+            <div align="center">2</div>
+          </td>
+          <td class="explaination"> 
+            <div align="center">3</div>
+          </td>
+          <td class="explaination"> 
+            <div align="center">2</div>
+          </td>
+          <td class="explaination"> 
+            <div align="center">9</div>
+          </td>
+          <td class="explaination"> 
+            <div align="center">8</div>
+          </td>
+          <td class="explaination"> 
+            <div align="center">2</div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="explaination"> 
+            <div align="center">0</div>
+          </td>
+          <td class="explaination"> 
+            <div align="center">2</div>
+          </td>
+          <td class="explaination"> 
+            <div align="center">3</div>
+          </td>
+          <td class="explaination"> 
+            <div align="center">5</div>
+          </td>
+          <td class="explaination"> 
+            <div align="center">4</div>
+          </td>
+          <td class="explaination"> 
+            <div align="center">1</div>
+          </td>
+          <td class="explaination"> 
+            <div align="center">5</div>
+          </td>
+          <td class="explaination"> 
+            <div align="center">2</div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="explaination"> 
+            <div align="center">0</div>
+          </td>
+          <td class="explaination"> 
+            <div align="center">2</div>
+          </td>
+          <td class="explaination"> 
+            <div align="center">3</div>
+          </td>
+          <td class="explaination"> 
+            <div align="center">6</div>
+          </td>
+          <td class="explaination"> 
+            <div align="center">8</div>
+          </td>
+          <td class="explaination"> 
+            <div align="center">5</div>
+          </td>
+          <td class="explaination"> 
+            <div align="center">3</div>
+          </td>
+          <td class="explaination"> 
+            <div align="center">5</div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="explaination"> 
+            <div align="center">0</div>
+          </td>
+          <td class="explaination"> 
+            <div align="center">2</div>
+          </td>
+          <td class="explaination"> 
+            <div align="center">3</div>
+          </td>
+          <td class="explaination"> 
+            <div align="center">1</div>
+          </td>
+          <td class="explaination"> 
+            <div align="center">9</div>
+          </td>
+          <td class="explaination"> 
+            <div align="center">3</div>
+          </td>
+          <td class="explaination"> 
+            <div align="center">2</div>
+          </td>
+          <td class="explaination"> 
+            <div align="center">7</div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="explaination"> 
+            <div align="center">0</div>
+          </td>
+          <td class="explaination"> 
+            <div align="center">2</div>
+          </td>
+          <td class="explaination"> 
+            <div align="center">3</div>
+          </td>
+          <td class="explaination"> 
+            <div align="center">9</div>
+          </td>
+          <td class="explaination"> 
+            <div align="center">5</div>
+          </td>
+          <td class="explaination"> 
+            <div align="center">7</div>
+          </td>
+          <td class="explaination"> 
+            <div align="center">1</div>
+          </td>
+          <td class="explaination"> 
+            <div align="center">5</div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="explaination"> 
+            <div align="center"></div>
+          </td>
+          <td class="explaination"> 
+            <div align="center"></div>
+          </td>
+          <td class="explaination"> 
+            <div align="center"></div>
+          </td>
+          <td class="explaination"> 
+            <div align="center">． </div>
+          </td>
+          <td class="explaination"> 
+            <div align="center">．</div>
+          </td>
+          <td class="explaination"> 
+            <div align="center">．</div>
+          </td>
+          <td class="explaination"> 
+            <div align="center"></div>
+          </td>
+          <td class="explaination"> 
+            <div align="center"></div>
+          </td>
+        </tr>
+      </table>
+    　<br>
+    </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"> <span class="zhushi">　三、平方取中法</span><br>
+      <br>
+      　　如果关键字的所有各位分布都不均匀，则可取关键字的平方值的中间若干位作为哈希表的地址。由于一个数的平方值的中间几位数受该数所有位影响，将使随机分布的关键字得到的哈希函数值也随机。<br>
+    </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　例如：下列八进制数的关键字及其哈希地址<br>
+      <table border="0" cellspacing="1" cellpadding="0" align="center" width="200" bgcolor="#003399">
+        <tr> 
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">关键字</div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">(关键字)<sup><font size="1">2</font></sup></div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">哈希地址</div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">0100</div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">0<a href="#" class="section"><font color="#003399"><b>010</b></font></a>000</div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">010</div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">1100</div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">1<a href="#" class="section"><font color="#003399"><b>210</b></font></a>000</div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">210</div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">1200</div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">1<a href="#" class="section"><font color="#003399"><b>440</b></font></a>000</div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">440</div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">1160</div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">1<a href="#" class="section"><font color="#003399"><b>370</b></font></a>400</div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">370</div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">2061</div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">4<a href="#" class="section"><font color="#003399"><b>310</b></font></a>541</div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">310</div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">2062</div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">4<a href="#" class="section"><font color="#003399"><b>314</b></font></a>704</div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">314</div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">2161</div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">4<a href="#" class="section"><font color="#003399"><b>734</b></font></a>741</div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">734</div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">2162</div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">4<a href="#" class="section"><font color="#003399"><b>741</b></font></a>304</div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">741</div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">2163</div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">4<a href="#" class="section"><font color="#003399"><b>745</b></font></a>651</div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">745</div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center"></div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center">…</div>
+          </td>
+          <td class="explaination" background="../../../images/html/right_di4.gif"> 
+            <div align="center"></div>
+          </td>
+        </tr>
+      </table>
+    </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

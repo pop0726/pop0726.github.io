@@ -1,0 +1,165 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<script language=JavaScript src="hpmain.js"></script>
+<script language=JavaScript src="showhidden.js"></script>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　2.2.1 顺序表</span><br>
+      <br>
+      <span class="text">　　用C语言描述的</span><b><span class="point">顺序表类型</span></b><span class="text">如下所示：<br>
+      <br>
+      </span><span class="zhushi"><font face="Times New Roman, Times, serif">//</font> 
+      存储结构</span><span class="text"><br>
+      　　<b>const</b> <b>int</b> MAXLISTSIZE=80; <font face="Times New Roman, Times, serif">//</font> 
+      预设的存储空间最大容量<br>
+      　　<b>typedef struct {</b> <br>
+      　　ElemType <b>*</b>elem;　　　　<font face="Times New Roman, Times, serif">//</font> 
+      存储空间基址 <br>
+      　　<b>int</b> length; 　　　　　<font face="Times New Roman, Times, serif">//</font> 
+      当前长度 <br>
+      　　<b>int</b> listsize;　　　　 <font face="Times New Roman, Times, serif">//</font> 
+      允许的最大存储容量(以<b>sizeof</b>(ElemType)为单位)<br>
+      　　<b>}</b> SqList;　　　　　　 <font face="Times New Roman, Times, serif">//</font> 
+      俗称 <b>顺序表</b> <br>
+      　</span> </td>
+    <td background="../../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      <br>
+      <br>
+      <br>
+      　　由于线性表的长度是可变的，因此对顺序表的定义除了需要一个存储元素的一维数组空间以外，还需要两个数据成员：其中一个指示顺序表中已有的元素个数，另一个指示该顺序表允许存放的数据元素个数的最大值，如下图所示。ElemType 
+      为元素类型。<br>
+      <br>
+      　<span class="text"><img src="../../../../images/pic/chapter02/2_2.gif" width="238" height="61" align="top"></span></td>
+    <td background="../../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="zhushi"><font face="Times New Roman, Times, serif">//</font> 
+      基本操作接口(函数声明)</span><span class="text"><br>
+      <br>
+      　<b>void</b> InitList ( SqList <b><font face="Times New Roman, Times, serif">&amp;</font></b>L, <b>int</b> maxsize );<br>
+      <font color="#97c594">　<font face="Times New Roman, Times, serif">//</font>　构造一个最大存储容量为 
+      maxsize 的空的顺序表 L。</font><br>
+      　</span></td>
+    <td background="../../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      <br>
+      　　maxsize 由用户设定，其默认值为系统设定值MAXLISTSIZE 。</td>
+    <td background="../../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="text">　<b>void</b> DestroyList 
+      ( SqList <b><font face="Times New Roman, Times, serif">&amp;</font></b>L 
+      )<br>
+      　<font color="#97c594" face="Times New Roman, Times, serif">//</font><font color="#97c594">　销毁顺序表 
+      L。</font><br>
+      <br>
+      　<b>bool</b> ListEmpty ( SqList L )<br>
+      <font color="#97c594">　<font face="Times New Roman, Times, serif">//</font>　若顺序表 
+      L 为空表，则返回<b>TRUE</b>，否则返回<b> FALSE</b>。<br>
+      </font><br>
+      　<b>int</b> ListLength ( SqList L )<br>
+      <font color="#97c594">　<font face="Times New Roman, Times, serif">//</font>　返回顺序表 
+      L 中元素个数。<br>
+      </font><br>
+      　<b>int</b> PriorElem ( SqList L, ElemType cur_e )<br>
+      <font color="#97c594">　<font face="Times New Roman, Times, serif">//</font>　若 
+      cur_e 是顺序表 L 的元素，则返回其前驱的位序<br>
+      　<font face="Times New Roman, Times, serif">//</font>　(设第一个元素的前驱的位序为0)，否则返回 
+      -1。<br>
+      </font><br>
+      　<b>int</b> NextElem ( SqList L, ElemType cur_e )<br>
+      <font color="#97c594">　<font face="Times New Roman, Times, serif">//</font>　若 
+      cur_e 是顺序表 L 的元素，则返回其后继的位序<br>
+      　<font face="Times New Roman, Times, serif">//</font> (设最后一个元素的后继的位序为L的表长+1)，否则返回 
+      -1。<br>
+      </font><br>
+      　<b>bool</b> GetElem ( SqList L, <b>int</b> pos, ElemType <b><font face="Times New Roman, Times, serif">&amp;</font></b>e 
+      )<br>
+      <font color="#97c594">　<font face="Times New Roman, Times, serif">//</font>　若<b>1≤pos≤LengthList(L)</b>，则用 
+      e 带回顺序表 L 中第 pos 个元素<br>
+      　<font face="Times New Roman, Times, serif">//</font>　的值且返回函数值为<b>TRUE</b>，否则返回函数值为<b>FALSE</b>。<br>
+      </font><br>
+      　<b>int</b> LocateElem ( SqList L, ElemType e, <b>bool</b> (*compare)(ElemType, 
+      ElemType ) ) <br>
+      <font color="#97c594">　<font face="Times New Roman, Times, serif">//</font>　返回顺序表L中<b>第1个</b>与 
+      e<b> 满足</b>关系 compare( ) 的数据元素的位序。<br>
+      　<font face="Times New Roman, Times, serif">//</font>　若这样的元素不存在，则返回值为0。compare( 
+      )为数据元素的判定函数。<br>
+      </font><br>
+      　<b>void</b> ListTraverse ( SqList L, <b>void</b> (*visit)(ElemType ))<br>
+      <font color="#97c594">　<font face="Times New Roman, Times, serif">//</font>　<b>依次</b>对顺序表 
+      L 的每个元素调用函数 visit( )。<br>
+      　<font face="Times New Roman, Times, serif">//</font>　一旦 visit( ) 失败，则操作失败。</font><br>
+      <br>
+      　<b>void</b> ClearList( SqList <b><font face="Times New Roman, Times, serif">&amp;</font></b>L 
+      )<br>
+      <font color="#97c594">　<font face="Times New Roman, Times, serif">//</font>　将顺序表 
+      L 重置为空表。</font><br>
+      <br>
+      　<b>bool</b> PutElem ( SqList L, <b>int</b> pos, ElemType <b><font face="Times New Roman, Times, serif">&amp;</font></b>e 
+      )<br>
+      <font color="#97c594">　<font face="Times New Roman, Times, serif">//</font>　若<b>1≤pos≤LengthList(L)</b>，则对顺序表 
+      L 中第 pos 个元素<br>
+      　<font face="Times New Roman, Times, serif">//</font>　赋值同 e 的值且返回函数值为 TRUE，否则返回函数值为 
+      FALSE。</font><br>
+      <br>
+      　<b>bool</b> ListInsert ( SqList <b><font face="Times New Roman, Times, serif">&amp;</font></b>L, 
+      <b>int</b> pos, ElemType e )<br>
+      <font color="#97c594">　<font face="Times New Roman, Times, serif">//</font>　若存储空间未满且<b>1≤pos≤LengthList(L)+1</b>，则在顺序表 
+      L 的<br>
+      　<font face="Times New Roman, Times, serif">//</font>　第 pos 个元素之前插入新的元素 
+      e，L的长度增1，且返回函数值为TRUE，<br>
+      　<font face="Times New Roman, Times, serif">//</font>　否则不改变顺序表且返回函数值为 FALSE。</font><br>
+      <br>
+      　<b>bool</b> ListDelete ( SqList <b><font face="Times New Roman, Times, serif">&amp;</font></b>L, 
+      <b>int</b> pos, ElemType <b><font face="Times New Roman, Times, serif">&amp;</font></b>e)<br>
+      <font color="#97c594">　<font face="Times New Roman, Times, serif">//</font>　若<b>1≤pos≤LengthList(L)</b>，则删除顺序表 
+      L 的第 pos 个元素 e，<br>
+      　<font face="Times New Roman, Times, serif">//</font>　L的长度增1，且返回函数值为TRUE，否则不改变顺序表且返回函数值为FALSE。</font></span></td>
+    <td background="../../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      <table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td bgcolor="#ECEEFF" height="14" class="explaination" width="8">&nbsp;</td>
+                <td bgcolor="#ECEEFF" height="14" class="explaination"><img src="../../../../images/tubiao/wt.gif" width="23" height="23" align="absmiddle" alt="思考题">如果你已经学习了C++语言，那么你认为这里讨论的顺序表类型和C++语言中的 
+                  &quot;类&quot; 有何联系？</td>
+                <td width="15" bgcolor="#ECEEFF" valign="top"><span id="bb"><img border=0 
+                              id=HPFrameHLTab3 
+                              onClick="showHideContent('HPFrameHL');hidden();"
+							   src="../../../../images/html/expand.gif" style="CURSOR: hand" width="15" height="14"></span></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <div id=HPFrameHLContent 
+           style="WIDTH: 100%;visibility: hidden;background-color:#ECEEFF" > 
+              <table width="94%" border="0" cellspacing="0" cellpadding="0" align="center">
+                <tr> 
+                  <td class="explaination">　可以这么看，抽象数据类型是面向对象程序设计的理论基础。如果以顺序存储结构来实现抽象数据类型线性表，则用面向对象的程序设计语言编程时就可以实现一个&quot;顺序表类&quot;。这里对顺序表类型的结构定义即为顺序表类私有的数据成员，所定义的基本操作即为顺序表类中的成员函数。　　</td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </td>
+    <td background="../../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　9.2.5 次优查找树-静态查找表的实现方法之四</span><br>
+      <br>
+      　　在9.2.3中讨论折半查找的平均查找长度的前提是查找表中各关键字的查找概率相同。如果表中各关键字的查找概率不同，那么折半查找是否是在有序表中进行查找的最好选择呢？<br>
+      <br>
+      　　例如，已知含5个关键字(A,B,C,D,E)的有序表中各关键字的查找概率依次为<img src="../../../images/pic/chapter09/p1.gif" width="13" height="16" align="absmiddle">=0.2, 
+      <img src="../../../images/pic/chapter09/p2.gif" width="13" height="16" align="absmiddle">=0.3, 
+      <img src="../../../images/pic/chapter09/p3.gif" width="14" height="16" align="absmiddle">=0.05, 
+      <img src="../../../images/pic/chapter09/p4.gif" width="13" height="16" align="absmiddle">=0.3, 
+      <img src="../../../images/pic/chapter09/p5.gif" width="13" height="16" align="absmiddle">=0.15，则对该有序表进行折半查找的平均查找长度为：<br>
+      　　<img src="../../../images/pic/chapter09/gs_11.gif" width="96" height="43" align="absmiddle"> 
+      = 0.2<img src="../../../images/pic/chapter04/t5.gif" width="7" height="7">2 
+      + 0.3<img src="../../../images/pic/chapter04/t5.gif" width="7" height="7">3 
+      + 0.05<img src="../../../images/pic/chapter04/t5.gif" width="7" height="7">1 
+      + 0.3<img src="../../../images/pic/chapter04/t5.gif" width="7" height="7">2 
+      + 0.15<img src="../../../images/pic/chapter04/t5.gif" width="7" height="7">3 
+      = 2.4<br>
+      <br>
+      　　如果改变查找时和给定值进行比较的关键字的顺序，例如对此例的有序表，令给定值首先和第二个关键字&quot;B&quot;进行比较，然后和关键字&quot;A&quot;或&quot;D&quot;进行比较等，其判定树如右所示。此时的平均查找长度为：<br>
+      　　<img src="../../../images/pic/chapter09/gs_11.gif" width="96" height="43" align="absmiddle"> 
+      = 0.2<img src="../../../images/pic/chapter04/t5.gif" width="7" height="7">2 
+      + 0.3<img src="../../../images/pic/chapter04/t5.gif" width="7" height="7">1 
+      + 0.05<img src="../../../images/pic/chapter04/t5.gif" width="7" height="7">3 
+      + 0.3<img src="../../../images/pic/chapter04/t5.gif" width="7" height="7">2 
+      + 0.15<img src="../../../images/pic/chapter04/t5.gif" width="7" height="7">3 
+      = 1.9<br>
+      <br>
+      　　显然比折半查找要好。从此例可见，当有序表中各关键字的查找概率不等时，折半查找的性能未必是最优的，那么此时的查找过程应该如何进行呢？<br>
+      <br>
+      　　由于是有序表，显然希望这个查找过程仍然按&quot;缩小区间&quot;方式进行，只是和给定值进行比较的首选关键字不一定是位于区间中间位置的关键字，换句话说，为使平均查找长度尽可能小，应选哪一个关键字作为判定树的根结点？<br>
+      <br>
+      　　如果考虑所有查找成功和查找不成功的情况，并假设每一种查找不成功的情况出现的概率为<img src="../../../images/pic/chapter09/qi.gif" width="13" height="15" align="absmiddle">，该定值和关键字比较的次数为<img src="../../../images/pic/chapter09/ci_.gif" width="14" height="18" align="absmiddle">，则可定义：使得<br>
+      　　　<img src="../../../images/pic/chapter09/gs_12.gif" width="186" height="46"><br>
+      　　在<br>
+      　　　<img src="../../../images/pic/chapter09/gs_13.gif" width="109" height="41"><br>
+      　<br>
+    </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　<br>
+      　<br>
+      　　以上讨论的表示静态查找表的几种结构都是线性结构，本节将介绍的一种实现方法是以&quot;二叉树&quot;表示静态查找表。从9.1节中的叙述读者已经知道，静态查找表的操作主要是&quot;查询&quot;和&quot;检索&quot;，很少进行插入和删除，因此一般情况下采用线性结构足矣，那么采用二叉树结构表示静态查找表的前提是什么呢？<br>
+      <br>
+      　　<img src="../../../images/pic/chapter09/9_02.gif" width="232" height="175" align="top"><br>
+      <br>
+      　　通常称图中表示查找不成功情况的方形结点为判定树的&quot;外结点&quot;，反之，称表示查找成功的圆形结点为判定树的&quot;内结点&quot;。<br>
+      <br>
+      　　容易看出，在长度为n的有序表的判定树上，有 n 个内结点和 n+1 个外结点，各个外结点恰好指示给定值小于最小关键字或大于最大关键字或介于某两个关键字之间的 
+      n+1 种情况。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">　　前提下取最小值的二叉树(判定树)为最优二叉查找树。换句话说，依照最优二叉树的判定条件进行查找可使平均查找长度达到最小。<br>
+      　　如果只考虑查找成功的情况，并为讨论方便起见引入常量 c，令<img src="../../../images/pic/chapter09/gs_38.gif" width="47" height="14" align="absmiddle">(i=1,2,…,n),(<img src="../../../images/pic/chapter09/pi.gif" width="15" height="12" align="absmiddle">为结点的查找概率)，则称 
+      <img src="../../../images/pic/chapter09/wi.gif" width="13" height="18" align="absmiddle"> 
+      为结点的&quot;权&quot;， 称 <br>
+      　　<img src="../../../images/pic/chapter09/gs_14.gif" width="81" height="36" align="absmiddle">　为带权内路径长度之和。 
+      <p>　　其中：n 为二叉树（判定树）上的结点个数(即有序表的长度)；<img src="../../../images/pic/chapter09/hi.gif" width="11" height="17" align="absmiddle"> 
+        为第 i 个结点在二叉树上的层次。<br>
+        <br>
+        　　若某个二叉树的PH值在所有具有同样权值的二叉树中近似为最小，则称它为&quot;<span class="point">次优查找树</span>&quot;(Nearly 
+        Search Tree)。</p>
+    </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"> 
+      　　根据给定的 n 个<img src="../../../images/pic/chapter09/pil.gif" width="15" height="12" align="absmiddle"> 
+      值和 n+1 个 <img src="../../../images/pic/chapter09/qil.gif" width="13" height="15" align="absmiddle"> 
+      值构造最优二叉树的方法较复杂，且在 n 很大时花费的低价较高。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

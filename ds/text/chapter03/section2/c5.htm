@@ -1,0 +1,77 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<script language=JavaScript src="../../chapter02/section1/hpmain.js"></script>
+<script language=JavaScript src="../../chapter02/section1/showhidden.js"></script>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　3.2.4 表达式求值问题</span><br>
+      <br>
+      　　任何一个表达式都是由<span class="point">操作数(operand)</span>、<span class="point">运算符(operator)</span>和<span class="point">界限符(delimiter)</span>组成，其中，操作数可以是常数也可以是被说明为变量或常量的标识符；运算符可以分为算术运算符、关系运算符和逻辑运算符等三类；基本界限符有左右括弧和表达式结束符等。为了叙述简洁，在此仅限于讨论只含二元运算符的算术表达式。可将这种表达式定义为：<br>
+      　　　表达式::= 操作数 运算符 操作数 <br>
+      　　　操作数::= 简单变量 | 表达式<br>
+      　　简单变量::= 标识符 | 无符号整数<br>
+      <br>
+      　　由于算术运算的规则是：先乘除后加减、先左后右和先括弧内后括弧外，则对表达式进行运算不能按其中运算符出现的先后次序进行。那么怎么办？其中一个方法是先将它转换成另一种形式。<br>
+      　</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      <br>
+      <table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td bgcolor="#ECEEFF" height="14" class="explaination" width="8">&nbsp;</td>
+                <td bgcolor="#ECEEFF" height="14" class="explaination"><img src="../../../images/tubiao/wt.gif" width="23" height="23" align="absmiddle" alt="思考题"> 
+                  你在以往编制的程序中一定含有表达式，或是算术表达式或是逻辑表达式。那么你有没有想过编译程序是如何处理这些表达式的？</td>
+                <td width="15" bgcolor="#ECEEFF" valign="top"><span id="bb"><img border=0 
+                              id=HPFrameHLTab3 
+                              onClick="showHideContent('HPFrameHL');hidden();"
+							   src="../../../images/html/expand.gif" style="CURSOR: hand" width="15" height="14"></span></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <div id=HPFrameHLContent 
+           style="WIDTH: 100%;visibility: hidden;background-color:#ECEEFF" > 
+              <table width="94%" border="0" cellspacing="0" cellpadding="0" align="center">
+                <tr> 
+                  <td class="explaination">　你以后在学习编译原理时将会学到很多处理方法，而我们在此只触及皮毛，目的是为了看看栈在里面能起什么作用。</td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">　　在计算机中，对这种二元表达式可以有三种不同的标识方法。<br>
+      <span class="text">　　假设 Exp = S1 + </span><b class="zhushi">OP</b><span class="text"> 
+      + S2<br>
+      　　则称 </span><b class="zhushi">OP</b><span class="text"> + S1 + S2 为表达式的<b>前缀表示法</b>（简称<b>前缀式</b>）<br>
+      　　　称 S1 + </span><b class="zhushi">OP</b><span class="text"> + S2 为表达式的<b>中缀表示法</b>（简称<b>中缀式</b>）<br>
+      　　　称 S1 + S2 + </span><b class="zhushi">OP</b><span class="text"> 为表达式的<b>后缀表示法</b>（简称<b>后缀式</b>）</span><br>
+      <br>
+      　　可见，它以运算符所在不同位置命名的。<br>
+      　<br>
+    </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">正文中对表达式的定义可解释为：<br>
+      　　二元表达式是由（第一）操作数（S1）、运算符（OP）和（第二）操作数（S2）三部分依次联接而成；其中的操作数可以是简单变量，也可以是表达式；而简单变量可以是标识符，也可以是无符号整数。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

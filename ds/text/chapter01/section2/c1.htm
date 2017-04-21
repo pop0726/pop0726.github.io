@@ -1,0 +1,107 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　1.2.1 基本概念和术语</span><br>
+      <br>
+      　<span class="point">・数据</span><br>
+      　　是所有能被输入到计算机中，且能被计算机处理的符号(数字、字符等)的集合，它是计算机操作对象的总称。<br>
+      　　是计算机处理的信息的某种特定的符号表示形式。<br>
+      <br>
+      　<span class="point">・数据元素</span><br>
+      　　是数据(集合)中的一个&quot;个体&quot;，在计算机中通常作为一个整体进行考虑和处理，是数据结构中讨论的&quot;基本单位&quot;。<br>
+      　　有两类数据元素：一类是不可分割的&quot;原子&quot;型数据元素，如：整数&quot;5&quot;，字符 &quot;N&quot; 
+      等；另一类是由多个款项构成的数据元素，其中每个款项被称为一个&quot;<span class="point">数据项</span>&quot;。例如描述一个学生的信息的数据元素可由下列6个数据项组成。其中的出身日期又可以由三个数据项：&quot;年&quot;、&quot;月&quot;和&quot;日&quot;组成，则称&quot;出身日期&quot;为&quot;<span class="point">组合项</span>&quot;，而其它不可分割的数据项为&quot;<span class="point">原子项</span>&quot;。<br>
+      <br>
+      <table width="280" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td colspan="6"> 
+            <table width="280" border="0" cellspacing="1" cellpadding="0" bgcolor="#FFFFFF">
+              <tr bgcolor="#4A5594"> 
+                <td class="white" bgcolor="#4A5594" width="40"> 
+                  <div align="center">姓名</div>
+                </td>
+                <td class="white" width="40"> 
+                  <div align="center">学号</div>
+                </td>
+                <td class="white" width="40"> 
+                  <div align="center">性别</div>
+                </td>
+                <td class="white" width="40"> 
+                  <div align="center">班号</div>
+                </td>
+                <td class="white" width="60"> 
+                  <div align="center">出生日期</div>
+                </td>
+                <td class="white" width="60" bgcolor="#4A5594"> 
+                  <div align="center">入学成绩</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr> 
+          <td width="40">&nbsp;</td>
+          <td width="40" class="white">　</td>
+          <td width="40" class="white">　</td>
+          <td width="40" class="white">　</td>
+          <td width="60" class="white"> 
+            <table width="60" border="0" cellspacing="1" cellpadding="0" bgcolor="#FFFFFF">
+              <tr bgcolor="#4A5594"> 
+                <td class="white" bgcolor="#4A5594" width="20"> 
+                  <div align="center">年</div>
+                </td>
+                <td class="white" width="20"> 
+                  <div align="center">月</div>
+                </td>
+                <td class="white" width="20"> 
+                  <div align="center">日</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+          <td width="60" class="white">　</td>
+        </tr>
+      </table>
+      <br>
+      　　数据项是数据结构中讨论的&quot;最小单位&quot;。<br>
+      　</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　<br>
+      　<br>
+      　　数据是个集合，如果用集合的表示方法来写的话，就是<br>
+      　　　　数据={x|x是计算机操作的对象}<br>
+      <br>
+      　　它包括所有的数字和字符。图形和声音等信息最后也都可以转化为&quot;字符&quot;进行处理。而这些字符和数字是客观信息的一种描述。如&quot;3000&quot;，可以表示某个城市的3000万人口，也可表示3000元/平方的房价。<br>
+      　</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">　<span class="point">・关键字</span><br>
+      　　指的是能识别一个或多个数据元素的数据项。若能起唯一识别作用，则称之为 &quot;主&quot; 关键字，否则称之为 &quot;次&quot; 
+      关键字。<br>
+      　</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">
+      　　在由多个数据项构成的数据元素中必定存在关键字。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">　<span class="point">・数据对象</span><br>
+      　　是具有相同特性的数据元素的集合，如：整数、实数等。它是数据的一个子集。</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　　在同一个数学模型中的数据元素必然具有相同特性。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

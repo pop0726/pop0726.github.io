@@ -1,0 +1,67 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　10.2.4 希尔排序</span><br>
+      <br>
+      <img src="../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle"> 
+      <span class="zhushi">算法 10.5</span><br>
+      　　<b>void</b> ShellInsert ( SqList <b><font face="Times New Roman, Times, serif">&amp;</font></b>L，<b>int</b> dk) <br>
+      　<b>{</b><br>
+      <span class="zhushi">　　<font face="Times New Roman, Times, serif">//</font> 
+      对顺序表L作一趟增量为dk的希尔排序 </span><br>
+      　　<b>for</b> ( i=dk+1; i&lt;=L.length; ++i )<br>
+      　　　<b>if</b> ( L.r[i].key &lt; L.r[i-dk].key ) <b>{</b> <font face="Times New Roman, Times, serif">//</font> 
+      将L.r[i]插入有序子表<br>
+      　　　　L.r[0] = L.r[i]; L.r[i]=L.r[i-dk];<br>
+      　　　　<b>for</b> ( j=i-2*dk; j&gt;0 <b><font face="Times New Roman, Times, serif">&amp;&amp;</font></b> L.r[0].key &lt; L.r[j].key; 
+      j-=dk )<br>
+      　　　　　L.r[j+dk] = L.r[j]; <font face="Times New Roman, Times, serif">　　　　　　//</font> 
+      记录后移<br>
+      　　　　L.r[j+dk] = L.r[0]; <font face="Times New Roman, Times, serif">　　　　　　　//</font> 
+      插入到正确位置<br>
+      　　　<b>}</b><font face="Times New Roman, Times, serif"> //</font> if<br>
+      　<b>}</b><font face="Times New Roman, Times, serif"> //</font> ShellInsert<br>
+      <br>
+      <img src="../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle"> 
+      <span class="zhushi">算法 10.6</span><br>
+      　　<b>void</b> ShellSort (SqList <b><font face="Times New Roman, Times, serif">&amp;</font></b>L, <b>int</b> dlta[], <b>int</b> 
+      t)<br>
+      　<b>{</b><br>
+      <span class="zhushi">　　<font face="Times New Roman, Times, serif">//</font> 
+      按增量序列 dlta[0..t-1] 对顺序表L作希尔排序</span><br>
+      　　<b>for</b> (k=0; k&lt;t; ++t)<br>
+      　　　ShellInsert(L, dlta[k]); <font face="Times New Roman, Times, serif">//</font> 
+      一趟增量为 dlta[k] 的插入排序<br>
+      　<b>}</b><font face="Times New Roman, Times, serif"> //</font> ShellSort<br>
+      <br>
+      　　希尔排序的时间复杂度和所取增量序列相关，例如已有学者证明，当增量序列为 2<sup>t-k-1</sup>(k=0,1, …，t-1)时，希尔排序的<span class="point">时间复杂度</span>为<b class="point"><font face="Times New Roman, Times, serif"><i>O 
+      </i>(n<sup>3/2</sup>)</font></b>。</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      　<br>
+      　　将算法 SellInsert 中所有的&quot;dk&quot;改为&quot;1&quot;即为算法 InsertSort，反过来说，算法 
+      ShellInsert 可以看成是 InsertSort 的扩展。<br>
+      <br>
+      　　由于C语言的数组没有&quot;负数&quot;的下标，因此，在dk&gt;1时需对j循环中以防&quot;出界&quot;另作&quot;j&gt;0&quot;的判别，即L.r[0] 
+      不再起到&quot;监视哨&quot;的作用，而仅仅作为一个暂存记录的空间。<br>
+      <br>
+      　　希尔排序的增量序列 dlta[] 可以有多种取法，但必须是，<br>
+      　　(1) dlta[]中各值没有除1之外的公因子；<br>
+      　　(2) dlta[t-1]必须为1。<br>
+      <br>
+      　例如，dlta[]=……,9,5,3,2,1<br>
+      　　 或 dlta[]=……, 31,15,7,3,1<br>
+      　　 或 dlta[]=……,40,13,4,1等。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,149 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<script language=JavaScript src="../../chapter02/section1/hpmain.js"></script>
+<script language=JavaScript src="../../chapter02/section1/showhidden.js"></script>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"> <span class="part">　3.1.2 栈的存储表示和操作的实现</span><br>
+      <br>
+      <b><b class="part">　二、链栈</b><br>
+      <br>
+      　<span class="zhushi">结构定义：</span></b><br>
+      <b>　　typedef struct</b> <b>{</b> <br>
+      　　　SLink top; 　 　<font face="Times New Roman, Times, serif">//</font> 栈顶指针 
+      <br>
+      <b>　　　int</b> length; 　 <font face="Times New Roman, Times, serif">//</font> 
+      栈中元素个数<br>
+      <b>　　}</b> Stack;<br>
+      <br>
+      　　此时只需要对顺序栈的基本操作接口作两处改动，便可作为链栈的基本操作接口。<br>
+      <br>
+      　　其一是，初始化时不需要&quot;maxsize&quot;的参数，因为它不需要事先分配空间；其二是，在进行入栈操作时不需要顾忌栈的空间是否已经被填满。<br>
+      　</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      <br>
+      　　链栈即为栈的链式存储结构。<br>
+      <br>
+      　　链栈的定义更简单，结点结构和单链表中的结点结构相同，无须重复定义。由于栈只在栈顶作插入和删除操作，因此链栈中不需要头结点，但要注意链栈中指针的方向是从栈顶指向栈底的，这正好和单链表是相反的。<br>
+      　<br>
+      　　　　<img src="../../../images/pic/chapter03/3_1_2_3.gif" width="145" height="165" align="top"><br>
+      　</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><img src="../../../images/tubiao/cxd.gif" width="25" height="24" alt="算法"><br>
+      　　<b>void </b>InitStack ( Stack <b><font face="Times New Roman, Times, serif">&amp;</font></b>S )<br>
+      　<b>{</b> <br>
+      　<span class="zhushi"><font face="Times New Roman, Times, serif">　//</font> 
+      构造一个空栈 S</span><br>
+      　　S.top = NULL; 　　<font face="Times New Roman, Times, serif">//</font> 设栈顶指针的初值为&quot;空&quot; 
+      <br>
+      　　S.length = 0; <font face="Times New Roman, Times, serif">　　//</font> 空栈中元素个数为0<br>
+      　<b>}</b><font face="Times New Roman, Times, serif"> //</font> InitStack<b><br>
+      　</b></td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">
+      <table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td bgcolor="#ECEEFF" height="14" class="explaination" width="8">&nbsp;</td>
+                <td bgcolor="#ECEEFF" height="14" class="explaination"><img src="../../../images/tubiao/wt.gif" width="23" height="23" align="absmiddle" alt="思考题"> 
+                  能否将链栈中的指针方向反过来，从栈底到栈顶？</td>
+                <td width="15" bgcolor="#ECEEFF" valign="top"><span id=dd><img border=0 
+                              id=HPFrameDLTab3 
+                              onClick="showHideContent('HPFrameDL');hiddenL();"
+							   src="../../../images/html/expand.gif" style="CURSOR: hand" width="15" height="14"></span></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <div id=HPFrameDLContent 
+           style="WIDTH: 100%;visibility: hidden;background-color:#ECEEFF"> 
+              <table width="94%" border="0" cellspacing="0" cellpadding="0" align="center">
+                <tr> 
+                  <td class="explaination">　不行，如果反过来的话，删除栈顶元素时，为修改其前驱指针，需要从栈底一直找到栈顶。</td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><img src="../../../images/tubiao/cxd.gif" width="25" height="24" alt="算法"><br>
+      　　<b>void</b> Push ( Stack <b><font face="Times New Roman, Times, serif">&amp;</font></b>S, 
+      ElemType e )<br>
+      　<b>{</b><br>
+      　　<span class="zhushi"><font face="Times New Roman, Times, serif">//</font> 
+      在栈顶之上插入元素 e 为新的栈顶元素</span><br>
+      　　p = <b>new</b> LNode; 　　<font face="Times New Roman, Times, serif">//</font> 
+      建新的结点<br>
+      　　if(!p) exit(1);　　<font face="Times New Roman, Times, serif">//</font> 
+      存储分配失败<br>
+      　　p -&gt; data = e;<br>
+      　　p -&gt; next = S.top;　<font face="Times New Roman, Times, serif">//</font> 
+      链接到原来的栈顶<br>
+      　　S.top = p; <font face="Times New Roman, Times, serif">　　　　//</font> 移动栈顶指针<br>
+      　　++S.length;　　　　 <font face="Times New Roman, Times, serif">//</font> 栈的长度增1<br>
+      　<b>} </b><font face="Times New Roman, Times, serif">//</font> Push<b><br>
+      　</b></td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      　　在链栈的类型定义中设立&quot;栈中元素个数&quot;的成员是为了便于求得栈的长度。<br>
+      　</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><b><img src="../../../images/tubiao/cxd.gif" width="25" height="24" alt="算法"><br>
+      </b>　　<b>bool</b> Pop ( Stack <b><font face="Times New Roman, Times, serif">&amp;</font></b>S, SElemType <b><font face="Times New Roman, Times, serif">&amp;</font></b>e )<br>
+      <b>　{</b> <br>
+      　　<span class="zhushi"><font face="Times New Roman, Times, serif">//</font> 
+      若栈不空，则删除S的栈顶元素，用 e 返回其值，<br>
+      　　<span class="zhushi"><font face="Times New Roman, Times, serif">//</font> 
+      </span>并返回 TRUE；否则返回 FALSE</span><br>
+      　　<b>if</b> ( !S.top )<br>
+      　　　<b>return</b> FALSE; <br>
+      　　<b>else</b> <br>
+      　　<b>{</b><br>
+      　　 e = S.top -&gt; data; <font face="Times New Roman, Times, serif">　　//</font> 
+      返回栈顶元素 <br>
+      　　 q = S.top; <br>
+      　　 S.top = S.top -&gt; next;　<font face="Times New Roman, Times, serif">//</font> 
+      修改栈顶指针 <br>
+      　　 --S.length; <font face="Times New Roman, Times, serif">　　　　　 //</font> 
+      栈的长度减1 <br>
+      　　 <b>delete</b> q;　<font face="Times New Roman, Times, serif">　　　　 　//</font> 
+      释放被删除的结点空间<br>
+      　　 <b>return</b> TRUE;<br>
+      　　<b>}</b><br>
+      　<b>}</b><font face="Times New Roman, Times, serif"> //</font> Pop </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      <br>
+      <br>
+      <br>
+      <br>
+      　　和顺序栈相同，除了遍历之外，其它基本操作的时间复杂度也都是常量级的。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

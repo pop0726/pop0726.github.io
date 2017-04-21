@@ -1,0 +1,28 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%"> 
+<tr> <td width="10">&nbsp;</td><td class="white" valign="top"><BR><SPAN CLASS="part">【基础知识题】</SPAN><BR><br> 
+　1. 描述以下三个概念的区别：头指针，头结点，首元结点(第一个元素结点)。<BR><BR>　2. 简述线性表的两种存储结构顺序表和链表的优缺点。<BR><BR>　3. 
+已知 L 是无表头结点的单链表，且 P 是指向表中某个结点的指针，试写出在 P 所指结点之前插入指针 S 所指结点的语句序列。<BR><BR>　4. 已知 
+P 是指向双向链表中某个结点的指针，试写出删除 P 所指结点的前驱结点的语句序列。<BR><BR>　5. 简述以下算法的功能。<BR>　(1) <B>Status</B> 
+A(LinkedList L) <B>{</B> <FONT FACE="Arial, Helvetica, sans-serif">//</FONT> L 
+是无表头结点的单链表<BR>　　　　<B>if</B> (L <FONT FACE="Arial, Helvetica, sans-serif"><B><FONT FACE="Times New Roman, Times, serif">&amp;&amp;</FONT></B></FONT> 
+L-&gt;next)<B>{</B> <BR> 　　　　　Q =L; L =L-&gt;next; P =L ;<BR> 　　　　　<B>while</B> 
+( P-&gt;next) P =P-&gt;next ;<BR> 　　　　　P-&gt;next =Q; Q-&gt;next = <B>NULL</B>;<BR> 
+　　　　<B>}</B><BR> 　　　　<B>return</B> OK;<BR> 　　　<B>}</B> <FONT FACE="Arial, Helvetica, sans-serif">//</FONT> 
+A<BR><BR>　(2) <B>void</B> BB(LNode *s, LNode *q ) <B>{</B> <BR> 　　　　p =s ;<BR> 
+　　　　<B>while</B> (p-&gt;next<B>!</B>=q) p =p-&gt;next ;<BR> 　　　　p-&gt;next =s;<BR> 
+　　　<B>}</B> <FONT FACE="Arial, Helvetica, sans-serif">//</FONT>BB<BR> 　　　<B>void</B> 
+AA(LNode *pa, LNode *pb) <B>{</B><BR> 　　　<FONT FACE="Arial, Helvetica, sans-serif">//</FONT> 
+pa 和 pb 分别指向单循环链表中的两个结点<BR> 　　　　BB(pa, pb);<BR> 　　　　BB(pb, pa);<BR> 　　<B>　}</B> 
+<FONT FACE="Arial, Helvetica, sans-serif">//</FONT>AA<br> 　</td><td background="../../../images/html/mid.gif" width="18">&nbsp;</td><td background="../../../images/html/right_di4.gif" class="explaination" valign="top" width="281"><br> 
+【基础知识题】 </td><td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td></tr> 
+</table>
+</body>
+</html>

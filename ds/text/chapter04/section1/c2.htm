@@ -1,0 +1,65 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+<script language="JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><br>
+      　　对于串的基本操作集可以有不同的定义方法，读者在使用高级程序设计语言中的串类型时，应以该语言的参考手册为准。但在上述抽象数据类型定义的13种操作中，串赋值StrAssign、串复制StrCopy、串比较StrCompare、求串长StrLength、串联接Concat以及求子串SubString等6种操作构成串类型的最小操作子集。<br>
+      <br>
+      　　例如，可利用判等、求串长和求子串等操作实现串的定位函数 Index(S,T,pos) 和串的置换操作 Replace(S,T,V)。<br>
+      　</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      　　换句话说，如果在高级程序设计语言中设有&quot;串类型&quot;的话，提供的基本操作不能没有这6种操作，因为它们不能通过其它串操作实现。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><img src="../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle"> 
+      <span class="zhushi">算法4.1</span><br>
+      　　<b>int</b> Index (String S, String T, <b>int</b> pos) <br>
+      　<b>{</b><br>
+      <span class="zhushi">　　<font face="Arial, Helvetica, sans-serif">//</font> 
+      T为非空串。若主串S中第 pos 个字符之后存在与T相等的子串，<br>
+      　　<font face="Arial, Helvetica, sans-serif">//</font> 则返回第一个这样的子串在S中的位置，否则返回0。</span><br>
+      　　<b>if</b> (pos &gt; 0) <b>{</b><br>
+      　　　n = StrLength(S); m = StrLength(T); <font face="Times New Roman, Times, serif">//</font> 
+      求得串长<br>
+      　　　i = pos;<br>
+      　　　<b>while</b> ( i &lt;= n-m+1) <b>{</b><br>
+      　　　　SubString (sub, S, i, m); <font face="Times New Roman, Times, serif">//</font> 
+      取得从第 i 个字符起长度为 m 的子串<br>
+      　　　　<b>if</b> (StrCompare(sub,T) != 0) ++i ;<br>
+      　　　　<b>else</b> <b>return</b> i ;　　　　 <font face="Times New Roman, Times, serif">//</font> 
+      找到和 T 相等的子串<br>
+      　　　<b>}</b><font face="Times New Roman, Times, serif"> //</font> while<br>
+      　　<b>}</b><font face="Times New Roman, Times, serif"> //</font> if<br>
+      　　<b>return</b> 0;　　　　　 <font face="Times New Roman, Times, serif">　　　　//</font> 
+      S 中不存在满足条件的子串<br>
+      　<b>}</b><font face="Times New Roman, Times, serif"> //</font> Index</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　　实现Index(S,T,pos)<b>算法的基本思想</b>为：<font color="#339900">从主串S中取&quot;第 
+      i 个字符起、长度和串T相等的子串&quot;和串T比较，若相等，则求得函数值为 i，否则 i 值增1直至找到和串T相等的子串或者串S中不存在和T相等的子串为止。</font>即求使下列等式<br>
+      <font color="#339900">StrCompare(</font><span class="section"><font color="#FF0000">SubString(S,i,StrLength(T))</font></span>,T<font color="#339900">)==0</font><br>
+      成立的 i 值。<font color="#339900">i 的初值应为 pos，在找不到的情况下，i 的终值应该是 n-m+1，其中，n 为S串的长度，m 
+      为T串的长度。</font><a href="javascript:;" onClick="MM_openBrWindow('../../../flash/chap04/4-1-1.swf','数据结构','width=400,height=300')"><img src="../../../images/tubiao/dh.gif" alt="动画" width="25" height="24" border="0" align="absmiddle"></a><br>
+      　<br>
+      　 </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　9.4.3 处理冲突的方法</span><br>
+      <br>
+      　　有两类处理冲突的方法。<br>
+      <br>
+      <span class="zhushi">　一、开放定址法</span><br>
+      <br>
+      　　开放定址处理冲突的办法是，设法为发生冲突的关键字&quot;找到&quot;哈希表中另一个尚未被记录占用的位置。<br>
+      　　令 <img src="../../../images/pic/chapter09/gs_28.gif" width="346" height="20" align="absmiddle"><br>
+      <br>
+      　　上式的含义是，已知哈希表的表长为 m （即哈希表中可用地址为：0～m-1），若对于某个关键字 key，哈希表中地址为 Hash(key) 的位置已被占用，则为该关键字试探 
+      &quot;下一个&quot;地址 <img src="../../../images/pic/chapter09/h1.gif" width="17" height="19" align="absmiddle">=(Hash(key)+<img src="../../../images/pic/chapter09/d1.gif" width="13" height="19" align="absmiddle">) 
+      MOD m，若也已被占用，则试探再&quot;下一个&quot;地址 <img src="../../../images/pic/chapter09/h2.gif" width="19" height="19" align="absmiddle">=(Hash(key)+<img src="../../../images/pic/chapter09/d2.gif" width="14" height="19" align="absmiddle">) 
+      MOD m，…，依次类推直至找到一个地址 <img src="../../../images/pic/chapter09/hs.gif" width="17" height="19" align="absmiddle">=(Hash(key)+<img src="../../../images/pic/chapter09/ds.gif" width="14" height="19" align="absmiddle">) 
+      MOD m 未被占用为止。即 <img src="../../../images/pic/chapter09/hid.gif" width="16" height="19" align="absmiddle"> 
+      是为解决冲突生成的一个地址序列，其值取决于设定&quot;增量序列 <img src="../../../images/pic/chapter09/di.gif" width="13" height="19" align="absmiddle">&quot;。对于 
+      <img src="../../../images/pic/chapter09/di.gif" width="13" height="19" align="absmiddle"> 
+      通常可有三种设定方法：<br>
+      <br>
+      　1）<img src="../../../images/pic/chapter09/di.gif" width="13" height="19" align="absmiddle"> 
+      = 1,2,3,…,m-1，称这种处理冲突的方法为&quot;线性探测再散列&quot;。<br>
+      　　例如右侧所示哈希表，当插入关键字 23(Hash(23)=1)时，出现冲突现象，取增量 <img src="../../../images/pic/chapter09/d1.gif" width="13" height="19" align="absmiddle">=1，求得处理冲突后的哈希地址为(1+1=)2；又如，在插入关键字36(Hash(36)=3)时，因哈希表中地址为 
+      3,4,5 和 6 的位置均已存放记录，因此取增量 <img src="../../../images/pic/chapter09/d4.gif" width="14" height="19" align="absmiddle">=4，即处理冲突后的哈希地址为(3+4=)7。<br>
+      <br>
+      　2）<img src="../../../images/pic/chapter09/di.gif" width="13" height="19" align="absmiddle"> 
+      = 1<sup><font size="1">2</font></sup>，-1<sup><font size="1">2</font></sup>，2<sup><font size="1">2</font></sup>，-2<sup><font size="1">2</font></sup>，…，±k<sup><font size="1">2</font></sup>(k≤m/2)，称这种处理冲突的方法为&quot;平方探测再散列&quot;。<br>
+      　　例如右侧所示按平方探测构建的哈希表中，对于关键字68（Hash(68)=2），因表中地址为 2,3 和 1 的位置均已填入记录，因此取增量 
+      <img src="../../../images/pic/chapter09/d3.gif" width="15" height="19" align="absmiddle">=2<sup><font size="1">2</font></sup>，即处理冲突后的哈希地址为(3+4=)7。<br>
+      <br>
+      　3）<img src="../../../images/pic/chapter09/di.gif" width="13" height="19" align="absmiddle"> 
+      为伪随机数列或者 <img src="../../../images/pic/chapter09/di.gif" width="13" height="19" align="absmiddle">=i<img src="../../../images/pic/chapter04/t5.gif" width="7" height="7"><img src="../../../images/pic/chapter09/h2.gif" width="19" height="19" align="absmiddle">(key)，（<img src="../../../images/pic/chapter09/h2.gif" width="19" height="19" align="absmiddle">(key)为关键字的另一个哈希函数），称这种处理冲突的方法为&quot;伪随机探测再散列&quot;或&quot;双散列函数探测再散列&quot;。<br>
+      　　例如右侧所示按双散列函数探测再散列构建的哈希表的增量 <img src="../../../images/pic/chapter09/di.gif" width="13" height="19" align="absmiddle"> 
+      = i<img src="../../../images/pic/chapter04/t5.gif" width="7" height="7">((3key)% 
+      10+1)<br>
+      　</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      <br>
+      　　一个&quot;好&quot;的哈希函数只能尽量减少冲突，而不能避免冲突，因此如何处理发生冲突是建哈希表不可缺少的一个方面。 
+      <p></p>
+      <p></p>
+      <p></p>
+      <p></p>
+      <p>　假设关键字序列为<br>
+        　　{ 19,56,23,14,68,82,70,36,91 }，设哈希表的表长为11，哈希函数为 Hash(key)=key % 11<br>
+        <br>
+        　<a href="javascript:;" onClick="MM_openBrWindow('../../../flash/chap09/9-4-1.swf','数据结构','width=400,height=300')"><img src="../../../images/tubiao/dh.gif" alt="动画" width="25" height="24" border="0"></a> 
+        <img src="../../../images/pic/chapter09/9_15.gif" width="207" height="166" align="top"><br>
+        　<br>
+        　　注意，开放定址法中的 <img src="../../../images/pic/chapter09/dil.gif" width="13" height="19" align="absmiddle"> 
+        应具有&quot;完备性&quot;，即(1)增量序列中的各个 <img src="../../../images/pic/chapter09/dil.gif" width="13" height="19" align="absmiddle"> 
+        值均不相同；(2)由此得到的 m-1 个地址值必能覆盖哈希表中所有地址。<br>
+        <br>
+        　　线性探测的增量自然满足上述要求；平方探测则只能在哈希表的表长 m 为形如 4j+3（j为整数）的素数（如：7,11,19,…等）时才能满足上述要求；双散列函数探测则要求增量哈希函数<img src="../../../images/pic/chapter09/h2l.gif" width="19" height="19" align="absmiddle">(key) 
+        的值和表长 m 互为素数，若 m 本身为素数，则<img src="../../../images/pic/chapter09/h2l.gif" width="19" height="19" align="absmiddle">(key) 
+        的值可以是 1 至 m-1 之间的任何数；若表长 m 为 2 的幂次，则 <img src="../../../images/pic/chapter09/h2l.gif" width="19" height="19" align="absmiddle">(key) 
+        的值只能取 1 和 m-1 之间任意奇数。</p>
+    </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"> <span class="zhushi">　二、链地址法</span><br>
+      <br>
+      　　将所有关键字为&quot;同义词&quot;的记录链接在一个线性链表中。此时的哈希表以&quot;指针数组&quot;的形式出现，数组内各个分量存储相应哈希地址的链表的头指针。<br>
+      　　例如，假设关键字序列为{ 19，56，23，14，68，82，70，36，91 }，哈希表的表长为 7，哈希函数为 Hash(key)=key 
+      % 7，则构建的以链地址处理冲突的哈希表如动画所示。<a href="javascript:;" onClick="MM_openBrWindow('../../../flash/chap09/9-4-2.swf','数据结构','width=400,height=300')"><img src="../../../images/tubiao/dh.gif" alt="动画" width="25" height="24" border="0" align="absmiddle"></a></td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      <br>
+      <br>
+      　　</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

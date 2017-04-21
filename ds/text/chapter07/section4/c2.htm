@@ -1,0 +1,89 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　一、 克鲁斯卡尔(Kruskal)算法</span><br>
+      <br>
+      　　<b>typedef struct {</b><br>
+      　　　VertexType vex1;<br>
+      　　　VertexType vex2;<br>
+      　　　VRType weight;<br>
+      　　<b>}</b>EdgeType;<br>
+      　　<b>typedef</b> ElemType EdgeType;<br>
+      　　<b>typedef struct {</b> <font face="Times New Roman, Times, serif">　　　　　　　　//</font> 
+      有向网的定义<br>
+      　　　VertexType vexs[MAX_VERTEX_NUM]; <font face="Times New Roman, Times, serif">　//</font> 
+      顶点信息<br>
+      　　　EdgeType edge[MAX_EDGE_NUM]; <font face="Times New Roman, Times, serif">　　　//</font> 
+      边的信息<br>
+      　　　<b>int</b> vexnum,arcnum;　<font face="Times New Roman, Times, serif">　　　　　　　//</font> 
+      图中顶点的数目和边的数目<br>
+      　　<b>}</b>ELGraph;<br>
+      　</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　<br>
+      　<br>
+      　　由于克鲁斯卡尔算法是依权值从小到大依次考察每条边，则在本章7.2节中讨论的各种图的表示方法在此都不适用。由此需对图定义一种新的表示方法，以一维数组存放图中所有边，并在构建图的存储结构时将它构造为一个&quot;有序表&quot;。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><img src="../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle"> 
+      <span class="zhushi">算法 7.8</span><br>
+      　　<b>void</b> MiniSpanTree_Kruskal(ELGraph G, SqList<b><font face="Times New Roman, Times, serif">&amp;</font></b> MSTree)<br>
+      　<b>{</b><br>
+      <span class="zhushi">　　<font face="Times New Roman, Times, serif">//</font> 
+      G.edge 中依权值从小到大存放有向网中各边，按克鲁斯卡尔<br>
+      　　<font face="Times New Roman, Times, serif">//</font> 算法求得生成树的边存放在顺序表<font face="Times New Roman, Times, serif"> 
+      MSTree</font> 中</span><br>
+      　　MFSet F;<br>
+      　　InitSet(F, G.vexnum);　<font face="Times New Roman, Times, serif">　　　　　　　　//</font> 
+      将森林F初始化为n棵树的集合<br>
+      　　InitList(MSTree, G.vexnum);　<font face="Times New Roman, Times, serif">　　　　　//</font> 
+      初始化生成树为空树<br>
+      　　i=0; k=1;<br>
+      　　<b>while</b>( k&lt;G.vexnum ) <b>{</b><br>
+      　　　e = G.edge[i];<font face="Times New Roman, Times, serif">　　　　　　　　　　　//</font> 
+      取第 i 条权值最小的边</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      　　以顺序表MSTree返回生成树上各条边。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">　　　r1 = fix_mfset(F, LocateVex(e.vex1));<br>
+      　　　r2 = fix_mfset(F, LocateVex(e.vex2)); <font face="Times New Roman, Times, serif">//</font> 
+      返回两个顶点所在树的树根<br>
+      　　　<b>if</b> (r1 <b>!</b>= r2) <b>{</b> <font face="Times New Roman, Times, serif">　　　　　　　　　　//</font> 
+      选定生成树上第k条边<br>
+      　　　　<b>if</b> (ListInsert(MSTree, k, e)) k++;　<font face="Times New Roman, Times, serif">//</font> 
+      插入生成树<br>
+      　　　　mix_mfset(F, r1, r2);　<font face="Times New Roman, Times, serif">　　　　　　//</font> 
+      将两棵树归并为一棵树<br>
+      　　　<b>}</b><font face="Times New Roman, Times, serif"> //</font> if<br>
+      　　　i++; <font face="Times New Roman, Times, serif">　　　　　　　　　　　　　　　//</font> 
+      继续考察下一条权值最小边<br>
+      　　<b>} </b><font face="Times New Roman, Times, serif">//</font> while<br>
+      　　DestroySet(F);<br>
+      　<b>} </b><font face="Times New Roman, Times, serif">//</font> MiniSpanTree_Kruskal</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　　函数 
+      fix_mfset 返回边的顶点所在树的树根代号，如果边的两个顶点所在树的树根相同，则说明它们已落在同一棵树上。<br>
+      <br>
+      <br>
+      <br>
+      　　如果不考虑建立图的存储结构所需时间，则克鲁斯卡尔算法的时间复杂度为<font face="Times New Roman, Times, serif"><i>O 
+      </i>(e)</font>。 </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

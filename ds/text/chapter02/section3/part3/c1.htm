@@ -1,0 +1,114 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/style.css" type="text/css">
+<script language="JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<script language=JavaScript src="../part2/hpmain.js"></script>
+<script language=JavaScript src="../part2/showhidden.js"></script>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　2.3.3 单链表其它算法举例</span><br>
+      <br>
+      <img src="../../../../images/tubiao/lt.gif" width="28" height="27" align="absmiddle" alt="例题"> 
+      <span class="zhushi">例2-7</span> 逆序创建链表<br>
+      <br>
+      　　假设线性表( <img src="../../../../images/pic/chapter02/gs/a1.gif" width="11" height="10">，<img src="../../../../images/pic/chapter02/gs/a2.gif" width="12" height="10">，…，<img src="../../../../images/pic/chapter02/gs/an.gif" width="12" height="10"> 
+      )的数据元素存储在一维数组 A[n]中，则<span class="point">从数组的最后一个分量起，依次生成结点，并逐个插入到一个初始为&quot;空&quot;的链表中。</span><br>
+      　</td>
+    <td background="../../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      <br>
+      　<span class="zhushi"><font color="#339900">解题分析：</font></span><br>
+      　　由于链表是一种动态存储管理的结构，链表中每个结点占用的存储空间不需预先分配划定，而是在运行时刻由系统应需求即时生成，因此，建立链表的过程是一个动态生成的过程。即从 
+      &quot;空表&quot;起，依次建立结点，并逐个插入链表。所谓&quot;逆序&quot;创建链表指的是，依和线性表的逻辑顺序相&quot;逆&quot;的次序输入元素。例如动画演示了线性表 
+      (a,b,c,d,e) 的逆序创建的过程。<a href="javascript:;" onClick="MM_openBrWindow('../../../../flash/chap02/2-3-2.swf','数据结构','width=400,height=300')"><img src="../../../../images/tubiao/dh.gif" alt="动画" width="25" height="24" border="0" align="absmiddle"></a><br>
+      <br>
+      　　由于链表的生成是从最后一个结点起逐个插入，因此每个新生成的结点都是插入在链表的&quot;第一个&quot;结点之前，即头结点之后，使新插入的结点成为插入之后的链表中的第一个结点。</td>
+    <td background="../../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><img src="../../../../images/tubiao/cxd.gif" alt="算法" width="25" height="24" align="absmiddle"> 
+      <span class="zhushi">算法2.19</span><br>
+      　　<b>void</b> CreateList_L(SLink <b><font face="Times New Roman, Times, serif">&amp;</font></b>L, <b>int</b> n, ElemType A[]) 
+      <br>
+      　<b>{</b> <br>
+      <span class="zhushi">　　<font face="Times New Roman, Times, serif">//</font> 
+      已知数组 A 中存有线性表的 n 个数据元素，</span><br>
+      　　<span class="zhushi"><font face="Times New Roman, Times, serif">//</font> 
+      逆序建立带头结点的单链表。</span><br>
+      　　L = <b>new</b> LNode;<br>
+      　　if (!L) exit(1); <font face="Times New Roman, Times, serif">　　　　//</font> 
+      存储空间分配失败<br>
+      　　L-&gt;next = NULL;　　<font face="Times New Roman, Times, serif">//</font> 
+      先建立一个带头结点的空的单链表<br>
+      　　<b>for</b> (i = n; i &gt; 0; --i) <br>
+      　　<b>{</b> p = <b>new</b> LNode;<br>
+      　　　if (!p) exit(1); <font face="Times New Roman, Times, serif">　　　　//</font> 
+      存储空间分配失败 <br>
+      　　　　p-&gt;data = A[i-1]; <font face="Times New Roman, Times, serif">　　　　　 
+      　//</font> 赋元素值 <br>
+      　　　　p-&gt;next = L-&gt;next; L-&gt;next = p; <font face="Times New Roman, Times, serif">//</font> 
+      插入在头结点之后<br>
+      　　<b>} </b><font face="Times New Roman, Times, serif">//</font> for<br>
+      　<b>} </b><font face="Times New Roman, Times, serif">//</font> CreateList_L
+      <p>　　容易看出，算法的<span class="point">时间复杂度</span>为<b><span class="point"><font face="Times New Roman, Times, serif"><i>O</i> 
+        (ListLength(L))</font></span></b>。</p>
+    </td>
+    <td background="../../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      <br>
+      <br>
+      <br>
+      　<br>
+      <br>
+      <br>
+      <br>
+      　　控制结构只有一个单循环，循环次数和表长相同。 <br>
+      <br>
+      <table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td bgcolor="#ECEEFF" height="14" class="explaination" width="8">&nbsp;</td>
+                <td bgcolor="#ECEEFF" height="14" class="explaination"><img src="../../../../images/tubiao/wt.gif" width="23" height="23" align="absmiddle" alt="思考题"> 
+                  如果是&quot;顺序&quot;创建单链表，那么算法该如何写呢？</td>
+                <td width="15" bgcolor="#ECEEFF" valign="top"><span id="bb"><img border=0 
+                              id=HPFrameHLTab3 
+                              onClick="showHideContent('HPFrameHL');hidden();"
+							   src="../../../../images/html/expand.gif" style="CURSOR: hand" width="15" height="14"></span></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <div id=HPFrameHLContent 
+           style="WIDTH: 100%;visibility: hidden;background-color:#ECEEFF" > 
+              <table width="94%" border="0" cellspacing="0" cellpadding="0" align="center">
+                <tr> 
+                  <td class="explaination">　因为每个新生成的结点的插入位置在表尾，则算法中必须维持一个始终指向已建立的链表表尾的指针。其实也很简单，对吗？</td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </td>
+    <td background="../../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

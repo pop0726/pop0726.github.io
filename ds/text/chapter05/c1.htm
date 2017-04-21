@@ -1,0 +1,123 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<script language=JavaScript src="../chapter01/hpmain.js"></script>
+<script language=JavaScript src="../chapter01/showhidden.js"></script>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td class="white" valign="top"><span class="point"><br>
+      </span><span class="part">【学习目标】</span><br>
+      　1. 理解数组类型的特点及其在高级编程语言中的存储表示和实现方法，并掌握数组在&quot;以行为主&quot;的存储表示中的地址计算方法。<br>
+      　2. 掌握特殊矩阵的存储压缩表示方法。<br>
+      　3. 理解稀疏矩阵的两类存储压缩方法的特点及其适用范围，领会以三元组表示稀疏矩阵时进行矩阵运算所采用的处理方法。<br>
+      　</td>
+    <td background="../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../images/html/right_di4.gif" class="explaination" valign="top" width="281"><span class="point"><br>
+      </span>【学习目标】</td>
+    <td background="../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">【重点和难点】</span><br>
+      　　本章重点是学习数组类型的定义及其存储表示。<br>
+      　</td>
+    <td background="../../images/html/mid.gif">&nbsp;</td>
+    <td background="../../images/html/right_di4.gif" class="explaination" valign="top">【重点和难点】</td>
+    <td background="../../images/html/right_di3.gif">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">【知识点】</span><br>
+      　　数组的类型定义、数组的存储表示、特殊矩阵的压缩存储表示方法、随机稀疏矩阵的压缩存储表示方法<br>
+      　</td>
+    <td background="../../images/html/mid.gif">&nbsp;</td>
+    <td background="../../images/html/right_di4.gif" class="explaination" valign="top">【知识点】</td>
+    <td background="../../images/html/right_di3.gif">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">【学习指南】</span><br>
+      　　从学习利用高级语言编制程序开始，数组是大家惯用的存储批量数据的工具，前几章讨论的线性结构的顺序存储结构也都是利用数组来描述的，那么数组本身又是怎么实现的呢？因此本章的学习目的主要是了解数组类型的特点以及在高级编程语言中的实现方法。对于本章讨论的随机稀疏矩阵运算的各个算法主要是理解问题的处理方法。<br>
+      　</td>
+    <td background="../../images/html/mid.gif">&nbsp;</td>
+    <td background="../../images/html/right_di4.gif" class="explaination" valign="top">【学习指南】</td>
+    <td background="../../images/html/right_di3.gif">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">【课前思考】<br>
+      </span>
+      <table width="80%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td bgcolor="#ECEEFF" height="14" class="explaination" width="8">&nbsp;</td>
+                <td bgcolor="#ECEEFF" height="14" class="explaination"><img src="../../images/tubiao/wt.gif" width="23" height="23" align="absmiddle" alt="思考题"> 
+                  1. 在你的认识中，&quot;数组&quot;是什么？</td>
+                <td width="15" bgcolor="#ECEEFF" valign="top"><span id="bb"><img border=0 
+                              id=HPFrameHLTab3 
+                              onClick="showHideContent('HPFrameHL');hidden();"
+							   src="../../images/html/expand.gif" style="CURSOR: hand" width="15" height="14"></span></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <div id=HPFrameHLContent 
+           style="WIDTH: 100%;visibility: hidden;background-color:#ECEEFF" > 
+              <table width="94%" border="0" cellspacing="0" cellpadding="0" align="center">
+                <tr> 
+                  <td class="explaination">　在学习了C语言之后，你可能会误认为&quot;数组&quot;是一组地址连续的内存，数组也是一种线性的数据结构，它可以看成是线性表的一种扩充。</td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+      </table>
+      <br>
+      <table width="80%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td bgcolor="#ECEEFF" height="14" class="explaination" width="8">&nbsp;</td>
+                <td bgcolor="#ECEEFF" height="14" class="explaination"><img src="../../images/tubiao/wt.gif" width="23" height="23" align="absmiddle" alt="思考题"> 
+                  2. 为什么顺序表以及其它线性结构的顺序存储结构都可以用&quot;一维数组&quot;来描述？</td>
+                <td width="15" bgcolor="#ECEEFF" valign="top"><span id=dd><img border=0 
+                              id=HPFrameDLTab3 
+                              onClick="showHideContent('HPFrameDL');hiddenL();"
+							   src="../../images/html/expand.gif" style="CURSOR: hand" width="15" height="14"></span></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <div id=HPFrameDLContent 
+           style="WIDTH: 100%;visibility: hidden;background-color:#ECEEFF"> 
+              <table width="94%" border="0" cellspacing="0" cellpadding="0" align="center">
+                <tr> 
+                  <td class="explaination">　因为在高级编程语言中实现的一维数组正是用的这种顺序存储的映象方式。</td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+    <td background="../../images/html/mid.gif">&nbsp;</td>
+    <td background="../../images/html/right_di4.gif" class="explaination" valign="top">【课前思考】</td>
+    <td background="../../images/html/right_di3.gif">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

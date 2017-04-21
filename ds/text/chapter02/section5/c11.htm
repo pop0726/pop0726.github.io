@@ -1,0 +1,89 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%"> 
+<tr> <td width="10">&nbsp;</td><td class="white" valign="top"><BR><SPAN CLASS="part">【编程练习题】</SPAN><BR><br> 
+　本章编程练习题中的顺序表和线性链表的类型定义如下：<BR>　　<B>struct</B> SqList <FONT FACE="Arial, Helvetica, sans-serif">//</FONT> 
+顺序表<BR>　　<B>{</B><BR> 　　　ElemType *elem;<BR> 　　　<B>int</B> length;<BR> 　　　<B>int</B> 
+listsize;<BR>　　<B>}</B>;<P>　　<B>typedef struct</B> LNode* SLink;<BR>　　<B>struct</B> 
+LNode <FONT FACE="Arial, Helvetica, sans-serif">//</FONT> 单链表结点<BR>　　<B>{</B><BR> 
+　　　ElemType data;<BR> 　　　SLink next;<BR>　　<B>}</B>;<BR>　　<B>typedef</B> SLink 
+LinkList; <FONT FACE="Arial, Helvetica, sans-serif">//</FONT> 单链表(带头结点)</P><P>　　<B>typedef 
+struct</B> DuLNode* DuLink;<BR>　　<B>struct</B> DuLNode <FONT FACE="Arial, Helvetica, sans-serif">//</FONT> 
+双链表结点<BR>　　<B>{</B><BR> 　　　ElemType data;<BR> 　　　<B>int</B> freq;<BR> 　　　DuLink 
+prior, next; <BR>　　<B>}</B>;<BR>　　<B>typedef</B> DuLink DuLinkList; <FONT FACE="Arial, Helvetica, sans-serif">//</FONT> 
+双向循环链表(带头结点)</P><P>　　<B>struct</B> PolyTerm <BR>　　<B>{</B><BR> 　　　<B>int</B> coef;<BR> 
+　　　<B>int</B> exp ;<BR>　　<B>}</B>;</P><P>　1. 设顺序表 a 中的数据元素递增有序。试写一算法，将 x 插入到顺序表的适当位置上，以保持该表的有序性。<BR>　　<B>void</B> 
+InsertOrderList( SqList <FONT FACE="Times New Roman, Times, serif"><B>&amp;</B></FONT>a, 
+ElemType x)<BR> 　　<FONT FACE="Arial, Helvetica, sans-serif">//</FONT> 已知顺序表 a 
+中的数据元素递增有序，将 x 插入到顺序表的适当位置上，<BR>　　<FONT FACE="Arial, Helvetica, sans-serif">//</FONT> 
+以保持该表的有序性。</P><P>　2. 设A=(<IMG SRC="../../../images/pic/chapter02/gs/a1.gif" WIDTH="11" HEIGHT="10" ALIGN="ABSMIDDLE">,…,<IMG SRC="../../../images/pic/chapter02/gs/am.gif" WIDTH="14" HEIGHT="10" ALIGN="ABSMIDDLE">) 
+和B=(<IMG SRC="../../../images/pic/chapter02/gs/b1.gif" WIDTH="10" HEIGHT="13" ALIGN="ABSMIDDLE">,…,<IMG SRC="../../../images/pic/chapter02/gs/bn.gif" WIDTH="11" HEIGHT="13" ALIGN="ABSMIDDLE">) 
+均为顺序表，A<FONT FACE="Times New Roman, Times, serif">'</FONT> 和B<FONT FACE="Times New Roman, Times, serif">'</FONT> 
+分别为 A 和 B 中除去最大共同前缀后的子表（例如，A=(x,y,y,z,x,z)，B=(x,y,y,z,y,x,x,z)，则两者中最大的共同前缀为(x,y,y,z)，在两表中除去最大共同前缀后的子表分别为A'=(x,z) 
+和 B'=(y,x,x,z)）。若 A'= B'= 空表，则 A = B；若 A'= 空表，而 B'≠ 空表，或者两者均不为空表，且 A'的首元小于 B'的首元，则 
+A&lt;B；否则 A&gt;B。试写一个比较 A、B 大小的算法。（请注意：在算法中，不要破坏原表 A 和 B，并且，也不一定先求得 A'和 B'才进行比较）<BR>　　<B>char</B> 
+Compare(SqList A, SqList B)<BR> 　　<FONT FACE="Arial, Helvetica, sans-serif">//</FONT> 
+已知顺序表A和B, 返回 '&lt;'(若 'A&lt;B') 或 '='(若 'A=B') 或 '&gt;'(若 'A&gt;B')</P><P>　3. 
+已知线性表中的元素以值递增有序排列，并以单链表作存储结构。试写一高效的算法，删除表中所有值大于 mink 且小于 maxk 的元素 (若表中存在这样的元素)同时释放被删结点空间。（注意：mink 
+和 maxk 是给定的两个参数值，它们的值可以和表中的元素相同，也可以不同）<BR>　　<B>void</B> del_between_mink_and_maxk( 
+LinkList<FONT FACE="Times New Roman, Times, serif"><B>&amp;</B></FONT> hlink, 
+ElemType mink, ElemType maxk )<BR> 　　<FONT FACE="Arial, Helvetica, sans-serif">//</FONT> 
+hlink 为指向单链表头结点的指针，<BR>　　<FONT FACE="Arial, Helvetica, sans-serif">//</FONT> 删除链表中其值介于 
+mink 和 maxk 之间的结点。</P><P>　4. 试写一算法，实现顺序表的就地逆置，即利用原表的存储空间将线性表(<IMG SRC="../../../images/pic/chapter02/gs/a1.gif" WIDTH="11" HEIGHT="10" ALIGN="ABSMIDDLE">,<IMG SRC="../../../images/pic/chapter02/gs/a2.gif" WIDTH="12" HEIGHT="10" ALIGN="ABSMIDDLE">…,<IMG SRC="../../../images/pic/chapter02/gs/an.gif" WIDTH="12" HEIGHT="10" ALIGN="ABSMIDDLE">) 
+逆置为(<IMG SRC="../../../images/pic/chapter02/gs/an.gif" WIDTH="12" HEIGHT="10" ALIGN="ABSMIDDLE">,<IMG SRC="../../../images/pic/chapter02/gs/an_1.gif" WIDTH="20" HEIGHT="10" ALIGN="ABSMIDDLE">,…,<IMG SRC="../../../images/pic/chapter02/gs/a1.gif" WIDTH="11" HEIGHT="10" ALIGN="ABSMIDDLE">)。<BR>　　<B>void</B> 
+invert_sqlist(SqList<FONT FACE="Times New Roman, Times, serif"><B>&amp;</B></FONT> 
+va)<BR> 　　<FONT FACE="Arial, Helvetica, sans-serif">//</FONT> 逆转顺序表 va</P><P>　5. 
+试写一算法，对单链表实现就地逆置。<BR>　　<B>void</B> invert_linkst(LinkList<FONT FACE="Times New Roman, Times, serif"><B>&amp;</B></FONT> 
+hlink)<BR> 　　<FONT FACE="Arial, Helvetica, sans-serif">//</FONT> 逆转以 hlink 为头指针的单链表</P><P>　6. 
+假设有两个按元素值递增有序排列的线性表 A 和 B，均以单链表作存储结构，请编写算法将 A 表和 B 表归并成一个按元素值递减有序（即非递增有序，允许表中含有值相同的元素）排列的线性表 
+C，并要求利用原表（即 A 表和 B 表）的结点空间构造 C 表。<BR>　　<B>void</B> union_linkst( LinkList<FONT FACE="Times New Roman, Times, serif"><B>&amp;</B></FONT> 
+lc, LinkList la, LinkList lb )<BR> 　　<FONT FACE="Arial, Helvetica, sans-serif">//</FONT> 
+将两个(分别以 la 和 lb 为头指针的)增序有序链表<BR>　　<FONT FACE="Arial, Helvetica, sans-serif">//</FONT> 
+归并为一个逆序(非递增)有序链表，归并后的链表的头指针为 lc 。</P><P>　7. 假设以两个元素依值递增有序排列的线性表 A 和 B 分别表示两个非纯集合（即同一表中可能存在值相同的元素），现要求构成一个线性表 
+C，其元素为 A 和 B 中元素的交集，且表 C 中的元素也依值递增有序排列并各不相同，并要求 C 表和 A 表共享存储空间。<BR>　　<B>void</B> 
+intersect_sqlist( SqList<FONT FACE="Times New Roman, Times, serif"><B>&amp;</B></FONT> 
+va, SqList vb )<BR> 　　<FONT FACE="Arial, Helvetica, sans-serif">//</FONT> va 和 
+vb 均为有序(值自小而大)顺序表，且同一表中可能有值相同的<BR> 　　<FONT FACE="Arial, Helvetica, sans-serif">//</FONT> 
+数据元素，本函数实现从 va 中删除所有值和 vb 中元素不相同的元素，<BR>　　<FONT FACE="Arial, Helvetica, sans-serif">//</FONT> 
+并使最后所得的顺序表 va 中的数据元素值均各不相同。</P><P>　8. 对单链表重新编写和题7相同要求的算法。<BR>　　void intersect_linkst( 
+LinkList<FONT FACE="Times New Roman, Times, serif"><B>&amp;</B></FONT> hc, LinkList 
+ha, LinkList hb )<BR> 　　<FONT FACE="Arial, Helvetica, sans-serif">//</FONT> 构造有序链表 
+hc 表示&quot;纯集合&quot;C 为有序链表 ha 表示的<BR>　　<FONT FACE="Arial, Helvetica, sans-serif">//</FONT> 
+非纯集合 A 和 有序链表 hb 表示的非纯集合 B 的交集</P><P>　9. 已知 A、B 和 C 为三个递增有序的线性表，现要求对 A 表作如下操作：删去那些既在 
+B 表中出现又在 C 表中出现的元素。试对顺序表编写实现上述操作的算法，并分析你的算法的时间复杂度（注意：题中没有特别指明同一表中的元素值各不相同）。<BR>　　<B>void</B> 
+difference_sqlist( SqList<FONT FACE="Times New Roman, Times, serif"><B>&amp;</B></FONT> 
+a, SqList b, SqList c )<BR> 　　<FONT FACE="Arial, Helvetica, sans-serif">//</FONT> 
+从增序顺序表 a 中删除那些既在 b 表中出现又在 c 表中出现的数据元素</P><P>　10. 对单链表重新编写和题9相同要求的算法。<BR>　　<B>void</B> 
+difference_linkst(LinkList<FONT FACE="Times New Roman, Times, serif"><B>&amp;</B></FONT> 
+la, LinkList lb, LinkList lc)<BR> 　　<FONT FACE="Arial, Helvetica, sans-serif">//</FONT> 
+从增序有序链表 la 中删除那些既在 lb 表又在 lc 表中出现的数据元素</P><P>　11. 设有一个双向循环链表，每个结点中除有 pre、data 
+和 next 三个域外，还增设了一个访问频度域 freq。在链表被起用之前，频度域 freq 的值均初始化为零，而每当对链表进行一次 LOCATE(L,x) 
+的操作后，被访问的结点（即元素值等于 x 的结点）中的频度域 freq 的值便增 1，同时调整链表中结点之间的次序，使其按访问频度非递增的次序顺序排列，以便始终保持被频繁访问的结点总是靠近表头结点。试编写符合上述要求的 
+LOCATE 操作的算法。<BR>　　DuLink visit( DuLinkList dh, ElemType x )<BR> 　　<FONT FACE="Arial, Helvetica, sans-serif">//</FONT> 
+本题要求返回指向被访问的结点的指针，若链表中不存在和 x 相等的元素，<BR>　　<FONT FACE="Arial, Helvetica, sans-serif">//</FONT> 
+这返回 NULL。dh 是指向双向循环链表头结点的指针，结点中还增设了一个<BR> 　　<FONT FACE="Arial, Helvetica, sans-serif">//</FONT> 
+访问频度域 freq，其初值为 0，一旦结点被访问，其访问频度域的值增 1，<BR> 　　<FONT FACE="Arial, Helvetica, sans-serif">//</FONT> 
+并始终保持链表中的结点按 freq 的值非递增排列。</P><P>　12. 已知稀疏多项式 <IMG SRC="../../../images/pic/exam/2_12.gif" WIDTH="208" HEIGHT="19" ALIGN="ABSMIDDLE">，其中n=e<sub>m</sub>&gt;e<sub>m-1</sub>&gt;…&gt;e<sub>1</sub>≥0，<IMG SRC="../../../images/pic/chapter05/gs/ci.gif" WIDTH="10" HEIGHT="14" ALIGN="ABSMIDDLE">≠0 
+(i=1,2,…,m), m≥1采用如下说明的顺序存储结构，编写求 <IMG SRC="../../../images/pic/exam/1_2.gif" WIDTH="35" HEIGHT="17" ALIGN="ABSMIDDLE"> 
+的算法（<IMG SRC="../../../images/pic/exam/x0.gif" WIDTH="15" HEIGHT="13" ALIGN="ABSMIDDLE"> 
+为给定值）。<BR>　　<B>struct</B> SqPoly <BR>　　<B>{</B><BR> 　　　PolyTerm *data;<BR> 　　　<B>int</B> 
+length ;<BR>　　<B>}</B>;<BR>　　<B>float</B> evaluate( SqPoly pn, float x )<BR> 　　<FONT FACE="Arial, Helvetica, sans-serif">//</FONT> 
+pn.data[i-1].coef 存放 <IMG SRC="../../../images/pic/chapter05/gs/ci.gif" WIDTH="10" HEIGHT="14" ALIGN="ABSMIDDLE">，pn.data[i-1].exp 
+存放 <IMG SRC="../../../images/pic/chapter08/gs/ei.gif" WIDTH="12" HEIGHT="18" ALIGN="ABSMIDDLE">(i=1,2,…,m)<BR> 
+　　<FONT FACE="Arial, Helvetica, sans-serif">//</FONT> 本算法计算并返回多项式的值。不判别溢出。<BR>　　<FONT FACE="Arial, Helvetica, sans-serif">//</FONT> 
+此外，入口时要求0≤e<sub>1</sub>&lt;e<sub>2</sub>&lt;…&lt;e<sub>m</sub>，算法内不对此再作验证?<BR> </P><P>　13. 假设以如下说明的循环链表作稀疏多项式的存储结构，编写求其导函数的算法，要求利用原多项式中的结点空间存放其导函数（多项式），同时释放所有无用（被删）结点。<BR>　　<B>typedef 
+struct</B> PolyNode* PolyLink;<BR>　　<B>struct</B> PolyNode <BR>　　<B>{</B><BR> 
+　　　PolyTerm data;<BR> 　　　PolyLink next;<BR>　　<B>}</B>;<BR>　　<B>typedef</B> PolyLink 
+LinkedPoly ;<BR>　　<B>void</B> difference ( LinkedPoly<FONT FACE="Times New Roman, Times, serif"><B>&amp;</B></FONT> 
+pa )<BR> 　　<FONT FACE="Arial, Helvetica, sans-serif">//</FONT> 稀疏多项式 pa 以循环链表作存储结构，将此链表修改成它的导函数，<BR>　　<FONT FACE="Arial, Helvetica, sans-serif">//</FONT> 
+并释放无用结点<br> 　</P></td><td background="../../../images/html/mid.gif" width="18">&nbsp;</td><td background="../../../images/html/right_di4.gif" class="explaination" valign="top" width="281"><br> 
+【编程练习题】 </td><td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td></tr> 
+</table>
+</body>
+</html>

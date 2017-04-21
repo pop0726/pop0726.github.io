@@ -1,0 +1,130 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　6.2.1 二叉树的类型定义</span><br>
+      <br>
+      　<span class="zhushi">基本操作P：</span><br>
+      <br>
+      　<b>{结构初始化}</b><br>
+      　　InitBiTree(<b><font face="Times New Roman, Times, serif">&amp;</font></b>T);<br>
+      　　　操作结果：构造空二叉树 T。<br>
+      　</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">&nbsp;</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">　　CreateBiTree(<b><font face="Times New Roman, Times, serif">&amp;</font></b>T, definition);<br>
+      　　　初始条件：definition 给出二叉树 T 的定义。<br>
+      　　　操作结果：按 definition 构造二叉树 T。<br>
+      <br>
+      　<b>{销毁结构}</b><br>
+      　　DestroyBiTree(<b><font face="Times New Roman, Times, serif">&amp;</font></b>T);<br>
+      　　　初始条件：二叉树 T 存在。<br>
+      　　　操作结果：销毁二叉树 T。<br>
+      <br>
+      　<b>{引用型操作}</b><br>
+      　　BiTreeEmpty(T);<br>
+      　　　初始条件：二叉树 T 存在。<br>
+      　　　操作结果：若T为空二叉树，则返回 TRUE，否则返回 FALSE。<br>
+      　<br>
+    </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      　　和树相同，创建二叉树的算法取决于它的数据元素之间关系的输入方式。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">　　BiTreeDepth(T);<br>
+      　　　初始条件：二叉树 T 存在。<br>
+      　　　操作结果：返回 T 的深度。<br>
+      <br>
+      　　Root(T);<br>
+      　　　初始条件：二叉树 T 存在。<br>
+      　　　操作结果：返回 T 的根。<br>
+      <br>
+      　　Value(T, e);<br>
+      　　　初始条件：二叉树 T 存在，e 是 T 中某个结点。<br>
+      　　　操作结果：返回 e 的值。<br>
+      <br>
+      　　Parent(T, e);<br>
+      　　　初始条件：二叉树 T 存在，e 是 T 中某个结点。<br>
+      　　　操作结果：若e是T的非根结点，则返回它的双亲，否则返回&quot;空&quot;。<br>
+      <br>
+      　　LeftChild(T, e);<br>
+      　　　初始条件：二叉树 T 存在，e 是 T 中某个结点。<br>
+      　　　操作结果：返回 e 的左孩子。若 e 无左孩子，则返回&quot;空&quot;。<br>
+      <br>
+      　　RightChild(T, e);<br>
+      　　　初始条件：二叉树 T 存在，e 是 T 中某个结点。<br>
+      　　　操作结果：返回 e 的右孩子。若 e 无右孩子，则返回&quot;空&quot;。<br>
+      <br>
+      　　LeftSibling(T, e);<br>
+      　　　初始条件：二叉树 T 存在，e 是 T 中某个结点。<br>
+      　　　操作结果：返回 e 的左兄弟。若 e 是其双亲的左孩子或无左兄弟，<br>
+      　　　　　　　　则返回&quot;空&quot;。<br>
+      <br>
+      　　RightSibling(T, e);<br>
+      　　　初始条件：二叉树 T 存在，e 是 T 的结点。<br>
+      　　　操作结果：返回 e 的右兄弟。若 e 是其双亲的右孩子或无右兄弟，<br>
+      　　　　　　　　则返回&quot;空&quot;。<br>
+      <br>
+      　　PreOrderTraverse(T, visit());<br>
+      　　　初始条件：二叉树 T 存在，visit 是对结点操作的应用函数。<br>
+      　　　操作结果：先序遍历 T，对每个结点调用函数 visit 一次且仅一次。<br>
+      　　　　　　　　一旦 visit() 失败，则操作失败。<br>
+      <br>
+      　　InOrderTraverse(T, vsit());<br>
+      　　　初始条件：二叉树 T 存在，visit 是对结点操作的应用函数。<br>
+      　　　操作结果：中序遍历 T，对每个结点调用函数 Visit 一次且仅一次。<br>
+      　　　　　　　　一旦 visit() 失败，则操作失败。<br>
+      <br>
+      　　PostOrderTraverse(T, visit());<br>
+      　　　初始条件：二叉树T存在，visit 是对结点操作的应用函数。<br>
+      　　　操作结果：后序遍历 T，对每个结点调用函数 visit 一次且仅一次。<br>
+      　　　　　　　　一旦 visit() 失败，则操作失败。<br>
+      <br>
+      　　LevelOrderTraverse(T, visit());<br>
+      　　　初始条件：二叉树 T 存在，visit 是对结点操作的应用函数。<br>
+      　　　操作结果：层序遍历 T，对每个结点调用函数 visit 一次且仅一次。<br>
+      　　　　　　　　一旦 visit() 失败，则操作失败。 <br>
+      <br>
+      　<b>{加工型操作}</b><br>
+      　　ClearBiTree(<b><font face="Times New Roman, Times, serif">&amp;</font></b>T);<br>
+      　　　初始条件：二叉树 T 存在。<br>
+      　　　操作结果：将二叉树 T 清为空树。<br>
+      <br>
+      　　Assign(<b><font face="Times New Roman, Times, serif">&amp;</font></b>T, <b><font face="Times New Roman, Times, serif">&amp;</font></b>e, value);<br>
+      　　　初始条件：二叉树 T 存在，e 是 T 中某个结点。<br>
+      　　　操作结果：结点 e 赋值为 value。<br>
+      <br>
+      　　InsertChild(<b><font face="Times New Roman, Times, serif">&amp;</font></b>T, p, LR, c);<br>
+      　　　初始条件：二叉树 T 存在，p 指向 T 中某个结点，LR 为 0 或 1，<br>
+      　　　　　　　　非空二叉树 c 与 T 不相交且右子树为空。<br>
+      　　　操作结果：根据 LR 为 0 或 1，插入 c 为 T 中 p 所指结点的左或右子树。<br>
+      　　　　　　　　p 所指结点原有左或右子树成为 c 的右子树。<br>
+      <br>
+      　　DeleteChild(<b><font face="Times New Roman, Times, serif">&amp;</font></b>T, p, LR);<br>
+      　　　初始条件：二叉树 T 存在，p 指向 T 中某个结点，LR 为 0 或 1。<br>
+      　　　操作结果：根据 LR 为 0 或 1，删除 T 中 p 所指结点的左或右子树。<br>
+      <br>
+      <b>} ADT BinaryTree</b><br>
+    </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      　　二叉树上结点的层次和深度等定义均和树相同。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

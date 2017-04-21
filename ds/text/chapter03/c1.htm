@@ -1,0 +1,153 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<script language=JavaScript src="../chapter01/hpmain.js"></script>
+<script language=JavaScript src="../chapter01/showhidden.js"></script>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td class="white"><span class="point"><br>
+      </span><span class="part">【学习目标】</span><br>
+      　1. 掌握栈和队列这两种抽象数据类型的特点，并能在相应的应用问题中正确选用它们。<br>
+      　2. 熟练掌握栈类型的两种实现方法。<br>
+      　3. 熟练掌握循环队列和链队列的基本操作实现算法。<br>
+      　4. 理解递归算法执行过程中栈的状态变化过程。<br>
+      　</td>
+    <td background="../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../images/html/right_di4.gif" class="explaination" valign="top" width="281"><span class="point"><br>
+      </span>【学习目标】</td>
+    <td background="../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td class="white"><span class="part">【重点和难点】</span><br>
+      　　栈和队列是在程序设计中被广泛使用的两种线性数据结构，因此本章的学习重点在于掌握这两种结构的特点，以便能在应用问题中正确使用。<br>
+      　</td>
+    <td background="../../images/html/mid.gif">&nbsp;</td>
+    <td background="../../images/html/right_di4.gif" class="explaination" valign="top">【重点和难点】</td>
+    <td background="../../images/html/right_di3.gif">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td class="white"><span class="part">【知识点】</span><br>
+      　　顺序栈、链栈、循环队列、链队列<br>
+      　</td>
+    <td background="../../images/html/mid.gif">&nbsp;</td>
+    <td background="../../images/html/right_di4.gif" class="explaination" valign="top">【知识点】</td>
+    <td background="../../images/html/right_di3.gif">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td class="white"><span class="part">【学习指南】</span><br>
+      　　在这一章中，主要是学习如何在求解应用问题中适当地应用栈和队列，栈和队列在两种存储结构中的实现都不难，但应该对它们了如指掌，特别要注意它们的基本操作实现时的一些特殊情况，如栈满和栈空、队满和队空的条件以及它们的描述方法。本章要求必须完成的算法设计题为：3.15，3.17，3.19，3.22，3.28，3.30，3.31，3.32。其中前4个主要是练习栈的应用，后4个主要是有关队列的实现方法的练习。<br>
+      　</td>
+    <td background="../../images/html/mid.gif">&nbsp;</td>
+    <td background="../../images/html/right_di4.gif" class="explaination" valign="top">【学习指南】</td>
+    <td background="../../images/html/right_di3.gif">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td class="white"><span class="part">【课前思考】</span><br>
+      <table width="80%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td bgcolor="#ECEEFF" height="14" class="explaination" width="8">&nbsp;</td>
+                <td bgcolor="#ECEEFF" height="14" class="explaination"><img src="../../images/tubiao/wt.gif" width="23" height="23" align="absmiddle" alt="思考题"> 
+                  1. 什么是线性结构？</td>
+                <td width="15" bgcolor="#ECEEFF" valign="top"><span id="bb"><img border=0 
+                              id=HPFrameHLTab3 
+                              onClick="showHideContent('HPFrameHL');hidden();"
+							   src="../../images/html/expand.gif" style="CURSOR: hand" width="15" height="14"></span></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <div id=HPFrameHLContent 
+           style="WIDTH: 100%;visibility: hidden;background-color:#ECEEFF" > 
+              <table width="94%" border="0" cellspacing="0" cellpadding="0" align="center">
+                <tr> 
+                  <td class="explaination">　简单地说，线性结构是一个数据元素的序列。</td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+      </table>
+      <br>
+      <table width="80%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td bgcolor="#ECEEFF" height="14" class="explaination" width="8">&nbsp;</td>
+                <td bgcolor="#ECEEFF" height="14" class="explaination"><img src="../../images/tubiao/wt.gif" width="23" height="23" align="absmiddle" alt="思考题"> 
+                  2. 你见过餐馆中一叠一叠的盘子吗？如果它们是按1,2,…,n 的次序往上叠的，那么使用时候的次序应是什么样的？</td>
+                <td width="15" bgcolor="#ECEEFF" valign="top"><span id=dd><img border=0 
+                              id=HPFrameDLTab3 
+                              onClick="showHideContent('HPFrameDL');hiddenL();"
+							   src="../../images/html/expand.gif" style="CURSOR: hand" width="15" height="14"></span></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <div id=HPFrameDLContent 
+           style="WIDTH: 100%;visibility: hidden;background-color:#ECEEFF"> 
+              <table width="94%" border="0" cellspacing="0" cellpadding="0" align="center">
+                <tr> 
+                  <td class="explaination">　必然是依从上往下的次序，即n,…,2,1。它们遵循的是&quot;后进先出&quot;的规律，这正是本章要讨论的&quot;栈&quot;的结构特点。</td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+      </table>
+      <br>
+      <table width="80%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td bgcolor="#ECEEFF" height="14" class="explaination" width="8">&nbsp;</td>
+                <td bgcolor="#ECEEFF" height="14" class="explaination"><img src="../../images/tubiao/wt.gif" width="23" height="23" align="absmiddle" alt="思考题"> 
+                  3. 在日常生活中，为了维持正常的社会秩序而出现的常见现象是什么？</td>
+                <td width="15" bgcolor="#ECEEFF" valign="top"><span id=cc><img border=0 
+                              id=HPFrameMLTab3 
+                              onClick="showHideContent('HPFrameML');hiddenP();"
+							   src="../../images/html/expand.gif" style="CURSOR: hand" width="15" height="14"></span></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <div id=HPFrameMLContent 
+           style="WIDTH: 100%;visibility: hidden;background-color:#ECEEFF"> 
+              <table width="94%" border="0" cellspacing="0" cellpadding="0" align="center">
+                <tr> 
+                  <td class="explaination">　是&quot;排队&quot;。在计算机程序中，模拟排队的数据结构是&quot;队列&quot;。</td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+    <td background="../../images/html/mid.gif">&nbsp;</td>
+    <td background="../../images/html/right_di4.gif" class="explaination" valign="top">【课前思考】</td>
+    <td background="../../images/html/right_di3.gif">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

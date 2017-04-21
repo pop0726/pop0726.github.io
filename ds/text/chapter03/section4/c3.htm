@@ -1,0 +1,98 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+<script language="JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><br>
+      <img src="../../../images/tubiao/lt.gif" width="28" height="27" align="absmiddle" alt="例题"> 
+      <span class="zhushi">例二</span> 排队问题的系统模拟<br>
+      　　编制一个事件驱动仿真程序以模拟理发馆内一天的活动，要求输出在一天的营业时间内，到达的顾客人数、顾客在馆内的平均逗留时间和排队等候理发的平均人数以及在营业时间内空椅子的平均数。<br>
+      <br>
+      　　为计算出每个顾客自进门到出门之间在理发馆内逗留的时间，只需要在顾客&quot;进门&quot;和&quot;出门&quot;这两个时刻进行模拟处理即可。习惯上称这两个时刻发生的事情为&quot;事件&quot;，整个仿真程序可以按事件发生的先后次序逐个处理事件，这种模拟的工作方式称为&quot;事件驱动模拟&quot;，程序将依事件发生时刻的顺序依次进行处理，整个仿真程序则以事件表为空而告终。事件驱动仿真的算法大致如下：<br>
+      <br>
+      <img src="../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle"> 
+      <span class="zhushi">算法3.5</span><br>
+      　　<b>void</b> BarberShop_Simulation( <b>int</b> chairNum, <b>int</b> closeTime 
+      ) <br>
+      　<b>{</b><br>
+      <span class="zhushi">　<font face="Times New Roman, Times, serif">//</font> 
+      理发馆业务模拟，统计一天内顾客在馆内逗留的平均时间<br>
+      　<font face="Times New Roman, Times, serif">//</font> 和顾客在等待理发时排队的平均长度以及空椅子的平均数<br>
+      　<font face="Times New Roman, Times, serif">//</font> chatrNum 为假设的理发馆的规模，closeTime 
+      为营业时间</span><br>
+      　　OpenForDay; <font face="Times New Roman, Times, serif">　　　　　　　　　　　　　　//</font> 
+      初始化<br>
+      　　<b>while</b> MoreEvent <b>do</b> <br>
+      　　<b>{</b><br>
+      　　　EventDrived(OccurTime, EventType);<font face="Times New Roman, Times, serif">　　　//</font> 
+      事件驱动<br>
+      　　　<b>switch</b> (EventType) <b>{</b><br>
+      　　　　<b>case</b> 'A' : CustomerArrived; <b>break</b>; <font face="Times New Roman, Times, serif">　//</font> 
+      处理顾客到达事件<br>
+      　　　　<b>case</b> 'D' : CustomerDeparture; <b>break</b>; <font face="Times New Roman, Times, serif">//</font> 
+      处理顾客离开事件<br>
+      　　　　<b>default</b> : Invalid; <br>
+      　　　<b>}</b> <font face="Times New Roman, Times, serif">//</font> switch<br>
+      　　<b>}</b> <font face="Times New Roman, Times, serif">//</font> while<br>
+      　　CloseForDay; <font face="Times New Roman, Times, serif">　　　　　　//</font> 
+      计算平均逗留时间和排队的平均长度等<br>
+      　<b>}</b> <font face="Times New Roman, Times, serif">//</font> BarberShop_Simulation<br>
+      　</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      　<br>
+      　　假设理发馆内设有N把理发椅，可同时为N位顾客进行理发。对于在营业时间(假设为T小时)内进门的顾客，可能有两种情况。若当时理发馆内尚有空闲理发椅，则该顾客可立即入座理发，他在馆内的逗留时间即为他理发所需时间；否则需要排队候理，则他在馆内的逗留时间应为他理发所需时间和排队等候的时间之和。一旦有顾客理完发离去时，排在对头的顾客便开始理发。顾客的到达时间和理发所需时间均可随机生成，并约定，过了营业时间顾客不再进门，但仍需继续为已进入店内的顾客理发，直至最后一名顾客离开为止。<br>
+      　<a href="javascript:;" onClick="MM_openBrWindow('../../../flash/chap03/3-4-2.swf','','width=600,height=400')"><img src="../../../images/tubiao/dh.gif" alt="动画" width="25" height="24" align="absmiddle" border="0"></a><br>
+      <br>
+      　　为此需设置两个数据类型：一是事件表，登录顾客进门或出门的事件。表结构的每一项应包括事件类型（假设进门事件类型为 'A'，出门事件类型为'D'）和事件发生的时刻。为便于按事件发生的先后次序顺序进行处理，事件表应按发生的&quot;时刻&quot;有序。二是队列，记录排队等候理发的顾客情况，队列中的每个元素包括顾客进门的时刻和理发所需时间。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">　　数据类型定义：<br>
+      　　<span class="zhushi"><font face="Times New Roman, Times, serif">//</font> 
+      &quot;事件&quot;的结构定义</span><br>
+      　typedef struct <b>{ </b><br>
+      　　<b>int</b> occurTime; <font face="Times New Roman, Times, serif">//</font> 
+      事件发生时刻 <br>
+      　　<b>char</b> nType;　<font face="Times New Roman, Times, serif">　//</font> 
+      事件类型<br>
+      　<b>}</b> ElemType,Event;<br>
+      <br>
+      　　<span class="zhushi"><font face="Times New Roman, Times, serif">//</font> 
+      &quot;事件表&quot;的定义</span><br>
+      　tydedef OrderedLinkList eventList;<br>
+      <br>
+      　　<span class="zhushi"><font face="Times New Roman, Times, serif">//</font> 
+      &quot;顾客&quot;的结构定义</span><br>
+      　typedef struct <b>{ </b><br>
+      　　<b>int</b> arrivalTime; <font face="Times New Roman, Times, serif">//</font> 
+      顾客到达时间 <br>
+      　　<b>int</b> duration;　<font face="Times New Roman, Times, serif">　//</font> 
+      顾客理发所需时间 <br>
+      　<b>}</b> qElemType, customer;<br>
+      <br>
+      　　<span class="zhushi"><font face="Times New Roman, Times, serif">//</font> 
+      候理顾客队列的定义</span><br>
+      　typedef Queue waitingQueue;</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      　　不失一般性，假设第一个顾客进门的时刻为0，显然，它应该是事件表的第一项，也就是程序要处理的第一个事件。之后每个顾客进门的时刻在前一个顾客进门时设定，即以两个顾客之间的时间间隔来确定下一个顾客的到达时间。顾客出门的时刻显然可以在开始理发的时候计算得到。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

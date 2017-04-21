@@ -1,0 +1,71 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　7.5.2 各对顶点间的最短路径问题</span><br>
+      <br>
+      　　如果希望求得图中任意两个顶点之间的最短路径，显然只要依次将每个顶点设为源点，调用迪杰斯特拉算法n次便可求出，其时间复杂度为 <i><font face="Times New Roman, Times, serif">O</font></i>(n<sup>3</sup>)。弗洛伊德提出了另外一个算法，虽然其时间复杂度也是 
+      <i><font face="Times New Roman, Times, serif">O</font></i>(n<sup>3</sup>)，但算法形式更简单。<br>
+      <br>
+      　　弗洛伊德算法的基本思想是求得一个 n 阶方阵的序列<br>
+      　　　D<sup>(-1)</sup>, D<sup>(0)</sup>, D<sup>(1)</sup>, …,D<sup>(k)</sup>,…,D<sup>(n-1)</sup><br>
+      <br>
+      　　其中：D<sup><font size="1">(-1)</font></sup>[i][j] 表示从顶点<img src="../../../images/pic/chapter07/vi.gif" width="13" height="17" align="absmiddle"> 
+      不经过其它顶点直接到达顶点<img src="../../../images/pic/chapter07/vj.gif" width="14" height="18" align="absmiddle"> 
+      的路径长度，即<br>
+      　　　D<sup><font size="1">(-1)</font></sup>[i][j]=G.arcs[i][j]，<br>
+      　　　D<sup>(k)</sup>[i][j] 则表示中间只可能经过 <img src="../../../images/pic/chapter07/v0.gif" width="15" height="18" align="absmiddle">,<img src="../../../images/pic/chapter07/v1.gif" width="14" height="18" align="absmiddle">, 
+      … ,<img src="../../../images/pic/chapter07/vk.gif" width="14" height="18" align="absmiddle"> 
+      等顶点，且不可能经过 <font size="3">v</font><font size="1">k+1</font>,<font size="3">v</font><font size="1">k+2</font>, 
+      … ,<font size="3">v</font><font size="1">n-1 </font>等顶点的最短路径长度。<br>
+      　　由此，D<sup>(n-1)</sup>[i][j] 自然是从顶点<img src="../../../images/pic/chapter07/vi.gif" width="13" height="17" align="absmiddle"> 
+      到顶点<img src="../../../images/pic/chapter07/vj.gif" width="14" height="18" align="absmiddle"> 
+      的最短路径长度。<br>
+      <br>
+      　　为了记下路径，和上列路径长度序列相对应有路径的方阵序列<br>
+      　　　P<sup>(-1)</sup>, P<sup>(0)</sup>, P<sup>(1)</sup>, …,P<sup>(k)</sup>,…,P<sup>(n-1)</sup><br>
+      <br>
+      　　弗洛伊德算法的基本操作为：<br>
+      　　<b>if</b> (D[i][k]+D[k][j] &lt; D[i][j])<br>
+      　<b>{</b><br>
+      　　D[i][j] = D[i][k]+D[k][j]; <br>
+      　　P[i][j] = P[i][k]+P[k][j]<br>
+      　<b>}</b><br>
+      <br>
+      　　其中 k 表示在路径中新增添考虑的顶点号，i 为路径的起始顶点号，j 为路径的终止顶点号。<br>
+      　　对有向网 G7 按弗洛伊德算法求得各对顶点之间的最短路径的过程如动画所示。<a href="javascript:;" onClick="MM_openBrWindow('../../../flash/chap07/7-5-1.swf','数据结构','width=400,height=300')"><img src="../../../images/tubiao/dh.gif" alt="动画" width="25" height="24" border="0" align="absmiddle"></a><br>
+    </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　<br>
+      　<br>
+      　　n 为图中顶点个数，假设图中顶点依次为<br>
+      　　　<img src="../../../images/pic/chapter07/v0l.gif" width="15" height="18" align="absmiddle">,<img src="../../../images/pic/chapter07/v1l.gif" width="14" height="18" align="absmiddle">,<img src="../../../images/pic/chapter07/v2l.gif" width="14" height="18" align="absmiddle">, 
+      … ,<img src="../../../images/pic/chapter07/vn_1l.gif" width="20" height="17" align="absmiddle"> 
+      <p><br>
+        　　换句话说，假设集合S的初始状态为空集，之后依次加入顶点<img src="../../../images/pic/chapter07/v0l.gif" width="15" height="18" align="absmiddle">,<img src="../../../images/pic/chapter07/v1l.gif" width="14" height="18" align="absmiddle">,<img src="../../../images/pic/chapter07/v2l.gif" width="14" height="18" align="absmiddle">, 
+        … 和<img src="../../../images/pic/chapter07/vn_1l.gif" width="20" height="17" align="absmiddle">，则 
+        D[i][j] 表示在所有从顶点<img src="../../../images/pic/chapter07/vil.gif" width="13" height="17" align="absmiddle"> 
+        到顶点<img src="../../../images/pic/chapter07/vjl.gif" width="14" height="18" align="absmiddle">&quot;其中只含集合S中顶点&quot;的路径中，路径长度的最小值。<br>
+        <br>
+        　　　　<img src="../../../images/pic/chapter07/7_32.gif" width="180" height="132" align="top"><br>
+        　　　　　　　　　(有向网G7) </p>
+    </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

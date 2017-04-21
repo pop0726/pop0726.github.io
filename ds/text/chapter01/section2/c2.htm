@@ -1,0 +1,54 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　1.2.2 数据结构</span><br>
+      <br>
+      　　若在特性相同的数据元素集合中的数据元素之间存在一种或多种特定的关系，则称该数据元素的集合为&quot;<span class="point">数据结构</span>&quot;，换句话说，数据结构是带&quot;<span class="point">结构</span>&quot;的数据元素的集合。&quot;结构&quot;即指数据元素之间存在的关系。<br>
+      <br>
+      　　假设以三个4位的十进制数表示一个含12位十进制数的&quot;长整数&quot;，则可用如下描述的数学模型表示：它是一个含三个数据元素{a1,a2,a3}的集合，且在集合上存在下列次序关系：{&lt;a1,a2&gt;，&lt;a2,a3&gt;}。<br>
+      　</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      　<br>
+      　　在客观世界中存在的各个事物之间存在着千丝万缕的&quot;联系&quot;，因此在计算机对它进行处理的时候必然也要将这种关系描述进去，如数学方程就是变量之间的约束关系的一种描述，在此称这种关系为结构，因此，数据结构是一堆数据元素和这些数据元素之间的关系的总和。<br>
+      　　&lt;x,y&gt; 意为 x 和 y 之间存在 &quot;x领先于y&quot; 的次序关系。<br>
+    </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">　　例如，长整数 &quot;321465879345&quot; 可用 a1=3214，a2=4658 
+      和 a3=9345 的集合表示，且三者之间的次序关系必须是，a1 表示最高4位，a3 表示最低的4位，a2 则是中间4位。<br>
+      <br>
+      　　又如，可以用下述数据结构来描述2行3列的矩阵：它是一个含6个数据元素{a1,a2,a3,a4,a5,a6} 的集合，且集合上存在&quot;行关系&quot;和&quot;列关系&quot;两个次序关系，其中行关系为{&lt;a1,a2&gt;，&lt;a2,a3&gt;，&lt;a4,a5&gt;，&lt;a5,a6&gt;}，列关系为<br>
+      　　　{&lt;a1,a4&gt;，&lt;a2,a5&gt;，&lt;a3,a6&gt;}。<br>
+      <br>
+      　　再如，描述1行6列的矩阵的数据结构的定义为：它是一个含6个数据元素{a1,a2,a3,a4,a5,a6}的集合，且集合上只存在一个次序关系，即：<br>
+      　　　{&lt;a1,a2&gt;，&lt;a2,a3&gt;，&lt;a3,a4&gt;，&lt;a4,a5&gt;，&lt;a5,a6&gt;}。<br>
+      　</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      <br>
+      　　从这两个例子可见，即使数据元素集合相同，而其上的关系不同，则构成的数据结构不同。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">　　以上所举数据结构例子中的关系都是&quot;线性关系&quot;，数据元素之间还可能存在非线性的关系，如1.1节中的&quot;管道图&quot;，又如管理工作中人和人之间的关系是一种层次关系。例如，某校一个年级有两个班，由一个级主任带班，每个班按所住宿舍分组，他们之间的关系可如下描述：<br>
+      　{ &lt;班主任，班长1&gt;，&lt;班主任，班长2&gt;，&lt;班长1，舍长1&gt;，……，&lt;班长2，舍长p&gt;,&lt;舍长1，学生1&gt;，&lt;舍长1，学生2&gt;，……，&lt;舍长p，学生n&gt; 
+      }，如右图所示。</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　<img src="../../../images/pic/chapter01/1_3.gif" width="250" height="186" align="top"></td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

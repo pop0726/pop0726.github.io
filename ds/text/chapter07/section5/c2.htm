@@ -1,0 +1,86 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+<script language="JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　7.5.1 单源点路径问题</span><br>
+      <br>
+      　　例如对有向网 G8 执行迪杰斯特拉算法的过程如动画所示。<a href="javascript:;" onClick="MM_openBrWindow('../../../flash/chap07/7-5-0.swf','数据结构','width=460,height=400')"><img src="../../../images/tubiao/dh.gif" alt="动画" width="25" height="24" border="0" align="absmiddle"></a><br>
+      <br>
+      <img src="../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle"> 
+      <span class="zhushi">算法 7.10</span><br>
+      　　<b>void</b> ShortestPath_DIJ( MGraph G, VertexType u ) <br>
+      　<b>{</b><br>
+      <span class="zhushi">　　<font face="Times New Roman, Times, serif">//</font> 
+      用 Dijkstra 算法求有向网G从源点 u 到其余顶点的最短路径</span><br>
+      　　s = LocateVex(G, u); <font face="Times New Roman, Times, serif">　　　　　//</font> 
+      源点 u 是图中第 s 个顶点<br>
+      　　<b>for</b> ( i=0; i&lt;G.vexnum; ++i) <b>{</b></td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">&nbsp;</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">　　　final[i] = <b>FALSE</b>; dist[i] = G.arcs[s][i];<br>
+      　　　v=G.vexs[i];<br>
+      　　　<b>if</b> (dist[i] &lt; INFINITY) path = uv ;<br>
+      　　　　　　　　　　　　　　　　　<font face="Times New Roman, Times, serif">//</font> 已经找到一条从顶点 
+      u 到顶点 v 的路径<br>
+      　　　<b>else</b> path[i] = ; <font face="Times New Roman, Times, serif">　　　　　//</font> 
+      暂时没有路径<br>
+      　　<b>} </b><font face="Times New Roman, Times, serif">//</font> for<br>
+      　　dist[s] = 0; final[s] = TRUE; <font face="Times New Roman, Times, serif">//</font> 
+      初始化，顶点 u 属于S集<br>
+      　　<b>for</b> (i=1; i&lt;G.vexnum; ++i) <br>
+      　　<b>{</b> <font face="Times New Roman, Times, serif">　　　　　　　　　　　　　//</font> 
+      求从源点到其余顶点的最短路径顶点<br>
+      　　　j = minimum(dist);<br>
+      　　　　　　　<font face="Times New Roman, Times, serif">//</font> 在集合V-S的顶点中求当前已得到的最短路径长度最小值<br>
+      　　　<b>if</b> (dist[j] == INFINITY) <b>break</b>;<br>
+      　　　　　　　<font face="Times New Roman, Times, serif">//</font> V-S中剩余顶点不存在从顶点 
+      u 到它们的路径<br>
+      　　　final[j] = <b>TRUE</b>; <font face="Times New Roman, Times, serif">　　　　　//</font> 
+      当前离顶点 u 最近的 v 加入S集<br>
+      　　　<b>for</b> (k=0; k&lt;G.vexnum; ++k)　<font face="Times New Roman, Times, serif">//</font> 
+      更新其它顶点的当前最短路径<br>
+      　　　　<b>if</b> (<b>!</b>final[k] <b><font face="Times New Roman, Times, serif">&amp;&amp;</font></b> (dist[j]+G.arcs[j][k]&lt;dist[k])) 
+      <b>{</b> <br>
+      　　　　　　　　　　　　　　　　　<font face="Times New Roman, Times, serif">//</font> 修改dist[k]和path[k] 
+      G.vexs[k]∈V-S</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　　设 
+      v=G.vexs[i]; 则final[i] 为TRUE表示 <br>
+      v∈S,即已经求得从 u 到 v 的最短路径。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">　　　　　dist[k] = dist[j] + G.arcs[j][k];<br>
+      　　　　　path[k] = path[j]+ G.vexs[k] ; <font face="Times New Roman, Times, serif">//</font> 
+      &quot;+&quot;表示串的联接<br>
+      　　　　<b>} </b><font face="Times New Roman, Times, serif">//</font> if<br>
+      　　　<b>}</b><font face="Times New Roman, Times, serif"> //</font> for k<br>
+      　　<b>}</b><font face="Times New Roman, Times, serif"> //</font> for i<br>
+      　<b>}</b><font face="Times New Roman, Times, serif"> //</font> ShortestPath_DIJ</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"> 
+      　　容易分析出，迪杰斯特拉算法的时间复杂度和普里姆算法相同，也是<i><font face="Times New Roman, Times, serif">O</font></i>(n<sup><font size="1">2</font></sup>)，即使是只要求求一条从源点到某个特定终点之间的最短路径，但如果是应用迪杰斯特拉算法的话，那么必须先求出所有&quot;路径长度&quot;比它短的最短路径，因此除非它是一条路径长度最短的最短路径，否则时间复杂度仍是<i><font face="Times New Roman, Times, serif">O</font></i>(n<sup><font size="1">2</font></sup>)的。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

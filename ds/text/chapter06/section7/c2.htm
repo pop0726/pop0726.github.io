@@ -1,0 +1,46 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　6.7.2 森林的遍历</span><br>
+      <br>
+      　　森林是树的集合，由此可以对森林中的每一棵树依次从左到右（如右图所示）进行先根遍历或者后根遍历。又森林中的（第一棵树的根）、（第一棵树的子树森林）及（其余树构成的森林），分别对应为（二叉树的根）、（二叉树的左子树）和（二叉树的右子树）。由此可如下定义森林的这两种遍历。<br>
+      <br>
+      <span class="zhushi">　一、先序遍历森林 </span><a href="javascript:;" onClick="MM_openBrWindow('../../../flash/chap06/6-7-5.swf','数据结构','width=400,height=300')"><img src="../../../images/tubiao/dh.gif" alt="动画" width="25" height="24" border="0" align="absmiddle"></a><br>
+      　　若森林不空，则可依下列次序进行遍历<br>
+      　　(1) 访问森林中第一棵树的根结点；<br>
+      　　(2) 先序遍历第一棵树中的子树森林；<br>
+      　　(3) 先序遍历除去第一棵树之后剩余的树构成的森林。<br>
+      <br>
+      <span class="zhushi">　二、中序遍历森林 </span><a href="javascript:;" onClick="MM_openBrWindow('../../../flash/chap06/6-7-6.swf','数据结构','width=400,height=300')"><img src="../../../images/tubiao/dh.gif" alt="动画" width="25" height="24" border="0" align="absmiddle"></a><br>
+      　　若森林不空，则可依下列次序进行遍历：<br>
+      　　(1) 中序遍历第一棵树中的子树森林；<br>
+      　　(2) 访问森林中第一棵树的根结点；<br>
+      　　(3) 中序遍历除去第一棵树之后剩余的树构成的森林。<br>
+      <br>
+      　　容易看出，树的先根遍历即森林的先序遍历可对应到二叉树的先序遍历，树的后根遍历即森林的中序遍历可对应到二叉树的中序遍历。换句话说，若以孩子-兄弟链表作树（或森林）的存储结构，则树的先根遍历（或森林的先序遍历）的算法和二叉树的先序遍历算法类似，而树的后根遍历（或森林的中序遍历）的算法和二叉树的中序遍历算法类似。</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      <br>
+      <br>
+      <br>
+      　　　<img src="../../../images/pic/chapter06/6_28.gif" width="207" height="160" align="top"></td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

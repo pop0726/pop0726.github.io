@@ -1,0 +1,28 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%"> 
+<tr> <td width="8">&nbsp;</td><td class="white" valign="top"><span class="part">　10.2.4 
+希尔排序</span><br> <br> 　　希尔排序又称&quot;缩小增量排序&quot;，它的基本思想是，先对待排序列进行&quot;宏观调整&quot;，待序列中的记录&quot;基本有序&quot;时再进行直接插入排序。<A HREF="javascript:;" ONCLICK="MM_openBrWindow('../../../flash/chap10/10-2-4-1.swf','数据结构','width=400,height=300')"><IMG SRC="../../../images/tubiao/dh.gif" ALT="动画" WIDTH="25" HEIGHT="24" BORDER="0" ALIGN="absmiddle"></A><br> 
+<br> 　　先看一个具体例子的希尔排序的过程。例如一个含11个关键字的序列 (16，25，12，30，47，11，23，36，9，18，31)，先对它进行&quot;增量为5&quot;的插入排序，即分别使<img src="../../../images/pic/chapter10/o1.gif" width="67" height="15" align="absmiddle">、<img src="../../../images/pic/chapter10/o2.gif" width="45" height="15" align="absmiddle">、<img src="../../../images/pic/chapter10/o3.gif" width="44" height="15" align="absmiddle">、<img src="../../../images/pic/chapter10/o4.gif" width="45" height="15" align="absmiddle"> 
+和 <img src="../../../images/pic/chapter10/o5.gif" width="49" height="15" align="absmiddle"> 
+为有序序列，然后将增量&quot;缩小到3&quot;，排序结果使 <img src="../../../images/pic/chapter10/o6.gif" width="86" height="15" align="absmiddle">、<img src="../../../images/pic/chapter10/o7.gif" width="84" height="15" align="absmiddle"> 
+和 <img src="../../../images/pic/chapter10/o8.gif" width="62" height="15" align="absmiddle"> 
+分别成为有序序列，此时序列中在关键字18，23，25，31和47之前的关键字均比它们小，即在进行最后一趟排序时这几个关键字都不需要&quot;往前进行&quot;插入，之后经过最后一趟插入排序即得到有序序列。<a href="javascript:;" onClick="MM_openBrWindow('../../../flash/chap10/10-2-5.swf','数据结构','width=400,height=300')"><img src="../../../images/tubiao/dh.gif" alt="动画" width="25" height="24" border="0" align="absmiddle"></a><br> 
+<br> 　　从上述例子的排序过程可见，由于希尔排序在前几趟的排序过程中，关键字较大的记录是&quot;跳跃式&quot;地往后移动，从而使得在进行最后一趟插入排序之前序列中记录的关键字已基本有序，只需作少量关键字比较和移动记录，由此减少了整个排序过程中所需进行的&quot;比较&quot;和&quot;移动&quot;的次数。</td><td background="../../../images/html/mid.gif" width="18">&nbsp;</td><td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br> 
+　<br> 　　所谓&quot;基本有序&quot;是指，在序列中的各个关键字之前，只存在少量关键字比它大的记录。</td><td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td></tr> 
+</table>
+</body>
+</html>

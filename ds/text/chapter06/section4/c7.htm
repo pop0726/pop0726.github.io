@@ -1,0 +1,99 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　6.4.2 二叉树其它操作算法举例</span><br>
+      <br>
+      <span class="zhushi">　五、在二叉树上查询某个结点</span><br>
+      <br>
+      　　假设给定一个和二叉树中数据元素有相同类型的值，在已知二叉树中进行查找，若存在和给定值相同的数据元素，则返回函数值为 TRUE，并用引用参数返回指向该结点的指针；否则返回函数值为 
+      FALSE。 
+      <p>　　算法的基本思想为：<br>
+        　　1) 若二叉树为空树，则二叉树上不存在这个结点，返回 FALSE；否则和根结点的元素进行比较，若相等，则找到，即刻返回指向该结点的指针和函数值 
+        TRUE，从而查找过程结束；2) 否则在左子树中进行查找，若找到，则返回 TRUE；3) 否则返回在右子树中进行查找的结果。因为右子树上查找的结果即为整个查找过程的结果，即若找到，返回的函数值为 
+        TRUE，并且已经得到指向该结点的指针，否则返回的函数值为 FALSE。<br>
+        <br>
+        <img src="../../../images/tubiao/cxd.gif" width="25" height="24" alt="算法" align="absmiddle"> 
+        <span class="zhushi">算法 6.7</span><br>
+        　　<b>bool</b> Locate (BiTree T, ElemType x, BiTree <b><font face="Times New Roman, Times, serif">&amp;</font></b>p) 
+        <br>
+        　<b>{</b><br>
+        <span class="zhushi">　　<font face="Times New Roman, Times, serif">//</font> 
+        若二叉树中存在和 x 相同的元素，则 p 指向该结点并返回 TRUE，<br>
+        　　<font face="Times New Roman, Times, serif">//</font> 否则 p = NULL 且返回 
+        FALSE </span><br>
+        　　<b>if</b> (<b>!</b>T)<br>
+        　　<b>{</b> p = <b>NULL</b>; <b>return FALSE</b>; <b>}</b><font face="Times New Roman, Times, serif">　　　　　　//</font> 
+        空树中不存在这样的结点<br>
+        　　<b>else { </b><br>
+        　　　<b>if</b> (T-&gt;data==x)<br>
+        　　　<b>{</b> p = T; <b>return TRUE</b>; <b>}</b><font face="Times New Roman, Times, serif">　　　　　　　//</font> 
+        找到所求结点 else <br>
+        　　　<b>if</b> (Preorder(T-&gt;<b>L</b>child,x,p)) <b><br>
+        　　　　return TRUE</b>;　　　　　　　　　　　 <font face="Times New Roman, Times, serif">//</font> 
+        在左子树中找到所求结点<br>
+        　　　<b>else</b> <b>return</b>(Preorder(T-&gt;<b>R</b>child,x,p)); <font face="Times New Roman, Times, serif">//</font> 
+        返回在右子树中查找的结果<br>
+        　　<b>} </b><font face="Times New Roman, Times, serif">//</font> else<br>
+        　<b>}<br>
+        　</b></p>
+    </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　　<br>
+      <br>
+      　<br>
+      　　和其它结构一样，欲在已知结构中查询某个特定的数据元素，只需对此结构进行&quot;遍历&quot;即可，对于二叉树而言，沿任何一条搜索路径(包括层次遍历的搜索路径)进行搜索均可。若采用先左后右的搜索路径显然进行先序遍历最为直截了当。<br>
+      　<br>
+      　　你可能会想这个算法没有必要写得这么复杂，就对二叉树进行一遍遍历，遍历过程中判别是否存在这样的数据元素不就行了吗？那么下列算法是否正确？<br>
+      <img src="../../../images/tubiao/cxd.gif" width="25" height="24" alt="算法"> 
+      <br>
+      　<b>void</b> locate(BiTree T,ElemType x,BiTree<b><font face="Times New Roman, Times, serif">&amp;</font></b> 
+      p)<br>
+      <b>{</b><br>
+      <b>　<font face="Times New Roman, Times, serif">//</font> 若二叉树 T 中存在和 x 相同的元素，<br>
+      　<font face="Times New Roman, Times, serif">//</font> 则 p 指向该结点，否则 p = NULL</b><br>
+      　<b>if</b> (!T) p=<b>NULL</b>;<br>
+      　<b>else {</b><br>
+      　　<b>if</b> (T-&gt;data==x) p=T;<br>
+      　　locate(T-&gt;lchild, x, p);<br>
+      　　locate(T-&gt;rchild, x, p);<br>
+      　<b>}</b><br>
+      <b>}</b><br>
+    </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><b>
+      <img src="../../../images/tubiao/cxd.gif" width="25" height="24" alt="算法"><br>
+      　<b>void</b> locate(BiTree T,ElemType x,BiTree<b><font face="Times New Roman, Times, serif">&amp;</font></b> 
+      p)<br>
+      <b>{</b><br>
+      <b><span class="zhushi">　<font face="Times New Roman, Times, serif">//</font> 
+      若二叉树 T 中存在和 x 相同的元素，则 p 指向<br>
+      　<font face="Times New Roman, Times, serif">//</font> 该结点，否则 p 的值不变，p 的初值为 
+      NULL</span></b><br>
+      　<b>if</b> (T)<br>
+      　<b>{ if</b> (T-&gt;data==x) p=T;<br>
+      　　locate(T-&gt;lchild, x, p);<br>
+      　　locate(T-&gt;rchild, x, p);<br>
+      　<b>}</b><font face="Times New Roman, Times, serif">//</font> if<br>
+      <b>}</b> </b></td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　　上面的这个算法不正确，不论二叉树中是否存在这个数据元素，最后返回的指针 
+      p 都是&quot;NULL&quot;。应该修改成如左算法。<br>
+      <br>
+      　<br>
+      　　你只要仔细对比这两个算法的差异就能明白为什么上面这个算法是错的。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/style.css" type="text/css">
+<script language="JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　2.3.5 双向链表</span><br>
+      <br>
+      　　顾名思义，<span class="part">双向链表(Double Linked List)</span>的特点是其结点结构中含有两个指针域，其一指向数据元素的&quot;直接后继&quot;，另一指向数据元素的&quot;直接前驱&quot;，用 
+      C 语言描述如下：<br>
+      　</td>
+    <td background="../../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      <br>
+      　　很明显，在双向链表中不仅能直接找到结点的前驱，也能即刻找到结点的后继。<br>
+      　</td>
+    <td background="../../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"> <img src="../../../../images/tubiao/cxd.gif" alt="算法" width="25" height="24" align="absmiddle">　<b>typedef 
+      struct</b> DuLNode <b>{</b><br>
+      　　　　ElemType data;<br>
+      　　　　<b>struct</b> DuLNode *prior;<br>
+      　　　　<b>struct</b> DuLNode *next;<br>
+      　　　<b>}</b> DuLNode, *DuLink;<br>
+      　</td>
+    <td background="../../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　假设指针p指向双向链表中某个结点，则<br>
+      　　p-&gt;prior-&gt;next = p<br>
+      　　p-&gt;next-&gt;prior = p<br>
+    </td>
+    <td background="../../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">　　与单链表类似，双向链表也是由指向头结点的头指针唯一确定，若将头尾结点链接起来则构成双向循环链表。空的双向循环链表则由只含一个自成双环的头结点表示。<a href="javascript:;" onClick="MM_openBrWindow('../../../../flash/chap02/2-3-5.swf','数据结构','width=400,height=300')"><img src="../../../../images/tubiao/dh.gif" alt="动画" width="25" height="24" border="0" align="absmiddle"></a><br>
+      <br>
+      　 <img src="../../../../images/pic/chapter02/2_7.gif" width="363" height="170" align="top"></td>
+    <td background="../../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　</td>
+    <td background="../../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

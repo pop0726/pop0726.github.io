@@ -1,0 +1,38 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top" height="150"><span class="part">　2.4.2 有序表的基本操作</span><br>
+      <br>
+      　　有序表类型的基本操作和线性表类型中定义的基本操作基本相同，但由于 LocateElem 中函数参数 compare 的类型不同，（在有序表中，元素相互比较的结果将产生三种结果：&quot;小于&quot;、&quot;等于&quot;和&quot;大于&quot;），则该函数的定义和实现的算法也就和线性表中的不同。<br>
+      　</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+    </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">　<b>LocateElem( L, e, &amp;q, int(*compare)(ElemType,ElemType) 
+      )</b><br>
+      　　<b>初始条件：</b>有序表L已存在，<b><span class="point">compare为有序判定函数</span></b>。<br>
+      　　<b>操作结果：</b>若有序表L中存在元素 e，则 q 指示L中<b><span class="point">第一个值为 e 的元素</span></b>的位置，并返回函数值TRUE；否则 
+      q 指示<b><span class="point">第一个大于 e 的元素的前驱</span></b>的位置，并返回函数值 FALSE。<br>
+      <br>
+      　　此外，在有序表中进行&quot;插入&quot;操作时必须保持表的有序性。也就是说，在有序表中进行插入时首先要查找插入位置，显然，上述函数返回的位置即为插入位置，即应插入在 
+      q 指示的元素之后。</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　例如在有序表<br>
+      (12,23,45,45,56,67,78,89)中查询e=45的结果为，q指向前一个&quot;45&quot;所在的位置，查询e=65的结果为，q指向&quot;56&quot;的位置，即&quot;67&quot;的前驱。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

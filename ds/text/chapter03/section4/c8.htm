@@ -1,0 +1,78 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%"><tr><td width="10">&nbsp;</td><td class="white" valign="top"><SPAN CLASS="part"><BR>【编程练习题】</SPAN><BR><BR>　　本章编程练习题中可以利用的栈和队列的类型定义如下：<P><SPAN CLASS="zhushi"><FONT FACE="Times New Roman, Times, serif">　//</FONT> 
+stack 类型</SPAN><BR>　<B>void</B> InitStack( stack<FONT FACE="Times New Roman, Times, serif"><B>&amp;</B></FONT> 
+s ); <FONT FACE="Arial, Helvetica, sans-serif">　//</FONT> 初始化 s 为空栈<BR>　<B>void</B> 
+Push( stack<FONT FACE="Times New Roman, Times, serif"><B>&amp;</B></FONT>s , char 
+x); <FONT FACE="Arial, Helvetica, sans-serif">//</FONT> 将元素 x 插入 s 的栈顶<BR>　<B>void</B> 
+Pop( stack<FONT FACE="Times New Roman, Times, serif"><B>&amp;</B></FONT> s ); 
+<FONT FACE="Arial, Helvetica, sans-serif">　　　　//</FONT> 删除 s 中的栈顶元素<BR>　<B>bool</B> 
+SEmpty( stack<FONT FACE="Times New Roman, Times, serif"><B>&amp;</B></FONT> s); 
+<FONT FACE="Arial, Helvetica, sans-serif">　　　//</FONT> 若栈 s 为空则返回 TRUE,否则返回 FALSE<BR>　<B>char</B> 
+GetTop( stack<FONT FACE="Times New Roman, Times, serif"><B>&amp;</B></FONT> s 
+);　<FONT FACE="Arial, Helvetica, sans-serif">　　//</FONT> 返回 s 中的栈顶元素<BR>　<B>void</B> 
+ClearStack( stack<FONT FACE="Times New Roman, Times, serif"><B>&amp;</B></FONT> 
+s); <FONT FACE="Arial, Helvetica, sans-serif">　//</FONT> 将栈 s 清空<BR>　<B>int</B> 
+StackLength( stack<FONT FACE="Times New Roman, Times, serif"><B>&amp;</B></FONT> 
+s); <FONT FACE="Arial, Helvetica, sans-serif">　//</FONT> 返回栈 s 中元素个数<BR>　<B>void</B> 
+DestroyStack( stack<FONT FACE="Times New Roman, Times, serif"><B>&amp;</B></FONT> 
+s );<FONT FACE="Arial, Helvetica, sans-serif">//</FONT> 销毁栈 s 结构</P><P>　<SPAN CLASS="zhushi"><FONT FACE="Arial, Helvetica, sans-serif">//</FONT> 
+queue 类型</SPAN><BR>　void InitQueue( queue<FONT FACE="Times New Roman, Times, serif"><B>&amp;</B></FONT> 
+q );<FONT FACE="Arial, Helvetica, sans-serif">　　　//</FONT> 初始化 q 为空栈<BR>　void 
+EnQueue( queue<FONT FACE="Times New Roman, Times, serif"><B>&amp;</B></FONT> q 
+, char x );<FONT FACE="Arial, Helvetica, sans-serif">//</FONT> 将元素 x 插入 q 的队尾<BR>　void 
+Dequeue( queue<FONT FACE="Times New Roman, Times, serif"><B>&amp;</B></FONT> q); 
+<FONT FACE="Arial, Helvetica, sans-serif">　　　　//</FONT> 删除 q 中队头元素<BR>　char GetHead( 
+queue<FONT FACE="Times New Roman, Times, serif"><B>&amp;</B></FONT> q );<FONT FACE="Arial, Helvetica, sans-serif">　　　　//</FONT> 
+返回 q 中队头元素<BR>　bool QEmpty( queue<FONT FACE="Times New Roman, Times, serif"><B>&amp;</B></FONT> 
+q); <FONT FACE="Arial, Helvetica, sans-serif">　//</FONT> 若队列 q 为空则返回 TRUE,否则返回 
+FALSE<BR>　void ClearQueue( queue<FONT FACE="Times New Roman, Times, serif"><B>&amp;</B></FONT> 
+q ); <FONT FACE="Arial, Helvetica, sans-serif">　　//</FONT> 将队列 q 清空<BR>　int QueueLength( 
+queue<FONT FACE="Times New Roman, Times, serif"><B>&amp;</B></FONT> q ); <FONT FACE="Arial, Helvetica, sans-serif">　　//</FONT> 
+返回队列 q 中元素个数<BR>　void DestroyQueue( queue<FONT FACE="Times New Roman, Times, serif"><B>&amp;</B></FONT> 
+q ); <FONT FACE="Arial, Helvetica, sans-serif">　//</FONT> 销毁队列 q 结构</P><P>　1. 
+试写一个算法，识别依次读入的一个以 <FONT FACE="Arial, Helvetica, sans-serif">@</FONT> 为结束符的字符序列是否为形如'序列1<FONT FACE="Times New Roman, Times, serif"><B>&amp;</B></FONT>序列2'模式的字符序列。其中序列1和序列2中都不含字符'<FONT FACE="Times New Roman, Times, serif"><B>&amp;</B></FONT>'，且序列2是序列1的逆序列。例如，'a+b<FONT FACE="Times New Roman, Times, serif"><B>&amp;</B></FONT>b+a'是属该模式的字符序列，而'1+3<FONT FACE="Times New Roman, Times, serif"><B>&amp;</B></FONT>3-1'则不是。<BR>　　<B>bool</B> 
+matching(<B>char</B>* str)<BR> 　<FONT FACE="Arial, Helvetica, sans-serif">//</FONT> 
+若给定字符串 str 为形如 &quot;序列1<FONT FACE="Times New Roman, Times, serif">&amp;</FONT>序列2&quot; 
+的对称字符串<BR>　<FONT FACE="Arial, Helvetica, sans-serif">//</FONT> (序列2是序列1的逆串)，则返回 
+true，否则返回 false</P><P>　2. 假设一个算术表达式中可以包含三种括号：圆括号&quot;(&quot;和&quot;)&quot;，方括号&quot;[&quot;和&quot;]&quot;和花括号&quot;{&quot;和&quot;}&quot;，且这三种括号可按任意的次序嵌套使用（如：…[…{…}…[…]…]…[…]…(…)…）。编写判别给定表达式中所含括号是否正确配对出现的算法(已知表达式已存入数据元素为字符的顺序表中)。<BR>　　<B>bool</B> 
+match_check( SqList exp )<BR> 　<FONT FACE="Arial, Helvetica, sans-serif">//</FONT> 
+若给定的表达式 exp 中的三种括号：()、[]和{}均配对出现，<BR>　<FONT FACE="Arial, Helvetica, sans-serif">//</FONT> 
+则返回&quot;true&quot;，否则返回&quot;false&quot;</P><P>　3. 假设表达式由单字母变量和双目四则运算算符构成。试写一个算法，将一个通常书写形式且书写正确的表达式转换为逆波兰式。<BR>　　<B>void</B> 
+transformation(<B>char</B>* rs, SqList exp)<BR> 　<FONT FACE="Arial, Helvetica, sans-serif">//</FONT> 
+以字符串 rs 返回给定的表达式 exp（以'#'为结束标志） <BR>　<FONT FACE="Arial, Helvetica, sans-serif">//</FONT> 
+转换所得相应的后缀式</P><P>　4. 如题9的假设条件，试写一个算法，对以逆波兰式表示的表达式求值。<BR>　　<B>int</B> valuation( 
+SqList suffixal )<BR> 　<FONT FACE="Arial, Helvetica, sans-serif">//</FONT> 返回由给定逆波兰式 
+suffixal 表示的表达式的值。</P><P>　5. 假设以带头结点的循环链表表示队列，并且只设一个指针指向队尾元素结点(注意不设头指针)，试编写相应的队列初始化、入队列和出队列的算法。<BR>　　<B>void</B> 
+Init_Queue(LinkQueue<FONT FACE="Times New Roman, Times, serif"><B>&amp;</B></FONT> 
+rear)<BR> 　<FONT FACE="Arial, Helvetica, sans-serif">//</FONT> rear 是指向以循环链表表示的队列的队尾指针，初始化该循环链表队列。</P><P>　6. 
+假设将循环队列定义为：以域变量 rear 和 length 分别指示循环队列中队尾元素的位置和内含元素的个数。试给出此循环队列的队满条件，并写出相应的入队列和出队列的算法(在出队列的算法中要返回队头元素)。<BR>　　<B>bool</B> 
+En_CQueue( CyclicQueue<FONT FACE="Times New Roman, Times, serif"><B>&amp;</B></FONT> 
+Q, ElemType x )<BR> 　<FONT FACE="Arial, Helvetica, sans-serif">//</FONT> Q 是一个由其尾指针和队列长度标识的循环队列，若队列不满，<BR> 
+　<FONT FACE="Arial, Helvetica, sans-serif">//</FONT> 则将 x 插入至队尾，并返回 true ；否则返回 
+false</P><P>　7. 假设称正读和反读都相同的字符序列为&quot;回文&quot;，例如，'abba' 和 'abcba'是回文，'abcde' 
+和 'ababab' 则不是回文。试写一个算法判别读入的一个以'<FONT FACE="Arial, Helvetica, sans-serif">@</FONT>'为结束符的字符序列是否是&quot;回文&quot;。<BR>　　<B>bool</B> 
+matching(char* rs)<BR> 　<FONT FACE="Arial, Helvetica, sans-serif">//</FONT> rs 
+为一个随机产生的未知长度的（以<FONT FACE="Arial, Helvetica, sans-serif">@</FONT>为结束符的）字符序列，<BR> 
+　<FONT FACE="Arial, Helvetica, sans-serif">//</FONT> 若是&quot;回文&quot;，则返回&quot;true&quot;，否则返回&quot;false&quot;。</P><P>　8. 
+试利用如下说明的循环队列编写求 k 阶斐波那契序列中前 n+1 项<IMG SRC="../../../images/pic/exam/3_1.gif" WIDTH="62" HEIGHT="16" ALIGN="ABSMIDDLE">的算法，要求满足：<IMG SRC="../../../images/pic/exam/3_2.gif" WIDTH="11" HEIGHT="15" ALIGN="ABSMIDDLE">≤max 
+而 <IMG SRC="../../../images/pic/exam/3_3.gif" WIDTH="21" HEIGHT="15" ALIGN="ABSMIDDLE">&gt;max，其中 
+max 为某个约定的常数。(注意：本题所用循环队列的容量仅为 k，则在算法执行结束时，留在循环队列中的元素应是所求 k 阶斐波那契序列中的最后 k 项 <IMG SRC="../../../images/pic/exam/3_4.gif" WIDTH="29" HEIGHT="15" ALIGN="ABSMIDDLE">,…,<IMG SRC="../../../images/pic/exam/3_2.gif" WIDTH="11" HEIGHT="15" ALIGN="ABSMIDDLE">)。<BR>　　<B>struct</B> 
+CyclicQueue<B> {</B> <FONT FACE="Arial, Helvetica, sans-serif">//</FONT> 循环队列 
+<BR> 　　　<B>int</B> elem[k];<BR> 　　　<B>int</B> rear,front ; <FONT FACE="Arial, Helvetica, sans-serif">//</FONT> 
+0..k-1;<BR> 　　<B>}</B>;<BR>　　<B>void</B> K_Fib( CyclicQueue<FONT FACE="Times New Roman, Times, serif"><B>&amp;</B></FONT> 
+q, <B>int</B> k, ElemType max)<BR> 　<FONT FACE="Arial, Helvetica, sans-serif">//</FONT> 
+计算K阶斐波那契序列中的前 N+1 项，即:<BR>　<FONT FACE="Arial, Helvetica, sans-serif">//</FONT> 
+要求 <IMG SRC="../../../images/pic/exam/3_2.gif" WIDTH="11" HEIGHT="15" ALIGN="ABSMIDDLE">&lt;=max 
+而 <IMG SRC="../../../images/pic/exam/3_3.gif" WIDTH="21" HEIGHT="15" ALIGN="ABSMIDDLE">&gt;max，函数运行结束时，<BR> 
+　<FONT FACE="Arial, Helvetica, sans-serif">//</FONT> 留在队列中的元素恰为所求 K 阶斐波那契序列中的最后 
+K 项。<BR></P></td><td background="../../../images/html/mid.gif" width="18">&nbsp;</td><td background="../../../images/html/right_di4.gif" class="explaination" valign="top" width="281"><BR>【编程练习题】</td><td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td></tr> 
+</table>
+</body>
+</html>

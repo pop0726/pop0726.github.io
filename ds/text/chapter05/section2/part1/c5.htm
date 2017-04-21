@@ -1,0 +1,102 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/style.css" type="text/css">
+<script language="JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<script language=JavaScript src="../../../chapter02/section2/part1/hpmain.js"></script>
+<script language=JavaScript src="../../../chapter02/section2/part1/showhidden.js"></script>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　5.2.2 稀疏矩阵的压缩存储方法</span><br>
+      <br>
+      <span class="zhushi">　一、三元组顺序表</span><br>
+      <br>
+      <img src="../../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle"> 
+      <span class="zhushi">算法 5.1</span><br>
+      　　<b>void</b> FastTransposeSMatrix(TSMatrix M, TSMatrix <b><font face="Times New Roman, Times, serif">&amp;</font></b>T) <br>
+      　<b>{</b><br>
+      <span class="zhushi">　　<font face="Times New Roman, Times, serif">//</font> 
+      采用三元组顺序表存储表示，求稀疏矩阵M的转置矩阵 T</span><br>
+      　　T.rows = M.cols;<br>
+      　　T.cols = M.rows;<br>
+      　　T.terms = M.terms;<br>
+      　　<b>if</b> (T.terms) <b>{</b><br>
+      　　　<b>for</b> (col=1; col&lt;=M. cols; ++col)<br>
+      　　　　num[col] = 0;<br>
+      　　　<b>for</b> (t=1; t&lt;=M. terms; ++t)<br>
+      　　　　++num[M.data[t].j];　　　　　　<font face="Times New Roman, Times, serif">//</font> 
+      求 M 中每一列所含非零元的个数<br>
+      　　　rpos[1] = 1;<br>
+      　　　<b>for</b> (col=2; col&lt;=M. cols; ++col)<br>
+      　　　　rpos[col] = rpos[col-1] + num[col-1];<br>
+      　　　　　　　　　　　　　　<font face="Times New Roman, Times, serif">//</font> 求T中每一行的第一个非零元在T.data中的序号<br>
+      　　　<b>for</b> (p=1; p&lt;=M.terms; ++p) <b>{ </b><font face="Times New Roman, Times, serif">　//</font> 
+      转置矩阵元素<br>
+      　　　　col = M.data[p].j; q = rpos[col];<br>
+      　　　　T.data[q].i =M.data[p].j;<br>
+      　　　　T.data[q].j =M.data[p].i;<br>
+      　　　　T.data[q].e =M.data[p].e;<br>
+      　　　　++rpos[col]; <br>
+      　　　<b>}</b> <font face="Times New Roman, Times, serif">//</font> for<br>
+      　　<b>}</b> <font face="Times New Roman, Times, serif">//</font> if<br>
+      　<b>}</b> <font face="Times New Roman, Times, serif">//</font> FastTransposeSMatrix<br>
+      <br>
+      　　上述算法的<span class="point">时间复杂度</span>为<span class="point"><i><font face="Times New Roman, Times, serif"><b>O</b></font></i><b><font face="Times New Roman, Times, serif"> 
+      (M.cols+M.terms)</font></b></span>。</td>
+    <td background="../../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      <br>
+      　 <a href="javascript:;" onClick="MM_openBrWindow('../../../../flash/chap05/5.swf','','width=400,height=430')">
+      <img src="../../../../images/tubiao/dh.gif" width="25" height="24" align="absmiddle" border="0"></a><br>
+      <br>
+      　　算法的控制结构为四个并列的循环，其中两个的循环次数和M矩阵的列数n成正比，另两个的循环次数和非零元的个数t成正比，显然算法的时间复杂度为<i><font face="Times New Roman, Times, serif">O</font></i>(n+t)。<br>
+      <br>
+      <table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td bgcolor="#ECEEFF" height="14" class="explaination" width="8">&nbsp;</td>
+                <td bgcolor="#ECEEFF" height="14" class="explaination"><img src="../../../../images/tubiao/wt.gif" width="23" height="23" align="absmiddle" alt="思考题"> 
+                  当以二维数组表示矩阵时，转置算法的时间复杂度是什么？<br>
+                  　是<i><font face="Times New Roman, Times, serif">O</font></i>(M.rows×M.cols)，对吗？和三元组顺序表表示时的转置算法相比，你将得出什么结论呢？<br>
+                </td>
+                <td width="15" bgcolor="#ECEEFF" valign="top"><span id="bb"><img border=0 
+                              id=HPFrameHLTab3 
+                              onClick="showHideContent('HPFrameHL');hidden();"
+							   src="../../../../images/html/expand.gif" style="CURSOR: hand" width="15" height="14"></span></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <div id=HPFrameHLContent 
+           style="WIDTH: 100%;visibility: hidden;background-color:#ECEEFF" > 
+              <table width="95%" border="0" cellspacing="0" cellpadding="0" align="center">
+                <tr> 
+                  <td class="explaination">　显然，即使 M 矩阵不是稀疏矩阵，用三元组顺序表时的转置算法的时间复杂度也不会超过二维数组表示时的时间复杂度，而对稀疏矩阵来说，其时间复杂度是和矩阵中所含非零元的个数等数量级的。　</td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+      </table>
+      <br>
+      　　从转置算法可见，这种表示方法便于进行&quot;按行依次存取元素&quot;的矩阵运算，但不便进行&quot;需要随机存取某一行元素&quot;的矩阵运算。</td>
+    <td background="../../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

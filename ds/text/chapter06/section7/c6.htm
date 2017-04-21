@@ -1,0 +1,92 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　6.7.3 森林的其它操作算法举例</span><br>
+      <br>
+      <span class="zhushi">　三、构建树的孩子-兄弟链表存储结构</span><br>
+      <br>
+      　　和构建二叉树的存储结构相同，构建树的存储结构的算法也取决于输入的形式。<br>
+      <br>
+      　　假设在输入根结点之后，以(双亲、孩子)的形式输入树中各个分支的有序对，并且各分支的输入次序为自上而下，同层次则为从左到右。例如，对右图所示树的分支先后输入的次序为：(A,B),(A,C),(A,D),(B,E),(D,F),(D,G),(E,H),(E,I),(E,J),(G,K)。<br>
+      <br>
+      　　这个输入次序决定了这个建存储结构的算法为&quot;按层次遍历&quot;，即按输入的次序自上而下、自左至右建立&quot;孩子&quot;结点，同时查询双亲的位置，建立和双亲结点的关系。<br>
+      <br>
+      　　　由于按层次遍历的规则是：&quot;其父结点先被访问的孩子结点&quot;先于&quot;其父结点后被访问的孩子结点&quot;进行访问，因此在按层次遍历的算法中需要一个&quot;队列&quot;用以记录父结点被访问的先后次序，以便按此次序先后访问他们的孩子结点。<br>
+      <br>
+      <img src="../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle"> 
+      <span class="zhushi">算法6.15</span><br>
+      　　<b>void</b> CreateTree( CSTree <b><font face="Times New Roman, Times, serif">&amp;</font></b>T )<br>
+      　<b>{</b><br>
+      <span class="zhushi">　　<font face="Times New Roman, Times, serif">//</font> 
+      按自上而下且每一层自左至右的次序输入双亲-孩子的有序<br>
+      　　<font face="Times New Roman, Times, serif">//</font> 对，建立树的孩子-兄弟链表，T为指向根结点的指针</span><br>
+      　　Queue Q;<br>
+      　　<b>cin</b> &gt;&gt; n;<font face="Times New Roman, Times, serif">　　　　　　　　　　　　　　　//</font> 
+      输入树的结点数<br>
+      　　<b>if</b> (n==0) T=<b>NULL</b>;<br>
+      　　<b>else {</b><br>
+      　　　InitQueue(Q); <font face="Times New Roman, Times, serif">　　　　　　　　　　　　//</font> 
+      初始化空队列<br>
+      　　　T = <b>new</b> CSNode;<br>
+      　　　<strong>if</strong> (!T) <strong>exit</strong>(1);　　　　　　　　　　 <font face="Times New Roman, Times, serif">　//</font> 
+      存储分配失败<br>
+      　　　<b>cin</b> &gt;&gt; T-&gt;data; <font face="Times New Roman, Times, serif">　　　　　　　　　　　//</font> 
+      输入树的根结点元素<br>
+      　　　T-&gt;firstchild = T-&gt;nextsibling = <b>NULL</b>;<br>
+      　　　EnQueue(Q, T);<font face="Times New Roman, Times, serif">　　　　　　　　　　　　//</font> 
+      根结点入队列<br>
+      　　　<b>for</b> (k=1; k&lt;n; k++) <b>{</b><br>
+      　　　　<b>cin</b> &gt;&gt; fa &gt;&gt; ch;<font face="Times New Roman, Times, serif">　　　　　　　　　　//</font> 
+      输入一个分支<br>
+      　　　　s= <b>new</b> CSNode;<font face="Times New Roman, Times, serif">　　　　　　　　　　　//</font> 
+      建孩子结点<br>
+      　　　　<strong>if</strong> (!s) <strong>exit</strong>(1); 　　　　　　　　　<font face="Times New Roman, Times, serif">　//</font> 
+      存储分配失败<br>
+      　　　　s-&gt;data = ch; s-&gt;firstchild = s-&gt;nextsibling = <b>NULL</b>;<br>
+      　　　　GetHead(Q, p);<br>
+      　　　　<b>while</b> (p-&gt;data != fa) <b>{</b> <font face="Times New Roman, Times, serif">　　　　　　//</font> 
+      查询双亲结点<br>
+      　　　　　DeQueue(Q, p); GetHead(Q, p);<br>
+      　　　　　<b>} </b><font face="Times New Roman, Times, serif">// </font>while<br>
+      　　　　<b>if</b> (!p-&gt;firstchild) <font face="Times New Roman, Times, serif">　　　　　　　　//</font> 
+      当前输入的是第一个孩子<br>
+      　　　　　<b>{</b> p-&gt;firstchild = s; r = s; <b>} </b><br>
+      　　　　<b>else {</b> p-&gt;nextsibling = s; r = s; <b>}</b><br>
+      　　　　EnQueue(Q, s); <font face="Times New Roman, Times, serif">　　　　　　　　　　//</font> 
+      新建的孩子结点入队列<br>
+      　　　<b>}</b><font face="Times New Roman, Times, serif"> //</font> for<br>
+      　　　DestroyQueue(Q);<br>
+      　　<b>} </b><font face="Times New Roman, Times, serif">//</font> else<br>
+      　<b>} </b><font face="Times New Roman, Times, serif">//</font> CreateTree<br>
+    </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　<br>
+      　<br>
+      　<br>
+      　　<img src="../../../images/pic/chapter06/6_30.gif" width="210" height="163" align="top"><br>
+      　<br>
+      　　例如，在建立根结点A的同时将该结点的&quot;指针&quot; 入队列，在依次输入(A,B),(A,C),(A,D)时可由队头元素找到父结点的位置，同时在继续输入(B,E)时，因为当时的队头元素中的指针所指结点不是双亲B,可判断出A的孩子结点已都输入完毕，即不再需要保留结点A的指针。换句话说，为了找到结点B的指针应该将队列元素出列直至队头元素的指针指向当前输入的双亲结点为止。<br>
+      <br>
+      　　例如，在先后输入下列数据<br>
+      　　　11,A,(A,B),(A,C),(A,D),(B,E),(D,F)<br>
+      　　建立孩子-兄弟链表过程中队列状态的变化情况如动画所示。<a href="javascript:;" onClick="MM_openBrWindow('../../../flash/chap06/6-7-8.swf','数据结构','width=400,height=300')"><img src="../../../images/tubiao/dh.gif" alt="动画" width="25" height="24" border="0" align="absmiddle"></a></td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"> 　<span class="part">2.1.1 抽象数据类型线性表的定义</span><br>
+      <br>
+      　　<strong>{引用型操作}</strong><br>
+      　　ListEmpty( L )<br>
+      　　　初始条件：线性表L已存在。<br>
+      　　　操作结果：若 L 为空表，则返回<span class="point"> TRUE</span>，否则返回<span class="point"> 
+      FALSE</span>。<br>
+      　<br>
+    </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      <br>
+      <br>
+      <br>
+      　　判定线性表是否为空表。 </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>&nbsp;</td>
+    <td class="white" valign="top"> 　　ListLength( L )<br>
+      　　　初始条件：线性表 L 已存在。<br>
+      　　　操作结果：返回 L 中<span class="point">元素个数</span>。<br>
+      　</td>
+    <td background="../../../images/html/mid.gif">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　　求得线性表的长度，即线性表中所含数据元素的个数。</td>
+    <td background="../../../images/html/right_di3.gif">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>&nbsp;</td>
+    <td class="white" valign="top">　　PriorElem( L, cur_e, <b><font face="Times New Roman, Times, serif">&amp;</font></b>pre_e )<br>
+      　　　初始条件：线性表 L 已存在。<br>
+      　　　操作结果：若 cur_e 是 L 中的数据元素，则用 pre_e 返回它的<span class="point">前驱</span>，<br>
+      　　　　　　　　否则操作失败，pre_e 无定义。<br>
+      　<br>
+    </td>
+    <td background="../../../images/html/mid.gif">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　　若 
+      cur_e 是线性表 L 中第一个数据元素，则它的前驱 pre_e 为&quot;空元素&quot;。</td>
+    <td background="../../../images/html/right_di3.gif">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>&nbsp;</td>
+    <td class="white" valign="top">　　NextElem( L, cur_e, <b><font face="Times New Roman, Times, serif">&amp;</font></b>next_e )<br>
+      　　　初始条件：线性表 L 已存在。<br>
+      　　　操作结果：若 cur_e 是 L 中的数据元素，则用 next_e 返回它的后继，<br>
+      　　　　　　　　否则操作失败，next_e 无定义。<br>
+      　<br>
+    </td>
+    <td background="../../../images/html/mid.gif">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　　若 
+      cur_e 是线性表 L 中最后一个数据元素，则它的后继 next_e 为&quot;空元素&quot;。</td>
+    <td background="../../../images/html/right_di3.gif">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>&nbsp;</td>
+    <td class="white" valign="top">　　GetElem( L, i, <b><font face="Times New Roman, Times, serif">&amp;</font></b>e )<br>
+      　　　初始条件：线性表 L 已存在，<span class="point">1≤i≤LengthList(L)</span>。<br>
+      　　　操作结果：用 e 返回 L 中第 i 个元素的值。<br>
+      　<br>
+    </td>
+    <td background="../../../images/html/mid.gif">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　　此操作的结果是求得线性表 
+      L 中和位序 i 相对应的数据元素，因此，只有当 i 的值在线性表的长度范围内才有意义。</td>
+    <td background="../../../images/html/right_di3.gif">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>&nbsp;</td>
+    <td class="white" valign="top">　　LocateElem( L, e, compare( ) )<br>
+      　　　初始条件：线性表 L 已存在，compare( ) 是元素判定函数。<br>
+      　　　操作结果：返回 L 中第1个与 e<span class="point"> 满足关系 compare( )</span> 的元素的<span class="point">位序</span>。<br>
+      　　　　　　　　若这样的元素不存在，则返回值为0。<br>
+    </td>
+    <td background="../../../images/html/mid.gif">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　　这是和上一个操作&quot;相对&quot;的操作，通常称为&quot;定位函数&quot;，这是一种广义的定位函数写法，以<img src="../../../images/pic/chapter02/t1.gif" width="49" height="13" align="absmiddle" alt="请参阅C语言程序设计的教材中有关&quot;以函数作参数&quot;的说明。" border="0"> 
+      compare() 作为判定的条件，参数 e 和线性表中数据元素具有相同类型。较多场合是以&quot;相等&quot;作为判定条件，此时可省略函数参数，且操作结果为：若线性表中存在与 
+      e 值相同的数据元素，则返回第一个这样的元素在表中的位序，否则返回函数值为0。<br>
+      　</td>
+    <td background="../../../images/html/right_di3.gif">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>&nbsp;</td>
+    <td class="white" valign="top">　　ListTraverse(L, visit( ))<br>
+      　　初始条件：线性表 L 已存在，visit( ) 为元素的访问函数。<br>
+      　　操作结果：<span class="point">依次</span>对 L 的每个元素调用函数 <span class="point">visit( 
+      )</span>。<br>
+      　　　　　　　一旦 visit( ) 失败，则操作失败。<br>
+    </td>
+    <td background="../../../images/html/mid.gif">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　　visit() 
+      亦为函数参数，常见的情况是&quot;依次输出表中元素的值&quot;，同样在这种情况下，通常的写法也是省略函数参数。</td>
+    <td background="../../../images/html/right_di3.gif">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

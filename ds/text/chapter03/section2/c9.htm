@@ -1,0 +1,42 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　3.2.5 递归函数的实现</span><br>
+      <br>
+      　　在程序设计中，经常会碰到多个函数的嵌套调用。和汇编程序设计中主程序和子程序之间的链接和信息交换相类似，在高级语言编制的程序中，调用函数和被调用函数之间的链接和信息交换也是由编译程序通过栈来实施的。<br>
+      　</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">&nbsp;</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">　　当一个函数在运行期间调用另一个函数时，在运行该被调用函数之前，需先完成三件事：<br>
+      　　1) 将所有的实在参数、返回地址等信息传递给被调用函数保存；<br>
+      　　2) 为被调用函数的局部变量分配存储区；<br>
+      　　3) 将控制转移到被调用函数的入口。<br>
+      <br>
+      　　而从被调用函数返回调用函数之前，应该完成：<br>
+      　　1) 保存被调函数的计算结果；<br>
+      　　2) 释放被调函数的数据区；<br>
+      　　3) 依照被调函数保存的返回地址将控制转移到调用函数。<br>
+      <br>
+      　　当多个函数嵌套调用时，由于函数的运行规则是：后调用先返回，因此各函数占有的存储管理应实行&quot;<b>栈式管理</b>&quot;。</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　　假设主函数调用函数A，函数A又调用函数B，显然，在函数B运行期间主函数和函数A占用的存储都不能被覆盖，反之，当函数B运行结束，它所占用的存储区便可释放，同时因为程序控制转移到函数A，当前程序访问的数据自然就是函数A占用的存储区了。<br>
+      <br>
+      　　　　　<img src="../../../images/pic/chapter03/3_2_5_1.gif" width="143" height="114" align="top"> 
+    </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

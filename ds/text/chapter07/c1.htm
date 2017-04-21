@@ -1,0 +1,126 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<script language=JavaScript src="../chapter01/hpmain.js"></script>
+<script language=JavaScript src="../chapter01/showhidden.js"></script>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td class="white" valign="top"><span class="point"><br>
+      </span><span class="part">【学习目标】</span><br>
+      　　1．领会图的类型定义。<br>
+      　　2．熟悉图的各种存储结构及其构造算法，了解各种存储结构的特点及其选用原则。<br>
+      　　3．熟练掌握图的两种遍历算法。<br>
+      　　4．理解各种图的应用问题的算法。<br>
+      　</td>
+    <td background="../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../images/html/right_di4.gif" class="explaination" valign="top" width="281"><span class="point"><br>
+      </span>【学习目标】</td>
+    <td background="../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">【重点和难点】</span><br>
+      　　图的应用极为广泛，而且图的各种应用问题的算法都比较经典，因此本章重点在于理解各种图的算法及其应用场合。<br>
+      　</td>
+    <td background="../../images/html/mid.gif">&nbsp;</td>
+    <td background="../../images/html/right_di4.gif" class="explaination" valign="top">【重点和难点】</td>
+    <td background="../../images/html/right_di3.gif">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">【知识点】</span><br>
+      　　图的类型定义、图的存储表示、图的深度优先搜索遍历和图的广度优先搜索遍历、无向网的最小生成树、最短路径、拓扑排序、关键路径<br>
+      　</td>
+    <td background="../../images/html/mid.gif">&nbsp;</td>
+    <td background="../../images/html/right_di4.gif" class="explaination" valign="top">【知识点】</td>
+    <td background="../../images/html/right_di3.gif">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">【学习指南】</span><br>
+      　　离散数学中的图论是专门研究图性质的一个数学分支，但图论注重研究图的纯数学性质，而数据结构中对图的讨论则侧重于在计算机中如何表示图以及如何实现图的操作和应用等。图是较线性表和树更为复杂的数据结构，因此和线性表、树不同，虽然在遍历图的同时可以对顶点或弧进行各种操作，但更多图的应用问题如求最小生成树和最短路径等在图论的研究中都早已有了特定算法，在本章中主要是介绍它们在计算机中的具体实现。这些算法乍一看都比较难，应多对照具体图例的存储结构进行学习。而图遍历的两种搜索路径和树遍历的两种搜索路径极为相似，应将两者的算法对照学习以便提高学习的效益。<br>
+      　</td>
+    <td background="../../images/html/mid.gif">&nbsp;</td>
+    <td background="../../images/html/right_di4.gif" class="explaination" valign="top">【学习指南】</td>
+    <td background="../../images/html/right_di3.gif">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">【课前思考】<br>
+      </span>
+      <table width="80%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td bgcolor="#ECEEFF" height="14" class="explaination" width="8">&nbsp;</td>
+                <td bgcolor="#ECEEFF" height="14" class="explaination"><img src="../../images/tubiao/wt.gif" width="23" height="23" align="absmiddle" alt="思考题"> 
+                  1. 你有没有发现现在的十字路口的交通灯已从过去的一对改为三对，即每个方向的直行、左拐和右拐能否通行都有相应的交通灯指明。你能否对某个丁字路口的6条通路画出和第一章绪论中介绍的&quot;五叉路口交通管理示意图&quot;相类似的图？</td>
+                <td width="15" bgcolor="#ECEEFF" valign="top"><span id="bb"><img border=0 
+                              id=HPFrameHLTab3 
+                              onClick="showHideContent('HPFrameHL');hidden();"
+							   src="../../images/html/expand.gif" style="CURSOR: hand" width="15" height="14"></span></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <div id=HPFrameHLContent 
+           style="WIDTH: 100%;visibility: hidden;background-color:#ECEEFF" > 
+              <table width="94%" border="0" cellspacing="0" cellpadding="0" align="center">
+                <tr> 
+                  <td class="explaination">　 你一定可以画出如下所示类似的图形。<br>
+                    <div align=center><img src="../../images/pic/chapter07/7_j1.gif" width="350" height="165"></div>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+      </table>
+      <br>
+      <table width="80%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td bgcolor="#ECEEFF" height="14" class="explaination" width="8">&nbsp;</td>
+                <td bgcolor="#ECEEFF" height="14" class="explaination"><img src="../../images/tubiao/wt.gif" width="23" height="23" align="absmiddle" alt="思考题"> 
+                  2. 如果每次让三条路同时通行，那么从图看出哪些路可以同时通行？</td>
+                <td width="15" bgcolor="#ECEEFF" valign="top"><span id=dd><img border=0 
+                              id=HPFrameDLTab3 
+                              onClick="showHideContent('HPFrameDL');hiddenL();"
+							   src="../../images/html/expand.gif" style="CURSOR: hand" width="15" height="14"></span></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <div id=HPFrameDLContent 
+           style="WIDTH: 100%;visibility: hidden;background-color:#ECEEFF"> 
+              <table width="94%" border="0" cellspacing="0" cellpadding="0" align="center">
+                <tr> 
+                  <td class="explaination">　同时可通行的路为：(AB,BC,CA),(AB,BC,BA),(AB,AC,CA),(CB,CA,BC)</td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+    <td background="../../images/html/mid.gif">&nbsp;</td>
+    <td background="../../images/html/right_di4.gif" class="explaination" valign="top">【课前思考】</td>
+    <td background="../../images/html/right_di3.gif">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

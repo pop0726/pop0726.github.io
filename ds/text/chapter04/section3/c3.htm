@@ -1,0 +1,60 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<script language=JavaScript src="../../chapter02/section1/hpmain.js"></script> 
+<script language=JavaScript src="../../chapter02/section1/showhidden.js"></script> 
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%"> 
+<tr> <td width="8">&nbsp;</td><td class="white" valign="top"> <span class="part">　4.3.2 
+串的模式匹配的改进算法</span><br> <br> 　　为了便于说明问题，先将算法4.6改写为下列形式，并观看一个实例的匹配过程。<br> <br> <img src="../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle" alt="算法"> 
+<span class="zhushi">算法 4.7</span><br> 　　<b>int</b> Index_BF1 ( <b>char</b> S 
+[ ], <b>char</b> T [ ], <b>int</b> pos )<br> 　<b>{</b><br> <span class="zhushi">　　<font face="Times New Roman, Times, serif">//</font> 
+若串 S 中从第pos(1≤pos≤StrLength(S))个字符起存在<br> 　　<font face="Times New Roman, Times, serif">//</font> 
+和串 T 相同的子串，则称匹配成功，返回第一个这样的子串<br> 　　<font face="Times New Roman, Times, serif">//</font> 
+在串 S 中的位置，否则返回 0</span><br> 　　i = pos-1; j = 0;<br> 　　<b>while</b> ( S[i] != <font face="Times New Roman, Times, serif">'</font>\0'<b><font face="Times New Roman, Times, serif">&amp;&amp;</font></b> 
+T[j] != <font face="Times New Roman, Times, serif">'</font>\0')<br> 　　　<b>if</b> 
+( S[i] == T[j] )<br> 　　　　<b>{</b> i++; j ++; <b>}</b> <font face="Times New Roman, Times, serif">　　　　　　　　　　　//</font> 
+继续比较后一字符<br> 　　　<b>else</b> <b>{</b> i = i-j+1; j = 0; <b>}</b> <font face="Times New Roman, Times, serif">　　　　　　//</font> 
+重新开始新的一轮匹配<br> 　　<b>if</b> ( T[j] == <font face="Times New Roman, Times, serif">'</font>\0') 
+<b>return </b>(i-j); <font face="Times New Roman, Times, serif">　　 　　//</font> 
+匹配成功<br> 　　<b>else return</b> 0; 　　　<font face="Times New Roman, Times, serif">//</font> 
+串S中(第pos个字符起)不存在和串T相同的子串<br> 　<b>} </b><font face="Times New Roman, Times, serif">// 
+</font>Index_BF1</td><td background="../../../images/html/mid.gif" width="18">&nbsp;</td><td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br> 
+　　例如按此算法进行模式串 T = &quot;abcac&quot; 和主串 S =&quot;ababcabcabcacabca&quot; 在 pos=0 
+的情况下匹配的过程如演示所示。<a href="javascript:;" onClick="MM_openBrWindow('../../../flash/chap04/4-3-2.swf','数据结构','width=400,height=300')"><img src="../../../images/tubiao/dh.gif" alt="动画" width="25" height="24" border="0" align="absmiddle"></a><br> 
+<br> <table width="90%" border="0" cellspacing="0" cellpadding="0" align="center"> 
+<tr> <td> <table width="100%" border="0" cellspacing="0" cellpadding="0"> <tr> 
+<td bgcolor="#ECEEFF" height="14" class="explaination" width="8">&nbsp;</td><td bgcolor="#ECEEFF" height="14" class="explaination"><img src="../../../images/tubiao/wt.gif" width="23" height="23" align="absmiddle" alt="思考题"> 
+不知道你看了这个匹配过程之后有什么想法？是什么原因造成最坏情况下出现的<i><font face="Times New Roman, Times, serif">O</font></i>(m 
+<img src="../../../images/pic/chapter04/t2.gif" width="7" height="7"> n)时间复杂度？</td><td width="15" bgcolor="#ECEEFF" valign="top"><span id="bb"><img border=0 
+                              id=HPFrameHLTab3 
+                              onClick="showHideContent('HPFrameHL');hidden();"
+							   src="../../../images/html/expand.gif" style="CURSOR: hand" width="15" height="14"></span></td></tr> 
+</table></td></tr> <tr> <td> <div id=HPFrameHLContent 
+           style="WIDTH: 100%;visibility: hidden;background-color:#ECEEFF" > <table width="94%" border="0" cellspacing="0" cellpadding="0" align="center"> 
+<tr> <td class="explaination">　你可以对比一下另一种匹配过程，即这两个串的匹配也可以这样进行，如演示所示。<br> 　<a href="javascript:;" onClick="MM_openBrWindow('../../../flash/chap04/4-3-3.swf','数据结构','width=400,height=300')"><img src="../../../images/tubiao/dh.gif" alt="动画" width="25" height="24" border="0" align="absmiddle"></a></td></tr> 
+</table></div></td></tr> </table><br> <table width="90%" border="0" cellspacing="0" cellpadding="0" align="center"> 
+<tr> <td> <table width="100%" border="0" cellspacing="0" cellpadding="0"> <tr> 
+<td bgcolor="#ECEEFF" height="14" class="explaination" width="8">&nbsp;</td><td bgcolor="#ECEEFF" height="14" class="explaination"><img src="../../../images/tubiao/wt.gif" width="23" height="23" align="absmiddle" alt="思考题"> 
+你有没有看出这两个匹配过程中，最明显的差别是什么？</td><td width="15" bgcolor="#ECEEFF" valign="top"><span id=dd><img border=0 
+                              id=HPFrameDLTab3 
+                              onClick="showHideContent('HPFrameDL');hiddenL();"
+							   src="../../../images/html/expand.gif" style="CURSOR: hand" width="15" height="14"></span></td></tr> 
+</table></td></tr> <tr> <td> <div id=HPFrameDLContent 
+           style="WIDTH: 100%;visibility: hidden;background-color:#ECEEFF"> <table width="94%" border="0" cellspacing="0" cellpadding="0" align="center"> 
+<tr> <td class="explaination">　在第2个匹配过程中，指针 i 没有&quot;回溯&quot;，你看出来了吗？那么为什么可以这样做，它的好处是什么？请看下页的分析。</td></tr> 
+</table></div></td></tr> </table></td><td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td></tr> 
+</table>
+</body>
+</html>

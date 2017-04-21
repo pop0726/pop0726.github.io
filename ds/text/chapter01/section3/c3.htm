@@ -1,0 +1,48 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　1.3.3 算法效率的衡量方法</span><br>
+      <br>
+      　　通常有两种衡量算法效率的方法：事后统计法和事前分析估算法。相比之下前者的缺点是，必须在计算机上实地运行程序，容易由其它因素掩盖算法本质；而后者的优点是，可以预先比较各种算法，以便均衡利弊而从中选优。<br>
+      <br>
+      　　如何估算算法的时间效率？<br>
+      <br>
+      　　和算法执行时间相关的因素有：1）算法所用&quot;策略&quot;；2）算法所解问题的&quot;规模&quot;；3）编程所用&quot;语言&quot;；4）&quot;编译&quot;的质量；5）执行算法的计算机的&quot;速度&quot;。显然，后三条受着计算机硬件和软件的制约，既然是&quot;估算&quot;，仅需考虑前两条。<br>
+      　</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      　<br>
+      　　事后统计容易陷入盲目境地，例如，当程序执行很长时间仍未结束时，不易判别是程序错了还是确实需要那么长的时间。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">　　一个算法的&quot;运行工作量&quot;通常是<b>随问题规模的增长而增长</b>，因此比较不同算法的优劣主要应该以其&quot;<b>增长的趋势</b>&quot;为准则。假如，随着问题规模 
+      n 的增长，<b>算法执行时间的增长率和f(n)的增长率相同</b>，则可记作：<br>
+      <br>
+      　　　<img src="../../../images/pic/chapter01/gs_1.gif" width="94" height="20"><br>
+      <br>
+      　　<b>称<span class="point">T(n)</span>为算法的</b>(渐近)<span class="point">时间复杂度</span>。</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　　&quot;<img src="../../../images/pic/chapter01/gs_7.gif" width="11" height="11" align="absmiddle">&quot;的数学含义是，若存在两个常量 
+      C 和<img src="../../../images/pic/chapter01/gs_6.gif" width="15" height="14" align="absmiddle">，当<img src="../../../images/pic/chapter01/gs_5.gif" width="40" height="19" align="absmiddle"> 
+      时，<br>
+      　　　<img src="../../../images/pic/chapter01/gs_2.gif" width="109" height="24"> 
+      <br>
+      　则记作<br>
+      　　　<img src="../../../images/pic/chapter01/gs_3.gif" width="94" height="21"><br>
+      <br>
+      　　它表明算法的执行时间是和f(n)&quot;同数量级&quot;的。 &quot;渐近&quot;是相对其它时间复杂度而言，但由于在本课程中不讨论其它类型的时间复杂度，故以后均简称时间复杂度。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

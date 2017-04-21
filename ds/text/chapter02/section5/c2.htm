@@ -1,0 +1,125 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　2.5.1 有序链表类型</span><br>
+      <br>
+      <span class="zhushi"><font face="Times New Roman, Times, serif">//</font>　基本操作接口(函数声明)</span><span class="text"><br>
+      <br>
+      　<b>bool</b> MakeNode( SLink <b><font face="Times New Roman, Times, serif">&amp;</font></b>p, 
+      ElemType e ); <br>
+      <font color="#97c594">　<font face="Times New Roman, Times, serif">//</font>　生成一个数据元素和 
+      e 相同的新结点 *p，并返回<b>TRUE</b>,若存储分配失败，<br>
+      　<font face="Times New Roman, Times, serif">//</font>　则返回<b> FALSE</b>。</font><br>
+      <br>
+      　<b>bool</b> InitList(OrderedLinkList <b><font face="Times New Roman, Times, serif">&amp;</font></b>L 
+      ); <br>
+      <font color="#97c594">　<font face="Times New Roman, Times, serif">//</font>　构造一个空的有序链表L，若存储分配失败，令L.head为空并返回<b>FALSE</b>，<br>
+      　<font face="Times New Roman, Times, serif">//</font>　否则返回 <b>TRUE。</b> 
+      </font><br>
+      <br>
+      　<b>void</b> DestroyList(OrderedLinkList <b><font face="Times New Roman, Times, serif">&amp;</font></b>L 
+      );<br>
+      <font color="#97c594">　<font face="Times New Roman, Times, serif">//</font>　销毁有序链表 
+      L，L 不再存在。<br>
+      </font><br>
+      　<b>bool</b> ListEmpty (OrderedLinkList L );<br>
+      <font color="#97c594">　<font face="Times New Roman, Times, serif">//</font>　若有序链表 
+      L 为空表，则返回<b>TRUE</b>，否则返回 <b>FALSE</b>。</font><br>
+      　</span></td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">&nbsp;</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="text">　<b>int</b> ListLength(OrderedLinkList 
+      L );<br>
+      <font color="#97c594">　<font face="Times New Roman, Times, serif">//</font>　返回有序链表L中元素个数。<br>
+      </font><br>
+      　<b>SLink</b> PriorPos(OrderedLinkList L );<br>
+      <font color="#97c594">　<font face="Times New Roman, Times, serif">//</font>　移动有序链表L中当前指针到它当前所指结点的直接前驱并返回。<br>
+      </font><br>
+      　<b>SLink</b> NextPos (OrderedLinkList L );<br>
+      <font color="#97c594">　<font face="Times New Roman, Times, serif">//</font>　移动有序链表L中当前指针到它当前所指结点的直接后继并返回。<br>
+      </font><br>
+      　<b>bool</b> GetPos (OrderedLinkList L, <b>int</b> pos ) ;<br>
+      <font color="#97c594">　<font face="Times New Roman, Times, serif">//</font>　若<b>1≤pos≤LengthList(L)</b>，则移动当前指针指向第 
+      pos 个结点<br>
+      　<font face="Times New Roman, Times, serif">//</font>　且返回函数值为<b>TRUE</b>，否则不移动当前指针且返回函数值为<b>FALSE</b>。</font><br>
+      <br>
+      　<b>void</b> GetCurElem(OrderedLinkList L, ElemType<b><font face="Times New Roman, Times, serif">&amp;</font></b> 
+      e );<br>
+      <font color="#97c594">　<font face="Times New Roman, Times, serif">//</font>　以 
+      e 带回当前指针所指结点中的数据元素。<br>
+      </font><br>
+      　<b>bool</b> LocateElem (OrderedLinkList L, ElemType e, <br>
+      　　 <b>　　int</b> (<b>*</b>compare)(ElemType, ElemType));<br>
+      <font color="#97c594">　<font face="Times New Roman, Times, serif">//</font>　若有序链表L中存在和e相同的数据元素,则当前指针指向第1个和e相同的结点，<br>
+      　<font face="Times New Roman, Times, serif">//</font>　并返回TRUE，否则当前指针指向第一个大于e 
+      的元素的前驱，并返回 FALSE。</font><br>
+      <br>
+      　<b>void</b> ListTraverse(LinkList L, void (<b>*</b>visit)() );<br>
+      <font color="#97c594">　<font face="Times New Roman, Times, serif">//</font>　依次对L的每个元素调用函数 
+      visit()。一旦 visit() 失败，则操作失败。</font><br>
+      <br>
+      　<b>void</b> ClearList( LinkList <b><font face="Times New Roman, Times, serif">&amp;</font></b>L 
+      );<br>
+      <font color="#97c594">　<font face="Times New Roman, Times, serif">//</font>　将有序链表L重置为空表，并释放原链表的结点空间。</font><br>
+      <br>
+      　<b>void</b> SetcurElem( LinkList L , ElemType e );<br>
+      <font color="#97c594">　<font face="Times New Roman, Times, serif">//</font>　将有序链表L中当前指针所指结点中的数据元素修改为和 
+      e 相同。</font><br>
+      <br>
+      　<b>void</b> InsAfter ( LinkList <b><font face="Times New Roman, Times, serif">&amp;</font></b>L, 
+      SLink s );<br>
+      <font color="#97c594">　<font face="Times New Roman, Times, serif">//</font>　在有序链表L中当前指针所指结点之后插入一个新的结点 
+      *s<br>
+      　<font face="Times New Roman, Times, serif">//</font>　并移动当前指针指向新插入的结点。</font><br>
+      <br>
+      　<b>bool</b> DelAfter( LinkList <b><font face="Times New Roman, Times, serif">&amp;</font></b>L, 
+      ElemType<b><font face="Times New Roman, Times, serif">&amp;</font></b> e 
+      );<br>
+      <font color="#97c594">　<font face="Times New Roman, Times, serif">//</font>　若当前指针所指非单链表L中最后一个结点，则删除当前指针所指结点之后的<br>
+      　<font face="Times New Roman, Times, serif">//</font>　结点,以e带回它的数据元素并返回<b>TRUE</b>,否则不进行删除操作且返回<b>FALSE。</b></font></span><br>
+    </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　　因为有了length的属性，&quot;求表长&quot;操作的时间复杂度就降为<font face="Times New Roman, Times, serif"><i>O 
+      </i>(1)</font>了。<br>
+      　<br>
+      　　若当前指针指向头结点，则不移动当前指针并返回<b>NULL</b>。<br>
+      <br>
+      　　若当前指针指向最后一个结点，则令当前指针指向头结点并返回<b>NULL</b>。 <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      　　和顺序表类型中的操作定义相对比可见，根据链表的特点，在顺序表操作中返回&quot;位序&quot;的地方，在链表中则返回指示结点所在&quot;位置&quot;的指针更为恰当。例如，在链表中插入结点时需要知道的是插入的&quot;位置&quot;（插入在哪一个结点之后），而不是&quot;位序&quot;。所以我们说，在链表中，应该以&quot;位置&quot;的概念来代替&quot;位序&quot;的概念。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

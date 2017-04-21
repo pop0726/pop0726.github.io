@@ -1,0 +1,62 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　1.2.3 数据类型和抽象数据类型</span><br>
+      <br>
+      　　抽象数据类型需要通过高级编程语言中已经实现的数据类型（通常称之谓<span class="point">固有数据类型</span>）来实现。<br>
+      <br>
+      　　例如利用C语言实现的&quot;复数&quot;类型如下描述：<br>
+      <br>
+      <img src="../../../images/tubiao/cxd.gif" width="25" height="24"><br>
+      <font color="#97C594">　<span class="zhushi"><font face="Times New Roman, Times, serif">//</font> 
+      存储结构的定义</span></font><br>
+      　　<b>typedef struct {</b><br>
+      　　　<b>float</b> realpart;<br>
+      　　　<b>float</b> imagpart;<br>
+      　　<b>}</b> complex;<br>
+      <font color="#97C594">　<span class="zhushi"><font face="Times New Roman, Times, serif">//</font> 
+      基本操作的函数原型说明</span></font><br>
+      　　<b>void</b> Assign( complex <b><font face="Times New Roman, Times, serif">&amp;</font></b>Z, <b>float</b> realval, <b>float</b> 
+      imagval );<br>
+      <font color="#97C594">　　　<font face="Times New Roman, Times, serif">//</font> 
+      构造复数 Z，其实部和虚部分别被赋以参数 realval 和 imagval 的值</font><br>
+      　　<b>void</b> DestroyComplex( complex <b><font face="Times New Roman, Times, serif">&amp;</font></b>Z)<br>
+      　　　<font face="Times New Roman, Times, serif" color="#97C594">//</font><font color="#97C594"> 
+      销毁复数 Z</font><br>
+      　　<b>float</b> GetReal( cpmplex Z );<br>
+      　　　<font face="Times New Roman, Times, serif" color="#97C594">//</font><font color="#97C594"> 
+      返回复数 Z 的实部值</font><br>
+      　　<b>float</b> Getimag( cpmplex Z );<br>
+      　　　<font face="Times New Roman, Times, serif" color="#97C594">//</font><font color="#97C594"> 
+      返回复数 Z 的虚部值</font><br>
+      　　<b>void</b> add( complex z1, complex z2, complex <b><font face="Times New Roman, Times, serif">&amp;</font></b>sum );<br>
+      　　　<font face="Times New Roman, Times, serif" color="#97C594">//</font><font color="#97C594"> 
+      以 sum 返回两个复数 z1，z2 的和</font><br>
+      　　　<font face="Times New Roman, Times, serif" color="#97C594">//</font> 
+      <font color="#97C594">基本操作的实现</font><br>
+      　　…………<br>
+      　　<b>void</b> add( complex z1, complex z2, complex <b><font face="Times New Roman, Times, serif">&amp;</font></b>sum ) <br>
+      　<b>{</b><br>
+      　　<font face="Times New Roman, Times, serif" color="#97C594">//</font><font color="#97C594"> 
+      以 sum 返回两个复数 z1，z2 的和</font><br>
+      　　sum.realpart = z1.realpart + z2.realpart;<br>
+      　　sum.imagpart = z1.imagpart + z2.imagpart;<br>
+      　<b>}</b> <br>
+      　　…………</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　<br>
+      　<br>
+      　　抽象数据类型的实现包括数据结构的实现和操作的实现，因此不仅要借用高级语言中的数据类型来描述它的存储结构，也要利用高级语言中已经实现的固有数据类型的操作来实现抽象数据类型的操作。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

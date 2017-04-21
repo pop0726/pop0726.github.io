@@ -1,0 +1,87 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+<script language="JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<script language=JavaScript src="../../chapter02/section1/hpmain.js"></script>
+<script language=JavaScript src="../../chapter02/section1/showhidden.js"></script>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　3.2.3 迷宫求解问题</span><br>
+      <br>
+      　　计算机解迷宫时，通常用的是<b>&quot;穷举求解&quot;</b>的方法，即从入口出发，顺某一方向向前探索，若能走通，则继续往前走；否则沿原路退回，换一个方向再继续探索，直至所有可能的通路都探索到为止,如果所有可能的通路都试探过，还是不能走到终点，那就说明该迷宫不存在从起点到终点的通道。先看两个动画演示的例子。<a href="javascript:;" onClick="MM_openBrWindow('../../../flash/chap03/3-3-1.swf','数据结构','width=400,height=300')"><img src="../../../images/tubiao/dh.gif" width="25" height="24" align="absmiddle" alt="动画" border="0"></a>　<a href="javascript:;" onClick="MM_openBrWindow('../../../flash/chap03/3-3-2.swf','数据结构','width=400,height=300')"><img src="../../../images/tubiao/dh.gif" width="25" height="24" align="absmiddle" alt="动画" border="0"></a><br>
+      <br>
+      　从演示过程可见：<br>
+      　　1．从入口进入迷宫之后，不管在迷宫的哪一个位置上，都是先往东走，如果走得通就继续往东走，如果在某个位置上往东走不通的话，就依次试探往南、往西和往北方向，从一个走得通的方向继续往前直到出口为止；<br>
+      <br>
+      　　2．如果在某个位置上四个方向都走不通的话，就退回到前一个位置，换一个方向再试，如果这个位置已经没有方向可试了就再退一步，如果所有已经走过的位置的四个方向都试探过了，一直退到起始点都没有走通，那就说明这个迷宫根本不通；<br>
+      　</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"> 
+      <br>
+      <br>
+      <table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td bgcolor="#ECEEFF" height="14" class="explaination" width="8">&nbsp;</td>
+                <td bgcolor="#ECEEFF" height="14" class="explaination"><img src="../../../images/tubiao/wt.gif" width="23" height="23" align="absmiddle" alt="思考题"> 
+                  你做过迷宫的游戏吗？你从入口进去之后是如何找到出口的？</td>
+                <td width="15" bgcolor="#ECEEFF" valign="top"><span id="bb"><img border=0 
+                              id=HPFrameHLTab3 
+                              onClick="showHideContent('HPFrameHL');hidden();"
+							   src="../../../images/html/expand.gif" style="CURSOR: hand" width="15" height="14"></span></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <div id=HPFrameHLContent 
+           style="WIDTH: 100%;visibility: hidden;background-color:#ECEEFF" > 
+              <table width="94%" border="0" cellspacing="0" cellpadding="0" align="center">
+                <tr> 
+                  <td class="explaination">　如果你是在一点也不了解迷宫结构的情况下去走迷宫的话，显然只能是摸索着前进，比如先往一个方向走，若走不通那就只能退回来再试试另一个方向。但在走的过程中你一定会有意识地&quot;记住&quot; 
+                    你已经走过的路，否则你会被困在迷宫中永远也走不出来了，对吗？那么现在就让我们来看看计算机是如何解迷宫的吧! </td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+      </table>
+      <br>
+      　</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">　　3．所谓&quot;走不通&quot;不单是指遇到&quot;墙挡路&quot;，还有&quot;已经走过的路不能重复走第二次&quot;，它包括&quot;曾经走过而没有走通的路&quot;。<br>
+      　　显然为了保证在任何位置上都能沿原路退回，<b>需要用一个&quot;后进先出&quot;的结构即栈来保存从入口到当前位置的路径。</b>并且在走出出口之后，栈中保存的正是一条从入口到出口的路径。<br>
+      <br>
+      　由此，求迷宫中一条路径的算法的<b>基本思想</b>是：<br>
+      <b>　　若当前位置&quot;可通&quot;，则纳入&quot;当前路径&quot;，并继续朝&quot;下一位置&quot;探索；若当前位置&quot;不可通&quot;，则应顺着&quot;来的方向&quot;退回到&quot;前一通道块&quot;，然后朝着除&quot;来向&quot;之外的其他方向继续探索；若该通道块的四周四个方块均&quot;不可通&quot;，则应从&quot;当前路径&quot;上删除该通道块。</b></td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　　所谓&quot;<b>下一位置</b>&quot;指的是<b>&quot;当前位置&quot;四周四个方向（东、南、西、北）上相邻的方块</b>。<br>
+      <br>
+      　　假设以<b>栈S记录&quot;当前路径&quot;</b>，则<b>栈顶</b>中<b>存放的是&quot;当前路径上最后一个通道块&quot;。</b><br>
+      <br>
+      <b>　　&quot;纳入路径&quot;的操作即为&quot;当前位置入栈&quot;；<br>
+      <br>
+      　　&quot;从当前路径上删除前一通道块&quot;的操作即为&quot;出栈&quot;。</b></td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

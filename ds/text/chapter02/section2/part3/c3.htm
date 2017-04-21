@@ -1,0 +1,79 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/style.css" type="text/css">
+<script language="JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　2.2.3 顺序表其它算法举例</span><br>
+      <br>
+      <img src="../../../../images/tubiao/lt.gif" width="28" height="27" align="absmiddle"> 
+      <b class="zhushi">例2-6</b>　编写算法删除顺序表中&quot;多余&quot;的数据元素，即使操作之后的顺序表中所有元素的值都不相同。<br>
+      <br>
+      <img src="../../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle" alt="算法"> 
+      <span class="zhushi">算法2.12</span><br>
+      　　<b>void</b> purge_Sq( SqList <b><font face="Times New Roman, Times, serif">&amp;</font></b>L 
+      )<br>
+      　<b>{</b><br>
+      <span class="zhushi">　　<font face="Times New Roman, Times, serif">//</font> 
+      删除顺序表L中的冗余元素，即使操作之后的顺序表中只保留<br>
+      　　<font face="Times New Roman, Times, serif">//</font> 操作之前表中所有值都不相同的元素 
+      </span><br>
+      　　k = -1; <font face="Times New Roman, Times, serif">　　　　　　　　　　　　//</font> 
+      k 指示新表的表尾<br>
+      　　<b>for</b> (i=0; i&lt;L.length; ++i)　<font face="Times New Roman, Times, serif">　 
+      //</font> 顺序考察表中每个元素<br>
+      　　<b>{</b><br>
+      　　　j=0;<br>
+      　　　<b>while</b>(j&lt;=k <b><font face="Times New Roman, Times, serif">&amp;&amp;</font></b> L.elem[j]!=L.elem[i]) <br>
+      　　　　++j;　　　　　　　　<font face="Times New Roman, Times, serif">//</font> 在新表中查询是否存在和L.elem[i]相同的元素<br>
+      　　　<b>if</b> ( k==-1 || j&gt;k )<font face="Times New Roman, Times, serif">　//</font> 
+      k=-1 表明当前考察的是第一个元素<br>
+      　　　　L.elem[++k] = L.elem[i]; <br>
+      　　<b>} </b><font face="Times New Roman, Times, serif">//</font> for<br>
+      　　L.length = k+1;　　　　　　　　<font face="Times New Roman, Times, serif">//</font> 
+      修改表长<br>
+      　<b>}</b><font face="Times New Roman, Times, serif"> //</font> purge_Sq<br>
+      <br>
+      　　此算法的<span class="point">时间复杂度</span>为<b><span class="point"><font face="Times New Roman, Times, serif"><i>O 
+      </i>(ListLength<sup><font size="1">2</font></sup>(L))</font></span></b> 
+      <br>
+      <br>
+      　分析：<br>
+      　　算法中的基本操作为&quot;比较&quot;，控制结构为两重循环，外循环的执行次数和顺序表的表长相同，内循环的执行次数则不超过表长。此外，&quot;比较&quot;操作相对于&quot;移动&quot;操作所需的时间也少。<br>
+      　　从这个题的算法可以得到一些有益的启示，某种情况下，&quot;删除&quot;操作也可利用&quot;插入&quot;来实现。 </td>
+    <td background="../../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      　<span class="zhushi"><font color="#339900">解题分析：</font></span> <br>
+      　容易想到此题的一个简单算法是：<br>
+      　　对表中任一个元素<img src="../../../../images/pic/chapter02/gs/ai_l.gif" width="10" height="10" align="absmiddle">，令 
+      j 从 i+1 到 n，将<img src="../../../../images/pic/chapter02/gs/aj_l.gif" width="12" height="11" align="absmiddle">和 
+      <img src="../../../../images/pic/chapter02/gs/ai_l.gif" width="10" height="10" align="absmiddle"> 
+      进行比较，若相等，则从顺序表中删除该元素<img src="../../../../images/pic/chapter02/gs/aj_l.gif" width="12" height="11" align="absmiddle">，即令从 
+      j+1 到 n 的元素均向前移动一个位置。<br>
+      <br>
+      　　由于顺序存储结构的特点，在删除元素时必然会引起一连串的元素向前移动，但在上述算法中&quot;每发现一个和 <img src="../../../../images/pic/chapter02/gs/ai_l.gif" width="10" height="10" align="absmiddle"> 
+      相同的元素，立即将在它之后的元素向前移动一个位置&quot;的做法，将会使那些值和 <img src="../../../../images/pic/chapter02/gs/ai_l.gif" width="10" height="10" align="absmiddle"> 
+      不同的元素重复多次移动操作，而每次都只移动一个位置（试设想在此元素之后还有很多和 <img src="../../../../images/pic/chapter02/gs/ai_l.gif" width="10" height="10" align="absmiddle"> 
+      值相同的元素）。算法的时间复杂度将是<font face="Times New Roman, Times, serif"><i>O </i>(n<sup><font size="1">2</font></sup>)</font>（n为表长）。<a href="javascript:;" onClick="MM_openBrWindow('../../../../flash/chap02/2-2-8.swf','数据结构','width=400,height=300')"><img src="../../../../images/tubiao/dh.gif" width="25" height="24" alt="动画" border="0" align="absmiddle"></a><br>
+      <br>
+      　　但如果不是从&quot;删除&quot;而是从&quot;插入&quot;来考虑问题，这个题的解法就会有不同的结果。<br>
+      　<br>
+      　　设想另建立一个顺序表，表中只包含原表中所有值不同的元素，则算法思想和例2-2相同，<span class="point"><b><font color="#339900">对原顺序表中每一个当前考察的数据元素，在&quot;新表&quot;中进行查找，如果有相同的则舍弃之，否则就插入到&quot;新表&quot;中。</font></b></span>由于问题的实质是&quot;删除&quot;，因此所谓&quot;新表&quot;，在存储结构上并非是新建的表，它和原表可以共享存储空间，<span class="point"><font color="#339900">只须新建一个指针来指示其表尾</font></span>的当前位置即可。<a href="javascript:;" onClick="MM_openBrWindow('../../../../flash/chap02/2-2-9.swf','数据结构','width=400,height=300')"><img src="../../../../images/tubiao/dh.gif" width="25" height="24" alt="动画" border="0" align="absmiddle"></a><br>
+      　</td>
+    <td background="../../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

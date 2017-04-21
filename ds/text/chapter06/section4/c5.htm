@@ -1,0 +1,81 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　6.4.2 二叉树其它操作算法举例</span><br>
+      <br>
+      <span class="zhushi">　三、复制二叉树</span><br>
+      <br>
+      　　以后序遍历为例可得下列算法。先写一个生成一个二叉树的结点的算法：<br>
+      <img src="../../../images/tubiao/cxd.gif" width="25" height="24" alt="算法"><br>
+      　　BiTNode *GetTreeNode(TElemType item,BiTNode <b>*</b>lptr, BiTNode <b>*</b>rptr)<br>
+      　<b>{</b><br>
+      <span class="zhushi">　　<font face="Times New Roman, Times, serif">//</font> 
+      生成一个其元素值为 item，左指针为 lptr，右指针为 rptr 的结点</span><br>
+      　　T = <b>new</b> BiTNode; T-&gt; data = item;<br>
+      　　T-&gt; <b>L</b>child = lptr; T-&gt; <b>R</b>child = rptr;<br>
+      　　<b>return</b> T;<br>
+      　<b>}</b><br>
+      　</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　<br>
+      　<br>
+      　<br>
+      　<br>
+      　　复制二叉树指的是，在计算机中已经存在一棵二叉树，现要按原二叉树的结构重新生成一棵二叉树，其实质就是就是按照原二叉树的二叉链表另建立一个新的二叉链表。类似于求二叉树的深度，&quot;复制&quot;可以在先序遍历过程中进行，也可以在后序遍历过程中进行。但不管是哪一种遍历，其&quot;访问&quot;操作都是&quot;生成二叉树的一个结点&quot;。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">　　后序遍历复制二叉树的操作即为，先分别复制已知二叉树的左、右子树，然后生成一个新的根结点，则复制得到的两棵子树的根指针应是这个新生成的结点的左、右指针域的值，如动画所示。<a href="javascript:;" onClick="MM_openBrWindow('../../../flash/chap06/6-4-4.swf','数据结构','width=400,height=300')"><img src="../../../images/tubiao/dh.gif" alt="动画" width="25" height="24" border="0" align="absmiddle"></a><br>
+      <br>
+      <img src="../../../images/tubiao/cxd.gif" width="25" height="24" alt="算法" align="absmiddle"> 
+      <span class="zhushi">算法 6.5</span><br>
+      　　BiTNode <b><font color="#00FFFF">*</font></b>CopyTree(BiTNode <b>*</b>T)<br>
+      　<b>{</b><br>
+      <span class="zhushi">　　<font face="Times New Roman, Times, serif">//</font> 
+      已知二叉树的根指针为 T，本算法返回它的复制品的根指针</span><br>
+      　　<b>if</b> (<b>!</b>T )<br>
+      　　　<b>return NULL</b>; <font face="Times New Roman, Times, serif">　　　　　　　　　　　　　//</font> 
+      复制一棵空树<br>
+      　　<b>if</b> (T-&gt;<b>L</b>child) <br>
+      　　　new<b>l</b>ptr = CopyTree(T-&gt;<b>L</b>child); <font face="Times New Roman, Times, serif">　　　　　//</font> 
+      复制(遍历)左子树<br>
+      　　<b>else</b> newlptr = <b>NULL</b>;<br>
+      　　<b>if</b> (T-&gt;<b>R</b>child) <br>
+      　　　new<b>r</b>ptr = CopyTree(T-&gt;<b>R</b>child); <font face="Times New Roman, Times, serif">　　　　　//</font> 
+      复制(遍历)右子树<br>
+      　　<b>else</b> newrptr = <b>NULL</b>;<br>
+      　　newnode = GetTreeNode(T-&gt;data, new<b>l</b>ptr, new<b>r</b>ptr);<font face="Times New Roman, Times, serif">//</font> 
+      生成根结点<br>
+      　　<b>return</b> newnode;<br>
+      　<b>}</b></td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      <br>
+      <br>
+      <br>
+      <br>
+      　　例如对下列二叉树，算法6.5的执行过程如动画所示。<a href="javascript:;" onClick="MM_openBrWindow('../../../flash/chap06/6-4-5.swf','数据结构','width=400,height=300')"><img src="../../../images/tubiao/dh.gif" alt="动画" width="25" height="24" border="0" align="absmiddle"></a><br>
+      <br>
+      　<img src="../../../images/pic/chapter06/6_11.gif" width="250" height="240" align="top"><br>
+    </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

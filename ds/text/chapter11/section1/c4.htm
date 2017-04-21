@@ -1,0 +1,45 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><br>
+      　　<span class="point">顺序文件</span>是记录的物理顺序和逻辑顺序完全一致的文件。记录在外存储器中的顺序是由建立文件时记录输入的顺序自然形成的。若记录按关键码（指主码）自小而大或自大而小的顺序输入，则生成的文件为顺序有序文件，否则称为&quot;堆文件&quot;，堆文件中记录的存储顺序和关键码无关。<br>
+      　<br>
+    </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">&nbsp;</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　11.2.1 存储在顺序存储器上的顺序文件</span><br>
+      <br>
+      　　存储在顺序存储器（如磁带）上的文件，只能是顺序文件，这种文件只能进行&quot;<span class="point">顺序存取</span>&quot;和&quot;<span class="point">成批处理</span>&quot;。<br>
+      <br>
+      　　顺序存取是指按记录的逻辑(或物理)顺序实现逐个存取，若要查询第i个记录则必须先检索前 i－1 个记录；插入新的记录只能加在文件的末尾；更新某个记录必须对整个文件进行&quot;复制&quot;。<br>
+      <br>
+      　　顺序文件的修改操作是按<span class="point">批处理</span>的方式进行的。批处理的工作原理如下进行：称待修改的原始文件为&quot;<span class="point">主文件</span>&quot;，文件中记录按关键码有序；所有的修改请求依&quot;请求&quot;的先后次序生成一个&quot;<span class="point">事务文件</span>&quot;，在进行批处理之前首先对事务文件进行排序，然后和主文件&quot;归并&quot;得到一个新的主文件，如右图所示。<br>
+      <br>
+      　　归并算法类似于两个有序表的归并，但有两点不同：一是事务文件中对同一关键码可能有多个记录（即针对同一记录的多次修改请求）；二是归并时首先要判别修改类型并检验修改请求的合法性，如不能删除或更新主文件中不存在的记录，不能插入主文件中已有的记录等。<br>
+      <br>
+      　　顺序文件的优点是连续存取时速度快，批处理效率高，存储节省（除存储文件本身外，不需要其他附加存储）。它的缺点是随机处理效率低，特别是对更新要求，一般不做随机处理。顺序文件通常用以存储有历史保留价值的海量数据，例如气象部门的逐日气象记录数据等。</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"> 
+      　　　<img src="../../../images/pic/chapter11/11_01.gif" width="223" height="215" align="top"><br>
+      　　　　　　　 批处理工作示意图<br>
+      <br>
+      　　事务文件中的记录应包含操作类别（插入或删除或更新）和关键码两项。<br>
+      <br>
+      　　&quot;归并&quot;算法的基本思想：顺序读入主文件和事务文件中的记录，比较它们的关键码，按事务文件记录中提出的要求对主文件的记录进行相应修改。对于主文件中没有修改请求的记录，则将它直接写入新的主文件；更新和删除则要求两个当前读入的记录的关键码相匹配，被要求删去的记录不再写入新的主文件，被要求更新的记录则要按更新后的新记录写入。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

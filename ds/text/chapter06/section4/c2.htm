@@ -1,0 +1,96 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　6.4.1 先左后右的遍历</span><br>
+      <br>
+      　　从二叉树的结构定义得知，二叉树是由&quot;根结点&quot;、&quot;左子树&quot;和&quot;右子树&quot;三部分构成，则遍历二叉树的操作可分解为&quot;访问根结点&quot;、&quot;遍历左子树&quot;和&quot;遍历右子树&quot;三个子操作，并且由二叉树的递归定义可知，遍历左子树和遍历右子树可如同遍历二叉树一样&quot;递归&quot;进行。因此整个遍历的操作只要在一条搜索路径上一次完成这三个子操作即可。<br>
+      <br>
+      　　右图所示为对二叉树进行遍历的先左后右的搜索路径。从图可得知两个结论：1) 由于左右子树互不相交，因此对左子树的遍历一定不会访问到右子树上的结点，反之对右子树的遍历也一定不会访问到左子树，因此沿这条搜索路径必可实现对二叉树中每个结点都访问到且只访问一次；2)也正由于左右子树不相交，因此在遍历了左子树之后必须回到根结点才能继续遍历右子树。由此可见，在这条搜索路径上从进入二叉树到离开二叉树，一共三次遇到根结点，因此访问根结点的操作可在任意一次也只能在其中一次进行。由此得到以下三个遍历二叉树的算法：<br>
+      　 
+      <table width="440" border="0" cellspacing="1" cellpadding="0" align="center" bgcolor="#FFFFFF">
+        <tr bgcolor="#4A5594"> 
+          <td class="zhushi" width="145"> 
+            <div align="center" class="zhushi">先序遍历二叉树</div>
+          </td>
+          <td class="zhushi" width="145"> 
+            <div align="center" class="zhushi">中序遍历二叉树</div>
+          </td>
+          <td class="zhushi" width="146"> 
+            <div align="center" class="zhushi">后序遍历二叉树</div>
+          </td>
+        </tr>
+        <tr bgcolor="#4A5594"> 
+          <td class="white" width="145"> 若二叉树为空，则空操作；<br>
+            否则<br>
+            (1) 访问根结点；<br>
+            (2) 先序遍历左子树；<br>
+            (3) 先序遍历右子树。 </td>
+          <td class="white" width="145"> 若二叉树为空，则空操作；<br>
+            否则<br>
+            (1) 中序遍历左子树；<br>
+            (2) 访问根结点；<br>
+            (3) 中序遍历右子树。 </td>
+          <td class="white" width="146"> 若二叉树为空，则空操作；<br>
+            否则<br>
+            (1) 后序遍历左子树；<br>
+            (2) 后序遍历右子树；<br>
+            (3) 访问根结点。</td>
+        </tr>
+      </table>
+      　</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      　　<img src="../../../images/pic/chapter06/6_09.gif" width="203" height="226" align="top"><br>
+      <br>
+      　　第一次走到根结点即&quot;访问&quot;为&quot;先序遍历&quot;，从左子树回来再&quot;访问&quot;为&quot;中序遍历&quot;，从右子树回来再 
+      &quot;访问&quot;为&quot;后序遍历&quot;。如动画所示。<a href="javascript:;" onClick="MM_openBrWindow('../../../flash/chap06/6-4-1.swf','数据结构','width=400,height=300')"><img src="../../../images/tubiao/dh.gif" alt="动画" width="25" height="24" border="0" align="absmiddle"></a></td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">　　按照遍历过程中先后访问的次序将二叉树中的结点排列起来分别得到二叉树的先序序列 <a href="javascript:;" onClick="MM_openBrWindow('../../../flash/chap06/6-4-2-1.swf','数据结构','width=400,height=300')"><img src="../../../images/tubiao/dh.gif" alt="动画" width="25" height="24" border="0" align="absmiddle"></a> 
+      、中序序列 <a href="javascript:;" onClick="MM_openBrWindow('../../../flash/chap06/6-4-2-2.swf','数据结构','width=400,height=300')"><img src="../../../images/tubiao/dh.gif" alt="动画" width="25" height="24" border="0" align="absmiddle"></a> 
+      和后序序列 <a href="javascript:;" onClick="MM_openBrWindow('../../../flash/chap06/6-4-2-3.swf','数据结构','width=400,height=300')"><img src="../../../images/tubiao/dh.gif" alt="动画" width="25" height="24" border="0" align="absmiddle"></a> 
+      。<br>
+      <br>
+      　　由以上遍历算法的定义很容易写出对应的递归算法。<br>
+      <br>
+      <img src="../../../images/tubiao/cxd.gif" width="25" height="24" alt="算法" align="absmiddle"> 
+      <span class="zhushi">算法6.2</span><br>
+      　　<b>void</b> Preorder (BiTree T，<b>void</b>(*visit)( BiTree ))<br>
+      　<b>{</b><br>
+      <span class="zhushi">　　<font face="Times New Roman, Times, serif">//</font> 
+      先序遍历以T为根指针的二叉树</span> <br>
+      　　<b>if</b> (T) <b>{</b><font face="Times New Roman, Times, serif">　　　　　　　　　　//</font> 
+      T=NULL时，二叉树为空树，不做任何操作<br>
+      　　　visit(T); <font face="Times New Roman, Times, serif">　　　　　　　　 //</font> 
+      通过函数指针 *visit 访问根结点 <br>
+      　　　Preorder(T-&gt;<b>L</b>child, visit); <font face="Times New Roman, Times, serif">//</font> 
+      先序遍历左子树<br>
+      　　　Preorder(T-&gt;<b>R</b>child, visit); <font face="Times New Roman, Times, serif">//</font> 
+      先序遍历右子树<br>
+      　　<b>}</b><font face="Times New Roman, Times, serif"> // </font>if<br>
+      　<b>}</b><br>
+    </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">&nbsp;</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

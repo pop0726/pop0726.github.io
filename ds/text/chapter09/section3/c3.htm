@@ -1,0 +1,72 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　9.3.2 二叉查找树</span><br>
+      <br>
+      <span class="zhushi">　二、二叉查找树的查找算法</span><br>
+      <br>
+      　　在二叉查找树上进行查找的过程类似于次优查找树。<br>
+      　　若二叉查找树为空，则查找不成功；否则<br>
+      　　1）若给定值等于根结点的关键字，则查找成功；<br>
+      　　2）若给定值小于根结点的关键字，则继续在左子树上进行查找；<br>
+      　　3）若给定值大于根结点的关键字，则继续在右子树上进行查找。 
+      <p>　　从这几个例子可见，在二叉查找树中进行查找的过程为：<span class="point">从根结点出发，沿着左分支或右分支递归进行查询直至关键字等于给定值的结点；</span>或者<font color="#97C594">从根结点出发，沿着左分支或右分支递归进行查询直至子树为空树止。</font>前者为查找成功的情况，后者为查找不成功的情况。算法描述如下。<br>
+        　</p>
+    </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　<br>
+      　<br>
+      　<br>
+      　先看几个例子。<a href="javascript:;" onClick="MM_openBrWindow('../../../flash/chap09/9-3-1.swf','数据结构','width=400,height=300')"><img src="../../../images/tubiao/dh.gif" alt="动画" width="25" height="24" border="0" align="absmiddle"></a></td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><img src="../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle"> 
+      <span class="zhushi">算法 9.5</span><br>
+      　　<b>bool</b> <span class="point">SearchBST</span> (BSTree <span class="point">T</span>, 
+      KeyType <span class="point">kval</span>, BSTree <span class="point">f</span>, 
+      BSTree <b><span class="point">&amp;</span></b><span class="point">p</span> 
+      )<br>
+      　<b>{</b><br>
+      <span class="zhushi"><font face="Times New Roman, Times, serif">//</font> 
+      根指针T所指二叉查找树中递归查找关键字等于kval的数据元素,若查找成<br>
+      <font face="Times New Roman, Times, serif">//</font> 功,则指针p指向该数据元素结点,并返回TRUE,否则指针p指向查找路径上访<br>
+      <font face="Times New Roman, Times, serif">//</font> 问的最后一个结点并返回FALSE,指针f指向T的双亲,其初始调用值为NULL</span><br>
+      　　<b>if </b>(<b>!</b>T) <b>{</b> p = f; <b>return FALSE</b>; <b>}</b> <font face="Times New Roman, Times, serif">　　　　　　//</font> 
+      查找不成功<br>
+      　　<b>else if</b> ( key == T-&gt;data.key )<br>
+      　　　<b>{</b> p = T; <b>return TRUE</b>; <b>}</b><font face="Times New Roman, Times, serif">　　　　　　　　　　//</font> 
+      查找成功<br>
+      　　<b>else if</b> ( key &lt; T-&gt;data.key )<br>
+      　　　<b>return</b> <span class="point">SearchBST (T-&gt;lchild, key, T, p 
+      )</span>; <br>
+      <font face="Times New Roman, Times, serif">　　　　　　　　　　　　　　　　　　//</font> 返回在左子树中继续查找所得结果<br>
+      　　<b>else return</b> <span class="point">SearchBST (T-&gt;rchild, key, T, 
+      p )</span>; <br>
+      <font face="Times New Roman, Times, serif">　　　　　　　　　　　　　　　　　　//</font> 返回在右子树中继续查找所得结果<br>
+      　<b>}</b><font face="Times New Roman, Times, serif"> //</font> SearchBST</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　<br>
+      　　需要注意的是，算法中的引用参数指针 p 在算法结束时的状态。若查找成功，即二叉查找树中存在等于给定值的关键字，则 p 指向该关键字所在结点，正如学员在上页的演示中所看到的；若查找不成功，则 
+      p 应该指向查找路径上最后一个结点。请看下列演示例子。<a href="javascript:;" onClick="MM_openBrWindow('../../../flash/chap09/9-3-2.swf','数据结构','width=400,height=300')"><img src="../../../images/tubiao/dh.gif" alt="动画" width="25" height="24" border="0" align="absmiddle"></a></td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

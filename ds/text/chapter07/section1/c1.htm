@@ -1,0 +1,48 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><br>
+      　　图的抽象数据类型定义如下：<br>
+      <br>
+      <b>ADT Graph {</b><br>
+      　<span class="zhushi">数据对象：</span>V是具有相同特性的数据元素的集合，称为顶点集。<br>
+      <br>
+      　<span class="zhushi">数据关系：</span><br>
+      　　VR＝{&lt;v,w&gt;| v,w∈V且P(v,w)，&lt;v,w&gt;表示从v到w的弧，<br>
+      　　　　　　　　　　　　　　　　谓词P(v,w)定义了弧&lt;v,w&gt;的意义或信息 } 
+      <p><img src="../../../images/tubiao/lt.gif" width="28" height="27" align="absmiddle" alt="例题"> 
+        例如下列定义的<span class="point">有向图</span>如右图所示。<br>
+        　　　G1=(V1, VR1)<br>
+        　　其中：V1 = {A, B, C, D, E}<br>
+        　　　VR1 ={&lt;A,B&gt;,&lt;A,E&gt;,&lt;B,C&gt;,&lt;C,D&gt;,&lt;D,B&gt;,&lt;D,A&gt;,&lt;E,C&gt;}<br>
+        <br>
+        　　若&lt;v,w&gt;∈R 必有&lt;w,v&gt;∈R，则称 (v,w) 为顶点 v 和顶点 w 之间存在一条<span class="point">边</span>。由顶点集和边集构成的图称作<span class="point">无向图</span>。例如下列定义的无向图如右所示。<br>
+        　　　G2=(V2, VR2)其中：V2={A, B, C, D, E, F}<br>
+        　　　VR2={(A,B),(A,E),(B,E),(C,D),(D,F),(B,F),(C,F) }<br>
+      </p>
+    </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      　图由一个顶点集和弧集构成，通常写作：<br>
+      　　Graph=(V,VR)。由于空的图在实际应用中没有意义，因此一般不讨论空的图，即V是顶点的有穷非空集合。 
+      <p>　　&lt;v,w&gt;表示从顶点 v 到顶点 w 的一条弧，其中顶点 v 被称为弧尾，顶点 w 被称作弧头。由于弧是有方向的，故称有向图。<br>
+        <br>
+        　　　　<img src="../../../images/pic/chapter07/7_01.gif" width="150" height="113" align="top"><br>
+        　　　　　　　(有向图G1)<br>
+        <br>
+        　　　　<img src="../../../images/pic/chapter07/7_02.gif" width="150" height="113" align="top"><br>
+        　　　　　　　(无向图G2) </p>
+    </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

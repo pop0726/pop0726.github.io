@@ -1,0 +1,58 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+<script language="JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　10.3.1 起泡排序</span><br>
+      <br>
+      　　在算法10.7中，经过每一趟起泡，待排记录序列的上界 i 都只是减1。但实际上，有的时候起泡的上界可以缩减不止1个记录的位置，例如右侧所示例子。<br>
+      <br>
+      　　从这个例子可见，在一趟起泡的过程中，有可能只是在区段的前端进行记录的交换，而其后端记录已经按关键字有序排列，由此应在算法中设置一个指示&quot;最后一个进行交换的记录的位置&quot;的变量。改进后的起泡算法如下：<br>
+      <br>
+      <img src="../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle"> 
+      <span class="zhushi">算法 10.8</span><br>
+      　　<b>void</b> BubbleSort( SqList <b><font face="Times New Roman, Times, serif">&amp;</font></b>L )<br>
+      　<b>{</b><br>
+      <span class="zhushi">　　<font face="Times New Roman, Times, serif">//</font> 
+      对顺序表L作起泡排序</span><br>
+      　　i = L.length;<br>
+      　　<b>while</b> (i &gt;1) <b>{</b> 　　　　　　　　　<font face="Times New Roman, Times, serif">//</font> 
+      i&gt;1 表明上一趟曾进行过记录的交换<br>
+      　　　lastExchangeIndex = 1;<br>
+      　　　<b>for</b> (j = 1; j &lt; i; j++)<b>{</b><br>
+      　　　　<b>if</b> (L.r[j+1].key &lt; L.r[j].key) <b>{</b> <br>
+      　　　　　L.r[j] ←→.r[j+1]； 　　　<font face="Times New Roman, Times, serif">//</font> 
+      互换记录<br>
+      　　　　　lastExchangeIndex = j; 　　<font face="Times New Roman, Times, serif">//</font> 
+      记下进行交换的记录的位置<br>
+      　　　　<b>}</b> <font face="Times New Roman, Times, serif">//</font> if <br>
+      　　　<b>}</b> <font face="Times New Roman, Times, serif">// </font>for<br>
+      　　　i = lastExchangeIndex; <br>
+      　　　　　　　　　<font face="Times New Roman, Times, serif">　　　//</font> 一趟起泡后仍处于无序状态的最后一个记录的位置<br>
+      　　<b>}</b> <font face="Times New Roman, Times, serif">//</font> while<br>
+      　<b>}</b> <font face="Times New Roman, Times, serif">//</font> BubbleSort</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      <br>
+      <a href="javascript:;" onClick="MM_openBrWindow('../../../flash/chap10/10-3-2.swf','数据结构','width=400,height=300')"><img src="../../../images/tubiao/dh.gif" alt="动画" width="25" height="24" border="0"></a> 
+      <img src="../../../images/pic/chapter10/10-25.gif" width="236" height="200" align="top"><br>
+      <br>
+      　　 </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

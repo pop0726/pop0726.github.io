@@ -1,0 +1,101 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<script language=JavaScript src="../chapter01/hpmain.js"></script>
+<script language=JavaScript src="../chapter01/showhidden.js"></script>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td class="white" valign="top"><span class="point"><br>
+      </span><span class="part">【学习目标】</span><br>
+      　1. 掌握广义表的结构特点及其存储表示方法。<br>
+      　2. 学习利用分治法的算法设计思想编制递归算法。<br>
+      　</td>
+    <td background="../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../images/html/right_di4.gif" class="explaination" valign="top" width="281"><span class="point"><br>
+      </span>【学习目标】</td>
+    <td background="../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">【重点和难点】</span><br>
+      　　本章重点及其难点都是学习并掌握如何对递归定义的数据结构设计实现其操作的递归算法。<br>
+      　</td>
+    <td background="../../images/html/mid.gif">&nbsp;</td>
+    <td background="../../images/html/right_di4.gif" class="explaination" valign="top">【重点和难点】</td>
+    <td background="../../images/html/right_di3.gif">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">【知识点】</span><br>
+      　　广义表的类型定义、广义表的存储表示、广义表操作的实现<br>
+      　</td>
+    <td background="../../images/html/mid.gif">&nbsp;</td>
+    <td background="../../images/html/right_di4.gif" class="explaination" valign="top">【知识点】</td>
+    <td background="../../images/html/right_di3.gif">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">【学习指南】</span><br>
+      　　本章的内容相对其它各章要少得多，由于广义表本属线性类型的数据结构，它和数组类似，每个数据元素本身又可以是一个数据结构，因此在教材中和&quot;数组&quot;合为一章。但由于广义表比数组更为复杂，它兼有&quot;多层次&quot;的特点，特别是它的存储表示和操作的实现和树的操作极为类似。因此在本章的学习中应善于和第六章的内容相对照，反之通过本章的学习恰好是对实现树操作的递归算法的复习和巩固。希望你通过本章的学习能自己总结出如何利用&quot;分治法&quot;的算法思想设计递归定义的结构的递归算法的规律来。<br>
+      　</td>
+    <td background="../../images/html/mid.gif">&nbsp;</td>
+    <td background="../../images/html/right_di4.gif" class="explaination" valign="top">【学习指南】</td>
+    <td background="../../images/html/right_di3.gif">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">【课前思考】<br>
+      </span>
+      <table width="80%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td bgcolor="#ECEEFF" height="14" class="explaination" width="8">&nbsp;</td>
+                <td bgcolor="#ECEEFF" height="14" class="explaination"><img src="../../images/tubiao/wt.gif" width="23" height="23" align="absmiddle" alt="思考题"> 
+                  1. &quot;数组&quot;可以看成是线性表的一种扩充，若称二维数组是一个线性表，那么它的数据元素是什么？</td>
+                <td width="15" bgcolor="#ECEEFF" valign="top"><span id="bb"><img border=0 
+                              id=HPFrameHLTab3 
+                              onClick="showHideContent('HPFrameHL');hidden();"
+							   src="../../images/html/expand.gif" style="CURSOR: hand" width="15" height="14"></span></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <div id=HPFrameHLContent 
+           style="WIDTH: 100%;visibility: hidden;background-color:#ECEEFF" > 
+              <table width="94%" border="0" cellspacing="0" cellpadding="0" align="center">
+                <tr> 
+                  <td class="explaination">　二维数组可定义为&quot;其数据元素为一维数组的线性表&quot;。可表示为：<br>
+                    　　A<sup>(2)</sup> = ( A<sup>(1)</sup><font size="1">0</font>，A<sup>(1)</sup><font size="1">1</font>，……，A<sup>(1)</sup><font size="1">m-1</font> 
+                    )<br>
+                    　其中每个数据元素是一个一维数组<br>
+                    　　A<sup>(1)</sup>i = ( <font size="3">a</font><font size="1">i,0</font>，<font size="3">a</font><font size="1">i,1</font>，……，<font size="3">a</font><font size="1">i,n-1</font> 
+                    ) i = 0，1，……，m-1<br>
+                    　类似地，N维数组是N-1维数组的线性表<br>
+                    　　A<sup>(N)</sup> = ( A<sup>(N-1)</sup><font size="1">0</font>，A<sup>(N-1)</sup><font size="1">1</font>，……，A<sup>(N-1)</sup><font size="1">s-1</font> 
+                    )<br>
+                    　本章讨论的广义表也可以看成是线性表的一种扩充，但它和数组不同，二维数组中的每个数据元素是结构相同的一维数组，而广义表中的每个数据元素，其结构不一定相同。</td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+    <td background="../../images/html/mid.gif">&nbsp;</td>
+    <td background="../../images/html/right_di4.gif" class="explaination" valign="top">【课前思考】</td>
+    <td background="../../images/html/right_di3.gif">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

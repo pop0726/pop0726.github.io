@@ -1,0 +1,49 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　1.3.3 算法效率的衡量方法</span><br>
+      <br>
+      <img src="../../../images/tubiao/lt.gif" width="28" height="27" align="absmiddle"><span class="zhushi">例1.1</span> 
+      两个 n <img src="../../../images/pic/chapter04/t5.gif" width="7" height="7"> 
+      n 的矩阵相乘。其中矩阵的&quot;阶&quot; n 为问题的规模。<br>
+      <br>
+      <img src="../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle"> 
+      <span class="zhushi">算法 1.1</span><br>
+      　　<b>void</b> Mult_matrix( <b>int</b> c[][], <b>int</b> a[][], <b>int</b> 
+      b[][]， <b>int</b> n)<br>
+      　<b>{</b><br>
+      <span class="zhushi">　　<font face="Times New Roman, Times, serif">//</font> 
+      a、b 和 c 均为 n 阶方阵，且 c 是 a 和 b 的乘积</span><br>
+      　　<b>for</b> (i=1; i&lt;=n; ++i)<br>
+      　　　<b>for</b> (j=1; j&lt;=n; ++j) <b>{</b><br>
+      　　　　c[i,j] = 0;<br>
+      　　　<b>　for</b> (k=1; k&lt;=n; ++k)<br>
+      　　　　　c[i,j] += a[i,k]*b[k,j];<br>
+      　　　<b>}</b><br>
+      　<b>}</b><font face="Times New Roman, Times, serif">//</font> Mult_matrix<br>
+      <br>
+      　　算法的<span class="point">时间复杂度</span>为<b><span class="point"><font face="Times New Roman, Times, serif"><i>O 
+      </i>(n<sup>3</sup>)</font></span></b> 。</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      　<br>
+      　<br>
+      　<br>
+      　<br>
+      　<br>
+      　<br>
+      　<br>
+      　　容易看出，算法中的控制结构是三重循环，每一重循环的次数是 n 。原操作有赋值，加法和乘法，显然，在三重循环之内的&quot;乘法&quot;是基本操作，它的重复执行次数是n<sup>3</sup>。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

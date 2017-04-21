@@ -1,0 +1,88 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<script language=JavaScript src="hpmain.js"></script>
+<script language=JavaScript src="showhidden.js"></script>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">　<span class="part">2.1.2 线性表类型的应用</span><br>
+      　</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+    </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>&nbsp;</td>
+    <td class="white" valign="top"><img src="../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle" alt="程序段">　<span class="zhushi">算法2.2</span><br>
+      　　<b>void</b> purge(List <b><font face="Times New Roman, Times, serif">&amp;</font></b>LA, List LB) <br>
+      <span class="text">　 </span><b>{</b><br>
+      　　<span class="zhushi"><font face="Times New Roman, Times, serif">//</font></span><font face="Times New Roman, Times, serif"><span class="zhushi"></span></font><span class="zhushi"> 
+      构造线性表LA，使其只包含LB中所有值不相同的数据</span><br>
+      　　<span class="zhushi"><font face="Times New Roman, Times, serif">//</font> 
+      元素,算法不改变线性表LB</span>　<br>
+      　　 <span class="point">InitList(LA);</span> <font face="Times New Roman, Times, serif"> 
+      　　　　　　　　　//</font> 创建一个空的线性表 LA<br>
+      　　 La_len = 0;<br>
+      　　 Lb_len = ListLength(LB);　　　　 <font face="Times New Roman, Times, serif">//</font> 
+      求线性表 LB 的长度<br>
+      　　 <b><span class="point">for</span></b><span class="point"> (i = 1; i &lt;= 
+      Lb_len; i++)</span>　<font face="Times New Roman, Times, serif"> //</font> 
+      依次处理 LB 中每个元素<br>
+      　　 <b>{</b><br>
+      　　　<span class="point">GetElem(LB, i, e);</span> <font face="Times New Roman, Times, serif">　　　　　　//</font> 
+      取 LB 中第 i 个数据元素赋给 e<br>
+      　　　<b>if</b> (<b>!</b>LocateElem( LA, e, equal( ) ) <br>
+      　　　　　ListInsert( LA, ++La_len, e );<br>
+      　　　　　　　　　<font face="Times New Roman, Times, serif">//</font> 当 LA 中不存在和 
+      e 值相同的数据元素时进行插入<br>
+      　　 <b>} </b><font face="Times New Roman, Times, serif">//</font> for<br>
+      　　<b>}</b> <font face="Times New Roman, Times, serif">//</font> purge<br>
+    </td>
+    <td background="../../../images/html/mid.gif">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　　 
+      注意函数中两个参数的不同传递方式。<br>
+      <br>
+      <table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td bgcolor="#ECEEFF" height="14" class="explaination" width="8">&nbsp;</td>
+                <td bgcolor="#ECEEFF" height="14" class="explaination"><img src="../../../images/tubiao/wt.gif" width="23" height="23" align="absmiddle" alt="思考题"> 
+                  同样是为了取得 LB 中一个数据元素，为什么在上一个算法中用的是基本操作 ListDelete(LB, 1, e)，而在此用的是基本操作 
+                  GetElem(LB, i, e)？</td>
+                <td width="15" bgcolor="#ECEEFF" valign="top"><span id="bb"><img border=0 
+                              id=HPFrameHLTab3 
+                              onClick="showHideContent('HPFrameHL');hidden();"
+							   src="../../../images/html/expand.gif" style="CURSOR: hand" width="15" height="14"></span></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <div id=HPFrameHLContent 
+           style="WIDTH: 100%;visibility: hidden;background-color:#ECEEFF" > 
+              <table width="94%" border="0" cellspacing="0" cellpadding="0" align="center">
+                <tr> 
+                  <td class="explaination">　由于算法执行结果不改变线性表 LB，则在此不能用&quot;删除&quot;操作，而需用 
+                    GetElem() 操作取得 LB 中的数据元素，由此循环的控制条件也应作相应改变。你想到了吗？　　</td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </td>
+    <td background="../../../images/html/right_di3.gif">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<script language=JavaScript src="../../chapter02/section1/hpmain.js"></script>
+<script language=JavaScript src="../../chapter02/section1/showhidden.js"></script>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　3.3.2 队列的存储表示和操作的实现</span><br>
+      <br>
+      <span class="zhushi">　二、循环队列</span><br>
+      <br>
+      　　循环队列的结构定义如下：<br>
+      <b>　　typedef struct {</b><br>
+      　　　ElemType *elem;　<font face="Times New Roman, Times, serif">//</font> 
+      存储空间基址<br>
+      <b>　　　int</b> rear; <font face="Times New Roman, Times, serif">　　　//</font> 
+      队尾指针<br>
+      <b>　　　int</b> front;　　　<font face="Times New Roman, Times, serif">//</font> 
+      队头指针<br>
+      <b>　　　int</b> queuesize;　<font face="Times New Roman, Times, serif">//</font> 
+      允许的最大存储空间，以元素为单位<br>
+      <b>　　}</b> Queue; <br>
+      　<br>
+      　　类似于顺序栈和链栈，除了循环队列的初始化需要添加一个&quot;最大容量&quot;的参数之外，循环队列和链队列的基本操作接口基本相同。<br>
+      <br>
+      　　以下是链队列的主要操作的函数定义。<br>
+      　</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">&nbsp;</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="text"><img src="../../../images/tubiao/cxd.gif" width="25" height="24" alt="算法"><br>
+      　　<b>void</b> InitQueue (Queue <b><font face="Times New Roman, Times, serif">&amp;</font></b>Q，<b>int</b> 
+      maxsize )<br>
+      <b>　{</b> <br>
+      </span><span class="zhushi"><font face="Times New Roman, Times, serif">　//</font> 
+      构造一个最大存储空间为 maxsize 的空队列 Q </span><span class="text"><br>
+      　<b>　if</b> (maxsize == 0) <br>
+      　　　maxsize = MAXLISTSIZE;<br>
+      　　Q.elem = <b>new</b> ElemType[maxsize];<font face="Times New Roman, Times, serif"> 
+      //</font> 为循环队列分配存储空间<br>
+      　<b>　　if</b> (!Q.elem) <b>exit</b>(1);　　　　<font face="Times New Roman, Times, serif">//</font> 
+      存储分配失败<br>
+      　　Q.queuesize = maxsize; <br>
+      　　Q.front = Q.rear = 0;<br>
+      <b>　} </b><font face="Times New Roman, Times, serif">//</font> InitQueue 
+      <br>
+      　</span></td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      <br>
+      　　对顺序存储结构，都需要预先分配一个可以使用的最大空间，和以前所讨论的顺序表和顺序栈一样，在循环队列的初始化函数中，也是由使用者来确定程序中所需要的队列最大容量。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="text"><img src="../../../images/tubiao/cxd.gif" width="25" height="24" alt="算法"><br>
+      　　<b>bool</b> DeQueue (Queue <b><font face="Times New Roman, Times, serif">&amp;</font></b>Q, 
+      ElemType <b><font face="Times New Roman, Times, serif">&amp;</font></b>e)<br>
+      <b>　{</b><br>
+      </span><span class="zhushi"><font face="Times New Roman, Times, serif">　//</font> 
+      若队列不空，则删除当前队列Q中的头元素，用 e 返回其值<br>
+      <font face="Times New Roman, Times, serif">　//</font> 并返回TRUE；否则返回 FALSE</span><span class="text"><br>
+      　　<b>if</b> (Q.front == Q.rear)<br>
+      　<b>　　return</b> <b>FALSE</b>; <br>
+      　　e = Q.elem[Q.front];<br>
+      　　Q.front = (Q.front+1) <b>%</b> Q.queuesize;<br>
+      　<b>　return</b> <b>TRUE</b>;<br>
+      <b>　} </b></span></td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">
+      <table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td bgcolor="#ECEEFF" height="14" class="explaination" width="8">&nbsp;</td>
+                <td bgcolor="#ECEEFF" height="14" class="explaination"><img src="../../../images/tubiao/wt.gif" width="23" height="23" align="absmiddle" alt="思考题"> 
+                  判别循环队列为&quot;空&quot;的条件应该是什么？在队列初始化的函数中，设置队头和队尾指针均为0，那么能否由&quot;队头指针为0&quot;来作为队列空的判别条件呢？</td>
+                <td width="15" bgcolor="#ECEEFF" valign="top"><span id="bb"><img border=0 
+                              id=HPFrameHLTab3 
+                              onClick="showHideContent('HPFrameHL');hidden();"
+							   src="../../../images/html/expand.gif" style="CURSOR: hand" width="15" height="14"></span></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <div id=HPFrameHLContent 
+           style="WIDTH: 100%;visibility: hidden;background-color:#ECEEFF" > 
+              <table width="94%" border="0" cellspacing="0" cellpadding="0" align="center">
+                <tr> 
+                  <td class="explaination">　显然是不对的，由上页两个插图的例子就可见，由于队头指针和队尾指针都是&quot;单方向&quot;移动的，因此当队头指针&quot;追上&quot;队尾指针时，说明所有曾经插入队列的元素都已经出列，所以队列变空的条件应该是&quot;两个指针指向循环队列中的同一位置&quot;。</td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

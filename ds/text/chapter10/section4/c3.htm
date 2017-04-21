@@ -1,0 +1,69 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　10.4.2 堆排序</span><br>
+      <br>
+      　　如上所述，已知关键字序列<b><span class="point">{ 98, 81, 34, 73, 56, 12, 20, 39, 65, 
+      47 }</span></b>是大顶堆，当将&quot;98&quot; 和&quot;47&quot; 互换之后，它就不再是个堆。但此时&quot;98&quot;已是选出的最大关键字，不需要再参加排序，由此只要对其余关键字进行排序，如果能将它重新调整为一个大顶堆，这就等于选出了第二个最大关键字。而此时的关键字序列有下列特点：如右图二叉树所示，除&quot;根结点&quot; 
+      之外，其&quot;左子树&quot;和&quot;右子树&quot;都仍然是堆。由此只要 &quot;从上到下&quot; 进行 &quot;筛选&quot; 
+      可将该序列重新调整为大顶堆。<a href="javascript:;" onClick="MM_openBrWindow('../../../flash/chap10/10-4-2.swf','数据结构','width=400,height=300')"><img src="../../../images/tubiao/dh.gif" alt="动画" width="25" height="24" border="0" align="absmiddle"></a><br>
+      <br>
+      　　首先将&quot;47&quot;移至暂存空间 R[0]，将&quot;81&quot;和&quot;34&quot;进行比较后得到的&quot;大者&quot; 
+      与 &quot;47&quot; 进行比较，由于81&gt;47，则应将&quot;81&quot;移至根结点的位置，之后将&quot;73&quot; 
+      和&quot;56&quot; 进行比较后得到的&quot;大者&quot;与&quot;47&quot; 进行比较，同样因为73&gt;47，将&quot;73&quot; 
+      上移，同理需将&quot;65&quot; 移至它的双亲位置，而将&quot;47&quot;移至它原来的位置(因为此时已达叶子结点，无孩子结点可比较)。由此得到一个新的大顶堆，选出第2个最大关键字 
+      &quot;81&quot; ，之后类似地在互换&quot;81&quot; 和&quot;47&quot; 之后，进行从上到下的筛选可选出第3个最大关键字&quot;73&quot;，依次类推直至只剩下一个关键字为止。从上到下的&quot;筛选&quot;算法如下所示：<a href="javascript:;" onClick="MM_openBrWindow('../../../flash/chap10/10-4-3.swf','数据结构','width=400,height=300')"><img src="../../../images/tubiao/dh.gif" alt="动画" width="25" height="24" border="0" align="absmiddle"></a><br>
+      <br>
+      <img src="../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle"> 
+      <span class="zhushi">算法 10.13</span><br>
+      　　<b>void</b> HeapAdjust (SqList <b><font face="Times New Roman, Times, serif">&amp;</font></b>H, <b>int</b> s, <b>int</b> 
+      m)<br>
+      　<b>{</b><br>
+      <span class="zhushi">　<font face="Times New Roman, Times, serif">　//</font> 
+      已知H.r[s..m]中记录的关键字除H.r[s].key之外均满足堆的定义，<br>
+      　<font face="Times New Roman, Times, serif">　//</font> 本函数依据关键字的大小对H.r[s]进行调整，使H.r[s..m]成为一<br>
+      　　<font face="Times New Roman, Times, serif">//</font> 个大顶堆（对其中记录的关键字而言）</span><br>
+      　　H.r[0] = H.r[s];<font face="Times New Roman, Times, serif">　　　　　　　　//</font> 
+      暂存根结点的记录<br>
+      　　<b>for</b> ( j=2*s; j&lt;=m; j*=2 ) <b>{</b> <font face="Times New Roman, Times, serif">　　//</font> 
+      沿关键字较大的孩子结点向下筛选<br>
+      　　　<b>if</b> ( j&lt;m <b><font face="Times New Roman, Times, serif">&amp;&amp;</font></b> H.r[j].key&lt;H.r[j+1].key )<br>
+      　　　　++j; <font face="Times New Roman, Times, serif">　　　　　　　　　　　//</font> 
+      j 为关键字较大的孩子记录的下标<br>
+      　　　<b>if</b> ( H.r[0].key &gt;= H.r[j].key ) <b>break</b>; <font face="Times New Roman, Times, serif">//</font> 
+      不需要调整，跳出循环<br>
+      　　　H.r[s] = H.r[j]; s = j; <font face="Times New Roman, Times, serif">　　　//</font> 
+      将大关键字记录往上调<br>
+      　　<b>}</b><font face="Times New Roman, Times, serif">// </font>for<br>
+      　　H.r[s] = H.r[0]; <font face="Times New Roman, Times, serif">　　　　　　　//</font> 
+      回移筛选下来的记录<br>
+      　<b>}</b> <font face="Times New Roman, Times, serif">//</font> HeapAdjust</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      <br>
+      　　先讨论第二个问题。<br>
+      　<img src="../../../images/pic/chapter10/10-30.gif" width="242" height="123" align="top"> 
+      <br>
+      <br>
+      　<img src="../../../images/pic/chapter10/10-31.gif" width="250" height="121" align="top"> 
+    </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

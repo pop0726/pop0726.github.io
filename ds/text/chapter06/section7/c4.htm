@@ -1,0 +1,90 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<script language=JavaScript src="../../chapter02/section1/hpmain.js"></script>
+<script language=JavaScript src="../../chapter02/section1/showhidden.js"></script>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　6.7.3 森林的其它操作算法举例</span><br>
+      <br>
+      <span class="zhushi">　一、求森林的深度</span><br>
+      <br>
+      　　森林的深度 = Max{每一棵树的深度}<br>
+      　　树的深度 = 其子树森林的深度+1<br>
+      <br>
+      　　由此可见，求树的深度应该是对树进行后根遍历，即对森林进行中序遍历。<br>
+      <br>
+      <img src="../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle"> 
+      <span class="zhushi">算法6.13</span><br>
+      　　<b>int</b> Depth_Tree( CSTree T )<br>
+      　<b>{</b><br>
+      <span class="zhushi">　　<font face="Times New Roman, Times, serif">//</font> 
+      T 是以孩子-兄弟链表存储的森林的头指针，返回该森林的深度</span><br>
+      　　<b>if</b> (!T) <b>return</b> 0;<br>
+      　　<b>else {</b><br>
+      　　　dep = 0;　<font face="Times New Roman, Times, serif">　　　　　　　　　　　　//</font> 
+      初始化森林的深度为0<br>
+      　　　p = T;　<font face="Times New Roman, Times, serif">　　　　　　　　　　　　　//</font> 
+      指针 p 指向第一棵树的根<br>
+      　　　<b>while</b> (p) <b>{</b><br>
+      　　　　d = Depth_Tree(p-&gt;firstchild);　　<font face="Times New Roman, Times, serif">//</font> 
+      返回 *p 的子树森林的深度<br>
+      　　　　<b>if</b> (d+1&gt;dep) dep=d+1;<font face="Times New Roman, Times, serif">　　　　　　//</font> 
+      求各棵树的深度的最大值 <br>
+      　　　　p=p-&gt;nextsibling; <font face="Times New Roman, Times, serif">　　　　　　　 
+      //</font> 指针 p 移向下一棵树的根<br>
+      　　　<b>} </b><font face="Times New Roman, Times, serif">//</font> while<br>
+      　　　<b>return</b> dep;<br>
+      　　<b>}</b><font face="Times New Roman, Times, serif"> //</font> else<br>
+      　<b>}</b><font face="Times New Roman, Times, serif"> //</font> Depth_Tree</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"> 
+      　<br>
+      　<br>
+      　<br>
+      　　可以将树看成是&quot;只含一棵树的森林&quot;，由此树和森林的操作是完全一致的，本小节讨论如何通过遍历实现森林的其它操作。<br>
+      <br>
+      　　当以孩子-兄弟链表作树和森林的存储结构时，其遍历算法和二叉树的遍历算法类似，但在实现其它操作时一定要注意不要和二叉树混淆，在孩子-兄弟链表的结点中的两个指针指示的关系不同，左指针指向&quot;孩子&quot;，而右指针指向&quot;兄弟&quot;。<br>
+      <br>
+      <table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td bgcolor="#ECEEFF" height="14" class="explaination" width="8">&nbsp;</td>
+                <td bgcolor="#ECEEFF" height="14" class="explaination"><img src="../../../images/tubiao/wt.gif" width="23" height="23" align="absmiddle" alt="思考题"> 
+                  将此算法和上页的中序遍历森林的算法相对比，你发现了什么？</td>
+                <td width="15" bgcolor="#ECEEFF" valign="top"><span id="bb"><img border=0 
+                              id=HPFrameHLTab3 
+                              onClick="showHideContent('HPFrameHL');hidden();"
+							   src="../../../images/html/expand.gif" style="CURSOR: hand" width="15" height="14"></span></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <div id=HPFrameHLContent 
+           style="WIDTH: 100%;visibility: hidden;background-color:#ECEEFF" > 
+              <table width="94%" border="0" cellspacing="0" cellpadding="0" align="center">
+                <tr> 
+                  <td class="explaination">　算法6.13是上页算法的一种变型，或者说将上页算法中的 visit 
+                    操作具体化，即在遍历过程中进行的访问操作为：求以它为根的树的深度，并判别是否大于已求得的其它树的深度，从中取得最大值。</td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

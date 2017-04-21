@@ -1,0 +1,88 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　7.2.2 图的邻接表存储表示</span><br>
+      <br>
+      　　图的邻接表是应用较多的一种存储结构。从邻接表的结构定义可见，建立邻接表的主要操作是在链表中插入一个结点，以下是输入图的顶点和弧建立邻接表的算法。<br>
+      <br>
+      <img src="../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle" alt="算法"> 
+      <span class="zhushi">算法 7.1</span><br>
+      　　<b>void</b> CreateGraph(ALGraph <b><font face="Times New Roman, Times, serif">&amp;</font></b>G)<br>
+      　<b>{</b><br>
+      <span class="zhushi">　　<font face="Times New Roman, Times, serif">//</font> 
+      生成图G的存储结构-邻接表</span><br>
+      　　<b>cin</b> &gt;&gt; G.vexnum &gt;&gt; G.arcnum &gt;&gt; G.kind;<font face="Times New Roman, Times, serif">//</font> 
+      输入顶点数、边数和图类型<br>
+      　　<b>for</b> (i=0; i&lt;G.vexnum; ++i) <b>{</b> <font face="Times New Roman, Times, serif">　　　　//</font> 
+      构造顶点数组<br>
+      　　　<b>cin</b>&gt;&gt; G.vertices[i].data;<font face="Times New Roman, Times, serif">　　　　　//</font> 
+      输入顶点<br>
+      　　　G.vertices[i].firstarc = <b>NULL</b>; <font face="Times New Roman, Times, serif">　　//</font> 
+      初始化链表头指针为&quot;空&quot;<br>
+      　　<b>}</b><font face="Times New Roman, Times, serif">　　　　　　　　　　　　　　　　　//</font> 
+      for<br>
+      　　<b>for</b> (k=0; k&lt;G.arcnum; ++k) <b>{</b> <font face="Times New Roman, Times, serif">　　　　//</font> 
+      输入各边并构造邻接表<br>
+      　　　<b>cin</b>&gt;&gt; sv &gt;&gt; tv; <font face="Times New Roman, Times, serif">　　　　　　　　　//</font> 
+      输入一条弧的始点和终点<br>
+      　　　i = LocateVex(G, sv); j = LocateVex(G, tv); <br>
+      　　　　　　　　　　<font face="Times New Roman, Times, serif">//</font> 确定sv和tv在G中位置，即顶点在G.vertices中的序号<br>
+      　　　pi = <b>new</b> ArcNode; <br>
+      　　　<b>if</b> (!pi) <b>exit</b>(1); <font face="Times New Roman, Times, serif">　　　　　　　 
+      //</font> 存储分配失败<br>
+      　　　pi -&gt; adjvex = j; <font face="Times New Roman, Times, serif">　　　　　　　　//</font> 
+      对弧结点赋邻接点&quot;位置&quot;<br>
+      　　　<b>if</b> (G.kind==DN || G.kind==AN)<br>
+      　　　　<b>cin</b> &gt;&gt; w &gt;&gt; p; <font face="Times New Roman, Times, serif">　　　　　　　　//</font> 
+      输入权值和其它信息存储地址<br>
+      　　　<b>else</b> <b>{</b> w=0; p=NULL; <b>}</b><br>
+      　　　pi-&gt;weight = w; pi-&gt;info = p;<br>
+      　　　pi -&gt; nextarc = G.vertices[i].firstarc;<br>
+      　　　G.vertices[i].firstarc = pi;　<font face="Times New Roman, Times, serif">　　//</font> 
+      插入链表G.vertices[i] <br>
+      　　　<b>if</b> (G.kind==AG || G.kind==AN) <br>
+      　　　<b>{</b> <font face="Times New Roman, Times, serif">　　　　　　　　　　　　//</font> 
+      对无向图或无向网尚需建立tv的邻接点<br>
+      　　　　pj = <b>new</b> ArcNode; <br>
+      　　　　<b>if</b> (!pi) <b>exit</b>(1); <font face="Times New Roman, Times, serif">　　　　　　//</font> 
+      存储分配失败<br>
+      　　　　pj -&gt; adjvex = i;　<font face="Times New Roman, Times, serif">　　　　　　//</font> 
+      对弧结点赋邻接点&quot;位置&quot;<br>
+      　　　　pj -&gt; weight = w; pj-&gt;info = p;<br>
+      　　　　pj -&gt; nextarc = G.vertices[j].firstarc;<br>
+      　　　　G.vertices[j].firstarc = pj;　<font face="Times New Roman, Times, serif">　//</font> 
+      插入链表G.vertices[j]<br>
+      　　　<b>} </b><font face="Times New Roman, Times, serif">//</font> if<br>
+      　　<b>} </b><font face="Times New Roman, Times, serif">//</font> for<br>
+      　<b>}</b><font face="Times New Roman, Times, serif"> //</font> CreateGraph 
+      <p>　　对于一个含 n 个顶点和 e 条边的无向图，e 的最大值为 n(n-1)/2。称含有 n 个顶点和 n(n-1)/2 条边的图为完全图。如果图中边的数目 
+        e&lt;nlogn，则称为稀疏图，反之称为稠密图。容易理解，由于邻接矩阵的存储空间是 n<sup><font size="1">2</font></sup> 
+        级的，而邻接表的空间复杂度是 <font face="Times New Roman, Times, serif"><i>O </i>(n+e)</font>。因此通常，稠密图的存储结构取&quot;数组表示&quot;，稀疏图的存储结构取&quot;邻接表表示&quot;。</p>
+      </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      <br>
+      　按算法7.1生成的有向图G1<br>
+      　　　<img src="../../../images/pic/chapter07/7_01.gif" width="150" height="113" align="top"><br>
+      <br>
+      　　的邻接表如下所示：<br>
+      　　　<img src="../../../images/pic/chapter07/7_15.gif" width="194" height="183" align="top"><br>
+      <br>
+      　　有向图的邻接表中链接在每个顶点结点中的都是以该顶点为弧尾的弧，每个单链表中的弧结点的个数恰为弧尾顶点的出度，每一条弧在邻接表中只出现一次。虽然在邻接表中也能找到所有以某个顶点为弧头的弧，但必须查询整个邻接表。<br>
+      <br>
+      　　若在应用问题中主要是对以某个顶点为弧头的弧进行操作，则可以为该有向图建立一个&quot;逆邻接表&quot;。例如有向图G1的逆邻接表如下所示：<br>
+      　　　<img src="../../../images/pic/chapter07/7_16.gif" width="195" height="184" align="top"> 
+    </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

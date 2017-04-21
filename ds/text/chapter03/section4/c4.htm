@@ -1,0 +1,39 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><br>
+      　　<span class="point">&quot;顾客进门&quot;</span>事件的处理：<br>
+      　1．生成&quot;本顾客理发所需时间 durtime&quot; 和 &quot;下一顾客到达的时间间隔 intertime&quot; 两个随机数；<br>
+      　2．若下一顾客到达的时刻没有超过营业时间，则产生一个新的&quot;进门事件&quot;插入事件表；<br>
+      　3．若此时理发馆内尚有空理发椅，则空椅子数减1且产生一个新的&quot;出门事件&quot;插入事件表，并累计顾客逗留时间；<br>
+      　4．否则将该&quot;顾客&quot;插入&quot;候理队列&quot;；<br>
+      　5．累计顾客人数和排队长度。<br>
+      　</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      　1.可从C语言的随机数函数得到。<br>
+      　2.假设当前事件发生的时刻为 occurtime，则下一顾客进门事件发生的时刻则为occurtime + intertime。<br>
+      　3.表明该顾客在当前时刻开始理发，经过 durtime 时间之后便可离开理发馆，则应发生时刻为 occurtime + durtime 的出门事件，且该顾客在理发馆内逗留的时间即为他理发所需时间。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">　　<span class="point">&quot;顾客出门&quot;</span>事件的处理：<br>
+      　1．若候理队列为空，则空椅子数增1；<br>
+      　2．否则删除队头&quot;顾客&quot;，并产生一个新的&quot;出门事件&quot;插入事件表，且累计顾客逗留时间；<br>
+      　3．累计空椅子数。</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　　当出门事件发生时，表明有理发椅空出，若此时队列不空，则排在队头的顾客开始理发，此时也应产生一个出门事件插入事件表。同时该顾客的逗留时间应为他在这之前在馆内的&quot;等待时间&quot;(此时刻-顾客到达时刻)和他理发所需时间之和。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　4.3.2 串的模式匹配的改进算法</span><br>
+      <br>
+      　　下一个问题是如何求模式串的 next 函数值？<br>
+      <br>
+      　　求 next 函数的过程是一个递推的过程：<br>
+      　　1.首先由定义得 next[0]=-1，next[1]=0;<br>
+      　　2.假设已知 next[j]=k，又 T[j] = T[k]，则显然有 next[j+1]=k+1；<br>
+      　　3.如果 T[j]<img src="../../../images/pic/chapter04/t4.gif" width="9" height="8">T[k]，则令 
+      k=next[k]，直至 T[j] 等于 T[k] 为止。<br>
+      <br>
+      　　由此可得下列求 next 函数值的算法，它和上述的KMP算法非常相似。<br>
+      <img src="../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle" alt="算法"><br>
+      　　<b>void</b> get_next(<b>char</b> T[], <b>int</b> next[]) <br>
+      　<b>{</b><br>
+      <span class="zhushi">　　<font face="Times New Roman, Times, serif">//</font> 
+      求模式串T的next函数值并存入数组 next。</span><br>
+      　　j = 0; next[0] = -1; k = -1;<br>
+      　　<b>while</b> ( T[j+1] != <font face="Times New Roman, Times, serif">'</font>\0<font face="Times New Roman, Times, serif">' 
+      </font><b><font face="Times New Roman, Times, serif"></font></b>) <b>{</b><br>
+      　　<b>if</b> (k = = -1 || T[j] = = T[k])<br>
+      　　　<b>{</b> ++j; ++k; next[j] = k; <b>}</b><br>
+      　　<b>else</b> k = next[k];<br>
+      　　<b>}</b><br>
+      　<b>}</b> <font face="Times New Roman, Times, serif">//</font> get_next 
+      <br>
+      　</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      　1.虽然next定义中没有明确指出next[1]=0，但由0&lt;k&lt;j的条件很容易判断出next[1]只能等于0；<br>
+      <br>
+      　2.next[j]=k表明在T串中的字符T[k]之前存在一个长度最大的子串 &quot;<img src="../../../images/pic/chapter04/gs/tj_k_l.gif" width="20" height="13" align="absmiddle"> 
+      <img src="../../../images/pic/chapter04/gs/tj_k1_l.gif" width="30" height="13" align="absmiddle">...<img src="../../../images/pic/chapter04/gs/tj_1_l.gif" width="19" height="13" align="absmiddle">&quot; 
+      和T串中的子串 &quot;<img src="../../../images/pic/chapter04/gs/t0_l.gif" width="9" height="12" align="absmiddle"> 
+      <img src="../../../images/pic/chapter04/gs/t1_l.gif" width="9" height="12" align="absmiddle">...<img src="../../../images/pic/chapter04/gs/tk_1_l.gif" width="21" height="12" align="absmiddle">&quot; 
+      相等，而现在又知道了<img src="../../../images/pic/chapter04/gs/tj_l.gif" width="9" height="13" align="absmiddle">=<img src="../../../images/pic/chapter04/gs/tk_l.gif" width="10" height="12" align="absmiddle">，这就是说，在字符T[k+1]之前存在着一个长度最大的子串使得等式 
+      &quot;<img src="../../../images/pic/chapter04/gs/t0_l.gif" width="9" height="12" align="absmiddle"> 
+      <img src="../../../images/pic/chapter04/gs/t1_l.gif" width="9" height="12" align="absmiddle">...<img src="../../../images/pic/chapter04/gs/tk_l.gif" width="10" height="12" align="absmiddle">&quot;=&quot;<img src="../../../images/pic/chapter04/gs/tj_k_l.gif" width="20" height="13" align="absmiddle"> 
+      <img src="../../../images/pic/chapter04/gs/tj_k1_l.gif" width="30" height="13" align="absmiddle">...<img src="../../../images/pic/chapter04/gs/tj_l.gif" width="9" height="13" align="absmiddle">&quot; 
+      成立，则根据next函数值的定义不就得到next[j+1]=k+1了吗？<br>
+      <br>
+      　3.由于 <img src="../../../images/pic/chapter04/gs/tj_l.gif" width="9" height="13" align="absmiddle"><img src="../../../images/pic/chapter04/t3.gif" width="9" height="8"> 
+      <img src="../../../images/pic/chapter04/gs/tk_l.gif" width="10" height="12" align="absmiddle">，则等式 
+      &quot;<img src="../../../images/pic/chapter04/gs/t0_l.gif" width="9" height="12" align="absmiddle"> 
+      <img src="../../../images/pic/chapter04/gs/t1_l.gif" width="9" height="12" align="absmiddle"> 
+      ...<img src="../../../images/pic/chapter04/gs/tk_l.gif" width="10" height="12" align="absmiddle">&quot;=&quot;<img src="../../../images/pic/chapter04/gs/tj_k_l.gif" width="20" height="13" align="absmiddle"> 
+      <img src="../../../images/pic/chapter04/gs/tj_k1_l.gif" width="30" height="13" align="absmiddle">...<img src="../../../images/pic/chapter04/gs/tj_l.gif" width="9" height="13" align="absmiddle">&quot; 
+      不成立，也就是说，在字符T[k+1]之前不存在一个子串 &quot;<img src="../../../images/pic/chapter04/gs/tj_k_l.gif" width="20" height="13" align="absmiddle"> 
+      <img src="../../../images/pic/chapter04/gs/tj_k1_l.gif" width="30" height="13" align="absmiddle">...<img src="../../../images/pic/chapter04/gs/tj_l.gif" width="9" height="13" align="absmiddle">&quot; 
+      和子串 &quot;<img src="../../../images/pic/chapter04/gs/t0_l.gif" width="9" height="12" align="absmiddle"> 
+      <img src="../../../images/pic/chapter04/gs/t1_l.gif" width="9" height="12" align="absmiddle">...<img src="../../../images/pic/chapter04/gs/tk_l.gif" width="10" height="12" align="absmiddle">&quot; 
+      相等，那么是否可能存在另一个值p&lt;k，使等式 &quot;<img src="../../../images/pic/chapter04/gs/t0_l.gif" width="9" height="12" align="absmiddle"> 
+      <img src="../../../images/pic/chapter04/gs/t1_l.gif" width="9" height="12" align="absmiddle">...<img src="../../../images/pic/chapter04/gs/tp_l.gif" width="10" height="12" align="absmiddle"> 
+      &quot;=&quot;<img src="../../../images/pic/chapter04/gs/tj_p_l.gif" width="21" height="12" align="absmiddle"> 
+      <img src="../../../images/pic/chapter04/gs/tj_p1_l.gif" width="30" height="13" align="absmiddle">...<img src="../../../images/pic/chapter04/gs/tj_l.gif" width="9" height="13" align="absmiddle">&quot; 
+      成立，这个 p 显然应该是 next[k]，因为这相当于一个&quot;利用 next 函数值进行T串和T串的匹配&quot;问题。<br>
+      　</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"> 
+      <p>　　但是还有一种特殊情况需要考虑：<br>
+        　　例如：<br>
+        　　　S = <font face="Times New Roman, Times, serif">'</font>aaabaaabaaabaaabaaab'<br>
+        　　　T = <font face="Times New Roman, Times, serif">'</font>aaaab'<br>
+        <br>
+        　　此时因为T串的next函数值依次为-1,0,1,2,3,虽然匹配过程中指针 i 没有回溯，但对 i=3、7、11和15重复进行了多次的'b'是否等于'a'的操作。换句话说，如果 
+        next[j]=k，那么此时应该看一下T[j]是否等于 T[k]，如果不等，则 next[j]=k，否则next[j]就应该取值 next[k]。例如上述T串的 
+        next 函数值依次为-1,-1,-1,-1,3。由此改写求模式串的 next 函数值的算法如下。<br>
+        　</p>
+    </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　　因为在S[i]和T[j]不等时，由于T[j]=T[k]，则S[i]肯定也不等于T[k]，也就是说，S[i]不应该再去和T[k]进行比较（因为纯粹是多余的），而应该直接和T[next[k]]进行比较。因此，当T[j]=T[k]时，应该直接取T[k]的next函数值作为T[j]的 
+      next 函数值。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><img src="../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle"> 
+      <span class="zhushi">算法 4.9</span><br>
+      　　<b>void</b> get_nextval(<b>char</b> T[], <b>int</b> next[]) <br>
+      　<b>{</b><br>
+      <span class="zhushi">　　<font face="Times New Roman, Times, serif">//</font> 
+      求模式串T的next函数值并存入数组 next。</span><br>
+      　　j = 0; next[0] = -1; k = -1;<br>
+      　　<b>while</b> ( T[j+1] != <font face="Times New Roman, Times, serif">'</font>\0<font face="Times New Roman, Times, serif">' 
+      </font><b><font face="Times New Roman, Times, serif"></font></b>) <b>{</b><br>
+      　　　<b>if</b> (k = = -1 || T[j] = = T[k]) <b>{</b><br>
+      　　　　++j; ++k; <br>
+      　　　　<b>if</b> (T[j]!=T[k]) next[j] = k;<br>
+      　　　　<b>else</b> next[j] = next[k];<br>
+      　　　<b>}　</b><font face="Times New Roman, Times, serif">//</font> if<br>
+      　　　<b>else</b> k = next[k];<br>
+      　　<b>}</b><font face="Times New Roman, Times, serif">　//</font> while<br>
+      　<b>}</b><font face="Times New Roman, Times, serif">　//</font> get_nextval</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　　算法4.9的执行过程及由此进行的KMP算法匹配的过程可参见动画演示。<a href="javascript:;" onClick="MM_openBrWindow('../../../flash/chap04/4-3-4-1.swf','数据结构','width=400,height=300')"><img src="../../../images/tubiao/dh.gif" alt="动画" width="25" height="24" border="0" align="absmiddle"></a> 
+      <a href="javascript:;" onClick="MM_openBrWindow('../../../flash/chap04/4-3-4-2.swf','数据结构','width=400,height=300')"><img src="../../../images/tubiao/dh.gif" alt="动画" width="25" height="24" border="0" align="absmiddle"></a></td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+<script language="JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　6.6.4 森林和二叉树的转换</span><br>
+      <br>
+      　　假设森林<br>
+      　　　F = { <img src="../../../images/pic/chapter06/t1.gif" width="16" height="19" align="absmiddle">,<img src="../../../images/pic/chapter06/t2.gif" width="16" height="19" align="absmiddle">, 
+      …,<img src="../../../images/pic/chapter06/tn.gif" width="16" height="19" align="absmiddle"> 
+      }，<br>
+      　　其中第一棵树<img src="../../../images/pic/chapter06/t1.gif" width="16" height="19" align="absmiddle">由根结点 
+      ROOT(<img src="../../../images/pic/chapter06/t1.gif" width="16" height="19" align="absmiddle">) 
+      和子树森林 {<img src="../../../images/pic/chapter06/t11.gif" width="14" height="17" align="absmiddle">, 
+      <img src="../../../images/pic/chapter06/t12.gif" width="17" height="17" align="absmiddle">, 
+      …, <font size="2"><img src="../../../images/pic/chapter06/t1m.gif" width="17" height="17" align="absmiddle"></font>} 
+      构成。<br>
+      <br>
+      　　则可按如下规则转换成一棵二叉树<br>
+      　　　B =( LBT, Node(root), RBT )：<br>
+      　　若森林 F 为空集，则二叉树 B 为空树；否则，由森林中第一棵树的根结点 ROOT(<img src="../../../images/pic/chapter06/t1.gif" width="16" height="19" align="absmiddle">) 
+      复制得二叉树的根 Node(root)，由森林中第一棵树的子树森林 {<img src="../../../images/pic/chapter06/t11.gif" width="14" height="17" align="absmiddle">, 
+      <img src="../../../images/pic/chapter06/t12.gif" width="17" height="17" align="absmiddle">, 
+      …, <font size="2"><img src="../../../images/pic/chapter06/t1m.gif" width="17" height="17" align="absmiddle"></font>} 
+      转换得到二叉树中的左子树LBT，由森林中删去第一棵树之后由其余树构成的森林 {<img src="../../../images/pic/chapter06/t2.gif" width="16" height="19" align="absmiddle">,<img src="../../../images/pic/chapter06/t3.gif" width="16" height="19" align="absmiddle">,…,<img src="../../../images/pic/chapter06/tn.gif" width="16" height="19" align="absmiddle"> 
+      } 转换得到二叉树中的右子树RBT。<br>
+      <br>
+      　　反之，对于任意一棵二叉树<br>
+      　　　B =( LBT, Node(root), RBT )，<br>
+      　　可按如下规则转换得到由n 棵树构成的森林<br>
+      　　　F = { <img src="../../../images/pic/chapter06/t1.gif" width="16" height="19" align="absmiddle">, 
+      <img src="../../../images/pic/chapter06/t2.gif" width="16" height="19" align="absmiddle">, 
+      …, <img src="../../../images/pic/chapter06/tn.gif" width="16" height="19" align="absmiddle"> 
+      }，<br>
+      <br>
+      　　其中第一棵树<img src="../../../images/pic/chapter06/t1.gif" width="16" height="19" align="absmiddle"> 
+      由根结点 ROOT(<img src="../../../images/pic/chapter06/t1.gif" width="16" height="19" align="absmiddle">) 
+      和子树森林 {<img src="../../../images/pic/chapter06/t11.gif" width="14" height="17" align="absmiddle">, 
+      <img src="../../../images/pic/chapter06/t12.gif" width="17" height="17" align="absmiddle">, 
+      …, <font size="2"><img src="../../../images/pic/chapter06/t1m.gif" width="17" height="17" align="absmiddle"></font>} 
+      构成：<br>
+      　　若二叉树 B 为空树, 则与其对应的森林 F 为空集；否则，由二叉树的根结点 Node(root) 复制得森林中第一棵树的根结点 ROOT(<img src="../../../images/pic/chapter06/t1.gif" width="16" height="19" align="absmiddle">)，由二叉树中的左子树 
+      LBT 转换构造森林中第一棵树的子树森林 {<img src="../../../images/pic/chapter06/t11.gif" width="14" height="17" align="absmiddle">, 
+      <img src="../../../images/pic/chapter06/t12.gif" width="17" height="17" align="absmiddle">, 
+      …, <font size="2"><img src="../../../images/pic/chapter06/t1m.gif" width="17" height="17" align="absmiddle"></font>}，由二叉树中的右子树 
+      RBT 转换构造森林中其余树构成的森林 {<img src="../../../images/pic/chapter06/t2.gif" width="16" height="19" align="absmiddle">,<img src="../../../images/pic/chapter06/t3.gif" width="16" height="19" align="absmiddle">,…,<img src="../../../images/pic/chapter06/tn.gif" width="16" height="19" align="absmiddle">}。<br>
+      <br>
+      　　由此，对树和森林进行的各种操作均可通过对&quot;二叉树&quot;进行相应的操作来完成，但同时也必须注意，此时的&quot;二叉树&quot;，其左、右子树和根结点之间的关系不再是它的&quot;左、右孩子&quot;，而是左子树是根的&quot;孩子们&quot;，右子树是根的&quot;兄弟们&quot;。</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      <br>
+      <br>
+      　<a href="javascript:;" onClick="MM_openBrWindow('../../../flash/chap06/6-6-1.swf','','width=350,height=360')"><img src="../../../images/tubiao/dh.gif" width="25" height="24" border="0" alt="动画"></a> 
+    </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

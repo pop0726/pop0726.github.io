@@ -1,0 +1,143 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<script language=JavaScript src="../../chapter02/section1/hpmain.js"></script>
+<script language=JavaScript src="../../chapter02/section1/showhidden.js"></script>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><br>
+      　<span class="zhushi">基本操作：</span><br>
+      <br>
+      　<b>{结构初始化}</b><br>
+      　　InitGList(<b><font face="Times New Roman, Times, serif">&amp;</font></b>L);<br>
+      　　　操作结果：创建空的广义表 L。<br>
+      <br>
+      　　CreateGList(<b><font face="Times New Roman, Times, serif">&amp;</font></b>L, S);<br>
+      　　　初始条件：S是广义表的书写形式串。<br>
+      　　　操作结果：由S创建广义表 L。<br>
+      <br>
+      　　CopyGList(<b><font face="Times New Roman, Times, serif">&amp;</font></b>T, L);<br>
+      　　　初始条件：广义表 L 存在。<br>
+      　　　操作结果：由广义表 L 复制得到广义表 T。<br>
+      <br>
+      　<b>{销毁结构}</b><br>
+      　　DestroyGList(<b><font face="Times New Roman, Times, serif">&amp;</font></b>L);<br>
+      　　　初始条件：广义表 L 存在。<br>
+      　　　操作结果：销毁广义表 L。<br>
+      　</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      　例如，以下为以&quot;字符串&quot;书写形式表示的广义表。<br>
+      　　A=()<br>
+      　　F=(b,(c,d,e))<br>
+      　　E=(b,(c),(d,e)) <br>
+      　　D=(E,A,F)<br>
+      　　C=(A,D,F)<br>
+      　　B=(a,B)=(a,(a,(a,v...))) <br>
+      <br>
+      　　通常，以大写的字母表示广义表的表名，而用单个的小写字母表示单原子。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">　<b>{引用型操作}</b><br>
+      　　GListLength(L);<br>
+      　　　初始条件：广义表 L 存在。<br>
+      　　　操作结果：求广义表 L 的长度，即元素个数。<br>
+      <br>
+      　　GListDepth(L);<br>
+      　　　初始条件：广义表 L 存在。<br>
+      　　　操作结果：求广义表 L 的深度。<br>
+      　</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      <br>
+      　　例如，广义表F的长度为2，广义表 E 的长度为3，可见广义表中元素的&quot;个数&quot;应由最外层括弧中的&quot;逗号&quot;来定。 
+      <p>　　广义表的深度定义为括弧嵌套的最深层次。因此对广义表来说，&quot;空表&quot;的深度为1，广义表E和F的深度都为2。<br>
+        　</p>
+    </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">　　GListEmpty(L);<br>
+      　　　初始条件：广义表 L 存在。<br>
+      　　　操作结果：判定广义表 L 是否为空表。<br>
+      <br>
+      　　GetHead(L);<br>
+      　　　初始条件：广义表 L 存在且非空。<br>
+      　　　操作结果：返回广义表 L 的表头。<br>
+      <br>
+      　　GetTail(L);<br>
+      　　　初始条件：广义表 L 存在且非空。<br>
+      　　　操作结果：返回广义表 L 的表尾。<br>
+      <br>
+      　<b>{加工型操作}</b><br>
+      　　InsertFirst_GL(<b><font face="Times New Roman, Times, serif">&amp;</font></b>L, e);<br>
+      　　　初始条件：广义表 L 存在。<br>
+      　　　操作结果：插入元素 e 作为广义表 L 的第一个元素。<br>
+      <br>
+      　　DeleteFirst_GL(<b><font face="Times New Roman, Times, serif">&amp;</font></b>L, <b><font face="Times New Roman, Times, serif">&amp;</font></b>e);<br>
+      　　　初始条件：广义表 L 存在。<br>
+      　　　操作结果：删除广义表 L 中第一个元素，并用 e 返回其值。<br>
+      <br>
+      　　Traverse_GL(L, Visit());<br>
+      　　　初始条件：广义表 L 存在。<br>
+      　　　操作结果：遍历广义表 L，用函数 Visit 处理每个元素。<br>
+      <br>
+      <b>} ADT GList</b></td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      　　例如，A=( )为空表，因为表中没有元素。 
+      <p><br>
+        　　从上面对广义表的表头和表尾的定义可见，这两个操作只对非空表有意义，且由于广义表的表头定义为表中&quot;第一个&quot;数据元素，因此它可能是单原子，也可能是个广义表，而它的表尾&quot;必定&quot;是个广义表，但可能是个空的广义表。例如，<br>
+        　　GetHead(F)=b，GetTail(F)=((c,d,e))=F1<br>
+        　　GetHead(F1)=(c,d,e)=F2，GetTail(F1)=( )<br>
+        　　GetHead(F2)=c，GetTail(F2)=(d,e)=F3<br>
+        　　GetHead(F3)=d，GetTail(F3)=(e)=F4<br>
+        　　GetHead(F4)=e，GetTail(F4)=( )<br>
+      </p>
+      <table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td bgcolor="#ECEEFF" height="14" class="explaination" width="8">&nbsp;</td>
+                <td bgcolor="#ECEEFF" height="14" class="explaination"><img src="../../../images/tubiao/wt.gif" width="23" height="23" align="absmiddle" alt="思考题"> 
+                  能否利用这两个基本操作实现&quot;将 e 插入为广义表 L 的第 i 个元素&quot;或&quot;删除广义表的第 
+                  i 个元素&quot;呢？</td>
+                <td width="15" bgcolor="#ECEEFF" valign="top"><span id="bb"><img border=0 
+                              id=HPFrameHLTab3 
+                              onClick="showHideContent('HPFrameHL');hidden();"
+							   src="../../../images/html/expand.gif" style="CURSOR: hand" width="15" height="14"></span></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <div id=HPFrameHLContent 
+           style="WIDTH: 100%;visibility: hidden;background-color:#ECEEFF" > 
+              <table width="94%" border="0" cellspacing="0" cellpadding="0" align="center">
+                <tr> 
+                  <td class="explaination">　可以。因为根据广义表表尾的定义可知，L 中的第2个元素即为表尾 GetTail(L) 
+                    中的第一个元素，其余则依次类推。</td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+      </table>
+      <p>&nbsp; </p>
+    </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">　<span class="part">2.1.2 线性表类型的应用<br>
+      <br>
+      </span>　　容易看出，上述的每一步恰好对应线性表的一个基本操作：<br>
+      　　1. ListDelete( LB, 1, e );<br>
+      　　2. LocateElem( LA, e, equal() ); <br>
+      　　3. ListInsert( LA, n+1,e )<span class="part"><br>
+      </span></td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      <br>
+      　　equal() 为判定元素值是否相等的函数。<br>
+      　　n 表示线性表中当前所含元素个数，由于在集合论中，元素之间是没有次序关系的，因此为操作方便，仅需将新的数据元素插入在线性表的表尾即可。<br>
+    </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>&nbsp;</td>
+    <td class="white" valign="top"><span class="text">　　由此得到求并集的算法如下所示：<br>
+      <br>
+      <img src="../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle" alt="程序段">　</span><span class="zhushi">算法2.1</span><span class="part"><br>
+      　</span><span class="text">　<b>void</b> union(List <b><font face="Times New Roman, Times, serif">&amp;</font></b>LA, List 
+      <b><font face="Times New Roman, Times, serif">&amp;</font></b>LB)<br>
+      　 <b>{</b><br>
+      　　</span><span class="part"><font face="Times New Roman, Times, serif" color="#97C594">//</font> 
+      </span><span class="zhushi">将所有在线性表LB中但不在LA中的数据元素插入到 LA 中,</span><span class="part"><br>
+      　　<font face="Times New Roman, Times, serif" color="#97C594">//</font> </span><span class="zhushi">算法执行之后，线性表 
+      LB 不再存在。</span><span class="text"><br>
+      　　La_len = ListLength(LA);　<font face="Times New Roman, Times, serif">//</font> 
+      求得线性表 LA 的长度<br>
+      　　<b>while</b> (<b>!</b>ListEmpty(LB)) 　<font face="Times New Roman, Times, serif">//</font> 
+      依次处理 LB 中元素直至 LB 为空表止<br>
+      　　<b>{</b><br>
+      </span></td>
+    <td background="../../../images/html/mid.gif">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">&nbsp;</td>
+    <td background="../../../images/html/right_di3.gif">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>&nbsp;</td>
+    <td class="white" valign="top"><span class="text">　　 </span><span class="point">ListDelete(LB,1,e)</span><span class="text">;　　　<font face="Times New Roman, Times, serif">//</font> 
+      从 LB 中删除第1个数据元素并赋给 e<br>
+      　　 <b>if</b> (</span>!<span class="point">LocateElem(LA,e,equal( )</span><span class="text">)<br>
+      　　 </span><span class="point">　ListInsert(LA,++La_len,e)</span><span class="text">;<br>
+      　　　　　　　　　　　　　　　<font face="Times New Roman, Times, serif">//</font> 当LA中不存在和 
+      e 值相同的数据元素时进行插入<br>
+      　　 <b>} </b><font face="Times New Roman, Times, serif">//</font> while　　<br>
+      　　DestroyList(LB);　　　　　<font face="Times New Roman, Times, serif">//</font> 
+      销毁线性表 LB　<br>
+      　 <b>} </b><font face="Times New Roman, Times, serif">//</font> union</span></td>
+    <td background="../../../images/html/mid.gif">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　ListInsert(La,++La_len,e) 
+      表示先将参数 La_Len 增1然后将 e 插入到 La 中第 La_len 个元素之前。</td>
+    <td background="../../../images/html/right_di3.gif">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

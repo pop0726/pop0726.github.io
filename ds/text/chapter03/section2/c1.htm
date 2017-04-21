@@ -1,0 +1,139 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+<script language="JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<script language=JavaScript src="../../chapter02/section1/hpmain.js"></script>
+<script language=JavaScript src="../../chapter02/section1/showhidden.js"></script>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><br>
+      　　由于栈的操作具有后进先出的固有特性，致使栈成为程序设计中的有用工具。反之，从本节所举例子中可以发现，凡应用问题求解的过程具有&quot;后进先出&quot;的天然特性的话，则求解的算法中也必然需要利用&quot;栈&quot;。<br>
+      　　本节将从简到繁举以下五个利用栈求解的例子。<br>
+      <br>
+      <span class="part">　3.2.1 数制转换</span><br>
+      <br>
+      　　十进制数N和其他d进制数的转换是计算机实现计算的基本问题，其解决方法很多，其中一个简单算法基于下列原理：<br>
+      　　　<b>N = (N div d)×d + N mod d</b> <br>
+      　　(其中：div 为整除运算，mod 为求余运算)<br>
+      <br>
+      　例如：(1348)<font size="1">10</font> = (2504)<font size="1">8</font> ，其运算过程如动画演示所示：<br>
+      　　假设现要编制一个满足下列要求的程序：对于输入的任意一个非负十进制整数，打印输出与其等值的八进制数。<br>
+      <br>
+      　　问题很明确，就是要输出计算过程中所得到的各个八进制数位。然而从动画演示的计算过程可见，这八进制的各个数位产生的顺序是从低位到高位的，而打印输出的顺序，一般来说应从高位到低位，这恰好和计算过程相反。<a href="javascript:;" onClick="MM_openBrWindow('../../../flash/chap03/3-2-1.swf','数据结构','width=400,height=300')"><img src="../../../images/tubiao/dh.gif" width="25" height="24" alt="动画" align="absmiddle" border="0"></a><br>
+      　　因此，需要先保存在计算过程中得到的八进制数的各位，然后逆序输出，因为它是按&quot;后进先出&quot;的规律进行的，所以用栈最合适。<br>
+      　</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      <br>
+      <br>
+      <table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td bgcolor="#ECEEFF" height="14" class="explaination" width="8">&nbsp;</td>
+                <td bgcolor="#ECEEFF" height="14" class="explaination"><img src="../../../images/tubiao/wt.gif" width="23" height="23" align="absmiddle" alt="思考题"> 
+                  怎样将一个十进制的数值转换成一个八进制的数值呢？</td>
+                <td width="15" bgcolor="#ECEEFF" valign="top"><span id="bb"><img border=0 
+                              id=HPFrameHLTab3 
+                              onClick="showHideContent('HPFrameHL');hidden();"
+							   src="../../../images/html/expand.gif" style="CURSOR: hand" width="15" height="14"></span></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <div id=HPFrameHLContent 
+           style="WIDTH: 100%;visibility: hidden;background-color:#ECEEFF" > 
+              <table width="94%" border="0" cellspacing="0" cellpadding="0" align="center">
+                <tr> 
+                  <td class="explaination">　好的，我想这样一个简单问题你一定回答出来了。不过，你一定在想，这样一个简单算法难道还要用栈吗？那么，下面就让我们来看看用栈的理由。</td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+      </table>
+      
+      　</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><img src="../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle" alt="算法"> 
+      <span class="zhushi">算法 3.1</span><br>
+      　　<b>void</b> conversion ()<br>
+      　<b>{</b><br>
+      <span class="zhushi">　<font face="Times New Roman, Times, serif">//</font> 
+      对于输入的任意一个非负十进制整数，打印输出与其等值的八进制数</span><br>
+      <span class="text">　　InitStack(S); 　　<font face="Times New Roman, Times, serif">//</font> 
+      构造空栈<br>
+      　<b>　cin</b> &gt;&gt; N;　　　　<font face="Times New Roman, Times, serif">//</font> 
+      输入一个十进制数<br>
+      　<b>　while</b>(N)<br>
+      　　<b>{</b><br>
+      　　　Push(S,N <b>%</b> 8);　<font face="Times New Roman, Times, serif">//</font> 
+      &quot;余数&quot;入栈<br>
+      　　　N = N/8;　　　　<font face="Times New Roman, Times, serif">//</font> 非零&quot;商&quot;继续运算<br>
+      　<b>　} </b><font face="Times New Roman, Times, serif">//</font> while<br>
+      　<b>　while</b> (<b>!</b>StackEmpty)<br>
+      　<b>　{</b> 　　　　　　　 <font face="Times New Roman, Times, serif">//</font> 
+      和&quot;求余&quot;所得相逆的顺序输出八进制的各位数<br>
+      　　　Pop(S,e);<br>
+      　　<b>　cout </b>&lt;&lt; e;<br>
+      　<b>　} </b><font face="Times New Roman, Times, serif">//</font> while<br>
+      <b>　}</b> <font face="Times New Roman, Times, serif">//</font> conversion</span><br>
+    </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　　当然这是利用栈的一个极其简单的例子。在这个例子中，栈的操作序列是直线式的，即先一味地入栈，然后一味地出栈。<br>
+      <br>
+      　　你可能会说，用数组直接实现不也很简单吗？你可以试一下利用数组重新写这个算法，那么你一定能体会到在这个算法中用栈的好处了。<br>
+      <br>
+      <table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td bgcolor="#ECEEFF" height="14" class="explaination" width="8">&nbsp;</td>
+                <td bgcolor="#ECEEFF" height="14" class="explaination"><img src="../../../images/tubiao/wt.gif" width="23" height="23" align="absmiddle" alt="思考题"> 
+                  怎么样？你觉得好处在哪儿呢？</td>
+                <td width="15" bgcolor="#ECEEFF" valign="top"><span id=dd><img border=0 
+                              id=HPFrameDLTab3 
+                              onClick="showHideContent('HPFrameDL');hiddenL();"
+							   src="../../../images/html/expand.gif" style="CURSOR: hand" width="15" height="14"></span></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <div id=HPFrameDLContent 
+           style="WIDTH: 100%;visibility: hidden;background-color:#ECEEFF"> 
+              <table width="94%" border="0" cellspacing="0" cellpadding="0" align="center">
+                <tr> 
+                  <td class="explaination">　你是否也觉得，栈的引入简化了程序设计的问题，突出了解决问题的根本所在。而用数组不仅掩盖了问题的本质，还要分散精力去考虑数组下标增减等细节问题。在以后几个例子中你将会看到，实际利用栈的问题中，入栈和出栈操作大都不是直线式的，而是交错进行的。</td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

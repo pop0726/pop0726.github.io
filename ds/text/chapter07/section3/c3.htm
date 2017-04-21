@@ -1,0 +1,62 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　7.3.2 广度优先搜索遍历图</span><br>
+      <br>
+      　　<span class="part">广度优先搜索</span><font color="#00FFFF">(<b>B</b>readth_<b>F</b>irst 
+      <b>S</b>earch)</font>的基本思想是：从图中某个顶点 v 出发，在访问了 v 之后依次访问 v 的各个未曾访问过的邻接点，然后分别从这些邻接点出发依次访问它们的邻接点，并使得&quot;先被访问的顶点的邻接点&quot;先于&quot;后被访问的顶点的邻接点&quot;进行访问，直至图中所有已被访问的顶点的邻接点都被访问到。如若此时图中尚有顶点未被访问，则需另选一个未曾被访问过的顶点作为新的起始点，重复上述过程，直至图中所有顶点都被访问到为止。<br>
+      <br>
+      　　换句话说，广度优先搜索遍历图的过程是以 v 为起始点，由近至远，依次访问和 v 有路径相通且最短路径长度为 1,2,… 的顶点。例如拟对下列连通图 
+      G4 进行广度优先搜索遍历，假设从顶点 v 开始，则图中其它顶点和 v 之间都有路径相通，其中从 v 到 <img src="../../../images/pic/chapter07/w1w.gif" width="16" height="17" align="absmiddle">、<img src="../../../images/pic/chapter07/w2w.gif" width="17" height="17" align="absmiddle"> 
+      和 <img src="../../../images/pic/chapter06/w8.gif" width="16" height="13" align="absmiddle"> 
+      的最短路径为1，从 v 到 <img src="../../../images/pic/chapter06/w7.gif" width="16" height="11" align="absmiddle">、<img src="../../../images/pic/chapter07/w3w.gif" width="18" height="17" align="absmiddle"> 
+      和 <img src="../../../images/pic/chapter06/w5.gif" width="17" height="12" align="absmiddle"> 
+      的最短路径长度为2，从 v 到 <img src="../../../images/pic/chapter06/w6.gif" width="17" height="12" align="absmiddle"> 
+      和 <img src="../../../images/pic/chapter06/w4.gif" width="18" height="13" align="absmiddle"> 
+      的最短路径长度为3。由此对图G4进行广度优先搜索遍历时顶点的访问次序为：<br>
+      　　　　<font size="2">v</font>→<img src="../../../images/pic/chapter07/w1w.gif" width="16" height="17" align="absmiddle">→<img src="../../../images/pic/chapter07/w2w.gif" width="17" height="17" align="absmiddle">→<img src="../../../images/pic/chapter06/w8.gif" width="16" height="13" align="absmiddle">→<img src="../../../images/pic/chapter06/w7.gif" width="16" height="11" align="absmiddle">→<img src="../../../images/pic/chapter07/w3w.gif" width="18" height="17" align="absmiddle">→<img src="../../../images/pic/chapter06/w5.gif" width="17" height="12" align="absmiddle">→<img src="../../../images/pic/chapter06/w6.gif" width="17" height="12" align="absmiddle">→<img src="../../../images/pic/chapter06/w4.gif" width="18" height="13" align="absmiddle"><br>
+      <br>
+      　　其中，<img src="../../../images/pic/chapter06/w7.gif" width="16" height="11" align="absmiddle"> 
+      先于 <img src="../../../images/pic/chapter07/w3w.gif" width="18" height="17" align="absmiddle"> 
+      和 <img src="../../../images/pic/chapter06/w5.gif" width="17" height="12" align="absmiddle"> 
+      进行访问是因为 <img src="../../../images/pic/chapter07/w1w.gif" width="16" height="17" align="absmiddle"> 
+      先于 <img src="../../../images/pic/chapter07/w2w.gif" width="17" height="17" align="absmiddle"> 
+      和 <img src="../../../images/pic/chapter06/w8.gif" width="16" height="13" align="absmiddle"> 
+      进行访问。<br>
+      　</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      　<img src="../../../images/pic/chapter07/7_21.gif" width="254" height="208" align="top"><br>
+      　　　　　　　　　　(图G4) <br>
+      　<br>
+      　　在图上看这个广度优先搜索遍历的过程就好比&quot;一石激起千重浪&quot;，访问顶点 v 就好比将一块大石头扔进池塘的中央，必然激起浪花，这个浪花从中央向外四周扩散开来，渐渐波及池塘中从近到远的其它&quot;石块&quot;。<a href="javascript:;" onClick="MM_openBrWindow('../../../flash/chap07/7-3-3.swf','数据结构','width=400,height=300')"><img src="../../../images/tubiao/dh.gif" alt="动画" width="25" height="24" border="0" align="absmiddle"></a></td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"> 　　可以改变布局重新画图 G4，将顶点 v 放在上方中央，其余顶点按从 v 到该顶点的最短路径长度分别放在第2、3和4层上，则图的广度优先搜索遍历的过程类似于树的按层次遍历的过程。<a href="javascript:;" onClick="MM_openBrWindow('../../../flash/chap07/7-3-4.swf','数据结构','width=400,height=300')"><img src="../../../images/tubiao/dh.gif" alt="动画" width="25" height="24" border="0" align="absmiddle"></a></td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      　<img src="../../../images/pic/chapter07/7_22.gif" width="259" height="207" align="top"> 
+      <br>
+      　　　　　　　　　　(图G4) </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

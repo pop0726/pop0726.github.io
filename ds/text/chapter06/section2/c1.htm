@@ -1,0 +1,75 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<script language=JavaScript src="../../chapter02/section1/hpmain.js"></script>
+<script language=JavaScript src="../../chapter02/section1/showhidden.js"></script>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　6.2.1 二叉树的类型定义</span><br>
+      <br>
+      　二叉树的抽象数据类型定义如下：<br>
+      <br>
+      <b>　ADT BinaryTree {</b><br>
+      　　<span class="zhushi">数据对象：</span>D 是具有相同特性的数据元素的集合。<br>
+      <br>
+      　　<span class="zhushi">数据关系：</span><br>
+      　　　若 D 为空集，称 BinaryTree 为空二叉树；<br>
+      　　　否则 关系 R={H}：<br>
+      　　　 (1) 在 D 中存在唯一的称为根的数据元素 root，它在关系 H 下无前驱；<br>
+      　　　 (2) D 中其余元素必可分为两个互不相交的子集 L 和 R，每一个子集都是一棵符合本定义的二叉树，并分别为 root 的左子树和右子树。如果左子树 
+      L 不空，则必存在一个根结点<img src="../../../images/pic/chapter06/xl.gif" width="14" height="11">，它是 
+      root 的&quot;左后继&quot;(&lt;root,<img src="../../../images/pic/chapter06/xl.gif" width="14" height="11">&gt;∈H)，如果右子树 
+      R 不空，则必存在一个根结点 <img src="../../../images/pic/chapter06/xr.gif" width="15" height="12" align="absmiddle"> 
+      为 root 的&quot;右后继&quot;(&lt;root,<img src="../../../images/pic/chapter06/xr.gif" width="15" height="12" align="absmiddle">&gt;∈H)。<br>
+      <br>
+      　　　<img src="../../../images/pic/chapter06/6_02.gif" width="350" height="199" align="top"></td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      　　如图示为含10个元素的二叉树，其中 A为&quot;根&quot;，无前驱。其余9个元素分为两个互不相交的子集 L={B,D,E,G,H}，R={C,F,I,J}，分别为 
+      A 的左子树和右子树。其中，B 为左子树的根，它是 A 的左后继；C 为右子树的根，它是 A 的右后继。在右子树R 中，C 为根，其余元素分为两个子集 
+      {} 和 {F,I,J} 分别构成 C 的左子树和右子树，即 C 的左子树为空树，C 的右子树中，F 为根结点，它是 C 的右后继，同时，{I,J} 
+      为 F 的左子树，其中 I 为 F 的左后继，而 F 的右子树为空树。继续分解可得，I 的左子树为空树，右子树 {J} 中的根 J 为 I 的右后继，它的左右子树都为空树。<br>
+      <br>
+      　　二叉树和树是两种不同的树型结构，二叉树不等同于度为2的有序树。<br>
+      <br>
+      <table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td bgcolor="#ECEEFF" height="14" class="explaination" width="8">&nbsp;</td>
+                <td bgcolor="#ECEEFF" height="14" class="explaination"><img src="../../../images/tubiao/wt.gif" width="23" height="23" align="absmiddle" alt="思考题"> 
+                  为什么？你能举出一个例子来吗？</td>
+                <td width="15" bgcolor="#ECEEFF" valign="top"><span id="bb"><img border=0 
+                              id=HPFrameHLTab3 
+                              onClick="showHideContent('HPFrameHL');hidden();"
+							   src="../../../images/html/expand.gif" style="CURSOR: hand" width="15" height="14"></span></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <div id=HPFrameHLContent 
+           style="WIDTH: 100%;visibility: hidden;background-color:#ECEEFF" > 
+              <table width="95%" border="0" cellspacing="0" cellpadding="0" align="center">
+                <tr> 
+                  <td class="explaination">　如果根结点只有一棵子树，那么对树而言，它就是一个&quot;独生子&quot;，无次序可分，但对二叉树而言，必须明确区分它是根的左子树还是根的右子树，两者将构成不同的二叉树。</td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

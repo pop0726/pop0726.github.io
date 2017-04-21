@@ -1,0 +1,31 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　11.5.1 文件的组织方式</span><br>
+      <br>
+      　　<span class="point">散列文件</span>又称<span class="point">直接存取文件</span>，其特点是，由记录的关键码&quot;直接&quot;得到记录在外存（磁盘）上的映象地址。类似于构造一个哈希表，根据文件中关键码的特点设计一种&quot;哈希函数&quot;和&quot;处理冲突的方法&quot;，然后将记录散列到外存储设备上，故称&quot;散列文件&quot;。<br>
+      <br>
+      　　散列文件由若干个&quot;<span class="point">桶</span>&quot;组成，根据设定的哈希函数将记录&quot;映象&quot;到某个桶号。处理冲突通常采用链地址法，即每个桶可以包括一个或几个页块，页块之间以指针相链。每个页块中的记录个数则由逻辑记录和物理记录的大小决定。例如：假设有18个记录，它们的关键码分别为： 
+      278, 109, 063, 930, 589, 184, 505, 269, 008, 083, 164, 215, 330, 810, 620, 
+      110, 384, 355 。设哈希文件中桶的个数为7，则可设哈希函数为 key MOD 7，假设每个页块可以容纳2个记录，则所得散列文件如右图所示。图中左侧为桶目录表，它由m个指针组成，分别指向第0至第 
+      m-1 个桶的第一个页块。若某记录的关键码为 kval，哈希函数为 H，则 H(kval) 为桶号。<br>
+      <br>
+      　　若桶目录表不大，使用时可保存在内存，否则尚需对目录进行组织，或为顺序文件，或建立索引。</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      　<br>
+      　<img src="../../../images/pic/chapter11/11_06.gif" width="250" height="151" align="top"><br>
+      　　　　　　　　散列文件结构图 </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

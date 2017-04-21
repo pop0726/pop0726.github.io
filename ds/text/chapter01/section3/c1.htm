@@ -1,0 +1,79 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　1.3.1 算法及其设计原则</span><br>
+      <br>
+      　　何谓&quot;算法&quot;？ <br>
+      <br>
+      　　<span class="point">算法</span>是对问题求解过程的一种描述，是为解决一个或一类问题给出的一个确定的、有限长的<b>操作序列</b>。严格说来，一个算法必须满足以下五个重要<b>特性</b>：<br>
+      　</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      　<br>
+      　<br>
+      　<br>
+      　　算法是程序设计的另一个不可缺的要素，因此在讨论数据结构的同时免不了要讨论相应的算法。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">　(1) <b>有穷性</b> 对于任意一组合法的输入值，在执行<b>有穷步骤</b>之后一定能结束。<br>
+      　</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　　这里有两重意思，即算法中的操作步骤为有限个，且每个步骤都能在有限时间内完成。<br>
+      　</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">　(2) <b>确定性</b> 对于<b>每种情况</b>下所应执行的操作，在算法中都有<b>确切</b>的规定，使算法的执行者或阅读者都能明确其含义及如何执行。<b>并且在任何条件下，算法都只有一条执行路径。<br>
+      　</b></td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　　确定性表现在对算法中每一步的描述都没有二义性，只要输入相同，初始状态相同，则无论执行多少遍，所得结果都应该相同。<br>
+      　</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">　(3) <b>可行性</b> 算法中的所有操作都必须足够基本，都可以通过已经实现的基本操作运算有限次实现之。<br>
+      　</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　　可行性指的是，序列中的每个操作都是可以简单完成的，其本身不存在算法问题，例如，&quot;求x和y的公因子&quot;就不够基本。<br>
+      　</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">　(4) <b>有输入</b> 作为算法加工对象的量值，通常体现为算法中的一组变量。但有些算法的字面上可以没有输入，实际上已被嵌入算法之中。<br>
+      　</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　　输入值即为算法的操作对象，但操作的对象也可以由算法自身生成，如&quot;求100以内的素数&quot;，操作对象是自然数列，可以由变量逐个增1生成。<br>
+      　</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"> 　(5) <b>有输出</b> 它是一组与&quot;输入&quot;有确定关系的量值，是算法进行信息加工后得到的结果，这种确定关系即为算法的功能。<br>
+      　<br>
+      　　在设计算法时，通常应考虑以下原则：首先说设计的算法必须是<b>&quot;正确的&quot;</b>，其次应有很好的<b>&quot;可读性&quot;</b>，还必须具有<b>&quot;健壮性&quot;</b>，最后应考虑所设计的算法具有<b>&quot;高效率与低存储量&quot;</b>。<br>
+      <br>
+      　　所谓算法是正确的，除了应该满足算法说明中写明的&quot;功能&quot;之外，应对各组典型的带有苛刻条件的输入数据得出正确的结果。在算法是正确的前提下，算法的可读性是摆在第一位的，这在当今大型软件需要多人合作完成的环境下是换重要的，另一方面，晦涩难读的程序易于隐藏错误而难以调试。算法的效率指的是算法的执行时间，算法的存储量指的是算法执行过程中所需最大存储空间。 
+      <br>
+    </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　　算法必须有输出是不言而喻的。<br>
+      <br>
+      　　算法的健壮性指的是，算法应对非法输入的数据作出恰当反映或进行相应处理，一般情况下，应向调用它的函数返回一个表示错误或错误性质的值。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

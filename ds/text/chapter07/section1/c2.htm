@@ -1,0 +1,105 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><br>
+      　<span class="zhushi">基本操作P：</span><br>
+      <br>
+      　<b>{结构初始化}</b><br>
+      　　CreateGraph(<b><font face="Times New Roman, Times, serif">&amp;</font></b>G, V, VR);<br>
+      　　　初始条件：V 是图的顶点集，VR 是图中弧的集合。<br>
+      　　　操作结果：按 V 和 VR 的定义构造图 G。<br>
+      <br>
+      　<b>{销毁结构}</b><br>
+      　　DestroyGraph(<b><font face="Times New Roman, Times, serif">&amp;</font></b>G);<br>
+      　　　初始条件：图 G 存在。<br>
+      　　　操作结果：销毁图 G。<br>
+      　<br>
+    </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">&nbsp;</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">　<b>{引用型操作}</b><br>
+      　　LocateVex(G, u);<br>
+      　　　初始条件：图 G 存在，u 和 G 中顶点有相同特征。<br>
+      　　　操作结果：若 G 中存在和 u 相同的顶点，则返回该顶点在图中位置；<br>
+      　　　　　　　　否则返回其它信息。<br>
+      <br>
+      　　GetVex(G, v);<br>
+      　　　初始条件：图 G 存在，v 是 G 中某个顶点。<br>
+      　　　操作结果：返回 v 的值。<br>
+      　</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　<br>
+      　<br>
+      　　顶点在图中的&quot;位置&quot;指的是，在图的存储结构中顶点之间自然形成的相对位置。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">　　FirstAdjVex(G, v);<br>
+      　　　初始条件：图 G 存在，v 是 G 中某个顶点。<br>
+      　　　操作结果：返回 v 的第一个邻接点。若该顶点在 G 中没有邻接点，<br>
+      　　　　　　　　则返回&quot;空&quot;。<br>
+      <br>
+      　　NextAdjVex(G, v, w);<br>
+      　　　初始条件：图 G 存在，v 是 G 中某个顶点，w 是 v 的邻接顶点。<br>
+      　　　操作结果：返回 v 的（相对于 w 的）下一个邻接点。若 w 是 v 的<br>
+      　　　　　　　　最后一个邻接点，则返回&quot;空&quot;。<br>
+      <br>
+      　<b>{加工型操作}</b><br>
+      　　PutVex(<b><font face="Times New Roman, Times, serif">&amp;</font></b>G, 
+      v, value);<br>
+      　　　初始条件：图 G 存在，v 是 G 中某个顶点。<br>
+      　　　操作结果：对 v 赋值 value。<br>
+      <br>
+      　　InsertVex(<b><font face="Times New Roman, Times, serif">&amp;</font></b>G, 
+      v);<br>
+      　　　初始条件：图 G 存在，v 和图中顶点有相同特征。<br>
+      　　　操作结果：在图 G 中增添新顶点 v。<br>
+      <br>
+      　　DeleteVex(<b><font face="Times New Roman, Times, serif">&amp;</font></b>G, v);<br>
+      　　　初始条件：图 G 存在，v 是 G 中某个顶点。<br>
+      　　　操作结果：删除 G 中顶点 v 及其相关的弧。<br>
+      <br>
+      　　InsertArc(<b><font face="Times New Roman, Times, serif">&amp;</font></b>G, v, w);<br>
+      　　　初始条件：图 G 存在，v 和 w 是 G 中两个顶点。<br>
+      　　　操作结果：在 G 中增添弧&lt;v,w&gt;，若 G 是无向的，则还增添对称弧&lt;w,v&gt;。<br>
+      <br>
+      　　DeleteArc(<b><font face="Times New Roman, Times, serif">&amp;</font></b>G, v, w);<br>
+      　　　初始条件：图 G 存在，v 和 w 是 G 中两个顶点。<br>
+      　　　操作结果：在 G 中删除弧&lt;v,w&gt;，若 G 是无向的，则还删除对称弧&lt;w,v&gt;。<br>
+      <br>
+      　　DFSTraverse(G, Visit());<br>
+      　　　初始条件：图 G 存在，Visit 是顶点的应用函数。<br>
+      　　　操作结果：对图 G 进行深度优先遍历。遍历过程中对每个顶点调用函数<br>
+      　　　　　　　　Visit 一次且仅一次。一旦 visit() 失败，则操作失败。<br>
+      <br>
+      　　BFSTraverse(G, Visit());<br>
+      　　　初始条件：图 G 存在，Visit 是顶点的应用函数。<br>
+      　　　操作结果：对图 G 进行广度优先遍历。遍历过程中对每个顶点调用函数<br>
+      　　　　　　　　Visit 一次且仅一次。一旦 visit() 失败，则操作失败。<br>
+      <br>
+      <b>} ADT Graph</b><br>
+    </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　<br>
+      　　若&lt;v,w&gt;∈G，则称 w 为 v 的邻接点，若(v,w)∈G，则称 w 和 v 互为邻接点。<br>
+      　<br>
+      　<br>
+      　　若 v 有多个邻接点，则在图的存储结构建立之后，其邻接点之间的相对次序也就自然形成了。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

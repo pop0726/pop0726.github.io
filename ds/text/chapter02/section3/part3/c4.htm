@@ -1,0 +1,57 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　2.3.3 单链表其它算法举例</span><br>
+      <br>
+      　　从以上对链表的各种操作的讨论可知，<span class="point">链式存储结构的优势</span>在于：<br>
+      <br>
+      　　(1) 能有效利用存储空间；<br>
+      　</td>
+    <td background="../../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      <br>
+      <br>
+      <br>
+      　　因为它是动态存储分配的结构，不需要预先为线性表分配足够大的空间，而是向系统&quot;随用随取&quot;，并且在删除元素时可同时释放空间。<br>
+      　</td>
+    <td background="../../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">　　(2) 用&quot;指针&quot;指示数据元素之间的后继关系，便于进行&quot;插入&quot;、&quot;删除&quot;等操作；<br>
+      　</td>
+    <td background="../../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　　插入或删除时只需要修改指针，而不需要进行大量元素的移动。<br>
+      　</td>
+    <td background="../../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">　　而<span class="point">其劣势</span>则是不能随机存取数据元素。同时，它还丢失了一些顺序表有的长处，如线性表的&quot;表长&quot;和数据元素在线性表中的&quot;位序&quot;，在上述的单链表中都看不见了。又如，不便于在表尾插入元素，需遍历整个表才能找到插入的位置。<br>
+      　</td>
+    <td background="../../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　　表长和位序是线性表中两个重要属性，在本节设置的单链表中表长是一个隐含值，必须从前到后遍历整个表才能得到。<br>
+      　</td>
+    <td background="../../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">　　为了更突出链表的优势，需改进单链表结构的定义。除了保留指向头结点的指针外，还应增设&quot;尾指针&quot;和&quot;表长&quot;两个属性，同时，我们从上面讨论的链表基本操作的实现算法中可以看出，在对链表进行操作时，经常需要一个指针在链表中巡游，由此可以设想，如果将这个在操作中进行巡游的&quot;指针&quot;以及它所指结点的数据元素在线性表中的&quot;位序&quot;纳入链表结构中，作为链表定义中的两个成员，必然会对链表的操作带来很多方便。<br>
+      <br>
+      　　由此，在实际使用链表时需重新考虑链表结构的定义并重新设计操作界面。详细情况将留在2.5节进行讨论。<br>
+    </td>
+    <td background="../../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　　如算法2.1和2.2中都需要进行&quot;在最后一个结点之后插入元素&quot;的操作。本来顺序表因插入元素要移动元素是个缺点，但当插入位置在表尾时不需要移动元素，所需时间是个常量，反过来，由于链表进行插入操作只需要修改指针本是个优点，然而为了查找插入位置却要遍历整个表，所需时间反而多。</td>
+    <td background="../../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

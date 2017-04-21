@@ -1,0 +1,134 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/style.css" type="text/css">
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<script language=JavaScript src="hpmain.js"></script>
+<script language=JavaScript src="showhidden.js"></script>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　2.3.2 单链表中基本操作的实现</span><br>
+      <br>
+      <span class="zhushi">　三、存取元素操作</span><br>
+      <br>
+      　　单链表是一种&quot;<span class="point">顺序存取</span>&quot;的结构，即：为取第 i 元素，首先必须先找到第 
+      i-1 个元素。因此不论 i 值为多少，都必须从头结点开始起&quot;点数&quot;，直数到第 i 个为止。头结点可看成是第0个结点。<br>
+      　</td>
+    <td background="../../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      <br>
+      <br>
+      <br>
+      　　可见算法中应设一个指针变量p和一个整数变量 j，并使 p 和 j 同步变化，始终保持指针 p 指向第j的结点的状态。<a href="javascript:;" onClick="MM_openBrWindow('../../../../flash/chap02/2-3-1.swf','数据结构','width=400,height=300')"><img src="../../../../images/tubiao/dh.gif" alt="动画" width="25" height="24" border="0" align="absmiddle"></a></td>
+    <td background="../../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><img src="../../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle" alt="算法"> 
+      <span class="zhushi">算法2.15</span><br>
+      　　<b>bool</b> GetElem ( SLink L, <b>int</b> pos, ElemType <b><font face="Times New Roman, Times, serif">&amp;</font></b>e 
+      )<br>
+      　<b>{</b><br>
+      <span class="zhushi">　　<font face="Times New Roman, Times, serif">//</font> 
+      若1≤pos≤LengthList(L)，则用 e 带回指针L指向头结点的单链表<br>
+      　　<font face="Times New Roman, Times, serif">//</font> 中第 pos 个元素的值且返回函数值为TRUE,否则返回函数值为FALSE</span><br>
+      　　p = L-&gt;next; j =1; <font face="Times New Roman, Times, serif">　　　　//</font> 
+      变量初始化，p 指向第一个结点<br>
+      　　<b>while</b> ( p <b><font face="Times New Roman, Times, serif">&amp;&amp;</font></b> j&lt; pos )<br>
+      　　<b>{</b> <font face="Times New Roman, Times, serif">　　　//</font> 顺结点的指针向后查找，直至 
+      p 指到第pos个结点或 p 为空止<br>
+      　　　p = p-&gt;next; ++j;<br>
+      　　<b>} </b><font face="Times New Roman, Times, serif">//</font> while<br>
+      　　<b>if</b> ( !p || j&gt;pos ) <b>return FALSE;</b> <font face="Times New Roman, Times, serif">//</font> 
+      链表中不存在第 pos 个结点<br>
+      　　e = p-&gt;data; <font face="Times New Roman, Times, serif">　　　　　　　　　　 
+      //</font> 取到第 pos 个元素<br>
+      　　<b>return TRUE;</b><br>
+      　<b>} </b><font face="Times New Roman, Times, serif">//</font> GetElem <br>
+      <br>
+      　　算法的<span class="point">时间复杂度</span>为<b><span class="point"><font face="Times New Roman, Times, serif"><i>O 
+      </i>(ListLength(L))</font></span></b>。</td>
+    <td background="../../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"> 
+      　　由于链表的长度是个隐含值，因此无法预先判别参数 pos 是否超过表长，只能在&quot;数结点&quot; 过程中，j还没有达到 pos 时而指针变为空时才能判断出参数不合法。<br>
+      <br>
+      <table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td bgcolor="#ECEEFF" height="14" class="explaination" width="8">&nbsp;</td>
+                <td bgcolor="#ECEEFF" height="14" class="explaination"><img src="../../../../images/tubiao/wt.gif" width="23" height="23" align="absmiddle" alt="思考题"> 
+                  什么情况下会出现 j&gt;pos 的情况？</td>
+                <td width="15" bgcolor="#ECEEFF" valign="top"><span id="bb"><img border=0 
+                              id=HPFrameHLTab3 
+                              onClick="showHideContent('HPFrameHL');hidden();"
+							   src="../../../../images/html/expand.gif" style="CURSOR: hand" width="15" height="14"></span></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <div id=HPFrameHLContent 
+           style="WIDTH: 100%;visibility: hidden;background-color:#ECEEFF" > 
+              <table width="94%" border="0" cellspacing="0" cellpadding="0" align="center">
+                <tr> 
+                  <td class="explaination">　j&gt;pos 的情况即为 pos&lt;1 的情况，注意：因算法中j的初值为&quot;1&quot;，若 
+                    pos=1，则 while 循环一次也不执行。　　</td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+      </table>
+      <br>
+      <table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td bgcolor="#ECEEFF" height="14" class="explaination" width="8">&nbsp;</td>
+                <td bgcolor="#ECEEFF" height="14" class="explaination"><img src="../../../../images/tubiao/wt.gif" width="23" height="23" align="absmiddle" alt="思考题"> 
+                  能否将变量初始化改为&quot;p=L; j=0;&quot;?</td>
+                <td width="15" bgcolor="#ECEEFF" valign="top"><span id=dd><img border=0 
+                              id=HPFrameDLTab3 
+                              onClick="showHideContent('HPFrameDL');hiddenL();"
+							   src="../../../../images/html/expand.gif" style="CURSOR: hand" width="15" height="14"></span></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <div id=HPFrameDLContent 
+           style="WIDTH: 100%;visibility: hidden;background-color:#ECEEFF"> 
+              <table width="95%" border="0" cellspacing="0" cellpadding="0" align="center">
+                <tr> 
+                  <td class="explaination">　对 pos 为正常值的情况没有影响，只是使 while 循环多执行一次吧了。但此时无法用 
+                    j&gt;pos 判别出 pos&lt;1 的错误，当然也可以在函数一开始就加上 pos 是否大于0的判别？</td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+      </table>
+      <br>
+      算法时间复杂度的分析：<br>
+      　　控制结构只有 while 一个单循环，基本操作为&quot;移动指针&quot;，最坏情况是 pos&gt;=表长的情况，指针需从头移到尾。</td>
+    <td background="../../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

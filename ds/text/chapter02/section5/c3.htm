@@ -1,0 +1,89 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　2.5.1 有序链表类型</span><br>
+      <br>
+      　　其中部分操作的伪码算法如下：<br>
+      <img src="../../../images/tubiao/cxd.gif" width="25" height="24" alt="算法"><br>
+      　　<b>bool</b> MakeNode( SLink <b><font face="Times New Roman, Times, serif">&amp;</font></b>p, ElemType e )<br>
+      　<b>{</b> <br>
+      　　<span class="zhushi"><font face="Times New Roman, Times, serif">//</font> 
+      生成一个数据元素和 e 相同的新结点 *p，并返回<b>TRUE</b>，</span><br>
+      　　<span class="zhushi"><font face="Times New Roman, Times, serif">//</font> 
+      若存储分配失败，则返回 FALSE。</span><br>
+      　　p = <b>new</b> LNode; <br>
+      　　<b>if</b> (!p) <b>return FALSE</b>;<br>
+      　　p-&gt;data = e; p-&gt;next =<b> NULL</b>; <br>
+      　　<b>return TRUE</b>;<br>
+      　<b>}</b> <br>
+      　</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      <br>
+      <br>
+      　　在实现基本操作的这些函数时应注意维持链表结构中定义的各个成员的&quot;正确性&quot;。 </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><img src="../../../images/tubiao/cxd.gif" width="25" height="24" alt="算法"><br>
+      　　<b>bool</b> InitList( OrderedLinkList <b><font face="Times New Roman, Times, serif">&amp;</font></b>L )<br>
+      　<b>{</b> <br>
+      　<span class="zhushi">　<font face="Times New Roman, Times, serif">//</font> 
+      构造一个空的有序链表 L，若存储分配失败，<br>
+      　　<font face="Times New Roman, Times, serif">//</font> L.head = NULL 并返回 
+      FALSE，否则返回 TRUE。</span><br>
+      　　<b>if</b> ( MakeNode( L.head, 0 ) ) <br>
+      　　<b>{</b> L.tail = L.curPtr = L.head;<br>
+      　 　 L.length= L.curPos = 0;<br>
+      　 　 <b>return TRUE</b>; <b>}</b><br>
+      　　<b>else</b> <br>
+      　　<b>{</b> L.head = <b>NULL</b>;<br>
+      　 　 <b> return FALSE</b>; <b>}</b><br>
+      　<b>}</b> <font face="Times New Roman, Times, serif">//</font> InitList 
+      <br>
+      　</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      　　虚设头结点的数据域为0 。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="text"><img src="../../../images/tubiao/cxd.gif" width="25" height="24" alt="算法"><br>
+      　　<b>bool</b> GetPos (OrderedLinkList L, <b>int</b> pos )<br>
+      　<b>{</b><br>
+      　　</span><span class="zhushi"><font face="Times New Roman, Times, serif">//</font> 
+      若1≤pos≤LengthList(L)，则移动当前指针指向第pos个结点,<br>
+      </span><span class="text">　　</span><span class="zhushi"><font face="Times New Roman, Times, serif">//</font> 
+      且返回函数值为TRUE,否则不移动当前指针且返回函数值为FALSE。</span><span class="text"><br>
+      　　<b>if</b> ( pos &lt; 1 || pos &gt; L.len )<br>
+      　　　<b>return FALSE</b>; <br>
+      　　<b>if</b> ( L.curPos &gt; pos )<br>
+      　　<b>{</b> L.curPtr = L.head -&gt; next; L.curPos = 1; <b>}</b><br>
+      　　<b>while</b> ( L.curPos &lt; pos ) <br>
+      　　<b>{</b> L.curPtr = L.curPtr -&gt; next; ++L.curPos; <b>}</b><br>
+      　　<b>return TRUE</b>;<br>
+      　<b>}</b></span></td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+    </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

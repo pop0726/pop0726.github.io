@@ -1,0 +1,203 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<script language=JavaScript src="../../chapter02/section1/hpmain.js"></script>
+<script language=JavaScript src="../../chapter02/section1/showhidden.js"></script>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"> <br>
+      　　<span class="part">串（string，或称字符串）</span>是 n 个字符的有限序列。通常记作<br>
+      　　　s = &quot;<img src="../../../images/pic/chapter02/gs/a1.gif" width="11" height="10"> 
+      <img src="../../../images/pic/chapter02/gs/a2.gif" width="12" height="10"> 
+      … <img src="../../../images/pic/chapter02/gs/an.gif" width="12" height="10">&quot; 
+      (n≥0) <br>
+      <br>
+      　　其中，S是串的名，用双引号括起来的字符序列是串的值。串中字符的数目 n 称为串的<span class="point">长度</span>。含零个字符的串称为<span class="point">空串(null 
+      string)</span>，它的长度为零。在各种应用中，空格通常是串的字符集合中的一个元素，可以出现在其他字符之间。由一个或多个空格组成的串称为<span class="point">空格串(blank 
+      string)</span>，例如<br>
+      　　　&quot; &quot;，&quot; 　　&quot; 和 &quot;　　　　&quot;<br>
+      <br>
+      　　是三个空格串，它们的长度为串中空格字符的个数，分别为1，5和8。为了清楚起见，以下将用符号&quot;Φ&quot;表示&quot;空格符&quot;。<br>
+      　</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      　　串值必须用一对双引号括起来，但双引号本身不属于串，它的作用只是为了避免与变量或数的常量混淆而已。如 x=&quot;123&quot;;表明x是一个串变量名，赋予它的值是字符序列123，而 
+      x=123;则表明x是一个整型变量，赋予它的值为整数123。同样在 <br>
+      　　aString = &quot;aString&quot;;中，左边的 aString 是一个串变量名，而右边的字符序列&quot;aString&quot;是赋给它的值。<br>
+      　</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">　串的抽象数据类型定义如下：<br>
+      <b>ADT String {</b><br>
+      　<span class="zhushi">数据对象：</span>D＝<b>{</b> <img src="../../../images/pic/chapter02/gs/ai.gif" width="10" height="10"> 
+      | <img src="../../../images/pic/chapter02/gs/ai.gif" width="10" height="10"> 
+      ∈CharacterSet, i=1,2,...,n, n≥0 <b>}</b><br>
+      <br>
+      　<span class="zhushi">数据关系：</span>R<font size="1">1</font>＝<b>{</b> &lt; 
+      <img src="../../../images/pic/chapter02/gs/ai_1.gif" width="20" height="10">, 
+      <img src="../../../images/pic/chapter02/gs/ai.gif" width="10" height="10"> 
+      &gt; | <img src="../../../images/pic/chapter02/gs/ai_1.gif" width="20" height="10">, 
+      <img src="../../../images/pic/chapter02/gs/ai.gif" width="10" height="10"> 
+      ∈D, i=2,...,n <b>}</b><br>
+      <br>
+      　<span class="zhushi">基本操作：</span><br>
+      　　<b>StrAssign</b> (<b><font face="Times New Roman, Times, serif">&amp;</font></b>T, chars)<br>
+      　　　初始条件：chars 是串常量。<br>
+      　　　操作结果：赋于串T的值为 chars。<br>
+      <br>
+      　　<b>StrCopy</b> (<b><font face="Times New Roman, Times, serif">&amp;</font></b>T, S)<br>
+      　　　初始条件：串 S 存在。<br>
+      　　　操作结果：由串 S 复制得串 T。<br>
+      <br>
+      　　<b>DestroyString</b> (<b><font face="Times New Roman, Times, serif">&amp;</font></b>S)<br>
+      　　　初始条件：串 S 存在。<br>
+      　　　操作结果：串 S 被销毁。<br>
+      <br>
+      　　<b>StrEmpty</b> (S)<br>
+      　　　初始条件：串 S 存在。<br>
+      　　　操作结果：若 S 为空串，则返回 TRUE，否则返回 FALSE。<br>
+      　<br>
+    </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      　　回顾线性表的数据对象和数据关系的定义可见，作为数据结构，串和线性表的差别仅在于串中的数据元素限定为&quot;字符&quot;。<br>
+      <br>
+      　　和线性表类似，通常称字符在序列中的序号为该字符在串中的位序。<br>
+    </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">　　<b>StrCompare</b> (S, T)<br>
+      　　　初始条件：串 S 和 T 存在。<br>
+      　　　操作结果：若S&gt;T，则返回值=0；若S=T，则返回值&lt;0；若S&lt;T，则返回值&lt;0。<br>
+      <br>
+      　　<b>StrLength</b> (S)<br>
+      　　　初始条件：串 S 存在。<br>
+      　　　操作结果：返回串 S 序列中的字符个数，即串的长度。<br>
+      <br>
+      　　<b>ClearString</b> (<b><font face="Times New Roman, Times, serif">&amp;</font></b>S)<br>
+      　　　初始条件：串 S 存在。<br>
+      　　　操作结果：将 S 清为空串。<br>
+      　<br>
+    </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　　&quot;串值大小&quot;是按&quot;词典次序&quot;进行比较的，如：<br>
+      　　　　StrCompare(&quot;data&quot;,&quot;Stru&quot;)&lt;0<br>
+      　　　　StrCompare(&quot;cat&quot;,&quot; case&quot;)&gt;0<br>
+      　　显然，只有在两个串的长度相等且每个字符一一对等的情况下称两个串相等。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">　　<b>Concat</b> (<b><font face="Times New Roman, Times, serif">&amp;</font></b>T, S1, S2)<br>
+      　　　初始条件：串 S1 和 S2 存在。<br>
+      　　　操作结果：用 T 返回由 S1 和 S2 联接而成的新串。<br>
+      　<br>
+    </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"> 
+      　　&quot;串联接&quot;操作的结果是生成一个新的串，其值是&quot;将第二的串的第一个字符紧接在第一个串的最后一个字符之后&quot;得到的字符序列。如操作<br>
+      　　Concat(T,&quot; man&quot;,&quot;kind&quot;)得到的结果是：<br>
+      　　T =&quot;mankind&quot;。<br>
+      　</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">　　<b>SubString</b> (<b><font face="Times New Roman, Times, serif">&amp;</font></b>Sub, S, pos, 
+      len)<br>
+      　　　初始条件：串S存在，1≤pos≤StrLength(S)且0≤len≤StrLength(S)-pos+1。<br>
+      　　　操作结果：用 Sub 返回串S的第 pos 个字符起长度为 len 的子串。<br>
+      　</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　　&quot;子串&quot;指串中任意个连续的字符组成的子序列。如：操作SubString(Sub,&quot;commander&quot;,4,3)得到的结果是Sub=&quot;man&quot;。显然必须在满足初始条件中规定的&quot;起始位置&quot;和&quot;长度&quot;之间的约束关系时才能求得一个合法的子串。允许 
+      len 的下限为0是由于空串也是合法串，但实际上求长度为0的子串是没有意义的。<br>
+      　</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">　　<b>Index</b> (S, T, pos)<br>
+      　　　初始条件：串S和T存在，T 是非空串，1≤pos≤StrLength(S)。<br>
+      　　　操作结果：若主串S中存在和串T值相同的子串，则返回它在主串S中第pos个字符之后第一次出现的位置；否则函数值为0。<br>
+      　</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　　包含子串的串相应地称为主串。&quot;子串在主串中的位置&quot;指的是子串中的第1个字符在主串中的位序。如子串&quot;man&quot;在主串&quot;commander&quot;中的位置为4。Index 
+      操作类似于线性表的Locate操作，在S中查询和T值相同的子串，pos为查询的起始位置。如：<br>
+      　　Index(&quot;This is a pen&quot;,&quot;is&quot;,pos)，若pos=1，则查询得结果为3，若 
+      pos=4，则得结果为6，若pos=6，则得查询结果为0。<br>
+      　</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">　　<b>Replace</b> (<b><font face="Times New Roman, Times, serif">&amp;</font></b>S, T, V)<br>
+      　　　初始条件：串 S，T 和 V 存在，T 是非空串。<br>
+      　　　操作结果：用V替换主串S中出现的所有与T相等的不重叠的子串。<br>
+      　<br>
+    </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　　假设S=&quot;abcacabcaca&quot;，T=&quot;abca&quot;和V=&quot;x&quot;，则置换之后的S=&quot;xcxca&quot;。注意定义中&quot;不重叠&quot;三个字，若上例中的V=&quot;ab&quot;时，则置换后的结果应该是<br>
+      　　S=&quot; abcabca&quot;，而不是&quot;abbca&quot;。<br>
+      　</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"> 　　<b>StrInsert</b> (<b><font face="Times New Roman, Times, serif">&amp;</font></b>S, pos, T)<br>
+      　　　初始条件：串 S 和 T 存在，1≤pos≤StrLength(S)＋1。<br>
+      　　　操作结果：在串 S 的第 pos 个字符之前插入串 T。<br>
+      <br>
+      　　<b>StrDelete</b> (<b><font face="Times New Roman, Times, serif">&amp;</font></b>S, pos, len)<br>
+      　　　初始条件：串 S 存在，1≤pos≤StrLength(S)-len+1。<br>
+      　　　操作结果：从串 S 中删除第 pos 个字符起长度为 len 的子串。<br>
+      <br>
+      <b>} ADT String</b><br>
+    </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　　例如：S=&quot;chater&quot;，T=&quot;rac&quot;，pos=4，则插入后的结果为S=&quot;character&quot;。<br>
+      <br>
+      <table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td bgcolor="#ECEEFF" height="14" class="explaination" width="8">&nbsp;</td>
+                <td bgcolor="#ECEEFF" height="14" class="explaination"><img src="../../../images/tubiao/wt.gif" width="23" height="23" align="absmiddle" alt="思考题"> 
+                  串的基本操作和线性表一样，无非也就是查找、插入和删除等，那么它们能否用线性表的操作来替代呢？</td>
+                <td width="15" bgcolor="#ECEEFF" valign="top"><span id="bb"><img border=0 
+                              id=HPFrameHLTab3 
+                              onClick="showHideContent('HPFrameHL');hidden();"
+							   src="../../../images/html/expand.gif" style="CURSOR: hand" width="15" height="14"></span></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <div id=HPFrameHLContent 
+           style="WIDTH: 100%;visibility: hidden;background-color:#ECEEFF" > 
+              <table width="94%" border="0" cellspacing="0" cellpadding="0" align="center">
+                <tr> 
+                  <td class="explaination">　串的基本操作和线性表有很大的区别，同样是查找、插入和删除，但对线性表言操作对象是&quot;数据元素&quot;，如在线性表中查找某一个特定的数据元素，或者插入/删除一个数据元素。而对串言，是以整个串作为操作对象，如将两个串联接在一起，在串中查找一个子串，插入/删除一个串等等。由此你可体会串类型不能和线性表类型混为一谈。</td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

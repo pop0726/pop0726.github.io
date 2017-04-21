@@ -1,0 +1,63 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　6.7.3 森林的其它操作算法举例</span><br>
+      <br>
+      <span class="zhushi">　二、输出森林中每一棵树中从根到所有叶子结点的路径</span><br>
+      <br>
+      　　从树的根结点出发，沿着各个分支可以到达所有叶子结点，由途径所有结点构成的结点序列称为从根到叶的路径，途径分支个数称作路径长度。<br>
+      <br>
+      <img src="../../../images/tubiao/lt.gif" width="28" height="27" align="absmiddle" alt="例题"> 
+      例如，对右图中所示森林，从每一棵树的根到各个叶子结点的路径从左到右依次为：<br>
+      　　　BEH<br>
+      　　　BEI<br>
+      　　　BEJ<br>
+      　　　RCP<br>
+      　　　ADF<br>
+      　　　ADGK<br>
+      <br>
+      　　从这个例子所得结果可见，树的路径为(根结点)加上(子树森林中每一棵树从根到叶的路径)。由此，应对森林进行先序遍历，算法如下。<br>
+      <br>
+      <img src="../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle" alt="算法"> 
+      <span class="zhushi">算法6.14</span><br>
+      　　<b>void</b> OutPath( CSTree T )<br>
+      　<b>{</b><br>
+      <span class="zhushi">　　<font face="Times New Roman, Times, serif">//</font> 
+      依次从左到右输出森林中每一棵树中从根到叶的路径<br>
+      　　<font face="Times New Roman, Times, serif">//</font> 森林的存储结构为孩子-兄弟链表，T为头指针</span><br>
+      　　Stack S;<br>
+      　　<b>if</b> (T) <b>{</b><br>
+      　　　Push(S, T-&gt;data); <font face="Times New Roman, Times, serif">　　　　　　　　　　　　　//</font> 
+      根结点加入路径<br>
+      　　　<b>if</b> (!T-&gt;firstchild) StackTraverse(S, output); <font face="Times New Roman, Times, serif">//</font> 
+      求得一条路径<br>
+      　　　<b>else</b> OutPath(T-&gt;firstchild);<font face="Times New Roman, Times, serif">　　　　　　　　//</font> 
+      遍历子树森林<br>
+      　　　Pop(S);<font face="Times New Roman, Times, serif">　　　　　　　　　　　　　　　　　　//</font> 
+      从路径中删除栈顶结点<br>
+      　　　OutPath(T-&gt;nextsibling);<font face="Times New Roman, Times, serif">　　　　　　　　　　//</font> 
+      遍历其余树的森林<br>
+      　　<b>}</b><font face="Times New Roman, Times, serif"> //</font> if<br>
+      　<b>} </b><font face="Times New Roman, Times, serif">//</font> OutPath</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"> 
+      　<br>
+      　<br>
+      　<br>
+      　<br>
+      　　　<img src="../../../images/pic/chapter06/6_29.gif" width="218" height="163" align="top"><br>
+      <br>
+      　　算法6.14即为对森林进行先序遍历，其中的&quot;访问&quot;操作即为&quot;将根结点加到路径上&quot;，如果该树没有子树，则得到一条路径；同时，由于各棵树互不相交，即第一棵树的结点一定不是其余树中从根到叶路径中的结点，因此在遍历子树森林之后，即在求以它的兄弟为根的树中路径之前，应该将本树的根结点从路径中删除。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

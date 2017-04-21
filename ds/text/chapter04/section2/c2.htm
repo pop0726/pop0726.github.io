@@ -1,0 +1,73 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　4.2.2 串的堆分配存储表示</span><br>
+      <br>
+      　　串的堆分配存储的特点是，程序中出现的所有串变量的存储空间都是在程序执行过程中动态分配而得的。堆分配存储结构的串定义如下：<br>
+      　　<b>typedef struct{</b><br>
+      　　　<b>char</b> *ch;<br>
+      　　　<b>int</b> length;<br>
+      　　<b>}</b> HString;<br>
+      <br>
+      　　由于串仍然是以数组存储的字符序列表示，因此串的操作仍基于&quot;字符序列的复制&quot;实现。在此仅举&quot;插入&quot;操作一例，其算法如下：<br>
+      　</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      　　在C和C++语言中也可以用指针对数组进行访问和操作，在串的存储和操作上也可以充分利用这个特性，则存储串值的数组空间不是静态分配的，而可以进行动态分配。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><img src="../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle" alt="算法"> 
+      <span class="zhushi">算法4.5</span><br>
+      　　<b>bool</b> StrInsert (Hstring<b><font face="Times New Roman, Times, serif">&amp;</font></b> S, <b>int</b> pos, Hstring 
+      T) <br>
+      　<b>{</b><br>
+      <span class="zhushi">　　<font face="Times New Roman, Times, serif">//</font> 
+      若1≤pos≤StrLength(S)＋1，则改变串S，在串S的第pos个<br>
+      　　<font face="Times New Roman, Times, serif">//</font> 字符之前插入串T，并返回TRUE,否则串S不变，并返回FALSE</span><br>
+      　　<b>if</b> (pos &lt; 1 || pos &gt; S.length+1)<br>
+      　　　<b>return</b> FALSE; <font face="Times New Roman, Times, serif">　　　　　　　 
+      //</font> 插入位置不合法<br>
+      　　<b>char</b> S1[S.length] ; <font face="Times New Roman, Times, serif">　　　　　 
+      //</font> S1 作为辅助串空间用于暂存 S.ch<br>
+      　　<b>if</b> (T.length)<br>
+      　　<b>{</b> <font face="Times New Roman, Times, serif">　　　　　　　　　　　　　　//</font> 
+      T 非空，则为S重新分配空间并插入 T<br>
+      　　　p=S.ch; i=0;<br>
+      　　　<b>while</b> (i &lt; S.length)<br>
+      　　　　S1[i++] = *(p+i); <font face="Times New Roman, Times, serif">　　　　 //</font> 
+      暂存串S<br>
+      　　　S.ch = <b>new char</b>[S.length + T.length ];<font face="Times New Roman, Times, serif">//</font> 
+      为S重新分配串值存储空间<br>
+      　　　<b>for</b> ( i=0, k=0; i&lt;pos-1; i++)<br>
+      　　　　S.ch[k++] = S1[i]; <font face="Times New Roman, Times, serif">　 　　 //</font> 
+      保留插入位置之前的子串<br>
+      　　　j = 0;<br>
+      　　　<b>while</b> (j&lt;T.length) <br>
+      　　　　S.ch[k++] = T.ch[j++]; <font face="Times New Roman, Times, serif">　　//</font> 
+      插入 T<br>
+      　　　<b>while</b> ( i&lt;S.length)<br>
+      　　　　S.ch[k++] = S1[i++];　　<font face="Times New Roman, Times, serif">　 //</font> 
+      复制插入位置之后的子串<br>
+      　　　S.length+=T.length; <font face="Times New Roman, Times, serif">　　　 　//</font> 
+      置串 S 的长度<br>
+      　　<b>}</b> <font face="Times New Roman, Times, serif">//</font> if <br>
+      　　<b>return</b> TRUE;<br>
+      　<b>}</b> <font face="Times New Roman, Times, serif">//</font> StrInsert 
+    </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　　插入操作的基本思想是构造一个新的串。因此首先要为被插入串S重新分配存储空间，然后将S串中插入位置之前的子串、T串以及S串中插入位置之后的子串依次复制到这个新分配的存储空间中去。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

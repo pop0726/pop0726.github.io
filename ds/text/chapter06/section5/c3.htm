@@ -1,0 +1,44 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　6.5.3 线索链表的生成</span><br>
+      <br>
+      　　现在的问题是如何建立二叉树的线索链表？<br>
+      <br>
+      　　由于线索链表上保存的是&quot;遍历&quot;过程中得到的前驱和后继的信息，显然，线索链表应该在遍历过程中建立，即在遍历过程中改变二叉链表中结点的&quot;空指针&quot;以及相应的&quot;指针类型标志&quot;。若结点没有左子树，则令其左指针指向它的&quot;前驱&quot;并将左指针类型标志改为&quot;Thread&quot;，若结点没有右子树，则令它的右指针指向它的&quot;后继&quot;并将右指针类型标志改为&quot;Thread&quot;。为了获取&quot;前驱&quot;的信息，需要在遍历过程中添加一个指向其前驱的指针 
+      pre。<br>
+      <br>
+      　　由此建立线索链表的过程即为将遍历过程中对结点进行下列&quot;访问&quot;操作( 指针 p 指向当前访问的结点，pre 指向在它之前&quot;刚刚&quot;访问过的结点)：<br>
+      <img src="../../../images/tubiao/cxd.gif" width="25" height="24" alt="算法"><br>
+      　　<b>if</b> (!pre-&gt;Rchild) <b>{</b><br>
+      　　　pre-&gt;RTag = Thread;<br>
+      　　　pre-&gt;Rchild = p;<br>
+      　　<b>}</b><br>
+      　　<b>if</b> (!p-&gt;Lchild) <b>{</b><br>
+      　　　p-&gt;LTag = Thread;<br>
+      　　　p-&gt;Lchild = pre;<br>
+      　　<b>}</b><br>
+      　　pre = p;</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　<br>
+      　<br>
+      　这里的前驱指针 pre 和当前指针 p 的关系类似于线性链表中的前驱和后继，只是在线性链表中两者之间仅存在着简单关系&quot;p=pre-&gt;next&quot;，而在此 
+      p 既不简单地是 pre-&gt;Lchild，也不是 pre-&gt;Rchild，它们之间的关系取决于遍历过程。<br>
+      <br>
+      　　假设p指向当前访问的结点，则在访问结束继续进行左子树或右子树的遍历之前，令&quot;pre=p&quot;。则当 p 对遍历过程中的下一个结点进行访问时，pre 
+      所指即为 p 所指结点的前驱，反之，p 所指结点为 pre 所指结点的后继。<br>
+      <br>
+      　　也可将左窗口中所列操作视作遍历算法中的函数参数 Visit 的实体。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

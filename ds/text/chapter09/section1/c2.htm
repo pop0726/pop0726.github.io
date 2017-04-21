@@ -1,0 +1,47 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　9.2.1 静态查找表的类型定义<br>
+      </span><br>
+      　　静态查找表的抽象数据类型定义如下：<br>
+      <br>
+      <b>ADT StaticSearchTable {</b><br>
+      　<span class="zhushi">数据对象：</span>D是具有相同特性的数据元素的集合。每个数据元素含有类型相同的关键字，可唯一标识数据元素。<br>
+      <br>
+      　<span class="zhushi">数据关系：</span>D中所有数据元素同属一个集合。<br>
+      <br>
+      　<span class="zhushi">基本操作：</span><br>
+      　　CreateTable(<b><font face="Times New Roman, Times, serif">&amp;</font></b>ST, n);<br>
+      　　　操作结果：构造一个含 n 个数据元素的静态查找表 ST。<br>
+      <br>
+      　　DestroyTable(<b><font face="Times New Roman, Times, serif">&amp;</font></b>ST);<br>
+      　　　初始条件：静态查找表 ST 存在；<br>
+      　　　操作结果：销毁查找表 ST。<br>
+      <br>
+      　　Search(ST, kval);<br>
+      　　　初始条件：静态查找表 ST 存在，kval 为和查找表中元素的关键字<br>
+      　　　　　　　　类型相同的给定值；<br>
+      　　　操作结果：若ST中存在其关键字等于 kval 的数据元素，则函数值为<br>
+      　　　　　　　　该元素的值或在表中的位置，否则为&quot;空&quot;。<br>
+      <br>
+      　　Traverse(ST, visit());<br>
+      　　　初始条件：静态查找表 ST 存在，visit 是对元素操作的应用函数；<br>
+      　　　操作结果：按某种次序对ST的每个元素调用函数 visit() 一次且仅一次，<br>
+      　　　　　　　　一旦 visit() 失败，则操作失败。<br>
+      <b><br>
+      } ADT StaticSearchTable</b></td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">&nbsp;</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

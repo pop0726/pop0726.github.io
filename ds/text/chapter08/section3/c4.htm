@@ -1,0 +1,110 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　三、建广义表的存储结构</span><br>
+      <br>
+      　　和第6章讨论的建立二叉树和树的存储结构类似，算法取决于输入的方式。<br>
+      <br>
+      　　假设以串s=&quot;(<font size="2">α</font><font size="1">1</font>，<font size="2">α</font><font size="1">2</font>，…，<font size="2">α</font><font size="1">n</font>)&quot;的形式输入广义表，其中<font size="2">α</font><font size="1">i</font> 
+      为第 i 个子表串，且设空表串为&quot;( )&quot;，单原子以单个小写字母表示。<br>
+      <br>
+      　　仍以分治法的思想分析这个算法的基本思想：去除串s中首尾一对括弧之后，将它分割成 n 个子串，每个子串<font size="2">α</font><font size="1">i 
+      </font>定义一个子表，从而引出 n 个子问题，即分别由每个子串建立一个子表。若由串 s 求得指向广义表的头指针L，则由子串<font size="2">α</font><font size="1">i</font> 
+      求得指向第 i 个子表的头指针，通过 n 个表结点可将这 n 个子表组合成一个广义表。<br>
+      <br>
+      　如上所述的从串 s 建立广义表的存储结构的大致过程可如下描述：<br>
+      <span class="point">　　若串 s 为&quot;空表串&quot;，则返回&quot;空指针&quot;；<br>
+      　　建表结点 *L，并令指针 p=L；<br>
+      　　令脱去串s的外层括弧得到的子串名为 sub；<br>
+      　　do{<br>
+      　　　从串 sub 中分离出子串<font size="2">α</font><font size="1">i</font>，并从 sub 中删除该子串；<br>
+      　　　建立相应子表，其头指针为 p-&gt;ptr.hp；<br>
+      　　　若剩余的串 sub &quot;不是空串&quot;，<br>
+      　　　　则建表结点 p-&gt;ptr.tp，并令 p=p-&gt;ptr.tp；<br>
+      　　}while(sub 为&quot;空串&quot;)；<br>
+      　　设置&quot;空表尾&quot;，即令 p-&gt;ptr.tp=NULL。</span><br>
+      <br>
+      　其中建子表 p-&gt;ptr.hp 的操作过程为：<br>
+      <span class="point">　　若（串<font size="2">α</font><font size="1">i</font> 
+      的长度为1）<br>
+      　　则建原子结点，原子数据即为子串<font size="2">α</font><font size="1">i</font>；<br>
+      　　否则由串<font size="2">α</font><font size="1">i</font> 递归建广义表； </span> 
+      <p><img src="../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle"> 
+        <span class="zhushi">算法8.3</span><br>
+        　　Glist <font color="#00FFFF">CreateGList</font>( String <font color="#00CC00">S</font>)<br>
+        　<b>{</b><br>
+        <span class="zhushi">　　<font face="Times New Roman, Times, serif">//</font> 
+        建立由串 s 确定的广义表的存储结构，返回指向该广义表的头指针</span><br>
+        　　<b>if</b> (StrCompare(s,&quot;( )&quot;)<b> return</b> <b><span class="point">NULL</span></b>;<font face="Times New Roman, Times, serif">　//</font> 
+        创建空表<br>
+        　　<b>else {</b> <br>
+        　　　<span class="point">L </span>= <b>new</b> GLNode;<font face="Times New Roman, Times, serif">　　　　　　　　　　　　//</font> 
+        生成表结点<br>
+        　　　L-&gt;tag=List; p=L; <font color="#97C594">sub</font>=SubString(S,2,StrLength(S)-1);<br>
+        <font face="Times New Roman, Times, serif">　　　　　　　　　　　　　　　　　　　　　 //</font> 
+        脱去串 S 的外层括弧<br>
+        　　　<b>do {</b></p>
+    </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      <br>
+      　　可见，这个算法的关键是找出广义表的头指针和各子表的头指针的关系。<br>
+      <br>
+      　　假设从左至右自串 s 中先后分离出各个子表串，即按 i=1,2,…,n 的顺序建立各个子表，假设由串 s 建立的广义表的头指针为 L，则若该广义表为非空表的话，其第一个子表的头指针显然应该是L-&gt;ptr.hp。<a href="javascript:;" onClick="MM_openBrWindow('../../../flash/chap08/8-3-1.swf','数据结构','width=400,height=300')"><img src="../../../images/tubiao/dh.gif" alt="动画" width="25" height="24" border="0" align="absmiddle"></a><br>
+      <br>
+      　　而相邻两个子表之间需要通过&quot;表结点&quot;相链接。<a href="javascript:;" onClick="MM_openBrWindow('../../../flash/chap08/8-3-2.swf','数据结构','width=400,height=300')"><img src="../../../images/tubiao/dh.gif" alt="动画" width="25" height="24" border="0" align="absmiddle"></a> 
+      <br>
+      <br>
+      　　通过例子看如何从串 s 逐个分离出子串建立子表的过程。<a href="javascript:;" onClick="MM_openBrWindow('../../../flash/chap08/8-3-3.swf','数据结构','width=400,height=300')"><img src="../../../images/tubiao/dh.gif" alt="动画" width="25" height="24" border="0" align="absmiddle"></a></td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">　　　　sever(<font color="#97C594">sub</font>, 
+      <font color="#00CC00">hsub</font>); 　　　　　　　　　　<font face="Times New Roman, Times, serif">//</font> 
+      分离出子表串 hsub=<font size="2">α</font><font size="1">i</font> <br>
+      　　　　if (StrLength(<font color="#00CC00">hsub</font>)==1) <b>{</b><br>
+      　　　　　<span class="point">p-&gt;ptr.hp</span>=<b>new</b> GLNode;<br>
+      　　　　　p-&gt;ptr.hp-&gt;tag=ATOM;<br>
+      　　　　　p-&gt;ptr.hp-&gt;atom=hsub;<font face="Times New Roman, Times, serif">　　　　　　　//</font> 
+      创建单原子结点<br>
+      　　　　<b>}</b><font face="Times New Roman, Times, serif"> //</font> if<br>
+      　　　　<b>else</b> <span class="point">p-&gt;ptr.hp</span> = <font color="#00FFFF">CreateGList(</font><font color="#00CC00">hsub</font><font color="#00FFFF">)</font>;　<font face="Times New Roman, Times, serif">//</font> 
+      递归建广义表 <br>
+      　　　　<b>if</b> (<b>!</b>StrEmpty(<font color="#97C594">sub</font>) <b>{ </b><br>
+      　　　　　<span class="point">p-&gt;ptr.tp</span> = <b>new</b>GLNode;　　　<font face="Times New Roman, Times, serif">//</font> 
+      建下一个子表的表结点*(p-&gt;ptr.tp) <br>
+      　　　　　p=p-&gt;ptr.tp;<br>
+      　　　　<b>}</b><br>
+      　　　<b>}</b> <b><br>
+      　　　while</b> (<b>!</b>StrEmpty(<font color="#97C594">sub</font>));<span class="point">p-&gt;ptr.tp 
+      =<b> NULL</b></span>; <font face="Times New Roman, Times, serif">//</font> 
+      设定表尾为空表 <br>
+      　　<b>　　return</b> <span class="point">L</span>;<br>
+      　　<b>}</b><font face="Times New Roman, Times, serif"> //</font> else<br>
+      　<b>}</b><font face="Times New Roman, Times, serif"> //</font> CreateGList</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　函数server的说明：<br>
+      　　若sub=2( ),(x,y),((x))2,<br>
+      　　则函数server的运行结果为：<br>
+      　　hsub=2( )2,sub=2(x,y)((x))2</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

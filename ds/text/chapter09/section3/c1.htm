@@ -1,0 +1,59 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　9.3.1 动态查找表的类型定义</span><br>
+      <br>
+      　　动态查找表的抽象数据类型定义如下：<br>
+      <br>
+      <b>ADT DynamicSearchTable {</b><br>
+      <br>
+      　<span class="zhushi">数据对象D：</span>D是具有相同特性的数据元素的集合。每个数据元素含有类型相同<br>
+      　　　　　　　的关键字，可唯一标识数据元素。<br>
+      <br>
+      　<span class="zhushi">数据关系R：</span>数据元素同属一个集合。<br>
+      <br>
+      　<span class="zhushi">基本操作P：</span><br>
+      　　InitDSTable(<b><font face="Times New Roman, Times, serif">&amp;</font></b>DT);<br>
+      　　　操作结果：构造一个空的动态查找表 DT。<br>
+      <br>
+      　　DestroyDSTable(<b><font face="Times New Roman, Times, serif">&amp;</font></b>DT);<br>
+      　　　初始条件：动态查找表DT存在；<br>
+      　　　操作结果：销毁动态查找表 DT。<br>
+      <br>
+      　　SearchDSTable(DT, kval);<br>
+      　　　初始条件：动态查找表DT存在，kval 为和关键字类型相同的给定值；<br>
+      　　　操作结果：若DT中存在其关键字等于 kval 的数据元素，则函数<br>
+      　　　　　　　　值为该元素的值或在表中的位置，否则为&quot;空&quot;。<br>
+      <br>
+      　　InsertDSTable(<b><font face="Times New Roman, Times, serif">&amp;</font></b>DT, e);<br>
+      　　　初始条件：动态查找表DT存在，e 为待插入的数据元素；<br>
+      　　　操作结果：若DT中不存在其关键字等于e.key的数据元素，则插入e 到DT。<br>
+      <br>
+      　　DeleteDSTable(<b><font face="Times New Roman, Times, serif">&amp;</font></b>T, kval);<br>
+      　　　初始条件：动态查找表DT存在，kval 为和关键字类型相同的给定值；<br>
+      　　　操作结果：若DT中存在其关键字等于 kval 的数据元素，则删除之。<br>
+      <br>
+      　　TraverseDSTable(DT, Visit());<br>
+      　　　初始条件：动态查找表DT存在，Visit 是对结点操作的应用函数；<br>
+      　　　操作结果：按某种次序对DT的每个结点调用函数visit()一次且至多一次。<br>
+      　　　　　　　　一旦 visit() 失败，则操作失败。<br>
+      <br>
+      <b>} ADT DynamicSearchTable</b><br>
+      <br>
+      　　可见，动态查找表的特点是，在查找过程中尚需进行&quot;插入&quot;或&quot;删除&quot;的操作。因此，表示动态查找表的结构应不仅便于查找，还应便于插入和删除。<br>
+    </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">&nbsp;</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

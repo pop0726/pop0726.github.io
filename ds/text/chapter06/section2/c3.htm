@@ -1,0 +1,81 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　6.2.2 二叉树的几个特性</span><br>
+      <br>
+      　<span class="zhushi">一、</span>在二叉树的第 i 层上至多有 2<sup><font size="1">i-1 </font></sup>个结点(i≥1)。<br>
+      　　利用归纳法容易证得此结论。<br>
+      <br>
+    </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      　　在进一步讨论二叉树的存储结构和操作之前，我们需要先了解二叉树的一些重要特性。<br>
+      <br>
+      证明：<br>
+      　归 纳 基：i=1 时，只有一个根结点。显然 2<sup>i-1</sup>=2<sup><font size="1">0</font></sup>=1 
+      是对的。<br>
+      　归纳假设：设对所有的j(1≤j&lt;i)，命题成立，即第j层上至多有 2<sup>j-1</sup> 个结点。<br>
+      　归纳证明：由归纳假设&quot;第 i-1 层上至多有 2<sup><font size="1">i-2</font></sup> 个结点&quot;，又二叉树的每个结点的度至多为2，则第 
+      i 层上的最大结点数为第 i-1 层上最大结点数的2倍，即 2×2<sup>i-2</sup>=2<sup>i-1</sup>。 证毕。<br>
+      　</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">　<span class="zhushi">二、</span>深度为k的二叉树中至多含有 
+      2<sup>k</sup>-1 个结点，(k≥1)。<br>
+      <br>
+      <br>
+    </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">证明：<br>
+      　　由特性一可推出，深度为k的二叉树上最大结点数为<br>
+      　　　<img src="../../../images/pic/chapter06/gs_1.gif" width="166" height="42"><br>
+      　　<img src="../../../images/pic/chapter06/gs_1_1.gif" width="151" height="42"> 
+      <br>
+      　</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">　<span class="zhushi">三、</span>对任何一棵二叉树 T，如果其终端结点数为<font size="3"><img src="../../../images/pic/chapter06/n0.gif" width="18" height="18" align="absmiddle"></font>，度为2的结点数为<img src="../../../images/pic/chapter06/n2.gif" width="17" height="18" align="absmiddle">，则<font size="3"><br>
+      　　　<img src="../../../images/pic/chapter06/n0.gif" width="18" height="18" align="absmiddle"></font> 
+      = <img src="../../../images/pic/chapter06/n2.gif" width="17" height="18" align="absmiddle">+ 
+      1<br>
+    </td>
+    <td background="../../../images/html/mid.gif" width="18"><br>
+    </td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">证明：<br>
+      　　由于二叉树中只有三种结点，假设<font size="3">n</font><font size="1">1</font>为二叉树 T 中度为1的结点数，则二叉树中结点总数为 
+      <font size="3"><br>
+      　　<img src="../../../images/pic/chapter06/n.gif" width="12" height="13" align="absmiddle"></font> 
+      = <img src="../../../images/pic/chapter06/n0_l.gif" width="18" height="18" align="absmiddle"> 
+      + <img src="../../../images/pic/chapter06/n1_l.gif" width="17" height="18" align="absmiddle"> 
+      + <img src="../../../images/pic/chapter06/n2_l.gif" width="17" height="18" align="absmiddle">　　　　 
+      ①<br>
+      <br>
+      　　再看二叉树中的分支数目。除了根结点外，其余结点都有一个分支进入，假设 B 为分支数，则 n=B+1。从另一角度看，这些分支是由度为1或2的结点射出的，所以又有<br>
+      　　　B = <img src="../../../images/pic/chapter06/n0_l.gif" width="18" height="18" align="absmiddle"> 
+      + 2<img src="../../../images/pic/chapter06/n2_l.gif" width="17" height="18" align="absmiddle"><br>
+      　　即<font size="3"><img src="../../../images/pic/chapter06/n.gif" width="12" height="13" align="absmiddle"></font> 
+      = <img src="../../../images/pic/chapter06/n1_l.gif" width="17" height="18" align="absmiddle"> 
+      + 2<img src="../../../images/pic/chapter06/n2_l.gif" width="17" height="18" align="absmiddle"> 
+      + 1 　　　　 ②<br>
+      <br>
+      　　综合以上①和②两个等式便可得到<br>
+      　　　<img src="../../../images/pic/chapter06/n0_l.gif" width="18" height="18" align="absmiddle"> 
+      = <img src="../../../images/pic/chapter06/n2_l.gif" width="17" height="18" align="absmiddle"> 
+      + 1</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

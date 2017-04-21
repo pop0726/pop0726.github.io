@@ -1,0 +1,99 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<script language=JavaScript src="../chapter01/hpmain.js"></script>
+<script language=JavaScript src="../chapter01/showhidden.js"></script>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td class="white" valign="top"><span class="point"><br>
+      </span><span class="part">【学习目标】</span><br>
+      　　1．理解&quot;查找表&quot;的结构特点以及各种表示方法的适用性；<br>
+      　　2．熟练掌握以顺序表或有序表表示静态查找表时的查找方法；<br>
+      　　3．熟悉静态查找树的构造方法和查找算法，理解静态查找树和折半查找的关系；<br>
+      　　4．熟练掌握二叉查找树的构造和查找方法；<br>
+      　　5．理解二叉平衡树的构造过程；<br>
+      　　6．熟练掌握哈希表的构造方法，深刻理解哈希表与其它结构的表的实质性的差别；<br>
+      　　7．掌握描述查找过程的判定树的构造方法，以及按定义计算各种查找方法在等概率情况下查找成功时的平均查找长度。<br>
+      　</td>
+    <td background="../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../images/html/right_di4.gif" class="explaination" valign="top" width="281"><span class="point"><br>
+      </span>【学习目标】</td>
+    <td background="../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">【重点和难点】</span><br>
+      　　本章重点在于理解查找表的结构特点及其各种表示方法的特点和适用场合。<br>
+      　</td>
+    <td background="../../images/html/mid.gif">&nbsp;</td>
+    <td background="../../images/html/right_di4.gif" class="explaination" valign="top">【重点和难点】</td>
+    <td background="../../images/html/right_di3.gif">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">【知识点】</span><br>
+      　　顺序表、有序表、索引顺序表、静态查找树、二叉查找树、二叉平衡树、哈希表<br>
+      　</td>
+    <td background="../../images/html/mid.gif">&nbsp;</td>
+    <td background="../../images/html/right_di4.gif" class="explaination" valign="top">【知识点】</td>
+    <td background="../../images/html/right_di3.gif">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">【学习指南】</span><br>
+      　　本章讨论的查找表即为绪论中提到的&quot;集合&quot;结构，由于它是很多应用软件中的操作对象，因此本章讨论的内容亦为整个课程的重点之一。由于集合中的数据元素之间不存在任何关系，因此它的主要操作&quot;查找&quot;不便进行，为了提高对查找表进行查找的效率需要以另一种数据结构表示之。因此在学习本章的过程中应该掌握各种表示方法的特点以便在实用中能灵活选用。本章要求必须完成的算法设计题为：9.25，9.28，9.29 
+      和 9.31。<br>
+      　</td>
+    <td background="../../images/html/mid.gif">&nbsp;</td>
+    <td background="../../images/html/right_di4.gif" class="explaination" valign="top">【学习指南】</td>
+    <td background="../../images/html/right_di3.gif">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">【课前思考】<br>
+      </span>
+      <table width="80%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td bgcolor="#ECEEFF" height="14" class="explaination" width="8">&nbsp;</td>
+                <td bgcolor="#ECEEFF" height="14" class="explaination"><img src="../../images/tubiao/wt.gif" width="23" height="23" align="absmiddle" alt="思考题"> 
+                  1. 在数学中&quot;集合&quot;的定义是什么？</td>
+                <td width="15" bgcolor="#ECEEFF" valign="top"><span id="bb"><img border=0 
+                              id=HPFrameHLTab3 
+                              onClick="showHideContent('HPFrameHL');hidden();"
+							   src="../../images/html/expand.gif" style="CURSOR: hand" width="15" height="14"></span></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <div id=HPFrameHLContent 
+           style="WIDTH: 100%;visibility: hidden;background-color:#ECEEFF" > 
+              <table width="94%" border="0" cellspacing="0" cellpadding="0" align="center">
+                <tr> 
+                  <td class="explaination">　在数学中，集合是一种简单得无法用数学语言精确定义的基本概念，一般认为，集合是一些具有确定可辨认特性事物构成的整体，只能判别某个特定事物是否属于某个集合，如果是，则称为是该集合的一个&quot;元素&quot;。集合中的元素彼此相异，但相互之间不存在任何关系，通俗地说，集合是由&quot;一堆&quot;事物构成的一个整体。<br>
+                    　本章讨论的查找表正是如同数学中讨论的集合，因此它的主要操作就是判定某个数据元素是否属于该查找表。</td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+    <td background="../../images/html/mid.gif">&nbsp;</td>
+    <td background="../../images/html/right_di4.gif" class="explaination" valign="top">【课前思考】</td>
+    <td background="../../images/html/right_di3.gif">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

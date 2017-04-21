@@ -1,0 +1,117 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<script language=JavaScript src="../../chapter02/section1/hpmain.js"></script>
+<script language=JavaScript src="../../chapter02/section1/showhidden.js"></script>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　3.2.2 括弧匹配检验</span><br>
+      <br>
+      　　假设表达式中允许包含两种括号：圆括号和方括号，其嵌套的顺序随意，如（［ ］（））或［（［ ］［ ］）］等为正确的匹配，［（ ]）或（［ ］（ 
+      ）或 ( ( ) ) ）均为错误的匹配。<br>
+      <br>
+      　　现在的问题是，要求检验一个给定表达式中的括弧是否正确匹配？<br>
+      <br>
+      　　检验括号是否匹配的方法可用&quot;<span class="point">期待的急迫程度</span>&quot;这个概念来描述。即<span class="point">后出现的&quot;左括弧&quot;，它等待与其匹配的&quot;右括弧&quot;出现的&quot;急迫&quot;心情要比先出现的左括弧高</span>。换句话说，对&quot;左括弧&quot;来说，后出现的比先出现的&quot;优先&quot;等待检验，对&quot;右括弧&quot;来说，每个出现的右括弧要去找在它之前&quot;最后&quot;出现的那个左括弧去匹配。显然，必须将先后出现的左括弧依次保存，为了反映这个优先程度，保存左括弧的结构用栈最合适。这样对出现的右括弧来说，只要&quot;栈顶元素&quot;相匹配即可。如果在栈顶的那个左括弧正好和它匹配，就可将它从栈顶删除。<br>
+      　</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      <br>
+      例如考虑下列括号序列：<br>
+      　[ ( [ ] [ ] ) ]<br>
+      　1 2 3 4 5 6 7 8<br>
+      <br>
+      　　当计算机接受了第一个括号后，它期待着与其匹配的第八个括号的出现，然而等来的却是第二个括号，此时第一个括号&quot;[&quot;只能暂时靠边，而迫切等待与第二个括号相匹配的、第七个括号&quot;]&quot;的出现，类似地，因等来的是第三个括号&quot;[&quot;，其期待匹配的程度较第二个括号更急迫，则第二个括号也只能靠边，让位于第三个括号，在接受了第四个括号之后，第三个括号的期待得到满足，消解之后，第二个括号的期待匹配就成为当前最急迫的任务了，…，依次类推。<br>
+      　</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">　　那么，什么样的情况是&quot;不匹配&quot;的情况呢？上面列举的三种错误匹配从&quot;期待匹配&quot;的角度描述即为：<br>
+      　　1．来的右括弧非是所&quot;期待&quot;的；<br>
+      　　2．来的是&quot;不速之客&quot;；<br>
+      　　3．直到结束，也没有到来所&quot;期待&quot;的。<br>
+      <br>
+      　　这三种情况对应到栈的操作即为：<br>
+      　　1．和栈顶的左括弧不相匹配；<br>
+      　　2．栈中并没有左括弧等在哪里；<br>
+      　　3．栈中还有左括弧没有等到和它相匹配的右括弧。 <br>
+      <br>
+      　　在以上分析的基础上就可以写出检验括弧匹配的算法了。<br>
+    </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">
+      <table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td bgcolor="#ECEEFF" height="14" class="explaination" width="8">&nbsp;</td>
+                <td bgcolor="#ECEEFF" height="14" class="explaination"><img src="../../../images/tubiao/wt.gif" width="23" height="23" align="absmiddle" alt="思考题"> 
+                  怎么样，看了这些分析，你是不是已经知道该怎样写这个算法了？</td>
+                <td width="15" bgcolor="#ECEEFF" valign="top"><span id="bb"><img border=0 
+                              id=HPFrameHLTab3 
+                              onClick="showHideContent('HPFrameHL');hidden();"
+							   src="../../../images/html/expand.gif" style="CURSOR: hand" width="15" height="14"></span></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <div id=HPFrameHLContent 
+           style="WIDTH: 100%;visibility: hidden;background-color:#ECEEFF" > 
+              <table width="94%" border="0" cellspacing="0" cellpadding="0" align="center">
+                <tr> 
+                  <td class="explaination">　你如果写好了就可以上机去做算法练习题3.19了。</td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+      </table>
+      <br>
+      <table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td bgcolor="#ECEEFF" height="14" class="explaination" width="8">&nbsp;</td>
+                <td bgcolor="#ECEEFF" height="14" class="explaination"><img src="../../../images/tubiao/wt.gif" width="23" height="23" align="absmiddle" alt="思考题"> 
+                  你的算法调试成功了吗？如果不正确的话，那么你看看下列细节是否考虑到了？</td>
+                <td width="15" bgcolor="#ECEEFF" valign="top"><span id=dd><img border=0 
+                              id=HPFrameDLTab3 
+                              onClick="showHideContent('HPFrameDL');hiddenL();"
+							   src="../../../images/html/expand.gif" style="CURSOR: hand" width="15" height="14"></span></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <div id=HPFrameDLContent 
+           style="WIDTH: 100%;visibility: hidden;background-color:#ECEEFF"> 
+              <table width="94%" border="0" cellspacing="0" cellpadding="0" align="center">
+                <tr> 
+                  <td class="explaination">　1．&quot;匹配&quot;不是&quot;相等&quot;。因此你若在遇到左括弧时是将当前这个左括弧进栈的话，那么在遇到右括弧时必须分别不同情况进行判别，你是这样写的吗？<br>
+                    　2．和栈顶元素进行比较的前提是栈不为空。因此你在判别当前出现的右括弧是否和相应左括弧匹配之前有否先判别当前栈是否为空？<br>
+                    　3．&quot;没有等到&quot;即为栈不空的情况。因此在算法结束之前，你有没有判别栈是否已为空了？<br>
+                    　　此外别忘了使用栈之前一定要进行初始化。</td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

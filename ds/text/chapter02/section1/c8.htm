@@ -1,0 +1,140 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<script language=JavaScript src="hpmain.js"></script>
+<script language=JavaScript src="showhidden.js"></script>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">　<span class="part">2.1.2 线性表类型的应用</span><br>
+      <br>
+      <img src="../../../images/tubiao/lt.gif" width="28" height="27" align="absmiddle" alt="例题"><span class="zhushi"> 
+      例2-3</span> 判别两个集合是否相等。<br>
+      <br>
+      　　两个集合相等的充分必要条件是它们具有相同的元素。当以线性表表示集合时，两个线性表的长度应该相等，且表中所有数据元素都能一一对应，但相同的数据元素在各自的线性表中的&quot;位序&quot;不一定相同。<br>
+      　　由此，&quot;判别两个线性表中的数据元素是否完全相同&quot;的算法的基本思想为：首先判别两者的表长是否相等；在表长相等的前提下，如果对于一个表中的所有元素，都能在另一个表中找到和它相等的元素的话，便可得到&quot;两个线性表表示的集合相等&quot;的结论；反之，只要有一个元素在另一个表中不能找到相等元素时，便可得出&quot;不等&quot;的结论。 
+      <br>
+      　<br>
+    </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      <br>
+      <br>
+      <br>
+      <table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td bgcolor="#ECEEFF" height="14" class="explaination" width="8">&nbsp;</td>
+                <td bgcolor="#ECEEFF" height="14" class="explaination"><img src="../../../images/tubiao/wt.gif" width="23" height="23" align="absmiddle" alt="思考题"> 
+                  这个算法是否在任何情况下都正确，会不会有例外的情况？</td>
+                <td width="15" bgcolor="#ECEEFF" valign="top"><span id="bb"><img border=0 
+                              id=HPFrameHLTab3 
+                              onClick="showHideContent('HPFrameHL');hidden();"
+							   src="../../../images/html/expand.gif" style="CURSOR: hand" width="15" height="14"></span></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <div id=HPFrameHLContent 
+           style="WIDTH: 100%;visibility: hidden;background-color:#ECEEFF" > 
+              <table width="94%" border="0" cellspacing="0" cellpadding="0" align="center">
+                <tr> 
+                  <td class="explaination">　当然，这个算法思想还有一个前提是，已知集合符合集合论中的约定&quot;集合中的元素都是彼此相异的&quot;。估计你也想到了吧。　　</td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>&nbsp;</td>
+    <td class="white" valign="top"><span class="text"><img src="../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle" alt="程序段">　</span><span class="zhushi">算法2.3</span><span class="text"><br>
+      　　<b>bool</b> isEqual(List LA, List LB)<br>
+      　 <b>{</b><br>
+      </span><span class="part">　　</span><span class="zhushi"><font face="Times New Roman, Times, serif">//</font> 
+      若线性表 LA 和 LB 不仅长度相等，且所含数据元素也相同，</span><span class="part"><br>
+      　　</span><span class="zhushi"><font face="Times New Roman, Times, serif">//</font> 
+      则返回 TRUE，</span><span class="part"></span><span class="zhushi">否则返回 FALSE。</span><span class="text"><br>
+      　　La_len = Listlength(LA); <br>
+      　　Lb_len = Listlength(LB); <br>
+      </span></td>
+    <td background="../../../images/html/mid.gif">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"> 
+      <table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td bgcolor="#ECEEFF" height="14" class="explaination" width="8">&nbsp;</td>
+                <td bgcolor="#ECEEFF" height="14" class="explaination"><img src="../../../images/tubiao/wt.gif" width="23" height="23" align="absmiddle" alt="思考题"> 
+                  如果&quot;集合&quot;中的元素不能保证都相异，那么这个问题的算法应如何写？</td>
+                <td width="15" bgcolor="#ECEEFF" valign="top"><span id=dd><img border=0 
+                              id=HPFrameDLTab3 
+                              onClick="showHideContent('HPFrameDL');hiddenL();"
+							   src="../../../images/html/expand.gif" style="CURSOR: hand" width="15" height="14"></span></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <div id=HPFrameDLContent 
+           style="WIDTH: 100%;visibility: hidden;background-color:#ECEEFF"> 
+              <table width="94%" border="0" cellspacing="0" cellpadding="0" align="center">
+                <tr> 
+                  <td class="explaination">　除了判别每个 LA 中的元素在 LB 中都存在之外，还应反过来判别 
+                    LB 中每个元素都能在 LA 中找到相同者。你不妨试试写一下这个算法。</td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </td>
+    <td background="../../../images/html/right_di3.gif">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>&nbsp;</td>
+    <td class="white" valign="top"><span class="text">　　<b>if</b> ( La_len != 
+      Lb_len ) <b>return</b> <b>FALSE</b>; <font face="Times New Roman, Times, serif">//</font> 
+      两表的长度不等 <br>
+      　　<b>else</b> <br>
+      　　<b>{</b> <br>
+      　　　i = 1; found = <b>TRUE</b>;<br>
+      　　　<b>while</b> ( i&lt;= La_len <b><font face="Times New Roman, Times, serif">&amp;&amp;</font></b> found )<br>
+      　　　<b>{</b> <br>
+      　　　　GetElem( LA, i, e );　　　　　　　　　<font face="Times New Roman, Times, serif">//</font> 
+      取得 LA 中一个元素 <br>
+      　　　　<b>if</b> ( LocateElem(LB, e, equal( ) ) <br>
+      　　　　　i++; 　　　　　　　　　　　　　　　　 <font face="Times New Roman, Times, serif">//</font> 
+      依次处理下一个 <br>
+      　　　　<b>else</b> found = <b>FALSE</b>;　　　 　　　　　 <font face="Times New Roman, Times, serif">//</font> 
+      LB中没有和该元素相同的元素 <br>
+      　　　<b>}</b> <font face="Times New Roman, Times, serif">//</font> while<br>
+      　　　<b>return</b> found; <br>
+      　　<b>}</b> <font face="Times New Roman, Times, serif">//</font> else<br>
+      　<b>}</b> <font face="Times New Roman, Times, serif">//</font> isEqual </span></td>
+    <td background="../../../images/html/mid.gif">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　　两个线性表的长度不等说明所表示的两个集合的大小不同。<br>
+      <br>
+      <br>
+      　　退出 while 循环可能有两种情况：一是因i&gt;La_len，说明LA中所有数据元素都能在LB中找到对应元素，由于循环中没有对变量 found 
+      赋值，则循环结束时 found 的值仍为 TRUE；二是因found=FALSE，则是因为对 LA 中某个元素，没有在 LB 中找到对应元素，found 
+      被赋值为 FALSE。由此 while 循环结束时变量 found 的值即为 else 情况下的变量值。</td>
+    <td background="../../../images/html/right_di3.gif">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

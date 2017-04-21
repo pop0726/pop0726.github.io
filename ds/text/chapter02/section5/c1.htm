@@ -1,0 +1,54 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　2.5.1 有序链表类型</span><br>
+      <br>
+      <font face="Times New Roman, Times, serif" color="#339900">//</font>　<span class="zhushi">结构定义</span><br>
+      　　<span class="text"><b>typedef</b> <b>struct</b> LNode <b>{</b> <font face="Times New Roman, Times, serif">//</font> 
+      <b>结点结构</b> <br>
+      　　　ElemType data; <br>
+      　　<b>　struct</b> LNode <b>*</b>next;<br>
+      　　<b>}</b> <b>*</b>SLink; <br>
+      　</span></td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      　　本节将讨论利用有序表表示集合并实现集合的并、交、差三种操作。<br>
+      <br>
+      　　以链式存储结构表示有序表，首先定义一个有序链表类型。<br>
+      　</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="text"><img src="../../../images/tubiao/cxd.gif" width="25" height="24" alt="算法"><br>
+      　　<b>typedef</b> <b>struct</b> <b>{</b> 　　　　<font face="Times New Roman, Times, serif">//</font> 
+      <b>链表结构</b> <br>
+      　　　SLink head,　　　　　　　<font face="Times New Roman, Times, serif">//</font> 
+      指向有序链表中的头结点<br>
+      　　　　　　tail,　　　　　　　<font face="Times New Roman, Times, serif">//</font> 指向有序链表中最后一个结点<br>
+      　　　　　　curPtr;　　　　　　<font face="Times New Roman, Times, serif">//</font> 
+      指向操作的当前结点，称为&quot;当前指针&quot; <br>
+      　　<b>　int </b>length, 　　　　　　<font face="Times New Roman, Times, serif">//</font> 
+      指示有序链表的长度<br>
+      　　　　　curPos;　　　　　　　<font face="Times New Roman, Times, serif">//</font> 
+      指示当前指针所指结点的位序<br>
+      　　<b>}</b> OrderedLinkList; </span></td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      　　根据2.3.3节中所述，在此为链表设置5个数据成员。<br>
+      <br>
+      　　在链表的各个操作中将始终保持指针 curPtr 的值不为空，且指向单链表中的第 curpos 个结点，<br>
+      　　0≤curPos≤LengthList(L)。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

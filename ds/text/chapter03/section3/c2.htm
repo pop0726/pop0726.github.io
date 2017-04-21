@@ -1,0 +1,115 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+<script language="JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　3.3.2 队列的存储表示和操作的实现</span><br>
+      <br>
+      <span class="zhushi">　一、链队列</span><br>
+      　　链队列是队列的链式存储结构，其结构示意图如下所示：<br>
+      <br>
+      　 <img src="../../../images/pic/chapter03/3_3.gif" width="377" height="117" align="top" onbeforeunload="MM_openBrWindow('../../../flash/chap03/3-3-10.swf','数据结构','width=400,height=300')"><br>
+      　</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      　　和线性表类似，队列也有两种存储表示方法。<br>
+      <br>
+      　　从结构图可见，链队列和单链表一样，也附加一个头结点，链表中的指针方向也和线性表一致，链队列中设有两个指针，其一为&quot;队尾指针(Q.rear)&quot;，指向链队列中的队尾元素结点，其二为&quot;队头指针(Q.front)&quot;，指向链表的头结点，这表明真正的队头元素并非在&quot;队头指针&quot;所指的结点中，而在队头指针所指结点的&quot;后继&quot;结点中。<br>
+      　　&quot;空队列&quot;中只含一个其指针域为空的头结点，并且头、尾指针都指向头结点而不为空。<br>
+      　</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top">链队列的类型定义：<b><br>
+      <span class="zhushi"><font face="Times New Roman, Times, serif">//</font> 
+      结构定义</span></b><br>
+      <b>　typedef</b> SLink QueuePtr; <font face="Times New Roman, Times, serif">//</font> 
+      链队列的结点结构和单链表相同<br>
+      <b>　typedef struct{</b><br>
+      　　QueuePtr front;<font face="Arial, Helvetica, sans-serif">//</font> 队列的头指针<br>
+      　　QueuePtr rear; <font face="Times New Roman, Times, serif">//</font> 队列的尾指针<br>
+      　<b>　int</b> length;<font face="Times New Roman, Times, serif">　 //</font> 
+      队列元素个数<br>
+      <b>　}</b> Queue;　 　　　<font face="Times New Roman, Times, serif">//</font> 
+      链队列<br>
+      　</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">　　<br>
+      　<br>
+      　<br>
+      　<br>
+      　<br>
+      　　和链栈类似，在链队列类型的定义中设置&quot;元素个数&quot;的成员目的为便于求得链表长度。 </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="zhushi"><font face="Times New Roman, Times, serif">//</font> 
+      基本操作接口（函数声明） </span><b><span class="text"><br>
+      </span></b><span class="text"> <b>　void</b> InitQueue (Queue <b><font face="Times New Roman, Times, serif">&amp;</font></b>Q); 
+      <br>
+      <font color="#97c594">　<font face="Times New Roman, Times, serif">//</font>　构造一个空队列 
+      Q </font><br>
+      <br>
+      <b>　void</b> DestroyQueue (Queue <b><font face="Times New Roman, Times, serif">&amp;</font></b>Q); 
+      <br>
+      <font color="#97c594">　<font face="Times New Roman, Times, serif">//</font>　销毁队列Q，Q 
+      不再存在</font><br>
+      <br>
+      <b>　void</b> ClearQueue (Queue <b><font face="Times New Roman, Times, serif">&amp;</font></b>Q); 
+      <br>
+      <font color="#97c594">　<font face="Times New Roman, Times, serif">//</font>　将 
+      Q 置为空队列</font><br>
+      <br>
+      <b>　bool</b> QueueEmpty (Queue Q); <br>
+      <font color="#97c594">　<font face="Times New Roman, Times, serif">//</font>　若队列 
+      Q 为空队列，则返回TRUE，否则返回FALSE </font><br>
+      <br>
+      <b>　int</b> QueueLength (Queue Q); <br>
+      <font color="#97c594">　<font face="Times New Roman, Times, serif">//</font>　返回队列 
+      Q 中元素个数，即队列的长度 </font><br>
+      <br>
+      <b>　bool</b> GetHead (Queue Q, ElemType <b><font face="Times New Roman, Times, serif">&amp;</font></b>e); 
+      <br>
+      <font color="#97c594">　<font face="Times New Roman, Times, serif">//</font>　若队列不空，则用 
+      e 返回Q的队列头元素，并返回TRUE；否则返回FALSE </font><br>
+      <br>
+      <b>　void</b> EnQueue (Queue <b><font face="Times New Roman, Times, serif">&amp;</font></b>Q, 
+      ElemType e); <br>
+      <font color="#97c594">　<font face="Times New Roman, Times, serif">//</font>　在当前队列的尾元素之后插入元素 
+      e 为新的队列尾元素 <br>
+      </font><br>
+      <b>　bool</b> DeQueue (Queue <b><font face="Times New Roman, Times, serif">&amp;</font></b>Q, 
+      ElemType <b><font face="Times New Roman, Times, serif">&amp;</font></b>e); 
+      <br>
+      <font color="#97c594">　<font face="Times New Roman, Times, serif">//</font>　若队列不空，则删除当前队列Q中的头元素，用 
+      e 返回其值，并返回TRUE；<br>
+      　<font face="Times New Roman, Times, serif">//</font>　否则返回 FALSE<br>
+      </font><br>
+      <b>　void</b> QueueTraverse(Queue Q, <b>void</b> (*visit(ElemType ))<br>
+      <font color="#97c594">　<font face="Times New Roman, Times, serif">//</font>　依次对Q的每个元素调用函数visit( 
+      )，一旦visit( )失败，则操作失败。</font> </span></td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">
+      <p>　　学习了第二章之后，相信你对链表的操作都已经很熟悉了。不难写出链队列的这些操作的定义，下页中我们将列出其中三个主要操作的定义。<br>
+      </p>
+    </td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

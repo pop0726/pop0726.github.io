@@ -1,0 +1,42 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%"> 
+<tr> <td width="8">&nbsp;</td><td class="white" valign="top"><br> 　　如何求得关键路径？首先定义四个描述量。假设顶点<img src="../../../images/pic/chapter07/v1.gif" width="14" height="18" align="absmiddle"> 
+为源点，Vn为汇点，事件<img src="../../../images/pic/chapter07/v1.gif" width="14" height="18" align="absmiddle"> 
+的发生时刻为0时刻。<br> 　　ve(j)：事件<img src="../../../images/pic/chapter07/vj.gif" width="14" height="18" align="absmiddle">可能发生的最早时刻，它是从<img src="../../../images/pic/chapter07/v1.gif" width="14" height="18" align="absmiddle">到<img src="../../../images/pic/chapter07/vj.gif" width="14" height="18" align="absmiddle">的最长带权路径长度<br> 
+　　<img src="../../../images/pic/chapter07/gs_9.gif" width="400" height="90"> <br> 
+<br> 　　其中，w(<img src="../../../images/pic/chapter07/vi.gif" width="13" height="17" align="absmiddle">→<img src="../../../images/pic/chapter07/vj.gif" width="14" height="18" align="absmiddle">) 
+表示该弧的权值。对于一个特定的顶点<img src="../../../images/pic/chapter07/vj.gif" width="14" height="18" align="absmiddle">(2≤j≤n)，上式表示考察<img src="../../../images/pic/chapter07/vj.gif" width="14" height="18" align="absmiddle"> 
+的所有前驱结点V<font size="1">i1</font>,V<font size="1">i2</font>,…，V<font size="1">ip</font>，在 
+ve(i<font size="1">1</font>)+w(V<font size="1">i1</font>→<img src="../../../images/pic/chapter07/vj.gif" width="14" height="18" align="absmiddle">)，…，ve(i<font size="1">p</font>)+w(V<font size="1">ip</font>→<img src="../../../images/pic/chapter07/vj.gif" width="14" height="18" align="absmiddle">) 
+中选最大值。<br> <br> 　　vl(i)：在保证不延误整个工期（即保证Vn在ve(n)时刻发生）的前提下，事件<img src="../../../images/pic/chapter07/v1.gif" width="14" height="18" align="absmiddle"> 
+发生所允许的最晚时刻。它等于 ve(n) 减去<img src="../../../images/pic/chapter07/v1.gif" width="14" height="18" align="absmiddle"> 
+到 Vn 的最长带权路径长度。<br> 　<img src="../../../images/pic/chapter07/gs_10.gif" width="420" height="93"> 
+<br> <br> 　　对于一个特定的顶点，<img src="../../../images/pic/chapter07/vi.gif" width="13" height="17" align="absmiddle">(1≤i≤n-1)，上式表示考察Vi的所有后继结点V<font size="1">j1</font>,V<font size="1">j2</font>,…,V<font size="1">jq</font>，在 
+vl(j<font size="1">1</font>)-w(V<font size="1">i</font>→V<font size="1">j1</font>),…，vl(j<font size="1">q</font>)-w(V<font size="1">i</font>→V<font size="1">jq</font>) 
+中选最小值。<br> <br> 　　ee(k)：活动（令<font size="3">a</font><font size="1">k</font>是<img src="../../../images/pic/chapter07/vi.gif" width="13" height="17" align="absmiddle">→<img src="../../../images/pic/chapter07/vj.gif" width="14" height="18" align="absmiddle">）可能开始的最早时刻。显然，它应该是<img src="../../../images/pic/chapter07/vi.gif" width="13" height="17" align="absmiddle"> 
+可能发生的最早时刻 ve(i)，即<br> 　　ee(k) = ve(i) (k=1, 2, …， m, m 为弧的数目) <br> <br> 　　el(k)：活动<font size="3">a</font><font size="1">k</font>（令<font size="3">a</font><font size="1">k</font> 
+是<img src="../../../images/pic/chapter07/vi.gif" width="13" height="17" align="absmiddle">→<img src="../../../images/pic/chapter07/vj.gif" width="14" height="18" align="absmiddle">）在保证不延误整个工期的前提下，活动 
+<font size="3">a</font><font size="1">k</font> 开始所允许的最晚时刻。不难想像，它应该是<img src="../../../images/pic/chapter07/vj.gif" width="14" height="18" align="absmiddle">发生所允许的最晚时刻 
+vl(j) 减去 w(<img src="../../../images/pic/chapter07/vi.gif" width="13" height="17" align="absmiddle">→<img src="../../../images/pic/chapter07/vj.gif" width="14" height="18" align="absmiddle">)，即<br> 
+　　el(k) = vl(j) - w(<img src="../../../images/pic/chapter07/vi.gif" width="13" height="17" align="absmiddle">→<img src="../../../images/pic/chapter07/vj.gif" width="14" height="18" align="absmiddle">) 
+(k = 1, 2, …， m) <br> <br> 　　由上述 ee(k) 和 el(k) 的定义可知，如果某条弧<font size="3"> a</font><font size="1">k</font> 
+的 el(k) 和 ee(k) (1≤k≤m)值相等，则为关键活动。反之，对于非关键活动，el(k)-ee(k) 的值是该在工程的期限余量，在此范围内的延误不影响整个工程的工期，对右图所示AOE网，上述四个量的计算过程如动画所示。<a href="javascript:;" onClick="MM_openBrWindow('../../../flash/chap07/7-7-1.swf','数据结构','width=400,height=300')"><img src="../../../images/tubiao/dh.gif" alt="动画" width="25" height="24" border="0" align="absmiddle"></a><br> 
+</td><td background="../../../images/html/mid.gif" width="18">&nbsp;</td><td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR>　<BR><BR><BR><BR>　<IMG SRC="../../../images/pic/chapter07/7_36.gif" WIDTH="250" HEIGHT="232" ALIGN="top"><BR> 
+　　　　　　　　　(AOE网示例)</td><td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td></tr> 
+</table>
+</body>
+</html>

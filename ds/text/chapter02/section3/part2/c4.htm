@@ -1,0 +1,149 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/style.css" type="text/css">
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<script language=JavaScript src="hpmain.js"></script>
+<script language=JavaScript src="showhidden.js"></script>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　2.3.2 单链表中基本操作的实现</span><br>
+      <br>
+      <span class="zhushi">　四、插入元素操作</span><br>
+      <br>
+      　　前面已经分析过，在线性表中&quot;插入&quot;一个元素时，使元素之间的关系&lt; <img src="../../../../images/pic/chapter02/gs/ai_1.gif" width="20" height="10" align="absmiddle">,<img src="../../../../images/pic/chapter02/gs/ai.gif" width="10" height="10" align="absmiddle"> 
+      &gt;改变为&lt; <img src="../../../../images/pic/chapter02/gs/ai_1.gif" width="20" height="10">,e 
+      &gt;和&lt; e,<img src="../../../../images/pic/chapter02/gs/ai.gif" width="10" height="10" align="absmiddle"> 
+      &gt;。当用指针指示后继元素时，实现这种关系的改变就很容易了，只要修改相应指针即可。因为新的元素插入在线性表的第i个元素之前，使得 <img src="../../../../images/pic/chapter02/gs/ai.gif" width="10" height="10"> 
+      不再是 <img src="../../../../images/pic/chapter02/gs/ai_1.gif" width="20" height="10"> 
+      的后继，而是新的元素e的后继，因此需要修改元素e和元素 <img src="../../../../images/pic/chapter02/gs/ai_1.gif" width="20" height="10"> 
+      所在结点的指针。<br>
+      <br>
+      　　由此，算法的基本思想就是，首先找到第i-1个结点，然后修改相应指针。<br>
+      　</td>
+    <td background="../../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../../images/html/right_di4.gif" class="explaination" width="281" valign="top">&nbsp;</td>
+    <td background="../../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><img src="../../../../images/tubiao/cxd.gif" alt="算法" width="25" height="24" align="absmiddle"> 
+      <span class="zhushi">算法2.16</span><br>
+      　　<b>bool</b> ListInsert ( SLink <b><font face="Times New Roman, Times, serif">&amp;</font></b>L, <b>int</b> pos, ElemType 
+      e )<br>
+      　<b>{</b><br>
+      <span class="zhushi">　　<font face="Times New Roman, Times, serif">//</font> 
+      若1≤pos≤LengthList(L)+1，则在指针L指向头结点的单链表<br>
+      　　<font face="Times New Roman, Times, serif">//</font> 的第 pos 个元素之前插入新的元素 
+      e，且返回函数值为 TRUE,<br>
+      　　<font face="Times New Roman, Times, serif">//</font> 否则不进行插入且返回函数值为 FALSE</span><br>
+      　　p=L; j=0;<br>
+      　　<b>while</b>(p <b><font face="Times New Roman, Times, serif">&amp;&amp;</font></b> j&lt;pos-1)<br>
+      　　<b>{</b> <font face="Times New Roman, Times, serif">　　　　　　　　　　　 　//</font> 
+      查找第pos-1个结点，并令指针p指向该结点<br>
+      　　　p=p-&gt;next; ++j; <br>
+      　　<b>} </b><font face="Times New Roman, Times, serif">//</font> while<br>
+      　　<b>if</b>(!p||j&gt;pos-1)<br>
+      　　　<b>return FALSE;</b> <font face="Times New Roman, Times, serif">　　　　　//</font> 
+      参数不合法，pos 小于1或者大于表长+1<br>
+      　　s=<b>new</b> LNode;<br>
+      　　if (!s) exit(1); <font face="Times New Roman, Times, serif">　　　　 　//</font> 
+      存储空间分配失败<br>
+      　　s-&gt;data=e; <font face="Times New Roman, Times, serif">　　　　　　　　//</font> 
+      创建新元素的结点<br>
+      　　s-&gt;next=p-&gt; next; p-&gt;next=s;<font face="Times New Roman, Times, serif"> 
+      //</font> 修改指针<br>
+      　　<b>return TRUE;</b><br>
+      　<b>} </b><font face="Times New Roman, Times, serif">//</font> ListInsert 
+      <p>　　算法<span class="point">时间复杂度</span>为<span class="point"><font face="Times New Roman, Times, serif"><i>O</i> 
+        (ListLength(L))</font></span>。</p>
+    </td>
+    <td background="../../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      <br>
+      <br>
+      　算法2.16的演示效果如动画所示。<a href="javascript:;" onClick="MM_openBrWindow('../../../../flash/chap02/2-3-1.2.swf','数据结构','width=400,height=300')"><img src="../../../../images/tubiao/dh.gif" alt="动画" width="25" height="24" border="0" align="absmiddle"></a><br>
+      <br>
+      <br>
+      <br>
+      <table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td bgcolor="#ECEEFF" height="14" class="explaination" width="8">&nbsp;</td>
+                <td bgcolor="#ECEEFF" height="14" class="explaination"><img src="../../../../images/tubiao/wt.gif" width="23" height="23" align="absmiddle" alt="思考题"> 
+                  这里的变量初始化能否改为 <br>
+                  　　　　&quot;p=L-&gt;next; j=1;&quot;?</td>
+                <td width="15" bgcolor="#ECEEFF" valign="top"><span id="bb"><img border=0 
+                              id=HPFrameHLTab3 
+                              onClick="showHideContent('HPFrameHL');hidden();"
+							   src="../../../../images/html/expand.gif" style="CURSOR: hand" width="15" height="14"></span></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <div id=HPFrameHLContent 
+           style="WIDTH: 100%;visibility: hidden;background-color:#ECEEFF" > 
+              <table width="95%" border="0" cellspacing="0" cellpadding="0" align="center">
+                <tr> 
+                  <td class="explaination">　不行!因为插入时修改的是前驱结点的指针，因此算法中的目标是找第 pos 
+                    个结点的前驱，如果一开始，p 就指向第一个结点，那么当pos=1时就找不到它的前驱了。你想到了吗?</td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+      </table>
+      <br>
+      <table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td bgcolor="#ECEEFF" height="14" class="explaination" width="8">&nbsp;</td>
+                <td bgcolor="#ECEEFF" height="14" class="explaination"><img src="../../../../images/tubiao/wt.gif" width="23" height="23" align="absmiddle" alt="思考题"> 
+                  如果单链表没有头结点，应该如何修改算法2.16?</td>
+                <td width="15" bgcolor="#ECEEFF" valign="top"><span id=dd><img border=0 
+                              id=HPFrameDLTab3 
+                              onClick="showHideContent('HPFrameDL');hiddenL();"
+							   src="../../../../images/html/expand.gif" style="CURSOR: hand" width="15" height="14"></span></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <div id=HPFrameDLContent 
+           style="WIDTH: 100%;visibility: hidden;background-color:#ECEEFF"> 
+              <table width="95%" border="0" cellspacing="0" cellpadding="0" align="center">
+                <tr> 
+                  <td class="explaination">　需对在第一个结点之前进行插入的情况单独进行处理。是不是很麻烦呀？</td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+      </table>
+      <br>
+      算法时间复杂度的分析：<br>
+      　　在插入算法中，修改指针的时间复杂度仅为<b><font face="Times New Roman, Times, serif"><i>O</i></font></b><font face="Times New Roman, Times, serif">(1)</font>，但为了修改前驱结点的指针首先要找到这个结点，因此插入算法的时间主要消耗在查询结点上，因此，其时间复杂度和&quot;存取元素&quot;的操作相同。<br>
+    </td>
+    <td background="../../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

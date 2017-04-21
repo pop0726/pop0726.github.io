@@ -1,0 +1,90 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　5.2.2 稀疏矩阵的压缩存储方法</span><br>
+      <br>
+      <span class="zhushi">　二、行逻辑链接的顺序表</span><br>
+      <br>
+      <img src="../../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle"> 
+      <span class="zhushi">算法 5.3</span><br>
+      　　<b>bool</b> MultSMatrix(RLSMatrix M, RLSMatrix N, RLSMatrix <b><font face="Times New Roman, Times, serif">&amp;</font></b>Q)<br>
+      　<b>{</b><br>
+      <span class="zhushi">　　<font face="Times New Roman, Times, serif">//</font> 
+      采用行逻辑链接存储表示，求矩阵乘积Q=M N。</span><br>
+      　　<b>if</b> (M.Num_cols <b>!</b>= N.Num_rows) <b>return FALSE</b>;<br>
+      　　　　　　　　　　　　　　　　　　　　<font face="Times New Roman, Times, serif">//</font> 
+      M的列数和N的行数不等，不能相乘<br>
+      　　<b>if</b> (M.tu*N.tu <b>!</b>= 0) <b>{</b> 　　　　<font face="Times New Roman, Times, serif">//</font> 
+      M和N中均含有非零元对矩阵Q进行初始化;<br>
+      　　　<b>for</b> (arow=1; arow&lt;=M. rows; ++arow)<br>
+      　　　<b>{</b><br>
+      　　　　处理M(即Q)的每一行<br>
+      　　　<b>}</b> <font face="Times New Roman, Times, serif">　　　　　　　　　　　　　　//</font> 
+      求得 Q 中第crow( =arow)行的非零元<br>
+      　　　<b>for</b> (ccol=1; ccol&lt;=Q.nu; ++ccol)<font face="Times New Roman, Times, serif">//</font> 
+      压缩存储该行非零元<br>
+      　　　　<b>if</b> (ctemp[ccol-1]) <b>{</b><br>
+      　　　　　<b>if</b> (++Q.terms &gt; MAXTERMS)<br>
+      　　　　　　<b>return FALSE</b>;<br>
+      　　　　　Q.data[Q.terms] = (arow, ccol, ctemp[ccol]);<br>
+      　　　　<b>}</b><font face="Times New Roman, Times, serif"> //</font> if<br>
+      　　　<b>}</b><font face="Times New Roman, Times, serif"> //</font> for arow<br>
+      　　<b>}</b><font face="Times New Roman, Times, serif"> //</font> if <br>
+      　　<b>return TRUE</b>;<br>
+      　<b>}</b><font face="Times New Roman, Times, serif"> //</font> MultSMatrix 
+      <p>　　算法5.3的<span class="point">时间复杂度</span>为<span class="point"><i><b><font face="Times New Roman, Times, serif">O 
+        (M.rows×N.cols+M.terms×N.terms/N.rows)</font></b></i></span>。<br>
+        <br>
+        　　其中，<font face="Times New Roman, Times, serif">N.terms/N.rows</font> 
+        表示N中每一行非零元个数的平均值。<br>
+        <br>
+        　　若 M 是 m 行 n 列的稀疏矩阵，N 是 n 行 p 列的稀疏矩阵，则M中非零元的个数 M.terms =<img src="../../../../images/pic/chapter05/gs/gs_16.gif" width="11" height="12" align="absmiddle">×m×n，N中非零元的个数 
+        N.terms =<img src="../../../../images/pic/chapter05/gs/gs_16.gif" width="11" height="12" align="absmiddle">×n×p，此时算法5.3的时间复杂度就是<font face="Times New Roman, Times, serif"><i>O 
+        </i>(m×p×(1+n<img src="../../../../images/pic/chapter05/gs/gs_15.gif" width="14" height="12" align="absmiddle"><img src="../../../../images/pic/chapter05/gs/gs_16.gif" width="11" height="12" align="absmiddle">))</font> 
+        ，当 <img src="../../../../images/pic/chapter05/gs/gs_16.gif" width="11" height="12">&lt;0.05 
+        和 <img src="../../../../images/pic/chapter05/gs/gs_16.gif" width="11" height="12">&lt;0.05 
+        及 n&lt;1000时，算法5.3的<span class="point">时间复杂度</span>就相当于<b><span class="point"><font face="Times New Roman, Times, serif"><i>O 
+        (m×p)</i></font></span></b>，显然，这是一个相当理想的结果。如果事先能估算出所求乘积矩阵 Q 非是稀疏矩阵，也可设它的存储结构为二维数组，此时的矩阵相乘算法更为简单，读者可自行试之。</p>
+    </td>
+    <td background="../../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      <br>
+      其中：<br>
+      　对矩阵Q进行初始化的操作如下：<br>
+      　　Q.rows = M.rows;<font face="Times New Roman, Times, serif">//</font> Q的行数和M相同<br>
+      　　Q.cols = N.cols;<font face="Times New Roman, Times, serif">//</font> Q的列数和N相同<br>
+      　　Q.terms = 0;<font face="Times New Roman, Times, serif">　　//</font> Q的非零元个数初始化为零 
+      <br>
+      <p>　求得Q中一行非零元的操作为：<br>
+        　 ctemp[] = 0; <font face="Times New Roman, Times, serif">　 //</font> 
+        当前行各元素累加器清零<br>
+        　 Q.rpos[arow] = Q.terms+1;<br>
+        　 <b>for</b>(p=M.rpos[arow];p&lt;M.rpos[arow+1];++p) <br>
+        　 <b>{</b><font face="Times New Roman, Times, serif">　//</font> 处理 M 当前行中每一个非零元<br>
+        　　brow=M.data[p].j; <font face="Times New Roman, Times, serif">//</font> 
+        找到对应元在N中的行号<br>
+        　　<b>for</b>(q=N.rpos[brow];q&lt;N.rpos[brow+1];++q) <br>
+        　　<b>{</b><br>
+        　　 ccol = N.data[q].j; <font face="Times New Roman, Times, serif">//</font> 
+        乘积元素在Q中列号<br>
+        　　 ctemp[ccol-1]+=M.data[p].e * N.data[q].e;<br>
+        　　<b>}</b> <font face="Times New Roman, Times, serif">//</font> for q<br>
+        　 <b>}</b> <font face="Times New Roman, Times, serif">//</font> for p<br>
+        <br>
+        　　算法5.3中，累加器ctemp初始化的时间复杂度为 (M.rows N.cols)，求Q的所有非零元的时间复杂度为 (M.terms N.terms/N.rows)，对Q进行压缩存储的时间复杂度为 
+        (M.rows N.cols)。<br>
+      </p>
+    </td>
+    <td background="../../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

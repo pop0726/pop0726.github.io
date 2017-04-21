@@ -1,0 +1,43 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%"><tr><td width="10">&nbsp;</td><td class="white" valign="top"><SPAN CLASS="part"><BR>【编程练习题】</SPAN><BR><BR>　　本章编程练习题中的静态查找表和索引查找表的类型定义如下：<BR>　　<B>typedef 
+struct </B><BR>　　<B>{</B><BR> 　　　KeyType key;<BR>　　<B>}</B> SElemType;　<FONT FACE="Arial, Helvetica, sans-serif">//</FONT> 
+查找表的元素类型<P>　　<B>typedef struct</B> <BR>　　<B>{</B><BR> 　　　SElemType *elem;<BR> 
+　　　<B>int</B> length;<BR> 　　　<B>int</B> listsize;<BR>　　<B>}</B> SSTable;　<FONT FACE="Arial, Helvetica, sans-serif">//</FONT> 
+静态查找表</P><P> 　1. 假设顺序表按关键字自大至小有序，试改写9.2.2节中的顺序查找算法，将监视哨设在高下标端。然后画出描述此查找过程的判定树，分别求出等概率情况下查找成功和不成功时的平均查找长度。<BR>　　<B>int</B> 
+SqSearch(SSTable a, KeyType kval)<BR> 　<FONT FACE="Arial, Helvetica, sans-serif">//</FONT> 
+在数据元素依关键字自大至小排列的有序表中进行顺序查找，要求&quot;监视哨&quot;<BR> 　<FONT FACE="Arial, Helvetica, sans-serif">//</FONT> 
+设在表尾，若在 a 中存在关键字和 kval 相同的元素，则返回它在表中<BR> 　<FONT FACE="Arial, Helvetica, sans-serif">//</FONT> 
+位置(1..a.length), 否则返回 0。已知为查找表分配的空间 &gt; a.length+1<BR></P><P> 　2. 试编写利用折半查找确定记录所在块的分块查找算法。索引顺序查找表的类型说明如下所示:<BR>　　<B>typedef 
+struct <BR>　　{</B><BR> 　　　KeyType maxkey;<BR> 　　　<B>int</B> stadr;<BR>　　<B>}</B> 
+indexItem; <FONT FACE="Arial, Helvetica, sans-serif">//</FONT> 索引项<BR>　　<B>typedef 
+struct <BR>　　{</B><BR> 　　　indexItem idx[maxlen];<BR> 　　　<B>int</B> length;<BR>　　<B>}</B> 
+indexTable; <FONT FACE="Arial, Helvetica, sans-serif">//</FONT> 索引表 typedef struct<BR>　　<B>{</B><BR> 
+　　　SSTable sa;<BR> 　　　indexTable id;<BR>　　<B>}</B>indexSSTable; <FONT FACE="Arial, Helvetica, sans-serif">//</FONT> 
+索引顺序查找表</P><P>　　<B>int</B> IndexBinSearch(indexSSTable ss, KeyType kval)<BR> 　<FONT FACE="Arial, Helvetica, sans-serif">//</FONT> 
+在索引顺序查找表 ss 中查找关键字等于给定值 kval 的数据元素<BR> 　<FONT FACE="Arial, Helvetica, sans-serif">//</FONT> 
+（折半查找索引），若存在，则返回它在顺序表中的位置，否则返回 0</P><P> 　3. 已知一非空有序表，表中记录按关键字递增排列，以不带头结点的单循环链表作存储结构，外设两个指针 
+h 和 t，其中 h 始终指向关键字最小的结点，t 则在表中浮动，其初始位置和 h 相同，在每次查找之后指向刚查到的结点。查找算法的策略是：首先将给定值 K 
+和 t-&gt;key 进行比较，若相等，则查找成功；否则因 K 小于或大于 t-&gt;key 而从 h 所指结点或 t 所指结点的后继结点起进行查找。试按上述查找过程编写查找算法；<BR>　　LinkList 
+LListSearch(LinkList h, LinkList <FONT FACE="Times New Roman, Times, serif"><B>&amp;</B></FONT>t, 
+KeyType kval, <B>int</B> <FONT FACE="Times New Roman, Times, serif"><B>&amp;</B></FONT>len)<BR> 
+　<FONT FACE="Arial, Helvetica, sans-serif">//</FONT> 依题意，在升序的单循环链表中查找关键字等于 kval 
+的元素，若存在，<BR> 　<FONT FACE="Arial, Helvetica, sans-serif">//</FONT> 则返回指向该元素结点的指针，否则返回 
+NULL。指针 h 始终指向关键字最小的<BR>　<FONT FACE="Arial, Helvetica, sans-serif">//</FONT> 结点，而指针 
+t 则在算法中动态修改，始终指向上一次查找结束时的结点（即：<BR> 　<FONT FACE="Arial, Helvetica, sans-serif">//</FONT> 
+若查找成功，则指向找到的结点，若不成功，则指向其关键字 &gt; kval 的结点，<BR> 　<FONT FACE="Arial, Helvetica, sans-serif">//</FONT> 
+但如果 kval&gt;最后一个结点的关键字，则查找结束时指针 t 指向第一个结点），<BR>　<FONT FACE="Arial, Helvetica, sans-serif">//</FONT> 
+len 返回本次查找过程中kval 和关键字比较的次数，<BR> 　<FONT FACE="Arial, Helvetica, sans-serif">//</FONT> 
+注意：和同一个关键字进行的比较次数只统计一次。</P><P> 　4. 试写一个判别给定二叉树是否为二叉排序树的算法，设此二叉树以二叉链表作存储结构。且树中结点的关键字均不同。<BR>　　<B>bool</B> 
+BiSortTree( BiTree t )<BR> 　<FONT FACE="Arial, Helvetica, sans-serif">//</FONT> 
+以二叉链表作二叉查找树的存储结构,若以 t 为根<BR> 　<FONT FACE="Arial, Helvetica, sans-serif">//</FONT> 
+指针的二叉树是二叉查找树，则返回 true, 否则返回 false<BR></P></td><td background="../../../images/html/mid.gif" width="18">&nbsp;</td><td background="../../../images/html/right_di4.gif" class="explaination" valign="top" width="281"><BR>【编程练习题】</td><td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td></tr> 
+</table>
+</body>
+</html>

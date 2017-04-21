@@ -1,0 +1,45 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　1.3.3 算法效率的衡量方法</span><br>
+      <br>
+      <img src="../../../images/tubiao/lt.gif" width="28" height="27" align="absmiddle"><span class="zhushi">例1.2</span> 
+      对 n 个整数的序列进行选择排序。其中序列的&quot;长度&quot; n 为问题的规模。<br>
+      <br>
+      <img src="../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle"> 
+      <span class="zhushi">算法 1.2</span><br>
+      　　<b>void</b> select_sort(<b>int</b> a[], <b>int</b> n)<br>
+      　<b>{</b><br>
+      <span class="zhushi">　　<font face="Times New Roman, Times, serif">//</font> 
+      将 a 中整数序列重新排列成自小至大有序的整数序列。</span><br>
+      　　<b>for</b> ( i = 0; i&lt; n-1; <b>++</b>i ) <b>{</b><br>
+      　　　j = i; <br>
+      　　　<b>for</b> ( k = i+1; k &lt; n; <b>++</b>k )<br>
+      　　　　<b>if</b> (a[k] &lt; a[j] ) j = k;<br>
+      　　　<b>if</b> ( j <b>!</b>= i ) <b>{</b> w = a[j]; a[j] = a[i]; a[i] = w;<b>}</b><br>
+      　<b>}</b> <font face="Times New Roman, Times, serif">//</font> select_sort<br>
+      <br>
+      　　算法的<span class="point">时间复杂度</span>为<b><span class="point"><font face="Times New Roman, Times, serif"><i>O 
+      </i>(n<sup>2</sup>)</font></span></b> 。</td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      　<br>
+      　<br>
+      　　算法中的控制结构是两重循环，所以基本操作是在内层循环中的&quot;比较&quot;，它的重复执行次数是<br>
+      　　<img src="../../../images/pic/chapter01/gs_4.gif" width="224" height="43"> 
+      <br>
+      <br>
+      　　对时间复杂度而言，只需要取最高项，并忽略常数系数。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

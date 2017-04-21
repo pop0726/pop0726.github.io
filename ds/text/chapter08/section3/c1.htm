@@ -1,0 +1,101 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><br>
+      　　基于广义表是递归定义的结构，因此实现广义表操作的算法均为递归函数。<br>
+      <br>
+      　　何谓&quot;递归函数&quot;？<br>
+      　　一个<span class="point">含直接或间接调用本函数语句</span>的函数被称之为递归函数，它必须满足以下两个条件：1) 在每一次调用自己时，必须是(在某种意义上)<span class="point">更接近于解</span>；2) 
+      函数中必须有一个<span class="point">终止</span>处理或计算的<span class="point">准则</span>。例如，在右侧的梵塔函数中，每一次的递归调用，问题规模减少1，在 
+      n=1 时达到&quot;终结状态&quot;，即可直接求解，不再需要继续递归。<br>
+      <br>
+      　　又如，二叉树的遍历，每一次的递归调用，问题规模缩小为二叉树的左子树或右子树，在子树为空时达到&quot;终结状态&quot;。<br>
+      <br>
+      　　这两个递归算法都有一个共同特点，即问题求解的方法都是将一个复杂问题分割成若干子问题求解，反之，求得子问题的解之后，原问题也就迎刃而解了。<br>
+      <br>
+      　　&quot;分割求解(又称分治法)&quot;是进行算法设计的一种方法，其严格定义为：<br>
+      　　对于一个<span class="point">输入规模为 n </span>的函数或问题，用某种方法把输入分割成 k(1&lt;k≤n) 
+      个子集，从而<span class="point">产生 <img src="../../../images/pic/chapter08/gs/ly.gif" width="7" height="12" align="absmiddle"> 
+      个子问题</span>，分别求解这 <img src="../../../images/pic/chapter08/gs/l.gif" width="7" height="12" align="absmiddle"> 
+      个问题，<span class="point">得出 <img src="../../../images/pic/chapter08/gs/ly.gif" width="7" height="12" align="absmiddle"> 
+      个问题的子解</span>，再用某种方法把它们<span class="point">组合成原来问题的解</span>。若子问题还相当大，则可以反复使用分治法，直至最后所分得的子问题足够小，以至可以直接求解为止。<br>
+      <br>
+      <span class="zhushi">　　在利用分治法求解时，若所得子问题的性质和原问题相同，则可递归求解。</span><br>
+      <br>
+      <img src="../../../images/tubiao/lt.gif" width="28" height="27" align="absmiddle" alt="例题"> 
+      例如：求解焚塔问题<b> Hanoi(n,x,y,z) </b>时可将 n 个圆盘分成两组：自上而下的 n-1 个盘和最底下的 n 号盘，从而产生三个子问题：<br>
+      　　　1) 将上面的 n-1 个盘从 x 轴移到 y 轴；<br>
+      　　　2) 将下面的 n 号盘从 x 轴移到 z 轴；<br>
+      　　　3) 将上面的 n-1 个盘从y轴移到 z 轴；<br>
+      　　依此顺序求解这三个子问题即得到原问题的解。<br>
+      <br>
+      　　显然，第1和第3个子问题和原问题的性质相同，只是问题规模比原问题小，则可用和求解原问题相同的方法求解，而第2个问题可以直接求解。对应于原问题求解的函数 
+      <b>Hanoi(n,x,y,z)</b>，第1和第3个子问题求解的函数分别为<br>
+      　　　　<b>Hanoi(n-1,x,z,y)</b>　和　<b>Hanoi(n-1,y,x,z)</b> <br>
+      　　显然，<b>n=1</b> 时可以直接求解，由此得到右侧的递归函数。<br>
+      <br>
+      <img src="../../../images/tubiao/lt.gif" width="28" height="27" align="absmiddle" alt="例题"> 
+      又如，在对二叉树进行遍历时，可将二叉树中结点分成根结点、左子树和右子树三部分，从而引出三个子问题：<br>
+      　　　1) 访问根结点；<br>
+      　　　2) 先序遍历左子树；<br>
+      　　　3) 先序遍历右子树。<br>
+      　　按任意次序完成这三个子问题，即求得原问题的解。<br>
+      <br>
+      　　显然，第1个问题是简单问题，可以直接求解，而第2和第3个问题的性质和原问题相同，则可递归求解，且递归的终结状态是二叉树为空树。<br>
+    </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      <img src="../../../images/tubiao/cxd.gif" width="25" height="24" alt="算法"> 
+      <br>
+      　<b>void</b> <font color="#FF0000"><span class="section">hanoi(<b>int</b> 
+      <font color="#339900">n</font>,<b>char</b> x,<b>char</b> y,<b>char</b> z)</span></font><br>
+      <b>{</b><br>
+      <b><font face="Times New Roman, Times, serif">　//</font> 将 x 轴上自上而下编号依次为1至 
+      n 的<br>
+      <font face="Times New Roman, Times, serif">　//</font> n 个盘移到 z 轴上，y 轴为中间过渡用轴</b><br>
+      　<b>if</b> (<span class="section"><font color="#339900">n==1</font></span>) 
+      move(x, 1, z); <br>
+      　<b>else {</b><br>
+      　　<font color="#FF0000"><span class="section">hanoi(<font color="#339900">n-1</font>,x,z,y);</span></font><br>
+      <font face="Times New Roman, Times, serif">　//</font> 将 x 轴上自上而下编号依次为1至 
+      n-1的 n-1个<br>
+      <font face="Times New Roman, Times, serif">　//</font> 盘移到 y 轴上，z 轴为中间过渡用轴<br>
+      　　move(x,n,z);<br>
+      <font face="Times New Roman, Times, serif">　//</font> 将编号为 n 的盘从 x 轴直接移到 
+      z 轴上<br>
+      　　<font color="#FF0000">hanoi(<font color="#339900">n-1</font>,y,x,z);</font><br>
+      <font face="Times New Roman, Times, serif">　//</font> 将 y 轴上自上而下编号依次为1至n-1的n-1个<br>
+      <font face="Times New Roman, Times, serif">　//</font> 盘移到 z 轴上，x 轴为中间过渡用轴 
+      <br>
+      　<b>}</b><br>
+      <b>} </b><font face="Times New Roman, Times, serif">//</font> hanoi<br>
+      <b>void</b> <b><font color="#FF0000">PreOrderTraverse</font></b>( BiTree 
+      <font color="#339900">T</font>, <b><br>
+      　　　　　　　　　　void</b> (*visit)(BiTree)) <br>
+      <b>{</b><br>
+      <font face="Times New Roman, Times, serif"><b>　//</b></font><b> 先序遍历T为指向根结点的指针的二叉树，<br>
+      <font face="Times New Roman, Times, serif">　//</font> visit 为结点的访问函数</b><br>
+      　<b><font color="#339900">if</font></b><font color="#339900"> (T)</font> 
+      <br>
+      　<b>{</b> visit(T);<br>
+      　　<font color="#FF0000">PreOrderTraverse</font>( <font color="#339900">T-&gt;<b>l</b>child</font>,visit);<br>
+      <font face="Times New Roman, Times, serif">　//</font> 先序遍历 T-&gt;lchild 
+      所指二叉树<br>
+      　　<font color="#FF0000">PreOrderTraverse</font>( <font color="#339900">T-&gt;<b>r</b>child</font>,visit);<br>
+      <font face="Times New Roman, Times, serif">　//</font> 先序遍历 T-&gt;rchild 
+      所指二叉树 <br>
+      　<b>}</b><br>
+      <b>}</b> <font face="Times New Roman, Times, serif">//</font> PreOrderTraverse</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

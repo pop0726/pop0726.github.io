@@ -1,0 +1,63 @@
+<html>
+<head>
+<title>数据结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<link rel="stylesheet" href="../../../css/style.css" type="text/css">
+</head>
+
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#4A5594">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr> 
+    <td width="8">&nbsp;</td>
+    <td class="white" valign="top"><span class="part">　10.3.2 快速排序</span><br>
+      <br>
+      　　起泡排序是通过一趟&quot;起泡&quot;选定关键字最大的记录，所有剩余关键字均小于它的记录继续进行排序，快速排序则是通过一趟排序选定一个关键字介于&quot;中间&quot;的记录，从而使剩余记录可以分成两个子序列分别继续排序，通常称该记录为&quot;枢轴&quot;。如右图所示，假设一趟快速排序之后枢轴记录的位置为 
+      i，则得到的无序记录子序列(1) R[s..i-1] 中记录的关键字均小于枢轴记录的关键字，反之，得到的无序记录子序列(2)R[i+1..t] 
+      中记录的关键字均大于枢轴记录的关键字，由此这两个子序列可分别独立进行快速排序。<br>
+      <br>
+      <img src="../../../images/tubiao/lt.gif" width="28" height="27" align="absmiddle" alt="例题">例如，关键字序列 
+      　　　( 52, 49, 80, 36, 14, 75, 58, 97, 23, 61 )<br>
+      　　　经第1趟快速排序之后为 ( 23, 49, 14, 36) 52 (75, 58, 97, 80, 61 )<br>
+      　　　经第2趟快速排序之后为 ( 14) 23 (49, 36) 52 (61, 58) 75 (80, 97 )<br>
+      　　　经第3趟快速排序之后为 ( 14, 23, 36, 49, 52, 58, 61, 75, 80, 97 )<br>
+      <br>
+      　　快速排序的算法如下：<br>
+      <br>
+      <img src="../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle" alt="算法"> 
+      <span class="zhushi">算法 10.9</span><br>
+      　　<b>void</b> QSort (RcdType R[], <b>int</b> s, <b>int</b> t ) <br>
+      　<b>{</b><br>
+      <span class="zhushi"> 　　<font face="Times New Roman, Times, serif">//</font> 
+      对记录序列 R[s..t] 进行快速排序</span><br>
+      　　<b>if</b> (s &lt; t) <b>{</b> 　　　　　　　<font face="Times New Roman, Times, serif">//</font> 
+      长度大于1<br>
+      　　　pivotloc = Partition(R, s, t);<br>
+      　　　　　　　　　　　　　　　 <font face="Times New Roman, Times, serif">//</font> 对 R[s..t] 
+      进行一趟快排，并返回枢轴位置<br>
+      　　　QSort(R, s, pivotloc-1); <font face="Times New Roman, Times, serif">//</font> 
+      对低子序列递归进行排序<br>
+      　　　QSort(R, pivotloc+1, t); <font face="Times New Roman, Times, serif">//</font> 
+      对高子序列递归进行排序<br>
+      　　<b>}</b> <font face="Times New Roman, Times, serif">//</font> if<br>
+      　<b>}</b> <font face="Times New Roman, Times, serif">//</font> Qsort<br>
+      <br>
+      <img src="../../../images/tubiao/cxd.gif" width="25" height="24" align="absmiddle" alt="算法"> 
+      <span class="zhushi">算法 10.10</span><br>
+      　　<b>void </b>QuickSort( SqList <b><font face="Times New Roman, Times, serif">&amp;</font></b> L) <br>
+      　<b>{</b><br>
+      <span class="zhushi">　　<font face="Times New Roman, Times, serif">//</font> 
+      对顺序表 L 进行快速排序</span><br>
+      　　QSort(L.r, 1, L.length);<br>
+      　<b>} </b><font face="Times New Roman, Times, serif">//</font> QuickSort<br>
+    </td>
+    <td background="../../../images/html/mid.gif" width="18">&nbsp;</td>
+    <td background="../../../images/html/right_di4.gif" class="explaination" width="281" valign="top"><br>
+      　　<img src="../../../images/pic/chapter10/10-26.gif" width="237" height="154" align="top"><br>
+      <br>
+      　　快速排序的算法是一个递归函数，因此算法10.9中必须引入一对参数 s 和 t 作为待排序区域的上下界。在算法的递归调用过程执行中，这两个参数随着 
+      &quot;区域的划分&quot;而不断变化。对顺序表L进行快速排序调用算法10.9时，s 和 t 的初值应分别置为1和 L.length 。如算法10.10所示。</td>
+    <td background="../../../images/html/right_di3.gif" width="13">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>
